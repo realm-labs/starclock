@@ -247,6 +247,7 @@ pub enum RuleEventKind {
     Phase,
     Hit,
     Damage,
+    Toughness,
     Heal,
     Unit,
     Wave,
@@ -438,6 +439,36 @@ pub enum RuleOperationTemplate {
         amount: ValueExpr,
         floor: ValueExpr,
     },
+    ReduceToughness {
+        selector: SelectorId,
+        amount: ValueExpr,
+        element: CombatElement,
+    },
+    Break {
+        selector: SelectorId,
+        element: CombatElement,
+    },
+    SuperBreak {
+        selector: SelectorId,
+        multiplier: ValueExpr,
+    },
+    AddWeakness {
+        selector: SelectorId,
+        element: CombatElement,
+    },
+    RemoveWeakness {
+        selector: SelectorId,
+        element: CombatElement,
+    },
+    CreateToughnessLayer {
+        selector: SelectorId,
+        layer_key: Box<str>,
+        maximum: ValueExpr,
+    },
+    RemoveToughnessLayer {
+        selector: SelectorId,
+        layer_key: Box<str>,
+    },
     ModifyEnergy {
         selector: SelectorId,
         update: ResourceUpdateKind,
@@ -605,6 +636,43 @@ pub enum RuleEmission {
         selector: SelectorId,
         amount: RuleValue,
         floor: RuleValue,
+        current_target: Option<UnitId>,
+    },
+    ReduceToughness {
+        selector: SelectorId,
+        amount: RuleValue,
+        element: CombatElement,
+        current_target: Option<UnitId>,
+    },
+    Break {
+        selector: SelectorId,
+        element: CombatElement,
+        current_target: Option<UnitId>,
+    },
+    SuperBreak {
+        selector: SelectorId,
+        multiplier: RuleValue,
+        current_target: Option<UnitId>,
+    },
+    AddWeakness {
+        selector: SelectorId,
+        element: CombatElement,
+        current_target: Option<UnitId>,
+    },
+    RemoveWeakness {
+        selector: SelectorId,
+        element: CombatElement,
+        current_target: Option<UnitId>,
+    },
+    CreateToughnessLayer {
+        selector: SelectorId,
+        layer_key: Box<str>,
+        maximum: RuleValue,
+        current_target: Option<UnitId>,
+    },
+    RemoveToughnessLayer {
+        selector: SelectorId,
+        layer_key: Box<str>,
         current_target: Option<UnitId>,
     },
     ModifyEnergy {

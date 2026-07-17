@@ -320,6 +320,59 @@ fn evaluate_operation(
             floor: evaluate_value(floor, input, current_target)?,
             current_target,
         },
+        RuleOperationTemplate::ReduceToughness {
+            selector,
+            amount,
+            element,
+        } => RuleEmission::ReduceToughness {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            element: *element,
+            current_target,
+        },
+        RuleOperationTemplate::Break { selector, element } => RuleEmission::Break {
+            selector: *selector,
+            element: *element,
+            current_target,
+        },
+        RuleOperationTemplate::SuperBreak {
+            selector,
+            multiplier,
+        } => RuleEmission::SuperBreak {
+            selector: *selector,
+            multiplier: evaluate_value(multiplier, input, current_target)?,
+            current_target,
+        },
+        RuleOperationTemplate::AddWeakness { selector, element } => RuleEmission::AddWeakness {
+            selector: *selector,
+            element: *element,
+            current_target,
+        },
+        RuleOperationTemplate::RemoveWeakness { selector, element } => {
+            RuleEmission::RemoveWeakness {
+                selector: *selector,
+                element: *element,
+                current_target,
+            }
+        }
+        RuleOperationTemplate::CreateToughnessLayer {
+            selector,
+            layer_key,
+            maximum,
+        } => RuleEmission::CreateToughnessLayer {
+            selector: *selector,
+            layer_key: layer_key.clone(),
+            maximum: evaluate_value(maximum, input, current_target)?,
+            current_target,
+        },
+        RuleOperationTemplate::RemoveToughnessLayer {
+            selector,
+            layer_key,
+        } => RuleEmission::RemoveToughnessLayer {
+            selector: *selector,
+            layer_key: layer_key.clone(),
+            current_target,
+        },
         RuleOperationTemplate::ModifyEnergy {
             selector,
             update,

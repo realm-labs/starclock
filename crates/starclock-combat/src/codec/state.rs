@@ -160,6 +160,49 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
             crate::formula::shield::ShieldAbsorptionPolicy::AdditiveByInstance => 1,
         });
     }
+    e.length(state.break_effects.canonical_entries().len());
+    for effect in state.break_effects.canonical_entries() {
+        e.u64(effect.id.get());
+        e.u64(effect.owner.get());
+        e.u64(effect.applier.get());
+        e.u64(effect.source_operation.get());
+        e.u32(effect.source_definition.get());
+        e.u8(effect.plan.element as u8);
+        match effect.plan.base_damage {
+            None => e.u8(0),
+            Some(value) => {
+                e.u8(1);
+                e.i64(value.scaled());
+            }
+        }
+        e.u8(effect.plan.duration_turns);
+        e.u8(effect.remaining_turns);
+        e.u8(effect.stacks);
+        e.u8(effect.plan.maximum_stacks);
+        e.i64(effect.plan.additional_delay.scaled());
+        e.i64(effect.plan.speed_reduction.scaled());
+        e.u8(u8::from(effect.plan.skips_action));
+        match effect.speed_before {
+            None => e.u8(0),
+            Some(speed) => {
+                e.u8(1);
+                e.i64(speed.scaled());
+            }
+        }
+        e.i64(effect.damage.attacker_level_multiplier.scaled());
+        for factor in [
+            effect.damage.ability_multiplier,
+            effect.damage.break_effect,
+            effect.damage.break_damage_increase,
+            effect.damage.defense_multiplier,
+            effect.damage.resistance_multiplier,
+            effect.damage.vulnerability_multiplier,
+            effect.damage.mitigation_multiplier,
+            effect.damage.unbroken_multiplier,
+        ] {
+            e.i64(factor.scaled());
+        }
+    }
     e.u32(state.encounter.definition.get());
     e.u64(state.encounter.wave.get());
     e.u16(state.encounter.number);
@@ -247,6 +290,63 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
     e.i64(unit.maximum_hp.get());
     e.i64(unit.current_energy.scaled());
     e.i64(unit.maximum_energy.scaled());
+    e.u8(match unit.rank {
+        crate::formula::toughness::EnemyRank::Normal => 0,
+        crate::formula::toughness::EnemyRank::EliteOrBoss => 1,
+    });
+    e.length(unit.weaknesses.len());
+    for weakness in &unit.weaknesses {
+        e.u8(*weakness as u8);
+    }
+    e.length(unit.permanent_weaknesses.len());
+    for weakness in &unit.permanent_weaknesses {
+        e.u8(*weakness as u8);
+    }
+    e.length(unit.temporary_weaknesses.len());
+    for weakness in &unit.temporary_weaknesses {
+        e.u8(weakness.element as u8);
+        e.u64(weakness.applier.get());
+        e.u64(weakness.source_operation.get());
+        e.u8(weakness.remaining_turns);
+    }
+    e.u8(u8::from(unit.weakness_broken));
+    e.length(unit.toughness_layers.len());
+    for layer in &unit.toughness_layers {
+        let spec = &layer.spec;
+        e.u32(spec.key());
+        e.u8(spec.kind() as u8);
+        e.i64(spec.maximum().get());
+        e.i64(layer.current.get());
+        e.u8(u8::from(spec.active()));
+        e.u8(u8::from(spec.locked()));
+        match spec.weakness_policy() {
+            crate::ToughnessWeaknessPolicy::MatchingOnly => e.u8(0),
+            crate::ToughnessWeaknessPolicy::AnyElement => e.u8(1),
+            crate::ToughnessWeaknessPolicy::OffWeakness(value) => {
+                e.u8(2);
+                e.i64(value.scaled());
+            }
+        }
+        e.u8(u8::from(spec.reducible_while_broken()));
+        e.i64(spec.recovery_ratio().scaled());
+        e.u8(u8::from(spec.applies_break_damage()));
+        e.u8(u8::from(spec.applies_break_effect()));
+        e.u8(u8::from(spec.changes_global_broken()));
+        match spec.break_element() {
+            None => e.u8(0),
+            Some(element) => {
+                e.u8(1);
+                e.u8(element as u8);
+            }
+        }
+        match spec.break_credit() {
+            crate::BreakCreditPolicy::HitApplier => e.u8(0),
+            crate::BreakCreditPolicy::LayerProvider(source) => {
+                e.u8(1);
+                e.u32(source.get());
+            }
+        }
+    }
     e.length(unit.abilities.len());
     for id in &unit.abilities {
         e.u32(id.get());

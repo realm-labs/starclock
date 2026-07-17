@@ -10,3 +10,8 @@ floor, 60% Max Energy restoration and level-10 200% ATK damage. The Ultimate
 program preserves the observed countdown, RedMode application, full action
 advance and Energy reset order. All identities are disabled `ProjectFixture`
 rows and receive no production coverage credit.
+
+The B4 extension adds the enhanced Skill/Autoreactive Armor probe as a third
+program. It proves that generated Rule IR emits Fire Weakness before 90 raw
+primary-target Toughness reduction, then emits the source-bound 50% Super Break
+branch. Battle goldens separately cover attempted/effective and layered samples.

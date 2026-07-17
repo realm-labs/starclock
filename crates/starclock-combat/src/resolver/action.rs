@@ -9,7 +9,10 @@ use crate::{
         },
     },
     id::{CommandId, EventId, SourceDefinitionId},
-    operation::{ConsumeHpOp, DamageOp, HealOp, Operation, ShieldOp},
+    operation::{
+        AddWeaknessOp, ConsumeHpOp, DamageOp, HealOp, HitOperationScratch, Operation,
+        ReduceToughnessOp, ShieldOp, SuperBreakOp,
+    },
 };
 
 use super::{
@@ -67,6 +70,7 @@ pub(super) fn execute_action_plan(
             }),
         );
         for hit in &phase.hits {
+            let mut operation_scratch = HitOperationScratch::default();
             debug_assert_eq!(hit.invalidation, plan.targets.invalidation);
             let targets = txn.resolve_hit_targets(plan.actor, &mut plan.targets)?;
             let hit_cause = phase_cause
@@ -105,10 +109,37 @@ pub(super) fn execute_action_plan(
                             definition,
                         })
                     }
+                    HitOperationDefinition::AddWeakness(definition) => {
+                        Operation::AddWeakness(AddWeaknessOp {
+                            id: operation.id,
+                            targets: targets.clone(),
+                            definition,
+                        })
+                    }
+                    HitOperationDefinition::ReduceToughness(definition) => {
+                        Operation::ReduceToughness(ReduceToughnessOp {
+                            id: operation.id,
+                            targets: targets.clone(),
+                            definition,
+                        })
+                    }
+                    HitOperationDefinition::SuperBreak(definition) => {
+                        Operation::SuperBreak(SuperBreakOp {
+                            id: operation.id,
+                            targets: targets.clone(),
+                            definition,
+                        })
+                    }
                 };
-                parent =
-                    execute_operation(txn, hit_cause.with_applier(plan.actor), parent, request)?;
+                parent = execute_operation(
+                    txn,
+                    hit_cause.with_applier(plan.actor),
+                    parent,
+                    request,
+                    &mut operation_scratch,
+                )?;
             }
+            txn.increment_entanglement_for_hit(&targets)?;
             parent = txn.emit(
                 hit_cause.with_parent(parent),
                 BattleEventKind::Hit(HitEventData::Ended {

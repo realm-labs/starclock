@@ -18,8 +18,8 @@ use crate::{
         },
     },
     id::{
-        ActionId, CommandId, DecisionId, EventId, HitId, OperationId, PhaseId, ShieldInstanceId,
-        SourceDefinitionId, TimelineActorId, WaveInstanceId,
+        ActionId, CommandId, DecisionId, EffectInstanceId, EventId, HitId, OperationId, PhaseId,
+        ShieldInstanceId, SourceDefinitionId, TimelineActorId, WaveInstanceId,
     },
     numeric::domain::ActionGauge,
     rng::types::DrawPurpose,
@@ -352,6 +352,76 @@ fn begin_turn(
             owner: turn.owner,
         }),
     );
+    let turn_cause = Cause::for_turn(root, turn.owner, turn.actor);
+    let mut started = started;
+    for (operation, element) in txn.tick_temporary_weaknesses(turn.owner)? {
+        started = txn.emit(
+            turn_cause
+                .with_parent(started)
+                .with_primary_target(Some(turn.owner)),
+            BattleEventKind::Toughness(crate::ToughnessEventData::WeaknessRemoved {
+                operation,
+                target: turn.owner,
+                element,
+            }),
+        );
+    }
+    let (mut started, frozen_skip) =
+        super::operation::settle_break_effects_at_turn_start(txn, turn_cause, started, turn.owner)?;
+    match settle_after_action(txn, turn_cause, started)? {
+        ActionBoundary::Terminal(_) => return Ok(()),
+        ActionBoundary::Continue(parent) => started = parent,
+    }
+    let alive = txn
+        .state
+        .units
+        .get(turn.owner)
+        .map(|unit| unit.life == crate::LifeState::Alive)
+        .ok_or_else(|| action_fault(58))?;
+    if frozen_skip || !alive {
+        txn.set_active_turn(None);
+        txn.set_actor_gauge(
+            turn.actor,
+            ActionGauge::from_scaled(if frozen_skip {
+                5_000_000_000
+            } else {
+                10_000_000_000
+            })
+            .map_err(|_| action_fault(59))?,
+        )?;
+        started = txn.emit(
+            turn_cause.with_parent(started),
+            BattleEventKind::Turn(TurnEventData::Ended {
+                actor: turn.actor,
+                owner: turn.owner,
+            }),
+        );
+        return begin_turn(catalog, txn, root, started);
+    }
+    let was_broken = txn
+        .state
+        .units
+        .get(turn.owner)
+        .map(|unit| unit.weakness_broken)
+        .ok_or_else(|| action_fault(60))?;
+    if was_broken {
+        let changes = txn.recover_toughness(turn.owner)?;
+        txn.set_weakness_broken(turn.owner, false)?;
+        for (layer_key, before, after) in changes {
+            started = txn.emit(
+                turn_cause
+                    .with_parent(started)
+                    .with_primary_target(Some(turn.owner)),
+                BattleEventKind::Toughness(crate::ToughnessEventData::Recovered {
+                    target: turn.owner,
+                    layer_key,
+                    before,
+                    after,
+                    exited_global_broken: true,
+                }),
+            );
+        }
+    }
     txn.set_interrupt(Some(InterruptWindowState {
         kind: InterruptWindowKind::PreAction,
         turn,
@@ -445,7 +515,7 @@ fn maybe_inject(
 
 pub(super) struct Transaction<'a> {
     pub(super) state: &'a mut BattleState,
-    journal: &'a mut MutationJournal,
+    pub(super) journal: &'a mut MutationJournal,
     events: Vec<BattleEvent>,
 }
 
@@ -552,6 +622,16 @@ impl<'a> Transaction<'a> {
         id
     }
 
+    pub(super) fn allocate_effect(&mut self) -> EffectInstanceId {
+        let id = self
+            .state
+            .sequences
+            .try_effect()
+            .expect("rules-revision effect budget prevents u64 identity exhaustion");
+        self.journal.allocation(AllocationKind::Effect, id.get());
+        id
+    }
+
     pub(super) fn allocate_wave(&mut self) -> WaveInstanceId {
         let id = self
             .state
@@ -623,7 +703,7 @@ impl<'a> Transaction<'a> {
         }
     }
 
-    fn set_actor_gauge(
+    pub(super) fn set_actor_gauge(
         &mut self,
         actor: TimelineActorId,
         gauge: ActionGauge,
@@ -644,6 +724,96 @@ impl<'a> Transaction<'a> {
             );
         }
         Ok(())
+    }
+
+    pub(super) fn delay_unit(
+        &mut self,
+        owner: crate::UnitId,
+        scaled: i64,
+    ) -> Result<(), BattleFault> {
+        let actor = self
+            .state
+            .actors
+            .id_for_owner(owner)
+            .ok_or_else(|| action_fault(43))?;
+        let before = self
+            .state
+            .actors
+            .get(actor)
+            .ok_or_else(|| action_fault(44))?
+            .gauge;
+        let after = ActionGauge::from_scaled(
+            before
+                .scaled()
+                .checked_add(scaled)
+                .ok_or_else(|| action_fault(45))?,
+        )
+        .map_err(|_| action_fault(46))?;
+        self.set_actor_gauge(actor, after)
+    }
+
+    pub(super) fn unit_speed(&self, owner: crate::UnitId) -> Result<crate::Speed, BattleFault> {
+        let actor = self
+            .state
+            .actors
+            .id_for_owner(owner)
+            .ok_or_else(|| action_fault(52))?;
+        self.state
+            .actors
+            .get(actor)
+            .map(|state| state.speed)
+            .ok_or_else(|| action_fault(53))
+    }
+
+    pub(super) fn set_unit_speed(
+        &mut self,
+        owner: crate::UnitId,
+        speed: crate::Speed,
+    ) -> Result<(), BattleFault> {
+        let actor = self
+            .state
+            .actors
+            .id_for_owner(owner)
+            .ok_or_else(|| action_fault(54))?;
+        let state = self
+            .state
+            .actors
+            .get_mut(actor)
+            .ok_or_else(|| action_fault(55))?;
+        let before = state.speed;
+        if before != speed {
+            state.speed = speed;
+            self.journal.mutation(
+                MutationField::Speed,
+                before.scaled() as u64,
+                speed.scaled() as u64,
+            );
+        }
+        Ok(())
+    }
+
+    pub(super) fn roll_probability(
+        &mut self,
+        probability: crate::Probability,
+    ) -> Result<bool, BattleFault> {
+        let threshold = probability.millionths();
+        if threshold == 0 {
+            return Ok(false);
+        }
+        if threshold == 1_000_000 {
+            return Ok(true);
+        }
+        let before = self.state.rng.draw_count();
+        let draw = self
+            .state
+            .rng
+            .sample_below(DrawPurpose::EFFECT_CHANCE, 1_000_000)
+            .map_err(|_| action_fault(51))?;
+        for index in before..self.state.rng.draw_count() {
+            self.journal
+                .rng_draw(index, DrawPurpose::EFFECT_CHANCE.code());
+        }
+        Ok(draw.value() < u64::from(threshold))
     }
 
     pub(super) fn set_skill_points(&mut self, side: crate::TeamSide, value: u16) {

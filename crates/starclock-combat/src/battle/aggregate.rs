@@ -76,6 +76,17 @@ impl Battle {
                 maximum_hp: combatant.maximum_hp(),
                 current_energy: combatant.current_energy(),
                 maximum_energy: combatant.maximum_energy(),
+                rank: combatant.rank(),
+                weaknesses: combatant.weaknesses().to_vec(),
+                permanent_weaknesses: combatant.weaknesses().into(),
+                temporary_weaknesses: Vec::new(),
+                toughness_layers: combatant
+                    .toughness_layers()
+                    .iter()
+                    .cloned()
+                    .map(crate::toughness::state::ToughnessLayerState::from_spec)
+                    .collect::<Vec<_>>(),
+                weakness_broken: false,
                 abilities: combatant.abilities().into(),
                 rule_bundles: combatant.rule_bundles().into(),
                 modifiers: combatant.modifiers().into(),
@@ -125,6 +136,7 @@ impl Battle {
             formations,
             teams,
             shields: crate::effect::shield::ShieldStore::default(),
+            break_effects: crate::effect::break_effect::BreakEffectStore::default(),
             encounter: EncounterState {
                 definition: spec.encounter(),
                 wave,

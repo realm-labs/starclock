@@ -4,7 +4,8 @@ use starclock_combat::{
     Battle, BattleEventKind, BattlePhase, BattleSeed, BattleSpec, BattleSpecDigest,
     CombatantSpecDigest, Command, CommandErrorKind, ConcedePolicy, FormationIndex, Hp, LifeState,
     ParticipantSource, ParticipantSpec, PresenceState, Ratio, ResolvedCombatantSpec,
-    ResolvedDefinitionBindings, Scalar, Speed, TeamResourceSpec, TeamSide, UnitLevel,
+    ResolvedDefinitionBindings, Scalar, Speed, TeamResourceSpec, TeamSide, ToughnessLayerKind,
+    ToughnessLayerSpec, ToughnessReductionDefinition, UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -12,6 +13,7 @@ use starclock_combat::{
             HealingDefinition, HitOperationDefinition, HpConsumptionDefinition,
             OrdinaryDamageDefinition, OrdinaryDamageMultipliers, ShieldDefinition,
             TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
+            WeaknessApplicationDefinition,
         },
         builder::CombatCatalogBuilder,
         definition::{
@@ -19,7 +21,13 @@ use starclock_combat::{
             SelectorDefinition, UnitDefinition,
         },
     },
-    formula::shield::ShieldAbsorptionPolicy,
+    formula::{
+        model::CombatElement,
+        shield::ShieldAbsorptionPolicy,
+        toughness::{
+            BreakDamageDefinition, EnemyRank, SuperBreakDefinition, ToughnessReductionContext,
+        },
+    },
 };
 
 fn definition<I: TryFrom<u32>>(raw: u32) -> I
@@ -109,6 +117,57 @@ fn catalog(waves: u16) -> Arc<CombatCatalog> {
             ),
         ),
     );
+    let break_formula = BreakDamageDefinition {
+        attacker_level_multiplier: Scalar::ONE,
+        ability_multiplier: Ratio::ONE,
+        break_effect: Ratio::ZERO,
+        break_damage_increase: Ratio::ZERO,
+        defense_multiplier: Ratio::ONE,
+        resistance_multiplier: Ratio::ONE,
+        vulnerability_multiplier: Ratio::ONE,
+        mitigation_multiplier: Ratio::ONE,
+        unbroken_multiplier: Ratio::from_scaled(900_000),
+    };
+    builder.add_ability(
+        AbilityDefinition::new(definition(5), definition(2), definition(2), vec![]).with_action(
+            action(
+                AbilityKind::Basic,
+                vec![vec![
+                    HitOperationDefinition::AddWeakness(
+                        WeaknessApplicationDefinition::timed(CombatElement::Fire, 2).unwrap(),
+                    ),
+                    HitOperationDefinition::ReduceToughness(ToughnessReductionDefinition {
+                        element: CombatElement::Fire,
+                        reduction: ToughnessReductionContext {
+                            base: starclock_combat::RawToughness::new(90).unwrap(),
+                            additive: starclock_combat::RawToughness::new(0).unwrap(),
+                            reduction_increase: Ratio::ZERO,
+                            weakness_break_efficiency: Ratio::ZERO,
+                            weakness_break_efficiency_cap: Ratio::from_scaled(3_000_000),
+                            toughness_vulnerability: Ratio::ZERO,
+                            ability_multiplier: Ratio::ONE,
+                        },
+                        break_damage: break_formula,
+                        break_effect_chance: starclock_combat::Probability::ONE,
+                    }),
+                    HitOperationDefinition::SuperBreak(SuperBreakDefinition {
+                        element: CombatElement::Fire,
+                        attacker_level_multiplier: Scalar::ONE,
+                        ability_multiplier: Ratio::from_scaled(500_000),
+                        break_effect: Ratio::ZERO,
+                        break_damage_increase: Ratio::ZERO,
+                        super_break_increase: Ratio::ZERO,
+                        defense_multiplier: Ratio::ONE,
+                        resistance_multiplier: Ratio::ONE,
+                        vulnerability_multiplier: Ratio::ONE,
+                        mitigation_multiplier: Ratio::ONE,
+                        broken_multiplier: Ratio::ONE,
+                    }),
+                ]],
+                TargetInvalidationPolicy::KeepIfPresent,
+            ),
+        ),
+    );
     let concurrent = ShieldAbsorptionPolicy::ConcurrentLargest;
     builder.add_ability(
         AbilityDefinition::new(definition(4), definition(1), definition(1), vec![]).with_action(
@@ -163,7 +222,7 @@ fn catalog(waves: u16) -> Arc<CombatCatalog> {
     );
     builder.add_unit(UnitDefinition::new(
         definition(1),
-        vec![definition(1), definition(2), definition(4)],
+        vec![definition(1), definition(2), definition(4), definition(5)],
         vec![],
     ));
     builder.add_unit(UnitDefinition::new(
@@ -246,6 +305,84 @@ fn battle(waves: u16, player_speed: i64, enemy_speed: i64) -> Battle {
     Battle::create(catalog(waves), spec, BattleSeed::new([0x61; 32])).unwrap()
 }
 
+fn toughness_battle() -> Battle {
+    let player = combatant(1, vec![5], 1_000, 1_000_000_000, 0x71);
+    let ordinary =
+        ToughnessLayerSpec::ordinary(1, starclock_combat::RawToughness::new(50).unwrap())
+            .unwrap()
+            .with_break_credit(starclock_combat::BreakCreditPolicy::LayerProvider(
+                definition(99),
+            ));
+    let exo = ToughnessLayerSpec::ordinary(2, starclock_combat::RawToughness::new(40).unwrap())
+        .unwrap()
+        .with_kind(ToughnessLayerKind::ExoToughness)
+        .with_break_behavior(true, true, true, false);
+    let enemy = combatant(2, vec![3], 10_000, 1_000_000, 0x72)
+        .with_toughness(EnemyRank::Normal, vec![], vec![ordinary, exo])
+        .unwrap();
+    let spec = BattleSpec::new(
+        "toughness-layer-rules-v1",
+        BattleSpecDigest::new([0x73; 32]).unwrap(),
+        definition(1),
+        vec![
+            ParticipantSpec::new(
+                TeamSide::Player,
+                FormationIndex::new(0).unwrap(),
+                ParticipantSource::Player,
+                player,
+            ),
+            ParticipantSpec::new(
+                TeamSide::Enemy,
+                FormationIndex::new(4).unwrap(),
+                ParticipantSource::EncounterEnemy(definition(1)),
+                enemy,
+            ),
+        ],
+        TeamResourceSpec::new(0, 5).unwrap(),
+        TeamResourceSpec::new(0, 0).unwrap(),
+        ConcedePolicy::Allowed,
+    )
+    .unwrap();
+    Battle::create(catalog(1), spec, BattleSeed::new([0x74; 32])).unwrap()
+}
+
+fn break_recovery_battle() -> Battle {
+    break_recovery_battle_with_enemy_hp(10_000)
+}
+
+fn break_recovery_battle_with_enemy_hp(enemy_hp: i64) -> Battle {
+    let player = combatant(1, vec![4, 5], 10_000, 200_000_000, 0x75);
+    let layer =
+        ToughnessLayerSpec::ordinary(1, starclock_combat::RawToughness::new(50).unwrap()).unwrap();
+    let enemy = combatant(2, vec![3], enemy_hp, 190_000_000, 0x76)
+        .with_toughness(EnemyRank::Normal, vec![], vec![layer])
+        .unwrap();
+    let spec = BattleSpec::new(
+        "break-recovery-rules-v1",
+        BattleSpecDigest::new([0x77; 32]).unwrap(),
+        definition(1),
+        vec![
+            ParticipantSpec::new(
+                TeamSide::Player,
+                FormationIndex::new(0).unwrap(),
+                ParticipantSource::Player,
+                player,
+            ),
+            ParticipantSpec::new(
+                TeamSide::Enemy,
+                FormationIndex::new(4).unwrap(),
+                ParticipantSource::EncounterEnemy(definition(1)),
+                enemy,
+            ),
+        ],
+        TeamResourceSpec::new(0, 5).unwrap(),
+        TeamResourceSpec::new(0, 0).unwrap(),
+        ConcedePolicy::Allowed,
+    )
+    .unwrap();
+    Battle::create(catalog(1), spec, BattleSeed::new([0x78; 32])).unwrap()
+}
+
 fn start_and_pass(battle: &mut Battle) {
     battle
         .apply(Command::StartBattle {
@@ -295,6 +432,181 @@ fn use_ability(battle: &mut Battle, ability: u32) -> starclock_combat::Resolutio
 }
 
 #[test]
+fn weakness_precedes_reduction_and_super_break_uses_effective_layer_sample() {
+    let mut battle = toughness_battle();
+    start_and_pass(&mut battle);
+    let first = use_ability(&mut battle, 5);
+    let first_reduction = first
+        .events()
+        .iter()
+        .find_map(|event| match event.kind() {
+            BattleEventKind::Toughness(starclock_combat::ToughnessEventData::Reduced {
+                layer_key,
+                attempted,
+                effective,
+                ..
+            }) => Some((*layer_key, attempted.get(), effective.get())),
+            _ => None,
+        })
+        .unwrap();
+    assert_eq!(first_reduction, (Some(1), 90, 50));
+    let initial_break = first
+        .events()
+        .iter()
+        .find(|event| {
+            matches!(
+                event.kind(),
+                BattleEventKind::BreakDamage(data)
+                    if data.kind == starclock_combat::BreakDamageKind::Initial
+            )
+        })
+        .unwrap();
+    assert_eq!(
+        initial_break.cause().source_definition(),
+        Some(definition(99))
+    );
+    assert_eq!(
+        battle
+            .view()
+            .break_effects_by_id()
+            .map(|effect| (
+                effect.element(),
+                effect.remaining_turns(),
+                effect.source_definition()
+            ))
+            .collect::<Vec<_>>(),
+        vec![(CombatElement::Fire, 2, definition(99))]
+    );
+    let first_kinds = first
+        .events()
+        .iter()
+        .filter_map(|event| match event.kind() {
+            BattleEventKind::Toughness(starclock_combat::ToughnessEventData::WeaknessAdded {
+                ..
+            }) => Some("weakness"),
+            BattleEventKind::Toughness(starclock_combat::ToughnessEventData::Reduced {
+                ..
+            }) => Some("reduction"),
+            BattleEventKind::BreakDamage(data)
+                if data.kind == starclock_combat::BreakDamageKind::SuperBreak =>
+            {
+                Some("super-break")
+            }
+            _ => None,
+        })
+        .collect::<Vec<_>>();
+    assert_eq!(first_kinds, vec!["weakness", "reduction", "super-break"]);
+    let enemy = battle.view().units_by_id().nth(1).unwrap();
+    assert!(enemy.weakness_broken());
+    assert_eq!(
+        enemy
+            .toughness_layers()
+            .map(|layer| layer.current().get())
+            .collect::<Vec<_>>(),
+        vec![0, 40]
+    );
+
+    pass_interrupt(&mut battle);
+    let second = use_ability(&mut battle, 5);
+    let second_reduction = second
+        .events()
+        .iter()
+        .find_map(|event| match event.kind() {
+            BattleEventKind::Toughness(starclock_combat::ToughnessEventData::Reduced {
+                layer_key,
+                effective,
+                ..
+            }) => Some((*layer_key, effective.get())),
+            _ => None,
+        })
+        .unwrap();
+    assert_eq!(second_reduction, (Some(2), 40));
+    assert!(second.events().iter().any(|event| matches!(event.kind(),
+        BattleEventKind::BreakDamage(data) if data.kind == starclock_combat::BreakDamageKind::SuperBreak)));
+
+    pass_interrupt(&mut battle);
+    let third = use_ability(&mut battle, 5);
+    assert!(third.events().iter().any(|event| matches!(event.kind(),
+        BattleEventKind::Toughness(starclock_combat::ToughnessEventData::Reduced { layer_key: None, effective, .. }) if effective.get() == 0)));
+    assert!(third.events().iter().any(|event| matches!(event.kind(),
+        BattleEventKind::Toughness(starclock_combat::ToughnessEventData::SuperBreakSkipped { effective_reduction, .. }) if effective_reduction.get() == 0)));
+}
+
+#[test]
+fn fire_break_dot_ticks_and_recovery_turn_restores_the_layer() {
+    let mut battle = break_recovery_battle();
+    start_and_pass(&mut battle);
+    let resolution = use_ability(&mut battle, 5);
+    assert!(resolution.events().iter().any(|event| matches!(event.kind(),
+        BattleEventKind::BreakDamage(data) if data.kind == starclock_combat::BreakDamageKind::Effect)));
+    assert!(resolution.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Toughness(starclock_combat::ToughnessEventData::BaseEffectTicked {
+            remaining_turns: 1,
+            ..
+        })
+    )));
+    assert!(resolution.events().iter().any(|event| matches!(event.kind(),
+        BattleEventKind::Toughness(starclock_combat::ToughnessEventData::Recovered { before, after, exited_global_broken: true, .. })
+            if before.get() == 0 && after.get() == 50)));
+    let enemy = battle.view().units_by_id().nth(1).unwrap();
+    assert!(!enemy.weakness_broken());
+    assert_eq!(enemy.toughness_layers().next().unwrap().current().get(), 50);
+    assert_eq!(
+        battle
+            .view()
+            .break_effects_by_id()
+            .next()
+            .unwrap()
+            .remaining_turns(),
+        1
+    );
+
+    pass_interrupt(&mut battle);
+    let _enemy_action = use_ability(&mut battle, 3);
+    pass_interrupt(&mut battle);
+    let expiry = use_ability(&mut battle, 4);
+    assert!(expiry.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Toughness(starclock_combat::ToughnessEventData::WeaknessRemoved {
+            element: CombatElement::Fire,
+            ..
+        })
+    )));
+    assert!(
+        !battle
+            .view()
+            .units_by_id()
+            .nth(1)
+            .unwrap()
+            .weaknesses()
+            .contains(&CombatElement::Fire)
+    );
+}
+
+#[test]
+fn lethal_turn_start_break_effect_settles_before_selecting_another_actor() {
+    let mut battle = break_recovery_battle_with_enemy_hp(6);
+    start_and_pass(&mut battle);
+    let resolution = use_ability(&mut battle, 5);
+    assert!(
+        resolution.events().iter().any(|event| matches!(
+            event.kind(),
+            BattleEventKind::BreakDamage(data)
+                if data.kind == starclock_combat::BreakDamageKind::Effect && data.hp_after.get() == 0
+        )),
+        "{:#?}",
+        resolution.events()
+    );
+    assert_eq!(resolution.phase(), BattlePhase::Won);
+    assert!(matches!(
+        resolution.events().last().unwrap().kind(),
+        BattleEventKind::Battle(starclock_combat::BattleEventData::Won)
+    ));
+    assert!(resolution.next_decision().is_none());
+}
+
+#[test]
 fn damage_and_healing_emit_calculated_and_effective_hp_facts() {
     let mut battle = battle(1, 200_000_000, 50_000_000);
     start_and_pass(&mut battle);
@@ -302,9 +614,9 @@ fn damage_and_healing_emit_calculated_and_effective_hp_facts() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            0x1d, 0xad, 0xeb, 0xce, 0xac, 0xf8, 0x4c, 0x69, 0xf6, 0x7f, 0x9c, 0xea, 0xc7, 0x88,
-            0x6b, 0x4c, 0xf5, 0x46, 0x79, 0x3d, 0x2d, 0x4c, 0xe4, 0xb1, 0x57, 0x50, 0xdf, 0xfa,
-            0x61, 0x4d, 0xc5, 0x32,
+            0xdf, 0x99, 0xec, 0x9d, 0x5b, 0xb1, 0x5b, 0x64, 0x5c, 0x6a, 0x8d, 0xc3, 0x5a, 0xc7,
+            0x01, 0x48, 0x3a, 0xd0, 0x27, 0x99, 0x30, 0x99, 0x04, 0xe1, 0xd1, 0x1d, 0x79, 0xa2,
+            0xfd, 0x50, 0xa6, 0xa1,
         ]
     );
     let damage = resolution
@@ -420,9 +732,9 @@ fn single_wave_defeat_settles_to_victory_and_terminal_rejection_is_immutable() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            0x67, 0x83, 0x95, 0x67, 0x04, 0x17, 0x01, 0x2b, 0x13, 0xe6, 0xb7, 0x1d, 0x72, 0xd4,
-            0xc8, 0x3b, 0x0e, 0xcd, 0x63, 0x81, 0xe2, 0x8d, 0x32, 0x50, 0x63, 0x8b, 0xe6, 0xa0,
-            0xd6, 0x5b, 0x82, 0x62,
+            0x04, 0x2a, 0xaf, 0x46, 0xd6, 0x96, 0x12, 0x07, 0x42, 0xed, 0x52, 0xc7, 0x61, 0xbc,
+            0xa8, 0x1a, 0xa5, 0x82, 0xd0, 0x66, 0x3a, 0xb3, 0x0e, 0xc6, 0xc4, 0xb3, 0x96, 0xbe,
+            0xd8, 0xa1, 0x25, 0xba,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Won);
@@ -454,9 +766,9 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         first.state_hash().bytes(),
         [
-            0xdb, 0xdb, 0x25, 0xea, 0x64, 0x03, 0xa7, 0x08, 0x0e, 0x89, 0x05, 0xb4, 0x46, 0x09,
-            0xb4, 0x84, 0x54, 0xed, 0x27, 0xe8, 0xdf, 0x31, 0x7f, 0x1f, 0x15, 0x84, 0xcf, 0xb1,
-            0xeb, 0x36, 0xdb, 0xd8,
+            0x19, 0x08, 0x22, 0x4d, 0x16, 0x92, 0x73, 0xa0, 0x66, 0x0b, 0xe1, 0xef, 0x52, 0x89,
+            0x65, 0x0f, 0xbc, 0x68, 0xa1, 0x40, 0x4c, 0xde, 0x8a, 0xd6, 0x67, 0x86, 0xcf, 0x5f,
+            0x84, 0x79, 0x38, 0x8a,
         ]
     );
     assert_eq!(first.phase(), BattlePhase::AwaitingCommand);
@@ -498,9 +810,9 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         second.state_hash().bytes(),
         [
-            0xf0, 0xc4, 0xb9, 0xe6, 0xbd, 0x40, 0x1d, 0x61, 0x00, 0xea, 0xa9, 0x03, 0x3a, 0x60,
-            0x6e, 0x3a, 0x85, 0x50, 0xbd, 0x9a, 0x93, 0xf3, 0x1a, 0x00, 0x69, 0xe0, 0xb9, 0x87,
-            0xd9, 0xb2, 0xea, 0x24,
+            0xd3, 0x83, 0x56, 0xcf, 0x5a, 0x98, 0x6a, 0x80, 0x3e, 0x06, 0xdb, 0xa7, 0xa3, 0xbc,
+            0x74, 0xf8, 0x39, 0x85, 0x4e, 0x87, 0x46, 0x37, 0x67, 0xbe, 0x95, 0x7a, 0x40, 0x0b,
+            0x6c, 0xda, 0x66, 0x06,
         ]
     );
     assert_eq!(second.phase(), BattlePhase::Won);
@@ -526,9 +838,9 @@ fn defeating_the_last_player_settles_loss() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            0x23, 0xdf, 0xaf, 0x1a, 0xd9, 0xc3, 0x7a, 0x77, 0xe3, 0x8d, 0xdf, 0x7a, 0x62, 0xfc,
-            0x26, 0x70, 0x6c, 0x6a, 0x57, 0xc1, 0x0f, 0xd8, 0x68, 0x0a, 0xcd, 0x45, 0x03, 0xbe,
-            0x77, 0x4a, 0xde, 0x90,
+            0x51, 0x3f, 0x22, 0xe1, 0x42, 0xe4, 0xfb, 0x55, 0x08, 0x32, 0x4a, 0x4d, 0xcd, 0xc8,
+            0x7c, 0x12, 0xfe, 0x2c, 0xd6, 0xc4, 0x43, 0x7d, 0xb5, 0x84, 0x36, 0xd9, 0x8b, 0x8b,
+            0x3a, 0xd4, 0xb4, 0x1f,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Lost);

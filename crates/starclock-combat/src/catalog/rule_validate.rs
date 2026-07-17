@@ -242,9 +242,27 @@ fn validate_operation(
         }
         | RuleOperationTemplate::TrueDamage { selector, amount }
         | RuleOperationTemplate::Heal { selector, amount }
+        | RuleOperationTemplate::ReduceToughness {
+            selector, amount, ..
+        }
+        | RuleOperationTemplate::SuperBreak {
+            selector,
+            multiplier: amount,
+        }
+        | RuleOperationTemplate::CreateToughnessLayer {
+            selector,
+            maximum: amount,
+            ..
+        }
         | RuleOperationTemplate::AdvanceAction { selector, amount } => {
             require_selector(catalog, *selector)?;
             require_scalar(catalog, runtime, amount)?;
+        }
+        RuleOperationTemplate::Break { selector, .. }
+        | RuleOperationTemplate::AddWeakness { selector, .. }
+        | RuleOperationTemplate::RemoveWeakness { selector, .. }
+        | RuleOperationTemplate::RemoveToughnessLayer { selector, .. } => {
+            require_selector(catalog, *selector)?;
         }
         RuleOperationTemplate::Shield {
             selector,

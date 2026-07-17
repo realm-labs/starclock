@@ -5,5 +5,6 @@ pub mod hp;
 pub mod model;
 pub mod shield;
 pub mod sustain;
+pub mod toughness;
 
 pub(crate) use sustain::{healing, ordinary_damage};

@@ -1,8 +1,9 @@
 use crate::{
     catalog::{CatalogDigest, CatalogRevision},
     id::{
-        ActionId, CommandId, DecisionId, EncounterId, EventId, HitId, OperationId, PhaseId,
-        ShieldInstanceId, SpawnSequence, TimelineActorId, UnitId, WaveInstanceId,
+        ActionId, CommandId, DecisionId, EffectInstanceId, EncounterId, EventId, HitId,
+        OperationId, PhaseId, ShieldInstanceId, SpawnSequence, TimelineActorId, UnitId,
+        WaveInstanceId,
     },
     rng::{engine::DeterministicRng, types::RngSeed},
 };
@@ -49,6 +50,7 @@ pub(crate) struct SequenceState {
     next_hit: u64,
     next_operation: u64,
     next_shield: u64,
+    next_effect: u64,
 }
 
 impl SequenceState {
@@ -66,6 +68,7 @@ impl SequenceState {
             next_hit: 1,
             next_operation: 1,
             next_shield: 1,
+            next_effect: 1,
         }
     }
 
@@ -125,7 +128,11 @@ impl SequenceState {
         try_allocate(&mut self.next_shield, ShieldInstanceId::new)
     }
 
-    pub(crate) const fn canonical_next_values(&self) -> [u64; 12] {
+    pub(crate) fn try_effect(&mut self) -> Option<EffectInstanceId> {
+        try_allocate(&mut self.next_effect, EffectInstanceId::new)
+    }
+
+    pub(crate) const fn canonical_next_values(&self) -> [u64; 13] {
         [
             self.next_unit,
             self.next_actor,
@@ -139,6 +146,7 @@ impl SequenceState {
             self.next_hit,
             self.next_operation,
             self.next_shield,
+            self.next_effect,
         ]
     }
 }
@@ -170,6 +178,7 @@ pub(crate) struct BattleState {
     pub(crate) formations: FormationState,
     pub(crate) teams: TeamStateStore,
     pub(crate) shields: crate::effect::shield::ShieldStore,
+    pub(crate) break_effects: crate::effect::break_effect::BreakEffectStore,
     pub(crate) encounter: EncounterState,
     pub(crate) timeline: crate::timeline::state::TimelineState,
     pub(crate) concede: ConcedePolicy,
@@ -194,6 +203,7 @@ impl BattleState {
             formations: self.formations.clone(),
             teams: self.teams.clone(),
             shields: self.shields.clone(),
+            break_effects: self.break_effects.clone(),
             encounter: self.encounter,
             timeline: self.timeline.clone(),
             concede: self.concede,
@@ -215,6 +225,7 @@ impl BattleState {
         self.formations.clone_from(&source.formations);
         self.teams.clone_from(&source.teams);
         self.shields.clone_from(&source.shields);
+        self.break_effects.clone_from(&source.break_effects);
         self.encounter = source.encounter;
         self.timeline.clone_from(&source.timeline);
         self.concede = source.concede;

@@ -29,17 +29,19 @@ assertSameFile(first.bundle, second.bundle, "independent Firefly probe bundles d
 assertSameTree(first.debug, second.debug, "independent Firefly probe debug exports differ");
 
 const counts = Object.fromEntries(fs.readdirSync(first.debug).filter((file) => file.endsWith(".json")).sort().map((file) => [path.basename(file, ".json"), readJson(path.join(first.debug, file)).table.rows.length]));
-const expectedCounts = { ConfigManifest: 1, ContentEvidenceBinding: 5, ContentIdentity: 5, Effect: 1, EvidenceRecord: 3, Operation: 7, Program: 2, ProgramStep: 7, Selector: 2, SourceRecord: 1, ValueExpression: 9 };
+const expectedCounts = { ConfigManifest: 1, ContentEvidenceBinding: 8, ContentIdentity: 8, Effect: 1, EvidenceRecord: 5, Operation: 10, Program: 3, ProgramStep: 10, Selector: 2, SourceRecord: 1, ValueExpression: 11 };
 assert(Object.keys(counts).length === 80, "Firefly probe does not export all production tables");
 for (const [name, count] of Object.entries(counts)) assert(count === (expectedCounts[name] ?? 0), `${name} probe row count differs`);
 
 const golden = {
-  schema_revision: "starclock.v1a-firefly-damage-probe.v1",
+  schema_revision: "starclock.v1a-firefly-break-probe.v2",
   sora_cli_version: policy.version,
   reference_pack_sha256: "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
   source_payload_sha256: sourcePayloadSha256,
   normal_skill_text_sha256: "78cddf0b6fce13aa578aa8564bad7a7ad9a5f553ffde066c8ad2bdeccc3852ac",
   ultimate_text_sha256: "fe0c7311434bf03b3b122ac5328a6b5c0d61273f76d357ac99424d1bece11b87",
+  enhanced_skill_text_sha256: "a48558d7d5a6f8967142a2d7bf7064e23f55a40ed0f175c6bc3da6377cfcae54",
+  autoreactive_armor_text_sha256: "25fe591020471c13818909321e8a9731eea1e2b80b96c977d3d1fa9d31d7d568",
   table_count: 80,
   populated_table_count: Object.values(counts).filter((count) => count > 0).length,
   identity_count: counts.ContentIdentity,

@@ -6,3 +6,6 @@ id	stable_key	domain	target_selector_id	condition_id	empty_target_policy	snapsho
 5	probe.firefly.operation.apply-redmode	Battle	1		Fault	OnApplication	Rollback	{"type":"ApplyEffect","effect_id":5,"chance_policy":"Guaranteed"}
 6	probe.firefly.operation.advance-action	Battle	1		Fault	Dynamic	Rollback	{"type":"AdvanceAction","amount_expression_id":9}
 7	probe.firefly.operation.reset-energy	Battle	1		Fault	Dynamic	Rollback	{"type":"ModifyResource","resource_kind":"Energy","update_kind":"Set","amount_expression_id":9,"scales_with_energy_regeneration":false,"rounding":"Floor"}
+8	probe.firefly.operation.add-fire-weakness	Battle	2		Skip	OnHitStart	Rollback	{"type":"AddWeakness","element":"Fire"}
+9	probe.firefly.operation.reduce-toughness	Battle	2		Skip	OnHitStart	Rollback	{"type":"ReduceToughness","amount_expression_id":10,"element":"Fire"}
+10	probe.firefly.operation.super-break	Battle	2		Skip	OnHitStart	Rollback	{"type":"SuperBreak","multiplier_expression_id":11}

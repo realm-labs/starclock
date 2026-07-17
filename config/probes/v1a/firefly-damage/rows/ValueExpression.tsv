@@ -8,3 +8,5 @@ id	stable_key	result_kind	node
 7	probe.firefly.expr.damage-ratio	Ratio	{"type":"RatioLiteral","value_decimal":"2"}
 8	probe.firefly.expr.base-damage	Scalar	{"type":"CheckedBinary","operator":"CheckedMultiply","left_expression_id":6,"right_expression_id":7,"rounding":"NearestTiesEven"}
 9	probe.firefly.expr.full-ratio	Ratio	{"type":"RatioLiteral","value_decimal":"1"}
+10	probe.firefly.expr.enhanced-skill-toughness	Scalar	{"type":"ScalarLiteral","value_decimal":"90"}
+11	probe.firefly.expr.full-super-break-ratio	Ratio	{"type":"RatioLiteral","value_decimal":"0.5"}

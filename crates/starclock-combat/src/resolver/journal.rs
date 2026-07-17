@@ -10,6 +10,7 @@ pub(crate) enum AllocationKind {
     Hit,
     Operation,
     Shield,
+    Effect,
     Wave,
 }
 
@@ -31,12 +32,17 @@ pub(crate) enum MutationField {
     Fault,
     Timeline,
     ActionGauge,
+    Speed,
     TeamSkillPoints,
     UnitEnergy,
     UnitHp,
     UnitLife,
     UnitPresence,
     ShieldRemaining,
+    Toughness,
+    Weakness,
+    WeaknessBroken,
+    BreakEffect,
     Encounter,
 }
 

@@ -71,6 +71,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 46. [Phase 3 performance benchmark baseline](performance-benchmark-baseline.md) — versioned apply/hash/replay/concurrency workloads, allocation and transaction instrumentation, CI smoke ceilings and strict stable-runner evidence.
 47. [Phase 3 command and replay property contract](command-replay-property-contract.md) — fixed-seed mixed command streams, rollback convergence, deterministic hashes and replay envelope/domain corruption.
 48. [Typed Rule IR runtime boundary](rule-ir-runtime-boundary.md) — validated expressions/programs, trigger indexes, once scopes, evaluation budgets and the immutable native-handler registry contract.
+49. [Toughness, Break and Super Break runtime boundary](toughness-break-runtime-boundary.md) — ordered non-spilling layers, weakness lifetimes, base Break effects, Super Break samples and the source-bound Firefly probe.
 
 ## Execution goals
 

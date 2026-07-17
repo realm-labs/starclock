@@ -584,8 +584,13 @@
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
       "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
-      "executable_evidence": []
+      "state": "GoldenVerified",
+      "executable_evidence": [
+        "config/probes/v1a/firefly-damage/golden.json",
+        "crates/starclock-data/src/probe_tests.rs",
+        "crates/starclock-combat/tests/damage_lifecycle.rs",
+        "crates/starclock-combat/tests/toughness_formula.rs"
+      ]
     },
     {
       "case_id": "G01-R-FIREFLY-TRANSFORM-ADVANCE",
@@ -639,8 +644,12 @@
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
       "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
-      "executable_evidence": []
+      "state": "GoldenVerified",
+      "executable_evidence": [
+        "config/probes/v1a/firefly-damage/golden.json",
+        "crates/starclock-data/src/probe_tests.rs",
+        "crates/starclock-combat/tests/damage_lifecycle.rs"
+      ]
     },
     {
       "case_id": "G01-R-HIMEKO-NOVA-COMPANION-PROTOCOL-DECIMATION",

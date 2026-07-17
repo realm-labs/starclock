@@ -96,6 +96,13 @@ impl<'a> BattleView<'a> {
             .iter_by_id()
             .map(|state| ShieldView { state })
     }
+    /// Iterates retained base Break effects in stable instance order.
+    pub fn break_effects_by_id(self) -> impl Iterator<Item = BreakEffectView<'a>> + 'a {
+        self.state
+            .break_effects
+            .iter_by_id()
+            .map(|state| BreakEffectView { state })
+    }
     /// Returns one side's team-scoped resources.
     #[must_use]
     pub fn team(self, side: TeamSide) -> TeamView<'a> {
@@ -128,6 +135,43 @@ impl<'a> BattleView<'a> {
 #[derive(Clone, Copy)]
 pub struct ShieldView<'a> {
     state: &'a crate::effect::shield::ShieldState,
+}
+
+/// Immutable projection of one retained base Break effect.
+#[derive(Clone, Copy)]
+pub struct BreakEffectView<'a> {
+    state: &'a crate::effect::break_effect::BreakEffectState,
+}
+
+impl BreakEffectView<'_> {
+    #[must_use]
+    pub const fn id(self) -> crate::EffectInstanceId {
+        self.state.id
+    }
+    #[must_use]
+    pub const fn owner(self) -> UnitId {
+        self.state.owner
+    }
+    #[must_use]
+    pub const fn applier(self) -> UnitId {
+        self.state.applier
+    }
+    #[must_use]
+    pub const fn source_definition(self) -> crate::SourceDefinitionId {
+        self.state.source_definition
+    }
+    #[must_use]
+    pub const fn element(self) -> crate::formula::model::CombatElement {
+        self.state.plan.element
+    }
+    #[must_use]
+    pub const fn remaining_turns(self) -> u8 {
+        self.state.remaining_turns
+    }
+    #[must_use]
+    pub const fn stacks(self) -> u8 {
+        self.state.stacks
+    }
 }
 
 impl ShieldView<'_> {
@@ -369,10 +413,60 @@ impl<'a> UnitView<'a> {
     pub fn modifiers(self) -> &'a [ModifierDefinitionId] {
         &self.state.modifiers
     }
+    /// Returns active elemental weaknesses in canonical element order.
+    #[must_use]
+    pub fn weaknesses(self) -> &'a [crate::formula::model::CombatElement] {
+        &self.state.weaknesses
+    }
+    /// Returns whether a layer has placed this unit in the global broken state.
+    #[must_use]
+    pub const fn weakness_broken(self) -> bool {
+        self.state.weakness_broken
+    }
+    /// Iterates Toughness layers in authored routing order.
+    pub fn toughness_layers(self) -> impl Iterator<Item = ToughnessLayerView<'a>> + 'a {
+        self.state
+            .toughness_layers
+            .iter()
+            .map(|state| ToughnessLayerView { state })
+    }
     /// Returns the generic resolved combatant digest.
     #[must_use]
     pub const fn digest(self) -> CombatantSpecDigest {
         self.state.digest
+    }
+}
+
+/// Immutable ordered Toughness-layer projection.
+#[derive(Clone, Copy)]
+pub struct ToughnessLayerView<'a> {
+    state: &'a crate::toughness::state::ToughnessLayerState,
+}
+
+impl ToughnessLayerView<'_> {
+    #[must_use]
+    pub const fn key(self) -> u32 {
+        self.state.spec.key()
+    }
+    #[must_use]
+    pub const fn kind(self) -> crate::ToughnessLayerKind {
+        self.state.spec.kind()
+    }
+    #[must_use]
+    pub const fn current(self) -> crate::RawToughness {
+        self.state.current
+    }
+    #[must_use]
+    pub const fn maximum(self) -> crate::RawToughness {
+        self.state.spec.maximum()
+    }
+    #[must_use]
+    pub const fn active(self) -> bool {
+        self.state.spec.active()
+    }
+    #[must_use]
+    pub const fn locked(self) -> bool {
+        self.state.spec.locked()
     }
 }
 

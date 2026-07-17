@@ -176,6 +176,36 @@ fn firefly_ultimate_visibility_order_precedes_action_advance() {
 }
 
 #[test]
+fn firefly_enhanced_skill_adds_weakness_before_toughness_and_super_break() {
+    let catalog = load_with_mode(FIREFLY_PROBE, LoadMode::Fixture).expect("Firefly probe lowers");
+    let emissions = evaluate_program(
+        &*catalog,
+        ProgramId::new(6).unwrap(),
+        firefly_input(&FireflyStats {
+            maximum_hp: 1_000_000_000,
+            attack: 1_000_000_000,
+        }),
+        EvaluationBudget::STANDARD,
+    )
+    .unwrap();
+    assert!(matches!(
+        emissions[0],
+        RuleEmission::AddWeakness {
+            element: starclock_combat::formula::model::CombatElement::Fire,
+            ..
+        }
+    ));
+    assert!(matches!(&emissions[1], RuleEmission::ReduceToughness {
+        amount: RuleValue::Scalar(value),
+        element: starclock_combat::formula::model::CombatElement::Fire,
+        ..
+    } if value.scaled() == 90_000_000));
+    assert!(matches!(&emissions[2], RuleEmission::SuperBreak {
+        multiplier: RuleValue::Scalar(value), ..
+    } if value.scaled() == 500_000));
+}
+
+#[test]
 fn production_loader_rejects_the_nonproduction_firefly_probe() {
     let error = crate::catalog::load(FIREFLY_PROBE).expect_err("probe cannot enter production");
     assert_eq!(error.kind(), crate::catalog::CatalogLoadErrorKind::Metadata);

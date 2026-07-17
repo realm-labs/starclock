@@ -25,10 +25,24 @@ pub(crate) struct UnitState {
     pub(crate) maximum_hp: Hp,
     pub(crate) current_energy: Energy,
     pub(crate) maximum_energy: Energy,
+    pub(crate) rank: crate::formula::toughness::EnemyRank,
+    pub(crate) weaknesses: Vec<crate::formula::model::CombatElement>,
+    pub(crate) permanent_weaknesses: Box<[crate::formula::model::CombatElement]>,
+    pub(crate) temporary_weaknesses: Vec<TemporaryWeaknessState>,
+    pub(crate) toughness_layers: Vec<crate::toughness::state::ToughnessLayerState>,
+    pub(crate) weakness_broken: bool,
     pub(crate) abilities: Box<[AbilityId]>,
     pub(crate) rule_bundles: Box<[RuleBundleId]>,
     pub(crate) modifiers: Box<[ModifierDefinitionId]>,
     pub(crate) digest: CombatantSpecDigest,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct TemporaryWeaknessState {
+    pub(crate) element: crate::formula::model::CombatElement,
+    pub(crate) applier: UnitId,
+    pub(crate) source_operation: crate::OperationId,
+    pub(crate) remaining_turns: u8,
 }
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -95,6 +109,17 @@ impl TimelineActorStore {
     pub(crate) fn get_mut(&mut self, id: TimelineActorId) -> Option<&mut TimelineActorState> {
         let index = usize::try_from(id.get().checked_sub(1)?).ok()?;
         self.slots.get_mut(index)?.as_mut()
+    }
+
+    pub(crate) fn get(&self, id: TimelineActorId) -> Option<&TimelineActorState> {
+        let index = usize::try_from(id.get().checked_sub(1)?).ok()?;
+        self.slots.get(index)?.as_ref()
+    }
+
+    pub(crate) fn id_for_owner(&self, owner: UnitId) -> Option<TimelineActorId> {
+        self.iter_by_id()
+            .find(|actor| actor.owner == owner)
+            .map(|actor| actor.id)
     }
 
     pub(crate) fn canonical_slots(&self) -> &[Option<TimelineActorState>] {

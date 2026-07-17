@@ -327,7 +327,7 @@ const resolutions = new Map([
     observation: {
       accessed_on: GENERATED_ON,
       source_payload_sha256: "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
-      executable_bundle_sha256: "260363d9edbcb8046f403ba676d24d37e9e4b6c22d86c12ac7e8ac6258372b2b",
+      executable_bundle_sha256: "62d6b0efaa55193d7e344469ccd0a0b61d147310a3f1cf9b796f8ec2b37f73ba",
       result: "The normal Skill prepares ordered ConsumeHp, ModifyEnergy and Damage emissions: 40% Max HP with a one-HP floor, 60% Max Energy gain and level-10 200% ATK Fire damage. Invalid preparation leaves the caller's state unchanged.",
       evidence_paths: ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-data/src/probe_tests.rs"],
       validation_commands: ["node tools/config-probes/verify-firefly-damage.mjs", "cargo test -p starclock-data probe_tests"],
@@ -339,10 +339,34 @@ const resolutions = new Map([
     observation: {
       accessed_on: GENERATED_ON,
       source_payload_sha256: "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
-      executable_bundle_sha256: "260363d9edbcb8046f403ba676d24d37e9e4b6c22d86c12ac7e8ac6258372b2b",
+      executable_bundle_sha256: "62d6b0efaa55193d7e344469ccd0a0b61d147310a3f1cf9b796f8ec2b37f73ba",
       result: "The Ultimate program makes the countdown creation and RedMode effect visible before full action advance, then resets Energy; the four operations retain one ordered typed Rule IR program.",
       evidence_paths: ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-data/src/probe_tests.rs"],
       validation_commands: ["node tools/config-probes/verify-firefly-damage.mjs", "cargo test -p starclock-data probe_tests"],
+    },
+  }],
+  ["G01-R-FIREFLY-WEAKNESS-TOUGHNESS-ORDER", {
+    state: "Observed",
+    confidence: "Observed",
+    observation: {
+      accessed_on: GENERATED_ON,
+      source_payload_sha256: "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
+      executable_bundle_sha256: "62d6b0efaa55193d7e344469ccd0a0b61d147310a3f1cf9b796f8ec2b37f73ba",
+      result: "The enhanced Skill probe emits AddWeakness(Fire) before its 90-raw ReduceToughness operation. The battle golden applies the source-bound two-target-turn weakness to a target without Fire weakness, uses it for that hit, retains it through the first target turn and emits removal at the second without changing RES.",
+      evidence_paths: ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-data/src/probe_tests.rs", "crates/starclock-combat/tests/damage_lifecycle.rs"],
+      validation_commands: ["node tools/config-probes/verify-firefly-damage.mjs", "cargo test -p starclock-data probe_tests", "cargo test -p starclock-combat --test damage_lifecycle"],
+    },
+  }],
+  ["G01-R-FIREFLY-SUPERBREAK-SAMPLE", {
+    state: "Observed",
+    confidence: "Observed",
+    observation: {
+      accessed_on: GENERATED_ON,
+      source_payload_sha256: "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
+      executable_bundle_sha256: "62d6b0efaa55193d7e344469ccd0a0b61d147310a3f1cf9b796f8ec2b37f73ba",
+      result: "The source-bound program retains the 50% Autoreactive Armor branch after Toughness reduction. The action golden records attempted 90/effective 50 on the ordinary layer, effective 40 on the reducible-while-broken Exo layer, and effective zero with a skipped Super Break after both layers are empty; Super Break uses the effective per-target sample.",
+      evidence_paths: ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-data/src/probe_tests.rs", "crates/starclock-combat/tests/damage_lifecycle.rs", "crates/starclock-combat/tests/toughness_formula.rs"],
+      validation_commands: ["node tools/config-probes/verify-firefly-damage.mjs", "cargo test -p starclock-data probe_tests", "cargo test -p starclock-combat --test damage_lifecycle", "cargo test -p starclock-combat --test toughness_formula"],
     },
   }],
 ]);

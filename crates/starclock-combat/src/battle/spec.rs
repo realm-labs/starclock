@@ -1,11 +1,13 @@
 use core::fmt;
 
 use crate::{
+    formula::{model::CombatElement, toughness::EnemyRank},
     id::{
         AbilityId, EncounterId, EnemyDefinitionId, ModifierDefinitionId, RuleBundleId,
         UnitDefinitionId,
     },
     numeric::domain::{Energy, Hp, Speed},
+    toughness::model::ToughnessLayerSpec,
 };
 
 /// Maximum occupied formation index accepted by the core model.
@@ -198,6 +200,9 @@ pub struct ResolvedCombatantSpec {
     speed: Speed,
     current_energy: Energy,
     maximum_energy: Energy,
+    rank: EnemyRank,
+    weaknesses: Box<[CombatElement]>,
+    toughness_layers: Box<[ToughnessLayerSpec]>,
     abilities: Box<[AbilityId]>,
     rule_bundles: Box<[RuleBundleId]>,
     modifiers: Box<[ModifierDefinitionId]>,
@@ -224,6 +229,9 @@ impl ResolvedCombatantSpec {
             speed,
             current_energy: Energy::ZERO,
             maximum_energy: Energy::ZERO,
+            rank: EnemyRank::Normal,
+            weaknesses: Box::new([]),
+            toughness_layers: Box::new([]),
             abilities: bindings.abilities,
             rule_bundles: bindings.rule_bundles,
             modifiers: bindings.modifiers,
@@ -241,6 +249,24 @@ impl ResolvedCombatantSpec {
         }
         self.current_energy = current;
         self.maximum_energy = maximum;
+        Ok(self)
+    }
+
+    /// Adds canonical elemental weaknesses and ordered Toughness layers.
+    pub fn with_toughness(
+        mut self,
+        rank: EnemyRank,
+        weaknesses: Vec<CombatElement>,
+        layers: Vec<ToughnessLayerSpec>,
+    ) -> Result<Self, CombatantSpecError> {
+        if !strictly_ordered(&weaknesses)
+            || layers.windows(2).any(|pair| pair[0].key() >= pair[1].key())
+        {
+            return Err(CombatantSpecError::NonCanonicalToughness);
+        }
+        self.rank = rank;
+        self.weaknesses = weaknesses.into_boxed_slice();
+        self.toughness_layers = layers.into_boxed_slice();
         Ok(self)
     }
 
@@ -273,6 +299,18 @@ impl ResolvedCombatantSpec {
     #[must_use]
     pub const fn maximum_energy(&self) -> Energy {
         self.maximum_energy
+    }
+    #[must_use]
+    pub const fn rank(&self) -> EnemyRank {
+        self.rank
+    }
+    #[must_use]
+    pub fn weaknesses(&self) -> &[CombatElement] {
+        &self.weaknesses
+    }
+    #[must_use]
+    pub fn toughness_layers(&self) -> &[ToughnessLayerSpec] {
+        &self.toughness_layers
     }
     /// Returns abilities in canonical definition-ID order.
     #[must_use]
@@ -307,6 +345,8 @@ pub enum CombatantSpecError {
     NonCanonicalReferences,
     /// Entry Energy cannot exceed its authored maximum.
     EnergyAboveMaximum,
+    /// Weaknesses and layer keys must be strictly ordered and unique.
+    NonCanonicalToughness,
 }
 
 impl fmt::Display for CombatantSpecError {

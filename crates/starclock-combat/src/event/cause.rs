@@ -107,6 +107,16 @@ impl Cause {
         }
     }
 
+    pub(crate) const fn with_source_definition(
+        self,
+        source_definition: SourceDefinitionId,
+    ) -> Self {
+        Self {
+            source_definition: Some(source_definition),
+            ..self
+        }
+    }
+
     /// Returns the immediate event that caused this fact.
     #[must_use]
     pub const fn parent_event(self) -> Option<EventId> {

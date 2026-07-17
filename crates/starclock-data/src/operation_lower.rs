@@ -145,6 +145,46 @@ fn lower_operation(
             amount: expression(*amount_expression_id)?,
             floor: expression(*floor_expression_id)?,
         },
+        Payload::ReduceToughness {
+            amount_expression_id,
+            element,
+        } => RuleOperationTemplate::ReduceToughness {
+            selector: selector()?,
+            amount: expression(*amount_expression_id)?,
+            element: lower_element(*element),
+        },
+        Payload::Break { element } => RuleOperationTemplate::Break {
+            selector: selector()?,
+            element: lower_element(*element),
+        },
+        Payload::SuperBreak {
+            multiplier_expression_id,
+        } => RuleOperationTemplate::SuperBreak {
+            selector: selector()?,
+            multiplier: expression(*multiplier_expression_id)?,
+        },
+        Payload::AddWeakness { element, .. } => RuleOperationTemplate::AddWeakness {
+            selector: selector()?,
+            element: lower_element(*element),
+        },
+        Payload::RemoveWeakness { element } => RuleOperationTemplate::RemoveWeakness {
+            selector: selector()?,
+            element: lower_element(*element),
+        },
+        Payload::CreateToughnessLayer {
+            layer_key,
+            maximum_expression_id,
+        } => RuleOperationTemplate::CreateToughnessLayer {
+            selector: selector()?,
+            layer_key: layer_key.clone().into_boxed_str(),
+            maximum: expression(*maximum_expression_id)?,
+        },
+        Payload::RemoveToughnessLayer { layer_key } => {
+            RuleOperationTemplate::RemoveToughnessLayer {
+                selector: selector()?,
+                layer_key: layer_key.clone().into_boxed_str(),
+            }
+        }
         Payload::ModifyResource {
             resource_kind,
             character_resource_key,
@@ -180,7 +220,7 @@ fn lower_operation(
         }
         _ => {
             return Err(domain_fail(format!(
-                "operation {} uses a payload outside the B3 lowering boundary",
+                "operation {} uses a payload outside the current lowering boundary",
                 row.id
             )));
         }

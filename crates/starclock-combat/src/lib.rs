@@ -27,6 +27,7 @@ pub mod rng;
 pub mod rule;
 mod target;
 mod timeline;
+mod toughness;
 
 // This is the deliberate small crate facade. The defining modules remain
 // private so representation/backend details have one canonical external path.
@@ -58,8 +59,8 @@ pub use battle::spec::{
     ResolvedCombatantSpec, ResolvedDefinitionBindings, TeamResourceSpec, TeamSide, UnitLevel,
 };
 pub use battle::view::{
-    ActiveTurnView, BattleIdentityView, BattleView, EncounterView, FormationView,
-    InterruptWindowView, ShieldView, TeamView, TimelineActorView, UnitView,
+    ActiveTurnView, BattleIdentityView, BattleView, BreakEffectView, EncounterView, FormationView,
+    InterruptWindowView, ShieldView, TeamView, TimelineActorView, ToughnessLayerView, UnitView,
 };
 pub use codec::BattleStateHash;
 pub use command::model::{
@@ -67,12 +68,16 @@ pub use command::model::{
 };
 pub use event::cause::{Cause, CauseActor};
 pub use event::model::{
-    ActionEventData, BattleEvent, BattleEventData, BattleEventKind, DamageEventData,
-    DecisionEventData, FaultEventData, HealEventData, HitEventData, HpConsumptionEventData,
-    PhaseEventData, ResourceEventData, ShieldEventData, TurnEventData, UnitEventData,
-    WaveEventData,
+    ActionEventData, BattleEvent, BattleEventData, BattleEventKind, BreakDamageEventData,
+    BreakDamageKind, DamageEventData, DecisionEventData, FaultEventData, HealEventData,
+    HitEventData, HpConsumptionEventData, PhaseEventData, ResourceEventData, ShieldEventData,
+    ToughnessEventData, TurnEventData, UnitEventData, WaveEventData,
 };
 pub use timeline::state::InterruptWindowKind;
+pub use toughness::model::{
+    BreakCreditPolicy, ToughnessLayerKind, ToughnessLayerSpec, ToughnessReductionDefinition,
+    ToughnessWeaknessPolicy,
+};
 
 /// Compatibility identifier for authoritative numeric representation and rounding.
 pub const NUMERIC_POLICY_REVISION: &str = "fixed-i64-6dp-v1";

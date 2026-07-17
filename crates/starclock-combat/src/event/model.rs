@@ -64,6 +64,10 @@ pub enum BattleEventKind {
     HpConsumption(HpConsumptionEventData),
     /// Shield creation or absorption mutation fact.
     Shield(ShieldEventData),
+    /// Toughness resource, weakness, layer and base-effect mutation fact.
+    Toughness(ToughnessEventData),
+    /// Initial Break, Break-effect or Super Break HP mutation fact.
+    BreakDamage(BreakDamageEventData),
     /// Unit life-cycle mutation fact.
     Unit(UnitEventData),
     /// Encounter-wave boundary fact.
@@ -93,6 +97,95 @@ pub struct DamageEventData {
     pub hp_before: crate::Hp,
     /// HP immediately after this operation.
     pub hp_after: crate::Hp,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum BreakDamageKind {
+    Initial,
+    Effect,
+    SuperBreak,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct BreakDamageEventData {
+    pub operation: OperationId,
+    pub target: UnitId,
+    pub kind: BreakDamageKind,
+    pub element: crate::formula::model::CombatElement,
+    pub raw: crate::Scalar,
+    pub calculated: crate::DamageAmount,
+    pub absorbed: crate::DamageAmount,
+    pub applied: crate::DamageAmount,
+    pub hp_before: crate::Hp,
+    pub hp_after: crate::Hp,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ToughnessEventData {
+    WeaknessAdded {
+        operation: OperationId,
+        target: UnitId,
+        element: crate::formula::model::CombatElement,
+        already_present: bool,
+        duration_turns: Option<u8>,
+    },
+    WeaknessRemoved {
+        operation: OperationId,
+        target: UnitId,
+        element: crate::formula::model::CombatElement,
+    },
+    Reduced {
+        operation: OperationId,
+        target: UnitId,
+        layer_key: Option<u32>,
+        attempted: crate::RawToughness,
+        effective: crate::RawToughness,
+        before: crate::RawToughness,
+        after: crate::RawToughness,
+    },
+    LayerDepleted {
+        operation: OperationId,
+        target: UnitId,
+        layer_key: u32,
+        changed_global_broken: bool,
+    },
+    BaseEffectApplied {
+        operation: OperationId,
+        target: UnitId,
+        effect: crate::EffectInstanceId,
+        element: crate::formula::model::CombatElement,
+        duration_turns: u8,
+        stacks: u8,
+    },
+    BaseEffectResisted {
+        operation: OperationId,
+        target: UnitId,
+        element: crate::formula::model::CombatElement,
+    },
+    BaseEffectTicked {
+        operation: OperationId,
+        target: UnitId,
+        effect: crate::EffectInstanceId,
+        remaining_turns: u8,
+        stacks: u8,
+    },
+    BaseEffectExpired {
+        target: UnitId,
+        effect: crate::EffectInstanceId,
+        element: crate::formula::model::CombatElement,
+    },
+    Recovered {
+        target: UnitId,
+        layer_key: u32,
+        before: crate::RawToughness,
+        after: crate::RawToughness,
+        exited_global_broken: bool,
+    },
+    SuperBreakSkipped {
+        operation: OperationId,
+        target: UnitId,
+        effective_reduction: crate::RawToughness,
+    },
 }
 
 /// HP loss that is explicitly not damage and respects a legal floor.

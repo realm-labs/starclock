@@ -287,6 +287,45 @@ pub struct HpConsumptionDefinition {
     floor: crate::Hp,
 }
 
+/// Elemental weakness application with an explicit target-turn lifetime.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct WeaknessApplicationDefinition {
+    element: crate::formula::model::CombatElement,
+    duration_turns: Option<u8>,
+}
+
+impl WeaknessApplicationDefinition {
+    #[must_use]
+    pub const fn permanent(element: crate::formula::model::CombatElement) -> Self {
+        Self {
+            element,
+            duration_turns: None,
+        }
+    }
+    #[must_use]
+    pub const fn timed(
+        element: crate::formula::model::CombatElement,
+        duration_turns: u8,
+    ) -> Option<Self> {
+        if duration_turns == 0 {
+            None
+        } else {
+            Some(Self {
+                element,
+                duration_turns: Some(duration_turns),
+            })
+        }
+    }
+    #[must_use]
+    pub const fn element(self) -> crate::formula::model::CombatElement {
+        self.element
+    }
+    #[must_use]
+    pub const fn duration_turns(self) -> Option<u8> {
+        self.duration_turns
+    }
+}
+
 impl HpConsumptionDefinition {
     #[must_use]
     pub const fn new(requested: crate::Hp, floor: crate::Hp) -> Self {
@@ -360,6 +399,12 @@ pub enum HitOperationDefinition {
     Shield(ShieldDefinition),
     /// Consumes HP without treating the loss as damage.
     ConsumeHp(HpConsumptionDefinition),
+    /// Adds one elemental weakness before later operations in the same hit.
+    AddWeakness(WeaknessApplicationDefinition),
+    /// Routes a checked reduction through the first eligible authored layer.
+    ReduceToughness(crate::ToughnessReductionDefinition),
+    /// Converts the preceding effective reduction for each target into Super Break.
+    SuperBreak(crate::formula::toughness::SuperBreakDefinition),
 }
 
 /// Ordered operation templates owned by one authored hit.
