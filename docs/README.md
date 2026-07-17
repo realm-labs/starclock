@@ -67,6 +67,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 42. [Action and timeline boundary](action-timeline-boundary.md) — exact Action Gauge selection, structural action lowering, synchronous phase/hit events and deterministic interrupt ordering.
 43. [Target and action-resource boundary](target-and-resource-boundary.md) — canonical target commitments/invalidation, multi-hit locks and Basic/Skill/Ultimate Skill Point/Energy semantics.
 44. [Damage, healing, defeat and wave boundary](damage-lifecycle-boundary.md) — typed HP operations, fixed-point formula goldens, defeat/terminal settlement and ordered `AfterAction` waves.
+45. [Synthetic Standard CLI and replay boundary](synthetic-standard-replay-boundary.md) — smoke-only Standard fixture, low-level command/hash replay payloads and deterministic CLI run/verify evidence.
 
 ## Execution goals
 
