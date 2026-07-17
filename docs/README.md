@@ -4,7 +4,10 @@
 
 The target is a headless battle kernel plus a generic activity orchestrator that can later be driven by Bevy, another engine, the `starclock` CLI, tests, or a simulation service.
 
-**Current repository status:** documentation-only. The Rust workspace, Excel workbooks, Sora bundle, full numerical catalogs, and CLI described here are specifications for subsequent implementation, not completed artifacts. See the [documentation coverage matrix](17-documentation-coverage-matrix.md).
+**Current repository status:** pre-implementation. The normalized Version 4.4
+content reference pack is prepared, but the Rust workspace, Excel workbooks,
+Sora bundle, executable catalogs, and CLI described here are not completed
+artifacts. See the [documentation coverage matrix](17-documentation-coverage-matrix.md).
 
 ## Research baseline
 
@@ -42,6 +45,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 22. [Reference data](reference-data.md) — constants and the attacker-level multiplier table.
 23. [Sources and confidence](sources.md) — source provenance and known uncertainties.
 24. [Public character mechanics](characters/README.md) — the public Version 4.4 combat-form catalog, behavioral contracts, and an auditable engine-feature matrix.
+25. [Combat content reference pack](content-reference/README.md) — prepared Version 4.4 character, Trace, Eidolon, Light Cone, enemy, ability, and ordinary-encounter facts used before Excel/Sora authoring.
 
 ## Execution goals
 

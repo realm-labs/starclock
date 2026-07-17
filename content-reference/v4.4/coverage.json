@@ -1,0 +1,78 @@
+{
+  "schema_revision": "content-reference-v1",
+  "snapshot": "4.4",
+  "generated_on": "2026-07-17",
+  "characters": {
+    "total": 88,
+    "by_quality": {
+      "ExactPreviousRelease": 2,
+      "ExactStructured": 86
+    }
+  },
+  "character_abilities": {
+    "total": 583,
+    "by_quality": {
+      "ExactPreviousRelease": 14,
+      "ExactStructured": 569
+    },
+    "by_mechanism_quality": {
+      "ApproximateFromReleasedText": 10,
+      "ExactPreviousReleaseText": 14,
+      "ExactStructured": 559
+    }
+  },
+  "character_traces": {
+    "total": 1618,
+    "by_quality": {
+      "ExactPreviousRelease": 36,
+      "ExactStructured": 1582
+    }
+  },
+  "character_eidolons": {
+    "total": 528,
+    "by_quality": {
+      "ExactPreviousRelease": 12,
+      "ExactStructured": 516
+    }
+  },
+  "light_cones": {
+    "total": 165,
+    "by_quality": {
+      "ExactStructured": 165
+    }
+  },
+  "enemy_templates": {
+    "total": 613,
+    "by_quality": {
+      "ExactStructured": 613
+    }
+  },
+  "enemy_variants": {
+    "total": 2591,
+    "by_quality": {
+      "ExactStructured": 2591
+    }
+  },
+  "enemy_abilities": {
+    "total": 3611,
+    "by_quality": {
+      "ExactStructured": 3611
+    },
+    "by_mechanism_quality": {
+      "ApproximateFromReleasedText": 357,
+      "ExactStructured": 3254
+    }
+  },
+  "encounters": {
+    "total": 1471,
+    "by_quality": {
+      "ExactStructured": 1471
+    }
+  },
+  "notes": [
+    "Released 4.4 data is primary; Saber and Archer use the pinned 4.3 release index because their licensed collaboration records are absent from the 4.4 release dump.",
+    "Long source descriptions and assets are not emitted. Text hashes and pinned source locators preserve evidence without redistributing prose.",
+    "ExactStructured means the value or relationship is transcribed from released structured data. Derived means Starclock grouped or named records deterministically. Approximate requires an explicit reason on the record.",
+    "Operation type summaries are evidence aids, not executable Rule IR and do not determine undocumented event ordering."
+  ]
+}

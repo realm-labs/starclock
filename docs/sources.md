@@ -70,6 +70,16 @@ For this project:
 | [Honey Hunter — Himeko • Nova](https://starrail.honeyhunterworld.com/himeko-nova-character/?lang=EN) | Cross-check of 4.4 ability structure, Assist Skill, field, shared uses, and special resource interactions | Unofficial and version-sensitive. Prefer live in-game text when importing numerical data. |
 | [Honey Hunter — Rin Tohsaka](https://starrail.honeyhunterworld.com/rin-tohsaka-character/?lang=EN) | Preview cross-check for Gem Energy and enhanced-Skill structure | Unofficial preview data. The character is marked Announced and all undisclosed details remain provisional until public availability. |
 
+## Pre-implementation content reference sources
+
+| Source | Pinned revision | Used for | Confidence and caveat |
+|---|---|---|---|
+| [Dimbreath/turnbasedgamedata](https://gitlab.com/Dimbreath/turnbasedgamedata) | `fd978d6ef09f941fba644c731ab54abd6f7c3568` | Released 4.4 character/Light Cone/enemy/stage tables, character target metadata, enemy AI sequences, ability entry points, and operation-type evidence | Community-maintained released-data transcription, not an official API. Raw files remain in an ignored cache; the repository commits only normalized facts, source paths, and hashes. |
+| [Mar-7th/StarRailRes](https://github.com/Mar-7th/StarRailRes) | `7b349e39ee0f6f3bf814567995829b99c95e7a93` | Released 4.3 bilingual/structured cross-check and fallback for Saber and Archer collaboration records absent from the pinned 4.4 dump | Community-maintained resource index. Fallback rows are explicitly labeled `ExactPreviousRelease`. |
+
+The generated fact baseline, schema, approximation rules, and pack digest are
+documented in [Combat content reference pack](content-reference/README.md).
+
 The character profiles paraphrase behavior into engine semantics. They do not claim exact parity for coefficients, animation hit timing, minor Traces, Eidolons, or undisclosed preview values. Those require a separately licensed/authored data pack and release-version validation.
 
 ## Known uncertainties

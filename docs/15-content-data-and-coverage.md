@@ -148,9 +148,16 @@ Generated reports must provide, per category and source snapshot:
 
 The release gate requires 100% manifest accounting, zero enabled incomplete entries, and `DataReady` for every released entry in the promised category. Golden verification has a separately declared target so lack of an observation fixture is not hidden.
 
-## Documentation-only status
+## Pre-implementation status
 
-At this repository stage, the character profiles are `Documented` behavioral contracts. The exact character/equipment/enemy/activity/universe/challenge workbooks and their frozen non-character manifests have not yet been imported; they must not be reported as `DataReady`. This statement remains until generated coverage evidence replaces it.
+At this repository stage, the character profiles are `Documented` behavioral
+contracts and the [Version 4.4 content reference pack](content-reference/README.md)
+provides normalized pre-implementation numerical/source evidence for released
+characters, Light Cones, enemies, abilities, and ordinary encounter candidates.
+The reference pack is not an Excel/Sora import and is not executable Rule IR.
+The exact runtime workbooks/catalogs and activity/universe/challenge data have
+not yet been imported; reference records must not be reported as `DataReady`.
+This statement remains until Sora-generated coverage evidence replaces it.
 
 ## Acceptance audit
 

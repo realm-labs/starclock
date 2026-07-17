@@ -17,6 +17,28 @@ three recurring challenge families, or other activity-specific gameplay. It
 must preserve the extension boundaries already specified for those systems,
 but no out-of-scope mode may delay completion of the core battle milestone.
 
+## 1.1 Pre-start content prerequisite
+
+Goal 01 starts from the prepared
+[Version 4.4 content reference pack](../content-reference/README.md). It must not
+start bulk implementation from the compact profiles alone.
+
+Before `G01-P0-B1` begins, the executor verifies:
+
+- reference pack digest
+  `0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a`;
+- the machine counts and gates in
+  [reference coverage](../content-reference/coverage.md);
+- the [reference schema](../content-reference/schema.md) and
+  [content authoring contract](../content-reference/authoring-contract.md);
+- that the pinned released source cache can be reproduced and every generated
+  file matches `pack-index.json`.
+
+The pack provides prepared facts and source evidence; Goal 01 lowers them into
+reviewed Excel/Sora rows and executable Rule IR. It may refine an approximation
+through a stronger public source or observation fixture, but must record the old
+fact, decision, and new evidence rather than silently changing it.
+
 ## 2. Terminal outcome
 
 Goal 01 is complete only when all of the following are true:
@@ -44,6 +66,8 @@ Goal 01 is complete only when all of the following are true:
    checks and lints pass from a clean checkout.
 9. The status ledger contains evidence for every acceptance gate and contains
    no required `Pending`, `InProgress`, `Researching` or `Blocked` entry.
+10. Every required content row maps back to a prepared reference record and the
+    bound reference-pack digest.
 
 An identity row, behavioral summary, schema, disabled row, mock implementation,
 TODO, or unverified guessed value does not satisfy a content gate.
@@ -76,6 +100,9 @@ authority:
 6. [Sources](../sources.md), [reference data](../reference-data.md), and the
    [character catalog](../characters/README.md) define research and content
    evidence requirements.
+7. [Content reference schema](../content-reference/schema.md) and
+   [authoring contract](../content-reference/authoring-contract.md) define how
+   prepared facts are promoted into Excel/Sora and executable definitions.
 
 If two normative documents conflict, do not silently choose one. Add a narrow
 decision record, update the affected documents and add a regression fixture in
@@ -308,8 +335,8 @@ ID is known; unresolved normative questions have owners and fixtures.
 
 | Batch | Atomic deliverable |
 |---|---|
-| `G01-P0-B1` | Freeze `core-combat-v1` manifests for released combat forms, released Light Cones and `standard-v1` enemies, encounters and scenarios. Record digest, inclusion state and release evidence. |
-| `G01-P0-B2` | Add normalized provenance staging format, source-cache revision policy and evidence-hash verifier. Seed it with all manifest entries. |
+| `G01-P0-B1` | Verify and bind the prepared content-reference pack, then freeze `core-combat-v1` manifests for released combat forms, released Light Cones and `standard-v1` enemies, encounters and scenarios. Record both digests and inclusion state. |
+| `G01-P0-B2` | Map every goal-manifest entry to prepared reference records and verify source-cache revisions, source-file hashes, approximation labels, and evidence hashes. Do not create a competing staging model. |
 | `G01-P0-B3` | Convert remaining formula/timing ambiguities that block implementation into named research cases, decision records and reproducible observation/golden fixture specifications. |
 | `G01-P0-B4` | Generate the initial machine-readable goal coverage report and verify that documentation counts match the frozen manifests. |
 

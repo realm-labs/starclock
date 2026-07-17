@@ -44,3 +44,6 @@ The full-data acceptance boundary and status vocabulary are defined in [Content 
 Roster identity and release status are checked against the official Version 4.4 update notice and the maintained character list. Structured metadata from StarRailRes is used as a transcription aid for released kits through Version 4.3. Public player-facing descriptions are paraphrased into implementation semantics; extracted client assets and long verbatim ability text are intentionally excluded.
 
 See [Sources and confidence](../sources.md) for URLs, provenance, and maintenance rules.
+The prepared [Version 4.4 content reference pack](../content-reference/README.md)
+adds complete numerical/source rows without changing the compact profile
+boundary. Reference readiness is still not Sora/Rule-IR `DataReady`.

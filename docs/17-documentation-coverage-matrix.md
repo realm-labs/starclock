@@ -34,19 +34,19 @@ This matrix reports the current documentation milestone. It does not claim that 
 
 ## Content data
 
-| Category | Identity/behavior coverage today | Exact executable data today | Required terminal gate |
+| Category | Identity/behavior coverage today | Prepared data today | Required terminal gate |
 |---|---|---|---|
-| Released character combat forms | 88 compact E0 behavioral profiles | Not imported | Complete stats, abilities, levels, Traces, Techniques, hit plans, Eidolons, rules, provenance; all `DataReady`. |
+| Released character combat forms | 88 compact E0 behavioral profiles | Prepared normalized reference: 88 forms, 583 abilities, 1,618 Traces, 528 Eidolons; not imported to Sora/Rule IR | Complete stats, abilities, levels, Traces, Techniques, hit plans, Eidolons, rules, provenance; all `DataReady`. |
 | Officially announced forms | 2 disabled behavioral placeholders | Intentionally absent | Stay `Disabled` until public release and full validation; no guessed values. |
-| Light Cones | Detailed definition/build schema | Not imported | Frozen 4.4 manifest, stats/promotions, S1-S5 rules, provenance; all released entries `DataReady`. |
+| Light Cones | Detailed definition/build schema | Prepared normalized reference: 165 cones with promotions and S1-S5; not imported to Sora/Rule IR | Frozen 4.4 manifest, stats/promotions, S1-S5 rules, provenance; all released entries `DataReady`. |
 | Relic and planar sets | Detailed set/affix/piece schema | Not imported | Frozen 4.4 manifest, piece effects, main/sub-affix curves and provenance. |
-| Enemies and bosses | Behavior/AI/phase model only | Not imported | Frozen variant manifest, exact stats/skills/AI/phases/summons and provenance. |
+| Enemies and bosses | Behavior/AI/phase model plus prepared source evidence | Prepared normalized reference: 613 templates, 2,591 variants and 3,611 abilities; not imported to Sora/Rule IR | Frozen goal subset, reviewed stats/skills/AI/phases/summons and provenance. |
 | Standard Simulated Universe | System boundary documented | Not imported | Full active permanent content manifest and seeded golden run. |
 | Swarm Disaster | System boundary documented | Not imported | Full active content, dice/map/progression mechanics and seeded golden run. |
 | Gold and Gears | System boundary documented | Not imported | Full active content, custom dice/Cognition/Secrets/Conundrum and seeded golden run. |
 | Unknowable Domain | System boundary documented | Not imported | Full Scepter/Component/alignment/stage data and seeded golden run. |
 | Divergent Universe 4.4 | Snapshot boundary documented | Not imported | Frozen current-only manifest, full mechanical data and seeded golden run. |
-| Standard battle | Default profile documented | Not imported | Representative standard encounter archetypes and golden battles. |
+| Standard battle | Default profile documented | 1,471 deduplicated ordinary encounter candidates prepared; `standard-v1` subset not frozen/imported | Representative standard encounter archetypes and golden battles. |
 | Memory of Chaos 4.4 | Family, clock, node, and objective contracts documented | Not imported | Active season stages, encounters, turbulence, clock/objective data and golden stage. |
 | Pure Fiction 4.4 | Family, spawn, clock, buff, and score contracts documented | Not imported | Active season stages, Whimsicality/Cacophony, spawn/score data and golden stage. |
 | Apocalyptic Shadow 4.4 | Family, boss-progress, AV, buff, and score contracts documented | Not imported | Active season boss variants, Embers/Axiom, AV/score data and golden stage. |

@@ -107,6 +107,12 @@ The Version 4.4 enemy manifest enumerates every public enemy and mechanically di
 
 “Enemy name listed” and “all enemies supported” are not synonyms. Completion is 100% manifest accounting plus `DataReady` for every enabled entry; golden verification is tracked independently.
 
+The prepared [Version 4.4 content reference pack](content-reference/README.md)
+currently supplies 613 enemy templates, 2,591 variants, 3,611 abilities, pinned
+AI/config evidence, and 1,471 ordinary encounter candidates. These are
+pre-implementation facts, not validated runtime definitions; the Goal 01
+`standard-v1` subset still requires Rule IR lowering and golden fixtures.
+
 ## Required tests
 
 - graph candidate/transition order is stable under row/container reordering;

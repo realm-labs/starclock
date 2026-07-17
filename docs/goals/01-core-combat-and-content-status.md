@@ -15,6 +15,8 @@ commit as every implementation or content batch.
 | Last completed batch | None |
 | Last completed commit | None |
 | Goal plan baseline | Prepared; execution has not started |
+| Content prerequisite | Prepared and awaiting `G01-P0-B1` digest verification |
+| Content reference digest | `0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a` |
 | Blocking condition | None |
 
 Allowed goal states are `ReadyToStart`, `InProgress`, `Blocked` and `Complete`.
@@ -29,9 +31,9 @@ not manually estimate missing totals.
 
 | Required manifest | Digest | Required | DataReady | Disabled announced | Coverage |
 |---|---:|---:|---:|---:|---:|
-| Released character combat forms | Pending | Pending (documentation baseline: 88) | 0 | Pending | 0% |
-| Released Light Cones | Pending | Pending | 0 | 0 | 0% |
-| `standard-v1` enemies/variants | Pending | Pending | 0 | 0 | 0% |
+| Released character combat forms | Reference pack bound in `G01-P0-B1` | 88 prepared reference records | 0 | 2 announced outside enabled pack | 0% runtime data |
+| Released Light Cones | Reference pack bound in `G01-P0-B1` | 165 prepared reference records | 0 | 0 | 0% runtime data |
+| `standard-v1` enemies/variants | Selected in `G01-P0-B1` from 613 templates / 2,591 variants | Pending subset | 0 | 0 | 0% runtime data |
 | `standard-v1` encounters | Pending | Pending | 0 | 0 | 0% |
 | `standard-v1` scenarios | Pending | Pending | 0 | 0 | 0% |
 
@@ -115,6 +117,7 @@ without a documented project-policy decision and regression fixture.
 | 2026-07-17 | Full relic/planar and public enemy catalogs are excluded; future boundaries remain protected. | They are not part of the requested first content batch. Standard battle uses a frozen representative public-data manifest. |
 | 2026-07-17 | Content completeness is manifest-based and requires `DataReady`; behavioral profiles and placeholders do not count. | Make completion auditable and prevent scope inflation. |
 | 2026-07-17 | Every batch is committed separately and updates this ledger. | Preserve reviewability, resumption and deterministic progress tracking. |
+| 2026-07-17 | Goal 01 binds the prepared Version 4.4 content-reference pack before implementation. | Prevent compact profiles, memory, or ad-hoc websites from becoming the Excel source of truth. |
 
 ## Terminal acceptance checklist
 

@@ -35,6 +35,15 @@ Repository execution contract
    - docs/sources.md
    - docs/characters/README.md, schema.md, implementation-matrix.md and every
      character profile file
+   - docs/content-reference/README.md
+   - docs/content-reference/schema.md
+   - docs/content-reference/authoring-contract.md
+   - docs/content-reference/coverage.md
+   - docs/content-reference/review-fixtures.md
+   - content-reference/README.md
+   - content-reference/v4.4/manifest.json
+   - content-reference/v4.4/coverage.json
+   - content-reference/v4.4/pack-index.json
 
    Document 14 and the challenge-specific sections of document 18 describe
    future extension boundaries only. Do not implement them in this goal.
@@ -42,7 +51,14 @@ Repository execution contract
 2. Inspect the Git worktree, recent commits, active goal state and the full
    status ledger. Preserve user changes. Never use destructive Git operations.
 
-3. Treat the goal plan and normative documents as implementation contracts.
+3. Before selecting `G01-P0-B1`, regenerate or verify the prepared reference
+   pack and require digest
+   `0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a`.
+   Treat the normalized records and authoring contract as the baseline for
+   Excel/Sora transcription. Do not rebuild content facts from memory or an
+   arbitrary single website.
+
+4. Treat the goal plan and normative documents as implementation contracts.
    Do not replace their architecture with a shortcut, expose fixed-point/Sora
    implementation types, introduce engine dependencies, scatter character-ID
    branches through the resolver, create broad pub-use facades, or exceed the
@@ -58,8 +74,10 @@ Repeat this loop until the Goal 01 status ledger is Complete:
    batch before acting.
 2. Select the earliest unblocked Pending batch whose dependencies are Complete.
    Mark only that batch InProgress and announce its outcome and validation gate.
-3. Research only the public facts required for the batch. Record source URL,
-   access date, version/confidence/note and evidence hash. Do not use leaks,
+3. Start from the prepared reference record. Research only a recorded conflict,
+   approximation replacement or missing observation required for the batch.
+   Record source URL, access date, version/confidence/note and evidence hash.
+   Do not use leaks,
    proprietary assets, long copied descriptions or guessed values. If sources
    conflict, register a Researching case instead of selecting a convenient value.
 4. Implement the batch as one responsibility-bounded change. Include code,
@@ -86,6 +104,9 @@ Execution rules
 - Use the machine-readable frozen manifests as the completeness oracle. IDs,
   compact profiles, schemas, mocks, TODOs, disabled rows and partial E0/S1 data
   do not count as implementation.
+- Every Excel/Sora fact must map to the bound content-reference record and retain
+  its evidence/approximation label. A stronger source may replace a prepared
+  value only through a recorded decision and updated digest.
 - Character content batches are complete through Technique, all battle-relevant
   Traces and E1-E6. Light Cone batches are complete through S5. Land a missing
   generic mechanic batch before the content batch that depends on it.
