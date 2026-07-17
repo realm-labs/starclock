@@ -1,7 +1,7 @@
 use crate::{
-    action::model::{ActionOrigin, ActionPhasePlan, ActionPlan, HitPlan},
+    action::model::{ActionOrigin, ActionPhasePlan, ActionPlan, HitPlan, OperationPlan},
     catalog::{CombatCatalog, action::AbilityKind},
-    id::{AbilityId, ActionId, HitId, PhaseId, TimelineActorId, UnitId},
+    id::{AbilityId, ActionId, HitId, OperationId, PhaseId, TimelineActorId, UnitId},
     target::model::TargetCommitment,
 };
 
@@ -9,6 +9,7 @@ pub(crate) trait ActionIdentityAllocator {
     fn action(&mut self) -> ActionId;
     fn phase(&mut self) -> PhaseId;
     fn hit(&mut self) -> HitId;
+    fn operation(&mut self) -> OperationId;
 }
 
 pub(crate) fn lower_normal_action(
@@ -69,10 +70,22 @@ fn lower_action(
 
     let action_id = allocator.action();
     let phase_id = allocator.phase();
-    let hits = (0..action.hit_count())
-        .map(|_| HitPlan {
+    let hits = action
+        .hits()
+        .iter()
+        .map(|hit| HitPlan {
             id: allocator.hit(),
             invalidation: action.invalidation(),
+            operations: hit
+                .operations()
+                .iter()
+                .copied()
+                .map(|definition| OperationPlan {
+                    id: allocator.operation(),
+                    definition,
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
         })
         .collect::<Vec<_>>()
         .into_boxed_slice();

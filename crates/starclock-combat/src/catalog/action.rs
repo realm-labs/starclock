@@ -1,4 +1,4 @@
-use crate::Energy;
+use crate::{Energy, NumericError, Ratio, Scalar};
 
 /// Shared semantic family used by legality, resources and event filters.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -145,11 +145,179 @@ impl ActionResourcePolicy {
     }
 }
 
-/// Finite action structure attached to an executable ability.
+/// Explicit ordinary-damage multiplier blocks evaluated in formula order.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct OrdinaryDamageMultipliers {
+    original_damage: Ratio,
+    crit: Ratio,
+    damage_boost: Ratio,
+    weaken: Ratio,
+    defense: Ratio,
+    resistance: Ratio,
+    vulnerability: Ratio,
+    mitigation: Ratio,
+    broken: Ratio,
+}
+
+impl OrdinaryDamageMultipliers {
+    /// Creates the nine named multiplier blocks used by ordinary damage.
+    pub fn new(values: [Ratio; 9]) -> Result<Self, NumericError> {
+        if values.iter().any(|value| value.scaled() < 0) {
+            return Err(NumericError::OutOfDomain);
+        }
+        Ok(Self {
+            original_damage: values[0],
+            crit: values[1],
+            damage_boost: values[2],
+            weaken: values[3],
+            defense: values[4],
+            resistance: values[5],
+            vulnerability: values[6],
+            mitigation: values[7],
+            broken: values[8],
+        })
+    }
+
+    /// Returns formula factors in their normative evaluation order.
+    #[must_use]
+    pub const fn ordered(self) -> [Ratio; 9] {
+        [
+            self.original_damage,
+            self.crit,
+            self.damage_boost,
+            self.weaken,
+            self.defense,
+            self.resistance,
+            self.vulnerability,
+            self.mitigation,
+            self.broken,
+        ]
+    }
+}
+
+/// Fully resolved initial ordinary-damage formula input for one target.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct OrdinaryDamageDefinition {
+    base_damage: Scalar,
+    multipliers: OrdinaryDamageMultipliers,
+}
+
+impl OrdinaryDamageDefinition {
+    /// Creates a non-negative base amount with explicit named multipliers.
+    pub fn new(
+        base_damage: Scalar,
+        multipliers: OrdinaryDamageMultipliers,
+    ) -> Result<Self, NumericError> {
+        if base_damage.scaled() < 0 {
+            Err(NumericError::OutOfDomain)
+        } else {
+            Ok(Self {
+                base_damage,
+                multipliers,
+            })
+        }
+    }
+    /// Returns the fixed-point base damage before multipliers.
+    #[must_use]
+    pub const fn base_damage(self) -> Scalar {
+        self.base_damage
+    }
+    /// Returns all named multiplier blocks.
+    #[must_use]
+    pub const fn multipliers(self) -> OrdinaryDamageMultipliers {
+        self.multipliers
+    }
+}
+
+/// Fully resolved initial healing formula input for one target.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct HealingDefinition {
+    base_healing: Scalar,
+    outgoing_boost: Ratio,
+    incoming_boost: Ratio,
+    incoming_reduction: Ratio,
+}
+
+impl HealingDefinition {
+    /// Creates the base healing and the three additive modifier components.
+    pub fn new(
+        base_healing: Scalar,
+        outgoing_boost: Ratio,
+        incoming_boost: Ratio,
+        incoming_reduction: Ratio,
+    ) -> Result<Self, NumericError> {
+        if base_healing.scaled() < 0
+            || outgoing_boost.scaled() < 0
+            || incoming_boost.scaled() < 0
+            || incoming_reduction.scaled() < 0
+        {
+            Err(NumericError::OutOfDomain)
+        } else {
+            Ok(Self {
+                base_healing,
+                outgoing_boost,
+                incoming_boost,
+                incoming_reduction,
+            })
+        }
+    }
+    /// Returns base healing before the additive multiplier block.
+    #[must_use]
+    pub const fn base_healing(self) -> Scalar {
+        self.base_healing
+    }
+    /// Returns outgoing healing boost.
+    #[must_use]
+    pub const fn outgoing_boost(self) -> Ratio {
+        self.outgoing_boost
+    }
+    /// Returns incoming healing boost.
+    #[must_use]
+    pub const fn incoming_boost(self) -> Ratio {
+        self.incoming_boost
+    }
+    /// Returns incoming healing reduction.
+    #[must_use]
+    pub const fn incoming_reduction(self) -> Ratio {
+        self.incoming_reduction
+    }
+}
+
+/// Closed initial operation language allowed inside one authored hit.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum HitOperationDefinition {
+    /// Ordinary HP damage through the general multiplier pipeline.
+    Damage(OrdinaryDamageDefinition),
+    /// HP restoration through the additive healing multiplier block.
+    Heal(HealingDefinition),
+}
+
+/// Ordered operation templates owned by one authored hit.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ActionHitDefinition {
+    operations: Box<[HitOperationDefinition]>,
+}
+
+impl ActionHitDefinition {
+    /// Creates one hit; an empty list is a structural hit with no mutation.
+    #[must_use]
+    pub fn new(operations: Vec<HitOperationDefinition>) -> Self {
+        Self {
+            operations: operations.into_boxed_slice(),
+        }
+    }
+    /// Returns operations in authored execution order.
+    #[must_use]
+    pub fn operations(&self) -> &[HitOperationDefinition] {
+        &self.operations
+    }
+}
+
+/// Finite action structure attached to an executable ability.
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AbilityActionDefinition {
     kind: AbilityKind,
-    hit_count: u16,
+    hits: Box<[ActionHitDefinition]>,
     invalidation: TargetInvalidationPolicy,
     resources: ActionResourcePolicy,
 }
@@ -157,7 +325,7 @@ pub struct AbilityActionDefinition {
 impl AbilityActionDefinition {
     /// Creates an action with one to 64 authored hits.
     #[must_use]
-    pub const fn new(
+    pub fn new(
         kind: AbilityKind,
         hit_count: u16,
         invalidation: TargetInvalidationPolicy,
@@ -168,30 +336,48 @@ impl AbilityActionDefinition {
         } else {
             Some(Self {
                 kind,
-                hit_count,
+                hits: (0..hit_count)
+                    .map(|_| ActionHitDefinition::new(Vec::new()))
+                    .collect::<Vec<_>>()
+                    .into_boxed_slice(),
                 invalidation,
                 resources,
             })
         }
     }
+    /// Replaces structural hits with one to 64 concrete authored hit plans.
+    #[must_use]
+    pub fn with_hits(mut self, hits: Vec<ActionHitDefinition>) -> Option<Self> {
+        if hits.is_empty() || hits.len() > 64 {
+            None
+        } else {
+            self.hits = hits.into_boxed_slice();
+            Some(self)
+        }
+    }
     /// Returns the shared ability family.
     #[must_use]
-    pub const fn kind(self) -> AbilityKind {
+    pub const fn kind(&self) -> AbilityKind {
         self.kind
     }
     /// Returns the finite authored hit count.
     #[must_use]
-    pub const fn hit_count(self) -> u16 {
-        self.hit_count
+    pub fn hit_count(&self) -> u16 {
+        u16::try_from(self.hits.len()).expect("action hit count is validated at 64 or fewer")
+    }
+    /// Returns hit templates in authored order.
+    #[must_use]
+    pub fn hits(&self) -> &[ActionHitDefinition] {
+        &self.hits
     }
     /// Returns the target revalidation policy applied by every hit.
     #[must_use]
-    pub const fn invalidation(self) -> TargetInvalidationPolicy {
+    pub const fn invalidation(&self) -> TargetInvalidationPolicy {
         self.invalidation
     }
     /// Returns explicit action-boundary costs and gains.
     #[must_use]
-    pub const fn resources(self) -> ActionResourcePolicy {
+    pub const fn resources(&self) -> ActionResourcePolicy {
         self.resources
     }
 }

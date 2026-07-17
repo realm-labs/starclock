@@ -8,6 +8,8 @@ pub(crate) enum AllocationKind {
     Action,
     Phase,
     Hit,
+    Operation,
+    Wave,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -30,6 +32,10 @@ pub(crate) enum MutationField {
     ActionGauge,
     TeamSkillPoints,
     UnitEnergy,
+    UnitHp,
+    UnitLife,
+    UnitPresence,
+    Encounter,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -1,6 +1,8 @@
 use crate::{
-    catalog::action::{ActionResourcePolicy, TargetInvalidationPolicy, UnitTargetSelector},
-    id::{AbilityId, ActionId, HitId, PhaseId, TimelineActorId, UnitId},
+    catalog::action::{
+        ActionResourcePolicy, HitOperationDefinition, TargetInvalidationPolicy, UnitTargetSelector,
+    },
+    id::{AbilityId, ActionId, HitId, OperationId, PhaseId, TimelineActorId, UnitId},
     target::model::TargetCommitment,
 };
 
@@ -22,10 +24,17 @@ pub enum ActionOrigin {
     Forced = 5,
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct HitPlan {
     pub(crate) id: HitId,
     pub(crate) invalidation: TargetInvalidationPolicy,
+    pub(crate) operations: Box<[OperationPlan]>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct OperationPlan {
+    pub(crate) id: OperationId,
+    pub(crate) definition: HitOperationDefinition,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

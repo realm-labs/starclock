@@ -132,6 +132,8 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
     }
     e.u32(state.encounter.definition.get());
     e.u64(state.encounter.wave.get());
+    e.u16(state.encounter.number);
+    e.u16(state.encounter.total_waves);
     encode_timeline(&mut e, state);
     e.u8(match state.concede {
         ConcedePolicy::Allowed => 0,
@@ -207,6 +209,7 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
     }
     e.u8(unit.side as u8);
     e.u8(unit.formation.get());
+    e.u16(unit.entry_wave);
     e.u8(unit.level.get());
     e.u8(unit.life as u8);
     e.u8(unit.presence as u8);

@@ -432,6 +432,24 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             id.get(),
             "rule bundles",
         )?;
+        if encounter.waves().is_empty() || encounter.waves().iter().any(|wave| wave.is_empty()) {
+            return Err(error(
+                CatalogBuildErrorKind::InvalidDefinition,
+                format!(
+                    "encounter definition {} requires non-empty ordered waves",
+                    id.get()
+                ),
+            ));
+        }
+        for wave in encounter.waves() {
+            require_all(
+                wave,
+                |value| catalog.enemies.get(value).is_some(),
+                DefinitionKind::Encounter,
+                id.get(),
+                DefinitionKind::Enemy,
+            )?;
+        }
         require_all(
             encounter.enemies(),
             |value| catalog.enemies.get(value).is_some(),

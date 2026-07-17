@@ -100,6 +100,13 @@ impl Cause {
         }
     }
 
+    pub(crate) const fn with_applier(self, applier: UnitId) -> Self {
+        Self {
+            applier: Some(applier),
+            ..self
+        }
+    }
+
     /// Returns the immediate event that caused this fact.
     #[must_use]
     pub const fn parent_event(self) -> Option<EventId> {

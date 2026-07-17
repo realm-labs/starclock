@@ -67,6 +67,8 @@ impl<'a> BattleView<'a> {
         EncounterView {
             definition: self.state.encounter.definition,
             wave: self.state.encounter.wave,
+            number: self.state.encounter.number,
+            total_waves: self.state.encounter.total_waves,
         }
     }
     /// Iterates active unit records in stable runtime-ID order.
@@ -277,6 +279,11 @@ impl<'a> UnitView<'a> {
     pub const fn formation(self) -> FormationIndex {
         self.state.formation
     }
+    /// Returns the one-based encounter wave in which this unit enters.
+    #[must_use]
+    pub const fn entry_wave(self) -> u16 {
+        self.state.entry_wave
+    }
     /// Returns the checked level.
     #[must_use]
     pub const fn level(self) -> UnitLevel {
@@ -428,6 +435,8 @@ impl TeamView<'_> {
 pub struct EncounterView {
     definition: EncounterId,
     wave: WaveInstanceId,
+    number: u16,
+    total_waves: u16,
 }
 
 impl EncounterView {
@@ -440,5 +449,15 @@ impl EncounterView {
     #[must_use]
     pub const fn wave(self) -> WaveInstanceId {
         self.wave
+    }
+    /// Returns the one-based current wave number.
+    #[must_use]
+    pub const fn number(self) -> u16 {
+        self.number
+    }
+    /// Returns the immutable total number of encounter waves.
+    #[must_use]
+    pub const fn total_waves(self) -> u16 {
+        self.total_waves
     }
 }

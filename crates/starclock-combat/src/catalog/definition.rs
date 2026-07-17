@@ -138,7 +138,7 @@ impl AbilityDefinition {
     }
     /// Attaches a validated finite action definition.
     #[must_use]
-    pub const fn with_action(mut self, action: AbilityActionDefinition) -> Self {
+    pub fn with_action(mut self, action: AbilityActionDefinition) -> Self {
         self.action = Some(action);
         self
     }
@@ -164,8 +164,8 @@ impl AbilityDefinition {
     }
     /// Returns the executable action definition, if this ability owns one.
     #[must_use]
-    pub const fn action(&self) -> Option<AbilityActionDefinition> {
-        self.action
+    pub const fn action(&self) -> Option<&AbilityActionDefinition> {
+        self.action.as_ref()
     }
 }
 
@@ -366,6 +366,7 @@ impl EnemyDefinition {
 pub struct EncounterDefinition {
     id: EncounterId,
     enemies: Box<[EnemyDefinitionId]>,
+    waves: Box<[Box<[EnemyDefinitionId]>]>,
     rule_bundles: Box<[RuleBundleId]>,
 }
 
@@ -379,9 +380,30 @@ impl EncounterDefinition {
     ) -> Self {
         Self {
             id,
+            waves: vec![enemies.clone().into_boxed_slice()].into_boxed_slice(),
             enemies: enemies.into_boxed_slice(),
             rule_bundles: rule_bundles.into_boxed_slice(),
         }
+    }
+    /// Replaces the default one-wave layout with ordered non-empty waves.
+    #[must_use]
+    pub fn with_waves(mut self, waves: Vec<Vec<EnemyDefinitionId>>) -> Option<Self> {
+        if waves.is_empty()
+            || waves.len() > usize::from(u16::MAX)
+            || waves.iter().any(Vec::is_empty)
+        {
+            return None;
+        }
+        let mut enemies = waves.iter().flatten().copied().collect::<Vec<_>>();
+        enemies.sort_unstable();
+        enemies.dedup();
+        self.enemies = enemies.into_boxed_slice();
+        self.waves = waves
+            .into_iter()
+            .map(Vec::into_boxed_slice)
+            .collect::<Vec<_>>()
+            .into_boxed_slice();
+        Some(self)
     }
     /// Returns the stable definition ID.
     #[must_use]
@@ -392,6 +414,18 @@ impl EncounterDefinition {
     #[must_use]
     pub fn enemies(&self) -> &[EnemyDefinitionId] {
         &self.enemies
+    }
+    /// Returns ordered waves; each wave preserves authored enemy occurrence order.
+    #[must_use]
+    pub fn waves(&self) -> &[Box<[EnemyDefinitionId]>] {
+        &self.waves
+    }
+    /// Returns exact enemy occurrences for one-based wave number.
+    #[must_use]
+    pub fn wave_enemies(&self, number: u16) -> Option<&[EnemyDefinitionId]> {
+        self.waves
+            .get(usize::from(number.checked_sub(1)?))
+            .map(AsRef::as_ref)
     }
     /// Returns the canonical encounter-rule set.
     #[must_use]

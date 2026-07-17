@@ -1,6 +1,7 @@
 use crate::{
     action::model::ActionPlan,
     battle::fault::BattleFault,
+    catalog::action::HitOperationDefinition,
     event::{
         cause::{Cause, CauseActor},
         model::{
@@ -8,9 +9,13 @@ use crate::{
         },
     },
     id::{CommandId, EventId, SourceDefinitionId},
+    operation::{DamageOp, HealOp, Operation},
 };
 
-use super::transaction::{Transaction, action_fault};
+use super::{
+    operation::execute_operation,
+    transaction::{Transaction, action_fault},
+};
 
 pub(super) fn execute_action_plan(
     txn: &mut Transaction<'_>,
@@ -76,6 +81,22 @@ pub(super) fn execute_action_plan(
                     targets: targets.clone(),
                 }),
             );
+            for operation in &hit.operations {
+                let request = match operation.definition {
+                    HitOperationDefinition::Damage(formula) => Operation::Damage(DamageOp {
+                        id: operation.id,
+                        targets: targets.clone(),
+                        formula,
+                    }),
+                    HitOperationDefinition::Heal(formula) => Operation::Heal(HealOp {
+                        id: operation.id,
+                        targets: targets.clone(),
+                        formula,
+                    }),
+                };
+                parent =
+                    execute_operation(txn, hit_cause.with_applier(plan.actor), parent, request)?;
+            }
             parent = txn.emit(
                 hit_cause.with_parent(parent),
                 BattleEventKind::Hit(HitEventData::Ended {

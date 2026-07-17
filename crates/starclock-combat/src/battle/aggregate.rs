@@ -64,9 +64,14 @@ impl Battle {
                 source: participant.source(),
                 side: participant.side(),
                 formation: participant.formation(),
+                entry_wave: participant.wave(),
                 level: combatant.level(),
                 life: LifeState::Alive,
-                presence: PresenceState::Present,
+                presence: if participant.side() == TeamSide::Enemy && participant.wave() > 1 {
+                    PresenceState::Reserved
+                } else {
+                    PresenceState::Present
+                },
                 current_hp: combatant.maximum_hp(),
                 maximum_hp: combatant.maximum_hp(),
                 current_energy: combatant.current_energy(),
@@ -122,6 +127,15 @@ impl Battle {
             encounter: EncounterState {
                 definition: spec.encounter(),
                 wave,
+                number: 1,
+                total_waves: u16::try_from(
+                    catalog
+                        .encounter(spec.encounter())
+                        .expect("battle build validation resolved encounter")
+                        .waves()
+                        .len(),
+                )
+                .expect("catalog encounter wave count is bounded by u16"),
             },
             timeline: crate::timeline::state::TimelineState::default(),
             concede: spec.concede_policy(),

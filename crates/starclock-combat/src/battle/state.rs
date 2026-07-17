@@ -1,8 +1,8 @@
 use crate::{
     catalog::{CatalogDigest, CatalogRevision},
     id::{
-        ActionId, CommandId, DecisionId, EncounterId, EventId, HitId, PhaseId, SpawnSequence,
-        TimelineActorId, UnitId, WaveInstanceId,
+        ActionId, CommandId, DecisionId, EncounterId, EventId, HitId, OperationId, PhaseId,
+        SpawnSequence, TimelineActorId, UnitId, WaveInstanceId,
     },
     rng::{engine::DeterministicRng, types::RngSeed},
 };
@@ -31,6 +31,8 @@ pub(crate) struct BattleIdentity {
 pub(crate) struct EncounterState {
     pub(crate) definition: EncounterId,
     pub(crate) wave: WaveInstanceId,
+    pub(crate) number: u16,
+    pub(crate) total_waves: u16,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -45,6 +47,7 @@ pub(crate) struct SequenceState {
     next_action: u64,
     next_phase: u64,
     next_hit: u64,
+    next_operation: u64,
 }
 
 impl SequenceState {
@@ -60,6 +63,7 @@ impl SequenceState {
             next_action: 1,
             next_phase: 1,
             next_hit: 1,
+            next_operation: 1,
         }
     }
 
@@ -77,6 +81,10 @@ impl SequenceState {
 
     pub(crate) fn wave(&mut self) -> WaveInstanceId {
         allocate(&mut self.next_wave, WaveInstanceId::new)
+    }
+
+    pub(crate) fn try_wave(&mut self) -> Option<WaveInstanceId> {
+        try_allocate(&mut self.next_wave, WaveInstanceId::new)
     }
 
     pub(crate) fn decision(&mut self) -> DecisionId {
@@ -107,7 +115,11 @@ impl SequenceState {
         try_allocate(&mut self.next_hit, HitId::new)
     }
 
-    pub(crate) const fn canonical_next_values(&self) -> [u64; 10] {
+    pub(crate) fn try_operation(&mut self) -> Option<OperationId> {
+        try_allocate(&mut self.next_operation, OperationId::new)
+    }
+
+    pub(crate) const fn canonical_next_values(&self) -> [u64; 11] {
         [
             self.next_unit,
             self.next_actor,
@@ -119,6 +131,7 @@ impl SequenceState {
             self.next_action,
             self.next_phase,
             self.next_hit,
+            self.next_operation,
         ]
     }
 }

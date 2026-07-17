@@ -272,6 +272,7 @@ mod tests {
             source: ParticipantSource::Player,
             side,
             formation: FormationIndex::new(formation).unwrap(),
+            entry_wave: 1,
             level: UnitLevel::new(80).unwrap(),
             life: LifeState::Alive,
             presence: PresenceState::Present,

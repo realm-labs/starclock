@@ -28,6 +28,10 @@ pub enum BattleBuildErrorKind {
     EnemyNotInEncounter,
     /// Enemy source and resolved unit form disagree.
     EnemyFormMismatch,
+    /// Enemy source is not authorized for its declared encounter wave.
+    EnemyNotInWave,
+    /// Every authored encounter wave requires at least one participant.
+    MissingWaveParticipant,
 }
 
 /// Deterministic catalog/spec composition failure.
@@ -137,6 +141,35 @@ pub(crate) fn validate(catalog: &CombatCatalog, spec: &BattleSpec) -> Result<(),
             }
         }
         validate_source(catalog, encounter.enemies(), index, participant)?;
+        if participant.side() == TeamSide::Enemy
+            && !encounter
+                .wave_enemies(participant.wave())
+                .is_some_and(|wave| match participant.source() {
+                    ParticipantSource::EncounterEnemy(enemy) => wave.contains(&enemy),
+                    ParticipantSource::Player => false,
+                })
+        {
+            return Err(BattleBuildError::new(
+                BattleBuildErrorKind::EnemyNotInWave,
+                Some(index),
+                match participant.source() {
+                    ParticipantSource::Player => None,
+                    ParticipantSource::EncounterEnemy(enemy) => Some(enemy.get()),
+                },
+            ));
+        }
+    }
+    for number in 1..=encounter.waves().len() {
+        let number = u16::try_from(number).expect("encounter wave count is bounded by u16");
+        if !spec.participants().iter().any(|participant| {
+            participant.side() == TeamSide::Enemy && participant.wave() == number
+        }) {
+            return Err(BattleBuildError::new(
+                BattleBuildErrorKind::MissingWaveParticipant,
+                None,
+                Some(u32::from(number)),
+            ));
+        }
     }
     Ok(())
 }

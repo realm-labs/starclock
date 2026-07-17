@@ -322,6 +322,7 @@ impl std::error::Error for CombatantSpecError {}
 pub struct ParticipantSpec {
     side: TeamSide,
     formation: FormationIndex,
+    wave: u16,
     source: ParticipantSource,
     combatant: ResolvedCombatantSpec,
 }
@@ -338,8 +339,20 @@ impl ParticipantSpec {
         Self {
             side,
             formation,
+            wave: 1,
             source,
             combatant,
+        }
+    }
+
+    /// Assigns an encounter enemy to a one-based wave; players remain wave one.
+    #[must_use]
+    pub fn with_wave(mut self, wave: u16) -> Option<Self> {
+        if wave == 0 || (matches!(self.side, TeamSide::Player) && wave != 1) {
+            None
+        } else {
+            self.wave = wave;
+            Some(self)
         }
     }
 
@@ -352,6 +365,11 @@ impl ParticipantSpec {
     #[must_use]
     pub const fn formation(&self) -> FormationIndex {
         self.formation
+    }
+    /// Returns the one-based encounter entry wave.
+    #[must_use]
+    pub const fn wave(&self) -> u16 {
+        self.wave
     }
     /// Returns the encounter/player source binding.
     #[must_use]
@@ -434,11 +452,12 @@ impl BattleSpec {
         if participants.len() > MAX_INITIAL_PARTICIPANTS {
             return Err(BattleSpecError::TooManyParticipants);
         }
-        participants.sort_by_key(|entry| (entry.side, entry.formation));
-        if participants
-            .windows(2)
-            .any(|pair| pair[0].side == pair[1].side && pair[0].formation == pair[1].formation)
-        {
+        participants.sort_by_key(|entry| (entry.wave, entry.side, entry.formation));
+        if participants.windows(2).any(|pair| {
+            pair[0].wave == pair[1].wave
+                && pair[0].side == pair[1].side
+                && pair[0].formation == pair[1].formation
+        }) {
             return Err(BattleSpecError::DuplicateFormation);
         }
         if participants.iter().any(|entry| {

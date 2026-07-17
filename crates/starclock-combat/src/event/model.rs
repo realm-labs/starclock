@@ -2,7 +2,10 @@ use crate::{
     action::model::ActionOrigin,
     battle::{fault::BattleFault, spec::TeamSide},
     command::model::{DecisionKind, DecisionOwner},
-    id::{AbilityId, ActionId, DecisionId, EventId, HitId, PhaseId, TimelineActorId, UnitId},
+    id::{
+        AbilityId, ActionId, DecisionId, EventId, HitId, OperationId, PhaseId, TimelineActorId,
+        UnitId, WaveInstanceId,
+    },
 };
 
 use super::cause::Cause;
@@ -53,10 +56,76 @@ pub enum BattleEventKind {
     Phase(PhaseEventData),
     /// Authored hit lifecycle fact.
     Hit(HitEventData),
+    /// Completed HP-damage mutation fact.
+    Damage(DamageEventData),
+    /// Completed HP-restoration mutation fact.
+    Heal(HealEventData),
+    /// Unit life-cycle mutation fact.
+    Unit(UnitEventData),
+    /// Encounter-wave boundary fact.
+    Wave(WaveEventData),
     /// Team or personal resource mutation fact.
     Resource(ResourceEventData),
     /// Deterministic internal failure fact.
     Fault(FaultEventData),
+}
+
+/// Ordinary damage calculation and the bounded HP mutation it produced.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct DamageEventData {
+    /// Authored operation instance that produced this target mutation.
+    pub operation: OperationId,
+    /// Unit whose HP changed.
+    pub target: UnitId,
+    /// Fixed-point result before integral finalization.
+    pub raw: crate::Scalar,
+    /// Floored formula result before current-HP bounds.
+    pub calculated: crate::DamageAmount,
+    /// Effective HP loss after current-HP bounds.
+    pub applied: crate::DamageAmount,
+    /// HP immediately before this operation.
+    pub hp_before: crate::Hp,
+    /// HP immediately after this operation.
+    pub hp_after: crate::Hp,
+}
+
+/// Healing calculation and effective bounded HP restoration.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct HealEventData {
+    /// Authored operation instance that produced this target mutation.
+    pub operation: OperationId,
+    /// Unit whose HP changed.
+    pub target: UnitId,
+    /// Fixed-point result before integral finalization.
+    pub raw: crate::Scalar,
+    /// Floored formula result before missing-HP bounds.
+    pub calculated: crate::HealingAmount,
+    /// Effective HP restoration after missing-HP bounds.
+    pub effective: crate::HealingAmount,
+    /// Calculated healing discarded by the maximum-HP bound.
+    pub overheal: crate::HealingAmount,
+    /// HP immediately before this operation.
+    pub hp_before: crate::Hp,
+    /// HP immediately after this operation.
+    pub hp_after: crate::Hp,
+}
+
+/// Immediate zero-HP settlement facts before encounter settlement.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum UnitEventData {
+    /// A zero-HP unit entered the replacement/revival boundary.
+    Downed { unit: UnitId },
+    /// A still-downed unit settled as defeated with explicit credit.
+    Defeated { unit: UnitId, credited_to: UnitId },
+}
+
+/// Stable encounter wave lifecycle facts.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum WaveEventData {
+    /// The current hostile wave completed at the action boundary.
+    Ended { wave: WaveInstanceId, number: u16 },
+    /// The next reserved hostile wave became present.
+    Started { wave: WaveInstanceId, number: u16 },
 }
 
 /// Normal timeline-turn facts.
@@ -147,6 +216,10 @@ pub enum BattleEventData {
     Started,
     /// An offered concession ended the battle for one side.
     Conceded { side: TeamSide },
+    /// All required hostile waves were defeated.
+    Won,
+    /// No controllable player combatant remained alive.
+    Lost,
 }
 
 /// External decision facts emitted in canonical sequence.

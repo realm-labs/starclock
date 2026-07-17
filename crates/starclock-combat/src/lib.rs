@@ -13,8 +13,10 @@ pub mod catalog;
 mod codec;
 mod command;
 mod event;
+mod formula;
 mod id;
 mod numeric;
+mod operation;
 mod resolver;
 mod resource;
 pub mod rng;
@@ -60,8 +62,9 @@ pub use command::model::{
 };
 pub use event::cause::{Cause, CauseActor};
 pub use event::model::{
-    ActionEventData, BattleEvent, BattleEventData, BattleEventKind, DecisionEventData,
-    FaultEventData, HitEventData, PhaseEventData, ResourceEventData, TurnEventData,
+    ActionEventData, BattleEvent, BattleEventData, BattleEventKind, DamageEventData,
+    DecisionEventData, FaultEventData, HealEventData, HitEventData, PhaseEventData,
+    ResourceEventData, TurnEventData, UnitEventData, WaveEventData,
 };
 pub use timeline::state::InterruptWindowKind;
 

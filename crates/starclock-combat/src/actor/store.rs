@@ -17,6 +17,7 @@ pub(crate) struct UnitState {
     pub(crate) source: ParticipantSource,
     pub(crate) side: TeamSide,
     pub(crate) formation: FormationIndex,
+    pub(crate) entry_wave: u16,
     pub(crate) level: UnitLevel,
     pub(crate) life: LifeState,
     pub(crate) presence: PresenceState,

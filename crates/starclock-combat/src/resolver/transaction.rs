@@ -11,13 +11,16 @@ use crate::{
     codec::{BattleStateHash, hash_state},
     command::{legal, model::DecisionPoint, validate::ValidatedCommand},
     event::{
-        cause::Cause,
+        cause::{Cause, CauseActor},
         model::{
             BattleEvent, BattleEventData, BattleEventKind, DecisionEventData, FaultEventData,
             TurnEventData,
         },
     },
-    id::{ActionId, CommandId, DecisionId, EventId, HitId, PhaseId, TimelineActorId},
+    id::{
+        ActionId, CommandId, DecisionId, EventId, HitId, OperationId, PhaseId, SourceDefinitionId,
+        TimelineActorId, WaveInstanceId,
+    },
     numeric::domain::ActionGauge,
     rng::types::DrawPurpose,
     target::select,
@@ -31,6 +34,7 @@ use crate::{
 use super::{
     action::execute_action_plan,
     journal::{AllocationKind, MutationField, MutationJournal, phase_code},
+    settle::{ActionBoundary, settle_after_action},
 };
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -204,6 +208,7 @@ fn execute(
             let mut plan = lower_normal_action(catalog, txn, actor, turn.actor, ability, targets)
                 .ok_or_else(|| action_fault(5))?;
             let action_resolved = execute_action_plan(txn, root, closed, &mut plan)?;
+            let boundary_cause = action_cause(root, &plan)?;
             txn.set_actor_gauge(
                 turn.actor,
                 ActionGauge::from_scaled(10_000_000_000).map_err(|_| action_fault(6))?,
@@ -216,7 +221,11 @@ fn execute(
                 }),
             );
             txn.set_active_turn(None);
-            begin_turn(catalog, txn, root, ended)?;
+            if let ActionBoundary::Continue(parent) =
+                settle_after_action(txn, boundary_cause, ended)?
+            {
+                begin_turn(catalog, txn, root, parent)?;
+            }
         }
         ValidatedCommand::UseInterrupt {
             actor,
@@ -231,7 +240,12 @@ fn execute(
             let mut plan = lower_interrupt_action(catalog, txn, actor, ability, targets)
                 .ok_or_else(|| action_fault(12))?;
             let resolved = execute_action_plan(txn, root, closed, &mut plan)?;
-            offer_interrupt_decision(catalog, txn, root, resolved)?;
+            let boundary_cause = action_cause(root, &plan)?;
+            if let ActionBoundary::Continue(parent) =
+                settle_after_action(txn, boundary_cause, resolved)?
+            {
+                offer_interrupt_decision(catalog, txn, root, parent)?;
+            }
         }
         ValidatedCommand::Concede => {
             let closed = close_active_decision(txn, root)?;
@@ -248,6 +262,22 @@ fn execute(
     maybe_inject(injection, FaultInjectionPoint::AfterCommandMutation)?;
     txn.bump_revision()?;
     Ok(())
+}
+
+fn action_cause(
+    root: CommandId,
+    plan: &crate::action::model::ActionPlan,
+) -> Result<Cause, BattleFault> {
+    let source = SourceDefinitionId::new(plan.ability.get()).ok_or_else(|| action_fault(42))?;
+    Ok(Cause::for_action(
+        root,
+        plan.id,
+        plan.actor,
+        CauseActor::Unit(plan.actor),
+        source,
+    )
+    .with_primary_target(plan.targets.primary)
+    .with_applier(plan.actor))
 }
 
 fn commit_targets(
@@ -489,7 +519,27 @@ impl<'a> Transaction<'a> {
         id
     }
 
-    fn set_phase(&mut self, phase: BattlePhase) {
+    fn allocate_operation(&mut self) -> OperationId {
+        let id = self
+            .state
+            .sequences
+            .try_operation()
+            .expect("rules-revision operation budget prevents u64 identity exhaustion");
+        self.journal.allocation(AllocationKind::Operation, id.get());
+        id
+    }
+
+    pub(super) fn allocate_wave(&mut self) -> WaveInstanceId {
+        let id = self
+            .state
+            .sequences
+            .try_wave()
+            .expect("rules-revision wave budget prevents u64 identity exhaustion");
+        self.journal.allocation(AllocationKind::Wave, id.get());
+        id
+    }
+
+    pub(super) fn set_phase(&mut self, phase: BattlePhase) {
         let before = self.state.phase;
         if before != phase {
             self.state.phase = phase;
@@ -498,7 +548,7 @@ impl<'a> Transaction<'a> {
         }
     }
 
-    fn set_decision(&mut self, decision: Option<DecisionPoint>) {
+    pub(super) fn set_decision(&mut self, decision: Option<DecisionPoint>) {
         let before = self
             .state
             .decision
@@ -521,7 +571,7 @@ impl<'a> Transaction<'a> {
         }
     }
 
-    fn set_active_turn(&mut self, turn: Option<NormalTurnState>) {
+    pub(super) fn set_active_turn(&mut self, turn: Option<NormalTurnState>) {
         let before = self
             .state
             .timeline
@@ -535,7 +585,7 @@ impl<'a> Transaction<'a> {
         }
     }
 
-    fn set_interrupt(&mut self, interrupt: Option<InterruptWindowState>) {
+    pub(super) fn set_interrupt(&mut self, interrupt: Option<InterruptWindowState>) {
         let before = self
             .state
             .timeline
@@ -608,6 +658,79 @@ impl<'a> Transaction<'a> {
         Ok(())
     }
 
+    pub(super) fn set_hp(
+        &mut self,
+        unit: crate::UnitId,
+        value: crate::Hp,
+    ) -> Result<(), BattleFault> {
+        let state = self
+            .state
+            .units
+            .get_mut(unit)
+            .ok_or_else(|| action_fault(33))?;
+        let before = state.current_hp;
+        if before != value {
+            state.current_hp = value;
+            self.journal.mutation(
+                MutationField::UnitHp,
+                before.get().cast_unsigned(),
+                value.get().cast_unsigned(),
+            );
+        }
+        Ok(())
+    }
+
+    pub(super) fn set_life(
+        &mut self,
+        unit: crate::UnitId,
+        value: crate::LifeState,
+    ) -> Result<(), BattleFault> {
+        let state = self
+            .state
+            .units
+            .get_mut(unit)
+            .ok_or_else(|| action_fault(34))?;
+        let before = state.life;
+        if before != value {
+            state.life = value;
+            self.journal
+                .mutation(MutationField::UnitLife, before as u64, value as u64);
+        }
+        Ok(())
+    }
+
+    pub(super) fn set_presence(
+        &mut self,
+        unit: crate::UnitId,
+        value: crate::PresenceState,
+    ) -> Result<(), BattleFault> {
+        let state = self
+            .state
+            .units
+            .get_mut(unit)
+            .ok_or_else(|| action_fault(35))?;
+        let before = state.presence;
+        if before != value {
+            state.presence = value;
+            self.journal
+                .mutation(MutationField::UnitPresence, before as u64, value as u64);
+        }
+        Ok(())
+    }
+
+    pub(super) fn set_encounter_wave(&mut self, wave: WaveInstanceId, number: u16) {
+        let before = self.state.encounter.number;
+        if self.state.encounter.wave != wave || before != number {
+            self.state.encounter.wave = wave;
+            self.state.encounter.number = number;
+            self.journal.mutation(
+                MutationField::Encounter,
+                u64::from(before),
+                u64::from(number),
+            );
+        }
+    }
+
     pub(super) fn resolve_hit_targets(
         &mut self,
         actor: crate::UnitId,
@@ -655,6 +778,10 @@ impl<'a> Transaction<'a> {
         id
     }
 
+    pub(super) fn snapshot(&mut self, operation: OperationId) {
+        self.journal.snapshot(operation.get());
+    }
+
     fn commit_fault(mut self, root: CommandId, fault: BattleFault) -> Vec<BattleEvent> {
         self.set_decision(None);
         self.set_interrupt(None);
@@ -685,6 +812,10 @@ impl ActionIdentityAllocator for Transaction<'_> {
 
     fn hit(&mut self) -> HitId {
         self.allocate_hit()
+    }
+
+    fn operation(&mut self) -> OperationId {
+        self.allocate_operation()
     }
 }
 
