@@ -1,0 +1,17 @@
+{
+  "schema_revision": "starclock.repository-checks.v1",
+  "rust_source": {
+    "roots": ["crates"],
+    "maximum_handwritten_lines": 1200,
+    "maximum_facade_lines": 200,
+    "excluded_roots": [],
+    "line_limit_exceptions": [],
+    "allowed_public_reexports": [
+      {
+        "path": "crates/starclock-combat/src/lib.rs",
+        "reason": "Deliberate small external facade over private ID and numeric representation modules."
+      }
+    ],
+    "forbidden_public_api_tokens": ["fixnum::", "FixedPoint", "sora::"]
+  }
+}

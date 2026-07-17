@@ -1,7 +1,12 @@
+import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 
 const root = path.resolve(process.cwd());
+const workspaceManifest = read(path.join(root, "Cargo.toml"));
+assert(/\[workspace\.lints\.rust\][\s\S]*?unsafe_code\s*=\s*"forbid"/.test(workspaceManifest), "workspace must forbid unsafe Rust");
+assert(/\[workspace\.lints\.rust\][\s\S]*?unexpected_cfgs\s*=\s*"deny"/.test(workspaceManifest), "workspace must deny unexpected cfg values");
+assert(/\[workspace\.lints\.rust\][\s\S]*?unused_must_use\s*=\s*"deny"/.test(workspaceManifest), "workspace must deny unused must-use results");
 const expected = new Map([
   ["starclock-combat", []],
   ["starclock-build", ["starclock-combat"]],
@@ -32,6 +37,8 @@ for (const pkg of packages) {
   assert(Array.isArray(pkg.publish) && pkg.publish.length === 0, `${pkg.name} must inherit publish = false`);
   const manifestDirectory = normalize(path.dirname(pkg.manifest_path));
   assert(manifestDirectory === normalize(path.join(root, "crates", pkg.name)), `${pkg.name} is outside its required crate directory`);
+  const manifest = read(pkg.manifest_path);
+  assert(/\[lints\]\s*workspace\s*=\s*true/.test(manifest), `${pkg.name} must inherit workspace lints`);
   const localDependencies = pkg.dependencies
     .filter((dependency) => dependency.source === null)
     .map((dependency) => dependency.name)
@@ -61,4 +68,5 @@ assert(JSON.stringify(cliBinaries) === JSON.stringify(["starclock"]), "starclock
 console.log("Workspace dependency boundaries verified (9 crates; combat has only private fixnum backend).");
 
 function normalize(value) { return path.resolve(value).replaceAll("\\", "/").toLowerCase(); }
+function read(file) { return fs.readFileSync(file, "utf8"); }
 function assert(condition, message) { if (!condition) throw new Error(message); }

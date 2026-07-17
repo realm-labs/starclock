@@ -9,3 +9,12 @@ publish = false
 
 [workspace.dependencies]
 fixnum = { version = "=0.9.5", default-features = false, features = ["i64", "std"] }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+unexpected_cfgs = "deny"
+unused_must_use = "deny"
+
+[workspace.lints.clippy]
+dbg_macro = "deny"
+todo = "deny"

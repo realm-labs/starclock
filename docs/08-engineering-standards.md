@@ -200,6 +200,20 @@ Once the workspace is created, configure shared lints at the workspace root. At 
 
 A CI file-size check must fail when a handwritten `.rs` file exceeds 1,200 physical lines. It must exclude only explicit generated/vendor paths, not arbitrary filename patterns.
 
+The pinned local entry point is:
+
+```text
+node tools/repository-check/run.mjs
+```
+
+It runs the minimum Rust gate together with the reviewed dependency direction,
+visibility/facade, source-size and generated-artifact checks. Generated or
+vendored source exclusions and handwritten exceptions are valid only when their
+exact paths and review reasons appear in `policy/repository-checks.json`. The
+ignored Phase 0 evidence caches can be included with `--with-source-cache`; they
+are not required clean-checkout inputs. CI invokes this same entry point rather
+than maintaining a second command list.
+
 ## Review checklist
 
 Before merging a Rust change, verify:

@@ -1,0 +1,42 @@
+{
+  "schema_revision": "starclock.generated-drift.v1",
+  "checks": [
+    {
+      "name": "prepared content-reference integrity",
+      "command": ["node", "tools/content-reference/verify.mjs", "content-reference/v4.4"]
+    },
+    {
+      "name": "frozen goal manifest drift",
+      "command": ["node", "tools/goal-manifest/generate.mjs", "--check"]
+    },
+    {
+      "name": "frozen goal manifest integrity",
+      "command": ["node", "tools/goal-manifest/verify.mjs"]
+    },
+    {
+      "name": "reference-binding evidence integrity",
+      "command": ["node", "tools/goal-provenance/verify.mjs"]
+    },
+    {
+      "name": "research-register drift",
+      "command": ["node", "tools/goal-research/generate.mjs", "--check"]
+    },
+    {
+      "name": "research-register integrity",
+      "command": ["node", "tools/goal-research/verify.mjs"]
+    },
+    {
+      "name": "goal-coverage drift",
+      "command": ["node", "tools/goal-coverage/generate.mjs", "--check"]
+    },
+    {
+      "name": "goal-coverage integrity",
+      "command": ["node", "tools/goal-coverage/verify.mjs"]
+    },
+    {
+      "name": "cached source and prepared-pack regeneration",
+      "command": ["node", "tools/goal-provenance/generate.mjs", "--check"],
+      "requires": "source-cache"
+    }
+  ]
+}
