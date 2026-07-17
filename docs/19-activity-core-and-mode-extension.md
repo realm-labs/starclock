@@ -1,25 +1,25 @@
 # Activity Core and Mode Extension
 
-This document is normative for every layer above a single battle. It replaces separate generic `run-core` and `challenge-core` state machines with one deterministic `activity-core`. Standard encounters, rotating challenges, Simulated Universe families, combat events, survival modes, boss rushes, drafting modes, and future rule sets are profiles over the same activity model.
+This document is normative for every layer above a single battle. It replaces separate generic `run-core` and `challenge-core` state machines with one deterministic `starclock-activity`. Standard encounters, rotating challenges, Simulated Universe families, combat events, survival modes, boss rushes, drafting modes, and future rule sets are profiles over the same activity model.
 
 ## Design objective
 
-`combat-core` answers one question: given a validated `BattleSpec`, state, seed, and legal command, what ordered battle events and new state result?
+`starclock-combat` answers one question: given a validated `BattleSpec`, state, seed, and legal command, what ordered battle events and new state result?
 
-`activity-core` answers a different question: which battles and nonbattle decisions occur, what participants/resources/clocks/scores persist between them, and when is the activity complete?
+`starclock-activity` answers a different question: which battles and nonbattle decisions occur, what participants/resources/clocks/scores persist between them, and when is the activity complete?
 
 ```text
-                       combat-core
+                       starclock-combat
               BattleSpec |     | BattleResult
                          v     v
-                       activity-core
+                       starclock-activity
           graph / scopes / roster / clocks / metrics /
           objectives / decisions / persistence / hash
              ^               ^                ^
              |               |                |
-      mode-standard   mode-challenge   mode-universe
+      starclock-mode-standard   starclock-mode-challenge   starclock-mode-universe
              \               |                /
-                      mode-event/future
+                      starclock-mode-event/future
 ```
 
 Mode crates provide definitions, rule bundles, validation, and optional statically registered extensions. They do not own another command processor, RNG implementation, replay format, or battle-result protocol.
@@ -122,7 +122,7 @@ Runtime storage may use a tagged `ActivityValue` union internally, but catalog v
 - whether a form/loadout can change between nodes or attempts;
 - deployment/formation constraints and support slots.
 
-The activity layer validates identity and loadout locks. `combat-core` receives only the final validated deployed units. Future drafting, trial-character events, restricted rosters, team rotation, and borrowed supports therefore do not require changes to battle formulas.
+The activity layer validates identity and loadout locks. `starclock-combat` receives only the final validated deployed units. Future drafting, trial-character events, restricted rosters, team rotation, and borrowed supports therefore do not require changes to battle formulas.
 
 ## Persistence and carry policies
 
@@ -147,7 +147,7 @@ Battle-visible clocks compile into a battle-owned clock binding in `BattleSpec`.
 
 `MetricDefinition` declares a typed accumulator sourced from specific battle/activity events or state projections. `ScoreProgram` combines metrics using checked fixed-point/integer expressions, caps, and explicit rounding. `ObjectiveDefinition` evaluates typed predicates at declared boundaries.
 
-This supports cycle stars, Pure Fiction points, Apocalyptic Shadow boss progress, survival time, damage races, target protection, limited actions, combo/tally events, boss rush totals, and event-specific secondary objectives without introducing mode branches into `combat-core`.
+This supports cycle stars, Pure Fiction points, Apocalyptic Shadow boss progress, survival time, damage races, target protection, limited actions, combo/tally events, boss rush totals, and event-specific secondary objectives without introducing mode branches into `starclock-combat`.
 
 ## Spawn and encounter programs
 
@@ -182,23 +182,23 @@ Activity nodes use a typed operation IR parallel in discipline to the battle rul
 
 Mode-native extensions use a static `ActivityHandlerId` registry. A handler receives read-only validated context and returns ordinary activity operations/options. It cannot mutate state, launch a battle directly, call external services, use untracked RNG, or bypass graph/visit/slot/result validation.
 
-Do not add a new core node kind for one event until composition plus a registered handler has proven insufficient. Do not add `if mode_id == ...` to `activity-core`.
+Do not add a new core node kind for one event until composition plus a registered handler has proven insufficient. Do not add `if mode_id == ...` to `starclock-activity`.
 
 ## Mode profiles
 
 Mode crates are composition libraries and validators:
 
-- `mode-standard`: one Battle node for story, farming, weekly boss, tutorial, and synthetic scenarios.
-- `mode-challenge`: Forgotten Hall, Memory of Chaos, Pure Fiction, Apocalyptic Shadow, and future fixed-stage/score/boss-rush profiles.
-- `mode-universe`: Standard SU, Swarm Disaster, Gold and Gears, Unknowable Domain, and current Divergent Universe.
-- `mode-event`: reusable limited-event profiles such as survival, defense, trial roster, drafting, branching battles, escalating waves, and custom objectives.
+- `starclock-mode-standard`: one Battle node for story, farming, weekly boss, tutorial, and synthetic scenarios.
+- `starclock-mode-challenge`: Forgotten Hall, Memory of Chaos, Pure Fiction, Apocalyptic Shadow, and future fixed-stage/score/boss-rush profiles.
+- `starclock-mode-universe`: Standard SU, Swarm Disaster, Gold and Gears, Unknowable Domain, and current Divergent Universe.
+- `starclock-mode-event`: reusable limited-event profiles such as survival, defense, trial roster, drafting, branching battles, escalating waves, and custom objectives.
 - future modes such as auto-battler/team-building or tournament structures add a profile and, only if necessary, isolated extension handlers.
 
 A profile may define authoring aliases and focused Excel tables, but it compiles to generic activity graph/state/operations plus normal battle rules.
 
 ## Capability boundary
 
-The architecture must support without changing `combat-core`:
+The architecture must support without changing `starclock-combat`:
 
 - single/multi-wave and multi-phase battles;
 - sequential or logically forked multi-team nodes;
@@ -223,21 +223,21 @@ The canonical activity hash includes definition/config digests, phase, graph pos
 The target workspace is:
 
 ```text
-combat-core       single-battle state machine and domain definitions
-activity-core     generic cross-battle workflow and BattleSpec/Result orchestration
-combat-data       Sora records -> validated combat/activity catalogs
-content-rules     static battle/activity native-handler registries
-mode-standard     ordinary encounter profiles
-mode-challenge    fixed-stage, scoring, seasonal challenge profiles
-mode-universe     roguelike universe profiles and unique content types
-mode-event        reusable event/profile extensions when implementation begins
-combat-ai         deterministic battle and activity controllers
-combat-replay     canonical battle/activity codec and verifier
-sim-cli           headless orchestration and diagnostics
+starclock-combat       single-battle state machine and domain definitions
+starclock-activity     generic cross-battle workflow and BattleSpec/Result orchestration
+starclock-data       Sora records -> validated combat/activity catalogs
+starclock-rules     static battle/activity native-handler registries
+starclock-mode-standard     ordinary encounter profiles
+starclock-mode-challenge    fixed-stage, scoring, seasonal challenge profiles
+starclock-mode-universe     roguelike universe profiles and unique content types
+starclock-mode-event        reusable event/profile extensions when implementation begins
+starclock-ai         deterministic battle and activity controllers
+starclock-replay     canonical battle/activity codec and verifier
+starclock-cli           headless orchestration and diagnostics
 engine adapters   Bevy/other presentation integration
 ```
 
-`run-core` and `challenge-core` are not separate target crates. Their generic responsibilities belong to `activity-core`; universe/challenge terminology stays in mode definitions and user-facing APIs only.
+`run-core` and `challenge-core` are not separate target crates. Their generic responsibilities belong to `starclock-activity`; universe/challenge terminology stays in mode definitions and user-facing APIs only.
 
 ## Required tests
 
@@ -249,5 +249,5 @@ engine adapters   Bevy/other presentation integration
 - isolated branch execution order does not affect merged result/hash;
 - retries and checkpoints restore only authored state and derive distinct or reused RNG as declared;
 - one golden profile covers Standard, each classic challenge family, each universe family, survival, boss rush, drafting/trial roster, and continuous spawn;
-- adding a new data-only profile requires no `combat-core` change;
+- adding a new data-only profile requires no `starclock-combat` change;
 - platform golden tests compare activity hashes after every accepted command and battle submission.

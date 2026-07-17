@@ -4,7 +4,7 @@
 
 Each compact profile describes an E0 character with its ordinary Trace behavior. The executable character definition additionally contains level/promotion data, every battle-relevant Trace and Technique, and six ordered Eidolon patches. A profile explains behavior, not final balance values.
 
-Character balance data is authored in Excel and compiled by Sora according to [Excel and Sora configuration pipeline](../07-configuration-pipeline.md). The conceptual types in this document are combat-domain types; generated Sora rows must be converted into them at the `combat-data` boundary.
+Character balance data is authored in Excel and compiled by Sora according to [Excel and Sora configuration pipeline](../07-configuration-pipeline.md). The conceptual types in this document are combat-domain types; generated Sora rows must be converted into them at the `starclock-data` boundary.
 
 Use these four layers:
 

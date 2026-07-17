@@ -10,15 +10,15 @@ These modes are profiles over the generic activity orchestrator rather than a se
 Challenge.xlsx + Activity.xlsx
               |
               v
-        mode-challenge
+        starclock-mode-challenge
               |
      ActivityDefinition + profile metadata
               |
               v
-        activity-core ---- BattleSpec/Result ---- combat-core
+        starclock-activity ---- BattleSpec/Result ---- starclock-combat
 ```
 
-`activity-core` owns team locking, section/node/attempt progression, shared or independent clocks, score/objective aggregation, decisions, result verification, and hashes. `mode-challenge` supplies Standard, Forgotten Hall/Memory of Chaos, Pure Fiction, and Apocalyptic Shadow profiles and validation. It does not fork graph execution, damage, timeline, enemy AI, effect, or Toughness logic.
+`starclock-activity` owns team locking, section/node/attempt progression, shared or independent clocks, score/objective aggregation, decisions, result verification, and hashes. `starclock-mode-challenge` supplies Standard, Forgotten Hall/Memory of Chaos, Pure Fiction, and Apocalyptic Shadow profiles and validation. It does not fork graph execution, damage, timeline, enemy AI, effect, or Toughness logic.
 
 A production ordinary battle is a one-Battle-node Standard activity. Formula tests and low-level tools may still construct `Battle` directly.
 
@@ -44,7 +44,7 @@ Two-team stages use `ParticipantPolicy` with Section-level uniqueness. Each Node
 
 ## Standard battle profile
 
-`mode-standard` provides the default one-Battle-node profile for story, overworld, material, boss, and synthetic test encounters unless another profile is selected.
+`starclock-mode-standard` provides the default one-Battle-node profile for story, overworld, material, boss, and synthetic test encounters unless another profile is selected.
 
 Default semantics are:
 
@@ -56,7 +56,7 @@ Default semantics are:
 - `AfterAction` wave transitions unless the encounter overrides them;
 - initial Skill Points, Energy, HP, Technique entry programs, and persistence are encounter data rather than hidden mode constants.
 
-Standard mode does not mean a single wave or weak enemies. Echo-of-War-style bosses, multi-phase story bosses, farming waves, tutorial restrictions, and original golden fixtures remain Standard encounters with explicit rules. Exploration movement, Technique Point consumption, consumables, and post-battle drops occur outside `combat-core`; only a validated battle-entry program and final result cross the boundary.
+Standard mode does not mean a single wave or weak enemies. Echo-of-War-style bosses, multi-phase story bosses, farming waves, tutorial restrictions, and original golden fixtures remain Standard encounters with explicit rules. Exploration movement, Technique Point consumption, consumables, and post-battle drops occur outside `starclock-combat`; only a validated battle-entry program and final result cross the boundary.
 
 ## Challenge clocks
 

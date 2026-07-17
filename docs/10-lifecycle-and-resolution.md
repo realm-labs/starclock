@@ -43,7 +43,7 @@ A decision point contains its kind, controller owner, stable sequence ID, legal 
 
 Legal commands are values, not callbacks. A controller may select only from this collection. Stable order is part of the replay contract.
 
-Cross-battle route, roster, reward, shop, replacement, and abstract noncombat choices are `ActivityDecisionPoint` values owned by `activity-core`. They follow the same canonical-command rule but cannot appear while a submitted battle is resolving. See [Activity core and mode extension](19-activity-core-and-mode-extension.md).
+Cross-battle route, roster, reward, shop, replacement, and abstract noncombat choices are `ActivityDecisionPoint` values owned by `starclock-activity`. They follow the same canonical-command rule but cannot appear while a submitted battle is resolving. See [Activity core and mode extension](19-activity-core-and-mode-extension.md).
 
 ## Action envelope
 

@@ -1,6 +1,6 @@
 # Rule IR and Native Handlers
 
-This document defines the shared typed rule representation used by characters, equipment, enemies, encounters, and universe modes. Sora tables are transport records; `combat-data` validates and compiles them into this immutable IR.
+This document defines the shared typed rule representation used by characters, equipment, enemies, encounters, and universe modes. Sora tables are transport records; `starclock-data` validates and compiles them into this immutable IR.
 
 ## Design constraints
 
@@ -46,7 +46,7 @@ A state slot declares ID, value type, owner scope, initial expression, minimum/m
 
 `RuleScope` follows the generic hierarchy Activity, Section, Node, Attempt, Battle, Wave, Turn, Action, and Hit. Universe terms such as Run/Plane/Domain and challenge terms such as Stage/Side are authoring aliases compiled to Activity/Section/Node. Runtime and replay formats do not add a new scope enum for each mode.
 
-A slot cannot outlive its owner. Promotion from a shorter to longer scope is forbidden; an explicit typed projection/aggregation operation is required. Activity/Section/Node/Attempt slots are owned by `activity-core`; battle and shorter slots are owned by `combat-core`. Neither core directly mutates the other's state.
+A slot cannot outlive its owner. Promotion from a shorter to longer scope is forbidden; an explicit typed projection/aggregation operation is required. Activity/Section/Node/Attempt slots are owned by `starclock-activity`; battle and shorter slots are owned by `starclock-combat`. Neither core directly mutates the other's state.
 
 Examples include a character counter, once-per-turn marker, boss phase, blessing battle tally, equation threshold, curio activity charge, challenge stage clock, or node-local dice effect. Do not create ad hoc fields in `BattleState` or `ActivityState` for content-specific counters.
 

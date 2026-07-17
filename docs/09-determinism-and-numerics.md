@@ -11,7 +11,7 @@ Three distinct goals must not be conflated:
 | Level | Requirement |
 |---|---|
 | Same binary replay | Mandatory from the first executable milestone. |
-| Cross-platform replay | Mandatory before the combat-core API and configuration schema are declared stable. |
+| Cross-platform replay | Mandatory before the starclock-combat API and configuration schema are declared stable. |
 | Exact parity with the original game's hidden arithmetic | Not guaranteed because its internal precision and rounding boundaries are unpublished; approximate through observed golden vectors. |
 
 Presentation timing, animation frames, wall-clock time, thread scheduling, and engine entity order are not simulation inputs.
@@ -180,7 +180,7 @@ The same `state_hash_revision` family defines a canonical activity digest after 
 
 Do not route authoritative Excel decimals through `f32`/`f64` before fixed-point conversion. Store fixed-point source values as one of:
 
-1. canonical decimal strings such as `"0.25"`, parsed and validated by `combat-data`; or
+1. canonical decimal strings such as `"0.25"`, parsed and validated by `starclock-data`; or
 2. explicitly scaled integers such as `250000` for a six-decimal ratio.
 
 Canonical decimal strings are preferred for designer-facing ratios. Parsing rules are:
@@ -192,7 +192,7 @@ Canonical decimal strings are preferred for designer-facing ratios. Parsing rule
 - checked range and domain validation;
 - canonical debug output without loss of raw value.
 
-Sora performs structural validation; `combat-data` loads `config.sora`, performs decimal parsing and domain validation, and builds immutable combat/activity definitions containing raw fixed-point values. Runtime battles and activities consume only those validated definitions.
+Sora performs structural validation; `starclock-data` loads `config.sora`, performs decimal parsing and domain validation, and builds immutable combat/activity definitions containing raw fixed-point values. Runtime battles and activities consume only those validated definitions.
 
 ## Version pinning
 

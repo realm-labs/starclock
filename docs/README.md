@@ -1,8 +1,8 @@
-# Engine-Agnostic Combat Reference
+# Starclock — Engine-Agnostic Combat Reference
 
-This directory is the execution reference for a Rust reimplementation of the core combat and activity rules inspired by *Honkai: Star Rail*. It deliberately excludes rendering, animation, audio, input widgets, networking, account systems, real-time exploration movement, gacha, account inventory, and copyrighted game assets.
+**Starclock** is a deterministic, engine-agnostic Rust combat and activity simulator. This directory is its execution reference for mechanics inspired by *Honkai: Star Rail*. It deliberately excludes rendering, animation, audio, input widgets, networking, account systems, real-time exploration movement, gacha, account inventory, and copyrighted game assets.
 
-The target is a deterministic, headless battle kernel plus a generic activity orchestrator that can later be driven by Bevy, another engine, a CLI, tests, or a simulation service.
+The target is a headless battle kernel plus a generic activity orchestrator that can later be driven by Bevy, another engine, the `starclock` CLI, tests, or a simulation service.
 
 **Current repository status:** documentation-only. The Rust workspace, Excel workbooks, Sora bundle, full numerical catalogs, and CLI described here are specifications for subsequent implementation, not completed artifacts. See the [documentation coverage matrix](17-documentation-coverage-matrix.md).
 

@@ -10,15 +10,15 @@ Universe modes do not own a second run state machine:
 Universe.xlsx + generic Activity.xlsx
                  |
                  v
-             mode-universe
+             starclock-mode-universe
                  |
        ActivityDefinition + mode components
                  |
                  v
-             activity-core ---- BattleSpec/Result ---- combat-core
+             starclock-activity ---- BattleSpec/Result ---- starclock-combat
 ```
 
-`activity-core` owns graph traversal, generic scopes/slots, participants, inventories, clocks, metrics, decisions, RNG streams, battle handoff, checkpoints, and completion. `mode-universe` owns universe terminology, focused data types, profile compilation, and validation for Audience Dice, Scepters, Equations, and similar systems.
+`starclock-activity` owns graph traversal, generic scopes/slots, participants, inventories, clocks, metrics, decisions, RNG streams, battle handoff, checkpoints, and completion. `starclock-mode-universe` owns universe terminology, focused data types, profile compilation, and validation for Audience Dice, Scepters, Equations, and similar systems.
 
 Mode code may produce generic activity operations and battle `RuleBundle` entries. It may not fork graph execution, command atomicity, formulas, effects, timeline, RNG, replay, or hashing.
 
@@ -96,7 +96,7 @@ Story dialogue, index/achievement rewards, weekly/account payouts, and collectio
 
 ## Profile extensions
 
-`mode-universe` may:
+`starclock-mode-universe` may:
 
 - register focused schemas and compilers for unique content types;
 - generate graph annotations, decisions, modifier inventories, and reward pools;
@@ -122,5 +122,5 @@ For abstract outcomes the controller selects only an offered fixture outcome. Ev
 - BattleSpec/Result identities and projections are complete;
 - graph/reward/battle RNG isolation passes perturbation tests;
 - each family has a seeded end-to-end golden activity covering its primary subsystem;
-- adding a universe data-only profile does not change `activity-core` or `combat-core`;
+- adding a universe data-only profile does not change `starclock-activity` or `starclock-combat`;
 - enabled content reaches 100% of its frozen manifest.

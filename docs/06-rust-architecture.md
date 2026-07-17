@@ -1,37 +1,59 @@
-# Rust Architecture
+# Starclock Rust Architecture
 
 ## Dependency rule
 
-The combat crate must not depend on Bevy or another engine.
+The `starclock-combat` crate must not depend on Bevy or another engine.
 
 ```text
 Excel .xlsx --Sora--> generated Rust + config.sora
                                       |
-                                 combat-data
+                                 starclock-data
                                       |
                            +----------+----------+
                            v                     v
-                      combat-core <-------- activity-core
+                      starclock-combat <-------- starclock-activity
                            ^                     ^
                            |                     |
-                    content-rules      mode-standard / mode-challenge /
-                           |           mode-universe / mode-event
+                    starclock-rules      starclock-mode-standard / starclock-mode-challenge /
+                           |           starclock-mode-universe / starclock-mode-event
                            +----------+----------+
                                       |
-                  combat-ai / combat-replay / sim-cli / engine adapters
+                  starclock-ai / starclock-replay / starclock-cli / engine adapters
 ```
 
-`combat-core` owns exactly one battle: units, formulas, timeline, actions, effects, enemies, waves, events, and battle RNG. `activity-core` owns every cross-battle concern: flow graph, scoped variables, participants/loadouts, decisions, clocks, scores, objectives, persistence, BattleSpec/Result handoff, and activity hashing. Standard battles, rotating challenges, Simulated Universe families, and future events are mode profiles over `activity-core`; they do not introduce new generic state machines. `content-rules` is the static registry for exceptional battle/activity handlers and cannot bypass normal operations or events. `combat-data` converts Sora-generated records into validated immutable combat and activity catalogs.
+`starclock-combat` owns exactly one battle: units, formulas, timeline, actions, effects, enemies, waves, events, and battle RNG. `starclock-activity` owns every cross-battle concern: flow graph, scoped variables, participants/loadouts, decisions, clocks, scores, objectives, persistence, BattleSpec/Result handoff, and activity hashing. Standard battles, rotating challenges, Simulated Universe families, and future events are mode profiles over `starclock-activity`; they do not introduce new generic state machines. `starclock-rules` is the static registry for exceptional battle/activity handlers and cannot bypass normal operations or events. `starclock-data` converts Sora-generated records into validated immutable combat and activity catalogs.
 
 Production entry points construct even an ordinary encounter as a one-Battle-node activity. Formula tests and low-level tools may construct `Battle` directly. Excel is an authoring input only; core crates and engine adapters never read workbooks.
 
 The normative configuration workflow is defined in [Excel and Sora configuration pipeline](07-configuration-pipeline.md).
 
+## Project and crate naming
+
+The project, repository, and command-line executable are named **Starclock** / `starclock`. Every responsibility-specific workspace package uses the `starclock-` prefix so published artifacts remain identifiable and generic names are not occupied. Cargo converts hyphens to underscores in Rust paths.
+
+| Responsibility | Cargo package | Rust path / binary |
+|---|---|---|
+| Single-battle simulation | `starclock-combat` | `starclock_combat` |
+| Cross-battle activity orchestration | `starclock-activity` | `starclock_activity` |
+| Sora loading and catalog compilation | `starclock-data` | `starclock_data` |
+| Exceptional native rule registry | `starclock-rules` | `starclock_rules` |
+| Deterministic controllers | `starclock-ai` | `starclock_ai` |
+| Canonical codec and replay verification | `starclock-replay` | `starclock_replay` |
+| Standard activity profiles | `starclock-mode-standard` | `starclock_mode_standard` |
+| Challenge activity profiles | `starclock-mode-challenge` | `starclock_mode_challenge` |
+| Universe activity profiles | `starclock-mode-universe` | `starclock_mode_universe` |
+| Headless CLI | `starclock-cli` | `starclock` binary |
+| Optional Bevy adapter | `starclock-bevy` | `starclock_bevy` |
+
+Future mode or adapter crates follow `starclock-mode-<name>` and `starclock-<engine>` respectively. Internal modules use concise domain names such as `damage`, `timeline`, or `codec`; they do not repeat the project prefix. The game title is used only when identifying the compatibility target or a research source, never as a Starclock package namespace.
+
+The documentation-only milestone keeps a placeholder root package named `starclock`. When the proposed workspace is created, the repository root becomes a virtual workspace (or a minimal facade if one is genuinely needed), while `starclock-cli` owns the `starclock` executable.
+
 ## Suggested workspace
 
 ```text
 crates/
-  combat-core/
+  starclock-combat/
     src/
       battle.rs
       command.rs
@@ -45,22 +67,22 @@ crates/
       resource.rs
       target.rs
       rng.rs
-  combat-data/
+  starclock-data/
     src/
       generated/       # generated by Sora; never hand-edited
       compile.rs       # generated rows -> validated combat/activity definitions
       validate.rs
       load.rs
-  combat-replay/
-  combat-ai/
-  content-rules/
-  activity-core/
-  mode-standard/
-  mode-challenge/
-  mode-universe/
-  mode-event/             # add when the first reusable event profile is implemented
-  sim-cli/
-  bevy-adapter/          # add only when integration begins
+  starclock-replay/
+  starclock-ai/
+  starclock-rules/
+  starclock-activity/
+  starclock-mode-standard/
+  starclock-mode-challenge/
+  starclock-mode-universe/
+  starclock-mode-event/             # add when the first reusable event profile is implemented
+  starclock-cli/
+  starclock-bevy/          # add only when integration begins
 config/
   project.toml
   schema/
@@ -118,7 +140,7 @@ The activity API mirrors this boundary: `Activity::apply(ActivityCommand) -> Res
 
 ## IDs and authored data
 
-Use small stable newtypes (`UnitId`, `EffectId`, `AbilityId`, `ActionId`) instead of strings in runtime hot paths. Keep stable human-readable keys in Excel and Sora references, then compile them into validated IDs when `combat-data` loads the exported bundle.
+Use small stable newtypes (`UnitId`, `EffectId`, `AbilityId`, `ActionId`) instead of strings in runtime hot paths. Keep stable human-readable keys in Excel and Sora references, then compile them into validated IDs when `starclock-data` loads the exported bundle.
 
 Ability data should describe ordered operations rather than embed scripts for every simple ability:
 
@@ -144,7 +166,7 @@ pub enum AbilityOp {
 
 Native Rust handlers are appropriate for exceptional mechanics, but they should produce the same operations/events and may not mutate arbitrary state behind the resolver. Use a static registry keyed by validated stable handler IDs, not a dynamic plugin ABI or character-ID branches in shared systems. The typed program model is normative in [Rule IR and native handlers](11-rule-ir-and-native-handlers.md).
 
-Do not expose Sora-generated row structs in `combat-core` public APIs. They are transport records at the data boundary, not domain types. This isolates combat rules from Sora schema/codegen changes.
+Do not expose Sora-generated row structs in `starclock-combat` public APIs. They are transport records at the data boundary, not domain types. This isolates combat rules from Sora schema/codegen changes.
 
 ## Stats and modifiers
 
@@ -273,7 +295,7 @@ Validate authored data before constructing a battle or activity:
 - clock, metric, objective, spawn, carry, and BattleResult projections are complete and bounded;
 - mode profiles reference generic activity definitions rather than a private command processor.
 
-Sora performs structural validation while exporting. `combat-data` remains responsible for combat/activity invariants that require understanding event order, flow graphs, projections, operations, native handlers, or cross-table behavior.
+Sora performs structural validation while exporting. `starclock-data` remains responsible for combat/activity invariants that require understanding event order, flow graphs, projections, operations, native handlers, or cross-table behavior.
 
 ## Test strategy
 
@@ -308,8 +330,8 @@ Minimum golden cases before engine integration:
 5. Toughness and the seven Weakness Break variants.
 6. interrupts, Ultimates, follow-ups, counters, and extra turns.
 7. replay format and deterministic battle controller.
-8. `activity-core` graph/scopes/participants/persistence/BattleSpec handoff, then the one-node Standard profile.
-9. One `mode-challenge` vertical slice per classic challenge family and one `mode-universe` slice per permanent universe family.
+8. `starclock-activity` graph/scopes/participants/persistence/BattleSpec handoff, then the one-node Standard profile.
+9. One `starclock-mode-challenge` vertical slice per classic challenge family and one `starclock-mode-universe` slice per permanent universe family.
 10. Survival, boss-rush, trial/draft-roster, and continuous-spawn fixtures proving data-driven future extension.
 11. CLI orchestration and coverage reporting, followed by optional engine adapters.
 

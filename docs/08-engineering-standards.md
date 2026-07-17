@@ -45,8 +45,8 @@ Use these separation rules:
 - pure calculators transform explicit inputs into results;
 - resolvers mutate battle state through commands/operations;
 - event collection and reaction scheduling remain separate from mutation logic;
-- Sora record conversion belongs to `combat-data`, not `combat-core` or `activity-core`;
-- Bevy entity/component mapping belongs to `bevy-adapter`, not combat crates;
+- Sora record conversion belongs to `starclock-data`, not `starclock-combat` or `starclock-activity`;
+- Bevy entity/component mapping belongs to `starclock-bevy`, not combat crates;
 - character-specific native behavior belongs behind the same operation/event interfaces as table-authored behavior.
 
 Do not create one file per tiny type when several types form one stable concept. The goal is cohesive modules, not maximum file count.
@@ -88,23 +88,23 @@ Internal code should import from the defining module, for example `crate::timeli
 The dependency rule remains:
 
 ```text
-Sora-generated records -> combat-data -> combat-core / activity-core
-content-rules --------------------------> combat-core / activity-core
-activity-core --------------------------> combat-core
-mode-standard --------------------------> activity-core / combat-core
-mode-challenge -------------------------> activity-core / combat-core
-mode-universe --------------------------> activity-core / combat-core
-mode-event -----------------------------> activity-core / combat-core
-combat-ai / combat-replay --------------> combat-core / activity-core
-sim-cli / bevy-adapter -----------------> combat-core / activity-core / mode crates
+Sora-generated records -> starclock-data -> starclock-combat / starclock-activity
+starclock-rules --------------------------> starclock-combat / starclock-activity
+starclock-activity --------------------------> starclock-combat
+starclock-mode-standard --------------------------> starclock-activity / starclock-combat
+starclock-mode-challenge -------------------------> starclock-activity / starclock-combat
+starclock-mode-universe --------------------------> starclock-activity / starclock-combat
+starclock-mode-event -----------------------------> starclock-activity / starclock-combat
+starclock-ai / starclock-replay --------------> starclock-combat / starclock-activity
+starclock-cli / starclock-bevy -----------------> starclock-combat / starclock-activity / mode crates
 ```
 
-- `combat-core` must not depend on Bevy, Sora CLI crates, spreadsheet readers, filesystem layout, rendering, or platform time.
-- `combat-data` may depend on the Sora-generated runtime reader but converts generated records into domain definitions before they enter either core.
-- `activity-core` constructs immutable battle specifications and consumes verified battle results, but it never mutates a live battle or own mode-specific content types.
+- `starclock-combat` must not depend on Bevy, Sora CLI crates, spreadsheet readers, filesystem layout, rendering, or platform time.
+- `starclock-data` may depend on the Sora-generated runtime reader but converts generated records into domain definitions before they enter either core.
+- `starclock-activity` constructs immutable battle specifications and consumes verified battle results, but it never mutates a live battle or own mode-specific content types.
 - Mode crates compose generic activity graphs and combat rules. They must not fork command processing, graph execution, formula, effect, timeline, RNG, replay, or hash implementations.
-- `run-core` and `challenge-core` are not target crates. Generic cross-battle behavior belongs to `activity-core`; universe/challenge names remain mode-domain concepts.
-- `content-rules` is a static native-handler registry and cannot depend on presentation, CLI, or mode orchestration.
+- `run-core` and `challenge-core` are not target crates. Generic cross-battle behavior belongs to `starclock-activity`; universe/challenge names remain mode-domain concepts.
+- `starclock-rules` is a static native-handler registry and cannot depend on presentation, CLI, or mode orchestration.
 - Adapter crates may depend on the core; the core must not depend on adapters.
 - Avoid cyclic crate or module dependencies. Move the shared domain concept toward the lower-level owner instead of introducing callback glue to hide a cycle.
 - New dependencies require a concrete use, license review, and consideration of deterministic behavior and compile-time cost.
@@ -206,7 +206,7 @@ Before merging a Rust change, verify:
 - new public visibility is required by an actual consumer;
 - every `pub use` satisfies the limited facade/migration/integration policy;
 - no wildcard public re-export or project prelude was introduced;
-- configuration logic remains in Excel/Sora and `combat-data`, not in presentation adapters;
+- configuration logic remains in Excel/Sora and `starclock-data`, not in presentation adapters;
 - deterministic ordering, RNG, rounding, and replay effects are covered;
 - new failure paths return typed errors rather than panic;
 - formatting, Clippy, tests, bundle validation, and golden replays pass as applicable.

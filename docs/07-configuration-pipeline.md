@@ -22,7 +22,7 @@ generated Rust types/readers   validated bundles
 
 Excel is the balance designer's editing surface. It is **not** a hidden or independent type system. Sora schema modules define field types, enums, unions, keys, references, indexes, defaults, validation rules, and workbook/sheet mappings. Excel headers must be generated or synchronized from those schemas.
 
-The combat core never opens `.xlsx`, parses cells, or depends on Sora's CLI. `combat-data` loads a validated exported bundle and converts generated records into immutable domain definitions. Bevy and other engine adapters only receive those definitions through the combat-core API.
+The combat core never opens `.xlsx`, parses cells, or depends on Sora's CLI. `starclock-data` loads a validated exported bundle and converts generated records into immutable domain definitions. Bevy and other engine adapters only receive those definitions through the starclock-combat API.
 
 ## Pinned toolchain
 
@@ -77,7 +77,7 @@ config/
     debug-json/         # deterministic review artifacts
     config.sora         # production runtime bundle
 crates/
-  combat-data/
+  starclock-data/
     src/
       generated/        # Sora-generated Rust models/readers
       compile.rs        # generated row -> validated combat/activity definitions
@@ -91,7 +91,7 @@ Keep `config/data` and `config/generated/templates` separate. Template generatio
 Start from a Sora manifest equivalent to:
 
 ```toml
-package = "star_rail_combat_config"
+package = "starclock_combat_config"
 includes = [
   "schema/common.toml",
   "schema/character.toml",
@@ -114,7 +114,7 @@ excel_templates = "generated/templates"
 
 [[build.codegen]]
 target = "rust"
-out = "../crates/combat-data/src/generated"
+out = "../crates/starclock-data/src/generated"
 format = "required"
 
 [[build.exports]]
@@ -194,7 +194,7 @@ SetField
 
 The schema carries operation-specific typed payloads. A row refers to selectors, conditions, value expressions, and timing points; it does not contain Rust, Lua, or arbitrary formulas.
 
-Exceptional kits may reference a stable `native_handler` key. `combat-data` must validate the key against a Rust registry during bundle loading. Native handlers emit the same operations/events as table-authored abilities and may not bypass the resolver. Use a native handler only when the reusable operation/trigger model cannot express the behavior.
+Exceptional kits may reference a stable `native_handler` key. `starclock-data` must validate the key against a Rust registry during bundle loading. Native handlers emit the same operations/events as table-authored abilities and may not bypass the resolver. Use a native handler only when the reusable operation/trigger model cannot express the behavior.
 
 The exact rule tables and validation boundary are defined in [Rule IR and native handlers](11-rule-ir-and-native-handlers.md). Characters, enemies, equipment, and battle-visible mode effects compile into the battle IR. Cross-battle graph/roster/resource/score behavior compiles into the activity IR in [Activity core and mode extension](19-activity-core-and-mode-extension.md). Do not create a separate operation language per mode.
 
@@ -221,7 +221,7 @@ Sora-generated templates remain the header/schema authority. Bootstrap generatio
 - Generate new workbooks with `sora excel-template`; do not hand-create schema header rows.
 - After schema changes, preview `sora excel-sync` before using `--write`, then review the workbook changes.
 - Use stable, nonlocalized IDs in keys and references. Display names and descriptions are optional metadata, never references.
-- Store designer-facing ratios as canonical decimal strings (`"0.25"`) or explicitly scaled integers, never as authoritative floating-point cells. `combat-data` parses them according to [Cross-platform determinism and numeric policy](09-determinism-and-numerics.md).
+- Store designer-facing ratios as canonical decimal strings (`"0.25"`) or explicitly scaled integers, never as authoritative floating-point cells. `starclock-data` parses them according to [Cross-platform determinism and numeric policy](09-determinism-and-numerics.md).
 - Store raw Toughness in the project's chosen integer unit and durations with an explicit clock/phase enum.
 - Avoid merged cells, macros, hidden business rules, and spreadsheet formulas in runtime fields. Derived runtime values belong in schema-backed source columns or deterministic compilation code.
 - Do not encode a large action program as JSON in one cell. Split it into operation/phase child rows.
@@ -258,15 +258,15 @@ The manifest-driven `sora build` is the canonical command. One-off `gen` and `ex
 
 At application startup:
 
-1. `combat-data` opens `config.sora` through the Sora-generated Rust reader.
+1. `starclock-data` opens `config.sora` through the Sora-generated Rust reader.
 2. It checks the bundle format supported by the generated reader.
-3. It checks `rules_revision` against the combat-core and activity-core compatibility ranges.
+3. It checks `rules_revision` against the starclock-combat and starclock-activity compatibility ranges.
 4. It resolves generated table references into stable runtime IDs.
 5. It parses canonical decimal strings into checked domain fixed-point values and performs domain validation spanning battle operations/events and activity graphs/projections.
 6. It constructs an immutable `Arc<SimulationCatalog>` containing combat definitions, activity definitions, and mode-profile indexes.
 7. A battle or activity captures the catalog revision and cannot switch data while running.
 
-Do not make core APIs expose generated Sora row types. Convert them at the `combat-data -> combat-core/activity-core` boundaries so Sora upgrades cannot leak into rules, profiles, or engine adapters.
+Do not make core APIs expose generated Sora row types. Convert them at the `starclock-data -> starclock-combat/starclock-activity` boundaries so Sora upgrades cannot leak into rules, profiles, or engine adapters.
 
 ## Revision and replay policy
 
@@ -291,7 +291,7 @@ A config change never alters an already running battle or activity. Development 
 
 ## Validation gates
 
-Sora should reject structural problems such as invalid types, missing required fields, duplicate keys/indexes, and unresolved references. `combat-data` adds domain checks including:
+Sora should reject structural problems such as invalid types, missing required fields, duplicate keys/indexes, and unresolved references. `starclock-data` adds domain checks including:
 
 - hit and Toughness ratios have legal sums and nonnegative components;
 - all event names, tags, selectors, timing phases, and native handlers are registered;

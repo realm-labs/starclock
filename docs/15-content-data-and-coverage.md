@@ -4,7 +4,7 @@ This document defines the Version 4.4 data snapshot, common schemas, provenance,
 
 ## Snapshot boundary
 
-The target snapshot is Version **4.4**, reviewed on **2026-07-17**. It includes public content available in that version plus officially announced characters represented as disabled placeholders. The current data-import target excludes unannounced/leaked Version 4.5 content, Currency Wars, historical Divergent Universe revisions, and past rotating challenge seasons except when an archived digest is required to verify an existing replay. These are data-scope exclusions, not reasons to hard-code architectural limits into `activity-core`.
+The target snapshot is Version **4.4**, reviewed on **2026-07-17**. It includes public content available in that version plus officially announced characters represented as disabled placeholders. The current data-import target excludes unannounced/leaked Version 4.5 content, Currency Wars, historical Divergent Universe revisions, and past rotating challenge seasons except when an archived digest is required to verify an existing replay. These are data-scope exclusions, not reasons to hard-code architectural limits into `starclock-activity`.
 
 The frozen coverage manifest is a versioned list of stable IDs and expected release states. Import work may revise an ID or split a mechanically distinct variant only through a reviewed manifest migration with provenance. Row counts are derived from the manifest; documentation must not invent totals for categories whose source catalog has not been frozen.
 
@@ -125,7 +125,7 @@ Past rotating seasons, quick-clear history, calendar rotation, stars already ear
 
 ## Rule and data separation
 
-Exact values and content composition live in Excel/Sora data. Reusable battle semantics live in the rule IR; reusable cross-battle semantics live in `activity-core`. A content row may select a registered battle/activity handler but cannot introduce Rust source, arbitrary formulas, untyped state, or a mode-specific duplicate operation language.
+Exact values and content composition live in Excel/Sora data. Reusable battle semantics live in the rule IR; reusable cross-battle semantics live in `starclock-activity`. A content row may select a registered battle/activity handler but cannot introduce Rust source, arbitrary formulas, untyped state, or a mode-specific duplicate operation language.
 
 Canonical decimal strings or scaled integers carry authoritative fractional data. No source/import path may round through an Excel floating cell, JSON `f64`, or locale-formatted number before fixed-point parsing.
 

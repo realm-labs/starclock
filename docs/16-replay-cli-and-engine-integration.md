@@ -48,13 +48,13 @@ Unknown revisions, mismatched bundles, invalid commands, missing archived config
 ## Planned CLI surface
 
 ```text
-star-rail config validate [--bundle PATH] [--json]
-star-rail catalog coverage [--category NAME] [--json]
-star-rail battle run --scenario ID --seed U64 [--controller baseline|replay] [--json]
-star-rail activity run --profile ID --activity ID --seed U64 --controller baseline [--json]
-star-rail replay verify FILE [--json]
-star-rail universe run --mode ID --seed U64 --controller baseline [--json]
-star-rail challenge run --mode ID --stage ID --seed U64 --controller baseline [--json]
+starclock config validate [--bundle PATH] [--json]
+starclock catalog coverage [--category NAME] [--json]
+starclock battle run --scenario ID --seed U64 [--controller baseline|replay] [--json]
+starclock activity run --profile ID --activity ID --seed U64 --controller baseline [--json]
+starclock replay verify FILE [--json]
+starclock universe run --mode ID --seed U64 --controller baseline [--json]
+starclock challenge run --mode ID --stage ID --seed U64 --controller baseline [--json]
 ```
 
 `universe run` and `challenge run` are convenience front ends that resolve a profile/activity ID and call the same activity runtime. They do not own separate save, RNG, result, or replay behavior.

@@ -48,7 +48,7 @@ This matrix reports the current documentation milestone. It does not claim that 
 | Memory of Chaos 4.4 | Family, clock, node, and objective contracts documented | Not imported | Active season stages, encounters, turbulence, clock/objective data and golden stage. |
 | Pure Fiction 4.4 | Family, spawn, clock, buff, and score contracts documented | Not imported | Active season stages, Whimsicality/Cacophony, spawn/score data and golden stage. |
 | Apocalyptic Shadow 4.4 | Family, boss-progress, AV, buff, and score contracts documented | Not imported | Active season boss variants, Embers/Axiom, AV/score data and golden stage. |
-| Future activity archetypes | Generic contracts documented | No profiles imported | Golden survival, defense, boss-rush, trial/borrow, draft/ban, multi-team fork/join, and endless-under-budget fixtures without `combat-core` changes. |
+| Future activity archetypes | Generic contracts documented | No profiles imported | Golden survival, defense, boss-rush, trial/borrow, draft/ban, multi-team fork/join, and endless-under-budget fixtures without `starclock-combat` changes. |
 
 No row in the “Not imported” column may be described as implemented or complete in issues, release notes, README badges, or CLI output.
 

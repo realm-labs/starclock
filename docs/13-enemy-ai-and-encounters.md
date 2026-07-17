@@ -85,7 +85,7 @@ Each wave lists exact enemy variant IDs, spawn sequence, formation index, level 
 
 Cycles and countdowns are separate actors or run/encounter clocks; they never alter the base action-gauge formula. A mode may inject a `RuleBundle`, initial effects, difficulty modifiers, enemy replacements, or completion rules. It may not mutate hidden combat state outside commands and operations.
 
-Encounter completion produces a `BattleResult` containing outcome, state fields and typed metrics declared by its projection, event/state hash, and terminal fault information. Reward generation and cross-battle aggregation belong to `activity-core` plus the selected mode profile, not the combat resolver.
+Encounter completion produces a `BattleResult` containing outcome, state fields and typed metrics declared by its projection, event/state hash, and terminal fault information. Reward generation and cross-battle aggregation belong to `starclock-activity` plus the selected mode profile, not the combat resolver.
 
 An ordinary encounter is bound by a one-Battle-node Standard activity. Multi-node Memory of Chaos, Pure Fiction, and Apocalyptic Shadow stages are Activity profiles; their participants, clocks, metrics, objectives, spawn programs, and seasonal rules are defined in [Standard battle and challenge modes](18-standard-and-challenge-modes.md), not in enemy AI.
 
