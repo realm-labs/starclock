@@ -1,0 +1,66 @@
+{
+  "schema_revision": "starclock-goal-provenance-v1",
+  "generated_on": "2026-07-17",
+  "reference_pack_sha256": "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+  "repositories": [
+    {
+      "id": "dimbreath-turnbasedgamedata",
+      "expected_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+      "actual_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+      "remote": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+      "verified": true
+    },
+    {
+      "id": "mar-7th-star-rail-res",
+      "expected_revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+      "actual_revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+      "remote": "https://github.com/Mar-7th/StarRailRes.git",
+      "verified": true
+    }
+  ],
+  "source_inventory": {
+    "expected_files": 1811,
+    "verified_files": 1811,
+    "by_repository": {
+      "dimbreath-turnbasedgamedata": 1798,
+      "mar-7th-star-rail-res": 13
+    },
+    "all_hashes_match": true
+  },
+  "regeneration": {
+    "generator": "tools/content-reference/bootstrap.mjs",
+    "compared_files": 13,
+    "all_files_match": true,
+    "pack_sha256": "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a"
+  },
+  "required_reference_closure": {
+    "records": 3085,
+    "by_file": {
+      "character-abilities.json": 583,
+      "character-eidolons.json": 528,
+      "character-traces.json": 1618,
+      "characters.json": 88,
+      "encounters.json": 6,
+      "enemy-abilities.json": 63,
+      "enemy-templates.json": 17,
+      "enemy-variants.json": 17,
+      "light-cones.json": 165
+    },
+    "by_quality": {
+      "ExactPreviousRelease": 64,
+      "ExactStructured": 3021
+    },
+    "by_mechanism_quality": {
+      "ApproximateFromReleasedText": 10,
+      "ExactPreviousReleaseText": 14,
+      "ExactStructured": 622
+    },
+    "source_text_evidence": {
+      "present": 1603,
+      "absent_for_structured_non_approximation": 1354,
+      "approximations": 10,
+      "unbound_approximations": 0
+    },
+    "verification": "Every record and evidence field matched a full regeneration from the pinned source cache."
+  }
+}

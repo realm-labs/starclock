@@ -1,0 +1,53 @@
+{
+  "schema_revision": "starclock-goal-provenance-v1",
+  "generated_on": "2026-07-17",
+  "case_id": "G01-R-SABER-ARCHER-SOURCE",
+  "conclusion": "VerifiedPreviousReleaseFallback",
+  "characters": [
+    {
+      "id": "character.saber",
+      "source_avatar_id": "1014",
+      "absent_from_pinned_4_4_avatar_config": true,
+      "fallback_repository": "mar-7th-star-rail-res",
+      "fallback_revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+      "identity": {
+        "name_en": "Saber",
+        "path": "Destruction",
+        "element": "Wind",
+        "rarity": 5,
+        "max_energy": "360"
+      },
+      "child_counts": {
+        "abilities": 7,
+        "traces": 18,
+        "eidolons": 6
+      },
+      "source_id_sets_match": true,
+      "released_text_hashes_match": true,
+      "retained_quality": "ExactPreviousRelease"
+    },
+    {
+      "id": "character.archer",
+      "source_avatar_id": "1015",
+      "absent_from_pinned_4_4_avatar_config": true,
+      "fallback_repository": "mar-7th-star-rail-res",
+      "fallback_revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+      "identity": {
+        "name_en": "Archer",
+        "path": "The Hunt",
+        "element": "Quantum",
+        "rarity": 5,
+        "max_energy": "220"
+      },
+      "child_counts": {
+        "abilities": 7,
+        "traces": 18,
+        "eidolons": 6
+      },
+      "source_id_sets_match": true,
+      "released_text_hashes_match": true,
+      "retained_quality": "ExactPreviousRelease"
+    }
+  ],
+  "decision": "Retain the pinned previous-release records because source IDs 1014 and 1015 are absent from the pinned 4.4 structured AvatarConfig; preserve ExactPreviousRelease labels and bind their released-text evidence hashes to the pinned fallback revision."
+}
