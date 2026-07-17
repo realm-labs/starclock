@@ -52,6 +52,8 @@ The implementation has four distinct layers:
 
 `starclock-data` constructs validated catalog definitions. `starclock-activity` constructs a `BattleSpec` and consumes a `BattleResult`. Neither receives mutable access to a running battle.
 
+`starclock-build` is an upstream compiler, not a combat submodule. It converts progression/equipment choices into the generic `ResolvedCombatantSpec` defined by `starclock-combat`. The combat crate never depends on `starclock-build` or stores its Trace, Eidolon, Light Cone, relic, affix, or preset definitions. See [Character builds, Traces, and equipment](21-build-traces-and-equipment.md).
+
 ## Public surface
 
 The stable public surface is deliberately small:
@@ -129,7 +131,7 @@ pub struct CombatCatalog {
 
 `DefinitionTable` is conceptual. Its backend is private and may use dense vectors plus compiled lookup indexes. Definitions never contain closures, trait objects, `Any`, engine handles, mutable cells, or generated Sora rows.
 
-`AbilityDefinition` points to an authored action program: cost policy, targeting policy, phases, hit plans, direct operations, rules, and metadata tags. `UnitDefinition` references abilities and innate rules rather than embedding executable Rust behavior. Eidolons, traces, equipment, and mode rules compile into patches or rule bundles before a battle begins.
+`AbilityDefinition` points to an authored action program: cost policy, targeting policy, phases, hit plans, direct operations, rules, and metadata tags. `UnitDefinition` references abilities and innate rules rather than embedding executable Rust behavior. The catalog contains battle-domain definitions only. Upstream compilers may select and combine them, but they cannot add peripheral definition types to this catalog.
 
 ## Battle specification
 
@@ -137,14 +139,37 @@ pub struct CombatCatalog {
 
 - catalog/rules/numeric/RNG compatibility revisions;
 - encounter and variant IDs;
-- ordered team/formation entries and loadouts;
+- ordered team/formation entries and generic `ResolvedCombatantSpec` values with opaque combatant/source digests;
 - initial HP, Energy, Skill Point, Technique, and authored entry overrides;
-- character, equipment, encounter, and mode `RuleBundle` bindings;
+- encounter and activity/mode `RuleBundle` bindings applied outside individual resolved combatants;
 - clock, score-visible metric, persistence, and result-projection bindings;
 - seed-stream identity supplied by the activity or standalone scenario;
 - deterministic limits selected by the rules revision.
 
 The spec cannot contain callbacks or mutable activity references. `Battle::create` resolves every ID and validates composition before allocating runtime IDs. A battle captures the spec and catalog digests and cannot hot-reload either.
+
+## Resolved combatant input
+
+`starclock-combat` defines the generic value accepted from upstream compilers and synthetic scenarios:
+
+```rust
+pub struct ResolvedCombatantSpec {
+    pub form: UnitDefinitionId,
+    pub level: UnitLevel,
+    pub base_stats: BaseStatContributions,
+    pub resources: ResolvedResourceDefinitions,
+    pub abilities: ResolvedAbilitySet,
+    pub rules: OrderedRuleBindings,
+    pub modifiers: OrderedModifierBindings,
+    pub entry_programs: OrderedEntryPrograms,
+    pub sources: SourceBindings,
+    pub digest: CombatantSpecDigest,
+}
+```
+
+This is a battle-domain assembly, not an editable character build. It contains no Trace, Eidolon, Light Cone, Superimposition, relic, affix, inventory, or account types. `SourceBindings` carries generic stable identity/class/tag/digest information for attribution and filters; the resolver cannot inspect an upstream build definition or branch on a build-system ID.
+
+Construction validates referenced combat definitions, value domains, canonical ordering, source identity, and the combatant-spec digest. Game-legal progression/equipment validation is an upstream policy owned by `starclock-build`. Low-level tests may construct explicitly synthetic combatant specs; production activity/mode entry points accept only compiled/digest-bound specs offered by their validated catalogs.
 
 ## Runtime aggregate
 
@@ -508,16 +533,17 @@ Add an abstraction only when at least two concrete mechanics need the same seman
 
 Build vertically in this order:
 
-1. workspace crates, domain numeric newtypes, IDs, revisions, digests, and minimal catalog builder;
-2. `BattleSpec` construction, unit/actor stores, formation, battle phases, views, and command legality;
-3. working-state transaction, journal, event/cause model, budgets, and canonical hash skeleton;
-4. timeline plus one normal Basic ATK lowered to action/phase/hit/operations;
-5. stat query and ordinary damage formula through mutation, defeat, terminal settlement, and replay fixture;
-6. resources, multi-hit/Blast/AoE/Bounce targeting, healing, shields, Toughness, Break, and effects;
-7. rule slots, trigger indexes, conditions/selectors/program interpreter, reactions, and modifiers;
-8. follow-ups, counters, Ultimates/interrupts, extra turns, summons/memosprites, transformation, waves, and boss phases;
-9. enemy AI/encounters and the representative content slices;
-10. `starclock-activity` handoff and mode profiles after the single-battle contracts are golden-tested.
+1. workspace crates, domain numeric newtypes, IDs, revisions, digests, and minimal combat catalog builder;
+2. minimal synthetic `ResolvedCombatantSpec` validation with generic base contributions, abilities, rules, modifiers, sources, and digest;
+3. `BattleSpec` construction, unit/actor stores, formation, battle phases, views, and command legality;
+4. working-state transaction, journal, event/cause model, budgets, and canonical hash skeleton;
+5. timeline plus one normal Basic ATK lowered to action/phase/hit/operations;
+6. stat query and ordinary damage formula through mutation, defeat, terminal settlement, and replay fixture;
+7. resources, multi-hit/Blast/AoE/Bounce targeting, healing, shields, Toughness, Break, and effects;
+8. rule slots, trigger indexes, conditions/selectors/program interpreter, reactions, and modifiers;
+9. follow-ups, counters, Ultimates/interrupts, extra turns, summons/memosprites, transformation, waves, and boss phases;
+10. enemy AI/encounters and the representative content slices;
+11. upstream `starclock-build` and `starclock-activity` handoff after the single-battle contracts are golden-tested.
 
 Each step must produce a command-to-hash golden fixture. Do not import the full content catalog before the operation, rule, lifecycle, and validation contracts used by that content exist.
 

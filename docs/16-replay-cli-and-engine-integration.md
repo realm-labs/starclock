@@ -7,7 +7,7 @@ This document defines the planned replay contract, headless command-line surface
 A replay header contains:
 
 ```text
-magic = "SRRP"
+magic = "SCRP"
 replay_format_version
 schema_version
 game_version
@@ -20,9 +20,10 @@ state_hash_revision
 master_seed
 entry_kind
 entry_definition_id
+entry_spec_sha256
 ```
 
-`entry_kind` distinguishes low-level battle and activity replays. An activity header also identifies its mode profile and definition digest; universe/challenge/event names are metadata rather than separate replay protocols. The header is followed by accepted commands in sequence, nested battle records, optional controller diagnostics, and expected state hashes after every command. Rejected commands are diagnostic input attempts, not part of the authoritative accepted stream.
+`entry_kind` distinguishes low-level battle and activity replays. An activity header also identifies its mode profile and definition digest; universe/challenge/event names are metadata rather than separate replay protocols. A battle entry/spec digest covers ordered generic `CombatantSpecDigest` values. Build-aware mode/activity records additionally bind the corresponding `CombatantBuildDigest` values and BuildCatalog revision, so Trace, Eidolon, Light Cone, relic, trial, and synthetic-policy differences cannot share a build-aware replay identity. A low-level synthetic battle replay requires no build vocabulary. The header is followed by accepted commands in sequence, nested battle records, optional controller diagnostics, and expected state hashes after every command. Rejected commands are diagnostic input attempts, not part of the authoritative accepted stream.
 
 ## Canonical codec
 

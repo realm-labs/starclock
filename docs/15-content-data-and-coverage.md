@@ -59,6 +59,8 @@ Official descriptions are authoritative for disclosed behavior, not hidden arith
 
 ## Character and ability data
 
+The normalized progression/loadout model and deterministic compilation order are defined in [Character builds, Traces, and equipment](21-build-traces-and-equipment.md).
+
 A complete released combat form requires:
 
 - identity, rarity, element, path, base resource caps, level/promotion stat rows, and stat-curve provenance;
@@ -74,11 +76,15 @@ The character directory currently provides behavioral profiles for the public co
 
 ## Light Cone data
 
+Light Cone definitions, stat curves, S1-S5 parameters, wearer applicability, and build bindings follow [Character builds, Traces, and equipment](21-build-traces-and-equipment.md).
+
 A complete Light Cone requires identity, rarity/path restriction, level/promotion base-stat rows, Superimposition S1-S5 values, wearer applicability, rule definitions, state/effect teardown, bilingual summary, and provenance.
 
 Superimposition is a level selector over one definition, not five unrelated items. Values that do not scale still appear as explicit equal entries or a validated constant policy. Inventory, ascension materials, acquisition, and gacha are excluded.
 
 ## Relic and planar data
+
+Relic/planar definitions, concrete virtual pieces, main-affix curves, sub-affix rolls, set thresholds, and validation policies follow [Character builds, Traces, and equipment](21-build-traces-and-equipment.md).
 
 A complete set requires identity, slot family, piece-count thresholds, each set rule, stack/refresh/snapshot behavior, bilingual summary, and provenance. A complete affix catalog requires slot legality, rarity/tier, enhancement-level main-stat curves, sub-stat roll tiers, caps, units, and provenance.
 

@@ -122,7 +122,7 @@ Runtime storage may use a tagged `ActivityValue` union internally, but catalog v
 - whether a form/loadout can change between nodes or attempts;
 - deployment/formation constraints and support slots.
 
-The activity layer validates identity and loadout locks. `starclock-combat` receives only the final validated deployed units. Future drafting, trial-character events, restricted rosters, team rotation, and borrowed supports therefore do not require changes to battle formulas.
+The activity layer validates participant identity and whole-loadout lock/replacement boundaries, but treats each `ResolvedCombatantSpec` and build digest as opaque. Exact `CombatantBuildSpec` editing and Trace/Eidolon/Light Cone/relic compilation belong to `starclock-build` as defined in [Character builds, Traces, and equipment](21-build-traces-and-equipment.md). A mode/application compiles or selects resolved specs before binding a Battle node; neither `starclock-activity` nor `starclock-combat` interprets peripheral build fields. Future drafting, trial-character events, restricted rosters, team rotation, and borrowed supports therefore do not require changes to battle formulas.
 
 ## Persistence and carry policies
 
@@ -224,8 +224,9 @@ The target workspace is:
 
 ```text
 starclock-combat       single-battle state machine and domain definitions
+starclock-build        progression/equipment definitions -> ResolvedCombatantSpec
 starclock-activity     generic cross-battle workflow and BattleSpec/Result orchestration
-starclock-data       Sora records -> validated combat/activity catalogs
+starclock-data       Sora records -> validated combat/build/activity catalogs
 starclock-rules     static battle/activity native-handler registries
 starclock-mode-standard     ordinary encounter profiles
 starclock-mode-challenge    fixed-stage, scoring, seasonal challenge profiles

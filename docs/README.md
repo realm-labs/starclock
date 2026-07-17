@@ -38,9 +38,10 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 18. [Standard and challenge modes](18-standard-and-challenge-modes.md) — ordinary battles plus Memory of Chaos, Pure Fiction, and Apocalyptic Shadow orchestration, clocks, scoring, and seasonal data.
 19. [Activity core and mode extension](19-activity-core-and-mode-extension.md) — unified graphs, scopes, rosters, persistence, clocks, metrics, battle handoff, and future-mode extension.
 20. [Core implementation design](20-core-implementation-design.md) — concrete Rust ownership, identities, stores, action lowering, operations, events, transactions, modules, and implementation order.
-21. [Reference data](reference-data.md) — constants and the attacker-level multiplier table.
-22. [Sources and confidence](sources.md) — source provenance and known uncertainties.
-23. [Public character mechanics](characters/README.md) — the public Version 4.4 combat-form catalog, behavioral contracts, and an auditable engine-feature matrix.
+21. [Character builds, Traces, and equipment](21-build-traces-and-equipment.md) — independent `starclock-build`, build selection/compilation, ability levels, Traces, Eidolons, Light Cones, relics, affixes, generic combat output, and validation.
+22. [Reference data](reference-data.md) — constants and the attacker-level multiplier table.
+23. [Sources and confidence](sources.md) — source provenance and known uncertainties.
+24. [Public character mechanics](characters/README.md) — the public Version 4.4 combat-form catalog, behavioral contracts, and an auditable engine-feature matrix.
 
 ## Delivery boundary
 

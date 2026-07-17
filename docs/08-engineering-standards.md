@@ -46,6 +46,7 @@ Use these separation rules:
 - resolvers mutate battle state through commands/operations;
 - event collection and reaction scheduling remain separate from mutation logic;
 - Sora record conversion belongs to `starclock-data`, not `starclock-combat` or `starclock-activity`;
+- deterministic Trace/Eidolon/equipment compilation belongs to `starclock-build`; `starclock-combat` receives only generic resolved combatant specs, while account ownership/inventory remains outside these crates;
 - Bevy entity/component mapping belongs to `starclock-bevy`, not combat crates;
 - character-specific native behavior belongs behind the same operation/event interfaces as table-authored behavior.
 
@@ -88,20 +89,22 @@ Internal code should import from the defining module, for example `crate::timeli
 The dependency rule remains:
 
 ```text
-Sora-generated records -> starclock-data -> starclock-combat / starclock-activity
+Sora-generated records -> starclock-data -> starclock-combat / starclock-build / starclock-activity
+starclock-build --------------------------> starclock-combat
 starclock-rules --------------------------> starclock-combat / starclock-activity
 starclock-activity --------------------------> starclock-combat
-starclock-mode-standard --------------------------> starclock-activity / starclock-combat
-starclock-mode-challenge -------------------------> starclock-activity / starclock-combat
-starclock-mode-universe --------------------------> starclock-activity / starclock-combat
-starclock-mode-event -----------------------------> starclock-activity / starclock-combat
+starclock-mode-standard --------------------------> starclock-activity / starclock-build / starclock-combat
+starclock-mode-challenge -------------------------> starclock-activity / starclock-build / starclock-combat
+starclock-mode-universe --------------------------> starclock-activity / starclock-build / starclock-combat
+starclock-mode-event -----------------------------> starclock-activity / starclock-build / starclock-combat
 starclock-ai / starclock-replay --------------> starclock-combat / starclock-activity
-starclock-cli / starclock-bevy -----------------> starclock-combat / starclock-activity / mode crates
+starclock-cli / starclock-bevy -----------------> starclock-combat / starclock-build / starclock-activity / mode crates
 ```
 
 - `starclock-combat` must not depend on Bevy, Sora CLI crates, spreadsheet readers, filesystem layout, rendering, or platform time.
-- `starclock-data` may depend on the Sora-generated runtime reader but converts generated records into domain definitions before they enter either core.
-- `starclock-activity` constructs immutable battle specifications and consumes verified battle results, but it never mutates a live battle or own mode-specific content types.
+- `starclock-data` may depend on the Sora-generated runtime reader but converts generated records into the separate domain definitions owned by combat, build, activity, and mode crates.
+- `starclock-build` depends on public combat-domain definitions and produces `ResolvedCombatantSpec`; `starclock-combat` never depends on `starclock-build` and never queries a BuildCatalog, inventory, or progression graph.
+- `starclock-activity` constructs immutable battle specifications and consumes verified battle results, but it never mutates a live battle, interprets build fields, or owns mode-specific content types. It stores/locks resolved participant specs and digests as opaque domain values.
 - Mode crates compose generic activity graphs and combat rules. They must not fork command processing, graph execution, formula, effect, timeline, RNG, replay, or hash implementations.
 - `run-core` and `challenge-core` are not target crates. Generic cross-battle behavior belongs to `starclock-activity`; universe/challenge names remain mode-domain concepts.
 - `starclock-rules` is a static native-handler registry and cannot depend on presentation, CLI, or mode orchestration.

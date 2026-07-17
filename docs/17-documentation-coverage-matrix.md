@@ -21,6 +21,7 @@ This matrix reports the current documentation milestone. It does not claim that 
 | Effects, resources, aggro | `05`, `12` | Research baseline | Full content validation plus targeting/effect fixtures. |
 | Workspace and APIs | `06`, `08` | Normative | Compiling workspace obeying dependency/visibility/file-size gates. |
 | Core implementation ownership and resolver design | `20` | Normative | Compiling aggregate, stores, lowering, transaction, operation/event pipeline, and command-to-hash vertical slice. |
+| Character build, Trace, Light Cone, relic compilation | `21` | Normative design | Compiling independent `starclock-build` catalog/compiler plus E0/E6, S1-S5, affix/set, preset, generic combat-output, lock, source-attribution, and cross-platform digest tests. |
 | Excel/Sora pipeline | `07` | Normative design | Pinned Sora project, templates, workbooks, generated readers, and bundle. |
 | Fixed point, RNG, hashing | `09`, `16` | Normative | Cross-platform codec/RNG/hash golden vectors. |
 | Rule IR/native handlers | `11` | Normative | Schema plus interpreter/registry tests. |
@@ -37,8 +38,8 @@ This matrix reports the current documentation milestone. It does not claim that 
 |---|---|---|---|
 | Released character combat forms | 88 compact E0 behavioral profiles | Not imported | Complete stats, abilities, levels, Traces, Techniques, hit plans, Eidolons, rules, provenance; all `DataReady`. |
 | Officially announced forms | 2 disabled behavioral placeholders | Intentionally absent | Stay `Disabled` until public release and full validation; no guessed values. |
-| Light Cones | Schema/boundary only | Not imported | Frozen 4.4 manifest, stats/promotions, S1-S5 rules, provenance; all released entries `DataReady`. |
-| Relic and planar sets | Schema/boundary only | Not imported | Frozen 4.4 manifest, piece effects, main/sub-affix curves and provenance. |
+| Light Cones | Detailed definition/build schema | Not imported | Frozen 4.4 manifest, stats/promotions, S1-S5 rules, provenance; all released entries `DataReady`. |
+| Relic and planar sets | Detailed set/affix/piece schema | Not imported | Frozen 4.4 manifest, piece effects, main/sub-affix curves and provenance. |
 | Enemies and bosses | Behavior/AI/phase model only | Not imported | Frozen variant manifest, exact stats/skills/AI/phases/summons and provenance. |
 | Standard Simulated Universe | System boundary documented | Not imported | Full active permanent content manifest and seeded golden run. |
 | Swarm Disaster | System boundary documented | Not imported | Full active content, dice/map/progression mechanics and seeded golden run. |

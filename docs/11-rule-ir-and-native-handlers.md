@@ -38,7 +38,18 @@ pub struct TriggerDef {
 
 `RuleDomain` is `Battle` or `Activity`. It selects the legal event vocabulary, scopes, selectors, operations, and handler registry. A definition cannot mix the two domains; cross-boundary data uses declared BattleSpec/Result bindings.
 
-`RuleSource` identifies Character, Light Cone, Relic, Blessing, Curio, Equation, Path Resonance, Encounter, Enemy Aura, Enemy Ability, Activity Modifier, or Mode. Source identity is retained in every produced operation and event.
+`RuleSource` is a generic combat/activity source reference rather than a closed list of game-content types:
+
+```rust
+pub struct RuleSource {
+    pub definition: SourceDefinitionId,
+    pub class: SourceClass,
+    pub tags: SourceTags,
+    pub digest: SourceDigest,
+}
+```
+
+`SourceClass` is limited to stable semantic owners such as Unit, Ability, Effect, Equipment, Progression, Enemy, Encounter, Activity, Mode, or Synthetic. Content-specific identities such as Light Cone, relic set/piece, Trace, Eidolon, blessing, curio, equation, or resonance compile to a generic class plus registered tags/source IDs. The resolver may filter on declared generic class/tags but must not branch on those content IDs. Detailed source-to-content mapping remains in data/build/activity diagnostics. Source identity is retained in every produced operation and event.
 
 ## State slots
 

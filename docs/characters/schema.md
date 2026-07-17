@@ -6,14 +6,18 @@ Each compact profile describes an E0 character with its ordinary Trace behavior.
 
 Character balance data is authored in Excel and compiled by Sora according to [Excel and Sora configuration pipeline](../07-configuration-pipeline.md). The conceptual types in this document are combat-domain types; generated Sora rows must be converted into them at the `starclock-data` boundary.
 
-Use these four layers:
+The exact build, ability-level, Trace graph, Eidolon patch, Light Cone, relic, affix, and loadout compilation contracts are defined in [Character builds, Traces, and equipment](../21-build-traces-and-equipment.md).
+
+Keep these concepts separate:
 
 ```text
-CharacterDefinition   immutable authored metadata and leveled coefficients
-CharacterState        mutable per-battle resources, marks, modes, and counters
-AbilityProgram        validated commands/effects for one ability or passive
-RuleExtension         reusable scheduler/damage/lifecycle behavior
-EidolonPatch          ordered changes to abilities, rules, state caps, and modifiers
+UnitDefinition             generic combat form, abilities, resources, and innate rules
+CharacterBuildDefinition  progression curves and Trace/Eidolon references in starclock-build
+CombatantBuildSpec        exact progression and equipment selected for compilation
+CharacterState            mutable per-battle resources, marks, modes, and counters
+AbilityProgram            validated commands/effects for one ability or passive
+RuleExtension             reusable scheduler/damage/lifecycle behavior
+BuildPatch                ordered Trace/Eidolon changes compiled outside combat
 ```
 
 If an ability needs a new behavior, add a reusable command, selector, trigger, or modifier. Never add `if character_id == ...` to global combat code.

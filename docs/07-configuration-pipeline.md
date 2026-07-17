@@ -22,7 +22,7 @@ generated Rust types/readers   validated bundles
 
 Excel is the balance designer's editing surface. It is **not** a hidden or independent type system. Sora schema modules define field types, enums, unions, keys, references, indexes, defaults, validation rules, and workbook/sheet mappings. Excel headers must be generated or synchronized from those schemas.
 
-The combat core never opens `.xlsx`, parses cells, or depends on Sora's CLI. `starclock-data` loads a validated exported bundle and converts generated records into immutable domain definitions. Bevy and other engine adapters only receive those definitions through the starclock-combat API.
+The combat, build, and activity domain crates never open `.xlsx`, parse cells, or depend on Sora's CLI. `starclock-data` loads a validated exported bundle and converts generated records into separate immutable combat, build, activity, and mode definitions. Bevy and other engine adapters receive only domain catalogs/specs through their owning crate APIs.
 
 ## Pinned toolchain
 
@@ -54,6 +54,7 @@ config/
     ability.toml
     effect.toml
     equipment.toml
+    build.toml
     enemy.toml
     encounter.toml
     rule.toml
@@ -65,6 +66,7 @@ config/
     Ability.xlsx
     Effect.xlsx
     Equipment.xlsx
+    Build.xlsx
     Enemy.xlsx
     Encounter.xlsx
     Rule.xlsx
@@ -80,7 +82,7 @@ crates/
   starclock-data/
     src/
       generated/        # Sora-generated Rust models/readers
-      compile.rs        # generated row -> validated combat/activity definitions
+      compile.rs        # generated row -> validated combat/build/activity definitions
       validate.rs       # cross-table/battle/activity checks Sora cannot express
 ```
 
@@ -98,6 +100,7 @@ includes = [
   "schema/ability.toml",
   "schema/effect.toml",
   "schema/equipment.toml",
+  "schema/build.toml",
   "schema/enemy.toml",
   "schema/encounter.toml",
   "schema/rule.toml",
@@ -136,15 +139,29 @@ Prefer several focused workbooks with related sheets over one giant workbook. Th
 |---|---|---|
 | `Character.xlsx / Character` | `id`, `element`, `path`, base resources, stat-curve reference, ability references | Stable combat-form identity and loadout. |
 | `Character.xlsx / CharacterStat` | character/level composite key, HP, ATK, DEF, SPD | Authored level data or curve samples. |
+| `Character.xlsx / TraceNode` | form, kind, prerequisites, promotion requirement | Explicit battle-relevant Trace graph. |
+| `Character.xlsx / TracePatch` | Trace reference, order, typed patch union | Stat, rule, ability, level, resource, and state-slot changes. |
+| `Character.xlsx / Eidolon` | form and E1-E6 identity/order | Stable ordered Eidolon definitions. |
+| `Character.xlsx / EidolonPatch` | Eidolon reference, order, typed patch union | Ordered E1-E6 changes without field-path strings. |
 | `Ability.xlsx / Ability` | `id`, kind, target program, cost, energy gain, phase references, tags | Ability entry point and ordinary metadata. |
+| `Ability.xlsx / AbilityLevel` | ability family/effective-level key, coefficient/program references | Exact level selection after Trace/Eidolon bonuses. |
 | `Ability.xlsx / AbilityPhase` | ability reference, order, operation references | Ordered resolution phases without cell-local scripts. |
 | `Ability.xlsx / AbilityOperation` | `id`, operation union, selector, timing, condition | Damage, heal, effect, resource, Toughness, action, or queued-action operation. |
 | `Ability.xlsx / HitPlan` | `id`, hit ratios, Toughness ratios, retarget policy | Reusable deterministic multi-hit definition. |
 | `Effect.xlsx / Effect` | `id`, category, duration, stacking, dispel class, modifiers | Buff, debuff, DoT, shield, mark, field, or state definition. |
 | `Effect.xlsx / Trigger` | `id`, owner effect, event, limit scope, reaction reference | Passive and reactive behavior. |
-| `Equipment.xlsx / LightCone` | `id`, path, rarity, stat curve, superimposition references | Light Cone identity, stats, and S1-S5 rule patches. |
-| `Equipment.xlsx / RelicSet` | `id`, slot family, piece thresholds, rule references | Relic and planar-set mechanical effects. |
-| `Equipment.xlsx / RelicAffix` | `id`, slot legality, level/tier values, stat and roll tables | Main/sub-affix curves without inventory or gacha systems. |
+| `Equipment.xlsx / LightCone` | `id`, path, rarity, stat curve, passive/applicability references | Light Cone identity and wearer policy. |
+| `Equipment.xlsx / LightConeStat` | cone/level/promotion key, HP, ATK, DEF | Exact Light Cone base-stat contribution. |
+| `Equipment.xlsx / LightConeSuperimposition` | cone/passive-parameter/S1-S5 key, value or constant policy | Complete S1-S5 passive parameters. |
+| `Equipment.xlsx / RelicSet` | `id`, slot family, allowed slots | Relic and planar-set identity. |
+| `Equipment.xlsx / RelicSetThreshold` | set/piece-count key, rule reference | Independent two/four-piece or planar rule activation. |
+| `Equipment.xlsx / RelicAffix` | `id`, stat/domain, main/sub kind, slot/rarity/tier legality | Affix identity and legality. |
+| `Equipment.xlsx / RelicMainAffixValue` | affix/rarity/tier/level key, value | Deterministic main-affix curves. |
+| `Equipment.xlsx / RelicSubAffixRoll` | affix/rarity/tier/roll-tier key, value | Exact reachable sub-affix roll magnitudes. |
+| `Build.xlsx / BuildPreset` | `id`, form, progression, Light Cone, policy | Optional scenario/trial/borrowed normalized build preset. |
+| `Build.xlsx / BuildTrace` | preset/Trace composite key | Exact preset Trace selection. |
+| `Build.xlsx / BuildRelicPiece` | preset/piece key, set/slot/rarity/level/main affix | Concrete virtual relic/planar piece. |
+| `Build.xlsx / BuildRelicSubAffix` | piece/affix key, ordered rolls or exact value | Auditable preset sub-affix contribution. |
 | `Enemy.xlsx / Enemy` | `id`, stats, weaknesses, resistances, Toughness, AI reference | Enemy combat definition. |
 | `Enemy.xlsx / EnemyAbility` | `id`, enemy reference, phase, target program, ability program | Enemy and boss action definitions. |
 | `Enemy.xlsx / AiState` | `id`, graph reference, entry actions, transitions, priorities | Deterministic authored enemy behavior. |
@@ -260,13 +277,15 @@ At application startup:
 
 1. `starclock-data` opens `config.sora` through the Sora-generated Rust reader.
 2. It checks the bundle format supported by the generated reader.
-3. It checks `rules_revision` against the starclock-combat and starclock-activity compatibility ranges.
+3. It checks `rules_revision` against the `starclock-combat`, `starclock-build`, and `starclock-activity` compatibility ranges.
 4. It resolves generated table references into stable runtime IDs.
-5. It parses canonical decimal strings into checked domain fixed-point values and performs domain validation spanning battle operations/events and activity graphs/projections.
-6. It constructs an immutable `Arc<SimulationCatalog>` containing combat definitions, activity definitions, and mode-profile indexes.
-7. A battle or activity captures the catalog revision and cannot switch data while running.
+5. It parses canonical decimal strings into checked domain fixed-point values and performs domain validation spanning combat operations/events, build graphs/patches/curves, and activity graphs/projections.
+6. It constructs an immutable `Arc<SimulationCatalog>` containing separate `CombatCatalog`, `BuildCatalog`, activity definitions, and mode-profile indexes plus their compatibility/digests.
+7. A build compilation, battle, or activity captures the relevant catalog revisions and cannot switch data while running.
 
-Do not make core APIs expose generated Sora row types. Convert them at the `starclock-data -> starclock-combat/starclock-activity` boundaries so Sora upgrades cannot leak into rules, profiles, or engine adapters.
+`SimulationCatalog` is an application/data-layer aggregate, not a combat-core type. Composition code passes only `CombatCatalog` to `Battle`, both `CombatCatalog` and `BuildCatalog` to `starclock-build`, and generic activity definitions/resolved participant specs to `starclock-activity`.
+
+Do not make domain APIs expose generated Sora row types. Convert them at the `starclock-data -> starclock-combat/starclock-build/starclock-activity` boundaries so Sora upgrades cannot leak into rules, build policies, profiles, or engine adapters.
 
 ## Revision and replay policy
 
@@ -300,6 +319,10 @@ Sora should reject structural problems such as invalid types, missing required f
 - resources, stacks, shields, and counters have valid caps and consumption rules;
 - fields, summons, and marks declare teardown/retarget behavior;
 - every released character in the implementation matrix resolves to a complete definition;
+- Trace graphs are acyclic, prerequisite-complete, and every ordered Trace/Eidolon patch targets a valid typed definition at its application point;
+- Light Cone level/promotion curves, applicability policies, and S1-S5 parameters are complete and domain-valid;
+- relic/planar slots, set thresholds, main-affix curves, sub-affix roll tiers, and reachable exact values are complete and internally consistent;
+- every enabled build preset compiles under its declared loadout policy and matches its recorded canonical build digest;
 - Announced characters are marked disabled until their required fields are complete;
 - every enabled public content row has the required bilingual metadata and provenance;
 - every entry in the frozen Version 4.4 coverage manifest resolves to exactly one terminal coverage state;
