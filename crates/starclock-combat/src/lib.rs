@@ -17,6 +17,7 @@ mod command;
 mod event;
 mod formula;
 mod id;
+pub mod modifier;
 mod numeric;
 mod operation;
 mod resolver;
@@ -31,10 +32,10 @@ mod timeline;
 pub use id::{
     AbilityId, ActionId, CommandId, DecisionId, EffectDefinitionId, EffectInstanceId, EncounterId,
     EnemyDefinitionId, EventId, HitId, HitPlanDefinitionId, ModifierDefinitionId,
-    ModifierInstanceId, NativeHandlerId, OperationId, PhaseId, ProgramId, RuleBundleId, RuleId,
-    RuleInstanceId, SelectorId, ShieldInstanceId, SourceDefinitionId, SpawnSequence,
-    StateSlotDefinitionId, TimelineActorId, TriggerId, UnitDefinitionId, UnitId, WaveInstanceId,
-    ZeroIdError,
+    ModifierInstanceId, ModifierStackingGroupId, NativeHandlerId, OperationId, PhaseId, ProgramId,
+    RuleBundleId, RuleId, RuleInstanceId, SelectorId, ShieldInstanceId, SourceDefinitionId,
+    SpawnSequence, StateSlotDefinitionId, TimelineActorId, TriggerId, UnitDefinitionId, UnitId,
+    WaveInstanceId, ZeroIdError,
 };
 pub use numeric::domain::{
     ActionGauge, DamageAmount, Energy, HealingAmount, Hp, Probability, RawToughness, ShieldAmount,

@@ -127,5 +127,6 @@ fn evaluation_input<'a>() -> RuleEvaluationInput<'a> {
         source_tags: &[],
         slots: &[],
         selectors: &[],
+        stat_reader: None,
     }
 }

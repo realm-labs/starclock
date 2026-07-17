@@ -1,12 +1,12 @@
 use core::fmt::Debug;
 
 use super::definition::{
-    AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition, ModifierDefinition,
-    ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
+    AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition, ProgramDefinition,
+    RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
 };
 use crate::{
-    AbilityId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ModifierDefinitionId, ProgramId,
-    RuleBundleId, RuleId, SelectorId, UnitDefinitionId,
+    AbilityId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ProgramId, RuleBundleId, RuleId,
+    SelectorId, UnitDefinitionId,
 };
 
 pub(super) trait Identified<I> {
@@ -30,7 +30,6 @@ identified!(RuleDefinition, RuleId);
 identified!(ProgramDefinition, ProgramId);
 identified!(SelectorDefinition, SelectorId);
 identified!(RuleBundle, RuleBundleId);
-identified!(ModifierDefinition, ModifierDefinitionId);
 identified!(EnemyDefinition, EnemyDefinitionId);
 identified!(EncounterDefinition, EncounterId);
 

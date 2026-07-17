@@ -296,8 +296,35 @@ for (const row of himekoApproximations) {
 }
 
 definitions.sort((a, b) => a.id.localeCompare(b.id));
+const resolutions = new Map([
+  ["G01-R-ASTA-AURA-STACK-QUERY", {
+    state: "Observed",
+    confidence: "Observed",
+    observation: {
+      accessed_on: GENERATED_ON,
+      source_payload_sha256: "eca2d92a18987e4bd41ccdc5b307a858e03e819d2317b1825da22a7e65cc2ace",
+      executable_bundle_sha256: "63b138645278e74e9836eafec09a9637aa9d91b05603a44160b0506e2874faed",
+      result: "One ReplaceByCaster aura instance reads the current Charging slot; level-10 ATK ratio changes at 0/1/5/3 stacks without instance replacement.",
+      evidence_paths: ["config/probes/v1a/asta-modifier/golden.json", "crates/starclock-data/src/probe_tests.rs"],
+      validation_commands: ["node tools/config-probes/verify-asta-modifier.mjs", "cargo test -p starclock-data probe_tests"],
+    },
+  }],
+  ["G01-R-ASTA-UNIQUE-TARGET-CREDIT", {
+    state: "Observed",
+    confidence: "Observed",
+    observation: {
+      accessed_on: GENERATED_ON,
+      source_payload_sha256: "eca2d92a18987e4bd41ccdc5b307a858e03e819d2317b1825da22a7e65cc2ace",
+      executable_bundle_sha256: "63b138645278e74e9836eafec09a9637aa9d91b05603a44160b0506e2874faed",
+      result: "A seeded four-hit sequence against three stable targets yields credits 1/2/0/1; repeats are coalesced and Fire weakness is sampled for the current hit.",
+      evidence_paths: ["config/probes/v1a/asta-modifier/golden.json", "crates/starclock-data/src/probe_tests.rs"],
+      validation_commands: ["node tools/config-probes/verify-asta-modifier.mjs", "cargo test -p starclock-data probe_tests"],
+    },
+  }],
+]);
 const cases = definitions.map((definition) => ({
   ...definition,
+  ...(resolutions.get(definition.id) ?? {}),
   evidence: definition.record_ids.map(bindEvidence),
 }));
 const fixtures = cases.map((entry) => ({
@@ -310,6 +337,8 @@ const fixtures = cases.map((entry) => ({
   observations_required: entry.observations_required,
   replay_requirements: ["Fixed seed and stable formation slots.", "Canonical accepted-command stream and ordered event/cause capture.", "Pre/post authoritative state hash and RNG draw count.", "Exact reference-pack, rules and fixture revision in the replay header."],
   completion_rule: "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+  state: entry.state === "Observed" ? "GoldenVerified" : "PendingObservation",
+  executable_evidence: entry.observation?.evidence_paths ?? [],
 }));
 
 const decisions = [

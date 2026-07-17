@@ -5,7 +5,8 @@
   "goal_manifest_sha256": "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19",
   "case_count": 37,
   "state_counts": {
-    "Researching": 37
+    "Observed": 2,
+    "Researching": 35
   },
   "family_counts": {
     "HimekoNovaApproximation": 10,
@@ -201,8 +202,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "Observed",
+      "confidence": "Observed",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -220,6 +221,20 @@
       "observations_required": [
         "Stat-query result immediately before and after stack mutation in the same command."
       ],
+      "observation": {
+        "accessed_on": "2026-07-17",
+        "source_payload_sha256": "eca2d92a18987e4bd41ccdc5b307a858e03e819d2317b1825da22a7e65cc2ace",
+        "executable_bundle_sha256": "63b138645278e74e9836eafec09a9637aa9d91b05603a44160b0506e2874faed",
+        "result": "One ReplaceByCaster aura instance reads the current Charging slot; level-10 ATK ratio changes at 0/1/5/3 stacks without instance replacement.",
+        "evidence_paths": [
+          "config/probes/v1a/asta-modifier/golden.json",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-asta-modifier.mjs",
+          "cargo test -p starclock-data probe_tests"
+        ]
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -287,8 +302,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "Observed",
+      "confidence": "Observed",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -309,6 +324,20 @@
         "Ordered event boundary between hit damage, weakness query and Charging mutation.",
         "Credit behavior when a target gains or loses Fire weakness between bounce hits."
       ],
+      "observation": {
+        "accessed_on": "2026-07-17",
+        "source_payload_sha256": "eca2d92a18987e4bd41ccdc5b307a858e03e819d2317b1825da22a7e65cc2ace",
+        "executable_bundle_sha256": "63b138645278e74e9836eafec09a9637aa9d91b05603a44160b0506e2874faed",
+        "result": "A seeded four-hit sequence against three stable targets yields credits 1/2/0/1; repeats are coalesced and Fire weakness is sampled for the current hit.",
+        "evidence_paths": [
+          "config/probes/v1a/asta-modifier/golden.json",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-asta-modifier.mjs",
+          "cargo test -p starclock-data probe_tests"
+        ]
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",

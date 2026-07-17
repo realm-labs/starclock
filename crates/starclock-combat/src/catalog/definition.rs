@@ -7,30 +7,6 @@ use crate::{
     RuleBundleId, RuleId, SelectorId, UnitDefinitionId,
 };
 
-macro_rules! leaf_definition {
-    ($name:ident, $id:ty, $description:literal) => {
-        #[doc = $description]
-        #[derive(Clone, Debug, Eq, PartialEq)]
-        pub struct $name {
-            id: $id,
-        }
-
-        impl $name {
-            /// Creates a leaf definition with a stable typed ID.
-            #[must_use]
-            pub const fn new(id: $id) -> Self {
-                Self { id }
-            }
-
-            /// Returns the stable definition ID.
-            #[must_use]
-            pub const fn id(&self) -> $id {
-                self.id
-            }
-        }
-    };
-}
-
 /// Deterministic selector definition with an optional executable unit-target plan.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SelectorDefinition {
@@ -64,12 +40,6 @@ impl SelectorDefinition {
         self.unit_targets
     }
 }
-leaf_definition!(
-    ModifierDefinition,
-    ModifierDefinitionId,
-    "Foundational modifier definition identity used by validated references."
-);
-
 /// Generic unit-form definition referencing combat abilities and rule bundles.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UnitDefinition {

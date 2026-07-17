@@ -7,13 +7,14 @@ mod index;
 mod rule_validate;
 mod table;
 
+use crate::modifier::{model::ModifierDefinition, registry::ModifierRegistry};
 use crate::{
     AbilityId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ModifierDefinitionId, ProgramId,
     RuleBundleId, RuleId, SelectorId, UnitDefinitionId,
 };
 use definition::{
-    AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition, ModifierDefinition,
-    ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
+    AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition, ProgramDefinition,
+    RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
 };
 use index::TriggerDefinitionIndex;
 use table::DefinitionTable;
@@ -59,7 +60,7 @@ pub struct CombatCatalog {
     programs: DefinitionTable<ProgramId, ProgramDefinition>,
     selectors: DefinitionTable<SelectorId, SelectorDefinition>,
     rule_bundles: DefinitionTable<RuleBundleId, RuleBundle>,
-    modifiers: DefinitionTable<ModifierDefinitionId, ModifierDefinition>,
+    modifiers: ModifierRegistry,
     enemies: DefinitionTable<EnemyDefinitionId, EnemyDefinition>,
     encounters: DefinitionTable<EncounterId, EncounterDefinition>,
     trigger_index: TriggerDefinitionIndex,
@@ -87,6 +88,7 @@ impl CombatCatalog {
             + self.selectors.len()
             + self.rule_bundles.len()
             + self.modifiers.len()
+            + self.modifiers.group_count()
             + self.enemies.len()
             + self.encounters.len()
     }
@@ -147,7 +149,7 @@ impl CombatCatalog {
     /// Looks up a modifier definition by stable ID.
     #[must_use]
     pub fn modifier(&self, id: ModifierDefinitionId) -> Option<&ModifierDefinition> {
-        self.modifiers.get(id)
+        self.modifiers.definition(id)
     }
     /// Looks up an enemy definition by stable ID.
     #[must_use]

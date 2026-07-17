@@ -6,6 +6,7 @@
 
 use std::{collections::BTreeMap, sync::Arc};
 
+use starclock_combat::modifier::registry::ModifierRegistry;
 use starclock_combat::{AbilityId, Ratio, Scalar, UnitDefinitionId};
 
 use crate::generated::{
@@ -20,7 +21,7 @@ const METADATA_TABLES: [&str; 5] = [
     "EvidenceRecord",
     "SourceRecord",
 ];
-const LOWERED_TABLES: [&str; 8] = [
+const LOWERED_TABLES: [&str; 15] = [
     "Ability",
     "AbilityHitPlanBinding",
     "AbilityPhase",
@@ -29,6 +30,13 @@ const LOWERED_TABLES: [&str; 8] = [
     "CharacterStat",
     "HitPlan",
     "HitPlanHit",
+    "ModifierDefinition",
+    "ModifierFilter",
+    "ModifierStackingGroup",
+    "RuleDefinition",
+    "Selector",
+    "StateSlot",
+    "ValueExpression",
 ];
 
 /// Stable category for a catalog-load failure.
@@ -143,6 +151,12 @@ impl SimulationCatalog {
             character_count: self.builds.characters.len(),
         }
     }
+
+    /// Returns immutable Starclock-owned modifier definitions lowered from Sora rows.
+    #[must_use]
+    pub const fn modifiers(&self) -> &ModifierRegistry {
+        &self.combat.modifiers
+    }
 }
 
 /// Loads and validates a production bundle into an immutable shared catalog.
@@ -151,7 +165,7 @@ pub fn load(bytes: &[u8]) -> Result<Arc<SimulationCatalog>, CatalogLoadError> {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum LoadMode {
+pub(super) enum LoadMode {
     Production,
     #[cfg(test)]
     Fixture,
@@ -177,6 +191,7 @@ enum IdentityKind {
 struct CombatDefinitions {
     abilities: Box<[AbilityDefinition]>,
     hit_plans: Box<[HitPlanDefinition]>,
+    modifiers: ModifierRegistry,
 }
 
 #[derive(Debug)]
@@ -247,7 +262,7 @@ struct CharacterAbilityDefinition {
     invested_level_cap: u16,
 }
 
-fn load_with_mode(
+pub(super) fn load_with_mode(
     bytes: &[u8],
     mode: LoadMode,
 ) -> Result<Arc<SimulationCatalog>, CatalogLoadError> {
@@ -686,9 +701,11 @@ fn convert_combat(
             ));
         }
     }
+    let modifiers = crate::modifier_lower::convert(config)?;
     Ok(CombatDefinitions {
         abilities: abilities.into_boxed_slice(),
         hit_plans: hit_plans.into_boxed_slice(),
+        modifiers,
     })
 }
 
@@ -1002,7 +1019,7 @@ fn contiguous(
     Ok(())
 }
 
-fn parse_decimal(source: &str) -> Result<i64, CatalogLoadError> {
+pub(super) fn parse_decimal(source: &str) -> Result<i64, CatalogLoadError> {
     let (negative, unsigned) = source
         .strip_prefix('-')
         .map_or((false, source), |rest| (true, rest));
@@ -1080,6 +1097,10 @@ fn fail(kind: CatalogLoadErrorKind, message: impl std::fmt::Display) -> CatalogL
         kind,
         message: message.to_string(),
     }
+}
+
+pub(super) fn domain_fail(message: impl std::fmt::Display) -> CatalogLoadError {
+    fail(CatalogLoadErrorKind::Domain, message)
 }
 
 #[cfg(test)]

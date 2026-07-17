@@ -115,6 +115,10 @@ definition_id!(
     "Stable catalog identity of a modifier definition."
 );
 definition_id!(
+    ModifierStackingGroupId,
+    "Stable catalog identity of a modifier stacking group."
+);
+definition_id!(
     EnemyDefinitionId,
     "Stable catalog identity of an enemy definition."
 );

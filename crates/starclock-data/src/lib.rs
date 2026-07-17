@@ -11,3 +11,6 @@ mod generated;
 
 pub mod bundle;
 pub mod catalog;
+mod modifier_lower;
+#[cfg(test)]
+mod probe_tests;

@@ -1,5 +1,6 @@
 //! Closed battle-domain Rule IR values accepted after data lowering.
 
+use crate::modifier::model::{FormulaPurpose, StatKind, StatQuerySubject};
 use crate::{
     AbilityId, ActionId, EventId, HitId, NativeHandlerId, ProgramId, Rounding, RuleId,
     RuleInstanceId, Scalar, SelectorId, SourceDefinitionId, StateSlotDefinitionId, TriggerId,
@@ -313,6 +314,11 @@ pub enum ValueExpr {
     EventApplier,
     EventTarget,
     CurrentTarget,
+    QueryStat {
+        subject: StatQuerySubject,
+        stat: StatKind,
+        purpose: FormulaPurpose,
+    },
     Add(Box<ValueExpr>, Box<ValueExpr>),
     Subtract(Box<ValueExpr>, Box<ValueExpr>),
     Multiply {
@@ -534,7 +540,7 @@ pub enum RuleEmission {
 }
 
 /// Complete read-only input shared by IR evaluation and static handlers.
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy)]
 pub struct RuleEvaluationInput<'a> {
     pub event_kind: RuleEventKind,
     pub cause: RuleCause,
@@ -542,6 +548,22 @@ pub struct RuleEvaluationInput<'a> {
     pub source_tags: &'a [SourceDefinitionId],
     pub slots: &'a [(StateSlotDefinitionId, RuleValue)],
     pub selectors: &'a [SelectorResult<'a>],
+    pub stat_reader: Option<&'a dyn super::evaluate::StatQueryReader>,
+}
+
+impl core::fmt::Debug for RuleEvaluationInput<'_> {
+    fn fmt(&self, formatter: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        formatter
+            .debug_struct("RuleEvaluationInput")
+            .field("event_kind", &self.event_kind)
+            .field("cause", &self.cause)
+            .field("occurrence", &self.occurrence)
+            .field("source_tags", &self.source_tags)
+            .field("slots", &self.slots)
+            .field("selectors", &self.selectors)
+            .field("has_stat_reader", &self.stat_reader.is_some())
+            .finish()
+    }
 }
 
 /// Stable key used to enforce one trigger occurrence.

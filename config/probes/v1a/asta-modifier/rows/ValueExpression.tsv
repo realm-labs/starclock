@@ -1,0 +1,7 @@
+id	stable_key	result_kind	node
+1	probe.asta.expr.zero	Integer	{"type":"IntegerLiteral","value":0}
+2	probe.asta.expr.charging	Integer	{"type":"ReadStateSlot","state_slot_id":3}
+3	probe.asta.expr.atk-per-stack	Ratio	{"type":"RatioLiteral","value_decimal":"0.14"}
+4	probe.asta.expr.charging-scalar	Scalar	{"type":"Convert","operand_expression_id":2,"target_kind":"Scalar","rounding":"TowardZero"}
+5	probe.asta.expr.dynamic-atk-ratio	Ratio	{"type":"CheckedBinary","operator":"CheckedMultiply","left_expression_id":4,"right_expression_id":3,"rounding":"NearestTiesEven"}
+6	probe.asta.expr.maximum-charging	Integer	{"type":"IntegerLiteral","value":5}

@@ -5,7 +5,7 @@ import path from "node:path";
 const PACK_SHA = "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a";
 const MANIFEST_SHA = "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19";
 const PROVENANCE_SHA = "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466";
-const RESEARCH_SHA = "7d0e55631f584c58c72128c18ccc3715cf7f50ab705973815ed244d31979d62e";
+const RESEARCH_SHA = "7c1f907f99c8e67dd85df08fd43802730fb5b0d04f2535562d8c13d2b639f19c";
 const SCHEMA = "starclock-goal-coverage-v1";
 const GENERATED_ON = "2026-07-17";
 const root = path.resolve(process.cwd());

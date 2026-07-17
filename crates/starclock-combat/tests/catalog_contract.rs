@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use starclock_combat::{
     AbilityId, EffectDefinitionId, EncounterId, EnemyDefinitionId, Energy, ModifierDefinitionId,
-    ProgramId, RuleBundleId, RuleId, SelectorId, UnitDefinitionId,
+    ModifierStackingGroupId, ProgramId, RuleBundleId, RuleId, Scalar, SelectorId, UnitDefinitionId,
     catalog::{
         CombatCatalog,
         action::{
@@ -12,10 +12,14 @@ use starclock_combat::{
         builder::{CatalogBuildErrorKind, CombatCatalogBuilder},
         definition::{
             AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition,
-            ModifierDefinition, ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition,
-            UnitDefinition,
+            ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
         },
     },
+    modifier::model::{
+        FormulaPurpose, FormulaStage, ModifierAggregation, ModifierDefinition,
+        ModifierStackingGroup, SnapshotPolicy, StatKind,
+    },
+    rule::model::{RuleValue, ValueExpr},
 };
 
 fn id<I: TryFrom<u32>>(raw: u32) -> I
@@ -75,7 +79,24 @@ fn complete_catalog(reverse_insertion: bool) -> Arc<CombatCatalog> {
         builder.add_selector(definition);
     }
     builder.add_rule_bundle(RuleBundle::new(id(1), vec![id(1)]));
-    builder.add_modifier(ModifierDefinition::new(id(1)));
+    builder.add_modifier_group(ModifierStackingGroup {
+        id: id::<ModifierStackingGroupId>(1),
+        aggregation: ModifierAggregation::Sum,
+    });
+    builder.add_modifier(ModifierDefinition {
+        id: id(1),
+        stat: StatKind::Atk,
+        stage: FormulaStage::Flat,
+        purpose: FormulaPurpose::Stat,
+        value: ValueExpr::Literal(RuleValue::Scalar(Scalar::ZERO)),
+        stacking_group: id(1),
+        priority: 0,
+        floor: None,
+        cap: None,
+        cap_stage: FormulaStage::Flat,
+        snapshot: SnapshotPolicy::Dynamic,
+        filters: Box::new([]),
+    });
     for definition in enemies {
         builder.add_enemy(definition);
     }
@@ -95,7 +116,7 @@ fn insertion_order_cannot_change_canonical_catalog_indexes() {
 
     assert_eq!(forward.revision().as_str(), "catalog-contract-v1");
     assert_eq!(forward.digest().bytes(), [0x5a; 32]);
-    assert_eq!(forward.definition_count(), 15);
+    assert_eq!(forward.definition_count(), 16);
     assert_eq!(
         forward
             .unit_ids()

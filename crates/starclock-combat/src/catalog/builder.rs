@@ -8,10 +8,13 @@ use super::{
     CatalogDigest, CatalogRevision, CombatCatalog,
     definition::{
         AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition,
-        ModifierDefinition, ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition,
-        UnitDefinition,
+        ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
     },
     table::{DefinitionTable, DuplicateId},
+};
+use crate::modifier::{
+    model::{ModifierDefinition, ModifierStackingGroup},
+    registry::ModifierRegistry,
 };
 
 /// Foundational definition family named by catalog diagnostics.
@@ -115,6 +118,7 @@ pub struct CombatCatalogBuilder {
     selectors: Vec<SelectorDefinition>,
     rule_bundles: Vec<RuleBundle>,
     modifiers: Vec<ModifierDefinition>,
+    modifier_groups: Vec<ModifierStackingGroup>,
     enemies: Vec<EnemyDefinition>,
     encounters: Vec<EncounterDefinition>,
 }
@@ -134,6 +138,7 @@ impl CombatCatalogBuilder {
             selectors: Vec::new(),
             rule_bundles: Vec::new(),
             modifiers: Vec::new(),
+            modifier_groups: Vec::new(),
             enemies: Vec::new(),
             encounters: Vec::new(),
         }
@@ -171,6 +176,10 @@ impl CombatCatalogBuilder {
     pub fn add_modifier(&mut self, definition: ModifierDefinition) {
         self.modifiers.push(definition);
     }
+    /// Adds a modifier stacking group.
+    pub fn add_modifier_group(&mut self, definition: ModifierStackingGroup) {
+        self.modifier_groups.push(definition);
+    }
     /// Adds an enemy definition.
     pub fn add_enemy(&mut self, definition: EnemyDefinition) {
         self.enemies.push(definition);
@@ -183,6 +192,10 @@ impl CombatCatalogBuilder {
     /// Validates all inputs and returns an immutable catalog shared by battles.
     pub fn build(self) -> Result<Arc<CombatCatalog>, CatalogBuildError> {
         validate_identity(&self.revision, &self.digest)?;
+        let modifiers =
+            ModifierRegistry::new(self.modifier_groups, self.modifiers).map_err(|source| {
+                error(CatalogBuildErrorKind::InvalidDefinition, source.to_string())
+            })?;
         let catalog = CombatCatalog {
             revision: CatalogRevision(self.revision.into_boxed_str()),
             digest: CatalogDigest(self.digest),
@@ -193,7 +206,7 @@ impl CombatCatalogBuilder {
             programs: table(self.programs, DefinitionKind::Program)?,
             selectors: table(self.selectors, DefinitionKind::Selector)?,
             rule_bundles: table(self.rule_bundles, DefinitionKind::RuleBundle)?,
-            modifiers: table(self.modifiers, DefinitionKind::Modifier)?,
+            modifiers,
             enemies: table(self.enemies, DefinitionKind::Enemy)?,
             encounters: table(self.encounters, DefinitionKind::Encounter)?,
             trigger_index: super::index::TriggerDefinitionIndex::default(),
@@ -352,7 +365,7 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
         )?;
         require_all(
             effect.modifiers(),
-            |value| catalog.modifiers.get(value).is_some(),
+            |value| catalog.modifiers.definition(value).is_some(),
             DefinitionKind::Effect,
             id.get(),
             DefinitionKind::Modifier,
@@ -519,7 +532,7 @@ fn validate_program_references(catalog: &CombatCatalog) -> Result<(), CatalogBui
         )?;
         require_all(
             program.modifiers(),
-            |value| catalog.modifiers.get(value).is_some(),
+            |value| catalog.modifiers.definition(value).is_some(),
             DefinitionKind::Program,
             id.get(),
             DefinitionKind::Modifier,

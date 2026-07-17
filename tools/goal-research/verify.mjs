@@ -21,12 +21,15 @@ assert(decisions.decisions.length === 6, "decision record coverage mismatch");
 assert(sources.sources.length === 3 && sources.sources.every((entry) => /^https:\/\//.test(entry.url) && /^2026-\d\d-\d\d$/.test(entry.accessed_on) && /^[0-9a-f]{64}$/.test(entry.evidence_sha256) && entry.version && entry.confidence && entry.note), "source metadata incomplete");
 
 for (const entry of cases) {
-  assert(entry.state === "Researching" && entry.owner_batch, `${entry.id} has no research owner`);
+  assert(["Researching", "Observed"].includes(entry.state) && entry.owner_batch, `${entry.id} has no research owner`);
   assert(entry.question && entry.fixed_expectations.length && entry.observations_required.length, `${entry.id} lacks a bounded question`);
   assert(entry.evidence.length && entry.evidence.every((binding) => /^[0-9a-f]{64}$/.test(binding.source_text_sha256)), `${entry.id} lacks evidence hashes`);
   assert(entry.source_ids.length && entry.source_ids.every((id) => sources.sources.some((source) => source.id === id)), `${entry.id} has an unknown source`);
   assert(fixtures.fixtures.some((fixture) => fixture.case_id === entry.id && fixture.assertions.length && fixture.replay_requirements.length === 4), `${entry.id} lacks a reproducible fixture`);
 }
+const observed = cases.filter((entry) => entry.state === "Observed");
+assert(observed.length === 2 && observed.every((entry) => entry.owner_batch === "G01-P4-B2" && /^[0-9a-f]{64}$/.test(entry.observation.source_payload_sha256) && /^[0-9a-f]{64}$/.test(entry.observation.executable_bundle_sha256) && entry.observation.evidence_paths.length === 2 && entry.observation.validation_commands.length === 2), "B2 observed cases lack executable evidence");
+assert(fixtures.fixtures.filter((fixture) => fixture.state === "GoldenVerified").length === 2, "B2 golden fixture state differs");
 
 for (const family of ["V1aAsta", "V1aKafka", "V1aClara", "V1aFirefly", "V1aAglaea", "SharedElation", "HimekoNovaApproximation"]) {
   assert(cases.some((entry) => entry.family === family), `missing ${family} cases`);

@@ -13,7 +13,8 @@ It contains no copied ability descriptions and no guessed runtime behavior.
   evidence hashes.
 - `evidence-index.json` binds the generated files.
 
-All cases remain `Researching` until their owning implementation batch records a
-source-bound observation and passes the executable fixture. This is deliberate:
+Cases remain `Researching` until their owning implementation batch records a
+source-bound observation and passes the executable fixture; resolved probes move
+to `Observed` with exact bundle, command and evidence paths. This is deliberate:
 Phase 0 eliminates unnamed ambiguity; Phase 4 and the registered Himeko Nova
 mechanic prerequisite close it without inventing defaults.

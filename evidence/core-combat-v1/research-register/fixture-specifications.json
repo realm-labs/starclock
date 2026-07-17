@@ -25,7 +25,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-AGLAEA-JOINT-ACTION-CONTRIBUTIONS",
@@ -49,7 +51,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-AGLAEA-PRESENCE-TIMELINE-OWNERSHIP",
@@ -73,7 +77,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-AGLAEA-SPD-STACK-SCOPE",
@@ -97,7 +103,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-ASTA-AURA-STACK-QUERY",
@@ -121,7 +129,12 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "GoldenVerified",
+      "executable_evidence": [
+        "config/probes/v1a/asta-modifier/golden.json",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-ASTA-INDEPENDENT-CLOCKS",
@@ -145,7 +158,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-ASTA-UNIQUE-TARGET-CREDIT",
@@ -171,7 +186,12 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "GoldenVerified",
+      "executable_evidence": [
+        "config/probes/v1a/asta-modifier/golden.json",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-CLARA-CAUSE-ATTACKER-ALLY",
@@ -195,7 +215,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-CLARA-COUNTER-TARGET-PRIORITY",
@@ -219,7 +241,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-CLARA-ENHANCED-CHARGE-SCOPE",
@@ -243,7 +267,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-CLARA-MARK-CONSUME-ORDER",
@@ -267,7 +293,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-ELATION-CERTIFIED-BANGER-OWNERSHIP",
@@ -291,7 +319,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-ELATION-DAMAGE-ABILITY-TAGS",
@@ -315,7 +345,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-ELATION-FORCED-SKILL-ENVELOPE",
@@ -339,7 +371,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-ELATION-FORCED-SKILL-TARGET-COST",
@@ -363,7 +397,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-ELATION-GENERIC-API-BOUNDARY",
@@ -387,7 +423,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-ELATION-PUNCHLINE-SCOPE-CREDIT",
@@ -411,7 +449,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-ELATION-SHARED-ACTOR-AHA",
@@ -435,7 +475,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-ELATION-SP-SPEND-OBSERVATION",
@@ -459,7 +501,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-FIREFLY-COUNTDOWN-TEARDOWN",
@@ -483,7 +527,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-FIREFLY-HP-ENERGY-ATOMIC",
@@ -508,7 +554,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-FIREFLY-SUPERBREAK-SAMPLE",
@@ -532,7 +580,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-FIREFLY-TRANSFORM-ADVANCE",
@@ -556,7 +606,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-FIREFLY-WEAKNESS-TOUGHNESS-ORDER",
@@ -580,7 +632,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-HIMEKO-NOVA-COMPANION-PROTOCOL-DECIMATION",
@@ -608,7 +662,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-HIMEKO-NOVA-COMPANION-PROTOCOL-VERDICT",
@@ -636,7 +692,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-HIMEKO-NOVA-ENKINDLE-THE-FIRST-LODESTAR",
@@ -664,7 +722,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-HIMEKO-NOVA-HYPERLUMINAL-PARTICLE-BEAM",
@@ -692,7 +752,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-HIMEKO-NOVA-OF-FIRE-AND-FAR-FARING",
@@ -720,7 +782,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-HIMEKO-NOVA-ORBITAL-ANNIHILATION-PULSE",
@@ -748,7 +812,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-HIMEKO-NOVA-STARCHARTER-CRUISE",
@@ -776,7 +842,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-HIMEKO-NOVA-TRAILBLAZE-BY-YOUR-SIDE",
@@ -804,7 +872,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-HIMEKO-NOVA-UPRAISE-THE-VANWARD-CRESSET",
@@ -832,7 +902,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-HIMEKO-NOVA-WE-TOO-STRIDE-THE-STARS",
@@ -860,7 +932,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-KAFKA-DETONATION-SNAPSHOT-DURATION",
@@ -885,7 +959,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-KAFKA-DOT-SELECTION-ATTRIBUTION",
@@ -910,7 +986,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     },
     {
       "case_id": "G01-R-KAFKA-FOLLOWUP-ONCE-ORDER",
@@ -935,7 +1013,9 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+      "state": "PendingObservation",
+      "executable_evidence": []
     }
   ]
 }

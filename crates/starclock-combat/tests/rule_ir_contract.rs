@@ -74,6 +74,7 @@ fn input<'a>(
         source_tags: &[],
         slots,
         selectors,
+        stat_reader: None,
     }
 }
 

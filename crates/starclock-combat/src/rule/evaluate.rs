@@ -3,7 +3,8 @@
 use core::cmp::Ordering;
 use std::collections::BTreeSet;
 
-use crate::{NumericError, ProgramId, RuleId, StateSlotDefinitionId, UnitId};
+use crate::modifier::model::{FormulaPurpose, StatKind, StatQuerySubject};
+use crate::{NumericError, ProgramId, RuleId, Scalar, StateSlotDefinitionId, UnitId};
 
 use super::model::{
     Comparison, ConditionExpr, EventFilter, ProgramStep, RuleEmission, RuleEvaluationInput,
@@ -14,6 +15,17 @@ use super::model::{
 pub trait ProgramLookup {
     /// Returns the finite ordered steps for one validated program.
     fn program_steps(&self, id: ProgramId) -> Option<&[ProgramStep]>;
+}
+
+/// Read-only bridge used by the Rule IR `QueryStat` leaf.
+pub trait StatQueryReader {
+    fn query_stat(
+        &self,
+        origin: StatQuerySubject,
+        subject: UnitId,
+        stat: StatKind,
+        purpose: FormulaPurpose,
+    ) -> Result<Scalar, RuleEvaluationError>;
 }
 
 /// Stable evaluation failure category.
@@ -56,6 +68,13 @@ impl core::fmt::Display for RuleEvaluationError {
 }
 
 impl std::error::Error for RuleEvaluationError {}
+
+pub(crate) const fn stat_query_error(context: u32) -> RuleEvaluationError {
+    RuleEvaluationError {
+        kind: RuleEvaluationErrorKind::MissingValue,
+        context,
+    }
+}
 
 /// Per-trigger hard limits. Catalog policy supplies these fixed values.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -354,7 +373,7 @@ pub fn matches_filter(filter: &EventFilter, input: RuleEvaluationInput<'_>) -> b
             .is_none_or(|value| input.cause.source == Some(value))
 }
 
-fn evaluate_value(
+pub fn evaluate_value(
     expression: &ValueExpr,
     input: RuleEvaluationInput<'_>,
     current_target: Option<UnitId>,
@@ -380,6 +399,22 @@ fn evaluate_value(
         ValueExpr::EventApplier => optional_unit(input.cause.applier),
         ValueExpr::EventTarget => optional_unit(input.cause.target),
         ValueExpr::CurrentTarget => optional_unit(current_target),
+        ValueExpr::QueryStat {
+            subject,
+            stat,
+            purpose,
+        } => {
+            let origin = *subject;
+            let subject = query_subject(origin, input, current_target)?;
+            input
+                .stat_reader
+                .ok_or(RuleEvaluationError {
+                    kind: RuleEvaluationErrorKind::MissingValue,
+                    context: 0x201,
+                })?
+                .query_stat(origin, subject, *stat, *purpose)
+                .map(RuleValue::Scalar)
+        }
         ValueExpr::Add(lhs, rhs) => arithmetic(lhs, rhs, input, current_target, Arithmetic::Add),
         ValueExpr::Subtract(lhs, rhs) => {
             arithmetic(lhs, rhs, input, current_target, Arithmetic::Subtract)
@@ -452,6 +487,24 @@ fn evaluate_value(
             *rounding,
         ),
     }
+}
+
+fn query_subject(
+    subject: StatQuerySubject,
+    input: RuleEvaluationInput<'_>,
+    current_target: Option<UnitId>,
+) -> Result<UnitId, RuleEvaluationError> {
+    let value = match subject {
+        StatQuerySubject::Owner => input.cause.owner,
+        StatQuerySubject::Actor => input.cause.actor,
+        StatQuerySubject::Applier => input.cause.applier,
+        StatQuerySubject::EventTarget => input.cause.target,
+        StatQuerySubject::CurrentTarget => current_target,
+    };
+    value.ok_or(RuleEvaluationError {
+        kind: RuleEvaluationErrorKind::MissingValue,
+        context: 0x202,
+    })
 }
 
 #[derive(Clone, Copy)]
