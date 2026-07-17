@@ -1,0 +1,131 @@
+{
+  "schema_revision": "starclock-dependency-policy-v1",
+  "reviewed_on": "2026-07-17",
+  "rules": [
+    "Every direct dependency is pinned with an exact Cargo requirement and committed lockfile.",
+    "Every direct and transitive package requires an accepted license and deterministic-impact review.",
+    "Authoritative dependencies disable default features and enable only reviewed features.",
+    "A version or feature change is a new review and must rerun affected cross-platform goldens.",
+    "Unreviewed registry, Git, binary-download and dynamic-plugin dependencies fail repository checks."
+  ],
+  "compile_cost_measurement": {
+    "runner": "Windows x86_64-pc-windows-msvc; rustc 1.97.0; local development measurement (not a stable performance runner)",
+    "command": "fresh CARGO_TARGET_DIR cargo check -p starclock-combat --all-targets --all-features",
+    "elapsed_milliseconds": 1161,
+    "scope": "starclock-combat plus fixnum and all three transitive packages",
+    "classification": "Low baseline; remeasure after dependency changes"
+  },
+  "packages": [
+    {
+      "name": "fixnum",
+      "version": "0.9.5",
+      "relationship": "Direct",
+      "owner": "starclock-combat private numeric module",
+      "features": ["i64", "std"],
+      "default_features": false,
+      "license": "MIT OR Apache-2.0",
+      "source_url": "https://docs.rs/fixnum/0.9.5/fixnum/",
+      "purpose": "Checked decimal fixed-point storage and explicit-rounding arithmetic behind Starclock domain wrappers.",
+      "deterministic_impact": "Authoritative numeric backend; exact version, features, raw six-decimal representation and later golden vectors are replay-sensitive.",
+      "compile_cost": "Part of the measured 1161 ms fresh combat check; four registry packages total.",
+      "rejected_alternatives": [
+        "Handwritten wide fixed-point arithmetic: larger audit surface for overflow and rounding.",
+        "rust_decimal or floating point: broader representation/API surface and unsuitable authoritative float paths."
+      ]
+    },
+    {
+      "name": "itoa",
+      "version": "1.0.18",
+      "relationship": "Transitive via fixnum",
+      "owner": "fixnum formatting implementation",
+      "features": [],
+      "default_features": true,
+      "license": "MIT OR Apache-2.0",
+      "source_url": "https://docs.rs/itoa/1.0.18/itoa/",
+      "purpose": "Integer-to-text support selected transitively by fixnum.",
+      "deterministic_impact": "Not used for canonical state encoding; remains locked because formatted numeric diagnostics must not float by dependency resolution.",
+      "compile_cost": "Part of the measured 1161 ms fresh combat check.",
+      "rejected_alternatives": ["Not independently replaceable without replacing or patching the reviewed fixnum package."]
+    },
+    {
+      "name": "static_assertions",
+      "version": "1.1.0",
+      "relationship": "Transitive via fixnum",
+      "owner": "fixnum compile-time validation",
+      "features": [],
+      "default_features": true,
+      "license": "MIT OR Apache-2.0",
+      "source_url": "https://docs.rs/static_assertions/1.1.0/static_assertions/",
+      "purpose": "Compile-time type/layout assertions selected transitively by fixnum.",
+      "deterministic_impact": "Compile-time only and absent from authoritative state; exact resolution is still locked.",
+      "compile_cost": "Part of the measured 1161 ms fresh combat check.",
+      "rejected_alternatives": ["Not independently replaceable without replacing or patching the reviewed fixnum package."]
+    },
+    {
+      "name": "typenum",
+      "version": "1.20.1",
+      "relationship": "Transitive via fixnum",
+      "owner": "fixnum precision type parameter",
+      "features": [],
+      "default_features": true,
+      "license": "MIT OR Apache-2.0",
+      "source_url": "https://docs.rs/typenum/1.20.1/typenum/",
+      "purpose": "Type-level decimal precision used by fixnum's six-place representation.",
+      "deterministic_impact": "Selects the compile-time representation; never appears in Starclock's public API or canonical bytes.",
+      "compile_cost": "Part of the measured 1161 ms fresh combat check.",
+      "rejected_alternatives": ["Not independently replaceable without replacing or patching the reviewed fixnum package."]
+    }
+  ],
+  "tools": [
+    {
+      "name": "rustc",
+      "version": "1.97.0 (2d8144b78 2026-07-07)",
+      "license": "MIT OR Apache-2.0",
+      "source_url": "https://github.com/rust-lang/rust",
+      "purpose": "Pinned compiler for all workspace targets.",
+      "deterministic_impact": "Compiler and standard-library changes can alter diagnostics, code generation and platform behavior; cross-platform golden bytes remain the authority.",
+      "compile_cost": "Toolchain baseline; no additional crate compile unit.",
+      "rejected_alternatives": ["Floating stable channel: non-reproducible CI and generated diagnostics.", "Nightly: unnecessary unstable surface."]
+    },
+    {
+      "name": "cargo",
+      "version": "1.97.0 (c980f4866 2026-06-30)",
+      "license": "MIT OR Apache-2.0",
+      "source_url": "https://github.com/rust-lang/cargo",
+      "purpose": "Workspace resolution, lockfile and build orchestration.",
+      "deterministic_impact": "Resolver v3 and Cargo.lock define the exact package graph.",
+      "compile_cost": "Build orchestrator; measurement reported per command instead.",
+      "rejected_alternatives": ["Unpinned Cargo: resolver and metadata drift."]
+    },
+    {
+      "name": "rustfmt",
+      "version": "1.9.0-stable (2d8144b788 2026-07-07)",
+      "license": "MIT OR Apache-2.0",
+      "source_url": "https://github.com/rust-lang/rustfmt",
+      "purpose": "Canonical handwritten Rust formatting gate.",
+      "deterministic_impact": "Source formatting only; version drift would cause generated review noise.",
+      "compile_cost": "Prebuilt toolchain component.",
+      "rejected_alternatives": ["Editor-specific formatting: inconsistent checked source."]
+    },
+    {
+      "name": "clippy",
+      "version": "0.1.97 (2d8144b788 2026-07-07)",
+      "license": "MIT OR Apache-2.0",
+      "source_url": "https://github.com/rust-lang/rust-clippy",
+      "purpose": "Pinned Rust lint gate with warnings denied.",
+      "deterministic_impact": "Static analysis only; pin avoids lint-set drift between local and CI gates.",
+      "compile_cost": "Prebuilt toolchain component; adds analysis time but no runtime code.",
+      "rejected_alternatives": ["Compiler warnings alone: insufficient deterministic/idiomatic checks."]
+    },
+    {
+      "name": "node",
+      "version": "24.15.0",
+      "license": "MIT",
+      "source_url": "https://github.com/nodejs/node/tree/v24.15.0",
+      "purpose": "Deterministic repository evidence, manifest and architecture verification scripts.",
+      "deterministic_impact": "Tooling only; scripts sort inputs and hash explicit UTF-8 bytes. Exact runtime is pinned by .node-version.",
+      "compile_cost": "Prebuilt external tool; no Rust compile unit.",
+      "rejected_alternatives": ["Deno/Bun: no existing repository baseline.", "Immediate Rust rewrites: unnecessary bootstrap compile cost before the CLI/tool crates exist."]
+    }
+  ]
+}

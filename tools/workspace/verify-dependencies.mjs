@@ -13,6 +13,9 @@ const expected = new Map([
   ["starclock-data", ["starclock-activity", "starclock-build", "starclock-combat", "starclock-mode-standard", "starclock-rules"]],
   ["starclock-cli", ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mode-standard", "starclock-replay", "starclock-rules"]],
 ]);
+const expectedExternal = new Map([
+  ["starclock-combat", [{ name: "fixnum", requirement: "=0.9.5", features: ["i64", "std"] }]],
+]);
 
 const metadata = JSON.parse(execFileSync("cargo", ["metadata", "--format-version", "1", "--no-deps"], {
   cwd: root,
@@ -30,22 +33,32 @@ for (const pkg of packages) {
   const manifestDirectory = normalize(path.dirname(pkg.manifest_path));
   assert(manifestDirectory === normalize(path.join(root, "crates", pkg.name)), `${pkg.name} is outside its required crate directory`);
   const localDependencies = pkg.dependencies
-    .filter((dependency) => dependency.path !== null)
+    .filter((dependency) => dependency.source === null)
     .map((dependency) => dependency.name)
     .sort();
   const expectedDependencies = [...expected.get(pkg.name)].sort();
   assert(JSON.stringify(localDependencies) === JSON.stringify(expectedDependencies), `${pkg.name} local dependencies differ:\nexpected ${expectedDependencies.join(", ") || "(none)"}\nactual   ${localDependencies.join(", ") || "(none)"}`);
-  const externalDependencies = pkg.dependencies.filter((dependency) => dependency.path === null);
-  assert(externalDependencies.length === 0, `${pkg.name} unexpectedly has external dependencies before G01-P1-B2`);
+  const externalDependencies = pkg.dependencies.filter((dependency) => dependency.source !== null).map((dependency) => ({
+    name: dependency.name,
+    requirement: dependency.req,
+    features: [...dependency.features].sort(),
+    uses_default_features: dependency.uses_default_features,
+  })).sort((a, b) => a.name.localeCompare(b.name));
+  const allowedExternal = (expectedExternal.get(pkg.name) ?? []).map((dependency) => ({
+    ...dependency,
+    features: [...dependency.features].sort(),
+    uses_default_features: false,
+  }));
+  assert(JSON.stringify(externalDependencies) === JSON.stringify(allowedExternal), `${pkg.name} external dependency policy differs:\nexpected ${JSON.stringify(allowedExternal)}\nactual   ${JSON.stringify(externalDependencies)}`);
 }
 
 const combat = packages.find((entry) => entry.name === "starclock-combat");
-assert(combat.dependencies.length === 0, "starclock-combat must remain the dependency root");
+assert(combat.dependencies.every((dependency) => dependency.name === "fixnum"), "starclock-combat may depend only on the reviewed private numeric backend");
 const cli = packages.find((entry) => entry.name === "starclock-cli");
 const cliBinaries = cli.targets.filter((target) => target.kind.includes("bin")).map((target) => target.name);
 assert(JSON.stringify(cliBinaries) === JSON.stringify(["starclock"]), "starclock-cli must own only the starclock binary");
 
-console.log("Workspace dependency boundaries verified (9 crates; combat has zero dependencies).");
+console.log("Workspace dependency boundaries verified (9 crates; combat has only private fixnum backend).");
 
 function normalize(value) { return path.resolve(value).replaceAll("\\", "/").toLowerCase(); }
 function assert(condition, message) { if (!condition) throw new Error(message); }

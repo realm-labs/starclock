@@ -1,0 +1,47 @@
+import fs from "node:fs";
+import path from "node:path";
+import { execFileSync } from "node:child_process";
+
+const root = path.resolve(process.cwd());
+const policy = JSON.parse(fs.readFileSync(path.join(root, "policy", "dependency-and-tool-policy.json"), "utf8"));
+assert(policy.compile_cost_measurement.elapsed_milliseconds > 0 && policy.compile_cost_measurement.command && policy.compile_cost_measurement.runner, "compile-cost measurement is incomplete");
+const requiredFields = ["license", "source_url", "purpose", "deterministic_impact", "compile_cost", "rejected_alternatives"];
+for (const kind of ["packages", "tools"]) {
+  for (const entry of policy[kind]) {
+    for (const field of requiredFields) assert(entry[field] && (!Array.isArray(entry[field]) || entry[field].length > 0), `${kind}:${entry.name} lacks ${field}`);
+    assert(/^https:\/\//.test(entry.source_url), `${kind}:${entry.name} lacks a source URL`);
+  }
+}
+
+const metadata = JSON.parse(run("cargo", ["metadata", "--format-version", "1"]));
+const registry = metadata.packages.filter((entry) => entry.source?.startsWith("registry+")).map((entry) => ({
+  name: entry.name,
+  version: entry.version,
+  license: entry.license,
+})).sort((a, b) => a.name.localeCompare(b.name));
+const reviewed = policy.packages.map((entry) => ({ name: entry.name, version: entry.version, license: entry.license })).sort((a, b) => a.name.localeCompare(b.name));
+assert(JSON.stringify(registry) === JSON.stringify(reviewed), `registry package policy differs:\nreviewed ${JSON.stringify(reviewed)}\nresolved ${JSON.stringify(registry)}`);
+
+const toolchain = fs.readFileSync(path.join(root, "rust-toolchain.toml"), "utf8");
+assert(toolchain.includes('channel = "1.97.0"'), "Rust toolchain is not pinned to 1.97.0");
+assert(toolchain.includes('components = ["clippy", "rustfmt"]'), "required Rust components are not pinned");
+assert(fs.readFileSync(path.join(root, ".node-version"), "utf8").trim() === "24.15.0", "Node pin differs");
+assert(run("rustc", ["--version"]) === "rustc 1.97.0 (2d8144b78 2026-07-07)", "active rustc differs from policy");
+assert(run("cargo", ["--version"]) === "cargo 1.97.0 (c980f4866 2026-06-30)", "active Cargo differs from policy");
+assert(run("rustfmt", ["--version"]) === "rustfmt 1.9.0-stable (2d8144b788 2026-07-07)", "active rustfmt differs from policy");
+assert(run("cargo", ["clippy", "--version"]) === "clippy 0.1.97 (2d8144b788 2026-07-07)", "active Clippy differs from policy");
+assert(run("node", ["--version"]) === "v24.15.0", "active Node differs from policy");
+
+const combatSource = path.join(root, "crates", "starclock-combat", "src");
+const rustFiles = walk(combatSource).filter((file) => file.endsWith(".rs"));
+const backendUsers = rustFiles.filter((file) => fs.readFileSync(file, "utf8").includes("fixnum"));
+assert(backendUsers.length === 1 && path.basename(backendUsers[0]) === "numeric.rs", `fixnum escaped numeric.rs: ${backendUsers.join(", ")}`);
+const combatRoot = fs.readFileSync(path.join(combatSource, "lib.rs"), "utf8");
+assert(combatRoot.includes("mod numeric;") && !combatRoot.includes("pub mod numeric"), "numeric backend module must remain private");
+assert(!combatRoot.includes("pub use fixnum"), "fixnum must not be re-exported");
+
+console.log(`Dependency policy verified (${reviewed.length} locked registry packages; ${policy.tools.length} pinned tools; private fixnum boundary).`);
+
+function run(command, args) { return execFileSync(command, args, { cwd: root, encoding: "utf8" }).trim(); }
+function walk(directory) { return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => { const file = path.join(directory, entry.name); return entry.isDirectory() ? walk(file) : [file]; }); }
+function assert(condition, message) { if (!condition) throw new Error(message); }

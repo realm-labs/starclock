@@ -6,3 +6,6 @@ resolver = "3"
 version = "0.1.0"
 edition = "2024"
 publish = false
+
+[workspace.dependencies]
+fixnum = { version = "=0.9.5", default-features = false, features = ["i64", "std"] }

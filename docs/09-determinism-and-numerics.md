@@ -227,6 +227,11 @@ replay_format_version
 
 Pin `fixnum` exactly in the workspace manifest and commit `Cargo.lock`. A library upgrade requires explicit review of arithmetic/rounding behavior and cross-platform golden replay results. Do not treat a patch update as semantically invisible.
 
+The active compiler/toolchain and complete direct/transitive package review are
+recorded in [Dependency and tool policy](dependency-and-tool-policy.md). Only
+the private `starclock-combat` numeric module names `fixnum`; public APIs expose
+Starclock domain wrappers and fixed-width raw values only.
+
 ## Cross-platform verification
 
 The release gate runs the same bundle, seed, and battle/activity command fixtures on at least:
