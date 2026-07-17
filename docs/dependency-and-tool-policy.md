@@ -69,6 +69,22 @@ draw-consumption policy.
 registry package. A fresh locked Windows x86-64 replay check including its
 activity/combat dependencies took 4,014 ms.
 
+## Property-test boundary
+
+`G01-P2-B6` adds exact `proptest = 1.11.0` as a dev-dependency of only
+`starclock-combat` and `starclock-replay`. Default features are disabled; the
+sole enabled feature is `std`, leaving fork/timeout subprocesses, bit sets,
+attribute macros, hardware RNG and unstable features out. The 17 newly resolved
+packages are test-only and recorded as one reviewed group. They do not enter a
+production dependency edge or alter Starclock's authoritative `rand = 0.10.2`.
+
+Every property suite fixes its Proptest ChaCha seed, 256-case count and shrink
+limit, and uses source-parallel regression persistence. A failure therefore
+prints a reproducible seed and shrinks to a file that can be committed beside
+the owning crate. A fresh locked no-run build of combat and replay test targets
+measured 12,266 ms on the recorded Windows x86-64 runner; this is a test compile
+observation, not a runtime or stable-runner performance claim.
+
 ## Change rule
 
 A dependency addition or version/feature change must update the inventory,

@@ -9,6 +9,7 @@ assert(policy.compile_cost_measurement.elapsed_milliseconds > 0 && policy.compil
 assert(policy.production_reader_compile_cost_measurement.elapsed_milliseconds > 0 && policy.production_reader_compile_cost_measurement.command && policy.production_reader_compile_cost_measurement.runner, "production reader compile-cost measurement is incomplete");
 assert(policy.rng_hash_compile_cost_measurement.elapsed_milliseconds > 0 && policy.rng_hash_compile_cost_measurement.command && policy.rng_hash_compile_cost_measurement.runner, "RNG/hash compile-cost measurement is incomplete");
 assert(policy.replay_codec_compile_cost_measurement.elapsed_milliseconds > 0 && policy.replay_codec_compile_cost_measurement.command && policy.replay_codec_compile_cost_measurement.runner, "replay codec compile-cost measurement is incomplete");
+assert(policy.property_harness_compile_cost_measurement.elapsed_milliseconds > 0 && policy.property_harness_compile_cost_measurement.command && policy.property_harness_compile_cost_measurement.runner, "property harness compile-cost measurement is incomplete");
 const requiredFields = ["license", "source_url", "purpose", "deterministic_impact", "compile_cost", "rejected_alternatives"];
 for (const kind of ["packages", "tools"]) {
   for (const entry of policy[kind]) {
@@ -28,10 +29,10 @@ const registry = metadata.packages.filter((entry) => entry.source?.startsWith("r
   name: entry.name,
   version: entry.version,
   license: entry.license,
-})).sort((a, b) => a.name.localeCompare(b.name));
+})).sort(comparePackage);
 const groupedPackages = (policy.package_groups ?? []).flatMap((group) => group.packages);
-const reviewed = [...policy.packages, ...groupedPackages].map((entry) => ({ name: entry.name, version: entry.version, license: entry.license })).sort((a, b) => a.name.localeCompare(b.name));
-assert(new Set(reviewed.map((entry) => entry.name)).size === reviewed.length, "package inventory contains duplicate names");
+const reviewed = [...policy.packages, ...groupedPackages].map((entry) => ({ name: entry.name, version: entry.version, license: entry.license })).sort(comparePackage);
+assert(new Set(reviewed.map((entry) => `${entry.name}@${entry.version}`)).size === reviewed.length, "package inventory contains duplicate name/version pairs");
 assert(JSON.stringify(registry) === JSON.stringify(reviewed), `registry package policy differs:\nreviewed ${JSON.stringify(reviewed)}\nresolved ${JSON.stringify(registry)}`);
 
 const toolchain = fs.readFileSync(path.join(root, "rust-toolchain.toml"), "utf8");
@@ -55,10 +56,13 @@ const combatRoot = fs.readFileSync(path.join(combatSource, "lib.rs"), "utf8");
 const workspaceManifest = fs.readFileSync(path.join(root, "Cargo.toml"), "utf8");
 const combatManifest = fs.readFileSync(path.join(root, "crates", "starclock-combat", "Cargo.toml"), "utf8");
 assert(workspaceManifest.includes('rand = { version = "=0.10.2", default-features = false, features = ["chacha", "std"] }'), "authoritative rand pin/features differ");
+assert(workspaceManifest.includes('proptest = { version = "=1.11.0", default-features = false, features = ["std"] }'), "property harness pin/features differ");
 assert(workspaceManifest.includes('sha2 = { version = "=0.11.0", default-features = false }'), "authoritative sha2 pin/features differ");
 assert(combatManifest.includes("rand.workspace = true") && combatManifest.includes("sha2.workspace = true"), "combat RNG/hash dependencies differ");
 const replayManifest = fs.readFileSync(path.join(root, "crates", "starclock-replay", "Cargo.toml"), "utf8");
 assert(replayManifest.includes("sha2.workspace = true"), "replay SHA-256 dependency differs");
+assert(combatManifest.includes("[dev-dependencies]") && combatManifest.includes("proptest.workspace = true"), "combat property dev-dependency differs");
+assert(replayManifest.includes("[dev-dependencies]") && replayManifest.includes("proptest.workspace = true"), "replay property dev-dependency differs");
 assert(combatRoot.includes("mod numeric;") && !combatRoot.includes("pub mod numeric"), "numeric backend module must remain private");
 assert(!combatRoot.includes("pub use fixnum"), "fixnum must not be re-exported");
 const randUsers = rustFiles.filter((file) => /\brand::/.test(fs.readFileSync(file, "utf8")));
@@ -72,5 +76,6 @@ assert(!combatRoot.includes("pub use rand") && !combatRoot.includes("pub use sha
 console.log(`Dependency policy verified (${reviewed.length} locked registry packages; ${policy.tools.length} pinned tools; private numeric/RNG/hash boundaries).`);
 
 function run(command, args) { return execFileSync(command, args, { cwd: root, encoding: "utf8" }).trim(); }
+function comparePackage(left, right) { return left.name.localeCompare(right.name) || left.version.localeCompare(right.version); }
 function walk(directory) { return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => { const file = path.join(directory, entry.name); return entry.isDirectory() ? walk(file) : [file]; }); }
 function assert(condition, message) { if (!condition) throw new Error(message); }

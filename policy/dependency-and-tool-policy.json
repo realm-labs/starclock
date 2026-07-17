@@ -36,6 +36,13 @@
     "scope": "starclock-replay, activity/combat dependencies and the already reviewed numeric/RNG/SHA-256 graph",
     "classification": "Low local compile cost; canonical compatibility is governed by codec goldens"
   },
+  "property_harness_compile_cost_measurement": {
+    "runner": "Windows x86_64-pc-windows-msvc; rustc 1.97.0; local development measurement (not a stable performance runner)",
+    "command": "fresh CARGO_TARGET_DIR cargo test --no-run -p starclock-combat -p starclock-replay --all-features --locked",
+    "elapsed_milliseconds": 12266,
+    "scope": "starclock-combat and starclock-replay test targets plus the reviewed proptest 1.11.0 dev-only graph",
+    "classification": "Moderate test-only compile cost; no production binary, runtime or performance impact"
+  },
   "packages": [
     {
       "name": "fixnum",
@@ -123,6 +130,41 @@
         { "name": "rand", "version": "0.10.2", "license": "MIT OR Apache-2.0" },
         { "name": "rand_core", "version": "0.10.1", "license": "MIT OR Apache-2.0" },
         { "name": "sha2", "version": "0.11.0", "license": "MIT OR Apache-2.0" }
+      ]
+    },
+    {
+      "name": "property-test harness",
+      "relationship": "proptest is a direct dev-dependency of starclock-combat and starclock-replay; all other entries are transitive test-only packages",
+      "owner": "fixed-seed arithmetic, RNG mapping, catalog ordering, canonical codec and malformed replay property suites",
+      "features": ["proptest:std"],
+      "default_features": false,
+      "source_url": "https://crates.io/crates/proptest/1.11.0",
+      "purpose": "Generate and shrink bounded legal and malformed cases while persisting reproducible regression seeds beside the owning test crate.",
+      "deterministic_impact": "Test generation only. Every committed suite fixes the Proptest ChaCha seed, case count and shrink limit; generated values never enter production configuration, authoritative RNG, replay bytes or runtime packages.",
+      "compile_cost": "A fresh locked no-run build of combat and replay test targets measured 12,266 ms on the recorded Windows runner; the temporary 297.2 MiB target directory was removed after measurement.",
+      "rejected_alternatives": [
+        "Handwritten pseudo-property loops: no structured shrinking or persisted minimal regressions.",
+        "QuickCheck: less explicit strategy composition and failure-persistence control for the planned malformed structured inputs.",
+        "Default Proptest features: add unneeded fork/timeout subprocess machinery and bit-set support."
+      ],
+      "packages": [
+        { "name": "autocfg", "version": "1.5.1", "license": "Apache-2.0 OR MIT" },
+        { "name": "bitflags", "version": "2.13.1", "license": "MIT OR Apache-2.0" },
+        { "name": "getrandom", "version": "0.3.4", "license": "MIT OR Apache-2.0" },
+        { "name": "num-traits", "version": "0.2.19", "license": "MIT OR Apache-2.0" },
+        { "name": "ppv-lite86", "version": "0.2.21", "license": "MIT OR Apache-2.0" },
+        { "name": "proptest", "version": "1.11.0", "license": "MIT OR Apache-2.0" },
+        { "name": "r-efi", "version": "5.3.0", "license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later" },
+        { "name": "rand", "version": "0.9.5", "license": "MIT OR Apache-2.0" },
+        { "name": "rand_chacha", "version": "0.9.0", "license": "MIT OR Apache-2.0" },
+        { "name": "rand_core", "version": "0.9.5", "license": "MIT OR Apache-2.0" },
+        { "name": "rand_xorshift", "version": "0.4.0", "license": "MIT OR Apache-2.0" },
+        { "name": "regex-syntax", "version": "0.8.11", "license": "MIT OR Apache-2.0" },
+        { "name": "unarray", "version": "0.1.4", "license": "MIT OR Apache-2.0" },
+        { "name": "wasip2", "version": "1.0.4+wasi-0.2.12", "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT" },
+        { "name": "wit-bindgen", "version": "0.57.1", "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT" },
+        { "name": "zerocopy", "version": "0.8.54", "license": "BSD-2-Clause OR Apache-2.0 OR MIT" },
+        { "name": "zerocopy-derive", "version": "0.8.54", "license": "BSD-2-Clause OR Apache-2.0 OR MIT" }
       ]
     },
     {

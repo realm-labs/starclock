@@ -21,6 +21,7 @@ const expected = new Map([
 const expectedExternal = new Map([
   ["starclock-combat", [
     { name: "fixnum", requirement: "=0.9.5", features: ["i64", "std"] },
+    { name: "proptest", requirement: "=1.11.0", features: ["std"], kind: "dev" },
     { name: "rand", requirement: "=0.10.2", features: ["chacha", "std"] },
     { name: "sha2", requirement: "=0.11.0", features: [] },
   ]],
@@ -29,6 +30,7 @@ const expectedExternal = new Map([
     { name: "zstd", requirement: "=0.13.3", features: [] },
   ]],
   ["starclock-replay", [
+    { name: "proptest", requirement: "=1.11.0", features: ["std"], kind: "dev" },
     { name: "sha2", requirement: "=0.11.0", features: [] },
   ]],
 ]);
@@ -61,26 +63,29 @@ for (const pkg of packages) {
     requirement: dependency.req,
     features: [...dependency.features].sort(),
     uses_default_features: dependency.uses_default_features,
+    kind: dependency.kind,
   })).sort((a, b) => a.name.localeCompare(b.name));
   const allowedExternal = (expectedExternal.get(pkg.name) ?? []).map((dependency) => ({
-    ...dependency,
+    name: dependency.name,
+    requirement: dependency.requirement,
     features: [...dependency.features].sort(),
     uses_default_features: false,
+    kind: dependency.kind ?? null,
   }));
   assert(JSON.stringify(externalDependencies) === JSON.stringify(allowedExternal), `${pkg.name} external dependency policy differs:\nexpected ${JSON.stringify(allowedExternal)}\nactual   ${JSON.stringify(externalDependencies)}`);
 }
 
 const combat = packages.find((entry) => entry.name === "starclock-combat");
-assert(combat.dependencies.every((dependency) => ["fixnum", "rand", "sha2"].includes(dependency.name)), "starclock-combat may depend only on the reviewed private numeric/RNG/hash backends");
+assert(combat.dependencies.every((dependency) => dependency.kind === "dev" ? dependency.name === "proptest" : ["fixnum", "rand", "sha2"].includes(dependency.name)), "starclock-combat may depend only on the reviewed private numeric/RNG/hash backends plus the property dev-dependency");
 const data = packages.find((entry) => entry.name === "starclock-data");
 assert(data.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => ["serde", "zstd"].includes(dependency.name)), "starclock-data may use only generated-reader transport dependencies");
 const replay = packages.find((entry) => entry.name === "starclock-replay");
-assert(replay.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => dependency.name === "sha2"), "starclock-replay may use only the reviewed private SHA-256 backend");
+assert(replay.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => dependency.kind === "dev" ? dependency.name === "proptest" : dependency.name === "sha2"), "starclock-replay may use only the reviewed private SHA-256 backend plus the property dev-dependency");
 const cli = packages.find((entry) => entry.name === "starclock-cli");
 const cliBinaries = cli.targets.filter((target) => target.kind.includes("bin")).map((target) => target.name);
 assert(JSON.stringify(cliBinaries) === JSON.stringify(["starclock"]), "starclock-cli must own only the starclock binary");
 
-console.log("Workspace dependency boundaries verified (9 crates; combat has only reviewed private numeric/RNG/hash backends).");
+console.log("Workspace dependency boundaries verified (9 crates; production boundaries plus reviewed property dev-dependencies).");
 
 function normalize(value) { return path.resolve(value).replaceAll("\\", "/").toLowerCase(); }
 function read(file) { return fs.readFileSync(file, "utf8"); }

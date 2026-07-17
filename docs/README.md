@@ -61,6 +61,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 36. [Combat catalog implementation](combat-catalog-implementation.md) — fixed-width identity domains, immutable ordered definition tables and deterministic graph validation.
 37. [Deterministic RNG implementation](rng-implementation.md) — canonical SHA-256 substreams, pinned ChaCha8 words, integer mappings and draw-consumption policy.
 38. [Canonical replay/codec implementation](replay-codec-implementation.md) — versioned header/record framing, typed digests, bounded decoding and streaming state hashing.
+39. [Property-test harness](property-test-harness.md) — fixed-seed shrinking and persisted regression contracts for arithmetic, RNG, ordering, codec and malformed replay input.
 
 ## Execution goals
 
