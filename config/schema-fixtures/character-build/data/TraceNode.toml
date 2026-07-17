@@ -1,0 +1,13 @@
+[[rows]]
+id = 5
+character_id = 1
+kind = "MajorPassive"
+promotion_requirement = 2
+prerequisite_trace_ids = []
+
+[[rows]]
+id = 6
+character_id = 1
+kind = "MinorStat"
+promotion_requirement = 3
+prerequisite_trace_ids = [5]

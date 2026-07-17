@@ -1,0 +1,24 @@
+[[rows]]
+eidolon_id = 7
+sequence = 1
+patch = { type = "AdjustResourceDefinition", resource_key = "fixture_stacks", maximum_delta_decimal = "1" }
+[[rows]]
+eidolon_id = 8
+sequence = 1
+patch = { type = "AdjustStateSlot", slot_identity_id = 16, minimum_decimal = "0", maximum_decimal = "10", default_decimal = "0" }
+[[rows]]
+eidolon_id = 9
+sequence = 1
+patch = { type = "AdjustAbilityLevel", ability_id = 2, bonus = 2, cap_delta = 2 }
+[[rows]]
+eidolon_id = 10
+sequence = 1
+patch = { type = "PatchAbility", ability_id = 2, phase_sequence = 1, replacement_program_identity_id = 4 }
+[[rows]]
+eidolon_id = 11
+sequence = 1
+patch = { type = "AddTag", tag = "fixture.e5" }
+[[rows]]
+eidolon_id = 12
+sequence = 1
+patch = { type = "AddRule", rule_identity_id = 15 }

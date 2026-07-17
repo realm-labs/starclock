@@ -1,0 +1,271 @@
+[[enums]]
+name = "AbilityKind"
+values = ["Basic", "Skill", "Ultimate", "Talent", "Technique", "EnhancedBasic", "EnhancedSkill", "FollowUp", "Counter", "Summon", "Memosprite", "Passive", "Entry"]
+
+[[enums]]
+name = "TargetPattern"
+values = ["SingleTarget", "Blast", "Aoe", "Bounce", "Support", "Enhance", "None", "ContentDefined"]
+
+[[enums]]
+name = "RetargetPolicy"
+values = ["Locked", "CancelRemaining", "RetargetSameSide", "RecomputeEachHit"]
+
+[[enums]]
+name = "AbilityPhaseKind"
+values = ["Entry", "BeforeHits", "Hits", "AfterHits", "Resolved"]
+
+[[enums]]
+name = "ResourceKind"
+values = ["Energy", "SkillPoints", "Hp", "CharacterResource"]
+
+[[enums]]
+name = "ResourceDeltaKind"
+values = ["Spend", "Reserve", "Gain"]
+
+[[enums]]
+name = "ResourceTiming"
+values = ["CommandAccepted", "ActionStarted", "PerHit", "AbilityResolved", "ActionFinished"]
+
+[[enums]]
+name = "HitTargetGroup"
+values = ["Primary", "Adjacent", "Selected", "All", "BounceDraw", "SelfTarget"]
+
+[[enums]]
+name = "CritPolicy"
+values = ["PerTarget", "Shared", "Never"]
+
+[[tables]]
+name = "Ability"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "Ability.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "kind"
+type = "enum<AbilityKind>"
+
+[[tables.fields]]
+name = "target_pattern"
+type = "enum<TargetPattern>"
+
+[[tables.fields]]
+name = "retarget_policy"
+type = "enum<RetargetPolicy>"
+
+[[tables.fields]]
+name = "level_cap"
+type = "i32"
+range = [1, 30]
+
+[[tables.fields]]
+name = "cooldown_actions"
+type = "i32"
+range = [0, 100]
+
+[[tables.fields]]
+name = "entry_rule_identity_id"
+type = "optional<ref<ContentIdentity.id>>"
+
+[[tables]]
+name = "AbilityResourceDelta"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "AbilityResourceDelta.toml"
+
+[[tables.fields]]
+name = "ability_id"
+type = "ref<Ability.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "resource_kind"
+type = "enum<ResourceKind>"
+
+[[tables.fields]]
+name = "character_resource_key"
+type = "optional<string>"
+
+[[tables.fields]]
+name = "delta_kind"
+type = "enum<ResourceDeltaKind>"
+
+[[tables.fields]]
+name = "timing"
+type = "enum<ResourceTiming>"
+
+[[tables.fields]]
+name = "amount_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.indexes]]
+name = "by_ability_sequence"
+fields = ["ability_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "AbilityLevelParameter"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "AbilityLevelParameter.toml"
+
+[[tables.fields]]
+name = "ability_id"
+type = "ref<Ability.id>"
+
+[[tables.fields]]
+name = "effective_level"
+type = "i32"
+range = [1, 30]
+
+[[tables.fields]]
+name = "parameter_key"
+type = "string"
+length = [1, 120]
+
+[[tables.fields]]
+name = "value_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.indexes]]
+name = "by_ability_level_parameter"
+fields = ["ability_id", "effective_level", "parameter_key"]
+unique = true
+
+[[tables]]
+name = "AbilityPhase"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "AbilityPhase.toml"
+
+[[tables.fields]]
+name = "ability_id"
+type = "ref<Ability.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "kind"
+type = "enum<AbilityPhaseKind>"
+
+[[tables.fields]]
+name = "program_identity_id"
+type = "optional<ref<ContentIdentity.id>>"
+
+[[tables.indexes]]
+name = "by_ability_sequence"
+fields = ["ability_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "HitPlan"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "HitPlan.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "target_pattern"
+type = "enum<TargetPattern>"
+
+[[tables.fields]]
+name = "retarget_policy"
+type = "enum<RetargetPolicy>"
+
+[[tables.fields]]
+name = "declared_hit_count"
+type = "i32"
+range = [1, 100]
+
+[[tables]]
+name = "HitPlanHit"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "HitPlanHit.toml"
+
+[[tables.fields]]
+name = "hit_plan_id"
+type = "ref<HitPlan.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "target_group"
+type = "enum<HitTargetGroup>"
+
+[[tables.fields]]
+name = "damage_ratio_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "toughness_ratio_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "crit_policy"
+type = "enum<CritPolicy>"
+
+[[tables.indexes]]
+name = "by_hit_plan_sequence"
+fields = ["hit_plan_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "AbilityHitPlanBinding"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "AbilityHitPlanBinding.toml"
+
+[[tables.fields]]
+name = "ability_id"
+type = "ref<Ability.id>"
+
+[[tables.fields]]
+name = "phase_sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "hit_plan_id"
+type = "ref<HitPlan.id>"
+
+[[tables.indexes]]
+name = "by_ability_phase"
+fields = ["ability_id", "phase_sequence"]
+unique = true

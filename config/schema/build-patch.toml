@@ -1,0 +1,98 @@
+[[unions]]
+name = "BuildPatch"
+tag = "type"
+
+[[unions.variants]]
+name = "AddRule"
+[[unions.variants.fields]]
+name = "rule_identity_id"
+type = "ref<ContentIdentity.id>"
+
+[[unions.variants]]
+name = "RemoveRule"
+[[unions.variants.fields]]
+name = "rule_identity_id"
+type = "ref<ContentIdentity.id>"
+
+[[unions.variants]]
+name = "AddModifier"
+[[unions.variants.fields]]
+name = "modifier_identity_id"
+type = "ref<ContentIdentity.id>"
+
+[[unions.variants]]
+name = "AddAbility"
+[[unions.variants.fields]]
+name = "ability_id"
+type = "ref<Ability.id>"
+
+[[unions.variants]]
+name = "ReplaceAbility"
+[[unions.variants.fields]]
+name = "old_ability_id"
+type = "ref<Ability.id>"
+[[unions.variants.fields]]
+name = "new_ability_id"
+type = "ref<Ability.id>"
+
+[[unions.variants]]
+name = "PatchAbility"
+[[unions.variants.fields]]
+name = "ability_id"
+type = "ref<Ability.id>"
+[[unions.variants.fields]]
+name = "phase_sequence"
+type = "i32"
+range = [1, 100]
+[[unions.variants.fields]]
+name = "replacement_program_identity_id"
+type = "ref<ContentIdentity.id>"
+
+[[unions.variants]]
+name = "AdjustAbilityLevel"
+[[unions.variants.fields]]
+name = "ability_id"
+type = "ref<Ability.id>"
+[[unions.variants.fields]]
+name = "bonus"
+type = "i32"
+range = [-30, 30]
+[[unions.variants.fields]]
+name = "cap_delta"
+type = "i32"
+range = [-30, 30]
+
+[[unions.variants]]
+name = "AdjustResourceDefinition"
+[[unions.variants.fields]]
+name = "resource_key"
+type = "string"
+[[unions.variants.fields]]
+name = "maximum_delta_decimal"
+type = "string"
+length = [1, 32]
+
+[[unions.variants]]
+name = "AdjustStateSlot"
+[[unions.variants.fields]]
+name = "slot_identity_id"
+type = "ref<ContentIdentity.id>"
+[[unions.variants.fields]]
+name = "minimum_decimal"
+type = "string"
+length = [1, 32]
+[[unions.variants.fields]]
+name = "maximum_decimal"
+type = "string"
+length = [1, 32]
+[[unions.variants.fields]]
+name = "default_decimal"
+type = "string"
+length = [1, 32]
+
+[[unions.variants]]
+name = "AddTag"
+[[unions.variants.fields]]
+name = "tag"
+type = "string"
+length = [1, 120]

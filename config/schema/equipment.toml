@@ -1,0 +1,111 @@
+[[enums]]
+name = "LightConeApplicability"
+values = ["MatchingPath", "Always", "BaseStatsOnly"]
+
+[[tables]]
+name = "LightCone"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "LightCone.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "rarity"
+type = "i32"
+range = [3, 5]
+
+[[tables.fields]]
+name = "path"
+type = "enum<CombatPath>"
+
+[[tables.fields]]
+name = "applicability"
+type = "enum<LightConeApplicability>"
+
+[[tables.fields]]
+name = "passive_rule_identity_id"
+type = "ref<ContentIdentity.id>"
+
+[[tables]]
+name = "LightConeStat"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "LightConeStat.toml"
+
+[[tables.fields]]
+name = "light_cone_id"
+type = "ref<LightCone.id>"
+
+[[tables.fields]]
+name = "level"
+type = "i32"
+range = [1, 80]
+
+[[tables.fields]]
+name = "promotion"
+type = "i32"
+range = [0, 6]
+
+[[tables.fields]]
+name = "hp_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "atk_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "def_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.indexes]]
+name = "by_light_cone_level_promotion"
+fields = ["light_cone_id", "level", "promotion"]
+unique = true
+
+[[tables]]
+name = "LightConeSuperimposition"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "LightConeSuperimposition.toml"
+
+[[tables.fields]]
+name = "light_cone_id"
+type = "ref<LightCone.id>"
+
+[[tables.fields]]
+name = "parameter_key"
+type = "string"
+length = [1, 120]
+
+[[tables.fields]]
+name = "rank"
+type = "i32"
+range = [1, 5]
+
+[[tables.fields]]
+name = "value_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "constant_across_ranks"
+type = "bool"
+
+[[tables.indexes]]
+name = "by_light_cone_parameter_rank"
+fields = ["light_cone_id", "parameter_key", "rank"]
+unique = true

@@ -51,6 +51,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 27. [Sora 0.3.0 capability lock](sora-0.3.0-capability-lock.md) — checksum-bound installation, executed CLI/schema/codegen/export surface and pinned limitations.
 28. [CI platform matrix](ci-platform-matrix.md) — pinned hosted runners, native execution, compile-only targets and retained evidence boundaries.
 29. [Common configuration schema](common-configuration-schema.md) — stable identity, localization, version, provenance, evidence and canonical-decimal transport contracts.
+30. [Character and build configuration schema](character-build-configuration-schema.md) — Sora contracts for abilities, hit plans, characters, Traces, Eidolons, build patches and Light Cones.
 
 ## Execution goals
 

@@ -1,0 +1,291 @@
+[[enums]]
+name = "CombatPath"
+values = ["Destruction", "Hunt", "Erudition", "Harmony", "Nihility", "Preservation", "Abundance", "Remembrance", "Elation"]
+
+[[enums]]
+name = "CombatElement"
+values = ["Physical", "Fire", "Ice", "Lightning", "Wind", "Quantum", "Imaginary"]
+
+[[enums]]
+name = "CharacterAbilitySlot"
+values = ["Basic", "Skill", "Ultimate", "Talent", "Technique", "Enhanced", "Summon", "Memosprite", "Passive"]
+
+[[enums]]
+name = "TraceNodeKind"
+values = ["MajorPassive", "MinorStat", "AbilityUnlock", "AbilityLevel", "BasicLevel"]
+
+[[tables]]
+name = "Character"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "Character.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "rarity"
+type = "i32"
+range = [4, 5]
+
+[[tables.fields]]
+name = "path"
+type = "enum<CombatPath>"
+
+[[tables.fields]]
+name = "element"
+type = "enum<CombatElement>"
+
+[[tables.fields]]
+name = "base_energy_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "base_aggro_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables]]
+name = "CharacterStat"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "CharacterStat.toml"
+
+[[tables.fields]]
+name = "character_id"
+type = "ref<Character.id>"
+
+[[tables.fields]]
+name = "level"
+type = "i32"
+range = [1, 80]
+
+[[tables.fields]]
+name = "promotion"
+type = "i32"
+range = [0, 6]
+
+[[tables.fields]]
+name = "hp_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "atk_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "def_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "spd_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.indexes]]
+name = "by_character_level_promotion"
+fields = ["character_id", "level", "promotion"]
+unique = true
+
+[[tables]]
+name = "CharacterResource"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "CharacterResource.toml"
+
+[[tables.fields]]
+name = "character_id"
+type = "ref<Character.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 120]
+
+[[tables.fields]]
+name = "maximum_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "initial_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.indexes]]
+name = "by_character_sequence"
+fields = ["character_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_character_resource_key"
+fields = ["character_id", "stable_key"]
+unique = true
+
+[[tables]]
+name = "CharacterAbilityBinding"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "CharacterAbilityBinding.toml"
+
+[[tables.fields]]
+name = "character_id"
+type = "ref<Character.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "slot"
+type = "enum<CharacterAbilitySlot>"
+
+[[tables.fields]]
+name = "ability_id"
+type = "ref<Ability.id>"
+
+[[tables.fields]]
+name = "invested_level_cap"
+type = "i32"
+range = [1, 30]
+
+[[tables.indexes]]
+name = "by_character_sequence"
+fields = ["character_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_character_ability"
+fields = ["character_id", "ability_id"]
+unique = true
+
+[[tables]]
+name = "TraceNode"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "TraceNode.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "character_id"
+type = "ref<Character.id>"
+
+[[tables.fields]]
+name = "kind"
+type = "enum<TraceNodeKind>"
+
+[[tables.fields]]
+name = "promotion_requirement"
+type = "i32"
+range = [0, 6]
+
+[[tables.fields]]
+name = "prerequisite_trace_ids"
+type = "list<ref<TraceNode.id>>"
+parser = { kind = "split", separator = "|" }
+length = [0, 32]
+
+[[tables]]
+name = "TracePatch"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "TracePatch.toml"
+
+[[tables.fields]]
+name = "trace_id"
+type = "ref<TraceNode.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "patch"
+type = "union<BuildPatch>"
+
+[[tables.indexes]]
+name = "by_trace_sequence"
+fields = ["trace_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "Eidolon"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "Eidolon.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "character_id"
+type = "ref<Character.id>"
+
+[[tables.fields]]
+name = "rank"
+type = "i32"
+range = [1, 6]
+
+[[tables.indexes]]
+name = "by_character_rank"
+fields = ["character_id", "rank"]
+unique = true
+
+[[tables]]
+name = "EidolonPatch"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "EidolonPatch.toml"
+
+[[tables.fields]]
+name = "eidolon_id"
+type = "ref<Eidolon.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "patch"
+type = "union<BuildPatch>"
+
+[[tables.indexes]]
+name = "by_eidolon_sequence"
+fields = ["eidolon_id", "sequence"]
+unique = true

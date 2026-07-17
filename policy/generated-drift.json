@@ -42,6 +42,10 @@
       "command": ["node", "tools/config-schema/verify-common.mjs"]
     },
     {
+      "name": "character and build configuration schema golden",
+      "command": ["node", "tools/config-schema/verify-character-build.mjs"]
+    },
+    {
       "name": "cached source and prepared-pack regeneration",
       "command": ["node", "tools/goal-provenance/generate.mjs", "--check"],
       "requires": "source-cache"

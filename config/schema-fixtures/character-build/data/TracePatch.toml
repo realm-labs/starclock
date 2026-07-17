@@ -1,0 +1,9 @@
+[[rows]]
+trace_id = 5
+sequence = 1
+patch = { type = "AddRule", rule_identity_id = 15 }
+
+[[rows]]
+trace_id = 6
+sequence = 1
+patch = { type = "AdjustAbilityLevel", ability_id = 2, bonus = 1, cap_delta = 1 }
