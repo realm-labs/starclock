@@ -1,0 +1,22 @@
+package = "starclock_common_schema_fixture"
+includes = ["../../schema/common.toml", "schema/fixture.toml"]
+
+[build]
+data_root = "data"
+schema_lock = "generated/schema.lock"
+
+[[build.codegen]]
+target = "rust"
+out = "generated/rust"
+format = "never"
+
+[[build.exports]]
+format = "binary"
+out = "generated/config.sora"
+
+[[build.exports]]
+format = "json-debug"
+out = "generated/debug-json"
+
+[codegen.rust]
+runtime_format = "sora"

@@ -1,0 +1,54 @@
+{
+  "table": {
+    "name": "ContentIdentity",
+    "rows": [
+      {
+        "values": {
+          "content_kind": {
+            "String": "SyntheticFixture"
+          },
+          "coverage_state": {
+            "String": "Disabled"
+          },
+          "enabled": {
+            "Bool": false
+          },
+          "game_version_introduced": {
+            "String": "fixture"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Common Schema Fixture"
+          },
+          "name_zh_cn": {
+            "String": "通用模式测试夹具"
+          },
+          "release_state": {
+            "String": "ProjectFixture"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "fixture.common.identity"
+          },
+          "summary_en": {
+            "String": "Synthetic metadata used only to validate shared schema contracts."
+          },
+          "summary_zh_cn": {
+            "String": "仅用于验证共享模式契约的合成元数据。"
+          }
+        }
+      }
+    ]
+  }
+}

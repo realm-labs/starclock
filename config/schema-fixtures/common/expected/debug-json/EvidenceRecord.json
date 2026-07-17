@@ -1,0 +1,29 @@
+{
+  "table": {
+    "name": "EvidenceRecord",
+    "rows": [
+      {
+        "values": {
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "GoldenFixture"
+          },
+          "note": {
+            "String": "Exercises exact evidence hashes and optional source references."
+          },
+          "sha256": {
+            "String": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          "source_record_id": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "evidence.fixture.common-schema"
+          }
+        }
+      }
+    ]
+  }
+}

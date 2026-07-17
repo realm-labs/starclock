@@ -1,0 +1,28 @@
+[[tables]]
+name = "CanonicalDecimalFixture"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "CanonicalDecimalFixture.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "ratio_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "signed_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "upper_precision_decimal"
+type = "string"
+length = [1, 32]

@@ -9,6 +9,11 @@
         "path": "config/sora-golden/expected/reader/generated",
         "kind": "generated",
         "reason": "Exact Sora 0.3.0 codegen golden; regenerated and byte-verified by tools/sora/verify-golden.mjs."
+      },
+      {
+        "path": "config/schema-fixtures/common/expected/rust",
+        "kind": "generated",
+        "reason": "Exact shared-schema Sora 0.3.0 codegen golden; regenerated and byte-verified by tools/config-schema/verify-common.mjs."
       }
     ],
     "line_limit_exceptions": [],

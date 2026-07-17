@@ -1,0 +1,377 @@
+[[enums]]
+name = "ContentKind"
+values = [
+  "CharacterForm",
+  "Ability",
+  "Trace",
+  "Eidolon",
+  "LightCone",
+  "Effect",
+  "Modifier",
+  "Rule",
+  "StateSlot",
+  "Selector",
+  "Program",
+  "Enemy",
+  "EnemyVariant",
+  "EnemyAbility",
+  "AiGraph",
+  "Encounter",
+  "Scenario",
+  "Activity",
+  "StandardProfile",
+  "SyntheticFixture",
+]
+
+[[enums]]
+name = "ReleaseState"
+values = ["Released", "Announced", "ProjectFixture"]
+
+[[enums]]
+name = "CoverageState"
+values = ["Cataloged", "Documented", "Researching", "DataReady", "GoldenVerified", "Disabled"]
+
+[[enums]]
+name = "SourceCategory"
+values = [
+  "OfficialPublic",
+  "ProjectObservation",
+  "CommunityMaintained",
+  "StructuredTranscription",
+  "ProjectPolicy",
+  "SyntheticFixture",
+]
+
+[[enums]]
+name = "Confidence"
+values = [
+  "OfficialVersionAndReleaseBoundary",
+  "PreparedExactStructured",
+  "SecondaryVersionSensitiveCrossCheck",
+  "PreparedContractPendingExecutableGolden",
+  "ReleasedTextBoundApproximation",
+  "Observed",
+  "ProjectPolicy",
+  "SyntheticFixture",
+]
+
+[[enums]]
+name = "EvidenceKind"
+values = ["SourcePayload", "ReleasedText", "Observation", "GoldenFixture", "ProjectPolicy"]
+
+[[enums]]
+name = "FactQuality"
+values = [
+  "ExactStructured",
+  "ExactPreviousRelease",
+  "DerivedWithMissingReferences",
+  "ApproximateFromReleasedText",
+  "Observed",
+  "ProjectPolicy",
+  "SyntheticFixture",
+]
+
+[[enums]]
+name = "MechanismQuality"
+values = [
+  "ExactStructured",
+  "ExactPreviousReleaseText",
+  "ApproximateFromReleasedText",
+  "Observed",
+  "ProjectPolicy",
+  "SyntheticFixture",
+]
+
+[[tables]]
+name = "SourceRecord"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "SourceRecord.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "publisher"
+type = "string"
+length = [1, 200]
+
+[[tables.fields]]
+name = "url"
+type = "string"
+length = [1, 2048]
+
+[[tables.fields]]
+name = "accessed_on"
+type = "string"
+length = [10, 10]
+
+[[tables.fields]]
+name = "applicable_game_version"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "category"
+type = "enum<SourceCategory>"
+
+[[tables.fields]]
+name = "confidence"
+type = "enum<Confidence>"
+
+[[tables.fields]]
+name = "usage_note"
+type = "string"
+length = [1, 1000]
+
+[[tables.fields]]
+name = "evidence_sha256"
+type = "string"
+length = [64, 64]
+
+[[tables.fields]]
+name = "conflict_note"
+type = "optional<string>"
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "EvidenceRecord"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "EvidenceRecord.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "kind"
+type = "enum<EvidenceKind>"
+
+[[tables.fields]]
+name = "source_record_id"
+type = "optional<ref<SourceRecord.id>>"
+
+[[tables.fields]]
+name = "sha256"
+type = "string"
+length = [64, 64]
+
+[[tables.fields]]
+name = "note"
+type = "string"
+length = [1, 1000]
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ContentIdentity"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "ContentIdentity.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "content_kind"
+type = "enum<ContentKind>"
+
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 200]
+
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 200]
+
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+
+[[tables.fields]]
+name = "game_version_introduced"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "game_version_snapshot"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "release_state"
+type = "enum<ReleaseState>"
+
+[[tables.fields]]
+name = "enabled"
+type = "bool"
+
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<CoverageState>"
+
+[[tables.fields]]
+name = "source_record_ids"
+type = "list<ref<SourceRecord.id>>"
+parser = { kind = "split", separator = "|" }
+length = [1, 32]
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ContentEvidenceBinding"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "ContentEvidenceBinding.toml"
+
+[[tables.fields]]
+name = "content_id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "fact_key"
+type = "string"
+length = [1, 240]
+
+[[tables.fields]]
+name = "source_record_id"
+type = "ref<SourceRecord.id>"
+
+[[tables.fields]]
+name = "evidence_record_id"
+type = "ref<EvidenceRecord.id>"
+
+[[tables.fields]]
+name = "quality"
+type = "enum<FactQuality>"
+
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<MechanismQuality>"
+
+[[tables.fields]]
+name = "approximation_note"
+type = "optional<string>"
+
+[[tables.indexes]]
+name = "by_content_sequence"
+fields = ["content_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_content_fact"
+fields = ["content_id", "fact_key"]
+unique = true
+
+[[tables]]
+name = "ConfigManifest"
+mode = "singleton"
+
+[tables.source]
+format = "toml"
+file = "ConfigManifest.toml"
+
+[[tables.fields]]
+name = "game_version"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "snapshot_date"
+type = "string"
+length = [10, 10]
+
+[[tables.fields]]
+name = "data_revision"
+type = "string"
+length = [1, 80]
+
+[[tables.fields]]
+name = "required_rules_revision"
+type = "string"
+length = [1, 80]
+
+[[tables.fields]]
+name = "sora_cli_version"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "numeric_policy_revision"
+type = "string"
+length = [1, 80]
+
+[[tables.fields]]
+name = "rng_algorithm_revision"
+type = "string"
+length = [1, 80]
+
+[[tables.fields]]
+name = "state_hash_revision"
+type = "string"
+length = [1, 80]
+
+[[tables.fields]]
+name = "replay_format_version"
+type = "string"
+length = [1, 80]
+
+[[tables.fields]]
+name = "coverage_manifest_sha256"
+type = "string"
+length = [64, 64]

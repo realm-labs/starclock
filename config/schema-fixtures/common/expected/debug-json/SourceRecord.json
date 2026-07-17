@@ -1,0 +1,41 @@
+{
+  "table": {
+    "name": "SourceRecord",
+    "rows": [
+      {
+        "values": {
+          "accessed_on": {
+            "String": "2026-07-17"
+          },
+          "applicable_game_version": {
+            "String": "4.4"
+          },
+          "category": {
+            "String": "SyntheticFixture"
+          },
+          "confidence": {
+            "String": "SyntheticFixture"
+          },
+          "evidence_sha256": {
+            "String": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "publisher": {
+            "String": "Starclock project fixture"
+          },
+          "stable_key": {
+            "String": "source.fixture.common-schema"
+          },
+          "url": {
+            "String": "https://example.invalid/starclock/common-schema"
+          },
+          "usage_note": {
+            "String": "Synthetic schema evidence only; never loaded as production content."
+          }
+        }
+      }
+    ]
+  }
+}

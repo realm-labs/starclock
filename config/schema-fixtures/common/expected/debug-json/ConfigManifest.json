@@ -1,0 +1,41 @@
+{
+  "table": {
+    "name": "ConfigManifest",
+    "rows": [
+      {
+        "values": {
+          "coverage_manifest_sha256": {
+            "String": "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19"
+          },
+          "data_revision": {
+            "String": "fixture-common-schema-v1"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "numeric_policy_revision": {
+            "String": "fixed-i64-6dp-v1"
+          },
+          "replay_format_version": {
+            "String": "replay-unimplemented"
+          },
+          "required_rules_revision": {
+            "String": "rules-unimplemented"
+          },
+          "rng_algorithm_revision": {
+            "String": "chacha8-rand-0.10.2-intmap-v1"
+          },
+          "snapshot_date": {
+            "String": "2026-07-17"
+          },
+          "sora_cli_version": {
+            "String": "0.3.0"
+          },
+          "state_hash_revision": {
+            "String": "sha256-v1"
+          }
+        }
+      }
+    ]
+  }
+}

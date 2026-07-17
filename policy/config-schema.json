@@ -1,0 +1,21 @@
+{
+  "schema_revision": "starclock.config-schema-policy.v1",
+  "shared_module": "config/schema/common.toml",
+  "fixture_project": "config/schema-fixtures/common/project.toml",
+  "transport_id": {
+    "type": "i32",
+    "minimum": 1,
+    "maximum": 2147483647,
+    "domain_conversion": "Checked conversion into nonzero unsigned Starclock definition IDs."
+  },
+  "canonical_decimal": {
+    "type": "string",
+    "field_suffix": "_decimal",
+    "maximum_fractional_digits": 6,
+    "maximum_source_length": 32,
+    "raw_scale": 1000000,
+    "grammar": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]{0,5}[1-9])?$",
+    "forbidden_schema_types": ["f32", "f64"]
+  },
+  "fixture_scope": "Synthetic structural/golden evidence only; not production content, runtime input or coverage."
+}

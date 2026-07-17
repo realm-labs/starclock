@@ -1,0 +1,1295 @@
+{
+  "version": 1,
+  "package": "starclock_common_schema_fixture",
+  "fingerprint": "69f55e0b5cfaaaed",
+  "schema": {
+    "package": "starclock_common_schema_fixture",
+    "enums": [
+      {
+        "name": "ContentKind",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "CharacterForm",
+          "Ability",
+          "Trace",
+          "Eidolon",
+          "LightCone",
+          "Effect",
+          "Modifier",
+          "Rule",
+          "StateSlot",
+          "Selector",
+          "Program",
+          "Enemy",
+          "EnemyVariant",
+          "EnemyAbility",
+          "AiGraph",
+          "Encounter",
+          "Scenario",
+          "Activity",
+          "StandardProfile",
+          "SyntheticFixture"
+        ]
+      },
+      {
+        "name": "ReleaseState",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Released",
+          "Announced",
+          "ProjectFixture"
+        ]
+      },
+      {
+        "name": "CoverageState",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Cataloged",
+          "Documented",
+          "Researching",
+          "DataReady",
+          "GoldenVerified",
+          "Disabled"
+        ]
+      },
+      {
+        "name": "SourceCategory",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "OfficialPublic",
+          "ProjectObservation",
+          "CommunityMaintained",
+          "StructuredTranscription",
+          "ProjectPolicy",
+          "SyntheticFixture"
+        ]
+      },
+      {
+        "name": "Confidence",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "OfficialVersionAndReleaseBoundary",
+          "PreparedExactStructured",
+          "SecondaryVersionSensitiveCrossCheck",
+          "PreparedContractPendingExecutableGolden",
+          "ReleasedTextBoundApproximation",
+          "Observed",
+          "ProjectPolicy",
+          "SyntheticFixture"
+        ]
+      },
+      {
+        "name": "EvidenceKind",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "SourcePayload",
+          "ReleasedText",
+          "Observation",
+          "GoldenFixture",
+          "ProjectPolicy"
+        ]
+      },
+      {
+        "name": "FactQuality",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "ExactStructured",
+          "ExactPreviousRelease",
+          "DerivedWithMissingReferences",
+          "ApproximateFromReleasedText",
+          "Observed",
+          "ProjectPolicy",
+          "SyntheticFixture"
+        ]
+      },
+      {
+        "name": "MechanismQuality",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "ExactStructured",
+          "ExactPreviousReleaseText",
+          "ApproximateFromReleasedText",
+          "Observed",
+          "ProjectPolicy",
+          "SyntheticFixture"
+        ]
+      }
+    ],
+    "structs": [],
+    "unions": [],
+    "tables": [
+      {
+        "name": "SourceRecord",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "toml",
+          "file": "SourceRecord.toml"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              160
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "publisher",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              200
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "url",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              2048
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "accessed_on",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              10,
+              10
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "applicable_game_version",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "category",
+            "ty": {
+              "Enum": "SourceCategory"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "confidence",
+            "ty": {
+              "Enum": "Confidence"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "usage_note",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              1000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "evidence_sha256",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              64,
+              64
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "conflict_note",
+            "ty": {
+              "Optional": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "EvidenceRecord",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "toml",
+          "file": "EvidenceRecord.toml"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              160
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "kind",
+            "ty": {
+              "Enum": "EvidenceKind"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_record_id",
+            "ty": {
+              "Optional": {
+                "Ref": {
+                  "table": "SourceRecord",
+                  "field": "id"
+                }
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "sha256",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              64,
+              64
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "note",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              1000
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "ContentIdentity",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "toml",
+          "file": "ContentIdentity.toml"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              160
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "content_kind",
+            "ty": {
+              "Enum": "ContentKind"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "name_en",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              200
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "name_zh_cn",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              200
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "summary_en",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              1000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "summary_zh_cn",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              1000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "game_version_introduced",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "game_version_snapshot",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "release_state",
+            "ty": {
+              "Enum": "ReleaseState"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "enabled",
+            "ty": "Bool",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "coverage_state",
+            "ty": {
+              "Enum": "CoverageState"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_record_ids",
+            "ty": {
+              "List": {
+                "Ref": {
+                  "table": "SourceRecord",
+                  "field": "id"
+                }
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": {
+              "kind": "split",
+              "options": {
+                "separator": "|"
+              }
+            },
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "ContentEvidenceBinding",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "List",
+        "key": null,
+        "source": {
+          "format": "toml",
+          "file": "ContentEvidenceBinding.toml"
+        },
+        "fields": [
+          {
+            "name": "content_id",
+            "ty": {
+              "Ref": {
+                "table": "ContentIdentity",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "sequence",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "fact_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              240
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_record_id",
+            "ty": {
+              "Ref": {
+                "table": "SourceRecord",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "evidence_record_id",
+            "ty": {
+              "Ref": {
+                "table": "EvidenceRecord",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "quality",
+            "ty": {
+              "Enum": "FactQuality"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "mechanism_quality",
+            "ty": {
+              "Enum": "MechanismQuality"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "approximation_note",
+            "ty": {
+              "Optional": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_content_sequence",
+            "fields": [
+              "content_id",
+              "sequence"
+            ],
+            "unique": true
+          },
+          {
+            "name": "by_content_fact",
+            "fields": [
+              "content_id",
+              "fact_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "ConfigManifest",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Singleton",
+        "key": null,
+        "source": {
+          "format": "toml",
+          "file": "ConfigManifest.toml"
+        },
+        "fields": [
+          {
+            "name": "game_version",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "snapshot_date",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              10,
+              10
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "data_revision",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              80
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "required_rules_revision",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              80
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "sora_cli_version",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "numeric_policy_revision",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              80
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "rng_algorithm_revision",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              80
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "state_hash_revision",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              80
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "replay_format_version",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              80
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "coverage_manifest_sha256",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              64,
+              64
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "CanonicalDecimalFixture",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "toml",
+          "file": "CanonicalDecimalFixture.toml"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "ratio_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "signed_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "upper_precision_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      }
+    ]
+  }
+}
