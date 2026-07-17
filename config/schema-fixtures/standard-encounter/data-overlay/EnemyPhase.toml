@@ -1,0 +1,16 @@
+[[rows]]
+id = 1
+stable_key = "fixture.phase.boss"
+variant_id = 26
+sequence = 1
+entry_condition_id = 3
+exit_condition_id = 3
+replacement_priority = 0
+ai_graph_id = 29
+targetable = true
+transition_model = "TransformSameUnit"
+hp_carry = "CarryRatio"
+action_gauge_carry = "CarryExact"
+effect_carry = "ExplicitProgram"
+toughness_carry = "Reset"
+summon_carry = "Clear"

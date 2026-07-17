@@ -1,0 +1,442 @@
+[[enums]]
+name = "ActivityNodeKind"
+values = ["Battle", "Terminal"]
+
+[[enums]]
+name = "ActivityTerminalOutcome"
+values = ["Complete", "Failed", "Faulted"]
+
+[[enums]]
+name = "ActivityEdgeCondition"
+values = ["BattleWon", "BattleLost", "BattleFaulted"]
+
+[[enums]]
+name = "ParticipantUniquenessScope"
+values = ["Team", "Node", "Section", "Activity"]
+
+[[enums]]
+name = "LoadoutLockScope"
+values = ["Activity", "Section", "Node", "Attempt"]
+
+[[enums]]
+name = "ParticipantSourceKind"
+values = ["CompiledBuild", "FixedResolved", "Trial", "Synthetic"]
+
+[[enums]]
+name = "ResultMetricValueKind"
+values = ["BoundedInteger", "FixedScalar", "Ratio", "Probability", "ActionValue"]
+
+[[unions]]
+name = "BattleResultProjectionFieldNode"
+tag = "type"
+
+[[unions.variants]]
+name = "Outcome"
+
+[[unions.variants]]
+name = "FinalStateHash"
+
+[[unions.variants]]
+name = "EventDigest"
+
+[[unions.variants]]
+name = "TerminalFault"
+
+[[unions.variants]]
+name = "Metric"
+[[unions.variants.fields]]
+name = "metric_key"
+type = "string"
+length = [1, 120]
+[[unions.variants.fields]]
+name = "value_kind"
+type = "enum<ResultMetricValueKind>"
+
+[[tables]]
+name = "ActivityDefinition"
+mode = "map"
+key = "id"
+[tables.source]
+format = "toml"
+file = "ActivityDefinition.toml"
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+[[tables.fields]]
+name = "entry_node_id"
+type = "ref<ActivityNode.id>"
+[[tables.fields]]
+name = "maximum_total_visits"
+type = "i32"
+range = [1, 100000]
+
+[[tables]]
+name = "ActivitySection"
+mode = "map"
+key = "id"
+[tables.source]
+format = "toml"
+file = "ActivitySection.toml"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "activity_id"
+type = "ref<ActivityDefinition.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 1000]
+[[tables.fields]]
+name = "entry_node_id"
+type = "ref<ActivityNode.id>"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_activity_sequence"
+fields = ["activity_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "ActivityNode"
+mode = "map"
+key = "id"
+[tables.source]
+format = "toml"
+file = "ActivityNode.toml"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "section_id"
+type = "ref<ActivitySection.id>"
+[[tables.fields]]
+name = "kind"
+type = "enum<ActivityNodeKind>"
+[[tables.fields]]
+name = "maximum_visits"
+type = "i32"
+range = [1, 10000]
+[[tables.fields]]
+name = "terminal_outcome"
+type = "optional<enum<ActivityTerminalOutcome>>"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ActivityEdge"
+mode = "map"
+key = "id"
+[tables.source]
+format = "toml"
+file = "ActivityEdge.toml"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "activity_id"
+type = "ref<ActivityDefinition.id>"
+[[tables.fields]]
+name = "source_node_id"
+type = "ref<ActivityNode.id>"
+[[tables.fields]]
+name = "target_node_id"
+type = "ref<ActivityNode.id>"
+[[tables.fields]]
+name = "condition"
+type = "enum<ActivityEdgeCondition>"
+[[tables.fields]]
+name = "priority"
+type = "i32"
+range = [-1000000, 1000000]
+[[tables.fields]]
+name = "maximum_traversals"
+type = "i32"
+range = [1, 10000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_source_priority"
+fields = ["source_node_id", "priority"]
+unique = true
+
+[[tables]]
+name = "ActivitySlot"
+mode = "map"
+key = "id"
+[tables.source]
+format = "toml"
+file = "ActivitySlot.toml"
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+[[tables.fields]]
+name = "activity_id"
+type = "ref<ActivityDefinition.id>"
+[[tables.fields]]
+name = "section_id"
+type = "optional<ref<ActivitySection.id>>"
+[[tables.fields]]
+name = "node_id"
+type = "optional<ref<ActivityNode.id>>"
+[[tables.fields]]
+name = "owner_scope"
+type = "enum<RuleScope>"
+[[tables.fields]]
+name = "value_kind"
+type = "enum<SlotValueKind>"
+[[tables.fields]]
+name = "initial_expression_id"
+type = "ref<ValueExpression.id>"
+[[tables.fields]]
+name = "minimum_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+[[tables.fields]]
+name = "maximum_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+[[tables.fields]]
+name = "visibility"
+type = "enum<SlotVisibility>"
+[[tables.fields]]
+name = "persistence"
+type = "enum<SlotPersistence>"
+
+[[tables]]
+name = "ActivitySlotReset"
+mode = "list"
+[tables.source]
+format = "toml"
+file = "ActivitySlotReset.toml"
+[[tables.fields]]
+name = "slot_id"
+type = "ref<ActivitySlot.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 32]
+[[tables.fields]]
+name = "reset_point"
+type = "enum<SlotResetPoint>"
+[[tables.indexes]]
+name = "by_slot_sequence"
+fields = ["slot_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "ParticipantPolicy"
+mode = "map"
+key = "id"
+[tables.source]
+format = "toml"
+file = "ParticipantPolicy.toml"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "activity_id"
+type = "ref<ActivityDefinition.id>"
+[[tables.fields]]
+name = "team_count"
+type = "i32"
+range = [1, 8]
+[[tables.fields]]
+name = "minimum_team_size"
+type = "i32"
+range = [1, 8]
+[[tables.fields]]
+name = "maximum_team_size"
+type = "i32"
+range = [1, 8]
+[[tables.fields]]
+name = "uniqueness_scope"
+type = "enum<ParticipantUniquenessScope>"
+[[tables.fields]]
+name = "loadout_lock_scope"
+type = "enum<LoadoutLockScope>"
+[[tables.fields]]
+name = "allow_substitution"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "BattleResultProjection"
+mode = "map"
+key = "id"
+[tables.source]
+format = "toml"
+file = "BattleResultProjection.toml"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "BattleResultProjectionField"
+mode = "list"
+[tables.source]
+format = "toml"
+file = "BattleResultProjectionField.toml"
+[[tables.fields]]
+name = "projection_id"
+type = "ref<BattleResultProjection.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+[[tables.fields]]
+name = "field"
+type = "union<BattleResultProjectionFieldNode>"
+[[tables.indexes]]
+name = "by_projection_sequence"
+fields = ["projection_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "BattleBinding"
+mode = "map"
+key = "id"
+[tables.source]
+format = "toml"
+file = "BattleBinding.toml"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "node_id"
+type = "ref<ActivityNode.id>"
+[[tables.fields]]
+name = "encounter_id"
+type = "ref<Encounter.id>"
+[[tables.fields]]
+name = "participant_policy_id"
+type = "ref<ParticipantPolicy.id>"
+[[tables.fields]]
+name = "projection_id"
+type = "ref<BattleResultProjection.id>"
+[[tables.fields]]
+name = "seed_stream_label"
+type = "string"
+length = [1, 120]
+[[tables.fields]]
+name = "participant_lock_sha256"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "battle_spec_policy_revision"
+type = "string"
+length = [1, 80]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_node"
+fields = ["node_id"]
+unique = true
+
+[[tables]]
+name = "BattleBindingRule"
+mode = "list"
+[tables.source]
+format = "toml"
+file = "BattleBindingRule.toml"
+[[tables.fields]]
+name = "battle_binding_id"
+type = "ref<BattleBinding.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 1000]
+[[tables.fields]]
+name = "rule_id"
+type = "ref<RuleDefinition.id>"
+[[tables.indexes]]
+name = "by_binding_sequence"
+fields = ["battle_binding_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "BattleParticipantSlot"
+mode = "list"
+[tables.source]
+format = "toml"
+file = "BattleParticipantSlot.toml"
+[[tables.fields]]
+name = "battle_binding_id"
+type = "ref<BattleBinding.id>"
+[[tables.fields]]
+name = "team_index"
+type = "i32"
+range = [0, 7]
+[[tables.fields]]
+name = "formation_index"
+type = "i32"
+range = [0, 7]
+[[tables.fields]]
+name = "character_id"
+type = "ref<Character.id>"
+[[tables.fields]]
+name = "resolved_spec_sha256"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "build_digest_sha256"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "build_catalog_revision"
+type = "string"
+length = [1, 80]
+[[tables.fields]]
+name = "source_kind"
+type = "enum<ParticipantSourceKind>"
+[[tables.indexes]]
+name = "by_binding_team_formation"
+fields = ["battle_binding_id", "team_index", "formation_index"]
+unique = true
+[[tables.indexes]]
+name = "by_binding_character"
+fields = ["battle_binding_id", "character_id"]
+unique = true

@@ -1,0 +1,29 @@
+[[rows]]
+id = 1
+stable_key = "fixture.edge.won"
+activity_id = 31
+source_node_id = 1
+target_node_id = 2
+condition = "BattleWon"
+priority = 1
+maximum_traversals = 1
+
+[[rows]]
+id = 2
+stable_key = "fixture.edge.lost"
+activity_id = 31
+source_node_id = 1
+target_node_id = 3
+condition = "BattleLost"
+priority = 2
+maximum_traversals = 1
+
+[[rows]]
+id = 3
+stable_key = "fixture.edge.faulted"
+activity_id = 31
+source_node_id = 1
+target_node_id = 4
+condition = "BattleFaulted"
+priority = 3
+maximum_traversals = 1

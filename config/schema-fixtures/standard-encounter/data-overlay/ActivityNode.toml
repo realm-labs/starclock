@@ -1,0 +1,30 @@
+[[rows]]
+id = 1
+stable_key = "fixture.node.battle"
+section_id = 1
+kind = "Battle"
+maximum_visits = 1
+
+[[rows]]
+id = 2
+stable_key = "fixture.node.complete"
+section_id = 1
+kind = "Terminal"
+maximum_visits = 1
+terminal_outcome = "Complete"
+
+[[rows]]
+id = 3
+stable_key = "fixture.node.failed"
+section_id = 1
+kind = "Terminal"
+maximum_visits = 1
+terminal_outcome = "Failed"
+
+[[rows]]
+id = 4
+stable_key = "fixture.node.faulted"
+section_id = 1
+kind = "Terminal"
+maximum_visits = 1
+terminal_outcome = "Faulted"

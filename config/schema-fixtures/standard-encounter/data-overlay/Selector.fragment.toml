@@ -1,0 +1,15 @@
+
+[[rows]]
+id = 35
+domain = "Battle"
+origin = "Actor"
+side_relationship = "OpposingSide"
+life = "Alive"
+presence = "Present"
+reference_point = "CurrentState"
+ordering = "Formation"
+minimum_count = 1
+maximum_count = 1
+empty_pool_policy = "Fault"
+choice = "First"
+allow_repeated_targets = false

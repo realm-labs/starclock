@@ -53,6 +53,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 29. [Common configuration schema](common-configuration-schema.md) — stable identity, localization, version, provenance, evidence and canonical-decimal transport contracts.
 30. [Character and build configuration schema](character-build-configuration-schema.md) — Sora contracts for abilities, hit plans, characters, Traces, Eidolons, build patches and Light Cones.
 31. [Typed Rule IR configuration schema](rule-ir-configuration-schema.md) — transport contracts for rules, slots, triggers, expressions, selectors, operations, effects, modifiers and native-handler metadata.
+32. [Enemy, encounter and Standard configuration schema](enemy-standard-configuration-schema.md) — enemy variants, deterministic AI, waves and the minimum generic Activity/BattleBinding/result-projection seam for Standard battles.
 
 ## Execution goals
 

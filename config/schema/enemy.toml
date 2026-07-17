@@ -1,0 +1,511 @@
+[[enums]]
+name = "EnemyRank"
+values = ["Normal", "Minion", "Elite", "Boss"]
+
+[[enums]]
+name = "ToughnessLayerKind"
+values = ["Ordinary", "ExoToughness", "Sequential", "Shared"]
+
+[[enums]]
+name = "EnemyTelegraphKind"
+values = ["None", "Charge", "LockOn", "PhaseSetup"]
+
+[[enums]]
+name = "EnemyPhaseTransitionModel"
+values = ["TransformSameUnit", "ReplaceLinkedVariant", "ExplicitWave"]
+
+[[enums]]
+name = "PhaseCarryPolicy"
+values = ["CarryExact", "CarryRatio", "Reset", "Clear", "ExplicitProgram"]
+
+[[enums]]
+name = "EnemyLinkKind"
+values = ["Summon", "SharedHp", "Part", "Countdown", "TimelineActor"]
+
+[[enums]]
+name = "LinkOverflowPolicy"
+values = ["Reject", "ReplaceOldest", "ReplaceNewest", "Skip"]
+
+[[enums]]
+name = "OwnerDefeatPolicy"
+values = ["Despawn", "Defeat", "Depart", "Persist", "Transfer"]
+
+[[enums]]
+name = "LinkWavePersistence"
+values = ["WaveOwned", "EncounterOwned", "Explicit"]
+
+[[enums]]
+name = "LinkedFormationPolicy"
+values = ["NextAvailable", "FixedSlot", "NoFormationSlot"]
+
+[[tables]]
+name = "EnemyTemplate"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "EnemyTemplate.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "rank"
+type = "enum<EnemyRank>"
+
+[[tables.fields]]
+name = "base_aggro_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "default_ai_graph_id"
+type = "ref<AiGraph.id>"
+
+[[tables]]
+name = "EnemyVariant"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "EnemyVariant.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "template_id"
+type = "ref<EnemyTemplate.id>"
+
+[[tables.fields]]
+name = "ai_graph_id"
+type = "ref<AiGraph.id>"
+
+[[tables.fields]]
+name = "mechanically_distinct_key"
+type = "string"
+length = [1, 160]
+
+[[tables.indexes]]
+name = "by_mechanically_distinct_key"
+fields = ["mechanically_distinct_key"]
+unique = true
+
+[[tables]]
+name = "EnemyStat"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "EnemyStat.toml"
+
+[[tables.fields]]
+name = "variant_id"
+type = "ref<EnemyVariant.id>"
+
+[[tables.fields]]
+name = "level"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "difficulty_key"
+type = "string"
+length = [1, 80]
+
+[[tables.fields]]
+name = "hp_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "atk_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "def_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "spd_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "effect_resistance_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "crit_damage_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.indexes]]
+name = "by_variant_level_difficulty"
+fields = ["variant_id", "level", "difficulty_key"]
+unique = true
+
+[[tables]]
+name = "EnemyWeakness"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "EnemyWeakness.toml"
+
+[[tables.fields]]
+name = "variant_id"
+type = "ref<EnemyVariant.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 7]
+
+[[tables.fields]]
+name = "element"
+type = "enum<CombatElement>"
+
+[[tables.indexes]]
+name = "by_variant_sequence"
+fields = ["variant_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_variant_element"
+fields = ["variant_id", "element"]
+unique = true
+
+[[tables]]
+name = "EnemyResistance"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "EnemyResistance.toml"
+
+[[tables.fields]]
+name = "variant_id"
+type = "ref<EnemyVariant.id>"
+
+[[tables.fields]]
+name = "element"
+type = "enum<CombatElement>"
+
+[[tables.fields]]
+name = "value_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.indexes]]
+name = "by_variant_element"
+fields = ["variant_id", "element"]
+unique = true
+
+[[tables]]
+name = "EnemyDebuffResistance"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "EnemyDebuffResistance.toml"
+
+[[tables.fields]]
+name = "variant_id"
+type = "ref<EnemyVariant.id>"
+
+[[tables.fields]]
+name = "category_key"
+type = "string"
+length = [1, 120]
+
+[[tables.fields]]
+name = "value_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.indexes]]
+name = "by_variant_category"
+fields = ["variant_id", "category_key"]
+unique = true
+
+[[tables]]
+name = "EnemyToughnessLayer"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "EnemyToughnessLayer.toml"
+
+[[tables.fields]]
+name = "variant_id"
+type = "ref<EnemyVariant.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 16]
+
+[[tables.fields]]
+name = "layer_key"
+type = "string"
+length = [1, 120]
+
+[[tables.fields]]
+name = "kind"
+type = "enum<ToughnessLayerKind>"
+
+[[tables.fields]]
+name = "maximum_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "recovery_ratio_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "active_at_start"
+type = "bool"
+
+[[tables.indexes]]
+name = "by_variant_sequence"
+fields = ["variant_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_variant_layer_key"
+fields = ["variant_id", "layer_key"]
+unique = true
+
+[[tables]]
+name = "EnemyAbility"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "EnemyAbility.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<Ability.id>"
+
+[[tables.fields]]
+name = "telegraph"
+type = "enum<EnemyTelegraphKind>"
+
+[[tables.fields]]
+name = "cooldown_actions"
+type = "i32"
+range = [0, 100]
+
+[[tables.fields]]
+name = "initial_cooldown_actions"
+type = "i32"
+range = [0, 100]
+
+[[tables.fields]]
+name = "charge_actions"
+type = "i32"
+range = [0, 100]
+
+[[tables.fields]]
+name = "ai_tag"
+type = "string"
+length = [1, 120]
+
+[[tables.fields]]
+name = "fallback_ability_id"
+type = "optional<ref<EnemyAbility.id>>"
+
+[[tables]]
+name = "EnemyVariantAbility"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "EnemyVariantAbility.toml"
+
+[[tables.fields]]
+name = "variant_id"
+type = "ref<EnemyVariant.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "ability_id"
+type = "ref<EnemyAbility.id>"
+
+[[tables.indexes]]
+name = "by_variant_sequence"
+fields = ["variant_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_variant_ability"
+fields = ["variant_id", "ability_id"]
+unique = true
+
+[[tables]]
+name = "EnemyPhase"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "EnemyPhase.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "variant_id"
+type = "ref<EnemyVariant.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "entry_condition_id"
+type = "ref<ConditionExpression.id>"
+
+[[tables.fields]]
+name = "exit_condition_id"
+type = "ref<ConditionExpression.id>"
+
+[[tables.fields]]
+name = "replacement_priority"
+type = "i32"
+range = [-1000000, 1000000]
+
+[[tables.fields]]
+name = "ai_graph_id"
+type = "ref<AiGraph.id>"
+
+[[tables.fields]]
+name = "targetable"
+type = "bool"
+
+[[tables.fields]]
+name = "transition_model"
+type = "enum<EnemyPhaseTransitionModel>"
+
+[[tables.fields]]
+name = "entry_program_id"
+type = "optional<ref<Program.id>>"
+
+[[tables.fields]]
+name = "hp_carry"
+type = "enum<PhaseCarryPolicy>"
+
+[[tables.fields]]
+name = "action_gauge_carry"
+type = "enum<PhaseCarryPolicy>"
+
+[[tables.fields]]
+name = "effect_carry"
+type = "enum<PhaseCarryPolicy>"
+
+[[tables.fields]]
+name = "toughness_carry"
+type = "enum<PhaseCarryPolicy>"
+
+[[tables.fields]]
+name = "summon_carry"
+type = "enum<PhaseCarryPolicy>"
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables.indexes]]
+name = "by_variant_sequence"
+fields = ["variant_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "EnemyLink"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "EnemyLink.toml"
+
+[[tables.fields]]
+name = "owner_variant_id"
+type = "ref<EnemyVariant.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "linked_variant_id"
+type = "ref<EnemyVariant.id>"
+
+[[tables.fields]]
+name = "kind"
+type = "enum<EnemyLinkKind>"
+
+[[tables.fields]]
+name = "maximum_simultaneous"
+type = "i32"
+range = [1, 32]
+
+[[tables.fields]]
+name = "overflow_policy"
+type = "enum<LinkOverflowPolicy>"
+
+[[tables.fields]]
+name = "owner_defeat_policy"
+type = "enum<OwnerDefeatPolicy>"
+
+[[tables.fields]]
+name = "wave_persistence"
+type = "enum<LinkWavePersistence>"
+
+[[tables.fields]]
+name = "contributes_to_victory"
+type = "bool"
+
+[[tables.fields]]
+name = "initial_action_gauge_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "formation_policy"
+type = "enum<LinkedFormationPolicy>"
+
+[[tables.fields]]
+name = "fixed_formation_index"
+type = "optional<i32>"
+range = [0, 31]
+
+[[tables.indexes]]
+name = "by_owner_sequence"
+fields = ["owner_variant_id", "sequence"]
+unique = true

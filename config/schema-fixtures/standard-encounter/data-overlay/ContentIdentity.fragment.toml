@@ -1,0 +1,240 @@
+
+[[rows]]
+id = 25
+stable_key = "fixture.enemy.template"
+content_kind = "Enemy"
+name_en = "Fixture Enemy Template"
+name_zh_cn = "夹具敌人模板"
+summary_en = "Disabled synthetic enemy template."
+summary_zh_cn = "已禁用的合成敌人模板。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 26
+stable_key = "fixture.enemy.variant.boss"
+content_kind = "EnemyVariant"
+name_en = "Fixture Boss Variant"
+name_zh_cn = "夹具首领变体"
+summary_en = "Disabled synthetic boss variant."
+summary_zh_cn = "已禁用的合成首领变体。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 27
+stable_key = "fixture.enemy.ability.strike"
+content_kind = "EnemyAbility"
+name_en = "Fixture Enemy Strike"
+name_zh_cn = "夹具敌人攻击"
+summary_en = "Disabled synthetic enemy ability."
+summary_zh_cn = "已禁用的合成敌人能力。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 28
+stable_key = "fixture.enemy.hit-plan"
+content_kind = "Program"
+name_en = "Fixture Enemy Hit Plan"
+name_zh_cn = "夹具敌人命中计划"
+summary_en = "Disabled synthetic enemy hit plan."
+summary_zh_cn = "已禁用的合成敌人命中计划。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 29
+stable_key = "fixture.ai.standard"
+content_kind = "AiGraph"
+name_en = "Fixture Standard AI"
+name_zh_cn = "夹具标准人工智能"
+summary_en = "Disabled deterministic AI graph."
+summary_zh_cn = "已禁用的确定性人工智能图。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 30
+stable_key = "fixture.encounter.standard"
+content_kind = "Encounter"
+name_en = "Fixture Standard Encounter"
+name_zh_cn = "夹具标准遭遇"
+summary_en = "Disabled one-wave encounter."
+summary_zh_cn = "已禁用的单波遭遇。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 31
+stable_key = "fixture.activity.standard"
+content_kind = "Activity"
+name_en = "Fixture Standard Activity"
+name_zh_cn = "夹具标准活动"
+summary_en = "Disabled one-battle Activity graph."
+summary_zh_cn = "已禁用的单战斗活动图。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 32
+stable_key = "fixture.standard.profile"
+content_kind = "StandardProfile"
+name_en = "Fixture Standard Profile"
+name_zh_cn = "夹具标准配置"
+summary_en = "Disabled Standard-only profile."
+summary_zh_cn = "已禁用的标准模式配置。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 33
+stable_key = "fixture.standard.scenario"
+content_kind = "Scenario"
+name_en = "Fixture Standard Scenario"
+name_zh_cn = "夹具标准场景"
+summary_en = "Disabled reproducible Standard scenario."
+summary_zh_cn = "已禁用的可复现标准场景。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 34
+stable_key = "fixture.activity.slot"
+content_kind = "StateSlot"
+name_en = "Fixture Attempt Slot"
+name_zh_cn = "夹具尝试状态槽"
+summary_en = "Disabled attempt-scoped Activity slot."
+summary_zh_cn = "已禁用的尝试范围活动状态槽。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 35
+stable_key = "fixture.selector.enemy-target"
+content_kind = "Selector"
+name_en = "Fixture Enemy Target Selector"
+name_zh_cn = "夹具敌人目标选择器"
+summary_en = "Disabled deterministic enemy target selector."
+summary_zh_cn = "已禁用的确定性敌人目标选择器。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 36
+stable_key = "fixture.rule.enemy"
+content_kind = "Rule"
+name_en = "Fixture Enemy Rule"
+name_zh_cn = "夹具敌人规则"
+summary_en = "Disabled encounter-bound enemy rule."
+summary_zh_cn = "已禁用的遭遇绑定敌人规则。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 37
+stable_key = "fixture.character.second"
+content_kind = "CharacterForm"
+name_en = "Fixture Character Two"
+name_zh_cn = "夹具角色二"
+summary_en = "Disabled synthetic participant."
+summary_zh_cn = "已禁用的合成参与者。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 38
+stable_key = "fixture.character.third"
+content_kind = "CharacterForm"
+name_en = "Fixture Character Three"
+name_zh_cn = "夹具角色三"
+summary_en = "Disabled synthetic participant."
+summary_zh_cn = "已禁用的合成参与者。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 39
+stable_key = "fixture.character.fourth"
+content_kind = "CharacterForm"
+name_en = "Fixture Character Four"
+name_zh_cn = "夹具角色四"
+summary_en = "Disabled synthetic participant."
+summary_zh_cn = "已禁用的合成参与者。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]
+
+[[rows]]
+id = 40
+stable_key = "fixture.enemy.variant.summon"
+content_kind = "EnemyVariant"
+name_en = "Fixture Summon Variant"
+name_zh_cn = "夹具召唤物变体"
+summary_en = "Disabled synthetic linked summon variant."
+summary_zh_cn = "已禁用的合成关联召唤物变体。"
+game_version_introduced = "fixture"
+game_version_snapshot = "4.4"
+release_state = "ProjectFixture"
+enabled = false
+coverage_state = "Disabled"
+source_record_ids = [1]

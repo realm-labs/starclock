@@ -50,6 +50,10 @@
       "command": ["node", "tools/config-schema/verify-rule-ir.mjs"]
     },
     {
+      "name": "Standard encounter configuration schema golden",
+      "command": ["node", "tools/config-schema/verify-standard-encounter.mjs"]
+    },
+    {
       "name": "cached source and prepared-pack regeneration",
       "command": ["node", "tools/goal-provenance/generate.mjs", "--check"],
       "requires": "source-cache"

@@ -1,0 +1,203 @@
+[[enums]]
+name = "AiCandidateSelection"
+values = ["FirstLegal", "WeightedDraw"]
+
+[[enums]]
+name = "AiNoTargetFallback"
+values = ["UseFallbackAbility", "StayInState", "Transition", "SkipAction", "Fault"]
+
+[[enums]]
+name = "AiTransitionTiming"
+values = ["AutomaticBeforeDecision", "AfterAction", "AfterPhase", "Explicit"]
+
+[[tables]]
+name = "AiGraph"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "AiGraph.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "initial_state_id"
+type = "ref<AiState.id>"
+
+[[tables.fields]]
+name = "automatic_transition_budget"
+type = "i32"
+range = [1, 100]
+
+[[tables]]
+name = "AiState"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "AiState.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "graph_id"
+type = "ref<AiGraph.id>"
+
+[[tables.fields]]
+name = "entry_program_id"
+type = "optional<ref<Program.id>>"
+
+[[tables.fields]]
+name = "mandatory_fallback_ability_id"
+type = "ref<EnemyAbility.id>"
+
+[[tables.fields]]
+name = "turn_counter_reset"
+type = "bool"
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "AiCandidate"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "AiCandidate.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "state_id"
+type = "ref<AiState.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "ability_id"
+type = "ref<EnemyAbility.id>"
+
+[[tables.fields]]
+name = "condition_id"
+type = "ref<ConditionExpression.id>"
+
+[[tables.fields]]
+name = "target_selector_id"
+type = "ref<Selector.id>"
+
+[[tables.fields]]
+name = "priority"
+type = "i32"
+range = [-1000000, 1000000]
+
+[[tables.fields]]
+name = "selection"
+type = "enum<AiCandidateSelection>"
+
+[[tables.fields]]
+name = "weight_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+
+[[tables.fields]]
+name = "rng_purpose_key"
+type = "optional<string>"
+
+[[tables.fields]]
+name = "no_target_fallback"
+type = "enum<AiNoTargetFallback>"
+
+[[tables.fields]]
+name = "fallback_ability_id"
+type = "optional<ref<EnemyAbility.id>>"
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables.indexes]]
+name = "by_state_sequence"
+fields = ["state_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "AiTransition"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "AiTransition.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "state_id"
+type = "ref<AiState.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "target_state_id"
+type = "ref<AiState.id>"
+
+[[tables.fields]]
+name = "condition_id"
+type = "ref<ConditionExpression.id>"
+
+[[tables.fields]]
+name = "priority"
+type = "i32"
+range = [-1000000, 1000000]
+
+[[tables.fields]]
+name = "timing"
+type = "enum<AiTransitionTiming>"
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables.indexes]]
+name = "by_state_sequence"
+fields = ["state_id", "sequence"]
+unique = true

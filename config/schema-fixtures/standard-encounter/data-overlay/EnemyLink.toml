@@ -1,0 +1,12 @@
+[[rows]]
+owner_variant_id = 26
+sequence = 1
+linked_variant_id = 40
+kind = "Summon"
+maximum_simultaneous = 2
+overflow_policy = "ReplaceOldest"
+owner_defeat_policy = "Despawn"
+wave_persistence = "WaveOwned"
+contributes_to_victory = false
+initial_action_gauge_decimal = "0"
+formation_policy = "NextAvailable"

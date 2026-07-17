@@ -1,0 +1,64 @@
+[[enums]]
+name = "StandardExpectedOutcome"
+values = ["Won", "Lost", "Faulted"]
+
+[[tables]]
+name = "StandardProfile"
+mode = "map"
+key = "id"
+[tables.source]
+format = "toml"
+file = "StandardProfile.toml"
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+[[tables.fields]]
+name = "activity_id"
+type = "ref<ActivityDefinition.id>"
+[[tables.fields]]
+name = "player_team_count"
+type = "i32"
+range = [1, 1]
+[[tables.fields]]
+name = "maximum_party_size"
+type = "i32"
+range = [1, 4]
+[[tables.fields]]
+name = "has_global_clock"
+type = "bool"
+[[tables.fields]]
+name = "has_score"
+type = "bool"
+[[tables.fields]]
+name = "has_seasonal_rules"
+type = "bool"
+[[tables.fields]]
+name = "default_wave_transition"
+type = "enum<WaveTransitionPolicy>"
+
+[[tables]]
+name = "StandardScenario"
+mode = "map"
+key = "id"
+[tables.source]
+format = "toml"
+file = "StandardScenario.toml"
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+[[tables.fields]]
+name = "profile_id"
+type = "ref<StandardProfile.id>"
+[[tables.fields]]
+name = "activity_id"
+type = "ref<ActivityDefinition.id>"
+[[tables.fields]]
+name = "battle_binding_id"
+type = "ref<BattleBinding.id>"
+[[tables.fields]]
+name = "master_seed_hex"
+type = "string"
+length = [16, 16]
+[[tables.fields]]
+name = "expected_outcome"
+type = "enum<StandardExpectedOutcome>"

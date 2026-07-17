@@ -1,0 +1,211 @@
+[[enums]]
+name = "WaveTransitionPolicy"
+values = ["AfterAction", "AfterPhase", "AfterHit", "Explicit"]
+
+[[enums]]
+name = "EncounterVictoryPolicy"
+values = ["DefeatRequiredHostiles", "ExplicitProgram"]
+
+[[enums]]
+name = "EncounterLossPolicy"
+values = ["NoControllableAllies", "ExplicitProgram"]
+
+[[enums]]
+name = "WaveCarryPolicy"
+values = ["CarryExact", "Reset", "Clear", "ExplicitProgram"]
+
+[[tables]]
+name = "Encounter"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "Encounter.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "level"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "difficulty_key"
+type = "string"
+length = [1, 80]
+
+[[tables.fields]]
+name = "environment_key"
+type = "string"
+length = [1, 120]
+
+[[tables.fields]]
+name = "wave_transition"
+type = "enum<WaveTransitionPolicy>"
+
+[[tables.fields]]
+name = "initial_skill_points"
+type = "i32"
+range = [0, 5]
+
+[[tables.fields]]
+name = "maximum_skill_points"
+type = "i32"
+range = [1, 5]
+
+[[tables.fields]]
+name = "victory_policy"
+type = "enum<EncounterVictoryPolicy>"
+
+[[tables.fields]]
+name = "loss_policy"
+type = "enum<EncounterLossPolicy>"
+
+[[tables]]
+name = "EncounterRuleBinding"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "EncounterRuleBinding.toml"
+
+[[tables.fields]]
+name = "encounter_id"
+type = "ref<Encounter.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 1000]
+
+[[tables.fields]]
+name = "rule_id"
+type = "ref<RuleDefinition.id>"
+
+[[tables.indexes]]
+name = "by_encounter_sequence"
+fields = ["encounter_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_encounter_rule"
+fields = ["encounter_id", "rule_id"]
+unique = true
+
+[[tables]]
+name = "EncounterWave"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "EncounterWave.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "encounter_id"
+type = "ref<Encounter.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "entry_program_id"
+type = "optional<ref<Program.id>>"
+
+[[tables.fields]]
+name = "exit_program_id"
+type = "optional<ref<Program.id>>"
+
+[[tables.fields]]
+name = "hp_carry"
+type = "enum<WaveCarryPolicy>"
+
+[[tables.fields]]
+name = "energy_carry"
+type = "enum<WaveCarryPolicy>"
+
+[[tables.fields]]
+name = "skill_point_carry"
+type = "enum<WaveCarryPolicy>"
+
+[[tables.fields]]
+name = "effect_carry"
+type = "enum<WaveCarryPolicy>"
+
+[[tables.fields]]
+name = "action_gauge_carry"
+type = "enum<WaveCarryPolicy>"
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables.indexes]]
+name = "by_encounter_sequence"
+fields = ["encounter_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "WaveSlot"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "WaveSlot.toml"
+
+[[tables.fields]]
+name = "wave_id"
+type = "ref<EncounterWave.id>"
+
+[[tables.fields]]
+name = "spawn_sequence"
+type = "i32"
+range = [1, 32]
+
+[[tables.fields]]
+name = "formation_index"
+type = "i32"
+range = [0, 31]
+
+[[tables.fields]]
+name = "enemy_variant_id"
+type = "ref<EnemyVariant.id>"
+
+[[tables.fields]]
+name = "level_override"
+type = "optional<i32>"
+range = [1, 100]
+
+[[tables.fields]]
+name = "initial_phase_id"
+type = "optional<ref<EnemyPhase.id>>"
+
+[[tables.fields]]
+name = "required_for_victory"
+type = "bool"
+
+[[tables.indexes]]
+name = "by_wave_spawn"
+fields = ["wave_id", "spawn_sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_wave_formation"
+fields = ["wave_id", "formation_index"]
+unique = true
