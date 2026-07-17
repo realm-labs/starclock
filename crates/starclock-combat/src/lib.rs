@@ -15,4 +15,12 @@ pub use id::{
     AbilityId, ActionId, CombatantId, EffectId, EffectInstanceId, EncounterId, EventId, RuleId,
     TimelineActorId, UnitId, ZeroIdError,
 };
-pub use numeric::{Ratio, Scalar};
+pub use numeric::domain::{
+    ActionGauge, DamageAmount, HealingAmount, Hp, Probability, RawToughness, ShieldAmount, Speed,
+    StatValue,
+};
+pub use numeric::rounding::{NumericError, Rounding};
+pub use numeric::scalar::{Ratio, Scalar};
+
+/// Compatibility identifier for authoritative numeric representation and rounding.
+pub const NUMERIC_POLICY_REVISION: &str = "fixed-i64-6dp-v1";

@@ -4,6 +4,16 @@
     "selection": "All tracked and non-ignored untracked .rs files reported by Git.",
     "maximum_handwritten_lines": 1200,
     "maximum_facade_lines": 200,
+    "forbidden_authoritative_float_roots": [
+      "crates/starclock-activity/src",
+      "crates/starclock-ai/src",
+      "crates/starclock-build/src",
+      "crates/starclock-combat/src",
+      "crates/starclock-data/src",
+      "crates/starclock-mode-standard/src",
+      "crates/starclock-replay/src",
+      "crates/starclock-rules/src"
+    ],
     "excluded_roots": [
       {
         "path": "config/sora-golden/expected/reader/generated",

@@ -38,12 +38,12 @@ files only and do not enter the production workspace.
 
 ## Numeric boundary
 
-Only `starclock-combat/src/numeric.rs` may name `fixnum`. Public consumers see
-Starclock's `Scalar` and `Ratio` wrappers, whose constructors and accessors use
-signed millionths. No backing type, feature, generic operation trait or float
-conversion is public. Checked arithmetic and complete domain wrappers remain
-owned by Phase 2; this batch establishes representation privacy without
-preempting their formula policy.
+Only files under `starclock-combat/src/numeric/` may name `fixnum`. Public
+consumers see Starclock's `Scalar`, `Ratio` and unit-specific wrappers, whose
+constructors and accessors use signed millionths or integral fixed-width values.
+No backing type, feature, generic operation trait or float conversion is public.
+`G01-P2-B1` adds checked arithmetic, six explicit rounding policies and typed
+numeric faults without changing the reviewed dependency graph.
 
 ## Change rule
 

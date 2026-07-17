@@ -48,7 +48,7 @@ assert(soraPolicy.version === "0.3.0" && /^[a-f0-9]{64}$/.test(soraPolicy.crate_
 const combatSource = path.join(root, "crates", "starclock-combat", "src");
 const rustFiles = walk(combatSource).filter((file) => file.endsWith(".rs"));
 const backendUsers = rustFiles.filter((file) => fs.readFileSync(file, "utf8").includes("fixnum"));
-assert(backendUsers.length === 1 && path.basename(backendUsers[0]) === "numeric.rs", `fixnum escaped numeric.rs: ${backendUsers.join(", ")}`);
+assert(backendUsers.length === 1 && path.relative(root, backendUsers[0]).replaceAll("\\", "/") === "crates/starclock-combat/src/numeric/scalar.rs", `fixnum escaped the private scalar backend: ${backendUsers.join(", ")}`);
 const combatRoot = fs.readFileSync(path.join(combatSource, "lib.rs"), "utf8");
 assert(combatRoot.includes("mod numeric;") && !combatRoot.includes("pub mod numeric"), "numeric backend module must remain private");
 assert(!combatRoot.includes("pub use fixnum"), "fixnum must not be re-exported");

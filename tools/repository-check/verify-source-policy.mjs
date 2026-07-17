@@ -9,6 +9,8 @@ assert(policy.schema_revision === "starclock.repository-checks.v1", "unsupported
 const rules = policy.rust_source;
 assert(Number.isInteger(rules.maximum_handwritten_lines) && rules.maximum_handwritten_lines > 0, "invalid handwritten line limit");
 assert(Number.isInteger(rules.maximum_facade_lines) && rules.maximum_facade_lines > 0, "invalid facade line limit");
+const floatForbiddenRoots = new Set(rules.forbidden_authoritative_float_roots.map((entry) => validateRelativePath(entry, "float-forbidden root")));
+for (const relative of floatForbiddenRoots) assert(fs.statSync(path.join(root, relative), { throwIfNoEntry: false })?.isDirectory(), `${relative}: float-forbidden root must exist`);
 
 const exclusions = new Map();
 for (const exclusion of rules.excluded_roots) {
@@ -60,6 +62,10 @@ for (const relative of rustFiles) {
   assert(!segments.includes("prelude") && basename !== "prelude.rs", `${relative}: project prelude modules are forbidden`);
 
   const syntax = stripLineComments(source);
+  if ([...floatForbiddenRoots].some((root) => relative === root || relative.startsWith(`${root}/`))) {
+    const authoritativeSyntax = syntax.replace(/\/\*[\s\S]*?\*\//g, "");
+    assert(!/\bf(?:32|64)\b/.test(authoritativeSyntax), `${relative}: authoritative source may not name f32 or f64`);
+  }
   assert(!/^\s*pub\s+(?:\([^)]*\)\s+)?mod\s+prelude\b/m.test(syntax), `${relative}: public prelude modules are forbidden`);
   const publicUses = syntax.match(/^\s*pub\s+use\b[\s\S]*?;/gm) ?? [];
   if (publicUses.length > 0) {
@@ -92,7 +98,7 @@ for (const exceptionPath of exceptions.keys()) {
   assert(rustFiles.includes(exceptionPath), `${exceptionPath}: stale line-limit exception`);
 }
 
-console.log(`Rust source policy verified (${rustFiles.length} handwritten files, ${publicReexportCount} explicit public re-export declarations, ${exclusions.size} explicit generated/vendor exclusions).`);
+console.log(`Rust source policy verified (${rustFiles.length} handwritten files, ${publicReexportCount} explicit public re-export declarations, ${exclusions.size} explicit generated/vendor exclusions, ${floatForbiddenRoots.size} float-forbidden roots).`);
 
 function isExcluded(relative) {
   return [...exclusions.keys()].some((excluded) => relative === excluded || relative.startsWith(`${excluded}/`));

@@ -35,6 +35,12 @@ This gives a resolution of `0.000001` and an approximate range of ±9.22 trillio
 
 Do not expose `fixnum` types outside the numeric module. The dependency is an arithmetic implementation detail, not the domain API.
 
+The committed `G01-P2-B1` implementation is documented in
+[Authoritative numeric implementation](numeric-implementation.md). The pinned
+backend's three-mode rounding surface is insufficient for the six normative
+modes below, so precision loss passes through one project-owned promoted integer
+quotient primitive rather than ad hoc caller rounding.
+
 ## Domain types
 
 Wrap the representation in types that make units and legal operations explicit:

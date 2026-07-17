@@ -57,6 +57,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 32. [Enemy, encounter and Standard configuration schema](enemy-standard-configuration-schema.md) — enemy variants, deterministic AI, waves and the minimum generic Activity/BattleBinding/result-projection seam for Standard battles.
 33. [Production configuration pipeline](production-configuration-pipeline.md) — authoritative `.xlsx` workbooks, deterministic no-overwrite bootstrap, Sora exports/readers and the private data conversion boundary.
 34. [Catalog construction boundary](catalog-construction-boundary.md) — validated real-bundle loading, empty/representative private definitions and clean-regeneration evidence.
+35. [Authoritative numeric implementation](numeric-implementation.md) — checked six-decimal domain types, six explicit rounding modes, typed faults and no-float enforcement.
 
 ## Execution goals
 
