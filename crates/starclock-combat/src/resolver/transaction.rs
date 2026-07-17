@@ -18,8 +18,8 @@ use crate::{
         },
     },
     id::{
-        ActionId, CommandId, DecisionId, EventId, HitId, OperationId, PhaseId, SourceDefinitionId,
-        TimelineActorId, WaveInstanceId,
+        ActionId, CommandId, DecisionId, EventId, HitId, OperationId, PhaseId, ShieldInstanceId,
+        SourceDefinitionId, TimelineActorId, WaveInstanceId,
     },
     numeric::domain::ActionGauge,
     rng::types::DrawPurpose,
@@ -542,6 +542,16 @@ impl<'a> Transaction<'a> {
         id
     }
 
+    pub(super) fn allocate_shield(&mut self) -> ShieldInstanceId {
+        let id = self
+            .state
+            .sequences
+            .try_shield()
+            .expect("rules-revision shield budget prevents u64 identity exhaustion");
+        self.journal.allocation(AllocationKind::Shield, id.get());
+        id
+    }
+
     pub(super) fn allocate_wave(&mut self) -> WaveInstanceId {
         let id = self
             .state
@@ -793,6 +803,20 @@ impl<'a> Transaction<'a> {
 
     pub(super) fn snapshot(&mut self, operation: OperationId) {
         self.journal.snapshot(operation.get());
+    }
+
+    pub(super) fn record_shield_change(
+        &mut self,
+        before: crate::ShieldAmount,
+        after: crate::ShieldAmount,
+    ) {
+        if before != after {
+            self.journal.mutation(
+                MutationField::ShieldRemaining,
+                u64::try_from(before.get()).expect("shield is non-negative"),
+                u64::try_from(after.get()).expect("shield is non-negative"),
+            );
+        }
     }
 
     fn commit_fault(mut self, root: CommandId, fault: BattleFault) -> Vec<BattleEvent> {

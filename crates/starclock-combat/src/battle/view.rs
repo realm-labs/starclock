@@ -7,10 +7,10 @@ use crate::{
     catalog::CatalogDigest,
     command::model::DecisionPoint,
     id::{
-        AbilityId, EncounterId, ModifierDefinitionId, RuleBundleId, SpawnSequence, TimelineActorId,
-        UnitDefinitionId, UnitId, WaveInstanceId,
+        AbilityId, EncounterId, ModifierDefinitionId, RuleBundleId, ShieldInstanceId,
+        SpawnSequence, TimelineActorId, UnitDefinitionId, UnitId, WaveInstanceId,
     },
-    numeric::domain::{ActionGauge, Hp, Speed},
+    numeric::domain::{ActionGauge, Hp, ShieldAmount, Speed},
     rng::RNG_ALGORITHM_REVISION,
 };
 
@@ -89,6 +89,13 @@ impl<'a> BattleView<'a> {
             .iter_by_id()
             .map(|state| TimelineActorView { state })
     }
+    /// Iterates retained shield instances in stable runtime-ID order.
+    pub fn shields_by_id(self) -> impl Iterator<Item = ShieldView<'a>> + 'a {
+        self.state
+            .shields
+            .iter_by_id()
+            .map(|state| ShieldView { state })
+    }
     /// Returns one side's team-scoped resources.
     #[must_use]
     pub fn team(self, side: TeamSide) -> TeamView<'a> {
@@ -114,6 +121,34 @@ impl<'a> BattleView<'a> {
                 pending_count: u64::try_from(window.pending.entries().len())
                     .expect("interrupt queue length is bounded below u64::MAX"),
             })
+    }
+}
+
+/// Immutable projection of one separately retained shield instance.
+#[derive(Clone, Copy)]
+pub struct ShieldView<'a> {
+    state: &'a crate::effect::shield::ShieldState,
+}
+
+impl ShieldView<'_> {
+    #[must_use]
+    pub const fn id(self) -> ShieldInstanceId {
+        self.state.id
+    }
+
+    #[must_use]
+    pub const fn owner(self) -> UnitId {
+        self.state.owner
+    }
+
+    #[must_use]
+    pub const fn remaining(self) -> ShieldAmount {
+        self.state.remaining
+    }
+
+    #[must_use]
+    pub const fn policy(self) -> crate::formula::shield::ShieldAbsorptionPolicy {
+        self.state.policy
     }
 }
 

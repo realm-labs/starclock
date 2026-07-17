@@ -21,18 +21,22 @@ const METADATA_TABLES: [&str; 5] = [
     "EvidenceRecord",
     "SourceRecord",
 ];
-const LOWERED_TABLES: [&str; 15] = [
+const LOWERED_TABLES: [&str; 19] = [
     "Ability",
     "AbilityHitPlanBinding",
     "AbilityPhase",
     "Character",
     "CharacterAbilityBinding",
     "CharacterStat",
+    "Effect",
     "HitPlan",
     "HitPlanHit",
     "ModifierDefinition",
     "ModifierFilter",
     "ModifierStackingGroup",
+    "Operation",
+    "Program",
+    "ProgramStep",
     "RuleDefinition",
     "Selector",
     "StateSlot",
@@ -125,7 +129,7 @@ pub struct CatalogSummary {
 pub struct SimulationCatalog {
     manifest: CatalogManifest,
     identities: Box<[IdentityDefinition]>,
-    combat: CombatDefinitions,
+    pub(super) combat: CombatDefinitions,
     builds: BuildDefinitions,
 }
 
@@ -188,10 +192,11 @@ enum IdentityKind {
 }
 
 #[derive(Debug)]
-struct CombatDefinitions {
+pub(super) struct CombatDefinitions {
     abilities: Box<[AbilityDefinition]>,
     hit_plans: Box<[HitPlanDefinition]>,
     modifiers: ModifierRegistry,
+    pub(super) programs: Box<[crate::operation_lower::RuleProgramDefinition]>,
 }
 
 #[derive(Debug)]
@@ -702,10 +707,12 @@ fn convert_combat(
         }
     }
     let modifiers = crate::modifier_lower::convert(config)?;
+    let programs = crate::operation_lower::convert(config)?;
     Ok(CombatDefinitions {
         abilities: abilities.into_boxed_slice(),
         hit_plans: hit_plans.into_boxed_slice(),
         modifiers,
+        programs: programs.into_boxed_slice(),
     })
 }
 

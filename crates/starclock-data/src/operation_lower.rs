@@ -1,0 +1,244 @@
+//! Generated Sora operation/program rows to typed Rule IR proposals.
+
+use std::collections::BTreeSet;
+
+use starclock_combat::{
+    EffectDefinitionId, ProgramId, Rounding, SelectorId,
+    formula::model::{CombatElement, DamageClass},
+    rule::{
+        evaluate::ProgramLookup,
+        model::{ProgramStep, ResourceUpdateKind, RuleOperationTemplate},
+    },
+};
+
+use crate::{
+    catalog::{CatalogLoadError, SimulationCatalog, domain_fail},
+    generated::{
+        self, SoraConfig, combat_element, damage_class, operation_payload, program_step_node,
+        resource_kind, resource_update_kind, rounding_policy,
+    },
+};
+
+#[derive(Debug)]
+pub(super) struct RuleProgramDefinition {
+    pub(super) id: ProgramId,
+    pub(super) steps: Box<[ProgramStep]>,
+}
+
+impl SimulationCatalog {
+    /// Returns one validated Rule IR program lowered from generated Sora rows.
+    #[must_use]
+    pub fn program_steps(&self, id: ProgramId) -> Option<&[ProgramStep]> {
+        self.combat
+            .programs
+            .binary_search_by_key(&id, |program| program.id)
+            .ok()
+            .map(|index| self.combat.programs[index].steps.as_ref())
+    }
+}
+
+impl ProgramLookup for SimulationCatalog {
+    fn program_steps(&self, id: ProgramId) -> Option<&[ProgramStep]> {
+        self.program_steps(id)
+    }
+}
+
+pub(super) fn convert(config: &SoraConfig) -> Result<Vec<RuleProgramDefinition>, CatalogLoadError> {
+    let mut programs = config
+        .program()
+        .ordered_rows()
+        .map(|program| {
+            let mut rows = config
+                .program_step()
+                .iter()
+                .filter(|step| step.program_id == program.id)
+                .collect::<Vec<_>>();
+            rows.sort_unstable_by_key(|step| step.sequence);
+            for (offset, row) in rows.iter().enumerate() {
+                if row.sequence != i32::try_from(offset + 1).expect("program bound fits i32") {
+                    return Err(domain_fail(format!(
+                        "program {} has noncontiguous operation order",
+                        program.id
+                    )));
+                }
+            }
+            let steps = rows
+                .into_iter()
+                .map(|step| match &step.step {
+                    program_step_node::ProgramStepNode::Operation { operation_id } => config
+                        .operation()
+                        .get(operation_id)
+                        .ok_or_else(|| domain_fail(format!("missing operation {operation_id}")))
+                        .and_then(|operation| lower_operation(config, operation))
+                        .map(ProgramStep::Operation),
+                    _ => Err(domain_fail(format!(
+                        "probe program {} uses an unsupported control-flow row",
+                        program.id
+                    ))),
+                })
+                .collect::<Result<Vec<_>, _>>()?;
+            Ok(RuleProgramDefinition {
+                id: ProgramId::new(positive(program.id)?).expect("positive program ID"),
+                steps: steps.into_boxed_slice(),
+            })
+        })
+        .collect::<Result<Vec<_>, CatalogLoadError>>()?;
+    programs.sort_unstable_by_key(|program| program.id);
+    Ok(programs)
+}
+
+fn lower_operation(
+    config: &SoraConfig,
+    row: &generated::operation::Operation,
+) -> Result<RuleOperationTemplate, CatalogLoadError> {
+    if row.condition_id.is_some() {
+        return Err(domain_fail(format!(
+            "probe operation {} has an unsupported condition",
+            row.id
+        )));
+    }
+    let selector = || {
+        row.target_selector_id
+            .ok_or_else(|| domain_fail(format!("operation {} lacks a target selector", row.id)))
+            .and_then(selector_id)
+    };
+    let expression = |id| crate::modifier_lower::expression(config, id, &mut BTreeSet::new());
+    use operation_payload::OperationPayload as Payload;
+    Ok(match &row.payload {
+        Payload::Damage {
+            amount_expression_id,
+            damage_class,
+            element,
+            can_crit,
+        } => RuleOperationTemplate::Damage {
+            selector: selector()?,
+            amount: expression(*amount_expression_id)?,
+            class: lower_damage_class(*damage_class)?,
+            element: lower_element(*element),
+            can_crit: *can_crit,
+        },
+        Payload::TrueDamage {
+            amount_expression_id,
+        } => RuleOperationTemplate::TrueDamage {
+            selector: selector()?,
+            amount: expression(*amount_expression_id)?,
+        },
+        Payload::Heal {
+            amount_expression_id,
+        } => RuleOperationTemplate::Heal {
+            selector: selector()?,
+            amount: expression(*amount_expression_id)?,
+        },
+        Payload::Shield {
+            amount_expression_id,
+            effect_id,
+        } => RuleOperationTemplate::Shield {
+            selector: selector()?,
+            amount: expression(*amount_expression_id)?,
+            effect: effect(*effect_id)?,
+        },
+        Payload::ConsumeHp {
+            amount_expression_id,
+            floor_expression_id,
+        } => RuleOperationTemplate::ConsumeHp {
+            selector: selector()?,
+            amount: expression(*amount_expression_id)?,
+            floor: expression(*floor_expression_id)?,
+        },
+        Payload::ModifyResource {
+            resource_kind,
+            character_resource_key,
+            update_kind,
+            amount_expression_id,
+            scales_with_energy_regeneration,
+            rounding,
+        } if *resource_kind == resource_kind::ResourceKind::Energy
+            && character_resource_key.is_none() =>
+        {
+            RuleOperationTemplate::ModifyEnergy {
+                selector: selector()?,
+                update: lower_update(*update_kind),
+                amount: expression(*amount_expression_id)?,
+                scales_with_regeneration: *scales_with_energy_regeneration,
+                rounding: lower_rounding(*rounding),
+            }
+        }
+        Payload::ApplyEffect { effect_id, .. } => RuleOperationTemplate::ApplyEffect {
+            selector: selector()?,
+            effect: effect(*effect_id)?,
+        },
+        Payload::AdvanceAction {
+            amount_expression_id,
+        } => RuleOperationTemplate::AdvanceAction {
+            selector: selector()?,
+            amount: expression(*amount_expression_id)?,
+        },
+        Payload::EmitRuleEvent { .. } if row.target_selector_id.is_none() => {
+            RuleOperationTemplate::CreateCountdown {
+                code: positive(row.id)?,
+            }
+        }
+        _ => {
+            return Err(domain_fail(format!(
+                "operation {} uses a payload outside the B3 lowering boundary",
+                row.id
+            )));
+        }
+    })
+}
+
+fn lower_damage_class(value: damage_class::DamageClass) -> Result<DamageClass, CatalogLoadError> {
+    match value {
+        damage_class::DamageClass::Ordinary => Ok(DamageClass::Direct),
+        damage_class::DamageClass::Dot => Ok(DamageClass::Dot),
+        damage_class::DamageClass::Additional => Ok(DamageClass::Additional),
+        _ => Err(domain_fail(
+            "damage class belongs to another formula family",
+        )),
+    }
+}
+
+fn lower_element(value: combat_element::CombatElement) -> CombatElement {
+    match value {
+        combat_element::CombatElement::Physical => CombatElement::Physical,
+        combat_element::CombatElement::Fire => CombatElement::Fire,
+        combat_element::CombatElement::Ice => CombatElement::Ice,
+        combat_element::CombatElement::Lightning => CombatElement::Lightning,
+        combat_element::CombatElement::Wind => CombatElement::Wind,
+        combat_element::CombatElement::Quantum => CombatElement::Quantum,
+        combat_element::CombatElement::Imaginary => CombatElement::Imaginary,
+    }
+}
+
+fn lower_update(value: resource_update_kind::ResourceUpdateKind) -> ResourceUpdateKind {
+    match value {
+        resource_update_kind::ResourceUpdateKind::Spend => ResourceUpdateKind::Spend,
+        resource_update_kind::ResourceUpdateKind::Reserve => ResourceUpdateKind::Reserve,
+        resource_update_kind::ResourceUpdateKind::Gain => ResourceUpdateKind::Gain,
+        resource_update_kind::ResourceUpdateKind::Set => ResourceUpdateKind::Set,
+    }
+}
+
+fn lower_rounding(value: rounding_policy::RoundingPolicy) -> Rounding {
+    match value {
+        rounding_policy::RoundingPolicy::Floor => Rounding::Floor,
+        rounding_policy::RoundingPolicy::Ceil => Rounding::Ceil,
+        rounding_policy::RoundingPolicy::TowardZero => Rounding::TowardZero,
+        rounding_policy::RoundingPolicy::AwayFromZero => Rounding::AwayFromZero,
+        rounding_policy::RoundingPolicy::NearestTiesAway => Rounding::NearestTiesAway,
+        rounding_policy::RoundingPolicy::NearestTiesEven => Rounding::NearestTiesEven,
+    }
+}
+
+fn positive(value: i32) -> Result<u32, CatalogLoadError> {
+    u32::try_from(value)
+        .ok()
+        .filter(|value| *value > 0)
+        .ok_or_else(|| domain_fail("operation-domain ID must be positive"))
+}
+fn selector_id(value: i32) -> Result<SelectorId, CatalogLoadError> {
+    Ok(SelectorId::new(positive(value)?).expect("positive selector ID"))
+}
+fn effect(value: i32) -> Result<EffectDefinitionId, CatalogLoadError> {
+    Ok(EffectDefinitionId::new(positive(value)?).expect("positive effect ID"))
+}

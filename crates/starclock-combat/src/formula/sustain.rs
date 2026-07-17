@@ -3,6 +3,11 @@ use crate::{
     catalog::action::{HealingDefinition, OrdinaryDamageDefinition},
 };
 
+use super::{
+    damage,
+    model::{HealingCalculation as ContextHealingCalculation, HealingContext},
+};
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) struct DamageCalculation {
     pub(crate) raw: Scalar,
@@ -38,6 +43,42 @@ pub(crate) fn healing(definition: HealingDefinition) -> Result<HealingCalculatio
     }
     let raw = multiplier.checked_apply(definition.base_healing(), Rounding::NearestTiesEven)?;
     Ok(HealingCalculation {
+        raw,
+        finalized: HealingAmount::from_scalar(raw, Rounding::Floor)?,
+    })
+}
+
+/// Resolves a mixed-stat healing context and floors exactly once.
+pub fn calculate_healing(
+    context: &HealingContext,
+) -> Result<ContextHealingCalculation, NumericError> {
+    let base = damage::base_amount(&context.scaling_terms, context.additive_base)?;
+    let outgoing = context
+        .outgoing_boosts
+        .iter()
+        .try_fold(Ratio::ZERO, |sum, value| sum.checked_add(*value))?;
+    let incoming = context
+        .incoming_boosts
+        .iter()
+        .try_fold(Ratio::ZERO, |sum, value| sum.checked_add(*value))?;
+    let reductions = context
+        .incoming_reductions
+        .iter()
+        .try_fold(Ratio::ZERO, |sum, value| sum.checked_add(*value))?;
+    if outgoing.scaled() < 0 || incoming.scaled() < 0 || reductions.scaled() < 0 {
+        return Err(NumericError::OutOfDomain);
+    }
+    let multiplier = Ratio::ONE
+        .checked_add(outgoing)?
+        .checked_add(incoming)?
+        .checked_sub(reductions)?;
+    if multiplier.scaled() < 0 {
+        return Err(NumericError::OutOfDomain);
+    }
+    let raw = multiplier.checked_apply(base, Rounding::NearestTiesEven)?;
+    Ok(ContextHealingCalculation {
+        base,
+        multiplier,
         raw,
         finalized: HealingAmount::from_scalar(raw, Rounding::Floor)?,
     })

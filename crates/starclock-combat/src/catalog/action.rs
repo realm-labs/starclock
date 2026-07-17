@@ -238,6 +238,72 @@ pub struct HealingDefinition {
     incoming_reduction: Ratio,
 }
 
+/// Fully resolved shield creation input plus its explicit absorption policy.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ShieldDefinition {
+    base_shield: Scalar,
+    bonus: Ratio,
+    policy: crate::formula::shield::ShieldAbsorptionPolicy,
+}
+
+impl ShieldDefinition {
+    /// Creates a non-negative resolved shield formula.
+    pub fn new(
+        base_shield: Scalar,
+        bonus: Ratio,
+        policy: crate::formula::shield::ShieldAbsorptionPolicy,
+    ) -> Result<Self, NumericError> {
+        if base_shield.scaled() <= 0 || bonus.scaled() < 0 {
+            Err(NumericError::OutOfDomain)
+        } else {
+            Ok(Self {
+                base_shield,
+                bonus,
+                policy,
+            })
+        }
+    }
+
+    #[must_use]
+    pub const fn base_shield(self) -> Scalar {
+        self.base_shield
+    }
+
+    #[must_use]
+    pub const fn bonus(self) -> Ratio {
+        self.bonus
+    }
+
+    #[must_use]
+    pub const fn policy(self) -> crate::formula::shield::ShieldAbsorptionPolicy {
+        self.policy
+    }
+}
+
+/// Checked HP-consumption request that cannot defeat its target below `floor`.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct HpConsumptionDefinition {
+    requested: crate::Hp,
+    floor: crate::Hp,
+}
+
+impl HpConsumptionDefinition {
+    #[must_use]
+    pub const fn new(requested: crate::Hp, floor: crate::Hp) -> Self {
+        Self { requested, floor }
+    }
+
+    #[must_use]
+    pub const fn requested(self) -> crate::Hp {
+        self.requested
+    }
+
+    #[must_use]
+    pub const fn floor(self) -> crate::Hp {
+        self.floor
+    }
+}
+
 impl HealingDefinition {
     /// Creates the base healing and the three additive modifier components.
     pub fn new(
@@ -290,6 +356,10 @@ pub enum HitOperationDefinition {
     Damage(OrdinaryDamageDefinition),
     /// HP restoration through the additive healing multiplier block.
     Heal(HealingDefinition),
+    /// Creates one separately retained shield instance.
+    Shield(ShieldDefinition),
+    /// Consumes HP without treating the loss as damage.
+    ConsumeHp(HpConsumptionDefinition),
 }
 
 /// Ordered operation templates owned by one authored hit.

@@ -54,21 +54,21 @@ fn cli_runs_writes_replays_reproduces_bytes_and_detects_divergence() {
     assert_eq!(
         replay_hash.finalize(),
         Sha256Digest::new([
-            0xaf, 0x16, 0x23, 0xdb, 0x54, 0xa2, 0x8a, 0xa7, 0x37, 0x4e, 0xf5, 0x60, 0xbf, 0x76,
-            0x82, 0x4a, 0x48, 0x96, 0xde, 0xb9, 0x22, 0xc9, 0x23, 0xdc, 0x52, 0xe8, 0x46, 0x5a,
-            0x98, 0x6e, 0x46, 0x16,
+            0x38, 0x1d, 0xba, 0xc9, 0x19, 0x2c, 0x49, 0x08, 0xfa, 0x1c, 0x33, 0x82, 0xed, 0xce,
+            0x1d, 0xf8, 0x24, 0x12, 0x53, 0x6f, 0x7a, 0x16, 0x43, 0xb1, 0x5c, 0x6d, 0x6d, 0x6d,
+            0x06, 0xa8, 0xa2, 0xb8,
         ])
     );
     assert_eq!(
         String::from_utf8(first_run.stdout).unwrap().trim(),
-        "{\"schema\":1,\"kind\":\"battle-run\",\"scenario\":\"synthetic-standard-v1\",\"seed\":7,\"commands\":3,\"phase\":\"won\",\"state_hash\":\"697a383ec91618282442011c89c12616736273e897c2846a793abe4d1a55f272\",\"replay_bytes\":530}"
+        "{\"schema\":1,\"kind\":\"battle-run\",\"scenario\":\"synthetic-standard-v1\",\"seed\":7,\"commands\":3,\"phase\":\"won\",\"state_hash\":\"fdb5fa775f1b1325aef360e5d819df1a488f9779c13e36fa43aaac86d0da26f7\",\"replay_bytes\":530}"
     );
 
     let verified = output(&["replay", "verify", first.to_str().unwrap(), "--json"]);
     assert!(verified.status.success(), "{:?}", verified);
     assert_eq!(
         String::from_utf8(verified.stdout).unwrap().trim(),
-        "{\"schema\":1,\"kind\":\"replay-verify\",\"commands\":3,\"phase\":\"won\",\"state_hash\":\"697a383ec91618282442011c89c12616736273e897c2846a793abe4d1a55f272\"}"
+        "{\"schema\":1,\"kind\":\"replay-verify\",\"commands\":3,\"phase\":\"won\",\"state_hash\":\"fdb5fa775f1b1325aef360e5d819df1a488f9779c13e36fa43aaac86d0da26f7\"}"
     );
 
     let mut bytes = replay_bytes;

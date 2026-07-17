@@ -2,4 +2,4 @@
 
 mod model;
 
-pub(crate) use model::{DamageOp, HealOp, Operation};
+pub(crate) use model::{ConsumeHpOp, DamageOp, HealOp, Operation, ShieldOp};

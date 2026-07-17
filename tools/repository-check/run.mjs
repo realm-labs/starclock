@@ -16,6 +16,7 @@ const commands = [
   ["node", "tools/repository-check/verify-generated-drift.mjs", ...(includeSourceCache ? ["--with-source-cache"] : [])],
   ["node", "tools/benchmark/verify.mjs"],
   ["node", "tools/config-probes/verify-asta-modifier.mjs"],
+  ["node", "tools/config-probes/verify-firefly-damage.mjs"],
   ["cargo", "fmt", "--all", "--", "--check"],
   ["cargo", "clippy", "--workspace", "--all-targets", "--all-features", "--", "-D", "warnings"],
   ["cargo", "test", "--workspace", "--all-targets", "--all-features"],

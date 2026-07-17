@@ -9,7 +9,7 @@ use crate::{
         },
     },
     id::{CommandId, EventId, SourceDefinitionId},
-    operation::{DamageOp, HealOp, Operation},
+    operation::{ConsumeHpOp, DamageOp, HealOp, Operation, ShieldOp},
 };
 
 use super::{
@@ -93,6 +93,18 @@ pub(super) fn execute_action_plan(
                         targets: targets.clone(),
                         formula,
                     }),
+                    HitOperationDefinition::Shield(formula) => Operation::Shield(ShieldOp {
+                        id: operation.id,
+                        targets: targets.clone(),
+                        formula,
+                    }),
+                    HitOperationDefinition::ConsumeHp(definition) => {
+                        Operation::ConsumeHp(ConsumeHpOp {
+                            id: operation.id,
+                            targets: targets.clone(),
+                            definition,
+                        })
+                    }
                 };
                 parent =
                     execute_operation(txn, hit_cause.with_applier(plan.actor), parent, request)?;

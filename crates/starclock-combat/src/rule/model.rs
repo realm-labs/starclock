@@ -1,10 +1,13 @@
 //! Closed battle-domain Rule IR values accepted after data lowering.
 
-use crate::modifier::model::{FormulaPurpose, StatKind, StatQuerySubject};
 use crate::{
-    AbilityId, ActionId, EventId, HitId, NativeHandlerId, ProgramId, Rounding, RuleId,
-    RuleInstanceId, Scalar, SelectorId, SourceDefinitionId, StateSlotDefinitionId, TriggerId,
-    UnitId, WaveInstanceId,
+    AbilityId, ActionId, EffectDefinitionId, EventId, HitId, NativeHandlerId, ProgramId, Rounding,
+    RuleId, RuleInstanceId, Scalar, SelectorId, SourceDefinitionId, StateSlotDefinitionId,
+    TriggerId, UnitId, WaveInstanceId,
+};
+use crate::{
+    formula::model::{CombatElement, DamageClass},
+    modifier::model::{FormulaPurpose, StatKind, StatQuerySubject},
 };
 
 /// Stable generic semantic class for rule attribution and filtering.
@@ -410,6 +413,49 @@ pub enum RuleOperationTemplate {
         slot: StateSlotDefinitionId,
         value: ValueExpr,
     },
+    Damage {
+        selector: SelectorId,
+        amount: ValueExpr,
+        class: DamageClass,
+        element: CombatElement,
+        can_crit: bool,
+    },
+    TrueDamage {
+        selector: SelectorId,
+        amount: ValueExpr,
+    },
+    Heal {
+        selector: SelectorId,
+        amount: ValueExpr,
+    },
+    Shield {
+        selector: SelectorId,
+        amount: ValueExpr,
+        effect: EffectDefinitionId,
+    },
+    ConsumeHp {
+        selector: SelectorId,
+        amount: ValueExpr,
+        floor: ValueExpr,
+    },
+    ModifyEnergy {
+        selector: SelectorId,
+        update: ResourceUpdateKind,
+        amount: ValueExpr,
+        scales_with_regeneration: bool,
+        rounding: Rounding,
+    },
+    ApplyEffect {
+        selector: SelectorId,
+        effect: EffectDefinitionId,
+    },
+    AdvanceAction {
+        selector: SelectorId,
+        amount: ValueExpr,
+    },
+    CreateCountdown {
+        code: u32,
+    },
     EmitRuleEvent {
         code: u32,
         value: Option<ValueExpr>,
@@ -422,6 +468,15 @@ pub enum RuleOperationTemplate {
         handler: NativeHandlerId,
         arguments: Box<[ValueExpr]>,
     },
+}
+
+/// Closed personal-resource mutation semantics used by evaluated proposals.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum ResourceUpdateKind {
+    Spend,
+    Reserve,
+    Gain,
+    Set,
 }
 
 /// One immutable trigger definition.
@@ -520,6 +575,58 @@ pub enum RuleEmission {
     AddSlot {
         slot: StateSlotDefinitionId,
         value: RuleValue,
+        current_target: Option<UnitId>,
+    },
+    Damage {
+        selector: SelectorId,
+        amount: RuleValue,
+        class: DamageClass,
+        element: CombatElement,
+        can_crit: bool,
+        current_target: Option<UnitId>,
+    },
+    TrueDamage {
+        selector: SelectorId,
+        amount: RuleValue,
+        current_target: Option<UnitId>,
+    },
+    Heal {
+        selector: SelectorId,
+        amount: RuleValue,
+        current_target: Option<UnitId>,
+    },
+    Shield {
+        selector: SelectorId,
+        amount: RuleValue,
+        effect: EffectDefinitionId,
+        current_target: Option<UnitId>,
+    },
+    ConsumeHp {
+        selector: SelectorId,
+        amount: RuleValue,
+        floor: RuleValue,
+        current_target: Option<UnitId>,
+    },
+    ModifyEnergy {
+        selector: SelectorId,
+        update: ResourceUpdateKind,
+        amount: RuleValue,
+        scales_with_regeneration: bool,
+        rounding: Rounding,
+        current_target: Option<UnitId>,
+    },
+    ApplyEffect {
+        selector: SelectorId,
+        effect: EffectDefinitionId,
+        current_target: Option<UnitId>,
+    },
+    AdvanceAction {
+        selector: SelectorId,
+        amount: RuleValue,
+        current_target: Option<UnitId>,
+    },
+    CreateCountdown {
+        code: u32,
         current_target: Option<UnitId>,
     },
     Informational {

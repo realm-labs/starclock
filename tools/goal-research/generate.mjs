@@ -321,6 +321,30 @@ const resolutions = new Map([
       validation_commands: ["node tools/config-probes/verify-asta-modifier.mjs", "cargo test -p starclock-data probe_tests"],
     },
   }],
+  ["G01-R-FIREFLY-HP-ENERGY-ATOMIC", {
+    state: "Observed",
+    confidence: "Observed",
+    observation: {
+      accessed_on: GENERATED_ON,
+      source_payload_sha256: "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
+      executable_bundle_sha256: "260363d9edbcb8046f403ba676d24d37e9e4b6c22d86c12ac7e8ac6258372b2b",
+      result: "The normal Skill prepares ordered ConsumeHp, ModifyEnergy and Damage emissions: 40% Max HP with a one-HP floor, 60% Max Energy gain and level-10 200% ATK Fire damage. Invalid preparation leaves the caller's state unchanged.",
+      evidence_paths: ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-data/src/probe_tests.rs"],
+      validation_commands: ["node tools/config-probes/verify-firefly-damage.mjs", "cargo test -p starclock-data probe_tests"],
+    },
+  }],
+  ["G01-R-FIREFLY-TRANSFORM-ADVANCE", {
+    state: "Observed",
+    confidence: "Observed",
+    observation: {
+      accessed_on: GENERATED_ON,
+      source_payload_sha256: "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
+      executable_bundle_sha256: "260363d9edbcb8046f403ba676d24d37e9e4b6c22d86c12ac7e8ac6258372b2b",
+      result: "The Ultimate program makes the countdown creation and RedMode effect visible before full action advance, then resets Energy; the four operations retain one ordered typed Rule IR program.",
+      evidence_paths: ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-data/src/probe_tests.rs"],
+      validation_commands: ["node tools/config-probes/verify-firefly-damage.mjs", "cargo test -p starclock-data probe_tests"],
+    },
+  }],
 ]);
 const cases = definitions.map((definition) => ({
   ...definition,

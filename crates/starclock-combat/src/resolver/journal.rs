@@ -9,6 +9,7 @@ pub(crate) enum AllocationKind {
     Phase,
     Hit,
     Operation,
+    Shield,
     Wave,
 }
 
@@ -35,6 +36,7 @@ pub(crate) enum MutationField {
     UnitHp,
     UnitLife,
     UnitPresence,
+    ShieldRemaining,
     Encounter,
 }
 

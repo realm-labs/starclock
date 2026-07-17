@@ -3,11 +3,14 @@ use crate::{
     battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
     event::{
         cause::Cause,
-        model::{BattleEventKind, DamageEventData, HealEventData, UnitEventData},
+        model::{
+            BattleEventKind, DamageEventData, HealEventData, HpConsumptionEventData,
+            ShieldEventData, UnitEventData,
+        },
     },
     formula,
     id::EventId,
-    operation::{DamageOp, HealOp, Operation},
+    operation::{ConsumeHpOp, DamageOp, HealOp, Operation, ShieldOp},
 };
 
 use super::transaction::Transaction;
@@ -22,6 +25,8 @@ pub(super) fn execute_operation(
     match operation {
         Operation::Damage(operation) => execute_damage(txn, cause, parent, operation),
         Operation::Heal(operation) => execute_heal(txn, cause, parent, operation),
+        Operation::Shield(operation) => execute_shield(txn, cause, parent, operation),
+        Operation::ConsumeHp(operation) => execute_hp_consumption(txn, cause, parent, operation),
     }
 }
 
@@ -40,7 +45,25 @@ fn execute_damage(
             .get(target)
             .map(|unit| (unit.current_hp, unit.life))
             .ok_or_else(|| invariant_fault(1))?;
-        let applied_raw = calculation.finalized.get().min(hp_before.get());
+        let (absorbed, shield_changes) = txn
+            .state
+            .shields
+            .absorb(target, calculation.finalized)
+            .map_err(|_| numeric_fault(8, calculation.finalized.get()))?;
+        for change in shield_changes {
+            txn.record_shield_change(change.before, change.after);
+            parent = txn.emit(
+                cause.with_parent(parent).with_primary_target(Some(target)),
+                BattleEventKind::Shield(ShieldEventData::Absorbed {
+                    shield: change.id,
+                    target,
+                    before: change.before,
+                    after: change.after,
+                }),
+            );
+        }
+        let overflow_raw = calculation.finalized.get() - absorbed.get();
+        let applied_raw = overflow_raw.min(hp_before.get());
         let applied = DamageAmount::new(applied_raw).map_err(|_| numeric_fault(2, applied_raw))?;
         let hp_after = Hp::new(hp_before.get() - applied_raw)
             .map_err(|_| numeric_fault(3, hp_before.get()))?;
@@ -52,6 +75,7 @@ fn execute_damage(
                 target,
                 raw: calculation.raw,
                 calculated: calculation.finalized,
+                absorbed,
                 applied,
                 hp_before,
                 hp_after,
@@ -73,6 +97,89 @@ fn execute_damage(
                 }),
             );
         }
+    }
+    Ok(parent)
+}
+
+fn execute_shield(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: ShieldOp,
+) -> Result<EventId, BattleFault> {
+    let context = formula::model::ShieldContext {
+        scaling_terms: vec![formula::model::ScalingTerm {
+            stat: operation.formula.base_shield(),
+            ratio: crate::Ratio::ONE,
+        }]
+        .into_boxed_slice(),
+        additive_base: crate::Scalar::ZERO,
+        bonuses: vec![operation.formula.bonus()].into_boxed_slice(),
+    };
+    let calculation = formula::shield::calculate(&context)
+        .map_err(|_| numeric_fault(9, operation.formula.base_shield().scaled()))?;
+    for target in operation.targets {
+        let shield = txn.allocate_shield();
+        txn.state
+            .shields
+            .insert(crate::effect::shield::ShieldState {
+                id: shield,
+                owner: target,
+                source_operation: operation.id,
+                remaining: calculation.finalized,
+                policy: operation.formula.policy(),
+            })
+            .map_err(|_| invariant_fault(4))?;
+        txn.record_shield_change(
+            crate::ShieldAmount::new(0).expect("zero shield amount is valid"),
+            calculation.finalized,
+        );
+        parent = txn.emit(
+            cause.with_parent(parent).with_primary_target(Some(target)),
+            BattleEventKind::Shield(ShieldEventData::Applied {
+                operation: operation.id,
+                shield,
+                target,
+                raw: calculation.raw,
+                amount: calculation.finalized,
+            }),
+        );
+    }
+    Ok(parent)
+}
+
+fn execute_hp_consumption(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: ConsumeHpOp,
+) -> Result<EventId, BattleFault> {
+    for target in operation.targets {
+        let before = txn
+            .state
+            .units
+            .get(target)
+            .map(|unit| unit.current_hp)
+            .ok_or_else(|| invariant_fault(5))?;
+        let result = formula::hp::consume(
+            before,
+            operation.definition.requested(),
+            operation.definition.floor(),
+        )
+        .map_err(|_| numeric_fault(10, operation.definition.requested().get()))?;
+        txn.set_hp(target, result.after)?;
+        parent = txn.emit(
+            cause.with_parent(parent).with_primary_target(Some(target)),
+            BattleEventKind::HpConsumption(HpConsumptionEventData {
+                operation: operation.id,
+                target,
+                requested: result.requested,
+                effective: result.effective,
+                overflow: result.overflow,
+                hp_before: result.before,
+                hp_after: result.after,
+            }),
+        );
     }
     Ok(parent)
 }

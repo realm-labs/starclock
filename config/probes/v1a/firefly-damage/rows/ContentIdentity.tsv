@@ -1,0 +1,6 @@
+id	stable_key	content_kind	name_en	name_zh_cn	summary_en	summary_zh_cn	game_version_introduced	game_version_snapshot	release_state	enabled	coverage_state	source_record_ids
+1	probe.firefly.normal-skill.source	Ability	Firefly Normal Skill Probe Source	流萤普通战技探针来源	Non-production source identity bound to Order Aerial Bombardment.	绑定于空中轰炸指令的非生产来源标识。	2.3	4.4	ProjectFixture	false	Disabled	1
+2	probe.firefly.ultimate.source	Ability	Firefly Ultimate Probe Source	流萤终结技探针来源	Non-production source identity bound to Complete Combustion.	绑定于完全燃烧的非生产来源标识。	2.3	4.4	ProjectFixture	false	Disabled	1
+3	probe.firefly.normal-skill.program	Program	Firefly HP Damage Probe Program	流萤生命伤害探针程序	Ordered HP consumption Energy restoration and damage Rule IR program.	按序执行生命消耗能量恢复和伤害的规则程序。	2.3	4.4	ProjectFixture	false	Disabled	1
+4	probe.firefly.ultimate.program	Program	Firefly Ultimate Order Probe Program	流萤终结技顺序探针程序	Ordered countdown RedMode action advance and Energy reset Rule IR program.	按序执行倒计时红温模式行动提前和能量重置的规则程序。	2.3	4.4	ProjectFixture	false	Disabled	1
+5	probe.firefly.redmode.effect	Effect	Firefly RedMode Probe Effect	流萤红温模式探针效果	Non-production effect identity representing Complete Combustion ownership.	代表完全燃烧所有权的非生产效果标识。	2.3	4.4	ProjectFixture	false	Disabled	1

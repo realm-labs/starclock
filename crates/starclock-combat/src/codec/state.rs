@@ -149,6 +149,17 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
         e.u16(team.skill_points);
         e.u16(team.maximum_skill_points);
     }
+    e.length(state.shields.canonical_entries().len());
+    for shield in state.shields.canonical_entries() {
+        e.u64(shield.id.get());
+        e.u64(shield.owner.get());
+        e.u64(shield.source_operation.get());
+        e.i64(shield.remaining.get());
+        e.u8(match shield.policy {
+            crate::formula::shield::ShieldAbsorptionPolicy::ConcurrentLargest => 0,
+            crate::formula::shield::ShieldAbsorptionPolicy::AdditiveByInstance => 1,
+        });
+    }
     e.u32(state.encounter.definition.get());
     e.u64(state.encounter.wave.get());
     e.u16(state.encounter.number);

@@ -276,6 +276,78 @@ fn evaluate_operation(
             value: evaluate_value(value, input, current_target)?,
             current_target,
         },
+        RuleOperationTemplate::Damage {
+            selector,
+            amount,
+            class,
+            element,
+            can_crit,
+        } => RuleEmission::Damage {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            class: *class,
+            element: *element,
+            can_crit: *can_crit,
+            current_target,
+        },
+        RuleOperationTemplate::TrueDamage { selector, amount } => RuleEmission::TrueDamage {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            current_target,
+        },
+        RuleOperationTemplate::Heal { selector, amount } => RuleEmission::Heal {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            current_target,
+        },
+        RuleOperationTemplate::Shield {
+            selector,
+            amount,
+            effect,
+        } => RuleEmission::Shield {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            effect: *effect,
+            current_target,
+        },
+        RuleOperationTemplate::ConsumeHp {
+            selector,
+            amount,
+            floor,
+        } => RuleEmission::ConsumeHp {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            floor: evaluate_value(floor, input, current_target)?,
+            current_target,
+        },
+        RuleOperationTemplate::ModifyEnergy {
+            selector,
+            update,
+            amount,
+            scales_with_regeneration,
+            rounding,
+        } => RuleEmission::ModifyEnergy {
+            selector: *selector,
+            update: *update,
+            amount: evaluate_value(amount, input, current_target)?,
+            scales_with_regeneration: *scales_with_regeneration,
+            rounding: *rounding,
+            current_target,
+        },
+        RuleOperationTemplate::ApplyEffect { selector, effect } => RuleEmission::ApplyEffect {
+            selector: *selector,
+            effect: *effect,
+            current_target,
+        },
+        RuleOperationTemplate::AdvanceAction { selector, amount } => RuleEmission::AdvanceAction {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            current_target,
+        },
+        RuleOperationTemplate::CreateCountdown { code } => RuleEmission::CreateCountdown {
+            code: *code,
+            current_target,
+        },
         RuleOperationTemplate::EmitRuleEvent { code, value } => RuleEmission::Informational {
             code: *code,
             value: value

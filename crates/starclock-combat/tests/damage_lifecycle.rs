@@ -9,9 +9,9 @@ use starclock_combat::{
         CombatCatalog,
         action::{
             AbilityActionDefinition, AbilityKind, ActionHitDefinition, ActionResourcePolicy,
-            HealingDefinition, HitOperationDefinition, OrdinaryDamageDefinition,
-            OrdinaryDamageMultipliers, TargetInvalidationPolicy, TargetPattern, TargetRelation,
-            UnitTargetSelector,
+            HealingDefinition, HitOperationDefinition, HpConsumptionDefinition,
+            OrdinaryDamageDefinition, OrdinaryDamageMultipliers, ShieldDefinition,
+            TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
         definition::{
@@ -19,6 +19,7 @@ use starclock_combat::{
             SelectorDefinition, UnitDefinition,
         },
     },
+    formula::shield::ShieldAbsorptionPolicy,
 };
 
 fn definition<I: TryFrom<u32>>(raw: u32) -> I
@@ -108,6 +109,37 @@ fn catalog(waves: u16) -> Arc<CombatCatalog> {
             ),
         ),
     );
+    let concurrent = ShieldAbsorptionPolicy::ConcurrentLargest;
+    builder.add_ability(
+        AbilityDefinition::new(definition(4), definition(1), definition(1), vec![]).with_action(
+            action(
+                AbilityKind::Basic,
+                vec![vec![
+                    HitOperationDefinition::Shield(
+                        ShieldDefinition::new(
+                            Scalar::checked_from_integer(300).unwrap(),
+                            Ratio::ZERO,
+                            concurrent,
+                        )
+                        .unwrap(),
+                    ),
+                    HitOperationDefinition::Shield(
+                        ShieldDefinition::new(
+                            Scalar::checked_from_integer(500).unwrap(),
+                            Ratio::ZERO,
+                            concurrent,
+                        )
+                        .unwrap(),
+                    ),
+                    HitOperationDefinition::ConsumeHp(HpConsumptionDefinition::new(
+                        Hp::new(400).unwrap(),
+                        Hp::new(1).unwrap(),
+                    )),
+                ]],
+                TargetInvalidationPolicy::KeepIfPresent,
+            ),
+        ),
+    );
     builder.add_ability(
         AbilityDefinition::new(definition(2), definition(2), definition(2), vec![]).with_action(
             action(
@@ -131,7 +163,7 @@ fn catalog(waves: u16) -> Arc<CombatCatalog> {
     );
     builder.add_unit(UnitDefinition::new(
         definition(1),
-        vec![definition(1), definition(2)],
+        vec![definition(1), definition(2), definition(4)],
         vec![],
     ));
     builder.add_unit(UnitDefinition::new(
@@ -181,7 +213,7 @@ fn battle(waves: u16, player_speed: i64, enemy_speed: i64) -> Battle {
         TeamSide::Player,
         FormationIndex::new(0).unwrap(),
         ParticipantSource::Player,
-        combatant(1, vec![1, 2], 1_000, player_speed, 0x31),
+        combatant(1, vec![1, 2, 4], 1_000, player_speed, 0x31),
     )];
     for wave in 1..=waves {
         participants.push(
@@ -231,6 +263,18 @@ fn start_and_pass(battle: &mut Battle) {
     battle.apply(pass).unwrap();
 }
 
+fn pass_interrupt(battle: &mut Battle) {
+    let pass = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
+        .unwrap()
+        .clone();
+    battle.apply(pass).unwrap();
+}
+
 fn use_ability(battle: &mut Battle, ability: u32) -> starclock_combat::Resolution {
     let command = battle
         .decision()
@@ -240,7 +284,12 @@ fn use_ability(battle: &mut Battle, ability: u32) -> starclock_combat::Resolutio
         .find(|command| {
             matches!(command, Command::UseAbility { ability: offered, .. } if offered.get() == ability)
         })
-        .unwrap()
+        .unwrap_or_else(|| {
+            panic!(
+                "ability {ability} was not offered: {:?}",
+                battle.decision().unwrap().legal_commands()
+            )
+        })
         .clone();
     battle.apply(command).unwrap()
 }
@@ -253,9 +302,9 @@ fn damage_and_healing_emit_calculated_and_effective_hp_facts() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            0x08, 0x3f, 0xb4, 0x6c, 0xa4, 0x3a, 0x0d, 0x93, 0x9b, 0xf4, 0x3a, 0x09, 0x31, 0x39,
-            0xa9, 0xce, 0x95, 0x25, 0xde, 0xdb, 0xa5, 0xba, 0x17, 0x64, 0xa7, 0xb8, 0x42, 0xba,
-            0xa2, 0xef, 0xf2, 0xaa,
+            0x1d, 0xad, 0xeb, 0xce, 0xac, 0xf8, 0x4c, 0x69, 0xf6, 0x7f, 0x9c, 0xea, 0xc7, 0x88,
+            0x6b, 0x4c, 0xf5, 0x46, 0x79, 0x3d, 0x2d, 0x4c, 0xe4, 0xb1, 0x57, 0x50, 0xdf, 0xfa,
+            0x61, 0x4d, 0xc5, 0x32,
         ]
     );
     let damage = resolution
@@ -299,6 +348,71 @@ fn damage_and_healing_emit_calculated_and_effective_hp_facts() {
 }
 
 #[test]
+fn hp_consumption_and_concurrent_shields_flow_through_authoritative_state() {
+    let mut battle = battle(1, 100_000_000, 100_000_000);
+    start_and_pass(&mut battle);
+    let applied = use_ability(&mut battle, 4);
+    let consumed = applied
+        .events()
+        .iter()
+        .find_map(|event| match event.kind() {
+            BattleEventKind::HpConsumption(data) => Some(*data),
+            _ => None,
+        })
+        .unwrap();
+    assert_eq!(
+        (consumed.effective.get(), consumed.overflow.get()),
+        (400, 0)
+    );
+    assert_eq!(
+        battle
+            .view()
+            .shields_by_id()
+            .map(|shield| shield.remaining().get())
+            .collect::<Vec<_>>(),
+        vec![300, 500]
+    );
+
+    pass_interrupt(&mut battle);
+    let damaged = use_ability(&mut battle, 3);
+    let shield_events = damaged
+        .events()
+        .iter()
+        .filter_map(|event| match event.kind() {
+            BattleEventKind::Shield(starclock_combat::ShieldEventData::Absorbed {
+                shield,
+                before,
+                after,
+                ..
+            }) => Some((shield.get(), before.get(), after.get())),
+            _ => None,
+        })
+        .collect::<Vec<_>>();
+    assert_eq!(shield_events, vec![(1, 300, 0), (2, 500, 0)]);
+    let damage = damaged
+        .events()
+        .iter()
+        .find_map(|event| match event.kind() {
+            BattleEventKind::Damage(data) => Some(*data),
+            _ => None,
+        })
+        .unwrap();
+    assert_eq!(
+        (damage.calculated.get(), damage.absorbed.get()),
+        (1_000, 500)
+    );
+    assert_eq!((damage.applied.get(), damage.hp_after.get()), (500, 100));
+    assert_eq!(
+        battle
+            .view()
+            .shields_by_id()
+            .map(|shield| shield.remaining().get())
+            .collect::<Vec<_>>(),
+        vec![0, 0]
+    );
+}
+
+#[test]
 fn single_wave_defeat_settles_to_victory_and_terminal_rejection_is_immutable() {
     let mut battle = battle(1, 200_000_000, 50_000_000);
     start_and_pass(&mut battle);
@@ -306,9 +420,9 @@ fn single_wave_defeat_settles_to_victory_and_terminal_rejection_is_immutable() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            0xc3, 0x74, 0x67, 0x56, 0x86, 0xec, 0xf1, 0xf5, 0x52, 0x24, 0x7e, 0x2a, 0xbc, 0xcc,
-            0xf3, 0x0f, 0xfc, 0x1b, 0x8b, 0x94, 0xcc, 0x98, 0x4c, 0xc6, 0x57, 0x36, 0x41, 0xa5,
-            0xe4, 0xdc, 0x03, 0x22,
+            0x67, 0x83, 0x95, 0x67, 0x04, 0x17, 0x01, 0x2b, 0x13, 0xe6, 0xb7, 0x1d, 0x72, 0xd4,
+            0xc8, 0x3b, 0x0e, 0xcd, 0x63, 0x81, 0xe2, 0x8d, 0x32, 0x50, 0x63, 0x8b, 0xe6, 0xa0,
+            0xd6, 0x5b, 0x82, 0x62,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Won);
@@ -340,9 +454,9 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         first.state_hash().bytes(),
         [
-            0x3c, 0x0d, 0x57, 0xf7, 0x13, 0xfd, 0x4c, 0x6e, 0x12, 0x34, 0x1f, 0x5e, 0xdb, 0x78,
-            0x30, 0x57, 0x43, 0x97, 0xd0, 0x41, 0x26, 0x81, 0xa5, 0x7b, 0x55, 0x21, 0xe0, 0xb0,
-            0x65, 0x03, 0x58, 0xb1,
+            0xdb, 0xdb, 0x25, 0xea, 0x64, 0x03, 0xa7, 0x08, 0x0e, 0x89, 0x05, 0xb4, 0x46, 0x09,
+            0xb4, 0x84, 0x54, 0xed, 0x27, 0xe8, 0xdf, 0x31, 0x7f, 0x1f, 0x15, 0x84, 0xcf, 0xb1,
+            0xeb, 0x36, 0xdb, 0xd8,
         ]
     );
     assert_eq!(first.phase(), BattlePhase::AwaitingCommand);
@@ -384,9 +498,9 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         second.state_hash().bytes(),
         [
-            0x68, 0x32, 0x2b, 0xd8, 0x10, 0xa0, 0xad, 0xaf, 0x83, 0xba, 0x9b, 0xb1, 0xcc, 0x9f,
-            0x27, 0x62, 0x5c, 0x6e, 0x29, 0xe4, 0x81, 0x97, 0xf1, 0x93, 0x4c, 0x56, 0xc9, 0xea,
-            0x06, 0xae, 0x15, 0xde,
+            0xf0, 0xc4, 0xb9, 0xe6, 0xbd, 0x40, 0x1d, 0x61, 0x00, 0xea, 0xa9, 0x03, 0x3a, 0x60,
+            0x6e, 0x3a, 0x85, 0x50, 0xbd, 0x9a, 0x93, 0xf3, 0x1a, 0x00, 0x69, 0xe0, 0xb9, 0x87,
+            0xd9, 0xb2, 0xea, 0x24,
         ]
     );
     assert_eq!(second.phase(), BattlePhase::Won);
@@ -412,9 +526,9 @@ fn defeating_the_last_player_settles_loss() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            0xc5, 0xfb, 0xd5, 0xdd, 0x08, 0x77, 0x15, 0xc8, 0xd2, 0x85, 0xc3, 0xdc, 0xff, 0x37,
-            0xad, 0xca, 0xa9, 0x47, 0xa9, 0x58, 0x44, 0x27, 0x34, 0xa5, 0x00, 0x12, 0xa4, 0xec,
-            0x68, 0xc2, 0x01, 0xdd,
+            0x23, 0xdf, 0xaf, 0x1a, 0xd9, 0xc3, 0x7a, 0x77, 0xe3, 0x8d, 0xdf, 0x7a, 0x62, 0xfc,
+            0x26, 0x70, 0x6c, 0x6a, 0x57, 0xc1, 0x0f, 0xd8, 0x68, 0x0a, 0xcd, 0x45, 0x03, 0xbe,
+            0x77, 0x4a, 0xde, 0x90,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Lost);

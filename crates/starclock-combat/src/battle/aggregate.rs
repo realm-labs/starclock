@@ -124,6 +124,7 @@ impl Battle {
             actors,
             formations,
             teams,
+            shields: crate::effect::shield::ShieldStore::default(),
             encounter: EncounterState {
                 definition: spec.encounter(),
                 wave,

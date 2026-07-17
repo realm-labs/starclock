@@ -2,7 +2,7 @@ use crate::{
     catalog::{CatalogDigest, CatalogRevision},
     id::{
         ActionId, CommandId, DecisionId, EncounterId, EventId, HitId, OperationId, PhaseId,
-        SpawnSequence, TimelineActorId, UnitId, WaveInstanceId,
+        ShieldInstanceId, SpawnSequence, TimelineActorId, UnitId, WaveInstanceId,
     },
     rng::{engine::DeterministicRng, types::RngSeed},
 };
@@ -48,6 +48,7 @@ pub(crate) struct SequenceState {
     next_phase: u64,
     next_hit: u64,
     next_operation: u64,
+    next_shield: u64,
 }
 
 impl SequenceState {
@@ -64,6 +65,7 @@ impl SequenceState {
             next_phase: 1,
             next_hit: 1,
             next_operation: 1,
+            next_shield: 1,
         }
     }
 
@@ -119,7 +121,11 @@ impl SequenceState {
         try_allocate(&mut self.next_operation, OperationId::new)
     }
 
-    pub(crate) const fn canonical_next_values(&self) -> [u64; 11] {
+    pub(crate) fn try_shield(&mut self) -> Option<ShieldInstanceId> {
+        try_allocate(&mut self.next_shield, ShieldInstanceId::new)
+    }
+
+    pub(crate) const fn canonical_next_values(&self) -> [u64; 12] {
         [
             self.next_unit,
             self.next_actor,
@@ -132,6 +138,7 @@ impl SequenceState {
             self.next_phase,
             self.next_hit,
             self.next_operation,
+            self.next_shield,
         ]
     }
 }
@@ -162,6 +169,7 @@ pub(crate) struct BattleState {
     pub(crate) actors: TimelineActorStore,
     pub(crate) formations: FormationState,
     pub(crate) teams: TeamStateStore,
+    pub(crate) shields: crate::effect::shield::ShieldStore,
     pub(crate) encounter: EncounterState,
     pub(crate) timeline: crate::timeline::state::TimelineState,
     pub(crate) concede: ConcedePolicy,
@@ -185,6 +193,7 @@ impl BattleState {
             actors: self.actors.clone(),
             formations: self.formations.clone(),
             teams: self.teams.clone(),
+            shields: self.shields.clone(),
             encounter: self.encounter,
             timeline: self.timeline.clone(),
             concede: self.concede,
@@ -205,6 +214,7 @@ impl BattleState {
         self.actors.clone_from(&source.actors);
         self.formations.clone_from(&source.formations);
         self.teams.clone_from(&source.teams);
+        self.shields.clone_from(&source.shields);
         self.encounter = source.encounter;
         self.timeline.clone_from(&source.timeline);
         self.concede = source.concede;

@@ -28,8 +28,8 @@ for (const entry of cases) {
   assert(fixtures.fixtures.some((fixture) => fixture.case_id === entry.id && fixture.assertions.length && fixture.replay_requirements.length === 4), `${entry.id} lacks a reproducible fixture`);
 }
 const observed = cases.filter((entry) => entry.state === "Observed");
-assert(observed.length === 2 && observed.every((entry) => entry.owner_batch === "G01-P4-B2" && /^[0-9a-f]{64}$/.test(entry.observation.source_payload_sha256) && /^[0-9a-f]{64}$/.test(entry.observation.executable_bundle_sha256) && entry.observation.evidence_paths.length === 2 && entry.observation.validation_commands.length === 2), "B2 observed cases lack executable evidence");
-assert(fixtures.fixtures.filter((fixture) => fixture.state === "GoldenVerified").length === 2, "B2 golden fixture state differs");
+assert(observed.length === 4 && observed.every((entry) => ["G01-P4-B2", "G01-P4-B3"].includes(entry.owner_batch) && /^[0-9a-f]{64}$/.test(entry.observation.source_payload_sha256) && /^[0-9a-f]{64}$/.test(entry.observation.executable_bundle_sha256) && entry.observation.evidence_paths.length === 2 && entry.observation.validation_commands.length === 2), "observed V1a cases lack executable evidence");
+assert(fixtures.fixtures.filter((fixture) => fixture.state === "GoldenVerified").length === 4, "golden fixture state differs");
 
 for (const family of ["V1aAsta", "V1aKafka", "V1aClara", "V1aFirefly", "V1aAglaea", "SharedElation", "HimekoNovaApproximation"]) {
   assert(cases.some((entry) => entry.family === family), `missing ${family} cases`);

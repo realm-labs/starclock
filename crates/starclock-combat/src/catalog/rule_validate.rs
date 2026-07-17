@@ -237,6 +237,55 @@ fn validate_operation(
                 ));
             }
         }
+        RuleOperationTemplate::Damage {
+            selector, amount, ..
+        }
+        | RuleOperationTemplate::TrueDamage { selector, amount }
+        | RuleOperationTemplate::Heal { selector, amount }
+        | RuleOperationTemplate::AdvanceAction { selector, amount } => {
+            require_selector(catalog, *selector)?;
+            require_scalar(catalog, runtime, amount)?;
+        }
+        RuleOperationTemplate::Shield {
+            selector,
+            amount,
+            effect,
+        } => {
+            require_selector(catalog, *selector)?;
+            require_scalar(catalog, runtime, amount)?;
+            if catalog.effect(*effect).is_none() {
+                return Err(format!("shield refers to missing effect {}", effect.get()));
+            }
+        }
+        RuleOperationTemplate::ConsumeHp {
+            selector,
+            amount,
+            floor,
+        } => {
+            require_selector(catalog, *selector)?;
+            require_scalar(catalog, runtime, amount)?;
+            require_scalar(catalog, runtime, floor)?;
+        }
+        RuleOperationTemplate::ModifyEnergy {
+            selector, amount, ..
+        } => {
+            require_selector(catalog, *selector)?;
+            require_scalar(catalog, runtime, amount)?;
+        }
+        RuleOperationTemplate::ApplyEffect { selector, effect } => {
+            require_selector(catalog, *selector)?;
+            if catalog.effect(*effect).is_none() {
+                return Err(format!(
+                    "operation refers to missing effect {}",
+                    effect.get()
+                ));
+            }
+        }
+        RuleOperationTemplate::CreateCountdown { code } => {
+            if *code == 0 {
+                return Err("countdown code must be nonzero".into());
+            }
+        }
         RuleOperationTemplate::EmitRuleEvent { value, .. }
         | RuleOperationTemplate::ProposeReplacement { value, .. } => {
             if let Some(value) = value {
@@ -256,6 +305,18 @@ fn validate_operation(
         }
     }
     Ok(())
+}
+
+fn require_scalar(
+    catalog: &CombatCatalog,
+    runtime: &BattleRuleDefinition,
+    value: &ValueExpr,
+) -> Result<(), String> {
+    if infer_value(catalog, runtime, value, 0)? != RuleValueKind::Scalar {
+        Err("formula operation requires a scalar expression".into())
+    } else {
+        Ok(())
+    }
 }
 
 fn validate_condition(

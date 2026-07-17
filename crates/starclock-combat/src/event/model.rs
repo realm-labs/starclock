@@ -60,6 +60,10 @@ pub enum BattleEventKind {
     Damage(DamageEventData),
     /// Completed HP-restoration mutation fact.
     Heal(HealEventData),
+    /// Completed HP consumption mutation fact.
+    HpConsumption(HpConsumptionEventData),
+    /// Shield creation or absorption mutation fact.
+    Shield(ShieldEventData),
     /// Unit life-cycle mutation fact.
     Unit(UnitEventData),
     /// Encounter-wave boundary fact.
@@ -81,12 +85,44 @@ pub struct DamageEventData {
     pub raw: crate::Scalar,
     /// Floored formula result before current-HP bounds.
     pub calculated: crate::DamageAmount,
+    /// Portion absorbed before HP application.
+    pub absorbed: crate::DamageAmount,
     /// Effective HP loss after current-HP bounds.
     pub applied: crate::DamageAmount,
     /// HP immediately before this operation.
     pub hp_before: crate::Hp,
     /// HP immediately after this operation.
     pub hp_after: crate::Hp,
+}
+
+/// HP loss that is explicitly not damage and respects a legal floor.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct HpConsumptionEventData {
+    pub operation: OperationId,
+    pub target: UnitId,
+    pub requested: crate::Hp,
+    pub effective: crate::Hp,
+    pub overflow: crate::Hp,
+    pub hp_before: crate::Hp,
+    pub hp_after: crate::Hp,
+}
+
+/// One separately retained shield-instance mutation.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ShieldEventData {
+    Applied {
+        operation: OperationId,
+        shield: crate::ShieldInstanceId,
+        target: UnitId,
+        raw: crate::Scalar,
+        amount: crate::ShieldAmount,
+    },
+    Absorbed {
+        shield: crate::ShieldInstanceId,
+        target: UnitId,
+        before: crate::ShieldAmount,
+        after: crate::ShieldAmount,
+    },
 }
 
 /// Healing calculation and effective bounded HP restoration.

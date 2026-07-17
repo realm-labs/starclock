@@ -14,8 +14,9 @@ pub mod benchmark;
 pub mod catalog;
 mod codec;
 mod command;
+mod effect;
 mod event;
-mod formula;
+pub mod formula;
 mod id;
 pub mod modifier;
 mod numeric;
@@ -58,7 +59,7 @@ pub use battle::spec::{
 };
 pub use battle::view::{
     ActiveTurnView, BattleIdentityView, BattleView, EncounterView, FormationView,
-    InterruptWindowView, TeamView, TimelineActorView, UnitView,
+    InterruptWindowView, ShieldView, TeamView, TimelineActorView, UnitView,
 };
 pub use codec::BattleStateHash;
 pub use command::model::{
@@ -67,8 +68,9 @@ pub use command::model::{
 pub use event::cause::{Cause, CauseActor};
 pub use event::model::{
     ActionEventData, BattleEvent, BattleEventData, BattleEventKind, DamageEventData,
-    DecisionEventData, FaultEventData, HealEventData, HitEventData, PhaseEventData,
-    ResourceEventData, TurnEventData, UnitEventData, WaveEventData,
+    DecisionEventData, FaultEventData, HealEventData, HitEventData, HpConsumptionEventData,
+    PhaseEventData, ResourceEventData, ShieldEventData, TurnEventData, UnitEventData,
+    WaveEventData,
 };
 pub use timeline::state::InterruptWindowKind;
 

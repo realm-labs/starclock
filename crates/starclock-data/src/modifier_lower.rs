@@ -120,7 +120,7 @@ fn lower_definition(
     })
 }
 
-fn expression(
+pub(super) fn expression(
     config: &SoraConfig,
     id: i32,
     stack: &mut BTreeSet<i32>,
