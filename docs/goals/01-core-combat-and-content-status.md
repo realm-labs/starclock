@@ -142,6 +142,9 @@ Change an item to `[x]` only with evidence in this file.
       command, schema and export capability before production schemas.
 - [ ] Fixed-point, RNG, canonical codec and state hashing pass cross-platform
       golden vectors.
+- [ ] Canonical hashing streams through the shared encoder, and accepted-command
+      transactions reuse bounded battle-local scratch only after legality
+      validation while preserving rollback/fault hashes.
 - [ ] Core formula, timeline, effect, Toughness, lifecycle and rule suites pass.
 - [ ] Asta, Kafka, Clara, Firefly, Aglaea and cross-kit Elation V1a probes pass
       through the production Excel/Sora-to-domain boundary without entering
@@ -161,8 +164,10 @@ Change an item to `[x]` only with evidence in this file.
 - [ ] Baseline controller decisions and replay hashes are deterministic.
 - [ ] Committed Windows/Linux/macOS CI workflows distinguish native execution
       from compile-only CPU coverage and retain golden evidence.
-- [ ] Versioned performance workloads satisfy the reviewed stable-runner budgets
-      for latency, throughput, allocations, state-copy cost and journal growth.
+- [ ] Versioned Standard/server-verification workloads satisfy the reviewed
+      stable-runner budgets for incremental latency, 100/500-command one-shot
+      replay throughput, commands/second/core, concurrent isolated jobs, peak
+      bytes/job, allocations, state-copy/hash cost and journal growth.
 - [ ] Formatting, clippy, workspace tests, source-size and public-API audits pass.
 - [ ] No excluded universe, challenge, UI, account or full relic/enemy dataset is
       claimed as part of Goal 01.

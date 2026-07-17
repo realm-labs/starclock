@@ -40,11 +40,69 @@ Replay and state hashing use a project-owned versioned codec:
 
 Normal `serde`, JSON, Rust's `Hash`, and dependency-defined binary encodings are not canonical. They may support debug output only. State hashing applies SHA-256 to the exact canonical state byte stream and records `state_hash_revision = "sha256-v1"`.
 
+The codec exposes one canonical sink contract. State hashing streams into a
+SHA-256 sink; golden/debug tooling may collect the same bytes. Replay
+verification must not allocate a full canonical-state byte vector merely to
+hash it.
+
 ## Replay verification
 
 Verification loads the exact config bundle digest, checks every policy revision, rebuilds the entry state, applies commands, and compares hashes after each accepted command. On divergence it reports the first command/event/state boundary, expected/actual digest, and stable structural path if a diagnostic decoder is available.
 
 Unknown revisions, mismatched bundles, invalid commands, missing archived configuration, and trailing/truncated records are hard failures. A migration creates a new replay with a new header; it never pretends the old canonical bytes were produced under new rules.
+
+Verification consumes commands and expected hashes in sequence. It may stream
+or discard reproduced events after comparing the current boundary; it does not
+need to retain every intermediate `BattleState`, `Resolution`, or event from the
+entire replay. Diagnostic retention is bounded and enabled only as required to
+report the first divergence.
+
+## Headless and server verification profiles
+
+The library supports two service-side execution profiles without adding network
+or account policy to the combat core:
+
+1. **Incremental authoritative session.** The service retains one `Battle` at
+   its current decision boundary, accepts only an offered command, applies it
+   once, and stores the new state/hash. Work is proportional to the new command.
+2. **One-shot audit replay.** The service rebuilds a battle from the bound
+   catalog/spec/seed and executes the accepted command stream once, comparing
+   every expected hash. Work is proportional to replay length.
+
+A stateless endpoint must not rebuild prefixes `1`, `1..2`, `1..3`, and so on
+for every live command; that turns one N-command battle into O(N²) verification.
+If a deployment cannot retain live battle state, checkpoint design belongs to a
+separate authenticated save/session contract and must bind the same catalog,
+spec, policy revisions, sequence and state hash. Goal 01 does not define that
+network protocol.
+
+A verifier process should cache one immutable validated catalog per exact
+configuration digest and share it through `Arc`. Each replay/battle job owns its
+state, RNG, scratch transaction and diagnostic buffer and runs on a bounded
+worker pool. No cross-job mutable state or scheduler order may affect simulation.
+
+Before allocating replay-declared collections, the service adapter validates
+magic/version, fixed header lengths, configuration availability, command count,
+record lengths and rules-revision budgets. The combat/replay libraries expose
+typed limits and errors; HTTP/RPC authentication, rate limiting, authority,
+anti-cheat policy and persistence remain outside their scope.
+
+## Verification performance workloads
+
+Versioned benchmarks use release builds and fixed catalog/spec/seed/command
+streams. At minimum measure:
+
+- ordinary and trigger-heavy incremental `Battle::apply`;
+- invalid/stale command rejection before transaction preparation;
+- streaming canonical hash for small, medium and large battle states;
+- one-shot 100-command and 500-command replay verification;
+- many independent replay jobs sharing one catalog on a bounded worker pool;
+- peak transient bytes/job, allocations/command, semantic state-copy bytes,
+  journal/event/operation counts and commands/second/core.
+
+Strict latency/throughput/allocation budgets belong to a documented stable
+runner. Shared cross-platform CI uses deterministic result checks and only a
+generous order-of-magnitude regression ceiling.
 
 ## Planned CLI surface
 
@@ -116,6 +174,10 @@ A replay is an audit input, not an account save. Activity checkpoint/save files 
 - codec golden vectors cover every primitive, optional value, enum, collection, and fixed-point sign/boundary;
 - replay truncation, wrong digest, wrong revision, mutated command, and mutated expected hash are rejected;
 - battle and activity replays compare hashes after every command and nested battle submission;
+- incremental authoritative execution and one-shot replay produce identical
+  events and hashes for the same accepted command stream;
+- replay verification streams intermediate work with bounded diagnostic
+  retention and rejects oversized headers/records before unbounded allocation;
 - baseline controllers select identically under reordered internal collections;
 - human and JSON CLI modes represent the same result and use documented exit classes;
 - a minimal adapter test proves presentation timing and entity iteration do not affect hashes;

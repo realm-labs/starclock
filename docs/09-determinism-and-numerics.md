@@ -147,6 +147,9 @@ One master activity seed derives independent streams through SHA-256 over a cano
 - One battle is logically single-threaded. Many isolated battles may run concurrently.
 - One activity command is logically single-threaded. Logically forked nodes/battles may execute concurrently only from isolated snapshots/substreams and must merge in stable branch order.
 - Parallel calculation inside one battle may be introduced only if it produces an identical predeclared operation order and uses no shared RNG; the default is to avoid it.
+- A headless verifier may share an immutable validated catalog between worker
+  jobs, but battle state, RNG, scratch buffers, journals and queues are isolated
+  per job. Thread scheduling never selects command or operation order.
 
 ## Command atomicity and faults
 
@@ -173,6 +176,19 @@ After every accepted command, compute or make available a canonical SHA-256 stat
 - the config bundle SHA-256, rules revision, numeric policy revision, and RNG algorithm revision.
 
 Exclude caches, allocation capacity, pointers, logs, presentation state, wall-clock timestamps, and engine entity IDs. Do not use Rust's default `Hasher`, raw struct memory, or derived serialization whose field/version stability is not controlled by the replay format.
+
+The canonical encoder targets a byte sink. Production state hashing streams the
+same canonical fields directly into SHA-256 without materializing a full state
+byte vector; golden tests may direct the encoder to a collecting sink and must
+prove byte-for-byte equivalence. Buffer reuse, chunk size and hasher update
+boundaries are non-authoritative implementation details.
+
+`sha256-v1` is intentionally a full-state digest after each accepted command.
+Caching encoded immutable definition bodies is unnecessary because the catalog
+is represented by its digest. Incremental field hashes, Merkle roots or dirty
+page hashing require a new documented `state_hash_revision` unless they are
+only an internal accelerator that demonstrably emits the exact existing
+canonical byte stream and final SHA-256 value.
 
 The same `state_hash_revision` family defines a canonical activity digest after every accepted activity command. It includes definition/config digests, graph position/visits, scoped slots, participants and loadout locks, inventories/modifiers, clocks, metrics/objectives, RNG streams, pending options, pending `BattleSpec`, checkpoints, and completed `BattleResult` digests. It excludes calendar schedules, account rewards, UI state, and battle caches. The exact activity layout is a separate codec section so battle-only layout changes do not silently reinterpret activity bytes.
 

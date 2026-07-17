@@ -381,7 +381,7 @@ have cross-platform golden vectors and contain no authoritative floating point.
 | `G01-P2-B1` | Implement private fixed-point-backed domain newtypes, checked arithmetic, explicit rounding and overflow faults. |
 | `G01-P2-B2` | Implement stable typed IDs, ordered collections, immutable catalog construction and reference validation. |
 | `G01-P2-B3` | Implement SHA-256 stream derivation, ChaCha8 RNG wrapper, stable range/weighted selection and draw counters. |
-| `G01-P2-B4` | Define and implement the first-class canonical replay contract: version policy, header, record envelope, config/numeric/RNG/controller identities, digest types, unknown-record policy and state-hash vector tests. Later phases add domain record payloads without redesigning this envelope. |
+| `G01-P2-B4` | Define and implement the first-class canonical replay contract: version policy, header, record envelope, config/numeric/RNG/controller identities, digest types, unknown-record policy and state-hash vector tests. The canonical encoder writes to a shared sink contract and the production hash path streams directly into SHA-256 without a full-state byte allocation. Later phases add domain record payloads without redesigning this envelope. |
 | `G01-P2-B5` | Add numeric boundary, rounding, overflow and floating-point-oracle tests for documented formulas. |
 | `G01-P2-B6` | Establish the reusable property-test harness for fixed-point arithmetic, RNG mapping, canonical encoding, malformed input and stable collection ordering. Pin and license-review its dependencies; Phase 8 expands this harness rather than introducing it. |
 
@@ -393,12 +393,12 @@ runs through commands to victory and replay verification.
 | Batch | Atomic deliverable |
 |---|---|
 | `G01-P3-B1` | Implement `Battle`, authoritative stores, phases, `Command`, ordered legal decisions, `Resolution` and immutable query views. |
-| `G01-P3-B2` | Implement mutation journal/rollback, explicit fault transition, event journal and complete cause-chain identities. |
+| `G01-P3-B2` | Implement mutation journal/rollback, explicit fault transition, event journal and complete cause-chain identities. The owned working-state transaction must reuse battle-local scratch through `clone_from`/state swapping, prepare it only after legality validation, retain bounded capacity, and preserve byte-identical fault semantics. |
 | `G01-P3-B3` | Implement action gauge, turn selection, command validation, action lowering, phases, hits and deterministic interrupt queue. |
 | `G01-P3-B4` | Implement target selectors/plans, target locks, invalidation policy, Basic ATK/Skill/Ultimate resources and multi-hit execution. |
 | `G01-P3-B5` | Implement initial damage, healing, defeat, victory, wave advancement and formula golden tests. |
 | `G01-P3-B6` | Add a synthetic Standard profile plus CLI battle-run/replay smoke path proving command-to-hash determinism. |
-| `G01-P3-B7` | Add versioned small/medium/large benchmark workloads and record the initial command-latency, battle-throughput, allocation, state-copy and journal-growth baseline. Establish a generous order-of-magnitude CI smoke ceiling and designate the stable runner used for strict budgets. |
+| `G01-P3-B7` | Add versioned small/medium/large and server-verification benchmark workloads: ordinary/trigger-heavy apply, invalid-command rejection, streaming hash, one-shot 100/500-command replay and many isolated jobs sharing one catalog. Record command latency, commands/second/core, full-replay throughput, peak bytes/job, allocation, state-copy and journal/event/operation growth. Establish a generous order-of-magnitude CI smoke ceiling and designate the stable runner used for strict budgets. |
 | `G01-P3-B8` | Add command-sequence property tests proving invalid-command non-mutation, rollback byte identity, deterministic command-to-hash behavior and replay-envelope corruption detection. |
 
 ### Phase 4 — Complete shared combat kernel
@@ -497,7 +497,7 @@ checkout reproduces it and the goal is marked `Complete`.
 | `G01-P8-B2` | Verify numeric, RNG, codec, battle, build and replay golden vectors on the CI matrix established by `G01-P1-B5`, and record native versus compile-only CPU evidence without claiming an unexecuted target. |
 | `G01-P8-B3` | Expand the Phase 2/3 property harness into long-sequence and coverage-guided fuzz tests for invalid commands, rollback, selector validity, effect timing, content compilation and replay corruption; preserve reproducible seeds/corpora for every failure. |
 | `G01-P8-B4` | Run source-file-size/public-API/dependency audits and split or document every justified exception. |
-| `G01-P8-B5` | Run the versioned representative Standard workloads on the designated stable benchmark runner, compare command latency, battle throughput, allocations, state-copy cost and journal growth with the reviewed budgets, and record or resolve every material regression. Shared CI retains only the generous smoke ceiling. |
+| `G01-P8-B5` | Run the versioned representative Standard and server-verification workloads on the designated stable benchmark runner. Compare incremental command latency, one-shot replay throughput, commands/second/core, concurrent isolated-job scaling, peak bytes/job, allocations, state-copy/hash cost and journal growth with reviewed budgets, and record or resolve every material regression. Shared CI retains only the generous smoke ceiling. |
 | `G01-P8-B6` | Freeze CLI/library contracts, regenerate documentation/coverage, run clean-checkout acceptance and record release evidence. |
 | `G01-P8-B7` | Mark the ledger complete only after all gates pass; commit the final Goal 01 completion record. |
 
@@ -564,8 +564,15 @@ checkout reproduces it and the goal is marked `Complete`.
 - benchmark workloads are versioned inputs with fixed configuration, seed,
   controller and terminal command count;
 - the initial synthetic and final representative Standard reports include
-  command latency, full-battle throughput, allocation count/bytes, authoritative
-  state-copy cost and journal growth;
+  ordinary/trigger-heavy command latency, invalid-command cost, full-battle and
+  one-shot 100/500-command replay throughput, commands/second/core, concurrent
+  isolated-job scaling, allocation count/bytes, peak bytes/job, authoritative
+  state-copy/hash cost and journal/event/operation growth;
+- stateful incremental execution and one-shot audit replay produce identical
+  events and hashes, while no supported live-verification workflow repeatedly
+  replays growing command prefixes;
+- canonical state hashing uses the shared streaming encoder, and the baseline
+  transaction reuses bounded scratch capacity without changing canonical state;
 - strict regression budgets run on one documented stable runner, while the
   cross-platform CI matrix uses only a generous order-of-magnitude smoke ceiling;
 - a budget failure is resolved, intentionally re-baselined with a decision

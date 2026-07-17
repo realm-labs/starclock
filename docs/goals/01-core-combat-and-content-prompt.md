@@ -149,6 +149,15 @@ Execution rules
   these prerequisites for the first time. Strict performance budgets belong to
   the designated stable runner, while shared CI uses only the documented broad
   smoke ceiling.
+- For the baseline transaction, validate legality before preparing reusable
+  battle-local scratch, use `clone_from`/state swapping with bounded retained
+  capacity, and stream canonical encoding directly into SHA-256. Do not replace
+  these semantics with COW, inverse patches or incremental hashes without a
+  recorded benchmark and revision/compatibility decision.
+- Benchmark both supported verifier profiles: stateful incremental apply and a
+  one-shot replay that compares every command hash. Never implement live
+  verification by replaying growing prefixes from the beginning, which is
+  quadratic over a battle. Share only immutable catalogs across isolated jobs.
 - Do not weaken an acceptance gate to fit the current implementation. If a
   normative contradiction is found, add a narrow decision record, update every
   affected document and add a regression fixture in the same atomic batch.
@@ -179,7 +188,9 @@ When all batches appear complete:
 3. Verify cross-platform numeric, RNG, codec, build, battle and replay evidence,
    clearly separating native execution from compile-only CPU targets.
 4. Verify the final representative performance report against the reviewed
-   stable-runner budgets and preserve the benchmark inputs and runner identity.
+   stable-runner budgets, including incremental apply, 100/500-command one-shot
+   replay, concurrent isolated jobs and peak bytes/job; preserve the benchmark
+   inputs and runner identity.
 5. Update every terminal checklist item and the completion record in the status
    ledger with committed evidence.
 6. Commit the completion record as G01-P8-B7.

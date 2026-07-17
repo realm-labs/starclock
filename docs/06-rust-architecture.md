@@ -172,6 +172,14 @@ impl Battle {
 
 The activity API mirrors this boundary: `Activity::apply(ActivityCommand) -> Result<ActivityResolution, ActivityCommandError>`. A resolution carries ordered activity events, the next decision, an optional immutable `BattleSpec`, and a canonical activity hash. Submitted `BattleResult` values must match the pending spec and declared projection. [Activity core and mode extension](19-activity-core-and-mode-extension.md) is normative for this layer.
 
+The same API is the server-verification boundary. A headless process shares the
+immutable `Arc<CombatCatalog>` for an exact configuration digest and assigns
+isolated `Battle` values to a bounded worker pool. Live authoritative sessions
+apply only the next command to retained state; audit jobs replay one accepted
+command stream once. Replaying every growing prefix for every live command is
+not a supported execution model. The transaction scratch, streaming hash and
+service benchmark contract are specified in [core implementation design](20-core-implementation-design.md) and [replay integration](16-replay-cli-and-engine-integration.md).
+
 ## IDs and authored data
 
 Use small stable newtypes (`UnitId`, `TimelineActorId`, `EffectInstanceId`, `AbilityId`, `ActionId`, `EventId`) instead of strings in runtime hot paths. Keep definition IDs separate from runtime-instance IDs. Stable human-readable keys remain in Excel and Sora references, then compile into validated definition IDs when `starclock-data` loads the exported bundle.

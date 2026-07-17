@@ -179,6 +179,7 @@ The authoritative shape is:
 struct Battle {
     catalog: Arc<CombatCatalog>,
     state: BattleState,
+    scratch: Option<ResolutionScratch>,
 }
 
 struct BattleState {
@@ -202,7 +203,15 @@ struct BattleState {
 }
 ```
 
-The exact fields remain private, but ownership does not move between modules without updating this contract. `BattleIdentity` includes the battle/spec/catalog digests and policy revisions required by replay verification. `MutationRevisions` supports cache invalidation; caches themselves are non-authoritative and excluded from canonical state.
+`ResolutionScratch` owns one reusable working `BattleState` plus transaction
+buffers. It may be initialized lazily and released at a decision boundary under
+memory pressure. It is private, non-authoritative, excluded from
+views/codecs/hashes and may be dropped/recreated without changing behavior. The
+exact fields remain private, but ownership does not move between modules without
+updating this contract. `BattleIdentity` includes the battle/spec/catalog digests and policy
+revisions required by replay verification. `MutationRevisions` supports cache
+invalidation; caches themselves are non-authoritative and excluded from
+canonical state.
 
 `PersistentPendingState` contains only work that is legitimately observable across command boundaries, such as the active interrupt window or a scheduled timeline action. The synchronous resolution queue must be empty whenever `apply` returns.
 
@@ -399,7 +408,10 @@ They never mutate state or emit events. The operation executor applies the retur
 
 ## Resolution transaction
 
-The first implementation uses an owned working-state transaction:
+The first implementation uses an owned working-state transaction backed by
+reusable battle-local scratch storage. Command legality is validated before the
+scratch state is prepared, so forged/stale commands do not pay state-copy or
+journal-allocation cost.
 
 ```rust
 struct ResolutionTxn<'a> {
@@ -415,11 +427,38 @@ struct ResolutionTxn<'a> {
 }
 ```
 
-`working` begins as a semantic clone of the authoritative state. The append-only journal records every mutation, ID allocation, RNG draw, snapshot, queue insertion, and event in canonical sequence. This makes command atomicity easy to audit without requiring inverse mutations.
+`working` begins as a semantic clone of the authoritative state. The battle
+retains one non-authoritative scratch `BattleState` and reusable journal, queue,
+selector, trigger-candidate, snapshot, and query buffers. Preparation uses
+`clone_from`-style semantic copying into existing capacity instead of allocating
+a fresh object graph for every accepted command. Scratch capacity, caches and
+buffer layout are never canonical state.
 
-On success, the transaction settles to a decision/terminal boundary, verifies invariants and empty ephemeral queues, computes the canonical hash from `working`, and swaps it into `Battle`. On `Rollback`, it discards `working` and commits a deterministic `Faulted` state derived from `before`. On `CommitFault`, it commits completed atomic operations in `working`, appends the stable fault fact, and enters `Faulted`.
+The append-only journal records every mutation, ID allocation, RNG draw,
+snapshot, queue insertion, and event in canonical sequence. This makes command
+atomicity easy to audit without requiring inverse mutations.
 
-The journal is not the replay format and is not public. It may later be replaced by copy-on-write pages or reversible patches after profiling, provided fault semantics, events, IDs, RNG draws, and hashes stay identical.
+On success, the transaction settles to a decision/terminal boundary, verifies
+invariants and empty ephemeral queues, computes the canonical hash from
+`working`, and swaps it into `Battle`; the previous authoritative allocation
+becomes the reusable scratch state for the next command. On `Rollback`, it
+discards the semantic contents of `working` while retaining reusable capacity
+and commits a deterministic `Faulted` state derived from `before`. On
+`CommitFault`, it commits completed atomic operations in `working`, appends the
+stable fault fact, and enters `Faulted`.
+
+Returned `Resolution.events` own their public values; the battle cannot reuse
+that event vector until ownership has moved out. Internal journals and ephemeral
+queues are cleared and reused after settlement. Capacity retention must obey a
+documented upper bound so one pathological but legal battle cannot permanently
+bloat every pooled verifier job. A service adapter may request scratch eviction
+for an idle session, but cannot observe or depend on retained capacity.
+
+The journal is not the replay format and is not public. Copy-on-write pages,
+reversible patches, incremental hashes, or arena backends may replace the
+baseline only after profiling identifies the relevant cost. Such a change must
+preserve fault semantics, events, IDs, RNG draws, and hashes, and must not leak a
+backend type through the public API.
 
 ## Queue model
 
@@ -449,7 +488,36 @@ These services produce ordinary operations/events through the transaction; they 
 
 The canonical battle state includes identity/revisions, phase/decision, authoritative store records, formations/teams, timeline, encounter progress, persistent pending work, RNG stream state/draw counters, and sequence allocators in fixed codec order. It excludes `Arc` addresses, definition bodies already represented by the catalog digest, indexes, caches, journal history, diagnostic strings, and presentation data.
 
+Canonical encoding writes directly into a sink. The authoritative hash path
+streams fields into the SHA-256 sink and must not first allocate a complete
+canonical `Vec<u8>`. Tests/debug tools may select a byte-collecting sink from the
+same encoder. Streaming versus collecting cannot change field order or bytes.
+The initial codec remains a full-state digest; an incremental/Merkle scheme is a
+new `state_hash_revision`, not a transparent optimization.
+
 `BattleView` is a borrowed read-only projection with explicit query methods. It may expose units in formation or stable-ID order, legal commands, timeline order, visible effects/resources, encounter progress, and exact domain values. It cannot expose internal mutable references or container types. A controller and engine adapter consume the same view/decision contract.
+
+## Throughput contract
+
+One battle remains logically single-threaded. A headless verifier shares one
+validated immutable `Arc<CombatCatalog>` per configuration digest and runs many
+isolated `Battle` values on a bounded worker pool. Combat code does not add an
+async runtime, global mutable cache, or cross-battle lock.
+
+The implementation must measure, by versioned workload:
+
+- ordinary and trigger-heavy `Battle::apply` latency;
+- state semantic-copy bytes/time and retained scratch capacity;
+- canonical bytes hashed and hashing time;
+- journal/event/operation counts and allocation count/bytes;
+- full replay commands/second/core and peak transient bytes/job;
+- scaling when many independent replay jobs share one catalog.
+
+Catalog compilation builds event/phase/filter trigger indexes, stable lookup
+indexes and modifier-query indexes once. Runtime must not repeatedly scan the
+whole catalog or sort an unchanged global definition set. Transaction-local or
+revision-guarded stat caches and candidate buffers may be reused, but disabling
+them must produce identical events and hashes.
 
 ## Module layout
 

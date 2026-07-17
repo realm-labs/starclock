@@ -25,6 +25,11 @@ Command processing has three boundaries:
 2. **Resolution journal** records ordered mutations, generated events, RNG draws, and sequence allocations.
 3. **Commit** publishes the resulting state and canonical hash.
 
+The baseline implementation prepares its reusable working-state scratch only
+after boundary 1 succeeds, copies authoritative semantics with retained bounded
+capacity, and swaps state on commit. Scratch allocation/capacity is not part of
+the lifecycle or hash; dropping all scratch must not change any result.
+
 A deterministic internal failure uses one of two explicit policies selected by the failing subsystem:
 
 - `Rollback`: discard the uncommitted journal and then commit a single stable `Faulted` transition from the pre-command state.
