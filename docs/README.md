@@ -58,6 +58,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 33. [Production configuration pipeline](production-configuration-pipeline.md) — authoritative `.xlsx` workbooks, deterministic no-overwrite bootstrap, Sora exports/readers and the private data conversion boundary.
 34. [Catalog construction boundary](catalog-construction-boundary.md) — validated real-bundle loading, empty/representative private definitions and clean-regeneration evidence.
 35. [Authoritative numeric implementation](numeric-implementation.md) — checked six-decimal domain types, six explicit rounding modes, typed faults and no-float enforcement.
+36. [Combat catalog implementation](combat-catalog-implementation.md) — fixed-width identity domains, immutable ordered definition tables and deterministic graph validation.
 
 ## Execution goals
 

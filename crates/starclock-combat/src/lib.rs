@@ -6,14 +6,18 @@
 
 #![forbid(unsafe_code)]
 
+pub mod catalog;
 mod id;
 mod numeric;
 
 // This is the deliberate small crate facade. The defining modules remain
 // private so representation/backend details have one canonical external path.
 pub use id::{
-    AbilityId, ActionId, CombatantId, EffectId, EffectInstanceId, EncounterId, EventId, RuleId,
-    TimelineActorId, UnitId, ZeroIdError,
+    AbilityId, ActionId, EffectDefinitionId, EffectInstanceId, EncounterId, EnemyDefinitionId,
+    EventId, HitId, HitPlanDefinitionId, ModifierDefinitionId, ModifierInstanceId, NativeHandlerId,
+    OperationId, PhaseId, ProgramId, RuleBundleId, RuleId, RuleInstanceId, SelectorId,
+    ShieldInstanceId, SourceDefinitionId, SpawnSequence, StateSlotDefinitionId, TimelineActorId,
+    TriggerId, UnitDefinitionId, UnitId, WaveInstanceId, ZeroIdError,
 };
 pub use numeric::domain::{
     ActionGauge, DamageAmount, HealingAmount, Hp, Probability, RawToughness, ShieldAmount, Speed,

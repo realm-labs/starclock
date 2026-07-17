@@ -6,7 +6,7 @@
 
 use std::{collections::BTreeMap, sync::Arc};
 
-use starclock_combat::{AbilityId, CombatantId, Ratio, Scalar};
+use starclock_combat::{AbilityId, Ratio, Scalar, UnitDefinitionId};
 
 use crate::generated::{
     SoraConfig, content_kind::ContentKind, coverage_state::CoverageState,
@@ -219,7 +219,7 @@ struct BuildDefinitions {
 
 #[derive(Debug)]
 struct CharacterDefinition {
-    id: CombatantId,
+    id: UnitDefinitionId,
     rarity: u8,
     path: u8,
     element: u8,
@@ -788,7 +788,7 @@ fn convert_builds(
             ));
         }
         characters.push(CharacterDefinition {
-            id: CombatantId::new(id).expect("positive u32 is a valid CombatantId"),
+            id: UnitDefinitionId::new(id).expect("positive u32 is a valid UnitDefinitionId"),
             rarity,
             path: combat_path(row.path),
             element: combat_element(row.element),
