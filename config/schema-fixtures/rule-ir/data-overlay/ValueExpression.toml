@@ -1,0 +1,65 @@
+[[rows]]
+id = 1
+stable_key = "fixture.expr.zero"
+result_kind = "Integer"
+node = { type = "IntegerLiteral", value = 0 }
+
+[[rows]]
+id = 2
+stable_key = "fixture.expr.five"
+result_kind = "Integer"
+node = { type = "IntegerLiteral", value = 5 }
+
+[[rows]]
+id = 3
+stable_key = "fixture.expr.one"
+result_kind = "Integer"
+node = { type = "IntegerLiteral", value = 1 }
+
+[[rows]]
+id = 4
+stable_key = "fixture.expr.atk-ratio"
+result_kind = "Ratio"
+node = { type = "RatioLiteral", value_decimal = "0.2" }
+
+[[rows]]
+id = 5
+stable_key = "fixture.expr.slot"
+result_kind = "Integer"
+node = { type = "ReadStateSlot", state_slot_id = 16 }
+
+[[rows]]
+id = 6
+stable_key = "fixture.expr.slot-plus-one"
+result_kind = "Integer"
+node = { type = "CheckedBinary", operator = "CheckedAdd", left_expression_id = 5, right_expression_id = 3, rounding = "TowardZero" }
+
+[[rows]]
+id = 7
+stable_key = "fixture.expr.chance"
+result_kind = "Probability"
+node = { type = "ProbabilityLiteral", value_decimal = "0.5" }
+
+[[rows]]
+id = 8
+stable_key = "fixture.expr.owner-atk"
+result_kind = "Scalar"
+node = { type = "QueryStat", subject_selector_id = 17, stat = "Atk", formula_purpose = "Stat" }
+
+[[rows]]
+id = 9
+stable_key = "fixture.expr.damage-ratio"
+result_kind = "Ratio"
+node = { type = "RatioLiteral", value_decimal = "0.1" }
+
+[[rows]]
+id = 10
+stable_key = "fixture.expr.target-count"
+result_kind = "Integer"
+node = { type = "SelectorCount", selector_id = 18 }
+
+[[rows]]
+id = 11
+stable_key = "fixture.expr.ratio-cap"
+result_kind = "Ratio"
+node = { type = "RatioLiteral", value_decimal = "1" }

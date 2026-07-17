@@ -1,0 +1,358 @@
+[[enums]]
+name = "ValueKind"
+values = ["Integer", "Scalar", "Ratio", "Probability", "StableId", "Boolean"]
+
+[[enums]]
+name = "ValueBinaryOperator"
+values = ["CheckedAdd", "CheckedSubtract", "CheckedMultiply", "CheckedDivide", "Minimum", "Maximum"]
+
+[[enums]]
+name = "ComparisonOperator"
+values = ["Equal", "NotEqual", "Less", "LessOrEqual", "Greater", "GreaterOrEqual"]
+
+[[enums]]
+name = "RoundingPolicy"
+values = ["Floor", "Ceil", "TowardZero", "AwayFromZero", "NearestTiesAway", "NearestTiesEven"]
+
+[[enums]]
+name = "EventValueProperty"
+values = ["OwnerId", "ActorId", "ApplierId", "SourceDefinitionId", "PrimaryTargetId", "DamageAmount", "HpChangeAmount", "ResourceDelta", "StackCount", "HitIndex"]
+
+[[unions]]
+name = "ValueExpressionNode"
+tag = "type"
+
+[[unions.variants]]
+name = "IntegerLiteral"
+[[unions.variants.fields]]
+name = "value"
+type = "i32"
+
+[[unions.variants]]
+name = "ScalarLiteral"
+[[unions.variants.fields]]
+name = "value_decimal"
+type = "string"
+length = [1, 32]
+
+[[unions.variants]]
+name = "RatioLiteral"
+[[unions.variants.fields]]
+name = "value_decimal"
+type = "string"
+length = [1, 32]
+
+[[unions.variants]]
+name = "ProbabilityLiteral"
+[[unions.variants.fields]]
+name = "value_decimal"
+type = "string"
+length = [1, 32]
+
+[[unions.variants]]
+name = "StableIdLiteral"
+[[unions.variants.fields]]
+name = "identity_id"
+type = "ref<ContentIdentity.id>"
+
+[[unions.variants]]
+name = "BooleanLiteral"
+[[unions.variants.fields]]
+name = "value"
+type = "bool"
+
+[[unions.variants]]
+name = "ReadStateSlot"
+[[unions.variants.fields]]
+name = "state_slot_id"
+type = "ref<StateSlot.id>"
+
+[[unions.variants]]
+name = "ReadResource"
+[[unions.variants.fields]]
+name = "subject_selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "resource_kind"
+type = "enum<ResourceKind>"
+[[unions.variants.fields]]
+name = "character_resource_key"
+type = "optional<string>"
+
+[[unions.variants]]
+name = "QueryStat"
+[[unions.variants.fields]]
+name = "subject_selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "stat"
+type = "enum<StatKind>"
+[[unions.variants.fields]]
+name = "formula_purpose"
+type = "enum<FormulaPurpose>"
+
+[[unions.variants]]
+name = "ReadEventProperty"
+[[unions.variants.fields]]
+name = "property"
+type = "enum<EventValueProperty>"
+
+[[unions.variants]]
+name = "SelectorCount"
+[[unions.variants.fields]]
+name = "selector_id"
+type = "ref<Selector.id>"
+
+[[unions.variants]]
+name = "SelectorSum"
+[[unions.variants.fields]]
+name = "selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "value_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "CheckedBinary"
+[[unions.variants.fields]]
+name = "operator"
+type = "enum<ValueBinaryOperator>"
+[[unions.variants.fields]]
+name = "left_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "right_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "rounding"
+type = "enum<RoundingPolicy>"
+
+[[unions.variants]]
+name = "Clamp"
+[[unions.variants.fields]]
+name = "value_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "minimum_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "maximum_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "Negate"
+[[unions.variants.fields]]
+name = "operand_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "Choose"
+[[unions.variants.fields]]
+name = "condition_id"
+type = "ref<ConditionExpression.id>"
+[[unions.variants.fields]]
+name = "when_true_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "when_false_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "Convert"
+[[unions.variants.fields]]
+name = "operand_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "target_kind"
+type = "enum<ValueKind>"
+[[unions.variants.fields]]
+name = "rounding"
+type = "enum<RoundingPolicy>"
+
+[[unions]]
+name = "ConditionExpressionNode"
+tag = "type"
+
+[[unions.variants]]
+name = "Constant"
+[[unions.variants.fields]]
+name = "value"
+type = "bool"
+
+[[unions.variants]]
+name = "Compare"
+[[unions.variants.fields]]
+name = "left_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "comparison"
+type = "enum<ComparisonOperator>"
+[[unions.variants.fields]]
+name = "right_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "All"
+[[unions.variants.fields]]
+name = "condition_ids"
+type = "list<ref<ConditionExpression.id>>"
+parser = { kind = "split", separator = "|" }
+length = [1, 32]
+
+[[unions.variants]]
+name = "Any"
+[[unions.variants.fields]]
+name = "condition_ids"
+type = "list<ref<ConditionExpression.id>>"
+parser = { kind = "split", separator = "|" }
+length = [1, 32]
+
+[[unions.variants]]
+name = "Not"
+[[unions.variants.fields]]
+name = "condition_id"
+type = "ref<ConditionExpression.id>"
+
+[[unions.variants]]
+name = "HasTag"
+[[unions.variants.fields]]
+name = "selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "tag"
+type = "string"
+length = [1, 120]
+
+[[unions.variants]]
+name = "LifePresence"
+[[unions.variants.fields]]
+name = "selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "life"
+type = "enum<LifePredicate>"
+[[unions.variants.fields]]
+name = "presence"
+type = "enum<PresencePredicate>"
+
+[[unions.variants]]
+name = "ResourceBounds"
+[[unions.variants.fields]]
+name = "resource_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "minimum_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "maximum_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "EffectExists"
+[[unions.variants.fields]]
+name = "selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+
+[[unions.variants]]
+name = "HasWeakness"
+[[unions.variants.fields]]
+name = "selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "element"
+type = "enum<CombatElement>"
+
+[[unions.variants]]
+name = "IsBroken"
+[[unions.variants.fields]]
+name = "selector_id"
+type = "ref<Selector.id>"
+
+[[unions.variants]]
+name = "SelectorCardinality"
+[[unions.variants.fields]]
+name = "selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "minimum_count"
+type = "i32"
+range = [0, 64]
+[[unions.variants.fields]]
+name = "maximum_count"
+type = "i32"
+range = [0, 64]
+
+[[unions.variants]]
+name = "EventPropertyCompare"
+[[unions.variants.fields]]
+name = "property"
+type = "enum<EventValueProperty>"
+[[unions.variants.fields]]
+name = "comparison"
+type = "enum<ComparisonOperator>"
+[[unions.variants.fields]]
+name = "expected_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[tables]]
+name = "ValueExpression"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "ValueExpression.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "result_kind"
+type = "enum<ValueKind>"
+
+[[tables.fields]]
+name = "node"
+type = "union<ValueExpressionNode>"
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ConditionExpression"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "ConditionExpression.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "node"
+type = "union<ConditionExpressionNode>"
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true

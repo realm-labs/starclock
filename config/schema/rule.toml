@@ -1,0 +1,517 @@
+[[enums]]
+name = "RuleDomain"
+values = ["Battle", "Activity"]
+
+[[enums]]
+name = "SourceClass"
+values = ["Unit", "Ability", "Effect", "Equipment", "Progression", "Enemy", "Encounter", "Activity", "Mode", "Synthetic"]
+
+[[enums]]
+name = "RuleScope"
+values = ["Activity", "Section", "Node", "Attempt", "Battle", "Wave", "Turn", "Action", "Hit"]
+
+[[enums]]
+name = "SlotValueKind"
+values = ["BoundedInteger", "FixedScalar", "Boolean", "StableId", "OptionalId", "OrderedIdSet"]
+
+[[enums]]
+name = "SlotVisibility"
+values = ["Private", "Owner", "Team", "Public"]
+
+[[enums]]
+name = "SlotPersistence"
+values = ["OwnerLifetime", "ScopeLifetime", "ExplicitReset"]
+
+[[enums]]
+name = "SlotResetPoint"
+values = ["ActivityStart", "SectionStart", "NodeStart", "AttemptStart", "BattleStart", "WaveStart", "TurnStart", "ActionStart", "HitStart", "TurnEnd", "ActionEnd", "WaveEnd", "BattleEnd"]
+
+[[enums]]
+name = "BattleEventPoint"
+values = ["Started", "Won", "Lost", "Faulted"]
+
+[[enums]]
+name = "BoundaryEventPoint"
+values = ["Started", "Ended"]
+
+[[enums]]
+name = "ActionEventPoint"
+values = ["Declared", "Started", "Resolved"]
+
+[[enums]]
+name = "DamageEventPoint"
+values = ["Calculated", "Applied"]
+
+[[enums]]
+name = "EffectEventPoint"
+values = ["Applied", "Removed", "Refreshed", "StacksChanged"]
+
+[[enums]]
+name = "UnitEventPoint"
+values = ["Downed", "Defeated", "Revived", "Transformed"]
+
+[[unions]]
+name = "EventPattern"
+tag = "type"
+
+[[unions.variants]]
+name = "Battle"
+[[unions.variants.fields]]
+name = "point"
+type = "enum<BattleEventPoint>"
+
+[[unions.variants]]
+name = "Wave"
+[[unions.variants.fields]]
+name = "point"
+type = "enum<BoundaryEventPoint>"
+
+[[unions.variants]]
+name = "Turn"
+[[unions.variants.fields]]
+name = "point"
+type = "enum<BoundaryEventPoint>"
+
+[[unions.variants]]
+name = "Action"
+[[unions.variants.fields]]
+name = "point"
+type = "enum<ActionEventPoint>"
+
+[[unions.variants]]
+name = "Hit"
+[[unions.variants.fields]]
+name = "point"
+type = "enum<BoundaryEventPoint>"
+
+[[unions.variants]]
+name = "Damage"
+[[unions.variants.fields]]
+name = "point"
+type = "enum<DamageEventPoint>"
+
+[[unions.variants]]
+name = "HpChanged"
+
+[[unions.variants]]
+name = "HealApplied"
+
+[[unions.variants]]
+name = "ShieldChanged"
+
+[[unions.variants]]
+name = "ToughnessChanged"
+
+[[unions.variants]]
+name = "WeaknessBroken"
+
+[[unions.variants]]
+name = "Effect"
+[[unions.variants.fields]]
+name = "point"
+type = "enum<EffectEventPoint>"
+
+[[unions.variants]]
+name = "ResourceChanged"
+
+[[unions.variants]]
+name = "TimelineChanged"
+
+[[unions.variants]]
+name = "Unit"
+[[unions.variants.fields]]
+name = "point"
+type = "enum<UnitEventPoint>"
+
+[[unions.variants]]
+name = "PresenceChanged"
+
+[[unions.variants]]
+name = "EncounterTransition"
+
+[[unions.variants]]
+name = "RuleStateChanged"
+
+[[unions.variants]]
+name = "DecisionRequested"
+
+[[unions.variants]]
+name = "FaultRaised"
+
+[[unions.variants]]
+name = "InformationalRule"
+
+[[enums]]
+name = "TriggerPhase"
+values = ["Before", "Replace", "AfterMutation", "AfterDefeatSettlement", "AfterEvent", "AfterAction", "Boundary"]
+
+[[enums]]
+name = "OnceScope"
+values = ["Event", "Hit", "TargetWithinHit", "Ability", "Action", "Turn", "Wave", "Battle", "Attempt", "Node", "Section", "Activity"]
+
+[[enums]]
+name = "CauseAncestry"
+values = ["Any", "RootCommand", "DirectParent", "SameAction", "SamePhase", "SameHit"]
+
+[[enums]]
+name = "ActionKind"
+values = ["Basic", "Skill", "Ultimate", "Talent", "TechniqueEntry", "FollowUp", "Counter", "Summon", "Memosprite", "Enemy", "ExtraTurn", "Scripted"]
+
+[[enums]]
+name = "DamageClass"
+values = ["Ordinary", "Dot", "Break", "SuperBreak", "Additional", "Joint", "Elation", "TrueDamage"]
+
+[[enums]]
+name = "SnapshotPolicy"
+values = ["Dynamic", "OnApplication", "OnActionStart", "OnPhaseStart", "OnHitStart", "SourceSnapshotTargetDynamic", "SourceDynamicTargetSnapshot", "RecomputeOnStackChange", "ExplicitFields"]
+
+[[enums]]
+name = "LifePredicate"
+values = ["Any", "Alive", "Downed", "Defeated"]
+
+[[enums]]
+name = "PresencePredicate"
+values = ["Any", "Present", "Reserved", "Departed", "Untargetable", "Linked", "Transformed"]
+
+[[enums]]
+name = "PresenceState"
+values = ["Present", "Reserved", "Departed", "Untargetable", "Linked", "Transformed"]
+
+[[tables]]
+name = "NativeHandler"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "NativeHandler.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "domain"
+type = "enum<RuleDomain>"
+
+[[tables.fields]]
+name = "handler_version"
+type = "string"
+length = [1, 80]
+
+[[tables.fields]]
+name = "argument_schema_sha256"
+type = "string"
+length = [64, 64]
+
+[[tables.fields]]
+name = "determinism_note"
+type = "string"
+length = [1, 1000]
+
+[[tables.fields]]
+name = "owner_note"
+type = "string"
+length = [1, 500]
+
+[[tables.fields]]
+name = "ir_insufficiency_reason"
+type = "string"
+length = [1, 1000]
+
+[[tables.fields]]
+name = "removal_condition"
+type = "string"
+length = [1, 1000]
+
+[[tables.fields]]
+name = "enabled"
+type = "bool"
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "RuleDefinition"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "RuleDefinition.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "domain"
+type = "enum<RuleDomain>"
+
+[[tables.fields]]
+name = "source_definition_identity_id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "source_class"
+type = "enum<SourceClass>"
+
+[[tables.fields]]
+name = "source_digest_sha256"
+type = "string"
+length = [64, 64]
+
+[[tables.fields]]
+name = "native_handler_id"
+type = "optional<ref<NativeHandler.id>>"
+
+[[tables]]
+name = "RuleSourceTag"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "RuleSourceTag.toml"
+
+[[tables.fields]]
+name = "rule_id"
+type = "ref<RuleDefinition.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "tag"
+type = "string"
+length = [1, 120]
+
+[[tables.indexes]]
+name = "by_rule_sequence"
+fields = ["rule_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_rule_tag"
+fields = ["rule_id", "tag"]
+unique = true
+
+[[tables]]
+name = "StateSlot"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "StateSlot.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "rule_id"
+type = "ref<RuleDefinition.id>"
+
+[[tables.fields]]
+name = "value_kind"
+type = "enum<SlotValueKind>"
+
+[[tables.fields]]
+name = "owner_scope"
+type = "enum<RuleScope>"
+
+[[tables.fields]]
+name = "initial_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[tables.fields]]
+name = "minimum_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+
+[[tables.fields]]
+name = "maximum_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+
+[[tables.fields]]
+name = "visibility"
+type = "enum<SlotVisibility>"
+
+[[tables.fields]]
+name = "persistence"
+type = "enum<SlotPersistence>"
+
+[[tables]]
+name = "StateSlotReset"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "StateSlotReset.toml"
+
+[[tables.fields]]
+name = "state_slot_id"
+type = "ref<StateSlot.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "reset_point"
+type = "enum<SlotResetPoint>"
+
+[[tables.indexes]]
+name = "by_slot_sequence"
+fields = ["state_slot_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_slot_reset_point"
+fields = ["state_slot_id", "reset_point"]
+unique = true
+
+[[tables]]
+name = "EventFilter"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "EventFilter.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "source_definition_identity_id"
+type = "optional<ref<ContentIdentity.id>>"
+
+[[tables.fields]]
+name = "source_class"
+type = "optional<enum<SourceClass>>"
+
+[[tables.fields]]
+name = "owner_selector_id"
+type = "optional<ref<Selector.id>>"
+
+[[tables.fields]]
+name = "actor_selector_id"
+type = "optional<ref<Selector.id>>"
+
+[[tables.fields]]
+name = "applier_selector_id"
+type = "optional<ref<Selector.id>>"
+
+[[tables.fields]]
+name = "target_selector_id"
+type = "optional<ref<Selector.id>>"
+
+[[tables.fields]]
+name = "action_kind"
+type = "optional<enum<ActionKind>>"
+
+[[tables.fields]]
+name = "ability_tag"
+type = "optional<string>"
+
+[[tables.fields]]
+name = "element"
+type = "optional<enum<CombatElement>>"
+
+[[tables.fields]]
+name = "damage_class"
+type = "optional<enum<DamageClass>>"
+
+[[tables.fields]]
+name = "cause_ancestry"
+type = "enum<CauseAncestry>"
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "RuleTrigger"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "RuleTrigger.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "rule_id"
+type = "ref<RuleDefinition.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "event"
+type = "union<EventPattern>"
+
+[[tables.fields]]
+name = "phase"
+type = "enum<TriggerPhase>"
+
+[[tables.fields]]
+name = "filter_id"
+type = "ref<EventFilter.id>"
+
+[[tables.fields]]
+name = "condition_id"
+type = "ref<ConditionExpression.id>"
+
+[[tables.fields]]
+name = "once_scope"
+type = "enum<OnceScope>"
+
+[[tables.fields]]
+name = "priority"
+type = "i32"
+range = [-1000000, 1000000]
+
+[[tables.fields]]
+name = "program_id"
+type = "ref<Program.id>"
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables.indexes]]
+name = "by_rule_sequence"
+fields = ["rule_id", "sequence"]
+unique = true

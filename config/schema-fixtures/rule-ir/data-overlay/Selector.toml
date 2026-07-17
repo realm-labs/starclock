@@ -1,0 +1,29 @@
+[[rows]]
+id = 17
+domain = "Battle"
+origin = "Owner"
+side_relationship = "SameSide"
+life = "Alive"
+presence = "Present"
+reference_point = "CurrentState"
+ordering = "StableId"
+minimum_count = 1
+maximum_count = 1
+empty_pool_policy = "Fault"
+choice = "First"
+allow_repeated_targets = false
+
+[[rows]]
+id = 18
+domain = "Battle"
+origin = "PrimaryTarget"
+side_relationship = "OpposingSide"
+life = "Alive"
+presence = "Present"
+reference_point = "EventSnapshot"
+ordering = "Formation"
+minimum_count = 1
+maximum_count = 4
+empty_pool_policy = "Skip"
+choice = "All"
+allow_repeated_targets = false

@@ -1,0 +1,38 @@
+[[rows]]
+id = 1
+stable_key = "fixture.trigger.damage"
+rule_id = 14
+sequence = 1
+event = { type = "Damage", point = "Applied" }
+phase = "AfterEvent"
+filter_id = 1
+condition_id = 1
+once_scope = "Action"
+priority = 100
+program_id = 19
+
+[[rows]]
+id = 2
+stable_key = "fixture.trigger.effect-removed"
+rule_id = 15
+sequence = 1
+event = { type = "Effect", point = "Removed" }
+phase = "AfterMutation"
+filter_id = 2
+condition_id = 2
+once_scope = "Event"
+priority = 50
+program_id = 21
+
+[[rows]]
+id = 3
+stable_key = "fixture.trigger.replacement"
+rule_id = 14
+sequence = 2
+event = { type = "HpChanged" }
+phase = "Replace"
+filter_id = 1
+condition_id = 1
+once_scope = "Event"
+priority = 200
+program_id = 24

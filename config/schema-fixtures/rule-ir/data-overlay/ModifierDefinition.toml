@@ -1,0 +1,16 @@
+[[rows]]
+id = 23
+source_effect_id = 22
+owner_selector_id = 17
+subject_selector_id = 17
+stat = "Atk"
+formula_stage = "PercentOfBase"
+formula_purpose = "Stat"
+value_expression_id = 4
+value_domain = "Ratio"
+stacking_group_id = 1
+priority = 10
+cap_expression_id = 11
+cap_formula_stage = "PercentOfBase"
+snapshot_policy = "OnApplication"
+duration_scope = "Battle"

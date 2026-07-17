@@ -1,0 +1,273 @@
+[[enums]]
+name = "StatKind"
+values = ["Hp", "Atk", "Def", "Spd", "CritRate", "CritDamage", "EffectHitRate", "EffectResistance", "BreakEffect", "EnergyRegenerationRate", "OutgoingHealing", "IncomingHealing", "ShieldStrength", "Aggro", "ToughnessDamage"]
+
+[[enums]]
+name = "FormulaStage"
+values = ["BaseAdd", "PercentOfBase", "Flat", "FinalAdd", "FinalMultiply", "Crit", "DamageBoost", "Weaken", "Defense", "Resistance", "Vulnerability", "Mitigation", "Broken", "Healing", "Shield", "Probability"]
+
+[[enums]]
+name = "FormulaPurpose"
+values = ["Stat", "OrdinaryDamage", "Dot", "Break", "SuperBreak", "AdditionalDamage", "JointDamage", "ElationDamage", "TrueDamage", "Healing", "Shield", "EffectChance", "Aggro", "ActionOrder"]
+
+[[enums]]
+name = "ModifierValueDomain"
+values = ["Scalar", "Ratio", "Probability", "IntegralAmount"]
+
+[[enums]]
+name = "ModifierAggregation"
+values = ["Sum", "Product", "Maximum", "Minimum", "Latest", "Earliest", "StrongestByComparator", "UniquePerSource", "ReplaceGroup"]
+
+[[enums]]
+name = "SnapshotSubject"
+values = ["Source", "Target", "Event", "Action"]
+
+[[enums]]
+name = "SnapshotCaptureKind"
+values = ["Stat", "Resource", "StateSlot", "Expression"]
+
+[[unions]]
+name = "ModifierFilterNode"
+tag = "type"
+
+[[unions.variants]]
+name = "AbilityTag"
+[[unions.variants.fields]]
+name = "tag"
+type = "string"
+length = [1, 120]
+
+[[unions.variants]]
+name = "DamageTag"
+[[unions.variants.fields]]
+name = "tag"
+type = "string"
+length = [1, 120]
+
+[[unions.variants]]
+name = "Element"
+[[unions.variants.fields]]
+name = "element"
+type = "enum<CombatElement>"
+
+[[unions.variants]]
+name = "Action"
+[[unions.variants.fields]]
+name = "action_kind"
+type = "enum<ActionKind>"
+
+[[unions.variants]]
+name = "Life"
+[[unions.variants.fields]]
+name = "life"
+type = "enum<LifePredicate>"
+
+[[unions.variants]]
+name = "Presence"
+[[unions.variants.fields]]
+name = "presence"
+type = "enum<PresencePredicate>"
+
+[[unions.variants]]
+name = "Source"
+[[unions.variants.fields]]
+name = "source_class"
+type = "enum<SourceClass>"
+
+[[unions.variants]]
+name = "Target"
+[[unions.variants.fields]]
+name = "target_selector_id"
+type = "ref<Selector.id>"
+
+[[tables]]
+name = "ModifierStackingGroup"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "ModifierStackingGroup.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "aggregation"
+type = "enum<ModifierAggregation>"
+
+[[tables.fields]]
+name = "comparator_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ModifierDefinition"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "ModifierDefinition.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "source_rule_id"
+type = "optional<ref<RuleDefinition.id>>"
+
+[[tables.fields]]
+name = "source_effect_id"
+type = "optional<ref<Effect.id>>"
+
+[[tables.fields]]
+name = "owner_selector_id"
+type = "ref<Selector.id>"
+
+[[tables.fields]]
+name = "subject_selector_id"
+type = "ref<Selector.id>"
+
+[[tables.fields]]
+name = "stat"
+type = "enum<StatKind>"
+
+[[tables.fields]]
+name = "formula_stage"
+type = "enum<FormulaStage>"
+
+[[tables.fields]]
+name = "formula_purpose"
+type = "enum<FormulaPurpose>"
+
+[[tables.fields]]
+name = "value_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[tables.fields]]
+name = "value_domain"
+type = "enum<ModifierValueDomain>"
+
+[[tables.fields]]
+name = "stacking_group_id"
+type = "ref<ModifierStackingGroup.id>"
+
+[[tables.fields]]
+name = "priority"
+type = "i32"
+range = [-1000000, 1000000]
+
+[[tables.fields]]
+name = "floor_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+
+[[tables.fields]]
+name = "cap_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+
+[[tables.fields]]
+name = "cap_formula_stage"
+type = "enum<FormulaStage>"
+
+[[tables.fields]]
+name = "snapshot_policy"
+type = "enum<SnapshotPolicy>"
+
+[[tables.fields]]
+name = "duration_scope"
+type = "enum<RuleScope>"
+
+[[tables]]
+name = "SnapshotCapture"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "SnapshotCapture.toml"
+
+[[tables.fields]]
+name = "owner_identity_id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "capture_key"
+type = "string"
+length = [1, 120]
+
+[[tables.fields]]
+name = "subject"
+type = "enum<SnapshotSubject>"
+
+[[tables.fields]]
+name = "capture_kind"
+type = "enum<SnapshotCaptureKind>"
+
+[[tables.fields]]
+name = "stat"
+type = "optional<enum<StatKind>>"
+
+[[tables.fields]]
+name = "resource_kind"
+type = "optional<enum<ResourceKind>>"
+
+[[tables.fields]]
+name = "state_slot_id"
+type = "optional<ref<StateSlot.id>>"
+
+[[tables.fields]]
+name = "expression_id"
+type = "optional<ref<ValueExpression.id>>"
+
+[[tables.indexes]]
+name = "by_owner_sequence"
+fields = ["owner_identity_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_owner_capture_key"
+fields = ["owner_identity_id", "capture_key"]
+unique = true
+
+[[tables]]
+name = "ModifierFilter"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "ModifierFilter.toml"
+
+[[tables.fields]]
+name = "modifier_id"
+type = "ref<ModifierDefinition.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "filter"
+type = "union<ModifierFilterNode>"
+
+[[tables.indexes]]
+name = "by_modifier_sequence"
+fields = ["modifier_id", "sequence"]
+unique = true

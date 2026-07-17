@@ -46,6 +46,10 @@
       "command": ["node", "tools/config-schema/verify-character-build.mjs"]
     },
     {
+      "name": "typed Rule IR configuration schema golden",
+      "command": ["node", "tools/config-schema/verify-rule-ir.mjs"]
+    },
+    {
       "name": "cached source and prepared-pack regeneration",
       "command": ["node", "tools/goal-provenance/generate.mjs", "--check"],
       "requires": "source-cache"

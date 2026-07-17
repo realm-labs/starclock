@@ -1,0 +1,207 @@
+[[enums]]
+name = "EffectCategory"
+values = ["Buff", "Debuff", "Control", "Dot", "Mark", "Field", "Shield", "NeutralState"]
+
+[[enums]]
+name = "DispelCategory"
+values = ["DispellableBuff", "DispellableDebuff", "CleanseableControl", "NonDispellable"]
+
+[[enums]]
+name = "EffectStackPolicy"
+values = ["Replace", "Refresh", "RefreshAndAddStacks", "StrongestWins", "IndependentBySource", "IndependentInstances", "UniqueGlobal", "UniquePerSource"]
+
+[[enums]]
+name = "DurationClock"
+values = ["Permanent", "OwnerTurnStart", "OwnerTurnEnd", "TargetTurnStart", "TargetTurnEnd", "ActionEnd", "WaveEnd", "BattleEnd"]
+
+[[enums]]
+name = "EffectTickPhase"
+values = ["None", "TurnStart", "TurnEnd", "ActionStart", "ActionEnd", "AfterEvent"]
+
+[[enums]]
+name = "EffectTeardownPolicy"
+values = ["RemoveWithOwner", "TransferToTeam", "FreezeSnapshot", "PersistByScope", "ExplicitRule"]
+
+[[tables]]
+name = "Effect"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "Effect.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "category"
+type = "enum<EffectCategory>"
+
+[[tables.fields]]
+name = "dispel_category"
+type = "enum<DispelCategory>"
+
+[[tables.fields]]
+name = "stack_limit"
+type = "i32"
+range = [1, 1000]
+
+[[tables.fields]]
+name = "duration_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+
+[[tables.fields]]
+name = "duration_clock"
+type = "enum<DurationClock>"
+
+[[tables.fields]]
+name = "tick_phase"
+type = "enum<EffectTickPhase>"
+
+[[tables.fields]]
+name = "stack_policy"
+type = "enum<EffectStackPolicy>"
+
+[[tables.fields]]
+name = "magnitude_comparator_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+
+[[tables.fields]]
+name = "snapshot_policy"
+type = "enum<SnapshotPolicy>"
+
+[[tables.fields]]
+name = "teardown_policy"
+type = "enum<EffectTeardownPolicy>"
+
+[[tables.fields]]
+name = "application_priority"
+type = "i32"
+range = [-1000000, 1000000]
+
+[[tables]]
+name = "EffectTag"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "EffectTag.toml"
+
+[[tables.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "tag"
+type = "string"
+length = [1, 120]
+
+[[tables.indexes]]
+name = "by_effect_sequence"
+fields = ["effect_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_effect_tag"
+fields = ["effect_id", "tag"]
+unique = true
+
+[[tables]]
+name = "EffectModifierBinding"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "EffectModifierBinding.toml"
+
+[[tables.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "modifier_id"
+type = "ref<ModifierDefinition.id>"
+
+[[tables.indexes]]
+name = "by_effect_sequence"
+fields = ["effect_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_effect_modifier"
+fields = ["effect_id", "modifier_id"]
+unique = true
+
+[[tables]]
+name = "EffectRuleBinding"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "EffectRuleBinding.toml"
+
+[[tables.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "rule_id"
+type = "ref<RuleDefinition.id>"
+
+[[tables.indexes]]
+name = "by_effect_sequence"
+fields = ["effect_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_effect_rule"
+fields = ["effect_id", "rule_id"]
+unique = true
+
+[[tables]]
+name = "EffectGrantedAbility"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "EffectGrantedAbility.toml"
+
+[[tables.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "ability_id"
+type = "ref<Ability.id>"
+
+[[tables.indexes]]
+name = "by_effect_sequence"
+fields = ["effect_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_effect_ability"
+fields = ["effect_id", "ability_id"]
+unique = true

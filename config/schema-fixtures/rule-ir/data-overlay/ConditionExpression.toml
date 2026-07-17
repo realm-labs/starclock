@@ -1,0 +1,9 @@
+[[rows]]
+id = 1
+stable_key = "fixture.condition.slot-ready"
+node = { type = "Compare", left_expression_id = 5, comparison = "GreaterOrEqual", right_expression_id = 1 }
+
+[[rows]]
+id = 2
+stable_key = "fixture.condition.composed"
+node = { type = "All", condition_ids = [1] }

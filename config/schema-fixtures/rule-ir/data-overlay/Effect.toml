@@ -1,0 +1,12 @@
+[[rows]]
+id = 22
+category = "Buff"
+dispel_category = "NonDispellable"
+stack_limit = 3
+duration_expression_id = 2
+duration_clock = "OwnerTurnEnd"
+tick_phase = "TurnEnd"
+stack_policy = "RefreshAndAddStacks"
+snapshot_policy = "OnApplication"
+teardown_policy = "RemoveWithOwner"
+application_priority = 10

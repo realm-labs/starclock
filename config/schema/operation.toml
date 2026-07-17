@@ -1,0 +1,515 @@
+[[enums]]
+name = "OperationFaultPolicy"
+values = ["Rollback", "CommitFault"]
+
+[[enums]]
+name = "SnapshotBoundary"
+values = ["Dynamic", "OnApplication", "OnActionStart", "OnPhaseStart", "OnHitStart", "EventSnapshot"]
+
+[[enums]]
+name = "EffectChancePolicy"
+values = ["Guaranteed", "Fixed", "Resistible"]
+
+[[enums]]
+name = "ResourceUpdateKind"
+values = ["Spend", "Reserve", "Gain", "Set"]
+
+[[enums]]
+name = "StateSlotUpdateKind"
+values = ["Set", "Add", "Subtract", "Minimum", "Maximum"]
+
+[[enums]]
+name = "BattleDecisionKind"
+values = ["TargetChoice", "ModeChoice", "RuleChoice"]
+
+[[enums]]
+name = "EncounterTransitionKind"
+values = ["BossPhase", "Wave"]
+
+[[enums]]
+name = "ReplacementProposalKind"
+values = ["PreventDefeat", "RedirectDamage", "ReplaceValue", "ReplaceTarget", "CancelOperation"]
+
+[[unions]]
+name = "ProgramStepNode"
+tag = "type"
+
+[[unions.variants]]
+name = "Operation"
+[[unions.variants.fields]]
+name = "operation_id"
+type = "ref<Operation.id>"
+
+[[unions.variants]]
+name = "If"
+[[unions.variants.fields]]
+name = "condition_id"
+type = "ref<ConditionExpression.id>"
+[[unions.variants.fields]]
+name = "then_program_id"
+type = "ref<Program.id>"
+[[unions.variants.fields]]
+name = "else_program_id"
+type = "optional<ref<Program.id>>"
+
+[[unions.variants]]
+name = "ForEach"
+[[unions.variants.fields]]
+name = "selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "body_program_id"
+type = "ref<Program.id>"
+[[unions.variants.fields]]
+name = "maximum_iterations"
+type = "i32"
+range = [1, 64]
+
+[[unions]]
+name = "OperationPayload"
+tag = "type"
+
+[[unions.variants]]
+name = "Damage"
+[[unions.variants.fields]]
+name = "amount_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "damage_class"
+type = "enum<DamageClass>"
+[[unions.variants.fields]]
+name = "element"
+type = "enum<CombatElement>"
+[[unions.variants.fields]]
+name = "can_crit"
+type = "bool"
+
+[[unions.variants]]
+name = "TrueDamage"
+[[unions.variants.fields]]
+name = "amount_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "Heal"
+[[unions.variants.fields]]
+name = "amount_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "Shield"
+[[unions.variants.fields]]
+name = "amount_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+
+[[unions.variants]]
+name = "ConsumeHp"
+[[unions.variants.fields]]
+name = "amount_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "floor_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "RedirectDamage"
+[[unions.variants.fields]]
+name = "destination_selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "ratio_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "ReduceToughness"
+[[unions.variants.fields]]
+name = "amount_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "element"
+type = "enum<CombatElement>"
+
+[[unions.variants]]
+name = "CreateToughnessLayer"
+[[unions.variants.fields]]
+name = "layer_key"
+type = "string"
+length = [1, 120]
+[[unions.variants.fields]]
+name = "maximum_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "RemoveToughnessLayer"
+[[unions.variants.fields]]
+name = "layer_key"
+type = "string"
+length = [1, 120]
+
+[[unions.variants]]
+name = "Break"
+[[unions.variants.fields]]
+name = "element"
+type = "enum<CombatElement>"
+
+[[unions.variants]]
+name = "SuperBreak"
+[[unions.variants.fields]]
+name = "multiplier_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "ApplyEffect"
+[[unions.variants.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+[[unions.variants.fields]]
+name = "chance_policy"
+type = "enum<EffectChancePolicy>"
+[[unions.variants.fields]]
+name = "base_chance_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+[[unions.variants.fields]]
+name = "rng_purpose_key"
+type = "optional<string>"
+
+[[unions.variants]]
+name = "RemoveEffect"
+[[unions.variants.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+
+[[unions.variants]]
+name = "RefreshEffect"
+[[unions.variants.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+
+[[unions.variants]]
+name = "TransferEffect"
+[[unions.variants.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+[[unions.variants.fields]]
+name = "destination_selector_id"
+type = "ref<Selector.id>"
+
+[[unions.variants]]
+name = "ModifyEffect"
+[[unions.variants.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+[[unions.variants.fields]]
+name = "stack_delta_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "ModifyResource"
+[[unions.variants.fields]]
+name = "resource_kind"
+type = "enum<ResourceKind>"
+[[unions.variants.fields]]
+name = "character_resource_key"
+type = "optional<string>"
+[[unions.variants.fields]]
+name = "update_kind"
+type = "enum<ResourceUpdateKind>"
+[[unions.variants.fields]]
+name = "amount_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "scales_with_energy_regeneration"
+type = "bool"
+[[unions.variants.fields]]
+name = "rounding"
+type = "enum<RoundingPolicy>"
+
+[[unions.variants]]
+name = "ModifyStateSlot"
+[[unions.variants.fields]]
+name = "state_slot_id"
+type = "ref<StateSlot.id>"
+[[unions.variants.fields]]
+name = "update_kind"
+type = "enum<StateSlotUpdateKind>"
+[[unions.variants.fields]]
+name = "value_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "AdvanceAction"
+[[unions.variants.fields]]
+name = "amount_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "DelayAction"
+[[unions.variants.fields]]
+name = "amount_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "QueueAction"
+[[unions.variants.fields]]
+name = "ability_id"
+type = "ref<Ability.id>"
+[[unions.variants.fields]]
+name = "actor_selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "priority"
+type = "i32"
+range = [-1000000, 1000000]
+
+[[unions.variants]]
+name = "CancelAction"
+[[unions.variants.fields]]
+name = "owner_selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "action_kind"
+type = "enum<ActionKind>"
+
+[[unions.variants]]
+name = "GrantExtraTurn"
+[[unions.variants.fields]]
+name = "actor_selector_id"
+type = "ref<Selector.id>"
+
+[[unions.variants]]
+name = "Summon"
+[[unions.variants.fields]]
+name = "unit_definition_identity_id"
+type = "ref<ContentIdentity.id>"
+[[unions.variants.fields]]
+name = "owner_selector_id"
+type = "ref<Selector.id>"
+
+[[unions.variants]]
+name = "Despawn"
+
+[[unions.variants]]
+name = "Transform"
+[[unions.variants.fields]]
+name = "replacement_definition_identity_id"
+type = "ref<ContentIdentity.id>"
+
+[[unions.variants]]
+name = "ReplaceAbility"
+[[unions.variants.fields]]
+name = "old_ability_id"
+type = "ref<Ability.id>"
+[[unions.variants.fields]]
+name = "new_ability_id"
+type = "ref<Ability.id>"
+
+[[unions.variants]]
+name = "SetField"
+[[unions.variants.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+
+[[unions.variants]]
+name = "ChangePresence"
+[[unions.variants.fields]]
+name = "presence"
+type = "enum<PresenceState>"
+
+[[unions.variants]]
+name = "AddWeakness"
+[[unions.variants.fields]]
+name = "element"
+type = "enum<CombatElement>"
+
+[[unions.variants]]
+name = "RemoveWeakness"
+[[unions.variants.fields]]
+name = "element"
+type = "enum<CombatElement>"
+
+[[unions.variants]]
+name = "ResistanceOverride"
+[[unions.variants.fields]]
+name = "element"
+type = "enum<CombatElement>"
+[[unions.variants.fields]]
+name = "value_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[unions.variants]]
+name = "RequestDecision"
+[[unions.variants.fields]]
+name = "decision_kind"
+type = "enum<BattleDecisionKind>"
+[[unions.variants.fields]]
+name = "option_selector_id"
+type = "ref<Selector.id>"
+
+[[unions.variants]]
+name = "EmitRuleEvent"
+[[unions.variants.fields]]
+name = "event_key"
+type = "string"
+length = [1, 160]
+
+[[unions.variants]]
+name = "RequestEncounterTransition"
+[[unions.variants.fields]]
+name = "transition_kind"
+type = "enum<EncounterTransitionKind>"
+[[unions.variants.fields]]
+name = "transition_key"
+type = "string"
+length = [1, 160]
+
+[[unions.variants]]
+name = "ProposeReplacement"
+[[unions.variants.fields]]
+name = "proposal_kind"
+type = "enum<ReplacementProposalKind>"
+[[unions.variants.fields]]
+name = "value_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+[[unions.variants.fields]]
+name = "destination_selector_id"
+type = "optional<ref<Selector.id>>"
+
+[[unions.variants]]
+name = "InvokeNativeHandler"
+[[unions.variants.fields]]
+name = "native_handler_id"
+type = "ref<NativeHandler.id>"
+
+[[tables]]
+name = "Program"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "Program.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "domain"
+type = "enum<RuleDomain>"
+
+[[tables]]
+name = "ProgramStep"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "ProgramStep.toml"
+
+[[tables.fields]]
+name = "program_id"
+type = "ref<Program.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 1000]
+
+[[tables.fields]]
+name = "step"
+type = "union<ProgramStepNode>"
+
+[[tables.indexes]]
+name = "by_program_sequence"
+fields = ["program_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "Operation"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "Operation.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+
+[[tables.fields]]
+name = "domain"
+type = "enum<RuleDomain>"
+
+[[tables.fields]]
+name = "target_selector_id"
+type = "optional<ref<Selector.id>>"
+
+[[tables.fields]]
+name = "condition_id"
+type = "optional<ref<ConditionExpression.id>>"
+
+[[tables.fields]]
+name = "empty_target_policy"
+type = "enum<EmptyPoolPolicy>"
+
+[[tables.fields]]
+name = "snapshot_boundary"
+type = "enum<SnapshotBoundary>"
+
+[[tables.fields]]
+name = "fault_policy"
+type = "enum<OperationFaultPolicy>"
+
+[[tables.fields]]
+name = "payload"
+type = "union<OperationPayload>"
+
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "OperationNativeArgument"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "OperationNativeArgument.toml"
+
+[[tables.fields]]
+name = "operation_id"
+type = "ref<Operation.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "argument_key"
+type = "string"
+length = [1, 120]
+
+[[tables.fields]]
+name = "value_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[tables.indexes]]
+name = "by_operation_sequence"
+fields = ["operation_id", "sequence"]
+unique = true
+
+[[tables.indexes]]
+name = "by_operation_argument"
+fields = ["operation_id", "argument_key"]
+unique = true

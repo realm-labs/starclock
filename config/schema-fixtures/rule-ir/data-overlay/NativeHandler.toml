@@ -1,0 +1,11 @@
+[[rows]]
+id = 1
+stable_key = "fixture.native.unreachable"
+domain = "Battle"
+handler_version = "fixture-v1"
+argument_schema_sha256 = "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+determinism_note = "Synthetic metadata proves the static registry transport contract."
+owner_note = "Owned only by the disabled schema fixture."
+ir_insufficiency_reason = "Fixture-only row exercises the review fields and is never reachable."
+removal_condition = "Remove when the schema golden no longer needs handler metadata coverage."
+enabled = false

@@ -73,9 +73,11 @@ The `BuildPatch` tagged union has exactly these reviewed variants:
 
 Patch payloads contain typed references or bounded scalar fields. They contain
 no Rust, field-path string, arbitrary JSON or partial serialized definition.
-Rule, modifier and program identities are intentionally `ContentIdentity`
-references in this batch; `G01-P1-B8` closes them against the corresponding
-typed tables without changing the build-patch architecture.
+Rule, modifier and program identities remain `ContentIdentity` references at
+the independently composable B7 transport boundary. B8 supplies the referenced
+typed tables; B11 validates each identity's `ContentKind`, resolves it to the
+exact typed definition ID and rejects a mismatched patch target without changing
+the build-patch architecture.
 
 ## Light Cones
 

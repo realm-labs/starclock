@@ -1,0 +1,39 @@
+[[rows]]
+program_id = 19
+sequence = 1
+step = { type = "If", condition_id = 1, then_program_id = 20 }
+
+[[rows]]
+program_id = 19
+sequence = 2
+step = { type = "ForEach", selector_id = 18, body_program_id = 21, maximum_iterations = 4 }
+
+[[rows]]
+program_id = 20
+sequence = 1
+step = { type = "Operation", operation_id = 1 }
+
+[[rows]]
+program_id = 20
+sequence = 2
+step = { type = "Operation", operation_id = 2 }
+
+[[rows]]
+program_id = 20
+sequence = 3
+step = { type = "Operation", operation_id = 3 }
+
+[[rows]]
+program_id = 21
+sequence = 1
+step = { type = "Operation", operation_id = 4 }
+
+[[rows]]
+program_id = 21
+sequence = 2
+step = { type = "Operation", operation_id = 5 }
+
+[[rows]]
+program_id = 24
+sequence = 1
+step = { type = "Operation", operation_id = 7 }

@@ -52,6 +52,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 28. [CI platform matrix](ci-platform-matrix.md) — pinned hosted runners, native execution, compile-only targets and retained evidence boundaries.
 29. [Common configuration schema](common-configuration-schema.md) — stable identity, localization, version, provenance, evidence and canonical-decimal transport contracts.
 30. [Character and build configuration schema](character-build-configuration-schema.md) — Sora contracts for abilities, hit plans, characters, Traces, Eidolons, build patches and Light Cones.
+31. [Typed Rule IR configuration schema](rule-ir-configuration-schema.md) — transport contracts for rules, slots, triggers, expressions, selectors, operations, effects, modifiers and native-handler metadata.
 
 ## Execution goals
 

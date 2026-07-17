@@ -1,0 +1,70 @@
+[[rows]]
+id = 1
+stable_key = "fixture.operation.apply-effect"
+domain = "Battle"
+target_selector_id = 18
+condition_id = 1
+empty_target_policy = "Skip"
+snapshot_boundary = "EventSnapshot"
+fault_policy = "Rollback"
+payload = { type = "ApplyEffect", effect_id = 22, chance_policy = "Resistible", base_chance_expression_id = 7, rng_purpose_key = "fixture.debuff" }
+
+[[rows]]
+id = 2
+stable_key = "fixture.operation.modify-slot"
+domain = "Battle"
+target_selector_id = 17
+empty_target_policy = "Fault"
+snapshot_boundary = "Dynamic"
+fault_policy = "Rollback"
+payload = { type = "ModifyStateSlot", state_slot_id = 16, update_kind = "Add", value_expression_id = 3 }
+
+[[rows]]
+id = 3
+stable_key = "fixture.operation.queue-action"
+domain = "Battle"
+target_selector_id = 17
+empty_target_policy = "Fault"
+snapshot_boundary = "Dynamic"
+fault_policy = "Rollback"
+payload = { type = "QueueAction", ability_id = 2, actor_selector_id = 17, priority = 0 }
+
+[[rows]]
+id = 4
+stable_key = "fixture.operation.damage"
+domain = "Battle"
+target_selector_id = 18
+empty_target_policy = "Skip"
+snapshot_boundary = "OnHitStart"
+fault_policy = "CommitFault"
+payload = { type = "Damage", amount_expression_id = 8, damage_class = "Additional", element = "Fire", can_crit = true }
+
+[[rows]]
+id = 5
+stable_key = "fixture.operation.resource"
+domain = "Battle"
+target_selector_id = 17
+empty_target_policy = "Fault"
+snapshot_boundary = "Dynamic"
+fault_policy = "Rollback"
+payload = { type = "ModifyResource", resource_kind = "SkillPoints", update_kind = "Gain", amount_expression_id = 3, scales_with_energy_regeneration = false, rounding = "Floor" }
+
+[[rows]]
+id = 6
+stable_key = "fixture.operation.unreachable-native"
+domain = "Battle"
+target_selector_id = 17
+empty_target_policy = "Fault"
+snapshot_boundary = "Dynamic"
+fault_policy = "Rollback"
+payload = { type = "InvokeNativeHandler", native_handler_id = 1 }
+
+[[rows]]
+id = 7
+stable_key = "fixture.operation.replacement-proposal"
+domain = "Battle"
+target_selector_id = 18
+empty_target_policy = "Skip"
+snapshot_boundary = "EventSnapshot"
+fault_policy = "Rollback"
+payload = { type = "ProposeReplacement", proposal_kind = "PreventDefeat" }

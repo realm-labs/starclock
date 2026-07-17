@@ -1,0 +1,21 @@
+[[rows]]
+id = 1
+stable_key = "fixture.filter.damage"
+source_class = "Unit"
+owner_selector_id = 17
+actor_selector_id = 17
+applier_selector_id = 17
+target_selector_id = 18
+action_kind = "Basic"
+ability_tag = "fixture.basic"
+element = "Fire"
+damage_class = "Ordinary"
+cause_ancestry = "SameAction"
+
+[[rows]]
+id = 2
+stable_key = "fixture.filter.effect-removed"
+source_definition_identity_id = 22
+source_class = "Effect"
+target_selector_id = 18
+cause_ancestry = "DirectParent"

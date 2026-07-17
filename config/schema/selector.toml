@@ -1,0 +1,178 @@
+[[enums]]
+name = "SelectorOrigin"
+values = ["Source", "Owner", "Actor", "Applier", "PrimaryTarget", "CurrentSubject", "Team", "Encounter"]
+
+[[enums]]
+name = "SideRelationship"
+values = ["SameSide", "OpposingSide", "AnySide"]
+
+[[enums]]
+name = "SelectorReferencePoint"
+values = ["CurrentState", "EventSnapshot", "ActionSnapshot"]
+
+[[enums]]
+name = "SelectorOrdering"
+values = ["Formation", "Timeline", "HpRatioAscending", "HpRatioDescending", "StatAscending", "StatDescending", "EventOrder", "StableId"]
+
+[[enums]]
+name = "SelectorChoice"
+values = ["All", "First", "PrimaryPlusAdjacent", "RngUniform", "RngWeighted"]
+
+[[enums]]
+name = "EmptyPoolPolicy"
+values = ["NoOp", "Skip", "CancelRemaining", "Fault"]
+
+[[unions]]
+name = "SelectorPredicateNode"
+tag = "type"
+
+[[unions.variants]]
+name = "FormationRange"
+[[unions.variants.fields]]
+name = "minimum_index"
+type = "i32"
+range = [0, 31]
+[[unions.variants.fields]]
+name = "maximum_index"
+type = "i32"
+range = [0, 31]
+
+[[unions.variants]]
+name = "HasMark"
+[[unions.variants.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+
+[[unions.variants]]
+name = "HasWeakness"
+[[unions.variants.fields]]
+name = "element"
+type = "enum<CombatElement>"
+
+[[unions.variants]]
+name = "HasEffect"
+[[unions.variants.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+
+[[unions.variants]]
+name = "HasTag"
+[[unions.variants.fields]]
+name = "tag"
+type = "string"
+length = [1, 120]
+
+[[unions.variants]]
+name = "OwnedBy"
+[[unions.variants.fields]]
+name = "owner_selector_id"
+type = "ref<Selector.id>"
+
+[[unions.variants]]
+name = "StatCompare"
+[[unions.variants.fields]]
+name = "stat"
+type = "enum<StatKind>"
+[[unions.variants.fields]]
+name = "comparison"
+type = "enum<ComparisonOperator>"
+[[unions.variants.fields]]
+name = "value_expression_id"
+type = "ref<ValueExpression.id>"
+
+[[tables]]
+name = "Selector"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "Selector.toml"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "domain"
+type = "enum<RuleDomain>"
+
+[[tables.fields]]
+name = "origin"
+type = "enum<SelectorOrigin>"
+
+[[tables.fields]]
+name = "side_relationship"
+type = "enum<SideRelationship>"
+
+[[tables.fields]]
+name = "life"
+type = "enum<LifePredicate>"
+
+[[tables.fields]]
+name = "presence"
+type = "enum<PresencePredicate>"
+
+[[tables.fields]]
+name = "reference_point"
+type = "enum<SelectorReferencePoint>"
+
+[[tables.fields]]
+name = "ordering"
+type = "enum<SelectorOrdering>"
+
+[[tables.fields]]
+name = "minimum_count"
+type = "i32"
+range = [0, 64]
+
+[[tables.fields]]
+name = "maximum_count"
+type = "i32"
+range = [1, 64]
+
+[[tables.fields]]
+name = "empty_pool_policy"
+type = "enum<EmptyPoolPolicy>"
+
+[[tables.fields]]
+name = "choice"
+type = "enum<SelectorChoice>"
+
+[[tables.fields]]
+name = "weight_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+
+[[tables.fields]]
+name = "rng_purpose_key"
+type = "optional<string>"
+
+[[tables.fields]]
+name = "allow_repeated_targets"
+type = "bool"
+
+[[tables]]
+name = "SelectorPredicate"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "SelectorPredicate.toml"
+
+[[tables.fields]]
+name = "selector_id"
+type = "ref<Selector.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "predicate"
+type = "union<SelectorPredicateNode>"
+
+[[tables.indexes]]
+name = "by_selector_sequence"
+fields = ["selector_id", "sequence"]
+unique = true
