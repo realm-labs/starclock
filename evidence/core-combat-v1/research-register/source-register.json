@@ -1,0 +1,33 @@
+{
+  "schema_revision": "starclock-goal-research-v1",
+  "generated_on": "2026-07-17",
+  "sources": [
+    {
+      "id": "source.dimbreath.4.4",
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/commit/fd978d6ef09f941fba644c731ab54abd6f7c3568",
+      "accessed_on": "2026-07-17",
+      "version": "Released data visible at Version 4.4 snapshot",
+      "confidence": "PreparedExactStructured",
+      "evidence_sha256": "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+      "note": "Pinned structured baseline. Individual case bindings use normalized record text hashes and the full-pack regeneration proof; no descriptions are copied here."
+    },
+    {
+      "id": "source.hoyolab.version-4.4",
+      "url": "https://www.hoyolab.com/article/45851903?reply=1",
+      "accessed_on": "2026-07-17",
+      "version": "Version 4.4 update details",
+      "confidence": "OfficialVersionAndReleaseBoundary",
+      "evidence_sha256": "e9a64eabc9c657487fcc0b240a76d8dbfaaae095fa04b523649532e70f320557",
+      "note": "Raw HTTP response hash recorded for release/path/element corroboration only; it is not treated as a complete executable kit specification."
+    },
+    {
+      "id": "source.honey-hunter.himeko-nova.4.4",
+      "url": "https://starrail.honeyhunterworld.com/himeko-nova-character/?lang=EN",
+      "accessed_on": "2026-07-17",
+      "version": "Public Version 4.4 page as accessed",
+      "confidence": "SecondaryVersionSensitiveCrossCheck",
+      "evidence_sha256": "65af44357bf47ea4104a749dd3ebb239005fbdba13ee1a9332b609415193beb0",
+      "note": "Used only to frame reproducible Assist Skill and protocol observations. Prepared pinned records remain the factual baseline and unresolved ordering stays Researching."
+    }
+  ]
+}

@@ -11,8 +11,8 @@ commit as every implementation or content batch.
 | Goal ID | `core-combat-v1` |
 | State | `InProgress` |
 | Active phase | Phase 0 — Freeze scope and evidence |
-| Next unblocked batch | `G01-P0-B3` |
-| Last completed batch | `G01-P0-B2` |
+| Next unblocked batch | `G01-P0-B4` |
+| Last completed batch | `G01-P0-B3` |
 | Last completed commit | This ledger row's containing commit; verify after commit |
 | Goal plan baseline | Bound to frozen manifests; Phase 0 execution in progress |
 | Content prerequisite | Verified and bound by `G01-P0-B1` |
@@ -45,7 +45,7 @@ required-coverage denominator until public release and a new manifest revision.
 
 | Phase | State | Exit evidence |
 |---|---|---|
-| Phase 0 — Freeze scope and evidence | `InProgress` | `G01-P0-B1` froze manifest `e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19`; `G01-P0-B2` bound all 283 goal entries to 3,085 prepared records and verified evidence `e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466`; `G01-P0-B3` next. |
+| Phase 0 — Freeze scope and evidence | `InProgress` | `G01-P0-B1` froze manifest `e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19`; `G01-P0-B2` bound all 283 goal entries to prepared evidence; `G01-P0-B3` named 37 implementation-blocking research cases and fixtures in evidence `7d0e55631f584c58c72128c18ccc3715cf7f50ab705973815ed244d31979d62e`; `G01-P0-B4` next. |
 | Phase 1 — Workspace and reproducible data foundation | `Pending` | None |
 | Phase 2 — Deterministic primitives | `Pending` | None |
 | Phase 3 — Executable combat vertical slice | `Pending` | None |
@@ -67,8 +67,8 @@ Phase 0 manifests are frozen.
 | Batch | State | Commit | Validation evidence | Notes |
 |---|---|---|---|---|
 | `G01-P0-B1` | `Complete` | `3c04cb1` | `node tools/content-reference/verify.mjs content-reference/v4.4`; `node tools/goal-manifest/generate.mjs --check`; `node tools/goal-manifest/verify.mjs`; `cargo fmt --all -- --check`; `cargo test`; `git diff --check`. Frozen evidence: [`manifest-index.json`](../../content-manifests/core-combat-v1/manifest-index.json), [`standard-v1.json`](../../content-manifests/core-combat-v1/standard-v1.json), [`partitions.json`](../../content-manifests/core-combat-v1/partitions.json). | Bound reference pack `0dca8ae5…f5a`; froze goal manifest `e2188c78…f19`, 88 forms, 165 Light Cones, 17 exact enemy variants, 6 encounters and 6 scenarios. |
-| `G01-P0-B2` | `Complete` | This row's containing commit | `node tools/goal-provenance/generate.mjs --check`; `node tools/goal-provenance/verify.mjs`; `node tools/content-reference/verify.mjs content-reference/v4.4`; `node tools/goal-manifest/generate.mjs --check`; `node tools/goal-manifest/verify.mjs`; `cargo fmt --all -- --check`; `cargo clippy --workspace --all-targets -- -D warnings`; `cargo test --workspace`; `git diff --check`. Evidence: [`evidence-index.json`](../../evidence/core-combat-v1/reference-binding/evidence-index.json), [`source-cache-report.json`](../../evidence/core-combat-v1/reference-binding/source-cache-report.json), [`saber-archer-audit.json`](../../evidence/core-combat-v1/reference-binding/saber-archer-audit.json). | Verified both pinned revisions and all 1,811 source hashes; regenerated all 13 pack JSON files exactly; mapped 283 frozen entries to a 3,085-record closure; all 10 explicit approximations retain evidence hashes and no approximation is unbound. |
-| `G01-P0-B3` | `Pending` | — | — | Blocking research cases, including Elation and V1a probes. |
+| `G01-P0-B2` | `Complete` | `6654540` | `node tools/goal-provenance/generate.mjs --check`; `node tools/goal-provenance/verify.mjs`; `node tools/content-reference/verify.mjs content-reference/v4.4`; `node tools/goal-manifest/generate.mjs --check`; `node tools/goal-manifest/verify.mjs`; `cargo fmt --all -- --check`; `cargo clippy --workspace --all-targets -- -D warnings`; `cargo test --workspace`; `git diff --check`. Evidence: [`evidence-index.json`](../../evidence/core-combat-v1/reference-binding/evidence-index.json), [`source-cache-report.json`](../../evidence/core-combat-v1/reference-binding/source-cache-report.json), [`saber-archer-audit.json`](../../evidence/core-combat-v1/reference-binding/saber-archer-audit.json). | Verified both pinned revisions and all 1,811 source hashes; regenerated all 13 pack JSON files exactly; mapped 283 frozen entries to a 3,085-record closure; all 10 explicit approximations retain evidence hashes and no approximation is unbound. |
+| `G01-P0-B3` | `Complete` | This row's containing commit | `node tools/goal-research/generate.mjs --check`; `node tools/goal-research/verify.mjs`; `node tools/content-reference/verify.mjs content-reference/v4.4`; `node tools/goal-manifest/generate.mjs --check`; `node tools/goal-manifest/verify.mjs`; `node tools/goal-provenance/generate.mjs --check`; `node tools/goal-provenance/verify.mjs`; `cargo fmt --all -- --check`; `cargo clippy --workspace --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-features`; `git diff --check`. Evidence: [`evidence-index.json`](../../evidence/core-combat-v1/research-register/evidence-index.json), [`research-cases.json`](../../evidence/core-combat-v1/research-register/research-cases.json), [`fixture-specifications.json`](../../evidence/core-combat-v1/research-register/fixture-specifications.json), [`decision-records.json`](../../evidence/core-combat-v1/research-register/decision-records.json). | Named 19 V1a, 8 cross-kit Elation and 10 Himeko Nova cases; assigned every case to a later batch; bound all cases to prepared text hashes and reproducible observation/golden envelopes; no ambiguity was converted into a convenient default. |
 | `G01-P0-B4` | `Pending` | — | — | Initial generated coverage. |
 | `G01-P1-B1` through `G01-P1-B11` | `Pending` | — | — | Workspace, CI, Sora capability proof, schema families and reproducible pipeline. Expand before Phase 1 starts. |
 | `G01-P2-B1` through `G01-P2-B6` | `Pending` | — | — | Deterministic primitives, replay contract and initial property harness. Expand before Phase 2 starts. |
@@ -99,7 +99,8 @@ Phase 0 manifests are frozen.
 | `G01-P7-L09` | `Pending` | — | — | 16 Light Cones; frozen membership below. |
 | `G01-P7-L10` | `Pending` | — | — | 16 Light Cones; frozen membership below. |
 | `G01-P7-L11` | `Pending` | — | — | 5 Light Cones; frozen membership below. |
-| `G01-P7-Mnn` | `Pending` | — | — | Register known mechanic batches during Phase 0; add newly discovered prerequisites before dependent content. |
+| `G01-P7-M01` | `Pending` | — | [`research-cases.json`](../../evidence/core-combat-v1/research-register/research-cases.json) | Resolve and implement the generic Himeko Nova Assist Skill, shared-use counter, Starblazer actor and companion-protocol threshold/forced-use mechanism before `G01-P7-C04`; all 10 approximation fixtures must pass. |
+| `G01-P7-M02+` | `Pending` | — | — | Add newly discovered shared primitive or reviewed native-handler prerequisites before their dependent content partitions. |
 | `G01-P7-R1` | `Pending` | — | — | Clean catalog and coverage regeneration. |
 | `G01-P7-R2` | `Pending` | — | — | Manifest-wide build compilation. |
 | `G01-P8-B1` through `G01-P8-B7` | `Pending` | — | — | Audits, established CI matrix, fuzz expansion, performance gate and freeze. Expand before Phase 8 starts. |
@@ -167,9 +168,9 @@ bindings are in [`standard-v1.json`](../../content-manifests/core-combat-v1/stan
 | ID | State | Question or blocker | Evidence required | Owner/batch |
 |---|---|---|---|---|
 | `G01-R-SABER-ARCHER-SOURCE` | `Complete` | Verified source IDs `1014` and `1015` are absent from pinned 4.4 `AvatarConfig`; their pinned fallback identity, skill/Trace/Eidolon IDs and released-text hashes match. Both retain `ExactPreviousRelease`. | [`saber-archer-audit.json`](../../evidence/core-combat-v1/reference-binding/saber-archer-audit.json) | `G01-P0-B2` |
-| `G01-R-HIMEKO-NOVA-APPROX` | `Pending` | Replace or explicitly constrain the 10 released-text mechanism approximations for Himeko Nova before her production content batch. | Named operation/target/timing cases, source-bound observations and golden fixture specifications. | `G01-P0-B3` |
-| `G01-R-ELATION-SEMANTICS` | `Pending` | Define shared Elation damage, Elation Skill, Punchline, Certified Banger, forced-action and shared-actor/resource semantics from more than one released form. | Cross-kit evidence, decision record and probe fixture specification. | `G01-P0-B3` |
-| `G01-R-V1A-PROBES` | `Pending` | Identify every unresolved timing/ownership question needed by the Asta, Kafka, Clara, Firefly and Aglaea mechanism probes. | Named per-mechanic cases with reproducible observation or golden fixture specifications. | `G01-P0-B3` |
+| `G01-R-HIMEKO-NOVA-APPROX` | `Researching` | Ten named cases now cover every prepared `ApproximateFromReleasedText` ability; exact target/operation/timing remains intentionally unresolved until recorded public observations and executable goldens pass. | [`research-cases.json`](../../evidence/core-combat-v1/research-register/research-cases.json), [`fixture-specifications.json`](../../evidence/core-combat-v1/research-register/fixture-specifications.json) | `G01-P7-M01`, before `G01-P7-C04` |
+| `G01-R-ELATION-SEMANTICS` | `Researching` | Eight named cases constrain distinct damage/ability tags, Punchline, Certified Banger, forced Elation Skills, Skill Point observation, shared Aha ownership and generic APIs using four released forms. | [`research-cases.json`](../../evidence/core-combat-v1/research-register/research-cases.json), [`decision-records.json`](../../evidence/core-combat-v1/research-register/decision-records.json) | `G01-P4-B8`; close by `G01-P4-B11` |
+| `G01-R-V1A-PROBES` | `Researching` | Nineteen named cases cover every Asta, Kafka, Clara, Firefly and Aglaea ownership/timing/formula constraint and bind each to a Phase 4 owner and replayable fixture envelope. | [`research-cases.json`](../../evidence/core-combat-v1/research-register/research-cases.json), [`fixture-specifications.json`](../../evidence/core-combat-v1/research-register/fixture-specifications.json) | `G01-P4-B2` through `G01-P4-B7`; close by `G01-P4-B11` |
 
 An unresolved research case may not be converted into a default implementation
 without a documented project-policy decision and regression fixture.
@@ -192,6 +193,8 @@ without a documented project-policy decision and regression fixture.
 | 2026-07-17 | Freeze six public encounter records, 17 exact variants, and six seeded four-build scenarios as `standard-v1`. | Cover every Goal 01 section 4.4 archetype without claiming or importing the full public enemy catalog. |
 | 2026-07-17 | Retain Saber and Archer as `ExactPreviousRelease` records bound to pinned StarRailRes revision `7b349e39ee0f6f3bf814567995829b99c95e7a93`. | Their source IDs are absent from the pinned 4.4 structured AvatarConfig; the audit proves identity and released-text hashes without fabricating 4.4 provenance. |
 | 2026-07-17 | Carry the 10 source-bound Himeko Nova mechanism approximations into a named Phase 0 research case. | Evidence hashes validate the released text, but exact operation/target/timing semantics require observations or explicit fixture decisions before production import. |
+| 2026-07-17 | Freeze 37 named research cases and reproducible fixture envelopes for V1a, shared Elation and Himeko Nova; retain their state as `Researching`. | Phase 0 must eliminate unnamed ambiguity without pretending that a fixture specification is a completed live observation. |
+| 2026-07-17 | Register `G01-P7-M01` as the prerequisite for Himeko Nova's generic Assist Skill/shared-use/companion-protocol mechanism. | The prepared source contains exact numbers/text hashes but no bound configuration operations for ten abilities; the shared primitive and observation goldens must precede production batch `G01-P7-C04`. |
 
 ## Terminal acceptance checklist
 

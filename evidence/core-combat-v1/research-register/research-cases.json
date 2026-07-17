@@ -1,0 +1,2227 @@
+{
+  "schema_revision": "starclock-goal-research-v1",
+  "generated_on": "2026-07-17",
+  "reference_pack_sha256": "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+  "goal_manifest_sha256": "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19",
+  "case_count": 37,
+  "state_counts": {
+    "Researching": 37
+  },
+  "family_counts": {
+    "HimekoNovaApproximation": 10,
+    "SharedElation": 8,
+    "V1aAglaea": 4,
+    "V1aAsta": 3,
+    "V1aClara": 4,
+    "V1aFirefly": 5,
+    "V1aKafka": 3
+  },
+  "owner_counts": {
+    "G01-P4-B2": 2,
+    "G01-P4-B3": 2,
+    "G01-P4-B4": 2,
+    "G01-P4-B5": 4,
+    "G01-P4-B6": 4,
+    "G01-P4-B7": 5,
+    "G01-P4-B8": 8,
+    "G01-P7-M01": 10
+  },
+  "cases": [
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-AGLAEA-COUNTDOWN-TEARDOWN",
+      "family": "V1aAglaea",
+      "owner_batch": "G01-P4-B7",
+      "record_ids": [
+        "character.aglaea.ability.dance-destined-weaveress.ultra",
+        "character.aglaea.ability.rosy-fingered.skillp01"
+      ],
+      "question": "What is the exact once-only ordering of empowered-state countdown, summon teardown damage/resource changes and ability restoration?",
+      "fixed_expectations": [
+        "The state ends through an explicit countdown actor.",
+        "Every teardown operation executes exactly once under one cause."
+      ],
+      "observations_required": [
+        "Damage, Energy/resource, departure and ability-restoration event order."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.aglaea.ability.dance-destined-weaveress.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "140203"
+          ],
+          "source_text_sha256": "ee583a92ce0fa22ec5ed4e3c1c3253f913b4efabdd312ee8639fb6a2c2c1f3ce",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-aglaea-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.aglaea.ability.rosy-fingered.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "140204"
+          ],
+          "source_text_sha256": "af709d10048b253540fe9439ce44beff539202c1336ebd7aee9a8e00c7b3d371",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-aglaea-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-AGLAEA-JOINT-ACTION-CONTRIBUTIONS",
+      "family": "V1aAglaea",
+      "owner_batch": "G01-P4-B7",
+      "record_ids": [
+        "character.aglaea.ability.slash-by-a-thousandfold-kiss.normal"
+      ],
+      "question": "Which action envelope and cause chain contain Aglaea and Garmentmaker's separate joint-attack contributions?",
+      "fixed_expectations": [
+        "A joint attack is one action envelope.",
+        "Each contribution retains its own damage actor/source and formula context."
+      ],
+      "observations_required": [
+        "Trigger eligibility and once-scope behavior at action, contribution and hit boundaries."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.aglaea.ability.slash-by-a-thousandfold-kiss.normal",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "140208"
+          ],
+          "source_text_sha256": "4f5ddbdb234c2db9b384f699d59edf0a0b6af33841c1e426071ccb6b652b9b26",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-aglaea-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-AGLAEA-PRESENCE-TIMELINE-OWNERSHIP",
+      "family": "V1aAglaea",
+      "owner_batch": "G01-P4-B7",
+      "record_ids": [
+        "character.aglaea.ability.rise-exalted-renown.bpskill",
+        "character.aglaea.ability.rosy-fingered.skillp01"
+      ],
+      "question": "How do Garmentmaker's independent life, presence, timeline and owner link change on summon, heal and resummon?",
+      "fixed_expectations": [
+        "Garmentmaker is an independently identified linked actor.",
+        "Summoning versus healing is chosen from explicit presence state."
+      ],
+      "observations_required": [
+        "Resummon behavior from downed, defeated, departed and already-present states."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.aglaea.ability.rise-exalted-renown.bpskill",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "140202",
+            "140209"
+          ],
+          "source_text_sha256": "85caf7fd51a5fe97c32c5f3f6120c7b73af62ebac713dcc29b936dd77ed98962",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-aglaea-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.aglaea.ability.rosy-fingered.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "140204"
+          ],
+          "source_text_sha256": "af709d10048b253540fe9439ce44beff539202c1336ebd7aee9a8e00c7b3d371",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-aglaea-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-AGLAEA-SPD-STACK-SCOPE",
+      "family": "V1aAglaea",
+      "owner_batch": "G01-P4-B7",
+      "record_ids": [
+        "character.aglaea.ability.rosy-fingered.skillp01"
+      ],
+      "question": "At what attack boundary do summon SPD stacks accumulate, cap and reset, and when does the new SPD rescale action gauge?",
+      "fixed_expectations": [
+        "SPD stacks belong to Garmentmaker, not Aglaea.",
+        "Cap and reset are authored summon-state policies."
+      ],
+      "observations_required": [
+        "Gauge rescaling boundary after stack gain and teardown/reset behavior."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.aglaea.ability.rosy-fingered.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "140204"
+          ],
+          "source_text_sha256": "af709d10048b253540fe9439ce44beff539202c1336ebd7aee9a8e00c7b3d371",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-aglaea-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-ASTA-AURA-STACK-QUERY",
+      "family": "V1aAsta",
+      "owner_batch": "G01-P4-B2",
+      "record_ids": [
+        "character.asta.ability.astrometry.skillp01"
+      ],
+      "question": "Does the party ATK modifier query current Charging stacks dynamically at each stat query without replacing its effect instance?",
+      "fixed_expectations": [
+        "Charging owns one bounded stack resource.",
+        "The team aura value follows current stacks rather than a stale application snapshot."
+      ],
+      "observations_required": [
+        "Stat-query result immediately before and after stack mutation in the same command."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.asta.ability.astrometry.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "100904"
+          ],
+          "source_text_sha256": "b00dc7630f0abc0ef32599775006374faf5a5bf13298b6f9f84d7747ec32ce94",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-asta-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-ASTA-INDEPENDENT-CLOCKS",
+      "family": "V1aAsta",
+      "owner_batch": "G01-P4-B5",
+      "record_ids": [
+        "character.asta.ability.astrometry.skillp01",
+        "character.asta.ability.astral-blessing.ultra"
+      ],
+      "question": "Which owner-turn boundary decays Charging, and how is it ordered relative to the independent Ultimate SPD duration clock?",
+      "fixed_expectations": [
+        "Charging decay is owned by Asta's turn boundary.",
+        "The SPD effect has its own authored duration and is not coupled to Charging."
+      ],
+      "observations_required": [
+        "Before/after-turn ordering when decay and SPD expiry become eligible together."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.asta.ability.astrometry.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "100904"
+          ],
+          "source_text_sha256": "b00dc7630f0abc0ef32599775006374faf5a5bf13298b6f9f84d7747ec32ce94",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-asta-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.asta.ability.astral-blessing.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "100903"
+          ],
+          "source_text_sha256": "32d8604a1ca3cd07b3deb3975522eff72678da0fafee5bcc4cafcc2e0847851a",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-asta-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-ASTA-UNIQUE-TARGET-CREDIT",
+      "family": "V1aAsta",
+      "owner_batch": "G01-P4-B2",
+      "record_ids": [
+        "character.asta.ability.astrometry.skillp01",
+        "character.asta.ability.meteor-storm.bpskill"
+      ],
+      "question": "At which hit boundary are distinct-target and Fire-weakness Charging credits sampled, and how are repeat bounces coalesced?",
+      "fixed_expectations": [
+        "Credit is per distinct target within one action.",
+        "Weakness is sampled at the qualifying hit.",
+        "Repeated hits on one target do not create another distinct-target credit."
+      ],
+      "observations_required": [
+        "Ordered event boundary between hit damage, weakness query and Charging mutation.",
+        "Credit behavior when a target gains or loses Fire weakness between bounce hits."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.asta.ability.astrometry.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "100904"
+          ],
+          "source_text_sha256": "b00dc7630f0abc0ef32599775006374faf5a5bf13298b6f9f84d7747ec32ce94",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-asta-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.asta.ability.meteor-storm.bpskill",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "100902"
+          ],
+          "source_text_sha256": "0163d25101b49bbdb96f6104e0d35f24632d4fb063bfb74f5cc3cf47117306ca",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-asta-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-CLARA-CAUSE-ATTACKER-ALLY",
+      "family": "V1aClara",
+      "owner_batch": "G01-P4-B6",
+      "record_ids": [
+        "character.clara.ability.because-were-family.skillp01"
+      ],
+      "question": "How are enemy attacker, attacked ally, Clara owner and Svarog damage actor retained across counter scheduling?",
+      "fixed_expectations": [
+        "The incoming attack cause contains attacker and attacked ally.",
+        "Counter ownership remains Clara/Svarog while targeting the original attacker."
+      ],
+      "observations_required": [
+        "Actor/owner/source fields on each queued and resolved counter event."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.clara.ability.because-were-family.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "110704"
+          ],
+          "source_text_sha256": "b3227ad1ff5d956f96b89c0eefc1f7ea0e798e09abc966e948deb05dbe14cb10",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-klara-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-CLARA-COUNTER-TARGET-PRIORITY",
+      "family": "V1aClara",
+      "owner_batch": "G01-P4-B6",
+      "record_ids": [
+        "character.clara.ability.because-were-family.skillp01"
+      ],
+      "question": "What deterministic invalidation and priority policy applies if the original attacker becomes illegal before Svarog's counter resolves?",
+      "fixed_expectations": [
+        "The counter is a queued reaction with explicit priority.",
+        "There is no implicit random or nearest-target fallback."
+      ],
+      "observations_required": [
+        "Cancel/retarget behavior after attacker defeat, departure and phase replacement."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.clara.ability.because-were-family.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "110704"
+          ],
+          "source_text_sha256": "b3227ad1ff5d956f96b89c0eefc1f7ea0e798e09abc966e948deb05dbe14cb10",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-klara-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-CLARA-ENHANCED-CHARGE-SCOPE",
+      "family": "V1aClara",
+      "owner_batch": "G01-P4-B6",
+      "record_ids": [
+        "character.clara.ability.promise-not-command.ultra",
+        "character.clara.ability.because-were-family.skillp01"
+      ],
+      "question": "How are enhanced counter charges shared and consumed when multiple allies are attacked in one enemy action?",
+      "fixed_expectations": [
+        "Enhanced counter charges are one Clara-owned shared resource.",
+        "An attack on any ally may qualify while charges remain."
+      ],
+      "observations_required": [
+        "Consumption point and coalescing behavior for AoE/multi-target attacks."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.clara.ability.promise-not-command.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "110703"
+          ],
+          "source_text_sha256": "d063025569b6ddb708c7f98725e943aa3cc87979736769b3d05a2ff9eadfe159",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-klara-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.clara.ability.because-were-family.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "110704"
+          ],
+          "source_text_sha256": "b3227ad1ff5d956f96b89c0eefc1f7ea0e798e09abc966e948deb05dbe14cb10",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-klara-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-CLARA-MARK-CONSUME-ORDER",
+      "family": "V1aClara",
+      "owner_batch": "G01-P4-B6",
+      "record_ids": [
+        "character.clara.ability.svarog-watches-over-you.bpskill"
+      ],
+      "question": "At what per-target phase does Clara's Skill sample and consume each Svarog mark?",
+      "fixed_expectations": [
+        "Each target's mark is sampled for that target's damage.",
+        "Consumption occurs only after that target's Skill damage."
+      ],
+      "observations_required": [
+        "Order under multi-target defeat and mark-triggered reactions."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.clara.ability.svarog-watches-over-you.bpskill",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "110702"
+          ],
+          "source_text_sha256": "25c38d455922b5cb2bf9beb377fe2099c9bcbd44aadd7a4b46efe3b531f69e2d",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-klara-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-ELATION-CERTIFIED-BANGER-OWNERSHIP",
+      "family": "SharedElation",
+      "owner_batch": "G01-P4-B8",
+      "record_ids": [
+        "character.silver-wolf-lv-999.ability.honkai-dmg-demo.elationdamage",
+        "character.silver-wolf-lv-999.ability.pro-gamer-move.elationdamage",
+        "character.silver-wolf-lv-999.ability.i-carry-we-win.skillp01",
+        "character.trailblazer.elation.ability.i-said-elation-did-i-stutter.elationdamage",
+        "character.trailblazer.elation.ability.may-the-trailblaze-fly-you-starward.ultra",
+        "character.trailblazer.elation.ability.that-smile-hits-different.skillp01",
+        "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage",
+        "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra",
+        "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01"
+      ],
+      "question": "Is Certified Banger held by a unit, team subsystem or shared actor, and how do grant/replace/consume operations interact across providers?",
+      "fixed_expectations": [
+        "The holder and provider remain distinct identities.",
+        "Grant/replace/consume policy is authored rather than inferred from path."
+      ],
+      "observations_required": [
+        "Cross-provider replacement and teardown at transformation/departure/wave boundaries."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.silver-wolf-lv-999.ability.honkai-dmg-demo.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150621"
+          ],
+          "source_text_sha256": "137a813a883f94fdb45318120edcd8cd920c6615266a28640ed3817295299793",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-silverwolf999-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.silver-wolf-lv-999.ability.pro-gamer-move.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150620"
+          ],
+          "source_text_sha256": "444a13c183ab3956c81561500ecddeb3e971e2dc69844da78886facb38d60708",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-silverwolf999-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.silver-wolf-lv-999.ability.i-carry-we-win.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150604"
+          ],
+          "source_text_sha256": "fe31a110625ea7341b4b9575a532a03805f476068abc0f81480b16303e3c6bf9",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-silverwolf999-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.i-said-elation-did-i-stutter.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800920",
+            "801020"
+          ],
+          "source_text_sha256": "41803edd31826ff48192c41e274f847d90d75e1ec7292f1a281b97b9fa3b6518",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.may-the-trailblaze-fly-you-starward.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800903",
+            "801003"
+          ],
+          "source_text_sha256": "f30d262673ee24ce7c5944da20d4052295baf1444013082cdbd48912ab715dd5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.that-smile-hits-different.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800904",
+            "801004"
+          ],
+          "source_text_sha256": "2c95faba307b47cba7317308d45004ab21753c4a87a2db2d88ecf56462088bc0",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150220"
+          ],
+          "source_text_sha256": "9edca7b273bf822d09bbabe4ca7d94df617a74c66f0e64f6b1c681e1dfcd2662",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150203"
+          ],
+          "source_text_sha256": "0e2c95f9423c1a42ff615df6292d35c870fffffacde875f42ce145a14c2440e5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150204"
+          ],
+          "source_text_sha256": "10a04a1c62ad3721cd31a1cbe0daeb329035e093f70a44264f3c00eca3c1dbc5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-ELATION-DAMAGE-ABILITY-TAGS",
+      "family": "SharedElation",
+      "owner_batch": "G01-P4-B8",
+      "record_ids": [
+        "character.silver-wolf-lv-999.ability.honkai-dmg-demo.elationdamage",
+        "character.silver-wolf-lv-999.ability.pro-gamer-move.elationdamage",
+        "character.silver-wolf-lv-999.ability.i-carry-we-win.skillp01",
+        "character.trailblazer.elation.ability.i-said-elation-did-i-stutter.elationdamage",
+        "character.trailblazer.elation.ability.may-the-trailblaze-fly-you-starward.ultra",
+        "character.trailblazer.elation.ability.that-smile-hits-different.skillp01",
+        "character.sparxie.ability.signal-overflow-the-great-encore.elationdamage",
+        "character.sparxie.ability.sleight-of-sparx-hand.skillp01",
+        "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage",
+        "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra",
+        "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01"
+      ],
+      "question": "How are Elation ability identity and Elation damage category represented independently across released kits?",
+      "fixed_expectations": [
+        "Elation damage is not ordinary additional or follow-up damage.",
+        "Ability tags and emitted damage-class tags are separate queryable fields."
+      ],
+      "observations_required": [
+        "Cross-kit trigger matrix for ordinary abilities that emit Elation damage and explicit Elation Skills."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.silver-wolf-lv-999.ability.honkai-dmg-demo.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150621"
+          ],
+          "source_text_sha256": "137a813a883f94fdb45318120edcd8cd920c6615266a28640ed3817295299793",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-silverwolf999-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.silver-wolf-lv-999.ability.pro-gamer-move.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150620"
+          ],
+          "source_text_sha256": "444a13c183ab3956c81561500ecddeb3e971e2dc69844da78886facb38d60708",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-silverwolf999-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.silver-wolf-lv-999.ability.i-carry-we-win.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150604"
+          ],
+          "source_text_sha256": "fe31a110625ea7341b4b9575a532a03805f476068abc0f81480b16303e3c6bf9",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-silverwolf999-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.i-said-elation-did-i-stutter.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800920",
+            "801020"
+          ],
+          "source_text_sha256": "41803edd31826ff48192c41e274f847d90d75e1ec7292f1a281b97b9fa3b6518",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.may-the-trailblaze-fly-you-starward.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800903",
+            "801003"
+          ],
+          "source_text_sha256": "f30d262673ee24ce7c5944da20d4052295baf1444013082cdbd48912ab715dd5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.that-smile-hits-different.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800904",
+            "801004"
+          ],
+          "source_text_sha256": "2c95faba307b47cba7317308d45004ab21753c4a87a2db2d88ecf56462088bc0",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.sparxie.ability.signal-overflow-the-great-encore.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150120"
+          ],
+          "source_text_sha256": "587594a4ce3ce36800cd8f690287492abc289f197051858ab1b97eea7542fef3",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sparxie-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.sparxie.ability.sleight-of-sparx-hand.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150104"
+          ],
+          "source_text_sha256": "a9a1fb4e493d3dd19166f49203623e5423fe9ed3d9b328dee34b780ccafe9625",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sparxie-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150220"
+          ],
+          "source_text_sha256": "9edca7b273bf822d09bbabe4ca7d94df617a74c66f0e64f6b1c681e1dfcd2662",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150203"
+          ],
+          "source_text_sha256": "0e2c95f9423c1a42ff615df6292d35c870fffffacde875f42ce145a14c2440e5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150204"
+          ],
+          "source_text_sha256": "10a04a1c62ad3721cd31a1cbe0daeb329035e093f70a44264f3c00eca3c1dbc5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-ELATION-FORCED-SKILL-ENVELOPE",
+      "family": "SharedElation",
+      "owner_batch": "G01-P4-B8",
+      "record_ids": [
+        "character.trailblazer.elation.ability.i-said-elation-did-i-stutter.elationdamage",
+        "character.trailblazer.elation.ability.may-the-trailblaze-fly-you-starward.ultra",
+        "character.trailblazer.elation.ability.that-smile-hits-different.skillp01"
+      ],
+      "question": "Does Trailblazer's forced ally Elation Skill create an extra action, forced ability envelope or nested program, and which triggers/once-scopes see it?",
+      "fixed_expectations": [
+        "The forced use retains Trailblazer as cause/provider and the ally as ability actor.",
+        "It is not an ordinary action advance."
+      ],
+      "observations_required": [
+        "Turn consumption, gauge movement, action-start/end events and Ultimate/follow-up trigger eligibility."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.i-said-elation-did-i-stutter.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800920",
+            "801020"
+          ],
+          "source_text_sha256": "41803edd31826ff48192c41e274f847d90d75e1ec7292f1a281b97b9fa3b6518",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.may-the-trailblaze-fly-you-starward.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800903",
+            "801003"
+          ],
+          "source_text_sha256": "f30d262673ee24ce7c5944da20d4052295baf1444013082cdbd48912ab715dd5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.that-smile-hits-different.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800904",
+            "801004"
+          ],
+          "source_text_sha256": "2c95faba307b47cba7317308d45004ab21753c4a87a2db2d88ecf56462088bc0",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-ELATION-FORCED-SKILL-TARGET-COST",
+      "family": "SharedElation",
+      "owner_batch": "G01-P4-B8",
+      "record_ids": [
+        "character.trailblazer.elation.ability.i-said-elation-did-i-stutter.elationdamage",
+        "character.trailblazer.elation.ability.may-the-trailblaze-fly-you-starward.ultra",
+        "character.trailblazer.elation.ability.that-smile-hits-different.skillp01",
+        "character.sparxie.ability.signal-overflow-the-great-encore.elationdamage",
+        "character.sparxie.ability.sleight-of-sparx-hand.skillp01"
+      ],
+      "question": "Which target, cost, decision and invalidation policies apply to a forced Elation Skill?",
+      "fixed_expectations": [
+        "Cost suppression/substitution and target choice are explicit forced-use arguments.",
+        "Invalid target handling consumes no undeclared RNG or resource."
+      ],
+      "observations_required": [
+        "Manual-target versus authored automatic-target behavior, insufficient substitute resource and target death."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.i-said-elation-did-i-stutter.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800920",
+            "801020"
+          ],
+          "source_text_sha256": "41803edd31826ff48192c41e274f847d90d75e1ec7292f1a281b97b9fa3b6518",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.may-the-trailblaze-fly-you-starward.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800903",
+            "801003"
+          ],
+          "source_text_sha256": "f30d262673ee24ce7c5944da20d4052295baf1444013082cdbd48912ab715dd5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.that-smile-hits-different.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800904",
+            "801004"
+          ],
+          "source_text_sha256": "2c95faba307b47cba7317308d45004ab21753c4a87a2db2d88ecf56462088bc0",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.sparxie.ability.signal-overflow-the-great-encore.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150120"
+          ],
+          "source_text_sha256": "587594a4ce3ce36800cd8f690287492abc289f197051858ab1b97eea7542fef3",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sparxie-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.sparxie.ability.sleight-of-sparx-hand.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150104"
+          ],
+          "source_text_sha256": "a9a1fb4e493d3dd19166f49203623e5423fe9ed3d9b328dee34b780ccafe9625",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sparxie-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-ELATION-GENERIC-API-BOUNDARY",
+      "family": "SharedElation",
+      "owner_batch": "G01-P4-B8",
+      "record_ids": [
+        "character.silver-wolf-lv-999.ability.honkai-dmg-demo.elationdamage",
+        "character.silver-wolf-lv-999.ability.pro-gamer-move.elationdamage",
+        "character.silver-wolf-lv-999.ability.i-carry-we-win.skillp01",
+        "character.trailblazer.elation.ability.i-said-elation-did-i-stutter.elationdamage",
+        "character.trailblazer.elation.ability.may-the-trailblaze-fly-you-starward.ultra",
+        "character.trailblazer.elation.ability.that-smile-hits-different.skillp01",
+        "character.sparxie.ability.signal-overflow-the-great-encore.elationdamage",
+        "character.sparxie.ability.sleight-of-sparx-hand.skillp01",
+        "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage",
+        "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra",
+        "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01"
+      ],
+      "question": "Can the shared subsystem express all probe cases using generic tags, slots, actor links and operations without content-form IDs?",
+      "fixed_expectations": [
+        "No core API or resolver branch names a released form.",
+        "Kit-specific programs remain data or use a reviewed static handler only after an IR-insufficiency decision."
+      ],
+      "observations_required": [
+        "Compilation audit of four released-form probes and negative one-kit API scan."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.silver-wolf-lv-999.ability.honkai-dmg-demo.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150621"
+          ],
+          "source_text_sha256": "137a813a883f94fdb45318120edcd8cd920c6615266a28640ed3817295299793",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-silverwolf999-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.silver-wolf-lv-999.ability.pro-gamer-move.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150620"
+          ],
+          "source_text_sha256": "444a13c183ab3956c81561500ecddeb3e971e2dc69844da78886facb38d60708",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-silverwolf999-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.silver-wolf-lv-999.ability.i-carry-we-win.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150604"
+          ],
+          "source_text_sha256": "fe31a110625ea7341b4b9575a532a03805f476068abc0f81480b16303e3c6bf9",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-silverwolf999-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.i-said-elation-did-i-stutter.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800920",
+            "801020"
+          ],
+          "source_text_sha256": "41803edd31826ff48192c41e274f847d90d75e1ec7292f1a281b97b9fa3b6518",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.may-the-trailblaze-fly-you-starward.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800903",
+            "801003"
+          ],
+          "source_text_sha256": "f30d262673ee24ce7c5944da20d4052295baf1444013082cdbd48912ab715dd5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.that-smile-hits-different.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800904",
+            "801004"
+          ],
+          "source_text_sha256": "2c95faba307b47cba7317308d45004ab21753c4a87a2db2d88ecf56462088bc0",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.sparxie.ability.signal-overflow-the-great-encore.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150120"
+          ],
+          "source_text_sha256": "587594a4ce3ce36800cd8f690287492abc289f197051858ab1b97eea7542fef3",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sparxie-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.sparxie.ability.sleight-of-sparx-hand.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150104"
+          ],
+          "source_text_sha256": "a9a1fb4e493d3dd19166f49203623e5423fe9ed3d9b328dee34b780ccafe9625",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sparxie-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150220"
+          ],
+          "source_text_sha256": "9edca7b273bf822d09bbabe4ca7d94df617a74c66f0e64f6b1c681e1dfcd2662",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150203"
+          ],
+          "source_text_sha256": "0e2c95f9423c1a42ff615df6292d35c870fffffacde875f42ce145a14c2440e5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150204"
+          ],
+          "source_text_sha256": "10a04a1c62ad3721cd31a1cbe0daeb329035e093f70a44264f3c00eca3c1dbc5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-ELATION-PUNCHLINE-SCOPE-CREDIT",
+      "family": "SharedElation",
+      "owner_batch": "G01-P4-B8",
+      "record_ids": [
+        "character.trailblazer.elation.ability.i-said-elation-did-i-stutter.elationdamage",
+        "character.trailblazer.elation.ability.may-the-trailblaze-fly-you-starward.ultra",
+        "character.trailblazer.elation.ability.that-smile-hits-different.skillp01",
+        "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage",
+        "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra",
+        "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01"
+      ],
+      "question": "Is Punchline a team subsystem resource, which actor receives each credit, and when do spend/threshold triggers observe it?",
+      "fixed_expectations": [
+        "Punchline has explicit team/actor ownership and one canonical mutation event.",
+        "Threshold checks observe ordered effective resource changes."
+      ],
+      "observations_required": [
+        "Simultaneous cross-kit credit ordering, caps/overflow and wave persistence."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.i-said-elation-did-i-stutter.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800920",
+            "801020"
+          ],
+          "source_text_sha256": "41803edd31826ff48192c41e274f847d90d75e1ec7292f1a281b97b9fa3b6518",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.may-the-trailblaze-fly-you-starward.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800903",
+            "801003"
+          ],
+          "source_text_sha256": "f30d262673ee24ce7c5944da20d4052295baf1444013082cdbd48912ab715dd5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.trailblazer.elation.ability.that-smile-hits-different.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "800904",
+            "801004"
+          ],
+          "source_text_sha256": "2c95faba307b47cba7317308d45004ab21753c4a87a2db2d88ecf56462088bc0",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-playerboy-40-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150220"
+          ],
+          "source_text_sha256": "9edca7b273bf822d09bbabe4ca7d94df617a74c66f0e64f6b1c681e1dfcd2662",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150203"
+          ],
+          "source_text_sha256": "0e2c95f9423c1a42ff615df6292d35c870fffffacde875f42ce145a14c2440e5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150204"
+          ],
+          "source_text_sha256": "10a04a1c62ad3721cd31a1cbe0daeb329035e093f70a44264f3c00eca3c1dbc5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-ELATION-SHARED-ACTOR-AHA",
+      "family": "SharedElation",
+      "owner_batch": "G01-P4-B8",
+      "record_ids": [
+        "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage",
+        "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra",
+        "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01"
+      ],
+      "question": "What actor, owner, resource contribution and timeline semantics apply when Yao Guang grants Aha an extra turn?",
+      "fixed_expectations": [
+        "Aha is a shared subsystem actor, not a hidden Yao Guang action.",
+        "Its resource contribution and provider cause are explicit."
+      ],
+      "observations_required": [
+        "Timeline identity, targeting, extra-turn priority, ownership after Yao Guang departure and concurrent providers."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150220"
+          ],
+          "source_text_sha256": "9edca7b273bf822d09bbabe4ca7d94df617a74c66f0e64f6b1c681e1dfcd2662",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150203"
+          ],
+          "source_text_sha256": "0e2c95f9423c1a42ff615df6292d35c870fffffacde875f42ce145a14c2440e5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150204"
+          ],
+          "source_text_sha256": "10a04a1c62ad3721cd31a1cbe0daeb329035e093f70a44264f3c00eca3c1dbc5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-ELATION-SP-SPEND-OBSERVATION",
+      "family": "SharedElation",
+      "owner_batch": "G01-P4-B8",
+      "record_ids": [
+        "character.silver-wolf-lv-999.ability.honkai-dmg-demo.elationdamage",
+        "character.silver-wolf-lv-999.ability.pro-gamer-move.elationdamage",
+        "character.silver-wolf-lv-999.ability.i-carry-we-win.skillp01",
+        "character.sparxie.ability.signal-overflow-the-great-encore.elationdamage",
+        "character.sparxie.ability.sleight-of-sparx-hand.skillp01",
+        "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage",
+        "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra",
+        "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01"
+      ],
+      "question": "Which attempted/effective Skill Point spend event triggers shared Elation effects when substitute or suppressed costs are used?",
+      "fixed_expectations": [
+        "Attempted cost, actual payer and effective spend are distinct event fields.",
+        "Each rule declares which field it inspects."
+      ],
+      "observations_required": [
+        "Ordinary SP, zero-cost, suppressed-cost and substitute-resource matrix across released forms."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.silver-wolf-lv-999.ability.honkai-dmg-demo.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150621"
+          ],
+          "source_text_sha256": "137a813a883f94fdb45318120edcd8cd920c6615266a28640ed3817295299793",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-silverwolf999-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.silver-wolf-lv-999.ability.pro-gamer-move.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150620"
+          ],
+          "source_text_sha256": "444a13c183ab3956c81561500ecddeb3e971e2dc69844da78886facb38d60708",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-silverwolf999-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.silver-wolf-lv-999.ability.i-carry-we-win.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150604"
+          ],
+          "source_text_sha256": "fe31a110625ea7341b4b9575a532a03805f476068abc0f81480b16303e3c6bf9",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-silverwolf999-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.sparxie.ability.signal-overflow-the-great-encore.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150120"
+          ],
+          "source_text_sha256": "587594a4ce3ce36800cd8f690287492abc289f197051858ab1b97eea7542fef3",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sparxie-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.sparxie.ability.sleight-of-sparx-hand.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150104"
+          ],
+          "source_text_sha256": "a9a1fb4e493d3dd19166f49203623e5423fe9ed3d9b328dee34b780ccafe9625",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sparxie-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150220"
+          ],
+          "source_text_sha256": "9edca7b273bf822d09bbabe4ca7d94df617a74c66f0e64f6b1c681e1dfcd2662",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150203"
+          ],
+          "source_text_sha256": "0e2c95f9423c1a42ff615df6292d35c870fffffacde875f42ce145a14c2440e5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "150204"
+          ],
+          "source_text_sha256": "10a04a1c62ad3721cd31a1cbe0daeb329035e093f70a44264f3c00eca3c1dbc5",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-yaoguang-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-FIREFLY-COUNTDOWN-TEARDOWN",
+      "family": "V1aFirefly",
+      "owner_batch": "G01-P4-B7",
+      "record_ids": [
+        "character.firefly.ability.fyrefly-type-iv-complete-combustion.ultra"
+      ],
+      "question": "Which teardown operations run when the countdown acts, a wave changes, or Firefly is downed/revived?",
+      "fixed_expectations": [
+        "The ordinary ability set is restored and transform-owned state is removed exactly once.",
+        "No orphan countdown actor survives teardown."
+      ],
+      "observations_required": [
+        "Carry/reset behavior across AfterAction wave transition, defeat interception and revival."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.firefly.ability.fyrefly-type-iv-complete-combustion.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "131003"
+          ],
+          "source_text_sha256": "fe0c7311434bf03b3b122ac5328a6b5c0d61273f76d357ac99424d1bece11b87",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sam-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-FIREFLY-HP-ENERGY-ATOMIC",
+      "family": "V1aFirefly",
+      "owner_batch": "G01-P4-B3",
+      "record_ids": [
+        "character.firefly.ability.order-aerial-bombardment.bpskill",
+        "character.firefly.ability.chrysalid-pyronexus.skillp01"
+      ],
+      "question": "How are Skill HP consumption, legal HP floor and Energy restoration committed when replacement or defeat interception is eligible?",
+      "fixed_expectations": [
+        "HP cost and Energy restoration resolve as one checked authored program.",
+        "Invalid cost cannot partially mutate authoritative state."
+      ],
+      "observations_required": [
+        "Effective HP cost and Energy gain at minimum HP and with cost modifiers.",
+        "Replacement-trigger visibility between the two operations."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.firefly.ability.order-aerial-bombardment.bpskill",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "131002"
+          ],
+          "source_text_sha256": "78cddf0b6fce13aa578aa8564bad7a7ad9a5f553ffde066c8ad2bdeccc3852ac",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sam-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.firefly.ability.chrysalid-pyronexus.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "131004"
+          ],
+          "source_text_sha256": "5336492ed43f02e6433f41ef9ea168588929528e98d3ba8753be5a03dbd8af6b",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sam-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-FIREFLY-SUPERBREAK-SAMPLE",
+      "family": "V1aFirefly",
+      "owner_batch": "G01-P4-B4",
+      "record_ids": [
+        "character.firefly.ability.fyrefly-type-iv-deathstar-overload.bpskill"
+      ],
+      "question": "Which attempted/effective Toughness value and hit boundary feed Firefly's authored Super Break instances?",
+      "fixed_expectations": [
+        "Super Break uses its dedicated formula family and an explicitly selected Toughness sample.",
+        "It does not inherit ordinary DMG Boost or CRIT."
+      ],
+      "observations_required": [
+        "Overkill Toughness reduction, zero remaining Toughness and layered/Exo-Toughness samples."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.firefly.ability.fyrefly-type-iv-deathstar-overload.bpskill",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "131009"
+          ],
+          "source_text_sha256": "a48558d7d5a6f8967142a2d7bf7064e23f55a40ed0f175c6bc3da6377cfcae54",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sam-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-FIREFLY-TRANSFORM-ADVANCE",
+      "family": "V1aFirefly",
+      "owner_batch": "G01-P4-B3",
+      "record_ids": [
+        "character.firefly.ability.fyrefly-type-iv-complete-combustion.ultra",
+        "character.firefly.ability.chrysalid-pyronexus.skillp01"
+      ],
+      "question": "At which phases do Complete Combustion's stat modifiers, ability replacements, action advance and countdown actor become visible?",
+      "fixed_expectations": [
+        "Transformation owns explicit replacement/modifier instances.",
+        "Action advance and countdown creation are resolver operations, not scheduler exceptions."
+      ],
+      "observations_required": [
+        "Visibility order to immediate reactions and legal-decision queries."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.firefly.ability.fyrefly-type-iv-complete-combustion.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "131003"
+          ],
+          "source_text_sha256": "fe0c7311434bf03b3b122ac5328a6b5c0d61273f76d357ac99424d1bece11b87",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sam-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.firefly.ability.chrysalid-pyronexus.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "131004"
+          ],
+          "source_text_sha256": "5336492ed43f02e6433f41ef9ea168588929528e98d3ba8753be5a03dbd8af6b",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sam-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-FIREFLY-WEAKNESS-TOUGHNESS-ORDER",
+      "family": "V1aFirefly",
+      "owner_batch": "G01-P4-B4",
+      "record_ids": [
+        "character.firefly.ability.fyrefly-type-iv-deathstar-overload.bpskill"
+      ],
+      "question": "Does enhanced Skill implant Fire weakness before every hit's Toughness eligibility query, including the first hit?",
+      "fixed_expectations": [
+        "Fire weakness application precedes the enhanced Skill Toughness operation.",
+        "Weakness and RES remain separately authored concepts."
+      ],
+      "observations_required": [
+        "First-hit weakness/Toughness event ordering and expiry scope."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.firefly.ability.fyrefly-type-iv-deathstar-overload.bpskill",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "131009"
+          ],
+          "source_text_sha256": "a48558d7d5a6f8967142a2d7bf7064e23f55a40ed0f175c6bc3da6377cfcae54",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-sam-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "ReleasedTextBoundApproximation",
+      "source_ids": [
+        "source.dimbreath.4.4",
+        "source.hoyolab.version-4.4",
+        "source.honey-hunter.himeko-nova.4.4"
+      ],
+      "id": "G01-R-HIMEKO-NOVA-COMPANION-PROTOCOL-DECIMATION",
+      "family": "HimekoNovaApproximation",
+      "owner_batch": "G01-P7-M01",
+      "dependent_batch": "G01-P7-C04",
+      "record_ids": [
+        "character.himeko-nova.ability.companion-protocol-decimation.assist"
+      ],
+      "question": "What exact target program, ordered operations and timing envelope implement Companion Protocol: Decimation (source skill 151026)?",
+      "fixed_expectations": [
+        "Prepared numeric/level fields remain exact structured inputs.",
+        "The released-text SHA-256 remains f1d427c0b461247ead9d4c21e141bbeb61a5012e70da0787c5fff2643816cd9b.",
+        "No missing configuration operation is borrowed from a similarly named ability."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.himeko-nova.ability.companion-protocol-decimation.assist",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ApproximateFromReleasedText",
+          "source_skill_ids": [
+            "151026"
+          ],
+          "source_text_sha256": "f1d427c0b461247ead9d4c21e141bbeb61a5012e70da0787c5fff2643816cd9b",
+          "source_file_ids": []
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "ReleasedTextBoundApproximation",
+      "source_ids": [
+        "source.dimbreath.4.4",
+        "source.hoyolab.version-4.4",
+        "source.honey-hunter.himeko-nova.4.4"
+      ],
+      "id": "G01-R-HIMEKO-NOVA-COMPANION-PROTOCOL-VERDICT",
+      "family": "HimekoNovaApproximation",
+      "owner_batch": "G01-P7-M01",
+      "dependent_batch": "G01-P7-C04",
+      "record_ids": [
+        "character.himeko-nova.ability.companion-protocol-verdict.assist"
+      ],
+      "question": "What exact target program, ordered operations and timing envelope implement Companion Protocol: Verdict (source skill 151025)?",
+      "fixed_expectations": [
+        "Prepared numeric/level fields remain exact structured inputs.",
+        "The released-text SHA-256 remains d09ca85a0a261c0064eaeb8a1710fbde64c9a2b6a363f86842e76787ab69a8ec.",
+        "No missing configuration operation is borrowed from a similarly named ability."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.himeko-nova.ability.companion-protocol-verdict.assist",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ApproximateFromReleasedText",
+          "source_skill_ids": [
+            "151025"
+          ],
+          "source_text_sha256": "d09ca85a0a261c0064eaeb8a1710fbde64c9a2b6a363f86842e76787ab69a8ec",
+          "source_file_ids": []
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "ReleasedTextBoundApproximation",
+      "source_ids": [
+        "source.dimbreath.4.4",
+        "source.hoyolab.version-4.4",
+        "source.honey-hunter.himeko-nova.4.4"
+      ],
+      "id": "G01-R-HIMEKO-NOVA-ENKINDLE-THE-FIRST-LODESTAR",
+      "family": "HimekoNovaApproximation",
+      "owner_batch": "G01-P7-M01",
+      "dependent_batch": "G01-P7-C04",
+      "record_ids": [
+        "character.himeko-nova.ability.enkindle-the-first-lodestar.normal"
+      ],
+      "question": "What exact target program, ordered operations and timing envelope implement Enkindle the First Lodestar (source skill 151001)?",
+      "fixed_expectations": [
+        "Prepared numeric/level fields remain exact structured inputs.",
+        "The released-text SHA-256 remains 2e43493b17a09157a908e8f6b365cb0fb3b18af005390e9fcf933e5166481e16.",
+        "No missing configuration operation is borrowed from a similarly named ability."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.himeko-nova.ability.enkindle-the-first-lodestar.normal",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ApproximateFromReleasedText",
+          "source_skill_ids": [
+            "151001"
+          ],
+          "source_text_sha256": "2e43493b17a09157a908e8f6b365cb0fb3b18af005390e9fcf933e5166481e16",
+          "source_file_ids": []
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "ReleasedTextBoundApproximation",
+      "source_ids": [
+        "source.dimbreath.4.4",
+        "source.hoyolab.version-4.4",
+        "source.honey-hunter.himeko-nova.4.4"
+      ],
+      "id": "G01-R-HIMEKO-NOVA-HYPERLUMINAL-PARTICLE-BEAM",
+      "family": "HimekoNovaApproximation",
+      "owner_batch": "G01-P7-M01",
+      "dependent_batch": "G01-P7-C04",
+      "record_ids": [
+        "character.himeko-nova.ability.hyperluminal-particle-beam.ultra"
+      ],
+      "question": "What exact target program, ordered operations and timing envelope implement Hyperluminal Particle Beam (source skill 151008)?",
+      "fixed_expectations": [
+        "Prepared numeric/level fields remain exact structured inputs.",
+        "The released-text SHA-256 remains 8c8c8d8731cc93d14596bc2d1f7cf7d924dd4adffe38ba265b5ed632cf73c1fe.",
+        "No missing configuration operation is borrowed from a similarly named ability."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.himeko-nova.ability.hyperluminal-particle-beam.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ApproximateFromReleasedText",
+          "source_skill_ids": [
+            "151008"
+          ],
+          "source_text_sha256": "8c8c8d8731cc93d14596bc2d1f7cf7d924dd4adffe38ba265b5ed632cf73c1fe",
+          "source_file_ids": []
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "ReleasedTextBoundApproximation",
+      "source_ids": [
+        "source.dimbreath.4.4",
+        "source.hoyolab.version-4.4",
+        "source.honey-hunter.himeko-nova.4.4"
+      ],
+      "id": "G01-R-HIMEKO-NOVA-OF-FIRE-AND-FAR-FARING",
+      "family": "HimekoNovaApproximation",
+      "owner_batch": "G01-P7-M01",
+      "dependent_batch": "G01-P7-C04",
+      "record_ids": [
+        "character.himeko-nova.ability.of-fire-and-far-faring.skillp01"
+      ],
+      "question": "What exact target program, ordered operations and timing envelope implement Of Fire and Far Faring (source skill 151004)?",
+      "fixed_expectations": [
+        "Prepared numeric/level fields remain exact structured inputs.",
+        "The released-text SHA-256 remains 807421930107e78710ca2e77c92ba54931950465f2eba7852d15b69631547003.",
+        "No missing configuration operation is borrowed from a similarly named ability."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.himeko-nova.ability.of-fire-and-far-faring.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ApproximateFromReleasedText",
+          "source_skill_ids": [
+            "151004"
+          ],
+          "source_text_sha256": "807421930107e78710ca2e77c92ba54931950465f2eba7852d15b69631547003",
+          "source_file_ids": []
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "ReleasedTextBoundApproximation",
+      "source_ids": [
+        "source.dimbreath.4.4",
+        "source.hoyolab.version-4.4",
+        "source.honey-hunter.himeko-nova.4.4"
+      ],
+      "id": "G01-R-HIMEKO-NOVA-ORBITAL-ANNIHILATION-PULSE",
+      "family": "HimekoNovaApproximation",
+      "owner_batch": "G01-P7-M01",
+      "dependent_batch": "G01-P7-C04",
+      "record_ids": [
+        "character.himeko-nova.ability.orbital-annihilation-pulse.ultra"
+      ],
+      "question": "What exact target program, ordered operations and timing envelope implement Orbital Annihilation Pulse (source skill 151009)?",
+      "fixed_expectations": [
+        "Prepared numeric/level fields remain exact structured inputs.",
+        "The released-text SHA-256 remains 56f633216fdc815807a4702abc85d074a94ff09cb09d0ce0b18270ba4b779fd4.",
+        "No missing configuration operation is borrowed from a similarly named ability."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.himeko-nova.ability.orbital-annihilation-pulse.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ApproximateFromReleasedText",
+          "source_skill_ids": [
+            "151009"
+          ],
+          "source_text_sha256": "56f633216fdc815807a4702abc85d074a94ff09cb09d0ce0b18270ba4b779fd4",
+          "source_file_ids": []
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "ReleasedTextBoundApproximation",
+      "source_ids": [
+        "source.dimbreath.4.4",
+        "source.hoyolab.version-4.4",
+        "source.honey-hunter.himeko-nova.4.4"
+      ],
+      "id": "G01-R-HIMEKO-NOVA-STARCHARTER-CRUISE",
+      "family": "HimekoNovaApproximation",
+      "owner_batch": "G01-P7-M01",
+      "dependent_batch": "G01-P7-C04",
+      "record_ids": [
+        "character.himeko-nova.ability.starcharter-cruise.maze"
+      ],
+      "question": "What exact target program, ordered operations and timing envelope implement Starcharter Cruise (source skill 151007)?",
+      "fixed_expectations": [
+        "Prepared numeric/level fields remain exact structured inputs.",
+        "The released-text SHA-256 remains 07bd7a716f2692a90f065424d56282ed6c24210a1585434667e1ed2df134c322.",
+        "No missing configuration operation is borrowed from a similarly named ability."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.himeko-nova.ability.starcharter-cruise.maze",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ApproximateFromReleasedText",
+          "source_skill_ids": [
+            "151007"
+          ],
+          "source_text_sha256": "07bd7a716f2692a90f065424d56282ed6c24210a1585434667e1ed2df134c322",
+          "source_file_ids": []
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "ReleasedTextBoundApproximation",
+      "source_ids": [
+        "source.dimbreath.4.4",
+        "source.hoyolab.version-4.4",
+        "source.honey-hunter.himeko-nova.4.4"
+      ],
+      "id": "G01-R-HIMEKO-NOVA-TRAILBLAZE-BY-YOUR-SIDE",
+      "family": "HimekoNovaApproximation",
+      "owner_batch": "G01-P7-M01",
+      "dependent_batch": "G01-P7-C04",
+      "record_ids": [
+        "character.himeko-nova.ability.trailblaze-by-your-side.assist"
+      ],
+      "question": "What exact target program, ordered operations and timing envelope implement Trailblaze, By Your Side (source skill 151022)?",
+      "fixed_expectations": [
+        "Prepared numeric/level fields remain exact structured inputs.",
+        "The released-text SHA-256 remains 9c81512c63244e2a59f48ce77d6c641c682ce6584dbd1894be27a329533d1565.",
+        "No missing configuration operation is borrowed from a similarly named ability."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.himeko-nova.ability.trailblaze-by-your-side.assist",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ApproximateFromReleasedText",
+          "source_skill_ids": [
+            "151022"
+          ],
+          "source_text_sha256": "9c81512c63244e2a59f48ce77d6c641c682ce6584dbd1894be27a329533d1565",
+          "source_file_ids": []
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "ReleasedTextBoundApproximation",
+      "source_ids": [
+        "source.dimbreath.4.4",
+        "source.hoyolab.version-4.4",
+        "source.honey-hunter.himeko-nova.4.4"
+      ],
+      "id": "G01-R-HIMEKO-NOVA-UPRAISE-THE-VANWARD-CRESSET",
+      "family": "HimekoNovaApproximation",
+      "owner_batch": "G01-P7-M01",
+      "dependent_batch": "G01-P7-C04",
+      "record_ids": [
+        "character.himeko-nova.ability.upraise-the-vanward-cresset.bpskill"
+      ],
+      "question": "What exact target program, ordered operations and timing envelope implement Upraise the Vanward Cresset (source skill 151002)?",
+      "fixed_expectations": [
+        "Prepared numeric/level fields remain exact structured inputs.",
+        "The released-text SHA-256 remains c9a406105c2bb56729a8c7c4195b287a44d825f9b347308f3270f39ef467631e.",
+        "No missing configuration operation is borrowed from a similarly named ability."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.himeko-nova.ability.upraise-the-vanward-cresset.bpskill",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ApproximateFromReleasedText",
+          "source_skill_ids": [
+            "151002"
+          ],
+          "source_text_sha256": "c9a406105c2bb56729a8c7c4195b287a44d825f9b347308f3270f39ef467631e",
+          "source_file_ids": []
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "ReleasedTextBoundApproximation",
+      "source_ids": [
+        "source.dimbreath.4.4",
+        "source.hoyolab.version-4.4",
+        "source.honey-hunter.himeko-nova.4.4"
+      ],
+      "id": "G01-R-HIMEKO-NOVA-WE-TOO-STRIDE-THE-STARS",
+      "family": "HimekoNovaApproximation",
+      "owner_batch": "G01-P7-M01",
+      "dependent_batch": "G01-P7-C04",
+      "record_ids": [
+        "character.himeko-nova.ability.we-too-stride-the-stars.ultra"
+      ],
+      "question": "What exact target program, ordered operations and timing envelope implement We, Too, Stride the Stars (source skill 151003/151014)?",
+      "fixed_expectations": [
+        "Prepared numeric/level fields remain exact structured inputs.",
+        "The released-text SHA-256 remains 4f8ff004f4cad50dee42ef6264ae2309a2914dc696e4dc6bf861e28c7f37471f.",
+        "No missing configuration operation is borrowed from a similarly named ability."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.himeko-nova.ability.we-too-stride-the-stars.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ApproximateFromReleasedText",
+          "source_skill_ids": [
+            "151003",
+            "151014"
+          ],
+          "source_text_sha256": "4f8ff004f4cad50dee42ef6264ae2309a2914dc696e4dc6bf861e28c7f37471f",
+          "source_file_ids": []
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-KAFKA-DETONATION-SNAPSHOT-DURATION",
+      "family": "V1aKafka",
+      "owner_batch": "G01-P4-B5",
+      "record_ids": [
+        "character.kafka.ability.caressing-moonlight.bpskill",
+        "character.kafka.ability.twilight-trill.ultra"
+      ],
+      "question": "At what snapshot boundary is detonated DoT damage sampled, and does detonation alter remaining duration or stacks?",
+      "fixed_expectations": [
+        "Detonation preserves the DoT's declared snapshot policy.",
+        "Detonation does not consume, refresh or resnapshot duration unless an authored patch says so."
+      ],
+      "observations_required": [
+        "Source/target stat changes between application and detonation.",
+        "Remaining duration and stacks before and after detonation."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.kafka.ability.caressing-moonlight.bpskill",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "100502"
+          ],
+          "source_text_sha256": "b5949a8ece4b820b09fb1c5c5b0b3c21f301ccb140d8a9a087b24602ef55ecd9",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-kafka-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.kafka.ability.twilight-trill.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "100503"
+          ],
+          "source_text_sha256": "db74faed79ab0239c580c7690fb1c3e26483cbf9280a34f80a65bda2e672799f",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-kafka-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-KAFKA-DOT-SELECTION-ATTRIBUTION",
+      "family": "V1aKafka",
+      "owner_batch": "G01-P4-B5",
+      "record_ids": [
+        "character.kafka.ability.caressing-moonlight.bpskill",
+        "character.kafka.ability.twilight-trill.ultra"
+      ],
+      "question": "Which target-local DoT instances qualify for each authored detonation, and which actor/source receives the resulting damage credit?",
+      "fixed_expectations": [
+        "Only qualifying DoTs on the selected target are detonated.",
+        "Each detonation retains the original DoT applier, source, element and instance identity."
+      ],
+      "observations_required": [
+        "Eligibility differences across ordinary, Break and special DoTs.",
+        "Cause-chain actor/source fields for mixed-applier DoTs."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.kafka.ability.caressing-moonlight.bpskill",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "100502"
+          ],
+          "source_text_sha256": "b5949a8ece4b820b09fb1c5c5b0b3c21f301ccb140d8a9a087b24602ef55ecd9",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-kafka-00-ability-json"
+          ]
+        },
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.kafka.ability.twilight-trill.ultra",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "100503"
+          ],
+          "source_text_sha256": "db74faed79ab0239c580c7690fb1c3e26483cbf9280a34f80a65bda2e672799f",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-kafka-00-ability-json"
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Researching",
+      "confidence": "PreparedContractPendingExecutableGolden",
+      "source_ids": [
+        "source.dimbreath.4.4"
+      ],
+      "id": "G01-R-KAFKA-FOLLOWUP-ONCE-ORDER",
+      "family": "V1aKafka",
+      "owner_batch": "G01-P4-B5",
+      "record_ids": [
+        "character.kafka.ability.gentle-but-cruel.skillp01"
+      ],
+      "question": "Which Kafka-turn scope gates the ally-Basic follow-up, and in what order do its damage and Shock application resolve?",
+      "fixed_expectations": [
+        "The follow-up is once per Kafka turn, not once per ally or action.",
+        "The follow-up preserves the triggering ally Basic in its cause chain."
+      ],
+      "observations_required": [
+        "Damage-versus-Shock application order.",
+        "Gate reset across Kafka extra turns and ordinary turns."
+      ],
+      "evidence": [
+        {
+          "record_file": "character-abilities.json",
+          "record_id": "character.kafka.ability.gentle-but-cruel.skillp01",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactStructured",
+          "source_skill_ids": [
+            "100504"
+          ],
+          "source_text_sha256": "459f96d9ff2695ebaab77a3983b153e0c425043cfd9fe80cc15fd8cf53f6c926",
+          "source_file_ids": [
+            "source-file.dimbreath-turnbasedgamedata.config-configability-avatar-avatar-kafka-00-ability-json"
+          ]
+        }
+      ]
+    }
+  ]
+}

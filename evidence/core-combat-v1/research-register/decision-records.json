@@ -1,0 +1,48 @@
+{
+  "schema_revision": "starclock-goal-research-v1",
+  "generated_on": "2026-07-17",
+  "decisions": [
+    {
+      "id": "G01-D-P0-B3-01",
+      "state": "AcceptedProjectPolicy",
+      "title": "No convenient default for hidden timing",
+      "decision": "Any target, ordering, snapshot, cost or invalidation fact not fixed by prepared structured evidence remains Researching until the named observation and golden fixture agree.",
+      "effective_batch": "G01-P0-B3"
+    },
+    {
+      "id": "G01-D-P0-B3-02",
+      "state": "AcceptedProjectPolicy",
+      "title": "Probe isolation",
+      "decision": "V1a fixtures compile from a dedicated Excel/Sora probe scope, remain outside production catalogs and never count toward DataReady coverage.",
+      "effective_batch": "G01-P0-B3"
+    },
+    {
+      "id": "G01-D-P0-B3-03",
+      "state": "AcceptedProjectPolicy",
+      "title": "Ownership is first-class",
+      "decision": "Every probe preserves provider, owner, actor, applier, payer, target and cause ancestry as separate fields; shared/summoned actors are never collapsed into their character owner.",
+      "effective_batch": "G01-P0-B3"
+    },
+    {
+      "id": "G01-D-P0-B3-04",
+      "state": "AcceptedProjectPolicy",
+      "title": "Shared Elation boundary",
+      "decision": "Elation damage class, Elation ability tag, Punchline, Certified Banger, forced ability use and shared actors compile through generic tags/slots/links; form IDs are forbidden in core APIs and resolver branches.",
+      "effective_batch": "G01-P0-B3"
+    },
+    {
+      "id": "G01-D-P0-B3-05",
+      "state": "AcceptedProjectPolicy",
+      "title": "Himeko Nova Assist prerequisite",
+      "decision": "Register G01-P7-M01 before G01-P7-C04 to implement the generic Assist Skill/shared-use/companion-protocol mechanism only after all ten source-bound approximations have resolved target and timing fixtures.",
+      "effective_batch": "G01-P0-B3"
+    },
+    {
+      "id": "G01-D-P0-B3-06",
+      "state": "AcceptedProjectPolicy",
+      "title": "Reproducible observation envelope",
+      "decision": "Every live observation records source URL/access date/version/confidence/hash, exact build and encounter inputs, accepted commands, seed, RNG draws, ordered events and pre/post hashes; video-only impressions do not close a case.",
+      "effective_batch": "G01-P0-B3"
+    }
+  ]
+}

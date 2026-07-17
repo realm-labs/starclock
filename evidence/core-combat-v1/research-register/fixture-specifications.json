@@ -1,0 +1,941 @@
+{
+  "schema_revision": "starclock-goal-research-v1",
+  "generated_on": "2026-07-17",
+  "fixture_count": 37,
+  "fixtures": [
+    {
+      "case_id": "G01-R-AGLAEA-COUNTDOWN-TEARDOWN",
+      "fixture_id": "fixture.aglaea-countdown-teardown",
+      "kind": "LifecycleBoundaryGolden",
+      "initial_conditions": [
+        "Let the countdown act normally, then repeat with simultaneous summon defeat and wave boundary."
+      ],
+      "stimulus": [
+        "Reach each named boundary through accepted commands and drain allowed boundary reactions."
+      ],
+      "assertions": [
+        "Assert one teardown program and a stable complete event order."
+      ],
+      "observations_required": [
+        "Damage, Energy/resource, departure and ability-restoration event order."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-AGLAEA-JOINT-ACTION-CONTRIBUTIONS",
+      "fixture_id": "fixture.aglaea-joint-action-contributions",
+      "kind": "ActionGolden",
+      "initial_conditions": [
+        "Execute the enhanced Basic with triggers filtered by action, actor, summon and hit."
+      ],
+      "stimulus": [
+        "Submit the named legal ability command and drain its complete action/reaction envelope."
+      ],
+      "assertions": [
+        "Assert one action envelope, ordered contributions and distinct attribution without duplicate once-per-action credit."
+      ],
+      "observations_required": [
+        "Trigger eligibility and once-scope behavior at action, contribution and hit boundaries."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-AGLAEA-PRESENCE-TIMELINE-OWNERSHIP",
+      "fixture_id": "fixture.aglaea-presence-timeline-ownership",
+      "kind": "LifecycleBoundaryGolden",
+      "initial_conditions": [
+        "Use Skill once in each supported Garmentmaker presence/life state."
+      ],
+      "stimulus": [
+        "Reach each named boundary through accepted commands and drain allowed boundary reactions."
+      ],
+      "assertions": [
+        "Assert actor identity preservation/replacement, timeline entry and owner-link state."
+      ],
+      "observations_required": [
+        "Resummon behavior from downed, defeated, departed and already-present states."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-AGLAEA-SPD-STACK-SCOPE",
+      "fixture_id": "fixture.aglaea-spd-stack-scope",
+      "kind": "TurnBoundaryGolden",
+      "initial_conditions": [
+        "Let Garmentmaker attack through cap, then transform and teardown while mid-gauge."
+      ],
+      "stimulus": [
+        "Advance only through explicit legal commands until the named owner-turn boundaries complete."
+      ],
+      "assertions": [
+        "Assert stack owner/cap, gauge rescale policy and exact reset boundary."
+      ],
+      "observations_required": [
+        "Gauge rescaling boundary after stack gain and teardown/reset behavior."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-ASTA-AURA-STACK-QUERY",
+      "fixture_id": "fixture.asta-aura-stack-query",
+      "kind": "ActionGolden",
+      "initial_conditions": [
+        "Create one aura instance, then mutate Charging through gain and decay boundaries."
+      ],
+      "stimulus": [
+        "Submit the named legal ability command and drain its complete action/reaction envelope."
+      ],
+      "assertions": [
+        "Assert one modifier instance remains and its queried value follows the current stack count."
+      ],
+      "observations_required": [
+        "Stat-query result immediately before and after stack mutation in the same command."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-ASTA-INDEPENDENT-CLOCKS",
+      "fixture_id": "fixture.asta-independent-clocks",
+      "kind": "TurnBoundaryGolden",
+      "initial_conditions": [
+        "Arrange Charging decay and SPD expiry on the same Asta turn boundary."
+      ],
+      "stimulus": [
+        "Advance only through explicit legal commands until the named owner-turn boundaries complete."
+      ],
+      "assertions": [
+        "Assert separate effect clocks and stable boundary ordering."
+      ],
+      "observations_required": [
+        "Before/after-turn ordering when decay and SPD expiry become eligible together."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-ASTA-UNIQUE-TARGET-CREDIT",
+      "fixture_id": "fixture.asta-unique-target-credit",
+      "kind": "ActionGolden",
+      "initial_conditions": [
+        "Use a seeded multi-bounce Skill against three stable slots, with one repeated target and one Fire-weak target."
+      ],
+      "stimulus": [
+        "Submit the named legal ability command and drain its complete action/reaction envelope."
+      ],
+      "assertions": [
+        "Assert the ordered target set and one credit per distinct target.",
+        "Repeat after changing one weakness immediately before its hit."
+      ],
+      "observations_required": [
+        "Ordered event boundary between hit damage, weakness query and Charging mutation.",
+        "Credit behavior when a target gains or loses Fire weakness between bounce hits."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-CLARA-CAUSE-ATTACKER-ALLY",
+      "fixture_id": "fixture.clara-cause-attacker-ally",
+      "kind": "ReactionGolden",
+      "initial_conditions": [
+        "Attack Clara, then a protected ally, from distinct enemy slots."
+      ],
+      "stimulus": [
+        "Submit the trigger command, then drain the deterministic reaction queue without presentation timing inputs."
+      ],
+      "assertions": [
+        "Assert counter target and complete cause ancestry for both cases."
+      ],
+      "observations_required": [
+        "Actor/owner/source fields on each queued and resolved counter event."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-CLARA-COUNTER-TARGET-PRIORITY",
+      "fixture_id": "fixture.clara-counter-target-priority",
+      "kind": "ReactionGolden",
+      "initial_conditions": [
+        "Queue a counter, then invalidate the attacker before reaction resolution under three presence transitions."
+      ],
+      "stimulus": [
+        "Submit the trigger command, then drain the deterministic reaction queue without presentation timing inputs."
+      ],
+      "assertions": [
+        "Capture cancel/retarget result and prove no unspecified RNG draw."
+      ],
+      "observations_required": [
+        "Cancel/retarget behavior after attacker defeat, departure and phase replacement."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-CLARA-ENHANCED-CHARGE-SCOPE",
+      "fixture_id": "fixture.clara-enhanced-charge-scope",
+      "kind": "ReactionGolden",
+      "initial_conditions": [
+        "With one remaining enhanced charge, resolve a stable-slot enemy AoE that hits all allies."
+      ],
+      "stimulus": [
+        "Submit the trigger command, then drain the deterministic reaction queue without presentation timing inputs."
+      ],
+      "assertions": [
+        "Assert the exact qualifying event, one charge mutation and one reaction insertion."
+      ],
+      "observations_required": [
+        "Consumption point and coalescing behavior for AoE/multi-target attacks."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-CLARA-MARK-CONSUME-ORDER",
+      "fixture_id": "fixture.clara-mark-consume-order",
+      "kind": "ActionGolden",
+      "initial_conditions": [
+        "Use Skill against three marked enemies where the first is defeated and the second has an on-hit reaction."
+      ],
+      "stimulus": [
+        "Submit the named legal ability command and drain its complete action/reaction envelope."
+      ],
+      "assertions": [
+        "Assert each damage sample sees its own mark and each mark removal follows its target damage."
+      ],
+      "observations_required": [
+        "Order under multi-target defeat and mark-triggered reactions."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-ELATION-CERTIFIED-BANGER-OWNERSHIP",
+      "fixture_id": "fixture.elation-certified-banger-ownership",
+      "kind": "LifecycleBoundaryGolden",
+      "initial_conditions": [
+        "Grant the state from two providers, transform one holder and cross a wave boundary."
+      ],
+      "stimulus": [
+        "Reach each named boundary through accepted commands and drain allowed boundary reactions."
+      ],
+      "assertions": [
+        "Assert explicit holder/provider identities, one active-policy result and authored teardown."
+      ],
+      "observations_required": [
+        "Cross-provider replacement and teardown at transformation/departure/wave boundaries."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-ELATION-DAMAGE-ABILITY-TAGS",
+      "fixture_id": "fixture.elation-damage-ability-tags",
+      "kind": "ActionGolden",
+      "initial_conditions": [
+        "Execute one ordinary ability with Elation emission and one explicit Elation Skill from at least Silver Wolf LV.999, Trailblazer (Elation), Sparxie and Yao Guang."
+      ],
+      "stimulus": [
+        "Submit the named legal ability command and drain its complete action/reaction envelope."
+      ],
+      "assertions": [
+        "Assert independent ability/damage tags and a negative control using visually similar ordinary damage."
+      ],
+      "observations_required": [
+        "Cross-kit trigger matrix for ordinary abilities that emit Elation damage and explicit Elation Skills."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-ELATION-FORCED-SKILL-ENVELOPE",
+      "fixture_id": "fixture.elation-forced-skill-envelope",
+      "kind": "ReactionGolden",
+      "initial_conditions": [
+        "Target an Elation ally and a non-Elation ally with the same Ultimate under identical gauge state."
+      ],
+      "stimulus": [
+        "Submit the trigger command, then drain the deterministic reaction queue without presentation timing inputs."
+      ],
+      "assertions": [
+        "Assert forced-skill versus action-advance branches, cause ownership and turn/gauge effects."
+      ],
+      "observations_required": [
+        "Turn consumption, gauge movement, action-start/end events and Ultimate/follow-up trigger eligibility."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-ELATION-FORCED-SKILL-TARGET-COST",
+      "fixture_id": "fixture.elation-forced-skill-target-cost",
+      "kind": "ReactionGolden",
+      "initial_conditions": [
+        "Force an Elation Skill with multiple targets, insufficient ordinary SP, substitute resource present/absent and target invalidation."
+      ],
+      "stimulus": [
+        "Submit the trigger command, then drain the deterministic reaction queue without presentation timing inputs."
+      ],
+      "assertions": [
+        "Assert target program, cost source, decision exposure and deterministic cancellation/retargeting."
+      ],
+      "observations_required": [
+        "Manual-target versus authored automatic-target behavior, insufficient substitute resource and target death."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-ELATION-GENERIC-API-BOUNDARY",
+      "fixture_id": "fixture.elation-generic-api-boundary",
+      "kind": "CatalogArchitectureGolden",
+      "initial_conditions": [
+        "Compile minimum probe rows for four released Elation forms from the dedicated Sora probe scope."
+      ],
+      "stimulus": [
+        "Validate, export, load and compile the dedicated probe bundle twice from clean inputs."
+      ],
+      "assertions": [
+        "Assert shared domain shapes, no character-ID branch and equivalent event envelopes for common semantics."
+      ],
+      "observations_required": [
+        "Compilation audit of four released-form probes and negative one-kit API scan."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-ELATION-PUNCHLINE-SCOPE-CREDIT",
+      "fixture_id": "fixture.elation-punchline-scope-credit",
+      "kind": "ActionGolden",
+      "initial_conditions": [
+        "Trigger Punchline gains from two released forms in the same reaction chain, including an over-cap gain."
+      ],
+      "stimulus": [
+        "Submit the named legal ability command and drain its complete action/reaction envelope."
+      ],
+      "assertions": [
+        "Assert owner, effective delta, threshold order and no duplicate mirrored mutation."
+      ],
+      "observations_required": [
+        "Simultaneous cross-kit credit ordering, caps/overflow and wave persistence."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-ELATION-SHARED-ACTOR-AHA",
+      "fixture_id": "fixture.elation-shared-actor-aha",
+      "kind": "TurnBoundaryGolden",
+      "initial_conditions": [
+        "Grant Aha an extra turn with Yao Guang present, departed and alongside another Elation provider."
+      ],
+      "stimulus": [
+        "Advance only through explicit legal commands until the named owner-turn boundaries complete."
+      ],
+      "assertions": [
+        "Assert stable shared-actor identity, provider cause, timeline priority and resource sample."
+      ],
+      "observations_required": [
+        "Timeline identity, targeting, extra-turn priority, ownership after Yao Guang departure and concurrent providers."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-ELATION-SP-SPEND-OBSERVATION",
+      "fixture_id": "fixture.elation-sp-spend-observation",
+      "kind": "ActionGolden",
+      "initial_conditions": [
+        "Execute qualifying abilities under ordinary, zero, suppressed and substitute cost paths."
+      ],
+      "stimulus": [
+        "Submit the named legal ability command and drain its complete action/reaction envelope."
+      ],
+      "assertions": [
+        "Assert one cost event with payer/source/effective delta and the exact cross-kit trigger matrix."
+      ],
+      "observations_required": [
+        "Ordinary SP, zero-cost, suppressed-cost and substitute-resource matrix across released forms."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-FIREFLY-COUNTDOWN-TEARDOWN",
+      "fixture_id": "fixture.firefly-countdown-teardown",
+      "kind": "LifecycleBoundaryGolden",
+      "initial_conditions": [
+        "End transformation independently through countdown, wave boundary and downed/revival paths."
+      ],
+      "stimulus": [
+        "Reach each named boundary through accepted commands and drain allowed boundary reactions."
+      ],
+      "assertions": [
+        "Assert one teardown cause, ordinary abilities restored and no transform-owned actor/modifier remains."
+      ],
+      "observations_required": [
+        "Carry/reset behavior across AfterAction wave transition, defeat interception and revival."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-FIREFLY-HP-ENERGY-ATOMIC",
+      "fixture_id": "fixture.firefly-hp-energy-atomic",
+      "kind": "ActionGolden",
+      "initial_conditions": [
+        "Use normal Skill at ordinary HP, at the legal floor and with a pre-defeat replacement candidate."
+      ],
+      "stimulus": [
+        "Submit the named legal ability command and drain its complete action/reaction envelope."
+      ],
+      "assertions": [
+        "Assert accepted/rejected transaction state, ordered HP/Energy events and no partial mutation."
+      ],
+      "observations_required": [
+        "Effective HP cost and Energy gain at minimum HP and with cost modifiers.",
+        "Replacement-trigger visibility between the two operations."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-FIREFLY-SUPERBREAK-SAMPLE",
+      "fixture_id": "fixture.firefly-superbreak-sample",
+      "kind": "ActionGolden",
+      "initial_conditions": [
+        "Run the same enhanced Skill hit against positive, nearly depleted, broken and layered Toughness states."
+      ],
+      "stimulus": [
+        "Submit the named legal ability command and drain its complete action/reaction envelope."
+      ],
+      "assertions": [
+        "Record attempted/effective per-layer reduction and assert the selected Super Break input."
+      ],
+      "observations_required": [
+        "Overkill Toughness reduction, zero remaining Toughness and layered/Exo-Toughness samples."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-FIREFLY-TRANSFORM-ADVANCE",
+      "fixture_id": "fixture.firefly-transform-advance",
+      "kind": "ActionGolden",
+      "initial_conditions": [
+        "Use Ultimate with Firefly behind two actors and with an interrupt eligible at each phase."
+      ],
+      "stimulus": [
+        "Submit the named legal ability command and drain its complete action/reaction envelope."
+      ],
+      "assertions": [
+        "Assert ordered transform, replacement, modifier, countdown and action-gauge events."
+      ],
+      "observations_required": [
+        "Visibility order to immediate reactions and legal-decision queries."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-FIREFLY-WEAKNESS-TOUGHNESS-ORDER",
+      "fixture_id": "fixture.firefly-weakness-toughness-order",
+      "kind": "ActionGolden",
+      "initial_conditions": [
+        "Target one enemy without Fire weakness and one with Fire resistance but no weakness."
+      ],
+      "stimulus": [
+        "Submit the named legal ability command and drain its complete action/reaction envelope."
+      ],
+      "assertions": [
+        "Assert weakness mutation precedes first Toughness query and does not silently alter RES."
+      ],
+      "observations_required": [
+        "First-hit weakness/Toughness event ordering and expiry scope."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-HIMEKO-NOVA-COMPANION-PROTOCOL-DECIMATION",
+      "fixture_id": "fixture.himeko-nova-COMPANION-PROTOCOL-DECIMATION",
+      "kind": "LiveObservationThenGolden",
+      "initial_conditions": [
+        "Use public Version 4.4 Himeko Nova at a recorded level/Trace/Eidolon state.",
+        "Record one-, three- and five-enemy formations plus supported Trailblaze Companion and ordinary ally Assist users."
+      ],
+      "stimulus": [
+        "Invoke only character.himeko-nova.ability.companion-protocol-decimation.assist through documented legal paths; repeat after target invalidation and at each relevant counter threshold."
+      ],
+      "assertions": [
+        "Bind the ordered observation transcript and hashes before upgrading mechanism quality.",
+        "Reproduce the transcript in a dedicated Sora probe fixture before production import."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-HIMEKO-NOVA-COMPANION-PROTOCOL-VERDICT",
+      "fixture_id": "fixture.himeko-nova-COMPANION-PROTOCOL-VERDICT",
+      "kind": "LiveObservationThenGolden",
+      "initial_conditions": [
+        "Use public Version 4.4 Himeko Nova at a recorded level/Trace/Eidolon state.",
+        "Record one-, three- and five-enemy formations plus supported Trailblaze Companion and ordinary ally Assist users."
+      ],
+      "stimulus": [
+        "Invoke only character.himeko-nova.ability.companion-protocol-verdict.assist through documented legal paths; repeat after target invalidation and at each relevant counter threshold."
+      ],
+      "assertions": [
+        "Bind the ordered observation transcript and hashes before upgrading mechanism quality.",
+        "Reproduce the transcript in a dedicated Sora probe fixture before production import."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-HIMEKO-NOVA-ENKINDLE-THE-FIRST-LODESTAR",
+      "fixture_id": "fixture.himeko-nova-ENKINDLE-THE-FIRST-LODESTAR",
+      "kind": "LiveObservationThenGolden",
+      "initial_conditions": [
+        "Use public Version 4.4 Himeko Nova at a recorded level/Trace/Eidolon state.",
+        "Record one-, three- and five-enemy formations plus supported Trailblaze Companion and ordinary ally Assist users."
+      ],
+      "stimulus": [
+        "Invoke only character.himeko-nova.ability.enkindle-the-first-lodestar.normal through documented legal paths; repeat after target invalidation and at each relevant counter threshold."
+      ],
+      "assertions": [
+        "Bind the ordered observation transcript and hashes before upgrading mechanism quality.",
+        "Reproduce the transcript in a dedicated Sora probe fixture before production import."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-HIMEKO-NOVA-HYPERLUMINAL-PARTICLE-BEAM",
+      "fixture_id": "fixture.himeko-nova-HYPERLUMINAL-PARTICLE-BEAM",
+      "kind": "LiveObservationThenGolden",
+      "initial_conditions": [
+        "Use public Version 4.4 Himeko Nova at a recorded level/Trace/Eidolon state.",
+        "Record one-, three- and five-enemy formations plus supported Trailblaze Companion and ordinary ally Assist users."
+      ],
+      "stimulus": [
+        "Invoke only character.himeko-nova.ability.hyperluminal-particle-beam.ultra through documented legal paths; repeat after target invalidation and at each relevant counter threshold."
+      ],
+      "assertions": [
+        "Bind the ordered observation transcript and hashes before upgrading mechanism quality.",
+        "Reproduce the transcript in a dedicated Sora probe fixture before production import."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-HIMEKO-NOVA-OF-FIRE-AND-FAR-FARING",
+      "fixture_id": "fixture.himeko-nova-OF-FIRE-AND-FAR-FARING",
+      "kind": "LiveObservationThenGolden",
+      "initial_conditions": [
+        "Use public Version 4.4 Himeko Nova at a recorded level/Trace/Eidolon state.",
+        "Record one-, three- and five-enemy formations plus supported Trailblaze Companion and ordinary ally Assist users."
+      ],
+      "stimulus": [
+        "Invoke only character.himeko-nova.ability.of-fire-and-far-faring.skillp01 through documented legal paths; repeat after target invalidation and at each relevant counter threshold."
+      ],
+      "assertions": [
+        "Bind the ordered observation transcript and hashes before upgrading mechanism quality.",
+        "Reproduce the transcript in a dedicated Sora probe fixture before production import."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-HIMEKO-NOVA-ORBITAL-ANNIHILATION-PULSE",
+      "fixture_id": "fixture.himeko-nova-ORBITAL-ANNIHILATION-PULSE",
+      "kind": "LiveObservationThenGolden",
+      "initial_conditions": [
+        "Use public Version 4.4 Himeko Nova at a recorded level/Trace/Eidolon state.",
+        "Record one-, three- and five-enemy formations plus supported Trailblaze Companion and ordinary ally Assist users."
+      ],
+      "stimulus": [
+        "Invoke only character.himeko-nova.ability.orbital-annihilation-pulse.ultra through documented legal paths; repeat after target invalidation and at each relevant counter threshold."
+      ],
+      "assertions": [
+        "Bind the ordered observation transcript and hashes before upgrading mechanism quality.",
+        "Reproduce the transcript in a dedicated Sora probe fixture before production import."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-HIMEKO-NOVA-STARCHARTER-CRUISE",
+      "fixture_id": "fixture.himeko-nova-STARCHARTER-CRUISE",
+      "kind": "LiveObservationThenGolden",
+      "initial_conditions": [
+        "Use public Version 4.4 Himeko Nova at a recorded level/Trace/Eidolon state.",
+        "Record one-, three- and five-enemy formations plus supported Trailblaze Companion and ordinary ally Assist users."
+      ],
+      "stimulus": [
+        "Invoke only character.himeko-nova.ability.starcharter-cruise.maze through documented legal paths; repeat after target invalidation and at each relevant counter threshold."
+      ],
+      "assertions": [
+        "Bind the ordered observation transcript and hashes before upgrading mechanism quality.",
+        "Reproduce the transcript in a dedicated Sora probe fixture before production import."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-HIMEKO-NOVA-TRAILBLAZE-BY-YOUR-SIDE",
+      "fixture_id": "fixture.himeko-nova-TRAILBLAZE-BY-YOUR-SIDE",
+      "kind": "LiveObservationThenGolden",
+      "initial_conditions": [
+        "Use public Version 4.4 Himeko Nova at a recorded level/Trace/Eidolon state.",
+        "Record one-, three- and five-enemy formations plus supported Trailblaze Companion and ordinary ally Assist users."
+      ],
+      "stimulus": [
+        "Invoke only character.himeko-nova.ability.trailblaze-by-your-side.assist through documented legal paths; repeat after target invalidation and at each relevant counter threshold."
+      ],
+      "assertions": [
+        "Bind the ordered observation transcript and hashes before upgrading mechanism quality.",
+        "Reproduce the transcript in a dedicated Sora probe fixture before production import."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-HIMEKO-NOVA-UPRAISE-THE-VANWARD-CRESSET",
+      "fixture_id": "fixture.himeko-nova-UPRAISE-THE-VANWARD-CRESSET",
+      "kind": "LiveObservationThenGolden",
+      "initial_conditions": [
+        "Use public Version 4.4 Himeko Nova at a recorded level/Trace/Eidolon state.",
+        "Record one-, three- and five-enemy formations plus supported Trailblaze Companion and ordinary ally Assist users."
+      ],
+      "stimulus": [
+        "Invoke only character.himeko-nova.ability.upraise-the-vanward-cresset.bpskill through documented legal paths; repeat after target invalidation and at each relevant counter threshold."
+      ],
+      "assertions": [
+        "Bind the ordered observation transcript and hashes before upgrading mechanism quality.",
+        "Reproduce the transcript in a dedicated Sora probe fixture before production import."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-HIMEKO-NOVA-WE-TOO-STRIDE-THE-STARS",
+      "fixture_id": "fixture.himeko-nova-WE-TOO-STRIDE-THE-STARS",
+      "kind": "LiveObservationThenGolden",
+      "initial_conditions": [
+        "Use public Version 4.4 Himeko Nova at a recorded level/Trace/Eidolon state.",
+        "Record one-, three- and five-enemy formations plus supported Trailblaze Companion and ordinary ally Assist users."
+      ],
+      "stimulus": [
+        "Invoke only character.himeko-nova.ability.we-too-stride-the-stars.ultra through documented legal paths; repeat after target invalidation and at each relevant counter threshold."
+      ],
+      "assertions": [
+        "Bind the ordered observation transcript and hashes before upgrading mechanism quality.",
+        "Reproduce the transcript in a dedicated Sora probe fixture before production import."
+      ],
+      "observations_required": [
+        "Target selection with one, three and five living enemies and all supported ally/companion users.",
+        "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
+        "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-KAFKA-DETONATION-SNAPSHOT-DURATION",
+      "fixture_id": "fixture.kafka-dot-snapshot-duration",
+      "kind": "ActionGolden",
+      "initial_conditions": [
+        "Apply a DoT, change source and target modifiers, then detonate before its normal tick."
+      ],
+      "stimulus": [
+        "Submit the named legal ability command and drain its complete action/reaction envelope."
+      ],
+      "assertions": [
+        "Assert captured versus dynamic fields exactly as declared and byte-identical duration/stack state absent a patch."
+      ],
+      "observations_required": [
+        "Source/target stat changes between application and detonation.",
+        "Remaining duration and stacks before and after detonation."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-KAFKA-DOT-SELECTION-ATTRIBUTION",
+      "fixture_id": "fixture.kafka-dot-selection-attribution",
+      "kind": "ActionGolden",
+      "initial_conditions": [
+        "Apply four differently classified DoTs from two appliers to the primary target and one DoT to an adjacent target."
+      ],
+      "stimulus": [
+        "Submit the named legal ability command and drain its complete action/reaction envelope."
+      ],
+      "assertions": [
+        "Assert exact selected instance IDs and unchanged attribution; assert the adjacent-only DoT is not selected by primary-target detonation."
+      ],
+      "observations_required": [
+        "Eligibility differences across ordinary, Break and special DoTs.",
+        "Cause-chain actor/source fields for mixed-applier DoTs."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    },
+    {
+      "case_id": "G01-R-KAFKA-FOLLOWUP-ONCE-ORDER",
+      "fixture_id": "fixture.kafka-followup-once-order",
+      "kind": "TurnBoundaryGolden",
+      "initial_conditions": [
+        "Have two allies use Basics before Kafka's next ordinary turn, then repeat around an extra-turn boundary."
+      ],
+      "stimulus": [
+        "Advance only through explicit legal commands until the named owner-turn boundaries complete."
+      ],
+      "assertions": [
+        "Assert only one follow-up in each authored Kafka-turn scope and capture damage/effect event order."
+      ],
+      "observations_required": [
+        "Damage-versus-Shock application order.",
+        "Gate reset across Kafka extra turns and ordinary turns."
+      ],
+      "replay_requirements": [
+        "Fixed seed and stable formation slots.",
+        "Canonical accepted-command stream and ordered event/cause capture.",
+        "Pre/post authoritative state hash and RNG draw count.",
+        "Exact reference-pack, rules and fixture revision in the replay header."
+      ],
+      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary."
+    }
+  ]
+}
