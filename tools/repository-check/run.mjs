@@ -14,6 +14,7 @@ const commands = [
   ["node", "tools/ci/verify-workflow.mjs"],
   ["node", "tools/repository-check/verify-source-policy.mjs"],
   ["node", "tools/repository-check/verify-generated-drift.mjs", ...(includeSourceCache ? ["--with-source-cache"] : [])],
+  ["node", "tools/benchmark/verify.mjs"],
   ["cargo", "fmt", "--all", "--", "--check"],
   ["cargo", "clippy", "--workspace", "--all-targets", "--all-features", "--", "-D", "warnings"],
   ["cargo", "test", "--workspace", "--all-targets", "--all-features"],

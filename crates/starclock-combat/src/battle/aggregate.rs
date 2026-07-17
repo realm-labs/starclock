@@ -210,6 +210,23 @@ impl Battle {
     pub fn state_hash(&self) -> BattleStateHash {
         hash_state(&self.state)
     }
+
+    /// Returns non-authoritative structural measurements for benchmark tooling.
+    #[cfg(feature = "benchmark-instrumentation")]
+    #[must_use]
+    pub fn performance_snapshot(&self) -> crate::benchmark::BattlePerformanceSnapshot {
+        let metrics = self
+            .scratch
+            .as_ref()
+            .map_or_else(Default::default, ResolutionScratch::last_metrics);
+        crate::benchmark::BattlePerformanceSnapshot::new(
+            crate::codec::canonical_state_len(&self.state),
+            metrics.entries,
+            metrics.events,
+            metrics.operations,
+            metrics.retained_bytes,
+        )
+    }
 }
 
 #[cfg(test)]

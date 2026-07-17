@@ -133,6 +133,13 @@ Strict latency/throughput/allocation budgets belong to a documented stable
 runner. Shared cross-platform CI uses deterministic result checks and only a
 generous order-of-magnitude regression ceiling.
 
+Goal 01 Phase 3 implements the first revision of this contract as
+`g01-phase3-benchmark-v1`; its fixture boundary, broad CI ceilings, designated
+strict runner and five-sample baseline are recorded in
+[Phase 3 performance benchmark baseline](performance-benchmark-baseline.md).
+The Phase 3 trigger-heavy row is explicitly an eight-operation/event proxy
+until the trigger kernel replaces or versions it in Phase 4.
+
 ## Planned CLI surface
 
 ```text

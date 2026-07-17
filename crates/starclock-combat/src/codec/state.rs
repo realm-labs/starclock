@@ -22,6 +22,25 @@ pub(crate) fn hash_state(state: &BattleState) -> BattleStateHash {
     BattleStateHash::new(sink.0.finalize().into())
 }
 
+#[cfg(feature = "benchmark-instrumentation")]
+pub(crate) fn canonical_state_len(state: &BattleState) -> u64 {
+    #[derive(Default)]
+    struct CountingSink(u64);
+
+    impl Sink for CountingSink {
+        fn write(&mut self, bytes: &[u8]) {
+            self.0 = self
+                .0
+                .checked_add(u64::try_from(bytes.len()).expect("slice length fits u64"))
+                .expect("canonical battle state is bounded below u64::MAX");
+        }
+    }
+
+    let mut sink = CountingSink::default();
+    encode_state(state, &mut sink);
+    sink.0
+}
+
 #[cfg(test)]
 pub(crate) fn collect_state(state: &BattleState) -> Vec<u8> {
     let mut bytes = Vec::new();

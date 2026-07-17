@@ -1,5 +1,7 @@
 mod state;
 
+#[cfg(feature = "benchmark-instrumentation")]
+pub(crate) use state::canonical_state_len;
 pub(crate) use state::hash_state;
 #[cfg(test)]
 pub(crate) use state::{collect_state, hash_collected_state};

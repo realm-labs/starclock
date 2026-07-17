@@ -43,7 +43,32 @@
     "scope": "starclock-combat and starclock-replay test targets plus the reviewed proptest 1.11.0 dev-only graph",
     "classification": "Moderate test-only compile cost; no production binary, runtime or performance impact"
   },
+  "benchmark_harness_compile_cost_measurement": {
+    "runner": "Windows x86_64-pc-windows-msvc; rustc 1.97.0; local development measurement (not the strict stable performance report)",
+    "command": "fresh CARGO_TARGET_DIR cargo build -p starclock-cli --example g01_benchmark --features benchmark-harness --release --locked",
+    "elapsed_milliseconds": 21720,
+    "scope": "Benchmark-only example plus allocation-counter 0.8.1 and existing workspace graph",
+    "classification": "Moderate benchmark-only release-build cost; allocation-counter adds one dependency and no production edge"
+  },
   "packages": [
+    {
+      "name": "allocation-counter",
+      "version": "0.8.1",
+      "relationship": "Direct benchmark-only dev-dependency of starclock-cli",
+      "owner": "G01-P3-B7 release benchmark example",
+      "features": [],
+      "default_features": false,
+      "license": "MIT/Apache-2.0",
+      "source_url": "https://crates.io/crates/allocation-counter/0.8.1",
+      "purpose": "Measure per-thread allocation count, total bytes and peak live bytes for versioned battle and replay workloads without adding unsafe allocator code to Starclock.",
+      "deterministic_impact": "Benchmark instrumentation only behind the benchmark-harness feature; it does not enter authoritative state, production CLI behavior, replay bytes or simulation dependency edges.",
+      "compile_cost": "Part of a 21,720 ms fresh locked release example build including the existing workspace graph.",
+      "rejected_alternatives": [
+        "Handwritten global allocator wrapper: would introduce project-owned unsafe code solely for measurement.",
+        "Process RSS sampling: cannot isolate allocations per command or per concurrent job.",
+        "Estimated Vec capacities alone: does not measure actual allocator traffic or peak live bytes."
+      ]
+    },
     {
       "name": "fixnum",
       "version": "0.9.5",

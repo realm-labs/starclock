@@ -68,6 +68,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 43. [Target and action-resource boundary](target-and-resource-boundary.md) — canonical target commitments/invalidation, multi-hit locks and Basic/Skill/Ultimate Skill Point/Energy semantics.
 44. [Damage, healing, defeat and wave boundary](damage-lifecycle-boundary.md) — typed HP operations, fixed-point formula goldens, defeat/terminal settlement and ordered `AfterAction` waves.
 45. [Synthetic Standard CLI and replay boundary](synthetic-standard-replay-boundary.md) — smoke-only Standard fixture, low-level command/hash replay payloads and deterministic CLI run/verify evidence.
+46. [Phase 3 performance benchmark baseline](performance-benchmark-baseline.md) — versioned apply/hash/replay/concurrency workloads, allocation and transaction instrumentation, CI smoke ceilings and strict stable-runner evidence.
 
 ## Execution goals
 

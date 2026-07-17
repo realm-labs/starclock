@@ -33,6 +33,9 @@ const expectedExternal = new Map([
     { name: "proptest", requirement: "=1.11.0", features: ["std"], kind: "dev" },
     { name: "sha2", requirement: "=0.11.0", features: [] },
   ]],
+  ["starclock-cli", [
+    { name: "allocation-counter", requirement: "=0.8.1", features: [], kind: "dev" },
+  ]],
 ]);
 
 const metadata = JSON.parse(execFileSync("cargo", ["metadata", "--format-version", "1", "--no-deps"], {

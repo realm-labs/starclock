@@ -10,6 +10,7 @@ assert(policy.production_reader_compile_cost_measurement.elapsed_milliseconds > 
 assert(policy.rng_hash_compile_cost_measurement.elapsed_milliseconds > 0 && policy.rng_hash_compile_cost_measurement.command && policy.rng_hash_compile_cost_measurement.runner, "RNG/hash compile-cost measurement is incomplete");
 assert(policy.replay_codec_compile_cost_measurement.elapsed_milliseconds > 0 && policy.replay_codec_compile_cost_measurement.command && policy.replay_codec_compile_cost_measurement.runner, "replay codec compile-cost measurement is incomplete");
 assert(policy.property_harness_compile_cost_measurement.elapsed_milliseconds > 0 && policy.property_harness_compile_cost_measurement.command && policy.property_harness_compile_cost_measurement.runner, "property harness compile-cost measurement is incomplete");
+assert(policy.benchmark_harness_compile_cost_measurement.elapsed_milliseconds > 0 && policy.benchmark_harness_compile_cost_measurement.command && policy.benchmark_harness_compile_cost_measurement.runner, "benchmark harness compile-cost measurement is incomplete");
 const requiredFields = ["license", "source_url", "purpose", "deterministic_impact", "compile_cost", "rejected_alternatives"];
 for (const kind of ["packages", "tools"]) {
   for (const entry of policy[kind]) {
@@ -58,11 +59,15 @@ const combatManifest = fs.readFileSync(path.join(root, "crates", "starclock-comb
 assert(workspaceManifest.includes('rand = { version = "=0.10.2", default-features = false, features = ["chacha", "std"] }'), "authoritative rand pin/features differ");
 assert(workspaceManifest.includes('proptest = { version = "=1.11.0", default-features = false, features = ["std"] }'), "property harness pin/features differ");
 assert(workspaceManifest.includes('sha2 = { version = "=0.11.0", default-features = false }'), "authoritative sha2 pin/features differ");
+assert(workspaceManifest.includes('allocation-counter = { version = "=0.8.1", default-features = false }'), "benchmark allocation-counter pin/features differ");
 assert(combatManifest.includes("rand.workspace = true") && combatManifest.includes("sha2.workspace = true"), "combat RNG/hash dependencies differ");
 const replayManifest = fs.readFileSync(path.join(root, "crates", "starclock-replay", "Cargo.toml"), "utf8");
 assert(replayManifest.includes("sha2.workspace = true"), "replay SHA-256 dependency differs");
 assert(combatManifest.includes("[dev-dependencies]") && combatManifest.includes("proptest.workspace = true"), "combat property dev-dependency differs");
 assert(replayManifest.includes("[dev-dependencies]") && replayManifest.includes("proptest.workspace = true"), "replay property dev-dependency differs");
+const cliManifest = fs.readFileSync(path.join(root, "crates", "starclock-cli", "Cargo.toml"), "utf8");
+assert(cliManifest.includes("[dev-dependencies]") && cliManifest.includes("allocation-counter.workspace = true"), "CLI benchmark allocator dev-dependency differs");
+assert(cliManifest.includes('benchmark-harness = ["starclock-combat/benchmark-instrumentation"]'), "benchmark feature boundary differs");
 assert(combatRoot.includes("mod numeric;") && !combatRoot.includes("pub mod numeric"), "numeric backend module must remain private");
 assert(!combatRoot.includes("pub use fixnum"), "fixnum must not be re-exported");
 const randUsers = rustFiles.filter((file) => /\brand::/.test(fs.readFileSync(file, "utf8")));

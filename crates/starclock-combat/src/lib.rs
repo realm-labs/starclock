@@ -9,6 +9,8 @@
 mod action;
 mod actor;
 mod battle;
+#[cfg(feature = "benchmark-instrumentation")]
+pub mod benchmark;
 pub mod catalog;
 mod codec;
 mod command;

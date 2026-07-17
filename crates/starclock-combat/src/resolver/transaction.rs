@@ -53,6 +53,8 @@ pub(crate) struct FaultInjection {
 pub(crate) struct ResolutionScratch {
     working: BattleState,
     journal: MutationJournal,
+    #[cfg(feature = "benchmark-instrumentation")]
+    last_metrics: super::journal::JournalMetrics,
     #[cfg(test)]
     preparations: u64,
 }
@@ -62,6 +64,8 @@ impl ResolutionScratch {
         Self {
             working: state.semantic_clone(),
             journal: MutationJournal::default(),
+            #[cfg(feature = "benchmark-instrumentation")]
+            last_metrics: super::journal::JournalMetrics::default(),
             #[cfg(test)]
             preparations: 1,
         }
@@ -78,7 +82,16 @@ impl ResolutionScratch {
 
     pub(crate) fn commit_into(&mut self, authoritative: &mut BattleState) {
         mem::swap(&mut self.working, authoritative);
+        #[cfg(feature = "benchmark-instrumentation")]
+        {
+            self.last_metrics = self.journal.metrics();
+        }
         self.journal.release_bounded();
+    }
+
+    #[cfg(feature = "benchmark-instrumentation")]
+    pub(crate) const fn last_metrics(&self) -> super::journal::JournalMetrics {
+        self.last_metrics
     }
 
     #[cfg(test)]

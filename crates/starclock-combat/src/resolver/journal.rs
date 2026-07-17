@@ -80,7 +80,36 @@ pub(crate) struct MutationJournal {
     entries: Vec<JournalEntry>,
 }
 
+#[cfg(feature = "benchmark-instrumentation")]
+#[derive(Clone, Copy, Debug, Default)]
+pub(crate) struct JournalMetrics {
+    pub(crate) entries: u64,
+    pub(crate) events: u64,
+    pub(crate) operations: u64,
+    pub(crate) retained_bytes: u64,
+}
+
 impl MutationJournal {
+    #[cfg(feature = "benchmark-instrumentation")]
+    pub(crate) fn metrics(&self) -> JournalMetrics {
+        let mut metrics = JournalMetrics {
+            entries: self.entries.len() as u64,
+            retained_bytes: (self.entries.capacity() * core::mem::size_of::<JournalEntry>()) as u64,
+            ..JournalMetrics::default()
+        };
+        for entry in &self.entries {
+            match entry.kind {
+                JournalKind::Event { .. } => metrics.events += 1,
+                JournalKind::Allocation {
+                    kind: AllocationKind::Operation,
+                    ..
+                } => metrics.operations += 1,
+                _ => {}
+            }
+        }
+        metrics
+    }
+
     pub(crate) fn clear(&mut self) {
         self.entries.clear();
     }

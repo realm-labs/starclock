@@ -16,7 +16,8 @@ profile's JSON evidence for 30 days.
 These jobs install the checksum-bound Sora 0.3.0 tool and call exactly
 `node tools/repository-check/run.mjs`. That runner owns source limits,
 dependency direction, generated drift, Sora capability goldens, formatting,
-Clippy and native workspace tests. A successful evidence record therefore sets
+Clippy, native workspace tests and the broad release benchmark smoke ceiling.
+A successful evidence record therefore sets
 `execution_mode` to `native` and `tests_executed` to `true`.
 
 ## Compile-only coverage
