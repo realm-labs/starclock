@@ -1,6 +1,10 @@
-//! Static registry boundary for exceptional battle and activity rule handlers.
+//! Versioned static registry for exceptional battle and activity rule handlers.
 //!
-//! Registered handlers emit ordinary validated domain operations. They do not
-//! mutate authoritative state directly or introduce a dynamic plugin ABI.
+//! Registrations are ordinary immutable Rust values. Battle handlers receive a
+//! read-only Rule IR context and return the same typed emissions as authored IR;
+//! they never receive mutable battle state or resolver internals.
 
 #![forbid(unsafe_code)]
+
+pub mod model;
+pub mod registry;

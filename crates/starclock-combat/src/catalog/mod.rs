@@ -3,6 +3,8 @@
 pub mod action;
 pub mod builder;
 pub mod definition;
+mod index;
+mod rule_validate;
 mod table;
 
 use crate::{
@@ -13,7 +15,13 @@ use definition::{
     AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition, ModifierDefinition,
     ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
 };
+use index::TriggerDefinitionIndex;
 use table::DefinitionTable;
+
+use crate::{
+    TriggerId,
+    rule::model::{RuleEventKind, TriggerPhase},
+};
 
 /// Human-readable immutable catalog revision.
 #[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -54,6 +62,7 @@ pub struct CombatCatalog {
     modifiers: DefinitionTable<ModifierDefinitionId, ModifierDefinition>,
     enemies: DefinitionTable<EnemyDefinitionId, EnemyDefinition>,
     encounters: DefinitionTable<EncounterId, EncounterDefinition>,
+    trigger_index: TriggerDefinitionIndex,
 }
 
 impl CombatCatalog {
@@ -80,6 +89,24 @@ impl CombatCatalog {
             + self.modifiers.len()
             + self.enemies.len()
             + self.encounters.len()
+    }
+
+    /// Returns the number of executable triggers in the compiled immutable index.
+    #[must_use]
+    pub fn trigger_count(&self) -> usize {
+        self.trigger_index.len()
+    }
+
+    /// Returns `(rule, trigger)` identities in deterministic definition order.
+    pub fn trigger_ids(
+        &self,
+        event: RuleEventKind,
+        phase: TriggerPhase,
+    ) -> impl ExactSizeIterator<Item = (RuleId, TriggerId)> + '_ {
+        self.trigger_index
+            .get(event, phase)
+            .iter()
+            .map(|entry| (entry.rule, entry.trigger))
     }
 
     /// Looks up a unit definition by stable ID.
@@ -140,5 +167,11 @@ impl CombatCatalog {
     /// Iterates program IDs in canonical numeric order.
     pub fn program_ids(&self) -> impl ExactSizeIterator<Item = ProgramId> + '_ {
         self.programs.ids()
+    }
+}
+
+impl crate::rule::evaluate::ProgramLookup for CombatCatalog {
+    fn program_steps(&self, id: ProgramId) -> Option<&[crate::rule::model::ProgramStep]> {
+        self.program(id).map(ProgramDefinition::steps)
     }
 }

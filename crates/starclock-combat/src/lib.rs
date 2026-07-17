@@ -22,6 +22,7 @@ mod operation;
 mod resolver;
 mod resource;
 pub mod rng;
+pub mod rule;
 mod target;
 mod timeline;
 

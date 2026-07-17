@@ -196,9 +196,13 @@ impl CombatCatalogBuilder {
             modifiers: table(self.modifiers, DefinitionKind::Modifier)?,
             enemies: table(self.enemies, DefinitionKind::Enemy)?,
             encounters: table(self.encounters, DefinitionKind::Encounter)?,
+            trigger_index: super::index::TriggerDefinitionIndex::default(),
         };
         validate_references(&catalog)?;
         validate_program_cycles(&catalog)?;
+        super::rule_validate::validate(&catalog)?;
+        let mut catalog = catalog;
+        catalog.trigger_index = super::index::TriggerDefinitionIndex::compile(&catalog.rules);
         Ok(Arc::new(catalog))
     }
 }
@@ -624,10 +628,17 @@ fn visit_program(
     Ok(())
 }
 
-fn error(kind: CatalogBuildErrorKind, message: impl Into<String>) -> CatalogBuildError {
+pub(super) fn catalog_error(
+    kind: CatalogBuildErrorKind,
+    message: impl Into<String>,
+) -> CatalogBuildError {
     CatalogBuildError {
         kind,
         message: message.into(),
         program_cycle: Box::new([]),
     }
+}
+
+fn error(kind: CatalogBuildErrorKind, message: impl Into<String>) -> CatalogBuildError {
+    catalog_error(kind, message)
 }

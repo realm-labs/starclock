@@ -1,6 +1,7 @@
 //! Immutable battle-domain definition inputs accepted by the catalog builder.
 
 use super::action::{AbilityActionDefinition, UnitTargetSelector};
+use crate::rule::model::{BattleRuleDefinition, ProgramStep};
 use crate::{
     AbilityId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ModifierDefinitionId, ProgramId,
     RuleBundleId, RuleId, SelectorId, UnitDefinitionId,
@@ -214,6 +215,7 @@ pub struct RuleDefinition {
     id: RuleId,
     programs: Box<[ProgramId]>,
     selectors: Box<[SelectorId]>,
+    runtime: Option<BattleRuleDefinition>,
 }
 
 impl RuleDefinition {
@@ -224,7 +226,14 @@ impl RuleDefinition {
             id,
             programs: programs.into_boxed_slice(),
             selectors: selectors.into_boxed_slice(),
+            runtime: None,
         }
+    }
+    /// Attaches the executable typed battle-rule definition.
+    #[must_use]
+    pub fn with_runtime(mut self, runtime: BattleRuleDefinition) -> Self {
+        self.runtime = Some(runtime);
+        self
     }
     /// Returns the stable definition ID.
     #[must_use]
@@ -241,6 +250,11 @@ impl RuleDefinition {
     pub fn selectors(&self) -> &[SelectorId] {
         &self.selectors
     }
+    /// Returns executable rule semantics when this is not an identity-only fixture.
+    #[must_use]
+    pub const fn runtime(&self) -> Option<&BattleRuleDefinition> {
+        self.runtime.as_ref()
+    }
 }
 
 /// Finite typed-program graph node and its referenced domain definitions.
@@ -251,6 +265,7 @@ pub struct ProgramDefinition {
     selectors: Box<[SelectorId]>,
     effects: Box<[EffectDefinitionId]>,
     modifiers: Box<[ModifierDefinitionId]>,
+    steps: Box<[ProgramStep]>,
 }
 
 impl ProgramDefinition {
@@ -269,7 +284,28 @@ impl ProgramDefinition {
             selectors: selectors.into_boxed_slice(),
             effects: effects.into_boxed_slice(),
             modifiers: modifiers.into_boxed_slice(),
+            steps: Box::new([]),
         }
+    }
+    /// Attaches a finite ordered typed program body.
+    #[must_use]
+    pub fn with_steps(mut self, steps: Vec<ProgramStep>) -> Self {
+        self.called_programs = steps
+            .iter()
+            .flat_map(|step| match step {
+                ProgramStep::Operation(_) => [None, None],
+                ProgramStep::If {
+                    then_program,
+                    else_program,
+                    ..
+                } => [Some(*then_program), *else_program],
+                ProgramStep::ForEach { body, .. } => [Some(*body), None],
+            })
+            .flatten()
+            .collect::<Vec<_>>()
+            .into_boxed_slice();
+        self.steps = steps.into_boxed_slice();
+        self
     }
     /// Returns the stable definition ID.
     #[must_use]
@@ -295,6 +331,11 @@ impl ProgramDefinition {
     #[must_use]
     pub fn modifiers(&self) -> &[ModifierDefinitionId] {
         &self.modifiers
+    }
+    /// Returns the finite ordered typed program body.
+    #[must_use]
+    pub fn steps(&self) -> &[ProgramStep] {
+        &self.steps
     }
 }
 
