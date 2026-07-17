@@ -1,0 +1,118 @@
+{
+  "schema_revision": "starclock.ci-matrix.v1",
+  "reviewed_on": "2026-07-17",
+  "workflow": ".github/workflows/ci.yml",
+  "repository_gate": "node tools/repository-check/run.mjs",
+  "evidence_retention_days": 30,
+  "actions": [
+    {
+      "name": "actions/checkout",
+      "release": "v7.0.0",
+      "commit": "9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0",
+      "license": "MIT",
+      "source_url": "https://github.com/actions/checkout/releases/tag/v7.0.0",
+      "purpose": "Materialize the exact workflow commit without retaining push credentials.",
+      "deterministic_impact": "The immutable action commit fixes checkout behavior; the checked revision remains GITHUB_SHA.",
+      "execution_cost": "Hosted JavaScript action only; no Rust compile unit.",
+      "rejected_alternatives": ["Mutable major tags permit workflow code drift.", "Handwritten Git checkout adds credential and platform-specific shell surface."]
+    },
+    {
+      "name": "actions/setup-node",
+      "release": "v7.0.0",
+      "commit": "820762786026740c76f36085b0efc47a31fe5020",
+      "license": "MIT",
+      "source_url": "https://github.com/actions/setup-node/releases/tag/v7.0.0",
+      "purpose": "Install the exact Node runtime selected by .node-version on every hosted image.",
+      "deterministic_impact": "The action implementation and requested Node version are both immutable inputs to repository evidence scripts.",
+      "execution_cost": "Downloads a prebuilt Node runtime when the hosted tool cache lacks 24.15.0; no Rust compile unit.",
+      "rejected_alternatives": ["Runner-default Node changes with hosted images.", "Platform-specific installation scripts duplicate trusted download logic."]
+    },
+    {
+      "name": "actions/upload-artifact",
+      "release": "v7.0.1",
+      "commit": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+      "license": "MIT",
+      "source_url": "https://github.com/actions/upload-artifact/releases/tag/v7.0.1",
+      "purpose": "Retain the per-profile machine-readable execution evidence produced after a successful gate.",
+      "deterministic_impact": "Does not affect authoritative simulation; immutable upload behavior preserves the exact evidence file emitted by the job.",
+      "execution_cost": "Compresses and uploads one small JSON record per profile; no Rust compile unit.",
+      "rejected_alternatives": ["Workflow logs alone do not provide a stable machine-readable profile record.", "Mutable action tags permit retention behavior drift."]
+    }
+  ],
+  "native_profiles": [
+    {
+      "id": "windows-x64-native",
+      "runner": "windows-2025",
+      "runner_os": "Windows",
+      "runner_arch": "X64",
+      "node_platform": "win32",
+      "node_arch": "x64",
+      "host": "x86_64-pc-windows-msvc",
+      "target": "x86_64-pc-windows-msvc",
+      "execution_mode": "native",
+      "tests_executed": true
+    },
+    {
+      "id": "linux-x64-native",
+      "runner": "ubuntu-24.04",
+      "runner_os": "Linux",
+      "runner_arch": "X64",
+      "node_platform": "linux",
+      "node_arch": "x64",
+      "host": "x86_64-unknown-linux-gnu",
+      "target": "x86_64-unknown-linux-gnu",
+      "execution_mode": "native",
+      "tests_executed": true
+    },
+    {
+      "id": "macos-arm64-native",
+      "runner": "macos-15",
+      "runner_os": "macOS",
+      "runner_arch": "ARM64",
+      "node_platform": "darwin",
+      "node_arch": "arm64",
+      "host": "aarch64-apple-darwin",
+      "target": "aarch64-apple-darwin",
+      "execution_mode": "native",
+      "tests_executed": true
+    }
+  ],
+  "compile_only_profiles": [
+    {
+      "id": "windows-arm64-compile",
+      "runner": "windows-2025",
+      "runner_os": "Windows",
+      "runner_arch": "X64",
+      "node_platform": "win32",
+      "node_arch": "x64",
+      "host": "x86_64-pc-windows-msvc",
+      "target": "aarch64-pc-windows-msvc",
+      "execution_mode": "compile-only",
+      "tests_executed": false
+    },
+    {
+      "id": "linux-arm64-compile",
+      "runner": "ubuntu-24.04",
+      "runner_os": "Linux",
+      "runner_arch": "X64",
+      "node_platform": "linux",
+      "node_arch": "x64",
+      "host": "x86_64-unknown-linux-gnu",
+      "target": "aarch64-unknown-linux-gnu",
+      "execution_mode": "compile-only",
+      "tests_executed": false
+    },
+    {
+      "id": "macos-x64-compile",
+      "runner": "macos-15",
+      "runner_os": "macOS",
+      "runner_arch": "ARM64",
+      "node_platform": "darwin",
+      "node_arch": "arm64",
+      "host": "aarch64-apple-darwin",
+      "target": "x86_64-apple-darwin",
+      "execution_mode": "compile-only",
+      "tests_executed": false
+    }
+  ]
+}

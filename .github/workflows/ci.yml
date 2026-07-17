@@ -1,0 +1,106 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  native:
+    name: Native / ${{ matrix.profile }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - profile: windows-x64-native
+            runner: windows-2025
+            host: x86_64-pc-windows-msvc
+          - profile: linux-x64-native
+            runner: ubuntu-24.04
+            host: x86_64-unknown-linux-gnu
+          - profile: macos-arm64-native
+            runner: macos-15
+            host: aarch64-apple-darwin
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 45
+    steps:
+      - name: Check out the exact commit
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+      - name: Install pinned Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          package-manager-cache: false
+      - name: Install pinned Rust components
+        run: rustup toolchain install 1.97.0 --profile minimal --component clippy --component rustfmt
+      - name: Install checksum-bound Sora
+        run: node tools/sora/install.mjs
+      - name: Run the repository gate natively
+        run: node tools/repository-check/run.mjs
+      - name: Record native execution evidence
+        run: node tools/ci/write-evidence.mjs --profile "${{ matrix.profile }}" --output ".ci-evidence/${{ matrix.profile }}.json"
+      - name: Retain native evidence
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ci-${{ matrix.profile }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .ci-evidence/${{ matrix.profile }}.json
+          if-no-files-found: error
+          retention-days: 30
+
+  compile-only:
+    name: Compile only / ${{ matrix.profile }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - profile: windows-arm64-compile
+            runner: windows-2025
+            host: x86_64-pc-windows-msvc
+            target: aarch64-pc-windows-msvc
+          - profile: linux-arm64-compile
+            runner: ubuntu-24.04
+            host: x86_64-unknown-linux-gnu
+            target: aarch64-unknown-linux-gnu
+          - profile: macos-x64-compile
+            runner: macos-15
+            host: aarch64-apple-darwin
+            target: x86_64-apple-darwin
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 20
+    steps:
+      - name: Check out the exact commit
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+      - name: Install pinned Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          package-manager-cache: false
+      - name: Install pinned Rust target
+        run: |
+          rustup toolchain install 1.97.0 --profile minimal
+          rustup target add "${{ matrix.target }}" --toolchain 1.97.0
+      - name: Check the alternate CPU target without execution
+        run: cargo check --workspace --all-targets --all-features --target "${{ matrix.target }}"
+      - name: Record compile-only evidence
+        run: node tools/ci/write-evidence.mjs --profile "${{ matrix.profile }}" --output ".ci-evidence/${{ matrix.profile }}.json"
+      - name: Retain compile-only evidence
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ci-${{ matrix.profile }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .ci-evidence/${{ matrix.profile }}.json
+          if-no-files-found: error
+          retention-days: 30

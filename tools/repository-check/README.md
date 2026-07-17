@@ -6,9 +6,10 @@ Run the complete pinned local gate from the repository root:
 node tools/repository-check/run.mjs
 ```
 
-The runner verifies the reviewed dependency/tool inventory, crate dependency
-direction, handwritten Rust line limits, deliberate public re-exports,
-generated-artifact drift, formatting, Clippy and all workspace tests. The Rust
+The runner verifies the reviewed dependency/tool inventory, CI platform and
+evidence contract, crate dependency direction, handwritten Rust line limits,
+deliberate public re-exports, generated-artifact drift, formatting, Clippy and
+all workspace tests. The Rust
 source policy excludes generated or vendored trees only when their exact path,
 kind and reason are committed in `policy/repository-checks.json`.
 
@@ -20,5 +21,7 @@ pack regeneration proof:
 node tools/repository-check/run.mjs --with-source-cache
 ```
 
-CI must call this runner rather than copying its command list. Later batches
+CI calls this runner rather than copying its command list. Native and
+compile-only target claims are defined in `policy/ci-matrix.json` and documented
+in `docs/ci-platform-matrix.md`. Later batches
 extend `policy/generated-drift.json` as Sora schemas and golden artifacts land.

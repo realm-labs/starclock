@@ -49,6 +49,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 25. [Combat content reference pack](content-reference/README.md) — prepared Version 4.4 character, Trace, Eidolon, Light Cone, enemy, ability, and ordinary-encounter facts used before Excel/Sora authoring.
 26. [Dependency and tool policy](dependency-and-tool-policy.md) — exact active package/tool versions, licenses, deterministic impact, compile-cost records and rejected alternatives.
 27. [Sora 0.3.0 capability lock](sora-0.3.0-capability-lock.md) — checksum-bound installation, executed CLI/schema/codegen/export surface and pinned limitations.
+28. [CI platform matrix](ci-platform-matrix.md) — pinned hosted runners, native execution, compile-only targets and retained evidence boundaries.
 
 ## Execution goals
 

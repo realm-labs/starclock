@@ -11,6 +11,7 @@ const includeSourceCache = arguments_.includes("--with-source-cache");
 const commands = [
   ["node", "tools/dependency-policy/verify.mjs"],
   ["node", "tools/workspace/verify-dependencies.mjs"],
+  ["node", "tools/ci/verify-workflow.mjs"],
   ["node", "tools/repository-check/verify-source-policy.mjs"],
   ["node", "tools/repository-check/verify-generated-drift.mjs", ...(includeSourceCache ? ["--with-source-cache"] : [])],
   ["cargo", "fmt", "--all", "--", "--check"],
