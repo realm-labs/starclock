@@ -46,6 +46,17 @@ impl DeterministicRng {
         self.draws
     }
 
+    /// Copies authoritative stream semantics into existing private storage.
+    ///
+    /// This deliberately does not implement `Clone`: callers cannot fork a
+    /// live stream, while the battle transaction can reuse owned scratch.
+    pub(crate) fn clone_from_authoritative(&mut self, source: &Self) {
+        self.seed = source.seed;
+        self.draws = source.draws;
+        self.inner = ChaCha8Rng::from_seed(source.seed.bytes());
+        self.inner.set_word_pos(source.inner.get_word_pos());
+    }
+
     /// Consumes and returns one raw generator word.
     pub fn draw_raw(&mut self, purpose: DrawPurpose) -> Result<DrawSample, RngError> {
         let next_count = self

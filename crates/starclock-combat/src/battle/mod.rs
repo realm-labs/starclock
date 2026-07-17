@@ -2,6 +2,7 @@
 
 pub(crate) mod aggregate;
 pub(crate) mod build;
+pub(crate) mod fault;
 pub(crate) mod model;
 pub(crate) mod spec;
 pub(crate) mod state;

@@ -1,4 +1,8 @@
-use crate::command::model::DecisionPoint;
+use crate::{
+    codec::BattleStateHash, command::model::DecisionPoint, event::model::BattleEvent, id::CommandId,
+};
+
+use super::fault::BattleFault;
 
 /// Top-level battle lifecycle state. `Resolving` is never externally suspended.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -28,28 +32,40 @@ impl BattlePhase {
 
 /// Owned result of one accepted command at a stable decision/terminal boundary.
 ///
-/// Events, cause records and the canonical state digest are added by the
-/// transaction batch; all fields remain private so that expansion is additive.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Resolution {
     phase: BattlePhase,
     next_decision: Option<DecisionPoint>,
     committed_revision: u64,
     rng_draw_count: u64,
+    root_command: CommandId,
+    events: Vec<BattleEvent>,
+    state_hash: BattleStateHash,
+    fault: Option<BattleFault>,
+}
+
+pub(crate) struct ResolutionBoundary {
+    pub(crate) phase: BattlePhase,
+    pub(crate) next_decision: Option<DecisionPoint>,
+    pub(crate) committed_revision: u64,
+    pub(crate) rng_draw_count: u64,
+    pub(crate) root_command: CommandId,
+    pub(crate) events: Vec<BattleEvent>,
+    pub(crate) state_hash: BattleStateHash,
+    pub(crate) fault: Option<BattleFault>,
 }
 
 impl Resolution {
-    pub(crate) fn new(
-        phase: BattlePhase,
-        next_decision: Option<DecisionPoint>,
-        committed_revision: u64,
-        rng_draw_count: u64,
-    ) -> Self {
+    pub(crate) fn new(boundary: ResolutionBoundary) -> Self {
         Self {
-            phase,
-            next_decision,
-            committed_revision,
-            rng_draw_count,
+            phase: boundary.phase,
+            next_decision: boundary.next_decision,
+            committed_revision: boundary.committed_revision,
+            rng_draw_count: boundary.rng_draw_count,
+            root_command: boundary.root_command,
+            events: boundary.events,
+            state_hash: boundary.state_hash,
+            fault: boundary.fault,
         }
     }
 
@@ -72,5 +88,25 @@ impl Resolution {
     #[must_use]
     pub const fn rng_draw_count(&self) -> u64 {
         self.rng_draw_count
+    }
+    /// Returns the accepted command identity at every event's root.
+    #[must_use]
+    pub const fn root_command(&self) -> CommandId {
+        self.root_command
+    }
+    /// Returns authoritative facts in exact emission order.
+    #[must_use]
+    pub fn events(&self) -> &[BattleEvent] {
+        &self.events
+    }
+    /// Returns the streaming SHA-256 digest of committed canonical state.
+    #[must_use]
+    pub const fn state_hash(&self) -> BattleStateHash {
+        self.state_hash
+    }
+    /// Returns the stable fault committed by this accepted command, if any.
+    #[must_use]
+    pub const fn fault(&self) -> Option<BattleFault> {
+        self.fault
     }
 }

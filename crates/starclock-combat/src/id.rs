@@ -186,6 +186,10 @@ runtime_id!(
     "Battle-local monotonic identity of an externally visible decision point."
 );
 runtime_id!(
+    CommandId,
+    "Battle-local monotonic identity of one accepted external command."
+);
+runtime_id!(
     WaveInstanceId,
     "Battle-local monotonic identity of an encounter wave instance."
 );

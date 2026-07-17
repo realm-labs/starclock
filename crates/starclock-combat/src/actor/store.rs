@@ -46,6 +46,10 @@ impl UnitStore {
     pub(crate) fn iter_by_id(&self) -> impl Iterator<Item = &UnitState> {
         self.slots.iter().filter_map(Option::as_ref)
     }
+
+    pub(crate) fn canonical_slots(&self) -> &[Option<UnitState>] {
+        &self.slots
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -74,6 +78,10 @@ impl TimelineActorStore {
     pub(crate) fn iter_by_id(&self) -> impl Iterator<Item = &TimelineActorState> {
         self.slots.iter().filter_map(Option::as_ref)
     }
+
+    pub(crate) fn canonical_slots(&self) -> &[Option<TimelineActorState>] {
+        &self.slots
+    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -98,6 +106,10 @@ impl FormationState {
             .iter()
             .copied()
             .filter(move |entry| entry.side == side)
+    }
+
+    pub(crate) fn canonical_entries(&self) -> &[FormationEntry] {
+        &self.entries
     }
 }
 

@@ -15,6 +15,7 @@ use crate::{
 };
 
 use super::{
+    fault::BattleFault,
     model::BattlePhase,
     spec::{
         BattleSeed, BattleSpecDigest, CombatantSpecDigest, FormationIndex, ParticipantSource,
@@ -34,6 +35,11 @@ impl<'a> BattleView<'a> {
     #[must_use]
     pub const fn phase(self) -> BattlePhase {
         self.state.phase
+    }
+    /// Returns the persisted terminal fault, if resolution faulted.
+    #[must_use]
+    pub const fn fault(self) -> Option<BattleFault> {
+        self.state.fault
     }
     /// Returns the active decision, or `None` at a terminal boundary.
     #[must_use]
@@ -126,6 +132,11 @@ impl<'a> BattleIdentityView<'a> {
     #[must_use]
     pub const fn rng_algorithm_revision(self) -> &'static str {
         RNG_ALGORITHM_REVISION
+    }
+    /// Returns the canonical battle-state hash compatibility revision.
+    #[must_use]
+    pub const fn state_hash_revision(self) -> &'static str {
+        crate::STATE_HASH_REVISION
     }
     /// Returns the exact isolated battle seed.
     #[must_use]

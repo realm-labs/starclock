@@ -1,5 +1,6 @@
 /// Life axis for a unit; zero HP does not collapse presence into this enum.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
 pub enum LifeState {
     /// Eligible living unit.
     Alive,
@@ -11,6 +12,7 @@ pub enum LifeState {
 
 /// Independent battlefield-presence axis.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
 pub enum PresenceState {
     /// Occupies its ordinary battlefield role and may be targetable.
     Present,

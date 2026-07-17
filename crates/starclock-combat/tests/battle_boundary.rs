@@ -1,12 +1,13 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    AbilityId, Battle, BattleBuildErrorKind, BattlePhase, BattleSeed, BattleSpec, BattleSpecDigest,
-    BattleSpecError, CombatantSpecDigest, CombatantSpecError, Command, CommandErrorKind,
-    ConcedePolicy, DecisionId, DecisionKind, DecisionOwner, EncounterId, EnemyDefinitionId,
-    FormationIndex, Hp, LifeState, ParticipantSource, ParticipantSpec, PresenceState,
-    ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamSide,
-    UnitDefinitionId, UnitId, UnitLevel,
+    AbilityId, Battle, BattleBuildErrorKind, BattleEventData, BattleEventKind, BattlePhase,
+    BattleSeed, BattleSpec, BattleSpecDigest, BattleSpecError, CombatantSpecDigest,
+    CombatantSpecError, Command, CommandErrorKind, ConcedePolicy, DecisionEventData, DecisionId,
+    DecisionKind, DecisionOwner, EncounterId, EnemyDefinitionId, FormationIndex, Hp, LifeState,
+    ParticipantSource, ParticipantSpec, PresenceState, ResolvedCombatantSpec,
+    ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamSide, UnitDefinitionId, UnitId,
+    UnitLevel,
     catalog::{
         CombatCatalog,
         builder::CombatCatalogBuilder,
@@ -138,6 +139,7 @@ struct ObservableSnapshot {
     decision: Option<(u64, Vec<Command>)>,
     revision: u64,
     rng_draws: u64,
+    state_hash: [u8; 32],
     units: Vec<(u64, u32, TeamSide, u8, i64)>,
 }
 
@@ -150,6 +152,7 @@ fn snapshot(battle: &Battle) -> ObservableSnapshot {
             .map(|decision| (decision.id().get(), decision.legal_commands().to_vec())),
         revision: view.committed_revision(),
         rng_draws: view.rng_draw_count(),
+        state_hash: battle.state_hash().bytes(),
         units: view
             .units_by_id()
             .map(|unit| {
@@ -178,6 +181,7 @@ fn battle_construction_allocates_canonical_private_stores_and_read_only_views() 
 
     let view = battle.view();
     assert_eq!(view.phase(), BattlePhase::Initializing);
+    assert_eq!(view.fault(), None);
     assert_eq!(view.committed_revision(), 0);
     assert_eq!(view.rng_draw_count(), 0);
     assert_eq!(
@@ -195,6 +199,7 @@ fn battle_construction_allocates_canonical_private_stores_and_read_only_views() 
         view.identity().rng_algorithm_revision(),
         "chacha8-rand-0.10.2-intmap-v1"
     );
+    assert_eq!(view.identity().state_hash_revision(), "sha256-v1");
     assert_eq!(view.identity().seed().bytes(), [0x71; 32]);
     assert_eq!(view.encounter().definition(), definition::<EncounterId>(1));
     assert_eq!(view.encounter().wave().get(), 1);
@@ -245,6 +250,14 @@ fn battle_construction_allocates_canonical_private_stores_and_read_only_views() 
 #[test]
 fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     let mut battle = Battle::create(catalog(), valid_spec(), BattleSeed::new([0x72; 32])).unwrap();
+    assert_eq!(
+        battle.state_hash().bytes(),
+        [
+            0x72, 0xef, 0x63, 0x05, 0xb7, 0x08, 0x34, 0xb8, 0xaa, 0x2e, 0x51, 0xae, 0x95, 0x7d,
+            0xdf, 0xe9, 0x57, 0x2c, 0xa9, 0x56, 0x2e, 0x07, 0xe7, 0x94, 0x8a, 0x90, 0x1f, 0x96,
+            0xbb, 0xb2, 0x72, 0x13,
+        ]
+    );
     let before = snapshot(&battle);
     let stale = Command::StartBattle {
         decision: runtime(99),
@@ -268,9 +281,38 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
         decision: runtime(1),
     };
     let started = battle.apply(start).unwrap();
+    assert_eq!(
+        started.state_hash().bytes(),
+        [
+            0x83, 0xed, 0x2a, 0x72, 0xb9, 0x70, 0x94, 0xd1, 0xea, 0x86, 0x94, 0xd4, 0xca, 0xca,
+            0x9b, 0x62, 0x4e, 0xaf, 0xae, 0xf1, 0xf9, 0xdb, 0x46, 0xa9, 0xa7, 0xab, 0x7c, 0x92,
+            0xa7, 0x00, 0x8e, 0x70,
+        ]
+    );
     assert_eq!(started.phase(), BattlePhase::AwaitingCommand);
     assert_eq!(started.committed_revision(), 1);
     assert_eq!(started.rng_draw_count(), 0);
+    assert_eq!(started.state_hash(), battle.state_hash());
+    assert_eq!(started.root_command().get(), 1);
+    assert_eq!(started.events().len(), 2);
+    assert_eq!(started.events()[0].id().get(), 1);
+    assert_eq!(started.events()[0].cause().root_command().get(), 1);
+    assert_eq!(started.events()[0].cause().parent_event(), None);
+    assert_eq!(
+        started.events()[0].kind(),
+        &BattleEventKind::Battle(BattleEventData::Started)
+    );
+    assert_eq!(started.events()[1].id().get(), 2);
+    assert_eq!(started.events()[1].cause().root_command().get(), 1);
+    assert_eq!(started.events()[1].cause().parent_event().unwrap().get(), 1);
+    assert_eq!(
+        started.events()[1].kind(),
+        &BattleEventKind::Decision(DecisionEventData::Offered {
+            decision: runtime(2),
+            kind: DecisionKind::NormalAction,
+            owner: DecisionOwner::Team(TeamSide::Player),
+        })
+    );
     let next = started.next_decision().unwrap();
     assert_eq!(next.id(), runtime::<DecisionId>(2));
     assert_eq!(next.kind(), DecisionKind::NormalAction);
@@ -301,9 +343,28 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
             decision: runtime(2),
         })
         .unwrap();
+    assert_eq!(
+        ended.state_hash().bytes(),
+        [
+            0x03, 0x0b, 0x61, 0x5a, 0x63, 0xfa, 0xb9, 0x06, 0x26, 0x6e, 0xaf, 0x1b, 0xc2, 0xff,
+            0x05, 0x9f, 0x5e, 0xf2, 0xeb, 0xd8, 0x71, 0x46, 0xda, 0xf5, 0xbc, 0x68, 0xe4, 0x0d,
+            0x51, 0x9c, 0x1f, 0xd2,
+        ]
+    );
     assert_eq!(ended.phase(), BattlePhase::Lost);
     assert_eq!(ended.committed_revision(), 2);
     assert_eq!(ended.next_decision(), None);
+    assert_eq!(ended.state_hash(), battle.state_hash());
+    assert_eq!(ended.root_command().get(), 2);
+    assert_eq!(ended.events().len(), 1);
+    assert_eq!(ended.events()[0].id().get(), 3);
+    assert_eq!(ended.events()[0].cause().root_command().get(), 2);
+    assert_eq!(
+        ended.events()[0].kind(),
+        &BattleEventKind::Battle(BattleEventData::Conceded {
+            side: TeamSide::Player
+        })
+    );
     assert!(battle.decision().is_none());
     let terminal = snapshot(&battle);
     assert_eq!(

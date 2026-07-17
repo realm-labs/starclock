@@ -56,7 +56,8 @@ phase, decision, stores, accepted-command revision and RNG draw count unchanged.
 Legal command storage uses an explicit total key rather than enum/container
 iteration order.
 
-`Resolution` currently owns the committed phase, optional next decision,
-accepted-command revision and RNG draw count with private fields. `G01-P3-B2`
-adds the reusable `clone_from`/swap transaction, events/causes, deterministic
-faults and canonical state digest without exposing those private backends.
+`Resolution` owns the committed phase, optional next decision, accepted-command
+revision, RNG draw count, root command, ordered events, deterministic fault and
+canonical state digest with private fields. The reusable `clone_from`/swap
+transaction and its non-authoritative backends are documented in
+[Battle transaction boundary](battle-transaction-boundary.md).

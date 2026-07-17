@@ -9,15 +9,18 @@
 mod actor;
 mod battle;
 pub mod catalog;
+mod codec;
 mod command;
+mod event;
 mod id;
 mod numeric;
+mod resolver;
 pub mod rng;
 
 // This is the deliberate small crate facade. The defining modules remain
 // private so representation/backend details have one canonical external path.
 pub use id::{
-    AbilityId, ActionId, DecisionId, EffectDefinitionId, EffectInstanceId, EncounterId,
+    AbilityId, ActionId, CommandId, DecisionId, EffectDefinitionId, EffectInstanceId, EncounterId,
     EnemyDefinitionId, EventId, HitId, HitPlanDefinitionId, ModifierDefinitionId,
     ModifierInstanceId, NativeHandlerId, OperationId, PhaseId, ProgramId, RuleBundleId, RuleId,
     RuleInstanceId, SelectorId, ShieldInstanceId, SourceDefinitionId, SpawnSequence,
@@ -35,6 +38,7 @@ pub use numeric::scalar::{Ratio, Scalar};
 pub use actor::model::{LifeState, PresenceState};
 pub use battle::aggregate::Battle;
 pub use battle::build::{BattleBuildError, BattleBuildErrorKind};
+pub use battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy};
 pub use battle::model::{BattlePhase, Resolution};
 pub use battle::spec::{
     BattleSeed, BattleSpec, BattleSpecDigest, BattleSpecError, CombatantSpecDigest,
@@ -45,9 +49,16 @@ pub use battle::view::{
     BattleIdentityView, BattleView, EncounterView, FormationView, TeamView, TimelineActorView,
     UnitView,
 };
+pub use codec::BattleStateHash;
 pub use command::model::{
     Command, CommandError, CommandErrorKind, DecisionKind, DecisionOwner, DecisionPoint,
+};
+pub use event::cause::{Cause, CauseActor};
+pub use event::model::{
+    BattleEvent, BattleEventData, BattleEventKind, DecisionEventData, FaultEventData,
 };
 
 /// Compatibility identifier for authoritative numeric representation and rounding.
 pub const NUMERIC_POLICY_REVISION: &str = "fixed-i64-6dp-v1";
+/// Compatibility identifier for canonical battle-state hashing.
+pub const STATE_HASH_REVISION: &str = "sha256-v1";

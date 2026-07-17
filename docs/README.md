@@ -63,6 +63,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 38. [Canonical replay/codec implementation](replay-codec-implementation.md) — versioned header/record framing, typed digests, bounded decoding and streaming state hashing.
 39. [Property-test harness](property-test-harness.md) — fixed-seed shrinking and persisted regression contracts for arithmetic, RNG, ordering, codec and malformed replay input.
 40. [Battle aggregate boundary](battle-aggregate-boundary.md) — generic battle inputs, canonical runtime stores, phases, commands, decisions, resolutions and immutable query views.
+41. [Battle transaction boundary](battle-transaction-boundary.md) — reusable semantic-copy scratch, forward journal, rollback/commit-fault settlement, complete event causes and streaming canonical state hashes.
 
 ## Execution goals
 
