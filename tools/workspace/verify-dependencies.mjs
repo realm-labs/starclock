@@ -19,7 +19,11 @@ const expected = new Map([
   ["starclock-cli", ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mode-standard", "starclock-replay", "starclock-rules"]],
 ]);
 const expectedExternal = new Map([
-  ["starclock-combat", [{ name: "fixnum", requirement: "=0.9.5", features: ["i64", "std"] }]],
+  ["starclock-combat", [
+    { name: "fixnum", requirement: "=0.9.5", features: ["i64", "std"] },
+    { name: "rand", requirement: "=0.10.2", features: ["chacha", "std"] },
+    { name: "sha2", requirement: "=0.11.0", features: [] },
+  ]],
   ["starclock-data", [
     { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
     { name: "zstd", requirement: "=0.13.3", features: [] },
@@ -64,14 +68,14 @@ for (const pkg of packages) {
 }
 
 const combat = packages.find((entry) => entry.name === "starclock-combat");
-assert(combat.dependencies.every((dependency) => dependency.name === "fixnum"), "starclock-combat may depend only on the reviewed private numeric backend");
+assert(combat.dependencies.every((dependency) => ["fixnum", "rand", "sha2"].includes(dependency.name)), "starclock-combat may depend only on the reviewed private numeric/RNG/hash backends");
 const data = packages.find((entry) => entry.name === "starclock-data");
 assert(data.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => ["serde", "zstd"].includes(dependency.name)), "starclock-data may use only generated-reader transport dependencies");
 const cli = packages.find((entry) => entry.name === "starclock-cli");
 const cliBinaries = cli.targets.filter((target) => target.kind.includes("bin")).map((target) => target.name);
 assert(JSON.stringify(cliBinaries) === JSON.stringify(["starclock"]), "starclock-cli must own only the starclock binary");
 
-console.log("Workspace dependency boundaries verified (9 crates; combat has only private fixnum backend).");
+console.log("Workspace dependency boundaries verified (9 crates; combat has only reviewed private numeric/RNG/hash backends).");
 
 function normalize(value) { return path.resolve(value).replaceAll("\\", "/").toLowerCase(); }
 function read(file) { return fs.readFileSync(file, "utf8"); }

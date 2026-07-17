@@ -7,6 +7,7 @@ const policy = JSON.parse(fs.readFileSync(path.join(root, "policy", "dependency-
 const soraPolicy = JSON.parse(fs.readFileSync(path.join(root, "policy", "sora-toolchain.json"), "utf8"));
 assert(policy.compile_cost_measurement.elapsed_milliseconds > 0 && policy.compile_cost_measurement.command && policy.compile_cost_measurement.runner, "compile-cost measurement is incomplete");
 assert(policy.production_reader_compile_cost_measurement.elapsed_milliseconds > 0 && policy.production_reader_compile_cost_measurement.command && policy.production_reader_compile_cost_measurement.runner, "production reader compile-cost measurement is incomplete");
+assert(policy.rng_hash_compile_cost_measurement.elapsed_milliseconds > 0 && policy.rng_hash_compile_cost_measurement.command && policy.rng_hash_compile_cost_measurement.runner, "RNG/hash compile-cost measurement is incomplete");
 const requiredFields = ["license", "source_url", "purpose", "deterministic_impact", "compile_cost", "rejected_alternatives"];
 for (const kind of ["packages", "tools"]) {
   for (const entry of policy[kind]) {
@@ -50,10 +51,22 @@ const rustFiles = walk(combatSource).filter((file) => file.endsWith(".rs"));
 const backendUsers = rustFiles.filter((file) => fs.readFileSync(file, "utf8").includes("fixnum"));
 assert(backendUsers.length === 1 && path.relative(root, backendUsers[0]).replaceAll("\\", "/") === "crates/starclock-combat/src/numeric/scalar.rs", `fixnum escaped the private scalar backend: ${backendUsers.join(", ")}`);
 const combatRoot = fs.readFileSync(path.join(combatSource, "lib.rs"), "utf8");
+const workspaceManifest = fs.readFileSync(path.join(root, "Cargo.toml"), "utf8");
+const combatManifest = fs.readFileSync(path.join(root, "crates", "starclock-combat", "Cargo.toml"), "utf8");
+assert(workspaceManifest.includes('rand = { version = "=0.10.2", default-features = false, features = ["chacha", "std"] }'), "authoritative rand pin/features differ");
+assert(workspaceManifest.includes('sha2 = { version = "=0.11.0", default-features = false }'), "authoritative sha2 pin/features differ");
+assert(combatManifest.includes("rand.workspace = true") && combatManifest.includes("sha2.workspace = true"), "combat RNG/hash dependencies differ");
 assert(combatRoot.includes("mod numeric;") && !combatRoot.includes("pub mod numeric"), "numeric backend module must remain private");
 assert(!combatRoot.includes("pub use fixnum"), "fixnum must not be re-exported");
+const randUsers = rustFiles.filter((file) => /\brand::/.test(fs.readFileSync(file, "utf8")));
+assert(randUsers.length === 1 && path.relative(root, randUsers[0]).replaceAll("\\", "/") === "crates/starclock-combat/src/rng/engine.rs", `rand escaped the private RNG wrapper: ${randUsers.join(", ")}`);
+const randSource = fs.readFileSync(randUsers[0], "utf8");
+assert(!/rand::distr|random_range|random_iter|thread_rng|sys_rng/.test(randSource), "private RNG wrapper uses a forbidden generic/system rand API");
+const shaUsers = rustFiles.filter((file) => /\bsha2::/.test(fs.readFileSync(file, "utf8")));
+assert(shaUsers.length === 1 && path.relative(root, shaUsers[0]).replaceAll("\\", "/") === "crates/starclock-combat/src/rng/derive.rs", `sha2 escaped canonical stream derivation: ${shaUsers.join(", ")}`);
+assert(!combatRoot.includes("pub use rand") && !combatRoot.includes("pub use sha2"), "RNG/hash dependencies must not be re-exported");
 
-console.log(`Dependency policy verified (${reviewed.length} locked registry packages; ${policy.tools.length} pinned tools; private fixnum boundary).`);
+console.log(`Dependency policy verified (${reviewed.length} locked registry packages; ${policy.tools.length} pinned tools; private numeric/RNG/hash boundaries).`);
 
 function run(command, args) { return execFileSync(command, args, { cwd: root, encoding: "utf8" }).trim(); }
 function walk(directory) { return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => { const file = path.join(directory, entry.name); return entry.isDirectory() ? walk(file) : [file]; }); }

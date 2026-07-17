@@ -38,6 +38,6 @@
         "reason": "Deliberate small external facade over private ID and numeric representation modules."
       }
     ],
-    "forbidden_public_api_tokens": ["fixnum::", "FixedPoint", "sora::"]
+    "forbidden_public_api_tokens": ["fixnum::", "FixedPoint", "rand::", "sha2::", "ChaCha8Rng", "sora::"]
   }
 }

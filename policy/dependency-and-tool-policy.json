@@ -22,6 +22,13 @@
     "scope": "starclock-data, generated Sora 0.3.0 reader, serde/zstd graph and all local dependencies",
     "classification": "Moderate generated-reader/toolchain cost; no runtime performance claim"
   },
+  "rng_hash_compile_cost_measurement": {
+    "runner": "Windows x86_64-pc-windows-msvc; rustc 1.97.0; local development measurement (not a stable performance runner)",
+    "command": "fresh CARGO_TARGET_DIR cargo check -p starclock-combat --all-targets --all-features --locked",
+    "elapsed_milliseconds": 3500,
+    "scope": "starclock-combat plus fixnum, rand/ChaCha8, SHA-256 and all direct/transitive packages",
+    "classification": "Low local compile cost; replay compatibility is governed by golden vectors, not this timing"
+  },
   "packages": [
     {
       "name": "fixnum",
@@ -84,6 +91,33 @@
     }
   ],
   "package_groups": [
+    {
+      "name": "authoritative RNG and SHA-256",
+      "relationship": "rand and sha2 are direct starclock-combat dependencies; all other entries are transitive through those packages",
+      "owner": "starclock-combat private ChaCha8 generator and stream-derivation implementation",
+      "features": ["rand:chacha,std", "sha2:none"],
+      "default_features": false,
+      "source_url": "https://crates.io/",
+      "purpose": "Provide the explicitly named ChaCha8 core and SHA-256 primitive while Starclock owns canonical stream bytes, unsigned rejection mapping, cumulative weight selection, draw consumption and counters.",
+      "deterministic_impact": "Authoritative and replay-sensitive. Exact versions/features, raw u64 words, seed derivation bytes, mapping and draw policy are bound by rng_algorithm_revision and golden vectors; thread/sys RNG features are disabled and generic distribution APIs are mechanically unused.",
+      "compile_cost": "A fresh locked starclock-combat check including numeric, RNG and SHA-256 packages measured 3,500 ms on the recorded Windows runner. Existing shared cfg-if, libc and typenum packages are inventoried elsewhere.",
+      "rejected_alternatives": [
+        "Thread/system RNG or generic rand distributions: hidden entropy and version-sensitive mapping/draw counts.",
+        "Handwritten ChaCha8 or SHA-256: unnecessary cryptographic primitive audit surface.",
+        "rand_chacha as a separate direct dependency: rand 0.10.2 exposes the required named ChaCha8 generator behind its reviewed chacha feature."
+      ],
+      "packages": [
+        { "name": "block-buffer", "version": "0.12.1", "license": "MIT OR Apache-2.0" },
+        { "name": "chacha20", "version": "0.10.1", "license": "MIT OR Apache-2.0" },
+        { "name": "cpufeatures", "version": "0.3.0", "license": "MIT OR Apache-2.0" },
+        { "name": "crypto-common", "version": "0.2.2", "license": "MIT OR Apache-2.0" },
+        { "name": "digest", "version": "0.11.3", "license": "MIT OR Apache-2.0" },
+        { "name": "hybrid-array", "version": "0.4.13", "license": "MIT OR Apache-2.0" },
+        { "name": "rand", "version": "0.10.2", "license": "MIT OR Apache-2.0" },
+        { "name": "rand_core", "version": "0.10.1", "license": "MIT OR Apache-2.0" },
+        { "name": "sha2", "version": "0.11.0", "license": "MIT OR Apache-2.0" }
+      ]
+    },
     {
       "name": "production Sora generated reader",
       "relationship": "serde and zstd are direct starclock-data dependencies; all other entries are transitive through those packages",

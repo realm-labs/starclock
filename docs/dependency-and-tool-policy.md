@@ -30,6 +30,14 @@ them. Their 19-package direct/transitive group is reviewed in the active policy;
 generated types remain private. A fresh Windows x86-64 check of
 `starclock-data`, its generated reader and local dependencies took 18,782 ms.
 
+`G01-P2-B3` adds exact `rand = 0.10.2` with only `std` and `chacha`, plus
+`sha2 = 0.11.0` with no default features. Rand's thread/system RNG features are
+disabled, generic distribution helpers are mechanically unused, and only the
+private Starclock wrapper names `ChaCha8Rng`. SHA-256 is confined to canonical
+stream derivation. The nine newly resolved packages are recorded as one
+reviewed group. A fresh locked Windows x86-64 combat check including numeric,
+RNG and hash packages took 3,500 ms.
+
 The standalone workbook bootstrap pins `calamine = 0.35.0` and the documented
 `rust_xlsxwriter = 0.96.0` with default features disabled. Its exact 47-package
 lock, features, licenses and checksums are in
@@ -44,6 +52,16 @@ constructors and accessors use signed millionths or integral fixed-width values.
 No backing type, feature, generic operation trait or float conversion is public.
 `G01-P2-B1` adds checked arithmetic, six explicit rounding policies and typed
 numeric faults without changing the reviewed dependency graph.
+
+## RNG and hashing boundary
+
+Only `starclock-combat/src/rng/engine.rs` names `rand`, and only
+`starclock-combat/src/rng/derive.rs` names `sha2`. Public consumers see
+Starclock seed, purpose, sample, selection and error types. The wrapper never
+implements `Clone`, and no dependency generator, distribution or digest type is
+re-exported. `rng_algorithm_revision = "chacha8-rand-0.10.2-intmap-v1"` binds
+the raw-word sequence, canonical SHA-256 derivation, range/weight mappings and
+draw-consumption policy.
 
 ## Change rule
 

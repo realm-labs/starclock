@@ -9,6 +9,7 @@
 pub mod catalog;
 mod id;
 mod numeric;
+pub mod rng;
 
 // This is the deliberate small crate facade. The defining modules remain
 // private so representation/backend details have one canonical external path.

@@ -2,7 +2,8 @@
 
 The verifier compares the complete resolved registry graph with the reviewed
 machine-readable policy, checks active compiler/tool versions, and ensures that
-`fixnum` is named only inside the private combat numeric scalar backend.
+`fixnum`, `rand` and `sha2` remain confined to their reviewed private combat
+numeric, RNG and stream-derivation backends.
 
 ```sh
 node tools/dependency-policy/verify.mjs
