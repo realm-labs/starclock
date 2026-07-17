@@ -1,0 +1,47 @@
+{
+  "table": {
+    "name": "StepRow",
+    "rows": [
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 1001
+          },
+          "effect": {
+            "Object": {
+              "amount": {
+                "Integer": 250
+              },
+              "type": {
+                "String": "Heal"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 1001
+          },
+          "effect": {
+            "Object": {
+              "amount": {
+                "Integer": 750
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      }
+    ]
+  }
+}

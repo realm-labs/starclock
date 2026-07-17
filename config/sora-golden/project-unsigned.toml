@@ -1,0 +1,5 @@
+package = "starclock_sora_unsupported_unsigned"
+includes = ["schema/unsigned.toml"]
+
+[codegen.rust]
+runtime_format = "sora"

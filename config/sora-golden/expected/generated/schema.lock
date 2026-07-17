@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "package": "starclock_sora_capability_golden",
+  "fingerprint": "1430b69f9865e952",
+  "schema": {
+    "package": "starclock_sora_capability_golden",
+    "enums": [
+      {
+        "name": "Element",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Fire",
+          "Ice"
+        ]
+      }
+    ],
+    "structs": [
+      {
+        "name": "Step",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "fields": [
+          {
+            "name": "sequence",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              100
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "effect",
+            "ty": {
+              "Union": "Effect"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          }
+        ]
+      }
+    ],
+    "unions": [
+      {
+        "name": "Effect",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "tag": "type",
+        "variants": [
+          {
+            "name": "Damage",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "fields": [
+              {
+                "name": "amount",
+                "ty": "I32",
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": [
+                  1,
+                  10000
+                ],
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          },
+          {
+            "name": "Heal",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "fields": [
+              {
+                "name": "amount",
+                "ty": "I32",
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": [
+                  1,
+                  10000
+                ],
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Ability",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "toml",
+          "file": "Ability.toml"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_name",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "element",
+            "ty": {
+              "Enum": "Element"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "primary_effect",
+            "ty": {
+              "Union": "Effect"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "steps",
+            "ty": {
+              "List": {
+                "Struct": "Step"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": {
+              "source_table": "StepRow",
+              "parent_key": "id",
+              "child_key": "ability_id",
+              "value_field": null,
+              "order_by": "sequence"
+            }
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_name",
+            "fields": [
+              "stable_name"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "StepRow",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "List",
+        "key": null,
+        "source": {
+          "format": "toml",
+          "file": "StepRow.toml"
+        },
+        "fields": [
+          {
+            "name": "ability_id",
+            "ty": {
+              "Ref": {
+                "table": "Ability",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "sequence",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              100
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "effect",
+            "ty": {
+              "Union": "Effect"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "ExcelProbe",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "Golden.xlsx",
+          "sheet": "ExcelProbe"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "label",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "note",
+            "ty": {
+              "Optional": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      }
+    ]
+  }
+}

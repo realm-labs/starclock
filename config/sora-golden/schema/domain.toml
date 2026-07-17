@@ -1,0 +1,92 @@
+[[enums]]
+name = "Element"
+values = ["Fire", "Ice"]
+
+[[unions]]
+name = "Effect"
+tag = "type"
+
+[[unions.variants]]
+name = "Damage"
+
+[[unions.variants.fields]]
+name = "amount"
+type = "i32"
+range = [1, 10000]
+
+[[unions.variants]]
+name = "Heal"
+
+[[unions.variants.fields]]
+name = "amount"
+type = "i32"
+range = [1, 10000]
+
+[[structs]]
+name = "Step"
+
+[[structs.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[structs.fields]]
+name = "effect"
+type = "union<Effect>"
+
+[[tables]]
+name = "Ability"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "Ability.toml"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "stable_name"
+type = "string"
+
+[[tables.fields]]
+name = "element"
+type = "enum<Element>"
+
+[[tables.fields]]
+name = "primary_effect"
+type = "union<Effect>"
+
+[[tables.fields]]
+name = "steps"
+type = "list<struct<Step>>"
+from = { table = "StepRow", parent_key = "id", child_key = "ability_id", order_by = "sequence" }
+
+[[tables.indexes]]
+name = "by_stable_name"
+fields = ["stable_name"]
+unique = true
+
+[[tables]]
+name = "StepRow"
+mode = "list"
+
+[tables.source]
+format = "toml"
+file = "StepRow.toml"
+
+[[tables.fields]]
+name = "ability_id"
+type = "ref<Ability.id>"
+
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+
+[[tables.fields]]
+name = "effect"
+type = "union<Effect>"

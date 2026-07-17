@@ -126,6 +126,16 @@
       "deterministic_impact": "Tooling only; scripts sort inputs and hash explicit UTF-8 bytes. Exact runtime is pinned by .node-version.",
       "compile_cost": "Prebuilt external tool; no Rust compile unit.",
       "rejected_alternatives": ["Deno/Bun: no existing repository baseline.", "Immediate Rust rewrites: unnecessary bootstrap compile cost before the CLI/tool crates exist."]
+    },
+    {
+      "name": "sora-cli",
+      "version": "0.3.0",
+      "license": "MIT OR Apache-2.0",
+      "source_url": "https://github.com/realm-labs/sora/releases/tag/v0.3.0",
+      "purpose": "The sole schema validation, Excel projection/synchronization, Rust code generation and production bundle export tool.",
+      "deterministic_impact": "Schema semantics and generated/runtime formats are version-sensitive; the crates.io archive SHA-256, upstream tag identities, command syntax and stable output bytes are committed in the Sora capability lock.",
+      "compile_cost": "A locked local Windows x86_64 MSVC installation under Rust 1.97.0 took 102,500 ms; the tool and its dependency graph remain outside the production workspace.",
+      "rejected_alternatives": ["Floating Sora releases: schema and generated output drift.", "JSON-direct runtime or handwritten spreadsheet readers: violate the selected Excel/Sora authority chain.", "A source-build Git checkout: larger mutable trust surface than the checksum-bound crates.io release archive."]
     }
   ]
 }

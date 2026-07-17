@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
@@ -13,7 +14,6 @@ const exclusions = new Map();
 for (const exclusion of rules.excluded_roots) {
   const relative = validateRelativePath(exclusion.path, "excluded root");
   assert(!exclusions.has(relative), `${relative}: duplicate excluded root`);
-  assert(rules.roots.some((sourceRoot) => relative.startsWith(`${normalize(sourceRoot)}/`)), `${relative}: exclusion must be narrower than a Rust source root`);
   assert(fs.statSync(path.join(root, relative), { throwIfNoEntry: false })?.isDirectory(), `${relative}: excluded root must be an existing directory`);
   assert(["generated", "vendor"].includes(exclusion.kind), `${relative}: exclusion kind must be generated or vendor`);
   assert(nonEmpty(exclusion.reason), `${relative}: exclusion requires a review reason`);
@@ -36,12 +36,9 @@ for (const entry of rules.allowed_public_reexports) {
   reexportAllowlist.set(relative, entry.reason);
 }
 
-const rustFiles = [];
-for (const sourceRoot of rules.roots) {
-  const relative = validateRelativePath(sourceRoot, "Rust source root");
-  walk(path.join(root, relative), rustFiles);
-}
-rustFiles.sort((left, right) => left.localeCompare(right));
+const selectedRustFiles = execFileSync("git", ["ls-files", "--cached", "--others", "--exclude-standard", "--", "*.rs"], { cwd: root, encoding: "utf8" }).split(/\r?\n/).filter(Boolean).map(normalize).sort((left, right) => left.localeCompare(right));
+const rustFiles = selectedRustFiles.filter((relative) => !isExcluded(relative));
+for (const excluded of exclusions.keys()) assert(selectedRustFiles.some((relative) => relative.startsWith(`${excluded}/`)), `${excluded}: excluded root contains no selected Rust source`);
 
 let publicReexportCount = 0;
 const reexportFiles = new Set();
@@ -96,19 +93,6 @@ for (const exceptionPath of exceptions.keys()) {
 }
 
 console.log(`Rust source policy verified (${rustFiles.length} handwritten files, ${publicReexportCount} explicit public re-export declarations, ${exclusions.size} explicit generated/vendor exclusions).`);
-
-function walk(directory, output) {
-  assert(fs.existsSync(directory), `${normalize(path.relative(root, directory))}: source root does not exist`);
-  for (const entry of fs.readdirSync(directory, { withFileTypes: true }).sort((left, right) => left.name.localeCompare(right.name))) {
-    const absolute = path.join(directory, entry.name);
-    const relative = normalize(path.relative(root, absolute));
-    if (entry.isDirectory()) {
-      if (!isExcluded(relative)) walk(absolute, output);
-    } else if (entry.isFile() && entry.name.endsWith(".rs") && !isExcluded(relative)) {
-      output.push(relative);
-    }
-  }
-}
 
 function isExcluded(relative) {
   return [...exclusions.keys()].some((excluded) => relative === excluded || relative.startsWith(`${excluded}/`));

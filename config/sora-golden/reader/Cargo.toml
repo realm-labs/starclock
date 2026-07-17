@@ -1,0 +1,15 @@
+[package]
+name = "starclock-sora-golden-reader"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[[bin]]
+name = "starclock-sora-golden-reader"
+path = "main.rs"
+
+[dependencies]
+serde = { version = "=1.0.228", features = ["derive", "rc"] }
+zstd = "=0.13.3"
+
+[workspace]

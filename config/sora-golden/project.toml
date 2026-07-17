@@ -1,0 +1,23 @@
+package = "starclock_sora_capability_golden"
+includes = ["schema/domain.toml", "schema/excel-after.toml"]
+
+[build]
+data_root = "data"
+schema_lock = "generated/schema.lock"
+excel_templates = "generated/excel"
+
+[[build.codegen]]
+target = "rust"
+out = "reader/generated"
+format = "never"
+
+[[build.exports]]
+format = "binary"
+out = "generated/config.sora"
+
+[[build.exports]]
+format = "json-debug"
+out = "generated/debug-json"
+
+[codegen.rust]
+runtime_format = "sora"

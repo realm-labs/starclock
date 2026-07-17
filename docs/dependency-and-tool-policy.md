@@ -18,6 +18,14 @@ features and with only `i64` and `std`. Its three transitives (`itoa`,
 Windows x86-64 check of `starclock-combat` plus those packages took 1,161 ms;
 this is a review baseline, not a performance budget.
 
+Sora CLI 0.3.0 is a checksum-bound repository tool installed into an ignored
+local tool root by `node tools/sora/install.mjs`. Its crates.io archive, release
+tag object/commit, license, 102,500 ms local install observation and capability
+golden are recorded separately. Sora's tool graph does not enter the production
+workspace. The generated-reader golden has its own exact 19-package lock and
+license inventory; its 6,264 ms fresh check is fixture evidence, not approval to
+add `serde` or `zstd` to `starclock-data` before `G01-P1-B10`.
+
 ## Numeric boundary
 
 Only `starclock-combat/src/numeric.rs` may name `fixnum`. Public consumers see

@@ -1,0 +1,40 @@
+{
+  "schema_revision": "starclock.sora-capability-lock.v1",
+  "sora_cli_version": "0.3.0",
+  "version_output": "sora 0.3.0",
+  "crate_archive_sha256": "90d373102de6a0d7969ebdee51d4ac01ba25c7f2c34661cf581a2c8ead57763a",
+  "upstream_tag_object": "fe12080ffd94b9f2e9cbabc9b7564152cc27aeeb",
+  "upstream_tag_commit": "4afadfb41fbb05868d44eb1d727e0e8575d803dc",
+  "observed_commands": {
+    "check": ["sora", "--serial", "check", "--project", "./project.toml"],
+    "build": ["sora", "--serial", "build", "--project", "./project.toml", "--clean"],
+    "schema_lock": ["sora", "--serial", "schema-lock", "--project", "./project.toml", "--out", "schema.lock"],
+    "excel_template": ["sora", "--serial", "excel-template", "--project", "./project-before.toml", "--out", "data"],
+    "excel_sync_preview": ["sora", "--serial", "excel-sync", "--project", "./project.toml", "--data-root", "data"],
+    "excel_sync_write": ["sora", "--serial", "excel-sync", "--project", "./project.toml", "--data-root", "data", "--write"],
+    "rust_codegen": ["sora", "--serial", "gen", "--target", "rust", "--project", "./project.toml", "--out", "reader/generated", "--format-code", "never"],
+    "binary_export": ["sora", "--serial", "export", "--format", "binary", "--project", "./project.toml", "--data-root", "data", "--out", "config.sora"],
+    "diagnostic_export": ["sora", "--serial", "export", "--format", "json-debug", "--project", "./project.toml", "--data-root", "data", "--out", "debug-json"],
+    "reader_load": ["cargo", "run", "--manifest-path", "reader/Cargo.toml", "--locked", "--", "generated/config.sora"]
+  },
+  "proven_schema_syntax": {
+    "reference": "ref<Ability.id>",
+    "unique_index": "[[tables.indexes]] with fields and unique = true",
+    "union": "union<Effect> with tag = type",
+    "child_table": "from = { table, parent_key, child_key, order_by }",
+    "rust_runtime": "generated::runtime::SoraBundle::parse followed by SoraConfig::from_source"
+  },
+  "unsupported_or_rejected_assumptions": [
+    "The diagnostic exporter spelling is json-debug; debug-json is not the locked format name.",
+    "Sora 0.3.0 format = required does not find rustfmt.exe on Windows because its PATH probe does not add executable suffixes; Starclock uses format = never and runs the pinned rustfmt gate explicitly.",
+    "On Sora 0.3.0, build --clean must receive a project path with a non-empty parent (for example ./project.toml); a bare project.toml fails once an output exists.",
+    "References target the primary key of a map table; arbitrary non-key ref<Table.field> targets are not assumed.",
+    "Combined secondary indexes are validation constraints; generated Rust lookup helpers are relied on only for a single-field index.",
+    "Excel template output is regenerated separately from edited data, and excel-sync preview is read-only until --write is supplied.",
+    "Generated XLSX ZIP bytes contain varying archive metadata across invocations; drift uses the exact workbook list plus excel-sync semantic no-change checks, while schema lock, Rust, diagnostic JSON and config.sora remain byte-golden.",
+    "Sora supports f32 and f64 schema primitives, but Starclock authoritative schemas do not use them.",
+    "Generated Sora row and runtime types remain private to starclock-data and never become combat-domain API types.",
+    "Sora 0.3.0 Rust output for runtime_format = sora references serde derives and zstd unconditionally; the capability reader pins both in an isolated locked fixture, and production adoption remains a later dependency-policy decision.",
+    "Sora 0.3.0 accepts unsigned integer schema types but its generated Sora Rust runtime has no SoraDecode implementation for them; Starclock transport IDs and ordering fields use range-validated i32 and convert into unsigned domain newtypes with checked validation."
+  ]
+}

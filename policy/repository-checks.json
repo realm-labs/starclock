@@ -1,10 +1,16 @@
 {
   "schema_revision": "starclock.repository-checks.v1",
   "rust_source": {
-    "roots": ["crates"],
+    "selection": "All tracked and non-ignored untracked .rs files reported by Git.",
     "maximum_handwritten_lines": 1200,
     "maximum_facade_lines": 200,
-    "excluded_roots": [],
+    "excluded_roots": [
+      {
+        "path": "config/sora-golden/expected/reader/generated",
+        "kind": "generated",
+        "reason": "Exact Sora 0.3.0 codegen golden; regenerated and byte-verified by tools/sora/verify-golden.mjs."
+      }
+    ],
     "line_limit_exceptions": [],
     "allowed_public_reexports": [
       {

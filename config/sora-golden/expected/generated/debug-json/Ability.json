@@ -1,0 +1,68 @@
+{
+  "table": {
+    "name": "Ability",
+    "rows": [
+      {
+        "values": {
+          "element": {
+            "String": "Fire"
+          },
+          "id": {
+            "Integer": 1001
+          },
+          "primary_effect": {
+            "Object": {
+              "amount": {
+                "Integer": 1250
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "stable_name": {
+            "String": "ability.golden-flare"
+          },
+          "steps": {
+            "List": [
+              {
+                "Object": {
+                  "effect": {
+                    "Object": {
+                      "amount": {
+                        "Integer": 750
+                      },
+                      "type": {
+                        "String": "Damage"
+                      }
+                    }
+                  },
+                  "sequence": {
+                    "Integer": 1
+                  }
+                }
+              },
+              {
+                "Object": {
+                  "effect": {
+                    "Object": {
+                      "amount": {
+                        "Integer": 250
+                      },
+                      "type": {
+                        "String": "Heal"
+                      }
+                    }
+                  },
+                  "sequence": {
+                    "Integer": 2
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

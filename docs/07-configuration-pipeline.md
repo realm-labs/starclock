@@ -70,6 +70,14 @@ names a capability differently, update the plan/schema policy before building
 the production table families. Do not emulate a missing validation feature with
 an undocumented parallel schema.
 
+The committed [Sora 0.3.0 capability lock](sora-0.3.0-capability-lock.md)
+records the executed result. In particular, Starclock uses project paths with a
+non-empty parent for `build --clean`, configures Sora Rust codegen with
+`format = "never"` and runs pinned `rustfmt` explicitly, and uses
+range-validated signed `i32` transport fields for stable IDs/order values before
+checked conversion to unsigned domain newtypes. These are 0.3.0 compatibility
+constraints, not preferred general Sora syntax.
+
 ## Proposed repository layout
 
 ```text
@@ -145,7 +153,7 @@ excel_templates = "generated/templates"
 [[build.codegen]]
 target = "rust"
 out = "../crates/starclock-data/src/generated"
-format = "required"
+format = "never" # pinned rustfmt runs as the next repository-check step
 
 [[build.exports]]
 format = "binary"
@@ -214,7 +222,13 @@ Prefer several focused workbooks with related sheets over one giant workbook. Th
 | `common / SourceRecord` | `id`, URL, access date, version, confidence, evidence digest | Row-level provenance for imported facts. |
 | `common / ConfigManifest` | singleton revision row | Game version, data revision, rules compatibility, and notes. |
 
-Use Sora `ref<Table.field>` for cross-table references and secondary unique indexes for natural keys that must remain unique. Prefer child tables and typed structs/unions when an Excel cell would otherwise contain a large JSON or custom mini-language.
+Use Sora `ref<Table.key>` for cross-table references to a map table's declared
+primary key and secondary unique indexes for additional natural keys that must
+remain unique. Sora 0.3.0 does not provide arbitrary non-key reference targets.
+Generated lookup helpers are relied on only for single-field indexes; combined
+indexes remain validation constraints. Prefer child tables and typed
+structs/unions when an Excel cell would otherwise contain a large JSON or custom
+mini-language.
 
 ## Operation representation
 
@@ -266,6 +280,11 @@ Sora-generated templates remain the header/schema authority. Bootstrap generatio
 - After schema changes, preview `sora excel-sync` before using `--write`, then review the workbook changes.
 - Use stable, nonlocalized IDs in keys and references. Display names and descriptions are optional metadata, never references.
 - Store designer-facing ratios as canonical decimal strings (`"0.25"`) or explicitly scaled integers, never as authoritative floating-point cells. `starclock-data` parses them according to [Cross-platform determinism and numeric policy](09-determinism-and-numerics.md).
+- Under the pinned 0.3.0 Rust/Sora runtime, stable IDs and order values use
+  range-validated `i32` transport fields. `starclock-data` rejects non-positive
+  or out-of-domain values while converting into nonzero unsigned domain IDs.
+  Do not select an unsigned Sora field merely because schema validation accepts
+  it; the 0.3.0 generated Sora decoder omits unsigned implementations.
 - Store raw Toughness in the project's chosen integer unit and durations with an explicit clock/phase enum.
 - Avoid merged cells, macros, hidden business rules, and spreadsheet formulas in runtime fields. Derived runtime values belong in schema-backed source columns or deterministic compilation code.
 - Do not encode a large action program as JSON in one cell. Split it into operation/phase child rows.
@@ -332,6 +351,12 @@ coverage_manifest_sha256
 ```
 
 After export, compute a SHA-256 digest of `config.sora`. Store this digest in the replay header alongside the human-readable data revision. Replay loading rejects a different digest unless an explicit migration supplies the original bundle.
+
+Generated `.xlsx` ZIP bytes are not stable identities because archive metadata
+varies across invocations. Workbook drift is checked by exact workbook/sheet
+projection and a read-only `excel-sync` no-change report. Schema locks,
+explicitly formatted generated Rust, diagnostic JSON and `config.sora` remain
+byte-for-byte golden artifacts.
 
 A config change never alters an already running battle or activity. Development hot reload may replace the catalog used for newly created activities/battles only.
 

@@ -1,0 +1,12 @@
+[[tables]]
+name = "UnsignedProbe"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "toml"
+file = "UnsignedProbe.toml"
+
+[[tables.fields]]
+name = "id"
+type = "u32"

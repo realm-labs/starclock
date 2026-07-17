@@ -34,6 +34,10 @@
       "command": ["node", "tools/goal-coverage/verify.mjs"]
     },
     {
+      "name": "Sora 0.3.0 capability golden",
+      "command": ["node", "tools/sora/verify-golden.mjs"]
+    },
+    {
       "name": "cached source and prepared-pack regeneration",
       "command": ["node", "tools/goal-provenance/generate.mjs", "--check"],
       "requires": "source-cache"

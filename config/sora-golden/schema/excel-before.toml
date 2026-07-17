@@ -1,0 +1,18 @@
+[[tables]]
+name = "ExcelProbe"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "xlsx"
+file = "Golden.xlsx"
+sheet = "ExcelProbe"
+
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "label"
+type = "string"
