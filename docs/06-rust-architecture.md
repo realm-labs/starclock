@@ -50,7 +50,8 @@ The project, repository, and command-line executable are named **Starclock** / `
 
 Future mode or adapter crates follow `starclock-mode-<name>` and `starclock-<engine>` respectively. Internal modules use concise domain names such as `damage`, `timeline`, or `codec`; they do not repeat the project prefix. The game title is used only when identifying the compatibility target or a research source, never as a Starclock package namespace.
 
-The documentation-only milestone keeps a placeholder root package named `starclock`. When the proposed workspace is created, the repository root becomes a virtual workspace (or a minimal facade if one is genuinely needed), while `starclock-cli` owns the `starclock` executable.
+The repository root is now a virtual workspace. `starclock-cli` owns the
+`starclock` executable; there is no broad root facade package.
 
 ## Suggested workspace
 
@@ -118,7 +119,11 @@ config/
     config.sora
 ```
 
-The current repository is in a documentation-only milestone. When executable work begins, create these crate boundaries before content import so generated data, loadout compilation, battle rules, activity orchestration, mode profiles, exceptional handlers, and adapters cannot collapse into one package.
+Goal 01 created the nine in-scope crate boundaries before content import:
+combat, build, data, replay, AI, rules, activity, Standard mode and CLI. The
+challenge, universe, event and Bevy crates shown as future extensions above are
+not workspace members. The exact current graph is verified from Cargo metadata
+by `tools/workspace/verify-dependencies.mjs` and by a workspace integration test.
 
 All handwritten Rust follows [Rust engineering standards](08-engineering-standards.md). In particular, files are split by responsibility before they exceed 1,200 physical lines, visibility defaults to private, and `pub use` is reserved for a small intentional facade or a documented technical requirement.
 

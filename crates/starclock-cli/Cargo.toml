@@ -1,0 +1,19 @@
+[package]
+name = "starclock-cli"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[[bin]]
+name = "starclock"
+path = "src/main.rs"
+
+[dependencies]
+starclock-activity = { path = "../starclock-activity" }
+starclock-ai = { path = "../starclock-ai" }
+starclock-build = { path = "../starclock-build" }
+starclock-combat = { path = "../starclock-combat" }
+starclock-data = { path = "../starclock-data" }
+starclock-mode-standard = { path = "../starclock-mode-standard" }
+starclock-replay = { path = "../starclock-replay" }
+starclock-rules = { path = "../starclock-rules" }

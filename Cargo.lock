@@ -3,5 +3,75 @@
 version = 4
 
 [[package]]
-name = "starclock"
+name = "starclock-activity"
 version = "0.1.0"
+dependencies = [
+ "starclock-combat",
+]
+
+[[package]]
+name = "starclock-ai"
+version = "0.1.0"
+dependencies = [
+ "starclock-combat",
+]
+
+[[package]]
+name = "starclock-build"
+version = "0.1.0"
+dependencies = [
+ "starclock-combat",
+]
+
+[[package]]
+name = "starclock-cli"
+version = "0.1.0"
+dependencies = [
+ "starclock-activity",
+ "starclock-ai",
+ "starclock-build",
+ "starclock-combat",
+ "starclock-data",
+ "starclock-mode-standard",
+ "starclock-replay",
+ "starclock-rules",
+]
+
+[[package]]
+name = "starclock-combat"
+version = "0.1.0"
+
+[[package]]
+name = "starclock-data"
+version = "0.1.0"
+dependencies = [
+ "starclock-activity",
+ "starclock-build",
+ "starclock-combat",
+ "starclock-mode-standard",
+ "starclock-rules",
+]
+
+[[package]]
+name = "starclock-mode-standard"
+version = "0.1.0"
+dependencies = [
+ "starclock-activity",
+ "starclock-combat",
+]
+
+[[package]]
+name = "starclock-replay"
+version = "0.1.0"
+dependencies = [
+ "starclock-activity",
+ "starclock-combat",
+]
+
+[[package]]
+name = "starclock-rules"
+version = "0.1.0"
+dependencies = [
+ "starclock-activity",
+ "starclock-combat",
+]

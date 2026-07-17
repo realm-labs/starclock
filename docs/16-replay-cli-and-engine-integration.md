@@ -1,6 +1,10 @@
 # Replay, CLI, and Engine Integration
 
-This document defines the planned replay contract, headless command-line surface, deterministic baseline controllers, and integration boundary for Bevy or another engine. It is an implementation specification; no CLI is claimed to exist during the documentation-only milestone.
+This document defines the planned replay contract, headless command-line surface,
+deterministic baseline controllers, and integration boundary for Bevy or another
+engine. The `starclock-cli` package now owns an intentionally behavior-free
+`starclock` binary scaffold; no command surface is claimed until its owning Goal
+01 batches implement and test it.
 
 ## Replay identity
 

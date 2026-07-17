@@ -1,0 +1,8 @@
+[package]
+name = "starclock-activity"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+starclock-combat = { path = "../starclock-combat" }

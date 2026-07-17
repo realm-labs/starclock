@@ -1,0 +1,12 @@
+[package]
+name = "starclock-data"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+starclock-activity = { path = "../starclock-activity" }
+starclock-build = { path = "../starclock-build" }
+starclock-combat = { path = "../starclock-combat" }
+starclock-mode-standard = { path = "../starclock-mode-standard" }
+starclock-rules = { path = "../starclock-rules" }
