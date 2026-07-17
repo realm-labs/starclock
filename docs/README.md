@@ -43,6 +43,18 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 23. [Sources and confidence](sources.md) — source provenance and known uncertainties.
 24. [Public character mechanics](characters/README.md) — the public Version 4.4 combat-form catalog, behavioral contracts, and an auditable engine-feature matrix.
 
+## Execution goals
+
+- [Goal packages](goals/README.md) translate these specifications into
+  resumable, commit-sized implementation work.
+- [Goal 01 — Complete Core Combat and Released Character Content](goals/01-core-combat-and-content.md)
+  implements the deterministic combat kernel, Standard battles, all released
+  character forms with Traces/Techniques/Eidolons, and all released Light Cones.
+- [Goal 01 status ledger](goals/01-core-combat-and-content-status.md) records the
+  active batch, manifests, evidence and terminal gates.
+- [Goal 01 launch prompt](goals/01-core-combat-and-content-prompt.md) starts or
+  resumes the commit-by-commit execution loop until the goal is complete.
+
 ## Delivery boundary
 
 The documentation target covers the complete core model even when implementation is staged. A playable headless vertical slice should exercise:
