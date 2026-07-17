@@ -132,6 +132,7 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
     }
     e.u32(state.encounter.definition.get());
     e.u64(state.encounter.wave.get());
+    encode_timeline(&mut e, state);
     e.u8(match state.concede {
         ConcedePolicy::Allowed => 0,
     });
@@ -141,6 +142,42 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
         e.u64(next);
     }
     e.u64(state.committed_revision);
+}
+
+fn encode_timeline<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
+    match state.timeline.active_turn {
+        None => e.u8(0),
+        Some(turn) => {
+            e.u8(1);
+            encode_turn(e, turn);
+        }
+    }
+    match &state.timeline.interrupt {
+        None => e.u8(0),
+        Some(window) => {
+            e.u8(1);
+            e.u8(window.kind as u8);
+            encode_turn(e, window.turn);
+            e.length(window.pending.entries().len());
+            for pending in window.pending.entries() {
+                e.u8(pending.priority as u8);
+                e.u8(pending.side as u8);
+                e.u8(pending.formation.get());
+                e.u64(pending.spawn.get());
+                e.u64(pending.actor.get());
+                e.u32(pending.ability.get());
+                e.u64(pending.insertion);
+            }
+        }
+    }
+}
+
+fn encode_turn<S: Sink>(e: &mut Encoder<'_, S>, turn: crate::timeline::state::NormalTurnState) {
+    e.u64(turn.actor.get());
+    e.u64(turn.owner.get());
+    e.u8(turn.side as u8);
+    e.u8(turn.formation.get());
+    e.u64(turn.spawn.get());
 }
 
 fn encode_units<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {

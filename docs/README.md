@@ -64,6 +64,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 39. [Property-test harness](property-test-harness.md) — fixed-seed shrinking and persisted regression contracts for arithmetic, RNG, ordering, codec and malformed replay input.
 40. [Battle aggregate boundary](battle-aggregate-boundary.md) — generic battle inputs, canonical runtime stores, phases, commands, decisions, resolutions and immutable query views.
 41. [Battle transaction boundary](battle-transaction-boundary.md) — reusable semantic-copy scratch, forward journal, rollback/commit-fault settlement, complete event causes and streaming canonical state hashes.
+42. [Action and timeline boundary](action-timeline-boundary.md) — exact Action Gauge selection, structural action lowering, synchronous phase/hit events and deterministic interrupt ordering.
 
 ## Execution goals
 

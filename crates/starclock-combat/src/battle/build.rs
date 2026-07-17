@@ -13,6 +13,8 @@ pub enum BattleBuildErrorKind {
     MissingUnit,
     /// A resolved ability reference does not exist.
     MissingAbility,
+    /// No selected ability can lower into the current action envelope.
+    NoExecutableAbility,
     /// A resolved rule-bundle reference does not exist.
     MissingRuleBundle,
     /// A resolved modifier reference does not exist.
@@ -98,6 +100,17 @@ pub(crate) fn validate(catalog: &CombatCatalog, spec: &BattleSpec) -> Result<(),
                     Some(ability.get()),
                 ));
             }
+        }
+        if !combatant.abilities().iter().any(|ability| {
+            catalog
+                .ability(*ability)
+                .is_some_and(|definition| definition.is_single_hit_action())
+        }) {
+            return Err(BattleBuildError::new(
+                BattleBuildErrorKind::NoExecutableAbility,
+                Some(index),
+                None,
+            ));
         }
         for bundle in combatant.rule_bundles() {
             if catalog.rule_bundle(*bundle).is_none() {

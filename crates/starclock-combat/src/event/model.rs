@@ -1,7 +1,8 @@
 use crate::{
+    action::model::ActionOrigin,
     battle::{fault::BattleFault, spec::TeamSide},
     command::model::{DecisionKind, DecisionOwner},
-    id::{DecisionId, EventId},
+    id::{AbilityId, ActionId, DecisionId, EventId, HitId, PhaseId, TimelineActorId, UnitId},
 };
 
 use super::cause::Cause;
@@ -44,8 +45,76 @@ pub enum BattleEventKind {
     Battle(BattleEventData),
     /// External decision lifecycle fact.
     Decision(DecisionEventData),
+    /// Normal-turn lifecycle fact.
+    Turn(TurnEventData),
+    /// Common action-envelope lifecycle fact.
+    Action(ActionEventData),
+    /// Authored action-phase lifecycle fact.
+    Phase(PhaseEventData),
+    /// Authored hit lifecycle fact.
+    Hit(HitEventData),
     /// Deterministic internal failure fact.
     Fault(FaultEventData),
+}
+
+/// Normal timeline-turn facts.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum TurnEventData {
+    /// Global time advanced and this actor began its normal turn.
+    Started {
+        actor: TimelineActorId,
+        owner: UnitId,
+    },
+    /// The normal action and post-action boundary completed.
+    Ended {
+        actor: TimelineActorId,
+        owner: UnitId,
+    },
+}
+
+/// Common action envelope facts independent from operation payloads.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ActionEventData {
+    Declared {
+        action: ActionId,
+        actor: UnitId,
+        ability: AbilityId,
+        origin: ActionOrigin,
+    },
+    Started {
+        action: ActionId,
+        actor: UnitId,
+        ability: AbilityId,
+        origin: ActionOrigin,
+    },
+    Resolved {
+        action: ActionId,
+        actor: UnitId,
+        ability: AbilityId,
+        origin: ActionOrigin,
+    },
+}
+
+/// Ordered authored phase boundaries.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum PhaseEventData {
+    Started { action: ActionId, phase: PhaseId },
+    Ended { action: ActionId, phase: PhaseId },
+}
+
+/// Ordered structural hit boundaries.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum HitEventData {
+    Started {
+        action: ActionId,
+        phase: PhaseId,
+        hit: HitId,
+    },
+    Ended {
+        action: ActionId,
+        phase: PhaseId,
+        hit: HitId,
+    },
 }
 
 /// Battle lifecycle facts implemented by the initial transaction boundary.
@@ -66,6 +135,8 @@ pub enum DecisionEventData {
         kind: DecisionKind,
         owner: DecisionOwner,
     },
+    /// The accepted command consumed this exact decision.
+    Closed { decision: DecisionId },
 }
 
 /// Stable fault payload with no platform diagnostic string.

@@ -1,8 +1,8 @@
 use crate::{
     catalog::{CatalogDigest, CatalogRevision},
     id::{
-        CommandId, DecisionId, EncounterId, EventId, SpawnSequence, TimelineActorId, UnitId,
-        WaveInstanceId,
+        ActionId, CommandId, DecisionId, EncounterId, EventId, HitId, PhaseId, SpawnSequence,
+        TimelineActorId, UnitId, WaveInstanceId,
     },
     rng::{engine::DeterministicRng, types::RngSeed},
 };
@@ -42,6 +42,9 @@ pub(crate) struct SequenceState {
     next_decision: u64,
     next_command: u64,
     next_event: u64,
+    next_action: u64,
+    next_phase: u64,
+    next_hit: u64,
 }
 
 impl SequenceState {
@@ -54,6 +57,9 @@ impl SequenceState {
             next_decision: 1,
             next_command: 1,
             next_event: 1,
+            next_action: 1,
+            next_phase: 1,
+            next_hit: 1,
         }
     }
 
@@ -89,7 +95,19 @@ impl SequenceState {
         try_allocate(&mut self.next_event, EventId::new)
     }
 
-    pub(crate) const fn canonical_next_values(&self) -> [u64; 7] {
+    pub(crate) fn try_action(&mut self) -> Option<ActionId> {
+        try_allocate(&mut self.next_action, ActionId::new)
+    }
+
+    pub(crate) fn try_phase(&mut self) -> Option<PhaseId> {
+        try_allocate(&mut self.next_phase, PhaseId::new)
+    }
+
+    pub(crate) fn try_hit(&mut self) -> Option<HitId> {
+        try_allocate(&mut self.next_hit, HitId::new)
+    }
+
+    pub(crate) const fn canonical_next_values(&self) -> [u64; 10] {
         [
             self.next_unit,
             self.next_actor,
@@ -98,6 +116,9 @@ impl SequenceState {
             self.next_decision,
             self.next_command,
             self.next_event,
+            self.next_action,
+            self.next_phase,
+            self.next_hit,
         ]
     }
 }
@@ -129,6 +150,7 @@ pub(crate) struct BattleState {
     pub(crate) formations: FormationState,
     pub(crate) teams: TeamStateStore,
     pub(crate) encounter: EncounterState,
+    pub(crate) timeline: crate::timeline::state::TimelineState,
     pub(crate) concede: ConcedePolicy,
     pub(crate) rng: DeterministicRng,
     pub(crate) sequences: SequenceState,
@@ -151,6 +173,7 @@ impl BattleState {
             formations: self.formations.clone(),
             teams: self.teams.clone(),
             encounter: self.encounter,
+            timeline: self.timeline.clone(),
             concede: self.concede,
             rng: Self::rng_from_seed(self.identity.seed),
             sequences: self.sequences,
@@ -170,6 +193,7 @@ impl BattleState {
         self.formations.clone_from(&source.formations);
         self.teams.clone_from(&source.teams);
         self.encounter = source.encounter;
+        self.timeline.clone_from(&source.timeline);
         self.concede = source.concede;
         self.rng.clone_from_authoritative(&source.rng);
         self.sequences = source.sequences;

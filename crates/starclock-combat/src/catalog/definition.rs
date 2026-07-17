@@ -87,6 +87,7 @@ pub struct AbilityDefinition {
     program: ProgramId,
     selector: SelectorId,
     effects: Box<[EffectDefinitionId]>,
+    single_hit_action: bool,
 }
 
 impl AbilityDefinition {
@@ -103,7 +104,17 @@ impl AbilityDefinition {
             program,
             selector,
             effects: effects.into_boxed_slice(),
+            single_hit_action: false,
         }
+    }
+    /// Marks this ability as one structural normal-action phase with one hit.
+    ///
+    /// Target, cost and operation semantics are added by their owning batches;
+    /// this flag is sufficient for the Phase 3 action-envelope fixture.
+    #[must_use]
+    pub const fn with_single_hit_action(mut self) -> Self {
+        self.single_hit_action = true;
+        self
     }
     /// Returns the stable definition ID.
     #[must_use]
@@ -124,6 +135,11 @@ impl AbilityDefinition {
     #[must_use]
     pub fn effects(&self) -> &[EffectDefinitionId] {
         &self.effects
+    }
+    /// Returns whether this definition can lower into the baseline action envelope.
+    #[must_use]
+    pub const fn is_single_hit_action(&self) -> bool {
+        self.single_hit_action
     }
 }
 

@@ -6,6 +6,7 @@
 
 #![forbid(unsafe_code)]
 
+mod action;
 mod actor;
 mod battle;
 pub mod catalog;
@@ -16,6 +17,7 @@ mod id;
 mod numeric;
 mod resolver;
 pub mod rng;
+mod timeline;
 
 // This is the deliberate small crate facade. The defining modules remain
 // private so representation/backend details have one canonical external path.
@@ -35,6 +37,7 @@ pub use numeric::rounding::{NumericError, Rounding};
 pub use numeric::scalar::{Ratio, Scalar};
 
 // Deliberate stable battle facade over private aggregate/store modules.
+pub use action::model::ActionOrigin;
 pub use actor::model::{LifeState, PresenceState};
 pub use battle::aggregate::Battle;
 pub use battle::build::{BattleBuildError, BattleBuildErrorKind};
@@ -46,8 +49,8 @@ pub use battle::spec::{
     ResolvedCombatantSpec, ResolvedDefinitionBindings, TeamResourceSpec, TeamSide, UnitLevel,
 };
 pub use battle::view::{
-    BattleIdentityView, BattleView, EncounterView, FormationView, TeamView, TimelineActorView,
-    UnitView,
+    ActiveTurnView, BattleIdentityView, BattleView, EncounterView, FormationView,
+    InterruptWindowView, TeamView, TimelineActorView, UnitView,
 };
 pub use codec::BattleStateHash;
 pub use command::model::{
@@ -55,8 +58,10 @@ pub use command::model::{
 };
 pub use event::cause::{Cause, CauseActor};
 pub use event::model::{
-    BattleEvent, BattleEventData, BattleEventKind, DecisionEventData, FaultEventData,
+    ActionEventData, BattleEvent, BattleEventData, BattleEventKind, DecisionEventData,
+    FaultEventData, HitEventData, PhaseEventData, TurnEventData,
 };
+pub use timeline::state::InterruptWindowKind;
 
 /// Compatibility identifier for authoritative numeric representation and rounding.
 pub const NUMERIC_POLICY_REVISION: &str = "fixed-i64-6dp-v1";

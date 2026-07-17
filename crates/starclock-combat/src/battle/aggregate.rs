@@ -121,6 +121,7 @@ impl Battle {
                 definition: spec.encounter(),
                 wave,
             },
+            timeline: crate::timeline::state::TimelineState::default(),
             concede: spec.concede_policy(),
             rng: BattleState::rng_from_seed(seed),
             sequences,
@@ -154,7 +155,13 @@ impl Battle {
             }
             None => ResolutionScratch::from_state(&self.state),
         };
-        let output = resolve_prepared(&self.state, &mut scratch, validated, injection);
+        let output = resolve_prepared(
+            &self._catalog,
+            &self.state,
+            &mut scratch,
+            validated,
+            injection,
+        );
         scratch.commit_into(&mut self.state);
         debug_assert_eq!(hash_state(&self.state), output.state_hash);
         self.scratch = Some(scratch);
@@ -232,7 +239,9 @@ mod tests {
                 vec![],
                 vec![],
             ));
-            builder.add_ability(AbilityDefinition::new(ability, program, selector, vec![]));
+            builder.add_ability(
+                AbilityDefinition::new(ability, program, selector, vec![]).with_single_hit_action(),
+            );
             builder.add_unit(UnitDefinition::new(unit, vec![ability], vec![]));
         }
         let enemy: EnemyDefinitionId = definition(1);
@@ -377,23 +386,27 @@ mod tests {
         );
         assert_eq!(resolution.phase(), BattlePhase::Faulted);
         assert_eq!(resolution.committed_revision(), 1);
-        assert_eq!(resolution.events().len(), 3);
+        assert_eq!(resolution.events().len(), 4);
         assert!(matches!(
             resolution.events()[0].kind(),
             BattleEventKind::Battle(BattleEventData::Started)
         ));
         assert!(matches!(
             resolution.events()[1].kind(),
+            BattleEventKind::Turn(_)
+        ));
+        assert!(matches!(
+            resolution.events()[2].kind(),
             BattleEventKind::Decision(_)
         ));
         let fault = resolution.fault().unwrap();
         assert_eq!(fault.policy(), FaultPolicy::CommitFault);
         assert_eq!(
-            resolution.events()[2].cause().parent_event().unwrap().get(),
-            2
+            resolution.events()[3].cause().parent_event().unwrap().get(),
+            3
         );
         assert_eq!(
-            resolution.events()[2].kind(),
+            resolution.events()[3].kind(),
             &BattleEventKind::Fault(FaultEventData::new(fault))
         );
         assert!(

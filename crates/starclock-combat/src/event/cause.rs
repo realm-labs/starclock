@@ -51,6 +51,48 @@ impl Cause {
         }
     }
 
+    pub(crate) const fn for_action(
+        root_command: CommandId,
+        action: ActionId,
+        owner: UnitId,
+        actor: CauseActor,
+        source_definition: SourceDefinitionId,
+    ) -> Self {
+        Self {
+            action: Some(action),
+            owner: Some(owner),
+            actor: Some(actor),
+            source_definition: Some(source_definition),
+            ..Self::root(root_command)
+        }
+    }
+
+    pub(crate) const fn for_turn(
+        root_command: CommandId,
+        owner: UnitId,
+        actor: TimelineActorId,
+    ) -> Self {
+        Self {
+            owner: Some(owner),
+            actor: Some(CauseActor::TimelineActor(actor)),
+            ..Self::root(root_command)
+        }
+    }
+
+    pub(crate) const fn with_phase(self, phase: PhaseId) -> Self {
+        Self {
+            phase: Some(phase),
+            ..self
+        }
+    }
+
+    pub(crate) const fn with_hit(self, hit: HitId) -> Self {
+        Self {
+            hit: Some(hit),
+            ..self
+        }
+    }
+
     /// Returns the immediate event that caused this fact.
     #[must_use]
     pub const fn parent_event(self) -> Option<EventId> {

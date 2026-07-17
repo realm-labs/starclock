@@ -47,6 +47,11 @@ impl UnitStore {
         self.slots.iter().filter_map(Option::as_ref)
     }
 
+    pub(crate) fn get(&self, id: UnitId) -> Option<&UnitState> {
+        let index = usize::try_from(id.get().checked_sub(1)?).ok()?;
+        self.slots.get(index)?.as_ref()
+    }
+
     pub(crate) fn canonical_slots(&self) -> &[Option<UnitState>] {
         &self.slots
     }
@@ -77,6 +82,11 @@ impl TimelineActorStore {
 
     pub(crate) fn iter_by_id(&self) -> impl Iterator<Item = &TimelineActorState> {
         self.slots.iter().filter_map(Option::as_ref)
+    }
+
+    pub(crate) fn get_mut(&mut self, id: TimelineActorId) -> Option<&mut TimelineActorState> {
+        let index = usize::try_from(id.get().checked_sub(1)?).ok()?;
+        self.slots.get_mut(index)?.as_mut()
     }
 
     pub(crate) fn canonical_slots(&self) -> &[Option<TimelineActorState>] {

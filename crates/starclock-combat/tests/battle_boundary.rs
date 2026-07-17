@@ -1,13 +1,14 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    AbilityId, Battle, BattleBuildErrorKind, BattleEventData, BattleEventKind, BattlePhase,
-    BattleSeed, BattleSpec, BattleSpecDigest, BattleSpecError, CombatantSpecDigest,
-    CombatantSpecError, Command, CommandErrorKind, ConcedePolicy, DecisionEventData, DecisionId,
-    DecisionKind, DecisionOwner, EncounterId, EnemyDefinitionId, FormationIndex, Hp, LifeState,
-    ParticipantSource, ParticipantSpec, PresenceState, ResolvedCombatantSpec,
-    ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamSide, UnitDefinitionId, UnitId,
-    UnitLevel,
+    AbilityId, ActionEventData, ActionOrigin, Battle, BattleBuildErrorKind, BattleEventData,
+    BattleEventKind, BattlePhase, BattleSeed, BattleSpec, BattleSpecDigest, BattleSpecError,
+    CombatantSpecDigest, CombatantSpecError, Command, CommandErrorKind, ConcedePolicy,
+    DecisionEventData, DecisionId, DecisionKind, DecisionOwner, EncounterId, EnemyDefinitionId,
+    FormationIndex, HitEventData, Hp, InterruptWindowKind, LifeState, ParticipantSource,
+    ParticipantSpec, PhaseEventData, PresenceState, ResolvedCombatantSpec,
+    ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamSide, TurnEventData, UnitDefinitionId,
+    UnitId, UnitLevel,
     catalog::{
         CombatCatalog,
         builder::CombatCatalogBuilder,
@@ -33,6 +34,10 @@ where
 }
 
 fn catalog() -> Arc<CombatCatalog> {
+    catalog_with_executable_actions(true)
+}
+
+fn catalog_with_executable_actions(executable: bool) -> Arc<CombatCatalog> {
     let mut builder = CombatCatalogBuilder::new("battle-boundary-catalog-v1", [0x41; 32]);
     builder.add_selector(SelectorDefinition::new(definition(1)));
     builder.add_selector(SelectorDefinition::new(definition(2)));
@@ -50,18 +55,19 @@ fn catalog() -> Arc<CombatCatalog> {
         vec![],
         vec![],
     ));
-    builder.add_ability(AbilityDefinition::new(
-        definition(1),
-        definition(1),
-        definition(1),
-        vec![],
-    ));
-    builder.add_ability(AbilityDefinition::new(
-        definition(2),
-        definition(2),
-        definition(2),
-        vec![],
-    ));
+    let player_ability =
+        AbilityDefinition::new(definition(1), definition(1), definition(1), vec![]);
+    let enemy_ability = AbilityDefinition::new(definition(2), definition(2), definition(2), vec![]);
+    builder.add_ability(if executable {
+        player_ability.with_single_hit_action()
+    } else {
+        player_ability
+    });
+    builder.add_ability(if executable {
+        enemy_ability.with_single_hit_action()
+    } else {
+        enemy_ability
+    });
     builder.add_unit(UnitDefinition::new(
         definition(1),
         vec![definition(1)],
@@ -91,11 +97,20 @@ fn catalog() -> Arc<CombatCatalog> {
 }
 
 fn combatant(form: u32, ability: u32, digest_byte: u8) -> ResolvedCombatantSpec {
+    combatant_at_speed(form, ability, digest_byte, 100_000_000)
+}
+
+fn combatant_at_speed(
+    form: u32,
+    ability: u32,
+    digest_byte: u8,
+    speed_scaled: i64,
+) -> ResolvedCombatantSpec {
     ResolvedCombatantSpec::new(
         definition(form),
         UnitLevel::new(80).unwrap(),
         Hp::new(1_000).unwrap(),
-        Speed::from_scaled(100_000_000).unwrap(),
+        Speed::from_scaled(speed_scaled).unwrap(),
         ResolvedDefinitionBindings::new(vec![definition(ability)], vec![], vec![]).unwrap(),
         CombatantSpecDigest::new([digest_byte; 32]).unwrap(),
     )
@@ -253,9 +268,9 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         battle.state_hash().bytes(),
         [
-            0x72, 0xef, 0x63, 0x05, 0xb7, 0x08, 0x34, 0xb8, 0xaa, 0x2e, 0x51, 0xae, 0x95, 0x7d,
-            0xdf, 0xe9, 0x57, 0x2c, 0xa9, 0x56, 0x2e, 0x07, 0xe7, 0x94, 0x8a, 0x90, 0x1f, 0x96,
-            0xbb, 0xb2, 0x72, 0x13,
+            0xea, 0x41, 0x8f, 0x75, 0x90, 0xe3, 0x48, 0xa3, 0x0d, 0xb6, 0x73, 0xe4, 0x2c, 0x4d,
+            0xaf, 0xaa, 0xd6, 0x9c, 0x47, 0xcd, 0x8e, 0x5f, 0x3d, 0x9e, 0xf5, 0xa3, 0x41, 0xd5,
+            0x3e, 0x23, 0xf2, 0xfb,
         ]
     );
     let before = snapshot(&battle);
@@ -284,9 +299,9 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         started.state_hash().bytes(),
         [
-            0x83, 0xed, 0x2a, 0x72, 0xb9, 0x70, 0x94, 0xd1, 0xea, 0x86, 0x94, 0xd4, 0xca, 0xca,
-            0x9b, 0x62, 0x4e, 0xaf, 0xae, 0xf1, 0xf9, 0xdb, 0x46, 0xa9, 0xa7, 0xab, 0x7c, 0x92,
-            0xa7, 0x00, 0x8e, 0x70,
+            0x38, 0xb6, 0x8f, 0xdd, 0xef, 0xc4, 0x66, 0xa0, 0xce, 0x8e, 0xcb, 0x4f, 0x31, 0x36,
+            0xd3, 0x23, 0xa4, 0xc7, 0x00, 0xe6, 0xd9, 0xa8, 0x6e, 0x9b, 0x8a, 0xab, 0x8d, 0x15,
+            0x55, 0x4c, 0x97, 0x92,
         ]
     );
     assert_eq!(started.phase(), BattlePhase::AwaitingCommand);
@@ -294,7 +309,7 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(started.rng_draw_count(), 0);
     assert_eq!(started.state_hash(), battle.state_hash());
     assert_eq!(started.root_command().get(), 1);
-    assert_eq!(started.events().len(), 2);
+    assert_eq!(started.events().len(), 3);
     assert_eq!(started.events()[0].id().get(), 1);
     assert_eq!(started.events()[0].cause().root_command().get(), 1);
     assert_eq!(started.events()[0].cause().parent_event(), None);
@@ -302,32 +317,89 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
         started.events()[0].kind(),
         &BattleEventKind::Battle(BattleEventData::Started)
     );
-    assert_eq!(started.events()[1].id().get(), 2);
-    assert_eq!(started.events()[1].cause().root_command().get(), 1);
-    assert_eq!(started.events()[1].cause().parent_event().unwrap().get(), 1);
     assert_eq!(
         started.events()[1].kind(),
+        &BattleEventKind::Turn(TurnEventData::Started {
+            actor: runtime(1),
+            owner: runtime(1),
+        })
+    );
+    assert_eq!(started.events()[2].id().get(), 3);
+    assert_eq!(started.events()[2].cause().root_command().get(), 1);
+    assert_eq!(started.events()[2].cause().parent_event().unwrap().get(), 2);
+    assert_eq!(
+        started.events()[2].kind(),
         &BattleEventKind::Decision(DecisionEventData::Offered {
             decision: runtime(2),
-            kind: DecisionKind::NormalAction,
+            kind: DecisionKind::InterruptWindow,
             owner: DecisionOwner::Team(TeamSide::Player),
         })
     );
     let next = started.next_decision().unwrap();
     assert_eq!(next.id(), runtime::<DecisionId>(2));
-    assert_eq!(next.kind(), DecisionKind::NormalAction);
+    assert_eq!(next.kind(), DecisionKind::InterruptWindow);
     assert_eq!(next.owner(), DecisionOwner::Team(TeamSide::Player));
     assert_eq!(
         next.legal_commands(),
-        [Command::Concede {
+        [Command::PassInterruptWindow {
             decision: runtime(2)
         }]
     );
     assert_eq!(battle.decision(), Some(next));
+    assert_eq!(battle.view().active_turn().unwrap().owner(), runtime(1));
+    assert_eq!(
+        battle.view().interrupt_window().unwrap().kind(),
+        InterruptWindowKind::PreAction
+    );
+
+    let interrupt = snapshot(&battle);
+    let forged_action = Command::UseAbility {
+        decision: runtime(2),
+        actor: runtime(1),
+        ability: definition(1),
+        primary_target: None,
+    };
+    assert_eq!(
+        battle.apply(forged_action).unwrap_err().kind(),
+        CommandErrorKind::NotOffered
+    );
+    assert_eq!(snapshot(&battle), interrupt);
+
+    let passed = battle
+        .apply(Command::PassInterruptWindow {
+            decision: runtime(2),
+        })
+        .unwrap();
+    assert_eq!(
+        passed.state_hash().bytes(),
+        [
+            0x47, 0xbb, 0xd9, 0x4c, 0x08, 0xb8, 0x56, 0xb9, 0x1b, 0xf2, 0xf3, 0x96, 0x3d, 0x5f,
+            0xe1, 0xe5, 0x6a, 0xbe, 0x24, 0x9e, 0xe4, 0x10, 0x33, 0x3b, 0x13, 0xf6, 0xb1, 0x78,
+            0xee, 0x1a, 0x4e, 0x77,
+        ]
+    );
+    let next = passed.next_decision().unwrap();
+    assert_eq!(next.id(), runtime::<DecisionId>(3));
+    assert_eq!(next.kind(), DecisionKind::NormalAction);
+    assert_eq!(
+        next.legal_commands(),
+        [
+            Command::UseAbility {
+                decision: runtime(3),
+                actor: runtime(1),
+                ability: definition(1),
+                primary_target: None,
+            },
+            Command::Concede {
+                decision: runtime(3),
+            },
+        ]
+    );
+    assert!(battle.view().interrupt_window().is_none());
 
     let awaiting = snapshot(&battle);
     let unoffered = Command::UseAbility {
-        decision: runtime(2),
+        decision: runtime(3),
         actor: runtime(1),
         ability: definition(1),
         primary_target: Some(runtime(2)),
@@ -340,27 +412,28 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
 
     let ended = battle
         .apply(Command::Concede {
-            decision: runtime(2),
+            decision: runtime(3),
         })
         .unwrap();
     assert_eq!(
         ended.state_hash().bytes(),
         [
-            0x03, 0x0b, 0x61, 0x5a, 0x63, 0xfa, 0xb9, 0x06, 0x26, 0x6e, 0xaf, 0x1b, 0xc2, 0xff,
-            0x05, 0x9f, 0x5e, 0xf2, 0xeb, 0xd8, 0x71, 0x46, 0xda, 0xf5, 0xbc, 0x68, 0xe4, 0x0d,
-            0x51, 0x9c, 0x1f, 0xd2,
+            0x8b, 0xfd, 0xfe, 0x25, 0xa3, 0x63, 0x75, 0x6d, 0xff, 0x7c, 0xfc, 0xb8, 0x95, 0x9b,
+            0x95, 0xc1, 0xcd, 0x38, 0x08, 0x9a, 0x9a, 0x0e, 0xe7, 0xf8, 0x7a, 0xdc, 0x18, 0xe3,
+            0x2a, 0x8e, 0xb5, 0x1e,
         ]
     );
     assert_eq!(ended.phase(), BattlePhase::Lost);
-    assert_eq!(ended.committed_revision(), 2);
+    assert_eq!(ended.committed_revision(), 3);
     assert_eq!(ended.next_decision(), None);
     assert_eq!(ended.state_hash(), battle.state_hash());
-    assert_eq!(ended.root_command().get(), 2);
-    assert_eq!(ended.events().len(), 1);
-    assert_eq!(ended.events()[0].id().get(), 3);
-    assert_eq!(ended.events()[0].cause().root_command().get(), 2);
+    assert_eq!(ended.root_command().get(), 3);
+    assert_eq!(ended.events().len(), 2);
+    assert_eq!(ended.events()[0].id().get(), 6);
+    assert_eq!(ended.events()[1].id().get(), 7);
+    assert_eq!(ended.events()[1].cause().root_command().get(), 3);
     assert_eq!(
-        ended.events()[0].kind(),
+        ended.events()[1].kind(),
         &BattleEventKind::Battle(BattleEventData::Conceded {
             side: TeamSide::Player
         })
@@ -370,7 +443,7 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         battle
             .apply(Command::Concede {
-                decision: runtime(2)
+                decision: runtime(3)
             })
             .unwrap_err()
             .kind(),
@@ -380,7 +453,183 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
 }
 
 #[test]
+fn normal_action_lowers_one_phase_and_hit_then_selects_the_next_turn() {
+    let mut battle = Battle::create(catalog(), valid_spec(), BattleSeed::new([0x73; 32])).unwrap();
+    battle
+        .apply(Command::StartBattle {
+            decision: runtime(1),
+        })
+        .unwrap();
+    battle
+        .apply(Command::PassInterruptWindow {
+            decision: runtime(2),
+        })
+        .unwrap();
+    let resolution = battle
+        .apply(Command::UseAbility {
+            decision: runtime(3),
+            actor: runtime(1),
+            ability: definition(1),
+            primary_target: None,
+        })
+        .unwrap();
+    assert_eq!(
+        resolution.state_hash().bytes(),
+        [
+            0x80, 0xbd, 0xdd, 0xf2, 0xde, 0x85, 0xcd, 0x5e, 0xdc, 0x9f, 0xb0, 0x30, 0x37, 0x2e,
+            0x71, 0x67, 0x58, 0xf4, 0x9f, 0xce, 0x7e, 0x80, 0x5f, 0xcd, 0x54, 0xbe, 0xa1, 0xa7,
+            0x5b, 0x36, 0xa0, 0xe6,
+        ]
+    );
+
+    assert_eq!(resolution.committed_revision(), 3);
+    assert_eq!(resolution.events().len(), 11);
+    assert!(matches!(
+        resolution.events()[0].kind(),
+        BattleEventKind::Decision(DecisionEventData::Closed { decision })
+            if decision.get() == 3
+    ));
+    assert!(matches!(
+        resolution.events()[1].kind(),
+        BattleEventKind::Action(ActionEventData::Declared {
+            action,
+            actor,
+            ability,
+            origin: ActionOrigin::NormalTurn,
+        }) if action.get() == 1 && actor.get() == 1 && ability.get() == 1
+    ));
+    assert!(matches!(
+        resolution.events()[2].kind(),
+        BattleEventKind::Action(ActionEventData::Started { action, .. }) if action.get() == 1
+    ));
+    assert!(matches!(
+        resolution.events()[3].kind(),
+        BattleEventKind::Phase(PhaseEventData::Started { action, phase })
+            if action.get() == 1 && phase.get() == 1
+    ));
+    assert!(matches!(
+        resolution.events()[4].kind(),
+        BattleEventKind::Hit(HitEventData::Started { action, phase, hit })
+            if action.get() == 1 && phase.get() == 1 && hit.get() == 1
+    ));
+    assert!(matches!(
+        resolution.events()[5].kind(),
+        BattleEventKind::Hit(HitEventData::Ended { hit, .. }) if hit.get() == 1
+    ));
+    assert!(matches!(
+        resolution.events()[6].kind(),
+        BattleEventKind::Phase(PhaseEventData::Ended { phase, .. }) if phase.get() == 1
+    ));
+    assert!(matches!(
+        resolution.events()[7].kind(),
+        BattleEventKind::Action(ActionEventData::Resolved { action, .. }) if action.get() == 1
+    ));
+    assert!(matches!(
+        resolution.events()[8].kind(),
+        BattleEventKind::Turn(TurnEventData::Ended { actor, owner })
+            if actor.get() == 1 && owner.get() == 1
+    ));
+    assert!(matches!(
+        resolution.events()[9].kind(),
+        BattleEventKind::Turn(TurnEventData::Started { actor, owner })
+            if actor.get() == 2 && owner.get() == 2
+    ));
+    assert!(matches!(
+        resolution.events()[10].kind(),
+        BattleEventKind::Decision(DecisionEventData::Offered {
+            decision,
+            kind: DecisionKind::InterruptWindow,
+            owner: DecisionOwner::Team(TeamSide::Enemy),
+        }) if decision.get() == 4
+    ));
+    for event in &resolution.events()[1..8] {
+        let cause = event.cause();
+        assert_eq!(cause.root_command().get(), 3);
+        assert_eq!(cause.action().unwrap().get(), 1);
+        assert_eq!(cause.owner().unwrap().get(), 1);
+    }
+    for pair in resolution.events().windows(2) {
+        assert_eq!(pair[1].cause().parent_event(), Some(pair[0].id()));
+    }
+    let view = battle.view();
+    assert_eq!(view.active_turn().unwrap().owner().get(), 2);
+    assert_eq!(view.interrupt_window().unwrap().pending_count(), 0);
+    let gauges = view
+        .timeline_actors()
+        .map(|actor| actor.action_gauge().scaled())
+        .collect::<Vec<_>>();
+    assert_eq!(gauges, [10_000_000_000, 0]);
+    assert_eq!(resolution.state_hash(), battle.state_hash());
+}
+
+#[test]
+fn timeline_uses_exact_av_order_and_floored_gauge_elapsed_distance() {
+    let spec = spec_with(
+        1,
+        ParticipantSpec::new(
+            TeamSide::Player,
+            FormationIndex::new(0).unwrap(),
+            ParticipantSource::Player,
+            combatant_at_speed(1, 1, 0x63, 150_000_000),
+        ),
+        ParticipantSpec::new(
+            TeamSide::Enemy,
+            FormationIndex::new(4).unwrap(),
+            ParticipantSource::EncounterEnemy(definition(1)),
+            combatant_at_speed(2, 2, 0x64, 100_000_000),
+        ),
+    );
+    let mut battle = Battle::create(catalog(), spec, BattleSeed::new([0x74; 32])).unwrap();
+    battle
+        .apply(Command::StartBattle {
+            decision: runtime(1),
+        })
+        .unwrap();
+    assert_eq!(battle.view().active_turn().unwrap().owner().get(), 1);
+    assert_eq!(
+        battle
+            .view()
+            .timeline_actors()
+            .map(|actor| actor.action_gauge().scaled())
+            .collect::<Vec<_>>(),
+        [0, 3_333_333_334]
+    );
+    battle
+        .apply(Command::PassInterruptWindow {
+            decision: runtime(2),
+        })
+        .unwrap();
+    battle
+        .apply(Command::UseAbility {
+            decision: runtime(3),
+            actor: runtime(1),
+            ability: definition(1),
+            primary_target: None,
+        })
+        .unwrap();
+    assert_eq!(battle.view().active_turn().unwrap().owner().get(), 2);
+    assert_eq!(
+        battle
+            .view()
+            .timeline_actors()
+            .map(|actor| actor.action_gauge().scaled())
+            .collect::<Vec<_>>(),
+        [4_999_999_999, 0]
+    );
+}
+
+#[test]
 fn catalog_and_participant_composition_fail_before_runtime_allocation() {
+    let error = Battle::create(
+        catalog_with_executable_actions(false),
+        valid_spec(),
+        BattleSeed::new([0; 32]),
+    )
+    .unwrap_err();
+    assert_eq!(error.kind(), BattleBuildErrorKind::NoExecutableAbility);
+    assert_eq!(error.participant_index(), Some(0));
+    assert_eq!(error.definition_id(), None);
+
     let invalid_source = spec_with(
         1,
         ParticipantSpec::new(

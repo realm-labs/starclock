@@ -94,6 +94,101 @@ impl<'a> BattleView<'a> {
             state: self.state.teams.get(side),
         }
     }
+    /// Returns the selected normal turn that persists across its decisions.
+    #[must_use]
+    pub fn active_turn(self) -> Option<ActiveTurnView> {
+        self.state.timeline.active_turn.map(ActiveTurnView::from)
+    }
+    /// Returns the active external interrupt boundary, if any.
+    #[must_use]
+    pub fn interrupt_window(self) -> Option<InterruptWindowView> {
+        self.state
+            .timeline
+            .interrupt
+            .as_ref()
+            .map(|window| InterruptWindowView {
+                kind: window.kind,
+                turn: ActiveTurnView::from(window.turn),
+                pending_count: u64::try_from(window.pending.entries().len())
+                    .expect("interrupt queue length is bounded below u64::MAX"),
+            })
+    }
+}
+
+/// Immutable selected normal-turn ownership.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ActiveTurnView {
+    actor: TimelineActorId,
+    owner: UnitId,
+    side: TeamSide,
+    formation: FormationIndex,
+    spawn: SpawnSequence,
+}
+
+impl ActiveTurnView {
+    /// Returns the timeline actor whose gauge reached the boundary.
+    #[must_use]
+    pub const fn actor(self) -> TimelineActorId {
+        self.actor
+    }
+    /// Returns the unit that owns the selected timeline actor.
+    #[must_use]
+    pub const fn owner(self) -> UnitId {
+        self.owner
+    }
+    /// Returns the formation side that owns the selected turn.
+    #[must_use]
+    pub const fn side(self) -> TeamSide {
+        self.side
+    }
+    /// Returns the selected owner's formation position.
+    #[must_use]
+    pub const fn formation(self) -> FormationIndex {
+        self.formation
+    }
+    /// Returns the stable spawn-order tie breaker.
+    #[must_use]
+    pub const fn spawn_sequence(self) -> SpawnSequence {
+        self.spawn
+    }
+}
+
+impl From<crate::timeline::state::NormalTurnState> for ActiveTurnView {
+    fn from(turn: crate::timeline::state::NormalTurnState) -> Self {
+        Self {
+            actor: turn.actor,
+            owner: turn.owner,
+            side: turn.side,
+            formation: turn.formation,
+            spawn: turn.spawn,
+        }
+    }
+}
+
+/// Immutable interrupt-window state; pending entries remain resolver-private.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct InterruptWindowView {
+    kind: crate::timeline::state::InterruptWindowKind,
+    turn: ActiveTurnView,
+    pending_count: u64,
+}
+
+impl InterruptWindowView {
+    /// Returns the stable interrupt boundary kind.
+    #[must_use]
+    pub const fn kind(self) -> crate::timeline::state::InterruptWindowKind {
+        self.kind
+    }
+    /// Returns the normal turn suspended at this interrupt boundary.
+    #[must_use]
+    pub const fn turn(self) -> ActiveTurnView {
+        self.turn
+    }
+    /// Returns queued automatic/out-of-order actions without exposing entries.
+    #[must_use]
+    pub const fn pending_count(self) -> u64 {
+        self.pending_count
+    }
 }
 
 /// Immutable compatibility identity included in canonical state later.

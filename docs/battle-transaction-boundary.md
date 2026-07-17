@@ -54,6 +54,7 @@ production path streams into SHA-256 without allocating a complete state byte
 vector; a test-only collecting sink proves byte/hash equivalence. Fixed vectors
 cover initial state, StartBattle and Concede boundaries.
 
-Action plans, operation/reaction queues and real RNG-consuming resolution begin
-in `G01-P3-B3`; they must use the journal families frozen here rather than
-creating a second transaction or event language.
+Structural action plans and deterministic interrupt ordering begin in
+`G01-P3-B3`; target/resource semantics and operation/reaction execution follow
+in B4-B5. Every later resolver stage must use the journal families frozen here
+rather than creating a second transaction or event language.

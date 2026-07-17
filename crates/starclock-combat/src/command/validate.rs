@@ -4,6 +4,11 @@ use super::model::{Command, CommandError, CommandErrorKind};
 
 pub(crate) enum ValidatedCommand {
     StartBattle,
+    PassInterruptWindow,
+    UseAbility {
+        actor: crate::UnitId,
+        ability: crate::AbilityId,
+    },
     Concede,
 }
 
@@ -31,6 +36,21 @@ pub(crate) fn validate(
         (BattlePhase::Initializing, Command::StartBattle { .. }) => {
             Ok(ValidatedCommand::StartBattle)
         }
+        (BattlePhase::AwaitingCommand, Command::PassInterruptWindow { .. }) => {
+            Ok(ValidatedCommand::PassInterruptWindow)
+        }
+        (
+            BattlePhase::AwaitingCommand,
+            Command::UseAbility {
+                actor,
+                ability,
+                primary_target: None,
+                ..
+            },
+        ) => Ok(ValidatedCommand::UseAbility {
+            actor: *actor,
+            ability: *ability,
+        }),
         (BattlePhase::AwaitingCommand, Command::Concede { .. }) => Ok(ValidatedCommand::Concede),
         _ => Err(CommandError::new(CommandErrorKind::WrongPhase)),
     }

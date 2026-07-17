@@ -5,6 +5,9 @@ pub(crate) enum AllocationKind {
     Command,
     Decision,
     Event,
+    Action,
+    Phase,
+    Hit,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -23,6 +26,8 @@ pub(crate) enum MutationField {
     Decision,
     CommittedRevision,
     Fault,
+    Timeline,
+    ActionGauge,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

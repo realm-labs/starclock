@@ -1,5 +1,5 @@
 use super::{
-    rounding::{NumericError, Rounding},
+    rounding::{NumericError, Rounding, rounded_quotient},
     scalar::{Ratio, Scalar},
 };
 
@@ -81,6 +81,27 @@ impl ActionGauge {
     pub fn checked_add_delta(self, delta: Scalar) -> Result<Self, NumericError> {
         self.0
             .checked_add(delta)
+            .and_then(|value| Self::from_scaled(value.scaled()))
+    }
+
+    /// Advances this actor by the exact time needed for a selected actor.
+    ///
+    /// The elapsed distance is floored to the six-decimal gauge so no actor is
+    /// advanced beyond the exact rational boundary. The selected actor is set
+    /// to zero explicitly by the scheduler.
+    pub(crate) fn checked_advance_for_selection(
+        self,
+        speed: Speed,
+        selected_gauge: Self,
+        selected_speed: Speed,
+    ) -> Result<Self, NumericError> {
+        let elapsed = rounded_quotient(
+            i128::from(speed.scaled()) * i128::from(selected_gauge.scaled()),
+            i128::from(selected_speed.scaled()),
+            Rounding::Floor,
+        )?;
+        self.0
+            .checked_sub(Scalar::from_scaled(elapsed))
             .and_then(|value| Self::from_scaled(value.scaled()))
     }
 }
