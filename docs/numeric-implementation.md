@@ -52,3 +52,13 @@ non-authoritative formula oracle owned by `G01-P2-B5`.
 `numeric_golden.rs` binds the revision to exact raw multiplication, division,
 sign, tie, overflow, conversion and formula-finalization vectors. The same test
 runs on every native CI platform; it contains no platform math or float path.
+
+`numeric_formula_oracle.rs` is the deliberately non-authoritative floating-point
+research oracle added by `G01-P2-B5`. It composes the public numeric primitives
+through the documented derived-stat, ordinary damage, defense, resistance,
+mitigation, healing, shield, Toughness, Break, Super Break, application-chance,
+Energy, Speed and Action Gauge equations. Exact state-finalization vectors,
+typed overflow/domain failures and all six rounding modes are fixed assertions;
+4,096 deterministic legal multiplication/division cases must remain within the
+single declared `0.000001` resolution. The oracle exists only under `tests/` and
+does not define production formula behavior ahead of Phase 3.
