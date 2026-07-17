@@ -69,6 +69,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 44. [Damage, healing, defeat and wave boundary](damage-lifecycle-boundary.md) — typed HP operations, fixed-point formula goldens, defeat/terminal settlement and ordered `AfterAction` waves.
 45. [Synthetic Standard CLI and replay boundary](synthetic-standard-replay-boundary.md) — smoke-only Standard fixture, low-level command/hash replay payloads and deterministic CLI run/verify evidence.
 46. [Phase 3 performance benchmark baseline](performance-benchmark-baseline.md) — versioned apply/hash/replay/concurrency workloads, allocation and transaction instrumentation, CI smoke ceilings and strict stable-runner evidence.
+47. [Phase 3 command and replay property contract](command-replay-property-contract.md) — fixed-seed mixed command streams, rollback convergence, deterministic hashes and replay envelope/domain corruption.
 
 ## Execution goals
 

@@ -231,6 +231,12 @@ impl Battle {
 
 #[cfg(test)]
 mod tests {
+    use proptest::{
+        collection::vec,
+        prelude::*,
+        test_runner::{Config as ProptestConfig, FileFailurePersistence, RngAlgorithm, RngSeed},
+    };
+
     use super::*;
     use crate::{
         BattleEventData, BattleEventKind, BattleSpecDigest, CombatantSpecDigest, ConcedePolicy,
@@ -248,11 +254,27 @@ mod tests {
             },
         },
         codec::{collect_state, hash_collected_state},
-        command::model::CommandErrorKind,
+        command::model::{CommandErrorKind, DecisionKind},
         event::model::FaultEventData,
         id::{AbilityId, EncounterId, EnemyDefinitionId, ProgramId, SelectorId, UnitDefinitionId},
         resolver::transaction::{FaultInjection, FaultInjectionPoint},
     };
+
+    const COMMAND_SEQUENCE_SEED: u64 = 0x636f_6d6d_616e_6431;
+    const ROLLBACK_SEQUENCE_SEED: u64 = 0x726f_6c6c_6261_636b;
+
+    fn property_config(seed: u64) -> ProptestConfig {
+        ProptestConfig {
+            cases: 256,
+            max_shrink_iters: 4_096,
+            failure_persistence: Some(Box::new(FileFailurePersistence::SourceParallel(
+                "proptest-regressions",
+            ))),
+            rng_algorithm: RngAlgorithm::ChaCha,
+            rng_seed: RngSeed::Fixed(seed),
+            ..ProptestConfig::default()
+        }
+    }
 
     fn definition<I: TryFrom<u32>>(raw: u32) -> I
     where
@@ -349,6 +371,40 @@ mod tests {
         let command = Command::StartBattle { decision };
         let validated = validate(&battle.state, &command).unwrap();
         battle.apply_validated(validated, Some(injection))
+    }
+
+    fn supported_command(battle: &Battle) -> Command {
+        let decision = battle.decision().expect("fixture remains nonterminal");
+        let selected = match decision.kind() {
+            DecisionKind::BattleStart => decision.legal_commands().first(),
+            DecisionKind::InterruptWindow => decision
+                .legal_commands()
+                .iter()
+                .find(|command| matches!(command, Command::PassInterruptWindow { .. })),
+            DecisionKind::NormalAction => decision
+                .legal_commands()
+                .iter()
+                .find(|command| matches!(command, Command::UseAbility { .. })),
+            DecisionKind::BattleChoice => None,
+        };
+        selected
+            .cloned()
+            .expect("fixture offers a supported command")
+    }
+
+    fn injected_command(
+        battle: &mut Battle,
+        command: &Command,
+        point: FaultInjectionPoint,
+    ) -> Resolution {
+        let validated = validate(&battle.state, command).expect("offered command validates");
+        battle.apply_validated(
+            validated,
+            Some(FaultInjection {
+                point,
+                policy: FaultPolicy::Rollback,
+            }),
+        )
     }
 
     #[test]
@@ -465,5 +521,85 @@ mod tests {
         assert_eq!(resolution.state_hash(), battle.state_hash());
         assert_eq!(battle.view().fault(), Some(fault));
         assert!(battle.decision().is_none());
+    }
+
+    proptest! {
+        #![proptest_config(property_config(COMMAND_SEQUENCE_SEED))]
+
+        #[test]
+        fn generated_command_sequences_are_deterministic_and_rejections_are_inert(
+            steps in vec(any::<u8>(), 1..129),
+        ) {
+            let mut first = fixture_battle();
+            let mut second = fixture_battle();
+            let mut trace = Vec::new();
+
+            for step in steps {
+                if step % 4 == 0 {
+                    let decision = first.decision().unwrap().id();
+                    prop_assert_eq!(decision, second.decision().unwrap().id());
+                    let forged_decision = crate::DecisionId::new(
+                        decision.get().checked_add(10_000).unwrap()
+                    ).unwrap();
+                    let forged = Command::StartBattle { decision: forged_decision };
+                    let before_bytes = collect_state(&first.state);
+                    let before_hash = first.state_hash();
+                    let before_draws = first.view().rng_draw_count();
+                    let before_decision = first.decision().cloned();
+                    let first_error = first.apply(forged.clone()).unwrap_err();
+                    let second_error = second.apply(forged).unwrap_err();
+                    prop_assert_eq!(first_error, second_error);
+                    prop_assert_eq!(collect_state(&first.state), before_bytes);
+                    prop_assert_eq!(first.state_hash(), before_hash);
+                    prop_assert_eq!(first.view().rng_draw_count(), before_draws);
+                    prop_assert_eq!(first.decision(), before_decision.as_ref());
+                    prop_assert_eq!(collect_state(&first.state), collect_state(&second.state));
+                } else {
+                    let first_command = supported_command(&first);
+                    let second_command = supported_command(&second);
+                    prop_assert_eq!(&first_command, &second_command);
+                    let first_resolution = first.apply(first_command).unwrap();
+                    let second_resolution = second.apply(second_command).unwrap();
+                    prop_assert_eq!(&first_resolution, &second_resolution);
+                    prop_assert_eq!(collect_state(&first.state), collect_state(&second.state));
+                    trace.push(first_resolution.state_hash());
+                }
+            }
+            prop_assert_eq!(first.state_hash(), second.state_hash());
+            prop_assert_eq!(trace.last().copied().unwrap_or_else(|| first.state_hash()), first.state_hash());
+        }
+    }
+
+    proptest! {
+        #![proptest_config(property_config(ROLLBACK_SEQUENCE_SEED))]
+
+        #[test]
+        fn rollback_converges_after_every_generated_valid_prefix(prefix in 0_usize..65) {
+            let mut early = fixture_battle();
+            let mut late = fixture_battle();
+            for _ in 0..prefix {
+                let command = supported_command(&early);
+                prop_assert_eq!(&command, &supported_command(&late));
+                let early_resolution = early.apply(command.clone()).unwrap();
+                let late_resolution = late.apply(command).unwrap();
+                prop_assert_eq!(early_resolution, late_resolution);
+            }
+            let command = supported_command(&early);
+            prop_assert_eq!(&command, &supported_command(&late));
+            let early_resolution = injected_command(
+                &mut early,
+                &command,
+                FaultInjectionPoint::AfterResolvingPhase,
+            );
+            let late_resolution = injected_command(
+                &mut late,
+                &command,
+                FaultInjectionPoint::AfterCommandMutation,
+            );
+            prop_assert_eq!(early_resolution, late_resolution);
+            prop_assert_eq!(collect_state(&early.state), collect_state(&late.state));
+            prop_assert_eq!(early.state_hash(), late.state_hash());
+            prop_assert_eq!(early.state_hash(), hash_collected_state(&early.state));
+        }
     }
 }

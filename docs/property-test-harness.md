@@ -26,6 +26,9 @@ The current seeds are:
 | Replay round trip | `0x7265706c61792d31` |
 | Malformed replay framing | `0x6d616c666f726d31` |
 | Arbitrary replay bytes | `0x38cb39cc3ad8389b` |
+| Mixed battle command sequences | `0x636f6d6d616e6431` |
+| Rollback after valid prefixes | `0x726f6c6c6261636b` |
+| Battle replay corruption | `0x626174746c652d31` |
 
 An explicit stress configuration may increase the case count only after
 recording the command and seed. A passing random-only run does not replace these
@@ -51,8 +54,13 @@ The replay suite proves:
   lengths are rejected;
 - arbitrary byte strings do not escape the total replay decoder through a panic.
 
-These are bounded structural properties, not a content or full-battle claim.
-`G01-P3-B8` adds invalid-command/rollback/hash properties after the transaction
-boundary exists. `G01-P8-B3` expands the same harness into long sequences and
+`G01-P3-B8` now adds generated mixed valid/forged command streams, byte-exact
+rollback convergence after every bounded prefix, deterministic
+resolution/hash traces and battle replay envelope/domain corruption. Their
+exact contract is recorded in
+[Phase 3 command and replay properties](command-replay-property-contract.md).
+
+These remain bounded structural properties, not a content or full-battle
+claim. `G01-P8-B3` expands the same harness into long sequences and
 coverage-guided corruption/resolver/content cases while preserving every seed
 and minimized corpus.
