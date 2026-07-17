@@ -212,6 +212,8 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
     e.u8(unit.presence as u8);
     e.i64(unit.current_hp.get());
     e.i64(unit.maximum_hp.get());
+    e.i64(unit.current_energy.scaled());
+    e.i64(unit.maximum_energy.scaled());
     e.length(unit.abilities.len());
     for id in &unit.abilities {
         e.u32(id.get());

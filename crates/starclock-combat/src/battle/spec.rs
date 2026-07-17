@@ -5,7 +5,7 @@ use crate::{
         AbilityId, EncounterId, EnemyDefinitionId, ModifierDefinitionId, RuleBundleId,
         UnitDefinitionId,
     },
-    numeric::domain::{Hp, Speed},
+    numeric::domain::{Energy, Hp, Speed},
 };
 
 /// Maximum occupied formation index accepted by the core model.
@@ -196,6 +196,8 @@ pub struct ResolvedCombatantSpec {
     level: UnitLevel,
     maximum_hp: Hp,
     speed: Speed,
+    current_energy: Energy,
+    maximum_energy: Energy,
     abilities: Box<[AbilityId]>,
     rule_bundles: Box<[RuleBundleId]>,
     modifiers: Box<[ModifierDefinitionId]>,
@@ -220,11 +222,26 @@ impl ResolvedCombatantSpec {
             level,
             maximum_hp,
             speed,
+            current_energy: Energy::ZERO,
+            maximum_energy: Energy::ZERO,
             abilities: bindings.abilities,
             rule_bundles: bindings.rule_bundles,
             modifiers: bindings.modifiers,
             digest,
         })
+    }
+    /// Sets checked entry and maximum Energy for this resolved combatant.
+    pub fn with_energy(
+        mut self,
+        current: Energy,
+        maximum: Energy,
+    ) -> Result<Self, CombatantSpecError> {
+        if current > maximum {
+            return Err(CombatantSpecError::EnergyAboveMaximum);
+        }
+        self.current_energy = current;
+        self.maximum_energy = maximum;
+        Ok(self)
     }
 
     /// Returns the selected combat form.
@@ -246,6 +263,16 @@ impl ResolvedCombatantSpec {
     #[must_use]
     pub const fn speed(&self) -> Speed {
         self.speed
+    }
+    /// Returns entry Energy.
+    #[must_use]
+    pub const fn current_energy(&self) -> Energy {
+        self.current_energy
+    }
+    /// Returns the authored Energy cap.
+    #[must_use]
+    pub const fn maximum_energy(&self) -> Energy {
+        self.maximum_energy
     }
     /// Returns abilities in canonical definition-ID order.
     #[must_use]
@@ -278,6 +305,8 @@ pub enum CombatantSpecError {
     EmptyAbilitySet,
     /// Set-like definition references must be strictly increasing and unique.
     NonCanonicalReferences,
+    /// Entry Energy cannot exceed its authored maximum.
+    EnergyAboveMaximum,
 }
 
 impl fmt::Display for CombatantSpecError {

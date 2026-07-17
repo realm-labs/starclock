@@ -1,10 +1,14 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    AbilityId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ModifierDefinitionId, ProgramId,
-    RuleBundleId, RuleId, SelectorId, UnitDefinitionId,
+    AbilityId, EffectDefinitionId, EncounterId, EnemyDefinitionId, Energy, ModifierDefinitionId,
+    ProgramId, RuleBundleId, RuleId, SelectorId, UnitDefinitionId,
     catalog::{
         CombatCatalog,
+        action::{
+            AbilityActionDefinition, AbilityKind, ActionResourcePolicy, TargetInvalidationPolicy,
+            TargetPattern, TargetRelation, UnitTargetSelector,
+        },
         builder::{CatalogBuildErrorKind, CombatCatalogBuilder},
         definition::{
             AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition,
@@ -137,6 +141,60 @@ fn duplicate_ids_are_rejected_per_definition_family() {
 
     let error = builder.build().expect_err("duplicate must fail");
     assert_eq!(error.kind(), CatalogBuildErrorKind::DuplicateDefinition);
+}
+
+#[test]
+fn executable_abilities_require_target_semantics_and_payable_ultimates() {
+    assert!(UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::All).is_none());
+    let basic = AbilityActionDefinition::new(
+        AbilityKind::Basic,
+        1,
+        TargetInvalidationPolicy::CancelRemainingForTarget,
+        ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
+    )
+    .unwrap();
+    let mut missing_targets = CombatCatalogBuilder::new("missing-targets-v1", [2; 32]);
+    missing_targets.add_selector(SelectorDefinition::new(id(1)));
+    missing_targets.add_program(ProgramDefinition::new(
+        id(1),
+        vec![],
+        vec![id(1)],
+        vec![],
+        vec![],
+    ));
+    missing_targets
+        .add_ability(AbilityDefinition::new(id(1), id(1), id(1), vec![]).with_action(basic));
+    assert_eq!(
+        missing_targets.build().unwrap_err().kind(),
+        CatalogBuildErrorKind::InvalidDefinition
+    );
+
+    let mut free_ultimate = CombatCatalogBuilder::new("free-ultimate-v1", [3; 32]);
+    free_ultimate.add_selector(SelectorDefinition::new(id(1)).with_unit_targets(
+        UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::All).unwrap(),
+    ));
+    free_ultimate.add_program(ProgramDefinition::new(
+        id(1),
+        vec![],
+        vec![id(1)],
+        vec![],
+        vec![],
+    ));
+    free_ultimate.add_ability(
+        AbilityDefinition::new(id(1), id(1), id(1), vec![]).with_action(
+            AbilityActionDefinition::new(
+                AbilityKind::Ultimate,
+                1,
+                TargetInvalidationPolicy::FailAction,
+                ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
+            )
+            .unwrap(),
+        ),
+    );
+    assert_eq!(
+        free_ultimate.build().unwrap_err().kind(),
+        CatalogBuildErrorKind::InvalidDefinition
+    );
 }
 
 #[test]

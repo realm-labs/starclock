@@ -28,6 +28,8 @@ pub(crate) enum MutationField {
     Fault,
     Timeline,
     ActionGauge,
+    TeamSkillPoints,
+    UnitEnergy,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

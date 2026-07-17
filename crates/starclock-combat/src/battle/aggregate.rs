@@ -69,6 +69,8 @@ impl Battle {
                 presence: PresenceState::Present,
                 current_hp: combatant.maximum_hp(),
                 maximum_hp: combatant.maximum_hp(),
+                current_energy: combatant.current_energy(),
+                maximum_energy: combatant.maximum_energy(),
                 abilities: combatant.abilities().into(),
                 rule_bundles: combatant.rule_bundles().into(),
                 modifiers: combatant.modifiers().into(),
@@ -204,6 +206,10 @@ mod tests {
         FaultKind, FaultPolicy, FormationIndex, Hp, ParticipantSource, ParticipantSpec,
         ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, TeamResourceSpec, UnitLevel,
         catalog::{
+            action::{
+                AbilityActionDefinition, AbilityKind, ActionResourcePolicy,
+                TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
+            },
             builder::CombatCatalogBuilder,
             definition::{
                 AbilityDefinition, EncounterDefinition, EnemyDefinition, ProgramDefinition,
@@ -231,7 +237,9 @@ mod tests {
             let program: ProgramId = definition(raw);
             let ability: AbilityId = definition(raw);
             let unit: UnitDefinitionId = definition(raw);
-            builder.add_selector(SelectorDefinition::new(selector));
+            builder.add_selector(SelectorDefinition::new(selector).with_unit_targets(
+                UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),
+            ));
             builder.add_program(ProgramDefinition::new(
                 program,
                 vec![],
@@ -240,7 +248,15 @@ mod tests {
                 vec![],
             ));
             builder.add_ability(
-                AbilityDefinition::new(ability, program, selector, vec![]).with_single_hit_action(),
+                AbilityDefinition::new(ability, program, selector, vec![]).with_action(
+                    AbilityActionDefinition::new(
+                        AbilityKind::Basic,
+                        1,
+                        TargetInvalidationPolicy::CancelRemainingForTarget,
+                        ActionResourcePolicy::new(0, 0, crate::Energy::ZERO, crate::Energy::ZERO),
+                    )
+                    .unwrap(),
+                ),
             );
             builder.add_unit(UnitDefinition::new(unit, vec![ability], vec![]));
         }

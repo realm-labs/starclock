@@ -69,6 +69,8 @@ pub enum CatalogBuildErrorKind {
     MissingReference,
     /// The static program call graph contains a cycle.
     ProgramCycle,
+    /// A definition's local executable shape violates its domain contract.
+    InvalidDefinition,
 }
 
 /// Typed, deterministic catalog-construction error.
@@ -289,6 +291,34 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             DefinitionKind::Selector,
             ability.selector().get(),
         )?;
+        if ability.action().is_some()
+            && catalog
+                .selectors
+                .get(ability.selector())
+                .is_some_and(|selector| selector.unit_targets().is_none())
+        {
+            return Err(error(
+                CatalogBuildErrorKind::InvalidDefinition,
+                format!(
+                    "ability definition {} requires executable unit-target selector {}",
+                    id.get(),
+                    ability.selector().get()
+                ),
+            ));
+        }
+        if ability.action().is_some_and(|action| {
+            action.kind() == super::action::AbilityKind::Ultimate
+                && action.resources().skill_point_cost() == 0
+                && action.resources().energy_cost() == crate::Energy::ZERO
+        }) {
+            return Err(error(
+                CatalogBuildErrorKind::InvalidDefinition,
+                format!(
+                    "ultimate ability definition {} requires a payable current resource cost",
+                    id.get()
+                ),
+            ));
+        }
         require_all(
             ability.effects(),
             |value| catalog.effects.get(value).is_some(),

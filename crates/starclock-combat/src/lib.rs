@@ -16,7 +16,9 @@ mod event;
 mod id;
 mod numeric;
 mod resolver;
+mod resource;
 pub mod rng;
+mod target;
 mod timeline;
 
 // This is the deliberate small crate facade. The defining modules remain
@@ -30,8 +32,8 @@ pub use id::{
     ZeroIdError,
 };
 pub use numeric::domain::{
-    ActionGauge, DamageAmount, HealingAmount, Hp, Probability, RawToughness, ShieldAmount, Speed,
-    StatValue,
+    ActionGauge, DamageAmount, Energy, HealingAmount, Hp, Probability, RawToughness, ShieldAmount,
+    Speed, StatValue,
 };
 pub use numeric::rounding::{NumericError, Rounding};
 pub use numeric::scalar::{Ratio, Scalar};
@@ -59,7 +61,7 @@ pub use command::model::{
 pub use event::cause::{Cause, CauseActor};
 pub use event::model::{
     ActionEventData, BattleEvent, BattleEventData, BattleEventKind, DecisionEventData,
-    FaultEventData, HitEventData, PhaseEventData, TurnEventData,
+    FaultEventData, HitEventData, PhaseEventData, ResourceEventData, TurnEventData,
 };
 pub use timeline::state::InterruptWindowKind;
 

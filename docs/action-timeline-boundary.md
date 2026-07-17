@@ -23,13 +23,13 @@ decision.
 
 ## Structural action lowering
 
-B3 catalog abilities may opt into a deliberately narrow structural envelope:
-one action, one phase and one hit. Lowering allocates monotonic `ActionId`,
-`PhaseId` and `HitId` values only after the offered command has passed exact
-decision-membership validation. B4 owns target selectors and resource costs;
-B5 owns operation and reaction execution. Consequently B3 accepts only an
-untargeted structural ability command and does not pretend that its placeholder
-hit applies combat effects.
+B3 initially proved a deliberately narrow structural envelope. B4 replaces
+that staging flag with typed finite action definitions, target commitments,
+resources and multi-hit plans as documented in the
+[target and action-resource boundary](target-and-resource-boundary.md).
+Lowering still allocates monotonic `ActionId`, `PhaseId` and `HitId` values only
+after the offered command has passed exact decision-membership validation. B5
+adds HP operations and does not create a second action language.
 
 The synchronous fact chain is:
 

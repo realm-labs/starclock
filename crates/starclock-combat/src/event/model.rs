@@ -53,6 +53,8 @@ pub enum BattleEventKind {
     Phase(PhaseEventData),
     /// Authored hit lifecycle fact.
     Hit(HitEventData),
+    /// Team or personal resource mutation fact.
+    Resource(ResourceEventData),
     /// Deterministic internal failure fact.
     Fault(FaultEventData),
 }
@@ -103,17 +105,38 @@ pub enum PhaseEventData {
 }
 
 /// Ordered structural hit boundaries.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub enum HitEventData {
     Started {
         action: ActionId,
         phase: PhaseId,
         hit: HitId,
+        targets: Box<[UnitId]>,
     },
     Ended {
         action: ActionId,
         phase: PhaseId,
         hit: HitId,
+        targets: Box<[UnitId]>,
+    },
+}
+
+/// Checked resource changes applied at action-envelope boundaries.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ResourceEventData {
+    /// Team Skill Points changed; overflow records discarded ordinary gain.
+    SkillPoints {
+        side: TeamSide,
+        before: u16,
+        after: u16,
+        overflow: u16,
+    },
+    /// Personal Energy changed in canonical millionths.
+    Energy {
+        unit: UnitId,
+        before: crate::Energy,
+        after: crate::Energy,
+        overflow: crate::Energy,
     },
 }
 

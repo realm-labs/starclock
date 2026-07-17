@@ -106,6 +106,26 @@ impl ActionGauge {
     }
 }
 
+/// Non-negative fixed-point personal Energy value.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct Energy(Scalar);
+
+impl Energy {
+    /// Zero Energy.
+    pub const ZERO: Self = Self(Scalar::from_scaled(0));
+
+    /// Creates Energy from canonical non-negative millionths.
+    pub fn from_scaled(raw: i64) -> Result<Self, NumericError> {
+        non_negative_scalar(raw).map(Self)
+    }
+
+    /// Returns canonical millionths.
+    #[must_use]
+    pub fn scaled(self) -> i64 {
+        self.0.scaled()
+    }
+}
+
 /// Integer probability threshold in inclusive millionths `[0, 1_000_000]`.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct Probability(u32);

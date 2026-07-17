@@ -11,6 +11,10 @@ use starclock_combat::{
     UnitId, UnitLevel,
     catalog::{
         CombatCatalog,
+        action::{
+            AbilityActionDefinition, AbilityKind, ActionResourcePolicy, TargetInvalidationPolicy,
+            TargetPattern, TargetRelation, UnitTargetSelector,
+        },
         builder::CombatCatalogBuilder,
         definition::{
             AbilityDefinition, EncounterDefinition, EnemyDefinition, ProgramDefinition,
@@ -39,8 +43,12 @@ fn catalog() -> Arc<CombatCatalog> {
 
 fn catalog_with_executable_actions(executable: bool) -> Arc<CombatCatalog> {
     let mut builder = CombatCatalogBuilder::new("battle-boundary-catalog-v1", [0x41; 32]);
-    builder.add_selector(SelectorDefinition::new(definition(1)));
-    builder.add_selector(SelectorDefinition::new(definition(2)));
+    builder.add_selector(SelectorDefinition::new(definition(1)).with_unit_targets(
+        UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),
+    ));
+    builder.add_selector(SelectorDefinition::new(definition(2)).with_unit_targets(
+        UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),
+    ));
     builder.add_program(ProgramDefinition::new(
         definition(1),
         vec![],
@@ -59,12 +67,12 @@ fn catalog_with_executable_actions(executable: bool) -> Arc<CombatCatalog> {
         AbilityDefinition::new(definition(1), definition(1), definition(1), vec![]);
     let enemy_ability = AbilityDefinition::new(definition(2), definition(2), definition(2), vec![]);
     builder.add_ability(if executable {
-        player_ability.with_single_hit_action()
+        player_ability.with_action(basic_action())
     } else {
         player_ability
     });
     builder.add_ability(if executable {
-        enemy_ability.with_single_hit_action()
+        enemy_ability.with_action(basic_action())
     } else {
         enemy_ability
     });
@@ -94,6 +102,21 @@ fn catalog_with_executable_actions(executable: bool) -> Arc<CombatCatalog> {
         vec![],
     ));
     builder.build().expect("battle fixture catalog is valid")
+}
+
+fn basic_action() -> AbilityActionDefinition {
+    AbilityActionDefinition::new(
+        AbilityKind::Basic,
+        1,
+        TargetInvalidationPolicy::CancelRemainingForTarget,
+        ActionResourcePolicy::new(
+            0,
+            0,
+            starclock_combat::Energy::ZERO,
+            starclock_combat::Energy::ZERO,
+        ),
+    )
+    .unwrap()
 }
 
 fn combatant(form: u32, ability: u32, digest_byte: u8) -> ResolvedCombatantSpec {
@@ -268,9 +291,9 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         battle.state_hash().bytes(),
         [
-            0xea, 0x41, 0x8f, 0x75, 0x90, 0xe3, 0x48, 0xa3, 0x0d, 0xb6, 0x73, 0xe4, 0x2c, 0x4d,
-            0xaf, 0xaa, 0xd6, 0x9c, 0x47, 0xcd, 0x8e, 0x5f, 0x3d, 0x9e, 0xf5, 0xa3, 0x41, 0xd5,
-            0x3e, 0x23, 0xf2, 0xfb,
+            0x0e, 0x39, 0x84, 0xef, 0x08, 0x94, 0x9c, 0x71, 0x9f, 0x9e, 0xd8, 0x9b, 0xe2, 0xe5,
+            0x9e, 0x9b, 0x82, 0x5d, 0x42, 0x48, 0xcf, 0x30, 0x8f, 0xa3, 0xcf, 0xf1, 0xa9, 0x9f,
+            0x83, 0x41, 0x1e, 0x1b,
         ]
     );
     let before = snapshot(&battle);
@@ -299,9 +322,9 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         started.state_hash().bytes(),
         [
-            0x38, 0xb6, 0x8f, 0xdd, 0xef, 0xc4, 0x66, 0xa0, 0xce, 0x8e, 0xcb, 0x4f, 0x31, 0x36,
-            0xd3, 0x23, 0xa4, 0xc7, 0x00, 0xe6, 0xd9, 0xa8, 0x6e, 0x9b, 0x8a, 0xab, 0x8d, 0x15,
-            0x55, 0x4c, 0x97, 0x92,
+            0x75, 0x1c, 0x78, 0x86, 0xcb, 0x85, 0xa0, 0x4d, 0x0a, 0x68, 0x46, 0x26, 0x5a, 0x61,
+            0x19, 0x55, 0x5e, 0x2c, 0x01, 0x15, 0x4b, 0x85, 0xd8, 0x16, 0xbf, 0xc3, 0x2c, 0xa3,
+            0x14, 0x56, 0xc1, 0x69,
         ]
     );
     assert_eq!(started.phase(), BattlePhase::AwaitingCommand);
@@ -373,9 +396,9 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         passed.state_hash().bytes(),
         [
-            0x47, 0xbb, 0xd9, 0x4c, 0x08, 0xb8, 0x56, 0xb9, 0x1b, 0xf2, 0xf3, 0x96, 0x3d, 0x5f,
-            0xe1, 0xe5, 0x6a, 0xbe, 0x24, 0x9e, 0xe4, 0x10, 0x33, 0x3b, 0x13, 0xf6, 0xb1, 0x78,
-            0xee, 0x1a, 0x4e, 0x77,
+            0xdd, 0xe6, 0x43, 0xb2, 0xce, 0x3a, 0x03, 0x83, 0x36, 0x70, 0xb3, 0x20, 0x3b, 0xd4,
+            0xb2, 0xba, 0x55, 0xc5, 0x44, 0x2f, 0x75, 0xc9, 0x59, 0xbd, 0xb3, 0xe8, 0xb5, 0xc1,
+            0x2a, 0x44, 0xb1, 0xd9,
         ]
     );
     let next = passed.next_decision().unwrap();
@@ -418,9 +441,9 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         ended.state_hash().bytes(),
         [
-            0x8b, 0xfd, 0xfe, 0x25, 0xa3, 0x63, 0x75, 0x6d, 0xff, 0x7c, 0xfc, 0xb8, 0x95, 0x9b,
-            0x95, 0xc1, 0xcd, 0x38, 0x08, 0x9a, 0x9a, 0x0e, 0xe7, 0xf8, 0x7a, 0xdc, 0x18, 0xe3,
-            0x2a, 0x8e, 0xb5, 0x1e,
+            0x44, 0xf7, 0x94, 0xdd, 0x5f, 0xea, 0x53, 0xbc, 0xbd, 0xd6, 0x18, 0xff, 0xda, 0xdb,
+            0x09, 0xbd, 0x56, 0x4f, 0x52, 0x48, 0xb7, 0x41, 0xb6, 0xd9, 0x9c, 0xed, 0x67, 0x57,
+            0x18, 0xa3, 0xa0, 0xdc,
         ]
     );
     assert_eq!(ended.phase(), BattlePhase::Lost);
@@ -476,9 +499,9 @@ fn normal_action_lowers_one_phase_and_hit_then_selects_the_next_turn() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            0x80, 0xbd, 0xdd, 0xf2, 0xde, 0x85, 0xcd, 0x5e, 0xdc, 0x9f, 0xb0, 0x30, 0x37, 0x2e,
-            0x71, 0x67, 0x58, 0xf4, 0x9f, 0xce, 0x7e, 0x80, 0x5f, 0xcd, 0x54, 0xbe, 0xa1, 0xa7,
-            0x5b, 0x36, 0xa0, 0xe6,
+            0xe2, 0x1f, 0x3f, 0xfd, 0xdf, 0x88, 0xaa, 0x5b, 0x70, 0xc5, 0xc9, 0xba, 0x1b, 0x2e,
+            0x02, 0x27, 0x89, 0xef, 0xea, 0x93, 0x3f, 0xa1, 0xe8, 0xcb, 0xbd, 0xad, 0x3e, 0x61,
+            0x2e, 0x44, 0x75, 0xa1,
         ]
     );
 
@@ -509,7 +532,7 @@ fn normal_action_lowers_one_phase_and_hit_then_selects_the_next_turn() {
     ));
     assert!(matches!(
         resolution.events()[4].kind(),
-        BattleEventKind::Hit(HitEventData::Started { action, phase, hit })
+        BattleEventKind::Hit(HitEventData::Started { action, phase, hit, .. })
             if action.get() == 1 && phase.get() == 1 && hit.get() == 1
     ));
     assert!(matches!(

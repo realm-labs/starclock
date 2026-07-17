@@ -1,5 +1,6 @@
 use core::fmt;
 
+use crate::catalog::action::AbilityKind;
 use crate::{catalog::CombatCatalog, id::EnemyDefinitionId};
 
 use super::spec::{BattleSpec, ParticipantSource, TeamSide};
@@ -104,7 +105,12 @@ pub(crate) fn validate(catalog: &CombatCatalog, spec: &BattleSpec) -> Result<(),
         if !combatant.abilities().iter().any(|ability| {
             catalog
                 .ability(*ability)
-                .is_some_and(|definition| definition.is_single_hit_action())
+                .and_then(|definition| definition.action())
+                .is_some_and(|action| {
+                    action.kind() != AbilityKind::Ultimate
+                        && action.resources().skill_point_cost() == 0
+                        && action.resources().energy_cost() == crate::Energy::ZERO
+                })
         }) {
             return Err(BattleBuildError::new(
                 BattleBuildErrorKind::NoExecutableAbility,

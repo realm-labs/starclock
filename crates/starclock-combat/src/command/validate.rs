@@ -8,6 +8,12 @@ pub(crate) enum ValidatedCommand {
     UseAbility {
         actor: crate::UnitId,
         ability: crate::AbilityId,
+        primary_target: Option<crate::UnitId>,
+    },
+    UseInterrupt {
+        actor: crate::UnitId,
+        ability: crate::AbilityId,
+        primary_target: Option<crate::UnitId>,
     },
     Concede,
 }
@@ -44,12 +50,26 @@ pub(crate) fn validate(
             Command::UseAbility {
                 actor,
                 ability,
-                primary_target: None,
+                primary_target,
                 ..
             },
         ) => Ok(ValidatedCommand::UseAbility {
             actor: *actor,
             ability: *ability,
+            primary_target: *primary_target,
+        }),
+        (
+            BattlePhase::AwaitingCommand,
+            Command::UseInterrupt {
+                actor,
+                ability,
+                primary_target,
+                ..
+            },
+        ) => Ok(ValidatedCommand::UseInterrupt {
+            actor: *actor,
+            ability: *ability,
+            primary_target: *primary_target,
         }),
         (BattlePhase::AwaitingCommand, Command::Concede { .. }) => Ok(ValidatedCommand::Concede),
         _ => Err(CommandError::new(CommandErrorKind::WrongPhase)),

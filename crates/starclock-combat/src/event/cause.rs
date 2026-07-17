@@ -93,6 +93,13 @@ impl Cause {
         }
     }
 
+    pub(crate) const fn with_primary_target(self, target: Option<UnitId>) -> Self {
+        Self {
+            primary_target: target,
+            ..self
+        }
+    }
+
     /// Returns the immediate event that caused this fact.
     #[must_use]
     pub const fn parent_event(self) -> Option<EventId> {

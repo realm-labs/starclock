@@ -302,6 +302,16 @@ impl<'a> UnitView<'a> {
     pub const fn maximum_hp(self) -> Hp {
         self.state.maximum_hp
     }
+    /// Returns current personal Energy.
+    #[must_use]
+    pub const fn current_energy(self) -> crate::Energy {
+        self.state.current_energy
+    }
+    /// Returns maximum personal Energy.
+    #[must_use]
+    pub const fn maximum_energy(self) -> crate::Energy {
+        self.state.maximum_energy
+    }
     /// Returns the canonical selected ability set.
     #[must_use]
     pub fn abilities(self) -> &'a [AbilityId] {

@@ -1,5 +1,6 @@
 //! Immutable battle-domain definition inputs accepted by the catalog builder.
 
+use super::action::{AbilityActionDefinition, UnitTargetSelector};
 use crate::{
     AbilityId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ModifierDefinitionId, ProgramId,
     RuleBundleId, RuleId, SelectorId, UnitDefinitionId,
@@ -29,11 +30,39 @@ macro_rules! leaf_definition {
     };
 }
 
-leaf_definition!(
-    SelectorDefinition,
-    SelectorId,
-    "Foundational typed selector definition; selector semantics are added by the Rule IR batch."
-);
+/// Deterministic selector definition with an optional executable unit-target plan.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SelectorDefinition {
+    id: SelectorId,
+    unit_targets: Option<UnitTargetSelector>,
+}
+
+impl SelectorDefinition {
+    /// Creates an identity-only selector that cannot execute until configured.
+    #[must_use]
+    pub const fn new(id: SelectorId) -> Self {
+        Self {
+            id,
+            unit_targets: None,
+        }
+    }
+    /// Attaches deterministic unit-target semantics.
+    #[must_use]
+    pub const fn with_unit_targets(mut self, selector: UnitTargetSelector) -> Self {
+        self.unit_targets = Some(selector);
+        self
+    }
+    /// Returns the stable selector definition ID.
+    #[must_use]
+    pub const fn id(&self) -> SelectorId {
+        self.id
+    }
+    /// Returns executable unit-target semantics, if configured.
+    #[must_use]
+    pub const fn unit_targets(&self) -> Option<UnitTargetSelector> {
+        self.unit_targets
+    }
+}
 leaf_definition!(
     ModifierDefinition,
     ModifierDefinitionId,
@@ -87,7 +116,7 @@ pub struct AbilityDefinition {
     program: ProgramId,
     selector: SelectorId,
     effects: Box<[EffectDefinitionId]>,
-    single_hit_action: bool,
+    action: Option<AbilityActionDefinition>,
 }
 
 impl AbilityDefinition {
@@ -104,16 +133,13 @@ impl AbilityDefinition {
             program,
             selector,
             effects: effects.into_boxed_slice(),
-            single_hit_action: false,
+            action: None,
         }
     }
-    /// Marks this ability as one structural normal-action phase with one hit.
-    ///
-    /// Target, cost and operation semantics are added by their owning batches;
-    /// this flag is sufficient for the Phase 3 action-envelope fixture.
+    /// Attaches a validated finite action definition.
     #[must_use]
-    pub const fn with_single_hit_action(mut self) -> Self {
-        self.single_hit_action = true;
+    pub const fn with_action(mut self, action: AbilityActionDefinition) -> Self {
+        self.action = Some(action);
         self
     }
     /// Returns the stable definition ID.
@@ -136,10 +162,10 @@ impl AbilityDefinition {
     pub fn effects(&self) -> &[EffectDefinitionId] {
         &self.effects
     }
-    /// Returns whether this definition can lower into the baseline action envelope.
+    /// Returns the executable action definition, if this ability owns one.
     #[must_use]
-    pub const fn is_single_hit_action(&self) -> bool {
-        self.single_hit_action
+    pub const fn action(&self) -> Option<AbilityActionDefinition> {
+        self.action
     }
 }
 

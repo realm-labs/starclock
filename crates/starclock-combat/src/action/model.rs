@@ -1,4 +1,8 @@
-use crate::id::{AbilityId, ActionId, HitId, PhaseId, TimelineActorId, UnitId};
+use crate::{
+    catalog::action::{ActionResourcePolicy, TargetInvalidationPolicy, UnitTargetSelector},
+    id::{AbilityId, ActionId, HitId, PhaseId, TimelineActorId, UnitId},
+    target::model::TargetCommitment,
+};
 
 /// Stable reason an action entered the common execution envelope.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -21,6 +25,7 @@ pub enum ActionOrigin {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) struct HitPlan {
     pub(crate) id: HitId,
+    pub(crate) invalidation: TargetInvalidationPolicy,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -36,5 +41,8 @@ pub(crate) struct ActionPlan {
     pub(crate) ability: AbilityId,
     pub(crate) origin: ActionOrigin,
     pub(crate) normal_turn: Option<TimelineActorId>,
+    pub(crate) selector: UnitTargetSelector,
+    pub(crate) targets: TargetCommitment,
+    pub(crate) resources: ActionResourcePolicy,
     pub(crate) phases: Box<[ActionPhasePlan]>,
 }

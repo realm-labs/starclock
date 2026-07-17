@@ -1,5 +1,6 @@
 //! Immutable battle-domain catalog and validated construction API.
 
+pub mod action;
 pub mod builder;
 pub mod definition;
 mod table;

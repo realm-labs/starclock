@@ -4,7 +4,7 @@ use crate::{
         AbilityId, ModifierDefinitionId, RuleBundleId, SpawnSequence, TimelineActorId,
         UnitDefinitionId, UnitId,
     },
-    numeric::domain::{ActionGauge, Hp, Speed},
+    numeric::domain::{ActionGauge, Energy, Hp, Speed},
 };
 
 use super::model::{LifeState, PresenceState};
@@ -22,6 +22,8 @@ pub(crate) struct UnitState {
     pub(crate) presence: PresenceState,
     pub(crate) current_hp: Hp,
     pub(crate) maximum_hp: Hp,
+    pub(crate) current_energy: Energy,
+    pub(crate) maximum_energy: Energy,
     pub(crate) abilities: Box<[AbilityId]>,
     pub(crate) rule_bundles: Box<[RuleBundleId]>,
     pub(crate) modifiers: Box<[ModifierDefinitionId]>,
@@ -50,6 +52,11 @@ impl UnitStore {
     pub(crate) fn get(&self, id: UnitId) -> Option<&UnitState> {
         let index = usize::try_from(id.get().checked_sub(1)?).ok()?;
         self.slots.get(index)?.as_ref()
+    }
+
+    pub(crate) fn get_mut(&mut self, id: UnitId) -> Option<&mut UnitState> {
+        let index = usize::try_from(id.get().checked_sub(1)?).ok()?;
+        self.slots.get_mut(index)?.as_mut()
     }
 
     pub(crate) fn canonical_slots(&self) -> &[Option<UnitState>] {
@@ -144,5 +151,9 @@ impl TeamStateStore {
 
     pub(crate) fn get(&self, side: TeamSide) -> &TeamState {
         &self.teams[side.canonical_index()]
+    }
+
+    pub(crate) fn get_mut(&mut self, side: TeamSide) -> &mut TeamState {
+        &mut self.teams[side.canonical_index()]
     }
 }
