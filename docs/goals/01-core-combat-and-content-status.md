@@ -67,16 +67,21 @@ Phase 0 manifests are frozen.
 |---|---|---|---|---|
 | `G01-P0-B1` | `Pending` | — | — | Freeze goal manifests. |
 | `G01-P0-B2` | `Pending` | — | — | Provenance staging and evidence hashes. |
-| `G01-P0-B3` | `Pending` | — | — | Blocking research cases and fixtures. |
+| `G01-P0-B3` | `Pending` | — | — | Blocking research cases, including Elation and V1a probes. |
 | `G01-P0-B4` | `Pending` | — | — | Initial generated coverage. |
-| `G01-P1-B1` through `G01-P6-B6` | `Pending` | — | — | Expand into individual rows before each phase starts. |
-| `G01-P7-V1` | `Pending` | — | — | Complete representative character slice. |
+| `G01-P1-B1` through `G01-P1-B11` | `Pending` | — | — | Workspace, CI, Sora capability proof, schema families and reproducible pipeline. Expand before Phase 1 starts. |
+| `G01-P2-B1` through `G01-P2-B6` | `Pending` | — | — | Deterministic primitives, replay contract and initial property harness. Expand before Phase 2 starts. |
+| `G01-P3-B1` through `G01-P3-B8` | `Pending` | — | — | Synthetic vertical slice, performance baseline and command properties. Expand before Phase 3 starts. |
+| `G01-P4-B1` through `G01-P4-B11` | `Pending` | — | — | Shared kernel interleaved with Excel/Sora V1a mechanism probes. Expand before Phase 4 starts. |
+| `G01-P5-B1` through `G01-P5-B6` | `Pending` | — | — | Build, Trace, Eidolon and Light Cone compiler. Expand before Phase 5 starts. |
+| `G01-P6-B1` through `G01-P6-B6` | `Pending` | — | — | Standard Activity, controllers, replay payloads, CLI and scenarios. Expand before Phase 6 starts. |
+| `G01-P7-V1B` | `Pending` | — | — | Promote representative probes into complete production content. |
 | `G01-P7-Cnn` | `Pending` | — | — | Expand from stable character manifest partitions, at most 8 forms each. |
 | `G01-P7-Lnn` | `Pending` | — | — | Expand from stable Light Cone partitions, at most 16 cones each. |
-| `G01-P7-Mnn` | `Pending` | — | — | Add only as missing shared mechanics are discovered. |
+| `G01-P7-Mnn` | `Pending` | — | — | Register known mechanic batches during Phase 0; add newly discovered prerequisites before dependent content. |
 | `G01-P7-R1` | `Pending` | — | — | Clean catalog and coverage regeneration. |
 | `G01-P7-R2` | `Pending` | — | — | Manifest-wide build compilation. |
-| `G01-P8-B1` through `G01-P8-B6` | `Pending` | — | — | Expand into individual rows before Phase 8 starts. |
+| `G01-P8-B1` through `G01-P8-B7` | `Pending` | — | — | Audits, established CI matrix, fuzz expansion, performance gate and freeze. Expand before Phase 8 starts. |
 
 For a completed row, validation evidence must include commands and a link to a
 committed report or fixture when applicable. A commit hash alone is insufficient.
@@ -85,14 +90,17 @@ committed report or fixture when applicable. A commit hash alone is insufficient
 
 ### Character partitions
 
-Pending `G01-P0-B1`. Record stable manifest IDs, not display names alone. Each
-partition must contain no more than 8 combat forms and must be complete through
-E6 before its commit is accepted.
+Pending `G01-P0-B1`. Record stable manifest IDs, not display names alone, and
+replace the `Cnn` family placeholder with every concrete ledger row in the same
+batch. Each partition must contain no more than 8 combat forms and must be
+complete through E6 before its commit is accepted.
 
 ### Light Cone partitions
 
-Pending `G01-P0-B1`. Record stable manifest IDs. Each partition must contain no
-more than 16 Light Cones and must be complete through S5 before acceptance.
+Pending `G01-P0-B1`. Record stable manifest IDs and replace the `Lnn` family
+placeholder with every concrete ledger row in the same batch. Each partition
+must contain no more than 16 Light Cones and must be complete through S5 before
+acceptance.
 
 ### Standard battle partitions
 
@@ -103,7 +111,9 @@ Pending `G01-P0-B1`. The manifest must include all archetypes required by Goal
 
 | ID | State | Question or blocker | Evidence required | Owner/batch |
 |---|---|---|---|---|
-| None | — | No execution research case has been registered yet. | — | `G01-P0-B3` |
+| `G01-R-SABER-ARCHER-SOURCE` | `Pending` | Verify the pinned 4.3 fallback and 4.4 manifest identity mapping for Saber and Archer without weakening released-content provenance. | Source revisions/hashes, identity mapping and discrepancy report. | `G01-P0-B2` |
+| `G01-R-ELATION-SEMANTICS` | `Pending` | Define shared Elation damage, Elation Skill, Punchline, Certified Banger, forced-action and shared-actor/resource semantics from more than one released form. | Cross-kit evidence, decision record and probe fixture specification. | `G01-P0-B3` |
+| `G01-R-V1A-PROBES` | `Pending` | Identify every unresolved timing/ownership question needed by the Asta, Kafka, Clara, Firefly and Aglaea mechanism probes. | Named per-mechanic cases with reproducible observation or golden fixture specifications. | `G01-P0-B3` |
 
 An unresolved research case may not be converted into a default implementation
 without a documented project-policy decision and regression fixture.
@@ -118,15 +128,24 @@ without a documented project-policy decision and regression fixture.
 | 2026-07-17 | Content completeness is manifest-based and requires `DataReady`; behavioral profiles and placeholders do not count. | Make completion auditable and prevent scope inflation. |
 | 2026-07-17 | Every batch is committed separately and updates this ledger. | Preserve reviewability, resumption and deterministic progress tracking. |
 | 2026-07-17 | Goal 01 binds the prepared Version 4.4 content-reference pack before implementation. | Prevent compact profiles, memory, or ad-hoc websites from becoming the Excel source of truth. |
+| 2026-07-17 | Excel workbooks plus pinned Sora output remain the only authoritative production authoring/runtime-data chain; prepared JSON is bootstrap evidence, not a runtime shortcut. | Preserve the formal editable and validated configuration workflow selected for Starclock. |
+| 2026-07-17 | Phase 4 interleaves shared-kernel batches with non-production V1a probes compiled from a dedicated Excel/Sora scope. | Make complex released mechanics constrain the Rule IR and lifecycle before bulk import without misreporting partial content as DataReady. |
+| 2026-07-17 | Cross-platform CI, property-test scaffolding and performance measurement begin before hardening. | Make Phase 8 consume accumulated evidence instead of creating its prerequisites at the end. |
 
 ## Terminal acceptance checklist
 
 Change an item to `[x]` only with evidence in this file.
 
 - [ ] Required workspace crates compile with enforced dependency direction.
+- [ ] Pinned dependencies/tools have purpose, license, deterministic-impact and
+      compile-cost records; the Sora 0.3.0 golden project proves every relied-on
+      command, schema and export capability before production schemas.
 - [ ] Fixed-point, RNG, canonical codec and state hashing pass cross-platform
       golden vectors.
 - [ ] Core formula, timeline, effect, Toughness, lifecycle and rule suites pass.
+- [ ] Asta, Kafka, Clara, Firefly, Aglaea and cross-kit Elation V1a probes pass
+      through the production Excel/Sora-to-domain boundary without entering
+      production coverage.
 - [ ] Standard single-wave, multi-wave, elite and multi-phase boss scenarios run
       from build selection to terminal battle result.
 - [ ] CLI configuration validation, coverage, battle run and replay verification
@@ -140,6 +159,10 @@ Change an item to `[x]` only with evidence in this file.
 - [ ] Sora/Excel export and generated outputs reproduce without drift.
 - [ ] Manifest-wide E0/S1 and E6/S5 build compilation passes.
 - [ ] Baseline controller decisions and replay hashes are deterministic.
+- [ ] Committed Windows/Linux/macOS CI workflows distinguish native execution
+      from compile-only CPU coverage and retain golden evidence.
+- [ ] Versioned performance workloads satisfy the reviewed stable-runner budgets
+      for latency, throughput, allocations, state-copy cost and journal growth.
 - [ ] Formatting, clippy, workspace tests, source-size and public-API audits pass.
 - [ ] No excluded universe, challenge, UI, account or full relic/enemy dataset is
       claimed as part of Goal 01.

@@ -24,6 +24,12 @@ Excel is the balance designer's editing surface. It is **not** a hidden or indep
 
 The combat, build, and activity domain crates never open `.xlsx`, parse cells, or depend on Sora's CLI. `starclock-data` loads a validated exported bundle and converts generated records into separate immutable combat, build, activity, and mode definitions. Bevy and other engine adapters receive only domain catalogs/specs through their owning crate APIs.
 
+Prepared or normalized JSON may be used as deterministic bootstrap input,
+provenance evidence and review output. It is never an alternative production
+authoring or runtime path. A content fact becomes authoritative only after it is
+represented in the schema-owned `.xlsx` workbooks, validated/exported by the
+pinned Sora CLI and converted from the generated reader into domain definitions.
+
 ## Pinned toolchain
 
 Sora currently describes itself as early but runnable and recommends pinning the CLI because schema and code-generation semantics may change. Pin exactly one version across developer machines and CI.
@@ -42,6 +48,27 @@ sora --version
 ```
 
 An upgrade is a deliberate migration. Regenerate and review the schema lock, Excel templates, Rust code, debug JSON, and production bundle together.
+
+## Pinned capability lock
+
+Before production schemas are authored, commit a minimal Sora project that
+proves the exact 0.3.0 behavior Starclock relies on. The capability fixture must
+exercise:
+
+- binary/version checksum and `sora --version`;
+- schema `check` and configured `build`;
+- Excel template generation and preview/write header synchronization;
+- cross-table references, secondary unique indexes, unions and child-table
+  patterns used by Starclock;
+- Rust model/reader generation and loading of the emitted `.sora` bundle;
+- deterministic production-binary and diagnostic-JSON export;
+- clean regeneration and drift detection on every supported CI operating system.
+
+Record the observed command spelling and type syntax in the fixture. The
+architecture document does not override the pinned binary: if 0.3.0 lacks or
+names a capability differently, update the plan/schema policy before building
+the production table families. Do not emulate a missing validation feature with
+an undocumented parallel schema.
 
 ## Proposed repository layout
 

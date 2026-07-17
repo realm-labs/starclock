@@ -64,6 +64,12 @@ Repository execution contract
    branches through the resolver, create broad pub-use facades, or exceed the
    documented 1,200-LOC policy without a reviewed exception.
 
+5. The prepared JSON reference pack is evidence and deterministic bootstrap
+   input only. Production content must be authored in `.xlsx`, validated and
+   exported by pinned Sora 0.3.0, loaded by generated readers and converted into
+   domain definitions. Never introduce a JSON-direct runtime path as a milestone
+   shortcut.
+
 Persistent execution loop
 =========================
 
@@ -74,15 +80,20 @@ Repeat this loop until the Goal 01 status ledger is Complete:
    batch before acting.
 2. Select the earliest unblocked Pending batch whose dependencies are Complete.
    Mark only that batch InProgress and announce its outcome and validation gate.
+   `G01-P0-B1` must replace Phase 7 family placeholders with all concrete
+   character and Light Cone partition rows immediately after freezing manifests.
 3. Start from the prepared reference record. Research only a recorded conflict,
    approximation replacement or missing observation required for the batch.
    Record source URL, access date, version/confidence/note and evidence hash.
-   Do not use leaks,
-   proprietary assets, long copied descriptions or guessed values. If sources
+   Do not use leaks, proprietary assets, long copied descriptions or guessed
+   values. If sources
    conflict, register a Researching case instead of selecting a convenient value.
 4. Implement the batch as one responsibility-bounded change. Include code,
    tests, schema/migration, generated output, provenance and documentation that
    belong to the batch. Do not add unrelated future-mode work.
+   During Phase 4, compile the named real-character V1a probe owned by the batch
+   from its dedicated Excel/Sora probe scope; never count partial probe rows as
+   production `DataReady` content.
 5. Run the batch-specific and universal gates from the goal plan. Fix failures
    in the same loop; never waive, hide or defer a gate merely to create a commit.
 6. Regenerate coverage and update the status ledger with exact commands,
@@ -107,9 +118,16 @@ Execution rules
 - Every Excel/Sora fact must map to the bound content-reference record and retain
   its evidence/approximation label. A stronger source may replace a prepared
   value only through a recorded decision and updated digest.
+- Complete the Sora 0.3.0 capability proof before production schema families.
+  Use only command names, type syntax, reference behavior, codegen and export
+  formats proven by the committed golden project.
 - Character content batches are complete through Technique, all battle-relevant
   Traces and E1-E6. Light Cone batches are complete through S5. Land a missing
   generic mechanic batch before the content batch that depends on it.
+- Use the Phase 4 V1a probes as mandatory design feedback: Asta constrains
+  modifier/buff stacks, Kafka DoT, Clara counters, Firefly HP/transform/Super
+  Break, Aglaea memosprites, and at least two released forms constrain shared
+  Elation semantics. `G01-P7-V1B` later replaces them with complete content.
 - Native handlers are allowed only through the deterministic static registry,
   with an explicit reason the typed rule IR is insufficient and focused tests.
 - Authoritative simulation never uses f32/f64. Apply checked fixed-point
@@ -121,9 +139,16 @@ Execution rules
   engines. Builds compile into generic combat-domain input; peripheral ownership
   and equipment concepts never enter battle state.
 - Implement only the minimum generic Activity/Standard integration required by
-  the plan. Do not implement Simulated Universe, Memory of Chaos, Pure Fiction,
-  Apocalyptic Shadow, UI/Bevy, account systems, the full relic/planar dataset or
-  the complete public enemy catalog.
+  the plan. Protect the generic scope, typed-slot, participant/build-lock,
+  BattleSpec and declared-result-projection seams with architecture tests, but
+  do not create empty future-mode semantics. Do not implement Simulated
+  Universe, Memory of Chaos, Pure Fiction, Apocalyptic Shadow, UI/Bevy, account
+  systems, the full relic/planar dataset or the complete public enemy catalog.
+- Establish the CI matrix, property-test harness and benchmark baseline in their
+  early batches. Hardening extends accumulated evidence; it must not introduce
+  these prerequisites for the first time. Strict performance budgets belong to
+  the designated stable runner, while shared CI uses only the documented broad
+  smoke ceiling.
 - Do not weaken an acceptance gate to fit the current implementation. If a
   normative contradiction is found, add a narrow decision record, update every
   affected document and add a regression fixture in the same atomic batch.
@@ -151,13 +176,16 @@ When all batches appear complete:
 2. Verify 100% DataReady coverage for the frozen released-character, released
    Light Cone and standard-v1 manifests, with no required Researching or Blocked
    row.
-3. Verify cross-platform numeric, RNG, codec, build, battle and replay evidence.
-4. Update every terminal checklist item and the completion record in the status
+3. Verify cross-platform numeric, RNG, codec, build, battle and replay evidence,
+   clearly separating native execution from compile-only CPU targets.
+4. Verify the final representative performance report against the reviewed
+   stable-runner budgets and preserve the benchmark inputs and runner identity.
+5. Update every terminal checklist item and the completion record in the status
    ledger with committed evidence.
-5. Commit the completion record as G01-P8-B6.
-6. Mark the persistent goal Complete only after that commit succeeds and the
+6. Commit the completion record as G01-P8-B7.
+7. Mark the persistent goal Complete only after that commit succeeds and the
    final worktree is clean.
-7. Report the completion commit, catalog digest, coverage totals, validation
+8. Report the completion commit, catalog digest, coverage totals, validation
    commands and cross-platform evidence. If the goal system reports final token
    usage, include it.
 

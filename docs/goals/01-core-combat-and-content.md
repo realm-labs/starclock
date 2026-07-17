@@ -68,6 +68,9 @@ Goal 01 is complete only when all of the following are true:
    no required `Pending`, `InProgress`, `Researching` or `Blocked` entry.
 10. Every required content row maps back to a prepared reference record and the
     bound reference-pack digest.
+11. The committed CI matrix proves the supported platform gates, and versioned
+    performance workloads remain within their reviewed latency, throughput and
+    allocation budgets on the designated benchmark runner.
 
 An identity row, behavioral summary, schema, disabled row, mock implementation,
 TODO, or unverified guessed value does not satisfy a content gate.
@@ -232,8 +235,11 @@ Required tooling includes:
   metadata;
 - generated coverage reports tied to catalog and source digests;
 - canonical replay and state-hash fixtures;
-- CI or equivalent repository scripts for formatting, linting, tests,
-  generated-file drift and source-file-size enforcement.
+- committed CI workflows covering supported Windows, Linux and macOS runners,
+  plus repository scripts for formatting, linting, tests, generated-file drift,
+  source-file-size enforcement and golden-vector artifacts;
+- a versioned combat benchmark harness that reports command latency, battle
+  throughput, allocations, state-copy cost and journal growth.
 
 ## 5. Explicitly excluded scope
 
@@ -321,12 +327,18 @@ generated files do not count as passing gates.
 - Independently summarize descriptions in English and Simplified Chinese.
 - A content partition may commit only when every included entry reaches
   `DataReady`; partial entries remain in staging outside the authoritative bundle.
+- Phase 4 real-content probes are the sole exception to the last rule: they use
+  a dedicated Sora probe scope, remain excluded from production catalogs and
+  coverage, and may contain only the minimum reviewed rows needed to exercise a
+  shared mechanic. They never count as `DataReady` content.
 
 ## 7. Execution phases and commit batches
 
 Phases are ordered. A later batch may start early only when its dependencies are
-complete and doing so does not conceal a failed earlier gate. The status ledger
-is the source of truth for the next unblocked batch.
+complete and doing so does not conceal a failed earlier gate. Phase 4 is
+deliberately interleaved with reviewed real-content mechanism probes; complete
+content import remains in Phase 7. The status ledger is the source of truth for
+the next unblocked batch.
 
 ### Phase 0 — Freeze scope and evidence
 
@@ -335,9 +347,9 @@ ID is known; unresolved normative questions have owners and fixtures.
 
 | Batch | Atomic deliverable |
 |---|---|
-| `G01-P0-B1` | Verify and bind the prepared content-reference pack, then freeze `core-combat-v1` manifests for released combat forms, released Light Cones and `standard-v1` enemies, encounters and scenarios. Record both digests and inclusion state. |
-| `G01-P0-B2` | Map every goal-manifest entry to prepared reference records and verify source-cache revisions, source-file hashes, approximation labels, and evidence hashes. Do not create a competing staging model. |
-| `G01-P0-B3` | Convert remaining formula/timing ambiguities that block implementation into named research cases, decision records and reproducible observation/golden fixture specifications. |
+| `G01-P0-B1` | Verify and bind the prepared content-reference pack, then freeze `core-combat-v1` manifests for released combat forms, released Light Cones and `standard-v1` enemies, encounters and scenarios. Record both digests and inclusion state, deterministically generate every concrete Phase 7 character/Light Cone partition, and add its ledger row immediately. |
+| `G01-P0-B2` | Map every goal-manifest entry to prepared reference records and verify source-cache revisions, source-file hashes, approximation labels, and evidence hashes. Explicitly audit the pinned 4.3 fallback and 4.4 identity mapping for Saber and Archer. Do not create a competing staging model. |
+| `G01-P0-B3` | Convert remaining formula/timing ambiguities that block implementation into named research cases, decision records and reproducible observation/golden fixture specifications. The initial register must explicitly cover shared Elation semantics and every unresolved V1a mechanism probe. |
 | `G01-P0-B4` | Generate the initial machine-readable goal coverage report and verify that documentation counts match the frozen manifests. |
 
 ### Phase 1 — Workspace and reproducible data foundation
@@ -348,10 +360,16 @@ checkout; pinned tools and empty validated catalogs reproduce without drift.
 | Batch | Atomic deliverable |
 |---|---|
 | `G01-P1-B1` | Replace the placeholder package layout with the required workspace crates and enforce dependency-direction tests. |
-| `G01-P1-B2` | Add pinned dependency policy, private fixed-point backend boundary, stable ID foundation and toolchain metadata. |
-| `G01-P1-B3` | Add format, clippy, test, file-size, visibility and generated-drift repository checks. |
-| `G01-P1-B4` | Add Sora 0.3.0 project schemas, deterministic bootstrap/import command, `.xlsx` source layout, `.sora` output and diagnostic JSON generation. |
-| `G01-P1-B5` | Add validated empty-domain catalog construction and committed reproducibility fixtures for the data pipeline. |
+| `G01-P1-B2` | Add pinned dependency/tool policy, private fixed-point backend boundary, stable ID foundation and toolchain metadata. Record purpose, version, license, deterministic impact, compile-time cost and rejected alternatives for every new dependency or binary. |
+| `G01-P1-B3` | Add local format, clippy, test, file-size, visibility, dependency-direction and generated-drift repository checks. |
+| `G01-P1-B4` | Pin and install `sora-cli 0.3.0` by checksum, then prove its exact CLI/schema capabilities with a minimal golden project: `check`, `build`, `excel-template`, preview/write `excel-sync`, references, indexes, unions/child tables, Rust codegen and reader, `.sora` export and diagnostic JSON. Record actual spellings and unsupported assumptions before production schema work. |
+| `G01-P1-B5` | Add committed CI workflows with a pinned toolchain and Windows/Linux/macOS matrix. Run repository checks, the proven Sora capability/drift path, golden artifacts and source-size enforcement through the same scripts used locally; document the supported native and compile-only CPU targets. |
+| `G01-P1-B6` | Add shared schema modules for stable identity, localization, versions, provenance, confidence, evidence hashes and canonical decimal fields. |
+| `G01-P1-B7` | Add the Character/Ability/HitPlan/Trace/Eidolon/LightCone schema family and representative cross-reference fixtures. |
+| `G01-P1-B8` | Add the Effect/Modifier/RuleDefinition/Slot/Trigger/Expression/Selector/Operation schema family and representative typed-program fixtures. |
+| `G01-P1-B9` | Add the Enemy/Variant/Ability/AI/Encounter/Standard scenario schema family plus only the minimum generic Activity/BattleBinding/ResultProjection rows required by Goal 01. Do not add challenge or universe tables. |
+| `G01-P1-B10` | Add the deterministic reference-to-workbook bootstrap/import command, authoritative `.xlsx` layout, `.sora` production output, diagnostic JSON, generated Rust readers and conversion boundary. Regeneration never overwrites a designer-edited workbook. |
+| `G01-P1-B11` | Add validated empty-domain and representative-domain catalog construction, real bundle-load tests and committed clean-regeneration fixtures proving the complete data pipeline has no drift. |
 
 ### Phase 2 — Deterministic primitives
 
@@ -363,8 +381,9 @@ have cross-platform golden vectors and contain no authoritative floating point.
 | `G01-P2-B1` | Implement private fixed-point-backed domain newtypes, checked arithmetic, explicit rounding and overflow faults. |
 | `G01-P2-B2` | Implement stable typed IDs, ordered collections, immutable catalog construction and reference validation. |
 | `G01-P2-B3` | Implement SHA-256 stream derivation, ChaCha8 RNG wrapper, stable range/weighted selection and draw counters. |
-| `G01-P2-B4` | Implement the versioned canonical codec, digest types, replay header and state-hash vector tests. |
+| `G01-P2-B4` | Define and implement the first-class canonical replay contract: version policy, header, record envelope, config/numeric/RNG/controller identities, digest types, unknown-record policy and state-hash vector tests. Later phases add domain record payloads without redesigning this envelope. |
 | `G01-P2-B5` | Add numeric boundary, rounding, overflow and floating-point-oracle tests for documented formulas. |
+| `G01-P2-B6` | Establish the reusable property-test harness for fixed-point arithmetic, RNG mapping, canonical encoding, malformed input and stable collection ordering. Pin and license-review its dependencies; Phase 8 expands this harness rather than introducing it. |
 
 ### Phase 3 — Executable combat vertical slice
 
@@ -379,25 +398,39 @@ runs through commands to victory and replay verification.
 | `G01-P3-B4` | Implement target selectors/plans, target locks, invalidation policy, Basic ATK/Skill/Ultimate resources and multi-hit execution. |
 | `G01-P3-B5` | Implement initial damage, healing, defeat, victory, wave advancement and formula golden tests. |
 | `G01-P3-B6` | Add a synthetic Standard profile plus CLI battle-run/replay smoke path proving command-to-hash determinism. |
+| `G01-P3-B7` | Add versioned small/medium/large benchmark workloads and record the initial command-latency, battle-throughput, allocation, state-copy and journal-growth baseline. Establish a generous order-of-magnitude CI smoke ceiling and designate the stable runner used for strict budgets. |
+| `G01-P3-B8` | Add command-sequence property tests proving invalid-command non-mutation, rollback byte identity, deterministic command-to-hash behavior and replay-envelope corruption detection. |
 
 ### Phase 4 — Complete shared combat kernel
 
 **Exit gate:** every generic mechanic required by the goal manifests is
 implemented or has a reviewed native-handler boundary; core lifecycle and
-formula suites pass.
+formula suites pass. Every named V1a probe compiles from the dedicated Excel/Sora
+probe scope and passes through the production data-to-domain boundary. Probe
+rows remain non-production and do not count toward Phase 7 coverage.
+
+The V1a probes are design feedback, not miniature synthetic stand-ins. Use Asta
+for modifier/buff stacks, Kafka for DoT and authored detonation, Clara for
+counter/follow-up scheduling, Firefly for HP consumption, transformation and
+Super Break, Aglaea for memosprite ownership/presence/transformation, and at
+least two released Elation forms to constrain the shared Elation subsystem from
+more than one kit. A probe contains only the ability, slot, rule and fixture
+rows required by its owning batch; `G01-P7-V1B` later replaces it with the
+complete through-E6 production content.
 
 | Batch | Atomic deliverable |
 |---|---|
-| `G01-P4-B1` | Implement staged stat queries, modifier registry, stacking/caps, filters, snapshot policies and cycle faults. |
-| `G01-P4-B2` | Complete damage, CRIT, DEF, RES, vulnerability, mitigation, HP consumption, healing, shields and overflow policies. |
-| `G01-P4-B3` | Implement Toughness routing, Weakness Break, seven base break effects, Break DoT, Super Break, Exo-Toughness and layered Toughness. |
-| `G01-P4-B4` | Implement buffs, debuffs, crowd control, DoT, dispel, cleanse, durations, chance checks, aggro, Energy, Skill Points and state-slot resources. |
-| `G01-P4-B5` | Implement typed rule definitions, expressions, conditions, selectors, operations, trigger phases, priorities and once-scopes. |
-| `G01-P4-B6` | Implement Ultimate interrupts, follow-ups, counters, extra actions/turns, delayed actions and reaction scheduling. |
-| `G01-P4-B7` | Implement summon/memosprite ownership, presence states, link/transform/replace, downed/defeated/revive/departure and cross-wave policies. |
-| `G01-P4-B8` | Implement enemy AI graphs, waves, summons, boss phases, phase transitions and encounter validation. |
-| `G01-P4-B9` | Implement static native-handler registry, handler contract tests and an audit that rejects scattered content-ID branches. |
-| `G01-P4-B10` | Run the complete core formula/lifecycle/rule golden suite and close or explicitly resolve every Phase 0 blocking research case. |
+| `G01-P4-B1` | Implement typed rule definitions, expressions, conditions, selectors, operations, trigger phases, priorities and once-scopes, plus the deterministic static native-handler registry contract and audit scaffold. This foundation must exist before a real probe is accepted; no content handler is admitted without an IR-insufficiency decision. |
+| `G01-P4-B2` | Implement staged stat queries, modifier registry, stacking/caps, filters, snapshot policies and cycle faults. Compile the Asta modifier/stack probe through Rule IR and prove its query, stacking and snapshot behavior. |
+| `G01-P4-B3` | Complete damage, CRIT, DEF, RES, vulnerability, mitigation, HP consumption, healing, shields and overflow policies. Compile the Firefly HP-consumption and damage-stage probe through Rule IR. |
+| `G01-P4-B4` | Implement Toughness routing, Weakness Break, seven base break effects, Break DoT, Super Break, Exo-Toughness and layered Toughness. Extend the Firefly probe through Weakness and Super Break integration. |
+| `G01-P4-B5` | Implement buffs, debuffs, crowd control, DoT, dispel, cleanse, durations, chance checks, aggro, Energy, Skill Points and state-slot resources. Compile the Kafka DoT/detonation probe and the Asta buff-duration probe through Rule IR. |
+| `G01-P4-B6` | Implement Ultimate interrupts, follow-ups, counters, extra actions/turns, delayed actions and reaction scheduling. Compile the Clara counter/follow-up probe and prove cause ownership and reaction ordering. |
+| `G01-P4-B7` | Implement summon/memosprite ownership, presence states, link/transform/replace, downed/defeated/revive/departure and cross-wave policies. Compile the Aglaea memosprite probe and Firefly transformation probe. |
+| `G01-P4-B8` | Implement shared Elation semantics explicitly required by the frozen manifest, including distinct Elation damage/ability tags, Punchline, Certified Banger, forced Elation Skills and shared actor/resource boundaries. Compile probes from at least two released Elation forms and reject one-kit-specific core APIs. |
+| `G01-P4-B9` | Implement enemy AI graphs, waves, summons, boss phases, phase transitions and encounter validation. |
+| `G01-P4-B10` | Complete native-handler contract tests and the audit that rejects scattered content-ID branches. Review every handler admitted by V1a, require its written IR-insufficiency decision and remove any handler now expressible through the completed shared IR. |
+| `G01-P4-B11` | Run the complete core formula/lifecycle/rule/probe golden suite, review benchmark growth against the Phase 3 baseline, set provisional full-kernel budgets, and close or explicitly resolve every Phase 0 blocking research case. |
 
 ### Phase 5 — Build compiler, Traces, Eidolons and Light Cones
 
@@ -420,10 +453,10 @@ through the production crate boundaries and finish with stable hashes.
 
 | Batch | Atomic deliverable |
 |---|---|
-| `G01-P6-B1` | Implement the minimum generic Activity aggregate for one Battle node, battle handoff, result return and terminal outcome. |
+| `G01-P6-B1` | Implement the minimum generic Activity aggregate for one Battle node, battle handoff, result return and terminal outcome. Architecture tests must protect the `Activity -> Section -> Node -> Attempt -> Battle` scopes, typed scoped-slot/reset boundary, participant/build lock digest, opaque `BattleSpec` handoff, declared `BattleResultProjection`, result identity/hash validation and the absence of a combat-to-activity dependency. Do not add empty challenge, universe, fork/join or shop semantics. |
 | `G01-P6-B2` | Implement `starclock-mode-standard` profile construction with no challenge or universe policies. |
 | `G01-P6-B3` | Implement deterministic baseline player scoring and authored enemy-controller execution over ordered legal commands. |
-| `G01-P6-B4` | Complete canonical replay records, controller-decision logs, divergence diagnostics and replay verification. |
+| `G01-P6-B4` | Fill the Phase 2 canonical replay envelope with Activity records and controller-decision logs, then complete divergence diagnostics and replay verification. Do not redesign the version/header/digest contract here. |
 | `G01-P6-B5` | Complete CLI `config validate`, goal-aware `catalog coverage`, `battle run` and `replay verify` contracts. |
 | `G01-P6-B6` | Import and validate the frozen `standard-v1` enemy, encounter and scenario manifest and add seeded golden battles for every required archetype. |
 
@@ -434,16 +467,22 @@ and every imported mechanic has executable behavior evidence.
 
 | Batch family | Atomic deliverable |
 |---|---|
-| `G01-P7-V1` | Implement the representative vertical-slice forms: Asta, Clara, Kafka, Firefly, Aglaea and one released Elation-focused form selected from the frozen manifest. Each form is complete through E6, not a partial sample. |
+| `G01-P7-V1B` | Promote the representative forms used by V1a into complete production content: Asta, Clara, Kafka, Firefly, Aglaea and one released Elation-focused form selected from the frozen manifest. Replace probe rows with full statistics, abilities, Techniques, Traces, E1-E6, provenance and fixtures; no partial probe row enters the production bundle. |
 | `G01-P7-Cnn` | Import remaining released combat forms in stable manifest-ID partitions of at most 8 forms per commit. Each partition includes all statistics, abilities, level curves, hit plans, Technique, Traces, E1-E6, rules/handlers, bilingual fields, provenance and tests. |
 | `G01-P7-Lnn` | Import released Light Cones in stable manifest-ID partitions of at most 16 cones per commit. Each partition includes levels/promotions, S1-S5, rules, bilingual fields, provenance and tests. |
-| `G01-P7-Mnn` | Add a missing shared primitive or reviewed native handler discovered by a content partition. This batch must precede the dependent content batch and include focused generic tests. |
+| `G01-P7-Mnn` | Add a missing shared primitive or reviewed native handler identified by the frozen manifest, Phase 0 research or a content partition. Known Mnn batches must be registered before the first bulk import; newly discovered ones must precede the dependent content batch and include focused generic tests. |
 | `G01-P7-R1` | Regenerate catalogs and coverage from clean sources; reject all incomplete, orphaned, unprovenanced or disabled-as-released records. |
 | `G01-P7-R2` | Run manifest-wide compilation and scenario generation for every E0/S1 and E6/S5 character/compatible-Light-Cone fixture. |
 
-Partition membership is generated once from the Phase 0 manifest and recorded in
-the ledger before the first bulk import. Do not partition alphabetically by
-display name if stable IDs provide a different order. A character partition may
+The prepared 88-form/165-Light-Cone baseline implies one V1B batch, at least 11
+remaining character partitions and at least 11 Light Cone partitions before any
+Mnn or review batch. This is a capacity forecast, not a substitute for the exact
+manifest-derived rows generated by `G01-P0-B1`.
+
+Partition membership is generated once by `G01-P0-B1` and every concrete row is
+recorded in the ledger before Phase 1 begins. Do not leave `Cnn`/`Lnn` as the
+only progress representation after the manifests exist. Do not partition
+alphabetically by display name if stable IDs provide a different order. A character partition may
 not omit an exceptional mechanic to make the commit fit; split the partition or
 land a preceding `Mnn` mechanic batch.
 
@@ -455,11 +494,12 @@ checkout reproduces it and the goal is marked `Complete`.
 | Batch | Atomic deliverable |
 |---|---|
 | `G01-P8-B1` | Add manifest-wide reference, rule-reachability, native-handler, once-scope, modifier-conflict and source-provenance audits. |
-| `G01-P8-B2` | Verify numeric, RNG, codec, battle, build and replay golden vectors on supported Windows, Linux, macOS and CPU targets. |
-| `G01-P8-B3` | Add property/fuzz tests for invalid commands, rollback, selector validity, effect timing, content compilation and replay corruption. |
+| `G01-P8-B2` | Verify numeric, RNG, codec, battle, build and replay golden vectors on the CI matrix established by `G01-P1-B5`, and record native versus compile-only CPU evidence without claiming an unexecuted target. |
+| `G01-P8-B3` | Expand the Phase 2/3 property harness into long-sequence and coverage-guided fuzz tests for invalid commands, rollback, selector validity, effect timing, content compilation and replay corruption; preserve reproducible seeds/corpora for every failure. |
 | `G01-P8-B4` | Run source-file-size/public-API/dependency audits and split or document every justified exception. |
-| `G01-P8-B5` | Freeze CLI/library contracts, regenerate documentation/coverage, run clean-checkout acceptance and record release evidence. |
-| `G01-P8-B6` | Mark the ledger complete only after all gates pass; commit the final Goal 01 completion record. |
+| `G01-P8-B5` | Run the versioned representative Standard workloads on the designated stable benchmark runner, compare command latency, battle throughput, allocations, state-copy cost and journal growth with the reviewed budgets, and record or resolve every material regression. Shared CI retains only the generous smoke ceiling. |
+| `G01-P8-B6` | Freeze CLI/library contracts, regenerate documentation/coverage, run clean-checkout acceptance and record release evidence. |
+| `G01-P8-B7` | Mark the ledger complete only after all gates pass; commit the final Goal 01 completion record. |
 
 ## 8. Acceptance suites
 
@@ -510,11 +550,28 @@ checkout reproduces it and the goal is marked `Complete`.
   are absent;
 - public APIs expose domain types instead of numeric-backend or Sora row types;
 - formatting, clippy with warnings denied and all workspace tests pass;
+- committed Windows/Linux/macOS CI workflows invoke the same pinned repository
+  checks as local execution and publish enough evidence to distinguish native
+  execution from compile-only target coverage;
 - generated output has no drift from Excel/Sora sources;
 - the combat crate has no dependency on data, build, activity, mode, CLI, Bevy
   or other engine crates;
 - no universe/challenge implementation or deferred full relic/enemy dataset is
   represented as Goal 01 work.
+
+### 8.5 Performance acceptance
+
+- benchmark workloads are versioned inputs with fixed configuration, seed,
+  controller and terminal command count;
+- the initial synthetic and final representative Standard reports include
+  command latency, full-battle throughput, allocation count/bytes, authoritative
+  state-copy cost and journal growth;
+- strict regression budgets run on one documented stable runner, while the
+  cross-platform CI matrix uses only a generous order-of-magnitude smoke ceiling;
+- a budget failure is resolved, intentionally re-baselined with a decision
+  record, or remains a blocking gate; it is never hidden by deleting samples;
+- benchmark code and instrumentation do not change authoritative battle state,
+  RNG consumption, canonical events or hashes.
 
 ## 9. Progress accounting
 
@@ -527,6 +584,7 @@ batch commit. It records:
 - content partition membership and states;
 - open research cases, blockers and architectural decisions;
 - cross-platform acceptance evidence;
+- performance baseline, runner identity and final budget evidence;
 - the final checklist from section 2.
 
 The reusable [Goal 01 launch prompt](01-core-combat-and-content-prompt.md)
