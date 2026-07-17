@@ -55,13 +55,19 @@ numeric faults without changing the reviewed dependency graph.
 
 ## RNG and hashing boundary
 
-Only `starclock-combat/src/rng/engine.rs` names `rand`, and only
-`starclock-combat/src/rng/derive.rs` names `sha2`. Public consumers see
-Starclock seed, purpose, sample, selection and error types. The wrapper never
-implements `Clone`, and no dependency generator, distribution or digest type is
-re-exported. `rng_algorithm_revision = "chacha8-rand-0.10.2-intmap-v1"` binds
+Only `starclock-combat/src/rng/engine.rs` names `rand`. SHA-256 is confined to
+combat stream derivation and the replay crate's canonical hash sink. Public
+consumers see Starclock seed, purpose, sample, selection, digest and error
+types. The wrapper never implements `Clone`, and no dependency generator,
+distribution or digest type is re-exported.
+`rng_algorithm_revision = "chacha8-rand-0.10.2-intmap-v1"` binds
 the raw-word sequence, canonical SHA-256 derivation, range/weight mappings and
 draw-consumption policy.
+
+`G01-P2-B4` reuses the exact reviewed `sha2 = 0.11.0` package as a direct
+`starclock-replay` dependency for the streaming canonical hash sink; it adds no
+registry package. A fresh locked Windows x86-64 replay check including its
+activity/combat dependencies took 4,014 ms.
 
 ## Change rule
 

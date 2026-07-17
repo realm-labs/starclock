@@ -60,6 +60,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 35. [Authoritative numeric implementation](numeric-implementation.md) — checked six-decimal domain types, six explicit rounding modes, typed faults and no-float enforcement.
 36. [Combat catalog implementation](combat-catalog-implementation.md) — fixed-width identity domains, immutable ordered definition tables and deterministic graph validation.
 37. [Deterministic RNG implementation](rng-implementation.md) — canonical SHA-256 substreams, pinned ChaCha8 words, integer mappings and draw-consumption policy.
+38. [Canonical replay/codec implementation](replay-codec-implementation.md) — versioned header/record framing, typed digests, bounded decoding and streaming state hashing.
 
 ## Execution goals
 

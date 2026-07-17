@@ -28,6 +28,9 @@ const expectedExternal = new Map([
     { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
     { name: "zstd", requirement: "=0.13.3", features: [] },
   ]],
+  ["starclock-replay", [
+    { name: "sha2", requirement: "=0.11.0", features: [] },
+  ]],
 ]);
 
 const metadata = JSON.parse(execFileSync("cargo", ["metadata", "--format-version", "1", "--no-deps"], {
@@ -71,6 +74,8 @@ const combat = packages.find((entry) => entry.name === "starclock-combat");
 assert(combat.dependencies.every((dependency) => ["fixnum", "rand", "sha2"].includes(dependency.name)), "starclock-combat may depend only on the reviewed private numeric/RNG/hash backends");
 const data = packages.find((entry) => entry.name === "starclock-data");
 assert(data.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => ["serde", "zstd"].includes(dependency.name)), "starclock-data may use only generated-reader transport dependencies");
+const replay = packages.find((entry) => entry.name === "starclock-replay");
+assert(replay.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => dependency.name === "sha2"), "starclock-replay may use only the reviewed private SHA-256 backend");
 const cli = packages.find((entry) => entry.name === "starclock-cli");
 const cliBinaries = cli.targets.filter((target) => target.kind.includes("bin")).map((target) => target.name);
 assert(JSON.stringify(cliBinaries) === JSON.stringify(["starclock"]), "starclock-cli must own only the starclock binary");

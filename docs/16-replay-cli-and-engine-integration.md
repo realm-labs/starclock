@@ -49,6 +49,31 @@ SHA-256 sink; golden/debug tooling may collect the same bytes. Replay
 verification must not allocate a full canonical-state byte vector merely to
 hash it.
 
+### Version 1 envelope
+
+`G01-P2-B4` freezes `replay_format_version = 1`, payload
+`schema_version = 1` and `state_hash_revision = "sha256-v1"`. The header starts
+with `SCRP`, both little-endian versions and unknown-record policy `Reject`.
+Compatibility text identities are printable ASCII bounded to 128 bytes; general
+domain strings encoded inside later payloads remain length-prefixed UTF-8.
+
+The identity block contains game/rules/data revisions, configuration digest,
+numeric/RNG/state-hash revisions, controller revision/digest and master seed.
+The entry block is either a low-level battle definition/spec digest or an
+activity profile/definition/spec identity. Activity entries may additionally
+bind one build-catalog revision/digest and participant-ordered build digests.
+The header ends with a bounded record count.
+
+Each record is exactly `(kind: u8, sequence: u64, payload_length: u32,
+payload)`. Sequence starts at zero with no gaps. Version 1 reserves accepted
+battle/activity commands, expected battle/activity state hashes, nested-battle
+start/end and controller diagnostics. Every unknown kind is a hard failure;
+skipping unknown bytes is not a compatibility mechanism. The library limit is
+1,000,000 records and 16 MiB per record. Decoding validates the complete record
+framing, lengths, sequence and trailing-byte boundary before allocating the
+borrowed record table. Later batches define domain payload bytes inside these
+reserved kinds without changing the envelope.
+
 ## Replay verification
 
 Verification loads the exact config bundle digest, checks every policy revision, rebuilds the entry state, applies commands, and compares hashes after each accepted command. On divergence it reports the first command/event/state boundary, expected/actual digest, and stable structural path if a diagnostic decoder is available.

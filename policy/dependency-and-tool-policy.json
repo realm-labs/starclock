@@ -29,6 +29,13 @@
     "scope": "starclock-combat plus fixnum, rand/ChaCha8, SHA-256 and all direct/transitive packages",
     "classification": "Low local compile cost; replay compatibility is governed by golden vectors, not this timing"
   },
+  "replay_codec_compile_cost_measurement": {
+    "runner": "Windows x86_64-pc-windows-msvc; rustc 1.97.0; local development measurement (not a stable performance runner)",
+    "command": "fresh CARGO_TARGET_DIR cargo check -p starclock-replay --all-targets --all-features --locked",
+    "elapsed_milliseconds": 4014,
+    "scope": "starclock-replay, activity/combat dependencies and the already reviewed numeric/RNG/SHA-256 graph",
+    "classification": "Low local compile cost; canonical compatibility is governed by codec goldens"
+  },
   "packages": [
     {
       "name": "fixnum",
@@ -93,12 +100,12 @@
   "package_groups": [
     {
       "name": "authoritative RNG and SHA-256",
-      "relationship": "rand and sha2 are direct starclock-combat dependencies; all other entries are transitive through those packages",
-      "owner": "starclock-combat private ChaCha8 generator and stream-derivation implementation",
+      "relationship": "rand and sha2 are direct starclock-combat dependencies; sha2 is also a direct starclock-replay dependency; all other entries are transitive through those packages",
+      "owner": "starclock-combat private ChaCha8/stream-derivation implementation and starclock-replay private canonical SHA-256 sink",
       "features": ["rand:chacha,std", "sha2:none"],
       "default_features": false,
       "source_url": "https://crates.io/",
-      "purpose": "Provide the explicitly named ChaCha8 core and SHA-256 primitive while Starclock owns canonical stream bytes, unsigned rejection mapping, cumulative weight selection, draw consumption and counters.",
+      "purpose": "Provide the explicitly named ChaCha8 core and SHA-256 primitive while Starclock owns canonical stream bytes, unsigned rejection mapping, cumulative weight selection, draw consumption, counters and replay/state encoding.",
       "deterministic_impact": "Authoritative and replay-sensitive. Exact versions/features, raw u64 words, seed derivation bytes, mapping and draw policy are bound by rng_algorithm_revision and golden vectors; thread/sys RNG features are disabled and generic distribution APIs are mechanically unused.",
       "compile_cost": "A fresh locked starclock-combat check including numeric, RNG and SHA-256 packages measured 3,500 ms on the recorded Windows runner. Existing shared cfg-if, libc and typenum packages are inventoried elsewhere.",
       "rejected_alternatives": [

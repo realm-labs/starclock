@@ -8,6 +8,7 @@ const soraPolicy = JSON.parse(fs.readFileSync(path.join(root, "policy", "sora-to
 assert(policy.compile_cost_measurement.elapsed_milliseconds > 0 && policy.compile_cost_measurement.command && policy.compile_cost_measurement.runner, "compile-cost measurement is incomplete");
 assert(policy.production_reader_compile_cost_measurement.elapsed_milliseconds > 0 && policy.production_reader_compile_cost_measurement.command && policy.production_reader_compile_cost_measurement.runner, "production reader compile-cost measurement is incomplete");
 assert(policy.rng_hash_compile_cost_measurement.elapsed_milliseconds > 0 && policy.rng_hash_compile_cost_measurement.command && policy.rng_hash_compile_cost_measurement.runner, "RNG/hash compile-cost measurement is incomplete");
+assert(policy.replay_codec_compile_cost_measurement.elapsed_milliseconds > 0 && policy.replay_codec_compile_cost_measurement.command && policy.replay_codec_compile_cost_measurement.runner, "replay codec compile-cost measurement is incomplete");
 const requiredFields = ["license", "source_url", "purpose", "deterministic_impact", "compile_cost", "rejected_alternatives"];
 for (const kind of ["packages", "tools"]) {
   for (const entry of policy[kind]) {
@@ -56,6 +57,8 @@ const combatManifest = fs.readFileSync(path.join(root, "crates", "starclock-comb
 assert(workspaceManifest.includes('rand = { version = "=0.10.2", default-features = false, features = ["chacha", "std"] }'), "authoritative rand pin/features differ");
 assert(workspaceManifest.includes('sha2 = { version = "=0.11.0", default-features = false }'), "authoritative sha2 pin/features differ");
 assert(combatManifest.includes("rand.workspace = true") && combatManifest.includes("sha2.workspace = true"), "combat RNG/hash dependencies differ");
+const replayManifest = fs.readFileSync(path.join(root, "crates", "starclock-replay", "Cargo.toml"), "utf8");
+assert(replayManifest.includes("sha2.workspace = true"), "replay SHA-256 dependency differs");
 assert(combatRoot.includes("mod numeric;") && !combatRoot.includes("pub mod numeric"), "numeric backend module must remain private");
 assert(!combatRoot.includes("pub use fixnum"), "fixnum must not be re-exported");
 const randUsers = rustFiles.filter((file) => /\brand::/.test(fs.readFileSync(file, "utf8")));
