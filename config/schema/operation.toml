@@ -389,8 +389,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "Program.toml"
+format = "xlsx"
+file = "Program.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -405,8 +405,8 @@ name = "ProgramStep"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "ProgramStep.toml"
+format = "xlsx"
+file = "ProgramStep.xlsx"
 
 [[tables.fields]]
 name = "program_id"
@@ -432,8 +432,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "Operation.toml"
+format = "xlsx"
+file = "Operation.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -483,8 +483,8 @@ name = "OperationNativeArgument"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "OperationNativeArgument.toml"
+format = "xlsx"
+file = "OperationNativeArgument.xlsx"
 
 [[tables.fields]]
 name = "operation_id"

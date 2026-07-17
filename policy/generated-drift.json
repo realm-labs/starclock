@@ -54,6 +54,10 @@
       "command": ["node", "tools/config-schema/verify-standard-encounter.mjs"]
     },
     {
+      "name": "production Excel and Sora configuration golden",
+      "command": ["node", "tools/config-production/verify.mjs"]
+    },
+    {
       "name": "cached source and prepared-pack regeneration",
       "command": ["node", "tools/goal-provenance/generate.mjs", "--check"],
       "requires": "source-cache"

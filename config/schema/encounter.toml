@@ -20,8 +20,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "Encounter.toml"
+format = "xlsx"
+file = "Encounter.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -69,8 +69,8 @@ name = "EncounterRuleBinding"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "EncounterRuleBinding.toml"
+format = "xlsx"
+file = "EncounterRuleBinding.xlsx"
 
 [[tables.fields]]
 name = "encounter_id"
@@ -101,8 +101,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "EncounterWave.toml"
+format = "xlsx"
+file = "EncounterWave.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -166,8 +166,8 @@ name = "WaveSlot"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "WaveSlot.toml"
+format = "xlsx"
+file = "WaveSlot.xlsx"
 
 [[tables.fields]]
 name = "wave_id"

@@ -6,12 +6,19 @@ const root = path.resolve(process.cwd());
 const policy = JSON.parse(fs.readFileSync(path.join(root, "policy", "dependency-and-tool-policy.json"), "utf8"));
 const soraPolicy = JSON.parse(fs.readFileSync(path.join(root, "policy", "sora-toolchain.json"), "utf8"));
 assert(policy.compile_cost_measurement.elapsed_milliseconds > 0 && policy.compile_cost_measurement.command && policy.compile_cost_measurement.runner, "compile-cost measurement is incomplete");
+assert(policy.production_reader_compile_cost_measurement.elapsed_milliseconds > 0 && policy.production_reader_compile_cost_measurement.command && policy.production_reader_compile_cost_measurement.runner, "production reader compile-cost measurement is incomplete");
 const requiredFields = ["license", "source_url", "purpose", "deterministic_impact", "compile_cost", "rejected_alternatives"];
 for (const kind of ["packages", "tools"]) {
   for (const entry of policy[kind]) {
     for (const field of requiredFields) assert(entry[field] && (!Array.isArray(entry[field]) || entry[field].length > 0), `${kind}:${entry.name} lacks ${field}`);
     assert(/^https:\/\//.test(entry.source_url), `${kind}:${entry.name} lacks a source URL`);
   }
+}
+for (const group of policy.package_groups ?? []) {
+  for (const field of ["relationship", "owner", "source_url", "purpose", "deterministic_impact", "compile_cost", "rejected_alternatives"]) {
+    assert(group[field] && (!Array.isArray(group[field]) || group[field].length > 0), `package group ${group.name} lacks ${field}`);
+  }
+  assert(Array.isArray(group.packages) && group.packages.length > 0, `package group ${group.name} is empty`);
 }
 
 const metadata = JSON.parse(run("cargo", ["metadata", "--format-version", "1"]));
@@ -20,7 +27,9 @@ const registry = metadata.packages.filter((entry) => entry.source?.startsWith("r
   version: entry.version,
   license: entry.license,
 })).sort((a, b) => a.name.localeCompare(b.name));
-const reviewed = policy.packages.map((entry) => ({ name: entry.name, version: entry.version, license: entry.license })).sort((a, b) => a.name.localeCompare(b.name));
+const groupedPackages = (policy.package_groups ?? []).flatMap((group) => group.packages);
+const reviewed = [...policy.packages, ...groupedPackages].map((entry) => ({ name: entry.name, version: entry.version, license: entry.license })).sort((a, b) => a.name.localeCompare(b.name));
+assert(new Set(reviewed.map((entry) => entry.name)).size === reviewed.length, "package inventory contains duplicate names");
 assert(JSON.stringify(registry) === JSON.stringify(reviewed), `registry package policy differs:\nreviewed ${JSON.stringify(reviewed)}\nresolved ${JSON.stringify(registry)}`);
 
 const toolchain = fs.readFileSync(path.join(root, "rust-toolchain.toml"), "utf8");

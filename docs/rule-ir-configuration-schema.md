@@ -137,7 +137,8 @@ rules, and commits only a manifest of generated hashes. Every composed identity
 is a disabled `ProjectFixture`, the native handler is disabled, and the rows do
 not change coverage.
 
-Production Rule IR remains `.xlsx`-authored and Sora-exported in B10. B11 owns
+Production Rule IR remains `.xlsx`-authored and Sora-exported through the B10
+pipeline. B11 owns
 whole-catalog type inference, program reachability, scope/domain enforcement,
 registered tags/RNG purposes/handlers, stack/comparator rules and conversion to
 domain definitions. Debug JSON remains review evidence only and is never a

@@ -40,8 +40,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "Ability.toml"
+format = "xlsx"
+file = "Ability.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -78,8 +78,8 @@ name = "AbilityResourceDelta"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "AbilityResourceDelta.toml"
+format = "xlsx"
+file = "AbilityResourceDelta.xlsx"
 
 [[tables.fields]]
 name = "ability_id"
@@ -121,8 +121,8 @@ name = "AbilityLevelParameter"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "AbilityLevelParameter.toml"
+format = "xlsx"
+file = "AbilityLevelParameter.xlsx"
 
 [[tables.fields]]
 name = "ability_id"
@@ -153,8 +153,8 @@ name = "AbilityPhase"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "AbilityPhase.toml"
+format = "xlsx"
+file = "AbilityPhase.xlsx"
 
 [[tables.fields]]
 name = "ability_id"
@@ -184,8 +184,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "HitPlan.toml"
+format = "xlsx"
+file = "HitPlan.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -209,8 +209,8 @@ name = "HitPlanHit"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "HitPlanHit.toml"
+format = "xlsx"
+file = "HitPlanHit.xlsx"
 
 [[tables.fields]]
 name = "hit_plan_id"
@@ -249,8 +249,8 @@ name = "AbilityHitPlanBinding"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "AbilityHitPlanBinding.toml"
+format = "xlsx"
+file = "AbilityHitPlanBinding.xlsx"
 
 [[tables.fields]]
 name = "ability_id"

@@ -20,8 +20,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "Character.toml"
+format = "xlsx"
+file = "Character.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -55,8 +55,8 @@ name = "CharacterStat"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "CharacterStat.toml"
+format = "xlsx"
+file = "CharacterStat.xlsx"
 
 [[tables.fields]]
 name = "character_id"
@@ -102,8 +102,8 @@ name = "CharacterResource"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "CharacterResource.toml"
+format = "xlsx"
+file = "CharacterResource.xlsx"
 
 [[tables.fields]]
 name = "character_id"
@@ -144,8 +144,8 @@ name = "CharacterAbilityBinding"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "CharacterAbilityBinding.toml"
+format = "xlsx"
+file = "CharacterAbilityBinding.xlsx"
 
 [[tables.fields]]
 name = "character_id"
@@ -185,8 +185,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "TraceNode.toml"
+format = "xlsx"
+file = "TraceNode.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -216,8 +216,8 @@ name = "TracePatch"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "TracePatch.toml"
+format = "xlsx"
+file = "TracePatch.xlsx"
 
 [[tables.fields]]
 name = "trace_id"
@@ -243,8 +243,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "Eidolon.toml"
+format = "xlsx"
+file = "Eidolon.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -269,8 +269,8 @@ name = "EidolonPatch"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "EidolonPatch.toml"
+format = "xlsx"
+file = "EidolonPatch.xlsx"
 
 [[tables.fields]]
 name = "eidolon_id"

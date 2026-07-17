@@ -20,6 +20,10 @@ const expected = new Map([
 ]);
 const expectedExternal = new Map([
   ["starclock-combat", [{ name: "fixnum", requirement: "=0.9.5", features: ["i64", "std"] }]],
+  ["starclock-data", [
+    { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
+    { name: "zstd", requirement: "=0.13.3", features: [] },
+  ]],
 ]);
 
 const metadata = JSON.parse(execFileSync("cargo", ["metadata", "--format-version", "1", "--no-deps"], {
@@ -61,6 +65,8 @@ for (const pkg of packages) {
 
 const combat = packages.find((entry) => entry.name === "starclock-combat");
 assert(combat.dependencies.every((dependency) => dependency.name === "fixnum"), "starclock-combat may depend only on the reviewed private numeric backend");
+const data = packages.find((entry) => entry.name === "starclock-data");
+assert(data.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => ["serde", "zstd"].includes(dependency.name)), "starclock-data may use only generated-reader transport dependencies");
 const cli = packages.find((entry) => entry.name === "starclock-cli");
 const cliBinaries = cli.targets.filter((target) => target.kind.includes("bin")).map((target) => target.name);
 assert(JSON.stringify(cliBinaries) === JSON.stringify(["starclock"]), "starclock-cli must own only the starclock binary");

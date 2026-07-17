@@ -258,7 +258,7 @@ The exact rule tables and validation boundary are defined in [Rule IR and native
 
 ## Deterministic workbook bootstrap
 
-Bulk transcription into the first Version 4.4 workbook set should be repeatable rather than a manual copy exercise. A future repository tool pins `rust_xlsxwriter = "=0.96.0"` and regenerates complete bootstrap workbooks from normalized, reviewed staging records. It does not edit or merge live designer workbooks.
+Bulk transcription into the first Version 4.4 workbook set is repeatable rather than a manual copy exercise. The repository tool pins `rust_xlsxwriter = "=0.96.0"` and generates bootstrap workbooks from normalized, reviewed staging records. It does not edit or merge live designer workbooks. The committed implementation and golden are described in [Production configuration pipeline](production-configuration-pipeline.md).
 
 ```text
 ignored source cache -> normalized bilingual staging -> validated rows

@@ -86,8 +86,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "ModifierStackingGroup.toml"
+format = "xlsx"
+file = "ModifierStackingGroup.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -118,8 +118,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "ModifierDefinition.toml"
+format = "xlsx"
+file = "ModifierDefinition.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -195,8 +195,8 @@ name = "SnapshotCapture"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "SnapshotCapture.toml"
+format = "xlsx"
+file = "SnapshotCapture.xlsx"
 
 [[tables.fields]]
 name = "owner_identity_id"
@@ -251,8 +251,8 @@ name = "ModifierFilter"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "ModifierFilter.toml"
+format = "xlsx"
+file = "ModifierFilter.xlsx"
 
 [[tables.fields]]
 name = "modifier_id"

@@ -183,8 +183,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "NativeHandler.toml"
+format = "xlsx"
+file = "NativeHandler.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -245,8 +245,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "RuleDefinition.toml"
+format = "xlsx"
+file = "RuleDefinition.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -278,8 +278,8 @@ name = "RuleSourceTag"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "RuleSourceTag.toml"
+format = "xlsx"
+file = "RuleSourceTag.xlsx"
 
 [[tables.fields]]
 name = "rule_id"
@@ -311,8 +311,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "StateSlot.toml"
+format = "xlsx"
+file = "StateSlot.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -355,8 +355,8 @@ name = "StateSlotReset"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "StateSlotReset.toml"
+format = "xlsx"
+file = "StateSlotReset.xlsx"
 
 [[tables.fields]]
 name = "state_slot_id"
@@ -387,8 +387,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "EventFilter.toml"
+format = "xlsx"
+file = "EventFilter.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -455,8 +455,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "RuleTrigger.toml"
+format = "xlsx"
+file = "RuleTrigger.xlsx"
 
 [[tables.fields]]
 name = "id"

@@ -1,0 +1,364 @@
+{
+  "schema_revision": "starclock.workbook-bootstrap-dependencies.v1",
+  "reviewed_on": "2026-07-17",
+  "scope": "Standalone deterministic workbook authoring tool; no package enters a production runtime crate.",
+  "lockfile_sha256": "48ba062afc14167053e497a35d1074e126695f1bdd89a180837ca0ce8c75ca61",
+  "direct_packages": [
+    {
+      "name": "calamine",
+      "version": "0.35.0",
+      "default_features": false,
+      "features": [
+        "dates"
+      ]
+    },
+    {
+      "name": "rust_xlsxwriter",
+      "version": "0.96.0",
+      "default_features": false,
+      "features": [
+        "constant_memory"
+      ]
+    }
+  ],
+  "source_url_template": "https://crates.io/crates/{name}/{version}",
+  "purpose": "Read Sora-generated schema projections and materialize deterministic bootstrap .xlsx cell values without editing live designer workbooks.",
+  "deterministic_impact": "Tooling only. Exact cell projections are validated by Sora and exported bundle/debug bytes; workbook ZIP bytes are not runtime or replay identities.",
+  "compile_cost": "Fresh Windows x86_64 MSVC cargo check observed at 6,590 ms under Rust/Cargo 1.97.0; not a performance budget.",
+  "rejected_alternatives": [
+    "Handwritten XLSX ZIP/XML output would duplicate schema and archive logic.",
+    "Editing designer workbooks in place would violate the no-overwrite authoring contract.",
+    "JSON-direct runtime loading would bypass Excel/Sora authority."
+  ],
+  "packages": [
+    {
+      "name": "adler2",
+      "version": "2.0.1",
+      "relationship": "Transitive",
+      "license": "0BSD OR MIT OR Apache-2.0",
+      "checksum": "320119579fcad9c21884f5c4861d16174d0e06250625266f50fe6898340abefa"
+    },
+    {
+      "name": "atoi_simd",
+      "version": "0.17.0",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "8ad17c7c205c2c28b527b9845eeb91cf1b4d008b438f98ce0e628227a822758e"
+    },
+    {
+      "name": "autocfg",
+      "version": "1.5.1",
+      "relationship": "Transitive",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "f2032f911046de80f0a198e0901378627c33f59ea0ac00e363d481118bd70a53"
+    },
+    {
+      "name": "bitflags",
+      "version": "2.13.1",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "b588b76d00fde79687d7646a9b5bdf3cc0f655e0bbd080335a95d7e96f3587da"
+    },
+    {
+      "name": "bumpalo",
+      "version": "3.20.3",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "72f5acc6cb2ba439de613abc23857ec3d78374d8ed5ac84e9d11336e87da8649"
+    },
+    {
+      "name": "byteorder",
+      "version": "1.5.0",
+      "relationship": "Transitive",
+      "license": "Unlicense OR MIT",
+      "checksum": "1fd0f2584146f6f2ef48085050886acf353beff7305ebd1ae69500e27c67f64b"
+    },
+    {
+      "name": "calamine",
+      "version": "0.35.0",
+      "relationship": "Direct",
+      "license": "MIT",
+      "checksum": "8822fe6253ca47aa5ad9a3be09f6fe7cd20c6a74e41b0aa42e8f4e3d523508df"
+    },
+    {
+      "name": "cfg-if",
+      "version": "1.0.4",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "9330f8b2ff13f34540b44e946ef35111825727b38d33286ef986142615121801"
+    },
+    {
+      "name": "chrono",
+      "version": "0.4.45",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "1aa79e62e7697b8e29b513a68abacf485adcd1fe8284a4316c5ae868e6633327"
+    },
+    {
+      "name": "codepage",
+      "version": "0.1.2",
+      "relationship": "Transitive",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "48f68d061bc2828ae826206326e61251aca94c1e4a5305cf52d9138639c918b4"
+    },
+    {
+      "name": "crc32fast",
+      "version": "1.5.0",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "9481c1c90cbf2ac953f07c8d4a58aa3945c425b7185c9154d67a65e4230da511"
+    },
+    {
+      "name": "debug_unsafe",
+      "version": "0.1.4",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "7eed2c4702fa172d1ce21078faa7c5203e69f5394d48cc436d25928394a867a2"
+    },
+    {
+      "name": "encoding_rs",
+      "version": "0.8.35",
+      "relationship": "Transitive",
+      "license": "(Apache-2.0 OR MIT) AND BSD-3-Clause",
+      "checksum": "75030f3c4f45dafd7586dd6780965a8c7e8e285a5ecb86713e63a79c5b2766f3"
+    },
+    {
+      "name": "equivalent",
+      "version": "1.0.2",
+      "relationship": "Transitive",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "877a4ace8713b0bcf2a4e7eec82529c029f1d0619886d18145fea96c3ffe5c0f"
+    },
+    {
+      "name": "errno",
+      "version": "0.3.14",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "39cab71617ae0d63f51a36d69f866391735b51691dbda63cf6f96d042b63efeb"
+    },
+    {
+      "name": "fast-float2",
+      "version": "0.2.3",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "f8eb564c5c7423d25c886fb561d1e4ee69f72354d16918afa32c08811f6b6a55"
+    },
+    {
+      "name": "fastrand",
+      "version": "2.4.1",
+      "relationship": "Transitive",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "9f1f227452a390804cdb637b74a86990f2a7d7ba4b7d5693aac9b4dd6defd8d6"
+    },
+    {
+      "name": "flate2",
+      "version": "1.1.9",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "843fba2746e448b37e26a819579957415c8cef339bf08564fe8b7ddbd959573c"
+    },
+    {
+      "name": "getrandom",
+      "version": "0.4.3",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "300e883d756b2e4ec94e02791f39b04b522276138852cfc41d9fb7e904106099"
+    },
+    {
+      "name": "hashbrown",
+      "version": "0.17.1",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "ed5909b6e89a2db4456e54cd5f673791d7eca6732202bbf2a9cc504fe2f9b84a"
+    },
+    {
+      "name": "indexmap",
+      "version": "2.14.0",
+      "relationship": "Transitive",
+      "license": "Apache-2.0 OR MIT",
+      "checksum": "d466e9454f08e4a911e14806c24e16fba1b4c121d1ea474396f396069cf949d9"
+    },
+    {
+      "name": "libc",
+      "version": "0.2.186",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "68ab91017fe16c622486840e4c83c9a37afeff978bd239b5293d61ece587de66"
+    },
+    {
+      "name": "linux-raw-sys",
+      "version": "0.12.1",
+      "relationship": "Transitive",
+      "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+      "checksum": "32a66949e030da00e8c7d4434b251670a91556f4144941d37452769c25d58a53"
+    },
+    {
+      "name": "log",
+      "version": "0.4.33",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "0ceec5bc11778974d1bcb055b18002eba7f4b3518b6a0081b3af5f21666da9ad"
+    },
+    {
+      "name": "memchr",
+      "version": "2.8.3",
+      "relationship": "Transitive",
+      "license": "Unlicense OR MIT",
+      "checksum": "cf8baf1c55e62ffcace7a9f06f4bd9cd3f0c4beb022d3b367256b91b87513d98"
+    },
+    {
+      "name": "miniz_oxide",
+      "version": "0.8.9",
+      "relationship": "Transitive",
+      "license": "MIT OR Zlib OR Apache-2.0",
+      "checksum": "1fa76a2c86f704bdb222d66965fb3d63269ce38518b83cb0575fca855ebb6316"
+    },
+    {
+      "name": "num-traits",
+      "version": "0.2.19",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841"
+    },
+    {
+      "name": "once_cell",
+      "version": "1.21.4",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "9f7c3e4beb33f85d45ae3e3a1792185706c8e16d043238c593331cc7cd313b50"
+    },
+    {
+      "name": "proc-macro2",
+      "version": "1.0.106",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "8fd00f0bb2e90d81d1044c2b32617f68fcb9fa3bb7640c23e9c748e53fb30934"
+    },
+    {
+      "name": "quick-xml",
+      "version": "0.39.4",
+      "relationship": "Transitive",
+      "license": "MIT",
+      "checksum": "cdcc8dd4e2f670d309a5f0e83fe36dfdc05af317008fea29144da1a2ac858e5e"
+    },
+    {
+      "name": "quote",
+      "version": "1.0.46",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "dfbc457d0c7a0759a614551b11a6409e5951f6c7537be1f1b7682b9ae9230368"
+    },
+    {
+      "name": "r-efi",
+      "version": "6.0.0",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later",
+      "checksum": "f8dcc9c7d52a811697d2151c701e0d08956f92b0e24136cf4cf27b57a6a0d9bf"
+    },
+    {
+      "name": "rust_xlsxwriter",
+      "version": "0.96.0",
+      "relationship": "Direct",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "dd1746025420e17b5d62528b930e550e016e857038794d74e169018126ef3d14"
+    },
+    {
+      "name": "rustix",
+      "version": "1.1.4",
+      "relationship": "Transitive",
+      "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+      "checksum": "b6fe4565b9518b83ef4f91bb47ce29620ca828bd32cb7e408f0062e9930ba190"
+    },
+    {
+      "name": "serde",
+      "version": "1.0.228",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "9a8e94ea7f378bd32cbbd37198a4a91436180c5bb472411e48b5ec2e2124ae9e"
+    },
+    {
+      "name": "serde_core",
+      "version": "1.0.228",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "41d385c7d4ca58e59fc732af25c3983b67ac852c1a25000afe1175de458b67ad"
+    },
+    {
+      "name": "serde_derive",
+      "version": "1.0.228",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "d540f220d3187173da220f885ab66608367b6574e925011a9353e4badda91d79"
+    },
+    {
+      "name": "simd-adler32",
+      "version": "0.3.10",
+      "relationship": "Transitive",
+      "license": "MIT",
+      "checksum": "3a219298ac11a56ea9a6d2120044824d6f01aeb034955e7af7bc16858527deea"
+    },
+    {
+      "name": "syn",
+      "version": "2.0.119",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "872831b642d1a07999a962a351ed35b955ea2cfc8f3862091e2a240a84f17297"
+    },
+    {
+      "name": "tempfile",
+      "version": "3.27.0",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "32497e9a4c7b38532efcdebeef879707aa9f794296a4f0244f6f69e9bc8574bd"
+    },
+    {
+      "name": "typed-path",
+      "version": "0.12.3",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "8e28f89b80c87b8fb0cf04ab448d5dd0dd0ade2f8891bae878de66a75a28600e"
+    },
+    {
+      "name": "unicode-ident",
+      "version": "1.0.24",
+      "relationship": "Transitive",
+      "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+      "checksum": "e6e4313cd5fcd3dad5cafa179702e2b244f760991f45397d14d4ebf38247da75"
+    },
+    {
+      "name": "windows-link",
+      "version": "0.2.1",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "f0805222e57f7521d6a62e36fa9163bc891acd422f971defe97d64e70d0a4fe5"
+    },
+    {
+      "name": "windows-sys",
+      "version": "0.61.2",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "ae137229bcbd6cdf0f7b80a31df61766145077ddf49416a728b02cb3921ff3fc"
+    },
+    {
+      "name": "zip",
+      "version": "7.2.0",
+      "relationship": "Transitive",
+      "license": "MIT",
+      "checksum": "c42e33efc22a0650c311c2ef19115ce232583abbe80850bc8b66509ebef02de0"
+    },
+    {
+      "name": "zlib-rs",
+      "version": "0.6.6",
+      "relationship": "Transitive",
+      "license": "Zlib",
+      "checksum": "b142a20ec14a91d5bc708c1dc21b080c550113d8aa77afa29635673a65dd02c5"
+    },
+    {
+      "name": "zopfli",
+      "version": "0.8.3",
+      "relationship": "Transitive",
+      "license": "Apache-2.0",
+      "checksum": "f05cd8797d63865425ff89b5c4a48804f35ba0ce8d125800027ad6017d2b5249"
+    }
+  ]
+}

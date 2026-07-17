@@ -9,6 +9,8 @@ publish = false
 
 [workspace.dependencies]
 fixnum = { version = "=0.9.5", default-features = false, features = ["i64", "std"] }
+serde = { version = "=1.0.228", default-features = false, features = ["derive", "rc", "std"] }
+zstd = { version = "=0.13.3", default-features = false }
 
 [workspace.lints.rust]
 unsafe_code = "forbid"

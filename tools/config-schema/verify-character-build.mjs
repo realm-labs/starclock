@@ -19,6 +19,7 @@ fs.rmSync(work, { recursive: true, force: true });
 fs.mkdirSync(path.join(work, "config/schema"), { recursive: true });
 fs.mkdirSync(project, { recursive: true });
 fs.cpSync(path.join(root, "config/schema"), path.join(work, "config/schema"), { recursive: true });
+prepareTomlSchemas(path.join(work, "config/schema"));
 for (const name of ["project.toml", "data"]) fs.cpSync(path.join(fixture, name), path.join(project, name), { recursive: true });
 
 const sora = resolveSora(toolPolicy);
@@ -242,3 +243,10 @@ function expectAssertion(action, message) {
   assert(failed, message);
 }
 function assert(condition, message) { if (!condition) throw new Error(message); }
+
+function prepareTomlSchemas(directory) {
+  for (const file of walk(directory).filter((candidate) => candidate.endsWith(".toml"))) {
+    const source = fs.readFileSync(file, "utf8");
+    fs.writeFileSync(file, source.replaceAll('format = "xlsx"', 'format = "toml"').replace(/file = "([A-Za-z0-9_-]+)\.xlsx"/g, 'file = "$1.toml"'));
+  }
+}

@@ -88,8 +88,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "SourceRecord.toml"
+format = "xlsx"
+file = "SourceRecord.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -154,8 +154,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "EvidenceRecord.toml"
+format = "xlsx"
+file = "EvidenceRecord.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -196,8 +196,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "ContentIdentity.toml"
+format = "xlsx"
+file = "ContentIdentity.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -271,8 +271,8 @@ name = "ContentEvidenceBinding"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "ContentEvidenceBinding.toml"
+format = "xlsx"
+file = "ContentEvidenceBinding.xlsx"
 
 [[tables.fields]]
 name = "content_id"
@@ -323,8 +323,8 @@ name = "ConfigManifest"
 mode = "singleton"
 
 [tables.source]
-format = "toml"
-file = "ConfigManifest.toml"
+format = "xlsx"
+file = "ConfigManifest.xlsx"
 
 [[tables.fields]]
 name = "game_version"

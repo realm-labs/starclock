@@ -57,8 +57,8 @@ name = "ActivityDefinition"
 mode = "map"
 key = "id"
 [tables.source]
-format = "toml"
-file = "ActivityDefinition.toml"
+format = "xlsx"
+file = "ActivityDefinition.xlsx"
 [[tables.fields]]
 name = "id"
 type = "ref<ContentIdentity.id>"
@@ -75,8 +75,8 @@ name = "ActivitySection"
 mode = "map"
 key = "id"
 [tables.source]
-format = "toml"
-file = "ActivitySection.toml"
+format = "xlsx"
+file = "ActivitySection.xlsx"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -109,8 +109,8 @@ name = "ActivityNode"
 mode = "map"
 key = "id"
 [tables.source]
-format = "toml"
-file = "ActivityNode.toml"
+format = "xlsx"
+file = "ActivityNode.xlsx"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -142,8 +142,8 @@ name = "ActivityEdge"
 mode = "map"
 key = "id"
 [tables.source]
-format = "toml"
-file = "ActivityEdge.toml"
+format = "xlsx"
+file = "ActivityEdge.xlsx"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -186,8 +186,8 @@ name = "ActivitySlot"
 mode = "map"
 key = "id"
 [tables.source]
-format = "toml"
-file = "ActivitySlot.toml"
+format = "xlsx"
+file = "ActivitySlot.xlsx"
 [[tables.fields]]
 name = "id"
 type = "ref<ContentIdentity.id>"
@@ -226,8 +226,8 @@ type = "enum<SlotPersistence>"
 name = "ActivitySlotReset"
 mode = "list"
 [tables.source]
-format = "toml"
-file = "ActivitySlotReset.toml"
+format = "xlsx"
+file = "ActivitySlotReset.xlsx"
 [[tables.fields]]
 name = "slot_id"
 type = "ref<ActivitySlot.id>"
@@ -248,8 +248,8 @@ name = "ParticipantPolicy"
 mode = "map"
 key = "id"
 [tables.source]
-format = "toml"
-file = "ParticipantPolicy.toml"
+format = "xlsx"
+file = "ParticipantPolicy.xlsx"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -292,8 +292,8 @@ name = "BattleResultProjection"
 mode = "map"
 key = "id"
 [tables.source]
-format = "toml"
-file = "BattleResultProjection.toml"
+format = "xlsx"
+file = "BattleResultProjection.xlsx"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -311,8 +311,8 @@ unique = true
 name = "BattleResultProjectionField"
 mode = "list"
 [tables.source]
-format = "toml"
-file = "BattleResultProjectionField.toml"
+format = "xlsx"
+file = "BattleResultProjectionField.xlsx"
 [[tables.fields]]
 name = "projection_id"
 type = "ref<BattleResultProjection.id>"
@@ -333,8 +333,8 @@ name = "BattleBinding"
 mode = "map"
 key = "id"
 [tables.source]
-format = "toml"
-file = "BattleBinding.toml"
+format = "xlsx"
+file = "BattleBinding.xlsx"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -380,8 +380,8 @@ unique = true
 name = "BattleBindingRule"
 mode = "list"
 [tables.source]
-format = "toml"
-file = "BattleBindingRule.toml"
+format = "xlsx"
+file = "BattleBindingRule.xlsx"
 [[tables.fields]]
 name = "battle_binding_id"
 type = "ref<BattleBinding.id>"
@@ -401,8 +401,8 @@ unique = true
 name = "BattleParticipantSlot"
 mode = "list"
 [tables.source]
-format = "toml"
-file = "BattleParticipantSlot.toml"
+format = "xlsx"
+file = "BattleParticipantSlot.xlsx"
 [[tables.fields]]
 name = "battle_binding_id"
 type = "ref<BattleBinding.id>"

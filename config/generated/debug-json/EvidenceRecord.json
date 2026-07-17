@@ -1,0 +1,71 @@
+{
+  "table": {
+    "name": "EvidenceRecord",
+    "rows": [
+      {
+        "values": {
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "SourcePayload"
+          },
+          "note": {
+            "String": "Pinned released-data source identity used by the prepared pack."
+          },
+          "sha256": {
+            "String": "950345cdd65c22b3a5f4e075ccea139d2cf8a181ea887e94cb64f0934eaa1cdd"
+          },
+          "source_record_id": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "evidence.source.dimbreath-v4.4"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "SourcePayload"
+          },
+          "note": {
+            "String": "Pinned released-data/fallback source identity used by the prepared pack."
+          },
+          "sha256": {
+            "String": "2f281182f2e81fb13831c5ef15c840055c486ca0ecef57f84dba5d6836af14b4"
+          },
+          "source_record_id": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "evidence.source.mar-7th-v4.4"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "SourcePayload"
+          },
+          "note": {
+            "String": "Deterministically normalized Version 4.4 reference pack; bootstrap evidence only."
+          },
+          "sha256": {
+            "String": "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a"
+          },
+          "source_record_id": "Null",
+          "stable_key": {
+            "String": "evidence.reference-pack.v4.4"
+          }
+        }
+      }
+    ]
+  }
+}

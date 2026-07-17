@@ -44,8 +44,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "EnemyTemplate.toml"
+format = "xlsx"
+file = "EnemyTemplate.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -70,8 +70,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "EnemyVariant.toml"
+format = "xlsx"
+file = "EnemyVariant.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -100,8 +100,8 @@ name = "EnemyStat"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "EnemyStat.toml"
+format = "xlsx"
+file = "EnemyStat.xlsx"
 
 [[tables.fields]]
 name = "variant_id"
@@ -157,8 +157,8 @@ name = "EnemyWeakness"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "EnemyWeakness.toml"
+format = "xlsx"
+file = "EnemyWeakness.xlsx"
 
 [[tables.fields]]
 name = "variant_id"
@@ -188,8 +188,8 @@ name = "EnemyResistance"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "EnemyResistance.toml"
+format = "xlsx"
+file = "EnemyResistance.xlsx"
 
 [[tables.fields]]
 name = "variant_id"
@@ -214,8 +214,8 @@ name = "EnemyDebuffResistance"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "EnemyDebuffResistance.toml"
+format = "xlsx"
+file = "EnemyDebuffResistance.xlsx"
 
 [[tables.fields]]
 name = "variant_id"
@@ -241,8 +241,8 @@ name = "EnemyToughnessLayer"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "EnemyToughnessLayer.toml"
+format = "xlsx"
+file = "EnemyToughnessLayer.xlsx"
 
 [[tables.fields]]
 name = "variant_id"
@@ -292,8 +292,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "EnemyAbility.toml"
+format = "xlsx"
+file = "EnemyAbility.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -332,8 +332,8 @@ name = "EnemyVariantAbility"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "EnemyVariantAbility.toml"
+format = "xlsx"
+file = "EnemyVariantAbility.xlsx"
 
 [[tables.fields]]
 name = "variant_id"
@@ -364,8 +364,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "EnemyPhase.toml"
+format = "xlsx"
+file = "EnemyPhase.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -450,8 +450,8 @@ name = "EnemyLink"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "EnemyLink.toml"
+format = "xlsx"
+file = "EnemyLink.xlsx"
 
 [[tables.fields]]
 name = "owner_variant_id"

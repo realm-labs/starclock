@@ -54,6 +54,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 30. [Character and build configuration schema](character-build-configuration-schema.md) — Sora contracts for abilities, hit plans, characters, Traces, Eidolons, build patches and Light Cones.
 31. [Typed Rule IR configuration schema](rule-ir-configuration-schema.md) — transport contracts for rules, slots, triggers, expressions, selectors, operations, effects, modifiers and native-handler metadata.
 32. [Enemy, encounter and Standard configuration schema](enemy-standard-configuration-schema.md) — enemy variants, deterministic AI, waves and the minimum generic Activity/BattleBinding/result-projection seam for Standard battles.
+33. [Production configuration pipeline](production-configuration-pipeline.md) — authoritative `.xlsx` workbooks, deterministic no-overwrite bootstrap, Sora exports/readers and the private data conversion boundary.
 
 ## Execution goals
 

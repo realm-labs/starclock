@@ -28,8 +28,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "Effect.toml"
+format = "xlsx"
+file = "Effect.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -86,8 +86,8 @@ name = "EffectTag"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "EffectTag.toml"
+format = "xlsx"
+file = "EffectTag.xlsx"
 
 [[tables.fields]]
 name = "effect_id"
@@ -118,8 +118,8 @@ name = "EffectModifierBinding"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "EffectModifierBinding.toml"
+format = "xlsx"
+file = "EffectModifierBinding.xlsx"
 
 [[tables.fields]]
 name = "effect_id"
@@ -149,8 +149,8 @@ name = "EffectRuleBinding"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "EffectRuleBinding.toml"
+format = "xlsx"
+file = "EffectRuleBinding.xlsx"
 
 [[tables.fields]]
 name = "effect_id"
@@ -180,8 +180,8 @@ name = "EffectGrantedAbility"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "EffectGrantedAbility.toml"
+format = "xlsx"
+file = "EffectGrantedAbility.xlsx"
 
 [[tables.fields]]
 name = "effect_id"

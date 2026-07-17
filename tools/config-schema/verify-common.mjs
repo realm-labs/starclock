@@ -25,6 +25,7 @@ fs.rmSync(work, { recursive: true, force: true });
 fs.mkdirSync(path.join(work, "config/schema"), { recursive: true });
 fs.mkdirSync(project, { recursive: true });
 fs.cpSync(path.join(root, "config/schema"), path.join(work, "config/schema"), { recursive: true });
+prepareTomlSchemas(path.join(work, "config/schema"));
 for (const name of ["project.toml", "schema", "data"]) {
   const source = path.join(fixture, name);
   const target = path.join(project, name);
@@ -233,3 +234,10 @@ function isSha256(value) { return typeof value === "string" && /^[0-9a-f]{64}$/u
 function readJson(file) { return JSON.parse(fs.readFileSync(file, "utf8")); }
 function relativeCommand(command) { return path.isAbsolute(command) ? path.relative(root, command).replaceAll("\\", "/") : command; }
 function assert(condition, message) { if (!condition) throw new Error(message); }
+
+function prepareTomlSchemas(directory) {
+  for (const file of walk(directory).filter((candidate) => candidate.endsWith(".toml"))) {
+    const source = fs.readFileSync(file, "utf8");
+    fs.writeFileSync(file, source.replaceAll('format = "xlsx"', 'format = "toml"').replace(/file = "([A-Za-z0-9_-]+)\.xlsx"/g, 'file = "$1.toml"'));
+  }
+}

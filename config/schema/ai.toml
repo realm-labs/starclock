@@ -16,8 +16,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "AiGraph.toml"
+format = "xlsx"
+file = "AiGraph.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -38,8 +38,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "AiState.toml"
+format = "xlsx"
+file = "AiState.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -78,8 +78,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "AiCandidate.toml"
+format = "xlsx"
+file = "AiCandidate.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -153,8 +153,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "AiTransition.toml"
+format = "xlsx"
+file = "AiTransition.xlsx"
 
 [[tables.fields]]
 name = "id"

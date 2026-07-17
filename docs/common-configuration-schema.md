@@ -67,6 +67,7 @@ Its identity is disabled and
 explicitly labeled synthetic. It is not a production authoring path, runtime
 input, V1a probe or coverage row.
 
-`G01-P1-B10` owns the deliberate table-source migration to generated/synchronized
-`.xlsx` workbooks, the production Sora project, generated reader and validated
-row-to-domain conversion. No production command reads this fixture bundle.
+`G01-P1-B10` installs the deliberate table-source migration to
+generated/synchronized `.xlsx` workbooks, the production Sora project and
+generated reader. B11 owns validated row-to-domain conversion. No production
+command reads this fixture bundle.

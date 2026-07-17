@@ -126,7 +126,7 @@ unlocked participants, undeclared Standard result fields and challenge flags.
 All 40 composed identities remain disabled `ProjectFixture` evidence. The
 fixture is not a JSON runtime path and grants no coverage.
 
-Production tables remain `.xlsx`-authored and exported by pinned Sora in
-`G01-P1-B10`. `G01-P1-B11` owns complete cross-row domain validation and
+Production tables remain `.xlsx`-authored and exported through the pinned Sora
+pipeline installed in `G01-P1-B10`. `G01-P1-B11` owns cross-row domain validation and
 conversion into immutable catalogs. Runtime AI, Activity execution and
 Standard encounter execution remain later Goal 01 batches.

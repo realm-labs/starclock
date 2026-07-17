@@ -86,8 +86,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "Selector.toml"
+format = "xlsx"
+file = "Selector.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -156,8 +156,8 @@ name = "SelectorPredicate"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "SelectorPredicate.toml"
+format = "xlsx"
+file = "SelectorPredicate.xlsx"
 
 [[tables.fields]]
 name = "selector_id"

@@ -8,8 +8,8 @@ mode = "map"
 key = "id"
 
 [tables.source]
-format = "toml"
-file = "LightCone.toml"
+format = "xlsx"
+file = "LightCone.xlsx"
 
 [[tables.fields]]
 name = "id"
@@ -37,8 +37,8 @@ name = "LightConeStat"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "LightConeStat.toml"
+format = "xlsx"
+file = "LightConeStat.xlsx"
 
 [[tables.fields]]
 name = "light_cone_id"
@@ -79,8 +79,8 @@ name = "LightConeSuperimposition"
 mode = "list"
 
 [tables.source]
-format = "toml"
-file = "LightConeSuperimposition.toml"
+format = "xlsx"
+file = "LightConeSuperimposition.xlsx"
 
 [[tables.fields]]
 name = "light_cone_id"

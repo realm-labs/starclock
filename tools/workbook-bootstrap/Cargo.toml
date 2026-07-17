@@ -1,0 +1,15 @@
+[package]
+name = "starclock-workbook-bootstrap"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[[bin]]
+name = "starclock-workbook-bootstrap"
+path = "main.rs"
+
+[dependencies]
+calamine = { version = "=0.35.0", default-features = false, features = ["dates"] }
+rust_xlsxwriter = { version = "=0.96.0", default-features = false, features = ["constant_memory"] }
+
+[workspace]

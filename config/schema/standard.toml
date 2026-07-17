@@ -7,8 +7,8 @@ name = "StandardProfile"
 mode = "map"
 key = "id"
 [tables.source]
-format = "toml"
-file = "StandardProfile.toml"
+format = "xlsx"
+file = "StandardProfile.xlsx"
 [[tables.fields]]
 name = "id"
 type = "ref<ContentIdentity.id>"
@@ -41,8 +41,8 @@ name = "StandardScenario"
 mode = "map"
 key = "id"
 [tables.source]
-format = "toml"
-file = "StandardScenario.toml"
+format = "xlsx"
+file = "StandardScenario.xlsx"
 [[tables.fields]]
 name = "id"
 type = "ref<ContentIdentity.id>"
