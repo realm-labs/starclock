@@ -9,3 +9,5 @@ it is never opened by runtime code.
 Run `node tools/config-production/bootstrap.mjs --output config/data` only when
 the output directory does not exist. Normal regeneration uses
 `node tools/config-production/verify.mjs`; it never writes designer workbooks.
+`node tools/config-catalog/verify.mjs` independently proves real-bundle domain
+construction with an isolated representative fixture.

@@ -58,6 +58,10 @@
       "command": ["node", "tools/config-production/verify.mjs"]
     },
     {
+      "name": "representative domain-catalog golden",
+      "command": ["node", "tools/config-catalog/verify.mjs"]
+    },
+    {
       "name": "cached source and prepared-pack regeneration",
       "command": ["node", "tools/goal-provenance/generate.mjs", "--check"],
       "requires": "source-cache"

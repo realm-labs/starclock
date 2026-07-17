@@ -10,3 +10,4 @@
 mod generated;
 
 pub mod bundle;
+pub mod catalog;

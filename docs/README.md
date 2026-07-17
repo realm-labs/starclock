@@ -6,8 +6,9 @@ The target is a headless battle kernel plus a generic activity orchestrator that
 
 **Current repository status:** implementation in progress. The normalized
 Version 4.4 content reference pack and the responsibility-separated Rust
-workspace exist, but production Excel workbooks, Sora bundle, executable
-catalogs, battle runtime and CLI commands are not completed artifacts. See the
+workspace, production Excel/Sora pipeline and validated empty catalog exist,
+but released executable content, battle runtime and CLI commands are not
+completed artifacts. See the
 [Goal 01 status ledger](goals/01-core-combat-and-content-status.md).
 
 ## Research baseline
@@ -55,6 +56,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 31. [Typed Rule IR configuration schema](rule-ir-configuration-schema.md) — transport contracts for rules, slots, triggers, expressions, selectors, operations, effects, modifiers and native-handler metadata.
 32. [Enemy, encounter and Standard configuration schema](enemy-standard-configuration-schema.md) — enemy variants, deterministic AI, waves and the minimum generic Activity/BattleBinding/result-projection seam for Standard battles.
 33. [Production configuration pipeline](production-configuration-pipeline.md) — authoritative `.xlsx` workbooks, deterministic no-overwrite bootstrap, Sora exports/readers and the private data conversion boundary.
+34. [Catalog construction boundary](catalog-construction-boundary.md) — validated real-bundle loading, empty/representative private definitions and clean-regeneration evidence.
 
 ## Execution goals
 

@@ -51,8 +51,9 @@ Sora and compares binary and diagnostic bytes; it never writes `config/data`.
 
 `starclock-data::bundle::inspect` accepts bytes and calls only the generated
 `SoraBundle` reader. It returns Starclock-owned manifest metadata and counts;
-generated rows and Sora errors do not appear in public signatures. Domain
-catalog construction follows in `G01-P1-B11`.
+generated rows and Sora errors do not appear in public signatures.
+`starclock-data::catalog::load` adds the `G01-P1-B11` domain-validation boundary
+and returns an immutable shared catalog without exposing generated types.
 
 The boundary has no filesystem or JSON parser. A regression test passes
 diagnostic JSON bytes and requires Sora's magic check to reject them. Production
@@ -77,4 +78,7 @@ artifacts with the 274-file golden. Raw `.xlsx` ZIP bytes are not runtime IDs.
 The stable output digest is
 `120fe8235e582e825e38a7bb2a6887e0648b2408261e0d4628c4f1800e64089e`.
 It contains 283 disabled identities, zero enabled identities and zero executable
-domain rows, so B10 changes no Goal 01 `DataReady` coverage.
+domain rows, so it constructs a validated empty-domain catalog and changes no
+Goal 01 `DataReady` coverage. The separately committed representative real
+bundle and double-regeneration gate are documented in
+[Catalog construction boundary](catalog-construction-boundary.md).
