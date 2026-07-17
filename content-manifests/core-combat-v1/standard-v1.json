@@ -1,0 +1,648 @@
+{
+  "schema_revision": "starclock-goal-manifest-v1",
+  "goal_id": "core-combat-v1",
+  "snapshot": "4.4",
+  "generated_on": "2026-07-17",
+  "reference_pack_sha256": "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+  "kind": "StandardV1",
+  "profile": {
+    "id": "profile.standard-v1",
+    "inclusion_state": "Required",
+    "implementation_state": "Pending",
+    "implicit_clock": false,
+    "implicit_score": false,
+    "implicit_season_rules": false,
+    "default_wave_transition": "AfterAction"
+  },
+  "enemies": [
+    {
+      "id": "enemy.abundance-sprite-golden-hound.minionlv2.variant.01",
+      "variant_reference_id": "enemy.abundance-sprite-golden-hound.minionlv2.variant.01",
+      "template_reference_id": "enemy.abundance-sprite-golden-hound.minionlv2",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.aurumaton-gatekeeper.elite.variant.01",
+      "variant_reference_id": "enemy.aurumaton-gatekeeper.elite.variant.01",
+      "template_reference_id": "enemy.aurumaton-gatekeeper.elite",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.automaton-spider.minionlv2.variant.01",
+      "variant_reference_id": "enemy.automaton-spider.minionlv2.variant.01",
+      "template_reference_id": "enemy.automaton-spider.minionlv2",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.cocolia-mother-of-deception.bigboss.variant.01",
+      "variant_reference_id": "enemy.cocolia-mother-of-deception.bigboss.variant.01",
+      "template_reference_id": "enemy.cocolia-mother-of-deception.bigboss",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.disciples-of-sanctus-medicus-ballistarius.minionlv2.variant.01",
+      "variant_reference_id": "enemy.disciples-of-sanctus-medicus-ballistarius.minionlv2.variant.01",
+      "template_reference_id": "enemy.disciples-of-sanctus-medicus-ballistarius.minionlv2",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01",
+      "variant_reference_id": "enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01",
+      "template_reference_id": "enemy.disciples-of-sanctus-medicus-shape-shifter.elite",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.eclipse-wolftrooper.minionlv2.variant.01",
+      "variant_reference_id": "enemy.eclipse-wolftrooper.minionlv2.variant.01",
+      "template_reference_id": "enemy.eclipse-wolftrooper.minionlv2",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.entranced-ingenium-illumination-dragonfish.minionlv2.variant.01",
+      "variant_reference_id": "enemy.entranced-ingenium-illumination-dragonfish.minionlv2.variant.01",
+      "template_reference_id": "enemy.entranced-ingenium-illumination-dragonfish.minionlv2",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.flamespawn.minion.variant.01",
+      "variant_reference_id": "enemy.flamespawn.minion.variant.01",
+      "template_reference_id": "enemy.flamespawn.minion",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.frostspawn.minion.variant.01",
+      "variant_reference_id": "enemy.frostspawn.minion.variant.01",
+      "template_reference_id": "enemy.frostspawn.minion",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.harmonious-choir-the-great-septimus.bigboss.variant.01",
+      "variant_reference_id": "enemy.harmonious-choir-the-great-septimus.bigboss.variant.01",
+      "template_reference_id": "enemy.harmonious-choir-the-great-septimus.bigboss",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.incineration-shadewalker.minionlv2.variant.01",
+      "variant_reference_id": "enemy.incineration-shadewalker.minionlv2.variant.01",
+      "template_reference_id": "enemy.incineration-shadewalker.minionlv2",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.mara-struck-soldier.minionlv2.variant.01",
+      "variant_reference_id": "enemy.mara-struck-soldier.minionlv2.variant.01",
+      "template_reference_id": "enemy.mara-struck-soldier.minionlv2",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.mara-struck-warden.minionlv2.variant.01",
+      "variant_reference_id": "enemy.mara-struck-warden.minionlv2.variant.01",
+      "template_reference_id": "enemy.mara-struck-warden.minionlv2",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.sableclaw-wolftrooper.minionlv2.variant.01",
+      "variant_reference_id": "enemy.sableclaw-wolftrooper.minionlv2.variant.01",
+      "template_reference_id": "enemy.sableclaw-wolftrooper.minionlv2",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.voidranger-reaver.minionlv2.variant.01",
+      "variant_reference_id": "enemy.voidranger-reaver.minionlv2.variant.01",
+      "template_reference_id": "enemy.voidranger-reaver.minionlv2",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    },
+    {
+      "id": "enemy.voidranger-trampler.elite.variant.01",
+      "variant_reference_id": "enemy.voidranger-trampler.elite.variant.01",
+      "template_reference_id": "enemy.voidranger-trampler.elite",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "reference_quality": "ExactStructured",
+      "template_reference_quality": "ExactStructured"
+    }
+  ],
+  "encounters": [
+    {
+      "id": "encounter.cocoon.0001",
+      "reference_id": "encounter.cocoon.0001",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "archetypes": [
+        "BasicSingleWave"
+      ],
+      "note": "One public single wave with ordinary single-target enemy actions.",
+      "source_stage_id": "1022010"
+    },
+    {
+      "id": "encounter.mainline.0541",
+      "reference_id": "encounter.mainline.0541",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "archetypes": [
+        "CrowdControlAndDot",
+        "DefeatRevivalOrReturn",
+        "DeterministicMultiWave",
+        "PostActionWaveAdvancement",
+        "SummonerOrReplaceableEntity",
+        "TargetInvalidation"
+      ],
+      "note": "Three public waves with DoT, Mara revival, and a final Shape Shifter summoner.",
+      "source_stage_id": "202410600"
+    },
+    {
+      "id": "encounter.farmelement.0008",
+      "reference_id": "encounter.farmelement.0008",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "archetypes": [
+        "CrowdControlAndDot",
+        "EliteWithAdds",
+        "TargetInvalidation"
+      ],
+      "note": "Aurumaton Gatekeeper with two Dragonfish adds and authored crowd control.",
+      "source_stage_id": "1012100"
+    },
+    {
+      "id": "encounter.mainline.0276",
+      "reference_id": "encounter.mainline.0276",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "archetypes": [
+        "CrowdControlAndDot",
+        "MultiPhaseBoss"
+      ],
+      "note": "Cocolia, Mother of Deception with explicit phase-changing abilities.",
+      "source_stage_id": "201330030"
+    },
+    {
+      "id": "encounter.mainline.0755",
+      "reference_id": "encounter.mainline.0755",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "archetypes": [
+        "MultiPhaseBoss",
+        "ToughnessLayerRouting"
+      ],
+      "note": "Great Septimus with three authored Toughness layers and phase-tagged abilities.",
+      "source_stage_id": "203320520"
+    },
+    {
+      "id": "encounter.mainline.1253",
+      "reference_id": "encounter.mainline.1253",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "archetypes": [
+        "CrowdControlAndDot",
+        "DefeatRevivalOrReturn",
+        "DeterministicMultiWave",
+        "EliteWithAdds",
+        "PostActionWaveAdvancement",
+        "SummonerOrReplaceableEntity",
+        "TargetInvalidation"
+      ],
+      "note": "Three public waves with Burn, control, revive/return, self-destruction, and summoning.",
+      "source_stage_id": "430030010"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "scenario.standard-v1.basic-single-wave",
+      "encounter_id": "encounter.cocoon.0001",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "seed": "104729",
+      "controller": "baseline-v1",
+      "required_target_shapes": [
+        "AoE",
+        "Blast",
+        "Bounce",
+        "SingleTarget",
+        "Support"
+      ],
+      "builds": [
+        {
+          "form_id": "character.asta",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.chorus",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        },
+        {
+          "form_id": "character.dan-heng",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.adversarial",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        },
+        {
+          "form_id": "character.march-7th.preservation",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.amber",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        },
+        {
+          "form_id": "character.natasha",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.cornucopia",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        }
+      ]
+    },
+    {
+      "id": "scenario.standard-v1.multi-wave-dot-revival",
+      "encounter_id": "encounter.mainline.0541",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "seed": "209759",
+      "controller": "baseline-v1",
+      "required_target_shapes": [
+        "AoE",
+        "Blast",
+        "Bounce",
+        "SingleTarget",
+        "Support"
+      ],
+      "builds": [
+        {
+          "form_id": "character.kafka",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.hidden-shadow",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        },
+        {
+          "form_id": "character.sampo",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.loop",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        },
+        {
+          "form_id": "character.asta",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.meshing-cogs",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        },
+        {
+          "form_id": "character.bailu",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.fine-fruit",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        }
+      ]
+    },
+    {
+      "id": "scenario.standard-v1.elite-control-counter",
+      "encounter_id": "encounter.farmelement.0008",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "seed": "314159",
+      "controller": "baseline-v1",
+      "required_target_shapes": [
+        "AoE",
+        "Blast",
+        "SingleTarget",
+        "Support"
+      ],
+      "builds": [
+        {
+          "form_id": "character.clara",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.mutual-demise",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        },
+        {
+          "form_id": "character.tingyun",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.mediation",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        },
+        {
+          "form_id": "character.march-7th.preservation",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.defense",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        },
+        {
+          "form_id": "character.lynx",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.multiplication",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        }
+      ]
+    },
+    {
+      "id": "scenario.standard-v1.cocolia-phase-change",
+      "encounter_id": "encounter.mainline.0276",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "seed": "419431",
+      "controller": "baseline-v1",
+      "required_target_shapes": [
+        "AoE",
+        "Blast",
+        "Bounce",
+        "Enhance",
+        "SingleTarget",
+        "Support"
+      ],
+      "builds": [
+        {
+          "form_id": "character.firefly",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "MaximumGameLegal",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 6,
+          "light_cone_id": "light-cone.collapsing-sky",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 5
+        },
+        {
+          "form_id": "character.ruan-mei",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "MaximumGameLegal",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 6,
+          "light_cone_id": "light-cone.meshing-cogs",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 5
+        },
+        {
+          "form_id": "character.trailblazer.harmony",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "MaximumGameLegal",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 6,
+          "light_cone_id": "light-cone.chorus",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 5
+        },
+        {
+          "form_id": "character.gallagher",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "MaximumGameLegal",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 6,
+          "light_cone_id": "light-cone.cornucopia",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 5
+        }
+      ]
+    },
+    {
+      "id": "scenario.standard-v1.layered-toughness",
+      "encounter_id": "encounter.mainline.0755",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "seed": "524287",
+      "controller": "baseline-v1",
+      "required_target_shapes": [
+        "AoE",
+        "Blast",
+        "Bounce",
+        "Enhance",
+        "SingleTarget",
+        "Support"
+      ],
+      "builds": [
+        {
+          "form_id": "character.firefly",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.shattered-home",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        },
+        {
+          "form_id": "character.fugue",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.void",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        },
+        {
+          "form_id": "character.ruan-mei",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.mediation",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        },
+        {
+          "form_id": "character.gallagher",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "StandardMaximum",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 0,
+          "light_cone_id": "light-cone.multiplication",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 1
+        }
+      ]
+    },
+    {
+      "id": "scenario.standard-v1.target-invalidation-and-return",
+      "encounter_id": "encounter.mainline.1253",
+      "inclusion_state": "Required",
+      "implementation_state": "Pending",
+      "seed": "629137",
+      "controller": "baseline-v1",
+      "required_target_shapes": [
+        "AoE",
+        "Blast",
+        "Bounce",
+        "SingleTarget",
+        "Support"
+      ],
+      "builds": [
+        {
+          "form_id": "character.herta",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "MaximumGameLegal",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 6,
+          "light_cone_id": "light-cone.data-bank",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 5
+        },
+        {
+          "form_id": "character.himeko",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "MaximumGameLegal",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 6,
+          "light_cone_id": "light-cone.passkey",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 5
+        },
+        {
+          "form_id": "character.asta",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "MaximumGameLegal",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 6,
+          "light_cone_id": "light-cone.chorus",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 5
+        },
+        {
+          "form_id": "character.bailu",
+          "character_level": 80,
+          "character_promotion": 6,
+          "ability_level_profile": "MaximumGameLegal",
+          "trace_profile": "AllBattleRelevant",
+          "eidolon": 6,
+          "light_cone_id": "light-cone.fine-fruit",
+          "light_cone_level": 80,
+          "light_cone_promotion": 6,
+          "superimposition": 5
+        }
+      ]
+    }
+  ]
+}
