@@ -20,6 +20,7 @@ This matrix reports the current documentation milestone. It does not claim that 
 | Toughness, Break, Super Break, layers | `04`, `12` | Research baseline | Provider-specific Exo/multi-layer rows and observations. |
 | Effects, resources, aggro | `05`, `12` | Research baseline | Full content validation plus targeting/effect fixtures. |
 | Workspace and APIs | `06`, `08` | Normative | Compiling workspace obeying dependency/visibility/file-size gates. |
+| Core implementation ownership and resolver design | `20` | Normative | Compiling aggregate, stores, lowering, transaction, operation/event pipeline, and command-to-hash vertical slice. |
 | Excel/Sora pipeline | `07` | Normative design | Pinned Sora project, templates, workbooks, generated readers, and bundle. |
 | Fixed point, RNG, hashing | `09`, `16` | Normative | Cross-platform codec/RNG/hash golden vectors. |
 | Rule IR/native handlers | `11` | Normative | Schema plus interpreter/registry tests. |

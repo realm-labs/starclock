@@ -163,3 +163,5 @@ These rules are implementation policies until golden observations establish stri
 - final display rounding is outside the simulation, while state-changing integer amounts use one documented rounding policy covered by tests.
 
 The normative ordering, wave, fault, and event-cause rules are specified in [Lifecycle and resolution](10-lifecycle-and-resolution.md).
+
+The concrete Rust ownership, identity, store, lowering, operation, transaction, and module contracts are specified in [Core implementation design](20-core-implementation-design.md).
