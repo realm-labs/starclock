@@ -40,6 +40,10 @@
       {
         "path": "crates/starclock-activity/src/lib.rs",
         "reason": "Deliberate small Activity facade over private aggregate, scope, lock, projection and canonical-codec modules."
+      },
+      {
+        "path": "crates/starclock-mode-standard/src/lib.rs",
+        "reason": "Deliberate small Standard profile facade over its private one-battle profile/scenario construction module."
       }
     ],
     "forbidden_public_api_tokens": ["fixnum::", "FixedPoint", "rand::", "sha2::", "ChaCha8Rng", "sora::"]

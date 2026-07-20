@@ -69,6 +69,26 @@ impl ParticipantPolicy {
     pub const fn loadout_lock_scope(self) -> LoadoutLockScope {
         self.lock_scope
     }
+
+    #[must_use]
+    pub const fn team_count(self) -> u8 {
+        self.team_count
+    }
+
+    #[must_use]
+    pub const fn minimum_team_size(self) -> u8 {
+        self.minimum_team_size
+    }
+
+    #[must_use]
+    pub const fn maximum_team_size(self) -> u8 {
+        self.maximum_team_size
+    }
+
+    #[must_use]
+    pub const fn uniqueness_scope(self) -> ParticipantUniquenessScope {
+        self.uniqueness
+    }
 }
 
 /// Opaque upstream build/resolved-spec identity retained only for locking.
