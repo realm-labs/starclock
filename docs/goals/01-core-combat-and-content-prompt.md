@@ -88,6 +88,14 @@ Repeat this loop until the Goal 01 status ledger is Complete:
    Do not use leaks, proprietary assets, long copied descriptions or guessed
    values. If sources
    conflict, register a Researching case instead of selecting a convenient value.
+   Researching must not stall the goal. If a bounded search cannot resolve a
+   required behavior, record an explicit deterministic Approximate or
+   ProjectPolicy decision with its evidence gap, selected behavior, rejected
+   alternatives, rationale, affected tests, confidence and replacement
+   condition. Resolve the implementation blocker as ResolvedProjectPolicy, then
+   implement it and continue. Preserve the unresolved observation envelope as a
+   future correction note; never present the decision as an observed game fact or
+   silently copy behavior from a similar character or similarly named ability.
 4. Implement the batch as one responsibility-bounded change. Include code,
    tests, schema/migration, generated output, provenance and documentation that
    belong to the batch. Do not add unrelated future-mode work.

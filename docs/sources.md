@@ -10,6 +10,39 @@ For this project:
 - **Observed** means a maintained community source reports the rule, but systematic independent confirmation is not included here.
 - **Project policy** means an intentional deterministic choice, not a claim about the original game.
 
+### Evidence priority and upstream admission
+
+Use the strongest available evidence for each fact, in this order:
+
+1. released in-game text or behavior, HoYoWiki, and publisher-authored HoYoLAB
+   announcements;
+2. a pinned revision of released structured data with an exact source path and
+   file hash;
+3. reproducible observations, including reviewed KQM Evidence Vault submissions
+   and Starclock golden fixtures;
+4. independently maintained formula wikis and theorycrafting guides;
+5. an explicitly approved project policy that remains labeled as such.
+
+HoYoLAB hosting alone does not make a user article official. A repository mirror
+or scraped database derived from the same underlying dump is not an independent
+cross-check. Player-profile APIs may confirm displayed builds, but they are not
+evidence for hidden combat rules.
+
+An admitted repository source records its remote, exact commit, relative path
+and content hash. An admitted web source records its canonical URL or stable
+entry/revision identifier, access date, released game version, confidence and a
+content hash when the page has no immutable revision. Dynamic pages may support
+short paraphrased facts; their bulk text is never vendored.
+
+Beta, preview-dump, leak, NDA-bound or otherwise unreleased material is forbidden
+even when publicly reachable. An unresolved question does not block Goal 01: after
+a bounded evidence search, record the gap and adopt an explicit deterministic
+`Approximate` or `ProjectPolicy` decision. It must preserve every known mechanic,
+state its rationale and replacement conditions, and remain distinguishable from
+an observed game fact. The implementation blocker then becomes
+`ResolvedProjectPolicy`; the retained observation note is a future correction
+gate, not an active Goal 01 blocker.
+
 ## Main references
 
 | Source | Used for | Confidence and caveat |
@@ -29,6 +62,8 @@ For this project:
 | [Star Rail Wiki — Follow-Up Attack](https://honkai-star-rail.fandom.com/wiki/Follow-Up_Attack) | Follow-up/counter semantics and priority | High for baseline; individual kit retarget rules remain authored data. |
 | [Star Rail Wiki — Extra Turn](https://honkai-star-rail.fandom.com/wiki/Extra_Turn) | Extra turn priority, no AG movement, duration behavior | High for baseline; special extra actions may differ. |
 | [Japanese WikiWiki — Damage Calculation](https://wikiwiki.jp/star-rail/%E3%83%80%E3%83%A1%E3%83%BC%E3%82%B8%E8%A8%88%E7%AE%97%E5%BC%8F) | Current cross-check for damage, stat, Super Break, and incoming damage formulas | Useful independent current-language reference; community-maintained. |
+| [HoYoWiki — Honkai: Star Rail](https://wiki.hoyolab.com/pc/hsr/home) | Released character, ability, equipment and enemy descriptions | Publisher-operated released-content reference. Record the stable entry ID, access date, game version and content hash because live pages can change and do not expose a complete executable specification. |
+| [KQM Star Rail Library](https://srl.keqingmains.com/) and [Evidence Vault](https://srl.keqingmains.com/evidence) | Reviewed combat-mechanic findings and their submitted observation evidence | Useful behavioral cross-check, not a current full-content or 4.4 numeric authority. When repository evidence is used, pin public revision [`de0e5c0`](https://github.com/KQM-git/SRL/commit/de0e5c09c8dbba9577367ad86e991fe91c4f0e36) reviewed on 2026-07-20 and retain the exact document path/hash. |
 
 ## Configuration tooling references
 
@@ -111,3 +146,6 @@ When updating the rules:
 5. update `rules_revision`, reference constants, and golden tests together;
 6. preserve old replay compatibility or explicitly migrate/reject it;
 7. mark unresolved conflicts instead of choosing the more convenient number.
+8. when bounded research does not resolve a required behavior, record an
+   explicit deterministic approximation or project policy, its alternatives,
+   affected tests and replacement conditions, then continue the owning batch.

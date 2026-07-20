@@ -20,6 +20,49 @@ rows; evidence references remain attached at fact or operation granularity.
 The first semantic reviews use the
 [content reference review fixtures](review-fixtures.md).
 
+## Evidence hierarchy and upstream admission
+
+Each authored fact uses the strongest available tier from
+[`docs/sources.md`](../sources.md): released official evidence, pinned released
+structured data, reproducible observations, then independent secondary
+cross-checks. A project policy is a labeled deterministic fallback, not source
+evidence and not permission to claim game parity.
+
+Before a new upstream contributes a fact:
+
+- a repository source records its remote, exact commit, relative path and file
+  hash;
+- a dynamic web source records its canonical URL or stable entry/revision ID,
+  access date, released game version, confidence and content hash when no
+  immutable revision exists;
+- a derived mirror identifies its original dataset and does not count as an
+  independent confirmation of that dataset;
+- player-profile/build APIs are limited to displayed player facts and cannot
+  establish combat formulas, trigger order, snapshotting or target policy;
+- beta, preview-dump, leak, NDA-bound and unreleased sources are rejected.
+
+HoYoWiki supplies publisher-operated released descriptions. KQM's Star Rail
+Library and Evidence Vault may supply reviewed observation evidence, but neither
+waives the dossier gates or replaces current-version structured numbers. Commit
+only short project-authored facts, locators and hashes; do not vendor their bulk
+text or media.
+
+If exact or observed evidence is unavailable after a bounded search, register
+the missing question and convert the implementation decision into an explicit
+deterministic `Approximate` or `ProjectPolicy` record. The record must preserve
+all known released facts and include the selected behavior, rejected alternatives,
+rationale, affected tests, confidence and the exact condition that will replace
+it when stronger evidence appears. Keep the unresolved observation envelope, but
+resolve the implementation blocker as `ResolvedProjectPolicy`; the missing
+observation remains a future correction note and does not block the owning batch.
+
+Such a row may become `DataReady` when its approximation metadata, provenance,
+domain validation and behavioral fixtures are complete. `DataReady` then means
+the authored executable policy is ready and auditable, not that the policy was
+observed in the original game. Never present an inferred decision as a sourced
+fact or silently copy behavior from a similar character or similarly named
+ability.
+
 ## Character dossier gate
 
 Before a character form can become `DataReady`, its review dossier must account
