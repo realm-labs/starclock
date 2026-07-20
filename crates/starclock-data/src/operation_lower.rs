@@ -3,7 +3,8 @@
 use std::collections::BTreeSet;
 
 use starclock_combat::{
-    AbilityId, EffectDefinitionId, ProgramId, Rounding, SelectorId,
+    AbilityId, EffectDefinitionId, PresenceState, ProgramId, Rounding, SelectorId,
+    UnitDefinitionId,
     formula::model::{CombatElement, DamageClass},
     rule::{
         evaluate::ProgramLookup,
@@ -18,7 +19,7 @@ use crate::{
     catalog::{CatalogLoadError, SimulationCatalog, domain_fail},
     generated::{
         self, SoraConfig, combat_element, damage_class, effect_chance_policy, operation_payload,
-        program_step_node, resource_kind, resource_update_kind, rounding_policy,
+        presence_state, program_step_node, resource_kind, resource_update_kind, rounding_policy,
         state_slot_update_kind,
     },
 };
@@ -298,6 +299,40 @@ fn lower_operation(
         Payload::GrantExtraTurn { actor_selector_id } => RuleOperationTemplate::GrantExtraTurn {
             actor_selector: selector_id(*actor_selector_id)?,
         },
+        Payload::Summon {
+            unit_definition_identity_id,
+            owner_selector_id,
+        } => RuleOperationTemplate::Summon {
+            owner_selector: selector_id(*owner_selector_id)?,
+            unit_definition: UnitDefinitionId::new(positive(*unit_definition_identity_id)?)
+                .expect("positive summoned unit-definition ID"),
+        },
+        Payload::Despawn {} => RuleOperationTemplate::Despawn {
+            selector: selector()?,
+        },
+        Payload::Transform {
+            replacement_definition_identity_id,
+        } => RuleOperationTemplate::Transform {
+            selector: selector()?,
+            replacement_definition: UnitDefinitionId::new(positive(
+                *replacement_definition_identity_id,
+            )?)
+            .expect("positive replacement unit-definition ID"),
+        },
+        Payload::ReplaceAbility {
+            old_ability_id,
+            new_ability_id,
+        } => RuleOperationTemplate::ReplaceAbility {
+            selector: selector()?,
+            old_ability: AbilityId::new(positive(*old_ability_id)?)
+                .expect("positive old ability ID"),
+            new_ability: AbilityId::new(positive(*new_ability_id)?)
+                .expect("positive new ability ID"),
+        },
+        Payload::ChangePresence { presence } => RuleOperationTemplate::ChangePresence {
+            selector: selector()?,
+            presence: lower_presence(*presence),
+        },
         Payload::EmitRuleEvent { .. } if row.target_selector_id.is_none() => {
             RuleOperationTemplate::CreateCountdown {
                 code: positive(row.id)?,
@@ -310,6 +345,17 @@ fn lower_operation(
             )));
         }
     })
+}
+
+fn lower_presence(value: presence_state::PresenceState) -> PresenceState {
+    match value {
+        presence_state::PresenceState::Present => PresenceState::Present,
+        presence_state::PresenceState::Reserved => PresenceState::Reserved,
+        presence_state::PresenceState::Departed => PresenceState::Departed,
+        presence_state::PresenceState::Untargetable => PresenceState::Untargetable,
+        presence_state::PresenceState::Linked => PresenceState::Linked,
+        presence_state::PresenceState::Transformed => PresenceState::Transformed,
+    }
 }
 
 fn lower_effect_chance(value: effect_chance_policy::EffectChancePolicy) -> RuleEffectChancePolicy {

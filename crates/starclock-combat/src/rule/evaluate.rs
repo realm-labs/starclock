@@ -460,6 +460,43 @@ fn evaluate_operation(
             actor_selector: *actor_selector,
             current_target,
         },
+        RuleOperationTemplate::Summon {
+            owner_selector,
+            unit_definition,
+        } => RuleEmission::Summon {
+            owner_selector: *owner_selector,
+            unit_definition: *unit_definition,
+            current_target,
+        },
+        RuleOperationTemplate::Despawn { selector } => RuleEmission::Despawn {
+            selector: *selector,
+            current_target,
+        },
+        RuleOperationTemplate::Transform {
+            selector,
+            replacement_definition,
+        } => RuleEmission::Transform {
+            selector: *selector,
+            replacement_definition: *replacement_definition,
+            current_target,
+        },
+        RuleOperationTemplate::ReplaceAbility {
+            selector,
+            old_ability,
+            new_ability,
+        } => RuleEmission::ReplaceAbility {
+            selector: *selector,
+            old_ability: *old_ability,
+            new_ability: *new_ability,
+            current_target,
+        },
+        RuleOperationTemplate::ChangePresence { selector, presence } => {
+            RuleEmission::ChangePresence {
+                selector: *selector,
+                presence: *presence,
+                current_target,
+            }
+        }
         RuleOperationTemplate::CreateCountdown { code } => RuleEmission::CreateCountdown {
             code: *code,
             current_target,

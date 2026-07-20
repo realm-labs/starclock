@@ -12,7 +12,7 @@ pub(crate) fn can_pay(
 ) -> bool {
     units.get(actor).is_some_and(|unit| {
         unit.life == crate::LifeState::Alive
-            && unit.presence == crate::PresenceState::Present
+            && unit.presence.is_active()
             && teams.get(unit.side).skill_points >= policy.skill_point_cost()
             && unit.current_energy >= policy.energy_cost()
     })

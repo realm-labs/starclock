@@ -26,6 +26,21 @@ pub enum ActionOrigin {
     ExtraAction = 6,
     /// Authored action held until a later reaction boundary.
     DelayedAction = 7,
+    /// Independently scheduled summon action.
+    SummonAction = 8,
+    /// Independently scheduled memosprite action.
+    MemospriteAction = 9,
+    /// Timeline-only countdown action.
+    Countdown = 10,
+}
+
+impl ActionOrigin {
+    pub(crate) const fn owns_timeline_turn(self) -> bool {
+        matches!(
+            self,
+            Self::NormalTurn | Self::SummonAction | Self::MemospriteAction | Self::Countdown
+        )
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -51,6 +66,7 @@ pub(crate) struct ActionPhasePlan {
 pub(crate) struct ActionPlan {
     pub(crate) id: ActionId,
     pub(crate) actor: UnitId,
+    pub(crate) owner: UnitId,
     pub(crate) ability: AbilityId,
     pub(crate) origin: ActionOrigin,
     pub(crate) normal_turn: Option<TimelineActorId>,

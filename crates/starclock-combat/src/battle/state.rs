@@ -182,6 +182,7 @@ pub(crate) struct BattleState {
     pub(crate) decision: Option<DecisionPoint>,
     pub(crate) units: UnitStore,
     pub(crate) actors: TimelineActorStore,
+    pub(crate) links: crate::actor::store::LinkStore,
     pub(crate) formations: FormationState,
     pub(crate) teams: TeamStateStore,
     pub(crate) shields: crate::effect::shield::ShieldStore,
@@ -209,6 +210,7 @@ impl BattleState {
             decision: self.decision.clone(),
             units: self.units.clone(),
             actors: self.actors.clone(),
+            links: self.links.clone(),
             formations: self.formations.clone(),
             teams: self.teams.clone(),
             shields: self.shields.clone(),
@@ -233,6 +235,7 @@ impl BattleState {
         self.decision.clone_from(&source.decision);
         self.units.clone_from(&source.units);
         self.actors.clone_from(&source.actors);
+        self.links.clone_from(&source.links);
         self.formations.clone_from(&source.formations);
         self.teams.clone_from(&source.teams);
         self.shields.clone_from(&source.shields);

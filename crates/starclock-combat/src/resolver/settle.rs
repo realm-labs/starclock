@@ -1,5 +1,5 @@
 use crate::{
-    BattlePhase, LifeState, PresenceState, TeamSide,
+    BattlePhase, LifeState, ParticipantSource, PresenceState, TeamSide,
     battle::fault::BattleFault,
     event::{
         cause::Cause,
@@ -58,6 +58,7 @@ pub(super) fn settle_after_action(
             number: current,
         }),
     );
+    parent = super::lifecycle::settle_wave_links(txn, cause, parent)?;
     let departing = txn
         .state
         .units
@@ -67,6 +68,7 @@ pub(super) fn settle_after_action(
         .collect::<Vec<_>>();
     for unit in departing {
         txn.set_presence(unit, PresenceState::Departed)?;
+        parent = super::lifecycle::settle_owner_departure(txn, cause, parent, unit)?;
     }
 
     let next = current.checked_add(1).ok_or_else(|| action_fault(40))?;
@@ -96,7 +98,12 @@ fn has_living_present(txn: &Transaction<'_>, side: TeamSide, wave: Option<u16>) 
     txn.state.units.iter_by_id().any(|unit| {
         unit.side == side
             && unit.life == LifeState::Alive
-            && unit.presence == PresenceState::Present
+            && unit.presence.is_active()
+            && matches!(
+                (side, unit.source),
+                (TeamSide::Player, ParticipantSource::Player)
+                    | (TeamSide::Enemy, ParticipantSource::EncounterEnemy(_))
+            )
             && wave.is_none_or(|number| unit.entry_wave == number)
     })
 }

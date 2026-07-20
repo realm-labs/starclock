@@ -1,7 +1,7 @@
 use crate::{
     UnitId,
     actor::{
-        model::{LifeState, PresenceState},
+        model::LifeState,
         store::{FormationState, UnitStore},
     },
     battle::spec::TeamSide,
@@ -93,14 +93,9 @@ pub(crate) fn resolve_for_hit(
                 .iter()
                 .copied()
                 .filter(|target| {
-                    units.get(*target).is_some_and(|unit| {
-                        matches!(
-                            unit.presence,
-                            PresenceState::Present
-                                | PresenceState::Untargetable
-                                | PresenceState::Transformed
-                        )
-                    })
+                    units
+                        .get(*target)
+                        .is_some_and(|unit| unit.presence.is_active())
                 })
                 .collect();
         }
@@ -228,9 +223,9 @@ fn stable_pool(
 }
 
 fn ordinarily_targetable(units: &UnitStore, target: UnitId) -> bool {
-    units.get(target).is_some_and(|unit| {
-        unit.life == LifeState::Alive && unit.presence == PresenceState::Present
-    })
+    units
+        .get(target)
+        .is_some_and(|unit| unit.life == LifeState::Alive && unit.presence.is_targetable())
 }
 
 const fn opposite(side: TeamSide) -> TeamSide {
@@ -244,7 +239,7 @@ const fn opposite(side: TeamSide) -> TeamSide {
 mod tests {
     use super::*;
     use crate::{
-        Energy, Hp,
+        Energy, Hp, PresenceState,
         actor::store::{FormationEntry, UnitState},
         battle::spec::{CombatantSpecDigest, FormationIndex, ParticipantSource, UnitLevel},
         id::{SpawnSequence, UnitDefinitionId},
@@ -290,6 +285,7 @@ mod tests {
             rule_bundles: Box::new([]),
             modifiers: Box::new([]),
             digest: CombatantSpecDigest::new([u8::try_from(id).unwrap(); 32]).unwrap(),
+            transformation: None,
         }
     }
 

@@ -27,3 +27,26 @@ pub enum PresenceState {
     /// Temporarily represented through an authored transformed state.
     Transformed,
 }
+
+impl PresenceState {
+    /// Whether the state participates in ordinary battle lifecycle settlement.
+    #[must_use]
+    pub const fn is_active(self) -> bool {
+        matches!(
+            self,
+            Self::Present | Self::Untargetable | Self::Linked | Self::Transformed
+        )
+    }
+
+    /// Whether a unit in this state can own an eligible timeline actor.
+    #[must_use]
+    pub const fn is_timeline_eligible(self) -> bool {
+        self.is_active()
+    }
+
+    /// Whether ordinary target pools may include this state.
+    #[must_use]
+    pub const fn is_targetable(self) -> bool {
+        matches!(self, Self::Present | Self::Linked | Self::Transformed)
+    }
+}

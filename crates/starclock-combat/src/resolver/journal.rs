@@ -2,6 +2,10 @@ use crate::{battle::model::BattlePhase, id::EventId};
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum AllocationKind {
+    Unit,
+    Actor,
+    Spawn,
+    Rule,
     Command,
     Decision,
     Event,
@@ -47,6 +51,14 @@ pub(crate) enum MutationField {
     Effect,
     RuleState,
     Encounter,
+    UnitStore,
+    ActorStore,
+    Formation,
+    LinkStore,
+    UnitDefinition,
+    UnitAbilities,
+    ActorActive,
+    Transformation,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -133,6 +133,8 @@ pub enum ParticipantSource {
     Player,
     /// One enemy definition listed by the selected encounter.
     EncounterEnemy(EnemyDefinitionId),
+    /// Battle-created linked entity attributed to a stable source definition.
+    Linked(crate::SourceDefinitionId),
 }
 
 /// Whether this battle profile offers explicit concession.

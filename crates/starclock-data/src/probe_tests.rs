@@ -23,8 +23,12 @@ use crate::catalog::{LoadMode, load_with_mode};
 const ASTA_PROBE: &[u8] = include_bytes!("../../../config/probes/v1a/asta-modifier/config.sora");
 const FIREFLY_PROBE: &[u8] =
     include_bytes!("../../../config/probes/v1a/firefly-damage/config.sora");
+const FIREFLY_TRANSFORM_PROBE: &[u8] =
+    include_bytes!("../../../config/probes/v1a/firefly-transform/config.sora");
 const KAFKA_PROBE: &[u8] = include_bytes!("../../../config/probes/v1a/kafka-dot/config.sora");
 const CLARA_PROBE: &[u8] = include_bytes!("../../../config/probes/v1a/clara-counter/config.sora");
+const AGLAEA_PROBE: &[u8] =
+    include_bytes!("../../../config/probes/v1a/aglaea-memosprite/config.sora");
 
 #[test]
 fn asta_ultimate_effect_keeps_an_independent_two_turn_clock() {
@@ -371,6 +375,85 @@ fn firefly_ultimate_visibility_order_precedes_action_advance() {
             ..
         } if value.scaled() == 1_000_000
     ));
+}
+
+#[test]
+fn firefly_transformation_program_keeps_form_ability_and_presence_order() {
+    let catalog = load_with_mode(FIREFLY_TRANSFORM_PROBE, LoadMode::Fixture)
+        .expect("Firefly transform probe lowers");
+    let emissions = evaluate_program(
+        &*catalog,
+        ProgramId::new(5).unwrap(),
+        firefly_input(&FireflyStats {
+            maximum_hp: 1,
+            attack: 1,
+        }),
+        EvaluationBudget::STANDARD,
+    )
+    .unwrap();
+    assert!(matches!(
+        emissions.as_slice(),
+        [
+            RuleEmission::Transform {
+                replacement_definition,
+                ..
+            },
+            RuleEmission::ReplaceAbility {
+                old_ability,
+                new_ability,
+                ..
+            },
+            RuleEmission::ChangePresence {
+                presence: starclock_combat::PresenceState::Transformed,
+                ..
+            }
+        ] if replacement_definition.get() == 2
+            && old_ability.get() == 3
+            && new_ability.get() == 4
+    ));
+}
+
+#[test]
+fn aglaea_memosprite_program_keeps_owner_link_and_departure_proposals() {
+    let catalog = load_with_mode(AGLAEA_PROBE, LoadMode::Fixture).expect("Aglaea probe lowers");
+    let emissions = evaluate_program(
+        &*catalog,
+        ProgramId::new(6).unwrap(),
+        firefly_input(&FireflyStats {
+            maximum_hp: 1,
+            attack: 1,
+        }),
+        EvaluationBudget::STANDARD,
+    )
+    .unwrap();
+    assert!(matches!(
+        emissions.as_slice(),
+        [
+            RuleEmission::Summon {
+                owner_selector,
+                unit_definition,
+                ..
+            },
+            RuleEmission::ChangePresence {
+                presence: starclock_combat::PresenceState::Linked,
+                ..
+            },
+            RuleEmission::Despawn { .. }
+        ] if owner_selector.get() == 1 && unit_definition.get() == 5
+    ));
+}
+
+#[test]
+fn production_loader_rejects_the_nonproduction_aglaea_probe() {
+    let error = crate::catalog::load(AGLAEA_PROBE).expect_err("probe cannot enter production");
+    assert_eq!(error.kind(), crate::catalog::CatalogLoadErrorKind::Metadata);
+}
+
+#[test]
+fn production_loader_rejects_the_nonproduction_firefly_transform_probe() {
+    let error = crate::catalog::load(FIREFLY_TRANSFORM_PROBE)
+        .expect_err("transform probe cannot enter production");
+    assert_eq!(error.kind(), crate::catalog::CatalogLoadErrorKind::Metadata);
 }
 
 #[test]

@@ -21,6 +21,12 @@ pub(crate) enum Operation {
     DetonateDots(DetonateDotsOp),
     ModifyStateSlot(ModifyStateSlotOp),
     QueueAction(QueueActionOp),
+    SummonLinked(SummonLinkedOp),
+    ChangePresence(ChangePresenceOp),
+    Transform(TransformOp),
+    EndTransformation(UnitLifecycleOp),
+    Revive(ReviveOp),
+    DespawnLinked(UnitLifecycleOp),
 }
 
 impl Operation {
@@ -38,8 +44,48 @@ impl Operation {
             Self::DetonateDots(operation) => operation.id,
             Self::ModifyStateSlot(operation) => operation.id,
             Self::QueueAction(operation) => operation.id,
+            Self::SummonLinked(operation) => operation.id,
+            Self::ChangePresence(operation) => operation.id,
+            Self::Transform(operation) => operation.id,
+            Self::EndTransformation(operation) => operation.id,
+            Self::Revive(operation) => operation.id,
+            Self::DespawnLinked(operation) => operation.id,
         }
     }
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct SummonLinkedOp {
+    pub(crate) id: OperationId,
+    pub(crate) owners: Box<[UnitId]>,
+    pub(crate) definition: crate::LinkedUnitDefinition,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct ChangePresenceOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) presence: crate::PresenceState,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct TransformOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) definition: crate::TransformationDefinition,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct ReviveOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) definition: crate::ReviveDefinition,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct UnitLifecycleOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

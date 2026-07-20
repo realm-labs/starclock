@@ -91,10 +91,15 @@ impl Battle {
                 rule_bundles: combatant.rule_bundles().into(),
                 modifiers: combatant.modifiers().into(),
                 digest: combatant.digest(),
+                transformation: None,
             });
             actors.insert(TimelineActorState {
                 id: actor_id,
                 owner: unit_id,
+                unit: Some(unit_id),
+                kind: None,
+                automatic_ability: None,
+                active: true,
                 gauge: ActionGauge::from_scaled(BASE_ACTION_GAUGE_SCALED)
                     .expect("positive base Action Gauge is in domain"),
                 speed: combatant.speed(),
@@ -168,6 +173,7 @@ impl Battle {
             decision: Some(legal::battle_start(first_decision)),
             units,
             actors,
+            links: crate::actor::store::LinkStore::default(),
             formations,
             teams,
             shields: crate::effect::shield::ShieldStore::default(),

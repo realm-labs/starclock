@@ -1,0 +1,4 @@
+id	stable_key	domain	target_selector_id	condition_id	empty_target_policy	snapshot_boundary	fault_policy	payload
+1	probe.aglaea.operation.summon-garmentmaker	Battle			Fault	Dynamic	Rollback	{"type":"Summon","unit_definition_identity_id":5,"owner_selector_id":1}
+2	probe.aglaea.operation.link-garmentmaker	Battle	2		Fault	Dynamic	Rollback	{"type":"ChangePresence","presence":"Linked"}
+3	probe.aglaea.operation.depart-garmentmaker	Battle	2		Fault	Dynamic	Rollback	{"type":"Despawn"}

@@ -313,6 +313,45 @@ pub enum UnitEventData {
     Downed { unit: UnitId },
     /// A still-downed unit settled as defeated with explicit credit.
     Defeated { unit: UnitId, credited_to: UnitId },
+    /// A linked unit and its optional actor were allocated under one owner.
+    Summoned {
+        unit: UnitId,
+        owner: UnitId,
+        actor: Option<TimelineActorId>,
+        kind: crate::LinkedEntityKind,
+    },
+    /// One explicit presence mutation completed.
+    PresenceChanged {
+        unit: UnitId,
+        before: crate::PresenceState,
+        after: crate::PresenceState,
+    },
+    /// Form/ability replacement and optional countdown creation completed.
+    Transformed {
+        unit: UnitId,
+        from: crate::UnitDefinitionId,
+        to: crate::UnitDefinitionId,
+        countdown: Option<TimelineActorId>,
+    },
+    /// A transformation restored its original form and ability set.
+    TransformationEnded {
+        unit: UnitId,
+        restored_form: crate::UnitDefinitionId,
+    },
+    /// A downed/defeated unit returned under explicit authored policy.
+    Revived {
+        unit: UnitId,
+        hp: crate::Hp,
+        presence: crate::PresenceState,
+    },
+    /// A linked unit departed and its timeline actor became inactive.
+    Despawned { unit: UnitId },
+    /// An owner or wave policy settled one explicit link.
+    LinkSettled {
+        owner: UnitId,
+        entity: crate::LinkedEntity,
+        policy: crate::OwnerLinkPolicy,
+    },
 }
 
 /// Stable encounter wave lifecycle facts.

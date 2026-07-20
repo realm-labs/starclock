@@ -1,0 +1,4 @@
+id	stable_key	domain	target_selector_id	condition_id	empty_target_policy	snapshot_boundary	fault_policy	payload
+1	probe.firefly-transform.operation.transform	Battle	1		Fault	Dynamic	Rollback	{"type":"Transform","replacement_definition_identity_id":2}
+2	probe.firefly-transform.operation.replace-skill	Battle	1		Fault	Dynamic	Rollback	{"type":"ReplaceAbility","old_ability_id":3,"new_ability_id":4}
+3	probe.firefly-transform.operation.transformed-presence	Battle	1		Fault	Dynamic	Rollback	{"type":"ChangePresence","presence":"Transformed"}

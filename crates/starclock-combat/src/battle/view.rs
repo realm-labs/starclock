@@ -2,7 +2,7 @@ use crate::{
     NUMERIC_POLICY_REVISION,
     actor::{
         model::{LifeState, PresenceState},
-        store::{FormationEntry, TeamState, TimelineActorState, UnitState},
+        store::{FormationEntry, LinkState, TeamState, TimelineActorState, UnitState},
     },
     catalog::CatalogDigest,
     command::model::DecisionPoint,
@@ -88,6 +88,14 @@ impl<'a> BattleView<'a> {
             .actors
             .iter_by_id()
             .map(|state| TimelineActorView { state })
+    }
+    /// Iterates explicit owner/entity links in canonical insertion order.
+    pub fn links(self) -> impl Iterator<Item = LinkView<'a>> + 'a {
+        self.state
+            .links
+            .canonical_entries()
+            .iter()
+            .map(|state| LinkView { state })
     }
     /// Iterates retained shield instances in stable runtime-ID order.
     pub fn shields_by_id(self) -> impl Iterator<Item = ShieldView<'a>> + 'a {
@@ -508,6 +516,19 @@ impl<'a> UnitView<'a> {
     pub fn abilities(self) -> &'a [AbilityId] {
         &self.state.abilities
     }
+    /// Returns whether the unit currently retains an authored transformation.
+    #[must_use]
+    pub const fn is_transformed(self) -> bool {
+        self.state.transformation.is_some()
+    }
+    /// Returns the transform-owned countdown actor when present.
+    #[must_use]
+    pub const fn transformation_countdown(self) -> Option<TimelineActorId> {
+        match &self.state.transformation {
+            None => None,
+            Some(state) => state.countdown_actor,
+        }
+    }
     /// Returns canonical selected rule bundles.
     #[must_use]
     pub fn rule_bundles(self) -> &'a [RuleBundleId] {
@@ -628,6 +649,26 @@ impl TimelineActorView<'_> {
     pub const fn owner(self) -> UnitId {
         self.state.owner
     }
+    /// Returns the target-capable action unit, or `None` for a timeline-only actor.
+    #[must_use]
+    pub const fn unit(self) -> Option<UnitId> {
+        self.state.unit
+    }
+    /// Returns the linked semantic role; ordinary unit actors have no role tag.
+    #[must_use]
+    pub const fn linked_kind(self) -> Option<crate::LinkedEntityKind> {
+        self.state.kind
+    }
+    /// Returns the automatically executed ability, if any.
+    #[must_use]
+    pub const fn automatic_ability(self) -> Option<AbilityId> {
+        self.state.automatic_ability
+    }
+    /// Returns whether the actor participates in timeline selection.
+    #[must_use]
+    pub const fn is_active(self) -> bool {
+        self.state.active
+    }
     /// Returns current canonical Action Gauge.
     #[must_use]
     pub const fn action_gauge(self) -> ActionGauge {
@@ -637,6 +678,43 @@ impl TimelineActorView<'_> {
     #[must_use]
     pub const fn speed(self) -> Speed {
         self.state.speed
+    }
+}
+
+/// Immutable explicit owner/entity link projection.
+#[derive(Clone, Copy)]
+pub struct LinkView<'a> {
+    state: &'a LinkState,
+}
+
+impl LinkView<'_> {
+    #[must_use]
+    pub const fn owner(self) -> UnitId {
+        self.state.owner
+    }
+    #[must_use]
+    pub const fn entity(self) -> crate::LinkedEntity {
+        self.state.entity
+    }
+    #[must_use]
+    pub const fn kind(self) -> crate::LinkedEntityKind {
+        self.state.kind
+    }
+    #[must_use]
+    pub const fn owner_defeat_policy(self) -> crate::OwnerLinkPolicy {
+        self.state.owner_defeat
+    }
+    #[must_use]
+    pub const fn owner_departure_policy(self) -> crate::OwnerLinkPolicy {
+        self.state.owner_departure
+    }
+    #[must_use]
+    pub const fn wave_policy(self) -> crate::WaveLinkPolicy {
+        self.state.wave
+    }
+    #[must_use]
+    pub const fn is_active(self) -> bool {
+        self.state.active
     }
 }
 

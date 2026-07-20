@@ -20,6 +20,12 @@ pub enum AbilityKind {
     ExtraAction = 6,
     /// Action held until an authored later reaction boundary.
     DelayedAction = 7,
+    /// Independently scheduled non-memosprite linked actor action.
+    Summon = 8,
+    /// Independently scheduled target-capable memosprite action.
+    Memosprite = 9,
+    /// Timeline-only state-ending countdown action.
+    Countdown = 10,
 }
 
 impl AbilityKind {
@@ -516,6 +522,18 @@ pub enum HitOperationDefinition {
     ModifyStateSlot(crate::rule::model::RuleSlotMutationDefinition),
     /// Queues one cause-relative action through the deterministic reaction scheduler.
     QueueAction(QueueActionDefinition),
+    /// Allocates one linked unit and optional independent timeline actor.
+    SummonLinked(crate::LinkedUnitDefinition),
+    /// Applies an explicit battlefield-presence transition.
+    ChangePresence(crate::PresenceState),
+    /// Atomically replaces form/abilities and optionally creates a countdown.
+    Transform(crate::TransformationDefinition),
+    /// Restores the original form/abilities and removes transform-owned actors.
+    EndTransformation,
+    /// Restores a downed or defeated unit with authored HP/presence/gauge policy.
+    Revive(crate::ReviveDefinition),
+    /// Departs a linked unit and deactivates its timeline actor.
+    DespawnLinked,
 }
 
 /// Ordered operation templates owned by one authored hit.

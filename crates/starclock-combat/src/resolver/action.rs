@@ -10,9 +10,10 @@ use crate::{
     },
     id::{CommandId, EventId, SourceDefinitionId},
     operation::{
-        AddWeaknessOp, ApplyEffectOp, ConsumeHpOp, DamageOp, DetonateDotsOp, HealOp,
-        HitOperationScratch, ModifyStateSlotOp, Operation, QueueActionOp, ReduceToughnessOp,
-        RemoveEffectsOp, ShieldOp, SuperBreakOp,
+        AddWeaknessOp, ApplyEffectOp, ChangePresenceOp, ConsumeHpOp, DamageOp, DetonateDotsOp,
+        HealOp, HitOperationScratch, ModifyStateSlotOp, Operation, QueueActionOp,
+        ReduceToughnessOp, RemoveEffectsOp, ReviveOp, ShieldOp, SummonLinkedOp, SuperBreakOp,
+        TransformOp, UnitLifecycleOp,
     },
 };
 
@@ -41,7 +42,7 @@ pub(super) fn drain_reactions(
         }
         let eligible = txn.state.units.get(queued.actor).is_some_and(|unit| {
             unit.life == crate::LifeState::Alive
-                && unit.presence == crate::PresenceState::Present
+                && unit.presence.is_active()
                 && unit.abilities.binary_search(&queued.ability).is_ok()
                 && !(matches!(
                     queued.origin,
@@ -102,16 +103,13 @@ pub(super) fn execute_action_plan(
     command_parent: EventId,
     plan: &mut ActionPlan,
 ) -> Result<EventId, BattleFault> {
-    debug_assert_eq!(
-        plan.normal_turn.is_some(),
-        plan.origin == crate::ActionOrigin::NormalTurn
-    );
+    debug_assert_eq!(plan.normal_turn.is_some(), plan.origin.owns_timeline_turn());
     let _selector = plan.selector;
     let source = SourceDefinitionId::new(plan.ability.get()).ok_or_else(|| action_fault(7))?;
     let base = Cause::for_action(
         root,
         plan.id,
-        plan.actor,
+        plan.owner,
         CauseActor::Unit(plan.actor),
         source,
     )
@@ -246,6 +244,44 @@ pub(super) fn execute_action_plan(
                         Operation::QueueAction(QueueActionOp {
                             id: operation.id,
                             definition: *definition,
+                        })
+                    }
+                    HitOperationDefinition::SummonLinked(definition) => {
+                        Operation::SummonLinked(SummonLinkedOp {
+                            id: operation.id,
+                            owners: vec![plan.actor].into_boxed_slice(),
+                            definition: definition.clone(),
+                        })
+                    }
+                    HitOperationDefinition::ChangePresence(presence) => {
+                        Operation::ChangePresence(ChangePresenceOp {
+                            id: operation.id,
+                            targets: targets.clone(),
+                            presence: *presence,
+                        })
+                    }
+                    HitOperationDefinition::Transform(definition) => {
+                        Operation::Transform(TransformOp {
+                            id: operation.id,
+                            targets: targets.clone(),
+                            definition: definition.clone(),
+                        })
+                    }
+                    HitOperationDefinition::EndTransformation => {
+                        Operation::EndTransformation(UnitLifecycleOp {
+                            id: operation.id,
+                            targets: targets.clone(),
+                        })
+                    }
+                    HitOperationDefinition::Revive(definition) => Operation::Revive(ReviveOp {
+                        id: operation.id,
+                        targets: targets.clone(),
+                        definition: *definition,
+                    }),
+                    HitOperationDefinition::DespawnLinked => {
+                        Operation::DespawnLinked(UnitLifecycleOp {
+                            id: operation.id,
+                            targets: targets.clone(),
                         })
                     }
                 };

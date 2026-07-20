@@ -9,6 +9,8 @@ use super::queue::InterruptQueue;
 pub(crate) struct NormalTurnState {
     pub(crate) actor: TimelineActorId,
     pub(crate) owner: UnitId,
+    pub(crate) unit: UnitId,
+    pub(crate) automatic: Option<(crate::AbilityId, crate::ActionOrigin)>,
     pub(crate) side: TeamSide,
     pub(crate) formation: FormationIndex,
     pub(crate) spawn: SpawnSequence,

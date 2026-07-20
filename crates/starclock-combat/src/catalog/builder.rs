@@ -343,6 +343,79 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
                 .flat_map(super::action::ActionHitDefinition::operations)
             {
                 let super::action::HitOperationDefinition::QueueAction(queue) = operation else {
+                    match operation {
+                        super::action::HitOperationDefinition::SummonLinked(linked) => {
+                            let combatant = linked.combatant();
+                            if catalog.units.get(combatant.form()).is_none()
+                                || combatant
+                                    .abilities()
+                                    .iter()
+                                    .any(|ability| catalog.abilities.get(*ability).is_none())
+                                || combatant
+                                    .rule_bundles()
+                                    .iter()
+                                    .any(|bundle| catalog.rule_bundles.get(*bundle).is_none())
+                                || combatant.modifiers().iter().any(|modifier| {
+                                    catalog.modifiers.definition(*modifier).is_none()
+                                })
+                                || linked.action_ability().is_some_and(|ability| {
+                                    catalog
+                                        .abilities
+                                        .get(ability)
+                                        .and_then(super::definition::AbilityDefinition::action)
+                                        .is_none_or(|action| {
+                                            !matches!(
+                                                (linked.kind(), action.kind()),
+                                                (
+                                                    crate::LinkedEntityKind::Summon,
+                                                    super::action::AbilityKind::Summon
+                                                ) | (
+                                                    crate::LinkedEntityKind::Memosprite,
+                                                    super::action::AbilityKind::Memosprite
+                                                )
+                                            )
+                                        })
+                                })
+                            {
+                                return Err(error(
+                                    CatalogBuildErrorKind::InvalidDefinition,
+                                    format!(
+                                        "ability definition {} has an invalid linked-unit definition",
+                                        id.get()
+                                    ),
+                                ));
+                            }
+                        }
+                        super::action::HitOperationDefinition::Transform(transform) => {
+                            let valid =
+                                catalog.units.get(transform.replacement_form()).is_some_and(
+                                    |unit| {
+                                        transform.replacement_abilities().iter().all(|ability| {
+                                            unit.abilities().binary_search(ability).is_ok()
+                                                && catalog.abilities.get(*ability).is_some()
+                                        })
+                                    },
+                                ) && transform.countdown().is_none_or(|countdown| {
+                                    catalog
+                                        .abilities
+                                        .get(countdown.ability())
+                                        .and_then(super::definition::AbilityDefinition::action)
+                                        .is_some_and(|action| {
+                                            action.kind() == super::action::AbilityKind::Countdown
+                                        })
+                                });
+                            if !valid {
+                                return Err(error(
+                                    CatalogBuildErrorKind::InvalidDefinition,
+                                    format!(
+                                        "ability definition {} has an invalid transformation definition",
+                                        id.get()
+                                    ),
+                                ));
+                            }
+                        }
+                        _ => {}
+                    }
                     continue;
                 };
                 let Some(queued) = catalog

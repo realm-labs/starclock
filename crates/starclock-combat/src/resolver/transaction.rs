@@ -24,11 +24,7 @@ use crate::{
     numeric::domain::ActionGauge,
     rng::types::DrawPurpose,
     target::select,
-    timeline::{
-        queue::InterruptQueue,
-        select::plan_next_turn,
-        state::{InterruptWindowKind, InterruptWindowState, NormalTurnState},
-    },
+    timeline::state::{InterruptWindowState, NormalTurnState},
 };
 
 use super::{
@@ -176,7 +172,7 @@ fn execute(
                 Cause::root(root),
                 BattleEventKind::Battle(BattleEventData::Started),
             );
-            begin_turn(catalog, txn, root, started)?;
+            super::turn::begin_turn(catalog, txn, root, started)?;
         }
         ValidatedCommand::PassInterruptWindow => {
             let closed = close_active_decision(txn, root)?;
@@ -201,7 +197,7 @@ fn execute(
                 catalog,
                 txn.state,
             );
-            offer_decision(txn, root, Some(closed), decision);
+            super::turn::offer_decision(txn, root, Some(closed), decision);
         }
         ValidatedCommand::UseAbility {
             actor,
@@ -263,7 +259,7 @@ fn execute(
                 if let ActionBoundary::Continue(parent) =
                     settle_after_action(txn, boundary_cause, parent)?
                 {
-                    begin_turn(catalog, txn, root, parent)?;
+                    super::turn::begin_turn(catalog, txn, root, parent)?;
                 }
             }
         }
@@ -292,7 +288,7 @@ fn execute(
             if let ActionBoundary::Continue(parent) =
                 settle_after_action(txn, boundary_cause, resolved)?
             {
-                offer_interrupt_decision(catalog, txn, root, parent)?;
+                super::turn::offer_interrupt_decision(catalog, txn, root, parent)?;
             }
         }
         ValidatedCommand::Concede => {
@@ -323,7 +319,7 @@ pub(super) fn action_cause(
     Ok(Cause::for_action(
         root,
         plan.id,
-        plan.actor,
+        plan.owner,
         CauseActor::Unit(plan.actor),
         source,
     )
@@ -331,7 +327,7 @@ pub(super) fn action_cause(
     .with_applier(plan.actor))
 }
 
-fn commit_targets(
+pub(super) fn commit_targets(
     catalog: &CombatCatalog,
     txn: &Transaction<'_>,
     actor: crate::UnitId,
@@ -369,167 +365,6 @@ fn close_active_decision(
         Cause::root(root),
         BattleEventKind::Decision(DecisionEventData::Closed { decision }),
     ))
-}
-
-fn begin_turn(
-    catalog: &CombatCatalog,
-    txn: &mut Transaction<'_>,
-    root: CommandId,
-    parent: EventId,
-) -> Result<(), BattleFault> {
-    let advance = plan_next_turn(&txn.state.units, &txn.state.actors)?;
-    for (actor, gauge) in advance.gauges {
-        txn.set_actor_gauge(actor, gauge)?;
-    }
-    let turn = advance.turn;
-    txn.reset_rule_slots(
-        crate::rule::model::SlotResetPoint::TurnStart,
-        Some(turn.owner),
-    );
-    txn.set_active_turn(Some(turn));
-    let started = txn.emit(
-        Cause::for_turn(root, turn.owner, turn.actor).with_parent(parent),
-        BattleEventKind::Turn(TurnEventData::Started {
-            actor: turn.actor,
-            owner: turn.owner,
-        }),
-    );
-    let turn_cause = Cause::for_turn(root, turn.owner, turn.actor);
-    let mut started = started;
-    for (operation, element) in txn.tick_temporary_weaknesses(turn.owner)? {
-        started = txn.emit(
-            turn_cause
-                .with_parent(started)
-                .with_primary_target(Some(turn.owner)),
-            BattleEventKind::Toughness(crate::ToughnessEventData::WeaknessRemoved {
-                operation,
-                target: turn.owner,
-                element,
-            }),
-        );
-    }
-    let (mut started, frozen_skip) =
-        super::operation::settle_break_effects_at_turn_start(txn, turn_cause, started, turn.owner)?;
-    started = super::operation::settle_effects_at_turn_start(txn, turn_cause, started, turn.owner)?;
-    match settle_after_action(txn, turn_cause, started)? {
-        ActionBoundary::Terminal(_) => return Ok(()),
-        ActionBoundary::Continue(parent) => started = parent,
-    }
-    let alive = txn
-        .state
-        .units
-        .get(turn.owner)
-        .map(|unit| unit.life == crate::LifeState::Alive)
-        .ok_or_else(|| action_fault(58))?;
-    if frozen_skip || !alive {
-        txn.set_active_turn(None);
-        txn.set_actor_gauge(
-            turn.actor,
-            ActionGauge::from_scaled(if frozen_skip {
-                5_000_000_000
-            } else {
-                10_000_000_000
-            })
-            .map_err(|_| action_fault(59))?,
-        )?;
-        started = txn.emit(
-            turn_cause.with_parent(started),
-            BattleEventKind::Turn(TurnEventData::Ended {
-                actor: turn.actor,
-                owner: turn.owner,
-            }),
-        );
-        return begin_turn(catalog, txn, root, started);
-    }
-    let was_broken = txn
-        .state
-        .units
-        .get(turn.owner)
-        .map(|unit| unit.weakness_broken)
-        .ok_or_else(|| action_fault(60))?;
-    if was_broken {
-        let changes = txn.recover_toughness(turn.owner)?;
-        txn.set_weakness_broken(turn.owner, false)?;
-        for (layer_key, before, after) in changes {
-            started = txn.emit(
-                turn_cause
-                    .with_parent(started)
-                    .with_primary_target(Some(turn.owner)),
-                BattleEventKind::Toughness(crate::ToughnessEventData::Recovered {
-                    target: turn.owner,
-                    layer_key,
-                    before,
-                    after,
-                    exited_global_broken: true,
-                }),
-            );
-        }
-    }
-    txn.set_interrupt(Some(InterruptWindowState {
-        kind: InterruptWindowKind::PreAction,
-        turn,
-        pending: InterruptQueue::default(),
-    }));
-    let decision_id = txn.allocate_decision();
-    let decision = legal::interrupt_window(
-        decision_id,
-        turn.side,
-        &txn.state.units,
-        &txn.state.formations,
-        &txn.state.teams,
-        &txn.state.effects,
-        catalog,
-    );
-    offer_decision(txn, root, Some(started), decision);
-    Ok(())
-}
-
-fn offer_interrupt_decision(
-    catalog: &CombatCatalog,
-    txn: &mut Transaction<'_>,
-    root: CommandId,
-    parent: EventId,
-) -> Result<(), BattleFault> {
-    let side = txn
-        .state
-        .timeline
-        .interrupt
-        .as_ref()
-        .ok_or_else(|| action_fault(13))?
-        .turn
-        .side;
-    let decision_id = txn.allocate_decision();
-    let decision = legal::interrupt_window(
-        decision_id,
-        side,
-        &txn.state.units,
-        &txn.state.formations,
-        &txn.state.teams,
-        &txn.state.effects,
-        catalog,
-    );
-    offer_decision(txn, root, Some(parent), decision);
-    Ok(())
-}
-
-fn offer_decision(
-    txn: &mut Transaction<'_>,
-    root: CommandId,
-    parent: Option<EventId>,
-    decision: DecisionPoint,
-) {
-    let fact = DecisionEventData::Offered {
-        decision: decision.id(),
-        kind: decision.kind(),
-        owner: decision.owner(),
-    };
-    txn.set_decision(Some(decision));
-    txn.set_phase(BattlePhase::AwaitingCommand);
-    let cause = parent.map_or_else(
-        || Cause::root(root),
-        |event| Cause::root(root).with_parent(event),
-    );
-    txn.emit(cause, BattleEventKind::Decision(fact));
 }
 
 pub(super) fn action_fault(context: u32) -> BattleFault {
@@ -605,7 +440,7 @@ impl<'a> Transaction<'a> {
         command
     }
 
-    fn allocate_decision(&mut self) -> DecisionId {
+    pub(super) fn allocate_decision(&mut self) -> DecisionId {
         let decision = self
             .state
             .sequences
@@ -675,6 +510,30 @@ impl<'a> Transaction<'a> {
         self.journal
             .queue_insertion(super::journal::QueueKind::Reaction, insertion);
         insertion
+    }
+
+    pub(super) fn allocate_unit(&mut self) -> crate::UnitId {
+        let id = self.state.sequences.unit();
+        self.journal.allocation(AllocationKind::Unit, id.get());
+        id
+    }
+
+    pub(super) fn allocate_actor(&mut self) -> TimelineActorId {
+        let id = self.state.sequences.actor();
+        self.journal.allocation(AllocationKind::Actor, id.get());
+        id
+    }
+
+    pub(super) fn allocate_spawn(&mut self) -> crate::SpawnSequence {
+        let id = self.state.sequences.spawn();
+        self.journal.allocation(AllocationKind::Spawn, id.get());
+        id
+    }
+
+    pub(super) fn allocate_rule(&mut self) -> crate::RuleInstanceId {
+        let id = self.state.sequences.rule();
+        self.journal.allocation(AllocationKind::Rule, id.get());
+        id
     }
 
     pub(super) fn consume_reaction_budget(&mut self, maximum: usize) -> bool {
@@ -797,6 +656,131 @@ impl<'a> Transaction<'a> {
                 MutationField::ActionGauge,
                 before.cast_unsigned(),
                 after.cast_unsigned(),
+            );
+        }
+        Ok(())
+    }
+
+    pub(super) fn set_actor_active(
+        &mut self,
+        actor: TimelineActorId,
+        active: bool,
+    ) -> Result<(), BattleFault> {
+        let state = self
+            .state
+            .actors
+            .get_mut(actor)
+            .ok_or_else(|| action_fault(74))?;
+        if state.active != active {
+            let before = u64::from(state.active);
+            state.active = active;
+            self.journal
+                .mutation(MutationField::ActorActive, before, u64::from(active));
+        }
+        Ok(())
+    }
+
+    pub(super) fn insert_unit(&mut self, state: crate::actor::store::UnitState) {
+        let id = state.id;
+        self.state.units.insert(state);
+        self.journal.mutation(MutationField::UnitStore, 0, id.get());
+    }
+
+    pub(super) fn insert_actor(&mut self, state: crate::actor::store::TimelineActorState) {
+        let id = state.id;
+        self.state.actors.insert(state);
+        self.journal
+            .mutation(MutationField::ActorStore, 0, id.get());
+    }
+
+    pub(super) fn insert_formation(&mut self, entry: crate::actor::store::FormationEntry) {
+        self.state.formations.push(entry);
+        self.journal
+            .mutation(MutationField::Formation, 0, entry.unit.get());
+    }
+
+    pub(super) fn insert_link(
+        &mut self,
+        state: crate::actor::store::LinkState,
+    ) -> Result<(), BattleFault> {
+        let code = match state.entity {
+            crate::LinkedEntity::Unit(unit) => unit.get(),
+            crate::LinkedEntity::TimelineActor(actor) => actor.get() | (1_u64 << 63),
+        };
+        if !self.state.links.insert(state) {
+            return Err(action_fault(75));
+        }
+        self.journal.mutation(MutationField::LinkStore, 0, code);
+        Ok(())
+    }
+
+    pub(super) fn set_link_active(
+        &mut self,
+        entity: crate::LinkedEntity,
+        active: bool,
+    ) -> Result<(), BattleFault> {
+        let link = self
+            .state
+            .links
+            .get_mut(entity)
+            .ok_or_else(|| action_fault(76))?;
+        if link.active != active {
+            let before = u64::from(link.active);
+            link.active = active;
+            self.journal
+                .mutation(MutationField::LinkStore, before, u64::from(active));
+        }
+        Ok(())
+    }
+
+    pub(super) fn set_unit_definition(
+        &mut self,
+        unit: crate::UnitId,
+        form: crate::UnitDefinitionId,
+        abilities: Box<[crate::AbilityId]>,
+        presence: crate::PresenceState,
+        transformation: Option<crate::actor::store::TransformationState>,
+    ) -> Result<(), BattleFault> {
+        let state = self
+            .state
+            .units
+            .get_mut(unit)
+            .ok_or_else(|| action_fault(77))?;
+        if state.form != form {
+            let before = state.form.get();
+            state.form = form;
+            self.journal.mutation(
+                MutationField::UnitDefinition,
+                u64::from(before),
+                u64::from(form.get()),
+            );
+        }
+        if state.abilities != abilities {
+            state.abilities = abilities;
+            self.journal.mutation(MutationField::UnitAbilities, 1, 2);
+        }
+        let before_presence = state.presence;
+        if before_presence != presence {
+            state.presence = presence;
+            self.journal.mutation(
+                MutationField::UnitPresence,
+                before_presence as u64,
+                presence as u64,
+            );
+        }
+        let before_transform = state
+            .transformation
+            .as_ref()
+            .map_or(0, |value| value.source_operation.get());
+        let after_transform = transformation
+            .as_ref()
+            .map_or(0, |value| value.source_operation.get());
+        if state.transformation != transformation {
+            state.transformation = transformation;
+            self.journal.mutation(
+                MutationField::Transformation,
+                before_transform,
+                after_transform,
             );
         }
         Ok(())

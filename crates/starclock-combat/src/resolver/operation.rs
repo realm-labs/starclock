@@ -54,6 +54,24 @@ pub(super) fn execute_operation(
         Operation::QueueAction(operation) => {
             super::schedule::execute_queue_action(catalog, txn, cause, parent, operation)
         }
+        Operation::SummonLinked(operation) => {
+            super::lifecycle::execute_summon(catalog, txn, cause, parent, operation)
+        }
+        Operation::ChangePresence(operation) => {
+            super::lifecycle::execute_presence(txn, cause, parent, operation)
+        }
+        Operation::Transform(operation) => {
+            super::lifecycle::execute_transform(catalog, txn, cause, parent, operation)
+        }
+        Operation::EndTransformation(operation) => {
+            super::lifecycle::execute_end_transform(txn, cause, parent, operation)
+        }
+        Operation::Revive(operation) => {
+            super::lifecycle::execute_revive(txn, cause, parent, operation)
+        }
+        Operation::DespawnLinked(operation) => {
+            super::lifecycle::execute_despawn(txn, cause, parent, operation)
+        }
     }
 }
 
@@ -440,6 +458,7 @@ fn apply_break_damage(
                 credited_to: cause.applier().ok_or_else(|| invariant_fault(10))?,
             }),
         );
+        parent = super::lifecycle::settle_owner_defeat(txn, cause, parent, target)?;
     }
     Ok(parent)
 }
@@ -771,6 +790,7 @@ fn apply_ordinary_damage(
                 credited_to,
             }),
         );
+        parent = super::lifecycle::settle_owner_defeat(txn, cause, parent, target)?;
     }
     Ok(parent)
 }

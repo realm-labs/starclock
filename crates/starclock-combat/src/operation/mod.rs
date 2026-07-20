@@ -3,7 +3,8 @@
 mod model;
 
 pub(crate) use model::{
-    AddWeaknessOp, ApplyEffectOp, ConsumeHpOp, DamageOp, DetonateDotsOp, HealOp,
+    AddWeaknessOp, ApplyEffectOp, ChangePresenceOp, ConsumeHpOp, DamageOp, DetonateDotsOp, HealOp,
     HitOperationScratch, ModifyStateSlotOp, Operation, QueueActionOp, ReduceToughnessOp,
-    RemoveEffectsOp, ShieldOp, SuperBreakOp,
+    RemoveEffectsOp, ReviveOp, ShieldOp, SummonLinkedOp, SuperBreakOp, TransformOp,
+    UnitLifecycleOp,
 };

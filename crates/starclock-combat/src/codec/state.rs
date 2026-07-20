@@ -137,6 +137,25 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
     encode_decision(&mut e, state.decision.as_ref());
     encode_units(&mut e, state);
     encode_actors(&mut e, state);
+    e.length(state.links.canonical_entries().len());
+    for link in state.links.canonical_entries() {
+        e.u64(link.owner.get());
+        match link.entity {
+            crate::LinkedEntity::Unit(unit) => {
+                e.u8(0);
+                e.u64(unit.get());
+            }
+            crate::LinkedEntity::TimelineActor(actor) => {
+                e.u8(1);
+                e.u64(actor.get());
+            }
+        }
+        e.u8(link.kind as u8);
+        e.u8(link.owner_defeat as u8);
+        e.u8(link.owner_departure as u8);
+        e.u8(link.wave as u8);
+        e.u8(u8::from(link.active));
+    }
     e.length(state.formations.canonical_entries().len());
     for entry in state.formations.canonical_entries() {
         e.u8(entry.side as u8);
@@ -369,6 +388,15 @@ fn encode_timeline<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
 fn encode_turn<S: Sink>(e: &mut Encoder<'_, S>, turn: crate::timeline::state::NormalTurnState) {
     e.u64(turn.actor.get());
     e.u64(turn.owner.get());
+    e.u64(turn.unit.get());
+    match turn.automatic {
+        None => e.u8(0),
+        Some((ability, origin)) => {
+            e.u8(1);
+            e.u32(ability.get());
+            e.u8(origin as u8);
+        }
+    }
     e.u8(turn.side as u8);
     e.u8(turn.formation.get());
     e.u64(turn.spawn.get());
@@ -397,6 +425,10 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
         ParticipantSource::EncounterEnemy(enemy) => {
             e.u8(1);
             e.u32(enemy.get());
+        }
+        ParticipantSource::Linked(source) => {
+            e.u8(2);
+            e.u32(source.get());
         }
     }
     e.u8(unit.side as u8);
@@ -479,6 +511,28 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
         e.u32(id.get());
     }
     e.raw(&unit.digest.bytes());
+    match &unit.transformation {
+        None => e.u8(0),
+        Some(transform) => {
+            e.u8(1);
+            e.u64(transform.source_operation.get());
+            e.u32(transform.original_form.get());
+            e.length(transform.original_abilities.len());
+            for ability in &transform.original_abilities {
+                e.u32(ability.get());
+            }
+            e.u8(transform.original_presence as u8);
+            match transform.countdown_actor {
+                None => e.u8(0),
+                Some(actor) => {
+                    e.u8(1);
+                    e.u64(actor.get());
+                }
+            }
+            e.u8(transform.defeat as u8);
+            e.u8(transform.wave as u8);
+        }
+    }
 }
 
 fn encode_actors<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
@@ -498,6 +552,28 @@ fn encode_actors<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
 fn encode_actor<S: Sink>(e: &mut Encoder<'_, S>, actor: &TimelineActorState) {
     e.u64(actor.id.get());
     e.u64(actor.owner.get());
+    match actor.unit {
+        None => e.u8(0),
+        Some(unit) => {
+            e.u8(1);
+            e.u64(unit.get());
+        }
+    }
+    match actor.kind {
+        None => e.u8(0),
+        Some(kind) => {
+            e.u8(1);
+            e.u8(kind as u8);
+        }
+    }
+    match actor.automatic_ability {
+        None => e.u8(0),
+        Some(ability) => {
+            e.u8(1);
+            e.u32(ability.get());
+        }
+    }
+    e.u8(u8::from(actor.active));
     e.i64(actor.gauge.scaled());
     e.i64(actor.speed.scaled());
 }

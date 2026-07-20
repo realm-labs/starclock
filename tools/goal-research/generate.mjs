@@ -182,6 +182,7 @@ add({
   question: "Which teardown operations run when the countdown acts, a wave changes, or Firefly is downed/revived?",
   fixed_expectations: ["The ordinary ability set is restored and transform-owned state is removed exactly once.", "No orphan countdown actor survives teardown."],
   observations_required: ["Carry/reset behavior across AfterAction wave transition, defeat interception and revival."],
+  executable_evidence: ["config/probes/v1a/firefly-transform/golden.json", "crates/starclock-combat/tests/linked_lifecycle.rs", "crates/starclock-data/src/probe_tests.rs"],
   fixture: boundaryFixture("firefly-countdown-teardown", ["End transformation independently through countdown, wave boundary and downed/revival paths."], ["Assert one teardown cause, ordinary abilities restored and no transform-owned actor/modifier remains."]),
 });
 
@@ -191,6 +192,7 @@ add({
   question: "How do Garmentmaker's independent life, presence, timeline and owner link change on summon, heal and resummon?",
   fixed_expectations: ["Garmentmaker is an independently identified linked actor.", "Summoning versus healing is chosen from explicit presence state."],
   observations_required: ["Resummon behavior from downed, defeated, departed and already-present states."],
+  executable_evidence: ["config/probes/v1a/aglaea-memosprite/golden.json", "crates/starclock-combat/tests/linked_lifecycle.rs", "crates/starclock-data/src/probe_tests.rs"],
   fixture: boundaryFixture("aglaea-presence-timeline-ownership", ["Use Skill once in each supported Garmentmaker presence/life state."], ["Assert actor identity preservation/replacement, timeline entry and owner-link state."]),
 });
 add({
@@ -199,6 +201,7 @@ add({
   question: "At what attack boundary do summon SPD stacks accumulate, cap and reset, and when does the new SPD rescale action gauge?",
   fixed_expectations: ["SPD stacks belong to Garmentmaker, not Aglaea.", "Cap and reset are authored summon-state policies."],
   observations_required: ["Gauge rescaling boundary after stack gain and teardown/reset behavior."],
+  executable_evidence: ["config/probes/v1a/aglaea-memosprite/golden.json", "crates/starclock-combat/tests/linked_lifecycle.rs"],
   fixture: turnFixture("aglaea-spd-stack-scope", ["Let Garmentmaker attack through cap, then transform and teardown while mid-gauge."], ["Assert stack owner/cap, gauge rescale policy and exact reset boundary."]),
 });
 add({
@@ -207,6 +210,7 @@ add({
   question: "Which action envelope and cause chain contain Aglaea and Garmentmaker's separate joint-attack contributions?",
   fixed_expectations: ["A joint attack is one action envelope.", "Each contribution retains its own damage actor/source and formula context."],
   observations_required: ["Trigger eligibility and once-scope behavior at action, contribution and hit boundaries."],
+  executable_evidence: ["config/probes/v1a/aglaea-memosprite/golden.json", "crates/starclock-combat/tests/linked_lifecycle.rs"],
   fixture: actionFixture("aglaea-joint-action-contributions", ["Execute the enhanced Basic with triggers filtered by action, actor, summon and hit."], ["Assert one action envelope, ordered contributions and distinct attribution without duplicate once-per-action credit."]),
 });
 add({
@@ -215,6 +219,7 @@ add({
   question: "What is the exact once-only ordering of empowered-state countdown, summon teardown damage/resource changes and ability restoration?",
   fixed_expectations: ["The state ends through an explicit countdown actor.", "Every teardown operation executes exactly once under one cause."],
   observations_required: ["Damage, Energy/resource, departure and ability-restoration event order."],
+  executable_evidence: ["config/probes/v1a/aglaea-memosprite/golden.json", "crates/starclock-combat/tests/linked_lifecycle.rs", "crates/starclock-data/src/probe_tests.rs"],
   fixture: boundaryFixture("aglaea-countdown-teardown", ["Let the countdown act normally, then repeat with simultaneous summon defeat and wave boundary."], ["Assert one teardown program and a stable complete event order."]),
 });
 

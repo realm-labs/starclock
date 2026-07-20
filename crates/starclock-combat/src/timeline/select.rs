@@ -2,7 +2,7 @@ use core::cmp::Ordering;
 
 use crate::{
     actor::{
-        model::{LifeState, PresenceState},
+        model::LifeState,
         store::{TimelineActorStore, UnitStore},
     },
     battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
@@ -23,19 +23,36 @@ pub(crate) fn plan_next_turn(
     let candidates = actors
         .iter_by_id()
         .map(|actor| {
-            let unit = units.get(actor.owner).ok_or_else(|| timeline_fault(2))?;
-            Ok(
-                (unit.life == LifeState::Alive && unit.presence == PresenceState::Present)
-                    .then_some((
-                        actor.id,
-                        actor.owner,
-                        actor.gauge,
-                        actor.speed,
-                        unit.side,
-                        unit.formation,
-                        unit.spawn,
-                    )),
-            )
+            let unit_id = actor.unit.unwrap_or(actor.owner);
+            let unit = units.get(unit_id).ok_or_else(|| timeline_fault(2))?;
+            let owner = units.get(actor.owner).ok_or_else(|| timeline_fault(5))?;
+            let automatic = actor.automatic_ability.map(|ability| {
+                let origin = match actor.kind {
+                    Some(crate::LinkedEntityKind::Summon) => crate::ActionOrigin::SummonAction,
+                    Some(crate::LinkedEntityKind::Memosprite) => {
+                        crate::ActionOrigin::MemospriteAction
+                    }
+                    Some(crate::LinkedEntityKind::Countdown) => crate::ActionOrigin::Countdown,
+                    None => crate::ActionOrigin::NormalTurn,
+                };
+                (ability, origin)
+            });
+            Ok((actor.active
+                && unit.life == LifeState::Alive
+                && unit.presence.is_timeline_eligible()
+                && owner.life == LifeState::Alive
+                && owner.presence.is_active())
+            .then_some((
+                actor.id,
+                actor.owner,
+                unit_id,
+                automatic,
+                actor.gauge,
+                actor.speed,
+                unit.side,
+                unit.formation,
+                unit.spawn,
+            )))
         })
         .collect::<Result<Vec<_>, BattleFault>>()?;
     let selected = candidates
@@ -53,8 +70,8 @@ pub(crate) fn plan_next_turn(
                 ActionGauge::from_scaled(0).map_err(|_| timeline_fault(3))?
             } else {
                 candidate
-                    .2
-                    .checked_advance_for_selection(candidate.3, selected.2, selected.3)
+                    .4
+                    .checked_advance_for_selection(candidate.5, selected.4, selected.5)
                     .map_err(|_| timeline_fault(4))?
             };
             Ok((candidate.0, gauge))
@@ -64,9 +81,11 @@ pub(crate) fn plan_next_turn(
         turn: NormalTurnState {
             actor: selected.0,
             owner: selected.1,
-            side: selected.4,
-            formation: selected.5,
-            spawn: selected.6,
+            unit: selected.2,
+            automatic: selected.3,
+            side: selected.6,
+            formation: selected.7,
+            spawn: selected.8,
         },
         gauges,
     })
@@ -75,6 +94,8 @@ pub(crate) fn plan_next_turn(
 type Candidate = (
     crate::TimelineActorId,
     crate::UnitId,
+    crate::UnitId,
+    Option<(crate::AbilityId, crate::ActionOrigin)>,
     ActionGauge,
     crate::Speed,
     crate::TeamSide,
@@ -83,10 +104,11 @@ type Candidate = (
 );
 
 fn compare_candidate(left: &Candidate, right: &Candidate) -> Ordering {
-    let ratio = (i128::from(left.2.scaled()) * i128::from(right.3.scaled()))
-        .cmp(&(i128::from(right.2.scaled()) * i128::from(left.3.scaled())));
+    let ratio = (i128::from(left.4.scaled()) * i128::from(right.5.scaled()))
+        .cmp(&(i128::from(right.4.scaled()) * i128::from(left.5.scaled())));
     ratio.then_with(|| {
-        (left.4, left.5, left.6, left.1, left.0).cmp(&(right.4, right.5, right.6, right.1, right.0))
+        (left.6, left.7, left.8, left.1, left.2, left.0)
+            .cmp(&(right.6, right.7, right.8, right.1, right.2, right.0))
     })
 }
 

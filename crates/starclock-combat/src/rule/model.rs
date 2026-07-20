@@ -525,6 +525,26 @@ pub enum RuleOperationTemplate {
     GrantExtraTurn {
         actor_selector: SelectorId,
     },
+    Summon {
+        owner_selector: SelectorId,
+        unit_definition: crate::UnitDefinitionId,
+    },
+    Despawn {
+        selector: SelectorId,
+    },
+    Transform {
+        selector: SelectorId,
+        replacement_definition: crate::UnitDefinitionId,
+    },
+    ReplaceAbility {
+        selector: SelectorId,
+        old_ability: AbilityId,
+        new_ability: AbilityId,
+    },
+    ChangePresence {
+        selector: SelectorId,
+        presence: crate::PresenceState,
+    },
     CreateCountdown {
         code: u32,
     },
@@ -801,6 +821,31 @@ pub enum RuleEmission {
     },
     GrantExtraTurn {
         actor_selector: SelectorId,
+        current_target: Option<UnitId>,
+    },
+    Summon {
+        owner_selector: SelectorId,
+        unit_definition: crate::UnitDefinitionId,
+        current_target: Option<UnitId>,
+    },
+    Despawn {
+        selector: SelectorId,
+        current_target: Option<UnitId>,
+    },
+    Transform {
+        selector: SelectorId,
+        replacement_definition: crate::UnitDefinitionId,
+        current_target: Option<UnitId>,
+    },
+    ReplaceAbility {
+        selector: SelectorId,
+        old_ability: AbilityId,
+        new_ability: AbilityId,
+        current_target: Option<UnitId>,
+    },
+    ChangePresence {
+        selector: SelectorId,
+        presence: crate::PresenceState,
         current_target: Option<UnitId>,
     },
     CreateCountdown {

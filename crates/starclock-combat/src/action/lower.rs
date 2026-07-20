@@ -12,6 +12,22 @@ pub(crate) trait ActionIdentityAllocator {
     fn operation(&mut self) -> OperationId;
 }
 
+#[derive(Clone, Copy)]
+pub(crate) struct TimelineActionContext {
+    pub(crate) actor: UnitId,
+    pub(crate) owner: UnitId,
+    pub(crate) timeline_actor: TimelineActorId,
+    pub(crate) origin: ActionOrigin,
+}
+
+#[derive(Clone, Copy)]
+struct ActionContext {
+    actor: UnitId,
+    owner: UnitId,
+    origin: ActionOrigin,
+    timeline_actor: Option<TimelineActorId>,
+}
+
 pub(crate) fn lower_normal_action(
     catalog: &CombatCatalog,
     allocator: &mut impl ActionIdentityAllocator,
@@ -23,10 +39,13 @@ pub(crate) fn lower_normal_action(
     lower_action(
         catalog,
         allocator,
-        actor,
+        ActionContext {
+            actor,
+            owner: actor,
+            origin: ActionOrigin::NormalTurn,
+            timeline_actor: Some(timeline_actor),
+        },
         ability,
-        ActionOrigin::NormalTurn,
-        Some(timeline_actor),
         targets,
     )
 }
@@ -41,10 +60,13 @@ pub(crate) fn lower_interrupt_action(
     lower_action(
         catalog,
         allocator,
-        actor,
+        ActionContext {
+            actor,
+            owner: actor,
+            origin: ActionOrigin::UltimateInterrupt,
+            timeline_actor: None,
+        },
         ability,
-        ActionOrigin::UltimateInterrupt,
-        None,
         targets,
     )
 }
@@ -57,21 +79,51 @@ pub(crate) fn lower_queued_action(
     origin: ActionOrigin,
     targets: TargetCommitment,
 ) -> Option<ActionPlan> {
-    lower_action(catalog, allocator, actor, ability, origin, None, targets)
+    lower_action(
+        catalog,
+        allocator,
+        ActionContext {
+            actor,
+            owner: actor,
+            origin,
+            timeline_actor: None,
+        },
+        ability,
+        targets,
+    )
+}
+
+pub(crate) fn lower_timeline_action(
+    catalog: &CombatCatalog,
+    allocator: &mut impl ActionIdentityAllocator,
+    context: TimelineActionContext,
+    ability: AbilityId,
+    targets: TargetCommitment,
+) -> Option<ActionPlan> {
+    lower_action(
+        catalog,
+        allocator,
+        ActionContext {
+            actor: context.actor,
+            owner: context.owner,
+            origin: context.origin,
+            timeline_actor: Some(context.timeline_actor),
+        },
+        ability,
+        targets,
+    )
 }
 
 fn lower_action(
     catalog: &CombatCatalog,
     allocator: &mut impl ActionIdentityAllocator,
-    actor: UnitId,
+    context: ActionContext,
     ability: AbilityId,
-    origin: ActionOrigin,
-    normal_turn: Option<TimelineActorId>,
     targets: TargetCommitment,
 ) -> Option<ActionPlan> {
     let definition = catalog.ability(ability)?;
     let action = definition.action()?;
-    let compatible = match origin {
+    let compatible = match context.origin {
         ActionOrigin::NormalTurn => action.kind().is_normal_turn(),
         ActionOrigin::UltimateInterrupt if action.kind() != AbilityKind::Ultimate => return None,
         ActionOrigin::UltimateInterrupt => true,
@@ -82,6 +134,9 @@ fn lower_action(
             action.kind() == AbilityKind::ExtraAction
         }
         ActionOrigin::DelayedAction => action.kind() == AbilityKind::DelayedAction,
+        ActionOrigin::SummonAction => action.kind() == AbilityKind::Summon,
+        ActionOrigin::MemospriteAction => action.kind() == AbilityKind::Memosprite,
+        ActionOrigin::Countdown => action.kind() == AbilityKind::Countdown,
     };
     compatible.then_some(())?;
     let selector = catalog.selector(definition.selector())?.unit_targets()?;
@@ -110,10 +165,11 @@ fn lower_action(
         .into_boxed_slice();
     Some(ActionPlan {
         id: action_id,
-        actor,
+        actor: context.actor,
+        owner: context.owner,
         ability,
-        origin,
-        normal_turn,
+        origin: context.origin,
+        normal_turn: context.timeline_actor,
         selector,
         targets,
         resources: action.resources(),

@@ -281,6 +281,44 @@ fn validate_operation(
         RuleOperationTemplate::GrantExtraTurn { actor_selector } => {
             require_selector(catalog, *actor_selector)?;
         }
+        RuleOperationTemplate::Summon {
+            owner_selector,
+            unit_definition,
+        } => {
+            require_selector(catalog, *owner_selector)?;
+            if catalog.unit(*unit_definition).is_none() {
+                return Err(format!(
+                    "summon refers to missing unit {}",
+                    unit_definition.get()
+                ));
+            }
+        }
+        RuleOperationTemplate::Despawn { selector }
+        | RuleOperationTemplate::ChangePresence { selector, .. } => {
+            require_selector(catalog, *selector)?;
+        }
+        RuleOperationTemplate::Transform {
+            selector,
+            replacement_definition,
+        } => {
+            require_selector(catalog, *selector)?;
+            if catalog.unit(*replacement_definition).is_none() {
+                return Err(format!(
+                    "transform refers to missing unit {}",
+                    replacement_definition.get()
+                ));
+            }
+        }
+        RuleOperationTemplate::ReplaceAbility {
+            selector,
+            old_ability,
+            new_ability,
+        } => {
+            require_selector(catalog, *selector)?;
+            if catalog.ability(*old_ability).is_none() || catalog.ability(*new_ability).is_none() {
+                return Err("ability replacement refers to a missing ability".into());
+            }
+        }
         RuleOperationTemplate::Break { selector, .. }
         | RuleOperationTemplate::AddWeakness { selector, .. }
         | RuleOperationTemplate::RemoveWeakness { selector, .. }

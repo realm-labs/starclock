@@ -145,7 +145,7 @@ pub(crate) fn validate(catalog: &CombatCatalog, spec: &BattleSpec) -> Result<(),
                 .wave_enemies(participant.wave())
                 .is_some_and(|wave| match participant.source() {
                     ParticipantSource::EncounterEnemy(enemy) => wave.contains(&enemy),
-                    ParticipantSource::Player => false,
+                    ParticipantSource::Player | ParticipantSource::Linked(_) => false,
                 })
         {
             return Err(BattleBuildError::new(
@@ -154,6 +154,7 @@ pub(crate) fn validate(catalog: &CombatCatalog, spec: &BattleSpec) -> Result<(),
                 match participant.source() {
                     ParticipantSource::Player => None,
                     ParticipantSource::EncounterEnemy(enemy) => Some(enemy.get()),
+                    ParticipantSource::Linked(source) => Some(source.get()),
                 },
             ));
         }
@@ -211,6 +212,7 @@ fn validate_source(
             match source {
                 ParticipantSource::Player => None,
                 ParticipantSource::EncounterEnemy(enemy) => Some(enemy.get()),
+                ParticipantSource::Linked(source) => Some(source.get()),
             },
         )),
     }

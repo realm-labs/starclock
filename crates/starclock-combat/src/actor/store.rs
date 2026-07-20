@@ -7,6 +7,9 @@ use crate::{
     numeric::domain::{ActionGauge, Energy, Hp, Speed},
 };
 
+use super::link::{
+    LinkedEntity, LinkedEntityKind, OwnerLinkPolicy, TransformEndPolicy, WaveLinkPolicy,
+};
 use super::model::{LifeState, PresenceState};
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -35,6 +38,18 @@ pub(crate) struct UnitState {
     pub(crate) rule_bundles: Box<[RuleBundleId]>,
     pub(crate) modifiers: Box<[ModifierDefinitionId]>,
     pub(crate) digest: CombatantSpecDigest,
+    pub(crate) transformation: Option<TransformationState>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct TransformationState {
+    pub(crate) source_operation: crate::OperationId,
+    pub(crate) original_form: UnitDefinitionId,
+    pub(crate) original_abilities: Box<[AbilityId]>,
+    pub(crate) original_presence: PresenceState,
+    pub(crate) countdown_actor: Option<TimelineActorId>,
+    pub(crate) defeat: TransformEndPolicy,
+    pub(crate) wave: TransformEndPolicy,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -83,6 +98,10 @@ impl UnitStore {
 pub(crate) struct TimelineActorState {
     pub(crate) id: TimelineActorId,
     pub(crate) owner: UnitId,
+    pub(crate) unit: Option<UnitId>,
+    pub(crate) kind: Option<LinkedEntityKind>,
+    pub(crate) automatic_ability: Option<AbilityId>,
+    pub(crate) active: bool,
     pub(crate) gauge: ActionGauge,
     pub(crate) speed: Speed,
 }
@@ -118,12 +137,70 @@ impl TimelineActorStore {
 
     pub(crate) fn id_for_owner(&self, owner: UnitId) -> Option<TimelineActorId> {
         self.iter_by_id()
-            .find(|actor| actor.owner == owner)
+            .find(|actor| actor.active && actor.unit == Some(owner))
+            .map(|actor| actor.id)
+    }
+
+    pub(crate) fn any_id_for_unit(&self, unit: UnitId) -> Option<TimelineActorId> {
+        self.iter_by_id()
+            .find(|actor| actor.unit == Some(unit))
             .map(|actor| actor.id)
     }
 
     pub(crate) fn canonical_slots(&self) -> &[Option<TimelineActorState>] {
         &self.slots
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct LinkState {
+    pub(crate) owner: UnitId,
+    pub(crate) entity: LinkedEntity,
+    pub(crate) kind: LinkedEntityKind,
+    pub(crate) owner_defeat: OwnerLinkPolicy,
+    pub(crate) owner_departure: OwnerLinkPolicy,
+    pub(crate) wave: WaveLinkPolicy,
+    pub(crate) active: bool,
+}
+
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub(crate) struct LinkStore {
+    entries: Vec<LinkState>,
+}
+
+impl LinkStore {
+    pub(crate) fn insert(&mut self, state: LinkState) -> bool {
+        if self
+            .entries
+            .iter()
+            .any(|entry| entry.entity == state.entity)
+        {
+            return false;
+        }
+        self.entries.push(state);
+        true
+    }
+
+    pub(crate) fn get_mut(&mut self, entity: LinkedEntity) -> Option<&mut LinkState> {
+        self.entries.iter_mut().find(|entry| entry.entity == entity)
+    }
+
+    pub(crate) fn active_for_owner(&self, owner: UnitId) -> impl Iterator<Item = LinkState> + '_ {
+        self.entries
+            .iter()
+            .copied()
+            .filter(move |entry| entry.active && entry.owner == owner)
+    }
+
+    pub(crate) fn for_unit(&self, unit: UnitId) -> Option<LinkState> {
+        self.entries
+            .iter()
+            .copied()
+            .find(|entry| entry.entity == LinkedEntity::Unit(unit))
+    }
+
+    pub(crate) fn canonical_entries(&self) -> &[LinkState] {
+        &self.entries
     }
 }
 

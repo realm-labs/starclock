@@ -49,6 +49,11 @@
       "observations_required": [
         "Damage, Energy/resource, departure and ability-restoration event order."
       ],
+      "executable_evidence": [
+        "config/probes/v1a/aglaea-memosprite/golden.json",
+        "crates/starclock-combat/tests/linked_lifecycle.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ],
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -98,6 +103,10 @@
       "observations_required": [
         "Trigger eligibility and once-scope behavior at action, contribution and hit boundaries."
       ],
+      "executable_evidence": [
+        "config/probes/v1a/aglaea-memosprite/golden.json",
+        "crates/starclock-combat/tests/linked_lifecycle.rs"
+      ],
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -134,6 +143,11 @@
       ],
       "observations_required": [
         "Resummon behavior from downed, defeated, departed and already-present states."
+      ],
+      "executable_evidence": [
+        "config/probes/v1a/aglaea-memosprite/golden.json",
+        "crates/starclock-combat/tests/linked_lifecycle.rs",
+        "crates/starclock-data/src/probe_tests.rs"
       ],
       "evidence": [
         {
@@ -184,6 +198,10 @@
       ],
       "observations_required": [
         "Gauge rescaling boundary after stack gain and teardown/reset behavior."
+      ],
+      "executable_evidence": [
+        "config/probes/v1a/aglaea-memosprite/golden.json",
+        "crates/starclock-combat/tests/linked_lifecycle.rs"
       ],
       "evidence": [
         {
@@ -1535,6 +1553,11 @@
       ],
       "observations_required": [
         "Carry/reset behavior across AfterAction wave transition, defeat interception and revival."
+      ],
+      "executable_evidence": [
+        "config/probes/v1a/firefly-transform/golden.json",
+        "crates/starclock-combat/tests/linked_lifecycle.rs",
+        "crates/starclock-data/src/probe_tests.rs"
       ],
       "evidence": [
         {
