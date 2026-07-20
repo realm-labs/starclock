@@ -515,6 +515,7 @@ fn infer_value(
             value.kind()
         }
         ValueExpr::Slot(slot) => slot_kind(runtime, *slot)?,
+        ValueExpr::AbilityParameter { kind, .. } => *kind,
         ValueExpr::SelectorCount(selector) => {
             require_selector(catalog, *selector)?;
             RuleValueKind::Integer

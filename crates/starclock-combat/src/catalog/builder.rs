@@ -8,8 +8,9 @@ use crate::ProgramId;
 use super::{
     CatalogDigest, CatalogRevision, CombatCatalog,
     definition::{
-        AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition,
-        ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
+        AbilityDefinition, AbilityParameterDefinition, EffectDefinition, EncounterDefinition,
+        EnemyDefinition, ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition,
+        UnitDefinition,
     },
     encounter::AiGraphDefinition,
     table::{DefinitionTable, DuplicateId},
@@ -20,6 +21,7 @@ use crate::modifier::{
 };
 
 mod lifecycle_validate;
+mod parameter_validate;
 
 /// Foundational definition family named by catalog diagnostics.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -127,6 +129,7 @@ pub struct CombatCatalogBuilder {
     linked_units: Vec<crate::LinkedUnitCatalogDefinition>,
     countdowns: Vec<crate::CountdownCatalogDefinition>,
     abilities: Vec<AbilityDefinition>,
+    ability_parameters: Vec<AbilityParameterDefinition>,
     effects: Vec<EffectDefinition>,
     rules: Vec<RuleDefinition>,
     programs: Vec<ProgramDefinition>,
@@ -150,6 +153,7 @@ impl CombatCatalogBuilder {
             linked_units: Vec::new(),
             countdowns: Vec::new(),
             abilities: Vec::new(),
+            ability_parameters: Vec::new(),
             effects: Vec::new(),
             rules: Vec::new(),
             programs: Vec::new(),
@@ -178,6 +182,10 @@ impl CombatCatalogBuilder {
     /// Adds an ability definition.
     pub fn add_ability(&mut self, definition: AbilityDefinition) {
         self.abilities.push(definition);
+    }
+    /// Adds one value for an exact effective-level ability definition.
+    pub fn add_ability_parameter(&mut self, definition: AbilityParameterDefinition) {
+        self.ability_parameters.push(definition);
     }
     /// Adds an effect definition.
     pub fn add_effect(&mut self, definition: EffectDefinition) {
@@ -234,6 +242,7 @@ impl CombatCatalogBuilder {
             linked_units: table(self.linked_units, DefinitionKind::LinkedUnit)?,
             countdowns: table(self.countdowns, DefinitionKind::Countdown)?,
             abilities: table(self.abilities, DefinitionKind::Ability)?,
+            ability_parameters: parameter_validate::table(self.ability_parameters)?,
             effects: table(self.effects, DefinitionKind::Effect)?,
             rules: table(self.rules, DefinitionKind::Rule)?,
             programs: table(self.programs, DefinitionKind::Program)?,
@@ -286,6 +295,17 @@ fn validate_identity(revision: &str, digest: &[u8; 32]) -> Result<(), CatalogBui
 }
 
 fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError> {
+    for ability in catalog.ability_parameters.keys() {
+        if catalog.abilities.get(*ability).is_none() {
+            return Err(error(
+                CatalogBuildErrorKind::MissingReference,
+                format!(
+                    "ability parameters refer to missing ability {}",
+                    ability.get()
+                ),
+            ));
+        }
+    }
     for id in catalog.units.ids() {
         let unit = catalog
             .units

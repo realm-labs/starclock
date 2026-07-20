@@ -251,5 +251,6 @@ fn evaluation_input<'a>() -> RuleEvaluationInput<'a> {
         slots: &[],
         selectors: &[],
         stat_reader: None,
+        ability_parameter_reader: None,
     }
 }

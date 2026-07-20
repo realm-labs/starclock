@@ -99,7 +99,7 @@ function verifySchemaLock(file) {
   const unions = new Map(schema.unions.map((union) => [union.name, union]));
   assertVariantSet(unions.get("EventPattern"), ["Battle", "Wave", "Turn", "Action", "Hit", "Damage", "HpChanged", "HealApplied", "ShieldChanged", "ToughnessChanged", "WeaknessBroken", "Effect", "ResourceChanged", "TimelineChanged", "Unit", "PresenceChanged", "EncounterTransition", "RuleStateChanged", "DecisionRequested", "FaultRaised", "InformationalRule"]);
   assertVariantSet(unions.get("ProgramStepNode"), ["Operation", "If", "ForEach"]);
-  assertVariantSet(unions.get("ValueExpressionNode"), ["IntegerLiteral", "ScalarLiteral", "RatioLiteral", "ProbabilityLiteral", "StableIdLiteral", "BooleanLiteral", "ReadStateSlot", "ReadResource", "QueryStat", "ReadEventProperty", "SelectorCount", "SelectorSum", "CheckedBinary", "Clamp", "Negate", "Choose", "Convert"]);
+  assertVariantSet(unions.get("ValueExpressionNode"), ["IntegerLiteral", "ScalarLiteral", "RatioLiteral", "ProbabilityLiteral", "StableIdLiteral", "BooleanLiteral", "ReadStateSlot", "AbilityParameter", "ReadResource", "QueryStat", "ReadEventProperty", "SelectorCount", "SelectorSum", "CheckedBinary", "Clamp", "Negate", "Choose", "Convert"]);
   assertVariantSet(unions.get("ConditionExpressionNode"), ["Constant", "Compare", "All", "Any", "Not", "HasTag", "LifePresence", "ResourceBounds", "EffectExists", "HasWeakness", "IsBroken", "SelectorCardinality", "EventPropertyCompare"]);
   assertVariantSet(unions.get("OperationPayload"), expectedOperationVariants());
   assertVariantSet(unions.get("SelectorPredicateNode"), ["FormationRange", "HasMark", "HasWeakness", "HasEffect", "HasTag", "OwnedBy", "StatCompare"]);

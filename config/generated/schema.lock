@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "c315ad58e2451b9e",
+  "fingerprint": "44b61f2edeb81d34",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -3234,6 +3234,35 @@
                 "default": null,
                 "range": null,
                 "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          },
+          {
+            "name": "AbilityParameter",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "fields": [
+              {
+                "name": "parameter_key",
+                "ty": "String",
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": [
+                  1,
+                  128
+                ],
                 "parser": null,
                 "derived_from": null
               }

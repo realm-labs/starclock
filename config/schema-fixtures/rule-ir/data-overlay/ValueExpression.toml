@@ -63,3 +63,9 @@ id = 11
 stable_key = "fixture.expr.ratio-cap"
 result_kind = "Ratio"
 node = { type = "RatioLiteral", value_decimal = "1" }
+
+[[rows]]
+id = 12
+stable_key = "fixture.expr.ability-parameter"
+result_kind = "Scalar"
+node = { type = "AbilityParameter", parameter_key = "parameter.01" }

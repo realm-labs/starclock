@@ -321,6 +321,11 @@ pub struct EventFilter {
 pub enum ValueExpr {
     Literal(RuleValue),
     Slot(StateSlotDefinitionId),
+    /// Selected effective-level parameter for the current ability occurrence.
+    AbilityParameter {
+        key: Box<str>,
+        kind: RuleValueKind,
+    },
     SelectorCount(SelectorId),
     EventId,
     EventOwner,
@@ -904,6 +909,7 @@ pub struct RuleEvaluationInput<'a> {
     pub slots: &'a [(StateSlotDefinitionId, RuleValue)],
     pub selectors: &'a [SelectorResult<'a>],
     pub stat_reader: Option<&'a dyn super::evaluate::StatQueryReader>,
+    pub ability_parameter_reader: Option<&'a dyn super::evaluate::AbilityParameterReader>,
 }
 
 impl core::fmt::Debug for RuleEvaluationInput<'_> {
@@ -917,6 +923,10 @@ impl core::fmt::Debug for RuleEvaluationInput<'_> {
             .field("slots", &self.slots)
             .field("selectors", &self.selectors)
             .field("has_stat_reader", &self.stat_reader.is_some())
+            .field(
+                "has_ability_parameter_reader",
+                &self.ability_parameter_reader.is_some(),
+            )
             .finish()
     }
 }

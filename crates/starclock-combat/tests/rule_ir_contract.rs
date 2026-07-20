@@ -2,12 +2,15 @@ use starclock_combat::{
     ProgramId, SelectorId, SourceDefinitionId, StateSlotDefinitionId, UnitId,
     catalog::{
         builder::{CatalogBuildErrorKind, CombatCatalogBuilder},
-        definition::{AbilityDefinition, ProgramDefinition, RuleDefinition, SelectorDefinition},
+        definition::{
+            AbilityDefinition, AbilityParameterDefinition, ProgramDefinition, RuleDefinition,
+            SelectorDefinition,
+        },
     },
     rule::{
         evaluate::{
             EvaluationBudget, RuleEvaluationErrorKind, TriggerLedger, evaluate_condition,
-            evaluate_program, matches_filter,
+            evaluate_program, evaluate_value, matches_filter,
         },
         model::{
             BattleRuleDefinition, BattleRuleScope, Comparison, ConditionExpr, EventFilter,
@@ -75,6 +78,7 @@ fn input<'a>(
         slots,
         selectors,
         stat_reader: None,
+        ability_parameter_reader: None,
     }
 }
 
@@ -89,6 +93,57 @@ fn occurrence() -> RuleOccurrence {
         turn_event: Some(runtime(15)),
         wave: runtime(16),
     }
+}
+
+#[test]
+fn ability_parameter_leaf_reads_the_exact_resolved_ability_and_fails_closed() {
+    let ability = definition(13);
+    let program = definition(1);
+    let selector = definition(1);
+    let mut builder = CombatCatalogBuilder::new("ability-parameter-v1", [0x28; 32]);
+    builder.add_selector(SelectorDefinition::new(selector));
+    builder.add_program(ProgramDefinition::new(
+        program,
+        Vec::new(),
+        Vec::new(),
+        Vec::new(),
+        Vec::new(),
+    ));
+    builder.add_ability(AbilityDefinition::new(
+        ability,
+        program,
+        selector,
+        Vec::new(),
+    ));
+    builder.add_ability_parameter(
+        AbilityParameterDefinition::new(ability, "parameter.01", RuleValue::Integer(37)).unwrap(),
+    );
+    let catalog = builder.build().unwrap();
+    let mut context = input(&[], selector, &[]);
+    context.ability_parameter_reader = Some(&*catalog);
+
+    assert_eq!(
+        evaluate_value(
+            &ValueExpr::AbilityParameter {
+                key: "parameter.01".into(),
+                kind: RuleValueKind::Integer,
+            },
+            context,
+            None,
+        )
+        .unwrap(),
+        RuleValue::Integer(37)
+    );
+    let error = evaluate_value(
+        &ValueExpr::AbilityParameter {
+            key: "parameter.missing".into(),
+            kind: RuleValueKind::Integer,
+        },
+        context,
+        None,
+    )
+    .unwrap_err();
+    assert_eq!(error.kind(), RuleEvaluationErrorKind::MissingValue);
 }
 
 #[test]

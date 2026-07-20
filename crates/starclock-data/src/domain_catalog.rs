@@ -30,12 +30,13 @@ use starclock_combat::{
         },
         builder::CombatCatalogBuilder,
         definition::{
-            AbilityDefinition as CombatAbilityDefinition, CharacterResourceDefinition,
-            EffectDefinition, ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition,
-            UnitDefinition,
+            AbilityDefinition as CombatAbilityDefinition,
+            AbilityParameterDefinition as CombatAbilityParameterDefinition,
+            CharacterResourceDefinition, EffectDefinition, ProgramDefinition, RuleBundle,
+            RuleDefinition, SelectorDefinition, UnitDefinition,
         },
     },
-    rule::model::{RuleSource, SourceClass},
+    rule::model::{RuleSource, RuleValue, SourceClass},
 };
 
 use crate::{
@@ -265,6 +266,23 @@ fn compile_combat(
     }
     for encounter in &encounters.encounters {
         builder.add_encounter(encounter.clone());
+    }
+    for parameter in builds
+        .characters
+        .iter()
+        .flat_map(|character| character.ability_parameters.iter())
+    {
+        let level = u8::try_from(parameter.effective_level)
+            .map_err(|_| domain_fail("ability parameter level exceeds u8"))?;
+        let ability = variant_id(parameter.ability, level)?;
+        builder.add_ability_parameter(
+            CombatAbilityParameterDefinition::new(
+                ability,
+                parameter.parameter_key.clone(),
+                RuleValue::Scalar(parameter.value),
+            )
+            .ok_or_else(|| domain_fail("invalid compiled ability parameter"))?,
+        );
     }
     builder.build().map_err(domain_fail)
 }

@@ -65,10 +65,10 @@ pub(super) struct CharacterResourceDefinition {
 
 #[derive(Debug)]
 pub(super) struct AbilityParameterDefinition {
-    ability: AbilityId,
-    effective_level: u16,
-    parameter_key: Box<str>,
-    value: Scalar,
+    pub(super) ability: AbilityId,
+    pub(super) effective_level: u16,
+    pub(super) parameter_key: Box<str>,
+    pub(super) value: Scalar,
 }
 
 #[derive(Debug)]

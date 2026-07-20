@@ -6,6 +6,7 @@ pub mod definition;
 pub mod encounter;
 mod index;
 mod lifecycle;
+mod parameter;
 mod rule_validate;
 pub mod selector;
 mod table;
@@ -60,6 +61,7 @@ pub struct CombatCatalog {
     linked_units: DefinitionTable<UnitDefinitionId, crate::LinkedUnitCatalogDefinition>,
     countdowns: DefinitionTable<u32, crate::CountdownCatalogDefinition>,
     abilities: DefinitionTable<AbilityId, AbilityDefinition>,
+    ability_parameters: parameter::Table,
     effects: DefinitionTable<EffectDefinitionId, EffectDefinition>,
     rules: DefinitionTable<RuleId, RuleDefinition>,
     programs: DefinitionTable<ProgramId, ProgramDefinition>,
@@ -90,6 +92,7 @@ impl CombatCatalog {
             + self.linked_units.len()
             + self.countdowns.len()
             + self.abilities.len()
+            + parameter::count(&self.ability_parameters)
             + self.effects.len()
             + self.rules.len()
             + self.programs.len()
@@ -190,11 +193,5 @@ impl CombatCatalog {
     /// Iterates selector IDs in canonical numeric order.
     pub fn selector_ids(&self) -> impl ExactSizeIterator<Item = SelectorId> + '_ {
         self.selectors.ids()
-    }
-}
-
-impl crate::rule::evaluate::ProgramLookup for CombatCatalog {
-    fn program_steps(&self, id: ProgramId) -> Option<&[crate::rule::model::ProgramStep]> {
-        self.program(id).map(ProgramDefinition::steps)
     }
 }

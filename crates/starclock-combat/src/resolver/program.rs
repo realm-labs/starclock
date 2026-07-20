@@ -111,6 +111,7 @@ pub(super) fn execute_ability_program(
         slots: &[],
         selectors: &selectors,
         stat_reader: Some(&stat_reader),
+        ability_parameter_reader: Some(catalog),
     };
     let emissions = evaluate_program(catalog, context.program, input, EvaluationBudget::STANDARD)
         .map_err(|error| program_fault(1, i64::from(error.context())))?;

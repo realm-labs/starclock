@@ -111,6 +111,70 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
         clara.resources()[0].stable_key(),
         "enhanced-counter-charges"
     );
+    let base = starclock_combat::AbilityId::new(20_006).unwrap();
+    let maximum = starclock_combat::AbilityId::new(1_000_640_202).unwrap();
+    assert_eq!(
+        combat.ability_parameter(base, "parameter.01"),
+        Some(&starclock_combat::rule::model::RuleValue::Scalar(
+            starclock_combat::Scalar::from_scaled(1_000_000)
+        ))
+    );
+    assert_eq!(
+        combat.ability_parameter(maximum, "parameter.01"),
+        Some(&starclock_combat::rule::model::RuleValue::Scalar(
+            starclock_combat::Scalar::from_scaled(2_800_000)
+        ))
+    );
+    let formula = starclock_combat::rule::model::ValueExpr::Multiply {
+        lhs: Box::new(starclock_combat::rule::model::ValueExpr::AbilityParameter {
+            key: "parameter.01".into(),
+            kind: starclock_combat::rule::model::RuleValueKind::Scalar,
+        }),
+        rhs: Box::new(starclock_combat::rule::model::ValueExpr::Literal(
+            starclock_combat::rule::model::RuleValue::Scalar(
+                starclock_combat::Scalar::from_scaled(2_000_000),
+            ),
+        )),
+        rounding: starclock_combat::Rounding::NearestTiesEven,
+    };
+    let mut input = starclock_combat::rule::model::RuleEvaluationInput {
+        event_kind: starclock_combat::rule::model::RuleEventKind::Action,
+        cause: starclock_combat::rule::model::RuleCause {
+            owner: None,
+            actor: None,
+            applier: None,
+            target: None,
+            source: None,
+        },
+        occurrence: starclock_combat::rule::model::RuleOccurrence {
+            rule_instance: starclock_combat::RuleInstanceId::new(1).unwrap(),
+            event: starclock_combat::EventId::new(1).unwrap(),
+            hit: None,
+            target: None,
+            ability: Some(base),
+            action: starclock_combat::ActionId::new(1),
+            turn_event: None,
+            wave: starclock_combat::WaveInstanceId::new(1).unwrap(),
+        },
+        source_tags: &[],
+        slots: &[],
+        selectors: &[],
+        stat_reader: None,
+        ability_parameter_reader: Some(combat),
+    };
+    assert_eq!(
+        starclock_combat::rule::evaluate::evaluate_value(&formula, input, None).unwrap(),
+        starclock_combat::rule::model::RuleValue::Scalar(starclock_combat::Scalar::from_scaled(
+            2_000_000
+        ))
+    );
+    input.occurrence.ability = Some(maximum);
+    assert_eq!(
+        starclock_combat::rule::evaluate::evaluate_value(&formula, input, None).unwrap(),
+        starclock_combat::rule::model::RuleValue::Scalar(starclock_combat::Scalar::from_scaled(
+            5_600_000
+        ))
+    );
     assert!(Arc::ptr_eq(&catalog, &Arc::clone(&catalog)));
 }
 

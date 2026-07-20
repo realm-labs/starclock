@@ -660,6 +660,7 @@ fn firefly_input(stats: &FireflyStats) -> RuleEvaluationInput<'_> {
         slots: &[],
         selectors: &[],
         stat_reader: Some(stats),
+        ability_parameter_reader: None,
     }
 }
 

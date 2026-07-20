@@ -159,6 +159,45 @@ impl UnitDefinition {
     }
 }
 
+/// One typed value selected for an exact effective-level ability definition.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AbilityParameterDefinition {
+    ability: AbilityId,
+    stable_key: Box<str>,
+    value: crate::rule::model::RuleValue,
+}
+
+impl AbilityParameterDefinition {
+    #[must_use]
+    pub fn new(
+        ability: AbilityId,
+        stable_key: impl Into<Box<str>>,
+        value: crate::rule::model::RuleValue,
+    ) -> Option<Self> {
+        let stable_key = stable_key.into();
+        if stable_key.trim().is_empty() || stable_key.len() > 128 {
+            return None;
+        }
+        Some(Self {
+            ability,
+            stable_key,
+            value,
+        })
+    }
+    #[must_use]
+    pub const fn ability(&self) -> AbilityId {
+        self.ability
+    }
+    #[must_use]
+    pub fn stable_key(&self) -> &str {
+        &self.stable_key
+    }
+    #[must_use]
+    pub const fn value(&self) -> &crate::rule::model::RuleValue {
+        &self.value
+    }
+}
+
 /// Ability entry point referencing one program, selector and applied effects.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AbilityDefinition {

@@ -259,6 +259,7 @@ impl<'a> StatResolver<'a> {
             slots: &instance.slots,
             selectors: &[],
             stat_reader: Some(reader),
+            ability_parameter_reader: None,
         };
         let value = evaluate_value(&definition.value, input, Some(instance.subject));
         if let Some(error) = self.deferred_error.borrow_mut().take() {

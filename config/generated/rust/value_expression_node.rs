@@ -38,6 +38,10 @@ pub enum ValueExpressionNode {
         #[serde(rename = "state_slot_id")]
         state_slot_id: i32,
     },
+    AbilityParameter {
+        #[serde(rename = "parameter_key")]
+        parameter_key: String,
+    },
     ReadResource {
         #[serde(rename = "subject_selector_id")]
         subject_selector_id: i32,
@@ -134,48 +138,51 @@ impl super::runtime::SoraDecode for ValueExpressionNode {
             6 => Ok(Self::ReadStateSlot {
                 state_slot_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            7 => Ok(Self::ReadResource {
+            7 => Ok(Self::AbilityParameter {
+                parameter_key: <String as super::runtime::SoraDecode>::decode(reader)?,
+            }),
+            8 => Ok(Self::ReadResource {
                 subject_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 resource_kind: <ResourceKind as super::runtime::SoraDecode>::decode(reader)?,
                 character_resource_key: <Option<String> as super::runtime::SoraDecode>::decode(
                     reader,
                 )?,
             }),
-            8 => Ok(Self::QueryStat {
+            9 => Ok(Self::QueryStat {
                 subject_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 stat: <StatKind as super::runtime::SoraDecode>::decode(reader)?,
                 formula_purpose: <FormulaPurpose as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            9 => Ok(Self::ReadEventProperty {
+            10 => Ok(Self::ReadEventProperty {
                 property: <EventValueProperty as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            10 => Ok(Self::SelectorCount {
+            11 => Ok(Self::SelectorCount {
                 selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            11 => Ok(Self::SelectorSum {
+            12 => Ok(Self::SelectorSum {
                 selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 value_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            12 => Ok(Self::CheckedBinary {
+            13 => Ok(Self::CheckedBinary {
                 operator: <ValueBinaryOperator as super::runtime::SoraDecode>::decode(reader)?,
                 left_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 right_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 rounding: <RoundingPolicy as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            13 => Ok(Self::Clamp {
+            14 => Ok(Self::Clamp {
                 value_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 minimum_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 maximum_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            14 => Ok(Self::Negate {
+            15 => Ok(Self::Negate {
                 operand_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            15 => Ok(Self::Choose {
+            16 => Ok(Self::Choose {
                 condition_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 when_true_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 when_false_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            16 => Ok(Self::Convert {
+            17 => Ok(Self::Convert {
                 operand_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 target_kind: <ValueKind as super::runtime::SoraDecode>::decode(reader)?,
                 rounding: <RoundingPolicy as super::runtime::SoraDecode>::decode(reader)?,
@@ -199,6 +206,7 @@ impl ValueExpressionNode {
             Self::StableIdLiteral { .. } => {}
             Self::BooleanLiteral { .. } => {}
             Self::ReadStateSlot { .. } => {}
+            Self::AbilityParameter { .. } => {}
             Self::ReadResource { .. } => {}
             Self::QueryStat { .. } => {}
             Self::ReadEventProperty { .. } => {}

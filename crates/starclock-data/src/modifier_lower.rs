@@ -148,6 +148,10 @@ pub(super) fn expression(
             starclock_combat::StateSlotDefinitionId::new(positive(*state_slot_id)?)
                 .expect("positive ID"),
         ),
+        Node::AbilityParameter { parameter_key } => ValueExpr::AbilityParameter {
+            key: parameter_key.clone().into_boxed_str(),
+            kind: value_kind(row.result_kind)?,
+        },
         Node::QueryStat {
             subject_selector_id,
             stat: query_stat,

@@ -196,6 +196,7 @@ fn evaluate_candidate(
         slots: &candidate.slots,
         selectors: &selectors,
         stat_reader: Some(&stat_reader),
+        ability_parameter_reader: Some(catalog),
     };
     let emissions = txn
         .state

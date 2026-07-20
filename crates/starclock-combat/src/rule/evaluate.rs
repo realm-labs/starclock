@@ -28,6 +28,12 @@ pub trait StatQueryReader {
     ) -> Result<Scalar, RuleEvaluationError>;
 }
 
+/// Read-only bridge used by the Rule IR `AbilityParameter` leaf.
+pub trait AbilityParameterReader {
+    /// Returns one parameter selected by the exact resolved ability and semantic key.
+    fn ability_parameter(&self, ability: crate::AbilityId, key: &str) -> Option<RuleValue>;
+}
+
 /// Stable evaluation failure category.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum RuleEvaluationErrorKind {
@@ -618,6 +624,18 @@ pub fn evaluate_value(
             .ok_or(RuleEvaluationError {
                 kind: RuleEvaluationErrorKind::MissingValue,
                 context: slot.get(),
+            }),
+        ValueExpr::AbilityParameter { key, .. } => input
+            .occurrence
+            .ability
+            .and_then(|ability| {
+                input
+                    .ability_parameter_reader
+                    .and_then(|reader| reader.ability_parameter(ability, key))
+            })
+            .ok_or(RuleEvaluationError {
+                kind: RuleEvaluationErrorKind::MissingValue,
+                context: 0x203,
             }),
         ValueExpr::SelectorCount(selector) => selector_units(input, *selector)
             .and_then(|units| i64::try_from(units.len()).ok())

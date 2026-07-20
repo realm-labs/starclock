@@ -68,6 +68,13 @@ name = "state_slot_id"
 type = "ref<StateSlot.id>"
 
 [[unions.variants]]
+name = "AbilityParameter"
+[[unions.variants.fields]]
+name = "parameter_key"
+type = "string"
+length = [1, 128]
+
+[[unions.variants]]
 name = "ReadResource"
 [[unions.variants.fields]]
 name = "subject_selector_id"
