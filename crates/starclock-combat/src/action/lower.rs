@@ -79,7 +79,7 @@ fn lower_action(
             operations: hit
                 .operations()
                 .iter()
-                .copied()
+                .cloned()
                 .map(|definition| OperationPlan {
                     id: allocator.operation(),
                     definition,

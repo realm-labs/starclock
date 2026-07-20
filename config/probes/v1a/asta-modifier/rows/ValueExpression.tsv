@@ -5,3 +5,5 @@ id	stable_key	result_kind	node
 4	probe.asta.expr.charging-scalar	Scalar	{"type":"Convert","operand_expression_id":2,"target_kind":"Scalar","rounding":"TowardZero"}
 5	probe.asta.expr.dynamic-atk-ratio	Ratio	{"type":"CheckedBinary","operator":"CheckedMultiply","left_expression_id":4,"right_expression_id":3,"rounding":"NearestTiesEven"}
 6	probe.asta.expr.maximum-charging	Integer	{"type":"IntegerLiteral","value":5}
+7	probe.asta.expr.astral-duration	Integer	{"type":"IntegerLiteral","value":2}
+8	probe.asta.expr.astral-spd	Scalar	{"type":"ScalarLiteral","value_decimal":"50"}

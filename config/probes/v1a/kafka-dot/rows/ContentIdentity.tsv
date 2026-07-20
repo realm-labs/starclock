@@ -1,0 +1,10 @@
+id	stable_key	content_kind	name_en	name_zh_cn	summary_en	summary_zh_cn	game_version_introduced	game_version_snapshot	release_state	enabled	coverage_state	source_record_ids
+1	probe.kafka.caressing-moonlight.source	Ability	Kafka Skill Probe Source	卡芙卡战技探针来源	Non-production source identity bound to Caressing Moonlight.	绑定月光摩挲记录的非生产来源标识。	1.2	4.4	ProjectFixture	false	Disabled	1
+2	probe.kafka.twilight-trill.source	Ability	Kafka Ultimate Probe Source	卡芙卡终结技探针来源	Non-production source identity bound to Twilight Trill.	绑定悲剧尽头的颤音记录的非生产来源标识。	1.2	4.4	ProjectFixture	false	Disabled	1
+3	probe.kafka.gentle-but-cruel.source	Ability	Kafka Talent Probe Source	卡芙卡天赋探针来源	Non-production source identity bound to Gentle but Cruel.	绑定温柔亦同残酷记录的非生产来源标识。	1.2	4.4	ProjectFixture	false	Disabled	1
+4	probe.kafka.shock.effect	Effect	Kafka Shock Probe Effect	卡芙卡触电探针效果	Non-production retained two-turn Lightning DoT definition.	非生产保留的两回合雷属性持续伤害定义。	1.2	4.4	ProjectFixture	false	Disabled	1
+5	probe.kafka.skill.program	Program	Kafka Skill Probe Program	卡芙卡战技探针程序	Primary-target 75 percent DoT detonation program.	主目标百分之七十五持续伤害引爆程序。	1.2	4.4	ProjectFixture	false	Disabled	1
+6	probe.kafka.ultimate.program	Program	Kafka Ultimate Probe Program	卡芙卡终结技探针程序	All-target Shock and full DoT detonation program.	全目标触电与完整持续伤害引爆程序。	1.2	4.4	ProjectFixture	false	Disabled	1
+7	probe.kafka.follow-up.program	Program	Kafka Follow-up Probe Program	卡芙卡追加攻击探针程序	Ordered follow-up damage then Shock application program.	依次造成追加攻击伤害并施加触电的程序。	1.2	4.4	ProjectFixture	false	Disabled	1
+8	probe.kafka.follow-up.rule	Rule	Kafka Follow-up Probe Rule	卡芙卡追加攻击探针规则	Turn-scoped follow-up owner with typed reset state.	具有类型化回合重置状态的追加攻击规则所有者。	1.2	4.4	ProjectFixture	false	Disabled	1
+9	probe.kafka.follow-up.used.slot	StateSlot	Kafka Follow-up Used Slot	卡芙卡追加攻击已用槽位	Non-production bounded once-per-owner-turn state.	非生产的每所有者回合一次有界状态。	1.2	4.4	ProjectFixture	false	Disabled	1

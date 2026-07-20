@@ -7,15 +7,19 @@ use starclock_combat::{
     formula::model::{CombatElement, DamageClass},
     rule::{
         evaluate::ProgramLookup,
-        model::{ProgramStep, ResourceUpdateKind, RuleOperationTemplate},
+        model::{
+            ProgramStep, ResourceUpdateKind, RuleEffectChancePolicy, RuleOperationTemplate,
+            RuleResourceKind, StateSlotUpdateKind,
+        },
     },
 };
 
 use crate::{
     catalog::{CatalogLoadError, SimulationCatalog, domain_fail},
     generated::{
-        self, SoraConfig, combat_element, damage_class, operation_payload, program_step_node,
-        resource_kind, resource_update_kind, rounding_policy,
+        self, SoraConfig, combat_element, damage_class, effect_chance_policy, operation_payload,
+        program_step_node, resource_kind, resource_update_kind, rounding_policy,
+        state_slot_update_kind,
     },
 };
 
@@ -192,20 +196,80 @@ fn lower_operation(
             amount_expression_id,
             scales_with_energy_regeneration,
             rounding,
-        } if *resource_kind == resource_kind::ResourceKind::Energy
-            && character_resource_key.is_none() =>
-        {
-            RuleOperationTemplate::ModifyEnergy {
+        } => {
+            let resource = match resource_kind {
+                resource_kind::ResourceKind::Energy if character_resource_key.is_none() => {
+                    RuleResourceKind::Energy
+                }
+                resource_kind::ResourceKind::SkillPoints if character_resource_key.is_none() => {
+                    RuleResourceKind::SkillPoints
+                }
+                resource_kind::ResourceKind::CharacterResource => RuleResourceKind::Character(
+                    character_resource_key
+                        .as_deref()
+                        .filter(|key| !key.trim().is_empty())
+                        .ok_or_else(|| domain_fail("character resource lacks its authored key"))?
+                        .into(),
+                ),
+                resource_kind::ResourceKind::Hp => {
+                    return Err(domain_fail("HP changes must use ConsumeHp, Heal or Damage"));
+                }
+                _ => return Err(domain_fail("resource kind/key combination is invalid")),
+            };
+            if *scales_with_energy_regeneration && resource != RuleResourceKind::Energy {
+                return Err(domain_fail(
+                    "only Energy can scale with energy regeneration",
+                ));
+            }
+            RuleOperationTemplate::ModifyResource {
                 selector: selector()?,
+                resource,
                 update: lower_update(*update_kind),
                 amount: expression(*amount_expression_id)?,
                 scales_with_regeneration: *scales_with_energy_regeneration,
                 rounding: lower_rounding(*rounding),
             }
         }
-        Payload::ApplyEffect { effect_id, .. } => RuleOperationTemplate::ApplyEffect {
+        Payload::ApplyEffect {
+            effect_id,
+            chance_policy,
+            base_chance_expression_id,
+            rng_purpose_key,
+        } => RuleOperationTemplate::ApplyEffect {
             selector: selector()?,
             effect: effect(*effect_id)?,
+            chance: lower_effect_chance(*chance_policy),
+            base_chance: base_chance_expression_id.map(expression).transpose()?,
+            rng_purpose: lower_rng_purpose(rng_purpose_key.as_deref())?,
+        },
+        Payload::RemoveEffect { effect_id } => RuleOperationTemplate::RemoveEffect {
+            selector: selector()?,
+            effect: effect(*effect_id)?,
+        },
+        Payload::DetonateDot {
+            fraction_expression_id,
+            required_effect_tag,
+        } => {
+            if required_effect_tag.is_some() {
+                return Err(domain_fail(
+                    "string effect tags require a compiled tag registry",
+                ));
+            }
+            RuleOperationTemplate::DetonateDot {
+                selector: selector()?,
+                fraction: expression(*fraction_expression_id)?,
+                required_tag: None,
+            }
+        }
+        Payload::ModifyStateSlot {
+            state_slot_id,
+            update_kind,
+            value_expression_id,
+        } => RuleOperationTemplate::ModifyStateSlot {
+            slot: starclock_combat::StateSlotDefinitionId::new(positive(*state_slot_id)?)
+                .expect("positive state-slot ID"),
+            update: lower_slot_update(*update_kind),
+            value: expression(*value_expression_id)?,
         },
         Payload::AdvanceAction {
             amount_expression_id,
@@ -225,6 +289,36 @@ fn lower_operation(
             )));
         }
     })
+}
+
+fn lower_effect_chance(value: effect_chance_policy::EffectChancePolicy) -> RuleEffectChancePolicy {
+    match value {
+        effect_chance_policy::EffectChancePolicy::Guaranteed => RuleEffectChancePolicy::Guaranteed,
+        effect_chance_policy::EffectChancePolicy::Fixed => RuleEffectChancePolicy::Fixed,
+        effect_chance_policy::EffectChancePolicy::Resistible => RuleEffectChancePolicy::Resistible,
+    }
+}
+
+fn lower_rng_purpose(
+    value: Option<&str>,
+) -> Result<Option<starclock_combat::rng::types::DrawPurpose>, CatalogLoadError> {
+    match value {
+        None => Ok(None),
+        Some("effect-application") => Ok(Some(
+            starclock_combat::rng::types::DrawPurpose::EFFECT_CHANCE,
+        )),
+        Some(_) => Err(domain_fail("unknown effect-chance RNG purpose key")),
+    }
+}
+
+fn lower_slot_update(value: state_slot_update_kind::StateSlotUpdateKind) -> StateSlotUpdateKind {
+    match value {
+        state_slot_update_kind::StateSlotUpdateKind::Set => StateSlotUpdateKind::Set,
+        state_slot_update_kind::StateSlotUpdateKind::Add => StateSlotUpdateKind::Add,
+        state_slot_update_kind::StateSlotUpdateKind::Subtract => StateSlotUpdateKind::Subtract,
+        state_slot_update_kind::StateSlotUpdateKind::Minimum => StateSlotUpdateKind::Minimum,
+        state_slot_update_kind::StateSlotUpdateKind::Maximum => StateSlotUpdateKind::Maximum,
+    }
 }
 
 fn lower_damage_class(value: damage_class::DamageClass) -> Result<DamageClass, CatalogLoadError> {

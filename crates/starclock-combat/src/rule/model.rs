@@ -185,6 +185,16 @@ impl StateSlotDef {
         self
     }
     #[must_use]
+    pub fn with_optional_bounds(
+        mut self,
+        minimum: Option<RuleValue>,
+        maximum: Option<RuleValue>,
+    ) -> Self {
+        self.minimum = minimum;
+        self.maximum = maximum;
+        self
+    }
+    #[must_use]
     pub fn with_reset_points(mut self, reset_points: Vec<SlotResetPoint>) -> Self {
         self.reset_points = reset_points.into_boxed_slice();
         self
@@ -469,8 +479,9 @@ pub enum RuleOperationTemplate {
         selector: SelectorId,
         layer_key: Box<str>,
     },
-    ModifyEnergy {
+    ModifyResource {
         selector: SelectorId,
+        resource: RuleResourceKind,
         update: ResourceUpdateKind,
         amount: ValueExpr,
         scales_with_regeneration: bool,
@@ -479,6 +490,23 @@ pub enum RuleOperationTemplate {
     ApplyEffect {
         selector: SelectorId,
         effect: EffectDefinitionId,
+        chance: RuleEffectChancePolicy,
+        base_chance: Option<ValueExpr>,
+        rng_purpose: Option<crate::rng::types::DrawPurpose>,
+    },
+    RemoveEffect {
+        selector: SelectorId,
+        effect: EffectDefinitionId,
+    },
+    DetonateDot {
+        selector: SelectorId,
+        fraction: ValueExpr,
+        required_tag: Option<SourceDefinitionId>,
+    },
+    ModifyStateSlot {
+        slot: StateSlotDefinitionId,
+        update: StateSlotUpdateKind,
+        value: ValueExpr,
     },
     AdvanceAction {
         selector: SelectorId,
@@ -508,6 +536,38 @@ pub enum ResourceUpdateKind {
     Reserve,
     Gain,
     Set,
+}
+
+/// Closed resource address emitted by Rule IR.
+#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum RuleResourceKind {
+    Energy,
+    SkillPoints,
+    Character(Box<str>),
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum RuleEffectChancePolicy {
+    Guaranteed,
+    Fixed,
+    Resistible,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum StateSlotUpdateKind {
+    Set,
+    Add,
+    Subtract,
+    Minimum,
+    Maximum,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RuleSlotMutationDefinition {
+    pub rule: RuleId,
+    pub slot: StateSlotDefinitionId,
+    pub update: StateSlotUpdateKind,
+    pub value: RuleValue,
 }
 
 /// One immutable trigger definition.
@@ -675,8 +735,9 @@ pub enum RuleEmission {
         layer_key: Box<str>,
         current_target: Option<UnitId>,
     },
-    ModifyEnergy {
+    ModifyResource {
         selector: SelectorId,
+        resource: RuleResourceKind,
         update: ResourceUpdateKind,
         amount: RuleValue,
         scales_with_regeneration: bool,
@@ -686,6 +747,26 @@ pub enum RuleEmission {
     ApplyEffect {
         selector: SelectorId,
         effect: EffectDefinitionId,
+        chance: RuleEffectChancePolicy,
+        base_chance: Option<RuleValue>,
+        rng_purpose: Option<crate::rng::types::DrawPurpose>,
+        current_target: Option<UnitId>,
+    },
+    RemoveEffect {
+        selector: SelectorId,
+        effect: EffectDefinitionId,
+        current_target: Option<UnitId>,
+    },
+    DetonateDot {
+        selector: SelectorId,
+        fraction: RuleValue,
+        required_tag: Option<SourceDefinitionId>,
+        current_target: Option<UnitId>,
+    },
+    ModifyStateSlot {
+        slot: StateSlotDefinitionId,
+        update: StateSlotUpdateKind,
+        value: RuleValue,
         current_target: Option<UnitId>,
     },
     AdvanceAction {

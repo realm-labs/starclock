@@ -10,8 +10,9 @@ use crate::{
     },
     id::{CommandId, EventId, SourceDefinitionId},
     operation::{
-        AddWeaknessOp, ConsumeHpOp, DamageOp, HealOp, HitOperationScratch, Operation,
-        ReduceToughnessOp, ShieldOp, SuperBreakOp,
+        AddWeaknessOp, ApplyEffectOp, ConsumeHpOp, DamageOp, DetonateDotsOp, HealOp,
+        HitOperationScratch, ModifyStateSlotOp, Operation, ReduceToughnessOp, RemoveEffectsOp,
+        ShieldOp, SuperBreakOp,
     },
 };
 
@@ -21,6 +22,7 @@ use super::{
 };
 
 pub(super) fn execute_action_plan(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     root: CommandId,
     command_parent: EventId,
@@ -59,6 +61,10 @@ pub(super) fn execute_action_plan(
             origin: plan.origin,
         }),
     );
+    txn.reset_rule_slots(
+        crate::rule::model::SlotResetPoint::ActionStart,
+        Some(plan.actor),
+    );
     let phases = plan.phases.clone();
     for phase in &phases {
         let phase_cause = base.with_phase(phase.id);
@@ -70,6 +76,10 @@ pub(super) fn execute_action_plan(
             }),
         );
         for hit in &phase.hits {
+            txn.reset_rule_slots(
+                crate::rule::model::SlotResetPoint::HitStart,
+                Some(plan.actor),
+            );
             let mut operation_scratch = HitOperationScratch::default();
             debug_assert_eq!(hit.invalidation, plan.targets.invalidation);
             let targets = txn.resolve_hit_targets(plan.actor, &mut plan.targets)?;
@@ -86,52 +96,81 @@ pub(super) fn execute_action_plan(
                 }),
             );
             for operation in &hit.operations {
-                let request = match operation.definition {
+                let request = match &operation.definition {
                     HitOperationDefinition::Damage(formula) => Operation::Damage(DamageOp {
                         id: operation.id,
                         targets: targets.clone(),
-                        formula,
+                        formula: *formula,
                     }),
                     HitOperationDefinition::Heal(formula) => Operation::Heal(HealOp {
                         id: operation.id,
                         targets: targets.clone(),
-                        formula,
+                        formula: *formula,
                     }),
                     HitOperationDefinition::Shield(formula) => Operation::Shield(ShieldOp {
                         id: operation.id,
                         targets: targets.clone(),
-                        formula,
+                        formula: *formula,
                     }),
                     HitOperationDefinition::ConsumeHp(definition) => {
                         Operation::ConsumeHp(ConsumeHpOp {
                             id: operation.id,
                             targets: targets.clone(),
-                            definition,
+                            definition: *definition,
                         })
                     }
                     HitOperationDefinition::AddWeakness(definition) => {
                         Operation::AddWeakness(AddWeaknessOp {
                             id: operation.id,
                             targets: targets.clone(),
-                            definition,
+                            definition: *definition,
                         })
                     }
                     HitOperationDefinition::ReduceToughness(definition) => {
                         Operation::ReduceToughness(ReduceToughnessOp {
                             id: operation.id,
                             targets: targets.clone(),
-                            definition,
+                            definition: *definition,
                         })
                     }
                     HitOperationDefinition::SuperBreak(definition) => {
                         Operation::SuperBreak(SuperBreakOp {
                             id: operation.id,
                             targets: targets.clone(),
-                            definition,
+                            definition: *definition,
+                        })
+                    }
+                    HitOperationDefinition::ApplyEffect(definition) => {
+                        Operation::ApplyEffect(ApplyEffectOp {
+                            id: operation.id,
+                            targets: targets.clone(),
+                            definition: *definition,
+                        })
+                    }
+                    HitOperationDefinition::RemoveEffects(definition) => {
+                        Operation::RemoveEffects(RemoveEffectsOp {
+                            id: operation.id,
+                            targets: targets.clone(),
+                            definition: *definition,
+                        })
+                    }
+                    HitOperationDefinition::DetonateDots(definition) => {
+                        Operation::DetonateDots(DetonateDotsOp {
+                            id: operation.id,
+                            targets: targets.clone(),
+                            definition: *definition,
+                        })
+                    }
+                    HitOperationDefinition::ModifyStateSlot(definition) => {
+                        Operation::ModifyStateSlot(ModifyStateSlotOp {
+                            id: operation.id,
+                            owner: plan.actor,
+                            definition: definition.clone(),
                         })
                     }
                 };
                 parent = execute_operation(
+                    catalog,
                     txn,
                     hit_cause.with_applier(plan.actor),
                     parent,

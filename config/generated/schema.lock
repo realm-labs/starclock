@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "efe787b52282426b",
+  "fingerprint": "468c8ecf498f576c",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -5205,6 +5205,55 @@
                     "table": "Effect",
                     "field": "id"
                   }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          },
+          {
+            "name": "DetonateDot",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "fields": [
+              {
+                "name": "fraction_expression_id",
+                "ty": {
+                  "Ref": {
+                    "table": "ValueExpression",
+                    "field": "id"
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "required_effect_tag",
+                "ty": {
+                  "Optional": "String"
                 },
                 "scope": {
                   "values": [

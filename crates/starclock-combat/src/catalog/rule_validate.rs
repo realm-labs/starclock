@@ -284,19 +284,80 @@ fn validate_operation(
             require_scalar(catalog, runtime, amount)?;
             require_scalar(catalog, runtime, floor)?;
         }
-        RuleOperationTemplate::ModifyEnergy {
-            selector, amount, ..
+        RuleOperationTemplate::ModifyResource {
+            selector,
+            resource,
+            amount,
+            scales_with_regeneration,
+            ..
         } => {
             require_selector(catalog, *selector)?;
             require_scalar(catalog, runtime, amount)?;
+            if *scales_with_regeneration
+                && !matches!(resource, crate::rule::model::RuleResourceKind::Energy)
+            {
+                return Err("only Energy can scale with energy regeneration".into());
+            }
         }
-        RuleOperationTemplate::ApplyEffect { selector, effect } => {
+        RuleOperationTemplate::ApplyEffect {
+            selector,
+            effect,
+            chance,
+            base_chance,
+            rng_purpose,
+        } => {
             require_selector(catalog, *selector)?;
             if catalog.effect(*effect).is_none() {
                 return Err(format!(
                     "operation refers to missing effect {}",
                     effect.get()
                 ));
+            }
+            match chance {
+                crate::rule::model::RuleEffectChancePolicy::Guaranteed => {
+                    if base_chance.is_some() || rng_purpose.is_some() {
+                        return Err("guaranteed effect cannot declare chance RNG".into());
+                    }
+                }
+                _ => {
+                    require_scalar(
+                        catalog,
+                        runtime,
+                        base_chance
+                            .as_ref()
+                            .ok_or("chance operation requires base chance")?,
+                    )?;
+                    if rng_purpose.is_none() {
+                        return Err("chance operation requires RNG purpose".into());
+                    }
+                }
+            }
+        }
+        RuleOperationTemplate::RemoveEffect { selector, effect } => {
+            require_selector(catalog, *selector)?;
+            if catalog.effect(*effect).is_none() {
+                return Err(format!(
+                    "operation refers to missing effect {}",
+                    effect.get()
+                ));
+            }
+        }
+        RuleOperationTemplate::DetonateDot {
+            selector, fraction, ..
+        } => {
+            require_selector(catalog, *selector)?;
+            require_scalar(catalog, runtime, fraction)?;
+        }
+        RuleOperationTemplate::ModifyStateSlot { slot, value, .. } => {
+            let definition = runtime
+                .state_slots()
+                .iter()
+                .find(|definition| definition.id() == *slot)
+                .ok_or_else(|| {
+                    format!("operation refers to undeclared state slot {}", slot.get())
+                })?;
+            if infer_value(catalog, runtime, value, 0)? != definition.kind() {
+                return Err("state-slot update type differs from its definition".into());
             }
         }
         RuleOperationTemplate::CreateCountdown { code } => {

@@ -1,7 +1,7 @@
 use std::collections::BTreeMap;
 
 use starclock_combat::{
-    AbilityId, ActionId, EventId, ModifierDefinitionId, ModifierInstanceId, ProgramId,
+    AbilityId, ActionId, EventId, ModifierDefinitionId, ModifierInstanceId, ProgramId, RuleId,
     RuleInstanceId, Scalar, SourceDefinitionId, StateSlotDefinitionId, UnitId, WaveInstanceId,
     formula::hp,
     modifier::model::{
@@ -12,8 +12,8 @@ use starclock_combat::{
     rule::{
         evaluate::{EvaluationBudget, RuleEvaluationError, StatQueryReader, evaluate_program},
         model::{
-            ResourceUpdateKind, RuleCause, RuleEmission, RuleEvaluationInput, RuleEventKind,
-            RuleOccurrence, RuleValue, SourceClass,
+            ResourceUpdateKind, RuleCause, RuleEffectChancePolicy, RuleEmission,
+            RuleEvaluationInput, RuleEventKind, RuleOccurrence, RuleValue, SourceClass,
         },
     },
 };
@@ -23,6 +23,137 @@ use crate::catalog::{LoadMode, load_with_mode};
 const ASTA_PROBE: &[u8] = include_bytes!("../../../config/probes/v1a/asta-modifier/config.sora");
 const FIREFLY_PROBE: &[u8] =
     include_bytes!("../../../config/probes/v1a/firefly-damage/config.sora");
+const KAFKA_PROBE: &[u8] = include_bytes!("../../../config/probes/v1a/kafka-dot/config.sora");
+
+#[test]
+fn asta_ultimate_effect_keeps_an_independent_two_turn_clock() {
+    let catalog = load_with_mode(ASTA_PROBE, LoadMode::Fixture).expect("Asta probe must lower");
+    let effect = catalog
+        .effect(starclock_combat::EffectDefinitionId::new(6).unwrap())
+        .unwrap();
+    assert_eq!(
+        effect.duration_clock(),
+        starclock_combat::DurationClock::TargetTurnEnd
+    );
+    assert_eq!(
+        effect.stack_policy(),
+        starclock_combat::EffectStackPolicy::Refresh
+    );
+    assert!(matches!(
+        effect.duration(),
+        Some(starclock_combat::rule::model::ValueExpr::Literal(
+            RuleValue::Integer(2)
+        ))
+    ));
+    let emissions = evaluate_program(
+        &*catalog,
+        ProgramId::new(7).unwrap(),
+        firefly_input(&FireflyStats {
+            maximum_hp: 1,
+            attack: 1,
+        }),
+        EvaluationBudget::STANDARD,
+    )
+    .unwrap();
+    assert!(
+        matches!(emissions.as_slice(), [RuleEmission::ApplyEffect { effect, chance: RuleEffectChancePolicy::Guaranteed, base_chance: None, rng_purpose: None, .. }] if effect.get() == 6)
+    );
+}
+
+#[test]
+fn kafka_skill_ultimate_and_follow_up_lower_in_authored_order() {
+    let catalog = load_with_mode(KAFKA_PROBE, LoadMode::Fixture).expect("Kafka probe must lower");
+    let stats = FireflyStats {
+        maximum_hp: 1,
+        attack: 1_000_000_000,
+    };
+    let skill = evaluate_program(
+        &*catalog,
+        ProgramId::new(5).unwrap(),
+        firefly_input(&stats),
+        EvaluationBudget::STANDARD,
+    )
+    .unwrap();
+    assert!(
+        matches!(&skill[0], RuleEmission::Damage { amount: RuleValue::Scalar(value), .. } if value.scaled() == 1_600_000_000)
+    );
+    assert!(
+        matches!(&skill[1], RuleEmission::DetonateDot { fraction: RuleValue::Scalar(value), required_tag: None, .. } if value.scaled() == 750_000)
+    );
+    let ultimate = evaluate_program(
+        &*catalog,
+        ProgramId::new(6).unwrap(),
+        firefly_input(&stats),
+        EvaluationBudget::STANDARD,
+    )
+    .unwrap();
+    assert!(
+        matches!(&ultimate[0], RuleEmission::Damage { amount: RuleValue::Scalar(value), .. } if value.scaled() == 800_000_000)
+    );
+    assert!(
+        matches!(&ultimate[1], RuleEmission::ApplyEffect { effect, chance: RuleEffectChancePolicy::Resistible, base_chance: Some(RuleValue::Scalar(value)), rng_purpose: Some(_), .. } if effect.get() == 4 && value.scaled() == 1_000_000)
+    );
+    assert!(
+        matches!(&ultimate[2], RuleEmission::DetonateDot { fraction: RuleValue::Scalar(value), .. } if value.scaled() == 1_000_000)
+    );
+    let follow_up = evaluate_program(
+        &*catalog,
+        ProgramId::new(7).unwrap(),
+        firefly_input(&stats),
+        EvaluationBudget::STANDARD,
+    )
+    .unwrap();
+    assert!(matches!(
+        follow_up.as_slice(),
+        [
+            RuleEmission::Damage { .. },
+            RuleEmission::ApplyEffect { .. }
+        ]
+    ));
+    let effect = catalog
+        .effect(starclock_combat::EffectDefinitionId::new(4).unwrap())
+        .unwrap();
+    assert_eq!(
+        (
+            effect.category(),
+            effect.duration_clock(),
+            effect.tick_phase()
+        ),
+        (
+            starclock_combat::EffectCategory::Dot,
+            starclock_combat::DurationClock::TargetTurnStart,
+            starclock_combat::EffectTickPhase::TurnStart,
+        )
+    );
+    assert_eq!(
+        effect.snapshot_policy(),
+        starclock_combat::EffectSnapshotPolicy::Dynamic
+    );
+    let runtime = catalog
+        .battle_rule(RuleId::new(8).unwrap())
+        .expect("Kafka follow-up guard rule must lower");
+    assert_eq!(runtime.source().definition().get(), 3);
+    assert_eq!(runtime.state_slots().len(), 1);
+    let slot = &runtime.state_slots()[0];
+    assert_eq!(slot.id().get(), 9);
+    assert_eq!(
+        slot.scope(),
+        starclock_combat::rule::model::BattleRuleScope::Turn
+    );
+    assert_eq!(slot.initial(), &RuleValue::Integer(0));
+    assert_eq!(slot.minimum(), Some(&RuleValue::Integer(0)));
+    assert_eq!(slot.maximum(), Some(&RuleValue::Integer(1)));
+    assert_eq!(
+        slot.reset_points(),
+        &[starclock_combat::rule::model::SlotResetPoint::TurnStart]
+    );
+}
+
+#[test]
+fn production_loader_rejects_the_nonproduction_kafka_probe() {
+    let error = crate::catalog::load(KAFKA_PROBE).expect_err("probe cannot enter production");
+    assert_eq!(error.kind(), crate::catalog::CatalogLoadErrorKind::Metadata);
+}
 
 #[test]
 fn asta_dynamic_team_aura_tracks_one_charging_instance() {
@@ -97,7 +228,8 @@ fn firefly_hp_energy_and_damage_program_is_ordered_and_checked_before_mutation()
     ));
     assert!(matches!(
         &emissions[1],
-        RuleEmission::ModifyEnergy {
+        RuleEmission::ModifyResource {
+            resource: starclock_combat::rule::model::RuleResourceKind::Energy,
             update: ResourceUpdateKind::Gain,
             amount: RuleValue::Scalar(value),
             ..
@@ -167,7 +299,8 @@ fn firefly_ultimate_visibility_order_precedes_action_advance() {
     ));
     assert!(matches!(
         emissions[3],
-        RuleEmission::ModifyEnergy {
+        RuleEmission::ModifyResource {
+            resource: starclock_combat::rule::model::RuleResourceKind::Energy,
             update: ResourceUpdateKind::Set,
             amount: RuleValue::Scalar(value),
             ..
@@ -295,7 +428,8 @@ fn materialize_firefly_program(
             floor: RuleValue::Scalar(floor),
             ..
         },
-        RuleEmission::ModifyEnergy {
+        RuleEmission::ModifyResource {
+            resource: starclock_combat::rule::model::RuleResourceKind::Energy,
             update: ResourceUpdateKind::Gain,
             amount: RuleValue::Scalar(energy_ratio),
             ..

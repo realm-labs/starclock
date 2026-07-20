@@ -389,7 +389,7 @@ impl HealingDefinition {
 }
 
 /// Closed initial operation language allowed inside one authored hit.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub enum HitOperationDefinition {
     /// Ordinary HP damage through the general multiplier pipeline.
     Damage(OrdinaryDamageDefinition),
@@ -405,6 +405,14 @@ pub enum HitOperationDefinition {
     ReduceToughness(crate::ToughnessReductionDefinition),
     /// Converts the preceding effective reduction for each target into Super Break.
     SuperBreak(crate::formula::toughness::SuperBreakDefinition),
+    /// Applies one catalog effect using its authored chance and stacking policy.
+    ApplyEffect(crate::EffectApplicationDefinition),
+    /// Removes a bounded stable-ID query of dispellable/cleanseable effects.
+    RemoveEffects(crate::EffectRemovalDefinition),
+    /// Replays selected target-local ordinary DoT snapshots without mutating them.
+    DetonateDots(crate::DotDetonationDefinition),
+    /// Mutates one battle-owned typed slot on the actor's bound rule instance.
+    ModifyStateSlot(crate::rule::model::RuleSlotMutationDefinition),
 }
 
 /// Ordered operation templates owned by one authored hit.

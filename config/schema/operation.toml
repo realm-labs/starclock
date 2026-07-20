@@ -183,6 +183,15 @@ name = "effect_id"
 type = "ref<Effect.id>"
 
 [[unions.variants]]
+name = "DetonateDot"
+[[unions.variants.fields]]
+name = "fraction_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "required_effect_tag"
+type = "optional<string>"
+
+[[unions.variants]]
 name = "RefreshEffect"
 [[unions.variants.fields]]
 name = "effect_id"

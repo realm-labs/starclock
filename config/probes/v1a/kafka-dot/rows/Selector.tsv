@@ -1,0 +1,4 @@
+id	domain	origin	side_relationship	life	presence	reference_point	ordering	minimum_count	maximum_count	empty_pool_policy	choice	allow_repeated_targets
+1	Battle	PrimaryTarget	OpposingSide	Alive	Present	CurrentState	StableId	1	1	Fault	First	false
+2	Battle	Owner	OpposingSide	Alive	Present	CurrentState	Formation	1	5	Fault	All	false
+3	Battle	Owner	SameSide	Alive	Present	CurrentState	StableId	1	1	Fault	First	false

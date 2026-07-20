@@ -103,6 +103,29 @@ impl<'a> BattleView<'a> {
             .iter_by_id()
             .map(|state| BreakEffectView { state })
     }
+    /// Iterates retained generic effect instances in stable instance order.
+    pub fn effects_by_id(self) -> impl Iterator<Item = EffectView<'a>> + 'a {
+        self.state
+            .effects
+            .iter_by_id()
+            .map(|state| EffectView { state })
+    }
+    /// Returns the effective strongest-wins instance using the canonical comparator.
+    #[must_use]
+    pub fn strongest_effect(
+        self,
+        definition: crate::EffectDefinitionId,
+        target: UnitId,
+    ) -> Option<crate::EffectInstanceId> {
+        self.state.effects.active_strongest(definition, target)
+    }
+    /// Iterates battle-bound rule instances in stable runtime order.
+    pub fn rule_instances_by_id(self) -> impl Iterator<Item = RuleInstanceView<'a>> + 'a {
+        self.state
+            .rules
+            .iter_by_id()
+            .map(|state| RuleInstanceView { state })
+    }
     /// Returns one side's team-scoped resources.
     #[must_use]
     pub fn team(self, side: TeamSide) -> TeamView<'a> {
@@ -141,6 +164,88 @@ pub struct ShieldView<'a> {
 #[derive(Clone, Copy)]
 pub struct BreakEffectView<'a> {
     state: &'a crate::effect::break_effect::BreakEffectState,
+}
+
+/// Immutable projection of one retained generic effect instance.
+#[derive(Clone, Copy)]
+pub struct EffectView<'a> {
+    state: &'a crate::effect::state::EffectState,
+}
+
+impl EffectView<'_> {
+    #[must_use]
+    pub const fn id(self) -> crate::EffectInstanceId {
+        self.state.id
+    }
+    #[must_use]
+    pub const fn definition(self) -> crate::EffectDefinitionId {
+        self.state.definition
+    }
+    #[must_use]
+    pub const fn source_definition(self) -> crate::SourceDefinitionId {
+        self.state.source_definition
+    }
+    #[must_use]
+    pub const fn applier(self) -> UnitId {
+        self.state.applier
+    }
+    #[must_use]
+    pub const fn target(self) -> UnitId {
+        self.state.target
+    }
+    #[must_use]
+    pub const fn category(self) -> crate::EffectCategory {
+        self.state.category
+    }
+    #[must_use]
+    pub const fn stacks(self) -> u16 {
+        self.state.stacks
+    }
+    #[must_use]
+    pub const fn remaining(self) -> Option<u16> {
+        self.state.remaining
+    }
+    #[must_use]
+    pub const fn duration_clock(self) -> crate::DurationClock {
+        self.state.duration_clock
+    }
+    #[must_use]
+    pub const fn snapshot_policy(self) -> crate::EffectSnapshotPolicy {
+        self.state.snapshot_policy
+    }
+}
+
+#[derive(Clone, Copy)]
+pub struct RuleInstanceView<'a> {
+    state: &'a crate::rule::state::RuleInstanceState,
+}
+
+impl<'a> RuleInstanceView<'a> {
+    #[must_use]
+    pub const fn id(self) -> crate::RuleInstanceId {
+        self.state.id
+    }
+    #[must_use]
+    pub const fn rule(self) -> crate::RuleId {
+        self.state.rule
+    }
+    #[must_use]
+    pub const fn owner(self) -> Option<UnitId> {
+        self.state.owner
+    }
+    pub fn slots(
+        self,
+    ) -> impl Iterator<
+        Item = (
+            crate::StateSlotDefinitionId,
+            &'a crate::rule::model::RuleValue,
+        ),
+    > + 'a {
+        self.state
+            .slots
+            .iter()
+            .map(|(definition, value)| (definition.id(), value))
+    }
 }
 
 impl BreakEffectView<'_> {

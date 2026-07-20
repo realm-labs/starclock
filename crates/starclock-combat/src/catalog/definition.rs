@@ -146,6 +146,7 @@ pub struct EffectDefinition {
     id: EffectDefinitionId,
     rules: Box<[RuleId]>,
     modifiers: Box<[ModifierDefinitionId]>,
+    runtime: Option<crate::effect::model::EffectRuntimeDefinition>,
 }
 
 impl EffectDefinition {
@@ -160,7 +161,14 @@ impl EffectDefinition {
             id,
             rules: rules.into_boxed_slice(),
             modifiers: modifiers.into_boxed_slice(),
+            runtime: None,
         }
+    }
+    /// Attaches the validated generic runtime behavior.
+    #[must_use]
+    pub fn with_runtime(mut self, runtime: crate::effect::model::EffectRuntimeDefinition) -> Self {
+        self.runtime = Some(runtime);
+        self
     }
     /// Returns the stable definition ID.
     #[must_use]
@@ -176,6 +184,11 @@ impl EffectDefinition {
     #[must_use]
     pub fn modifiers(&self) -> &[ModifierDefinitionId] {
         &self.modifiers
+    }
+    /// Returns executable effect semantics when authored.
+    #[must_use]
+    pub const fn runtime(&self) -> Option<&crate::effect::model::EffectRuntimeDefinition> {
+        self.runtime.as_ref()
     }
 }
 

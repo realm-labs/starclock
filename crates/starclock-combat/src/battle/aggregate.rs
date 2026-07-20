@@ -120,6 +120,41 @@ impl Battle {
                 maximum_skill_points: enemy_resources.maximum_skill_points(),
             },
         );
+        let mut rules = crate::rule::state::RuleStateStore::default();
+        for unit in units.iter_by_id() {
+            for bundle_id in &unit.rule_bundles {
+                let bundle = catalog
+                    .rule_bundle(*bundle_id)
+                    .expect("battle build validated bundle");
+                for rule_id in bundle.rules() {
+                    let definition = catalog
+                        .rule(*rule_id)
+                        .expect("catalog validated rule reference");
+                    if let Some(runtime) = definition.runtime() {
+                        let inserted =
+                            rules.insert(sequences.rule(), *rule_id, Some(unit.id), runtime);
+                        debug_assert!(inserted);
+                    }
+                }
+            }
+        }
+        let encounter = catalog
+            .encounter(spec.encounter())
+            .expect("battle build validated encounter");
+        for bundle_id in encounter.rule_bundles() {
+            let bundle = catalog
+                .rule_bundle(*bundle_id)
+                .expect("catalog validated bundle");
+            for rule_id in bundle.rules() {
+                let definition = catalog
+                    .rule(*rule_id)
+                    .expect("catalog validated rule reference");
+                if let Some(runtime) = definition.runtime() {
+                    let inserted = rules.insert(sequences.rule(), *rule_id, None, runtime);
+                    debug_assert!(inserted);
+                }
+            }
+        }
         let state = BattleState {
             identity: BattleIdentity {
                 catalog_revision: catalog.revision().clone(),
@@ -137,6 +172,8 @@ impl Battle {
             teams,
             shields: crate::effect::shield::ShieldStore::default(),
             break_effects: crate::effect::break_effect::BreakEffectStore::default(),
+            effects: crate::effect::state::EffectStore::default(),
+            rules,
             encounter: EncounterState {
                 definition: spec.encounter(),
                 wave,

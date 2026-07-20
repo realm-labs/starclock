@@ -74,6 +74,10 @@ pub enum BattleEventKind {
     Wave(WaveEventData),
     /// Team or personal resource mutation fact.
     Resource(ResourceEventData),
+    /// Generic effect application, refresh, expiry and removal fact.
+    Effect(EffectEventData),
+    /// Battle-owned typed rule state changed.
+    RuleState(RuleStateEventData),
     /// Deterministic internal failure fact.
     Fault(FaultEventData),
 }
@@ -83,6 +87,10 @@ pub enum BattleEventKind {
 pub struct DamageEventData {
     /// Authored operation instance that produced this target mutation.
     pub operation: OperationId,
+    /// Semantic damage family, including retained DoT attribution.
+    pub kind: DamageKind,
+    /// Original retained effect instance for a tick or detonation.
+    pub source_effect: Option<crate::EffectInstanceId>,
     /// Unit whose HP changed.
     pub target: UnitId,
     /// Fixed-point result before integral finalization.
@@ -97,6 +105,65 @@ pub struct DamageEventData {
     pub hp_before: crate::Hp,
     /// HP immediately after this operation.
     pub hp_after: crate::Hp,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum DamageKind {
+    Direct,
+    DotTick,
+    DotDetonation,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum EffectEventData {
+    Applied {
+        operation: OperationId,
+        effect: crate::EffectInstanceId,
+        definition: crate::EffectDefinitionId,
+        target: UnitId,
+        stacks: u16,
+        remaining: Option<u16>,
+    },
+    Resisted {
+        operation: OperationId,
+        definition: crate::EffectDefinitionId,
+        target: UnitId,
+        pre_clamp_chance: crate::Scalar,
+    },
+    Refreshed {
+        operation: OperationId,
+        effect: crate::EffectInstanceId,
+        target: UnitId,
+        stacks_before: u16,
+        stacks_after: u16,
+        remaining: Option<u16>,
+    },
+    Removed {
+        operation: OperationId,
+        effect: crate::EffectInstanceId,
+        target: UnitId,
+    },
+    Ticked {
+        operation: OperationId,
+        effect: crate::EffectInstanceId,
+        target: UnitId,
+        remaining: Option<u16>,
+    },
+    Detonated {
+        operation: OperationId,
+        effect: crate::EffectInstanceId,
+        target: UnitId,
+        fraction: crate::Ratio,
+    },
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RuleStateEventData {
+    pub operation: OperationId,
+    pub instance: crate::RuleInstanceId,
+    pub slot: crate::StateSlotDefinitionId,
+    pub before: crate::rule::model::RuleValue,
+    pub after: crate::rule::model::RuleValue,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

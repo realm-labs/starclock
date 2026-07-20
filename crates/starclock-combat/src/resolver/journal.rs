@@ -43,6 +43,8 @@ pub(crate) enum MutationField {
     Weakness,
     WeaknessBroken,
     BreakEffect,
+    Effect,
+    RuleState,
     Encounter,
 }
 

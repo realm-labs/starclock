@@ -25,6 +25,7 @@ pub(crate) fn interrupt_window(
     units: &UnitStore,
     formations: &FormationState,
     teams: &TeamStateStore,
+    effects: &crate::effect::state::EffectStore,
     catalog: &CombatCatalog,
 ) -> DecisionPoint {
     let mut commands = vec![Command::PassInterruptWindow { decision: id }];
@@ -40,6 +41,7 @@ pub(crate) fn interrupt_window(
             };
             if action.kind() != AbilityKind::Ultimate
                 || !can_pay(units, teams, unit.id, action.resources())
+                || effects.blocks(unit.id, crate::ControlledAction::Ultimate)
             {
                 continue;
             }
@@ -83,6 +85,9 @@ pub(crate) fn normal_action(
         };
         if action.kind() == AbilityKind::Ultimate
             || !can_pay(&state.units, &state.teams, actor, action.resources())
+            || state
+                .effects
+                .blocks(actor, crate::ControlledAction::NormalAction)
         {
             continue;
         }

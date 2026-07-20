@@ -4,21 +4,24 @@ use crate::{
     event::{
         cause::Cause,
         model::{
-            BattleEventKind, BreakDamageEventData, BreakDamageKind, DamageEventData, HealEventData,
-            HpConsumptionEventData, ShieldEventData, ToughnessEventData, UnitEventData,
+            BattleEventKind, BreakDamageEventData, BreakDamageKind, DamageEventData, DamageKind,
+            EffectEventData, HealEventData, HpConsumptionEventData, RuleStateEventData,
+            ShieldEventData, ToughnessEventData, UnitEventData,
         },
     },
     formula,
     id::EventId,
     operation::{
-        AddWeaknessOp, ConsumeHpOp, DamageOp, HealOp, HitOperationScratch, Operation,
-        ReduceToughnessOp, ShieldOp, SuperBreakOp,
+        AddWeaknessOp, ApplyEffectOp, ConsumeHpOp, DamageOp, DetonateDotsOp, HealOp,
+        HitOperationScratch, ModifyStateSlotOp, Operation, ReduceToughnessOp, RemoveEffectsOp,
+        ShieldOp, SuperBreakOp,
     },
 };
 
 use super::transaction::Transaction;
 
 pub(super) fn execute_operation(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     parent: EventId,
@@ -38,7 +41,53 @@ pub(super) fn execute_operation(
         Operation::SuperBreak(operation) => {
             execute_super_break(txn, cause, parent, operation, scratch)
         }
+        Operation::ApplyEffect(operation) => {
+            execute_apply_effect(catalog, txn, cause, parent, operation)
+        }
+        Operation::RemoveEffects(operation) => {
+            execute_remove_effects(txn, cause, parent, operation)
+        }
+        Operation::DetonateDots(operation) => execute_detonate_dots(txn, cause, parent, operation),
+        Operation::ModifyStateSlot(operation) => {
+            execute_modify_state_slot(txn, cause, parent, operation)
+        }
     }
+}
+
+fn execute_modify_state_slot(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    parent: EventId,
+    operation: ModifyStateSlotOp,
+) -> Result<EventId, BattleFault> {
+    let instance = txn
+        .state
+        .rules
+        .instance_for(operation.owner, operation.definition.rule)
+        .ok_or_else(|| invariant_fault(41))?;
+    let (before, after) = txn
+        .state
+        .rules
+        .update(
+            instance,
+            operation.definition.slot,
+            operation.definition.update,
+            operation.definition.value,
+        )
+        .map_err(|_| invariant_fault(42))?;
+    txn.record_rule_state_change(instance, operation.definition.slot, &before, &after);
+    Ok(txn.emit(
+        cause
+            .with_parent(parent)
+            .with_primary_target(Some(operation.owner)),
+        BattleEventKind::RuleState(RuleStateEventData {
+            operation: operation.id,
+            instance,
+            slot: operation.definition.slot,
+            before,
+            after,
+        }),
+    ))
 }
 
 fn execute_add_weakness(
@@ -473,6 +522,157 @@ pub(super) fn settle_break_effects_at_turn_start(
     Ok((parent, skips_action))
 }
 
+pub(super) fn settle_effects_at_turn_start(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    owner: crate::UnitId,
+) -> Result<EventId, BattleFault> {
+    let effects = txn
+        .state
+        .effects
+        .iter_by_id()
+        .filter(|effect| {
+            effect.target == owner && effect.tick_phase == crate::EffectTickPhase::TurnStart
+        })
+        .cloned()
+        .collect::<Vec<_>>();
+    for effect in effects {
+        if let Some(dot) = effect.dot {
+            let calculation = formula::ordinary_damage(dot.formula())
+                .map_err(|_| numeric_fault(34, dot.formula().base_damage().scaled()))?;
+            let attributed = cause
+                .with_applier(effect.applier)
+                .with_source_definition(effect.source_definition);
+            parent = apply_ordinary_damage(
+                txn,
+                attributed,
+                parent,
+                effect.source_operation,
+                owner,
+                DamageKind::DotTick,
+                Some(effect.id),
+                calculation.raw,
+                calculation.finalized,
+            )?;
+        }
+    }
+    advance_effect_clock(
+        txn,
+        cause,
+        parent,
+        crate::DurationClock::TargetTurnStart,
+        Some(owner),
+    )
+    .and_then(|parent| {
+        advance_effect_clock(
+            txn,
+            cause,
+            parent,
+            crate::DurationClock::OwnerTurnStart,
+            Some(owner),
+        )
+    })
+}
+
+pub(super) fn settle_effects_at_turn_end(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    parent: EventId,
+    owner: crate::UnitId,
+) -> Result<EventId, BattleFault> {
+    let parent = advance_effect_clock(
+        txn,
+        cause,
+        parent,
+        crate::DurationClock::TargetTurnEnd,
+        Some(owner),
+    )?;
+    advance_effect_clock(
+        txn,
+        cause,
+        parent,
+        crate::DurationClock::OwnerTurnEnd,
+        Some(owner),
+    )
+}
+
+pub(super) fn settle_effects_at_action_end(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    parent: EventId,
+) -> Result<EventId, BattleFault> {
+    txn.reset_rule_slots(
+        crate::rule::model::SlotResetPoint::ActionEnd,
+        cause.applier(),
+    );
+    advance_effect_clock(txn, cause, parent, crate::DurationClock::ActionEnd, None)
+}
+
+fn advance_effect_clock(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    clock: crate::DurationClock,
+    owner: Option<crate::UnitId>,
+) -> Result<EventId, BattleFault> {
+    let ids =
+        txn.state
+            .effects
+            .iter_by_id()
+            .filter(|effect| {
+                effect.duration_clock == clock
+                    && match clock {
+                        crate::DurationClock::OwnerTurnStart
+                        | crate::DurationClock::OwnerTurnEnd => owner == Some(effect.applier),
+                        crate::DurationClock::TargetTurnStart
+                        | crate::DurationClock::TargetTurnEnd => owner == Some(effect.target),
+                        _ => true,
+                    }
+            })
+            .map(|effect| effect.id)
+            .collect::<Vec<_>>();
+    for id in ids {
+        let (operation, target, before, after) = {
+            let effect = txn
+                .state
+                .effects
+                .get_mut(id)
+                .ok_or_else(|| invariant_fault(37))?;
+            let before = effect.remaining.ok_or_else(|| invariant_fault(38))?;
+            let after = before.checked_sub(1).ok_or_else(|| invariant_fault(39))?;
+            effect.remaining = Some(after);
+            (effect.source_operation, effect.target, before, after)
+        };
+        txn.record_effect_change(u64::from(before) + 1, u64::from(after) + 1, id.get());
+        parent = txn.emit(
+            cause.with_parent(parent).with_primary_target(Some(target)),
+            BattleEventKind::Effect(EffectEventData::Ticked {
+                operation,
+                effect: id,
+                target,
+                remaining: Some(after),
+            }),
+        );
+        if after == 0 {
+            txn.state
+                .effects
+                .remove(id)
+                .ok_or_else(|| invariant_fault(40))?;
+            txn.record_effect_change(1, 0, id.get());
+            parent = txn.emit(
+                cause.with_parent(parent).with_primary_target(Some(target)),
+                BattleEventKind::Effect(EffectEventData::Removed {
+                    operation,
+                    effect: id,
+                    target,
+                }),
+            );
+        }
+    }
+    Ok(parent)
+}
+
 fn execute_damage(
     txn: &mut Transaction<'_>,
     cause: Cause,
@@ -482,61 +682,300 @@ fn execute_damage(
     let calculation = formula::ordinary_damage(operation.formula)
         .map_err(|_| numeric_fault(1, operation.formula.base_damage().scaled()))?;
     for target in operation.targets {
-        let (hp_before, life_before) = txn
-            .state
-            .units
-            .get(target)
-            .map(|unit| (unit.current_hp, unit.life))
-            .ok_or_else(|| invariant_fault(1))?;
-        let (absorbed, shield_changes) = txn
-            .state
-            .shields
-            .absorb(target, calculation.finalized)
-            .map_err(|_| numeric_fault(8, calculation.finalized.get()))?;
-        for change in shield_changes {
-            txn.record_shield_change(change.before, change.after);
+        parent = apply_ordinary_damage(
+            txn,
+            cause,
+            parent,
+            operation.id,
+            target,
+            DamageKind::Direct,
+            None,
+            calculation.raw,
+            calculation.finalized,
+        )?;
+    }
+    Ok(parent)
+}
+
+#[allow(clippy::too_many_arguments)]
+fn apply_ordinary_damage(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: crate::OperationId,
+    target: crate::UnitId,
+    kind: DamageKind,
+    source_effect: Option<crate::EffectInstanceId>,
+    raw: crate::Scalar,
+    calculated: crate::DamageAmount,
+) -> Result<EventId, BattleFault> {
+    let (hp_before, life_before) = txn
+        .state
+        .units
+        .get(target)
+        .map(|unit| (unit.current_hp, unit.life))
+        .ok_or_else(|| invariant_fault(1))?;
+    let (absorbed, shield_changes) = txn
+        .state
+        .shields
+        .absorb(target, calculated)
+        .map_err(|_| numeric_fault(8, calculated.get()))?;
+    for change in shield_changes {
+        txn.record_shield_change(change.before, change.after);
+        parent = txn.emit(
+            cause.with_parent(parent).with_primary_target(Some(target)),
+            BattleEventKind::Shield(ShieldEventData::Absorbed {
+                shield: change.id,
+                target,
+                before: change.before,
+                after: change.after,
+            }),
+        );
+    }
+    let overflow_raw = calculated.get() - absorbed.get();
+    let applied_raw = overflow_raw.min(hp_before.get());
+    let applied = DamageAmount::new(applied_raw).map_err(|_| numeric_fault(2, applied_raw))?;
+    let hp_after =
+        Hp::new(hp_before.get() - applied_raw).map_err(|_| numeric_fault(3, hp_before.get()))?;
+    txn.set_hp(target, hp_after)?;
+    parent = txn.emit(
+        cause.with_parent(parent).with_primary_target(Some(target)),
+        BattleEventKind::Damage(DamageEventData {
+            operation,
+            kind,
+            source_effect,
+            target,
+            raw,
+            calculated,
+            absorbed,
+            applied,
+            hp_before,
+            hp_after,
+        }),
+    );
+    if hp_after.get() == 0 && life_before == LifeState::Alive {
+        txn.set_life(target, LifeState::Downed)?;
+        parent = txn.emit(
+            cause.with_parent(parent).with_primary_target(Some(target)),
+            BattleEventKind::Unit(UnitEventData::Downed { unit: target }),
+        );
+        txn.set_life(target, LifeState::Defeated)?;
+        let credited_to = cause.applier().ok_or_else(|| invariant_fault(2))?;
+        parent = txn.emit(
+            cause.with_parent(parent).with_primary_target(Some(target)),
+            BattleEventKind::Unit(UnitEventData::Defeated {
+                unit: target,
+                credited_to,
+            }),
+        );
+    }
+    Ok(parent)
+}
+
+fn execute_apply_effect(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: ApplyEffectOp,
+) -> Result<EventId, BattleFault> {
+    let definition = catalog
+        .effect(operation.definition.effect)
+        .ok_or_else(|| invariant_fault(30))?;
+    let runtime = definition.runtime().ok_or_else(|| invariant_fault(31))?;
+    let source = cause
+        .source_definition()
+        .ok_or_else(|| invariant_fault(32))?;
+    let applier = cause.applier().ok_or_else(|| invariant_fault(33))?;
+    for target in operation.targets {
+        let (pre_clamp, probability) = match operation.definition.chance {
+            crate::EffectChancePolicy::Guaranteed => (crate::Scalar::ONE, crate::Probability::ONE),
+            crate::EffectChancePolicy::Fixed { chance } => (
+                crate::Scalar::from_scaled(i64::from(chance.millionths())),
+                chance,
+            ),
+            crate::EffectChancePolicy::Resistible {
+                base_chance,
+                attacker_effect_hit_rate,
+                target_effect_resistance,
+                target_specific_resistance,
+            } => {
+                let value = formula::effect::resistible_chance(
+                    base_chance,
+                    attacker_effect_hit_rate,
+                    target_effect_resistance,
+                    target_specific_resistance,
+                )
+                .map_err(|_| numeric_fault(30, i64::from(base_chance.millionths())))?;
+                (value.pre_clamp, value.probability)
+            }
+        };
+        if !txn.roll_probability(probability)? {
             parent = txn.emit(
                 cause.with_parent(parent).with_primary_target(Some(target)),
-                BattleEventKind::Shield(ShieldEventData::Absorbed {
-                    shield: change.id,
+                BattleEventKind::Effect(EffectEventData::Resisted {
+                    operation: operation.id,
+                    definition: operation.definition.effect,
                     target,
-                    before: change.before,
-                    after: change.after,
+                    pre_clamp_chance: pre_clamp,
+                }),
+            );
+            continue;
+        }
+        let candidate_id = txn.allocate_effect();
+        let candidate = crate::effect::state::EffectState::from_definition(
+            candidate_id,
+            operation.definition.effect,
+            runtime,
+            crate::effect::state::EffectApplicationContext {
+                source_definition: source,
+                source_operation: operation.id,
+                applier,
+                target,
+                stacks: operation.definition.stacks,
+            },
+        );
+        let before = txn.state.effects.canonical_entries().len() as u64;
+        let result = txn.state.effects.apply(candidate);
+        let after = txn.state.effects.canonical_entries().len() as u64;
+        txn.record_effect_change(before, after, candidate_id.get());
+        match result {
+            crate::effect::state::EffectApplyResult::Inserted { effect, removed } => {
+                for removed in removed {
+                    parent = txn.emit(
+                        cause.with_parent(parent).with_primary_target(Some(target)),
+                        BattleEventKind::Effect(EffectEventData::Removed {
+                            operation: operation.id,
+                            effect: removed,
+                            target,
+                        }),
+                    );
+                }
+                let state = txn
+                    .state
+                    .effects
+                    .get(effect)
+                    .ok_or_else(|| invariant_fault(34))?;
+                parent = txn.emit(
+                    cause.with_parent(parent).with_primary_target(Some(target)),
+                    BattleEventKind::Effect(EffectEventData::Applied {
+                        operation: operation.id,
+                        effect,
+                        definition: operation.definition.effect,
+                        target,
+                        stacks: state.stacks,
+                        remaining: state.remaining,
+                    }),
+                );
+            }
+            crate::effect::state::EffectApplyResult::Refreshed {
+                effect,
+                stacks_before,
+                stacks_after,
+            } => {
+                let remaining = txn
+                    .state
+                    .effects
+                    .get(effect)
+                    .and_then(|state| state.remaining);
+                parent = txn.emit(
+                    cause.with_parent(parent).with_primary_target(Some(target)),
+                    BattleEventKind::Effect(EffectEventData::Refreshed {
+                        operation: operation.id,
+                        effect,
+                        target,
+                        stacks_before,
+                        stacks_after,
+                        remaining,
+                    }),
+                );
+            }
+        }
+    }
+    Ok(parent)
+}
+
+fn execute_remove_effects(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: RemoveEffectsOp,
+) -> Result<EventId, BattleFault> {
+    for target in operation.targets {
+        let ids = txn.state.effects.removable_for(
+            target,
+            operation.definition.category,
+            operation.definition.required_tag,
+        );
+        for effect in ids
+            .into_iter()
+            .take(usize::from(operation.definition.maximum))
+        {
+            let before = txn.state.effects.canonical_entries().len() as u64;
+            txn.state
+                .effects
+                .remove(effect)
+                .ok_or_else(|| invariant_fault(35))?;
+            let after = txn.state.effects.canonical_entries().len() as u64;
+            txn.record_effect_change(before, after, effect.get());
+            parent = txn.emit(
+                cause.with_parent(parent).with_primary_target(Some(target)),
+                BattleEventKind::Effect(EffectEventData::Removed {
+                    operation: operation.id,
+                    effect,
+                    target,
                 }),
             );
         }
-        let overflow_raw = calculation.finalized.get() - absorbed.get();
-        let applied_raw = overflow_raw.min(hp_before.get());
-        let applied = DamageAmount::new(applied_raw).map_err(|_| numeric_fault(2, applied_raw))?;
-        let hp_after = Hp::new(hp_before.get() - applied_raw)
-            .map_err(|_| numeric_fault(3, hp_before.get()))?;
-        txn.set_hp(target, hp_after)?;
-        parent = txn.emit(
-            cause.with_parent(parent).with_primary_target(Some(target)),
-            BattleEventKind::Damage(DamageEventData {
-                operation: operation.id,
+    }
+    Ok(parent)
+}
+
+fn execute_detonate_dots(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: DetonateDotsOp,
+) -> Result<EventId, BattleFault> {
+    for target in operation.targets {
+        for effect in txn
+            .state
+            .effects
+            .dots_for(target, operation.definition.required_tag)
+        {
+            let dot = effect.dot.ok_or_else(|| invariant_fault(36))?;
+            let calculation = formula::ordinary_damage(dot.formula())
+                .map_err(|_| numeric_fault(31, dot.formula().base_damage().scaled()))?;
+            let raw = operation
+                .definition
+                .fraction
+                .checked_apply(calculation.raw, crate::Rounding::NearestTiesEven)
+                .map_err(|_| numeric_fault(32, calculation.raw.scaled()))?;
+            let finalized = crate::DamageAmount::from_scalar(raw, crate::Rounding::Floor)
+                .map_err(|_| numeric_fault(33, raw.scaled()))?;
+            let attributed = cause
+                .with_applier(effect.applier)
+                .with_source_definition(effect.source_definition);
+            parent = apply_ordinary_damage(
+                txn,
+                attributed,
+                parent,
+                operation.id,
                 target,
-                raw: calculation.raw,
-                calculated: calculation.finalized,
-                absorbed,
-                applied,
-                hp_before,
-                hp_after,
-            }),
-        );
-        if hp_after.get() == 0 && life_before == LifeState::Alive {
-            txn.set_life(target, LifeState::Downed)?;
+                DamageKind::DotDetonation,
+                Some(effect.id),
+                raw,
+                finalized,
+            )?;
             parent = txn.emit(
-                cause.with_parent(parent).with_primary_target(Some(target)),
-                BattleEventKind::Unit(UnitEventData::Downed { unit: target }),
-            );
-            txn.set_life(target, LifeState::Defeated)?;
-            let credited_to = cause.applier().ok_or_else(|| invariant_fault(2))?;
-            parent = txn.emit(
-                cause.with_parent(parent).with_primary_target(Some(target)),
-                BattleEventKind::Unit(UnitEventData::Defeated {
-                    unit: target,
-                    credited_to,
+                attributed
+                    .with_parent(parent)
+                    .with_primary_target(Some(target)),
+                BattleEventKind::Effect(EffectEventData::Detonated {
+                    operation: operation.id,
+                    effect: effect.id,
+                    target,
+                    fraction: operation.definition.fraction,
                 }),
             );
         }

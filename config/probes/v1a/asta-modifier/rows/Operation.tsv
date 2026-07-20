@@ -1,0 +1,2 @@
+id	stable_key	domain	target_selector_id	condition_id	empty_target_policy	snapshot_boundary	fault_policy	payload
+1	probe.asta.operation.apply-astra-spd	Battle	3		Fault	OnApplication	Rollback	{"type":"ApplyEffect","effect_id":6,"chance_policy":"Guaranteed"}

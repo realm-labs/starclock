@@ -164,6 +164,9 @@ impl TriggerLedger {
     pub fn is_empty(&self) -> bool {
         self.keys.is_empty()
     }
+    pub(crate) fn canonical_keys(&self) -> impl ExactSizeIterator<Item = &super::model::OnceKey> {
+        self.keys.iter()
+    }
 
     /// Matches, evaluates, and only then commits the trigger's once key.
     pub fn evaluate(
@@ -373,23 +376,62 @@ fn evaluate_operation(
             layer_key: layer_key.clone(),
             current_target,
         },
-        RuleOperationTemplate::ModifyEnergy {
+        RuleOperationTemplate::ModifyResource {
             selector,
+            resource,
             update,
             amount,
             scales_with_regeneration,
             rounding,
-        } => RuleEmission::ModifyEnergy {
+        } => RuleEmission::ModifyResource {
             selector: *selector,
+            resource: resource.clone(),
             update: *update,
             amount: evaluate_value(amount, input, current_target)?,
             scales_with_regeneration: *scales_with_regeneration,
             rounding: *rounding,
             current_target,
         },
-        RuleOperationTemplate::ApplyEffect { selector, effect } => RuleEmission::ApplyEffect {
+        RuleOperationTemplate::ApplyEffect {
+            selector,
+            effect,
+            chance,
+            base_chance,
+            rng_purpose,
+        } => RuleEmission::ApplyEffect {
             selector: *selector,
             effect: *effect,
+            chance: *chance,
+            base_chance: base_chance
+                .as_ref()
+                .map(|value| evaluate_value(value, input, current_target))
+                .transpose()?,
+            rng_purpose: *rng_purpose,
+            current_target,
+        },
+        RuleOperationTemplate::RemoveEffect { selector, effect } => RuleEmission::RemoveEffect {
+            selector: *selector,
+            effect: *effect,
+            current_target,
+        },
+        RuleOperationTemplate::DetonateDot {
+            selector,
+            fraction,
+            required_tag,
+        } => RuleEmission::DetonateDot {
+            selector: *selector,
+            fraction: evaluate_value(fraction, input, current_target)?,
+            required_tag: *required_tag,
+            current_target,
+        },
+        RuleOperationTemplate::ModifyStateSlot {
+            slot,
+            update,
+            value,
+        } => RuleEmission::ModifyStateSlot {
+            slot: *slot,
+            update: *update,
+            value: evaluate_value(value, input, current_target)?,
             current_target,
         },
         RuleOperationTemplate::AdvanceAction { selector, amount } => RuleEmission::AdvanceAction {

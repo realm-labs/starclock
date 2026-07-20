@@ -59,19 +59,27 @@ pub use battle::spec::{
     ResolvedCombatantSpec, ResolvedDefinitionBindings, TeamResourceSpec, TeamSide, UnitLevel,
 };
 pub use battle::view::{
-    ActiveTurnView, BattleIdentityView, BattleView, BreakEffectView, EncounterView, FormationView,
-    InterruptWindowView, ShieldView, TeamView, TimelineActorView, ToughnessLayerView, UnitView,
+    ActiveTurnView, BattleIdentityView, BattleView, BreakEffectView, EffectView, EncounterView,
+    FormationView, InterruptWindowView, RuleInstanceView, ShieldView, TeamView, TimelineActorView,
+    ToughnessLayerView, UnitView,
 };
 pub use codec::BattleStateHash;
 pub use command::model::{
     Command, CommandError, CommandErrorKind, DecisionKind, DecisionOwner, DecisionPoint,
 };
+pub use effect::model::{
+    ControlledAction, DispelCategory, DotDefinition, DotDetonationDefinition, DurationClock,
+    EffectApplicationDefinition, EffectCategory, EffectChancePolicy, EffectRemovalDefinition,
+    EffectRuntimeDefinition, EffectSnapshotPolicy, EffectStackPolicy, EffectTeardownPolicy,
+    EffectTickPhase,
+};
 pub use event::cause::{Cause, CauseActor};
 pub use event::model::{
     ActionEventData, BattleEvent, BattleEventData, BattleEventKind, BreakDamageEventData,
-    BreakDamageKind, DamageEventData, DecisionEventData, FaultEventData, HealEventData,
-    HitEventData, HpConsumptionEventData, PhaseEventData, ResourceEventData, ShieldEventData,
-    ToughnessEventData, TurnEventData, UnitEventData, WaveEventData,
+    BreakDamageKind, DamageEventData, DamageKind, DecisionEventData, EffectEventData,
+    FaultEventData, HealEventData, HitEventData, HpConsumptionEventData, PhaseEventData,
+    ResourceEventData, RuleStateEventData, ShieldEventData, ToughnessEventData, TurnEventData,
+    UnitEventData, WaveEventData,
 };
 pub use timeline::state::InterruptWindowKind;
 pub use toughness::model::{

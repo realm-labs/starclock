@@ -220,8 +220,13 @@ fn execute(
             let targets = commit_targets(catalog, txn, actor, ability, primary_target)?;
             let mut plan = lower_normal_action(catalog, txn, actor, turn.actor, ability, targets)
                 .ok_or_else(|| action_fault(5))?;
-            let action_resolved = execute_action_plan(txn, root, closed, &mut plan)?;
+            let action_resolved = execute_action_plan(catalog, txn, root, closed, &mut plan)?;
             let boundary_cause = action_cause(root, &plan)?;
+            let action_resolved = super::operation::settle_effects_at_action_end(
+                txn,
+                boundary_cause,
+                action_resolved,
+            )?;
             txn.set_actor_gauge(
                 turn.actor,
                 ActionGauge::from_scaled(10_000_000_000).map_err(|_| action_fault(6))?,
@@ -233,6 +238,12 @@ fn execute(
                     owner: turn.owner,
                 }),
             );
+            let ended = super::operation::settle_effects_at_turn_end(
+                txn,
+                boundary_cause,
+                ended,
+                turn.owner,
+            )?;
             txn.set_active_turn(None);
             if let ActionBoundary::Continue(parent) =
                 settle_after_action(txn, boundary_cause, ended)?
@@ -252,8 +263,10 @@ fn execute(
             let targets = commit_targets(catalog, txn, actor, ability, primary_target)?;
             let mut plan = lower_interrupt_action(catalog, txn, actor, ability, targets)
                 .ok_or_else(|| action_fault(12))?;
-            let resolved = execute_action_plan(txn, root, closed, &mut plan)?;
+            let resolved = execute_action_plan(catalog, txn, root, closed, &mut plan)?;
             let boundary_cause = action_cause(root, &plan)?;
+            let resolved =
+                super::operation::settle_effects_at_action_end(txn, boundary_cause, resolved)?;
             if let ActionBoundary::Continue(parent) =
                 settle_after_action(txn, boundary_cause, resolved)?
             {
@@ -344,6 +357,10 @@ fn begin_turn(
         txn.set_actor_gauge(actor, gauge)?;
     }
     let turn = advance.turn;
+    txn.reset_rule_slots(
+        crate::rule::model::SlotResetPoint::TurnStart,
+        Some(turn.owner),
+    );
     txn.set_active_turn(Some(turn));
     let started = txn.emit(
         Cause::for_turn(root, turn.owner, turn.actor).with_parent(parent),
@@ -368,6 +385,7 @@ fn begin_turn(
     }
     let (mut started, frozen_skip) =
         super::operation::settle_break_effects_at_turn_start(txn, turn_cause, started, turn.owner)?;
+    started = super::operation::settle_effects_at_turn_start(txn, turn_cause, started, turn.owner)?;
     match settle_after_action(txn, turn_cause, started)? {
         ActionBoundary::Terminal(_) => return Ok(()),
         ActionBoundary::Continue(parent) => started = parent,
@@ -434,6 +452,7 @@ fn begin_turn(
         &txn.state.units,
         &txn.state.formations,
         &txn.state.teams,
+        &txn.state.effects,
         catalog,
     );
     offer_decision(txn, root, Some(started), decision);
@@ -461,6 +480,7 @@ fn offer_interrupt_decision(
         &txn.state.units,
         &txn.state.formations,
         &txn.state.teams,
+        &txn.state.effects,
         catalog,
     );
     offer_decision(txn, root, Some(parent), decision);
@@ -986,6 +1006,44 @@ impl<'a> Transaction<'a> {
                 u64::try_from(before.get()).expect("shield is non-negative"),
                 u64::try_from(after.get()).expect("shield is non-negative"),
             );
+        }
+    }
+
+    pub(super) fn record_effect_change(&mut self, before: u64, after: u64, identity: u64) {
+        let encoded_before = before.checked_mul(2).expect("effect budget is bounded");
+        let mut encoded_after = after.checked_mul(2).expect("effect budget is bounded");
+        if encoded_before == encoded_after {
+            encoded_after = encoded_after
+                .checked_add(identity | 1)
+                .expect("effect identity is bounded");
+        }
+        self.journal
+            .mutation(MutationField::Effect, encoded_before, encoded_after);
+    }
+
+    pub(super) fn record_rule_state_change(
+        &mut self,
+        instance: crate::RuleInstanceId,
+        slot: crate::StateSlotDefinitionId,
+        before: &crate::rule::model::RuleValue,
+        after: &crate::rule::model::RuleValue,
+    ) {
+        if before != after {
+            let key = instance.get().rotate_left(17) ^ u64::from(slot.get());
+            self.journal
+                .mutation(MutationField::RuleState, key, key ^ 1);
+        }
+    }
+
+    pub(super) fn reset_rule_slots(
+        &mut self,
+        boundary: crate::rule::model::SlotResetPoint,
+        owner: Option<crate::UnitId>,
+    ) {
+        let count = self.state.rules.reset(boundary, owner);
+        if count > 0 {
+            self.journal
+                .mutation(MutationField::RuleState, 0, count as u64);
         }
     }
 

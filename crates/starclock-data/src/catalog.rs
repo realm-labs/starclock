@@ -7,8 +7,16 @@
 use std::{collections::BTreeMap, sync::Arc};
 
 use starclock_combat::modifier::registry::ModifierRegistry;
-use starclock_combat::{AbilityId, Ratio, Scalar, UnitDefinitionId};
+use starclock_combat::rule::model::BattleRuleDefinition;
+use starclock_combat::{
+    AbilityId, DispelCategory, DurationClock, EffectCategory, EffectDefinitionId,
+    EffectSnapshotPolicy, EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase, Ratio, RuleId,
+};
 
+use crate::effect_lower::{
+    lower_dispel, lower_duration_clock, lower_effect_category, lower_snapshot_policy,
+    lower_stack_policy, lower_teardown, lower_tick_phase,
+};
 use crate::generated::{
     SoraConfig, content_kind::ContentKind, coverage_state::CoverageState,
     release_state::ReleaseState, runtime::SoraBundle,
@@ -21,7 +29,7 @@ const METADATA_TABLES: [&str; 5] = [
     "EvidenceRecord",
     "SourceRecord",
 ];
-const LOWERED_TABLES: [&str; 19] = [
+const LOWERED_TABLES: [&str; 20] = [
     "Ability",
     "AbilityHitPlanBinding",
     "AbilityPhase",
@@ -40,6 +48,7 @@ const LOWERED_TABLES: [&str; 19] = [
     "RuleDefinition",
     "Selector",
     "StateSlot",
+    "StateSlotReset",
     "ValueExpression",
 ];
 
@@ -119,6 +128,8 @@ pub struct CatalogSummary {
     pub hit_plan_count: usize,
     /// Lowered build-side character definitions.
     pub character_count: usize,
+    /// Lowered generic effect definitions.
+    pub effect_count: usize,
 }
 
 /// Immutable application/data-layer catalog aggregate.
@@ -130,7 +141,7 @@ pub struct SimulationCatalog {
     manifest: CatalogManifest,
     identities: Box<[IdentityDefinition]>,
     pub(super) combat: CombatDefinitions,
-    builds: BuildDefinitions,
+    builds: crate::build_lower::BuildDefinitions,
 }
 
 impl SimulationCatalog {
@@ -152,7 +163,8 @@ impl SimulationCatalog {
                 .count(),
             ability_count: self.combat.abilities.len(),
             hit_plan_count: self.combat.hit_plans.len(),
-            character_count: self.builds.characters.len(),
+            character_count: self.builds.len(),
+            effect_count: self.combat.effects.len(),
         }
     }
 
@@ -160,6 +172,25 @@ impl SimulationCatalog {
     #[must_use]
     pub const fn modifiers(&self) -> &ModifierRegistry {
         &self.combat.modifiers
+    }
+    /// Looks up one Starclock-owned effect definition lowered from Sora rows.
+    #[must_use]
+    pub fn effect(&self, id: EffectDefinitionId) -> Option<&EffectDataDefinition> {
+        self.combat
+            .effects
+            .binary_search_by_key(&id, |effect| effect.id)
+            .ok()
+            .map(|index| &self.combat.effects[index])
+    }
+
+    /// Looks up one executable battle rule lowered from Sora rows.
+    #[must_use]
+    pub fn battle_rule(&self, id: RuleId) -> Option<&BattleRuleDefinition> {
+        self.combat
+            .rules
+            .binary_search_by_key(&id, |rule| rule.id)
+            .ok()
+            .map(|index| &self.combat.rules[index].runtime)
     }
 }
 
@@ -176,7 +207,7 @@ pub(super) enum LoadMode {
 }
 
 #[derive(Debug)]
-struct IdentityDefinition {
+pub(super) struct IdentityDefinition {
     id: u32,
     stable_key: Box<str>,
     kind: IdentityKind,
@@ -184,7 +215,7 @@ struct IdentityDefinition {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum IdentityKind {
+pub(super) enum IdentityKind {
     Character,
     Ability,
     Program,
@@ -197,6 +228,81 @@ pub(super) struct CombatDefinitions {
     hit_plans: Box<[HitPlanDefinition]>,
     modifiers: ModifierRegistry,
     pub(super) programs: Box<[crate::operation_lower::RuleProgramDefinition]>,
+    effects: Box<[EffectDataDefinition]>,
+    rules: Box<[crate::rule_lower::RuleDataDefinition]>,
+}
+
+/// Generated-row-free authored effect data retained for build compilation.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct EffectDataDefinition {
+    id: EffectDefinitionId,
+    category: EffectCategory,
+    dispel: DispelCategory,
+    stack_limit: u16,
+    duration: Option<starclock_combat::rule::model::ValueExpr>,
+    duration_clock: DurationClock,
+    tick_phase: EffectTickPhase,
+    stack_policy: EffectStackPolicy,
+    magnitude: Option<starclock_combat::rule::model::ValueExpr>,
+    snapshot_policy: EffectSnapshotPolicy,
+    teardown_policy: EffectTeardownPolicy,
+    application_priority: i32,
+    tags: Box<[Box<str>]>,
+}
+
+impl EffectDataDefinition {
+    #[must_use]
+    pub const fn id(&self) -> EffectDefinitionId {
+        self.id
+    }
+    #[must_use]
+    pub const fn category(&self) -> EffectCategory {
+        self.category
+    }
+    #[must_use]
+    pub const fn dispel(&self) -> DispelCategory {
+        self.dispel
+    }
+    #[must_use]
+    pub const fn stack_limit(&self) -> u16 {
+        self.stack_limit
+    }
+    #[must_use]
+    pub const fn duration(&self) -> Option<&starclock_combat::rule::model::ValueExpr> {
+        self.duration.as_ref()
+    }
+    #[must_use]
+    pub const fn duration_clock(&self) -> DurationClock {
+        self.duration_clock
+    }
+    #[must_use]
+    pub const fn tick_phase(&self) -> EffectTickPhase {
+        self.tick_phase
+    }
+    #[must_use]
+    pub const fn stack_policy(&self) -> EffectStackPolicy {
+        self.stack_policy
+    }
+    #[must_use]
+    pub const fn magnitude(&self) -> Option<&starclock_combat::rule::model::ValueExpr> {
+        self.magnitude.as_ref()
+    }
+    #[must_use]
+    pub const fn snapshot_policy(&self) -> EffectSnapshotPolicy {
+        self.snapshot_policy
+    }
+    #[must_use]
+    pub const fn teardown_policy(&self) -> EffectTeardownPolicy {
+        self.teardown_policy
+    }
+    #[must_use]
+    pub const fn application_priority(&self) -> i32 {
+        self.application_priority
+    }
+    #[must_use]
+    pub fn tags(&self) -> &[Box<str>] {
+        &self.tags
+    }
 }
 
 #[derive(Debug)]
@@ -232,39 +338,13 @@ struct HitDefinition {
     crit_policy: u8,
 }
 
-#[derive(Debug)]
-struct BuildDefinitions {
-    characters: Box<[CharacterDefinition]>,
-}
-
-#[derive(Debug)]
-struct CharacterDefinition {
-    id: UnitDefinitionId,
-    rarity: u8,
-    path: u8,
-    element: u8,
-    base_energy: Scalar,
-    base_aggro: Scalar,
-    stats: Box<[CharacterStatDefinition]>,
-    abilities: Box<[CharacterAbilityDefinition]>,
-}
-
-#[derive(Debug)]
-struct CharacterStatDefinition {
-    level: u16,
-    promotion: u8,
-    hp: Scalar,
-    attack: Scalar,
-    defense: Scalar,
-    speed: Scalar,
-}
-
-#[derive(Debug)]
-struct CharacterAbilityDefinition {
-    sequence: u16,
-    slot: u8,
-    ability: AbilityId,
-    invested_level_cap: u16,
+impl CombatDefinitions {
+    pub(super) fn ability_level_cap(&self, id: AbilityId) -> Option<u16> {
+        self.abilities
+            .iter()
+            .find(|ability| ability.id == id)
+            .map(|ability| ability.level_cap)
+    }
 }
 
 pub(super) fn load_with_mode(
@@ -283,7 +363,7 @@ pub(super) fn load_with_mode(
         .map(|identity| (identity.id, identity))
         .collect::<BTreeMap<_, _>>();
     let combat = convert_combat(&config, mode, &identity_by_id)?;
-    let builds = convert_builds(&config, mode, &identity_by_id, &combat)?;
+    let builds = crate::build_lower::convert(&config, mode, &identity_by_id, &combat)?;
     let catalog = SimulationCatalog {
         manifest,
         identities: identities.into_boxed_slice(),
@@ -312,23 +392,8 @@ fn validate_converted_catalog(catalog: &SimulationCatalog) -> Result<(), Catalog
                     || hit.damage_ratio.scaled() < 0
                     || hit.toughness_ratio.scaled() < 0
             })
-    }) || catalog.builds.characters.iter().any(|character| {
-        !(4..=5).contains(&character.rarity)
-            || character.path > 8
-            || character.element > 6
-            || character.base_energy.scaled() < 0
-            || character.base_aggro.scaled() < 0
-            || character.stats.is_empty()
-            || character.abilities.is_empty()
-            || character.abilities.iter().any(|binding| {
-                binding.slot > 8
-                    || !catalog.combat.abilities.iter().any(|ability| {
-                        ability.id == binding.ability
-                            && binding.invested_level_cap > 0
-                            && binding.invested_level_cap <= ability.level_cap
-                    })
-            })
-    }) {
+    }) || catalog.builds.violates_invariants(&catalog.combat)
+    {
         return Err(fail(
             CatalogLoadErrorKind::Domain,
             "converted catalog violates an immutable definition invariant",
@@ -578,6 +643,61 @@ fn convert_combat(
     mode: LoadMode,
     identities: &BTreeMap<u32, &IdentityDefinition>,
 ) -> Result<CombatDefinitions, CatalogLoadError> {
+    let mut effects = Vec::new();
+    for row in config.effect().ordered_rows() {
+        let raw = positive(row.id, "Effect.id")?;
+        require_identity(identities, raw, IdentityKind::Other, mode)?;
+        let mut tags = config
+            .effect_tag()
+            .iter()
+            .filter(|tag| tag.effect_id == row.id)
+            .collect::<Vec<_>>();
+        tags.sort_unstable_by_key(|tag| tag.sequence);
+        contiguous(
+            tags.iter()
+                .map(|tag| positive_u16(tag.sequence, "EffectTag.sequence"))
+                .collect::<Result<Vec<_>, _>>()?
+                .into_iter(),
+            "effect tags",
+        )?;
+        let mut visiting = std::collections::BTreeSet::new();
+        let duration = row
+            .duration_expression_id
+            .map(|id| crate::modifier_lower::expression(config, id, &mut visiting))
+            .transpose()?;
+        visiting.clear();
+        let magnitude = row
+            .magnitude_comparator_expression_id
+            .map(|id| crate::modifier_lower::expression(config, id, &mut visiting))
+            .transpose()?;
+        let duration_clock = lower_duration_clock(row.duration_clock);
+        if (duration_clock == DurationClock::Permanent) != duration.is_none() {
+            return Err(fail(
+                CatalogLoadErrorKind::Domain,
+                format!("effect {} duration/clock disagree", row.id),
+            ));
+        }
+        effects.push(EffectDataDefinition {
+            id: EffectDefinitionId::new(raw).expect("positive effect ID"),
+            category: lower_effect_category(row.category),
+            dispel: lower_dispel(row.dispel_category),
+            stack_limit: bounded_u16(row.stack_limit, "Effect.stack_limit")?,
+            duration,
+            duration_clock,
+            tick_phase: lower_tick_phase(row.tick_phase),
+            stack_policy: lower_stack_policy(row.stack_policy),
+            magnitude,
+            snapshot_policy: lower_snapshot_policy(row.snapshot_policy),
+            teardown_policy: lower_teardown(row.teardown_policy),
+            application_priority: row.application_priority,
+            tags: tags
+                .into_iter()
+                .map(|tag| tag.tag.clone().into_boxed_str())
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+        });
+    }
+    effects.sort_unstable_by_key(|effect| effect.id);
     let mut abilities = Vec::new();
     for row in config.ability().ordered_rows() {
         let raw = positive(row.id, "Ability.id")?;
@@ -708,127 +828,18 @@ fn convert_combat(
     }
     let modifiers = crate::modifier_lower::convert(config)?;
     let programs = crate::operation_lower::convert(config)?;
+    let rules = crate::rule_lower::convert(config, mode, identities)?;
     Ok(CombatDefinitions {
         abilities: abilities.into_boxed_slice(),
         hit_plans: hit_plans.into_boxed_slice(),
         modifiers,
         programs: programs.into_boxed_slice(),
+        effects: effects.into_boxed_slice(),
+        rules: rules.into_boxed_slice(),
     })
 }
 
-fn convert_builds(
-    config: &SoraConfig,
-    mode: LoadMode,
-    identities: &BTreeMap<u32, &IdentityDefinition>,
-    combat: &CombatDefinitions,
-) -> Result<BuildDefinitions, CatalogLoadError> {
-    let mut characters = Vec::new();
-    for row in config.character().ordered_rows() {
-        let id = positive(row.id, "Character.id")?;
-        require_identity(identities, id, IdentityKind::Character, mode)?;
-        let rarity = u8::try_from(row.rarity)
-            .ok()
-            .filter(|rarity| (4..=5).contains(rarity))
-            .ok_or_else(|| fail(CatalogLoadErrorKind::Domain, "invalid character rarity"))?;
-        let mut stats = config
-            .character_stat()
-            .iter()
-            .filter(|stat| stat.character_id == row.id)
-            .map(|stat| {
-                Ok(CharacterStatDefinition {
-                    level: positive_u16(stat.level, "CharacterStat.level")?,
-                    promotion: u8::try_from(stat.promotion).map_err(|_| {
-                        fail(CatalogLoadErrorKind::Domain, "invalid character promotion")
-                    })?,
-                    hp: Scalar::from_scaled(parse_decimal(&stat.hp_decimal)?),
-                    attack: Scalar::from_scaled(parse_decimal(&stat.atk_decimal)?),
-                    defense: Scalar::from_scaled(parse_decimal(&stat.def_decimal)?),
-                    speed: Scalar::from_scaled(parse_decimal(&stat.spd_decimal)?),
-                })
-            })
-            .collect::<Result<Vec<_>, CatalogLoadError>>()?;
-        stats.sort_unstable_by_key(|stat| (stat.level, stat.promotion));
-        if stats
-            .iter()
-            .any(|stat| stat.level > 80 || stat.promotion > 6)
-            || !stats
-                .iter()
-                .any(|stat| stat.level == 1 && stat.promotion == 0)
-            || !stats
-                .iter()
-                .any(|stat| stat.level == 80 && stat.promotion == 6)
-            || stats.iter().any(|stat| {
-                stat.hp.scaled() <= 0
-                    || stat.attack.scaled() <= 0
-                    || stat.defense.scaled() <= 0
-                    || stat.speed.scaled() <= 0
-            })
-        {
-            return Err(fail(
-                CatalogLoadErrorKind::Domain,
-                format!(
-                    "character {} lacks valid level 1/80 stat boundaries",
-                    row.id
-                ),
-            ));
-        }
-        let mut abilities = config
-            .character_ability_binding()
-            .iter()
-            .filter(|binding| binding.character_id == row.id)
-            .map(|binding| {
-                let ability_raw =
-                    positive(binding.ability_id, "CharacterAbilityBinding.ability_id")?;
-                if !combat
-                    .abilities
-                    .iter()
-                    .any(|ability| ability.id.get() == ability_raw)
-                {
-                    return Err(fail(
-                        CatalogLoadErrorKind::Domain,
-                        "character binding refers to a missing ability",
-                    ));
-                }
-                Ok(CharacterAbilityDefinition {
-                    sequence: positive_u16(binding.sequence, "CharacterAbilityBinding.sequence")?,
-                    slot: character_ability_slot(binding.slot),
-                    ability: AbilityId::new(ability_raw).expect("positive ability ID"),
-                    invested_level_cap: positive_u16(
-                        binding.invested_level_cap,
-                        "CharacterAbilityBinding.invested_level_cap",
-                    )?,
-                })
-            })
-            .collect::<Result<Vec<_>, CatalogLoadError>>()?;
-        abilities.sort_unstable_by_key(|binding| binding.sequence);
-        contiguous(
-            abilities.iter().map(|binding| binding.sequence),
-            "character abilities",
-        )?;
-        if abilities.is_empty() {
-            return Err(fail(
-                CatalogLoadErrorKind::Domain,
-                format!("character {} has no ability binding", row.id),
-            ));
-        }
-        characters.push(CharacterDefinition {
-            id: UnitDefinitionId::new(id).expect("positive u32 is a valid UnitDefinitionId"),
-            rarity,
-            path: combat_path(row.path),
-            element: combat_element(row.element),
-            base_energy: Scalar::from_scaled(parse_decimal(&row.base_energy_decimal)?),
-            base_aggro: Scalar::from_scaled(parse_decimal(&row.base_aggro_decimal)?),
-            stats: stats.into_boxed_slice(),
-            abilities: abilities.into_boxed_slice(),
-        });
-    }
-    characters.sort_unstable_by_key(|character| character.id);
-    Ok(BuildDefinitions {
-        characters: characters.into_boxed_slice(),
-    })
-}
-
-fn require_identity(
+pub(super) fn require_identity(
     identities: &BTreeMap<u32, &IdentityDefinition>,
     id: u32,
     kind: IdentityKind,
@@ -934,52 +945,7 @@ fn crit_policy(value: crate::generated::crit_policy::CritPolicy) -> u8 {
     }
 }
 
-fn character_ability_slot(
-    value: crate::generated::character_ability_slot::CharacterAbilitySlot,
-) -> u8 {
-    use crate::generated::character_ability_slot::CharacterAbilitySlot as V;
-    match value {
-        V::Basic => 0,
-        V::Skill => 1,
-        V::Ultimate => 2,
-        V::Talent => 3,
-        V::Technique => 4,
-        V::Enhanced => 5,
-        V::Summon => 6,
-        V::Memosprite => 7,
-        V::Passive => 8,
-    }
-}
-
-fn combat_path(value: crate::generated::combat_path::CombatPath) -> u8 {
-    use crate::generated::combat_path::CombatPath as V;
-    match value {
-        V::Destruction => 0,
-        V::Hunt => 1,
-        V::Erudition => 2,
-        V::Harmony => 3,
-        V::Nihility => 4,
-        V::Preservation => 5,
-        V::Abundance => 6,
-        V::Remembrance => 7,
-        V::Elation => 8,
-    }
-}
-
-fn combat_element(value: crate::generated::combat_element::CombatElement) -> u8 {
-    use crate::generated::combat_element::CombatElement as V;
-    match value {
-        V::Physical => 0,
-        V::Fire => 1,
-        V::Ice => 2,
-        V::Lightning => 3,
-        V::Wind => 4,
-        V::Quantum => 5,
-        V::Imaginary => 6,
-    }
-}
-
-fn positive(value: i32, field: &str) -> Result<u32, CatalogLoadError> {
+pub(super) fn positive(value: i32, field: &str) -> Result<u32, CatalogLoadError> {
     u32::try_from(value)
         .ok()
         .filter(|value| *value != 0)
@@ -991,7 +957,7 @@ fn positive(value: i32, field: &str) -> Result<u32, CatalogLoadError> {
         })
 }
 
-fn positive_u16(value: i32, field: &str) -> Result<u16, CatalogLoadError> {
+pub(super) fn positive_u16(value: i32, field: &str) -> Result<u16, CatalogLoadError> {
     let value = bounded_u16(value, field)?;
     if value == 0 {
         return Err(fail(
@@ -1011,7 +977,7 @@ fn bounded_u16(value: i32, field: &str) -> Result<u16, CatalogLoadError> {
     })
 }
 
-fn contiguous(
+pub(super) fn contiguous(
     values: impl Iterator<Item = u16>,
     description: &str,
 ) -> Result<(), CatalogLoadError> {
@@ -1134,6 +1100,7 @@ mod tests {
                 ability_count: 0,
                 hit_plan_count: 0,
                 character_count: 0,
+                effect_count: 0,
             }
         );
         assert!(Arc::ptr_eq(&catalog, &Arc::clone(&catalog)));
@@ -1155,6 +1122,7 @@ mod tests {
                 ability_count: 1,
                 hit_plan_count: 1,
                 character_count: 1,
+                effect_count: 0,
             }
         );
         let ability = &catalog.combat.abilities[0];

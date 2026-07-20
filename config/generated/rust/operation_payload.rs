@@ -89,6 +89,12 @@ pub enum OperationPayload {
         #[serde(rename = "effect_id")]
         effect_id: i32,
     },
+    DetonateDot {
+        #[serde(rename = "fraction_expression_id")]
+        fraction_expression_id: i32,
+        #[serde(rename = "required_effect_tag")]
+        required_effect_tag: Option<String>,
+    },
     RefreshEffect {
         #[serde(rename = "effect_id")]
         effect_id: i32,
@@ -279,18 +285,24 @@ impl super::runtime::SoraDecode for OperationPayload {
             12 => Ok(Self::RemoveEffect {
                 effect_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            13 => Ok(Self::RefreshEffect {
+            13 => Ok(Self::DetonateDot {
+                fraction_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+                required_effect_tag: <Option<String> as super::runtime::SoraDecode>::decode(
+                    reader,
+                )?,
+            }),
+            14 => Ok(Self::RefreshEffect {
                 effect_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            14 => Ok(Self::TransferEffect {
+            15 => Ok(Self::TransferEffect {
                 effect_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 destination_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            15 => Ok(Self::ModifyEffect {
+            16 => Ok(Self::ModifyEffect {
                 effect_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 stack_delta_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            16 => Ok(Self::ModifyResource {
+            17 => Ok(Self::ModifyResource {
                 resource_kind: <ResourceKind as super::runtime::SoraDecode>::decode(reader)?,
                 character_resource_key: <Option<String> as super::runtime::SoraDecode>::decode(
                     reader,
@@ -302,73 +314,73 @@ impl super::runtime::SoraDecode for OperationPayload {
                 )?,
                 rounding: <RoundingPolicy as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            17 => Ok(Self::ModifyStateSlot {
+            18 => Ok(Self::ModifyStateSlot {
                 state_slot_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 update_kind: <StateSlotUpdateKind as super::runtime::SoraDecode>::decode(reader)?,
                 value_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            18 => Ok(Self::AdvanceAction {
+            19 => Ok(Self::AdvanceAction {
                 amount_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            19 => Ok(Self::DelayAction {
+            20 => Ok(Self::DelayAction {
                 amount_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            20 => Ok(Self::QueueAction {
+            21 => Ok(Self::QueueAction {
                 ability_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 actor_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 priority: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            21 => Ok(Self::CancelAction {
+            22 => Ok(Self::CancelAction {
                 owner_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 action_kind: <ActionKind as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            22 => Ok(Self::GrantExtraTurn {
+            23 => Ok(Self::GrantExtraTurn {
                 actor_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            23 => Ok(Self::Summon {
+            24 => Ok(Self::Summon {
                 unit_definition_identity_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 owner_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            24 => Ok(Self::Despawn {}),
-            25 => Ok(Self::Transform {
+            25 => Ok(Self::Despawn {}),
+            26 => Ok(Self::Transform {
                 replacement_definition_identity_id: <i32 as super::runtime::SoraDecode>::decode(
                     reader,
                 )?,
             }),
-            26 => Ok(Self::ReplaceAbility {
+            27 => Ok(Self::ReplaceAbility {
                 old_ability_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 new_ability_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            27 => Ok(Self::SetField {
+            28 => Ok(Self::SetField {
                 effect_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            28 => Ok(Self::ChangePresence {
+            29 => Ok(Self::ChangePresence {
                 presence: <PresenceState as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            29 => Ok(Self::AddWeakness {
+            30 => Ok(Self::AddWeakness {
                 element: <CombatElement as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            30 => Ok(Self::RemoveWeakness {
+            31 => Ok(Self::RemoveWeakness {
                 element: <CombatElement as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            31 => Ok(Self::ResistanceOverride {
+            32 => Ok(Self::ResistanceOverride {
                 element: <CombatElement as super::runtime::SoraDecode>::decode(reader)?,
                 value_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            32 => Ok(Self::RequestDecision {
+            33 => Ok(Self::RequestDecision {
                 decision_kind: <BattleDecisionKind as super::runtime::SoraDecode>::decode(reader)?,
                 option_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            33 => Ok(Self::EmitRuleEvent {
+            34 => Ok(Self::EmitRuleEvent {
                 event_key: <String as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            34 => Ok(Self::RequestEncounterTransition {
+            35 => Ok(Self::RequestEncounterTransition {
                 transition_kind: <EncounterTransitionKind as super::runtime::SoraDecode>::decode(
                     reader,
                 )?,
                 transition_key: <String as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            35 => Ok(Self::ProposeReplacement {
+            36 => Ok(Self::ProposeReplacement {
                 proposal_kind: <ReplacementProposalKind as super::runtime::SoraDecode>::decode(
                     reader,
                 )?,
@@ -377,7 +389,7 @@ impl super::runtime::SoraDecode for OperationPayload {
                     reader,
                 )?,
             }),
-            36 => Ok(Self::InvokeNativeHandler {
+            37 => Ok(Self::InvokeNativeHandler {
                 native_handler_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
             value => Err(super::runtime::SoraReadError::new(format!(
@@ -405,6 +417,7 @@ impl OperationPayload {
             Self::SuperBreak { .. } => {}
             Self::ApplyEffect { .. } => {}
             Self::RemoveEffect { .. } => {}
+            Self::DetonateDot { .. } => {}
             Self::RefreshEffect { .. } => {}
             Self::TransferEffect { .. } => {}
             Self::ModifyEffect { .. } => {}

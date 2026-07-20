@@ -306,7 +306,7 @@ function expectDataFailure(name, mutate) {
 }
 
 function expectedOperationVariants() {
-  return ["Damage", "TrueDamage", "Heal", "Shield", "ConsumeHp", "RedirectDamage", "ReduceToughness", "CreateToughnessLayer", "RemoveToughnessLayer", "Break", "SuperBreak", "ApplyEffect", "RemoveEffect", "RefreshEffect", "TransferEffect", "ModifyEffect", "ModifyResource", "ModifyStateSlot", "AdvanceAction", "DelayAction", "QueueAction", "CancelAction", "GrantExtraTurn", "Summon", "Despawn", "Transform", "ReplaceAbility", "SetField", "ChangePresence", "AddWeakness", "RemoveWeakness", "ResistanceOverride", "RequestDecision", "EmitRuleEvent", "RequestEncounterTransition", "ProposeReplacement", "InvokeNativeHandler"];
+  return ["Damage", "TrueDamage", "Heal", "Shield", "ConsumeHp", "RedirectDamage", "ReduceToughness", "CreateToughnessLayer", "RemoveToughnessLayer", "Break", "SuperBreak", "ApplyEffect", "RemoveEffect", "DetonateDot", "RefreshEffect", "TransferEffect", "ModifyEffect", "ModifyResource", "ModifyStateSlot", "AdvanceAction", "DelayAction", "QueueAction", "CancelAction", "GrantExtraTurn", "Summon", "Despawn", "Transform", "ReplaceAbility", "SetField", "ChangePresence", "AddWeakness", "RemoveWeakness", "ResistanceOverride", "RequestDecision", "EmitRuleEvent", "RequestEncounterTransition", "ProposeReplacement", "InvokeNativeHandler"];
 }
 function expectedTables() {
   return [

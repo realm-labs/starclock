@@ -31,7 +31,7 @@ pub(crate) struct HitPlan {
     pub(crate) operations: Box<[OperationPlan]>,
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct OperationPlan {
     pub(crate) id: OperationId,
     pub(crate) definition: HitOperationDefinition,

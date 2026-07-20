@@ -16,6 +16,10 @@ pub(crate) enum Operation {
     AddWeakness(AddWeaknessOp),
     ReduceToughness(ReduceToughnessOp),
     SuperBreak(SuperBreakOp),
+    ApplyEffect(ApplyEffectOp),
+    RemoveEffects(RemoveEffectsOp),
+    DetonateDots(DetonateDotsOp),
+    ModifyStateSlot(ModifyStateSlotOp),
 }
 
 impl Operation {
@@ -28,8 +32,40 @@ impl Operation {
             Self::AddWeakness(operation) => operation.id,
             Self::ReduceToughness(operation) => operation.id,
             Self::SuperBreak(operation) => operation.id,
+            Self::ApplyEffect(operation) => operation.id,
+            Self::RemoveEffects(operation) => operation.id,
+            Self::DetonateDots(operation) => operation.id,
+            Self::ModifyStateSlot(operation) => operation.id,
         }
     }
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct ModifyStateSlotOp {
+    pub(crate) id: OperationId,
+    pub(crate) owner: UnitId,
+    pub(crate) definition: crate::rule::model::RuleSlotMutationDefinition,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct ApplyEffectOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) definition: crate::EffectApplicationDefinition,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct RemoveEffectsOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) definition: crate::EffectRemovalDefinition,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct DetonateDotsOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) definition: crate::DotDetonationDefinition,
 }
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]

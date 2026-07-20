@@ -203,6 +203,85 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
             e.i64(factor.scaled());
         }
     }
+    e.length(state.effects.canonical_entries().len());
+    for effect in state.effects.canonical_entries() {
+        e.u64(effect.id.get());
+        e.u32(effect.definition.get());
+        e.u32(effect.source_definition.get());
+        e.u64(effect.source_operation.get());
+        e.u64(effect.applier.get());
+        e.u64(effect.target.get());
+        e.u8(effect.category as u8);
+        e.u8(effect.dispel as u8);
+        e.u16(effect.stacks);
+        e.u16(effect.stack_limit);
+        match effect.remaining {
+            None => e.u8(0),
+            Some(value) => {
+                e.u8(1);
+                e.u16(value);
+            }
+        }
+        e.u8(effect.duration_clock as u8);
+        e.u8(effect.tick_phase as u8);
+        e.u8(effect.stack_policy as u8);
+        e.u8(effect.snapshot_policy as u8);
+        e.u8(effect.teardown_policy as u8);
+        e.i64(i64::from(effect.application_priority));
+        e.i64(effect.magnitude.scaled());
+        e.length(effect.tags.len());
+        for tag in &effect.tags {
+            e.u32(tag.get());
+        }
+        e.length(effect.controlled_actions.len());
+        for action in &effect.controlled_actions {
+            e.u8(*action as u8);
+        }
+        match effect.dot {
+            None => e.u8(0),
+            Some(dot) => {
+                e.u8(1);
+                e.u8(dot.element() as u8);
+                match dot.detonation_tag() {
+                    None => e.u8(0),
+                    Some(tag) => {
+                        e.u8(1);
+                        e.u32(tag.get());
+                    }
+                }
+                e.i64(dot.formula().base_damage().scaled());
+                for factor in dot.formula().multipliers().ordered() {
+                    e.i64(factor.scaled());
+                }
+            }
+        }
+        e.u64(effect.application_sequence);
+    }
+    e.length(state.rules.iter_by_id().len());
+    for instance in state.rules.iter_by_id() {
+        e.u64(instance.id.get());
+        e.u32(instance.rule.get());
+        match instance.owner {
+            None => e.u8(0),
+            Some(owner) => {
+                e.u8(1);
+                e.u64(owner.get());
+            }
+        }
+        e.length(instance.slots.len());
+        for (definition, value) in &instance.slots {
+            e.u32(definition.id().get());
+            encode_rule_value(&mut e, value);
+        }
+        e.length(instance.ledger.canonical_keys().len());
+        for key in instance.ledger.canonical_keys() {
+            e.u64(key.rule_instance.get());
+            e.u32(key.trigger.get());
+            e.u8(key.scope as u8);
+            e.u64(key.first);
+            e.u64(key.second);
+        }
+    }
     e.u32(state.encounter.definition.get());
     e.u64(state.encounter.wave.get());
     e.u16(state.encounter.number);
@@ -217,6 +296,46 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
         e.u64(next);
     }
     e.u64(state.committed_revision);
+}
+
+fn encode_rule_value<S: Sink>(e: &mut Encoder<'_, S>, value: &crate::rule::model::RuleValue) {
+    use crate::rule::model::RuleValue as V;
+    match value {
+        V::Integer(value) => {
+            e.u8(0);
+            e.i64(*value);
+        }
+        V::Scalar(value) => {
+            e.u8(1);
+            e.i64(value.scaled());
+        }
+        V::Boolean(value) => {
+            e.u8(2);
+            e.u8(u8::from(*value));
+        }
+        V::StableId(value) => {
+            e.u8(3);
+            e.u64(*value);
+        }
+        V::OptionalStableId(value) => match value {
+            None => {
+                e.u8(4);
+                e.u8(0);
+            }
+            Some(value) => {
+                e.u8(4);
+                e.u8(1);
+                e.u64(*value);
+            }
+        },
+        V::OrderedStableIdSet(values) => {
+            e.u8(5);
+            e.length(values.len());
+            for value in values {
+                e.u64(*value);
+            }
+        }
+    }
 }
 
 fn encode_timeline<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
