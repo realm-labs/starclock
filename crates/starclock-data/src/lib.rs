@@ -12,6 +12,7 @@ mod generated;
 mod build_lower;
 pub mod bundle;
 pub mod catalog;
+pub mod coverage;
 mod effect_lower;
 mod modifier_lower;
 mod native_handler_lower;

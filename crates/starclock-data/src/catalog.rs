@@ -1,18 +1,14 @@
 //! Validated Sora-row to immutable Starclock catalog boundary.
-//!
-//! This Phase 1 catalog deliberately exposes only compatibility metadata and
-//! counts. Generated rows, transport enums and the preliminary definition
-//! storage remain private; Phase 2 owns the final combat catalog/index API.
-
-use std::{collections::BTreeMap, sync::Arc};
-
+//! Generated rows and preliminary definition storage remain private.
 use starclock_combat::modifier::registry::ModifierRegistry;
 use starclock_combat::rule::model::BattleRuleDefinition;
 use starclock_combat::{
     AbilityId, DispelCategory, DurationClock, EffectCategory, EffectDefinitionId,
     EffectSnapshotPolicy, EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase, Ratio, RuleId,
 };
+use std::{collections::BTreeMap, sync::Arc};
 
+use crate::coverage::{GoalCoverageCategory, GoalCoverageState};
 use crate::effect_lower::{
     lower_dispel, lower_duration_clock, lower_effect_category, lower_snapshot_policy,
     lower_stack_policy, lower_teardown, lower_tick_phase,
@@ -143,7 +139,7 @@ pub struct CatalogSummary {
 #[derive(Debug)]
 pub struct SimulationCatalog {
     manifest: CatalogManifest,
-    identities: Box<[IdentityDefinition]>,
+    pub(super) identities: Box<[IdentityDefinition]>,
     pub(super) combat: CombatDefinitions,
     builds: crate::build_lower::BuildDefinitions,
 }
@@ -225,10 +221,12 @@ pub(super) enum LoadMode {
 
 #[derive(Debug)]
 pub(super) struct IdentityDefinition {
-    id: u32,
-    stable_key: Box<str>,
-    kind: IdentityKind,
-    enabled: bool,
+    pub(super) id: u32,
+    pub(super) stable_key: Box<str>,
+    pub(super) kind: IdentityKind,
+    pub(super) enabled: bool,
+    pub(super) goal_category: Option<GoalCoverageCategory>,
+    pub(super) coverage_state: GoalCoverageState,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -586,6 +584,8 @@ fn convert_metadata(
             stable_key: row.stable_key.clone().into_boxed_str(),
             kind: identity_kind(row.content_kind),
             enabled: row.enabled,
+            goal_category: GoalCoverageCategory::from_content_kind(row.content_kind),
+            coverage_state: GoalCoverageState::from_generated(row.coverage_state),
         });
     }
     identities.sort_unstable_by_key(|identity| identity.id);

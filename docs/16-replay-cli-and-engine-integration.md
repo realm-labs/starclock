@@ -2,9 +2,10 @@
 
 This document defines the planned replay contract, headless command-line surface,
 deterministic baseline controllers, and integration boundary for Bevy or another
-engine. The `starclock-cli` package now owns an intentionally behavior-free
-`starclock` binary scaffold; no command surface is claimed until its owning Goal
-01 batches implement and test it.
+engine. The `starclock-cli` package owns the versioned headless validation,
+coverage, synthetic Standard battle and replay-verification surface implemented
+by Goal 01 batch `G01-P6-B5`. Production Standard scenario execution remains
+gated on the frozen manifest import in B6.
 
 ## Replay identity
 
@@ -140,12 +141,12 @@ strict runner and five-sample baseline are recorded in
 The Phase 3 trigger-heavy row is explicitly an eight-operation/event proxy
 until the trigger kernel replaces or versions it in Phase 4.
 
-## Planned CLI surface
+## Headless CLI surface
 
 ```text
 starclock config validate [--bundle PATH] [--json]
-starclock catalog coverage [--category NAME] [--json]
-starclock battle run --scenario ID --seed U64 [--controller baseline|replay] [--json]
+starclock catalog coverage [--goal core-combat-v1] [--category NAME] [--json]
+starclock battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json]
 starclock activity run --profile ID --activity ID --seed U64 --controller baseline [--json]
 starclock replay verify FILE [--json]
 starclock universe run --mode ID --seed U64 --controller baseline [--json]
@@ -155,6 +156,26 @@ starclock challenge run --mode ID --stage ID --seed U64 --controller baseline [-
 `universe run` and `challenge run` are convenience front ends that resolve a profile/activity ID and call the same activity runtime. They do not own separate save, RNG, result, or replay behavior.
 
 Exit code `0` means the requested validation/simulation completed successfully. Distinct nonzero codes represent usage, configuration, replay incompatibility/divergence, invalid scenario, simulation fault, or internal tool error. JSON mode writes one versioned result object to stdout and diagnostics to stderr; human mode may format the same domain result for reading.
+
+The Goal 01 v1 exit classes are usage `2`, configuration/bundle `3`, replay
+incompatibility or divergence `4`, invalid scenario `5`, simulation fault `6`
+and I/O/internal tool failure `7`. JSON objects identify
+`schema_revision = "starclock-cli-v1"`.
+
+`config validate` loads the embedded production `config.sora` by default or an
+explicit `--bundle`; both paths use the generated Sora reader and the complete
+production catalog validator. `catalog coverage` derives the six frozen Goal
+01 denominator categories directly from those validated Sora identities. It
+does not read diagnostic JSON or promote disabled bootstrap rows.
+
+B5 keeps `synthetic-standard-v1` as the only runnable battle until B6 imports
+the production Standard manifests. Its `baseline` option executes the versioned
+baseline scorer and binds a digest of the exact synthetic authored hints into
+the replay header. `replay` without an accepted stream is a usage error directing
+the caller to `replay verify FILE`; the CLI never fabricates replay commands.
+Replay verification currently resolves the low-level synthetic entry. The B4
+library already verifies Activity payloads; B6 owns resolving production
+Activity/profile entries from imported catalogs.
 
 CLI flags cannot alter authoritative rounding, RNG mapping, budgets, or event order without selecting a different versioned rules revision. Scenario, activity, and mode IDs resolve through validated immutable catalogs rather than filesystem naming conventions.
 
