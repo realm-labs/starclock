@@ -28,8 +28,8 @@ mod validation;
 mod value_map;
 
 use hit_formula::AbilityHitPlanDefinition;
-use validation::bounded_u16;
-pub(super) use validation::{contiguous, positive, positive_u16};
+use validation::{bounded_u16, identity_kind};
+pub(super) use validation::{contiguous, positive, positive_u16, require_identity};
 use value_map::{
     ability_kind, ability_resource_kind, crit_policy, hit_damage_class, hit_element,
     hit_scaling_stat, hit_target_group, resource_delta_kind, resource_timing, retarget_policy,
@@ -436,6 +436,9 @@ pub(super) struct HitDefinition {
     pub(super) damage_ratio: Ratio,
     pub(super) toughness_ratio: Ratio,
     pub(super) crit_policy: u8,
+    pub(super) damage_parameter_key_override: Option<Box<str>>,
+    pub(super) damage_operation_ratio: Option<Ratio>,
+    pub(super) toughness_amount: Option<starclock_combat::Scalar>,
 }
 
 impl CombatDefinitions {
@@ -1007,6 +1010,22 @@ fn convert_combat(
                         &hit.toughness_ratio_decimal,
                     )?),
                     crit_policy: crit_policy(hit.crit_policy),
+                    damage_parameter_key_override: hit
+                        .damage_parameter_key_override
+                        .as_deref()
+                        .map(Into::into),
+                    damage_operation_ratio: hit
+                        .damage_operation_ratio_decimal
+                        .as_deref()
+                        .map(parse_decimal)
+                        .transpose()?
+                        .map(Ratio::from_scaled),
+                    toughness_amount: hit
+                        .toughness_amount_decimal
+                        .as_deref()
+                        .map(parse_decimal)
+                        .transpose()?
+                        .map(starclock_combat::Scalar::from_scaled),
                 })
             })
             .collect::<Result<Vec<_>, CatalogLoadError>>()?;
@@ -1072,8 +1091,14 @@ fn convert_combat(
             binding.damage_class.is_some(),
         ];
         let has_damage = damage_fields.iter().all(|present| *present);
+        let has_hit_damage = plan.hits.iter().any(|hit| {
+            hit.damage_parameter_key_override.is_some() || hit.damage_operation_ratio.is_some()
+        });
+        let has_hit_toughness = plan.hits.iter().any(|hit| hit.toughness_amount.is_some());
         if (damage_fields.iter().any(|present| *present) && !has_damage)
-            || (has_damage || binding.base_toughness_decimal.is_some()) && binding.element.is_none()
+            || (has_hit_damage && !has_damage)
+            || (has_damage || binding.base_toughness_decimal.is_some() || has_hit_toughness)
+                && binding.element.is_none()
         {
             return Err(domain_fail("ability hit formula binding is incomplete"));
         }
@@ -1147,48 +1172,6 @@ fn convert_combat(
         linked_units,
         countdowns,
     })
-}
-
-pub(super) fn require_identity(
-    identities: &BTreeMap<u32, &IdentityDefinition>,
-    id: u32,
-    kind: IdentityKind,
-    mode: LoadMode,
-) -> Result<(), CatalogLoadError> {
-    let identity = identities.get(&id).ok_or_else(|| {
-        fail(
-            CatalogLoadErrorKind::Domain,
-            format!("definition {id} has no content identity"),
-        )
-    })?;
-    if identity.kind != kind {
-        return Err(fail(
-            CatalogLoadErrorKind::Domain,
-            format!(
-                "identity {} ({}) has the wrong content kind",
-                id, identity.stable_key
-            ),
-        ));
-    }
-    if mode == LoadMode::Production && !identity.enabled {
-        return Err(fail(
-            CatalogLoadErrorKind::Domain,
-            format!(
-                "disabled identity {} has executable rows",
-                identity.stable_key
-            ),
-        ));
-    }
-    Ok(())
-}
-
-fn identity_kind(kind: ContentKind) -> IdentityKind {
-    match kind {
-        ContentKind::CharacterForm => IdentityKind::Character,
-        ContentKind::Ability => IdentityKind::Ability,
-        ContentKind::Program => IdentityKind::Program,
-        _ => IdentityKind::Other,
-    }
 }
 
 #[cfg(test)]

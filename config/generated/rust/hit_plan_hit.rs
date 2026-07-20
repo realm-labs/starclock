@@ -16,6 +16,12 @@ pub struct HitPlanHit {
     pub toughness_ratio_decimal: String,
     #[serde(rename = "crit_policy")]
     pub crit_policy: CritPolicy,
+    #[serde(rename = "damage_parameter_key_override")]
+    pub damage_parameter_key_override: Option<String>,
+    #[serde(rename = "damage_operation_ratio_decimal")]
+    pub damage_operation_ratio_decimal: Option<String>,
+    #[serde(rename = "toughness_amount_decimal")]
+    pub toughness_amount_decimal: Option<String>,
 }
 
 impl super::runtime::SoraDecode for HitPlanHit {
@@ -29,6 +35,15 @@ impl super::runtime::SoraDecode for HitPlanHit {
             damage_ratio_decimal: <String as super::runtime::SoraDecode>::decode(reader)?,
             toughness_ratio_decimal: <String as super::runtime::SoraDecode>::decode(reader)?,
             crit_policy: <CritPolicy as super::runtime::SoraDecode>::decode(reader)?,
+            damage_parameter_key_override: <Option<String> as super::runtime::SoraDecode>::decode(
+                reader,
+            )?,
+            damage_operation_ratio_decimal: <Option<String> as super::runtime::SoraDecode>::decode(
+                reader,
+            )?,
+            toughness_amount_decimal: <Option<String> as super::runtime::SoraDecode>::decode(
+                reader,
+            )?,
         })
     }
 }

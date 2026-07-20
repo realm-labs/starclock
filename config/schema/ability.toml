@@ -256,6 +256,21 @@ length = [1, 32]
 name = "crit_policy"
 type = "enum<CritPolicy>"
 
+[[tables.fields]]
+name = "damage_parameter_key_override"
+type = "optional<string>"
+length = [1, 120]
+
+[[tables.fields]]
+name = "damage_operation_ratio_decimal"
+type = "optional<string>"
+length = [1, 32]
+
+[[tables.fields]]
+name = "toughness_amount_decimal"
+type = "optional<string>"
+length = [1, 32]
+
 [[tables.indexes]]
 name = "by_hit_plan_sequence"
 fields = ["hit_plan_id", "sequence"]

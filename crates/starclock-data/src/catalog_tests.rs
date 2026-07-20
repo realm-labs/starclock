@@ -229,6 +229,51 @@ fn production_asta_basic_executes_minimum_and_maximum_hit_formulas() {
 }
 
 #[test]
+fn production_bounce_and_blast_hits_use_exact_payload_overrides() {
+    use starclock_combat::catalog::action::HitOperationDefinition;
+
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let combat = catalog.combat_catalog();
+    for (raw, coefficient) in [(20_011, 250_000), (1_000_640_367, 625_000)] {
+        let ability = combat
+            .ability(starclock_combat::AbilityId::new(raw).unwrap())
+            .expect("Asta Skill effective-level variant");
+        let hits = ability.action().unwrap().hits();
+        assert_eq!(hits.len(), 5);
+        for hit in hits {
+            let HitOperationDefinition::ScalingDamage(damage) = hit.operations()[0] else {
+                panic!("bounce hit must own scaling damage");
+            };
+            assert_eq!(damage.coefficient().scaled(), coefficient);
+            let HitOperationDefinition::ReduceToughness(toughness) = hit.operations()[1] else {
+                panic!("bounce hit must own Toughness reduction");
+            };
+            assert_eq!(toughness.reduction.base.get(), 30);
+        }
+    }
+
+    for (raw, expected) in [
+        (20_029, [(800_000, 60), (300_000, 30)]),
+        (1_000_640_943, [(2_000_000, 60), (750_000, 30)]),
+    ] {
+        let ability = combat
+            .ability(starclock_combat::AbilityId::new(raw).unwrap())
+            .expect("Kafka Skill effective-level variant");
+        for (hit, (coefficient, toughness)) in ability.action().unwrap().hits().iter().zip(expected)
+        {
+            let HitOperationDefinition::ScalingDamage(damage) = hit.operations()[0] else {
+                panic!("Blast hit must own scaling damage");
+            };
+            assert_eq!(damage.coefficient().scaled(), coefficient);
+            let HitOperationDefinition::ReduceToughness(reduction) = hit.operations()[1] else {
+                panic!("Blast hit must own Toughness reduction");
+            };
+            assert_eq!(reduction.reduction.base.get(), toughness);
+        }
+    }
+}
+
+#[test]
 fn production_representatives_compile_at_e0_and_complete_e6() {
     use starclock_build::{
         ability::AbilityInvestment,

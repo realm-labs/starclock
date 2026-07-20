@@ -1,10 +1,10 @@
 {
   "schema_revision": "starclock.standard-encounter-schema-golden.v1",
   "sora_cli_version": "0.3.0",
-  "base_rule_ir_digest": "ef6cd4df456721fadd0ddcb0c16388ac7ebb5fb4a8853c02eeecb22cc872c918",
-  "output_digest": "1617220fa76aabe669ab7164a4dbadbf40e4f21affab44558456afbce6f100bf",
+  "base_rule_ir_digest": "1624b4683e9fbaf8fe15594108eb24667e8d4e9b4d0e133164be75209cf19b1d",
+  "output_digest": "319a60a0c20a3a218a7c24fff14138098cf107078f6bcf02d0666028b9b1cdeb",
   "files": {
-    "config.sora": "e7ae6c56c71ca9660e6625a09b19efa884d50c288ccfea7a5dd85bf891a76324",
+    "config.sora": "a4c859a2a2631e01196f9cb875a9eed9265979af49ad35f235ace8d8d9f4e6fa",
     "debug-json/Ability.json": "095e444d1c12a37dcb87ac97e0cef1b4f821439b8b811d9a9c381d97f102bbdc",
     "debug-json/AbilityHitPlanBinding.json": "70066256661e6a4a74022986bb33117d13fc920fffb3b1cf81b5479b28edbc5d",
     "debug-json/AbilityLevelParameter.json": "01a35cb12de96c8307ddc40b8e343543df915ca3a8dc132650032b24411a87a8",
@@ -191,7 +191,7 @@
     "rust/hit_damage_class.rs": "48d70e547d1771ff1fcf8ac3b06ec610003e78a424bcffbc704a816a35cffa08",
     "rust/hit_element.rs": "5647b3c1b15cc344860dffe94a05f9a12ac969f195eebccf10ff780c71269625",
     "rust/hit_plan.rs": "bd5a536b0c5aa43448324ce02bd2a5345b5064466458bf2d6023d4e900dfa69d",
-    "rust/hit_plan_hit.rs": "246608fa665d77d7ce3b937ccbfc735f2f5580d7440b680d7345bbc6506b555d",
+    "rust/hit_plan_hit.rs": "0fa978159829c0adbe087870f20991888084338d7c05c70850b0ca7c92c81f2a",
     "rust/hit_scaling_stat.rs": "e0a93d729ca94d042b60cfcd2cebab76057bf3b45254046e56a20c8af44090fa",
     "rust/hit_target_group.rs": "4040b419ab4aa2485f2d90b142a839d71273178b0a028cf0ec37970eb18cdd50",
     "rust/life_predicate.rs": "6828254351a0d28c6f320625024e0089cd08222c7a59cd8b8cdefee68e96432b",
@@ -206,7 +206,7 @@
     "rust/linked_unit_kind.rs": "cb01746b8f89a2fe8cda7fed3f8966664b248539bec845c24258ac9a4027d9ca",
     "rust/loadout_lock_scope.rs": "1efae84637315b00194eeca193f10fd5f34588d22743dc398935a51f119f4c80",
     "rust/mechanism_quality.rs": "bbfab5ab6e6090646d24fa8c3b732b450613226275c8e33081b8fc9168fecc70",
-    "rust/mod.rs": "cb359d888fadbcf527b31f11d62d5c2b32ee03c960c223c1586792df21f541b5",
+    "rust/mod.rs": "d228d49381d0f9d983dad71e0d057a0369802f989fa1feace73db8f8fa4f5020",
     "rust/modifier_aggregation.rs": "15096825d07af7aa96097c1f949cf1e3dcb462f9b6d5d8683df0adf006edced6",
     "rust/modifier_definition.rs": "07a2174f9cbca75d67d3aa754aac45bb1b39156af2e9fce5608932ea91324460",
     "rust/modifier_filter.rs": "dac6f92c18ca6200fb7b244db645451c73713e6ae9cb49932bec240a08268b24",
@@ -290,6 +290,6 @@
     "rust/wave_link_policy.rs": "56f0019c85b4226ff02db77f1e495198fd116945c99412f9ec4ae0d06e01a000",
     "rust/wave_slot.rs": "08cdd04c3e1c0fd28c25436a1278b6529e48834997e421fcb6b3093cae7c76c1",
     "rust/wave_transition_policy.rs": "bb8017b95e2577087f5838e7211fd4e785a8c992e5f76be477b66042eb356354",
-    "schema.lock": "feb4f15228cc43aaa58cc3666601523c0563317512cbb963523b00a524c4e227"
+    "schema.lock": "338437b17a14354ab0d1f22a7ab3290cd10806e04bffaba90cf411a6ac6f4f05"
   }
 }

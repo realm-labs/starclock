@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "8bf57e681db11aef",
+  "fingerprint": "01cf5166c065d85e",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -8497,6 +8497,69 @@
             "default": null,
             "range": null,
             "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "damage_parameter_key_override",
+            "ty": {
+              "Optional": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              120
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "damage_operation_ratio_decimal",
+            "ty": {
+              "Optional": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "toughness_amount_decimal",
+            "ty": {
+              "Optional": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
             "parser": null,
             "derived_from": null
           }

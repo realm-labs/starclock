@@ -414,11 +414,23 @@ def generated_rows() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, An
                 "declared_hit_count": len(shape),
             })
             for sequence, (group, share) in enumerate(shape, start=1):
-                rows["HitPlanHit"].append({
+                hit = {
                     "hit_plan_id": plan_id, "sequence": sequence, "target_group": group,
                     "damage_ratio_decimal": share, "toughness_ratio_decimal": share,
                     "crit_policy": "PerTarget",
-                })
+                }
+                if ability["id"] == "character.asta.ability.meteor-storm.bpskill":
+                    hit.update({
+                        "damage_operation_ratio_decimal": "1",
+                        "toughness_amount_decimal": "30",
+                    })
+                elif ability["id"] == "character.kafka.ability.caressing-moonlight.bpskill":
+                    hit.update({
+                        "damage_parameter_key_override": "parameter.01" if group == "Primary" else "parameter.03",
+                        "damage_operation_ratio_decimal": "1",
+                        "toughness_amount_decimal": "60" if group == "Primary" else "30",
+                    })
+                rows["HitPlanHit"].append(hit)
             binding = {
                 "ability_id": ability_id, "phase_sequence": 1, "hit_plan_id": plan_id,
             }
@@ -431,6 +443,20 @@ def generated_rows() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, An
                     "damage_class": "Ordinary",
                     "element": "Fire",
                     "base_toughness_decimal": "30",
+                })
+            elif ability["id"] == "character.asta.ability.meteor-storm.bpskill":
+                binding.update({
+                    "damage_parameter_key": "parameter.01",
+                    "damage_scaling_stat": "Atk",
+                    "damage_class": "Ordinary",
+                    "element": "Fire",
+                })
+            elif ability["id"] == "character.kafka.ability.caressing-moonlight.bpskill":
+                binding.update({
+                    "damage_parameter_key": "parameter.01",
+                    "damage_scaling_stat": "Atk",
+                    "damage_class": "Ordinary",
+                    "element": "Lightning",
                 })
             rows["AbilityHitPlanBinding"].append(binding)
 

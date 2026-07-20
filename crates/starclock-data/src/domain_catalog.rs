@@ -477,13 +477,20 @@ fn add_combat_ability(
             .flat_map(|(binding, plan)| plan.hits.iter().map(move |hit| (binding, hit)))
             .map(|(binding, hit)| {
                 let mut operations = Vec::new();
-                if let Some(key) = binding.damage_parameter_key.as_deref() {
+                if let Some(key) = hit
+                    .damage_parameter_key_override
+                    .as_deref()
+                    .or(binding.damage_parameter_key.as_deref())
+                {
                     let coefficient = ability_parameters
                         .get(&id)
                         .and_then(|parameters| parameters.get(key))
                         .ok_or_else(|| domain_fail("ability hit formula parameter is missing"))?;
                     let coefficient = Ratio::from_scaled(coefficient.scaled())
-                        .checked_mul(hit.damage_ratio, Rounding::NearestTiesEven)
+                        .checked_mul(
+                            hit.damage_operation_ratio.unwrap_or(hit.damage_ratio),
+                            Rounding::NearestTiesEven,
+                        )
                         .map_err(domain_fail)?;
                     operations.push(HitOperationDefinition::ScalingDamage(
                         ScalingDamageDefinition::new(
@@ -495,10 +502,18 @@ fn add_combat_ability(
                         .map_err(domain_fail)?,
                     ));
                 }
-                if let Some(base) = binding.base_toughness {
+                if hit.toughness_amount.is_some() || binding.base_toughness.is_some() {
                     let scaled = hit
-                        .toughness_ratio
-                        .checked_apply(base, Rounding::NearestTiesEven)
+                        .toughness_amount
+                        .map_or_else(
+                            || {
+                                hit.toughness_ratio.checked_apply(
+                                    binding.base_toughness.expect("checked base Toughness"),
+                                    Rounding::NearestTiesEven,
+                                )
+                            },
+                            Ok,
+                        )
                         .map_err(domain_fail)?;
                     let base =
                         RawToughness::from_scalar(scaled, Rounding::Floor).map_err(domain_fail)?;
