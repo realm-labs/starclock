@@ -1,10 +1,14 @@
 //! Immutable battle-domain definition inputs accepted by the catalog builder.
 
 use super::action::{AbilityActionDefinition, UnitTargetSelector};
+use super::encounter::{
+    EncounterWaveDefinition, EnemyLinkDefinition, EnemyPhaseDefinition, WaveCarry,
+    WaveSlotDefinition, WaveTransitionPolicy,
+};
 use crate::rule::model::{BattleRuleDefinition, ProgramStep};
 use crate::{
-    AbilityId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ModifierDefinitionId, ProgramId,
-    RuleBundleId, RuleId, SelectorId, UnitDefinitionId,
+    AbilityId, AiGraphId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ModifierDefinitionId,
+    ProgramId, RuleBundleId, RuleId, SelectorId, UnitDefinitionId,
 };
 
 /// Deterministic selector definition with an optional executable unit-target plan.
@@ -356,6 +360,9 @@ pub struct EnemyDefinition {
     id: EnemyDefinitionId,
     unit: UnitDefinitionId,
     abilities: Box<[AbilityId]>,
+    ai_graph: Option<AiGraphId>,
+    phases: Box<[EnemyPhaseDefinition]>,
+    links: Box<[EnemyLinkDefinition]>,
 }
 
 impl EnemyDefinition {
@@ -366,7 +373,48 @@ impl EnemyDefinition {
             id,
             unit,
             abilities: abilities.into_boxed_slice(),
+            ai_graph: None,
+            phases: Box::new([]),
+            links: Box::new([]),
         }
+    }
+    /// Adds canonical definition-level summon, part, and countdown links.
+    #[must_use]
+    pub fn with_links(mut self, mut links: Vec<EnemyLinkDefinition>) -> Option<Self> {
+        links.sort_by_key(|link| link.sequence());
+        if links
+            .iter()
+            .enumerate()
+            .any(|(index, link)| usize::from(link.sequence()) != index + 1)
+        {
+            return None;
+        }
+        self.links = links.into_boxed_slice();
+        Some(self)
+    }
+    /// Binds the default AI graph and ordered boss-phase definitions.
+    #[must_use]
+    pub fn with_orchestration(
+        mut self,
+        ai_graph: AiGraphId,
+        mut phases: Vec<EnemyPhaseDefinition>,
+    ) -> Option<Self> {
+        phases.sort_by_key(EnemyPhaseDefinition::sequence);
+        if phases
+            .iter()
+            .enumerate()
+            .any(|(index, phase)| usize::from(phase.sequence()) != index + 1)
+            || phases.iter().enumerate().any(|(index, phase)| {
+                phases[..index]
+                    .iter()
+                    .any(|earlier| earlier.id() == phase.id())
+            })
+        {
+            return None;
+        }
+        self.ai_graph = Some(ai_graph);
+        self.phases = phases.into_boxed_slice();
+        Some(self)
     }
     /// Returns the stable definition ID.
     #[must_use]
@@ -383,6 +431,21 @@ impl EnemyDefinition {
     pub fn abilities(&self) -> &[AbilityId] {
         &self.abilities
     }
+    /// Returns the default authored AI graph, when this definition is executable by AI.
+    #[must_use]
+    pub const fn ai_graph(&self) -> Option<AiGraphId> {
+        self.ai_graph
+    }
+    /// Returns ordered boss phases. Ordinary enemies have an empty slice.
+    #[must_use]
+    pub fn phases(&self) -> &[EnemyPhaseDefinition] {
+        &self.phases
+    }
+    /// Returns ordered definition-level links.
+    #[must_use]
+    pub fn links(&self) -> &[EnemyLinkDefinition] {
+        &self.links
+    }
 }
 
 /// Encounter definition referencing enemy definitions and encounter rule bundles.
@@ -390,8 +453,9 @@ impl EnemyDefinition {
 pub struct EncounterDefinition {
     id: EncounterId,
     enemies: Box<[EnemyDefinitionId]>,
-    waves: Box<[Box<[EnemyDefinitionId]>]>,
+    waves: Box<[EncounterWaveDefinition]>,
     rule_bundles: Box<[RuleBundleId]>,
+    wave_transition: WaveTransitionPolicy,
 }
 
 impl EncounterDefinition {
@@ -402,11 +466,34 @@ impl EncounterDefinition {
         enemies: Vec<EnemyDefinitionId>,
         rule_bundles: Vec<RuleBundleId>,
     ) -> Self {
+        let wave = (1..=32).contains(&enemies.len()).then(|| {
+            let slots = enemies
+                .iter()
+                .copied()
+                .enumerate()
+                .map(|(index, enemy)| {
+                    WaveSlotDefinition::legacy(
+                        u16::try_from(index + 1).expect("32 slots fit u16"),
+                        enemy,
+                    )
+                })
+                .collect();
+            EncounterWaveDefinition::new(
+                crate::EncounterWaveId::new(id.get()).expect("encounter ID is non-zero"),
+                1,
+                None,
+                None,
+                WaveCarry::CARRY_ALL,
+                slots,
+            )
+            .expect("bounded non-empty default wave is valid")
+        });
         Self {
             id,
-            waves: vec![enemies.clone().into_boxed_slice()].into_boxed_slice(),
+            waves: wave.into_iter().collect::<Vec<_>>().into_boxed_slice(),
             enemies: enemies.into_boxed_slice(),
             rule_bundles: rule_bundles.into_boxed_slice(),
+            wave_transition: WaveTransitionPolicy::AfterAction,
         }
     }
     /// Replaces the default one-wave layout with ordered non-empty waves.
@@ -424,9 +511,56 @@ impl EncounterDefinition {
         self.enemies = enemies.into_boxed_slice();
         self.waves = waves
             .into_iter()
-            .map(Vec::into_boxed_slice)
-            .collect::<Vec<_>>()
+            .enumerate()
+            .map(|(wave_index, enemies)| {
+                let slots = enemies
+                    .into_iter()
+                    .enumerate()
+                    .map(|(slot_index, enemy)| {
+                        Some(WaveSlotDefinition::legacy(
+                            u16::try_from(slot_index + 1).ok()?,
+                            enemy,
+                        ))
+                    })
+                    .collect::<Option<Vec<_>>>()?;
+                EncounterWaveDefinition::new(
+                    crate::EncounterWaveId::new(u32::try_from(wave_index + 1).ok()?)?,
+                    u16::try_from(wave_index + 1).ok()?,
+                    None,
+                    None,
+                    WaveCarry::CARRY_ALL,
+                    slots,
+                )
+            })
+            .collect::<Option<Vec<_>>>()?
             .into_boxed_slice();
+        Some(self)
+    }
+    /// Replaces the wave layout with fully authored slot and carry definitions.
+    #[must_use]
+    pub fn with_authored_waves(
+        mut self,
+        wave_transition: WaveTransitionPolicy,
+        mut waves: Vec<EncounterWaveDefinition>,
+    ) -> Option<Self> {
+        waves.sort_by_key(EncounterWaveDefinition::sequence);
+        if waves.is_empty()
+            || waves
+                .iter()
+                .enumerate()
+                .any(|(index, wave)| usize::from(wave.sequence()) != index + 1)
+        {
+            return None;
+        }
+        let mut enemies = waves
+            .iter()
+            .flat_map(|wave| wave.slots().iter().map(|slot| slot.enemy()))
+            .collect::<Vec<_>>();
+        enemies.sort_unstable();
+        enemies.dedup();
+        self.enemies = enemies.into_boxed_slice();
+        self.waves = waves.into_boxed_slice();
+        self.wave_transition = wave_transition;
         Some(self)
     }
     /// Returns the stable definition ID.
@@ -441,15 +575,18 @@ impl EncounterDefinition {
     }
     /// Returns ordered waves; each wave preserves authored enemy occurrence order.
     #[must_use]
-    pub fn waves(&self) -> &[Box<[EnemyDefinitionId]>] {
+    pub fn waves(&self) -> &[EncounterWaveDefinition] {
         &self.waves
     }
-    /// Returns exact enemy occurrences for one-based wave number.
+    /// Returns one authored one-based wave.
     #[must_use]
-    pub fn wave_enemies(&self, number: u16) -> Option<&[EnemyDefinitionId]> {
-        self.waves
-            .get(usize::from(number.checked_sub(1)?))
-            .map(AsRef::as_ref)
+    pub fn wave(&self, number: u16) -> Option<&EncounterWaveDefinition> {
+        self.waves.get(usize::from(number.checked_sub(1)?))
+    }
+    /// Returns the boundary at which pending wave replacement is allowed.
+    #[must_use]
+    pub const fn wave_transition(&self) -> WaveTransitionPolicy {
+        self.wave_transition
     }
     /// Returns the canonical encounter-rule set.
     #[must_use]

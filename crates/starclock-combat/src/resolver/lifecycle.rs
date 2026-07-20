@@ -5,16 +5,236 @@ use crate::{
     battle::fault::BattleFault,
     event::{
         cause::Cause,
-        model::{BattleEventKind, UnitEventData},
+        model::{BattleEventKind, EnemyPhaseEventData, UnitEventData},
     },
     id::{EventId, UnitId},
-    operation::{ChangePresenceOp, ReviveOp, SummonLinkedOp, TransformOp, UnitLifecycleOp},
+    operation::{
+        ChangePresenceOp, EnemyPhaseOp, ReviveOp, SummonLinkedOp, TransformOp, UnitLifecycleOp,
+    },
 };
 
 use super::transaction::{Transaction, action_fault};
 
 const BASE_ACTION_GAUGE_SCALED: i64 = 10_000_000_000;
 const MAX_LINKED_ENTITIES: usize = 64;
+
+pub(super) fn execute_enemy_phase(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: EnemyPhaseOp,
+) -> Result<EventId, BattleFault> {
+    for unit in operation.targets {
+        let runtime = txn
+            .state
+            .units
+            .get(unit)
+            .and_then(|state| state.enemy)
+            .ok_or_else(|| action_fault(97))?;
+        let enemy = catalog
+            .enemy(runtime.definition)
+            .ok_or_else(|| action_fault(98))?;
+        let phase = enemy
+            .phases()
+            .iter()
+            .find(|phase| phase.id() == operation.phase)
+            .ok_or_else(|| action_fault(99))?;
+        let expected_sequence = match runtime.phase {
+            None => 1,
+            Some(current) => enemy
+                .phases()
+                .iter()
+                .find(|phase| phase.id() == current)
+                .and_then(|phase| phase.sequence().checked_add(1))
+                .ok_or_else(|| action_fault(100))?,
+        };
+        if phase.sequence() != expected_sequence {
+            return Err(action_fault(101));
+        }
+        parent = apply_phase_carry(txn, cause, parent, unit, phase.carry())?;
+        let presence = if phase.targetable() {
+            PresenceState::Present
+        } else {
+            PresenceState::Untargetable
+        };
+        if let crate::catalog::encounter::EnemyPhaseTransitionModel::ReplaceLinkedVariant(
+            replacement,
+        ) = phase.transition()
+        {
+            let replacement = catalog
+                .enemy(replacement)
+                .ok_or_else(|| action_fault(102))?;
+            txn.set_unit_definition(
+                unit,
+                replacement.unit(),
+                replacement.abilities().into(),
+                presence,
+                None,
+            )?;
+        } else {
+            txn.set_presence(unit, presence)?;
+        }
+        let graph = phase.ai_graph();
+        let state = catalog
+            .ai_graph(graph)
+            .ok_or_else(|| action_fault(103))?
+            .initial_state();
+        txn.set_enemy_runtime(
+            unit,
+            crate::actor::store::EnemyRuntimeState {
+                definition: runtime.definition,
+                graph,
+                state,
+                turn_counter: 0,
+                phase: Some(operation.phase),
+            },
+        )?;
+        parent = txn.emit(
+            cause.with_parent(parent).with_primary_target(Some(unit)),
+            BattleEventKind::EnemyPhase(EnemyPhaseEventData::Transitioned {
+                unit,
+                from: runtime.phase,
+                to: operation.phase,
+                model: phase.transition(),
+                graph,
+                state,
+            }),
+        );
+    }
+    Ok(parent)
+}
+
+fn apply_phase_carry(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    unit: UnitId,
+    carry: crate::catalog::encounter::EnemyPhaseCarry,
+) -> Result<EventId, BattleFault> {
+    use crate::catalog::encounter::PhaseCarryPolicy;
+    let maximum_hp = txn
+        .state
+        .units
+        .get(unit)
+        .map(|state| state.maximum_hp)
+        .ok_or_else(|| action_fault(104))?;
+    match carry.hp {
+        PhaseCarryPolicy::CarryExact | PhaseCarryPolicy::CarryRatio => {}
+        PhaseCarryPolicy::Reset => txn.set_hp(unit, maximum_hp)?,
+        PhaseCarryPolicy::Clear => {
+            txn.set_hp(unit, crate::Hp::new(1).map_err(|_| action_fault(105))?)?
+        }
+        PhaseCarryPolicy::ExplicitProgram(_) => return Err(action_fault(106)),
+    }
+    match carry.action_gauge {
+        PhaseCarryPolicy::CarryExact | PhaseCarryPolicy::CarryRatio => {}
+        PhaseCarryPolicy::Reset | PhaseCarryPolicy::Clear => {
+            let actor = txn
+                .state
+                .actors
+                .any_id_for_unit(unit)
+                .ok_or_else(|| action_fault(107))?;
+            let gauge = if carry.action_gauge == PhaseCarryPolicy::Reset {
+                base_gauge()?
+            } else {
+                ActionGauge::from_scaled(0).map_err(|_| action_fault(108))?
+            };
+            txn.set_actor_gauge(actor, gauge)?;
+        }
+        PhaseCarryPolicy::ExplicitProgram(_) => return Err(action_fault(109)),
+    }
+    if !matches!(
+        carry.effects,
+        PhaseCarryPolicy::CarryExact | PhaseCarryPolicy::CarryRatio
+    ) {
+        if matches!(carry.effects, PhaseCarryPolicy::ExplicitProgram(_)) {
+            return Err(action_fault(110));
+        }
+        let effects = txn
+            .state
+            .effects
+            .iter_by_id()
+            .filter(|effect| {
+                effect.target == unit
+                    && (carry.effects == PhaseCarryPolicy::Clear
+                        || effect.duration_clock != crate::DurationClock::Permanent)
+            })
+            .map(|effect| effect.id)
+            .collect::<Vec<_>>();
+        for effect in effects {
+            if let Some(removed) = txn.state.effects.remove(effect) {
+                txn.record_effect_change(effect.get(), 0, effect.get());
+                parent = txn.emit(
+                    cause.with_parent(parent).with_primary_target(Some(unit)),
+                    BattleEventKind::Effect(crate::EffectEventData::Removed {
+                        operation: removed.source_operation,
+                        effect,
+                        target: unit,
+                    }),
+                );
+            }
+        }
+    }
+    match carry.toughness {
+        PhaseCarryPolicy::CarryExact | PhaseCarryPolicy::CarryRatio => {}
+        PhaseCarryPolicy::Reset | PhaseCarryPolicy::Clear => {
+            let layers = txn
+                .state
+                .units
+                .get(unit)
+                .ok_or_else(|| action_fault(111))?
+                .toughness_layers
+                .iter()
+                .map(|layer| {
+                    let current = if carry.toughness == PhaseCarryPolicy::Reset {
+                        layer.spec.maximum()
+                    } else {
+                        crate::RawToughness::new(0).expect("zero Toughness is valid")
+                    };
+                    (layer.spec.key(), current)
+                })
+                .collect::<Vec<_>>();
+            for (key, current) in layers {
+                txn.set_toughness(unit, key, current)?;
+            }
+            txn.set_weakness_broken(unit, carry.toughness == PhaseCarryPolicy::Clear)?;
+        }
+        PhaseCarryPolicy::ExplicitProgram(_) => return Err(action_fault(112)),
+    }
+    match carry.summons {
+        PhaseCarryPolicy::CarryExact | PhaseCarryPolicy::CarryRatio => {}
+        PhaseCarryPolicy::Reset | PhaseCarryPolicy::Clear => {
+            let entities = txn
+                .state
+                .links
+                .canonical_entries()
+                .iter()
+                .filter(|link| link.owner == unit && link.active)
+                .map(|link| link.entity)
+                .collect::<Vec<_>>();
+            for entity in entities {
+                if let Some(actor) = actor_for_entity(txn, entity) {
+                    txn.set_actor_active(actor, false)?;
+                }
+                if let LinkedEntity::Unit(linked) = entity {
+                    txn.set_presence(linked, PresenceState::Departed)?;
+                }
+                txn.set_link_active(entity, false)?;
+                parent = txn.emit(
+                    cause.with_parent(parent),
+                    BattleEventKind::Unit(UnitEventData::LinkSettled {
+                        owner: unit,
+                        entity,
+                        policy: OwnerLinkPolicy::Depart,
+                    }),
+                );
+            }
+        }
+        PhaseCarryPolicy::ExplicitProgram(_) => return Err(action_fault(113)),
+    }
+    Ok(parent)
+}
 
 pub(super) fn execute_summon(
     catalog: &crate::catalog::CombatCatalog,
@@ -83,6 +303,7 @@ pub(super) fn execute_summon(
             modifiers: combatant.modifiers().into(),
             digest: combatant.digest(),
             transformation: None,
+            enemy: None,
         });
         txn.insert_formation(FormationEntry {
             side,

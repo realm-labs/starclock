@@ -248,7 +248,7 @@ fn execute(
             )?;
             txn.set_active_turn(None);
             if let ActionBoundary::Continue(parent) =
-                settle_after_action(txn, boundary_cause, ended)?
+                settle_after_action(catalog, txn, boundary_cause, ended)?
             {
                 let parent = drain_reactions(
                     catalog,
@@ -257,7 +257,7 @@ fn execute(
                     parent,
                 )?;
                 if let ActionBoundary::Continue(parent) =
-                    settle_after_action(txn, boundary_cause, parent)?
+                    settle_after_action(catalog, txn, boundary_cause, parent)?
                 {
                     super::turn::begin_turn(catalog, txn, root, parent)?;
                 }
@@ -286,7 +286,7 @@ fn execute(
                 resolved,
             )?;
             if let ActionBoundary::Continue(parent) =
-                settle_after_action(txn, boundary_cause, resolved)?
+                settle_after_action(catalog, txn, boundary_cause, resolved)?
             {
                 super::turn::offer_interrupt_decision(catalog, txn, root, parent)?;
             }
@@ -782,6 +782,27 @@ impl<'a> Transaction<'a> {
                 before_transform,
                 after_transform,
             );
+        }
+        Ok(())
+    }
+
+    pub(super) fn set_enemy_runtime(
+        &mut self,
+        unit: crate::UnitId,
+        enemy: crate::actor::store::EnemyRuntimeState,
+    ) -> Result<(), BattleFault> {
+        let state = self
+            .state
+            .units
+            .get_mut(unit)
+            .ok_or_else(|| action_fault(97))?;
+        let before = state.enemy.ok_or_else(|| action_fault(98))?;
+        if before != enemy {
+            state.enemy = Some(enemy);
+            let before_code = before.phase.map_or(0, |phase| u64::from(phase.get()));
+            let after_code = enemy.phase.map_or(0, |phase| u64::from(phase.get()));
+            self.journal
+                .mutation(MutationField::EnemyOrchestration, before_code, after_code);
         }
         Ok(())
     }

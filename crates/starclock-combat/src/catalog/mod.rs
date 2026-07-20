@@ -3,14 +3,15 @@
 pub mod action;
 pub mod builder;
 pub mod definition;
+pub mod encounter;
 mod index;
 mod rule_validate;
 mod table;
 
 use crate::modifier::{model::ModifierDefinition, registry::ModifierRegistry};
 use crate::{
-    AbilityId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ModifierDefinitionId, ProgramId,
-    RuleBundleId, RuleId, SelectorId, UnitDefinitionId,
+    AbilityId, AiGraphId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ModifierDefinitionId,
+    ProgramId, RuleBundleId, RuleId, SelectorId, UnitDefinitionId,
 };
 use definition::{
     AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition, ProgramDefinition,
@@ -61,6 +62,7 @@ pub struct CombatCatalog {
     selectors: DefinitionTable<SelectorId, SelectorDefinition>,
     rule_bundles: DefinitionTable<RuleBundleId, RuleBundle>,
     modifiers: ModifierRegistry,
+    ai_graphs: DefinitionTable<AiGraphId, encounter::AiGraphDefinition>,
     enemies: DefinitionTable<EnemyDefinitionId, EnemyDefinition>,
     encounters: DefinitionTable<EncounterId, EncounterDefinition>,
     trigger_index: TriggerDefinitionIndex,
@@ -89,6 +91,7 @@ impl CombatCatalog {
             + self.rule_bundles.len()
             + self.modifiers.len()
             + self.modifiers.group_count()
+            + self.ai_graphs.len()
             + self.enemies.len()
             + self.encounters.len()
     }
@@ -150,6 +153,11 @@ impl CombatCatalog {
     #[must_use]
     pub fn modifier(&self, id: ModifierDefinitionId) -> Option<&ModifierDefinition> {
         self.modifiers.definition(id)
+    }
+    /// Looks up a validated finite enemy AI graph by stable ID.
+    #[must_use]
+    pub fn ai_graph(&self, id: AiGraphId) -> Option<&encounter::AiGraphDefinition> {
+        self.ai_graphs.get(id)
     }
     /// Looks up an enemy definition by stable ID.
     #[must_use]

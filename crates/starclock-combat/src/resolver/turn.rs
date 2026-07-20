@@ -60,7 +60,7 @@ pub(super) fn begin_turn(
     let (mut parent, frozen_skip) =
         super::operation::settle_break_effects_at_turn_start(txn, turn_cause, parent, turn.unit)?;
     parent = super::operation::settle_effects_at_turn_start(txn, turn_cause, parent, turn.unit)?;
-    match settle_after_action(txn, turn_cause, parent)? {
+    match settle_after_action(catalog, txn, turn_cause, parent)? {
         ActionBoundary::Terminal(_) => return Ok(()),
         ActionBoundary::Continue(next) => parent = next,
     }
@@ -189,14 +189,15 @@ fn execute_automatic_turn(
     );
     parent = super::operation::settle_effects_at_turn_end(txn, cause, parent, turn.unit)?;
     txn.set_active_turn(None);
-    if let ActionBoundary::Continue(parent) = settle_after_action(txn, cause, parent)? {
+    if let ActionBoundary::Continue(parent) = settle_after_action(catalog, txn, cause, parent)? {
         let parent = drain_reactions(
             catalog,
             txn,
             crate::catalog::action::ReactionBoundary::BeforeTimeline,
             parent,
         )?;
-        if let ActionBoundary::Continue(parent) = settle_after_action(txn, cause, parent)? {
+        if let ActionBoundary::Continue(parent) = settle_after_action(catalog, txn, cause, parent)?
+        {
             begin_turn(catalog, txn, root, parent)?;
         }
     }

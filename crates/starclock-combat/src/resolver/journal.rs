@@ -60,6 +60,7 @@ pub(crate) enum MutationField {
     UnitAbilities,
     ActorActive,
     Transformation,
+    EnemyOrchestration,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

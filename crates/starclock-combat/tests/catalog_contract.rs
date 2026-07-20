@@ -1,8 +1,10 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    AbilityId, EffectDefinitionId, EncounterId, EnemyDefinitionId, Energy, ModifierDefinitionId,
-    ModifierStackingGroupId, ProgramId, RuleBundleId, RuleId, Scalar, SelectorId, UnitDefinitionId,
+    AbilityId, AiCandidateId, AiGraphId, AiStateId, AiTransitionId, EffectDefinitionId,
+    EncounterId, EncounterWaveId, EnemyDefinitionId, EnemyPhaseId, Energy, FormationIndex,
+    ModifierDefinitionId, ModifierStackingGroupId, OwnerLinkPolicy, ProgramId, RuleBundleId,
+    RuleId, Scalar, SelectorId, UnitDefinitionId, WaveLinkPolicy,
     catalog::{
         CombatCatalog,
         action::{
@@ -14,12 +16,20 @@ use starclock_combat::{
             AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition,
             ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
         },
+        encounter::{
+            AiCandidateDefinition, AiCandidateSelection, AiGraphDefinition, AiNoTargetFallback,
+            AiStateDefinition, AiTransitionDefinition, AiTransitionTiming, EncounterWaveDefinition,
+            EnemyLinkDefinition, EnemyLinkKind, EnemyPhaseCarry, EnemyPhaseDefinition,
+            EnemyPhaseTransitionModel, LinkOverflowPolicy, LinkedFormationPolicy, PhaseCarryPolicy,
+            WaveCarry, WaveSlotDefinition, WaveTransitionPolicy,
+        },
     },
     modifier::model::{
         FormulaPurpose, FormulaStage, ModifierAggregation, ModifierDefinition,
         ModifierStackingGroup, SnapshotPolicy, StatKind,
     },
-    rule::model::{RuleValue, ValueExpr},
+    rng::types::DrawPurpose,
+    rule::model::{ConditionExpr, RuleValue, ValueExpr},
 };
 
 fn id<I: TryFrom<u32>>(raw: u32) -> I
@@ -27,6 +37,178 @@ where
     I::Error: core::fmt::Debug,
 {
     I::try_from(raw).expect("test IDs are non-zero")
+}
+
+fn ai_catalog(states: Vec<AiStateDefinition>) -> Result<Arc<CombatCatalog>, CatalogBuildErrorKind> {
+    let mut builder = CombatCatalogBuilder::new("ai-contract-v1", [0xa1; 32]);
+    builder.add_selector(SelectorDefinition::new(id(1)));
+    builder.add_program(ProgramDefinition::new(
+        id(1),
+        vec![],
+        vec![],
+        vec![],
+        vec![],
+    ));
+    builder.add_ability(AbilityDefinition::new(id(1), id(1), id(1), vec![]));
+    builder.add_unit(UnitDefinition::new(id(1), vec![id(1)], vec![]));
+    builder.add_ai_graph(AiGraphDefinition::new(id(1), id(1), 8, states).unwrap());
+    let phase = EnemyPhaseDefinition::new(
+        id::<EnemyPhaseId>(1),
+        1,
+        ConditionExpr::Literal(true),
+        ConditionExpr::Literal(false),
+        0,
+        id(1),
+        true,
+        EnemyPhaseTransitionModel::TransformSameUnit,
+        None,
+        EnemyPhaseCarry {
+            hp: PhaseCarryPolicy::CarryExact,
+            action_gauge: PhaseCarryPolicy::CarryExact,
+            effects: PhaseCarryPolicy::CarryExact,
+            toughness: PhaseCarryPolicy::CarryExact,
+            summons: PhaseCarryPolicy::CarryExact,
+        },
+    );
+    let link = EnemyLinkDefinition::new(
+        1,
+        id(1),
+        EnemyLinkKind::Part,
+        1,
+        LinkOverflowPolicy::Reject,
+        OwnerLinkPolicy::Persist,
+        WaveLinkPolicy::Persist,
+        false,
+        LinkedFormationPolicy::NoFormationSlot,
+    )
+    .unwrap();
+    builder.add_enemy(
+        EnemyDefinition::new(id(1), id(1), vec![id(1)])
+            .with_orchestration(id(1), vec![phase])
+            .unwrap()
+            .with_links(vec![link])
+            .unwrap(),
+    );
+    let wave = EncounterWaveDefinition::new(
+        id::<EncounterWaveId>(1),
+        1,
+        None,
+        None,
+        WaveCarry::CARRY_ALL,
+        vec![
+            WaveSlotDefinition::new(
+                1,
+                FormationIndex::new(0).unwrap(),
+                id(1),
+                None,
+                Some(id(1)),
+                true,
+            )
+            .unwrap(),
+        ],
+    )
+    .unwrap();
+    builder.add_encounter(
+        EncounterDefinition::new(id(1), vec![id(1)], vec![])
+            .with_authored_waves(WaveTransitionPolicy::AfterAction, vec![wave])
+            .unwrap(),
+    );
+    builder.build().map_err(|error| error.kind())
+}
+
+fn ai_candidate(raw: u32, priority: i32) -> AiCandidateDefinition {
+    AiCandidateDefinition::new(
+        id::<AiCandidateId>(raw),
+        id(1),
+        ConditionExpr::Literal(true),
+        id(1),
+        priority,
+        AiCandidateSelection::WeightedDraw {
+            weight: raw,
+            purpose: DrawPurpose::BEHAVIOR_CHOICE,
+        },
+        AiNoTargetFallback::StayInState,
+    )
+}
+
+#[test]
+fn ai_graphs_canonicalize_candidates_and_reject_unreachable_or_cyclic_states() {
+    let state_two =
+        AiStateDefinition::new(id(2), None, id(1), false, vec![ai_candidate(3, 0)], vec![]);
+    let state_one = AiStateDefinition::new(
+        id(1),
+        None,
+        id(1),
+        false,
+        vec![ai_candidate(2, 5), ai_candidate(1, -5)],
+        vec![AiTransitionDefinition::new(
+            id::<AiTransitionId>(1),
+            id(2),
+            ConditionExpr::Literal(true),
+            0,
+            AiTransitionTiming::AfterAction,
+        )],
+    );
+    let catalog = ai_catalog(vec![state_two.clone(), state_one.clone()]).unwrap();
+    let graph = catalog.ai_graph(id::<AiGraphId>(1)).unwrap();
+    assert_eq!(
+        graph
+            .states()
+            .iter()
+            .map(|state| state.id().get())
+            .collect::<Vec<_>>(),
+        [1, 2]
+    );
+    assert_eq!(
+        graph
+            .state(id::<AiStateId>(1))
+            .unwrap()
+            .candidates()
+            .iter()
+            .map(|item| item.id().get())
+            .collect::<Vec<_>>(),
+        [1, 2]
+    );
+
+    let unreachable =
+        AiStateDefinition::new(id(1), None, id(1), false, vec![ai_candidate(1, 0)], vec![]);
+    assert_eq!(
+        ai_catalog(vec![unreachable, state_two]).unwrap_err(),
+        CatalogBuildErrorKind::InvalidDefinition
+    );
+
+    let cyclic_one = AiStateDefinition::new(
+        id(1),
+        None,
+        id(1),
+        false,
+        vec![ai_candidate(1, 0)],
+        vec![AiTransitionDefinition::new(
+            id(1),
+            id(2),
+            ConditionExpr::Literal(true),
+            0,
+            AiTransitionTiming::AutomaticBeforeDecision,
+        )],
+    );
+    let cyclic_two = AiStateDefinition::new(
+        id(2),
+        None,
+        id(1),
+        false,
+        vec![ai_candidate(2, 0)],
+        vec![AiTransitionDefinition::new(
+            id(2),
+            id(1),
+            ConditionExpr::Literal(true),
+            0,
+            AiTransitionTiming::AutomaticBeforeDecision,
+        )],
+    );
+    assert_eq!(
+        ai_catalog(vec![cyclic_one, cyclic_two]).unwrap_err(),
+        CatalogBuildErrorKind::InvalidDefinition
+    );
 }
 
 fn complete_catalog(reverse_insertion: bool) -> Arc<CombatCatalog> {

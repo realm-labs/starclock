@@ -2,8 +2,8 @@ use std::sync::Arc;
 
 use starclock_combat::{
     Battle, BattleEventKind, BattlePhase, BattleSeed, BattleSpec, BattleSpecDigest,
-    CombatantSpecDigest, Command, CommandErrorKind, ConcedePolicy, FormationIndex, Hp, LifeState,
-    ParticipantSource, ParticipantSpec, PresenceState, Ratio, ResolvedCombatantSpec,
+    CombatantSpecDigest, Command, CommandErrorKind, ConcedePolicy, EncounterWaveId, FormationIndex,
+    Hp, LifeState, ParticipantSource, ParticipantSpec, PresenceState, Ratio, ResolvedCombatantSpec,
     ResolvedDefinitionBindings, Scalar, Speed, TeamResourceSpec, TeamSide, ToughnessLayerKind,
     ToughnessLayerSpec, ToughnessReductionDefinition, UnitLevel,
     catalog::{
@@ -20,6 +20,7 @@ use starclock_combat::{
             AbilityDefinition, EncounterDefinition, EnemyDefinition, ProgramDefinition,
             SelectorDefinition, UnitDefinition,
         },
+        encounter::{EncounterWaveDefinition, WaveCarry, WaveSlotDefinition, WaveTransitionPolicy},
     },
     formula::{
         model::CombatElement,
@@ -79,6 +80,10 @@ fn action(
 }
 
 fn catalog(waves: u16) -> Arc<CombatCatalog> {
+    catalog_with_policy(waves, WaveTransitionPolicy::AfterAction)
+}
+
+fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<CombatCatalog> {
     let mut builder = CombatCatalogBuilder::new("damage-lifecycle-v1", [0x91; 32]);
     for (raw, relation) in [
         (1, TargetRelation::SelfUnit),
@@ -199,12 +204,16 @@ fn catalog(waves: u16) -> Arc<CombatCatalog> {
             ),
         ),
     );
+    let mut first_hit = vec![HitOperationDefinition::Damage(all_one_damage(1_000))];
+    if transition == WaveTransitionPolicy::Explicit {
+        first_hit.push(HitOperationDefinition::RequestWaveTransition);
+    }
     builder.add_ability(
         AbilityDefinition::new(definition(2), definition(2), definition(2), vec![]).with_action(
             action(
                 AbilityKind::Basic,
                 vec![
-                    vec![HitOperationDefinition::Damage(all_one_damage(1_000))],
+                    first_hit,
                     vec![HitOperationDefinition::Damage(all_one_damage(1_000))],
                 ],
                 TargetInvalidationPolicy::CancelRemainingForTarget,
@@ -235,10 +244,32 @@ fn catalog(waves: u16) -> Arc<CombatCatalog> {
         definition(2),
         vec![definition(3)],
     ));
-    let wave_rows = (0..waves).map(|_| vec![definition(1)]).collect::<Vec<_>>();
+    let wave_rows = (1..=waves)
+        .map(|number| {
+            EncounterWaveDefinition::new(
+                definition::<EncounterWaveId>(u32::from(number)),
+                number,
+                None,
+                None,
+                WaveCarry::CARRY_ALL,
+                vec![
+                    WaveSlotDefinition::new(
+                        1,
+                        FormationIndex::new(4).unwrap(),
+                        definition(1),
+                        None,
+                        None,
+                        true,
+                    )
+                    .unwrap(),
+                ],
+            )
+            .unwrap()
+        })
+        .collect::<Vec<_>>();
     builder.add_encounter(
         EncounterDefinition::new(definition(1), vec![definition(1)], vec![])
-            .with_waves(wave_rows)
+            .with_authored_waves(transition, wave_rows)
             .unwrap(),
     );
     builder.build().unwrap()
@@ -268,6 +299,20 @@ fn combatant(
 }
 
 fn battle(waves: u16, player_speed: i64, enemy_speed: i64) -> Battle {
+    battle_with_policy(
+        waves,
+        player_speed,
+        enemy_speed,
+        WaveTransitionPolicy::AfterAction,
+    )
+}
+
+fn battle_with_policy(
+    waves: u16,
+    player_speed: i64,
+    enemy_speed: i64,
+    transition: WaveTransitionPolicy,
+) -> Battle {
     let mut participants = vec![ParticipantSpec::new(
         TeamSide::Player,
         FormationIndex::new(0).unwrap(),
@@ -302,7 +347,12 @@ fn battle(waves: u16, player_speed: i64, enemy_speed: i64) -> Battle {
         ConcedePolicy::Allowed,
     )
     .unwrap();
-    Battle::create(catalog(waves), spec, BattleSeed::new([0x61; 32])).unwrap()
+    Battle::create(
+        catalog_with_policy(waves, transition),
+        spec,
+        BattleSeed::new([0x61; 32]),
+    )
+    .unwrap()
 }
 
 fn toughness_battle() -> Battle {
@@ -614,9 +664,9 @@ fn damage_and_healing_emit_calculated_and_effective_hp_facts() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            0x81, 0x13, 0x10, 0xef, 0xe6, 0xaf, 0x70, 0xdb, 0x88, 0xd0, 0xc2, 0x7f, 0xce, 0xe2,
-            0x33, 0x12, 0x42, 0x8c, 0x63, 0xea, 0xf8, 0x85, 0x31, 0xa8, 0x37, 0xcf, 0x09, 0x6a,
-            0x5e, 0xd5, 0xcd, 0x1c,
+            0xd4, 0x70, 0xb0, 0x16, 0xdd, 0x89, 0xa0, 0x73, 0xbf, 0x54, 0x22, 0x9c, 0xd5, 0x0c,
+            0x0a, 0xa2, 0xa1, 0x0c, 0xd7, 0xac, 0xec, 0x57, 0x27, 0x9b, 0x7a, 0x3a, 0x99, 0x78,
+            0xf8, 0x20, 0xd4, 0xa9,
         ]
     );
     let damage = resolution
@@ -732,9 +782,9 @@ fn single_wave_defeat_settles_to_victory_and_terminal_rejection_is_immutable() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            0xc3, 0x4f, 0x7b, 0x76, 0x33, 0x63, 0xcd, 0x95, 0xab, 0x9b, 0xc6, 0x00, 0x0d, 0x6a,
-            0x03, 0xa3, 0x6e, 0xd5, 0x72, 0x6a, 0x0f, 0x07, 0x66, 0x07, 0x28, 0x29, 0x83, 0x1e,
-            0xe1, 0x07, 0xf1, 0xe5,
+            0xbb, 0xad, 0x77, 0x2c, 0xbe, 0xd7, 0x52, 0xc8, 0x83, 0x04, 0xd2, 0x5e, 0x48, 0xf4,
+            0x21, 0xcc, 0x97, 0x60, 0x4e, 0xa7, 0x61, 0x99, 0xce, 0x8d, 0xd6, 0x36, 0xe9, 0x12,
+            0xc0, 0xc2, 0x8c, 0x90,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Won);
@@ -766,9 +816,9 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         first.state_hash().bytes(),
         [
-            0x12, 0xa3, 0x96, 0x31, 0x3b, 0x58, 0x76, 0x34, 0x18, 0xcf, 0x80, 0x16, 0xec, 0xdf,
-            0x33, 0xad, 0x8b, 0x2a, 0x5c, 0xc8, 0xb0, 0x9c, 0x7c, 0x01, 0xa3, 0x9f, 0x15, 0x20,
-            0xe9, 0x27, 0x2b, 0x22,
+            0x54, 0xa3, 0x19, 0xcf, 0xa5, 0xac, 0xe9, 0xb2, 0xbd, 0xa4, 0x73, 0xb7, 0xdb, 0x9f,
+            0x90, 0xf8, 0x1a, 0xe4, 0x89, 0x3f, 0x5b, 0xbd, 0x5f, 0xee, 0x5c, 0x83, 0xdd, 0x03,
+            0x00, 0x32, 0x28, 0xc9,
         ]
     );
     assert_eq!(first.phase(), BattlePhase::AwaitingCommand);
@@ -810,12 +860,55 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         second.state_hash().bytes(),
         [
-            0xe2, 0xa7, 0xb9, 0x8a, 0x1f, 0xcc, 0xa4, 0xaf, 0x27, 0xa4, 0xec, 0xce, 0x34, 0x84,
-            0x58, 0x66, 0xbd, 0x9e, 0x9d, 0xdf, 0xd0, 0x05, 0x9b, 0x6e, 0x72, 0x35, 0x01, 0xd2,
-            0x58, 0x47, 0xd5, 0xc1,
+            0x80, 0x75, 0x67, 0xfa, 0x82, 0x66, 0xab, 0xfa, 0x8f, 0xbb, 0x6d, 0x5a, 0xd2, 0xff,
+            0x65, 0x17, 0x8f, 0xd6, 0x78, 0x30, 0x32, 0xb6, 0x01, 0xd4, 0xc4, 0x2e, 0xf3, 0x71,
+            0x36, 0x47, 0x52, 0x09,
         ]
     );
     assert_eq!(second.phase(), BattlePhase::Won);
+}
+
+#[test]
+fn nondefault_wave_boundaries_emit_at_the_authored_lifecycle_point() {
+    for policy in [
+        WaveTransitionPolicy::AfterHit,
+        WaveTransitionPolicy::AfterPhase,
+        WaveTransitionPolicy::Explicit,
+    ] {
+        let mut battle = battle_with_policy(2, 200_000_000, 50_000_000, policy);
+        start_and_pass(&mut battle);
+        let resolution = use_ability(&mut battle, 2);
+        assert_eq!(battle.view().encounter().number(), 2);
+        let position = |predicate: &dyn Fn(&BattleEventKind) -> bool| {
+            resolution
+                .events()
+                .iter()
+                .position(|event| predicate(event.kind()))
+                .unwrap()
+        };
+        let wave = position(&|kind| {
+            matches!(
+                kind,
+                BattleEventKind::Wave(starclock_combat::WaveEventData::Started { number: 2, .. })
+            )
+        });
+        let first_hit_end = position(&|kind| {
+            matches!(kind,
+            BattleEventKind::Hit(starclock_combat::HitEventData::Ended { hit, .. }) if hit.get() == 1)
+        });
+        let phase_end = position(&|kind| {
+            matches!(
+                kind,
+                BattleEventKind::Phase(starclock_combat::PhaseEventData::Ended { .. })
+            )
+        });
+        match policy {
+            WaveTransitionPolicy::AfterHit => assert!(first_hit_end < wave && wave < phase_end),
+            WaveTransitionPolicy::AfterPhase => assert!(phase_end < wave),
+            WaveTransitionPolicy::Explicit => assert!(wave < first_hit_end),
+            WaveTransitionPolicy::AfterAction => unreachable!(),
+        }
+    }
 }
 
 fn start_and_pass_current_turn(battle: &mut Battle) {
@@ -838,9 +931,9 @@ fn defeating_the_last_player_settles_loss() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            0xe2, 0x0c, 0x19, 0x3f, 0x17, 0x39, 0x5d, 0xe3, 0xd7, 0x0a, 0x78, 0xa2, 0x6d, 0x4d,
-            0x77, 0x5d, 0xda, 0x43, 0xa1, 0xdc, 0xbe, 0x77, 0x88, 0x7c, 0xe9, 0x23, 0x54, 0x35,
-            0x71, 0x0b, 0x53, 0x54,
+            0x0e, 0xe6, 0xfe, 0xd9, 0x0f, 0x46, 0xb1, 0xad, 0x0a, 0x7f, 0xb8, 0x01, 0x31, 0xaf,
+            0x69, 0x17, 0x4d, 0x47, 0x19, 0x9b, 0x33, 0x77, 0x2e, 0xc2, 0xb9, 0xd9, 0x91, 0xc5,
+            0x4a, 0x6d, 0x73, 0x70,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Lost);

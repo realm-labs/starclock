@@ -72,6 +72,8 @@ pub enum BattleEventKind {
     Unit(UnitEventData),
     /// Encounter-wave boundary fact.
     Wave(WaveEventData),
+    /// Authored enemy boss-phase replacement fact.
+    EnemyPhase(EnemyPhaseEventData),
     /// Team or personal resource mutation fact.
     Resource(ResourceEventData),
     /// Generic effect application, refresh, expiry and removal fact.
@@ -362,6 +364,20 @@ pub enum WaveEventData {
     Ended { wave: WaveInstanceId, number: u16 },
     /// The next reserved hostile wave became present.
     Started { wave: WaveInstanceId, number: u16 },
+}
+
+/// Stable boss-phase lifecycle facts.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum EnemyPhaseEventData {
+    /// One validated phase cursor and its selected AI graph became authoritative.
+    Transitioned {
+        unit: UnitId,
+        from: Option<crate::EnemyPhaseId>,
+        to: crate::EnemyPhaseId,
+        model: crate::catalog::encounter::EnemyPhaseTransitionModel,
+        graph: crate::AiGraphId,
+        state: crate::AiStateId,
+    },
 }
 
 /// Normal timeline-turn facts.

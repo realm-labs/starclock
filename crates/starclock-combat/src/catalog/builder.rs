@@ -1,5 +1,6 @@
 //! Deterministic `CombatCatalog` construction and cross-reference validation.
 
+use std::collections::{BTreeMap, BTreeSet};
 use std::sync::Arc;
 
 use crate::ProgramId;
@@ -10,6 +11,7 @@ use super::{
         AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition,
         ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
     },
+    encounter::AiGraphDefinition,
     table::{DefinitionTable, DuplicateId},
 };
 use crate::modifier::{
@@ -38,6 +40,8 @@ pub enum DefinitionKind {
     Modifier,
     /// Enemy definition.
     Enemy,
+    /// Finite enemy AI graph.
+    AiGraph,
     /// Encounter definition.
     Encounter,
 }
@@ -54,6 +58,7 @@ impl DefinitionKind {
             Self::RuleBundle => "rule bundle",
             Self::Modifier => "modifier",
             Self::Enemy => "enemy",
+            Self::AiGraph => "AI graph",
             Self::Encounter => "encounter",
         }
     }
@@ -119,6 +124,7 @@ pub struct CombatCatalogBuilder {
     rule_bundles: Vec<RuleBundle>,
     modifiers: Vec<ModifierDefinition>,
     modifier_groups: Vec<ModifierStackingGroup>,
+    ai_graphs: Vec<AiGraphDefinition>,
     enemies: Vec<EnemyDefinition>,
     encounters: Vec<EncounterDefinition>,
 }
@@ -139,6 +145,7 @@ impl CombatCatalogBuilder {
             rule_bundles: Vec::new(),
             modifiers: Vec::new(),
             modifier_groups: Vec::new(),
+            ai_graphs: Vec::new(),
             enemies: Vec::new(),
             encounters: Vec::new(),
         }
@@ -180,6 +187,10 @@ impl CombatCatalogBuilder {
     pub fn add_modifier_group(&mut self, definition: ModifierStackingGroup) {
         self.modifier_groups.push(definition);
     }
+    /// Adds a finite enemy AI graph.
+    pub fn add_ai_graph(&mut self, definition: AiGraphDefinition) {
+        self.ai_graphs.push(definition);
+    }
     /// Adds an enemy definition.
     pub fn add_enemy(&mut self, definition: EnemyDefinition) {
         self.enemies.push(definition);
@@ -207,11 +218,13 @@ impl CombatCatalogBuilder {
             selectors: table(self.selectors, DefinitionKind::Selector)?,
             rule_bundles: table(self.rule_bundles, DefinitionKind::RuleBundle)?,
             modifiers,
+            ai_graphs: table(self.ai_graphs, DefinitionKind::AiGraph)?,
             enemies: table(self.enemies, DefinitionKind::Enemy)?,
             encounters: table(self.encounters, DefinitionKind::Encounter)?,
             trigger_index: super::index::TriggerDefinitionIndex::default(),
         };
         validate_references(&catalog)?;
+        validate_ai_graphs(&catalog)?;
         validate_program_cycles(&catalog)?;
         super::rule_validate::validate(&catalog)?;
         let mut catalog = catalog;
@@ -571,6 +584,77 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             id.get(),
             DefinitionKind::Ability,
         )?;
+        if let Some(graph_id) = enemy.ai_graph() {
+            require(
+                catalog.ai_graphs.get(graph_id).is_some(),
+                DefinitionKind::Enemy,
+                id.get(),
+                DefinitionKind::AiGraph,
+                graph_id.get(),
+            )?;
+            let graph = catalog
+                .ai_graphs
+                .get(graph_id)
+                .expect("reference was just validated");
+            for state in graph.states() {
+                let abilities = state
+                    .candidates()
+                    .iter()
+                    .map(|candidate| candidate.ability())
+                    .chain(core::iter::once(state.mandatory_fallback()));
+                for ability in abilities {
+                    if enemy.abilities().binary_search(&ability).is_err() {
+                        return Err(error(
+                            CatalogBuildErrorKind::InvalidDefinition,
+                            format!(
+                                "enemy definition {} AI graph {} uses unbound ability {}",
+                                id.get(),
+                                graph_id.get(),
+                                ability.get()
+                            ),
+                        ));
+                    }
+                }
+            }
+        }
+        for phase in enemy.phases() {
+            require(
+                catalog.ai_graphs.get(phase.ai_graph()).is_some(),
+                DefinitionKind::Enemy,
+                id.get(),
+                DefinitionKind::AiGraph,
+                phase.ai_graph().get(),
+            )?;
+            if let Some(program) = phase.entry_program() {
+                require(
+                    catalog.programs.get(program).is_some(),
+                    DefinitionKind::Enemy,
+                    id.get(),
+                    DefinitionKind::Program,
+                    program.get(),
+                )?;
+            }
+            if let super::encounter::EnemyPhaseTransitionModel::ReplaceLinkedVariant(replacement) =
+                phase.transition()
+            {
+                require(
+                    catalog.enemies.get(replacement).is_some(),
+                    DefinitionKind::Enemy,
+                    id.get(),
+                    DefinitionKind::Enemy,
+                    replacement.get(),
+                )?;
+            }
+        }
+        for link in enemy.links() {
+            require(
+                catalog.enemies.get(link.linked_enemy()).is_some(),
+                DefinitionKind::Enemy,
+                id.get(),
+                DefinitionKind::Enemy,
+                link.linked_enemy().get(),
+            )?;
+        }
     }
     for id in catalog.encounters.ids() {
         let encounter = catalog
@@ -583,7 +667,9 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             id.get(),
             "rule bundles",
         )?;
-        if encounter.waves().is_empty() || encounter.waves().iter().any(|wave| wave.is_empty()) {
+        if encounter.waves().is_empty()
+            || encounter.waves().iter().any(|wave| wave.slots().is_empty())
+        {
             return Err(error(
                 CatalogBuildErrorKind::InvalidDefinition,
                 format!(
@@ -594,12 +680,48 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
         }
         for wave in encounter.waves() {
             require_all(
-                wave,
+                &wave
+                    .slots()
+                    .iter()
+                    .map(|slot| slot.enemy())
+                    .collect::<Vec<_>>(),
                 |value| catalog.enemies.get(value).is_some(),
                 DefinitionKind::Encounter,
                 id.get(),
                 DefinitionKind::Enemy,
             )?;
+            for program in [wave.entry_program(), wave.exit_program()]
+                .into_iter()
+                .flatten()
+            {
+                require(
+                    catalog.programs.get(program).is_some(),
+                    DefinitionKind::Encounter,
+                    id.get(),
+                    DefinitionKind::Program,
+                    program.get(),
+                )?;
+            }
+            for slot in wave.slots() {
+                if let Some(phase) = slot.initial_phase() {
+                    let valid = catalog
+                        .enemies
+                        .get(slot.enemy())
+                        .is_some_and(|enemy| enemy.phases().iter().any(|item| item.id() == phase));
+                    if !valid {
+                        return Err(error(
+                            CatalogBuildErrorKind::InvalidDefinition,
+                            format!(
+                                "encounter definition {} wave {} slot {} has invalid phase {}",
+                                id.get(),
+                                wave.sequence(),
+                                slot.spawn_sequence(),
+                                phase.get()
+                            ),
+                        ));
+                    }
+                }
+            }
         }
         require_all(
             encounter.enemies(),
@@ -617,6 +739,193 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
         )?;
     }
     Ok(())
+}
+
+fn validate_ai_graphs(catalog: &CombatCatalog) -> Result<(), CatalogBuildError> {
+    for graph_id in catalog.ai_graphs.ids() {
+        let graph = catalog
+            .ai_graphs
+            .get(graph_id)
+            .expect("ID originated from table");
+        let state_ids = graph
+            .states()
+            .iter()
+            .map(|state| state.id())
+            .collect::<BTreeSet<_>>();
+        let mut candidate_ids = BTreeSet::new();
+        let mut transition_ids = BTreeSet::new();
+        let mut edges = BTreeMap::new();
+        for state in graph.states() {
+            let candidates_unique = state
+                .candidates()
+                .iter()
+                .all(|item| candidate_ids.insert(item.id()));
+            let transitions_unique = state
+                .transitions()
+                .iter()
+                .all(|item| transition_ids.insert(item.id()));
+            if state.candidates().is_empty() || !candidates_unique || !transitions_unique {
+                return Err(error(
+                    CatalogBuildErrorKind::InvalidDefinition,
+                    format!(
+                        "AI graph {} has an empty state or duplicate child ID",
+                        graph_id.get()
+                    ),
+                ));
+            }
+            require(
+                catalog.abilities.get(state.mandatory_fallback()).is_some(),
+                DefinitionKind::AiGraph,
+                graph_id.get(),
+                DefinitionKind::Ability,
+                state.mandatory_fallback().get(),
+            )?;
+            if let Some(program) = state.entry_program() {
+                require(
+                    catalog.programs.get(program).is_some(),
+                    DefinitionKind::AiGraph,
+                    graph_id.get(),
+                    DefinitionKind::Program,
+                    program.get(),
+                )?;
+            }
+            for candidate in state.candidates() {
+                require(
+                    catalog.abilities.get(candidate.ability()).is_some(),
+                    DefinitionKind::AiGraph,
+                    graph_id.get(),
+                    DefinitionKind::Ability,
+                    candidate.ability().get(),
+                )?;
+                require(
+                    catalog.selectors.get(candidate.target_selector()).is_some(),
+                    DefinitionKind::AiGraph,
+                    graph_id.get(),
+                    DefinitionKind::Selector,
+                    candidate.target_selector().get(),
+                )?;
+                if matches!(
+                    candidate.selection(),
+                    super::encounter::AiCandidateSelection::WeightedDraw { weight: 0, .. }
+                ) {
+                    return Err(error(
+                        CatalogBuildErrorKind::InvalidDefinition,
+                        format!("AI graph {} has a zero-weight candidate", graph_id.get()),
+                    ));
+                }
+                if let super::encounter::AiNoTargetFallback::Transition(target) =
+                    candidate.no_target()
+                    && !state_ids.contains(&target)
+                {
+                    return Err(error(
+                        CatalogBuildErrorKind::MissingReference,
+                        format!(
+                            "AI graph {} no-target transition refers outside the graph",
+                            graph_id.get()
+                        ),
+                    ));
+                }
+                if let super::encounter::AiNoTargetFallback::UseFallbackAbility(ability) =
+                    candidate.no_target()
+                {
+                    require(
+                        catalog.abilities.get(ability).is_some(),
+                        DefinitionKind::AiGraph,
+                        graph_id.get(),
+                        DefinitionKind::Ability,
+                        ability.get(),
+                    )?;
+                }
+            }
+            let targets = state
+                .transitions()
+                .iter()
+                .map(|item| item.target())
+                .collect::<Vec<_>>();
+            if targets.iter().any(|target| !state_ids.contains(target)) {
+                return Err(error(
+                    CatalogBuildErrorKind::MissingReference,
+                    format!(
+                        "AI graph {} transition refers outside the graph",
+                        graph_id.get()
+                    ),
+                ));
+            }
+            edges.insert(state.id(), targets);
+        }
+        let mut reachable = BTreeSet::new();
+        let mut stack = vec![graph.initial_state()];
+        while let Some(state) = stack.pop() {
+            if reachable.insert(state)
+                && let Some(targets) = edges.get(&state)
+            {
+                stack.extend(targets.iter().rev().copied());
+            }
+        }
+        if reachable != state_ids {
+            return Err(error(
+                CatalogBuildErrorKind::InvalidDefinition,
+                format!("AI graph {} contains unreachable states", graph_id.get()),
+            ));
+        }
+        let automatic = graph
+            .states()
+            .iter()
+            .map(|state| {
+                (
+                    state.id(),
+                    state
+                        .transitions()
+                        .iter()
+                        .filter(|item| {
+                            item.timing()
+                                == super::encounter::AiTransitionTiming::AutomaticBeforeDecision
+                        })
+                        .map(|item| item.target())
+                        .collect::<Vec<_>>(),
+                )
+            })
+            .collect::<BTreeMap<_, _>>();
+        if has_cycle(
+            graph.initial_state(),
+            &automatic,
+            &mut BTreeSet::new(),
+            &mut BTreeSet::new(),
+        ) {
+            return Err(error(
+                CatalogBuildErrorKind::InvalidDefinition,
+                format!(
+                    "AI graph {} has an automatic transition cycle",
+                    graph_id.get()
+                ),
+            ));
+        }
+    }
+    Ok(())
+}
+
+fn has_cycle(
+    state: crate::AiStateId,
+    edges: &BTreeMap<crate::AiStateId, Vec<crate::AiStateId>>,
+    visiting: &mut BTreeSet<crate::AiStateId>,
+    visited: &mut BTreeSet<crate::AiStateId>,
+) -> bool {
+    if visited.contains(&state) {
+        return false;
+    }
+    if !visiting.insert(state) {
+        return true;
+    }
+    if edges.get(&state).is_some_and(|targets| {
+        targets
+            .iter()
+            .any(|target| has_cycle(*target, edges, visiting, visited))
+    }) {
+        return true;
+    }
+    visiting.remove(&state);
+    visited.insert(state);
+    false
 }
 
 fn validate_program_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError> {

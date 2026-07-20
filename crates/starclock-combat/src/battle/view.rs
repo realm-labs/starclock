@@ -529,6 +529,30 @@ impl<'a> UnitView<'a> {
             Some(state) => state.countdown_actor,
         }
     }
+    /// Returns the bound enemy definition for authored hostile occurrences.
+    #[must_use]
+    pub const fn enemy_definition(self) -> Option<crate::EnemyDefinitionId> {
+        match self.state.enemy {
+            None => None,
+            Some(enemy) => Some(enemy.definition),
+        }
+    }
+    /// Returns the authoritative AI graph/state cursor for an executable enemy.
+    #[must_use]
+    pub const fn enemy_ai_state(self) -> Option<(crate::AiGraphId, crate::AiStateId, u16)> {
+        match self.state.enemy {
+            None => None,
+            Some(enemy) => Some((enemy.graph, enemy.state, enemy.turn_counter)),
+        }
+    }
+    /// Returns the current authored boss phase, when one is active.
+    #[must_use]
+    pub const fn enemy_phase(self) -> Option<crate::EnemyPhaseId> {
+        match self.state.enemy {
+            None => None,
+            Some(enemy) => enemy.phase,
+        }
+    }
     /// Returns canonical selected rule bundles.
     #[must_use]
     pub fn rule_bundles(self) -> &'a [RuleBundleId] {

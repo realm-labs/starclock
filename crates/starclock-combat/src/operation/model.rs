@@ -28,6 +28,8 @@ pub(crate) enum Operation {
     EndTransformation(UnitLifecycleOp),
     Revive(ReviveOp),
     DespawnLinked(UnitLifecycleOp),
+    RequestWaveTransition(EncounterLifecycleOp),
+    TransitionEnemyPhase(EnemyPhaseOp),
 }
 
 impl Operation {
@@ -52,8 +54,22 @@ impl Operation {
             Self::EndTransformation(operation) => operation.id,
             Self::Revive(operation) => operation.id,
             Self::DespawnLinked(operation) => operation.id,
+            Self::RequestWaveTransition(operation) => operation.id,
+            Self::TransitionEnemyPhase(operation) => operation.id,
         }
     }
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct EnemyPhaseOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) phase: crate::EnemyPhaseId,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct EncounterLifecycleOp {
+    pub(crate) id: OperationId,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

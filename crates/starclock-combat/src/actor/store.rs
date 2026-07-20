@@ -39,6 +39,17 @@ pub(crate) struct UnitState {
     pub(crate) modifiers: Box<[ModifierDefinitionId]>,
     pub(crate) digest: CombatantSpecDigest,
     pub(crate) transformation: Option<TransformationState>,
+    pub(crate) enemy: Option<EnemyRuntimeState>,
+}
+
+/// Authoritative enemy-orchestration cursor kept separate from generic unit form.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct EnemyRuntimeState {
+    pub(crate) definition: crate::EnemyDefinitionId,
+    pub(crate) graph: crate::AiGraphId,
+    pub(crate) state: crate::AiStateId,
+    pub(crate) turn_counter: u16,
+    pub(crate) phase: Option<crate::EnemyPhaseId>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -236,6 +247,7 @@ impl FormationState {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct TeamState {
     pub(crate) side: TeamSide,
+    pub(crate) initial_skill_points: u16,
     pub(crate) skill_points: u16,
     pub(crate) maximum_skill_points: u16,
     pub(crate) keyed_resources: Box<[KeyedTeamResourceState]>,

@@ -11,9 +11,9 @@ use crate::{
     id::{CommandId, EventId, SourceDefinitionId},
     operation::{
         AddWeaknessOp, ApplyEffectOp, ChangePresenceOp, ConsumeHpOp, DamageOp, DetonateDotsOp,
-        HealOp, HitOperationScratch, ModifyStateSlotOp, ModifyTeamResourceOp, Operation,
-        QueueActionOp, ReduceToughnessOp, RemoveEffectsOp, ReviveOp, ShieldOp, SummonLinkedOp,
-        SuperBreakOp, TransformOp, UnitLifecycleOp,
+        EncounterLifecycleOp, EnemyPhaseOp, HealOp, HitOperationScratch, ModifyStateSlotOp,
+        ModifyTeamResourceOp, Operation, QueueActionOp, ReduceToughnessOp, RemoveEffectsOp,
+        ReviveOp, ShieldOp, SummonLinkedOp, SuperBreakOp, TransformOp, UnitLifecycleOp,
     },
 };
 
@@ -317,6 +317,16 @@ pub(super) fn execute_action_plan(
                             targets: targets.clone(),
                         })
                     }
+                    HitOperationDefinition::RequestWaveTransition => {
+                        Operation::RequestWaveTransition(EncounterLifecycleOp { id: operation.id })
+                    }
+                    HitOperationDefinition::TransitionEnemyPhase(phase) => {
+                        Operation::TransitionEnemyPhase(EnemyPhaseOp {
+                            id: operation.id,
+                            targets: targets.clone(),
+                            phase: *phase,
+                        })
+                    }
                 };
                 parent = execute_operation(
                     catalog,
@@ -343,6 +353,13 @@ pub(super) fn execute_action_plan(
                 crate::catalog::action::ReactionBoundary::AfterHit,
                 parent,
             )?;
+            parent = super::settle::settle_wave_boundary(
+                catalog,
+                txn,
+                hit_cause,
+                parent,
+                crate::catalog::encounter::WaveTransitionPolicy::AfterHit,
+            )?;
         }
         parent = txn.emit(
             phase_cause.with_parent(parent),
@@ -356,6 +373,13 @@ pub(super) fn execute_action_plan(
             txn,
             crate::catalog::action::ReactionBoundary::AfterPhase,
             parent,
+        )?;
+        parent = super::settle::settle_wave_boundary(
+            catalog,
+            txn,
+            phase_cause,
+            parent,
+            crate::catalog::encounter::WaveTransitionPolicy::AfterPhase,
         )?;
     }
     parent = apply_resource_gains(txn, base, parent, plan)?;

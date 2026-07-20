@@ -74,6 +74,12 @@ pub(super) fn execute_operation(
         Operation::DespawnLinked(operation) => {
             super::lifecycle::execute_despawn(txn, cause, parent, operation)
         }
+        Operation::RequestWaveTransition(_) => {
+            super::settle::request_explicit_wave_transition(catalog, txn, cause, parent)
+        }
+        Operation::TransitionEnemyPhase(operation) => {
+            super::lifecycle::execute_enemy_phase(catalog, txn, cause, parent, operation)
+        }
     }
 }
 

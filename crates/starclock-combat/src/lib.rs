@@ -33,8 +33,9 @@ mod toughness;
 // This is the deliberate small crate facade. The defining modules remain
 // private so representation/backend details have one canonical external path.
 pub use id::{
-    AbilityId, ActionId, CommandId, DecisionId, EffectDefinitionId, EffectInstanceId, EncounterId,
-    EnemyDefinitionId, EventId, HitId, HitPlanDefinitionId, ModifierDefinitionId,
+    AbilityId, ActionId, AiCandidateId, AiGraphId, AiStateId, AiTransitionId, CommandId,
+    DecisionId, EffectDefinitionId, EffectInstanceId, EncounterId, EncounterWaveId,
+    EnemyDefinitionId, EnemyPhaseId, EventId, HitId, HitPlanDefinitionId, ModifierDefinitionId,
     ModifierInstanceId, ModifierStackingGroupId, NativeHandlerId, OperationId, PhaseId, ProgramId,
     RuleBundleId, RuleId, RuleInstanceId, SelectorId, ShieldInstanceId, SourceDefinitionId,
     SpawnSequence, StateSlotDefinitionId, TimelineActorId, TriggerId, UnitDefinitionId, UnitId,
@@ -84,9 +85,9 @@ pub use event::cause::{Cause, CauseActor};
 pub use event::model::{
     ActionEventData, BattleEvent, BattleEventData, BattleEventKind, BreakDamageEventData,
     BreakDamageKind, DamageEventData, DamageKind, DecisionEventData, EffectEventData,
-    FaultEventData, HealEventData, HitEventData, HpConsumptionEventData, PhaseEventData,
-    ResourceEventData, RuleStateEventData, ShieldEventData, SkillPointPayer, ToughnessEventData,
-    TurnEventData, UnitEventData, WaveEventData,
+    EnemyPhaseEventData, FaultEventData, HealEventData, HitEventData, HpConsumptionEventData,
+    PhaseEventData, ResourceEventData, RuleStateEventData, ShieldEventData, SkillPointPayer,
+    ToughnessEventData, TurnEventData, UnitEventData, WaveEventData,
 };
 pub use timeline::state::InterruptWindowKind;
 pub use toughness::model::{
@@ -97,4 +98,4 @@ pub use toughness::model::{
 /// Compatibility identifier for authoritative numeric representation and rounding.
 pub const NUMERIC_POLICY_REVISION: &str = "fixed-i64-6dp-v1";
 /// Compatibility identifier for canonical battle-state hashing.
-pub const STATE_HASH_REVISION: &str = "sha256-v1";
+pub const STATE_HASH_REVISION: &str = "sha256-v2";

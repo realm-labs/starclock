@@ -172,7 +172,7 @@ Hard limits are authored rules-revision constants. Battle limits cover events, r
 
 ## Canonical state hash
 
-After every accepted command, compute or make available a canonical SHA-256 state digest. `state_hash_revision = "sha256-v1"` identifies both the algorithm and the canonical byte layout. Its byte stream uses:
+After every accepted command, compute or make available a canonical SHA-256 state digest. `state_hash_revision = "sha256-v2"` identifies both the algorithm and the canonical byte layout. Its byte stream uses:
 
 - explicit field order and version;
 - fixed-width integers in a declared byte order;
@@ -189,7 +189,7 @@ byte vector; golden tests may direct the encoder to a collecting sink and must
 prove byte-for-byte equivalence. Buffer reuse, chunk size and hasher update
 boundaries are non-authoritative implementation details.
 
-`sha256-v1` is intentionally a full-state digest after each accepted command.
+`sha256-v2` is intentionally a full-state digest after each accepted command. It supersedes `sha256-v1` by canonically encoding initial team resources and the enemy definition/AI/phase cursor required for deterministic wave and boss orchestration.
 Caching encoded immutable definition bodies is unnecessary because the catalog
 is represented by its digest. Incremental field hashes, Merkle roots or dirty
 page hashing require a new documented `state_hash_revision` unless they are

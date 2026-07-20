@@ -286,6 +286,7 @@ mod tests {
             modifiers: Box::new([]),
             digest: CombatantSpecDigest::new([u8::try_from(id).unwrap(); 32]).unwrap(),
             transformation: None,
+            enemy: None,
         }
     }
 

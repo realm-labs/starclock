@@ -41,7 +41,7 @@ AcceptedBattleCommand
   fixed-width command fields
 
 ExpectedBattleState
-  sha256-v1 digest: [u8; 32]
+  sha256-v2 digest: [u8; 32]
 ```
 
 Records alternate command then expected state hash. The command decoder checks

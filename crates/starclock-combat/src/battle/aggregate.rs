@@ -4,8 +4,8 @@ use crate::{
     actor::{
         model::{LifeState, PresenceState},
         store::{
-            FormationEntry, FormationState, KeyedTeamResourceState, TeamState, TeamStateStore,
-            TimelineActorState, TimelineActorStore, UnitState, UnitStore,
+            EnemyRuntimeState, FormationEntry, FormationState, KeyedTeamResourceState, TeamState,
+            TeamStateStore, TimelineActorState, TimelineActorStore, UnitState, UnitStore,
         },
     },
     catalog::CombatCatalog,
@@ -57,6 +57,7 @@ impl Battle {
             let actor_id = sequences.actor();
             let spawn = sequences.spawn();
             let combatant = participant.combatant();
+            let enemy = enemy_runtime(&catalog, encounter_slot(&catalog, &spec, participant));
             units.insert(UnitState {
                 id: unit_id,
                 spawn,
@@ -92,6 +93,7 @@ impl Battle {
                 modifiers: combatant.modifiers().into(),
                 digest: combatant.digest(),
                 transformation: None,
+                enemy,
             });
             actors.insert(TimelineActorState {
                 id: actor_id,
@@ -116,6 +118,7 @@ impl Battle {
         let teams = TeamStateStore::new(
             TeamState {
                 side: TeamSide::Player,
+                initial_skill_points: player_resources.skill_points(),
                 skill_points: player_resources.skill_points(),
                 maximum_skill_points: player_resources.maximum_skill_points(),
                 keyed_resources: player_resources
@@ -133,6 +136,7 @@ impl Battle {
             },
             TeamState {
                 side: TeamSide::Enemy,
+                initial_skill_points: enemy_resources.skill_points(),
                 skill_points: enemy_resources.skill_points(),
                 maximum_skill_points: enemy_resources.maximum_skill_points(),
                 keyed_resources: enemy_resources
@@ -307,6 +311,53 @@ impl Battle {
             metrics.retained_bytes,
         )
     }
+}
+
+fn encounter_slot(
+    catalog: &CombatCatalog,
+    spec: &BattleSpec,
+    participant: &super::spec::ParticipantSpec,
+) -> Option<(crate::EnemyDefinitionId, Option<crate::EnemyPhaseId>)> {
+    let super::spec::ParticipantSource::EncounterEnemy(enemy) = participant.source() else {
+        return None;
+    };
+    let slot = catalog
+        .encounter(spec.encounter())?
+        .wave(participant.wave())?
+        .slots()
+        .iter()
+        .find(|slot| {
+            slot.enemy() == enemy
+                && slot
+                    .formation()
+                    .is_none_or(|formation| formation == participant.formation())
+        })?;
+    Some((enemy, slot.initial_phase()))
+}
+
+fn enemy_runtime(
+    catalog: &CombatCatalog,
+    occurrence: Option<(crate::EnemyDefinitionId, Option<crate::EnemyPhaseId>)>,
+) -> Option<EnemyRuntimeState> {
+    let (definition, phase_id) = occurrence?;
+    let enemy = catalog
+        .enemy(definition)
+        .expect("battle build validated enemy definition");
+    let phase = phase_id.and_then(|id| enemy.phases().iter().find(|phase| phase.id() == id));
+    let graph = phase
+        .map(crate::catalog::encounter::EnemyPhaseDefinition::ai_graph)
+        .or_else(|| enemy.ai_graph())?;
+    let state = catalog
+        .ai_graph(graph)
+        .expect("catalog validated enemy AI graph")
+        .initial_state();
+    Some(EnemyRuntimeState {
+        definition,
+        graph,
+        state,
+        turn_counter: 0,
+        phase: phase_id,
+    })
 }
 
 #[cfg(test)]

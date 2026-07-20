@@ -42,7 +42,7 @@ Replay and state hashing use a project-owned versioned codec:
 - optional values encoded with an explicit presence byte;
 - no pointer values, `usize`, struct memory, map iteration order, wall-clock timestamps, caches, or presentation fields.
 
-Normal `serde`, JSON, Rust's `Hash`, and dependency-defined binary encodings are not canonical. They may support debug output only. State hashing applies SHA-256 to the exact canonical state byte stream and records `state_hash_revision = "sha256-v1"`.
+Normal `serde`, JSON, Rust's `Hash`, and dependency-defined binary encodings are not canonical. They may support debug output only. State hashing applies SHA-256 to the exact canonical state byte stream and records `state_hash_revision = "sha256-v2"`.
 
 The codec exposes one canonical sink contract. State hashing streams into a
 SHA-256 sink; golden/debug tooling may collect the same bytes. Replay
@@ -52,7 +52,7 @@ hash it.
 ### Version 1 envelope
 
 `G01-P2-B4` freezes `replay_format_version = 1`, payload
-`schema_version = 1` and `state_hash_revision = "sha256-v1"`. The header starts
+`schema_version = 1` and `state_hash_revision = "sha256-v2"`. The header starts
 with `SCRP`, both little-endian versions and unknown-record policy `Reject`.
 Compatibility text identities are printable ASCII bounded to 128 bytes; general
 domain strings encoded inside later payloads remain length-prefixed UTF-8.

@@ -142,9 +142,14 @@ pub(crate) fn validate(catalog: &CombatCatalog, spec: &BattleSpec) -> Result<(),
         validate_source(catalog, encounter.enemies(), index, participant)?;
         if participant.side() == TeamSide::Enemy
             && !encounter
-                .wave_enemies(participant.wave())
+                .wave(participant.wave())
                 .is_some_and(|wave| match participant.source() {
-                    ParticipantSource::EncounterEnemy(enemy) => wave.contains(&enemy),
+                    ParticipantSource::EncounterEnemy(enemy) => wave.slots().iter().any(|slot| {
+                        slot.enemy() == enemy
+                            && slot
+                                .formation()
+                                .is_none_or(|formation| formation == participant.formation())
+                    }),
                     ParticipantSource::Player | ParticipantSource::Linked(_) => false,
                 })
         {

@@ -165,6 +165,7 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
     for side in [TeamSide::Player, TeamSide::Enemy] {
         let team = state.teams.get(side);
         e.u8(team.side as u8);
+        e.u16(team.initial_skill_points);
         e.u16(team.skill_points);
         e.u16(team.maximum_skill_points);
         e.length(team.keyed_resources.len());
@@ -539,6 +540,23 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
             }
             e.u8(transform.defeat as u8);
             e.u8(transform.wave as u8);
+        }
+    }
+    match unit.enemy {
+        None => e.u8(0),
+        Some(enemy) => {
+            e.u8(1);
+            e.u32(enemy.definition.get());
+            e.u32(enemy.graph.get());
+            e.u32(enemy.state.get());
+            e.u16(enemy.turn_counter);
+            match enemy.phase {
+                None => e.u8(0),
+                Some(phase) => {
+                    e.u8(1);
+                    e.u32(phase.get());
+                }
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ use super::definition::{
     AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition, ProgramDefinition,
     RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
 };
+use super::encounter::AiGraphDefinition;
 use crate::{
     AbilityId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ProgramId, RuleBundleId, RuleId,
     SelectorId, UnitDefinitionId,
@@ -32,6 +33,7 @@ identified!(SelectorDefinition, SelectorId);
 identified!(RuleBundle, RuleBundleId);
 identified!(EnemyDefinition, EnemyDefinitionId);
 identified!(EncounterDefinition, EncounterId);
+identified!(AiGraphDefinition, crate::AiGraphId);
 
 #[derive(Debug)]
 pub(super) struct DuplicateId<I>(pub I);

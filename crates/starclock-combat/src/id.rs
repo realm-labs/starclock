@@ -122,6 +122,27 @@ definition_id!(
     EnemyDefinitionId,
     "Stable catalog identity of an enemy definition."
 );
+definition_id!(AiGraphId, "Stable catalog identity of an enemy AI graph.");
+definition_id!(
+    AiStateId,
+    "Stable identity of a state within an enemy AI graph."
+);
+definition_id!(
+    AiCandidateId,
+    "Stable identity of an ordered enemy AI action candidate."
+);
+definition_id!(
+    AiTransitionId,
+    "Stable identity of an ordered enemy AI state transition."
+);
+definition_id!(
+    EnemyPhaseId,
+    "Stable catalog identity of an authored enemy phase."
+);
+definition_id!(
+    EncounterWaveId,
+    "Stable catalog identity of an authored encounter wave."
+);
 definition_id!(
     EncounterId,
     "Stable catalog identity of an encounter definition."

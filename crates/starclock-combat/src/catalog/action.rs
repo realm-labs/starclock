@@ -681,6 +681,10 @@ pub enum HitOperationDefinition {
     Revive(crate::ReviveDefinition),
     /// Departs a linked unit and deactivates its timeline actor.
     DespawnLinked,
+    /// Performs an explicitly authored pending wave transition.
+    RequestWaveTransition,
+    /// Advances one hostile occurrence to an exact validated boss phase.
+    TransitionEnemyPhase(crate::EnemyPhaseId),
 }
 
 /// Ordered operation templates owned by one authored hit.
