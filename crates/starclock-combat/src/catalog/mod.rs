@@ -5,6 +5,7 @@ pub mod builder;
 pub mod definition;
 pub mod encounter;
 mod index;
+mod lifecycle;
 mod rule_validate;
 pub mod selector;
 mod table;
@@ -56,6 +57,8 @@ pub struct CombatCatalog {
     revision: CatalogRevision,
     digest: CatalogDigest,
     units: DefinitionTable<UnitDefinitionId, UnitDefinition>,
+    linked_units: DefinitionTable<UnitDefinitionId, crate::LinkedUnitCatalogDefinition>,
+    countdowns: DefinitionTable<u32, crate::CountdownCatalogDefinition>,
     abilities: DefinitionTable<AbilityId, AbilityDefinition>,
     effects: DefinitionTable<EffectDefinitionId, EffectDefinition>,
     rules: DefinitionTable<RuleId, RuleDefinition>,
@@ -84,6 +87,8 @@ impl CombatCatalog {
     #[must_use]
     pub fn definition_count(&self) -> usize {
         self.units.len()
+            + self.linked_units.len()
+            + self.countdowns.len()
             + self.abilities.len()
             + self.effects.len()
             + self.rules.len()

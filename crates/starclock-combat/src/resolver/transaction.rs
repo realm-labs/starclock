@@ -915,6 +915,7 @@ impl<'a> Transaction<'a> {
     pub(super) fn roll_probability(
         &mut self,
         probability: crate::Probability,
+        purpose: DrawPurpose,
     ) -> Result<bool, BattleFault> {
         let threshold = probability.millionths();
         if threshold == 0 {
@@ -927,11 +928,10 @@ impl<'a> Transaction<'a> {
         let draw = self
             .state
             .rng
-            .sample_below(DrawPurpose::EFFECT_CHANCE, 1_000_000)
+            .sample_below(purpose, 1_000_000)
             .map_err(|_| action_fault(51))?;
         for index in before..self.state.rng.draw_count() {
-            self.journal
-                .rng_draw(index, DrawPurpose::EFFECT_CHANCE.code());
+            self.journal.rng_draw(index, purpose.code());
         }
         Ok(draw.value() < u64::from(threshold))
     }

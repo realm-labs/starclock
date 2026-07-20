@@ -160,6 +160,26 @@ impl LinkedUnitDefinition {
     }
 }
 
+/// Catalog-owned linked combatant resolved by a typed Rule IR summon.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LinkedUnitCatalogDefinition {
+    id: crate::UnitDefinitionId,
+    definition: LinkedUnitDefinition,
+}
+
+impl LinkedUnitCatalogDefinition {
+    #[must_use]
+    pub fn new(id: crate::UnitDefinitionId, definition: LinkedUnitDefinition) -> Option<Self> {
+        (definition.combatant().form() == id).then_some(Self { id, definition })
+    }
+    pub(crate) const fn id(&self) -> crate::UnitDefinitionId {
+        self.id
+    }
+    pub(crate) const fn definition(&self) -> &LinkedUnitDefinition {
+        &self.definition
+    }
+}
+
 /// Timeline-only countdown created by an authored transformation.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CountdownDefinition {
@@ -207,6 +227,30 @@ impl CountdownDefinition {
     }
     pub(crate) const fn wave(self) -> WaveLinkPolicy {
         self.wave
+    }
+}
+
+/// Catalog-owned timeline-only definition resolved by a Rule IR countdown code.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CountdownCatalogDefinition {
+    code: u32,
+    definition: CountdownDefinition,
+}
+
+impl CountdownCatalogDefinition {
+    #[must_use]
+    pub const fn new(code: u32, definition: CountdownDefinition) -> Option<Self> {
+        if code == 0 {
+            None
+        } else {
+            Some(Self { code, definition })
+        }
+    }
+    pub(crate) const fn code(self) -> u32 {
+        self.code
+    }
+    pub(crate) const fn definition(self) -> CountdownDefinition {
+        self.definition
     }
 }
 

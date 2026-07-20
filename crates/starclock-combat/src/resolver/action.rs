@@ -211,7 +211,7 @@ pub(super) fn execute_action_plan(
                 .with_hit(hit.id)
                 .with_primary_target(plan.targets.primary);
             parent = txn.emit(
-                hit_cause.with_parent(parent),
+                hit_cause.with_applier(plan.actor).with_parent(parent),
                 BattleEventKind::Hit(HitEventData::Started {
                     action: plan.id,
                     phase: phase.id,
@@ -281,6 +281,7 @@ pub(super) fn execute_action_plan(
                             id: operation.id,
                             targets: targets.clone(),
                             definition: *definition,
+                            rng_purpose: None,
                         })
                     }
                     HitOperationDefinition::RemoveEffects(definition) => {
@@ -301,6 +302,7 @@ pub(super) fn execute_action_plan(
                         Operation::ModifyStateSlot(ModifyStateSlotOp {
                             id: operation.id,
                             owner: plan.actor,
+                            instance: None,
                             definition: definition.clone(),
                         })
                     }
@@ -378,7 +380,7 @@ pub(super) fn execute_action_plan(
             }
             txn.increment_entanglement_for_hit(&targets)?;
             parent = txn.emit(
-                hit_cause.with_parent(parent),
+                hit_cause.with_applier(plan.actor).with_parent(parent),
                 BattleEventKind::Hit(HitEventData::Ended {
                     action: plan.id,
                     phase: phase.id,
@@ -486,6 +488,9 @@ fn run_programs_at(
                 actor: plan.actor,
                 ability: plan.ability,
                 action: plan.id,
+                rule: None,
+                rule_instance: None,
+                trigger: None,
                 hit: hit.map(|value| value.id),
                 primary: plan.targets.primary,
                 damage_share: hit.map_or(crate::Ratio::ONE, |value| value.damage_share),

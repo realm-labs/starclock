@@ -323,6 +323,12 @@ pub enum UnitEventData {
         actor: Option<TimelineActorId>,
         kind: crate::LinkedEntityKind,
     },
+    /// One timeline-only countdown actor was linked to its owner.
+    CountdownCreated {
+        owner: UnitId,
+        actor: TimelineActorId,
+        ability: crate::AbilityId,
+    },
     /// One explicit presence mutation completed.
     PresenceChanged {
         unit: UnitId,

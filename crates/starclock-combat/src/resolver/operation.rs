@@ -56,8 +56,14 @@ pub(super) fn execute_operation(
         Operation::QueueAction(operation) => {
             super::schedule::execute_queue_action(catalog, txn, cause, parent, operation)
         }
+        Operation::QueueRuleAction(operation) => {
+            super::schedule::execute_queue_rule_action(catalog, txn, cause, parent, operation)
+        }
         Operation::SummonLinked(operation) => {
             super::lifecycle::execute_summon(catalog, txn, cause, parent, operation)
+        }
+        Operation::CreateCountdown(operation) => {
+            super::lifecycle::execute_countdown(catalog, txn, cause, parent, operation)
         }
         Operation::ChangePresence(operation) => {
             super::lifecycle::execute_presence(txn, cause, parent, operation)
@@ -215,7 +221,10 @@ fn execute_toughness_reduction(
             }),
         );
         if value.applies_break_effect {
-            let applied = txn.roll_probability(operation.definition.break_effect_chance)?;
+            let applied = txn.roll_probability(
+                operation.definition.break_effect_chance,
+                crate::rng::types::DrawPurpose::EFFECT_CHANCE,
+            )?;
             if applied {
                 let plan = formula::toughness::base_break_effect(
                     value.break_element,
@@ -809,7 +818,12 @@ fn execute_apply_effect(
                 (value.pre_clamp, value.probability)
             }
         };
-        if !txn.roll_probability(probability)? {
+        if !txn.roll_probability(
+            probability,
+            operation
+                .rng_purpose
+                .unwrap_or(crate::rng::types::DrawPurpose::EFFECT_CHANCE),
+        )? {
             parent = txn.emit(
                 cause.with_parent(parent).with_primary_target(Some(target)),
                 BattleEventKind::Effect(EffectEventData::Resisted {
@@ -904,6 +918,7 @@ fn execute_remove_effects(
         let ids = txn.state.effects.removable_for(
             target,
             operation.definition.category,
+            operation.definition.required_definition,
             operation.definition.required_tag,
         );
         for effect in ids

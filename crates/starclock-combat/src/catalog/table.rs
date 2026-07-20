@@ -35,6 +35,18 @@ identified!(EnemyDefinition, EnemyDefinitionId);
 identified!(EncounterDefinition, EncounterId);
 identified!(AiGraphDefinition, crate::AiGraphId);
 
+impl Identified<UnitDefinitionId> for crate::LinkedUnitCatalogDefinition {
+    fn id(&self) -> UnitDefinitionId {
+        self.id()
+    }
+}
+
+impl Identified<u32> for crate::CountdownCatalogDefinition {
+    fn id(&self) -> u32 {
+        self.code()
+    }
+}
+
 #[derive(Debug)]
 pub(super) struct DuplicateId<I>(pub I);
 

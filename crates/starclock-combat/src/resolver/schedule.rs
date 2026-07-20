@@ -92,6 +92,94 @@ pub(super) fn execute_queue_action(
         primary,
     )
     .map_err(|_| invariant_fault(55))?;
+    enqueue(
+        txn,
+        cause,
+        parent,
+        actor,
+        owner,
+        definition.ability(),
+        definition.origin(),
+        definition.boundary(),
+        definition.priority(),
+        crate::SourceDefinitionId::new(definition.ability().get())
+            .ok_or_else(|| invariant_fault(57))?,
+        None,
+        None,
+        None,
+        targets,
+        definition.payment(),
+    )
+}
+
+pub(super) fn execute_queue_rule_action(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: crate::operation::QueueRuleActionOp,
+) -> Result<EventId, BattleFault> {
+    let ability = catalog
+        .ability(operation.ability)
+        .ok_or_else(|| invariant_fault(63))?;
+    let action = ability.action().ok_or_else(|| invariant_fault(64))?;
+    let selector = catalog
+        .selector(ability.selector())
+        .and_then(|definition| definition.unit_targets())
+        .ok_or_else(|| invariant_fault(65))?;
+    for actor in operation.actors {
+        let primary = operation.targets.first().copied();
+        let targets = crate::target::select::commit(
+            &txn.state.units,
+            &txn.state.formations,
+            actor,
+            selector,
+            action.invalidation(),
+            primary,
+        )
+        .map_err(|_| invariant_fault(66))?;
+        if targets.targets.as_ref() != operation.targets.as_ref() {
+            return Err(invariant_fault(67));
+        }
+        parent = enqueue(
+            txn,
+            cause,
+            parent,
+            actor,
+            operation.owner,
+            operation.ability,
+            operation.origin,
+            crate::catalog::action::ReactionBoundary::AfterAction,
+            operation.priority,
+            operation.source,
+            Some(operation.rule),
+            Some(operation.instance),
+            Some(operation.trigger),
+            targets,
+            operation.payment,
+        )?;
+    }
+    Ok(parent)
+}
+
+#[allow(clippy::too_many_arguments)]
+fn enqueue(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    parent: EventId,
+    actor: crate::UnitId,
+    owner: crate::UnitId,
+    ability: crate::AbilityId,
+    origin: crate::ActionOrigin,
+    boundary: crate::catalog::action::ReactionBoundary,
+    priority: i16,
+    source: crate::SourceDefinitionId,
+    rule: Option<crate::RuleId>,
+    instance: Option<crate::RuleInstanceId>,
+    trigger: Option<crate::TriggerId>,
+    targets: crate::target::model::TargetCommitment,
+    payment: Option<crate::catalog::action::SkillPointPaymentPolicy>,
+) -> Result<EventId, BattleFault> {
     let (side, formation, spawn) = txn
         .state
         .units
@@ -104,35 +192,34 @@ pub(super) fn execute_queue_action(
         BattleEventKind::Action(crate::ActionEventData::Queued {
             insertion,
             actor,
-            ability: definition.ability(),
-            origin: definition.origin(),
-            boundary: definition.boundary(),
+            ability,
+            origin,
+            boundary,
         }),
     );
     txn.reactions.push(crate::reaction::queue::QueuedAction {
         order: crate::reaction::queue::ReactionOrder {
-            boundary: definition.boundary(),
-            priority: definition.priority(),
+            boundary,
+            priority,
             side,
             formation,
             spawn,
-            source: crate::SourceDefinitionId::new(definition.ability().get())
-                .ok_or_else(|| invariant_fault(57))?,
-            rule: None,
-            instance: None,
-            trigger: None,
+            source,
+            rule,
+            instance,
+            trigger,
             actor,
-            ability: definition.ability(),
+            ability,
             insertion,
         },
         root: cause.root_command(),
         parent: queued,
         actor,
         owner,
-        ability: definition.ability(),
-        origin: definition.origin(),
+        ability,
+        origin,
         targets,
-        payment: definition.payment(),
+        payment,
     });
     Ok(queued)
 }

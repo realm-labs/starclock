@@ -24,6 +24,10 @@ use crate::modifier::{
 pub enum DefinitionKind {
     /// Generic combat unit form.
     Unit,
+    /// Complete linked-unit runtime template.
+    LinkedUnit,
+    /// Timeline-only countdown template.
+    Countdown,
     /// Ability entry point.
     Ability,
     /// Effect definition.
@@ -50,6 +54,8 @@ impl DefinitionKind {
     const fn name(self) -> &'static str {
         match self {
             Self::Unit => "unit",
+            Self::LinkedUnit => "linked unit",
+            Self::Countdown => "countdown",
             Self::Ability => "ability",
             Self::Effect => "effect",
             Self::Rule => "rule",
@@ -116,6 +122,8 @@ pub struct CombatCatalogBuilder {
     revision: String,
     digest: [u8; 32],
     units: Vec<UnitDefinition>,
+    linked_units: Vec<crate::LinkedUnitCatalogDefinition>,
+    countdowns: Vec<crate::CountdownCatalogDefinition>,
     abilities: Vec<AbilityDefinition>,
     effects: Vec<EffectDefinition>,
     rules: Vec<RuleDefinition>,
@@ -137,6 +145,8 @@ impl CombatCatalogBuilder {
             revision: revision.into(),
             digest,
             units: Vec::new(),
+            linked_units: Vec::new(),
+            countdowns: Vec::new(),
             abilities: Vec::new(),
             effects: Vec::new(),
             rules: Vec::new(),
@@ -154,6 +164,14 @@ impl CombatCatalogBuilder {
     /// Adds a unit definition.
     pub fn add_unit(&mut self, definition: UnitDefinition) {
         self.units.push(definition);
+    }
+    /// Adds one complete Rule IR summon template.
+    pub fn add_linked_unit(&mut self, definition: crate::LinkedUnitCatalogDefinition) {
+        self.linked_units.push(definition);
+    }
+    /// Adds one timeline-only Rule IR countdown template.
+    pub fn add_countdown(&mut self, definition: crate::CountdownCatalogDefinition) {
+        self.countdowns.push(definition);
     }
     /// Adds an ability definition.
     pub fn add_ability(&mut self, definition: AbilityDefinition) {
@@ -211,6 +229,8 @@ impl CombatCatalogBuilder {
             revision: CatalogRevision(self.revision.into_boxed_str()),
             digest: CatalogDigest(self.digest),
             units: table(self.units, DefinitionKind::Unit)?,
+            linked_units: table(self.linked_units, DefinitionKind::LinkedUnit)?,
+            countdowns: table(self.countdowns, DefinitionKind::Countdown)?,
             abilities: table(self.abilities, DefinitionKind::Ability)?,
             effects: table(self.effects, DefinitionKind::Effect)?,
             rules: table(self.rules, DefinitionKind::Rule)?,
@@ -295,6 +315,37 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             id.get(),
             DefinitionKind::RuleBundle,
         )?;
+    }
+    for id in catalog.linked_units.ids() {
+        let linked = catalog
+            .linked_units
+            .get(id)
+            .expect("ID originated from this table")
+            .definition();
+        if !valid_linked_definition(catalog, linked) {
+            return Err(error(
+                CatalogBuildErrorKind::InvalidDefinition,
+                format!("linked-unit definition {} is invalid", id.get()),
+            ));
+        }
+    }
+    for code in catalog.countdowns.ids() {
+        let countdown = catalog
+            .countdowns
+            .get(code)
+            .expect("ID originated from this table")
+            .definition();
+        if catalog
+            .abilities
+            .get(countdown.ability())
+            .and_then(super::definition::AbilityDefinition::action)
+            .is_none_or(|action| action.kind() != super::action::AbilityKind::Countdown)
+        {
+            return Err(error(
+                CatalogBuildErrorKind::InvalidDefinition,
+                format!("countdown definition {code} has an invalid ability"),
+            ));
+        }
     }
     for id in catalog.abilities.ids() {
         let ability = catalog
@@ -382,38 +433,7 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
                 let super::action::HitOperationDefinition::QueueAction(queue) = operation else {
                     match operation {
                         super::action::HitOperationDefinition::SummonLinked(linked) => {
-                            let combatant = linked.combatant();
-                            if catalog.units.get(combatant.form()).is_none()
-                                || combatant
-                                    .abilities()
-                                    .iter()
-                                    .any(|ability| catalog.abilities.get(*ability).is_none())
-                                || combatant
-                                    .rule_bundles()
-                                    .iter()
-                                    .any(|bundle| catalog.rule_bundles.get(*bundle).is_none())
-                                || combatant.modifiers().iter().any(|modifier| {
-                                    catalog.modifiers.definition(*modifier).is_none()
-                                })
-                                || linked.action_ability().is_some_and(|ability| {
-                                    catalog
-                                        .abilities
-                                        .get(ability)
-                                        .and_then(super::definition::AbilityDefinition::action)
-                                        .is_none_or(|action| {
-                                            !matches!(
-                                                (linked.kind(), action.kind()),
-                                                (
-                                                    crate::LinkedEntityKind::Summon,
-                                                    super::action::AbilityKind::Summon
-                                                ) | (
-                                                    crate::LinkedEntityKind::Memosprite,
-                                                    super::action::AbilityKind::Memosprite
-                                                )
-                                            )
-                                        })
-                                })
-                            {
+                            if !valid_linked_definition(catalog, linked) {
                                 return Err(error(
                                     CatalogBuildErrorKind::InvalidDefinition,
                                     format!(
@@ -763,6 +783,41 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
         )?;
     }
     Ok(())
+}
+
+fn valid_linked_definition(catalog: &CombatCatalog, linked: &crate::LinkedUnitDefinition) -> bool {
+    let combatant = linked.combatant();
+    catalog.units.get(combatant.form()).is_some()
+        && combatant
+            .abilities()
+            .iter()
+            .all(|ability| catalog.abilities.get(*ability).is_some())
+        && combatant
+            .rule_bundles()
+            .iter()
+            .all(|bundle| catalog.rule_bundles.get(*bundle).is_some())
+        && combatant
+            .modifiers()
+            .iter()
+            .all(|modifier| catalog.modifiers.definition(*modifier).is_some())
+        && linked.action_ability().is_none_or(|ability| {
+            catalog
+                .abilities
+                .get(ability)
+                .and_then(super::definition::AbilityDefinition::action)
+                .is_some_and(|action| {
+                    matches!(
+                        (linked.kind(), action.kind()),
+                        (
+                            crate::LinkedEntityKind::Summon,
+                            super::action::AbilityKind::Summon
+                        ) | (
+                            crate::LinkedEntityKind::Memosprite,
+                            super::action::AbilityKind::Memosprite
+                        )
+                    )
+                })
+        })
 }
 
 fn validate_ai_graphs(catalog: &CombatCatalog) -> Result<(), CatalogBuildError> {

@@ -211,6 +211,43 @@ fn catalog_rejects_mistyped_slots_and_mutating_replacement_programs() {
 }
 
 #[test]
+fn catalog_rejects_unresolved_linked_and_countdown_emissions() {
+    for (revision, operation, selectors) in [
+        (
+            "missing-linked-unit-v1",
+            RuleOperationTemplate::Summon {
+                owner_selector: definition(1),
+                unit_definition: definition(9),
+            },
+            vec![definition(1)],
+        ),
+        (
+            "missing-countdown-v1",
+            RuleOperationTemplate::CreateCountdown { code: 9 },
+            vec![],
+        ),
+    ] {
+        let program = definition(1);
+        let mut builder = CombatCatalogBuilder::new(revision, [0x26; 32]);
+        builder.add_selector(SelectorDefinition::new(definition(1)));
+        builder.add_program(
+            ProgramDefinition::new(program, vec![], selectors, vec![], vec![])
+                .with_steps(vec![ProgramStep::Operation(operation)]),
+        );
+        builder.add_rule(
+            RuleDefinition::new(definition(1), vec![program], vec![]).with_runtime(
+                BattleRuleDefinition::new(source(1), vec![], vec![trigger(1, program)], None),
+            ),
+        );
+
+        assert_eq!(
+            builder.build().unwrap_err().kind(),
+            CatalogBuildErrorKind::InvalidDefinition
+        );
+    }
+}
+
+#[test]
 fn trigger_index_uses_phase_priority_source_rule_and_trigger_order() {
     let mut builder = CombatCatalogBuilder::new("trigger-index-v1", [3; 32]);
     for raw in 1..=3 {

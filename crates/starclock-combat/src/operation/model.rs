@@ -22,7 +22,9 @@ pub(crate) enum Operation {
     ModifyStateSlot(ModifyStateSlotOp),
     ModifyTeamResource(ModifyTeamResourceOp),
     QueueAction(QueueActionOp),
+    QueueRuleAction(QueueRuleActionOp),
     SummonLinked(SummonLinkedOp),
+    CreateCountdown(CreateCountdownOp),
     ChangePresence(ChangePresenceOp),
     Transform(TransformOp),
     EndTransformation(UnitLifecycleOp),
@@ -48,7 +50,9 @@ impl Operation {
             Self::ModifyStateSlot(operation) => operation.id,
             Self::ModifyTeamResource(operation) => operation.id,
             Self::QueueAction(operation) => operation.id,
+            Self::QueueRuleAction(operation) => operation.id,
             Self::SummonLinked(operation) => operation.id,
+            Self::CreateCountdown(operation) => operation.id,
             Self::ChangePresence(operation) => operation.id,
             Self::Transform(operation) => operation.id,
             Self::EndTransformation(operation) => operation.id,
@@ -77,6 +81,13 @@ pub(crate) struct SummonLinkedOp {
     pub(crate) id: OperationId,
     pub(crate) owners: Box<[UnitId]>,
     pub(crate) definition: crate::LinkedUnitDefinition,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct CreateCountdownOp {
+    pub(crate) id: OperationId,
+    pub(crate) owner: UnitId,
+    pub(crate) definition: crate::CountdownDefinition,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -113,9 +124,26 @@ pub(crate) struct QueueActionOp {
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct QueueRuleActionOp {
+    pub(crate) id: OperationId,
+    pub(crate) actors: Box<[UnitId]>,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) owner: UnitId,
+    pub(crate) ability: crate::AbilityId,
+    pub(crate) origin: crate::ActionOrigin,
+    pub(crate) priority: i16,
+    pub(crate) payment: Option<crate::catalog::action::SkillPointPaymentPolicy>,
+    pub(crate) source: crate::SourceDefinitionId,
+    pub(crate) rule: crate::RuleId,
+    pub(crate) instance: crate::RuleInstanceId,
+    pub(crate) trigger: crate::TriggerId,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct ModifyStateSlotOp {
     pub(crate) id: OperationId,
     pub(crate) owner: UnitId,
+    pub(crate) instance: Option<crate::RuleInstanceId>,
     pub(crate) definition: crate::rule::model::RuleSlotMutationDefinition,
 }
 
@@ -131,6 +159,7 @@ pub(crate) struct ApplyEffectOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
     pub(crate) definition: crate::EffectApplicationDefinition,
+    pub(crate) rng_purpose: Option<crate::rng::types::DrawPurpose>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

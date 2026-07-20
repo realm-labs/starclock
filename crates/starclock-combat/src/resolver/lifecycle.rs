@@ -337,6 +337,62 @@ pub(super) fn execute_summon(
     Ok(parent)
 }
 
+pub(super) fn execute_countdown(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    parent: EventId,
+    operation: crate::operation::CreateCountdownOp,
+) -> Result<EventId, BattleFault> {
+    if txn.state.links.canonical_entries().len() >= MAX_LINKED_ENTITIES {
+        return Err(budget_fault(3));
+    }
+    let owner = txn
+        .state
+        .units
+        .get(operation.owner)
+        .ok_or_else(|| action_fault(114))?;
+    if owner.life != LifeState::Alive || !owner.presence.is_active() {
+        return Err(action_fault(115));
+    }
+    let definition = operation.definition;
+    if catalog
+        .ability(definition.ability())
+        .and_then(crate::catalog::definition::AbilityDefinition::action)
+        .is_none_or(|action| action.kind() != crate::catalog::action::AbilityKind::Countdown)
+    {
+        return Err(action_fault(116));
+    }
+    let actor = txn.allocate_actor();
+    txn.insert_actor(TimelineActorState {
+        id: actor,
+        owner: operation.owner,
+        unit: None,
+        kind: Some(LinkedEntityKind::Countdown),
+        automatic_ability: Some(definition.ability()),
+        active: true,
+        gauge: definition.initial_gauge(),
+        speed: definition.speed(),
+    });
+    txn.insert_link(LinkState {
+        owner: operation.owner,
+        entity: LinkedEntity::TimelineActor(actor),
+        kind: LinkedEntityKind::Countdown,
+        owner_defeat: definition.owner_defeat(),
+        owner_departure: definition.owner_departure(),
+        wave: definition.wave(),
+        active: true,
+    })?;
+    Ok(txn.emit(
+        cause.with_parent(parent),
+        BattleEventKind::Unit(UnitEventData::CountdownCreated {
+            owner: operation.owner,
+            actor,
+            ability: definition.ability(),
+        }),
+    ))
+}
+
 pub(super) fn execute_presence(
     txn: &mut Transaction<'_>,
     cause: Cause,

@@ -296,9 +296,9 @@ fn validate_operation(
             unit_definition,
         } => {
             require_selector(catalog, *owner_selector)?;
-            if catalog.unit(*unit_definition).is_none() {
+            if catalog.linked_unit(*unit_definition).is_none() {
                 return Err(format!(
-                    "summon refers to missing unit {}",
+                    "summon refers to missing linked-unit definition {}",
                     unit_definition.get()
                 ));
             }
@@ -432,8 +432,8 @@ fn validate_operation(
             }
         }
         RuleOperationTemplate::CreateCountdown { code } => {
-            if *code == 0 {
-                return Err("countdown code must be nonzero".into());
+            if catalog.countdown(*code).is_none() {
+                return Err(format!("countdown code {code} has no catalog definition"));
             }
         }
         RuleOperationTemplate::EmitRuleEvent { value, .. }

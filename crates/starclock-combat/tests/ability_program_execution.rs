@@ -1,22 +1,26 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    Battle, BattleEventKind, BattleSeed, BattleSpec, BattleSpecDigest, CombatantSpecDigest,
-    Command, ConcedePolicy, EncounterWaveId, FormationIndex, Hp, ParticipantSource,
-    ParticipantSpec, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings,
+    ActionGauge, Battle, BattleEventKind, BattleSeed, BattleSpec, BattleSpecDigest,
+    CombatantSpecDigest, Command, ConcedePolicy, CountdownCatalogDefinition, CountdownDefinition,
+    DispelCategory, DurationClock, EffectCategory, EffectRuntimeDefinition, EffectStackPolicy,
+    EffectTickPhase, EncounterWaveId, FormationIndex, Hp, LinkedEntityKind,
+    LinkedUnitCatalogDefinition, LinkedUnitDefinition, OwnerLinkPolicy, ParticipantSource,
+    ParticipantSpec, PresenceState, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings,
     ResolvedModifierBinding, Scalar, SourceDefinitionId, Speed, StatValue, TeamResourceSpec,
-    TeamSide, UnitLevel,
+    TeamSide, UnitLevel, WaveLinkPolicy,
     catalog::{
         CombatCatalog,
         action::{
             AbilityActionDefinition, AbilityKind, AbilityProgramBinding, AbilityProgramTiming,
-            ActionHitDefinition, ActionResourcePolicy, HitTargetGroup, TargetInvalidationPolicy,
+            ActionHitDefinition, ActionResourcePolicy, HitOperationDefinition, HitTargetGroup,
+            OrdinaryDamageDefinition, OrdinaryDamageMultipliers, TargetInvalidationPolicy,
             TargetPattern, TargetRelation, UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
         definition::{
-            AbilityDefinition, EncounterDefinition, EnemyDefinition, ProgramDefinition, RuleBundle,
-            RuleDefinition, SelectorDefinition, UnitDefinition,
+            AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition,
+            ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
         },
         encounter::{EncounterWaveDefinition, WaveCarry, WaveSlotDefinition, WaveTransitionPolicy},
         selector::{
@@ -31,9 +35,10 @@ use starclock_combat::{
         ModifierStackingGroup, SnapshotPolicy, StatKind, StatQuerySubject,
     },
     rule::model::{
-        BattleRuleDefinition, ConditionExpr, EventFilter, OnceScope, ProgramStep, ReactionPriority,
-        RuleEventKind, RuleOperationTemplate, RuleSource, RuleValue, SourceClass, TriggerDef,
-        TriggerPhase, ValueExpr,
+        BattleRuleDefinition, BattleRuleScope, ConditionExpr, EventFilter, OnceScope, ProgramStep,
+        ReactionPriority, RuleActionOwner, RuleEffectChancePolicy, RuleEventKind,
+        RuleOperationTemplate, RuleSource, RuleValue, RuleValueKind, SourceClass, StateSlotDef,
+        StateSlotUpdateKind, TriggerDef, TriggerPhase, ValueExpr,
     },
 };
 
@@ -64,6 +69,7 @@ fn catalog(
     with_modifier: bool,
     with_rule: bool,
     recursive_rule: bool,
+    mechanics_rule: bool,
 ) -> Arc<CombatCatalog> {
     let mut builder = CombatCatalogBuilder::new("ability-program-v1", [0x43; 32]);
     builder.add_selector(SelectorDefinition::new(id(1)).with_unit_targets(
@@ -93,18 +99,35 @@ fn catalog(
     ));
     builder.add_program(program);
     if with_rule {
+        if mechanics_rule {
+            add_mechanics_definitions(&mut builder);
+        }
+        let steps = if mechanics_rule {
+            mechanics_steps()
+        } else {
+            vec![ProgramStep::Operation(RuleOperationTemplate::Damage {
+                selector: id(2),
+                amount: ValueExpr::Literal(RuleValue::Scalar(
+                    Scalar::checked_from_integer(if recursive_rule { 0 } else { 50 }).unwrap(),
+                )),
+                class: DamageClass::Additional,
+                element: CombatElement::Physical,
+                can_crit: false,
+            })]
+        };
         builder.add_program(
-            ProgramDefinition::new(id(3), vec![], vec![id(2)], vec![], vec![]).with_steps(vec![
-                ProgramStep::Operation(RuleOperationTemplate::Damage {
-                    selector: id(2),
-                    amount: ValueExpr::Literal(RuleValue::Scalar(
-                        Scalar::checked_from_integer(if recursive_rule { 0 } else { 50 }).unwrap(),
-                    )),
-                    class: DamageClass::Additional,
-                    element: CombatElement::Physical,
-                    can_crit: false,
-                }),
-            ]),
+            ProgramDefinition::new(
+                id(3),
+                vec![],
+                if mechanics_rule {
+                    vec![id(2), id(4)]
+                } else {
+                    vec![id(2)]
+                },
+                mechanics_rule.then(|| id(1)).into_iter().collect(),
+                vec![],
+            )
+            .with_steps(steps),
         );
         let source = RuleSource::new(
             SourceDefinitionId::new(60).unwrap(),
@@ -113,31 +136,45 @@ fn catalog(
             [0x60; 32],
         );
         builder.add_rule(
-            RuleDefinition::new(id(1), vec![id(3)], vec![id(2)]).with_runtime(
-                BattleRuleDefinition::new(
-                    source,
-                    vec![],
-                    vec![TriggerDef {
-                        id: id(1),
-                        event: if recursive_rule {
-                            RuleEventKind::Damage
-                        } else {
-                            RuleEventKind::Hit
-                        },
-                        phase: TriggerPhase::AfterEvent,
-                        filter: EventFilter::default(),
-                        condition: ConditionExpr::Literal(true),
-                        once_scope: if recursive_rule {
-                            OnceScope::Event
-                        } else {
-                            OnceScope::Action
-                        },
-                        priority: ReactionPriority::new(0),
-                        program: id(3),
-                    }],
-                    None,
-                ),
-            ),
+            RuleDefinition::new(
+                id(1),
+                vec![id(3)],
+                if mechanics_rule {
+                    vec![id(2), id(4)]
+                } else {
+                    vec![id(2)]
+                },
+            )
+            .with_runtime(BattleRuleDefinition::new(
+                source,
+                mechanics_rule.then(mechanics_slot).into_iter().collect(),
+                vec![TriggerDef {
+                    id: id(1),
+                    event: if recursive_rule {
+                        RuleEventKind::Damage
+                    } else {
+                        RuleEventKind::Hit
+                    },
+                    phase: TriggerPhase::AfterEvent,
+                    filter: if mechanics_rule {
+                        EventFilter {
+                            source: Some(SourceDefinitionId::new(1).unwrap()),
+                            ..EventFilter::default()
+                        }
+                    } else {
+                        EventFilter::default()
+                    },
+                    condition: ConditionExpr::Literal(true),
+                    once_scope: if recursive_rule {
+                        OnceScope::Event
+                    } else {
+                        OnceScope::Action
+                    },
+                    priority: ReactionPriority::new(0),
+                    program: id(3),
+                }],
+                None,
+            )),
         );
         builder.add_rule_bundle(RuleBundle::new(id(1), vec![id(1)]));
     }
@@ -246,21 +283,178 @@ fn catalog(
     builder.build().unwrap()
 }
 
+fn mechanics_slot() -> StateSlotDef {
+    StateSlotDef::new(
+        id(1),
+        RuleValueKind::Integer,
+        BattleRuleScope::Battle,
+        RuleValue::Integer(1),
+    )
+    .with_bounds(RuleValue::Integer(0), RuleValue::Integer(1))
+}
+
+fn mechanics_steps() -> Vec<ProgramStep> {
+    vec![
+        ProgramStep::Operation(RuleOperationTemplate::ModifyStateSlot {
+            slot: id(1),
+            update: StateSlotUpdateKind::Subtract,
+            value: ValueExpr::Literal(RuleValue::Integer(1)),
+        }),
+        ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
+            selector: id(2),
+            effect: id(1),
+            chance: RuleEffectChancePolicy::Guaranteed,
+            base_chance: None,
+            rng_purpose: None,
+        }),
+        ProgramStep::Operation(RuleOperationTemplate::RemoveEffect {
+            selector: id(2),
+            effect: id(1),
+        }),
+        ProgramStep::Operation(RuleOperationTemplate::QueueAction {
+            actor_selector: id(4),
+            target_selector: id(2),
+            ability: id(3),
+            priority: ReactionPriority::new(-10),
+            forced_use: false,
+            owner: RuleActionOwner::Actor,
+            payment: None,
+        }),
+        ProgramStep::Operation(RuleOperationTemplate::Summon {
+            owner_selector: id(4),
+            unit_definition: id(3),
+        }),
+        ProgramStep::Operation(RuleOperationTemplate::CreateCountdown { code: 7 }),
+    ]
+}
+
+fn add_mechanics_definitions(builder: &mut CombatCatalogBuilder) {
+    builder.add_selector(
+        SelectorDefinition::new(id(4)).with_rule_units(
+            RuleUnitSelector::new(
+                RuleSelectorOrigin::Owner,
+                RuleSelectorSide::Same,
+                RuleLifePredicate::Alive,
+                RulePresencePredicate::Present,
+                RuleSelectorReference::CurrentState,
+                RuleSelectorOrdering::StableId,
+                1,
+                1,
+                RuleEmptyPoolPolicy::Fault,
+                RuleSelectorChoice::First,
+                None,
+                false,
+            )
+            .unwrap(),
+        ),
+    );
+    builder.add_selector(SelectorDefinition::new(id(5)).with_unit_targets(
+        UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),
+    ));
+    let effect = EffectRuntimeDefinition::new(
+        EffectCategory::Buff,
+        DispelCategory::DispellableBuff,
+        1,
+        Some(2),
+        DurationClock::TargetTurnEnd,
+        EffectTickPhase::None,
+        EffectStackPolicy::Refresh,
+    )
+    .unwrap();
+    builder.add_effect(EffectDefinition::new(id(1), vec![], vec![]).with_runtime(effect));
+    let counter_damage = OrdinaryDamageDefinition::new(
+        Scalar::checked_from_integer(25).unwrap(),
+        OrdinaryDamageMultipliers::new([Ratio::ONE; 9]).unwrap(),
+    )
+    .unwrap();
+    let counter = AbilityActionDefinition::new(
+        AbilityKind::Counter,
+        1,
+        TargetInvalidationPolicy::CancelRemainingForTarget,
+        ActionResourcePolicy::new(
+            0,
+            0,
+            starclock_combat::Energy::ZERO,
+            starclock_combat::Energy::ZERO,
+        ),
+    )
+    .unwrap()
+    .with_hits(vec![ActionHitDefinition::new(vec![
+        HitOperationDefinition::Damage(counter_damage),
+    ])])
+    .unwrap();
+    builder.add_ability(AbilityDefinition::new(id(3), id(2), id(1), vec![]).with_action(counter));
+    for (ability, kind, selector) in [
+        (4, AbilityKind::Countdown, 5),
+        (5, AbilityKind::Memosprite, 1),
+    ] {
+        let action = AbilityActionDefinition::new(
+            kind,
+            1,
+            TargetInvalidationPolicy::CancelRemainingForTarget,
+            ActionResourcePolicy::new(
+                0,
+                0,
+                starclock_combat::Energy::ZERO,
+                starclock_combat::Energy::ZERO,
+            ),
+        )
+        .unwrap();
+        builder.add_ability(
+            AbilityDefinition::new(id(ability), id(2), id(selector), vec![]).with_action(action),
+        );
+    }
+    builder.add_unit(UnitDefinition::new(id(3), vec![id(5)], vec![]));
+    let linked = LinkedUnitDefinition::new(
+        combatant(3, 5, 0x48, false, false, false),
+        SourceDefinitionId::new(61).unwrap(),
+        FormationIndex::new(1).unwrap(),
+        LinkedEntityKind::Memosprite,
+        PresenceState::Linked,
+        Some(id(5)),
+        ActionGauge::from_scaled(100_000_000).unwrap(),
+        OwnerLinkPolicy::Depart,
+        OwnerLinkPolicy::Depart,
+        WaveLinkPolicy::Depart,
+    )
+    .unwrap();
+    builder.add_linked_unit(LinkedUnitCatalogDefinition::new(id(3), linked).unwrap());
+    builder.add_countdown(
+        CountdownCatalogDefinition::new(
+            7,
+            CountdownDefinition::new(
+                id(4),
+                ActionGauge::from_scaled(100_000_000).unwrap(),
+                Speed::from_scaled(1_000_000).unwrap(),
+                OwnerLinkPolicy::Depart,
+                OwnerLinkPolicy::Depart,
+                WaveLinkPolicy::Depart,
+            ),
+        )
+        .unwrap(),
+    );
+}
+
 fn combatant(
     form: u32,
     ability: u32,
     digest: u8,
     with_modifier: bool,
     with_rule: bool,
+    with_mechanics: bool,
 ) -> ResolvedCombatantSpec {
     let modifiers = with_modifier.then(|| id(1)).into_iter().collect();
+    let mut abilities = vec![id(ability)];
+    if with_mechanics {
+        abilities.push(id(3));
+    }
     let mut combatant = ResolvedCombatantSpec::new(
         id(form),
         UnitLevel::new(80).unwrap(),
         Hp::new(1_000).unwrap(),
         Speed::from_scaled(if form == 1 { 100_000_000 } else { 1_000_000 }).unwrap(),
         ResolvedDefinitionBindings::new(
-            vec![id(ability)],
+            abilities,
             with_rule.then(|| id(1)).into_iter().collect(),
             modifiers,
         )
@@ -288,7 +482,12 @@ fn combatant(
     combatant
 }
 
-fn battle(catalog: Arc<CombatCatalog>, with_modifier: bool, with_rule: bool) -> Battle {
+fn battle(
+    catalog: Arc<CombatCatalog>,
+    with_modifier: bool,
+    with_rule: bool,
+    with_mechanics: bool,
+) -> Battle {
     let spec = BattleSpec::new(
         "ability-program-rules-v1",
         BattleSpecDigest::new([0x44; 32]).unwrap(),
@@ -298,13 +497,13 @@ fn battle(catalog: Arc<CombatCatalog>, with_modifier: bool, with_rule: bool) -> 
                 TeamSide::Player,
                 FormationIndex::new(0).unwrap(),
                 ParticipantSource::Player,
-                combatant(1, 1, 0x45, with_modifier, with_rule),
+                combatant(1, 1, 0x45, with_modifier, with_rule, with_mechanics),
             ),
             ParticipantSpec::new(
                 TeamSide::Enemy,
                 FormationIndex::new(4).unwrap(),
                 ParticipantSource::EncounterEnemy(id(1)),
-                combatant(2, 2, 0x46, false, false),
+                combatant(2, 2, 0x46, false, false, false),
             ),
         ],
         TeamResourceSpec::new(0, 5).unwrap(),
@@ -359,7 +558,12 @@ fn hit_programs_use_authored_selector_order_and_exact_hit_shares() {
                 can_crit: false,
             }),
         ]);
-    let mut battle = battle(catalog(program, false, false, false), false, false);
+    let mut battle = battle(
+        catalog(program, false, false, false, false),
+        false,
+        false,
+        false,
+    );
     let resolution = start_and_use(&mut battle).unwrap();
     let damage = resolution
         .events()
@@ -398,7 +602,12 @@ fn selected_build_modifier_changes_rule_ir_stat_query_inside_transaction() {
                 can_crit: false,
             }),
         ]);
-    let mut battle = battle(catalog(program, true, false, false), true, false);
+    let mut battle = battle(
+        catalog(program, true, false, false, false),
+        true,
+        false,
+        false,
+    );
     let resolution = start_and_use(&mut battle).unwrap();
     let damage = resolution
         .events()
@@ -426,7 +635,12 @@ fn selected_build_modifier_changes_rule_ir_stat_query_inside_transaction() {
 #[test]
 fn selected_rule_bundle_dispatches_once_after_the_authored_hit_event() {
     let program = ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![], vec![]);
-    let mut battle = battle(catalog(program, false, true, false), false, true);
+    let mut battle = battle(
+        catalog(program, false, true, false, false),
+        false,
+        true,
+        false,
+    );
     let resolution = start_and_use(&mut battle).unwrap();
     let damage = resolution
         .events()
@@ -463,7 +677,12 @@ fn recursively_emitting_rule_faults_at_the_dispatch_budget_and_rolls_back() {
                 can_crit: false,
             }),
         ]);
-    let mut battle = battle(catalog(program, false, true, true), false, true);
+    let mut battle = battle(
+        catalog(program, false, true, true, false),
+        false,
+        true,
+        false,
+    );
     let resolution = start_and_use(&mut battle).unwrap();
 
     assert!(resolution.fault().is_some());
@@ -484,6 +703,77 @@ fn recursively_emitting_rule_faults_at_the_dispatch_budget_and_rolls_back() {
 }
 
 #[test]
+fn representative_rule_emissions_use_authoritative_runtime_services() {
+    let program = ProgramDefinition::new(id(1), vec![], vec![], vec![], vec![]);
+    let mut battle = battle(
+        catalog(program, false, true, false, true),
+        false,
+        true,
+        true,
+    );
+    let resolution = start_and_use(&mut battle).unwrap();
+
+    assert!(
+        resolution.fault().is_none(),
+        "unexpected mechanics fault: {:?}",
+        resolution.fault()
+    );
+    assert!(resolution.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Action(starclock_combat::ActionEventData::Queued {
+            ability,
+            origin: starclock_combat::ActionOrigin::Counter,
+            ..
+        }) if ability.get() == 3
+    )));
+    assert!(resolution.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Unit(starclock_combat::UnitEventData::Summoned {
+            kind: LinkedEntityKind::Memosprite,
+            ..
+        })
+    )));
+    assert!(resolution.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Unit(starclock_combat::UnitEventData::CountdownCreated {
+            ability,
+            ..
+        }) if ability.get() == 4
+    )));
+    let effect_events = resolution
+        .events()
+        .iter()
+        .filter(|event| matches!(event.kind(), BattleEventKind::Effect(_)))
+        .count();
+    assert_eq!(effect_events, 2);
+    assert_eq!(battle.view().effects_by_id().count(), 0);
+    assert_eq!(battle.view().units_by_id().count(), 3);
+    assert_eq!(battle.view().links().count(), 2);
+    assert_eq!(
+        battle
+            .view()
+            .rule_instances_by_id()
+            .next()
+            .unwrap()
+            .slots()
+            .next()
+            .unwrap()
+            .1,
+        &RuleValue::Integer(0)
+    );
+    assert_eq!(
+        battle
+            .view()
+            .units_by_id()
+            .find(|unit| unit.form().get() == 2)
+            .unwrap()
+            .current_hp()
+            .get(),
+        975
+    );
+}
+
+#[test]
 fn unsupported_program_emission_rolls_back_the_whole_command() {
     let program =
         ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![], vec![]).with_steps(vec![
@@ -494,7 +784,12 @@ fn unsupported_program_emission_rolls_back_the_whole_command() {
                 )),
             }),
         ]);
-    let mut battle = battle(catalog(program, false, false, false), false, false);
+    let mut battle = battle(
+        catalog(program, false, false, false, false),
+        false,
+        false,
+        false,
+    );
     battle
         .apply(Command::StartBattle {
             decision: battle.decision().unwrap().id(),

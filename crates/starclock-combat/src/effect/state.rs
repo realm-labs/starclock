@@ -199,13 +199,16 @@ impl EffectStore {
         &self,
         target: UnitId,
         category: DispelCategory,
+        required_definition: Option<EffectDefinitionId>,
         required_tag: Option<SourceDefinitionId>,
     ) -> Vec<EffectInstanceId> {
         self.entries
             .values()
             .filter(|entry| {
                 entry.target == target
-                    && entry.dispel == category
+                    && required_definition.map_or(entry.dispel == category, |definition| {
+                        entry.definition == definition
+                    })
                     && required_tag.is_none_or(|tag| entry.tags.binary_search(&tag).is_ok())
             })
             .map(|entry| entry.id)
@@ -510,16 +513,16 @@ mod tests {
         assert!(store.blocks(unit(10), ControlledAction::NormalAction));
         assert!(!store.blocks(unit(10), ControlledAction::Ultimate));
         assert_eq!(
-            store.removable_for(unit(10), DispelCategory::CleanseableControl, None),
+            store.removable_for(unit(10), DispelCategory::CleanseableControl, None, None),
             [effect(1)]
         );
         assert_eq!(
-            store.removable_for(unit(11), DispelCategory::DispellableBuff, None),
+            store.removable_for(unit(11), DispelCategory::DispellableBuff, None, None),
             [effect(2)]
         );
         assert!(
             store
-                .removable_for(unit(10), DispelCategory::NonDispellable, None)
+                .removable_for(unit(10), DispelCategory::NonDispellable, None, None)
                 .is_empty()
         );
     }

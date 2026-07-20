@@ -51,9 +51,9 @@ pub use numeric::scalar::{Ratio, Scalar};
 // Deliberate stable battle facade over private aggregate/store modules.
 pub use action::model::ActionOrigin;
 pub use actor::link::{
-    CountdownDefinition, LinkedEntity, LinkedEntityKind, LinkedUnitDefinition, OwnerLinkPolicy,
-    ReviveDefinition, ReviveGaugePolicy, TransformEndPolicy, TransformationDefinition,
-    WaveLinkPolicy,
+    CountdownCatalogDefinition, CountdownDefinition, LinkedEntity, LinkedEntityKind,
+    LinkedUnitCatalogDefinition, LinkedUnitDefinition, OwnerLinkPolicy, ReviveDefinition,
+    ReviveGaugePolicy, TransformEndPolicy, TransformationDefinition, WaveLinkPolicy,
 };
 pub use actor::model::{LifeState, PresenceState};
 pub use battle::aggregate::Battle;

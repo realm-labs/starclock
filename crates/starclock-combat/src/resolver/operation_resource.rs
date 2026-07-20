@@ -78,11 +78,12 @@ pub(super) fn execute_modify_state_slot(
     parent: EventId,
     operation: ModifyStateSlotOp,
 ) -> Result<EventId, BattleFault> {
-    let instance = txn
-        .state
-        .rules
-        .instance_for(operation.owner, operation.definition.rule)
-        .ok_or_else(|| invariant_fault(41))?;
+    let instance = operation.instance.or_else(|| {
+        txn.state
+            .rules
+            .instance_for(operation.owner, operation.definition.rule)
+    });
+    let instance = instance.ok_or_else(|| invariant_fault(41))?;
     let (before, after) = txn
         .state
         .rules

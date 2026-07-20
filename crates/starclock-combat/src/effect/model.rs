@@ -351,6 +351,7 @@ impl DotDetonationDefinition {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EffectRemovalDefinition {
     pub category: DispelCategory,
+    pub required_definition: Option<EffectDefinitionId>,
     pub required_tag: Option<SourceDefinitionId>,
     pub maximum: u16,
 }
@@ -367,7 +368,22 @@ impl EffectRemovalDefinition {
         } else {
             Some(Self {
                 category,
+                required_definition: None,
                 required_tag,
+                maximum,
+            })
+        }
+    }
+
+    #[must_use]
+    pub const fn exact(definition: EffectDefinitionId, maximum: u16) -> Option<Self> {
+        if maximum == 0 {
+            None
+        } else {
+            Some(Self {
+                category: DispelCategory::NonDispellable,
+                required_definition: Some(definition),
+                required_tag: None,
                 maximum,
             })
         }

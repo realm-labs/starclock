@@ -9,15 +9,18 @@ use crate::{
         model::{BattleEventKind, ResourceEventData, SkillPointPayer},
     },
     operation::{
-        AddWeaknessOp, ApplyEffectOp, ChangePresenceOp, ConsumeHpOp, DamageOp, DetonateDotsOp,
-        HitOperationScratch, Operation, ReduceToughnessOp, SuperBreakOp, TransformOp,
+        AddWeaknessOp, ApplyEffectOp, ChangePresenceOp, ConsumeHpOp, CreateCountdownOp, DamageOp,
+        DetonateDotsOp, HitOperationScratch, ModifyStateSlotOp, Operation, QueueRuleActionOp,
+        ReduceToughnessOp, RemoveEffectsOp, SummonLinkedOp, SuperBreakOp, TransformOp,
         UnitLifecycleOp,
     },
     rule::{
         evaluate::{EvaluationBudget, evaluate_program},
         model::{
-            ResourceUpdateKind, RuleCause, RuleEffectChancePolicy, RuleEmission,
-            RuleEvaluationInput, RuleOccurrence, RuleResourceKind, RuleValue, SelectorResult,
+            ResourceUpdateKind, RuleActionOwner, RuleActionPaymentPolicy, RuleCause,
+            RuleEffectChancePolicy, RuleEmission, RuleEvaluationInput, RuleOccurrence,
+            RuleResourceKind, RuleSlotMutationDefinition, RuleValue, SelectorResult,
+            StateSlotUpdateKind,
         },
     },
 };
@@ -32,6 +35,9 @@ pub(super) struct AbilityProgramContext {
     pub(super) actor: crate::UnitId,
     pub(super) ability: crate::AbilityId,
     pub(super) action: crate::ActionId,
+    pub(super) rule: Option<crate::RuleId>,
+    pub(super) rule_instance: Option<crate::RuleInstanceId>,
+    pub(super) trigger: Option<crate::TriggerId>,
     pub(super) hit: Option<crate::HitId>,
     pub(super) primary: Option<crate::UnitId>,
     pub(super) damage_share: Ratio,
@@ -183,6 +189,20 @@ fn execute_emission(
 ) -> Result<crate::EventId, BattleFault> {
     let operation_id = txn.allocate_operation();
     let request = match emission {
+        RuleEmission::SetSlot { slot, value, .. } => Operation::ModifyStateSlot(slot_operation(
+            context,
+            operation_id,
+            slot,
+            StateSlotUpdateKind::Set,
+            value,
+        )?),
+        RuleEmission::AddSlot { slot, value, .. } => Operation::ModifyStateSlot(slot_operation(
+            context,
+            operation_id,
+            slot,
+            StateSlotUpdateKind::Add,
+            value,
+        )?),
         RuleEmission::Damage {
             selector,
             amount,
@@ -277,6 +297,7 @@ fn execute_emission(
             effect,
             chance,
             base_chance,
+            rng_purpose,
             ..
         } => {
             let chance = match chance {
@@ -296,8 +317,17 @@ fn execute_emission(
                 targets: targets(resolved, selector)?,
                 definition: crate::EffectApplicationDefinition::new(effect, chance, 1)
                     .expect("one stack is valid"),
+                rng_purpose,
             })
         }
+        RuleEmission::RemoveEffect {
+            selector, effect, ..
+        } => Operation::RemoveEffects(RemoveEffectsOp {
+            id: operation_id,
+            targets: targets(resolved, selector)?,
+            definition: crate::EffectRemovalDefinition::exact(effect, u16::MAX)
+                .expect("nonzero maximum is valid"),
+        }),
         RuleEmission::DetonateDot {
             selector,
             fraction,
@@ -318,6 +348,44 @@ fn execute_emission(
             selector, amount, ..
         } => {
             return shift_action(txn, parent, resolved, selector, amount, false);
+        }
+        RuleEmission::ModifyStateSlot {
+            slot,
+            update,
+            value,
+            ..
+        } => {
+            Operation::ModifyStateSlot(slot_operation(context, operation_id, slot, update, value)?)
+        }
+        RuleEmission::QueueAction {
+            actor_selector,
+            target_selector,
+            ability,
+            priority,
+            forced_use,
+            owner,
+            payment,
+            ..
+        } => {
+            let rule = context.rule.ok_or_else(|| program_fault(45, 0))?;
+            let instance = context.rule_instance.ok_or_else(|| program_fault(46, 0))?;
+            let trigger = context.trigger.ok_or_else(|| program_fault(47, 0))?;
+            Operation::QueueRuleAction(QueueRuleActionOp {
+                id: operation_id,
+                actors: targets(resolved, actor_selector)?,
+                targets: targets(resolved, target_selector)?,
+                owner: queue_owner(cause, context, owner)?,
+                ability,
+                origin: queue_origin(catalog, ability, forced_use)?,
+                priority: priority.get(),
+                payment: queue_payment(payment)?,
+                source: cause
+                    .source_definition()
+                    .ok_or_else(|| program_fault(48, 0))?,
+                rule,
+                instance,
+                trigger,
+            })
         }
         RuleEmission::ModifyResource {
             selector,
@@ -340,6 +408,19 @@ fn execute_emission(
         RuleEmission::Despawn { selector, .. } => Operation::DespawnLinked(UnitLifecycleOp {
             id: operation_id,
             targets: targets(resolved, selector)?,
+        }),
+        RuleEmission::Summon {
+            owner_selector,
+            unit_definition,
+            ..
+        } => Operation::SummonLinked(SummonLinkedOp {
+            id: operation_id,
+            owners: targets(resolved, owner_selector)?,
+            definition: catalog
+                .linked_unit(unit_definition)
+                .ok_or_else(|| program_fault(49, i64::from(unit_definition.get())))?
+                .definition()
+                .clone(),
         }),
         RuleEmission::Transform {
             selector,
@@ -379,6 +460,16 @@ fn execute_emission(
                 parent,
             );
         }
+        RuleEmission::CreateCountdown { code, .. } => {
+            Operation::CreateCountdown(CreateCountdownOp {
+                id: operation_id,
+                owner: context.owner,
+                definition: catalog
+                    .countdown(code)
+                    .ok_or_else(|| program_fault(50, i64::from(code)))?
+                    .definition(),
+            })
+        }
         unsupported => return Err(program_fault(12, emission_code(&unsupported))),
     };
     execute_operation(catalog, txn, cause, parent, request, scratch)
@@ -393,6 +484,86 @@ fn targets(
         .ok()
         .map(|index| resolved[index].1.clone())
         .ok_or_else(|| program_fault(20, i64::from(selector.get())))
+}
+
+fn slot_operation(
+    context: &AbilityProgramContext,
+    id: crate::OperationId,
+    slot: crate::StateSlotDefinitionId,
+    update: StateSlotUpdateKind,
+    value: RuleValue,
+) -> Result<ModifyStateSlotOp, BattleFault> {
+    let rule = context.rule.ok_or_else(|| program_fault(52, 0))?;
+    let instance = context.rule_instance.ok_or_else(|| program_fault(53, 0))?;
+    Ok(ModifyStateSlotOp {
+        id,
+        owner: context.owner,
+        instance: Some(instance),
+        definition: RuleSlotMutationDefinition {
+            rule,
+            slot,
+            update,
+            value,
+        },
+    })
+}
+
+fn queue_owner(
+    cause: Cause,
+    context: &AbilityProgramContext,
+    owner: RuleActionOwner,
+) -> Result<crate::UnitId, BattleFault> {
+    match owner {
+        RuleActionOwner::Actor => Some(context.actor),
+        RuleActionOwner::CauseOwner => cause.owner(),
+        RuleActionOwner::CauseApplier => cause.applier(),
+    }
+    .ok_or_else(|| program_fault(54, 0))
+}
+
+fn queue_payment(
+    payment: Option<RuleActionPaymentPolicy>,
+) -> Result<Option<crate::catalog::action::SkillPointPaymentPolicy>, BattleFault> {
+    payment
+        .map(|payment| match payment {
+            RuleActionPaymentPolicy::TeamSkillPoints => {
+                Ok(crate::catalog::action::SkillPointPaymentPolicy::TeamSkillPoints)
+            }
+            RuleActionPaymentPolicy::Suppressed => {
+                Ok(crate::catalog::action::SkillPointPaymentPolicy::Suppressed)
+            }
+            RuleActionPaymentPolicy::TeamResource(_) => Err(program_fault(55, 0)),
+        })
+        .transpose()
+}
+
+fn queue_origin(
+    catalog: &crate::catalog::CombatCatalog,
+    ability: crate::AbilityId,
+    forced: bool,
+) -> Result<crate::ActionOrigin, BattleFault> {
+    if forced {
+        return Ok(crate::ActionOrigin::Forced);
+    }
+    let kind = catalog
+        .ability(ability)
+        .and_then(crate::catalog::definition::AbilityDefinition::action)
+        .map(crate::catalog::action::AbilityActionDefinition::kind)
+        .ok_or_else(|| program_fault(56, i64::from(ability.get())))?;
+    use crate::{ActionOrigin as O, catalog::action::AbilityKind as K};
+    match kind {
+        K::Ultimate => Some(O::UltimateInterrupt),
+        K::FollowUp => Some(O::FollowUp),
+        K::Counter => Some(O::Counter),
+        K::ExtraTurn => Some(O::ExtraTurn),
+        K::ExtraAction => Some(O::ExtraAction),
+        K::DelayedAction => Some(O::DelayedAction),
+        K::Summon => Some(O::SummonAction),
+        K::Memosprite => Some(O::MemospriteAction),
+        K::Countdown => Some(O::Countdown),
+        K::Basic | K::Skill => None,
+    }
+    .ok_or_else(|| program_fault(57, i64::from(ability.get())))
 }
 
 fn shift_action(
