@@ -4,16 +4,16 @@ use starclock_combat::{
     Battle, BattleEventKind, BattlePhase, BattleSeed, BattleSpec, BattleSpecDigest,
     CombatantSpecDigest, Command, CommandErrorKind, ConcedePolicy, EncounterWaveId, FormationIndex,
     Hp, LifeState, ParticipantSource, ParticipantSpec, PresenceState, Ratio, ResolvedCombatantSpec,
-    ResolvedDefinitionBindings, Scalar, Speed, TeamResourceSpec, TeamSide, ToughnessLayerKind,
-    ToughnessLayerSpec, ToughnessReductionDefinition, UnitLevel,
+    ResolvedDefinitionBindings, Scalar, Speed, StatValue, TeamResourceSpec, TeamSide,
+    ToughnessLayerKind, ToughnessLayerSpec, ToughnessReductionDefinition, UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
             AbilityActionDefinition, AbilityKind, ActionHitDefinition, ActionResourcePolicy,
             HealingDefinition, HitOperationDefinition, HpConsumptionDefinition,
-            OrdinaryDamageDefinition, OrdinaryDamageMultipliers, ShieldDefinition,
-            TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
-            WeaknessApplicationDefinition,
+            OrdinaryDamageDefinition, OrdinaryDamageMultipliers, ScalingDamageDefinition,
+            ShieldDefinition, TargetInvalidationPolicy, TargetPattern, TargetRelation,
+            UnitTargetSelector, WeaknessApplicationDefinition,
         },
         builder::CombatCatalogBuilder,
         definition::{
@@ -173,6 +173,23 @@ fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<Comb
             ),
         ),
     );
+    builder.add_ability(
+        AbilityDefinition::new(definition(6), definition(2), definition(2), vec![]).with_action(
+            action(
+                AbilityKind::Basic,
+                vec![vec![HitOperationDefinition::ScalingDamage(
+                    ScalingDamageDefinition::new(
+                        starclock_combat::modifier::model::StatKind::Atk,
+                        Ratio::from_scaled(500_000),
+                        starclock_combat::formula::model::DamageClass::Direct,
+                        CombatElement::Fire,
+                    )
+                    .unwrap(),
+                )]],
+                TargetInvalidationPolicy::KeepIfPresent,
+            ),
+        ),
+    );
     let concurrent = ShieldAbsorptionPolicy::ConcurrentLargest;
     builder.add_ability(
         AbilityDefinition::new(definition(4), definition(1), definition(1), vec![]).with_action(
@@ -231,7 +248,13 @@ fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<Comb
     );
     builder.add_unit(UnitDefinition::new(
         definition(1),
-        vec![definition(1), definition(2), definition(4), definition(5)],
+        vec![
+            definition(1),
+            definition(2),
+            definition(4),
+            definition(5),
+            definition(6),
+        ],
         vec![],
     ));
     builder.add_unit(UnitDefinition::new(
@@ -479,6 +502,51 @@ fn use_ability(battle: &mut Battle, ability: u32) -> starclock_combat::Resolutio
         })
         .clone();
     battle.apply(command).unwrap()
+}
+
+#[test]
+fn scaling_hit_damage_resolves_the_actors_live_stat() {
+    let player = combatant(1, vec![6], 1_000, 1_000_000_000, 0x31).with_base_attack_defense(
+        StatValue::from_scaled(2_000_000_000).unwrap(),
+        StatValue::from_scaled(0).unwrap(),
+    );
+    let enemy = combatant(2, vec![3], 2_000, 1_000_000, 0x41);
+    let spec = BattleSpec::new(
+        "scaling-hit-damage-v1",
+        BattleSpecDigest::new([0x51; 32]).unwrap(),
+        definition(1),
+        vec![
+            ParticipantSpec::new(
+                TeamSide::Player,
+                FormationIndex::new(0).unwrap(),
+                ParticipantSource::Player,
+                player,
+            ),
+            ParticipantSpec::new(
+                TeamSide::Enemy,
+                FormationIndex::new(4).unwrap(),
+                ParticipantSource::EncounterEnemy(definition(1)),
+                enemy,
+            ),
+        ],
+        TeamResourceSpec::new(0, 5).unwrap(),
+        TeamResourceSpec::new(0, 0).unwrap(),
+        ConcedePolicy::Allowed,
+    )
+    .unwrap();
+    let mut battle = Battle::create(catalog(1), spec, BattleSeed::new([0x61; 32])).unwrap();
+    start_and_pass(&mut battle);
+    let resolution = use_ability(&mut battle, 6);
+    let damage = resolution
+        .events()
+        .iter()
+        .find_map(|event| match event.kind() {
+            BattleEventKind::Damage(data) => Some(data),
+            _ => None,
+        })
+        .expect("scaling operation must emit damage");
+    assert_eq!(damage.raw.scaled(), 1_000_000_000);
+    assert_eq!(damage.calculated.get(), 1_000);
 }
 
 #[test]

@@ -179,6 +179,56 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
 }
 
 #[test]
+fn production_asta_basic_executes_minimum_and_maximum_hit_formulas() {
+    use starclock_combat::{
+        catalog::action::HitOperationDefinition,
+        formula::model::{CombatElement, DamageClass},
+        modifier::model::StatKind,
+    };
+
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let combat = catalog.combat_catalog();
+    for (raw, coefficient, damage) in [(20_013, 500_000, 1_000), (1_000_640_426, 1_400_000, 2_800)]
+    {
+        let ability = combat
+            .ability(starclock_combat::AbilityId::new(raw).unwrap())
+            .expect("Asta Basic effective-level variant");
+        let hit = &ability.action().expect("compiled action").hits()[0];
+        assert_eq!(hit.operations().len(), 2);
+        let HitOperationDefinition::ScalingDamage(definition) = hit.operations()[0] else {
+            panic!("first operation must be live-stat damage");
+        };
+        assert_eq!(definition.scaling_stat(), StatKind::Atk);
+        assert_eq!(definition.coefficient().scaled(), coefficient);
+        assert_eq!(definition.class(), DamageClass::Direct);
+        assert_eq!(definition.element(), CombatElement::Fire);
+        let formula = definition
+            .resolve(starclock_combat::Scalar::checked_from_integer(2_000).unwrap())
+            .unwrap();
+        assert_eq!(
+            formula
+                .base_damage()
+                .rounded_integer(starclock_combat::Rounding::Floor)
+                .unwrap(),
+            damage
+        );
+
+        let HitOperationDefinition::ReduceToughness(definition) = hit.operations()[1] else {
+            panic!("second operation must reduce Toughness");
+        };
+        assert_eq!(definition.element, CombatElement::Fire);
+        assert_eq!(definition.reduction.base.get(), 30);
+        assert_eq!(
+            starclock_combat::formula::toughness::reduction(definition.reduction)
+                .unwrap()
+                .attempted
+                .get(),
+            30
+        );
+    }
+}
+
+#[test]
 fn production_representatives_compile_at_e0_and_complete_e6() {
     use starclock_build::{
         ability::AbilityInvestment,

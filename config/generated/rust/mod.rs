@@ -103,8 +103,11 @@ pub mod evidence_record;
 pub mod fact_quality;
 pub mod formula_purpose;
 pub mod formula_stage;
+pub mod hit_damage_class;
+pub mod hit_element;
 pub mod hit_plan;
 pub mod hit_plan_hit;
+pub mod hit_scaling_stat;
 pub mod hit_target_group;
 pub mod life_predicate;
 pub mod light_cone;
@@ -203,7 +206,7 @@ pub mod wave_slot;
 pub mod wave_transition_policy;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "44b61f2edeb81d34";
+pub const SCHEMA_FINGERPRINT: &str = "8bf57e681db11aef";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {

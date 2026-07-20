@@ -34,6 +34,18 @@ values = ["Primary", "Adjacent", "Selected", "All", "BounceDraw", "SelfTarget"]
 name = "CritPolicy"
 values = ["PerTarget", "Shared", "Never"]
 
+[[enums]]
+name = "HitScalingStat"
+values = ["Atk", "Hp", "Def"]
+
+[[enums]]
+name = "HitDamageClass"
+values = ["Ordinary", "Dot", "Additional", "Elation"]
+
+[[enums]]
+name = "HitElement"
+values = ["Physical", "Fire", "Ice", "Lightning", "Wind", "Quantum", "Imaginary"]
+
 [[tables]]
 name = "Ability"
 mode = "map"
@@ -269,6 +281,27 @@ range = [1, 100]
 [[tables.fields]]
 name = "hit_plan_id"
 type = "ref<HitPlan.id>"
+
+[[tables.fields]]
+name = "damage_parameter_key"
+type = "optional<string>"
+
+[[tables.fields]]
+name = "damage_scaling_stat"
+type = "optional<enum<HitScalingStat>>"
+
+[[tables.fields]]
+name = "damage_class"
+type = "optional<enum<HitDamageClass>>"
+
+[[tables.fields]]
+name = "element"
+type = "optional<enum<HitElement>>"
+
+[[tables.fields]]
+name = "base_toughness_decimal"
+type = "optional<string>"
+length = [1, 32]
 
 [[tables.indexes]]
 name = "by_ability_phase"

@@ -233,6 +233,15 @@ pub(super) fn execute_action_plan(
             parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
             for operation in &hit.operations {
                 let request = match &operation.definition {
+                    HitOperationDefinition::ScalingDamage(definition) => {
+                        let formula =
+                            resolve_scaling_damage(catalog, txn, plan.actor, *definition)?;
+                        Operation::Damage(DamageOp {
+                            id: operation.id,
+                            targets: targets.clone(),
+                            formula,
+                        })
+                    }
                     HitOperationDefinition::Damage(formula) => Operation::Damage(DamageOp {
                         id: operation.id,
                         targets: targets.clone(),
@@ -476,6 +485,44 @@ pub(super) fn execute_action_plan(
         }),
     );
     super::rule::dispatch_pending_after_events(catalog, txn, parent)
+}
+
+fn resolve_scaling_damage(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &Transaction<'_>,
+    actor: crate::UnitId,
+    definition: crate::catalog::action::ScalingDamageDefinition,
+) -> Result<crate::catalog::action::OrdinaryDamageDefinition, BattleFault> {
+    use crate::modifier::model::{FormulaPurpose, StatQuerySubject};
+    use crate::rule::evaluate::StatQueryReader;
+
+    let bases = super::program::stat_bases(txn)?;
+    let modifiers = txn
+        .state
+        .modifiers
+        .iter_by_id()
+        .cloned()
+        .collect::<Vec<_>>();
+    let reader = crate::modifier::resolve::StatResolver::new(
+        catalog.modifier_registry(),
+        &bases,
+        &modifiers,
+    );
+    let purpose = match definition.class() {
+        crate::formula::model::DamageClass::Direct => FormulaPurpose::OrdinaryDamage,
+        crate::formula::model::DamageClass::Dot => FormulaPurpose::Dot,
+        crate::formula::model::DamageClass::Additional => FormulaPurpose::AdditionalDamage,
+        crate::formula::model::DamageClass::Elation => FormulaPurpose::ElationDamage,
+    };
+    let stat = reader
+        .query_stat(
+            StatQuerySubject::Actor,
+            actor,
+            definition.scaling_stat(),
+            purpose,
+        )
+        .map_err(|_| action_fault(34))?;
+    definition.resolve(stat).map_err(|_| action_fault(35))
 }
 
 #[allow(clippy::too_many_arguments)]

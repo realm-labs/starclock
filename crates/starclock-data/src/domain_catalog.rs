@@ -19,13 +19,14 @@ use starclock_build::{
     trace::{TraceGraphDefinition, TraceNodeDefinition},
 };
 use starclock_combat::{
-    AbilityId, Energy, Hp, ProgramId, ResolvedDefinitionBindings, Rounding, RuleBundleId,
-    SelectorId, SourceDefinitionId, Speed, StatValue, UnitDefinitionId,
+    AbilityId, Energy, Hp, ProgramId, Ratio, RawToughness, ResolvedDefinitionBindings, Rounding,
+    RuleBundleId, SelectorId, SourceDefinitionId, Speed, StatValue, UnitDefinitionId,
     catalog::{
         CombatCatalog,
         action::{
             AbilityActionDefinition, AbilityKind, AbilityProgramBinding, AbilityProgramTiming,
-            AbilityTag, ActionHitDefinition, ActionResourcePolicy, HitCritPolicy, HitTargetGroup,
+            AbilityTag, ActionHitDefinition, ActionResourcePolicy, HitCritPolicy,
+            HitOperationDefinition, HitTargetGroup, ScalingDamageDefinition,
             TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
@@ -89,6 +90,7 @@ fn compile_combat(
                 .map(|binding| (binding.ability, character.base_energy))
         })
         .collect::<BTreeMap<_, _>>();
+    let ability_parameters = ability_parameter_map(builds)?;
 
     for selector in &combat.selectors {
         builder.add_selector(
@@ -135,6 +137,7 @@ fn compile_combat(
             program,
             ultimate_costs.get(&ability.id).copied(),
             &combat.hit_plans,
+            &ability_parameters,
         )?;
         for variant in variant_ids.get(&ability.id).into_iter().flatten() {
             add_combat_ability(
@@ -144,6 +147,7 @@ fn compile_combat(
                 program,
                 ultimate_costs.get(&ability.id).copied(),
                 &combat.hit_plans,
+                &ability_parameters,
             )?;
         }
     }
@@ -446,6 +450,7 @@ fn add_combat_ability(
     program: ProgramId,
     ultimate_cost: Option<starclock_combat::Scalar>,
     hit_plans: &[crate::catalog::HitPlanDefinition],
+    ability_parameters: &BTreeMap<AbilityId, BTreeMap<Box<str>, starclock_combat::Scalar>>,
 ) -> Result<(), CatalogLoadError> {
     let selector = ability_selector(source.id)?;
     let mut action = AbilityActionDefinition::new(
@@ -456,29 +461,62 @@ fn add_combat_ability(
     )
     .ok_or_else(|| domain_fail("invalid structural ability action"))?
     .with_tags(&ability_tags(source.semantic_tags));
-    if !source.hit_plan_ids.is_empty() {
+    if !source.hit_plan_bindings.is_empty() {
         let hits = source
-            .hit_plan_ids
+            .hit_plan_bindings
             .iter()
-            .map(|id| {
+            .map(|binding| {
                 hit_plans
-                    .binary_search_by_key(id, |plan| plan.id)
+                    .binary_search_by_key(&binding.hit_plan_id, |plan| plan.id)
                     .ok()
-                    .map(|index| &hit_plans[index])
+                    .map(|index| (binding, &hit_plans[index]))
                     .ok_or_else(|| domain_fail("ability hit plan disappeared during compilation"))
             })
             .collect::<Result<Vec<_>, _>>()?
             .into_iter()
-            .flat_map(|plan| plan.hits.iter())
-            .map(|hit| {
-                ActionHitDefinition::new(Vec::new()).with_profile(
+            .flat_map(|(binding, plan)| plan.hits.iter().map(move |hit| (binding, hit)))
+            .map(|(binding, hit)| {
+                let mut operations = Vec::new();
+                if let Some(key) = binding.damage_parameter_key.as_deref() {
+                    let coefficient = ability_parameters
+                        .get(&id)
+                        .and_then(|parameters| parameters.get(key))
+                        .ok_or_else(|| domain_fail("ability hit formula parameter is missing"))?;
+                    let coefficient = Ratio::from_scaled(coefficient.scaled())
+                        .checked_mul(hit.damage_ratio, Rounding::NearestTiesEven)
+                        .map_err(domain_fail)?;
+                    operations.push(HitOperationDefinition::ScalingDamage(
+                        ScalingDamageDefinition::new(
+                            binding.damage_scaling_stat.expect("validated damage stat"),
+                            coefficient,
+                            binding.damage_class.expect("validated damage class"),
+                            binding.element.expect("validated damage element"),
+                        )
+                        .map_err(domain_fail)?,
+                    ));
+                }
+                if let Some(base) = binding.base_toughness {
+                    let scaled = hit
+                        .toughness_ratio
+                        .checked_apply(base, Rounding::NearestTiesEven)
+                        .map_err(domain_fail)?;
+                    let base =
+                        RawToughness::from_scalar(scaled, Rounding::Floor).map_err(domain_fail)?;
+                    operations.push(HitOperationDefinition::ReduceToughness(
+                        toughness_reduction(
+                            binding.element.expect("validated Toughness element"),
+                            base,
+                        ),
+                    ));
+                }
+                Ok(ActionHitDefinition::new(operations).with_profile(
                     hit_target_group(hit.target_group),
                     hit.damage_ratio,
                     hit.toughness_ratio,
                     hit_crit_policy(hit.crit_policy),
-                )
+                ))
             })
-            .collect::<Vec<_>>();
+            .collect::<Result<Vec<_>, CatalogLoadError>>()?;
         action = action
             .with_hits(hits)
             .ok_or_else(|| domain_fail("compiled ability hit count exceeds combat bounds"))?;
@@ -532,6 +570,37 @@ fn hit_crit_policy(value: u8) -> HitCritPolicy {
     }
 }
 
+fn toughness_reduction(
+    element: starclock_combat::formula::model::CombatElement,
+    base: RawToughness,
+) -> starclock_combat::ToughnessReductionDefinition {
+    use starclock_combat::formula::toughness::{BreakDamageDefinition, ToughnessReductionContext};
+    starclock_combat::ToughnessReductionDefinition {
+        element,
+        reduction: ToughnessReductionContext {
+            base,
+            additive: RawToughness::new(0).expect("zero is valid"),
+            reduction_increase: starclock_combat::Ratio::ZERO,
+            weakness_break_efficiency: starclock_combat::Ratio::ZERO,
+            weakness_break_efficiency_cap: starclock_combat::Ratio::from_scaled(3_000_000),
+            toughness_vulnerability: starclock_combat::Ratio::ZERO,
+            ability_multiplier: starclock_combat::Ratio::ONE,
+        },
+        break_damage: BreakDamageDefinition {
+            attacker_level_multiplier: starclock_combat::Scalar::ONE,
+            ability_multiplier: starclock_combat::Ratio::ONE,
+            break_effect: starclock_combat::Ratio::ZERO,
+            break_damage_increase: starclock_combat::Ratio::ZERO,
+            defense_multiplier: starclock_combat::Ratio::ONE,
+            resistance_multiplier: starclock_combat::Ratio::ONE,
+            vulnerability_multiplier: starclock_combat::Ratio::ONE,
+            mitigation_multiplier: starclock_combat::Ratio::ONE,
+            unbroken_multiplier: starclock_combat::Ratio::ONE,
+        },
+        break_effect_chance: starclock_combat::Probability::ONE,
+    }
+}
+
 fn variant_map(
     builds: &BuildDefinitions,
 ) -> Result<BTreeMap<AbilityId, Vec<AbilityId>>, CatalogLoadError> {
@@ -549,6 +618,25 @@ fn variant_map(
             })
             .collect::<Result<Vec<_>, _>>()?;
         output.insert(binding.ability, levels);
+    }
+    Ok(output)
+}
+
+fn ability_parameter_map(
+    builds: &BuildDefinitions,
+) -> Result<BTreeMap<AbilityId, BTreeMap<Box<str>, starclock_combat::Scalar>>, CatalogLoadError> {
+    let mut output = BTreeMap::<AbilityId, BTreeMap<Box<str>, starclock_combat::Scalar>>::new();
+    for parameter in builds
+        .characters
+        .iter()
+        .flat_map(|character| character.ability_parameters.iter())
+    {
+        let level = u8::try_from(parameter.effective_level)
+            .map_err(|_| domain_fail("ability parameter level exceeds u8"))?;
+        output
+            .entry(variant_id(parameter.ability, level)?)
+            .or_default()
+            .insert(parameter.parameter_key.clone(), parameter.value);
     }
     Ok(output)
 }

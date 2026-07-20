@@ -6,11 +6,11 @@
   "identity_count": 750,
   "enabled_identity_count": 503,
   "table_count": 82,
-  "output_digest": "486a3a0005fa7689c5e845dc0fd32342dc9e8abc51bfcc2c86b91cb1ee2e60d5",
+  "output_digest": "5cca45303f94e20bb1bbf628708528581d0efdc4c910c1433e16d1eb73df7336",
   "files": {
-    "config.sora": "bd2944216bae3442600bd70c3600c129542fbd57cca8920f5077ccdbc4fc62e7",
+    "config.sora": "ad6ba85371e813c6603a372b43b84f2cbc9c80e025d7610c8f8c52c558af7a74",
     "debug-json/Ability.json": "01393ffc84045a7ddb9b27f740626cea03e72d88af59f09663bace091bfa4e60",
-    "debug-json/AbilityHitPlanBinding.json": "529caedd6db9c5b97561bc74571c23c3beacb50ca851b98123db5c06e601362a",
+    "debug-json/AbilityHitPlanBinding.json": "96fbc3ea48123c96d4a43bed6736285093bf7cb0380b01f7bb148282d4272b9e",
     "debug-json/AbilityLevelParameter.json": "3004fd8cdb45b239988c57895b9a2d7dfe1961dc2b3769708c04b4a14a943501",
     "debug-json/AbilityPhase.json": "0a58dfb045309de1a8d8282451539a177380bcbd9b2723fcfffa9aa2c62da960",
     "debug-json/AbilityResourceDelta.json": "006dbffc217ecf6bdd3adc6ecd7488cb1627ee1e84ed2702105fa97d0825cade",
@@ -92,7 +92,7 @@
     "debug-json/ValueExpression.json": "b1f841b4580eba3d23767640c2e998e291112fc59dc5944d0f1b4c79c35feab8",
     "debug-json/WaveSlot.json": "415f17bb7e5bdb6b975d90063842f3d578272b3f6a97b2cb5f341b069858f11d",
     "rust/ability.rs": "157e3976269082a95a8e3b8352648e0d7d91f6ef84a689331f03c9689e2c0715",
-    "rust/ability_hit_plan_binding.rs": "bfc54b120927212d7c8a5760c350efdc85cde64b222a2c0819f2419031aa5aeb",
+    "rust/ability_hit_plan_binding.rs": "e81ea3abb7e517b96848b800f2d390f7c03f9d25c39dfbaf4f27e298745de3c3",
     "rust/ability_kind.rs": "48707daac8c6f9d917d4ea1668a2ced81adc8a967f54ac7be0c3dee39338d2b9",
     "rust/ability_level_parameter.rs": "a9ac03cf948281d77d980b2579613c7b924f0b8d3fa4887151e940d676ab44c5",
     "rust/ability_phase.rs": "ee8ec0e44c629e1665614161a9f7d9c2d62d2dd004b8d8462a858593c8b969b6",
@@ -192,8 +192,11 @@
     "rust/fact_quality.rs": "7061f825bf5fc88dcd088acc97371e9710ceea6db1c6aa38a51a6942faff8ea7",
     "rust/formula_purpose.rs": "15b17f0113ecc45353ec453f33864d114c903421a1404c2ce0e14e007919f045",
     "rust/formula_stage.rs": "25d26961c50517cf3cdec59e8dbedd41f13020786d57bd66269208d637cbd371",
+    "rust/hit_damage_class.rs": "48d70e547d1771ff1fcf8ac3b06ec610003e78a424bcffbc704a816a35cffa08",
+    "rust/hit_element.rs": "5647b3c1b15cc344860dffe94a05f9a12ac969f195eebccf10ff780c71269625",
     "rust/hit_plan.rs": "bd5a536b0c5aa43448324ce02bd2a5345b5064466458bf2d6023d4e900dfa69d",
     "rust/hit_plan_hit.rs": "246608fa665d77d7ce3b937ccbfc735f2f5580d7440b680d7345bbc6506b555d",
+    "rust/hit_scaling_stat.rs": "e0a93d729ca94d042b60cfcd2cebab76057bf3b45254046e56a20c8af44090fa",
     "rust/hit_target_group.rs": "4040b419ab4aa2485f2d90b142a839d71273178b0a028cf0ec37970eb18cdd50",
     "rust/life_predicate.rs": "6828254351a0d28c6f320625024e0089cd08222c7a59cd8b8cdefee68e96432b",
     "rust/light_cone.rs": "1ad6e771c61fdd1d0f9ffe75b8a8c8e41006e50f4319f6f8cc2b491515cbde90",
@@ -207,7 +210,7 @@
     "rust/linked_unit_kind.rs": "cb01746b8f89a2fe8cda7fed3f8966664b248539bec845c24258ac9a4027d9ca",
     "rust/loadout_lock_scope.rs": "1efae84637315b00194eeca193f10fd5f34588d22743dc398935a51f119f4c80",
     "rust/mechanism_quality.rs": "bbfab5ab6e6090646d24fa8c3b732b450613226275c8e33081b8fc9168fecc70",
-    "rust/mod.rs": "19db8f553229020a92ee1c16eb25d517ea54558d6c080b34b0971d31ab196416",
+    "rust/mod.rs": "934844181b17d18689f5f6880695a4389e40f51e3e49c90daceb71241a121d9f",
     "rust/modifier_aggregation.rs": "15096825d07af7aa96097c1f949cf1e3dcb462f9b6d5d8683df0adf006edced6",
     "rust/modifier_definition.rs": "07a2174f9cbca75d67d3aa754aac45bb1b39156af2e9fce5608932ea91324460",
     "rust/modifier_filter.rs": "dac6f92c18ca6200fb7b244db645451c73713e6ae9cb49932bec240a08268b24",
@@ -291,6 +294,6 @@
     "rust/wave_link_policy.rs": "56f0019c85b4226ff02db77f1e495198fd116945c99412f9ec4ae0d06e01a000",
     "rust/wave_slot.rs": "08cdd04c3e1c0fd28c25436a1278b6529e48834997e421fcb6b3093cae7c76c1",
     "rust/wave_transition_policy.rs": "bb8017b95e2577087f5838e7211fd4e785a8c992e5f76be477b66042eb356354",
-    "schema.lock": "cf8343c9e007acdea07099601e801745a008ad80f33215a20faa0717da0aa3df"
+    "schema.lock": "684130bb2692b9cb199c525092cab0474a63b323710bea4494542b531413563d"
   }
 }

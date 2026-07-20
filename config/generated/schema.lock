@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "44b61f2edeb81d34",
+  "fingerprint": "8bf57e681db11aef",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -287,6 +287,50 @@
           "PerTarget",
           "Shared",
           "Never"
+        ]
+      },
+      {
+        "name": "HitScalingStat",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Atk",
+          "Hp",
+          "Def"
+        ]
+      },
+      {
+        "name": "HitDamageClass",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Ordinary",
+          "Dot",
+          "Additional",
+          "Elation"
+        ]
+      },
+      {
+        "name": "HitElement",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Physical",
+          "Fire",
+          "Ice",
+          "Lightning",
+          "Wind",
+          "Quantum",
+          "Imaginary"
         ]
       },
       {
@@ -8540,6 +8584,105 @@
             "default": null,
             "range": null,
             "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "damage_parameter_key",
+            "ty": {
+              "Optional": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "damage_scaling_stat",
+            "ty": {
+              "Optional": {
+                "Enum": "HitScalingStat"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "damage_class",
+            "ty": {
+              "Optional": {
+                "Enum": "HitDamageClass"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "element",
+            "ty": {
+              "Optional": {
+                "Enum": "HitElement"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "base_toughness_decimal",
+            "ty": {
+              "Optional": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
             "parser": null,
             "derived_from": null
           }

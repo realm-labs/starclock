@@ -523,6 +523,65 @@ pub struct OrdinaryDamageDefinition {
     class: crate::formula::model::DamageClass,
 }
 
+/// One live-stat damage coefficient retained by an authored ability hit.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ScalingDamageDefinition {
+    scaling_stat: crate::modifier::model::StatKind,
+    coefficient: Ratio,
+    class: crate::formula::model::DamageClass,
+    element: crate::formula::model::CombatElement,
+}
+
+impl ScalingDamageDefinition {
+    /// Creates a non-negative coefficient over one explicitly selected actor stat.
+    pub fn new(
+        scaling_stat: crate::modifier::model::StatKind,
+        coefficient: Ratio,
+        class: crate::formula::model::DamageClass,
+        element: crate::formula::model::CombatElement,
+    ) -> Result<Self, NumericError> {
+        if coefficient.scaled() < 0 {
+            Err(NumericError::OutOfDomain)
+        } else {
+            Ok(Self {
+                scaling_stat,
+                coefficient,
+                class,
+                element,
+            })
+        }
+    }
+
+    #[must_use]
+    pub const fn scaling_stat(self) -> crate::modifier::model::StatKind {
+        self.scaling_stat
+    }
+
+    #[must_use]
+    pub const fn coefficient(self) -> Ratio {
+        self.coefficient
+    }
+
+    #[must_use]
+    pub const fn class(self) -> crate::formula::model::DamageClass {
+        self.class
+    }
+
+    #[must_use]
+    pub const fn element(self) -> crate::formula::model::CombatElement {
+        self.element
+    }
+
+    /// Resolves the live actor stat into the ordinary formula's exact base amount.
+    pub fn resolve(self, stat: Scalar) -> Result<OrdinaryDamageDefinition, NumericError> {
+        let base = self
+            .coefficient
+            .checked_apply(stat, crate::Rounding::NearestTiesEven)?;
+        OrdinaryDamageDefinition::new(base, OrdinaryDamageMultipliers::new([Ratio::ONE; 9])?)
+            .map(|definition| definition.with_class(self.class))
+    }
+}
+
 impl OrdinaryDamageDefinition {
     /// Creates a non-negative base amount with explicit named multipliers.
     pub fn new(
@@ -723,6 +782,8 @@ impl HealingDefinition {
 /// Closed initial operation language allowed inside one authored hit.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum HitOperationDefinition {
+    /// Resolves a retained coefficient against the acting unit's live stat.
+    ScalingDamage(ScalingDamageDefinition),
     /// Ordinary HP damage through the general multiplier pipeline.
     Damage(OrdinaryDamageDefinition),
     /// HP restoration through the additive healing multiplier block.

@@ -97,3 +97,44 @@ pub(super) fn crit_policy(value: crate::generated::crit_policy::CritPolicy) -> u
         V::Never => 2,
     }
 }
+
+pub(super) fn hit_scaling_stat(
+    value: crate::generated::hit_scaling_stat::HitScalingStat,
+) -> starclock_combat::modifier::model::StatKind {
+    use crate::generated::hit_scaling_stat::HitScalingStat as V;
+    use starclock_combat::modifier::model::StatKind as O;
+    match value {
+        V::Atk => O::Atk,
+        V::Hp => O::Hp,
+        V::Def => O::Def,
+    }
+}
+
+pub(super) fn hit_damage_class(
+    value: crate::generated::hit_damage_class::HitDamageClass,
+) -> Result<starclock_combat::formula::model::DamageClass, crate::catalog::CatalogLoadError> {
+    use crate::generated::hit_damage_class::HitDamageClass as V;
+    use starclock_combat::formula::model::DamageClass as O;
+    match value {
+        V::Ordinary => Ok(O::Direct),
+        V::Dot => Ok(O::Dot),
+        V::Additional => Ok(O::Additional),
+        V::Elation => Ok(O::Elation),
+    }
+}
+
+pub(super) fn hit_element(
+    value: crate::generated::hit_element::HitElement,
+) -> starclock_combat::formula::model::CombatElement {
+    use crate::generated::hit_element::HitElement as V;
+    use starclock_combat::formula::model::CombatElement as O;
+    match value {
+        V::Physical => O::Physical,
+        V::Fire => O::Fire,
+        V::Ice => O::Ice,
+        V::Lightning => O::Lightning,
+        V::Wind => O::Wind,
+        V::Quantum => O::Quantum,
+        V::Imaginary => O::Imaginary,
+    }
+}

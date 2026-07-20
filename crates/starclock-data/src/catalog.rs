@@ -23,14 +23,17 @@ use crate::generated::{
     release_state::ReleaseState, runtime::SoraBundle,
 };
 
+mod hit_formula;
 mod validation;
 mod value_map;
 
+use hit_formula::AbilityHitPlanDefinition;
 use validation::bounded_u16;
 pub(super) use validation::{contiguous, positive, positive_u16};
 use value_map::{
-    ability_kind, ability_resource_kind, crit_policy, hit_target_group, resource_delta_kind,
-    resource_timing, retarget_policy, target_pattern,
+    ability_kind, ability_resource_kind, crit_policy, hit_damage_class, hit_element,
+    hit_scaling_stat, hit_target_group, resource_delta_kind, resource_timing, retarget_policy,
+    target_pattern,
 };
 
 const METADATA_TABLES: [&str; 5] = [
@@ -397,7 +400,7 @@ pub(super) struct AbilityDefinition {
     pub(super) semantic_tags: starclock_combat::catalog::action::AbilityTags,
     pub(super) entry_rule: Option<starclock_combat::RuleId>,
     pub(super) phases: Box<[AbilityPhaseDefinition]>,
-    pub(super) hit_plan_ids: Box<[u32]>,
+    pub(super) hit_plan_bindings: Box<[AbilityHitPlanDefinition]>,
     pub(super) resources: Box<[AbilityResourceDefinition]>,
 }
 
@@ -980,7 +983,7 @@ fn convert_combat(
             })?,
             entry_rule,
             phases: phases.into_boxed_slice(),
-            hit_plan_ids: Box::new([]),
+            hit_plan_bindings: Box::new([]),
             resources: resources.into_boxed_slice(),
         });
     }
@@ -1035,7 +1038,7 @@ fn convert_combat(
     }
     hit_plans.sort_unstable_by_key(|plan| plan.id);
 
-    let mut bound_plans = BTreeMap::<AbilityId, Vec<(u16, u32)>>::new();
+    let mut bound_plans = BTreeMap::<AbilityId, Vec<AbilityHitPlanDefinition>>::new();
     for binding in config.ability_hit_plan_binding().iter() {
         let ability = abilities
             .iter()
@@ -1063,24 +1066,47 @@ fn convert_combat(
         }
         let ability = ability.expect("validated ability binding");
         let plan = plan.expect("validated hit-plan binding");
+        let damage_fields = [
+            binding.damage_parameter_key.is_some(),
+            binding.damage_scaling_stat.is_some(),
+            binding.damage_class.is_some(),
+        ];
+        let has_damage = damage_fields.iter().all(|present| *present);
+        if (damage_fields.iter().any(|present| *present) && !has_damage)
+            || (has_damage || binding.base_toughness_decimal.is_some()) && binding.element.is_none()
+        {
+            return Err(domain_fail("ability hit formula binding is incomplete"));
+        }
         bound_plans
             .entry(ability.id)
             .or_default()
-            .push((phase, plan.id));
+            .push(AbilityHitPlanDefinition {
+                phase_sequence: phase,
+                hit_plan_id: plan.id,
+                damage_parameter_key: binding.damage_parameter_key.as_deref().map(Into::into),
+                damage_scaling_stat: binding.damage_scaling_stat.map(hit_scaling_stat),
+                damage_class: binding.damage_class.map(hit_damage_class).transpose()?,
+                element: binding.element.map(hit_element),
+                base_toughness: binding
+                    .base_toughness_decimal
+                    .as_deref()
+                    .map(parse_decimal)
+                    .transpose()?
+                    .map(starclock_combat::Scalar::from_scaled),
+            });
     }
     for ability in &mut abilities {
         let Some(mut bindings) = bound_plans.remove(&ability.id) else {
             continue;
         };
-        bindings.sort_unstable();
-        if bindings.windows(2).any(|pair| pair[0].0 == pair[1].0) {
+        bindings.sort_unstable_by_key(|binding| binding.phase_sequence);
+        if bindings
+            .windows(2)
+            .any(|pair| pair[0].phase_sequence == pair[1].phase_sequence)
+        {
             return Err(domain_fail("ability phase has duplicate hit-plan bindings"));
         }
-        ability.hit_plan_ids = bindings
-            .into_iter()
-            .map(|(_, plan)| plan)
-            .collect::<Vec<_>>()
-            .into_boxed_slice();
+        ability.hit_plan_bindings = bindings.into_boxed_slice();
     }
     let native_handlers = crate::native_handler_lower::audit(config)?;
     let modifiers = crate::modifier_lower::convert(config)?;

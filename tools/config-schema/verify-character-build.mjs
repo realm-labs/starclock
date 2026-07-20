@@ -90,7 +90,7 @@ function verifySchemaLock(file) {
     const encodedType = JSON.stringify(field.ty);
     assert(!encodedType.includes("F32") && !encodedType.includes("F64"), `${name} exposes an authoritative float`);
     if (field.name.endsWith("_decimal")) {
-      assert(field.ty === "String", `${name} must transport a string`);
+      assert(field.ty === "String" || field.ty?.Optional === "String", `${name} must transport a string`);
       assert(JSON.stringify(field.length) === "[1,32]", `${name} has the wrong decimal source length`);
     }
   }

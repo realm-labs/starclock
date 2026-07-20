@@ -419,9 +419,20 @@ def generated_rows() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, An
                     "damage_ratio_decimal": share, "toughness_ratio_decimal": share,
                     "crit_policy": "PerTarget",
                 })
-            rows["AbilityHitPlanBinding"].append({
+            binding = {
                 "ability_id": ability_id, "phase_sequence": 1, "hit_plan_id": plan_id,
-            })
+            }
+            # M09 proves the generic live-stat/effective-level hit binding on
+            # Asta's single-target Basic before the wider V1B behavior pass.
+            if ability["id"] == "character.asta.ability.spectrum-beam.normal":
+                binding.update({
+                    "damage_parameter_key": "parameter.01",
+                    "damage_scaling_stat": "Atk",
+                    "damage_class": "Ordinary",
+                    "element": "Fire",
+                    "base_toughness_decimal": "30",
+                })
+            rows["AbilityHitPlanBinding"].append(binding)
 
     by_character: dict[str, list[dict[str, Any]]] = {}
     for binding in rows["CharacterAbilityBinding"]:

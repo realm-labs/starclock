@@ -113,7 +113,7 @@ function verifySchemaLock(file) {
     const encoded = JSON.stringify(field.ty);
     assert(!encoded.includes("F32") && !encoded.includes("F64"), `${name} exposes an authoritative float`);
     if (field.name.endsWith("_decimal")) {
-      assert(field.ty === "String" && JSON.stringify(field.length) === "[1,32]", `${name} violates decimal transport policy`);
+      assert((field.ty === "String" || field.ty?.Optional === "String") && JSON.stringify(field.length) === "[1,32]", `${name} violates decimal transport policy`);
     }
   }
   assertRef(tables, "RuleDefinition", "id", "ContentIdentity");
