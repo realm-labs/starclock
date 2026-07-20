@@ -17,11 +17,11 @@ const cases = register.cases;
 assert(cases.length === 37 && register.case_count === 37, `expected 37 cases, got ${cases.length}`);
 assert(new Set(cases.map((entry) => entry.id)).size === cases.length, "duplicate research case ID");
 assert(fixtures.fixtures.length === cases.length && new Set(fixtures.fixtures.map((entry) => entry.case_id)).size === cases.length, "fixture coverage mismatch");
-assert(decisions.decisions.length === 6, "decision record coverage mismatch");
+assert(decisions.decisions.length === 11, "decision record coverage mismatch");
 assert(sources.sources.length === 3 && sources.sources.every((entry) => /^https:\/\//.test(entry.url) && /^2026-\d\d-\d\d$/.test(entry.accessed_on) && /^[0-9a-f]{64}$/.test(entry.evidence_sha256) && entry.version && entry.confidence && entry.note), "source metadata incomplete");
 
 for (const entry of cases) {
-  assert(["Researching", "Observed"].includes(entry.state) && entry.owner_batch, `${entry.id} has no research owner`);
+  assert(["Researching", "Observed", "ResolvedProjectPolicy"].includes(entry.state) && entry.owner_batch, `${entry.id} has no research owner`);
   assert(entry.question && entry.fixed_expectations.length && entry.observations_required.length, `${entry.id} lacks a bounded question`);
   assert(entry.evidence.length && entry.evidence.every((binding) => /^[0-9a-f]{64}$/.test(binding.source_text_sha256)), `${entry.id} lacks evidence hashes`);
   assert(entry.source_ids.length && entry.source_ids.every((id) => sources.sources.some((source) => source.id === id)), `${entry.id} has an unknown source`);
@@ -30,6 +30,19 @@ for (const entry of cases) {
 const observed = cases.filter((entry) => entry.state === "Observed");
 assert(observed.length === 6 && observed.every((entry) => ["G01-P4-B2", "G01-P4-B3", "G01-P4-B4"].includes(entry.owner_batch) && /^[0-9a-f]{64}$/.test(entry.observation.source_payload_sha256) && /^[0-9a-f]{64}$/.test(entry.observation.executable_bundle_sha256) && entry.observation.evidence_paths.length >= 2 && entry.observation.validation_commands.length === entry.observation.evidence_paths.length), "observed V1a cases lack executable evidence");
 assert(fixtures.fixtures.filter((fixture) => fixture.state === "GoldenVerified").length === 6, "golden fixture state differs");
+const resolved = cases.filter((entry) => entry.state === "ResolvedProjectPolicy");
+assert(resolved.length === 21, `expected 21 Phase 4 policy resolutions, got ${resolved.length}`);
+assert(resolved.every((entry) => entry.family !== "HimekoNovaApproximation"
+  && entry.confidence === "AcceptedProjectPolicyPendingContentObservation"
+  && /^2026-\d\d-\d\d$/.test(entry.resolution.decided_on)
+  && entry.resolution.decision_ids.length === 2
+  && entry.resolution.evidence_paths.length >= 3
+  && entry.resolution.validation_commands.length >= 3
+  && entry.resolution.remaining_content_gate.includes("DataReady")
+  && entry.resolution.evidence_paths.every((relative) => fs.statSync(path.join(root, relative), { throwIfNoEntry: false })?.isFile())), "Phase 4 policy resolution is incomplete or references missing evidence");
+assert(fixtures.fixtures.filter((fixture) => fixture.state === "PolicyGoldenVerified").length === 21, "policy-golden fixture state differs");
+assert(cases.filter((entry) => entry.state === "Researching").length === 10
+  && cases.filter((entry) => entry.state === "Researching").every((entry) => entry.family === "HimekoNovaApproximation"), "only Phase 7 Himeko approximation cases may remain Researching");
 
 for (const family of ["V1aAsta", "V1aKafka", "V1aClara", "V1aFirefly", "V1aAglaea", "SharedElation", "HimekoNovaApproximation"]) {
   assert(cases.some((entry) => entry.family === family), `missing ${family} cases`);

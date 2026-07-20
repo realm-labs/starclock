@@ -83,3 +83,37 @@ STARCLOCK_BENCH_RUNNER_ID=starclock-bench-win10-i7-10700f-v1 \
 PowerShell uses `$env:STARCLOCK_BENCH_RUNNER_ID=...` before the strict command.
 Phase 8 reuses these inputs and runner identity for the representative final
 report rather than inventing a new harness.
+
+## Phase 4 full-kernel review
+
+`G01-P4-B11` preserves the immutable Phase 3 report and versions the workload
+to `g01-phase4-full-kernel-v1`. The original heavy proxy remains comparable.
+A new `full-kernel-apply-v1` row executes four hits per command, with checked
+damage, healing, HP consumption, effect application and keyed team-resource
+mutation in each hit. It records 2,500 operation allocations, 26,976 journal
+entries and 6,616 events over 500 commands, proving broader operation coverage
+than the eight-damage-operation proxy.
+
+The committed five-sample strict report is
+[`phase4-provisional-windows-x64.json`](../evidence/core-combat-v1/performance/phase4-provisional-windows-x64.json),
+and the reproducible comparison is
+[`phase4-growth-review.json`](../evidence/core-combat-v1/performance/phase4-growth-review.json).
+On the pinned runner, the full-kernel median is 4.98 ms (100,462
+commands/second/core), 6,515,760 allocated bytes and 37,784 peak live bytes.
+Its provisional limits are 30 ms, 25,000 commands/second/core, 9,000,000
+allocated bytes and 131,072 peak bytes/job.
+
+Across the nine comparable rows, Phase 4 canonical state growth increases
+allocation bytes for apply/replay workloads by about 16%, while median time
+ranges from 1.03x to 1.62x the Phase 3 measurement. Replay byte counts and
+event/journal/operation counts for the comparable workloads do not drift.
+Those reviewed increases are accepted by the provisional budgets, not erased
+from history; Phase 8 must run and review the same inputs again before setting
+the final representative report.
+
+Regenerate and verify the comparison with:
+
+```text
+node tools/benchmark/review-phase4.mjs
+node tools/benchmark/review-phase4.mjs --check
+```

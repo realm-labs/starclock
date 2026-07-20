@@ -29,6 +29,7 @@ fn main() {
     let mut rows = vec![
         measure_apply(&factory, BenchmarkScenario::Ordinary, 1_000),
         measure_apply(&factory, BenchmarkScenario::TriggerHeavyProxy, 500),
+        measure_apply(&factory, BenchmarkScenario::FullKernel, 500),
         measure_invalid_rejection(&factory, 10_000),
         measure_hash(&factory, BenchmarkScenario::HashSmall, 5_000),
         measure_hash(&factory, BenchmarkScenario::HashMedium, 5_000),

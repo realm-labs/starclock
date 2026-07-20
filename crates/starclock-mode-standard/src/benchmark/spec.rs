@@ -1,8 +1,9 @@
 use starclock_combat::{
     AbilityId, BattleSeed, BattleSpec, BattleSpecDigest, CombatantSpecDigest, ConcedePolicy,
-    EncounterId, EnemyDefinitionId, FormationIndex, Hp, ParticipantSource, ParticipantSpec,
-    ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamSide,
-    UnitDefinitionId, UnitLevel, rng::derive::StreamPath,
+    EncounterId, EnemyDefinitionId, FormationIndex, Hp, KeyedTeamResourceSpec, ParticipantSource,
+    ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, SourceDefinitionId, Speed,
+    TeamResourceSpec, TeamResourceWavePolicy, TeamSide, UnitDefinitionId, UnitLevel,
+    rng::derive::StreamPath,
 };
 
 use super::{BENCHMARK_RULES_REVISION, BenchmarkScenario};
@@ -11,6 +12,7 @@ pub(super) fn battle_spec(scenario: BenchmarkScenario) -> BattleSpec {
     let (players, enemies, form, ability, encounter) = match scenario {
         BenchmarkScenario::Ordinary | BenchmarkScenario::HashSmall => (1, 1, 1, 1, 1),
         BenchmarkScenario::TriggerHeavyProxy => (1, 1, 2, 2, 1),
+        BenchmarkScenario::FullKernel => (1, 1, 4, 4, 1),
         BenchmarkScenario::HashMedium => (2, 2, 1, 1, 2),
         BenchmarkScenario::HashLarge => (4, 4, 1, 1, 3),
     };
@@ -31,12 +33,24 @@ pub(super) fn battle_spec(scenario: BenchmarkScenario) -> BattleSpec {
             combatant(3, 3, index as u8 + 0x21),
         ));
     }
+    let player_resources = TeamResourceSpec::new(0, 5)
+        .expect("static resource bounds")
+        .with_keyed(vec![
+            KeyedTeamResourceSpec::new(
+                SourceDefinitionId::new(1).expect("static ID"),
+                0,
+                65_535,
+                TeamResourceWavePolicy::Persist,
+            )
+            .expect("static keyed resource bounds"),
+        ])
+        .expect("static keyed resource IDs are unique");
     BattleSpec::new(
         BENCHMARK_RULES_REVISION,
         BattleSpecDigest::new([scenario.code(); 32]).expect("scenario code is non-zero"),
         EncounterId::new(encounter).expect("static ID"),
         participants,
-        TeamResourceSpec::new(0, 5).expect("static resource bounds"),
+        player_resources,
         TeamResourceSpec::new(0, 0).expect("static resource bounds"),
         ConcedePolicy::Allowed,
     )

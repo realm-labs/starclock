@@ -1,0 +1,141 @@
+{
+  "schema_revision": "starclock.phase4-benchmark-growth-review.v1",
+  "reviewed_on": "2026-07-20",
+  "baseline": {
+    "path": "evidence/core-combat-v1/performance/phase3-baseline-windows-x64.json",
+    "sha256": "c4f038101c10e63e261ab255cec13301d4ca830c49244977ddd43058a84b8908"
+  },
+  "phase4": {
+    "path": "evidence/core-combat-v1/performance/phase4-provisional-windows-x64.json",
+    "sha256": "7c7517271116b200100c8afa40cdeda3978e3aa63d1395d26c738ef8e6d021f3"
+  },
+  "stable_runner_id": "starclock-bench-win10-i7-10700f-v1",
+  "samples": 5,
+  "common_workloads": [
+    {
+      "id": "ordinary-apply-v1",
+      "elapsed_ns_ratio_milli": 1311,
+      "allocation_bytes_ratio_milli": 1158,
+      "peak_live_bytes_ratio_milli": 1032,
+      "semantic_copy_bytes_delta": 204500,
+      "canonical_bytes_hashed_delta": 0,
+      "journal_entries_delta": 0,
+      "event_entries_delta": 0,
+      "operation_allocations_delta": 0,
+      "replay_bytes_delta": 0
+    },
+    {
+      "id": "trigger-heavy-proxy-v1",
+      "elapsed_ns_ratio_milli": 1369,
+      "allocation_bytes_ratio_milli": 1158,
+      "peak_live_bytes_ratio_milli": 1068,
+      "semantic_copy_bytes_delta": 102250,
+      "canonical_bytes_hashed_delta": 0,
+      "journal_entries_delta": 0,
+      "event_entries_delta": 0,
+      "operation_allocations_delta": 0,
+      "replay_bytes_delta": 0
+    },
+    {
+      "id": "invalid-rejection-v1",
+      "elapsed_ns_ratio_milli": 1025,
+      "allocation_bytes_ratio_milli": 1000,
+      "peak_live_bytes_ratio_milli": 1000,
+      "semantic_copy_bytes_delta": 0,
+      "canonical_bytes_hashed_delta": 0,
+      "journal_entries_delta": 0,
+      "event_entries_delta": 0,
+      "operation_allocations_delta": 0,
+      "replay_bytes_delta": 0
+    },
+    {
+      "id": "hash-small-v1",
+      "elapsed_ns_ratio_milli": 1262,
+      "allocation_bytes_ratio_milli": 1000,
+      "peak_live_bytes_ratio_milli": 1000,
+      "semantic_copy_bytes_delta": 0,
+      "canonical_bytes_hashed_delta": 955000,
+      "journal_entries_delta": 0,
+      "event_entries_delta": 0,
+      "operation_allocations_delta": 0,
+      "replay_bytes_delta": 0
+    },
+    {
+      "id": "hash-medium-v1",
+      "elapsed_ns_ratio_milli": 1325,
+      "allocation_bytes_ratio_milli": 1000,
+      "peak_live_bytes_ratio_milli": 1000,
+      "semantic_copy_bytes_delta": 0,
+      "canonical_bytes_hashed_delta": 1435000,
+      "journal_entries_delta": 0,
+      "event_entries_delta": 0,
+      "operation_allocations_delta": 0,
+      "replay_bytes_delta": 0
+    },
+    {
+      "id": "hash-large-v1",
+      "elapsed_ns_ratio_milli": 1310,
+      "allocation_bytes_ratio_milli": 1000,
+      "peak_live_bytes_ratio_milli": 1000,
+      "semantic_copy_bytes_delta": 0,
+      "canonical_bytes_hashed_delta": 2395000,
+      "journal_entries_delta": 0,
+      "event_entries_delta": 0,
+      "operation_allocations_delta": 0,
+      "replay_bytes_delta": 0
+    },
+    {
+      "id": "one-shot-replay-100-v1",
+      "elapsed_ns_ratio_milli": 1355,
+      "allocation_bytes_ratio_milli": 1156,
+      "peak_live_bytes_ratio_milli": 1066,
+      "semantic_copy_bytes_delta": 0,
+      "canonical_bytes_hashed_delta": 0,
+      "journal_entries_delta": 0,
+      "event_entries_delta": 0,
+      "operation_allocations_delta": 0,
+      "replay_bytes_delta": 0
+    },
+    {
+      "id": "one-shot-replay-500-v1",
+      "elapsed_ns_ratio_milli": 1623,
+      "allocation_bytes_ratio_milli": 1156,
+      "peak_live_bytes_ratio_milli": 1023,
+      "semantic_copy_bytes_delta": 0,
+      "canonical_bytes_hashed_delta": 0,
+      "journal_entries_delta": 0,
+      "event_entries_delta": 0,
+      "operation_allocations_delta": 0,
+      "replay_bytes_delta": 0
+    },
+    {
+      "id": "concurrent-replay-shared-catalog-v1",
+      "elapsed_ns_ratio_milli": 1099,
+      "allocation_bytes_ratio_milli": 1156,
+      "peak_live_bytes_ratio_milli": 1066,
+      "semantic_copy_bytes_delta": 0,
+      "canonical_bytes_hashed_delta": 0,
+      "journal_entries_delta": 0,
+      "event_entries_delta": 0,
+      "operation_allocations_delta": 0,
+      "replay_bytes_delta": 0
+    }
+  ],
+  "full_kernel": {
+    "id": "full-kernel-apply-v1",
+    "operations_per_command": 5,
+    "journal_entries": 26976,
+    "event_entries": 6616,
+    "elapsed_ns": 4977000,
+    "commands_per_second_core": 100462,
+    "allocation_bytes": 6515760,
+    "peak_live_bytes_per_job": 37784,
+    "provisional_budget_headroom_milli": {
+      "elapsed": 6027,
+      "throughput": 4018,
+      "allocation_bytes": 1381,
+      "peak_live_bytes": 3468
+    }
+  },
+  "conclusion": "Phase 4 growth is accepted under provisional full-kernel budgets; the immutable Phase 3 baseline remains the comparison anchor and Phase 8 must re-review these inputs on the same stable runner."
+}

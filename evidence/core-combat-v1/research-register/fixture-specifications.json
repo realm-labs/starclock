@@ -25,11 +25,13 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
         "config/probes/v1a/aglaea-memosprite/golden.json",
+        "crates/starclock-combat/tests/battle_boundary.rs",
         "crates/starclock-combat/tests/linked_lifecycle.rs",
+        "crates/starclock-combat/tests/modifier_pipeline.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ]
     },
@@ -55,11 +57,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
         "config/probes/v1a/aglaea-memosprite/golden.json",
-        "crates/starclock-combat/tests/linked_lifecycle.rs"
+        "crates/starclock-combat/tests/battle_boundary.rs",
+        "crates/starclock-combat/tests/linked_lifecycle.rs",
+        "crates/starclock-combat/tests/modifier_pipeline.rs",
+        "crates/starclock-data/src/probe_tests.rs"
       ]
     },
     {
@@ -84,11 +89,13 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
         "config/probes/v1a/aglaea-memosprite/golden.json",
+        "crates/starclock-combat/tests/battle_boundary.rs",
         "crates/starclock-combat/tests/linked_lifecycle.rs",
+        "crates/starclock-combat/tests/modifier_pipeline.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ]
     },
@@ -114,11 +121,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
         "config/probes/v1a/aglaea-memosprite/golden.json",
-        "crates/starclock-combat/tests/linked_lifecycle.rs"
+        "crates/starclock-combat/tests/battle_boundary.rs",
+        "crates/starclock-combat/tests/linked_lifecycle.rs",
+        "crates/starclock-combat/tests/modifier_pipeline.rs",
+        "crates/starclock-data/src/probe_tests.rs"
       ]
     },
     {
@@ -172,9 +182,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
-      "executable_evidence": []
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
+      "executable_evidence": [
+        "config/probes/v1a/asta-modifier/golden.json",
+        "crates/starclock-combat/tests/effect_resource_pipeline.rs",
+        "crates/starclock-combat/tests/modifier_pipeline.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-ASTA-UNIQUE-TARGET-CREDIT",
@@ -229,11 +244,12 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
         "config/probes/v1a/clara-counter/golden.json",
         "crates/starclock-combat/tests/reaction_scheduler.rs",
+        "crates/starclock-combat/tests/rule_ir_contract.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ]
     },
@@ -259,11 +275,13 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
         "config/probes/v1a/clara-counter/golden.json",
-        "crates/starclock-combat/tests/reaction_scheduler.rs"
+        "crates/starclock-combat/tests/reaction_scheduler.rs",
+        "crates/starclock-combat/tests/rule_ir_contract.rs",
+        "crates/starclock-data/src/probe_tests.rs"
       ]
     },
     {
@@ -288,10 +306,12 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
         "config/probes/v1a/clara-counter/golden.json",
+        "crates/starclock-combat/tests/reaction_scheduler.rs",
+        "crates/starclock-combat/tests/rule_ir_contract.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ]
     },
@@ -317,9 +337,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
-      "executable_evidence": []
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
+      "executable_evidence": [
+        "config/probes/v1a/clara-counter/golden.json",
+        "crates/starclock-combat/tests/reaction_scheduler.rs",
+        "crates/starclock-combat/tests/rule_ir_contract.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-ELATION-CERTIFIED-BANGER-OWNERSHIP",
@@ -343,12 +368,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
         "config/probes/v1a/trailblazer-elation/golden.json",
+        "config/probes/v1a/yao-guang-elation/golden.json",
         "crates/starclock-combat/tests/elation_subsystem.rs",
-        "crates/starclock-data/src/probe_tests.rs"
+        "crates/starclock-data/src/probe_tests.rs",
+        "policy/native-handler-audit.json"
       ]
     },
     {
@@ -373,13 +400,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
         "config/probes/v1a/trailblazer-elation/golden.json",
         "config/probes/v1a/yao-guang-elation/golden.json",
         "crates/starclock-combat/tests/elation_subsystem.rs",
-        "crates/starclock-data/src/probe_tests.rs"
+        "crates/starclock-data/src/probe_tests.rs",
+        "policy/native-handler-audit.json"
       ]
     },
     {
@@ -404,12 +432,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
         "config/probes/v1a/trailblazer-elation/golden.json",
+        "config/probes/v1a/yao-guang-elation/golden.json",
         "crates/starclock-combat/tests/elation_subsystem.rs",
-        "crates/starclock-data/src/probe_tests.rs"
+        "crates/starclock-data/src/probe_tests.rs",
+        "policy/native-handler-audit.json"
       ]
     },
     {
@@ -434,12 +464,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
         "config/probes/v1a/trailblazer-elation/golden.json",
+        "config/probes/v1a/yao-guang-elation/golden.json",
         "crates/starclock-combat/tests/elation_subsystem.rs",
-        "crates/starclock-data/src/probe_tests.rs"
+        "crates/starclock-data/src/probe_tests.rs",
+        "policy/native-handler-audit.json"
       ]
     },
     {
@@ -464,13 +496,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
         "config/probes/v1a/trailblazer-elation/golden.json",
         "config/probes/v1a/yao-guang-elation/golden.json",
         "crates/starclock-combat/tests/elation_subsystem.rs",
-        "crates/starclock-data/src/probe_tests.rs"
+        "crates/starclock-data/src/probe_tests.rs",
+        "policy/native-handler-audit.json"
       ]
     },
     {
@@ -495,13 +528,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
         "config/probes/v1a/trailblazer-elation/golden.json",
         "config/probes/v1a/yao-guang-elation/golden.json",
         "crates/starclock-combat/tests/elation_subsystem.rs",
-        "crates/starclock-data/src/probe_tests.rs"
+        "crates/starclock-data/src/probe_tests.rs",
+        "policy/native-handler-audit.json"
       ]
     },
     {
@@ -526,12 +560,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
+        "config/probes/v1a/trailblazer-elation/golden.json",
         "config/probes/v1a/yao-guang-elation/golden.json",
         "crates/starclock-combat/tests/elation_subsystem.rs",
-        "crates/starclock-data/src/probe_tests.rs"
+        "crates/starclock-data/src/probe_tests.rs",
+        "policy/native-handler-audit.json"
       ]
     },
     {
@@ -556,12 +592,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
         "config/probes/v1a/trailblazer-elation/golden.json",
+        "config/probes/v1a/yao-guang-elation/golden.json",
         "crates/starclock-combat/tests/elation_subsystem.rs",
-        "crates/starclock-data/src/probe_tests.rs"
+        "crates/starclock-data/src/probe_tests.rs",
+        "policy/native-handler-audit.json"
       ]
     },
     {
@@ -586,10 +624,12 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
       "executable_evidence": [
+        "config/probes/v1a/firefly-damage/golden.json",
         "config/probes/v1a/firefly-transform/golden.json",
+        "crates/starclock-combat/tests/damage_lifecycle.rs",
         "crates/starclock-combat/tests/linked_lifecycle.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ]
@@ -1037,9 +1077,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
-      "executable_evidence": []
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
+      "executable_evidence": [
+        "config/probes/v1a/kafka-dot/golden.json",
+        "crates/starclock-combat/tests/effect_resource_pipeline.rs",
+        "crates/starclock-combat/tests/reaction_scheduler.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-KAFKA-DOT-SELECTION-ATTRIBUTION",
@@ -1064,9 +1109,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
-      "executable_evidence": []
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
+      "executable_evidence": [
+        "config/probes/v1a/kafka-dot/golden.json",
+        "crates/starclock-combat/tests/effect_resource_pipeline.rs",
+        "crates/starclock-combat/tests/reaction_scheduler.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-KAFKA-FOLLOWUP-ONCE-ORDER",
@@ -1091,9 +1141,14 @@
         "Pre/post authoritative state hash and RNG draw count.",
         "Exact reference-pack, rules and fixture revision in the replay header."
       ],
-      "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-      "state": "PendingObservation",
-      "executable_evidence": []
+      "completion_rule": "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady.",
+      "state": "PolicyGoldenVerified",
+      "executable_evidence": [
+        "config/probes/v1a/kafka-dot/golden.json",
+        "crates/starclock-combat/tests/effect_resource_pipeline.rs",
+        "crates/starclock-combat/tests/reaction_scheduler.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     }
   ]
 }

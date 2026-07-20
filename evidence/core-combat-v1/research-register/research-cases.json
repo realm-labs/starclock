@@ -6,7 +6,8 @@
   "case_count": 37,
   "state_counts": {
     "Observed": 6,
-    "Researching": 31
+    "Researching": 10,
+    "ResolvedProjectPolicy": 21
   },
   "family_counts": {
     "HimekoNovaApproximation": 10,
@@ -29,8 +30,8 @@
   },
   "cases": [
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -54,6 +55,27 @@
         "crates/starclock-combat/tests/linked_lifecycle.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-03",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-AGLAEA-COUNTDOWN-TEARDOWN.",
+        "evidence_paths": [
+          "config/probes/v1a/aglaea-memosprite/golden.json",
+          "crates/starclock-combat/tests/battle_boundary.rs",
+          "crates/starclock-combat/tests/linked_lifecycle.rs",
+          "crates/starclock-combat/tests/modifier_pipeline.rs",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-aglaea-memosprite.mjs",
+          "cargo test -p starclock-combat --test battle_boundary --test linked_lifecycle --test modifier_pipeline",
+          "cargo test -p starclock-data probe_tests"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -84,8 +106,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -107,6 +129,27 @@
         "config/probes/v1a/aglaea-memosprite/golden.json",
         "crates/starclock-combat/tests/linked_lifecycle.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-03",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-AGLAEA-JOINT-ACTION-CONTRIBUTIONS.",
+        "evidence_paths": [
+          "config/probes/v1a/aglaea-memosprite/golden.json",
+          "crates/starclock-combat/tests/battle_boundary.rs",
+          "crates/starclock-combat/tests/linked_lifecycle.rs",
+          "crates/starclock-combat/tests/modifier_pipeline.rs",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-aglaea-memosprite.mjs",
+          "cargo test -p starclock-combat --test battle_boundary --test linked_lifecycle --test modifier_pipeline",
+          "cargo test -p starclock-data probe_tests"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -124,8 +167,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -149,6 +192,27 @@
         "crates/starclock-combat/tests/linked_lifecycle.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-03",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-AGLAEA-PRESENCE-TIMELINE-OWNERSHIP.",
+        "evidence_paths": [
+          "config/probes/v1a/aglaea-memosprite/golden.json",
+          "crates/starclock-combat/tests/battle_boundary.rs",
+          "crates/starclock-combat/tests/linked_lifecycle.rs",
+          "crates/starclock-combat/tests/modifier_pipeline.rs",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-aglaea-memosprite.mjs",
+          "cargo test -p starclock-combat --test battle_boundary --test linked_lifecycle --test modifier_pipeline",
+          "cargo test -p starclock-data probe_tests"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -180,8 +244,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -203,6 +267,27 @@
         "config/probes/v1a/aglaea-memosprite/golden.json",
         "crates/starclock-combat/tests/linked_lifecycle.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-03",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-AGLAEA-SPD-STACK-SCOPE.",
+        "evidence_paths": [
+          "config/probes/v1a/aglaea-memosprite/golden.json",
+          "crates/starclock-combat/tests/battle_boundary.rs",
+          "crates/starclock-combat/tests/linked_lifecycle.rs",
+          "crates/starclock-combat/tests/modifier_pipeline.rs",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-aglaea-memosprite.mjs",
+          "cargo test -p starclock-combat --test battle_boundary --test linked_lifecycle --test modifier_pipeline",
+          "cargo test -p starclock-data probe_tests"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -270,8 +355,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -290,6 +375,26 @@
       "observations_required": [
         "Before/after-turn ordering when decay and SPD expiry become eligible together."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-01",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-ASTA-INDEPENDENT-CLOCKS.",
+        "evidence_paths": [
+          "config/probes/v1a/asta-modifier/golden.json",
+          "crates/starclock-combat/tests/effect_resource_pipeline.rs",
+          "crates/starclock-combat/tests/modifier_pipeline.rs",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-asta-modifier.mjs",
+          "cargo test -p starclock-combat --test effect_resource_pipeline --test modifier_pipeline",
+          "cargo test -p starclock-data probe_tests"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -386,8 +491,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -410,6 +515,26 @@
         "crates/starclock-combat/tests/reaction_scheduler.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-02",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-CLARA-CAUSE-ATTACKER-ALLY.",
+        "evidence_paths": [
+          "config/probes/v1a/clara-counter/golden.json",
+          "crates/starclock-combat/tests/reaction_scheduler.rs",
+          "crates/starclock-combat/tests/rule_ir_contract.rs",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-clara-counter.mjs",
+          "cargo test -p starclock-combat --test reaction_scheduler --test rule_ir_contract",
+          "cargo test -p starclock-data probe_tests"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -427,8 +552,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -450,6 +575,26 @@
         "config/probes/v1a/clara-counter/golden.json",
         "crates/starclock-combat/tests/reaction_scheduler.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-02",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-CLARA-COUNTER-TARGET-PRIORITY.",
+        "evidence_paths": [
+          "config/probes/v1a/clara-counter/golden.json",
+          "crates/starclock-combat/tests/reaction_scheduler.rs",
+          "crates/starclock-combat/tests/rule_ir_contract.rs",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-clara-counter.mjs",
+          "cargo test -p starclock-combat --test reaction_scheduler --test rule_ir_contract",
+          "cargo test -p starclock-data probe_tests"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -467,8 +612,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -491,6 +636,26 @@
         "config/probes/v1a/clara-counter/golden.json",
         "crates/starclock-data/src/probe_tests.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-02",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-CLARA-ENHANCED-CHARGE-SCOPE.",
+        "evidence_paths": [
+          "config/probes/v1a/clara-counter/golden.json",
+          "crates/starclock-combat/tests/reaction_scheduler.rs",
+          "crates/starclock-combat/tests/rule_ir_contract.rs",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-clara-counter.mjs",
+          "cargo test -p starclock-combat --test reaction_scheduler --test rule_ir_contract",
+          "cargo test -p starclock-data probe_tests"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -521,8 +686,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -540,6 +705,26 @@
       "observations_required": [
         "Order under multi-target defeat and mark-triggered reactions."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-02",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-CLARA-MARK-CONSUME-ORDER.",
+        "evidence_paths": [
+          "config/probes/v1a/clara-counter/golden.json",
+          "crates/starclock-combat/tests/reaction_scheduler.rs",
+          "crates/starclock-combat/tests/rule_ir_contract.rs",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-clara-counter.mjs",
+          "cargo test -p starclock-combat --test reaction_scheduler --test rule_ir_contract",
+          "cargo test -p starclock-data probe_tests"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -557,8 +742,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -589,6 +774,28 @@
         "crates/starclock-combat/tests/elation_subsystem.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-04",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-ELATION-CERTIFIED-BANGER-OWNERSHIP.",
+        "evidence_paths": [
+          "config/probes/v1a/trailblazer-elation/golden.json",
+          "config/probes/v1a/yao-guang-elation/golden.json",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "crates/starclock-data/src/probe_tests.rs",
+          "policy/native-handler-audit.json"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-elation-probes.mjs",
+          "cargo test -p starclock-combat --test elation_subsystem",
+          "cargo test -p starclock-data probe_tests",
+          "node tools/repository-check/verify-native-handlers.mjs"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -713,8 +920,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -748,6 +955,28 @@
         "crates/starclock-combat/tests/elation_subsystem.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-04",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-ELATION-DAMAGE-ABILITY-TAGS.",
+        "evidence_paths": [
+          "config/probes/v1a/trailblazer-elation/golden.json",
+          "config/probes/v1a/yao-guang-elation/golden.json",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "crates/starclock-data/src/probe_tests.rs",
+          "policy/native-handler-audit.json"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-elation-probes.mjs",
+          "cargo test -p starclock-combat --test elation_subsystem",
+          "cargo test -p starclock-data probe_tests",
+          "node tools/repository-check/verify-native-handlers.mjs"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -898,8 +1127,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -924,6 +1153,28 @@
         "crates/starclock-combat/tests/elation_subsystem.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-04",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-ELATION-FORCED-SKILL-ENVELOPE.",
+        "evidence_paths": [
+          "config/probes/v1a/trailblazer-elation/golden.json",
+          "config/probes/v1a/yao-guang-elation/golden.json",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "crates/starclock-data/src/probe_tests.rs",
+          "policy/native-handler-audit.json"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-elation-probes.mjs",
+          "cargo test -p starclock-combat --test elation_subsystem",
+          "cargo test -p starclock-data probe_tests",
+          "node tools/repository-check/verify-native-handlers.mjs"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -970,8 +1221,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -998,6 +1249,28 @@
         "crates/starclock-combat/tests/elation_subsystem.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-04",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-ELATION-FORCED-SKILL-TARGET-COST.",
+        "evidence_paths": [
+          "config/probes/v1a/trailblazer-elation/golden.json",
+          "config/probes/v1a/yao-guang-elation/golden.json",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "crates/starclock-data/src/probe_tests.rs",
+          "policy/native-handler-audit.json"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-elation-probes.mjs",
+          "cargo test -p starclock-combat --test elation_subsystem",
+          "cargo test -p starclock-data probe_tests",
+          "node tools/repository-check/verify-native-handlers.mjs"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -1070,8 +1343,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -1105,6 +1378,28 @@
         "crates/starclock-combat/tests/elation_subsystem.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-04",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-ELATION-GENERIC-API-BOUNDARY.",
+        "evidence_paths": [
+          "config/probes/v1a/trailblazer-elation/golden.json",
+          "config/probes/v1a/yao-guang-elation/golden.json",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "crates/starclock-data/src/probe_tests.rs",
+          "policy/native-handler-audit.json"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-elation-probes.mjs",
+          "cargo test -p starclock-combat --test elation_subsystem",
+          "cargo test -p starclock-data probe_tests",
+          "node tools/repository-check/verify-native-handlers.mjs"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -1255,8 +1550,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -1285,6 +1580,28 @@
         "crates/starclock-combat/tests/elation_subsystem.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-04",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-ELATION-PUNCHLINE-SCOPE-CREDIT.",
+        "evidence_paths": [
+          "config/probes/v1a/trailblazer-elation/golden.json",
+          "config/probes/v1a/yao-guang-elation/golden.json",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "crates/starclock-data/src/probe_tests.rs",
+          "policy/native-handler-audit.json"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-elation-probes.mjs",
+          "cargo test -p starclock-combat --test elation_subsystem",
+          "cargo test -p starclock-data probe_tests",
+          "node tools/repository-check/verify-native-handlers.mjs"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -1370,8 +1687,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -1396,6 +1713,28 @@
         "crates/starclock-combat/tests/elation_subsystem.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-04",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-ELATION-SHARED-ACTOR-AHA.",
+        "evidence_paths": [
+          "config/probes/v1a/trailblazer-elation/golden.json",
+          "config/probes/v1a/yao-guang-elation/golden.json",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "crates/starclock-data/src/probe_tests.rs",
+          "policy/native-handler-audit.json"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-elation-probes.mjs",
+          "cargo test -p starclock-combat --test elation_subsystem",
+          "cargo test -p starclock-data probe_tests",
+          "node tools/repository-check/verify-native-handlers.mjs"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -1439,8 +1778,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -1470,6 +1809,28 @@
         "crates/starclock-combat/tests/elation_subsystem.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-04",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-ELATION-SP-SPEND-OBSERVATION.",
+        "evidence_paths": [
+          "config/probes/v1a/trailblazer-elation/golden.json",
+          "config/probes/v1a/yao-guang-elation/golden.json",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "crates/starclock-data/src/probe_tests.rs",
+          "policy/native-handler-audit.json"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-elation-probes.mjs",
+          "cargo test -p starclock-combat --test elation_subsystem",
+          "cargo test -p starclock-data probe_tests",
+          "node tools/repository-check/verify-native-handlers.mjs"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -1578,8 +1939,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -1602,6 +1963,28 @@
         "crates/starclock-combat/tests/linked_lifecycle.rs",
         "crates/starclock-data/src/probe_tests.rs"
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-03",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-FIREFLY-COUNTDOWN-TEARDOWN.",
+        "evidence_paths": [
+          "config/probes/v1a/firefly-damage/golden.json",
+          "config/probes/v1a/firefly-transform/golden.json",
+          "crates/starclock-combat/tests/damage_lifecycle.rs",
+          "crates/starclock-combat/tests/linked_lifecycle.rs",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-firefly-damage.mjs",
+          "node tools/config-probes/verify-firefly-transform.mjs",
+          "cargo test -p starclock-combat --test damage_lifecycle --test linked_lifecycle",
+          "cargo test -p starclock-data probe_tests"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -2255,8 +2638,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -2276,6 +2659,26 @@
         "Source/target stat changes between application and detonation.",
         "Remaining duration and stacks before and after detonation."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-01",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-KAFKA-DETONATION-SNAPSHOT-DURATION.",
+        "evidence_paths": [
+          "config/probes/v1a/kafka-dot/golden.json",
+          "crates/starclock-combat/tests/effect_resource_pipeline.rs",
+          "crates/starclock-combat/tests/reaction_scheduler.rs",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-kafka-dot.mjs",
+          "cargo test -p starclock-combat --test effect_resource_pipeline --test reaction_scheduler",
+          "cargo test -p starclock-data probe_tests"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -2306,8 +2709,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -2327,6 +2730,26 @@
         "Eligibility differences across ordinary, Break and special DoTs.",
         "Cause-chain actor/source fields for mixed-applier DoTs."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-01",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-KAFKA-DOT-SELECTION-ATTRIBUTION.",
+        "evidence_paths": [
+          "config/probes/v1a/kafka-dot/golden.json",
+          "crates/starclock-combat/tests/effect_resource_pipeline.rs",
+          "crates/starclock-combat/tests/reaction_scheduler.rs",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-kafka-dot.mjs",
+          "cargo test -p starclock-combat --test effect_resource_pipeline --test reaction_scheduler",
+          "cargo test -p starclock-data probe_tests"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -2357,8 +2780,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "PreparedContractPendingExecutableGolden",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4"
       ],
@@ -2377,6 +2800,26 @@
         "Damage-versus-Shock application order.",
         "Gate reset across Kafka extra turns and ordinary turns."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P4-B11-01",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-KAFKA-FOLLOWUP-ONCE-ORDER.",
+        "evidence_paths": [
+          "config/probes/v1a/kafka-dot/golden.json",
+          "crates/starclock-combat/tests/effect_resource_pipeline.rs",
+          "crates/starclock-combat/tests/reaction_scheduler.rs",
+          "crates/starclock-data/src/probe_tests.rs"
+        ],
+        "validation_commands": [
+          "node tools/config-probes/verify-kafka-dot.mjs",
+          "cargo test -p starclock-combat --test effect_resource_pipeline --test reaction_scheduler",
+          "cargo test -p starclock-data probe_tests"
+        ],
+        "remaining_content_gate": "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",

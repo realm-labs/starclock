@@ -11,13 +11,13 @@ use starclock_combat::{
 };
 
 /// Exact workload definition revision bound into reports and ceilings.
-pub const BENCHMARK_WORKLOAD_REVISION: &str = "g01-phase3-benchmark-v1";
+pub const BENCHMARK_WORKLOAD_REVISION: &str = "g01-phase4-full-kernel-v1";
 /// Catalog revision shared by every isolated job.
-pub const BENCHMARK_CATALOG_REVISION: &str = "g01-phase3-benchmark-catalog-v1";
+pub const BENCHMARK_CATALOG_REVISION: &str = "g01-phase4-benchmark-catalog-v1";
 /// Rules revision for the synthetic benchmark battles.
-pub const BENCHMARK_RULES_REVISION: &str = "g01-phase3-benchmark-rules-v1";
+pub const BENCHMARK_RULES_REVISION: &str = "g01-phase4-benchmark-rules-v1";
 /// Configuration digest of the fixed benchmark catalog.
-pub const BENCHMARK_CONFIG_DIGEST: [u8; 32] = [0xd1; 32];
+pub const BENCHMARK_CONFIG_DIGEST: [u8; 32] = [0xd2; 32];
 
 /// Fixed scenario shapes exercised by the harness.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -26,6 +26,8 @@ pub enum BenchmarkScenario {
     Ordinary,
     /// One player executes eight one-damage hits as a pre-trigger-kernel proxy.
     TriggerHeavyProxy,
+    /// Formula, HP, effect and resource operations in one retained action.
+    FullKernel,
     /// Two-combatant state-hash input.
     HashSmall,
     /// Four-combatant state-hash input.
@@ -41,6 +43,7 @@ impl BenchmarkScenario {
         match self {
             Self::Ordinary => "ordinary-apply-v1",
             Self::TriggerHeavyProxy => "trigger-heavy-proxy-v1",
+            Self::FullKernel => "full-kernel-apply-v1",
             Self::HashSmall => "hash-small-v1",
             Self::HashMedium => "hash-medium-v1",
             Self::HashLarge => "hash-large-v1",
@@ -54,6 +57,7 @@ impl BenchmarkScenario {
             Self::HashSmall => 3,
             Self::HashMedium => 4,
             Self::HashLarge => 5,
+            Self::FullKernel => 6,
         }
     }
 }

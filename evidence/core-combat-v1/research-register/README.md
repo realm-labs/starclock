@@ -13,8 +13,11 @@ It contains no copied ability descriptions and no guessed runtime behavior.
   evidence hashes.
 - `evidence-index.json` binds the generated files.
 
-Cases remain `Researching` until their owning implementation batch records a
-source-bound observation and passes the executable fixture; resolved probes move
-to `Observed` with exact bundle, command and evidence paths. This is deliberate:
-Phase 0 eliminates unnamed ambiguity; Phase 4 and the registered Himeko Nova
-mechanic prerequisite close it without inventing defaults.
+Cases resolved by exact source-bound observation move to `Observed` with their
+bundle, command and evidence paths. `G01-P4-B11` additionally permits
+`ResolvedProjectPolicy` only for an architecture blocker whose deterministic
+generic behavior is fixed by a decision record and regression fixture. That
+state is not a claim about an unobserved game fact: each such case retains an
+explicit V1B observation/stronger-source gate before affected production
+content may become `DataReady`. The ten Himeko Nova approximations remain
+`Researching` for their Phase 7 mechanic prerequisite.

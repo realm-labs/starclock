@@ -6,6 +6,7 @@ const PACK_SHA = "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef
 const MANIFEST_SHA = "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19";
 const SCHEMA = "starclock-goal-research-v1";
 const GENERATED_ON = "2026-07-17";
+const PHASE4_RESOLUTION_ON = "2026-07-20";
 const root = path.resolve(process.cwd());
 const refRoot = path.join(root, "content-reference", "v4.4");
 const outputRoot = path.join(root, "evidence", "core-combat-v1", "research-register");
@@ -386,6 +387,82 @@ const resolutions = new Map([
     },
   }],
 ]);
+const policyDecisionByFamily = {
+  V1aAsta: "G01-D-P4-B11-01",
+  V1aKafka: "G01-D-P4-B11-01",
+  V1aClara: "G01-D-P4-B11-02",
+  V1aFirefly: "G01-D-P4-B11-03",
+  V1aAglaea: "G01-D-P4-B11-03",
+  SharedElation: "G01-D-P4-B11-04",
+};
+const policyEvidenceByFamily = {
+  V1aAsta: [
+    "config/probes/v1a/asta-modifier/golden.json",
+    "crates/starclock-combat/tests/effect_resource_pipeline.rs",
+    "crates/starclock-combat/tests/modifier_pipeline.rs",
+    "crates/starclock-data/src/probe_tests.rs",
+  ],
+  V1aKafka: [
+    "config/probes/v1a/kafka-dot/golden.json",
+    "crates/starclock-combat/tests/effect_resource_pipeline.rs",
+    "crates/starclock-combat/tests/reaction_scheduler.rs",
+    "crates/starclock-data/src/probe_tests.rs",
+  ],
+  V1aClara: [
+    "config/probes/v1a/clara-counter/golden.json",
+    "crates/starclock-combat/tests/reaction_scheduler.rs",
+    "crates/starclock-combat/tests/rule_ir_contract.rs",
+    "crates/starclock-data/src/probe_tests.rs",
+  ],
+  V1aFirefly: [
+    "config/probes/v1a/firefly-damage/golden.json",
+    "config/probes/v1a/firefly-transform/golden.json",
+    "crates/starclock-combat/tests/damage_lifecycle.rs",
+    "crates/starclock-combat/tests/linked_lifecycle.rs",
+    "crates/starclock-data/src/probe_tests.rs",
+  ],
+  V1aAglaea: [
+    "config/probes/v1a/aglaea-memosprite/golden.json",
+    "crates/starclock-combat/tests/battle_boundary.rs",
+    "crates/starclock-combat/tests/linked_lifecycle.rs",
+    "crates/starclock-combat/tests/modifier_pipeline.rs",
+    "crates/starclock-data/src/probe_tests.rs",
+  ],
+  SharedElation: [
+    "config/probes/v1a/trailblazer-elation/golden.json",
+    "config/probes/v1a/yao-guang-elation/golden.json",
+    "crates/starclock-combat/tests/elation_subsystem.rs",
+    "crates/starclock-data/src/probe_tests.rs",
+    "policy/native-handler-audit.json",
+  ],
+};
+const policyValidationByFamily = {
+  V1aAsta: ["node tools/config-probes/verify-asta-modifier.mjs", "cargo test -p starclock-combat --test effect_resource_pipeline --test modifier_pipeline", "cargo test -p starclock-data probe_tests"],
+  V1aKafka: ["node tools/config-probes/verify-kafka-dot.mjs", "cargo test -p starclock-combat --test effect_resource_pipeline --test reaction_scheduler", "cargo test -p starclock-data probe_tests"],
+  V1aClara: ["node tools/config-probes/verify-clara-counter.mjs", "cargo test -p starclock-combat --test reaction_scheduler --test rule_ir_contract", "cargo test -p starclock-data probe_tests"],
+  V1aFirefly: ["node tools/config-probes/verify-firefly-damage.mjs", "node tools/config-probes/verify-firefly-transform.mjs", "cargo test -p starclock-combat --test damage_lifecycle --test linked_lifecycle", "cargo test -p starclock-data probe_tests"],
+  V1aAglaea: ["node tools/config-probes/verify-aglaea-memosprite.mjs", "cargo test -p starclock-combat --test battle_boundary --test linked_lifecycle --test modifier_pipeline", "cargo test -p starclock-data probe_tests"],
+  SharedElation: ["node tools/config-probes/verify-elation-probes.mjs", "cargo test -p starclock-combat --test elation_subsystem", "cargo test -p starclock-data probe_tests", "node tools/repository-check/verify-native-handlers.mjs"],
+};
+for (const definition of definitions) {
+  if (definition.family === "HimekoNovaApproximation" || resolutions.has(definition.id)) continue;
+  const decisionId = policyDecisionByFamily[definition.family];
+  const familyEvidence = policyEvidenceByFamily[definition.family];
+  const validationCommands = policyValidationByFamily[definition.family];
+  assert(decisionId && familyEvidence && validationCommands, `missing Phase 4 policy resolution for ${definition.id}`);
+  resolutions.set(definition.id, {
+    state: "ResolvedProjectPolicy",
+    confidence: "AcceptedProjectPolicyPendingContentObservation",
+    resolution: {
+      decided_on: PHASE4_RESOLUTION_ON,
+      decision_ids: [decisionId, "G01-D-P4-B11-05"],
+      result: `Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for ${definition.id}.`,
+      evidence_paths: [...new Set([...(definition.executable_evidence ?? []), ...familyEvidence])].sort(),
+      validation_commands: validationCommands,
+      remaining_content_gate: "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact.",
+    },
+  });
+}
 const cases = definitions.map((definition) => ({
   ...definition,
   ...(resolutions.get(definition.id) ?? {}),
@@ -400,9 +477,11 @@ const fixtures = cases.map((entry) => ({
   assertions: entry.fixture.assertions,
   observations_required: entry.observations_required,
   replay_requirements: ["Fixed seed and stable formation slots.", "Canonical accepted-command stream and ordered event/cause capture.", "Pre/post authoritative state hash and RNG draw count.", "Exact reference-pack, rules and fixture revision in the replay header."],
-  completion_rule: "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
-  state: entry.state === "Observed" ? "GoldenVerified" : "PendingObservation",
-  executable_evidence: entry.observation?.evidence_paths ?? entry.executable_evidence ?? [],
+  completion_rule: entry.state === "ResolvedProjectPolicy"
+    ? "The core architecture blocker is closed by explicit project policy and regression evidence; exact content still requires the retained source-bound observation gate before DataReady."
+    : "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
+  state: entry.state === "Observed" ? "GoldenVerified" : entry.state === "ResolvedProjectPolicy" ? "PolicyGoldenVerified" : "PendingObservation",
+  executable_evidence: entry.observation?.evidence_paths ?? entry.resolution?.evidence_paths ?? entry.executable_evidence ?? [],
 }));
 
 const decisions = [
@@ -412,6 +491,11 @@ const decisions = [
   decision("G01-D-P0-B3-04", "Shared Elation boundary", "Elation damage class, Elation ability tag, Punchline, Certified Banger, forced ability use and shared actors compile through generic tags/slots/links; form IDs are forbidden in core APIs and resolver branches."),
   decision("G01-D-P0-B3-05", "Himeko Nova Assist prerequisite", "Register G01-P7-M01 before G01-P7-C04 to implement the generic Assist Skill/shared-use/companion-protocol mechanism only after all ten source-bound approximations have resolved target and timing fixtures."),
   decision("G01-D-P0-B3-06", "Reproducible observation envelope", "Every live observation records source URL/access date/version/confidence/hash, exact build and encounter inputs, accepted commands, seed, RNG draws, ordered events and pre/post hashes; video-only impressions do not close a case."),
+  decisionAt("G01-D-P4-B11-01", "Explicit effect and slot timing", "When prepared records do not publish a hidden ordering, Asta and Kafka content must author independent duration/reset/snapshot/selection/once policies through typed effects, slots and reaction scopes. The Phase 4 choice closes the core architecture question but remains distinct from a source-bound game observation.", "G01-P4-B11"),
+  decisionAt("G01-D-P4-B11-02", "Explicit counter and per-target policy", "Counter ownership, invalidation, shared-charge consumption and per-target mark sampling/removal are authored trigger, selector, slot and operation-order policies. No resolver fallback or character-ID branch supplies a missing fact.", "G01-P4-B11"),
+  decisionAt("G01-D-P4-B11-03", "Explicit linked-actor and transformation policy", "Summon/memosprite life, presence, gauge rescaling, contribution causes and teardown are authored link, action, modifier and boundary policies. Countdown teardown is once-only and ordinary form restoration is explicit.", "G01-P4-B11"),
+  decisionAt("G01-D-P4-B11-04", "Explicit shared Elation policy", "Shared Elation behavior uses independent semantic tags, keyed team resources, forced-use owner/payment/target arguments and generic linked actors. Exact cross-kit observations remain a V1B content gate and cannot create form-specific core branches.", "G01-P4-B11"),
+  decisionAt("G01-D-P4-B11-05", "Core resolution is not content observation", "A ResolvedProjectPolicy case closes only the generic Phase 4 architecture blocker. It grants no DataReady credit and retains its named public-observation or stronger-source requirement for the complete V1B content batch.", "G01-P4-B11"),
 ];
 
 const familyCounts = countBy(cases, (entry) => entry.family);
@@ -482,6 +566,7 @@ function observationFixture(id, recordId) {
 }
 function fixture(id, kind, initial_conditions, stimulus, assertions) { return { id: `fixture.${id}`, kind, initial_conditions, stimulus, assertions }; }
 function decision(id, title, text) { return { id, state: "AcceptedProjectPolicy", title, decision: text, effective_batch: "G01-P0-B3" }; }
+function decisionAt(id, title, text, effectiveBatch) { return { id, state: "AcceptedProjectPolicy", title, decision: text, effective_batch: effectiveBatch }; }
 function countBy(rows, key) { const out = {}; for (const row of rows) { const value = key(row); out[value] = (out[value] ?? 0) + 1; } return Object.fromEntries(Object.entries(out).sort(([a], [b]) => a.localeCompare(b))); }
 function slug(value) { return value.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").toUpperCase(); }
 function readJson(file) { return JSON.parse(fs.readFileSync(file, "utf8")); }

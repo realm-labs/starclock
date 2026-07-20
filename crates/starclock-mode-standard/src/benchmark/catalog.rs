@@ -1,19 +1,23 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    AbilityId, EncounterId, EnemyDefinitionId, Energy, ProgramId, Ratio, Scalar, SelectorId,
-    UnitDefinitionId,
+    AbilityId, DispelCategory, DurationClock, EffectApplicationDefinition, EffectCategory,
+    EffectChancePolicy, EffectDefinitionId, EffectRuntimeDefinition, EffectStackPolicy,
+    EffectTickPhase, EncounterId, EnemyDefinitionId, Energy, Hp, ProgramId, Ratio, Scalar,
+    SelectorId, UnitDefinitionId,
     catalog::{
         CombatCatalog,
         action::{
             AbilityActionDefinition, AbilityKind, ActionHitDefinition, ActionResourcePolicy,
-            HitOperationDefinition, OrdinaryDamageDefinition, OrdinaryDamageMultipliers,
-            TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
+            HealingDefinition, HitOperationDefinition, HpConsumptionDefinition,
+            OrdinaryDamageDefinition, OrdinaryDamageMultipliers, TargetInvalidationPolicy,
+            TargetPattern, TargetRelation, TeamResourceChange, TeamResourceChangeDefinition,
+            UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
         definition::{
-            AbilityDefinition, EncounterDefinition, EnemyDefinition, ProgramDefinition,
-            SelectorDefinition, UnitDefinition,
+            AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition,
+            ProgramDefinition, SelectorDefinition, UnitDefinition,
         },
     },
 };
@@ -38,10 +42,33 @@ pub(super) fn catalog() -> Arc<CombatCatalog> {
         vec![],
         vec![],
     ));
+    let full_program = ProgramId::new(2).expect("static ID");
+    let full_effect = EffectDefinitionId::new(1).expect("static ID");
+    builder.add_program(ProgramDefinition::new(
+        full_program,
+        vec![],
+        vec![selector],
+        vec![full_effect],
+        vec![],
+    ));
+    let effect_runtime = EffectRuntimeDefinition::new(
+        EffectCategory::Debuff,
+        DispelCategory::DispellableDebuff,
+        1,
+        Some(2),
+        DurationClock::TargetTurnEnd,
+        EffectTickPhase::None,
+        EffectStackPolicy::Refresh,
+    )
+    .expect("static effect runtime");
+    builder.add_effect(
+        EffectDefinition::new(full_effect, vec![], vec![]).with_runtime(effect_runtime),
+    );
 
     let ordinary = AbilityId::new(1).expect("static ID");
     let heavy = AbilityId::new(2).expect("static ID");
     let enemy_ability = AbilityId::new(3).expect("static ID");
+    let full = AbilityId::new(4).expect("static ID");
     builder.add_ability(ability(ordinary, program, selector, Vec::new()));
     let damage = OrdinaryDamageDefinition::new(
         Scalar::checked_from_integer(1).expect("static scalar"),
@@ -53,13 +80,54 @@ pub(super) fn catalog() -> Arc<CombatCatalog> {
         .collect();
     builder.add_ability(ability(heavy, program, selector, hits));
     builder.add_ability(ability(enemy_ability, program, selector, Vec::new()));
+    let effect = EffectApplicationDefinition::new(full_effect, EffectChancePolicy::Guaranteed, 1)
+        .expect("static effect application");
+    let healing = HealingDefinition::new(
+        Scalar::checked_from_integer(2).expect("static scalar"),
+        Ratio::ZERO,
+        Ratio::ZERO,
+        Ratio::ZERO,
+    )
+    .expect("static healing definition");
+    let full_hits = (0..4)
+        .map(|_| {
+            ActionHitDefinition::new(vec![
+                HitOperationDefinition::Damage(damage),
+                HitOperationDefinition::Heal(healing),
+                HitOperationDefinition::ConsumeHp(HpConsumptionDefinition::new(
+                    Hp::new(1).expect("static HP"),
+                    Hp::new(1).expect("static HP"),
+                )),
+                HitOperationDefinition::ApplyEffect(effect),
+                HitOperationDefinition::ModifyTeamResource(TeamResourceChangeDefinition::new(
+                    starclock_combat::SourceDefinitionId::new(1).expect("static ID"),
+                    TeamResourceChange::Gain(1),
+                )),
+            ])
+        })
+        .collect();
+    builder.add_ability(
+        AbilityDefinition::new(full, full_program, selector, vec![full_effect]).with_action(
+            AbilityActionDefinition::new(
+                AbilityKind::Basic,
+                4,
+                TargetInvalidationPolicy::CancelRemainingForTarget,
+                ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
+            )
+            .expect("static action policy")
+            .with_hits(full_hits)
+            .expect("static full-kernel hits"),
+        ),
+    );
 
     let ordinary_form = UnitDefinitionId::new(1).expect("static ID");
     let heavy_form = UnitDefinitionId::new(2).expect("static ID");
     let enemy_form = UnitDefinitionId::new(3).expect("static ID");
+    let full_form = UnitDefinitionId::new(4).expect("static ID");
     builder.add_unit(UnitDefinition::new(ordinary_form, vec![ordinary], vec![]));
     builder.add_unit(UnitDefinition::new(heavy_form, vec![heavy], vec![]));
     builder.add_unit(UnitDefinition::new(enemy_form, vec![enemy_ability], vec![]));
+    builder.add_unit(UnitDefinition::new(full_form, vec![full], vec![]));
     let enemy = EnemyDefinitionId::new(1).expect("static ID");
     builder.add_enemy(EnemyDefinition::new(enemy, enemy_form, vec![enemy_ability]));
     for (encounter, count) in [(1, 1), (2, 2), (3, 4)] {

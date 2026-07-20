@@ -1,10 +1,15 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import crypto from "node:crypto";
 import { execFileSync } from "node:child_process";
 
 const root = path.resolve(import.meta.dirname, "../..");
 const policy = JSON.parse(fs.readFileSync(path.join(root, "policy/benchmark-workloads.json"), "utf8"));
+assert(policy.budget_stage === "phase4-provisional-full-kernel", "benchmark budget stage differs");
+const baselinePath = path.join(root, policy.phase3_baseline.path);
+const baselineDigest = crypto.createHash("sha256").update(fs.readFileSync(baselinePath)).digest("hex");
+assert(baselineDigest === policy.phase3_baseline.sha256, "Phase 3 baseline digest differs");
 let output;
 let strict = false;
 let samples = 1;
@@ -63,9 +68,12 @@ function validateReport(report) {
   }
   const ordinary = report.rows.find((row) => row.id === "ordinary-apply-v1");
   const heavy = report.rows.find((row) => row.id === "trigger-heavy-proxy-v1");
+  const full = report.rows.find((row) => row.id === "full-kernel-apply-v1");
   const invalid = report.rows.find((row) => row.id === "invalid-rejection-v1");
   assert(ordinary.semantic_copy_bytes > 0 && ordinary.journal_entries > 0 && ordinary.event_entries > 0, "ordinary instrumentation is empty");
   assert(heavy.operation_allocations > 0 && heavy.event_entries > ordinary.event_entries / 2, "heavy proxy did not exercise operation/event growth");
+  assert(full.operation_allocations > heavy.operation_allocations, "full kernel did not exceed proxy operation coverage");
+  assert(full.event_entries > heavy.event_entries && full.journal_entries > heavy.journal_entries, "full kernel did not exercise event/journal growth");
   assert(invalid.allocation_count === 0 && invalid.allocation_bytes === 0 && invalid.journal_entries === 0, "invalid commands reached scratch or allocation");
   for (const id of ["hash-small-v1", "hash-medium-v1", "hash-large-v1"]) {
     const row = report.rows.find((candidate) => candidate.id === id);
