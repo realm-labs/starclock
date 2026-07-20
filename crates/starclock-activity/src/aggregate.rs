@@ -1,10 +1,10 @@
 use starclock_combat::{BattleSeed, BattleSpec};
 
 use crate::{
-    ActivityInstanceId, ActivityMasterSeed, ActivitySlotId, ActivitySpec, ActivityStateHash,
-    ActivityValue, BattleOutcome, BattleResult, BattleResultDigest, BattleResultIdentity,
-    BattleSequence, NodeId, ScopeIdentity, SlotResetPoint, TerminalOutcome, codec::CanonicalWriter,
-    slot::ScopedSlots,
+    ActivityDefinitionIdentity, ActivityInstanceId, ActivityMasterSeed, ActivitySlotId,
+    ActivitySpec, ActivityStateHash, ActivityValue, BattleOutcome, BattleResult,
+    BattleResultDigest, BattleResultIdentity, BattleSequence, NodeId, ScopeIdentity,
+    SlotResetPoint, TerminalOutcome, codec::CanonicalWriter, slot::ScopedSlots,
 };
 
 /// Stable lifecycle state of the minimum one-Battle aggregate.
@@ -158,6 +158,10 @@ impl Activity {
     #[must_use]
     pub const fn scope(&self) -> ScopeIdentity {
         self.scope
+    }
+    #[must_use]
+    pub const fn definition_identity(&self) -> ActivityDefinitionIdentity {
+        self.spec.identity()
     }
     #[must_use]
     pub const fn current_node(&self) -> NodeId {

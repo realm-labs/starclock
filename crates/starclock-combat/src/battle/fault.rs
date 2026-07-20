@@ -45,7 +45,10 @@ pub struct BattleFault {
 }
 
 impl BattleFault {
-    pub(crate) const fn new(
+    /// Reconstructs an exact fault received through a verified replay or
+    /// activity-result transport.
+    #[must_use]
+    pub const fn from_parts(
         kind: FaultKind,
         boundary: FaultBoundary,
         policy: FaultPolicy,
@@ -59,6 +62,16 @@ impl BattleFault {
             context_code,
             numeric_context,
         }
+    }
+
+    pub(crate) const fn new(
+        kind: FaultKind,
+        boundary: FaultBoundary,
+        policy: FaultPolicy,
+        context_code: u32,
+        numeric_context: Option<i64>,
+    ) -> Self {
+        Self::from_parts(kind, boundary, policy, context_code, numeric_context)
     }
 
     /// Returns the stable failure category.
