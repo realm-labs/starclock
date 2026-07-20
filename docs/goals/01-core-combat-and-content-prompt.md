@@ -100,9 +100,29 @@ Repeat this loop until the Goal 01 status ledger is Complete:
    evidence paths, manifest counts, decisions and blockers.
 7. Review the diff for scope, public API, dependency direction, determinism,
    source-file size, generated drift and accidental user changes.
-8. Commit exactly this completed batch with its batch ID in the subject. Verify
-   the commit and working tree. Do not push, publish, open a PR or rewrite prior
-   commits unless the user separately authorizes it.
+8. Commit exactly this completed batch. Its subject MUST use Conventional
+   Commits in this exact structure:
+
+   `<type>(<scope>): <batch-id> <concise imperative summary>`
+
+   The type MUST be one of `build`, `chore`, `ci`, `data`, `docs`, `feat`,
+   `fix`, `perf`, `refactor`, `revert`, `style` or `test`. The scope MUST be a
+   lowercase kebab-case name for the batch's primary responsibility, chosen
+   consistently with recent commits, such as `combat`, `rules`, `build`,
+   `characters`, `replay` or `core`. `<batch-id>` MUST exactly match the batch
+   being completed. Examples:
+
+   `feat(combat): G01-P4-B5 implement effects DoT and resources`
+   `feat(build): G01-P5-B2 implement ability and Trace compilation`
+   `data(characters): G01-P7-C03 import character partition 03`
+
+   A bare subject beginning with only the batch ID is invalid. After committing,
+   inspect `git log -1 --format=%s` and verify the subject against
+   `^(build|chore|ci|data|docs|feat|fix|perf|refactor|revert|style|test)\([a-z0-9][a-z0-9-]*\): G01-P[0-9]+-[A-Z][A-Z0-9-]* .+`.
+   If it does not match, amend that newly created commit before proceeding; this
+   does not authorize rewriting any earlier commit. Verify the working tree as
+   well. Do not push, publish, open a PR or rewrite prior commits unless the user
+   separately authorizes it.
 9. Immediately start the next unblocked batch. Completing a commit or phase is
    progress, not a reason to return control or mark the persistent goal complete.
 
