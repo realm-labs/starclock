@@ -183,14 +183,16 @@ fn weighted_behavior_draw_is_seeded_and_consumed_exactly_once() {
     let graph = AiGraphDefinition::new(id(1), id(1), 4, vec![state]).unwrap();
     let actor = runtime(3);
     let commands = [offered(actor, 2), offered(actor, 1)];
-    let decide = |controller: &mut EnemyController| {
-        controller
-            .decide_offered(&graph, id(1), actor, &commands, &mut |_| true)
-            .unwrap()
-    };
     let mut first = EnemyController::new(RngSeed::new([0x37; 32]));
     let mut second = EnemyController::new(RngSeed::new([0x37; 32]));
-    assert_eq!(decide(&mut first), decide(&mut second));
+    let first_decision = first
+        .decide_offered(&graph, id(1), actor, &commands, &mut |_| true)
+        .unwrap();
+    let reversed = [commands[1].clone(), commands[0].clone()];
+    let second_decision = second
+        .decide_offered(&graph, id(1), actor, &reversed, &mut |_| true)
+        .unwrap();
+    assert_eq!(first_decision, second_decision);
     assert_eq!(first.draw_count(), 1);
     assert_eq!(second.draw_count(), 1);
 }

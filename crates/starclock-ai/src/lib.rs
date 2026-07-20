@@ -10,6 +10,9 @@ mod select;
 #[cfg(test)]
 mod tests;
 
+/// Deterministic baseline player scoring and diagnostics.
+pub mod baseline;
+
 use starclock_combat::{
     AiCandidateId, AiGraphId, AiStateId, Command, UnitId,
     rng::{engine::DeterministicRng, types::DrawSample},

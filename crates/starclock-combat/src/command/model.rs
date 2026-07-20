@@ -43,7 +43,9 @@ impl Command {
         }
     }
 
-    pub(crate) fn canonical_cmp(&self, other: &Self) -> Ordering {
+    /// Compares two command values by the replay-canonical stable identity key.
+    #[must_use]
+    pub fn canonical_cmp(&self, other: &Self) -> Ordering {
         self.canonical_key().cmp(&other.canonical_key())
     }
 
