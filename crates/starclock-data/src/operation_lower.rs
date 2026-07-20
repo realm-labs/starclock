@@ -3,13 +3,13 @@
 use std::collections::BTreeSet;
 
 use starclock_combat::{
-    EffectDefinitionId, ProgramId, Rounding, SelectorId,
+    AbilityId, EffectDefinitionId, ProgramId, Rounding, SelectorId,
     formula::model::{CombatElement, DamageClass},
     rule::{
         evaluate::ProgramLookup,
         model::{
-            ProgramStep, ResourceUpdateKind, RuleEffectChancePolicy, RuleOperationTemplate,
-            RuleResourceKind, StateSlotUpdateKind,
+            ProgramStep, ReactionPriority, ResourceUpdateKind, RuleEffectChancePolicy,
+            RuleOperationTemplate, RuleResourceKind, StateSlotUpdateKind,
         },
     },
 };
@@ -276,6 +276,27 @@ fn lower_operation(
         } => RuleOperationTemplate::AdvanceAction {
             selector: selector()?,
             amount: expression(*amount_expression_id)?,
+        },
+        Payload::DelayAction {
+            amount_expression_id,
+        } => RuleOperationTemplate::DelayAction {
+            selector: selector()?,
+            amount: expression(*amount_expression_id)?,
+        },
+        Payload::QueueAction {
+            ability_id,
+            actor_selector_id,
+            priority,
+        } => RuleOperationTemplate::QueueAction {
+            actor_selector: selector_id(*actor_selector_id)?,
+            target_selector: selector()?,
+            ability: AbilityId::new(positive(*ability_id)?).expect("positive queued ability ID"),
+            priority: ReactionPriority::new(i16::try_from(*priority).map_err(|_| {
+                domain_fail(format!("operation {} priority does not fit i16", row.id))
+            })?),
+        },
+        Payload::GrantExtraTurn { actor_selector_id } => RuleOperationTemplate::GrantExtraTurn {
+            actor_selector: selector_id(*actor_selector_id)?,
         },
         Payload::EmitRuleEvent { .. } if row.target_selector_id.is_none() => {
             RuleOperationTemplate::CreateCountdown {

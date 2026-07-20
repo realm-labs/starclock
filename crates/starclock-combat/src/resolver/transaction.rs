@@ -32,7 +32,7 @@ use crate::{
 };
 
 use super::{
-    action::execute_action_plan,
+    action::{drain_reactions, execute_action_plan},
     journal::{AllocationKind, MutationField, MutationJournal, phase_code},
     settle::{ActionBoundary, settle_after_action},
 };
@@ -227,6 +227,12 @@ fn execute(
                 boundary_cause,
                 action_resolved,
             )?;
+            let action_resolved = drain_reactions(
+                catalog,
+                txn,
+                crate::catalog::action::ReactionBoundary::AfterAction,
+                action_resolved,
+            )?;
             txn.set_actor_gauge(
                 turn.actor,
                 ActionGauge::from_scaled(10_000_000_000).map_err(|_| action_fault(6))?,
@@ -248,7 +254,17 @@ fn execute(
             if let ActionBoundary::Continue(parent) =
                 settle_after_action(txn, boundary_cause, ended)?
             {
-                begin_turn(catalog, txn, root, parent)?;
+                let parent = drain_reactions(
+                    catalog,
+                    txn,
+                    crate::catalog::action::ReactionBoundary::BeforeTimeline,
+                    parent,
+                )?;
+                if let ActionBoundary::Continue(parent) =
+                    settle_after_action(txn, boundary_cause, parent)?
+                {
+                    begin_turn(catalog, txn, root, parent)?;
+                }
             }
         }
         ValidatedCommand::UseInterrupt {
@@ -267,6 +283,12 @@ fn execute(
             let boundary_cause = action_cause(root, &plan)?;
             let resolved =
                 super::operation::settle_effects_at_action_end(txn, boundary_cause, resolved)?;
+            let resolved = drain_reactions(
+                catalog,
+                txn,
+                crate::catalog::action::ReactionBoundary::AfterAction,
+                resolved,
+            )?;
             if let ActionBoundary::Continue(parent) =
                 settle_after_action(txn, boundary_cause, resolved)?
             {
@@ -285,12 +307,15 @@ fn execute(
             );
         }
     }
+    if !txn.reactions.is_empty() {
+        return Err(action_fault(73));
+    }
     maybe_inject(injection, FaultInjectionPoint::AfterCommandMutation)?;
     txn.bump_revision()?;
     Ok(())
 }
 
-fn action_cause(
+pub(super) fn action_cause(
     root: CommandId,
     plan: &crate::action::model::ActionPlan,
 ) -> Result<Cause, BattleFault> {
@@ -537,6 +562,9 @@ pub(super) struct Transaction<'a> {
     pub(super) state: &'a mut BattleState,
     pub(super) journal: &'a mut MutationJournal,
     events: Vec<BattleEvent>,
+    pub(super) reactions: crate::reaction::queue::ReactionQueue,
+    resolved_reactions: usize,
+    next_reaction: u64,
 }
 
 impl<'a> Transaction<'a> {
@@ -545,6 +573,9 @@ impl<'a> Transaction<'a> {
             state,
             journal,
             events: Vec::new(),
+            reactions: crate::reaction::queue::ReactionQueue::default(),
+            resolved_reactions: 0,
+            next_reaction: 1,
         }
     }
 
@@ -557,6 +588,9 @@ impl<'a> Transaction<'a> {
             state,
             journal,
             events,
+            reactions: crate::reaction::queue::ReactionQueue::default(),
+            resolved_reactions: 0,
+            next_reaction: 1,
         }
     }
 
@@ -630,6 +664,28 @@ impl<'a> Transaction<'a> {
             .expect("rules-revision operation budget prevents u64 identity exhaustion");
         self.journal.allocation(AllocationKind::Operation, id.get());
         id
+    }
+
+    pub(super) fn allocate_reaction(&mut self) -> u64 {
+        let insertion = self.next_reaction;
+        self.next_reaction = insertion
+            .checked_add(1)
+            .expect("rules-revision reaction budget prevents sequence exhaustion");
+        self.journal.allocation(AllocationKind::Reaction, insertion);
+        self.journal
+            .queue_insertion(super::journal::QueueKind::Reaction, insertion);
+        insertion
+    }
+
+    pub(super) fn consume_reaction_budget(&mut self, maximum: usize) -> bool {
+        let Some(next) = self.resolved_reactions.checked_add(1) else {
+            return false;
+        };
+        if next > maximum {
+            return false;
+        }
+        self.resolved_reactions = next;
+        true
     }
 
     pub(super) fn allocate_shield(&mut self) -> ShieldInstanceId {

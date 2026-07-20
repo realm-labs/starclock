@@ -11,8 +11,8 @@ use crate::{
     id::{CommandId, EventId, SourceDefinitionId},
     operation::{
         AddWeaknessOp, ApplyEffectOp, ConsumeHpOp, DamageOp, DetonateDotsOp, HealOp,
-        HitOperationScratch, ModifyStateSlotOp, Operation, ReduceToughnessOp, RemoveEffectsOp,
-        ShieldOp, SuperBreakOp,
+        HitOperationScratch, ModifyStateSlotOp, Operation, QueueActionOp, ReduceToughnessOp,
+        RemoveEffectsOp, ShieldOp, SuperBreakOp,
     },
 };
 
@@ -20,6 +20,80 @@ use super::{
     operation::execute_operation,
     transaction::{Transaction, action_fault},
 };
+
+const MAX_REACTIONS_PER_COMMAND: usize = 256;
+
+pub(super) fn drain_reactions(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    boundary: crate::catalog::action::ReactionBoundary,
+    mut parent: EventId,
+) -> Result<EventId, BattleFault> {
+    while let Some(queued) = txn.reactions.pop_ready(boundary) {
+        if !txn.consume_reaction_budget(MAX_REACTIONS_PER_COMMAND) {
+            return Err(BattleFault::new(
+                crate::FaultKind::BudgetExceeded,
+                crate::FaultBoundary::Command,
+                crate::FaultPolicy::Rollback,
+                0x3171,
+                Some(MAX_REACTIONS_PER_COMMAND as i64),
+            ));
+        }
+        let eligible = txn.state.units.get(queued.actor).is_some_and(|unit| {
+            unit.life == crate::LifeState::Alive
+                && unit.presence == crate::PresenceState::Present
+                && unit.abilities.binary_search(&queued.ability).is_ok()
+                && !(matches!(
+                    queued.origin,
+                    crate::ActionOrigin::FollowUp | crate::ActionOrigin::Counter
+                ) && txn
+                    .state
+                    .effects
+                    .blocks(queued.actor, crate::ControlledAction::FollowUp))
+        });
+        if !eligible {
+            parent = cancel_queued(txn, &queued);
+            continue;
+        }
+        let mut plan = crate::action::lower::lower_queued_action(
+            catalog,
+            txn,
+            queued.actor,
+            queued.ability,
+            queued.origin,
+            queued.targets.clone(),
+        )
+        .ok_or_else(|| action_fault(72))?;
+        if !txn
+            .resolve_hit_targets(plan.actor, &mut plan.targets)
+            .is_ok_and(|targets| !targets.is_empty())
+        {
+            parent = cancel_queued(txn, &queued);
+            continue;
+        }
+        parent = execute_action_plan(catalog, txn, queued.root, queued.parent, &mut plan)?;
+        let cause = super::transaction::action_cause(queued.root, &plan)?;
+        parent = super::operation::settle_effects_at_action_end(txn, cause, parent)?;
+    }
+    Ok(parent)
+}
+
+fn cancel_queued(
+    txn: &mut Transaction<'_>,
+    queued: &crate::reaction::queue::QueuedAction,
+) -> EventId {
+    txn.emit(
+        Cause::root(queued.root)
+            .with_parent(queued.parent)
+            .with_primary_target(queued.targets.primary),
+        BattleEventKind::Action(ActionEventData::Cancelled {
+            insertion: queued.order.insertion,
+            actor: queued.actor,
+            ability: queued.ability,
+            origin: queued.origin,
+        }),
+    )
+}
 
 pub(super) fn execute_action_plan(
     catalog: &crate::catalog::CombatCatalog,
@@ -168,6 +242,12 @@ pub(super) fn execute_action_plan(
                             definition: definition.clone(),
                         })
                     }
+                    HitOperationDefinition::QueueAction(definition) => {
+                        Operation::QueueAction(QueueActionOp {
+                            id: operation.id,
+                            definition: *definition,
+                        })
+                    }
                 };
                 parent = execute_operation(
                     catalog,
@@ -188,6 +268,12 @@ pub(super) fn execute_action_plan(
                     targets,
                 }),
             );
+            parent = drain_reactions(
+                catalog,
+                txn,
+                crate::catalog::action::ReactionBoundary::AfterHit,
+                parent,
+            )?;
         }
         parent = txn.emit(
             phase_cause.with_parent(parent),
@@ -196,6 +282,12 @@ pub(super) fn execute_action_plan(
                 phase: phase.id,
             }),
         );
+        parent = drain_reactions(
+            catalog,
+            txn,
+            crate::catalog::action::ReactionBoundary::AfterPhase,
+            parent,
+        )?;
     }
     parent = apply_resource_gains(txn, base, parent, plan)?;
     Ok(txn.emit(

@@ -17,6 +17,8 @@ const commands = [
   ["node", "tools/benchmark/verify.mjs"],
   ["node", "tools/config-probes/verify-asta-modifier.mjs"],
   ["node", "tools/config-probes/verify-firefly-damage.mjs"],
+  ["node", "tools/config-probes/verify-kafka-dot.mjs"],
+  ["node", "tools/config-probes/verify-clara-counter.mjs"],
   ["cargo", "fmt", "--all", "--", "--check"],
   ["cargo", "clippy", "--workspace", "--all-targets", "--all-features", "--", "-D", "warnings"],
   ["cargo", "test", "--workspace", "--all-targets", "--all-features"],

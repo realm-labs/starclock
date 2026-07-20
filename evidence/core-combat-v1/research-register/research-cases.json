@@ -387,6 +387,11 @@
       "observations_required": [
         "Actor/owner/source fields on each queued and resolved counter event."
       ],
+      "executable_evidence": [
+        "config/probes/v1a/clara-counter/golden.json",
+        "crates/starclock-combat/tests/reaction_scheduler.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ],
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -422,6 +427,10 @@
       ],
       "observations_required": [
         "Cancel/retarget behavior after attacker defeat, departure and phase replacement."
+      ],
+      "executable_evidence": [
+        "config/probes/v1a/clara-counter/golden.json",
+        "crates/starclock-combat/tests/reaction_scheduler.rs"
       ],
       "evidence": [
         {
@@ -459,6 +468,10 @@
       ],
       "observations_required": [
         "Consumption point and coalescing behavior for AoE/multi-target attacks."
+      ],
+      "executable_evidence": [
+        "config/probes/v1a/clara-counter/golden.json",
+        "crates/starclock-data/src/probe_tests.rs"
       ],
       "evidence": [
         {

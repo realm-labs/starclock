@@ -439,6 +439,27 @@ fn evaluate_operation(
             amount: evaluate_value(amount, input, current_target)?,
             current_target,
         },
+        RuleOperationTemplate::DelayAction { selector, amount } => RuleEmission::DelayAction {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            current_target,
+        },
+        RuleOperationTemplate::QueueAction {
+            actor_selector,
+            target_selector,
+            ability,
+            priority,
+        } => RuleEmission::QueueAction {
+            actor_selector: *actor_selector,
+            target_selector: *target_selector,
+            ability: *ability,
+            priority: *priority,
+            current_target,
+        },
+        RuleOperationTemplate::GrantExtraTurn { actor_selector } => RuleEmission::GrantExtraTurn {
+            actor_selector: *actor_selector,
+            current_target,
+        },
         RuleOperationTemplate::CreateCountdown { code } => RuleEmission::CreateCountdown {
             code: *code,
             current_target,

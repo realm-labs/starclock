@@ -254,9 +254,32 @@ fn validate_operation(
             maximum: amount,
             ..
         }
-        | RuleOperationTemplate::AdvanceAction { selector, amount } => {
+        | RuleOperationTemplate::AdvanceAction { selector, amount }
+        | RuleOperationTemplate::DelayAction { selector, amount } => {
             require_selector(catalog, *selector)?;
             require_scalar(catalog, runtime, amount)?;
+        }
+        RuleOperationTemplate::QueueAction {
+            actor_selector,
+            target_selector,
+            ability,
+            ..
+        } => {
+            require_selector(catalog, *actor_selector)?;
+            require_selector(catalog, *target_selector)?;
+            let action = catalog
+                .ability(*ability)
+                .and_then(|ability| ability.action())
+                .ok_or_else(|| format!("queued ability {} is not executable", ability.get()))?;
+            if action.kind().is_normal_turn() {
+                return Err(format!(
+                    "queued ability {} must declare a queued action kind",
+                    ability.get()
+                ));
+            }
+        }
+        RuleOperationTemplate::GrantExtraTurn { actor_selector } => {
+            require_selector(catalog, *actor_selector)?;
         }
         RuleOperationTemplate::Break { selector, .. }
         | RuleOperationTemplate::AddWeakness { selector, .. }

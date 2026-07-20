@@ -83,7 +83,7 @@ pub(crate) fn normal_action(
         }) else {
             continue;
         };
-        if action.kind() == AbilityKind::Ultimate
+        if !action.kind().is_normal_turn()
             || !can_pay(&state.units, &state.teams, actor, action.resources())
             || state
                 .effects

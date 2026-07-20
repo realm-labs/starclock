@@ -1,6 +1,5 @@
 use core::fmt;
 
-use crate::catalog::action::AbilityKind;
 use crate::{catalog::CombatCatalog, id::EnemyDefinitionId};
 
 use super::spec::{BattleSpec, ParticipantSource, TeamSide};
@@ -111,7 +110,7 @@ pub(crate) fn validate(catalog: &CombatCatalog, spec: &BattleSpec) -> Result<(),
                 .ability(*ability)
                 .and_then(|definition| definition.action())
                 .is_some_and(|action| {
-                    action.kind() != AbilityKind::Ultimate
+                    action.kind().is_normal_turn()
                         && action.resources().skill_point_cost() == 0
                         && action.resources().energy_cost() == crate::Energy::ZERO
                 })

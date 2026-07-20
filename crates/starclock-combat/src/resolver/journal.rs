@@ -12,6 +12,7 @@ pub(crate) enum AllocationKind {
     Shield,
     Effect,
     Wave,
+    Reaction,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -512,6 +512,19 @@ pub enum RuleOperationTemplate {
         selector: SelectorId,
         amount: ValueExpr,
     },
+    DelayAction {
+        selector: SelectorId,
+        amount: ValueExpr,
+    },
+    QueueAction {
+        actor_selector: SelectorId,
+        target_selector: SelectorId,
+        ability: AbilityId,
+        priority: ReactionPriority,
+    },
+    GrantExtraTurn {
+        actor_selector: SelectorId,
+    },
     CreateCountdown {
         code: u32,
     },
@@ -772,6 +785,22 @@ pub enum RuleEmission {
     AdvanceAction {
         selector: SelectorId,
         amount: RuleValue,
+        current_target: Option<UnitId>,
+    },
+    DelayAction {
+        selector: SelectorId,
+        amount: RuleValue,
+        current_target: Option<UnitId>,
+    },
+    QueueAction {
+        actor_selector: SelectorId,
+        target_selector: SelectorId,
+        ability: AbilityId,
+        priority: ReactionPriority,
+        current_target: Option<UnitId>,
+    },
+    GrantExtraTurn {
+        actor_selector: SelectorId,
         current_target: Option<UnitId>,
     },
     CreateCountdown {

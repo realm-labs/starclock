@@ -114,6 +114,7 @@ add({
   question: "How are enemy attacker, attacked ally, Clara owner and Svarog damage actor retained across counter scheduling?",
   fixed_expectations: ["The incoming attack cause contains attacker and attacked ally.", "Counter ownership remains Clara/Svarog while targeting the original attacker."],
   observations_required: ["Actor/owner/source fields on each queued and resolved counter event."],
+  executable_evidence: ["config/probes/v1a/clara-counter/golden.json", "crates/starclock-combat/tests/reaction_scheduler.rs", "crates/starclock-data/src/probe_tests.rs"],
   fixture: reactionFixture("clara-cause-attacker-ally", ["Attack Clara, then a protected ally, from distinct enemy slots."], ["Assert counter target and complete cause ancestry for both cases."]),
 });
 add({
@@ -122,6 +123,7 @@ add({
   question: "What deterministic invalidation and priority policy applies if the original attacker becomes illegal before Svarog's counter resolves?",
   fixed_expectations: ["The counter is a queued reaction with explicit priority.", "There is no implicit random or nearest-target fallback."],
   observations_required: ["Cancel/retarget behavior after attacker defeat, departure and phase replacement."],
+  executable_evidence: ["config/probes/v1a/clara-counter/golden.json", "crates/starclock-combat/tests/reaction_scheduler.rs"],
   fixture: reactionFixture("clara-counter-target-priority", ["Queue a counter, then invalidate the attacker before reaction resolution under three presence transitions."], ["Capture cancel/retarget result and prove no unspecified RNG draw."]),
 });
 add({
@@ -130,6 +132,7 @@ add({
   question: "How are enhanced counter charges shared and consumed when multiple allies are attacked in one enemy action?",
   fixed_expectations: ["Enhanced counter charges are one Clara-owned shared resource.", "An attack on any ally may qualify while charges remain."],
   observations_required: ["Consumption point and coalescing behavior for AoE/multi-target attacks."],
+  executable_evidence: ["config/probes/v1a/clara-counter/golden.json", "crates/starclock-data/src/probe_tests.rs"],
   fixture: reactionFixture("clara-enhanced-charge-scope", ["With one remaining enhanced charge, resolve a stable-slot enemy AoE that hits all allies."], ["Assert the exact qualifying event, one charge mutation and one reaction insertion."]),
 });
 add({
@@ -386,7 +389,7 @@ const fixtures = cases.map((entry) => ({
   replay_requirements: ["Fixed seed and stable formation slots.", "Canonical accepted-command stream and ordered event/cause capture.", "Pre/post authoritative state hash and RNG draw count.", "Exact reference-pack, rules and fixture revision in the replay header."],
   completion_rule: "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
   state: entry.state === "Observed" ? "GoldenVerified" : "PendingObservation",
-  executable_evidence: entry.observation?.evidence_paths ?? [],
+  executable_evidence: entry.observation?.evidence_paths ?? entry.executable_evidence ?? [],
 }));
 
 const decisions = [

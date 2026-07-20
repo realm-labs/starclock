@@ -20,6 +20,7 @@ pub(crate) enum Operation {
     RemoveEffects(RemoveEffectsOp),
     DetonateDots(DetonateDotsOp),
     ModifyStateSlot(ModifyStateSlotOp),
+    QueueAction(QueueActionOp),
 }
 
 impl Operation {
@@ -36,8 +37,15 @@ impl Operation {
             Self::RemoveEffects(operation) => operation.id,
             Self::DetonateDots(operation) => operation.id,
             Self::ModifyStateSlot(operation) => operation.id,
+            Self::QueueAction(operation) => operation.id,
         }
     }
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct QueueActionOp {
+    pub(crate) id: OperationId,
+    pub(crate) definition: crate::catalog::action::QueueActionDefinition,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

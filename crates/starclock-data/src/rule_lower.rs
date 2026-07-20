@@ -3,10 +3,11 @@
 use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_combat::{
-    NativeHandlerId, RuleId, SourceDefinitionId, StateSlotDefinitionId,
+    NativeHandlerId, ProgramId, RuleId, SourceDefinitionId, StateSlotDefinitionId, TriggerId,
     rule::model::{
-        BattleRuleDefinition, BattleRuleScope, RuleSource, RuleValue, RuleValueKind,
-        SlotPersistence, SlotResetPoint, SlotVisibility, StateSlotDef, ValueExpr,
+        BattleRuleDefinition, BattleRuleScope, Comparison, ConditionExpr, EventFilter, OnceScope,
+        ReactionPriority, RuleEventKind, RuleSource, RuleValue, RuleValueKind, SlotPersistence,
+        SlotResetPoint, SlotVisibility, StateSlotDef, TriggerDef, TriggerPhase, ValueExpr,
     },
 };
 
@@ -15,8 +16,9 @@ use crate::{
         CatalogLoadError, IdentityDefinition, IdentityKind, LoadMode, domain_fail, require_identity,
     },
     generated::{
-        self, SoraConfig, rule_domain, rule_scope, slot_persistence, slot_reset_point,
-        slot_value_kind, slot_visibility,
+        self, SoraConfig, comparison_operator, condition_expression_node, event_pattern,
+        once_scope, rule_domain, rule_scope, slot_persistence, slot_reset_point, slot_value_kind,
+        slot_visibility, trigger_phase,
     },
 };
 
@@ -89,6 +91,24 @@ fn lower_rule(
         .map(|slot| lower_slot(config, slot))
         .collect::<Result<Vec<_>, _>>()?;
     slots.sort_unstable_by_key(StateSlotDef::id);
+    let mut trigger_rows = config
+        .rule_trigger()
+        .ordered_rows()
+        .filter(|trigger| trigger.rule_id == row.id)
+        .collect::<Vec<_>>();
+    trigger_rows.sort_unstable_by_key(|trigger| trigger.sequence);
+    for (offset, trigger) in trigger_rows.iter().enumerate() {
+        if trigger.sequence != i32::try_from(offset + 1).expect("trigger bound fits i32") {
+            return Err(domain_fail(format!(
+                "rule {} has noncontiguous trigger order",
+                row.id
+            )));
+        }
+    }
+    let triggers = trigger_rows
+        .into_iter()
+        .map(|trigger| lower_trigger(config, trigger))
+        .collect::<Result<Vec<_>, _>>()?;
 
     let runtime = BattleRuleDefinition::new(
         RuleSource::new(
@@ -98,13 +118,205 @@ fn lower_rule(
             parse_digest(&row.source_digest_sha256)?,
         ),
         slots,
-        Vec::new(),
+        triggers,
         None::<NativeHandlerId>,
     );
     Ok(RuleDataDefinition {
         id: RuleId::new(raw_id).expect("positive rule ID"),
         runtime,
     })
+}
+
+fn lower_trigger(
+    config: &SoraConfig,
+    row: &generated::rule_trigger::RuleTrigger,
+) -> Result<TriggerDef, CatalogLoadError> {
+    let filter = config
+        .event_filter()
+        .get(&row.filter_id)
+        .ok_or_else(|| domain_fail(format!("missing event filter {}", row.filter_id)))?;
+    if filter.source_class.is_some()
+        || filter.owner_selector_id.is_some()
+        || filter.actor_selector_id.is_some()
+        || filter.applier_selector_id.is_some()
+        || filter.target_selector_id.is_some()
+        || filter.action_kind.is_some()
+        || filter.ability_tag.is_some()
+        || filter.element.is_some()
+        || filter.damage_class.is_some()
+        || !matches!(
+            filter.cause_ancestry,
+            generated::cause_ancestry::CauseAncestry::Any
+        )
+    {
+        return Err(domain_fail(format!(
+            "event filter {} exceeds the executable cause-field boundary",
+            filter.id
+        )));
+    }
+    let source = filter
+        .source_definition_identity_id
+        .map(|id| {
+            SourceDefinitionId::new(positive(id, "EventFilter.source_definition_identity_id")?)
+                .ok_or_else(|| domain_fail("event-filter source ID is zero"))
+        })
+        .transpose()?;
+    if config.program().get(&row.program_id).is_none() {
+        return Err(domain_fail(format!(
+            "rule trigger {} refers to missing program {}",
+            row.id, row.program_id
+        )));
+    }
+    Ok(TriggerDef {
+        id: TriggerId::new(positive(row.id, "RuleTrigger.id")?).expect("positive trigger ID"),
+        event: lower_event(&row.event)?,
+        phase: lower_trigger_phase(row.phase),
+        filter: EventFilter {
+            source,
+            ..EventFilter::default()
+        },
+        condition: lower_condition(config, row.condition_id, &mut BTreeSet::new())?,
+        once_scope: lower_once_scope(row.once_scope)?,
+        priority: ReactionPriority::new(i16::try_from(row.priority).map_err(|_| {
+            domain_fail(format!("rule trigger {} priority does not fit i16", row.id))
+        })?),
+        program: ProgramId::new(positive(row.program_id, "RuleTrigger.program_id")?)
+            .expect("positive program ID"),
+    })
+}
+
+fn lower_event(value: &event_pattern::EventPattern) -> Result<RuleEventKind, CatalogLoadError> {
+    use event_pattern::EventPattern as V;
+    Ok(match value {
+        V::Hit {
+            point: generated::boundary_event_point::BoundaryEventPoint::Ended,
+        } => RuleEventKind::Hit,
+        V::Battle { .. }
+        | V::Wave { .. }
+        | V::Turn { .. }
+        | V::Action { .. }
+        | V::Hit { .. }
+        | V::Damage { .. }
+        | V::Effect { .. }
+        | V::Unit { .. } => {
+            return Err(domain_fail(
+                "event-point pattern exceeds the current executable trigger boundary",
+            ));
+        }
+        V::EncounterTransition {} => RuleEventKind::Wave,
+        V::TimelineChanged {} => RuleEventKind::Turn,
+        V::HpChanged {} => RuleEventKind::Damage,
+        V::ToughnessChanged {} | V::WeaknessBroken {} => RuleEventKind::Toughness,
+        V::HealApplied {} | V::ShieldChanged {} => RuleEventKind::Heal,
+        V::ResourceChanged {} => RuleEventKind::Resource,
+        V::PresenceChanged {} => RuleEventKind::Unit,
+        V::RuleStateChanged {} | V::InformationalRule {} => RuleEventKind::Rule,
+        V::DecisionRequested {} => RuleEventKind::Decision,
+        V::FaultRaised {} => RuleEventKind::Fault,
+    })
+}
+
+fn lower_trigger_phase(value: trigger_phase::TriggerPhase) -> TriggerPhase {
+    use trigger_phase::TriggerPhase as V;
+    match value {
+        V::Before => TriggerPhase::Before,
+        V::Replace => TriggerPhase::Replace,
+        V::AfterMutation => TriggerPhase::AfterMutation,
+        V::AfterDefeatSettlement => TriggerPhase::AfterDefeatSettlement,
+        V::AfterEvent => TriggerPhase::AfterEvent,
+        V::AfterAction => TriggerPhase::AfterAction,
+        V::Boundary => TriggerPhase::Boundary,
+    }
+}
+
+fn lower_once_scope(value: once_scope::OnceScope) -> Result<OnceScope, CatalogLoadError> {
+    use once_scope::OnceScope as V;
+    Ok(match value {
+        V::Event => OnceScope::Event,
+        V::Hit => OnceScope::Hit,
+        V::TargetWithinHit => OnceScope::TargetWithinHit,
+        V::Ability => OnceScope::Ability,
+        V::Action => OnceScope::Action,
+        V::Turn => OnceScope::Turn,
+        V::Wave => OnceScope::Wave,
+        V::Battle => OnceScope::Battle,
+        V::Attempt | V::Node | V::Section | V::Activity => {
+            return Err(domain_fail(
+                "activity once-scope entered the combat boundary",
+            ));
+        }
+    })
+}
+
+fn lower_condition(
+    config: &SoraConfig,
+    id: i32,
+    visiting: &mut BTreeSet<i32>,
+) -> Result<ConditionExpr, CatalogLoadError> {
+    if !visiting.insert(id) {
+        return Err(domain_fail(format!("condition expression {id} is cyclic")));
+    }
+    let row = config
+        .condition_expression()
+        .get(&id)
+        .ok_or_else(|| domain_fail(format!("missing condition expression {id}")))?;
+    use condition_expression_node::ConditionExpressionNode as V;
+    let condition = match &row.node {
+        V::Constant { value } => ConditionExpr::Literal(*value),
+        V::Compare {
+            left_expression_id,
+            comparison,
+            right_expression_id,
+        } => ConditionExpr::Compare {
+            lhs: Box::new(crate::modifier_lower::expression(
+                config,
+                *left_expression_id,
+                &mut BTreeSet::new(),
+            )?),
+            operator: lower_comparison(*comparison),
+            rhs: Box::new(crate::modifier_lower::expression(
+                config,
+                *right_expression_id,
+                &mut BTreeSet::new(),
+            )?),
+        },
+        V::All { condition_ids } => ConditionExpr::All(
+            condition_ids
+                .iter()
+                .map(|id| lower_condition(config, *id, visiting))
+                .collect::<Result<Vec<_>, _>>()?
+                .into_boxed_slice(),
+        ),
+        V::Any { condition_ids } => ConditionExpr::Any(
+            condition_ids
+                .iter()
+                .map(|id| lower_condition(config, *id, visiting))
+                .collect::<Result<Vec<_>, _>>()?
+                .into_boxed_slice(),
+        ),
+        V::Not { condition_id } => {
+            ConditionExpr::Not(Box::new(lower_condition(config, *condition_id, visiting)?))
+        }
+        _ => {
+            return Err(domain_fail(format!(
+                "condition expression {id} exceeds the current executable boundary"
+            )));
+        }
+    };
+    visiting.remove(&id);
+    Ok(condition)
+}
+
+fn lower_comparison(value: comparison_operator::ComparisonOperator) -> Comparison {
+    use comparison_operator::ComparisonOperator as V;
+    match value {
+        V::Equal => Comparison::Equal,
+        V::NotEqual => Comparison::NotEqual,
+        V::Less => Comparison::Less,
+        V::LessOrEqual => Comparison::LessOrEqual,
+        V::Greater => Comparison::Greater,
+        V::GreaterOrEqual => Comparison::GreaterOrEqual,
+    }
 }
 
 fn lower_slot(

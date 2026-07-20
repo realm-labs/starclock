@@ -29,14 +29,16 @@ const METADATA_TABLES: [&str; 5] = [
     "EvidenceRecord",
     "SourceRecord",
 ];
-const LOWERED_TABLES: [&str; 20] = [
+const LOWERED_TABLES: [&str; 23] = [
     "Ability",
     "AbilityHitPlanBinding",
     "AbilityPhase",
     "Character",
     "CharacterAbilityBinding",
     "CharacterStat",
+    "ConditionExpression",
     "Effect",
+    "EventFilter",
     "HitPlan",
     "HitPlanHit",
     "ModifierDefinition",
@@ -46,6 +48,7 @@ const LOWERED_TABLES: [&str; 20] = [
     "Program",
     "ProgramStep",
     "RuleDefinition",
+    "RuleTrigger",
     "Selector",
     "StateSlot",
     "StateSlotReset",

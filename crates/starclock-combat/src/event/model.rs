@@ -342,6 +342,13 @@ pub enum TurnEventData {
 /// Common action envelope facts independent from operation payloads.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ActionEventData {
+    Queued {
+        insertion: u64,
+        actor: UnitId,
+        ability: AbilityId,
+        origin: ActionOrigin,
+        boundary: crate::catalog::action::ReactionBoundary,
+    },
     Declared {
         action: ActionId,
         actor: UnitId,
@@ -356,6 +363,12 @@ pub enum ActionEventData {
     },
     Resolved {
         action: ActionId,
+        actor: UnitId,
+        ability: AbilityId,
+        origin: ActionOrigin,
+    },
+    Cancelled {
+        insertion: u64,
         actor: UnitId,
         ability: AbilityId,
         origin: ActionOrigin,

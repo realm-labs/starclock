@@ -217,7 +217,11 @@
       ],
       "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
       "state": "PendingObservation",
-      "executable_evidence": []
+      "executable_evidence": [
+        "config/probes/v1a/clara-counter/golden.json",
+        "crates/starclock-combat/tests/reaction_scheduler.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-CLARA-COUNTER-TARGET-PRIORITY",
@@ -243,7 +247,10 @@
       ],
       "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
       "state": "PendingObservation",
-      "executable_evidence": []
+      "executable_evidence": [
+        "config/probes/v1a/clara-counter/golden.json",
+        "crates/starclock-combat/tests/reaction_scheduler.rs"
+      ]
     },
     {
       "case_id": "G01-R-CLARA-ENHANCED-CHARGE-SCOPE",
@@ -269,7 +276,10 @@
       ],
       "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
       "state": "PendingObservation",
-      "executable_evidence": []
+      "executable_evidence": [
+        "config/probes/v1a/clara-counter/golden.json",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-CLARA-MARK-CONSUME-ORDER",

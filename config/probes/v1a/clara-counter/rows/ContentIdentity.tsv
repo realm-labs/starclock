@@ -1,0 +1,7 @@
+id	stable_key	content_kind	name_en	name_zh_cn	summary_en	summary_zh_cn	game_version_introduced	game_version_snapshot	release_state	enabled	coverage_state	source_record_ids
+1	probe.clara.because-were-family.source	Ability	Clara Talent Counter Probe	克拉拉天赋反击探针	Non-production queued counter ability constrained by the released Talent record.	由已发布天赋记录约束的非生产排队反击能力。	1.0	4.4	ProjectFixture	false	Disabled	1
+2	probe.clara.promise-not-command.source	Ability	Clara Enhanced Counter Source	克拉拉强化反击来源	Non-production source identity for the shared enhanced-counter charge constraint.	用于共享强化反击次数约束的非生产来源标识。	1.0	4.4	ProjectFixture	false	Disabled	1
+3	probe.clara.svarog-watches-over-you.source	Ability	Clara Mark Ordering Source	克拉拉标记顺序来源	Non-production source identity retaining the per-target mark ordering research boundary.	保留逐目标标记顺序研究边界的非生产来源标识。	1.0	4.4	ProjectFixture	false	Disabled	1
+4	probe.clara.counter.program	Program	Clara Counter Queue Program	克拉拉反击队列程序	Queues the counter and consumes one shared charge in authored order.	按编写顺序排入反击并消耗一次共享次数。	1.0	4.4	ProjectFixture	false	Disabled	1
+5	probe.clara.counter.rule	Rule	Clara Counter Trigger Rule	克拉拉反击触发规则	Hit-bound rule retaining explicit priority and once-key scope.	保留显式优先级与一次性键作用域的命中规则。	1.0	4.4	ProjectFixture	false	Disabled	1
+6	probe.clara.enhanced-charges.slot	StateSlot	Clara Enhanced Counter Charges	克拉拉强化反击次数	Clara-owned bounded shared charge state initialized to two.	由克拉拉持有且初始为二的有界共享次数状态。	1.0	4.4	ProjectFixture	false	Disabled	1

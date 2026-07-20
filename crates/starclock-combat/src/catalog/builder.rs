@@ -336,6 +336,63 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
                 ),
             ));
         }
+        if let Some(action) = ability.action() {
+            for operation in action
+                .hits()
+                .iter()
+                .flat_map(super::action::ActionHitDefinition::operations)
+            {
+                let super::action::HitOperationDefinition::QueueAction(queue) = operation else {
+                    continue;
+                };
+                let Some(queued) = catalog
+                    .abilities
+                    .get(queue.ability())
+                    .and_then(super::definition::AbilityDefinition::action)
+                else {
+                    return Err(error(
+                        CatalogBuildErrorKind::InvalidDefinition,
+                        format!(
+                            "ability definition {} queues missing executable ability {}",
+                            id.get(),
+                            queue.ability().get()
+                        ),
+                    ));
+                };
+                let compatible = matches!(
+                    (queue.origin(), queued.kind()),
+                    (
+                        crate::ActionOrigin::FollowUp,
+                        super::action::AbilityKind::FollowUp
+                    ) | (
+                        crate::ActionOrigin::UltimateInterrupt,
+                        super::action::AbilityKind::Ultimate
+                    ) | (
+                        crate::ActionOrigin::Counter,
+                        super::action::AbilityKind::Counter
+                    ) | (
+                        crate::ActionOrigin::ExtraTurn,
+                        super::action::AbilityKind::ExtraTurn
+                    ) | (
+                        crate::ActionOrigin::ExtraAction | crate::ActionOrigin::Forced,
+                        super::action::AbilityKind::ExtraAction
+                    ) | (
+                        crate::ActionOrigin::DelayedAction,
+                        super::action::AbilityKind::DelayedAction
+                    )
+                );
+                if !compatible {
+                    return Err(error(
+                        CatalogBuildErrorKind::InvalidDefinition,
+                        format!(
+                            "ability definition {} queues ability {} with an incompatible origin",
+                            id.get(),
+                            queue.ability().get()
+                        ),
+                    ));
+                }
+            }
+        }
         require_all(
             ability.effects(),
             |value| catalog.effects.get(value).is_some(),

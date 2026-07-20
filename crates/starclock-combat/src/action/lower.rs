@@ -49,6 +49,17 @@ pub(crate) fn lower_interrupt_action(
     )
 }
 
+pub(crate) fn lower_queued_action(
+    catalog: &CombatCatalog,
+    allocator: &mut impl ActionIdentityAllocator,
+    actor: UnitId,
+    ability: AbilityId,
+    origin: ActionOrigin,
+    targets: TargetCommitment,
+) -> Option<ActionPlan> {
+    lower_action(catalog, allocator, actor, ability, origin, None, targets)
+}
+
 fn lower_action(
     catalog: &CombatCatalog,
     allocator: &mut impl ActionIdentityAllocator,
@@ -60,11 +71,19 @@ fn lower_action(
 ) -> Option<ActionPlan> {
     let definition = catalog.ability(ability)?;
     let action = definition.action()?;
-    match origin {
-        ActionOrigin::NormalTurn if action.kind() == AbilityKind::Ultimate => return None,
+    let compatible = match origin {
+        ActionOrigin::NormalTurn => action.kind().is_normal_turn(),
         ActionOrigin::UltimateInterrupt if action.kind() != AbilityKind::Ultimate => return None,
-        _ => {}
-    }
+        ActionOrigin::UltimateInterrupt => true,
+        ActionOrigin::FollowUp => action.kind() == AbilityKind::FollowUp,
+        ActionOrigin::Counter => action.kind() == AbilityKind::Counter,
+        ActionOrigin::ExtraTurn => action.kind() == AbilityKind::ExtraTurn,
+        ActionOrigin::ExtraAction | ActionOrigin::Forced => {
+            action.kind() == AbilityKind::ExtraAction
+        }
+        ActionOrigin::DelayedAction => action.kind() == AbilityKind::DelayedAction,
+    };
+    compatible.then_some(())?;
     let selector = catalog.selector(definition.selector())?.unit_targets()?;
     (selector == targets.selector && action.invalidation() == targets.invalidation).then_some(())?;
 

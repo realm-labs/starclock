@@ -22,6 +22,10 @@ pub enum ActionOrigin {
     ExtraTurn = 4,
     /// Authored mandatory action outside controller choice.
     Forced = 5,
+    /// Automatically queued non-turn action that is not a follow-up.
+    ExtraAction = 6,
+    /// Authored action held until a later reaction boundary.
+    DelayedAction = 7,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

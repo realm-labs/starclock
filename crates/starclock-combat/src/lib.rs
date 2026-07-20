@@ -21,6 +21,7 @@ mod id;
 pub mod modifier;
 mod numeric;
 mod operation;
+mod reaction;
 mod resolver;
 mod resource;
 pub mod rng;

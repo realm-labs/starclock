@@ -51,6 +51,9 @@ pub(super) fn execute_operation(
         Operation::ModifyStateSlot(operation) => {
             execute_modify_state_slot(txn, cause, parent, operation)
         }
+        Operation::QueueAction(operation) => {
+            super::schedule::execute_queue_action(catalog, txn, cause, parent, operation)
+        }
     }
 }
 

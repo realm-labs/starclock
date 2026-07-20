@@ -10,6 +10,107 @@ pub enum AbilityKind {
     Skill = 1,
     /// Out-of-order action offered through an interrupt window.
     Ultimate = 2,
+    /// Automatically scheduled follow-up action.
+    FollowUp = 3,
+    /// Follow-up caused by an incoming attack.
+    Counter = 4,
+    /// Turn-like action that does not own or reset the normal timeline turn.
+    ExtraTurn = 5,
+    /// Other automatically scheduled out-of-order action.
+    ExtraAction = 6,
+    /// Action held until an authored later reaction boundary.
+    DelayedAction = 7,
+}
+
+impl AbilityKind {
+    #[must_use]
+    pub const fn is_normal_turn(self) -> bool {
+        matches!(self, Self::Basic | Self::Skill)
+    }
+}
+
+/// Stable point at which queued work becomes eligible to execute.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum ReactionBoundary {
+    AfterHit = 0,
+    AfterPhase = 1,
+    AfterAction = 2,
+    BeforeTimeline = 3,
+}
+
+/// Cause-relative unit that performs an authored queued action.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum QueuedActor {
+    CauseOwner,
+    CauseApplier,
+    PrimaryTarget,
+}
+
+/// Cause-relative primary target retained when queued work is created.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum QueuedTarget {
+    CauseActor,
+    CauseOwner,
+    CauseApplier,
+    PrimaryTarget,
+    None,
+}
+
+/// Generic queue request embedded in an authored operation.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct QueueActionDefinition {
+    ability: crate::AbilityId,
+    origin: crate::ActionOrigin,
+    actor: QueuedActor,
+    target: QueuedTarget,
+    boundary: ReactionBoundary,
+    priority: i16,
+}
+
+impl QueueActionDefinition {
+    #[must_use]
+    pub const fn new(
+        ability: crate::AbilityId,
+        origin: crate::ActionOrigin,
+        actor: QueuedActor,
+        target: QueuedTarget,
+        boundary: ReactionBoundary,
+        priority: i16,
+    ) -> Self {
+        Self {
+            ability,
+            origin,
+            actor,
+            target,
+            boundary,
+            priority,
+        }
+    }
+    #[must_use]
+    pub const fn ability(self) -> crate::AbilityId {
+        self.ability
+    }
+    #[must_use]
+    pub const fn origin(self) -> crate::ActionOrigin {
+        self.origin
+    }
+    #[must_use]
+    pub const fn actor(self) -> QueuedActor {
+        self.actor
+    }
+    #[must_use]
+    pub const fn target(self) -> QueuedTarget {
+        self.target
+    }
+    #[must_use]
+    pub const fn boundary(self) -> ReactionBoundary {
+        self.boundary
+    }
+    #[must_use]
+    pub const fn priority(self) -> i16 {
+        self.priority
+    }
 }
 
 /// Formation relationship evaluated relative to the action actor.
@@ -413,6 +514,8 @@ pub enum HitOperationDefinition {
     DetonateDots(crate::DotDetonationDefinition),
     /// Mutates one battle-owned typed slot on the actor's bound rule instance.
     ModifyStateSlot(crate::rule::model::RuleSlotMutationDefinition),
+    /// Queues one cause-relative action through the deterministic reaction scheduler.
+    QueueAction(QueueActionDefinition),
 }
 
 /// Ordered operation templates owned by one authored hit.

@@ -24,6 +24,7 @@ const ASTA_PROBE: &[u8] = include_bytes!("../../../config/probes/v1a/asta-modifi
 const FIREFLY_PROBE: &[u8] =
     include_bytes!("../../../config/probes/v1a/firefly-damage/config.sora");
 const KAFKA_PROBE: &[u8] = include_bytes!("../../../config/probes/v1a/kafka-dot/config.sora");
+const CLARA_PROBE: &[u8] = include_bytes!("../../../config/probes/v1a/clara-counter/config.sora");
 
 #[test]
 fn asta_ultimate_effect_keeps_an_independent_two_turn_clock() {
@@ -147,6 +148,70 @@ fn kafka_skill_ultimate_and_follow_up_lower_in_authored_order() {
         slot.reset_points(),
         &[starclock_combat::rule::model::SlotResetPoint::TurnStart]
     );
+}
+
+#[test]
+fn clara_counter_trigger_and_shared_charge_program_lower_in_authored_order() {
+    let catalog = load_with_mode(CLARA_PROBE, LoadMode::Fixture).expect("Clara probe must lower");
+    let rule = catalog.battle_rule(RuleId::new(5).unwrap()).unwrap();
+    let [trigger] = rule.triggers() else {
+        panic!("Clara probe must expose exactly one trigger");
+    };
+    assert_eq!(trigger.event, RuleEventKind::Hit);
+    assert_eq!(
+        trigger.phase,
+        starclock_combat::rule::model::TriggerPhase::AfterEvent
+    );
+    assert_eq!(trigger.priority.get(), -100);
+    assert_eq!(
+        trigger.once_scope,
+        starclock_combat::rule::model::OnceScope::Event
+    );
+    assert!(matches!(
+        trigger.condition,
+        starclock_combat::rule::model::ConditionExpr::Literal(true)
+    ));
+    assert_eq!(rule.state_slots()[0].initial(), &RuleValue::Integer(2));
+
+    let stats = FireflyStats {
+        maximum_hp: 1,
+        attack: 1,
+    };
+    let emissions = evaluate_program(
+        &*catalog,
+        ProgramId::new(4).unwrap(),
+        firefly_input(&stats),
+        EvaluationBudget::STANDARD,
+    )
+    .unwrap();
+    assert!(matches!(
+        emissions.as_slice(),
+        [
+            RuleEmission::QueueAction {
+                actor_selector,
+                target_selector,
+                ability,
+                priority,
+                ..
+            },
+            RuleEmission::ModifyStateSlot {
+                slot,
+                update: starclock_combat::rule::model::StateSlotUpdateKind::Subtract,
+                value: RuleValue::Integer(1),
+                ..
+            }
+        ] if actor_selector.get() == 1
+            && target_selector.get() == 2
+            && ability.get() == 1
+            && priority.get() == -100
+            && slot.get() == 6
+    ));
+}
+
+#[test]
+fn production_loader_rejects_the_nonproduction_clara_probe() {
+    let error = crate::catalog::load(CLARA_PROBE).expect_err("probe cannot enter production");
+    assert_eq!(error.kind(), crate::catalog::CatalogLoadErrorKind::Metadata);
 }
 
 #[test]
