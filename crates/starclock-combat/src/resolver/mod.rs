@@ -4,6 +4,7 @@ pub(crate) mod lifecycle;
 pub(crate) mod operation;
 pub(crate) mod operation_resource;
 mod program;
+mod rule;
 pub(crate) mod schedule;
 pub(crate) mod settle;
 mod target;

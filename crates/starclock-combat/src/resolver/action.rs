@@ -170,6 +170,7 @@ pub(super) fn execute_action_plan(
             tags: plan.tags,
         }),
     );
+    parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
     txn.reset_rule_slots(
         crate::rule::model::SlotResetPoint::ActionStart,
         Some(plan.actor),
@@ -184,6 +185,7 @@ pub(super) fn execute_action_plan(
         None,
         &mut HitOperationScratch::default(),
     )?;
+    parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
     let phases = plan.phases.clone();
     for phase in &phases {
         let phase_cause = base.with_phase(phase.id);
@@ -194,6 +196,7 @@ pub(super) fn execute_action_plan(
                 phase: phase.id,
             }),
         );
+        parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
         for hit in &phase.hits {
             txn.reset_rule_slots(
                 crate::rule::model::SlotResetPoint::HitStart,
@@ -216,6 +219,7 @@ pub(super) fn execute_action_plan(
                     targets: targets.clone(),
                 }),
             );
+            parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
             parent = run_programs_at(
                 catalog,
                 txn,
@@ -226,6 +230,7 @@ pub(super) fn execute_action_plan(
                 Some(hit),
                 &mut operation_scratch,
             )?;
+            parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
             for operation in &hit.operations {
                 let request = match &operation.definition {
                     HitOperationDefinition::Damage(formula) => Operation::Damage(DamageOp {
@@ -369,6 +374,7 @@ pub(super) fn execute_action_plan(
                     request,
                     &mut operation_scratch,
                 )?;
+                parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
             }
             txn.increment_entanglement_for_hit(&targets)?;
             parent = txn.emit(
@@ -380,6 +386,7 @@ pub(super) fn execute_action_plan(
                     targets,
                 }),
             );
+            parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
             parent = drain_reactions(
                 catalog,
                 txn,
@@ -404,6 +411,7 @@ pub(super) fn execute_action_plan(
             None,
             &mut HitOperationScratch::default(),
         )?;
+        parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
         parent = txn.emit(
             phase_cause.with_parent(parent),
             BattleEventKind::Phase(PhaseEventData::Ended {
@@ -411,6 +419,7 @@ pub(super) fn execute_action_plan(
                 phase: phase.id,
             }),
         );
+        parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
         parent = drain_reactions(
             catalog,
             txn,
@@ -435,8 +444,9 @@ pub(super) fn execute_action_plan(
         None,
         &mut HitOperationScratch::default(),
     )?;
+    parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
     parent = apply_resource_gains(txn, base, parent, plan)?;
-    Ok(txn.emit(
+    parent = txn.emit(
         base.with_parent(parent),
         BattleEventKind::Action(ActionEventData::Resolved {
             action: plan.id,
@@ -445,7 +455,8 @@ pub(super) fn execute_action_plan(
             origin: plan.origin,
             tags: plan.tags,
         }),
-    ))
+    );
+    super::rule::dispatch_pending_after_events(catalog, txn, parent)
 }
 
 #[allow(clippy::too_many_arguments)]

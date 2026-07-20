@@ -57,6 +57,7 @@ fn ability_and_trace_input_order_produces_one_canonical_result() {
     );
     assert_eq!(first.combatant().rule_bundles(), &[rule_bundle(1)]);
     assert_eq!(first.combatant().modifiers(), &[modifier(1)]);
+    assert_eq!(first.combatant().modifier_bindings()[0].source().get(), 110);
 }
 
 #[test]

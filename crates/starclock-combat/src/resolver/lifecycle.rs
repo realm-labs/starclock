@@ -285,6 +285,9 @@ pub(super) fn execute_summon(
             presence: definition.presence(),
             current_hp: combatant.maximum_hp(),
             maximum_hp: combatant.maximum_hp(),
+            base_attack: combatant.base_attack(),
+            base_defense: combatant.base_defense(),
+            base_speed: combatant.speed(),
             current_energy: combatant.current_energy(),
             maximum_energy: combatant.maximum_energy(),
             rank: combatant.rank(),
@@ -320,6 +323,7 @@ pub(super) fn execute_summon(
             active: true,
         })?;
         instantiate_rules(catalog, txn, unit, combatant.rule_bundles())?;
+        instantiate_modifiers(txn, unit, combatant)?;
         parent = txn.emit(
             cause.with_parent(parent).with_primary_target(Some(unit)),
             BattleEventKind::Unit(UnitEventData::Summoned {
@@ -732,8 +736,45 @@ fn validate_combatant(
             .modifiers()
             .iter()
             .any(|modifier| catalog.modifier(*modifier).is_none())
+        || combatant.modifier_bindings().len() != combatant.modifiers().len()
+        || combatant.modifier_bindings().iter().any(|binding| {
+            combatant
+                .sources()
+                .binary_search_by_key(&binding.source(), |source| source.definition())
+                .is_err()
+        })
     {
         return Err(action_fault(90));
+    }
+    Ok(())
+}
+
+fn instantiate_modifiers(
+    txn: &mut Transaction<'_>,
+    unit: UnitId,
+    combatant: &crate::ResolvedCombatantSpec,
+) -> Result<(), BattleFault> {
+    for binding in combatant.modifier_bindings() {
+        let source = combatant
+            .sources()
+            .binary_search_by_key(&binding.source(), |source| source.definition())
+            .ok()
+            .map(|index| &combatant.sources()[index])
+            .ok_or_else(|| action_fault(95))?;
+        let instance = txn.allocate_modifier();
+        txn.insert_modifier(crate::modifier::model::ActiveModifier {
+            instance,
+            definition: binding.definition(),
+            owner: unit,
+            subject: unit,
+            source: binding.source(),
+            source_class: source.class(),
+            insertion_sequence: instance.get(),
+            application_action: None,
+            slots: Box::new([]),
+            captured_value: None,
+            captured_stats: Box::new([]),
+        })?;
     }
     Ok(())
 }

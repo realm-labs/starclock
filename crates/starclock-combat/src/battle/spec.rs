@@ -154,6 +154,31 @@ pub struct ResolvedDefinitionBindings {
     modifiers: Box<[ModifierDefinitionId]>,
 }
 
+/// Source-attributed build modifier selected for one resolved combatant.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct ResolvedModifierBinding {
+    definition: ModifierDefinitionId,
+    source: crate::SourceDefinitionId,
+}
+
+impl ResolvedModifierBinding {
+    /// Binds one modifier definition to the generic source that selected it.
+    #[must_use]
+    pub const fn new(definition: ModifierDefinitionId, source: crate::SourceDefinitionId) -> Self {
+        Self { definition, source }
+    }
+
+    #[must_use]
+    pub const fn definition(self) -> ModifierDefinitionId {
+        self.definition
+    }
+
+    #[must_use]
+    pub const fn source(self) -> crate::SourceDefinitionId {
+        self.source
+    }
+}
+
 impl ResolvedDefinitionBindings {
     /// Validates set-like combat definition references.
     pub fn new(
@@ -211,6 +236,7 @@ pub struct ResolvedCombatantSpec {
     abilities: Box<[AbilityId]>,
     rule_bundles: Box<[RuleBundleId]>,
     modifiers: Box<[ModifierDefinitionId]>,
+    modifier_bindings: Box<[ResolvedModifierBinding]>,
     sources: Box<[RuleSource]>,
     digest: CombatantSpecDigest,
 }
@@ -243,6 +269,7 @@ impl ResolvedCombatantSpec {
             abilities: bindings.abilities,
             rule_bundles: bindings.rule_bundles,
             modifiers: bindings.modifiers,
+            modifier_bindings: Box::new([]),
             sources: Box::new([]),
             digest,
         })
@@ -264,10 +291,40 @@ impl ResolvedCombatantSpec {
                 source.tags().windows(2).any(|pair| pair[0] >= pair[1])
                     || source.digest().iter().all(|byte| *byte == 0)
             })
+            || self.modifier_bindings.iter().any(|binding| {
+                sources
+                    .binary_search_by_key(&binding.source, RuleSource::definition)
+                    .is_err()
+            })
         {
             return Err(CombatantSpecError::InvalidSourceBindings);
         }
         self.sources = sources.into_boxed_slice();
+        Ok(self)
+    }
+    /// Attaches one exact source binding for every selected modifier.
+    pub fn with_modifier_bindings(
+        mut self,
+        bindings: Vec<ResolvedModifierBinding>,
+    ) -> Result<Self, CombatantSpecError> {
+        if bindings
+            .windows(2)
+            .any(|pair| pair[0].definition >= pair[1].definition)
+            || bindings.len() != self.modifiers.len()
+            || bindings
+                .iter()
+                .zip(self.modifiers.iter())
+                .any(|(binding, definition)| {
+                    binding.definition != *definition
+                        || self
+                            .sources
+                            .binary_search_by_key(&binding.source, RuleSource::definition)
+                            .is_err()
+                })
+        {
+            return Err(CombatantSpecError::InvalidModifierBindings);
+        }
+        self.modifier_bindings = bindings.into_boxed_slice();
         Ok(self)
     }
     /// Sets checked entry and maximum Energy for this resolved combatant.
@@ -369,6 +426,11 @@ impl ResolvedCombatantSpec {
     pub fn modifiers(&self) -> &[ModifierDefinitionId] {
         &self.modifiers
     }
+    /// Returns source-attributed selected modifiers in definition-ID order.
+    #[must_use]
+    pub fn modifier_bindings(&self) -> &[ResolvedModifierBinding] {
+        &self.modifier_bindings
+    }
     /// Returns canonical generic source bindings.
     #[must_use]
     pub fn sources(&self) -> &[RuleSource] {
@@ -392,6 +454,8 @@ pub enum CombatantSpecError {
     NonCanonicalReferences,
     /// Generic source IDs/tags must be canonical and digests must be nonzero.
     InvalidSourceBindings,
+    /// Every selected modifier must have one canonical selected-source binding.
+    InvalidModifierBindings,
     /// Entry Energy cannot exceed its authored maximum.
     EnergyAboveMaximum,
     /// Weaknesses and layer keys must be strictly ordered and unique.

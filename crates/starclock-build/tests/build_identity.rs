@@ -75,7 +75,7 @@ fn canonical_definition_catalog_build_and_spec_digests_are_stable() {
     );
     assert_eq!(
         hex(compiled.combatant().digest().bytes()),
-        "c6e48edd712293f65b79573442d2cb37ad0017b5ee538d838879b61659817263"
+        "fd966e983776290d286e6aae271791a31207c4d395fda0e248ce4c18e83f23c8"
     );
 }
 

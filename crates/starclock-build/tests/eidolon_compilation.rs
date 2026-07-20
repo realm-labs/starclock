@@ -50,6 +50,7 @@ fn e0_and_e6_compile_through_exact_rank_order() {
     assert_eq!(e0.combatant().abilities(), &[ability(2), ability(5)]);
     assert_eq!(e0.combatant().rule_bundles(), &[rule_bundle(1)]);
     assert_eq!(e0.combatant().modifiers(), &[modifier(1)]);
+    assert_eq!(e0.combatant().modifier_bindings()[0].source().get(), 100);
 
     let e3 = LoadoutCompiler
         .compile(&catalog, &combat, &build_spec(3, false))
@@ -71,6 +72,8 @@ fn e0_and_e6_compile_through_exact_rank_order() {
     );
     assert_eq!(e6.combatant().rule_bundles(), &[rule_bundle(2)]);
     assert_eq!(e6.combatant().modifiers(), &[modifier(1), modifier(2)]);
+    assert_eq!(e6.combatant().modifier_bindings()[0].source().get(), 100);
+    assert_eq!(e6.combatant().modifier_bindings()[1].source().get(), 204);
     assert_eq!(
         e6.report().entries()[5].stage(),
         BuildValidationStage::EidolonSelection

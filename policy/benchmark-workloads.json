@@ -39,15 +39,15 @@
     "concurrent-replay-shared-catalog-v1": { "maximum_elapsed_ns": 30000000, "minimum_commands_per_second_core": 20000, "maximum_allocation_bytes": 12000000, "maximum_peak_live_bytes": 262144 }
   },
   "expected_rows": [
-    { "id": "ordinary-apply-v1", "commands": 1000, "hashes": 0, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "e42e2003970a1b1467a85d26fa6956ddf9dc2329ec0219962f87c7badaff495b" },
-    { "id": "trigger-heavy-proxy-v1", "commands": 500, "hashes": 0, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "e3dc7745e3cee6f4f082b29df0ec905b05b3073bc78fb9d9b8738c1e16a96026" },
-    { "id": "full-kernel-apply-v1", "commands": 500, "hashes": 0, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "56a0a437d0d6bd24432765ab1a6e68fee931282c7e3aaf0f1e0676cbb1b70b7d" },
-    { "id": "invalid-rejection-v1", "commands": 10000, "hashes": 0, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "cb481cf4e2b33de3325c6008fbfaaeca447b8595a31a09dbec056bde2b8829d7" },
-    { "id": "hash-small-v1", "commands": 0, "hashes": 5000, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "4c484a630e8ad0dbde0333063849655bb4d3b804279fb8dbba2d5ef830934bae" },
-    { "id": "hash-medium-v1", "commands": 0, "hashes": 5000, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "0b5ce0e36e2323a2da1b36618c6445a8aabd39c2247463d93266c4edea7c64dc" },
-    { "id": "hash-large-v1", "commands": 0, "hashes": 5000, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "f52d99e072c412ea4c13b68d05d7c9e6e86b15c8e06e9f9c4ad905a560720e17" },
-    { "id": "one-shot-replay-100-v1", "commands": 2000, "hashes": 0, "jobs": 20, "workers": 1, "replay_bytes": 8235, "final_hash": "25a08b8b6a14f48df6410416306e9ed4ba1c593bb9e6c4141d16f40579b7cfe8" },
-    { "id": "one-shot-replay-500-v1", "commands": 2500, "hashes": 0, "jobs": 5, "workers": 1, "replay_bytes": 40035, "final_hash": "90c69038033af4f48764831a1cca2156b39720b3692eed66bdc35870e62f85da" },
-    { "id": "concurrent-replay-shared-catalog-v1", "commands": 1600, "hashes": 0, "jobs": 16, "workers": 4, "replay_bytes": 8235, "final_hash": "25a08b8b6a14f48df6410416306e9ed4ba1c593bb9e6c4141d16f40579b7cfe8" }
+    { "id": "ordinary-apply-v1", "commands": 1000, "hashes": 0, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "fe257235f943fc25f0e89feaf85428fdcc6f087c89c5352848664d9f20e19f09" },
+    { "id": "trigger-heavy-proxy-v1", "commands": 500, "hashes": 0, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "f4a8fd46b8ae96447efedf0560a1baa6165260366aeb510822adb6bd55357fae" },
+    { "id": "full-kernel-apply-v1", "commands": 500, "hashes": 0, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "b27e04721743e36d22e869a9a80ca73baaa693d20ff9ecc48d5c7f3672e51fdd" },
+    { "id": "invalid-rejection-v1", "commands": 10000, "hashes": 0, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "d87f5b8fb4c6d0088e7c73ee58751af7250085aad895e9b58cc589b93bbb8fb0" },
+    { "id": "hash-small-v1", "commands": 0, "hashes": 5000, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "f16c97db81243d4224785e9e2acac097d53e8f2c3e91d88b2e0efea1e7c7e082" },
+    { "id": "hash-medium-v1", "commands": 0, "hashes": 5000, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "64e25f9c325f3977c6a888c0021e047bdd387f15ab60bc0f108ef0723cd6dc5c" },
+    { "id": "hash-large-v1", "commands": 0, "hashes": 5000, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "639b539e2de0a04cfa404b3c6885b89ee66d825437f1f8f26f19a09a5e6c82cb" },
+    { "id": "one-shot-replay-100-v1", "commands": 2000, "hashes": 0, "jobs": 20, "workers": 1, "replay_bytes": 8235, "final_hash": "f3dbe879322e94c6aa6ec3f817335b07f925ad1d35a5a8a6f51f0a2b60cea008" },
+    { "id": "one-shot-replay-500-v1", "commands": 2500, "hashes": 0, "jobs": 5, "workers": 1, "replay_bytes": 40035, "final_hash": "cd7752816b4dd5edcbdf623bc7a4590167c1a4bf84a39ba84fca12b3e9914f53" },
+    { "id": "concurrent-replay-shared-catalog-v1", "commands": 1600, "hashes": 0, "jobs": 16, "workers": 4, "replay_bytes": 8235, "final_hash": "f3dbe879322e94c6aa6ec3f817335b07f925ad1d35a5a8a6f51f0a2b60cea008" }
   ]
 }

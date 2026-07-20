@@ -155,6 +155,9 @@ impl CombatCatalog {
     pub fn modifier(&self, id: ModifierDefinitionId) -> Option<&ModifierDefinition> {
         self.modifiers.definition(id)
     }
+    pub(crate) const fn modifier_registry(&self) -> &ModifierRegistry {
+        &self.modifiers
+    }
     /// Looks up a validated finite enemy AI graph by stable ID.
     #[must_use]
     pub fn ai_graph(&self, id: AiGraphId) -> Option<&encounter::AiGraphDefinition> {

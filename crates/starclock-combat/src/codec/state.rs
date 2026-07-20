@@ -310,6 +310,42 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
             e.u64(key.second);
         }
     }
+    e.length(state.modifiers.canonical_instances().len());
+    for instance in state.modifiers.canonical_instances() {
+        e.u64(instance.instance.get());
+        e.u32(instance.definition.get());
+        e.u64(instance.owner.get());
+        e.u64(instance.subject.get());
+        e.u32(instance.source.get());
+        e.u8(instance.source_class as u8);
+        e.u64(instance.insertion_sequence);
+        match instance.application_action {
+            None => e.u8(0),
+            Some(action) => {
+                e.u8(1);
+                e.u64(action.get());
+            }
+        }
+        e.length(instance.slots.len());
+        for (slot, value) in &instance.slots {
+            e.u32(slot.get());
+            encode_rule_value(&mut e, value);
+        }
+        match instance.captured_value {
+            None => e.u8(0),
+            Some(value) => {
+                e.u8(1);
+                e.i64(value.scaled());
+            }
+        }
+        e.length(instance.captured_stats.len());
+        for (query, value) in &instance.captured_stats {
+            e.u64(query.subject.get());
+            e.u8(query.stat as u8);
+            e.u8(query.purpose as u8);
+            e.i64(value.scaled());
+        }
+    }
     e.u32(state.encounter.definition.get());
     e.u64(state.encounter.wave.get());
     e.u16(state.encounter.number);
@@ -448,6 +484,9 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
     e.u8(unit.presence as u8);
     e.i64(unit.current_hp.get());
     e.i64(unit.maximum_hp.get());
+    e.i64(unit.base_attack.scaled());
+    e.i64(unit.base_defense.scaled());
+    e.i64(unit.base_speed.scaled());
     e.i64(unit.current_energy.scaled());
     e.i64(unit.maximum_energy.scaled());
     e.u8(match unit.rank {

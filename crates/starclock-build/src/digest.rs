@@ -2,8 +2,8 @@
 
 use sha2::{Digest, Sha256};
 use starclock_combat::{
-    AbilityId, Hp, ModifierDefinitionId, RuleBundleId, Speed, StatValue, UnitDefinitionId,
-    UnitLevel,
+    AbilityId, Hp, ModifierDefinitionId, ResolvedModifierBinding, RuleBundleId, Speed, StatValue,
+    UnitDefinitionId, UnitLevel,
     rule::model::{RuleSource, SourceClass},
 };
 
@@ -107,11 +107,12 @@ pub(crate) struct ResolvedDigestInput<'a> {
     pub abilities: &'a [AbilityId],
     pub rules: &'a [RuleBundleId],
     pub modifiers: &'a [ModifierDefinitionId],
+    pub modifier_bindings: &'a [ResolvedModifierBinding],
     pub sources: &'a [RuleSource],
 }
 
 pub(crate) fn resolved_spec_digest(input: ResolvedDigestInput<'_>) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock-resolved-combatant-v1");
+    let mut encoder = Encoder::new(b"starclock-resolved-combatant-v2");
     encoder.u32(input.form.get());
     encoder.u8(input.level.get());
     encoder.i64(input.maximum_hp.get());
@@ -121,6 +122,11 @@ pub(crate) fn resolved_spec_digest(input: ResolvedDigestInput<'_>) -> [u8; 32] {
     encoder.ids(input.abilities.iter().map(|id| id.get()));
     encoder.ids(input.rules.iter().map(|id| id.get()));
     encoder.ids(input.modifiers.iter().map(|id| id.get()));
+    encoder.len(input.modifier_bindings.len());
+    for binding in input.modifier_bindings {
+        encoder.u32(binding.definition().get());
+        encoder.u32(binding.source().get());
+    }
     encoder.len(input.sources.len());
     for source in input.sources {
         encode_source(&mut encoder, source);

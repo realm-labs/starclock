@@ -63,13 +63,13 @@ pub use battle::model::{BattlePhase, Resolution};
 pub use battle::spec::{
     BattleSeed, BattleSpec, BattleSpecDigest, BattleSpecError, CombatantSpecDigest,
     CombatantSpecError, ConcedePolicy, FormationIndex, KeyedTeamResourceSpec, ParticipantSource,
-    ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, TeamResourceSpec,
-    TeamResourceWavePolicy, TeamSide, UnitLevel,
+    ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, ResolvedModifierBinding,
+    TeamResourceSpec, TeamResourceWavePolicy, TeamSide, UnitLevel,
 };
 pub use battle::view::{
     ActiveTurnView, BattleIdentityView, BattleView, BreakEffectView, EffectView, EncounterView,
-    FormationView, InterruptWindowView, LinkView, RuleInstanceView, ShieldView, TeamView,
-    TimelineActorView, ToughnessLayerView, UnitView,
+    FormationView, InterruptWindowView, LinkView, ModifierInstanceView, RuleInstanceView,
+    ShieldView, TeamView, TimelineActorView, ToughnessLayerView, UnitView,
 };
 pub use codec::BattleStateHash;
 pub use command::model::{

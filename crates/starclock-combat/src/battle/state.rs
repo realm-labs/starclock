@@ -52,6 +52,7 @@ pub(crate) struct SequenceState {
     next_shield: u64,
     next_effect: u64,
     next_rule: u64,
+    next_modifier: u64,
 }
 
 impl SequenceState {
@@ -71,6 +72,7 @@ impl SequenceState {
             next_shield: 1,
             next_effect: 1,
             next_rule: 1,
+            next_modifier: 1,
         }
     }
 
@@ -138,7 +140,11 @@ impl SequenceState {
         allocate(&mut self.next_rule, crate::RuleInstanceId::new)
     }
 
-    pub(crate) const fn canonical_next_values(&self) -> [u64; 14] {
+    pub(crate) fn modifier(&mut self) -> crate::ModifierInstanceId {
+        allocate(&mut self.next_modifier, crate::ModifierInstanceId::new)
+    }
+
+    pub(crate) const fn canonical_next_values(&self) -> [u64; 15] {
         [
             self.next_unit,
             self.next_actor,
@@ -154,6 +160,7 @@ impl SequenceState {
             self.next_shield,
             self.next_effect,
             self.next_rule,
+            self.next_modifier,
         ]
     }
 }
@@ -189,6 +196,7 @@ pub(crate) struct BattleState {
     pub(crate) break_effects: crate::effect::break_effect::BreakEffectStore,
     pub(crate) effects: crate::effect::state::EffectStore,
     pub(crate) rules: crate::rule::state::RuleStateStore,
+    pub(crate) modifiers: crate::modifier::state::ModifierStore,
     pub(crate) encounter: EncounterState,
     pub(crate) timeline: crate::timeline::state::TimelineState,
     pub(crate) concede: ConcedePolicy,
@@ -217,6 +225,7 @@ impl BattleState {
             break_effects: self.break_effects.clone(),
             effects: self.effects.clone(),
             rules: self.rules.clone(),
+            modifiers: self.modifiers.clone(),
             encounter: self.encounter,
             timeline: self.timeline.clone(),
             concede: self.concede,
@@ -242,6 +251,7 @@ impl BattleState {
         self.break_effects.clone_from(&source.break_effects);
         self.effects.clone_from(&source.effects);
         self.rules.clone_from(&source.rules);
+        self.modifiers.clone_from(&source.modifiers);
         self.encounter = source.encounter;
         self.timeline.clone_from(&source.timeline);
         self.concede = source.concede;

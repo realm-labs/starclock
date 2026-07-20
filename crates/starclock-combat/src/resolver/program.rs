@@ -22,6 +22,8 @@ use crate::{
     },
 };
 
+use std::collections::BTreeMap;
+
 use super::{operation::execute_operation, transaction::Transaction};
 
 pub(super) struct AbilityProgramContext {
@@ -41,7 +43,7 @@ pub(super) fn execute_ability_program(
     catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
-    mut parent: crate::EventId,
+    parent: crate::EventId,
     context: AbilityProgramContext,
     scratch: &mut HitOperationScratch,
 ) -> Result<crate::EventId, BattleFault> {
@@ -67,6 +69,18 @@ pub(super) fn execute_ability_program(
             units,
         })
         .collect::<Vec<_>>();
+    let bases = stat_bases(txn)?;
+    let modifiers = txn
+        .state
+        .modifiers
+        .iter_by_id()
+        .cloned()
+        .collect::<Vec<_>>();
+    let stat_reader = crate::modifier::resolve::StatResolver::new(
+        catalog.modifier_registry(),
+        &bases,
+        &modifiers,
+    );
     let input = RuleEvaluationInput {
         event_kind: crate::rule::model::RuleEventKind::Phase,
         cause: RuleCause {
@@ -90,10 +104,54 @@ pub(super) fn execute_ability_program(
         source_tags: &[],
         slots: &[],
         selectors: &selectors,
-        stat_reader: None,
+        stat_reader: Some(&stat_reader),
     };
     let emissions = evaluate_program(catalog, context.program, input, EvaluationBudget::STANDARD)
         .map_err(|error| program_fault(1, i64::from(error.context())))?;
+    execute_emissions(
+        catalog, txn, cause, parent, &context, emissions, scratch, &owned,
+    )
+}
+
+pub(super) fn stat_bases(
+    txn: &Transaction<'_>,
+) -> Result<BTreeMap<(crate::UnitId, crate::modifier::model::StatKind), Scalar>, BattleFault> {
+    use crate::modifier::model::StatKind::{Atk, Def, Hp, Spd};
+
+    let mut bases = BTreeMap::new();
+    for unit in txn.state.units.iter_by_id() {
+        bases.insert(
+            (unit.id, Hp),
+            Scalar::checked_from_integer(unit.maximum_hp.get())
+                .map_err(|_| program_fault(44, unit.maximum_hp.get()))?,
+        );
+        bases.insert(
+            (unit.id, Atk),
+            Scalar::from_scaled(unit.base_attack.scaled()),
+        );
+        bases.insert(
+            (unit.id, Def),
+            Scalar::from_scaled(unit.base_defense.scaled()),
+        );
+        bases.insert(
+            (unit.id, Spd),
+            Scalar::from_scaled(unit.base_speed.scaled()),
+        );
+    }
+    Ok(bases)
+}
+
+#[allow(clippy::too_many_arguments)]
+pub(super) fn execute_emissions(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: crate::EventId,
+    context: &AbilityProgramContext,
+    emissions: Vec<RuleEmission>,
+    scratch: &mut HitOperationScratch,
+    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
+) -> Result<crate::EventId, BattleFault> {
     let mut toughness_element = None;
     for emission in emissions {
         parent = execute_emission(
@@ -101,11 +159,11 @@ pub(super) fn execute_ability_program(
             txn,
             cause,
             parent,
-            &context,
+            context,
             emission,
             scratch,
             &mut toughness_element,
-            &owned,
+            resolved,
         )?;
     }
     Ok(parent)

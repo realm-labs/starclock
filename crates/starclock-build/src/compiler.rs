@@ -4,8 +4,8 @@ use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_combat::{
     AbilityId, CombatantSpecDigest, CombatantSpecError, Hp, ModifierDefinitionId,
-    ResolvedCombatantSpec, ResolvedDefinitionBindings, RuleBundleId, StatValue,
-    catalog::CombatCatalog, rule::model::RuleSource,
+    ResolvedCombatantSpec, ResolvedDefinitionBindings, ResolvedModifierBinding, RuleBundleId,
+    SourceDefinitionId, StatValue, catalog::CombatCatalog, rule::model::RuleSource,
 };
 
 use crate::{
@@ -217,7 +217,7 @@ impl LoadoutCompiler {
                 .any(|id| combat_catalog.rule_bundle(*id).is_none())
             || workspace
                 .modifiers
-                .iter()
+                .keys()
                 .any(|id| combat_catalog.modifier(*id).is_none())
         {
             return Err(failure(
@@ -227,10 +227,15 @@ impl LoadoutCompiler {
                 BuildCompileErrorKind::InvalidCombatBindings,
             ));
         }
+        let modifier_bindings = workspace
+            .modifiers
+            .iter()
+            .map(|(definition, source)| ResolvedModifierBinding::new(*definition, *source))
+            .collect::<Vec<_>>();
         let bindings = ResolvedDefinitionBindings::new(
             workspace.abilities.into_iter().collect(),
             workspace.rule_bundles.into_iter().collect(),
-            workspace.modifiers.into_iter().collect(),
+            workspace.modifiers.keys().copied().collect(),
         )
         .map_err(|_| {
             failure(
@@ -254,6 +259,7 @@ impl LoadoutCompiler {
             abilities: bindings.abilities(),
             rules: bindings.rule_bundles(),
             modifiers: bindings.modifiers(),
+            modifier_bindings: &modifier_bindings,
             sources: &sources,
         }))
         .expect("SHA-256 digest is nonzero");
@@ -267,6 +273,7 @@ impl LoadoutCompiler {
         )
         .map(|combatant| combatant.with_base_attack_defense(base_stats.attack, base_stats.defense))
         .and_then(|combatant| combatant.with_sources(sources))
+        .and_then(|combatant| combatant.with_modifier_bindings(modifier_bindings))
         .map_err(|error| combatant_failure(spec, entries.clone(), error))?;
         entries.push(BuildValidationEntry::passed(
             BuildValidationStage::CombatantConstruction,
@@ -397,7 +404,7 @@ fn apply_light_cone(
     if passive_active {
         for patch in cone.passive_rank(loadout.superimposition()).patches() {
             workspace
-                .apply_patch(*patch)
+                .apply_patch(*patch, cone.source().definition())
                 .map_err(|()| LightConeCompileError::Patch)?;
         }
     }
@@ -446,7 +453,7 @@ fn valid_ability_input(
 struct CompilationWorkspace {
     abilities: BTreeSet<AbilityId>,
     rule_bundles: BTreeSet<RuleBundleId>,
-    modifiers: BTreeSet<ModifierDefinitionId>,
+    modifiers: BTreeMap<ModifierDefinitionId, SourceDefinitionId>,
     ability_adjustments: BTreeMap<AbilityId, (i16, i16)>,
 }
 
@@ -467,17 +474,22 @@ impl CompilationWorkspace {
         Self {
             abilities,
             rule_bundles: definition.rule_bundles().iter().copied().collect(),
-            modifiers: definition.modifiers().iter().copied().collect(),
+            modifiers: definition
+                .modifiers()
+                .iter()
+                .copied()
+                .map(|modifier| (modifier, definition.source().definition()))
+                .collect(),
             ability_adjustments: BTreeMap::new(),
         }
     }
 
-    fn apply_patch(&mut self, patch: BuildPatch) -> Result<(), ()> {
+    fn apply_patch(&mut self, patch: BuildPatch, source: SourceDefinitionId) -> Result<(), ()> {
         match patch {
             BuildPatch::AddAbility(id) if !self.abilities.insert(id) => Err(()),
             BuildPatch::AddRuleBundle(id) if !self.rule_bundles.insert(id) => Err(()),
             BuildPatch::RemoveRuleBundle(id) if !self.rule_bundles.remove(&id) => Err(()),
-            BuildPatch::AddModifier(id) if !self.modifiers.insert(id) => Err(()),
+            BuildPatch::AddModifier(id) if self.modifiers.insert(id, source).is_some() => Err(()),
             BuildPatch::ReplaceAbility { old, new }
                 if old == new || !self.abilities.remove(&old) || !self.abilities.insert(new) =>
             {
@@ -525,7 +537,7 @@ fn apply_traces(
     {
         let node = graph.node(*id).expect("canonical Trace ID resolves");
         for patch in node.patches() {
-            workspace.apply_patch(*patch)?;
+            workspace.apply_patch(*patch, node.source().definition())?;
         }
     }
     Ok(())
@@ -540,7 +552,7 @@ fn apply_eidolons(
         let rank = crate::spec::EidolonLevel::new(raw_rank).ok_or(())?;
         let definition = definition.eidolons().rank(rank).ok_or(())?;
         for patch in definition.patches() {
-            workspace.apply_patch(*patch)?;
+            workspace.apply_patch(*patch, definition.source().definition())?;
         }
     }
     Ok(())

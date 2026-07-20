@@ -4,7 +4,7 @@ use crate::{
         AbilityId, ModifierDefinitionId, RuleBundleId, SpawnSequence, TimelineActorId,
         UnitDefinitionId, UnitId,
     },
-    numeric::domain::{ActionGauge, Energy, Hp, Speed},
+    numeric::domain::{ActionGauge, Energy, Hp, Speed, StatValue},
 };
 
 use super::link::{
@@ -26,6 +26,9 @@ pub(crate) struct UnitState {
     pub(crate) presence: PresenceState,
     pub(crate) current_hp: Hp,
     pub(crate) maximum_hp: Hp,
+    pub(crate) base_attack: StatValue,
+    pub(crate) base_defense: StatValue,
+    pub(crate) base_speed: Speed,
     pub(crate) current_energy: Energy,
     pub(crate) maximum_energy: Energy,
     pub(crate) rank: crate::formula::toughness::EnemyRank,

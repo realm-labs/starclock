@@ -113,7 +113,20 @@ pub(crate) fn resolve_prepared(
     let (mut events, root_command, failure) = {
         let mut txn = Transaction::new(&mut scratch.working, &mut scratch.journal);
         let root = txn.begin_command();
-        let failure = execute(catalog, &mut txn, root, command, injection).err();
+        let failure = execute(catalog, &mut txn, root, command, injection)
+            .and_then(|()| {
+                let parent = txn.events.last().map(BattleEvent::id).ok_or_else(|| {
+                    BattleFault::new(
+                        FaultKind::InvariantViolation,
+                        FaultBoundary::Command,
+                        FaultPolicy::Rollback,
+                        0x33ff,
+                        None,
+                    )
+                })?;
+                super::rule::dispatch_pending_after_events(catalog, &mut txn, parent).map(drop)
+            })
+            .err();
         (txn.events, root, failure)
     };
 
@@ -397,6 +410,7 @@ pub(super) struct Transaction<'a> {
     pub(super) state: &'a mut BattleState,
     pub(super) journal: &'a mut MutationJournal,
     events: Vec<BattleEvent>,
+    next_rule_event: usize,
     pub(super) reactions: crate::reaction::queue::ReactionQueue,
     resolved_reactions: usize,
     next_reaction: u64,
@@ -408,6 +422,7 @@ impl<'a> Transaction<'a> {
             state,
             journal,
             events: Vec::new(),
+            next_rule_event: 0,
             reactions: crate::reaction::queue::ReactionQueue::default(),
             resolved_reactions: 0,
             next_reaction: 1,
@@ -423,10 +438,17 @@ impl<'a> Transaction<'a> {
             state,
             journal,
             events,
+            next_rule_event: 0,
             reactions: crate::reaction::queue::ReactionQueue::default(),
             resolved_reactions: 0,
             next_reaction: 1,
         }
+    }
+
+    pub(super) fn next_pending_rule_event(&mut self) -> Option<BattleEvent> {
+        let event = self.events.get(self.next_rule_event)?.clone();
+        self.next_rule_event += 1;
+        Some(event)
     }
 
     fn begin_command(&mut self) -> CommandId {
@@ -536,6 +558,11 @@ impl<'a> Transaction<'a> {
         id
     }
 
+    pub(super) fn allocate_modifier(&mut self) -> crate::ModifierInstanceId {
+        let id = self.state.sequences.modifier();
+        self.journal.allocation(AllocationKind::Modifier, id.get());
+        id
+    }
     pub(super) fn consume_reaction_budget(&mut self, maximum: usize) -> bool {
         let Some(next) = self.resolved_reactions.checked_add(1) else {
             return false;
@@ -693,6 +720,18 @@ impl<'a> Transaction<'a> {
             .mutation(MutationField::ActorStore, 0, id.get());
     }
 
+    pub(super) fn insert_modifier(
+        &mut self,
+        state: crate::modifier::model::ActiveModifier,
+    ) -> Result<(), BattleFault> {
+        let id = state.instance;
+        if !self.state.modifiers.insert(state) {
+            return Err(action_fault(76));
+        }
+        self.journal
+            .mutation(MutationField::ModifierStore, 0, id.get());
+        Ok(())
+    }
     pub(super) fn insert_formation(&mut self, entry: crate::actor::store::FormationEntry) {
         self.state.formations.push(entry);
         self.journal

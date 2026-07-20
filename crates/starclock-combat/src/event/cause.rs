@@ -107,6 +107,13 @@ impl Cause {
         }
     }
 
+    pub(crate) const fn with_owner(self, owner: UnitId) -> Self {
+        Self {
+            owner: Some(owner),
+            ..self
+        }
+    }
+
     pub(crate) const fn with_source_definition(
         self,
         source_definition: SourceDefinitionId,

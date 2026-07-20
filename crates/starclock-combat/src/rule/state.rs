@@ -68,6 +68,26 @@ impl RuleStateStore {
             .map(|state| state.id)
     }
 
+    pub(crate) fn evaluate_trigger(
+        &mut self,
+        instance: RuleInstanceId,
+        programs: &impl super::evaluate::ProgramLookup,
+        trigger: &super::model::TriggerDef,
+        input: super::model::RuleEvaluationInput<'_>,
+    ) -> Result<Vec<super::model::RuleEmission>, super::evaluate::RuleEvaluationError> {
+        self.entries
+            .get_mut(&instance)
+            .ok_or_else(|| super::evaluate::stat_query_error(0x301))?
+            .ledger
+            .evaluate(
+                programs,
+                trigger,
+                input,
+                super::evaluate::EvaluationBudget::STANDARD,
+                4_096,
+            )
+    }
+
     pub(crate) fn update(
         &mut self,
         instance: RuleInstanceId,

@@ -3,8 +3,9 @@ use std::sync::Arc;
 use starclock_combat::{
     Battle, BattleEventKind, BattleSeed, BattleSpec, BattleSpecDigest, CombatantSpecDigest,
     Command, ConcedePolicy, EncounterWaveId, FormationIndex, Hp, ParticipantSource,
-    ParticipantSpec, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings, Scalar, Speed,
-    TeamResourceSpec, TeamSide, UnitLevel,
+    ParticipantSpec, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings,
+    ResolvedModifierBinding, Scalar, SourceDefinitionId, Speed, StatValue, TeamResourceSpec,
+    TeamSide, UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -14,8 +15,8 @@ use starclock_combat::{
         },
         builder::CombatCatalogBuilder,
         definition::{
-            AbilityDefinition, EncounterDefinition, EnemyDefinition, ProgramDefinition,
-            SelectorDefinition, UnitDefinition,
+            AbilityDefinition, EncounterDefinition, EnemyDefinition, ProgramDefinition, RuleBundle,
+            RuleDefinition, SelectorDefinition, UnitDefinition,
         },
         encounter::{EncounterWaveDefinition, WaveCarry, WaveSlotDefinition, WaveTransitionPolicy},
         selector::{
@@ -25,7 +26,15 @@ use starclock_combat::{
         },
     },
     formula::model::{CombatElement, DamageClass},
-    rule::model::{ProgramStep, RuleOperationTemplate, RuleValue, ValueExpr},
+    modifier::model::{
+        FormulaPurpose, FormulaStage, ModifierAggregation, ModifierDefinition,
+        ModifierStackingGroup, SnapshotPolicy, StatKind, StatQuerySubject,
+    },
+    rule::model::{
+        BattleRuleDefinition, ConditionExpr, EventFilter, OnceScope, ProgramStep, ReactionPriority,
+        RuleEventKind, RuleOperationTemplate, RuleSource, RuleValue, SourceClass, TriggerDef,
+        TriggerPhase, ValueExpr,
+    },
 };
 
 fn id<I: TryFrom<u32>>(raw: u32) -> I
@@ -50,7 +59,12 @@ fn empty_action() -> AbilityActionDefinition {
     .unwrap()
 }
 
-fn catalog(program: ProgramDefinition) -> Arc<CombatCatalog> {
+fn catalog(
+    program: ProgramDefinition,
+    with_modifier: bool,
+    with_rule: bool,
+    recursive_rule: bool,
+) -> Arc<CombatCatalog> {
     let mut builder = CombatCatalogBuilder::new("ability-program-v1", [0x43; 32]);
     builder.add_selector(SelectorDefinition::new(id(1)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
@@ -78,6 +92,77 @@ fn catalog(program: ProgramDefinition) -> Arc<CombatCatalog> {
         UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
     ));
     builder.add_program(program);
+    if with_rule {
+        builder.add_program(
+            ProgramDefinition::new(id(3), vec![], vec![id(2)], vec![], vec![]).with_steps(vec![
+                ProgramStep::Operation(RuleOperationTemplate::Damage {
+                    selector: id(2),
+                    amount: ValueExpr::Literal(RuleValue::Scalar(
+                        Scalar::checked_from_integer(if recursive_rule { 0 } else { 50 }).unwrap(),
+                    )),
+                    class: DamageClass::Additional,
+                    element: CombatElement::Physical,
+                    can_crit: false,
+                }),
+            ]),
+        );
+        let source = RuleSource::new(
+            SourceDefinitionId::new(60).unwrap(),
+            SourceClass::Progression,
+            vec![],
+            [0x60; 32],
+        );
+        builder.add_rule(
+            RuleDefinition::new(id(1), vec![id(3)], vec![id(2)]).with_runtime(
+                BattleRuleDefinition::new(
+                    source,
+                    vec![],
+                    vec![TriggerDef {
+                        id: id(1),
+                        event: if recursive_rule {
+                            RuleEventKind::Damage
+                        } else {
+                            RuleEventKind::Hit
+                        },
+                        phase: TriggerPhase::AfterEvent,
+                        filter: EventFilter::default(),
+                        condition: ConditionExpr::Literal(true),
+                        once_scope: if recursive_rule {
+                            OnceScope::Event
+                        } else {
+                            OnceScope::Action
+                        },
+                        priority: ReactionPriority::new(0),
+                        program: id(3),
+                    }],
+                    None,
+                ),
+            ),
+        );
+        builder.add_rule_bundle(RuleBundle::new(id(1), vec![id(1)]));
+    }
+    if with_modifier {
+        builder.add_modifier_group(ModifierStackingGroup {
+            id: id(1),
+            aggregation: ModifierAggregation::Sum,
+        });
+        builder.add_modifier(ModifierDefinition {
+            id: id(1),
+            stat: StatKind::Atk,
+            stage: FormulaStage::Flat,
+            purpose: FormulaPurpose::Stat,
+            value: ValueExpr::Literal(RuleValue::Scalar(
+                Scalar::checked_from_integer(200).unwrap(),
+            )),
+            stacking_group: id(1),
+            priority: 0,
+            floor: None,
+            cap: None,
+            cap_stage: FormulaStage::Flat,
+            snapshot: SnapshotPolicy::Dynamic,
+            filters: Box::new([]),
+        });
+    }
     builder.add_program(ProgramDefinition::new(
         id(2),
         vec![],
@@ -123,7 +208,11 @@ fn catalog(program: ProgramDefinition) -> Arc<CombatCatalog> {
     builder.add_ability(
         AbilityDefinition::new(id(2), id(2), id(3), vec![]).with_action(empty_action()),
     );
-    builder.add_unit(UnitDefinition::new(id(1), vec![id(1)], vec![]));
+    builder.add_unit(UnitDefinition::new(
+        id(1),
+        vec![id(1)],
+        with_rule.then(|| id(1)).into_iter().collect(),
+    ));
     builder.add_unit(UnitDefinition::new(id(2), vec![id(2)], vec![]));
     builder.add_enemy(EnemyDefinition::new(id(1), id(2), vec![id(2)]));
     builder.add_encounter(
@@ -157,19 +246,49 @@ fn catalog(program: ProgramDefinition) -> Arc<CombatCatalog> {
     builder.build().unwrap()
 }
 
-fn combatant(form: u32, ability: u32, digest: u8) -> ResolvedCombatantSpec {
-    ResolvedCombatantSpec::new(
+fn combatant(
+    form: u32,
+    ability: u32,
+    digest: u8,
+    with_modifier: bool,
+    with_rule: bool,
+) -> ResolvedCombatantSpec {
+    let modifiers = with_modifier.then(|| id(1)).into_iter().collect();
+    let mut combatant = ResolvedCombatantSpec::new(
         id(form),
         UnitLevel::new(80).unwrap(),
         Hp::new(1_000).unwrap(),
         Speed::from_scaled(if form == 1 { 100_000_000 } else { 1_000_000 }).unwrap(),
-        ResolvedDefinitionBindings::new(vec![id(ability)], vec![], vec![]).unwrap(),
+        ResolvedDefinitionBindings::new(
+            vec![id(ability)],
+            with_rule.then(|| id(1)).into_iter().collect(),
+            modifiers,
+        )
+        .unwrap(),
         CombatantSpecDigest::new([digest; 32]).unwrap(),
     )
     .unwrap()
+    .with_base_attack_defense(
+        StatValue::from_scaled(200_000_000).unwrap(),
+        StatValue::from_scaled(100_000_000).unwrap(),
+    );
+    if with_modifier {
+        let source = SourceDefinitionId::new(50).unwrap();
+        combatant = combatant
+            .with_sources(vec![RuleSource::new(
+                source,
+                SourceClass::Progression,
+                vec![],
+                [0x50; 32],
+            )])
+            .unwrap()
+            .with_modifier_bindings(vec![ResolvedModifierBinding::new(id(1), source)])
+            .unwrap();
+    }
+    combatant
 }
 
-fn battle(catalog: Arc<CombatCatalog>) -> Battle {
+fn battle(catalog: Arc<CombatCatalog>, with_modifier: bool, with_rule: bool) -> Battle {
     let spec = BattleSpec::new(
         "ability-program-rules-v1",
         BattleSpecDigest::new([0x44; 32]).unwrap(),
@@ -179,13 +298,13 @@ fn battle(catalog: Arc<CombatCatalog>) -> Battle {
                 TeamSide::Player,
                 FormationIndex::new(0).unwrap(),
                 ParticipantSource::Player,
-                combatant(1, 1, 0x45),
+                combatant(1, 1, 0x45, with_modifier, with_rule),
             ),
             ParticipantSpec::new(
                 TeamSide::Enemy,
                 FormationIndex::new(4).unwrap(),
                 ParticipantSource::EncounterEnemy(id(1)),
-                combatant(2, 2, 0x46),
+                combatant(2, 2, 0x46, false, false),
             ),
         ],
         TeamResourceSpec::new(0, 5).unwrap(),
@@ -240,7 +359,7 @@ fn hit_programs_use_authored_selector_order_and_exact_hit_shares() {
                 can_crit: false,
             }),
         ]);
-    let mut battle = battle(catalog(program));
+    let mut battle = battle(catalog(program, false, false, false), false, false);
     let resolution = start_and_use(&mut battle).unwrap();
     let damage = resolution
         .events()
@@ -264,6 +383,107 @@ fn hit_programs_use_authored_selector_order_and_exact_hit_shares() {
 }
 
 #[test]
+fn selected_build_modifier_changes_rule_ir_stat_query_inside_transaction() {
+    let program =
+        ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![], vec![]).with_steps(vec![
+            ProgramStep::Operation(RuleOperationTemplate::Damage {
+                selector: id(2),
+                amount: ValueExpr::QueryStat {
+                    subject: StatQuerySubject::Actor,
+                    stat: StatKind::Atk,
+                    purpose: FormulaPurpose::Stat,
+                },
+                class: DamageClass::Direct,
+                element: CombatElement::Physical,
+                can_crit: false,
+            }),
+        ]);
+    let mut battle = battle(catalog(program, true, false, false), true, false);
+    let resolution = start_and_use(&mut battle).unwrap();
+    let damage = resolution
+        .events()
+        .iter()
+        .filter_map(|event| match event.kind() {
+            BattleEventKind::Damage(value) => Some(value.applied.get()),
+            _ => None,
+        })
+        .collect::<Vec<_>>();
+
+    assert_eq!(damage, [100, 300]);
+    assert!(resolution.fault().is_none());
+    let actor = battle.view().units_by_id().next().unwrap();
+    assert_eq!(actor.base_attack().scaled(), 200_000_000);
+    assert_eq!(actor.base_defense().scaled(), 100_000_000);
+    assert_eq!(actor.base_speed().scaled(), 100_000_000);
+    let modifier = battle.view().modifier_instances_by_id().next().unwrap();
+    assert_eq!(modifier.id().get(), 1);
+    assert_eq!(modifier.definition().get(), 1);
+    assert_eq!(modifier.owner(), modifier.subject());
+    assert_eq!(modifier.source().get(), 50);
+    assert_eq!(modifier.source_class(), SourceClass::Progression);
+}
+
+#[test]
+fn selected_rule_bundle_dispatches_once_after_the_authored_hit_event() {
+    let program = ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![], vec![]);
+    let mut battle = battle(catalog(program, false, true, false), false, true);
+    let resolution = start_and_use(&mut battle).unwrap();
+    let damage = resolution
+        .events()
+        .iter()
+        .filter_map(|event| match event.kind() {
+            BattleEventKind::Damage(value) => Some(value.applied.get()),
+            _ => None,
+        })
+        .collect::<Vec<_>>();
+
+    assert_eq!(damage, [50]);
+    assert_eq!(battle.view().rule_instances_by_id().count(), 1);
+    assert_eq!(
+        battle
+            .view()
+            .units_by_id()
+            .nth(1)
+            .unwrap()
+            .current_hp()
+            .get(),
+        950
+    );
+}
+
+#[test]
+fn recursively_emitting_rule_faults_at_the_dispatch_budget_and_rolls_back() {
+    let program =
+        ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![], vec![]).with_steps(vec![
+            ProgramStep::Operation(RuleOperationTemplate::Damage {
+                selector: id(2),
+                amount: ValueExpr::Literal(RuleValue::Scalar(Scalar::ZERO)),
+                class: DamageClass::Direct,
+                element: CombatElement::Physical,
+                can_crit: false,
+            }),
+        ]);
+    let mut battle = battle(catalog(program, false, true, true), false, true);
+    let resolution = start_and_use(&mut battle).unwrap();
+
+    assert!(resolution.fault().is_some());
+    assert_eq!(
+        battle.view().phase(),
+        starclock_combat::BattlePhase::Faulted
+    );
+    assert_eq!(
+        battle
+            .view()
+            .units_by_id()
+            .nth(1)
+            .unwrap()
+            .current_hp()
+            .get(),
+        1_000
+    );
+}
+
+#[test]
 fn unsupported_program_emission_rolls_back_the_whole_command() {
     let program =
         ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![], vec![]).with_steps(vec![
@@ -274,7 +494,7 @@ fn unsupported_program_emission_rolls_back_the_whole_command() {
                 )),
             }),
         ]);
-    let mut battle = battle(catalog(program));
+    let mut battle = battle(catalog(program, false, false, false), false, false);
     battle
         .apply(Command::StartBattle {
             decision: battle.decision().unwrap().id(),

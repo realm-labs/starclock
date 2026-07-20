@@ -134,6 +134,13 @@ impl<'a> BattleView<'a> {
             .iter_by_id()
             .map(|state| RuleInstanceView { state })
     }
+    /// Iterates battle-owned modifier instances in stable runtime-ID order.
+    pub fn modifier_instances_by_id(self) -> impl Iterator<Item = ModifierInstanceView<'a>> + 'a {
+        self.state
+            .modifiers
+            .iter_by_id()
+            .map(|state| ModifierInstanceView { state })
+    }
     /// Returns one side's team-scoped resources.
     #[must_use]
     pub fn team(self, side: TeamSide) -> TeamView<'a> {
@@ -178,6 +185,39 @@ pub struct BreakEffectView<'a> {
 #[derive(Clone, Copy)]
 pub struct EffectView<'a> {
     state: &'a crate::effect::state::EffectState,
+}
+
+/// Immutable projection of one battle-owned modifier instance.
+#[derive(Clone, Copy)]
+pub struct ModifierInstanceView<'a> {
+    state: &'a crate::modifier::model::ActiveModifier,
+}
+
+impl ModifierInstanceView<'_> {
+    #[must_use]
+    pub const fn id(self) -> crate::ModifierInstanceId {
+        self.state.instance
+    }
+    #[must_use]
+    pub const fn definition(self) -> crate::ModifierDefinitionId {
+        self.state.definition
+    }
+    #[must_use]
+    pub const fn owner(self) -> UnitId {
+        self.state.owner
+    }
+    #[must_use]
+    pub const fn subject(self) -> UnitId {
+        self.state.subject
+    }
+    #[must_use]
+    pub const fn source(self) -> crate::SourceDefinitionId {
+        self.state.source
+    }
+    #[must_use]
+    pub const fn source_class(self) -> crate::rule::model::SourceClass {
+        self.state.source_class
+    }
 }
 
 impl EffectView<'_> {
@@ -500,6 +540,21 @@ impl<'a> UnitView<'a> {
     #[must_use]
     pub const fn maximum_hp(self) -> Hp {
         self.state.maximum_hp
+    }
+    /// Returns the immutable authored base ATK retained for staged queries.
+    #[must_use]
+    pub const fn base_attack(self) -> crate::StatValue {
+        self.state.base_attack
+    }
+    /// Returns the immutable authored base DEF retained for staged queries.
+    #[must_use]
+    pub const fn base_defense(self) -> crate::StatValue {
+        self.state.base_defense
+    }
+    /// Returns the immutable authored base SPD retained for staged queries.
+    #[must_use]
+    pub const fn base_speed(self) -> crate::Speed {
+        self.state.base_speed
     }
     /// Returns current personal Energy.
     #[must_use]

@@ -19,6 +19,8 @@ pub enum BattleBuildErrorKind {
     MissingRuleBundle,
     /// A resolved modifier reference does not exist.
     MissingModifier,
+    /// A selected modifier lacks its exact resolved generic source.
+    MissingModifierSource,
     /// An encounter enemy source does not exist.
     MissingEnemy,
     /// Player/enemy source kind does not match the formation side.
@@ -136,6 +138,26 @@ pub(crate) fn validate(catalog: &CombatCatalog, spec: &BattleSpec) -> Result<(),
                     BattleBuildErrorKind::MissingModifier,
                     Some(index),
                     Some(modifier.get()),
+                ));
+            }
+        }
+        if combatant.modifier_bindings().len() != combatant.modifiers().len() {
+            return Err(BattleBuildError::new(
+                BattleBuildErrorKind::MissingModifierSource,
+                Some(index),
+                None,
+            ));
+        }
+        for binding in combatant.modifier_bindings() {
+            if combatant
+                .sources()
+                .binary_search_by_key(&binding.source(), |source| source.definition())
+                .is_err()
+            {
+                return Err(BattleBuildError::new(
+                    BattleBuildErrorKind::MissingModifierSource,
+                    Some(index),
+                    Some(binding.source().get()),
                 ));
             }
         }

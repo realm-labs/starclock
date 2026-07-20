@@ -51,6 +51,7 @@ impl Battle {
         let mut units = UnitStore::default();
         let mut actors = TimelineActorStore::default();
         let mut formations = FormationState::default();
+        let mut modifiers = crate::modifier::state::ModifierStore::default();
 
         for participant in spec.participants() {
             let unit_id = sequences.unit();
@@ -75,6 +76,9 @@ impl Battle {
                 },
                 current_hp: combatant.maximum_hp(),
                 maximum_hp: combatant.maximum_hp(),
+                base_attack: combatant.base_attack(),
+                base_defense: combatant.base_defense(),
+                base_speed: combatant.speed(),
                 current_energy: combatant.current_energy(),
                 maximum_energy: combatant.maximum_energy(),
                 rank: combatant.rank(),
@@ -95,6 +99,29 @@ impl Battle {
                 transformation: None,
                 enemy,
             });
+            for binding in combatant.modifier_bindings() {
+                let source = combatant
+                    .sources()
+                    .binary_search_by_key(&binding.source(), |source| source.definition())
+                    .ok()
+                    .map(|index| &combatant.sources()[index])
+                    .expect("battle build validated modifier source");
+                let instance = sequences.modifier();
+                let inserted = modifiers.insert(crate::modifier::model::ActiveModifier {
+                    instance,
+                    definition: binding.definition(),
+                    owner: unit_id,
+                    subject: unit_id,
+                    source: binding.source(),
+                    source_class: source.class(),
+                    insertion_sequence: instance.get(),
+                    application_action: None,
+                    slots: Box::new([]),
+                    captured_value: None,
+                    captured_stats: Box::new([]),
+                });
+                debug_assert!(inserted);
+            }
             actors.insert(TimelineActorState {
                 id: actor_id,
                 owner: unit_id,
@@ -208,6 +235,7 @@ impl Battle {
             break_effects: crate::effect::break_effect::BreakEffectStore::default(),
             effects: crate::effect::state::EffectStore::default(),
             rules,
+            modifiers,
             encounter: EncounterState {
                 definition: spec.encounter(),
                 wave,
