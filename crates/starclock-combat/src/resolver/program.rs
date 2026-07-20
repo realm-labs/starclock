@@ -115,7 +115,7 @@ pub(super) fn execute_ability_program(
     let emissions = evaluate_program(catalog, context.program, input, EvaluationBudget::STANDARD)
         .map_err(|error| program_fault(1, i64::from(error.context())))?;
     execute_emissions(
-        catalog, txn, cause, parent, &context, emissions, scratch, &owned,
+        catalog, txn, cause, parent, &context, input, emissions, scratch, &owned,
     )
 }
 
@@ -154,6 +154,7 @@ pub(super) fn execute_emissions(
     cause: Cause,
     mut parent: crate::EventId,
     context: &AbilityProgramContext,
+    input: RuleEvaluationInput<'_>,
     emissions: Vec<RuleEmission>,
     scratch: &mut HitOperationScratch,
     resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
@@ -166,6 +167,7 @@ pub(super) fn execute_emissions(
             cause,
             parent,
             context,
+            input,
             emission,
             scratch,
             &mut toughness_element,
@@ -182,6 +184,7 @@ fn execute_emission(
     cause: Cause,
     parent: crate::EventId,
     context: &AbilityProgramContext,
+    input: RuleEvaluationInput<'_>,
     emission: RuleEmission,
     scratch: &mut HitOperationScratch,
     toughness_element: &mut Option<crate::formula::model::CombatElement>,
@@ -312,12 +315,25 @@ fn execute_emission(
                     target_specific_resistance: Ratio::ZERO,
                 },
             };
+            let targets = targets(resolved, selector)?;
+            let resolved_runtime = catalog
+                .effect(effect)
+                .and_then(|definition| definition.runtime_template())
+                .map(|template| {
+                    targets
+                        .iter()
+                        .map(|target| resolve_effect_runtime(template, input, *target))
+                        .collect::<Result<Vec<_>, _>>()
+                        .map(Vec::into_boxed_slice)
+                })
+                .transpose()?;
             Operation::ApplyEffect(ApplyEffectOp {
                 id: operation_id,
-                targets: targets(resolved, selector)?,
+                targets,
                 definition: crate::EffectApplicationDefinition::new(effect, chance, 1)
                     .expect("one stack is valid"),
                 rng_purpose,
+                resolved_runtime,
             })
         }
         RuleEmission::RemoveEffect {
@@ -363,6 +379,7 @@ fn execute_emission(
             ability,
             priority,
             forced_use,
+            boundary,
             owner,
             payment,
             ..
@@ -378,7 +395,8 @@ fn execute_emission(
                 ability,
                 origin: queue_origin(catalog, ability, forced_use)?,
                 priority: priority.get(),
-                payment: queue_payment(payment)?,
+                boundary,
+                payment: queue_payment(txn, context.owner, payment)?,
                 source: cause
                     .source_definition()
                     .ok_or_else(|| program_fault(48, 0))?,
@@ -470,6 +488,16 @@ fn execute_emission(
                     .definition(),
             })
         }
+        RuleEmission::Informational { code, value, .. } => {
+            return Ok(txn.emit(
+                cause.with_parent(parent),
+                BattleEventKind::RuleSignal(crate::RuleSignalEventData {
+                    operation: operation_id,
+                    code,
+                    value,
+                }),
+            ));
+        }
         unsupported => return Err(program_fault(12, emission_code(&unsupported))),
     };
     execute_operation(catalog, txn, cause, parent, request, scratch)
@@ -522,6 +550,8 @@ fn queue_owner(
 }
 
 fn queue_payment(
+    txn: &Transaction<'_>,
+    owner: crate::UnitId,
     payment: Option<RuleActionPaymentPolicy>,
 ) -> Result<Option<crate::catalog::action::SkillPointPaymentPolicy>, BattleFault> {
     payment
@@ -532,7 +562,22 @@ fn queue_payment(
             RuleActionPaymentPolicy::Suppressed => {
                 Ok(crate::catalog::action::SkillPointPaymentPolicy::Suppressed)
             }
-            RuleActionPaymentPolicy::TeamResource(_) => Err(program_fault(55, 0)),
+            RuleActionPaymentPolicy::TeamResource(stable_key) => {
+                let side = txn
+                    .state
+                    .units
+                    .get(owner)
+                    .ok_or_else(|| program_fault(55, 0))?
+                    .side;
+                let id = txn
+                    .state
+                    .teams
+                    .get(side)
+                    .keyed_by_name(&stable_key)
+                    .ok_or_else(|| program_fault(55, 1))?
+                    .id;
+                Ok(crate::catalog::action::SkillPointPaymentPolicy::TeamResource(id))
+            }
         })
         .transpose()
 }
@@ -658,8 +703,66 @@ fn modify_resource(
                     }),
                 );
             }
-            RuleResourceKind::Character(_) | RuleResourceKind::Team(_) => {
-                return Err(program_fault(28, 0));
+            RuleResourceKind::Character(stable_key) => {
+                let (before, maximum) = txn
+                    .state
+                    .units
+                    .get(target)
+                    .and_then(|unit| unit.resource(stable_key))
+                    .map(|resource| (resource.current, resource.maximum))
+                    .ok_or_else(|| program_fault(28, 0))?;
+                let raw =
+                    resource_value(before.scaled(), maximum.scaled(), amount.scaled(), update)?;
+                let after = crate::Scalar::from_scaled(raw);
+                txn.set_character_resource(target, stable_key, after)?;
+                parent = txn.emit(
+                    cause.with_parent(parent).with_primary_target(Some(target)),
+                    BattleEventKind::Resource(ResourceEventData::CharacterResource {
+                        unit: target,
+                        before,
+                        after,
+                        maximum,
+                    }),
+                );
+            }
+            RuleResourceKind::Team(stable_key) => {
+                let side = txn
+                    .state
+                    .units
+                    .get(target)
+                    .ok_or_else(|| program_fault(28, 1))?
+                    .side;
+                let resource = txn
+                    .state
+                    .teams
+                    .get(side)
+                    .keyed_by_name(stable_key)
+                    .ok_or_else(|| program_fault(28, 2))?;
+                let before = resource.current;
+                let maximum = resource.maximum;
+                let resource_id = resource.id;
+                let raw = resource_value(
+                    i64::from(before),
+                    i64::from(maximum),
+                    amount
+                        .rounded_integer(Rounding::Floor)
+                        .map_err(|_| program_fault(28, 3))?,
+                    update,
+                )?;
+                let after = u16::try_from(raw).map_err(|_| program_fault(28, raw))?;
+                txn.set_team_resource(side, resource_id, after)?;
+                parent = txn.emit(
+                    cause.with_parent(parent),
+                    BattleEventKind::Resource(ResourceEventData::TeamResource {
+                        side,
+                        resource: resource_id,
+                        attempted: before.abs_diff(after),
+                        effective: before.abs_diff(after),
+                        before,
+                        after,
+                        overflow: 0,
+                    }),
+                );
             }
         }
     }
@@ -774,6 +877,47 @@ fn non_negative_scalar(value: RuleValue) -> Result<Scalar, BattleFault> {
         RuleValue::Scalar(value) if value.scaled() >= 0 => Ok(value),
         _ => Err(program_fault(40, 0)),
     }
+}
+
+fn resolve_effect_runtime(
+    template: &crate::EffectRuntimeTemplate,
+    input: RuleEvaluationInput<'_>,
+    target: crate::UnitId,
+) -> Result<crate::EffectRuntimeDefinition, BattleFault> {
+    let duration = template
+        .duration_expression()
+        .map(|expression| {
+            crate::rule::evaluate::evaluate_value(expression, input, Some(target))
+                .map_err(|error| program_fault(45, i64::from(error.context())))
+                .and_then(effect_duration)
+        })
+        .transpose()?;
+    let magnitude = template
+        .magnitude_expression()
+        .map(|expression| {
+            crate::rule::evaluate::evaluate_value(expression, input, Some(target))
+                .map_err(|error| program_fault(46, i64::from(error.context())))
+                .and_then(non_negative_scalar)
+        })
+        .transpose()?
+        .unwrap_or(Scalar::ZERO);
+    template
+        .resolve(duration, magnitude)
+        .ok_or_else(|| program_fault(47, i64::try_from(target.get()).unwrap_or(i64::MAX)))
+}
+
+fn effect_duration(value: RuleValue) -> Result<u16, BattleFault> {
+    let raw = match value {
+        RuleValue::Integer(value) => value,
+        RuleValue::Scalar(value) => value
+            .rounded_integer(Rounding::NearestTiesEven)
+            .map_err(|_| program_fault(48, value.scaled()))?,
+        _ => return Err(program_fault(48, 0)),
+    };
+    u16::try_from(raw)
+        .ok()
+        .filter(|value| *value > 0)
+        .ok_or_else(|| program_fault(48, raw))
 }
 
 fn ratio(value: RuleValue) -> Result<Ratio, BattleFault> {

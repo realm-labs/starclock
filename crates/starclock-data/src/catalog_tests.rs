@@ -5,7 +5,7 @@ const REPRESENTATIVE_BUNDLE: &[u8] =
     include_bytes!("../../../config/catalog-fixtures/representative/config.sora");
 
 #[test]
-fn production_bundle_builds_the_frozen_standard_v1_catalog() {
+fn production_bundle_builds_standard_v1_and_representative_characters() {
     let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
     assert_eq!(catalog.manifest().game_version, "4.4");
     assert_eq!(
@@ -15,12 +15,12 @@ fn production_bundle_builds_the_frozen_standard_v1_catalog() {
     assert_eq!(
         catalog.summary(),
         CatalogSummary {
-            identity_count: 424,
-            enabled_identity_count: 171,
-            ability_count: 63,
-            hit_plan_count: 42,
-            character_count: 0,
-            effect_count: 0,
+            identity_count: 754,
+            enabled_identity_count: 507,
+            ability_count: 113,
+            hit_plan_count: 72,
+            character_count: 6,
+            effect_count: 3,
             ai_graph_count: 17,
             enemy_count: 17,
             encounter_count: 6,
@@ -28,6 +28,24 @@ fn production_bundle_builds_the_frozen_standard_v1_catalog() {
             standard_scenario_count: 6,
         }
     );
+    for (id, abilities, resources, parameters, traces) in [
+        (2, 7, 1, 287, 20),
+        (8, 6, 1, 101, 18),
+        (18, 6, 1, 162, 18),
+        (27, 8, 1, 318, 21),
+        (45, 6, 1, 178, 20),
+        (68, 12, 2, 361, 19),
+    ] {
+        let character = catalog
+            .character(starclock_combat::UnitDefinitionId::new(id).unwrap())
+            .expect("frozen representative character");
+        assert_eq!(character.stat_row_count(), 86);
+        assert_eq!(character.ability_count(), abilities);
+        assert_eq!(character.resource_count(), resources);
+        assert_eq!(character.ability_parameter_count(), parameters);
+        assert_eq!(character.trace_count(), traces);
+        assert_eq!(character.eidolon_count(), 6);
+    }
     assert_eq!(
         catalog
             .enemy(starclock_combat::EnemyDefinitionId::new(98).unwrap())
@@ -69,7 +87,84 @@ fn production_bundle_builds_the_frozen_standard_v1_catalog() {
                 .is_some()
         );
     }
+    let combat = catalog.combat_catalog();
+    let linked = combat
+        .linked_unit(starclock_combat::UnitDefinitionId::new(24_505).unwrap())
+        .expect("Aglaea linked-unit definition");
+    assert_eq!(linked.abilities()[0].get(), 24_610);
+    let countdown = combat
+        .countdown(24_304)
+        .expect("Firefly countdown definition");
+    assert_eq!(countdown.definition().ability().get(), 24_611);
+    assert!(countdown.definition().ends_transformation());
+    let asta = combat
+        .effect(starclock_combat::EffectDefinitionId::new(24_006).unwrap())
+        .expect("Asta SPD effect");
+    assert_eq!(
+        asta.modifiers(),
+        [starclock_combat::ModifierDefinitionId::new(24_004).unwrap()]
+    );
+    let clara = combat
+        .unit(starclock_combat::UnitDefinitionId::new(18).unwrap())
+        .expect("Clara unit definition");
+    assert_eq!(
+        clara.resources()[0].stable_key(),
+        "enhanced-counter-charges"
+    );
     assert!(Arc::ptr_eq(&catalog, &Arc::clone(&catalog)));
+}
+
+#[test]
+fn production_representatives_compile_at_e0_and_complete_e6() {
+    use starclock_build::{
+        ability::AbilityInvestment,
+        compiler::LoadoutCompiler,
+        patch::BuildPatch,
+        spec::{CombatantBuildSpec, EidolonLevel, PromotionStage},
+    };
+    use starclock_combat::UnitLevel;
+
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    for raw in [2, 8, 18, 27, 45, 68] {
+        let form = starclock_combat::UnitDefinitionId::new(raw).unwrap();
+        let character = catalog
+            .build_catalog()
+            .character(form)
+            .expect("representative build definition");
+        let investments = character
+            .ability_levels()
+            .iter()
+            .map(|table| AbilityInvestment::new(table.family(), table.invested_cap()))
+            .collect::<Vec<_>>();
+        let base = CombatantBuildSpec::new(
+            form,
+            UnitLevel::new(80).unwrap(),
+            PromotionStage::new(6).unwrap(),
+        )
+        .with_ability_levels(investments)
+        .unwrap();
+        let e0 = LoadoutCompiler
+            .compile(catalog.build_catalog(), catalog.combat_catalog(), &base)
+            .expect("representative E0 build");
+        assert!(e0.combatant().modifiers().is_empty());
+
+        let graph = character.trace_graph().expect("complete Trace graph");
+        let trace_modifiers = graph
+            .nodes()
+            .iter()
+            .flat_map(|node| node.patches())
+            .filter(|patch| matches!(patch, BuildPatch::AddModifier(_)))
+            .count();
+        assert!(trace_modifiers > 0);
+        let e6_spec = base
+            .with_traces(graph.canonical_order().to_vec())
+            .unwrap()
+            .with_eidolon(EidolonLevel::new(6).unwrap());
+        let e6 = LoadoutCompiler
+            .compile(catalog.build_catalog(), catalog.combat_catalog(), &e6_spec)
+            .expect("representative E6 build");
+        assert_eq!(e6.combatant().modifiers().len(), trace_modifiers);
+    }
 }
 
 #[test]

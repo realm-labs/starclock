@@ -30,8 +30,9 @@ use starclock_combat::{
         },
         builder::CombatCatalogBuilder,
         definition::{
-            AbilityDefinition as CombatAbilityDefinition, EffectDefinition, ProgramDefinition,
-            RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
+            AbilityDefinition as CombatAbilityDefinition, CharacterResourceDefinition,
+            EffectDefinition, ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition,
+            UnitDefinition,
         },
     },
     rule::model::{RuleSource, SourceClass},
@@ -39,7 +40,10 @@ use starclock_combat::{
 
 use crate::{
     build_lower::{BuildDefinitions, CharacterDataDefinition, DataBuildPatch},
-    catalog::{CatalogLoadError, CombatDefinitions, IdentityDefinition, IdentityKind, domain_fail},
+    catalog::{
+        CatalogLoadError, CombatDefinitions, IdentityDefinition, IdentityKind, LoadMode,
+        domain_fail,
+    },
     encounter_lower::EncounterDefinitions,
 };
 
@@ -54,8 +58,11 @@ pub(super) fn compile(
     combat: &CombatDefinitions,
     builds: &BuildDefinitions,
     encounters: &EncounterDefinitions,
+    mode: LoadMode,
 ) -> Result<(Arc<CombatCatalog>, BuildCatalog), CatalogLoadError> {
-    let combat_catalog = compile_combat(revision, digest, identities, combat, builds, encounters)?;
+    let combat_catalog = compile_combat(
+        revision, digest, identities, combat, builds, encounters, mode,
+    )?;
     let build_catalog = compile_build(revision, builds, &combat_catalog)?;
     Ok((combat_catalog, build_catalog))
 }
@@ -67,6 +74,7 @@ fn compile_combat(
     combat: &CombatDefinitions,
     builds: &BuildDefinitions,
     encounters: &EncounterDefinitions,
+    mode: LoadMode,
 ) -> Result<Arc<CombatCatalog>, CatalogLoadError> {
     let mut builder = CombatCatalogBuilder::new(revision, digest);
     let variant_ids = variant_map(builds)?;
@@ -146,7 +154,14 @@ fn compile_combat(
         builder.add_modifier(modifier.clone());
     }
     for effect in &combat.effects {
-        builder.add_effect(EffectDefinition::new(effect.id(), Vec::new(), Vec::new()));
+        builder.add_effect(
+            EffectDefinition::new(
+                effect.id(),
+                effect.rules().to_vec(),
+                effect.modifiers().to_vec(),
+            )
+            .with_runtime_template(effect.runtime_template().clone()),
+        );
     }
     for rule in &combat.rules {
         let mut programs = rule
@@ -166,11 +181,29 @@ fn compile_combat(
         ));
     }
 
+    for linked in &combat.linked_units {
+        builder.add_unit(UnitDefinition::new(
+            linked.unit(),
+            linked.abilities().to_vec(),
+            linked.rule_bundles().to_vec(),
+        ));
+        builder.add_linked_unit(linked.clone());
+    }
+    for countdown in &combat.countdowns {
+        builder.add_countdown(*countdown);
+    }
+
     let mut unit_ids = BTreeSet::new();
+    unit_ids.extend(
+        combat
+            .linked_units
+            .iter()
+            .map(|definition| definition.unit()),
+    );
     for character in builds
         .characters
         .iter()
-        .filter(|character| character.complete_progression_required)
+        .filter(|character| character.complete_progression_required || mode != LoadMode::Production)
     {
         let mut abilities = character
             .abilities
@@ -190,13 +223,28 @@ fn compile_combat(
             .collect::<Vec<_>>();
         rules.sort_unstable();
         rules.dedup();
-        builder.add_unit(UnitDefinition::new(character.id, abilities, rules));
+        let mut resources = character
+            .resources
+            .iter()
+            .map(|resource| {
+                CharacterResourceDefinition::new(
+                    resource.stable_key.clone(),
+                    resource.initial,
+                    resource.maximum,
+                )
+                .ok_or_else(|| domain_fail("invalid compiled character resource"))
+            })
+            .collect::<Result<Vec<_>, CatalogLoadError>>()?;
+        resources.sort_unstable_by(|left, right| left.stable_key().cmp(right.stable_key()));
+        builder.add_unit(
+            UnitDefinition::new(character.id, abilities, rules).with_resources(resources),
+        );
         unit_ids.insert(character.id);
     }
-    for identity in identities
-        .iter()
-        .filter(|identity| identity.enabled && identity.kind == IdentityKind::Character)
-    {
+    for identity in identities.iter().filter(|identity| {
+        (identity.enabled || mode != LoadMode::Production)
+            && identity.kind == IdentityKind::Character
+    }) {
         let id = UnitDefinitionId::new(identity.id).expect("identity ID is nonzero");
         if unit_ids.insert(id) {
             builder.add_unit(UnitDefinition::new(id, Vec::new(), Vec::new()));
@@ -551,6 +599,7 @@ fn action_kind(kind: u8) -> AbilityKind {
         8 => AbilityKind::Counter,
         9 => AbilityKind::Summon,
         10 => AbilityKind::Memosprite,
+        13 => AbilityKind::Countdown,
         _ => AbilityKind::ExtraAction,
     }
 }

@@ -1,3 +1,3 @@
 id	stable_key	domain	target_selector_id	condition_id	empty_target_policy	snapshot_boundary	fault_policy	payload
-1	probe.clara.operation.queue-counter	Battle	2		Skip	EventSnapshot	Rollback	{"type":"QueueAction","ability_id":1,"actor_selector_id":1,"priority":-100,"forced_use":false}
+1	probe.clara.operation.queue-counter	Battle	2		Skip	EventSnapshot	Rollback	{"type":"QueueAction","ability_id":1,"actor_selector_id":1,"priority":-100,"forced_use":false,"reaction_boundary":"AfterAction"}
 2	probe.clara.operation.consume-charge	Battle	1		Skip	EventSnapshot	Rollback	{"type":"ModifyStateSlot","state_slot_id":6,"update_kind":"Subtract","value_expression_id":3}

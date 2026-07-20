@@ -287,6 +287,7 @@ mod tests {
             abilities: Box::new([]),
             rule_bundles: Box::new([]),
             modifiers: Box::new([]),
+            resources: Box::new([]),
             digest: CombatantSpecDigest::new([u8::try_from(id).unwrap(); 32]).unwrap(),
             transformation: None,
             enemy: None,

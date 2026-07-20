@@ -4,7 +4,8 @@ use sha2::{Digest, Sha256};
 use starclock_combat::modifier::registry::ModifierRegistry;
 use starclock_combat::{
     AbilityId, DispelCategory, DurationClock, EffectCategory, EffectDefinitionId,
-    EffectSnapshotPolicy, EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase, Ratio,
+    EffectRuntimeTemplate, EffectSnapshotPolicy, EffectStackPolicy, EffectTeardownPolicy,
+    EffectTickPhase, ModifierDefinitionId, Ratio, RuleId, SourceDefinitionId,
 };
 use std::{collections::BTreeMap, sync::Arc};
 
@@ -14,12 +15,22 @@ pub(super) use crate::catalog_support::{
 };
 use crate::coverage::{GoalCoverageCategory, GoalCoverageState};
 use crate::effect_lower::{
-    lower_dispel, lower_duration_clock, lower_effect_category, lower_snapshot_policy,
-    lower_stack_policy, lower_teardown, lower_tick_phase,
+    lower_dispel, lower_duration_clock, lower_effect_category, lower_element,
+    lower_snapshot_policy, lower_stack_policy, lower_teardown, lower_tick_phase,
 };
 use crate::generated::{
     SoraConfig, content_kind::ContentKind, coverage_state::CoverageState,
     release_state::ReleaseState, runtime::SoraBundle,
+};
+
+mod validation;
+mod value_map;
+
+use validation::bounded_u16;
+pub(super) use validation::{contiguous, positive, positive_u16};
+use value_map::{
+    ability_kind, ability_resource_kind, crit_policy, hit_target_group, resource_delta_kind,
+    resource_timing, retarget_policy, target_pattern,
 };
 
 const METADATA_TABLES: [&str; 5] = [
@@ -29,7 +40,7 @@ const METADATA_TABLES: [&str; 5] = [
     "EvidenceRecord",
     "SourceRecord",
 ];
-const LOWERED_TABLES: [&str; 64] = [
+const LOWERED_TABLES: [&str; 68] = [
     "Ability",
     "AbilityHitPlanBinding",
     "AbilityLevelParameter",
@@ -55,7 +66,10 @@ const LOWERED_TABLES: [&str; 64] = [
     "CharacterResource",
     "CharacterStat",
     "ConditionExpression",
+    "CountdownDefinition",
     "Effect",
+    "EffectModifierBinding",
+    "EffectRuleBinding",
     "Eidolon",
     "EidolonPatch",
     "Encounter",
@@ -75,6 +89,7 @@ const LOWERED_TABLES: [&str; 64] = [
     "EventFilter",
     "HitPlan",
     "HitPlanHit",
+    "LinkedUnitDefinition",
     "ModifierDefinition",
     "ModifierFilter",
     "ModifierStackingGroup",
@@ -279,6 +294,8 @@ pub(super) struct CombatDefinitions {
     pub(super) programs: Box<[crate::operation_lower::RuleProgramDefinition]>,
     pub(super) effects: Box<[EffectDataDefinition]>,
     pub(super) rules: Box<[crate::rule_lower::RuleDataDefinition]>,
+    pub(super) linked_units: Box<[starclock_combat::LinkedUnitCatalogDefinition]>,
+    pub(super) countdowns: Box<[starclock_combat::CountdownCatalogDefinition]>,
 }
 
 /// Generated-row-free authored effect data retained for build compilation.
@@ -297,6 +314,9 @@ pub struct EffectDataDefinition {
     teardown_policy: EffectTeardownPolicy,
     application_priority: i32,
     tags: Box<[Box<str>]>,
+    rules: Box<[RuleId]>,
+    modifiers: Box<[ModifierDefinitionId]>,
+    runtime_template: EffectRuntimeTemplate,
 }
 
 impl EffectDataDefinition {
@@ -351,6 +371,18 @@ impl EffectDataDefinition {
     #[must_use]
     pub fn tags(&self) -> &[Box<str>] {
         &self.tags
+    }
+    #[must_use]
+    pub fn rules(&self) -> &[RuleId] {
+        &self.rules
+    }
+    #[must_use]
+    pub fn modifiers(&self) -> &[ModifierDefinitionId] {
+        &self.modifiers
+    }
+    #[must_use]
+    pub const fn runtime_template(&self) -> &EffectRuntimeTemplate {
+        &self.runtime_template
     }
 }
 
@@ -439,6 +471,7 @@ pub(super) fn load_with_mode(
         &combat,
         &builds,
         &encounters,
+        mode,
     )?;
     let catalog = SimulationCatalog {
         manifest,
@@ -456,7 +489,7 @@ pub(super) fn load_with_mode(
 
 fn validate_converted_catalog(catalog: &SimulationCatalog) -> Result<(), CatalogLoadError> {
     if catalog.combat.abilities.iter().any(|ability| {
-        ability.kind > 12
+        ability.kind > 13
             || ability.target_pattern > 7
             || ability.retarget_policy > 3
             || ability.level_cap == 0
@@ -715,24 +748,121 @@ fn convert_combat(
                 format!("effect {} duration/clock disagree", row.id),
             ));
         }
+        let category = lower_effect_category(row.category);
+        let dispel = lower_dispel(row.dispel_category);
+        let tick_phase = lower_tick_phase(row.tick_phase);
+        let stack_policy = lower_stack_policy(row.stack_policy);
+        let snapshot_policy = lower_snapshot_policy(row.snapshot_policy);
+        let teardown_policy = lower_teardown(row.teardown_policy);
+        let dot_element = row.dot_element.map(lower_element);
+        let detonation_tag = row
+            .detonation_tag_identity_id
+            .map(|id| {
+                let raw = positive(id, "Effect.detonation_tag_identity_id")?;
+                require_identity(identities, raw, IdentityKind::Other, mode)?;
+                Ok(SourceDefinitionId::new(raw).expect("positive source definition ID"))
+            })
+            .transpose()?;
+        if category != EffectCategory::Dot && (dot_element.is_some() || detonation_tag.is_some()) {
+            return Err(fail(
+                CatalogLoadErrorKind::Domain,
+                format!("non-DoT effect {} declares DoT metadata", row.id),
+            ));
+        }
+        let mut runtime_template = EffectRuntimeTemplate::new(
+            category,
+            dispel,
+            bounded_u16(row.stack_limit, "Effect.stack_limit")?,
+            duration.clone(),
+            duration_clock,
+            tick_phase,
+            stack_policy,
+        )
+        .ok_or_else(|| {
+            fail(
+                CatalogLoadErrorKind::Domain,
+                format!("effect {} has invalid runtime metadata", row.id),
+            )
+        })?
+        .with_comparison(magnitude.clone(), row.application_priority)
+        .with_snapshot(snapshot_policy)
+        .with_teardown(teardown_policy);
+        if category == EffectCategory::Dot {
+            runtime_template = runtime_template
+                .with_dot(
+                    dot_element.ok_or_else(|| {
+                        fail(
+                            CatalogLoadErrorKind::Domain,
+                            format!("DoT effect {} is missing its element", row.id),
+                        )
+                    })?,
+                    detonation_tag,
+                )
+                .expect("DoT category accepts DoT metadata");
+        }
+        let mut rules = config
+            .effect_rule_binding()
+            .iter()
+            .filter(|binding| binding.effect_id == row.id)
+            .collect::<Vec<_>>();
+        rules.sort_unstable_by_key(|binding| binding.sequence);
+        contiguous(
+            rules
+                .iter()
+                .map(|binding| positive_u16(binding.sequence, "EffectRuleBinding.sequence"))
+                .collect::<Result<Vec<_>, _>>()?
+                .into_iter(),
+            "effect rule bindings",
+        )?;
+        let rules = rules
+            .into_iter()
+            .map(|binding| {
+                positive(binding.rule_id, "EffectRuleBinding.rule_id")
+                    .map(|id| RuleId::new(id).expect("positive rule ID"))
+            })
+            .collect::<Result<Vec<_>, _>>()?;
+        let mut modifiers = config
+            .effect_modifier_binding()
+            .iter()
+            .filter(|binding| binding.effect_id == row.id)
+            .collect::<Vec<_>>();
+        modifiers.sort_unstable_by_key(|binding| binding.sequence);
+        contiguous(
+            modifiers
+                .iter()
+                .map(|binding| positive_u16(binding.sequence, "EffectModifierBinding.sequence"))
+                .collect::<Result<Vec<_>, _>>()?
+                .into_iter(),
+            "effect modifier bindings",
+        )?;
+        let modifiers = modifiers
+            .into_iter()
+            .map(|binding| {
+                positive(binding.modifier_id, "EffectModifierBinding.modifier_id")
+                    .map(|id| ModifierDefinitionId::new(id).expect("positive modifier ID"))
+            })
+            .collect::<Result<Vec<_>, _>>()?;
         effects.push(EffectDataDefinition {
             id: EffectDefinitionId::new(raw).expect("positive effect ID"),
-            category: lower_effect_category(row.category),
-            dispel: lower_dispel(row.dispel_category),
+            category,
+            dispel,
             stack_limit: bounded_u16(row.stack_limit, "Effect.stack_limit")?,
             duration,
             duration_clock,
-            tick_phase: lower_tick_phase(row.tick_phase),
-            stack_policy: lower_stack_policy(row.stack_policy),
+            tick_phase,
+            stack_policy,
             magnitude,
-            snapshot_policy: lower_snapshot_policy(row.snapshot_policy),
-            teardown_policy: lower_teardown(row.teardown_policy),
+            snapshot_policy,
+            teardown_policy,
             application_priority: row.application_priority,
             tags: tags
                 .into_iter()
                 .map(|tag| tag.tag.clone().into_boxed_str())
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),
+            rules: rules.into_boxed_slice(),
+            modifiers: modifiers.into_boxed_slice(),
+            runtime_template,
         });
     }
     effects.sort_unstable_by_key(|effect| effect.id);
@@ -961,6 +1091,7 @@ fn convert_combat(
         .collect::<Result<Vec<_>, _>>()?;
     let programs = crate::operation_lower::convert(config, &native_handlers)?;
     let rules = crate::rule_lower::convert(config, mode, identities, &native_handlers)?;
+    let (linked_units, countdowns) = crate::lifecycle_lower::lower(config, identities, mode)?;
     for ability in &abilities {
         if ability
             .entry_rule
@@ -987,38 +1118,9 @@ fn convert_combat(
         programs: programs.into_boxed_slice(),
         effects: effects.into_boxed_slice(),
         rules: rules.into_boxed_slice(),
+        linked_units,
+        countdowns,
     })
-}
-
-fn ability_resource_kind(value: crate::generated::resource_kind::ResourceKind) -> u8 {
-    use crate::generated::resource_kind::ResourceKind as V;
-    match value {
-        V::Energy => 0,
-        V::SkillPoints => 1,
-        V::Hp => 2,
-        V::CharacterResource => 3,
-        V::TeamResource => 4,
-    }
-}
-
-fn resource_delta_kind(value: crate::generated::resource_delta_kind::ResourceDeltaKind) -> u8 {
-    use crate::generated::resource_delta_kind::ResourceDeltaKind as V;
-    match value {
-        V::Spend => 0,
-        V::Reserve => 1,
-        V::Gain => 2,
-    }
-}
-
-fn resource_timing(value: crate::generated::resource_timing::ResourceTiming) -> u8 {
-    use crate::generated::resource_timing::ResourceTiming as V;
-    match value {
-        V::CommandAccepted => 0,
-        V::ActionStarted => 1,
-        V::PerHit => 2,
-        V::AbilityResolved => 3,
-        V::ActionFinished => 4,
-    }
 }
 
 pub(super) fn require_identity(
@@ -1061,117 +1163,6 @@ fn identity_kind(kind: ContentKind) -> IdentityKind {
         ContentKind::Program => IdentityKind::Program,
         _ => IdentityKind::Other,
     }
-}
-
-fn ability_kind(value: crate::generated::ability_kind::AbilityKind) -> u8 {
-    use crate::generated::ability_kind::AbilityKind as V;
-    match value {
-        V::Basic => 0,
-        V::Skill => 1,
-        V::Ultimate => 2,
-        V::Talent => 3,
-        V::Technique => 4,
-        V::EnhancedBasic => 5,
-        V::EnhancedSkill => 6,
-        V::FollowUp => 7,
-        V::Counter => 8,
-        V::Summon => 9,
-        V::Memosprite => 10,
-        V::Passive => 11,
-        V::Entry => 12,
-    }
-}
-
-fn target_pattern(value: crate::generated::target_pattern::TargetPattern) -> u8 {
-    use crate::generated::target_pattern::TargetPattern as V;
-    match value {
-        V::SingleTarget => 0,
-        V::Blast => 1,
-        V::Aoe => 2,
-        V::Bounce => 3,
-        V::Support => 4,
-        V::Enhance => 5,
-        V::None => 6,
-        V::ContentDefined => 7,
-    }
-}
-
-fn retarget_policy(value: crate::generated::retarget_policy::RetargetPolicy) -> u8 {
-    use crate::generated::retarget_policy::RetargetPolicy as V;
-    match value {
-        V::Locked => 0,
-        V::CancelRemaining => 1,
-        V::RetargetSameSide => 2,
-        V::RecomputeEachHit => 3,
-    }
-}
-
-fn hit_target_group(value: crate::generated::hit_target_group::HitTargetGroup) -> u8 {
-    use crate::generated::hit_target_group::HitTargetGroup as V;
-    match value {
-        V::Primary => 0,
-        V::Adjacent => 1,
-        V::Selected => 2,
-        V::All => 3,
-        V::BounceDraw => 4,
-        V::SelfTarget => 5,
-    }
-}
-
-fn crit_policy(value: crate::generated::crit_policy::CritPolicy) -> u8 {
-    use crate::generated::crit_policy::CritPolicy as V;
-    match value {
-        V::PerTarget => 0,
-        V::Shared => 1,
-        V::Never => 2,
-    }
-}
-
-pub(super) fn positive(value: i32, field: &str) -> Result<u32, CatalogLoadError> {
-    u32::try_from(value)
-        .ok()
-        .filter(|value| *value != 0)
-        .ok_or_else(|| {
-            fail(
-                CatalogLoadErrorKind::Domain,
-                format!("{field} must be positive"),
-            )
-        })
-}
-
-pub(super) fn positive_u16(value: i32, field: &str) -> Result<u16, CatalogLoadError> {
-    let value = bounded_u16(value, field)?;
-    if value == 0 {
-        return Err(fail(
-            CatalogLoadErrorKind::Domain,
-            format!("{field} must be positive"),
-        ));
-    }
-    Ok(value)
-}
-
-fn bounded_u16(value: i32, field: &str) -> Result<u16, CatalogLoadError> {
-    u16::try_from(value).map_err(|_| {
-        fail(
-            CatalogLoadErrorKind::Domain,
-            format!("{field} is outside the domain range"),
-        )
-    })
-}
-
-pub(super) fn contiguous(
-    values: impl Iterator<Item = u16>,
-    description: &str,
-) -> Result<(), CatalogLoadError> {
-    for (index, value) in values.enumerate() {
-        if value as usize != index + 1 {
-            return Err(fail(
-                CatalogLoadErrorKind::Domain,
-                format!("{description} are not contiguous from one"),
-            ));
-        }
-    }
-    Ok(())
 }
 
 #[cfg(test)]

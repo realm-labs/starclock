@@ -15,4 +15,14 @@ impl super::CombatCatalog {
     pub fn countdown(&self, code: u32) -> Option<crate::CountdownCatalogDefinition> {
         self.countdowns.get(code).copied()
     }
+
+    pub(crate) fn countdown_for_ability(
+        &self,
+        ability: crate::AbilityId,
+    ) -> Option<crate::CountdownCatalogDefinition> {
+        self.countdowns
+            .values()
+            .find(|definition| definition.definition().ability() == ability)
+            .copied()
+    }
 }

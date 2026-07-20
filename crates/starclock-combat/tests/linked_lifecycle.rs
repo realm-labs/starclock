@@ -2,18 +2,19 @@ use std::sync::Arc;
 
 use starclock_combat::{
     ActionGauge, ActionOrigin, Battle, BattleEventKind, BattleSeed, BattleSpec, BattleSpecDigest,
-    CombatantSpecDigest, ConcedePolicy, CountdownDefinition, FormationIndex, Hp, LifeState,
-    LinkedEntity, LinkedEntityKind, LinkedUnitDefinition, OwnerLinkPolicy, ParticipantSource,
-    ParticipantSpec, PresenceState, ResolvedCombatantSpec, ResolvedDefinitionBindings,
-    ReviveDefinition, ReviveGaugePolicy, Scalar, Speed, TeamResourceSpec, TeamSide,
-    TransformEndPolicy, TransformationDefinition, UnitEventData, UnitLevel, WaveEventData,
-    WaveLinkPolicy,
+    CombatantSpecDigest, ConcedePolicy, CountdownCatalogDefinition, CountdownDefinition,
+    FormationIndex, Hp, LifeState, LinkedEntity, LinkedEntityKind, LinkedOwnerScaling,
+    LinkedStatScaling, LinkedUnitDefinition, OwnerLinkPolicy, ParticipantSource, ParticipantSpec,
+    PresenceState, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings, ReviveDefinition,
+    ReviveGaugePolicy, Scalar, Speed, StatValue, TeamResourceSpec, TeamSide, TransformEndPolicy,
+    TransformationDefinition, UnitEventData, UnitLevel, WaveEventData, WaveLinkPolicy,
     catalog::{
         CombatCatalog,
         action::{
-            AbilityActionDefinition, AbilityKind, ActionHitDefinition, ActionResourcePolicy,
-            HitOperationDefinition, OrdinaryDamageDefinition, OrdinaryDamageMultipliers,
-            TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
+            AbilityActionDefinition, AbilityKind, AbilityProgramBinding, AbilityProgramTiming,
+            ActionHitDefinition, ActionResourcePolicy, HitOperationDefinition,
+            OrdinaryDamageDefinition, OrdinaryDamageMultipliers, TargetInvalidationPolicy,
+            TargetPattern, TargetRelation, UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
         definition::{
@@ -67,6 +68,10 @@ fn combatant(
         CombatantSpecDigest::new([digest; 32]).unwrap(),
     )
     .unwrap()
+    .with_base_attack_defense(
+        StatValue::from_scaled(100_000_000).unwrap(),
+        StatValue::from_scaled(50_000_000).unwrap(),
+    )
 }
 
 fn linked(
@@ -87,6 +92,17 @@ fn linked(
         wave,
     )
     .unwrap()
+}
+
+fn owner_scaled_linked() -> LinkedUnitDefinition {
+    linked(OwnerLinkPolicy::Persist, WaveLinkPolicy::Persist, 0).with_owner_scaling(
+        LinkedOwnerScaling::new(
+            LinkedStatScaling::new(Ratio::from_scaled(500_000), scalar(100)),
+            LinkedStatScaling::new(Ratio::from_scaled(1_500_000), scalar(10)),
+            LinkedStatScaling::new(Ratio::from_scaled(2_000_000), scalar(5)),
+            LinkedStatScaling::new(Ratio::from_scaled(250_000), scalar(20)),
+        ),
+    )
 }
 
 fn action(
@@ -141,6 +157,13 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
         vec![],
         vec![],
     ));
+    builder.add_program(
+        ProgramDefinition::new(definition(9), vec![], vec![], vec![], vec![]).with_steps(vec![
+            starclock_combat::rule::model::ProgramStep::Operation(
+                starclock_combat::rule::model::RuleOperationTemplate::CreateCountdown { code: 11 },
+            ),
+        ]),
+    );
     builder.add_program(ProgramDefinition::new(
         definition(2),
         vec![],
@@ -166,6 +189,56 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
         AbilityKind::Memosprite,
         TargetInvalidationPolicy::CancelRemainingForTarget,
         vec![],
+    ));
+    builder.add_ability(
+        ability(
+            9,
+            1,
+            AbilityKind::Basic,
+            TargetInvalidationPolicy::CancelRemainingForTarget,
+            vec![HitOperationDefinition::Transform(
+                TransformationDefinition::new(
+                    definition(3),
+                    vec![definition(3)],
+                    None,
+                    TransformEndPolicy::End,
+                    TransformEndPolicy::End,
+                )
+                .unwrap(),
+            )],
+        )
+        .with_programs(vec![
+            AbilityProgramBinding::new(1, AbilityProgramTiming::AfterHits, definition(9)).unwrap(),
+        ]),
+    );
+    builder.add_ability(ability(
+        10,
+        1,
+        AbilityKind::Countdown,
+        TargetInvalidationPolicy::KeepIfPresent,
+        vec![],
+    ));
+    builder.add_countdown(
+        CountdownCatalogDefinition::new(
+            11,
+            CountdownDefinition::new(
+                definition(10),
+                ActionGauge::from_scaled(0).unwrap(),
+                Speed::from_scaled(400_000_000).unwrap(),
+                OwnerLinkPolicy::Depart,
+                OwnerLinkPolicy::Depart,
+                WaveLinkPolicy::Persist,
+            )
+            .with_end_transformation(),
+        )
+        .unwrap(),
+    );
+    builder.add_ability(ability(
+        11,
+        1,
+        AbilityKind::Basic,
+        TargetInvalidationPolicy::CancelRemainingForTarget,
+        vec![HitOperationDefinition::SummonLinked(owner_scaled_linked())],
     ));
     builder.add_ability(ability(
         3,
@@ -251,7 +324,14 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
 
     builder.add_unit(UnitDefinition::new(
         definition(1),
-        vec![definition(1), definition(5), definition(6), definition(7)],
+        vec![
+            definition(1),
+            definition(5),
+            definition(6),
+            definition(7),
+            definition(9),
+            definition(11),
+        ],
         vec![],
     ));
     builder.add_unit(UnitDefinition::new(
@@ -261,7 +341,7 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
     ));
     builder.add_unit(UnitDefinition::new(
         definition(3),
-        vec![definition(3), definition(4)],
+        vec![definition(3), definition(4), definition(10)],
         vec![],
     ));
     builder.add_unit(UnitDefinition::new(
@@ -294,7 +374,7 @@ fn fixture_battle() -> Battle {
                 TeamSide::Player,
                 FormationIndex::new(0).unwrap(),
                 ParticipantSource::Player,
-                combatant(1, vec![1, 5, 6, 7], 1_000, 200, 0x61),
+                combatant(1, vec![1, 5, 6, 7, 9, 11], 1_000, 200, 0x61),
             ),
             ParticipantSpec::new(
                 TeamSide::Enemy,
@@ -388,6 +468,31 @@ fn memosprite_has_distinct_owner_unit_actor_and_automatic_turn() {
 }
 
 #[test]
+fn linked_combatant_stats_are_resolved_from_its_current_owner() {
+    let mut battle = fixture_battle();
+    open_normal_action(&mut battle);
+    let resolution = use_ability(&mut battle, 11);
+    assert!(resolution.fault().is_none());
+    let memo = battle
+        .view()
+        .units_by_id()
+        .find(|unit| unit.form() == definition(2))
+        .unwrap();
+
+    assert_eq!(memo.maximum_hp(), Hp::new(600).unwrap());
+    assert_eq!(memo.current_hp(), Hp::new(600).unwrap());
+    assert_eq!(
+        memo.base_attack(),
+        StatValue::from_scaled(160_000_000).unwrap()
+    );
+    assert_eq!(
+        memo.base_defense(),
+        StatValue::from_scaled(105_000_000).unwrap()
+    );
+    assert_eq!(memo.base_speed(), Speed::from_scaled(70_000_000).unwrap());
+}
+
+#[test]
 fn countdown_ends_transformation_once_and_restores_original_abilities() {
     let mut battle = fixture_battle();
     open_normal_action(&mut battle);
@@ -396,7 +501,14 @@ fn countdown_ends_transformation_once_and_restores_original_abilities() {
     assert_eq!(owner.form(), definition(1));
     assert_eq!(
         owner.abilities(),
-        [definition(1), definition(5), definition(6), definition(7)]
+        [
+            definition(1),
+            definition(5),
+            definition(6),
+            definition(7),
+            definition(9),
+            definition(11),
+        ]
     );
     assert!(!owner.is_transformed());
     let countdowns = battle
@@ -422,6 +534,50 @@ fn countdown_ends_transformation_once_and_restores_original_abilities() {
             .count(),
         1
     );
+}
+
+#[test]
+fn separately_created_countdown_ends_the_active_transformation() {
+    let mut battle = fixture_battle();
+    open_normal_action(&mut battle);
+    let resolution = use_ability(&mut battle, 9);
+    let owner = battle.view().units_by_id().next().unwrap();
+
+    assert_eq!(owner.form(), definition(1));
+    assert_eq!(
+        owner.abilities(),
+        [
+            definition(1),
+            definition(5),
+            definition(6),
+            definition(7),
+            definition(9),
+            definition(11),
+        ]
+    );
+    assert!(!owner.is_transformed());
+    assert!(resolution.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Unit(UnitEventData::CountdownCreated { ability, .. })
+            if *ability == definition(10)
+    )));
+    assert_eq!(
+        resolution
+            .events()
+            .iter()
+            .filter(|event| matches!(
+                event.kind(),
+                BattleEventKind::Unit(UnitEventData::TransformationEnded { .. })
+            ))
+            .count(),
+        1
+    );
+    let countdown = battle
+        .view()
+        .timeline_actors()
+        .find(|actor| actor.linked_kind() == Some(LinkedEntityKind::Countdown))
+        .unwrap();
+    assert!(!countdown.is_active());
 }
 
 #[test]

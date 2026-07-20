@@ -1,6 +1,131 @@
 {
   "table": {
     "name": "Effect",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "application_priority": {
+            "Integer": 0
+          },
+          "category": {
+            "String": "Buff"
+          },
+          "detonation_tag_identity_id": "Null",
+          "dispel_category": {
+            "String": "DispellableBuff"
+          },
+          "dot_element": "Null",
+          "duration_clock": {
+            "String": "TargetTurnEnd"
+          },
+          "duration_expression_id": {
+            "Integer": 24007
+          },
+          "id": {
+            "Integer": 24006
+          },
+          "magnitude_comparator_expression_id": {
+            "Integer": 24008
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "stack_limit": {
+            "Integer": 1
+          },
+          "stack_policy": {
+            "String": "Refresh"
+          },
+          "teardown_policy": {
+            "String": "RemoveWithOwner"
+          },
+          "tick_phase": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "application_priority": {
+            "Integer": 0
+          },
+          "category": {
+            "String": "Dot"
+          },
+          "detonation_tag_identity_id": "Null",
+          "dispel_category": {
+            "String": "DispellableDebuff"
+          },
+          "dot_element": {
+            "String": "Lightning"
+          },
+          "duration_clock": {
+            "String": "TargetTurnStart"
+          },
+          "duration_expression_id": {
+            "Integer": 24108
+          },
+          "id": {
+            "Integer": 24104
+          },
+          "magnitude_comparator_expression_id": {
+            "Integer": 24110
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "stack_limit": {
+            "Integer": 1
+          },
+          "stack_policy": {
+            "String": "Refresh"
+          },
+          "teardown_policy": {
+            "String": "RemoveWithOwner"
+          },
+          "tick_phase": {
+            "String": "TurnStart"
+          }
+        }
+      },
+      {
+        "values": {
+          "application_priority": {
+            "Integer": 0
+          },
+          "category": {
+            "String": "Buff"
+          },
+          "detonation_tag_identity_id": "Null",
+          "dispel_category": {
+            "String": "NonDispellable"
+          },
+          "dot_element": "Null",
+          "duration_clock": {
+            "String": "Permanent"
+          },
+          "duration_expression_id": "Null",
+          "id": {
+            "Integer": 24305
+          },
+          "magnitude_comparator_expression_id": "Null",
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "stack_limit": {
+            "Integer": 1
+          },
+          "stack_policy": {
+            "String": "Replace"
+          },
+          "teardown_policy": {
+            "String": "ExplicitRule"
+          },
+          "tick_phase": {
+            "String": "None"
+          }
+        }
+      }
+    ]
   }
 }

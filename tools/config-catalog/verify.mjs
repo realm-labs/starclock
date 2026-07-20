@@ -34,7 +34,7 @@ const golden = {
   schema_revision: "starclock.catalog-representative.v1",
   sora_cli_version: toolPolicy.version,
   schema_fingerprint: "efe787b52282426b",
-  table_count: 80,
+  table_count: 82,
   populated_table_count: 13,
   identity_count: 3,
   ability_count: 1,
@@ -70,7 +70,7 @@ function generate(name) {
 
 function verifyCounts(directory) {
   const files = fs.readdirSync(directory).filter((name) => name.endsWith(".json")).sort();
-  assert(files.length === 80, "representative export does not contain all 80 tables");
+  assert(files.length === 82, "representative export does not contain all 82 tables");
   const counts = Object.fromEntries(files.map((file) => [path.basename(file, ".json"), readJson(path.join(directory, file)).table.rows.length]));
   const expected = {
     Ability: 1, AbilityHitPlanBinding: 1, AbilityPhase: 1, Character: 1,

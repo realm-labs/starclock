@@ -1,6 +1,30 @@
 {
   "table": {
     "name": "EventFilter",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "ability_tag": "Null",
+          "action_kind": "Null",
+          "actor_selector_id": "Null",
+          "applier_selector_id": "Null",
+          "cause_ancestry": {
+            "String": "Any"
+          },
+          "damage_class": "Null",
+          "element": "Null",
+          "id": {
+            "Integer": 24201
+          },
+          "owner_selector_id": "Null",
+          "source_class": "Null",
+          "source_definition_identity_id": "Null",
+          "stable_key": {
+            "String": "probe.clara.filter.incoming-hit"
+          },
+          "target_selector_id": "Null"
+        }
+      }
+    ]
   }
 }

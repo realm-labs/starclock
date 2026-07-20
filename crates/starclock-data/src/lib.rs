@@ -19,6 +19,7 @@ pub mod coverage;
 mod domain_catalog;
 mod effect_lower;
 mod encounter_lower;
+mod lifecycle_lower;
 mod modifier_lower;
 mod native_handler_lower;
 mod operation_lower;

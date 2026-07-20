@@ -53,6 +53,7 @@ pub mod config_manifest;
 pub mod content_evidence_binding;
 pub mod content_identity;
 pub mod content_kind;
+pub mod countdown_definition;
 pub mod coverage_state;
 pub mod crit_policy;
 pub mod damage_class;
@@ -113,6 +114,8 @@ pub mod light_cone_superimposition;
 pub mod link_overflow_policy;
 pub mod link_wave_persistence;
 pub mod linked_formation_policy;
+pub mod linked_unit_definition;
+pub mod linked_unit_kind;
 pub mod loadout_lock_scope;
 pub mod mechanism_quality;
 pub mod modifier_aggregation;
@@ -128,6 +131,7 @@ pub mod operation_fault_policy;
 pub mod operation_native_argument;
 pub mod operation_payload;
 pub mod owner_defeat_policy;
+pub mod owner_link_policy;
 pub mod participant_policy;
 pub mod participant_source_kind;
 pub mod participant_uniqueness_scope;
@@ -139,6 +143,7 @@ pub mod program_step;
 pub mod program_step_node;
 pub mod queued_action_owner_policy;
 pub mod queued_action_payment_policy;
+pub mod reaction_boundary;
 pub mod release_state;
 pub mod replacement_proposal_kind;
 pub mod resource_delta_kind;
@@ -193,11 +198,12 @@ pub mod value_expression;
 pub mod value_expression_node;
 pub mod value_kind;
 pub mod wave_carry_policy;
+pub mod wave_link_policy;
 pub mod wave_slot;
 pub mod wave_transition_policy;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "068d2f9f08cced81";
+pub const SCHEMA_FINGERPRINT: &str = "c315ad58e2451b9e";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -283,7 +289,7 @@ impl SoraConfig {
             )));
         }
         let mut tables: SoraMap<&'static str, Box<dyn ErasedSoraTable>> =
-            sora_map_with_capacity(80);
+            sora_map_with_capacity(82);
         tables.insert(
             source_record::SourceRecordTable::NAME,
             Box::new(source_record::SourceRecordTable::from_rows(
@@ -643,6 +649,24 @@ impl SoraConfig {
             operation::OperationTable::NAME,
             Box::new(operation::OperationTable::from_rows(
                 source.decode_table::<operation::Operation>(operation::OperationTable::NAME)?,
+            )?),
+        );
+        tables.insert(
+            linked_unit_definition::LinkedUnitDefinitionTable::NAME,
+            Box::new(
+                linked_unit_definition::LinkedUnitDefinitionTable::from_rows(
+                    source.decode_table::<linked_unit_definition::LinkedUnitDefinition>(
+                        linked_unit_definition::LinkedUnitDefinitionTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            countdown_definition::CountdownDefinitionTable::NAME,
+            Box::new(countdown_definition::CountdownDefinitionTable::from_rows(
+                source.decode_table::<countdown_definition::CountdownDefinition>(
+                    countdown_definition::CountdownDefinitionTable::NAME,
+                )?,
             )?),
         );
         tables.insert(
@@ -1119,6 +1143,14 @@ impl SoraConfig {
 
     pub fn operation(&self) -> &operation::OperationTable {
         self.table(operation::OperationTable::NAME)
+    }
+
+    pub fn linked_unit_definition(&self) -> &linked_unit_definition::LinkedUnitDefinitionTable {
+        self.table(linked_unit_definition::LinkedUnitDefinitionTable::NAME)
+    }
+
+    pub fn countdown_definition(&self) -> &countdown_definition::CountdownDefinitionTable {
+        self.table(countdown_definition::CountdownDefinitionTable::NAME)
     }
 
     pub fn operation_native_argument(

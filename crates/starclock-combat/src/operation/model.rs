@@ -132,6 +132,7 @@ pub(crate) struct QueueRuleActionOp {
     pub(crate) ability: crate::AbilityId,
     pub(crate) origin: crate::ActionOrigin,
     pub(crate) priority: i16,
+    pub(crate) boundary: crate::catalog::action::ReactionBoundary,
     pub(crate) payment: Option<crate::catalog::action::SkillPointPaymentPolicy>,
     pub(crate) source: crate::SourceDefinitionId,
     pub(crate) rule: crate::RuleId,
@@ -160,6 +161,7 @@ pub(crate) struct ApplyEffectOp {
     pub(crate) targets: Box<[UnitId]>,
     pub(crate) definition: crate::EffectApplicationDefinition,
     pub(crate) rng_purpose: Option<crate::rng::types::DrawPurpose>,
+    pub(crate) resolved_runtime: Option<Box<[crate::EffectRuntimeDefinition]>>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

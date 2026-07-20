@@ -1,5 +1,3 @@
-use core::mem;
-
 use crate::{
     action::lower::{ActionIdentityAllocator, lower_interrupt_action, lower_normal_action},
     battle::{
@@ -27,6 +25,10 @@ use crate::{
     timeline::state::{InterruptWindowState, NormalTurnState},
 };
 
+mod scratch;
+
+pub(crate) use scratch::ResolutionScratch;
+
 use super::{
     action::{drain_reactions, execute_action_plan},
     journal::{AllocationKind, MutationField, MutationJournal, phase_code},
@@ -43,57 +45,6 @@ pub(crate) enum FaultInjectionPoint {
 pub(crate) struct FaultInjection {
     pub(crate) point: FaultInjectionPoint,
     pub(crate) policy: FaultPolicy,
-}
-
-#[derive(Debug)]
-pub(crate) struct ResolutionScratch {
-    working: BattleState,
-    journal: MutationJournal,
-    #[cfg(feature = "benchmark-instrumentation")]
-    last_metrics: super::journal::JournalMetrics,
-    #[cfg(test)]
-    preparations: u64,
-}
-
-impl ResolutionScratch {
-    pub(crate) fn from_state(state: &BattleState) -> Self {
-        Self {
-            working: state.semantic_clone(),
-            journal: MutationJournal::default(),
-            #[cfg(feature = "benchmark-instrumentation")]
-            last_metrics: super::journal::JournalMetrics::default(),
-            #[cfg(test)]
-            preparations: 1,
-        }
-    }
-
-    pub(crate) fn prepare(&mut self, state: &BattleState) {
-        self.working.clone_from_semantics(state);
-        self.journal.clear();
-        #[cfg(test)]
-        {
-            self.preparations += 1;
-        }
-    }
-
-    pub(crate) fn commit_into(&mut self, authoritative: &mut BattleState) {
-        mem::swap(&mut self.working, authoritative);
-        #[cfg(feature = "benchmark-instrumentation")]
-        {
-            self.last_metrics = self.journal.metrics();
-        }
-        self.journal.release_bounded();
-    }
-
-    #[cfg(feature = "benchmark-instrumentation")]
-    pub(crate) const fn last_metrics(&self) -> super::journal::JournalMetrics {
-        self.last_metrics
-    }
-
-    #[cfg(test)]
-    pub(crate) const fn preparations(&self) -> u64 {
-        self.preparations
-    }
 }
 
 pub(crate) struct TransactionOutput {
@@ -732,6 +683,17 @@ impl<'a> Transaction<'a> {
             .mutation(MutationField::ModifierStore, 0, id.get());
         Ok(())
     }
+
+    pub(super) fn remove_effect_attachments(&mut self, effect: crate::EffectInstanceId) {
+        for modifier in self.state.modifiers.remove_by_effect(effect) {
+            self.journal
+                .mutation(MutationField::EffectAttachment, modifier.get(), 0);
+        }
+        for rule in self.state.rules.remove_by_effect(effect) {
+            self.journal
+                .mutation(MutationField::EffectAttachment, rule.get(), 0);
+        }
+    }
     pub(super) fn insert_formation(&mut self, entry: crate::actor::store::FormationEntry) {
         self.state.formations.push(entry);
         self.journal
@@ -807,14 +769,14 @@ impl<'a> Transaction<'a> {
                 presence as u64,
             );
         }
-        let before_transform = state
-            .transformation
-            .as_ref()
-            .map_or(0, |value| value.source_operation.get());
-        let after_transform = transformation
-            .as_ref()
-            .map_or(0, |value| value.source_operation.get());
         if state.transformation != transformation {
+            let (before_transform, after_transform) =
+                match (state.transformation.as_ref(), transformation.as_ref()) {
+                    (None, Some(_)) => (0, 1),
+                    (Some(_), None) => (1, 0),
+                    (Some(_), Some(_)) => (1, 2),
+                    (None, None) => unreachable!("unequal transformations cannot both be absent"),
+                };
             state.transformation = transformation;
             self.journal.mutation(
                 MutationField::Transformation,
@@ -971,6 +933,33 @@ impl<'a> Transaction<'a> {
                 MutationField::TeamKeyedResource,
                 u64::from(before),
                 u64::from(value),
+            );
+        }
+        Ok(())
+    }
+
+    pub(super) fn set_character_resource(
+        &mut self,
+        unit: crate::UnitId,
+        stable_key: &str,
+        value: crate::Scalar,
+    ) -> Result<(), BattleFault> {
+        let state = self
+            .state
+            .units
+            .get_mut(unit)
+            .and_then(|unit| unit.resource_mut(stable_key))
+            .ok_or_else(|| action_fault(55))?;
+        let before = state.current;
+        if value.scaled() < 0 || value > state.maximum {
+            return Err(action_fault(56));
+        }
+        if before != value {
+            state.current = value;
+            self.journal.mutation(
+                MutationField::UnitCharacterResource,
+                before.scaled().cast_unsigned(),
+                value.scaled().cast_unsigned(),
             );
         }
         Ok(())

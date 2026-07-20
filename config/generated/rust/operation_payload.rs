@@ -8,6 +8,7 @@ use super::encounter_transition_kind::EncounterTransitionKind;
 use super::presence_state::PresenceState;
 use super::queued_action_owner_policy::QueuedActionOwnerPolicy;
 use super::queued_action_payment_policy::QueuedActionPaymentPolicy;
+use super::reaction_boundary::ReactionBoundary;
 use super::replacement_proposal_kind::ReplacementProposalKind;
 use super::resource_kind::ResourceKind;
 use super::resource_update_kind::ResourceUpdateKind;
@@ -152,6 +153,8 @@ pub enum OperationPayload {
         priority: i32,
         #[serde(rename = "forced_use")]
         forced_use: bool,
+        #[serde(rename = "reaction_boundary")]
+        reaction_boundary: Option<ReactionBoundary>,
         #[serde(rename = "owner_policy")]
         owner_policy: Option<QueuedActionOwnerPolicy>,
         #[serde(rename = "payment_policy")]
@@ -340,6 +343,8 @@ impl super::runtime::SoraDecode for OperationPayload {
                 actor_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 priority: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 forced_use: <bool as super::runtime::SoraDecode>::decode(reader)?,
+                reaction_boundary:
+                    <Option<ReactionBoundary> as super::runtime::SoraDecode>::decode(reader)?,
                 owner_policy:
                     <Option<QueuedActionOwnerPolicy> as super::runtime::SoraDecode>::decode(reader)?,
                 payment_policy:

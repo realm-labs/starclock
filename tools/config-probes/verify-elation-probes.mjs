@@ -41,7 +41,7 @@ const probes = [
       passive: "10a04a1c62ad3721cd31a1cbe0daeb329035e093f70a44264f3c00eca3c1dbc5",
       fixture_contract: "2d1f35de96098c655bf19a263984f3ac3c516e9609ef383311545100f91048a0",
     },
-    counts: { Ability: 2, AbilityPhase: 2, ConfigManifest: 1, ContentEvidenceBinding: 4, ContentIdentity: 4, EvidenceRecord: 4, Operation: 4, Program: 1, ProgramStep: 4, Selector: 3, SourceRecord: 1, ValueExpression: 2 },
+    counts: { Ability: 2, AbilityPhase: 2, ConfigManifest: 1, ContentEvidenceBinding: 4, ContentIdentity: 4, EvidenceRecord: 4, LinkedUnitDefinition: 1, Operation: 4, Program: 1, ProgramStep: 4, Selector: 3, SourceRecord: 1, ValueExpression: 2 },
   },
 ];
 
@@ -61,7 +61,7 @@ function verifyProbe(probe) {
   assertSameFile(first.bundle, second.bundle, `independent ${probe.name} bundles differ`);
   assertSameTree(first.debug, second.debug, `independent ${probe.name} debug exports differ`);
   const counts = Object.fromEntries(fs.readdirSync(first.debug).filter((file) => file.endsWith(".json")).sort().map((file) => [path.basename(file, ".json"), readJson(path.join(first.debug, file)).table.rows.length]));
-  assert(Object.keys(counts).length === 80, `${probe.name} does not export all production tables`);
+  assert(Object.keys(counts).length === 82, `${probe.name} does not export all production tables`);
   for (const [name, count] of Object.entries(counts)) assert(count === (probe.counts[name] ?? 0), `${probe.name} ${name} row count differs`);
 
   const golden = {
@@ -70,7 +70,7 @@ function verifyProbe(probe) {
     reference_pack_sha256: "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
     source_payload_sha256: sourcePayloadSha256,
     source_text_sha256: probe.textSha256,
-    table_count: 80,
+    table_count: 82,
     populated_table_count: Object.values(counts).filter((count) => count > 0).length,
     identity_count: counts.ContentIdentity,
     production_coverage_credit: 0,

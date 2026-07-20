@@ -450,6 +450,7 @@ fn evaluate_operation(
             ability,
             priority,
             forced_use,
+            boundary,
             owner,
             payment,
         } => RuleEmission::QueueAction {
@@ -458,6 +459,7 @@ fn evaluate_operation(
             ability: *ability,
             priority: *priority,
             forced_use: *forced_use,
+            boundary: *boundary,
             owner: *owner,
             payment: payment.clone(),
             current_target,

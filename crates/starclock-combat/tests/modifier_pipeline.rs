@@ -267,6 +267,7 @@ fn instance(id: u64, definition: u32, subject: UnitId, sequence: u64) -> ActiveM
         source_class: SourceClass::Ability,
         insertion_sequence: sequence,
         application_action: None,
+        source_effect: None,
         slots: Box::new([]),
         captured_value: None,
         captured_stats: Box::new([]),

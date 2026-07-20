@@ -1,6 +1,51 @@
 {
   "table": {
     "name": "RuleTrigger",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 24201
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Ended"
+              },
+              "type": {
+                "String": "Hit"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 24201
+          },
+          "id": {
+            "Integer": 24201
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": -100
+          },
+          "program_id": {
+            "Integer": 24204
+          },
+          "rule_id": {
+            "Integer": 24205
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "probe.clara.trigger.hit-ended"
+          }
+        }
+      }
+    ]
   }
 }

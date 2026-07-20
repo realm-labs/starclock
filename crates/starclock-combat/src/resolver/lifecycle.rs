@@ -164,6 +164,7 @@ fn apply_phase_carry(
             .collect::<Vec<_>>();
         for effect in effects {
             if let Some(removed) = txn.state.effects.remove(effect) {
+                txn.remove_effect_attachments(effect);
                 txn.record_effect_change(effect.get(), 0, effect.get());
                 parent = txn.emit(
                     cause.with_parent(parent).with_primary_target(Some(unit)),
@@ -254,8 +255,11 @@ pub(super) fn execute_summon(
         let side = owner_state.side;
         let entry_wave = txn.state.encounter.number;
         let definition = &operation.definition;
-        let combatant = definition.combatant();
-        validate_combatant(catalog, combatant)?;
+        let combatant = resolve_linked_combatant(definition, owner_state)?;
+        validate_combatant(catalog, &combatant)?;
+        let unit_definition = catalog
+            .unit(combatant.form())
+            .ok_or_else(|| action_fault(82))?;
         let unit = txn.allocate_unit();
         let spawn = txn.allocate_spawn();
         let actor = definition.action_ability().map(|ability| {
@@ -304,6 +308,17 @@ pub(super) fn execute_summon(
             abilities: combatant.abilities().into(),
             rule_bundles: combatant.rule_bundles().into(),
             modifiers: combatant.modifiers().into(),
+            resources: unit_definition
+                .resources()
+                .iter()
+                .map(|resource| crate::actor::store::CharacterResourceState {
+                    stable_key: resource.stable_key().into(),
+                    initial: resource.initial(),
+                    current: resource.initial(),
+                    maximum: resource.maximum(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
             digest: combatant.digest(),
             transformation: None,
             enemy: None,
@@ -323,7 +338,7 @@ pub(super) fn execute_summon(
             active: true,
         })?;
         instantiate_rules(catalog, txn, unit, combatant.rule_bundles())?;
-        instantiate_modifiers(txn, unit, combatant)?;
+        instantiate_modifiers(txn, unit, &combatant)?;
         parent = txn.emit(
             cause.with_parent(parent).with_primary_target(Some(unit)),
             BattleEventKind::Unit(UnitEventData::Summoned {
@@ -364,6 +379,29 @@ pub(super) fn execute_countdown(
         return Err(action_fault(116));
     }
     let actor = txn.allocate_actor();
+    if definition.ends_transformation() {
+        let state = txn
+            .state
+            .units
+            .get(operation.owner)
+            .cloned()
+            .ok_or_else(|| action_fault(117))?;
+        let mut transformation = state
+            .transformation
+            .clone()
+            .ok_or_else(|| action_fault(118))?;
+        if transformation.countdown_actor.is_some() {
+            return Err(action_fault(119));
+        }
+        transformation.countdown_actor = Some(actor);
+        txn.set_unit_definition(
+            operation.owner,
+            state.form,
+            state.abilities,
+            state.presence,
+            Some(transformation),
+        )?;
+    }
     txn.insert_actor(TimelineActorState {
         id: actor,
         owner: operation.owner,
@@ -805,6 +843,69 @@ fn validate_combatant(
     Ok(())
 }
 
+fn resolve_linked_combatant(
+    definition: &crate::LinkedUnitDefinition,
+    owner: &UnitState,
+) -> Result<crate::ResolvedCombatantSpec, BattleFault> {
+    let prototype = definition.combatant();
+    let Some(scaling) = definition.owner_scaling() else {
+        return Ok(prototype.clone());
+    };
+    let hp = scaling
+        .hp()
+        .resolve(
+            crate::Scalar::checked_from_integer(owner.maximum_hp.get())
+                .map_err(|_| action_fault(120))?,
+        )
+        .and_then(|value| crate::Hp::from_scalar(value, crate::Rounding::NearestTiesEven))
+        .map_err(|_| action_fault(121))?;
+    let attack = scaling
+        .attack()
+        .resolve(crate::Scalar::from_scaled(owner.base_attack.scaled()))
+        .and_then(|value| crate::StatValue::from_scaled(value.scaled()))
+        .map_err(|_| action_fault(122))?;
+    let defense = scaling
+        .defense()
+        .resolve(crate::Scalar::from_scaled(owner.base_defense.scaled()))
+        .and_then(|value| crate::StatValue::from_scaled(value.scaled()))
+        .map_err(|_| action_fault(123))?;
+    let speed = scaling
+        .speed()
+        .resolve(crate::Scalar::from_scaled(owner.base_speed.scaled()))
+        .and_then(|value| crate::Speed::from_scaled(value.scaled()))
+        .map_err(|_| action_fault(124))?;
+    let bindings = crate::ResolvedDefinitionBindings::new(
+        prototype.abilities().to_vec(),
+        prototype.rule_bundles().to_vec(),
+        prototype.modifiers().to_vec(),
+    )
+    .map_err(|_| action_fault(125))?;
+    let mut combatant = crate::ResolvedCombatantSpec::new(
+        prototype.form(),
+        prototype.level(),
+        hp,
+        speed,
+        bindings,
+        prototype.digest(),
+    )
+    .map_err(|_| action_fault(126))?
+    .with_base_attack_defense(attack, defense)
+    .with_energy(prototype.current_energy(), prototype.maximum_energy())
+    .map_err(|_| action_fault(127))?
+    .with_toughness(
+        prototype.rank(),
+        prototype.weaknesses().to_vec(),
+        prototype.toughness_layers().to_vec(),
+    )
+    .map_err(|_| action_fault(128))?;
+    combatant = combatant
+        .with_sources(prototype.sources().to_vec())
+        .map_err(|_| action_fault(129))?;
+    combatant
+        .with_modifier_bindings(prototype.modifier_bindings().to_vec())
+        .map_err(|_| action_fault(130))
+}
+
 fn instantiate_modifiers(
     txn: &mut Transaction<'_>,
     unit: UnitId,
@@ -827,6 +928,7 @@ fn instantiate_modifiers(
             source_class: source.class(),
             insertion_sequence: instance.get(),
             application_action: None,
+            source_effect: None,
             slots: Box::new([]),
             captured_value: None,
             captured_stats: Box::new([]),

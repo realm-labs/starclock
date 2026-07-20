@@ -19,6 +19,8 @@ use crate::modifier::{
     registry::ModifierRegistry,
 };
 
+mod lifecycle_validate;
+
 /// Foundational definition family named by catalog diagnostics.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum DefinitionKind {
@@ -301,6 +303,16 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             id.get(),
             "rule bundles",
         )?;
+        if unit
+            .resources()
+            .windows(2)
+            .any(|pair| pair[0].stable_key() >= pair[1].stable_key())
+        {
+            return Err(error(
+                CatalogBuildErrorKind::NonCanonicalReferences,
+                format!("unit {} resources are not strictly key-ordered", id.get()),
+            ));
+        }
         require_all(
             unit.abilities(),
             |value| catalog.abilities.get(value).is_some(),
@@ -322,13 +334,14 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             .get(id)
             .expect("ID originated from this table")
             .definition();
-        if !valid_linked_definition(catalog, linked) {
+        if !lifecycle_validate::valid_linked_definition(catalog, linked) {
             return Err(error(
                 CatalogBuildErrorKind::InvalidDefinition,
                 format!("linked-unit definition {} is invalid", id.get()),
             ));
         }
     }
+    let mut countdown_abilities = BTreeSet::new();
     for code in catalog.countdowns.ids() {
         let countdown = catalog
             .countdowns
@@ -344,6 +357,15 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             return Err(error(
                 CatalogBuildErrorKind::InvalidDefinition,
                 format!("countdown definition {code} has an invalid ability"),
+            ));
+        }
+        if !countdown_abilities.insert(countdown.ability()) {
+            return Err(error(
+                CatalogBuildErrorKind::InvalidDefinition,
+                format!(
+                    "countdown definition {code} reuses ability {}",
+                    countdown.ability().get()
+                ),
             ));
         }
     }
@@ -433,7 +455,7 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
                 let super::action::HitOperationDefinition::QueueAction(queue) = operation else {
                     match operation {
                         super::action::HitOperationDefinition::SummonLinked(linked) => {
-                            if !valid_linked_definition(catalog, linked) {
+                            if !lifecycle_validate::valid_linked_definition(catalog, linked) {
                                 return Err(error(
                                     CatalogBuildErrorKind::InvalidDefinition,
                                     format!(
@@ -785,41 +807,6 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
     Ok(())
 }
 
-fn valid_linked_definition(catalog: &CombatCatalog, linked: &crate::LinkedUnitDefinition) -> bool {
-    let combatant = linked.combatant();
-    catalog.units.get(combatant.form()).is_some()
-        && combatant
-            .abilities()
-            .iter()
-            .all(|ability| catalog.abilities.get(*ability).is_some())
-        && combatant
-            .rule_bundles()
-            .iter()
-            .all(|bundle| catalog.rule_bundles.get(*bundle).is_some())
-        && combatant
-            .modifiers()
-            .iter()
-            .all(|modifier| catalog.modifiers.definition(*modifier).is_some())
-        && linked.action_ability().is_none_or(|ability| {
-            catalog
-                .abilities
-                .get(ability)
-                .and_then(super::definition::AbilityDefinition::action)
-                .is_some_and(|action| {
-                    matches!(
-                        (linked.kind(), action.kind()),
-                        (
-                            crate::LinkedEntityKind::Summon,
-                            super::action::AbilityKind::Summon
-                        ) | (
-                            crate::LinkedEntityKind::Memosprite,
-                            super::action::AbilityKind::Memosprite
-                        )
-                    )
-                })
-        })
-}
-
 fn validate_ai_graphs(catalog: &CombatCatalog) -> Result<(), CatalogBuildError> {
     for graph_id in catalog.ai_graphs.ids() {
         let graph = catalog
@@ -1059,6 +1046,12 @@ fn validate_program_references(catalog: &CombatCatalog) -> Result<(), CatalogBui
             id.get(),
             DefinitionKind::Modifier,
         )?;
+        for step in program.steps() {
+            let crate::rule::model::ProgramStep::Operation(operation) = step else {
+                continue;
+            };
+            lifecycle_validate::validate_program_operation(catalog, id, operation)?;
+        }
     }
     Ok(())
 }

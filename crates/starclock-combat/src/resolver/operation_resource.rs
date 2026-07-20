@@ -25,12 +25,13 @@ pub(super) fn execute_modify_team_resource(
         .ok_or_else(|| invariant_fault(43))?
         .side;
     let resource = operation.definition.resource();
-    let state = *txn
+    let state = txn
         .state
         .teams
         .get(side)
         .keyed(resource)
-        .ok_or_else(|| invariant_fault(44))?;
+        .ok_or_else(|| invariant_fault(44))?
+        .clone();
     let (attempted, after, overflow) = match operation.definition.change() {
         crate::catalog::action::TeamResourceChange::Gain(amount) => {
             let uncapped = u32::from(state.current) + u32::from(amount);

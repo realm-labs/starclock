@@ -29,8 +29,8 @@ assertSameFile(first.bundle, second.bundle, "independent Firefly probe bundles d
 assertSameTree(first.debug, second.debug, "independent Firefly probe debug exports differ");
 
 const counts = Object.fromEntries(fs.readdirSync(first.debug).filter((file) => file.endsWith(".json")).sort().map((file) => [path.basename(file, ".json"), readJson(path.join(first.debug, file)).table.rows.length]));
-const expectedCounts = { ConfigManifest: 1, ContentEvidenceBinding: 8, ContentIdentity: 8, Effect: 1, EvidenceRecord: 5, Operation: 10, Program: 3, ProgramStep: 10, Selector: 2, SourceRecord: 1, ValueExpression: 11 };
-assert(Object.keys(counts).length === 80, "Firefly probe does not export all production tables");
+const expectedCounts = { Ability: 1, AbilityPhase: 1, ConfigManifest: 1, ContentEvidenceBinding: 9, ContentIdentity: 9, CountdownDefinition: 1, Effect: 1, EvidenceRecord: 5, Operation: 10, Program: 3, ProgramStep: 10, Selector: 2, SourceRecord: 1, ValueExpression: 11 };
+assert(Object.keys(counts).length === 82, "Firefly probe does not export all production tables");
 for (const [name, count] of Object.entries(counts)) assert(count === (expectedCounts[name] ?? 0), `${name} probe row count differs`);
 
 const golden = {
@@ -42,7 +42,7 @@ const golden = {
   ultimate_text_sha256: "fe0c7311434bf03b3b122ac5328a6b5c0d61273f76d357ac99424d1bece11b87",
   enhanced_skill_text_sha256: "a48558d7d5a6f8967142a2d7bf7064e23f55a40ed0f175c6bc3da6377cfcae54",
   autoreactive_armor_text_sha256: "25fe591020471c13818909321e8a9731eea1e2b80b96c977d3d1fa9d31d7d568",
-  table_count: 80,
+  table_count: 82,
   populated_table_count: Object.values(counts).filter((count) => count > 0).length,
   identity_count: counts.ContentIdentity,
   production_coverage_credit: 0,

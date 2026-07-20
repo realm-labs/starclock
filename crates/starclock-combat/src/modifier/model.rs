@@ -170,6 +170,7 @@ pub struct ActiveModifier {
     pub source_class: SourceClass,
     pub insertion_sequence: u64,
     pub application_action: Option<ActionId>,
+    pub source_effect: Option<crate::EffectInstanceId>,
     pub slots: Box<[(StateSlotDefinitionId, RuleValue)]>,
     pub captured_value: Option<crate::Scalar>,
     pub captured_stats: Box<[(StatQuery, crate::Scalar)]>,

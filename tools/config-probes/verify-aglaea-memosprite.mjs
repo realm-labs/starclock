@@ -29,8 +29,8 @@ assertSameFile(first.bundle, second.bundle, "independent Aglaea probe bundles di
 assertSameTree(first.debug, second.debug, "independent Aglaea probe debug exports differ");
 
 const counts = Object.fromEntries(fs.readdirSync(first.debug).filter((file) => file.endsWith(".json")).sort().map((file) => [path.basename(file, ".json"), readJson(path.join(first.debug, file)).table.rows.length]));
-const expectedCounts = { ConfigManifest: 1, ContentEvidenceBinding: 6, ContentIdentity: 6, EvidenceRecord: 5, Operation: 3, Program: 1, ProgramStep: 3, Selector: 2, SourceRecord: 1 };
-assert(Object.keys(counts).length === 80, "Aglaea probe does not export all production tables");
+const expectedCounts = { Ability: 1, AbilityPhase: 1, ConfigManifest: 1, ContentEvidenceBinding: 7, ContentIdentity: 7, EvidenceRecord: 5, LinkedUnitDefinition: 1, Operation: 3, Program: 1, ProgramStep: 3, Selector: 2, SourceRecord: 1 };
+assert(Object.keys(counts).length === 82, "Aglaea probe does not export all production tables");
 for (const [name, count] of Object.entries(counts)) assert(count === (expectedCounts[name] ?? 0), `${name} probe row count differs`);
 
 const golden = {
@@ -42,7 +42,7 @@ const golden = {
   memosprite_talent_text_sha256: "af709d10048b253540fe9439ce44beff539202c1336ebd7aee9a8e00c7b3d371",
   joint_action_text_sha256: "4f5ddbdb234c2db9b384f699d59edf0a0b6af33841c1e426071ccb6b652b9b26",
   ultimate_text_sha256: "ee583a92ce0fa22ec5ed4e3c1c3253f913b4efabdd312ee8639fb6a2c2c1f3ce",
-  table_count: 80,
+  table_count: 82,
   populated_table_count: Object.values(counts).filter((count) => count > 0).length,
   identity_count: counts.ContentIdentity,
   production_coverage_credit: 0,

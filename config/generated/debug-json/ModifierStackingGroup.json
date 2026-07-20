@@ -1,6 +1,35 @@
 {
   "table": {
     "name": "ModifierStackingGroup",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "aggregation": {
+            "String": "ReplaceGroup"
+          },
+          "comparator_expression_id": "Null",
+          "id": {
+            "Integer": 24001
+          },
+          "stable_key": {
+            "String": "probe.asta.replace-by-caster"
+          }
+        }
+      },
+      {
+        "values": {
+          "aggregation": {
+            "String": "Sum"
+          },
+          "comparator_expression_id": "Null",
+          "id": {
+            "Integer": 24980
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.additive"
+          }
+        }
+      }
+    ]
   }
 }

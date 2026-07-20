@@ -1,6 +1,862 @@
 {
   "table": {
     "name": "CharacterAbilityBinding",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20014
+          },
+          "character_id": {
+            "Integer": 18
+          },
+          "invested_level_cap": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "slot": {
+            "String": "Technique"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20015
+          },
+          "character_id": {
+            "Integer": 18
+          },
+          "invested_level_cap": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "slot": {
+            "String": "Passive"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20016
+          },
+          "character_id": {
+            "Integer": 18
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "slot": {
+            "String": "Talent"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20017
+          },
+          "character_id": {
+            "Integer": 18
+          },
+          "invested_level_cap": {
+            "Integer": 6
+          },
+          "sequence": {
+            "Integer": 4
+          },
+          "slot": {
+            "String": "Basic"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20018
+          },
+          "character_id": {
+            "Integer": 18
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 5
+          },
+          "slot": {
+            "String": "Ultimate"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20019
+          },
+          "character_id": {
+            "Integer": 18
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 6
+          },
+          "slot": {
+            "String": "Skill"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20001
+          },
+          "character_id": {
+            "Integer": 2
+          },
+          "invested_level_cap": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "slot": {
+            "String": "Passive"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20002
+          },
+          "character_id": {
+            "Integer": 2
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "slot": {
+            "String": "Ultimate"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20003
+          },
+          "character_id": {
+            "Integer": 2
+          },
+          "invested_level_cap": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "slot": {
+            "String": "Technique"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20004
+          },
+          "character_id": {
+            "Integer": 2
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 4
+          },
+          "slot": {
+            "String": "Skill"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20005
+          },
+          "character_id": {
+            "Integer": 2
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 5
+          },
+          "slot": {
+            "String": "Talent"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20006
+          },
+          "character_id": {
+            "Integer": 2
+          },
+          "invested_level_cap": {
+            "Integer": 6
+          },
+          "sequence": {
+            "Integer": 6
+          },
+          "slot": {
+            "String": "Enhanced"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20007
+          },
+          "character_id": {
+            "Integer": 2
+          },
+          "invested_level_cap": {
+            "Integer": 6
+          },
+          "sequence": {
+            "Integer": 7
+          },
+          "slot": {
+            "String": "Basic"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20020
+          },
+          "character_id": {
+            "Integer": 27
+          },
+          "invested_level_cap": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "slot": {
+            "String": "Passive"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20021
+          },
+          "character_id": {
+            "Integer": 27
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "slot": {
+            "String": "Talent"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20022
+          },
+          "character_id": {
+            "Integer": 27
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "slot": {
+            "String": "Ultimate"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20023
+          },
+          "character_id": {
+            "Integer": 27
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 4
+          },
+          "slot": {
+            "String": "Enhanced"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20024
+          },
+          "character_id": {
+            "Integer": 27
+          },
+          "invested_level_cap": {
+            "Integer": 6
+          },
+          "sequence": {
+            "Integer": 5
+          },
+          "slot": {
+            "String": "Enhanced"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20025
+          },
+          "character_id": {
+            "Integer": 27
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 6
+          },
+          "slot": {
+            "String": "Skill"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20026
+          },
+          "character_id": {
+            "Integer": 27
+          },
+          "invested_level_cap": {
+            "Integer": 6
+          },
+          "sequence": {
+            "Integer": 7
+          },
+          "slot": {
+            "String": "Basic"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20027
+          },
+          "character_id": {
+            "Integer": 27
+          },
+          "invested_level_cap": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 8
+          },
+          "slot": {
+            "String": "Technique"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20028
+          },
+          "character_id": {
+            "Integer": 45
+          },
+          "invested_level_cap": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "slot": {
+            "String": "Passive"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20029
+          },
+          "character_id": {
+            "Integer": 45
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "slot": {
+            "String": "Skill"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20030
+          },
+          "character_id": {
+            "Integer": 45
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "slot": {
+            "String": "Talent"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20031
+          },
+          "character_id": {
+            "Integer": 45
+          },
+          "invested_level_cap": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 4
+          },
+          "slot": {
+            "String": "Technique"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20032
+          },
+          "character_id": {
+            "Integer": 45
+          },
+          "invested_level_cap": {
+            "Integer": 6
+          },
+          "sequence": {
+            "Integer": 5
+          },
+          "slot": {
+            "String": "Basic"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20033
+          },
+          "character_id": {
+            "Integer": 45
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 6
+          },
+          "slot": {
+            "String": "Ultimate"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20034
+          },
+          "character_id": {
+            "Integer": 68
+          },
+          "invested_level_cap": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "slot": {
+            "String": "Passive"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20043
+          },
+          "character_id": {
+            "Integer": 68
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 10
+          },
+          "slot": {
+            "String": "Passive"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20044
+          },
+          "character_id": {
+            "Integer": 68
+          },
+          "invested_level_cap": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 11
+          },
+          "slot": {
+            "String": "Technique"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20045
+          },
+          "character_id": {
+            "Integer": 68
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 12
+          },
+          "slot": {
+            "String": "Skill"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20035
+          },
+          "character_id": {
+            "Integer": 68
+          },
+          "invested_level_cap": {
+            "Integer": 6
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "slot": {
+            "String": "Enhanced"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20036
+          },
+          "character_id": {
+            "Integer": 68
+          },
+          "invested_level_cap": {
+            "Integer": 6
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "slot": {
+            "String": "Enhanced"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20037
+          },
+          "character_id": {
+            "Integer": 68
+          },
+          "invested_level_cap": {
+            "Integer": 6
+          },
+          "sequence": {
+            "Integer": 4
+          },
+          "slot": {
+            "String": "Enhanced"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20038
+          },
+          "character_id": {
+            "Integer": 68
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 5
+          },
+          "slot": {
+            "String": "Ultimate"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20039
+          },
+          "character_id": {
+            "Integer": 68
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 6
+          },
+          "slot": {
+            "String": "Passive"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20040
+          },
+          "character_id": {
+            "Integer": 68
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 7
+          },
+          "slot": {
+            "String": "Talent"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20041
+          },
+          "character_id": {
+            "Integer": 68
+          },
+          "invested_level_cap": {
+            "Integer": 6
+          },
+          "sequence": {
+            "Integer": 8
+          },
+          "slot": {
+            "String": "Enhanced"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20042
+          },
+          "character_id": {
+            "Integer": 68
+          },
+          "invested_level_cap": {
+            "Integer": 6
+          },
+          "sequence": {
+            "Integer": 9
+          },
+          "slot": {
+            "String": "Basic"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20008
+          },
+          "character_id": {
+            "Integer": 8
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "slot": {
+            "String": "Ultimate"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20009
+          },
+          "character_id": {
+            "Integer": 8
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "slot": {
+            "String": "Talent"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20010
+          },
+          "character_id": {
+            "Integer": 8
+          },
+          "invested_level_cap": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "slot": {
+            "String": "Passive"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20011
+          },
+          "character_id": {
+            "Integer": 8
+          },
+          "invested_level_cap": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 4
+          },
+          "slot": {
+            "String": "Skill"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20012
+          },
+          "character_id": {
+            "Integer": 8
+          },
+          "invested_level_cap": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 5
+          },
+          "slot": {
+            "String": "Technique"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 20013
+          },
+          "character_id": {
+            "Integer": 8
+          },
+          "invested_level_cap": {
+            "Integer": 6
+          },
+          "sequence": {
+            "Integer": 6
+          },
+          "slot": {
+            "String": "Basic"
+          }
+        }
+      }
+    ]
   }
 }

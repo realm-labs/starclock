@@ -218,6 +218,11 @@ impl ModifierInstanceView<'_> {
     pub const fn source_class(self) -> crate::rule::model::SourceClass {
         self.state.source_class
     }
+    /// Returns the effect instance that owns this modifier attachment, if any.
+    #[must_use]
+    pub const fn source_effect(self) -> Option<crate::EffectInstanceId> {
+        self.state.source_effect
+    }
 }
 
 impl EffectView<'_> {
@@ -565,6 +570,13 @@ impl<'a> UnitView<'a> {
     #[must_use]
     pub const fn maximum_energy(self) -> crate::Energy {
         self.state.maximum_energy
+    }
+    /// Returns a named form-scoped resource and its cap.
+    #[must_use]
+    pub fn character_resource(self, stable_key: &str) -> Option<(crate::Scalar, crate::Scalar)> {
+        self.state
+            .resource(stable_key)
+            .map(|resource| (resource.current, resource.maximum))
     }
     /// Returns the canonical selected ability set.
     #[must_use]

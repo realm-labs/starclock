@@ -13,7 +13,7 @@ pub struct TraceNode {
     #[serde(rename = "promotion_requirement")]
     pub promotion_requirement: i32,
     #[serde(rename = "prerequisite_trace_ids")]
-    pub prerequisite_trace_ids: Vec<i32>,
+    pub prerequisite_trace_ids: Option<Vec<i32>>,
 }
 
 impl super::runtime::SoraDecode for TraceNode {
@@ -25,7 +25,9 @@ impl super::runtime::SoraDecode for TraceNode {
             character_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             kind: <TraceNodeKind as super::runtime::SoraDecode>::decode(reader)?,
             promotion_requirement: <i32 as super::runtime::SoraDecode>::decode(reader)?,
-            prerequisite_trace_ids: <Vec<i32> as super::runtime::SoraDecode>::decode(reader)?,
+            prerequisite_trace_ids: <Option<Vec<i32>> as super::runtime::SoraDecode>::decode(
+                reader,
+            )?,
         })
     }
 }

@@ -79,6 +79,10 @@ impl<I: Copy + Debug + Ord, D: Identified<I>> DefinitionTable<I, D> {
         self.rows.iter().map(Identified::id)
     }
 
+    pub(super) fn values(&self) -> impl ExactSizeIterator<Item = &D> {
+        self.rows.iter()
+    }
+
     pub(super) const fn len(&self) -> usize {
         self.rows.len()
     }

@@ -27,7 +27,7 @@ target_selector_id = 17
 empty_target_policy = "Fault"
 snapshot_boundary = "Dynamic"
 fault_policy = "Rollback"
-payload = { type = "QueueAction", ability_id = 2, actor_selector_id = 17, priority = 0, forced_use = false }
+payload = { type = "QueueAction", ability_id = 2, actor_selector_id = 17, priority = 0, forced_use = false, reaction_boundary = "AfterAction" }
 
 [[rows]]
 id = 4

@@ -149,7 +149,7 @@ pub(super) fn execute_queue_rule_action(
             operation.owner,
             operation.ability,
             operation.origin,
-            crate::catalog::action::ReactionBoundary::AfterAction,
+            operation.boundary,
             operation.priority,
             operation.source,
             Some(operation.rule),

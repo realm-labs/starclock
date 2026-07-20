@@ -241,6 +241,7 @@ fn settle_wave_carry(
             .collect::<Vec<_>>();
         for effect in effects {
             if let Some(removed) = txn.state.effects.remove(effect) {
+                txn.remove_effect_attachments(effect);
                 txn.record_effect_change(effect.get(), 0, effect.get());
                 parent = txn.emit(
                     cause

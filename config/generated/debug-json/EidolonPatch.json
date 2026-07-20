@@ -1,6 +1,943 @@
 {
   "table": {
     "name": "EidolonPatch",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23003
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20007
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23003
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20004
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23003
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20006
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23003
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20004
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23005
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20002
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23005
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20005
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23009
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20011
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23009
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20009
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23011
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20013
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23011
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20008
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23015
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20017
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23015
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20019
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23017
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20018
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23017
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20016
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23021
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20026
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23021
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20025
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23021
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20024
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23021
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20023
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23023
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20022
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23023
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20021
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23027
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20032
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23027
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20029
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23029
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20033
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23029
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20030
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23033
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20042
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23033
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20045
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23033
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20036
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23033
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20035
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23033
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20041
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 5
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23033
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20037
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 6
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23033
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20043
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 7
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23033
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20039
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 8
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23035
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20038
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23035
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20040
+              },
+              "bonus": {
+                "Integer": 2
+              },
+              "cap_delta": {
+                "Integer": 2
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23035
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20043
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "eidolon_id": {
+            "Integer": 23035
+          },
+          "patch": {
+            "Object": {
+              "ability_id": {
+                "Integer": 20039
+              },
+              "bonus": {
+                "Integer": 1
+              },
+              "cap_delta": {
+                "Integer": 1
+              },
+              "type": {
+                "String": "AdjustAbilityLevel"
+              }
+            }
+          },
+          "sequence": {
+            "Integer": 4
+          }
+        }
+      }
+    ]
   }
 }

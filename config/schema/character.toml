@@ -207,7 +207,7 @@ range = [0, 6]
 
 [[tables.fields]]
 name = "prerequisite_trace_ids"
-type = "list<ref<TraceNode.id>>"
+type = "optional<list<ref<TraceNode.id>>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 32]
 

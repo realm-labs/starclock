@@ -80,6 +80,8 @@ pub enum BattleEventKind {
     Effect(EffectEventData),
     /// Battle-owned typed rule state changed.
     RuleState(RuleStateEventData),
+    /// Authored semantic signal emitted for downstream rule observation.
+    RuleSignal(RuleSignalEventData),
     /// Deterministic internal failure fact.
     Fault(FaultEventData),
 }
@@ -167,6 +169,14 @@ pub struct RuleStateEventData {
     pub slot: crate::StateSlotDefinitionId,
     pub before: crate::rule::model::RuleValue,
     pub after: crate::rule::model::RuleValue,
+}
+
+/// Typed informational signal retained in the ordinary event stream.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RuleSignalEventData {
+    pub operation: OperationId,
+    pub code: u32,
+    pub value: Option<crate::rule::model::RuleValue>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -491,6 +501,13 @@ pub enum ResourceEventData {
         before: crate::Energy,
         after: crate::Energy,
         overflow: crate::Energy,
+    },
+    /// Form-scoped named character resource mutation.
+    CharacterResource {
+        unit: UnitId,
+        before: crate::Scalar,
+        after: crate::Scalar,
+        maximum: crate::Scalar,
     },
     /// Generic team-owned resource mutation with cap/spend effectiveness.
     TeamResource {

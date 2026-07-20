@@ -1,6 +1,2312 @@
 {
   "table": {
     "name": "TraceNode",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22001
+          },
+          "kind": {
+            "String": "BasicLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22002
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22003
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22004
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22005
+          },
+          "kind": {
+            "String": "BasicLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22006
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22007
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22008
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22009
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22010
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22009
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22011
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22009
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22012
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22006
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22013
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22006
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22014
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22007
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22015
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22007
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22016
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22008
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22017
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22016
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22018
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22017
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22019
+          },
+          "kind": {
+            "String": "AbilityUnlock"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 22020
+          },
+          "kind": {
+            "String": "AbilityUnlock"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22021
+          },
+          "kind": {
+            "String": "BasicLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22022
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22023
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22024
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22025
+          },
+          "kind": {
+            "String": "BasicLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22026
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22027
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22028
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22029
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22030
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22026
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22031
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22030
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22032
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22029
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22033
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22027
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22034
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22033
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22035
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22029
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22036
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22028
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22037
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22036
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 22038
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22036
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22039
+          },
+          "kind": {
+            "String": "BasicLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22040
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22041
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22042
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22043
+          },
+          "kind": {
+            "String": "BasicLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22044
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22045
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22046
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22047
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22048
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22044
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22049
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22048
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22050
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22049
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22051
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22045
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22052
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22051
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22053
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22052
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22054
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22046
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22055
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22054
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 22056
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22054
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22057
+          },
+          "kind": {
+            "String": "BasicLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22058
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22059
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22060
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22061
+          },
+          "kind": {
+            "String": "BasicLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22062
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22063
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22064
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22065
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22066
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22067
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22068
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22069
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22062
+              },
+              {
+                "Integer": 22063
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22070
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22069
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22071
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22070
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22072
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22064
+              },
+              {
+                "Integer": 22065
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22073
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22072
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22074
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22073
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22075
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22066
+              },
+              {
+                "Integer": 22067
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22076
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22075
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 22077
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22075
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22078
+          },
+          "kind": {
+            "String": "BasicLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22079
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22080
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22081
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22082
+          },
+          "kind": {
+            "String": "BasicLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22083
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22084
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22085
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22086
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22087
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22088
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22089
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22083
+              },
+              {
+                "Integer": 22084
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22090
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22089
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22091
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22090
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22092
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22085
+              },
+              {
+                "Integer": 22086
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22093
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22092
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22094
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22093
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22095
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22087
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22096
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22087
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 22097
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22088
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22098
+          },
+          "kind": {
+            "String": "BasicLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22099
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22100
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22101
+          },
+          "kind": {
+            "String": "AbilityLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22102
+          },
+          "kind": {
+            "String": "BasicLevel"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22103
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22104
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22105
+          },
+          "kind": {
+            "String": "MajorPassive"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22106
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22107
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22108
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22103
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22109
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22103
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22110
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22104
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22111
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22110
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22112
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22111
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22113
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22105
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22114
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22113
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22115
+          },
+          "kind": {
+            "String": "MinorStat"
+          },
+          "prerequisite_trace_ids": {
+            "List": [
+              {
+                "Integer": 22114
+              }
+            ]
+          },
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 68
+          },
+          "id": {
+            "Integer": 22116
+          },
+          "kind": {
+            "String": "AbilityUnlock"
+          },
+          "prerequisite_trace_ids": "Null",
+          "promotion_requirement": {
+            "Integer": 0
+          }
+        }
+      }
+    ]
   }
 }

@@ -1,6 +1,1050 @@
 {
   "table": {
     "name": "Operation",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24001
+          },
+          "payload": {
+            "Object": {
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 24006
+              },
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "OnApplication"
+          },
+          "stable_key": {
+            "String": "probe.asta.operation.apply-astra-spd"
+          },
+          "target_selector_id": {
+            "Integer": 24053
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24101
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 24103
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Lightning"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "OnHitStart"
+          },
+          "stable_key": {
+            "String": "probe.kafka.operation.skill-damage"
+          },
+          "target_selector_id": {
+            "Integer": 24151
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Skip"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24102
+          },
+          "payload": {
+            "Object": {
+              "fraction_expression_id": {
+                "Integer": 24104
+              },
+              "type": {
+                "String": "DetonateDot"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "EventSnapshot"
+          },
+          "stable_key": {
+            "String": "probe.kafka.operation.skill-detonation"
+          },
+          "target_selector_id": {
+            "Integer": 24151
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Skip"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24103
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 24106
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Lightning"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "OnHitStart"
+          },
+          "stable_key": {
+            "String": "probe.kafka.operation.ultimate-damage"
+          },
+          "target_selector_id": {
+            "Integer": 24152
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Skip"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24104
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": {
+                "Integer": 24107
+              },
+              "chance_policy": {
+                "String": "Resistible"
+              },
+              "effect_id": {
+                "Integer": 24104
+              },
+              "rng_purpose_key": {
+                "String": "effect-application"
+              },
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "OnApplication"
+          },
+          "stable_key": {
+            "String": "probe.kafka.operation.apply-shock"
+          },
+          "target_selector_id": {
+            "Integer": 24152
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Skip"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24105
+          },
+          "payload": {
+            "Object": {
+              "fraction_expression_id": {
+                "Integer": 24113
+              },
+              "type": {
+                "String": "DetonateDot"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "EventSnapshot"
+          },
+          "stable_key": {
+            "String": "probe.kafka.operation.full-detonation"
+          },
+          "target_selector_id": {
+            "Integer": 24152
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Skip"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24106
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 24112
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Additional"
+              },
+              "element": {
+                "String": "Lightning"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "OnHitStart"
+          },
+          "stable_key": {
+            "String": "probe.kafka.operation.follow-up-damage"
+          },
+          "target_selector_id": {
+            "Integer": 24151
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Skip"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24107
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": {
+                "Integer": 24107
+              },
+              "chance_policy": {
+                "String": "Resistible"
+              },
+              "effect_id": {
+                "Integer": 24104
+              },
+              "rng_purpose_key": {
+                "String": "effect-application"
+              },
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "OnApplication"
+          },
+          "stable_key": {
+            "String": "probe.kafka.operation.follow-up-shock"
+          },
+          "target_selector_id": {
+            "Integer": 24151
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Skip"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24201
+          },
+          "payload": {
+            "Object": {
+              "ability_id": {
+                "Integer": 24201
+              },
+              "actor_selector_id": {
+                "Integer": 24251
+              },
+              "forced_use": {
+                "Bool": false
+              },
+              "priority": {
+                "Integer": -100
+              },
+              "reaction_boundary": {
+                "String": "AfterAction"
+              },
+              "type": {
+                "String": "QueueAction"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "EventSnapshot"
+          },
+          "stable_key": {
+            "String": "probe.clara.operation.queue-counter"
+          },
+          "target_selector_id": {
+            "Integer": 24252
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Skip"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24202
+          },
+          "payload": {
+            "Object": {
+              "state_slot_id": {
+                "Integer": 24206
+              },
+              "type": {
+                "String": "ModifyStateSlot"
+              },
+              "update_kind": {
+                "String": "Subtract"
+              },
+              "value_expression_id": {
+                "Integer": 24203
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "EventSnapshot"
+          },
+          "stable_key": {
+            "String": "probe.clara.operation.consume-charge"
+          },
+          "target_selector_id": {
+            "Integer": 24251
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24301
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 24303
+              },
+              "floor_expression_id": {
+                "Integer": 24304
+              },
+              "type": {
+                "String": "ConsumeHp"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "probe.firefly.operation.consume-hp"
+          },
+          "target_selector_id": {
+            "Integer": 24351
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24302
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 24305
+              },
+              "resource_kind": {
+                "String": "Energy"
+              },
+              "rounding": {
+                "String": "Floor"
+              },
+              "scales_with_energy_regeneration": {
+                "Bool": false
+              },
+              "type": {
+                "String": "ModifyResource"
+              },
+              "update_kind": {
+                "String": "Gain"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "probe.firefly.operation.restore-energy"
+          },
+          "target_selector_id": {
+            "Integer": 24351
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Skip"
+          },
+          "fault_policy": {
+            "String": "CommitFault"
+          },
+          "id": {
+            "Integer": 24303
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 24308
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Fire"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "OnHitStart"
+          },
+          "stable_key": {
+            "String": "probe.firefly.operation.damage"
+          },
+          "target_selector_id": {
+            "Integer": 24352
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Skip"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24304
+          },
+          "payload": {
+            "Object": {
+              "event_key": {
+                "String": "firefly.complete-combustion.countdown"
+              },
+              "type": {
+                "String": "EmitRuleEvent"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "probe.firefly.operation.create-countdown"
+          },
+          "target_selector_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24305
+          },
+          "payload": {
+            "Object": {
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 24305
+              },
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "OnApplication"
+          },
+          "stable_key": {
+            "String": "probe.firefly.operation.apply-redmode"
+          },
+          "target_selector_id": {
+            "Integer": 24351
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24306
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 24309
+              },
+              "type": {
+                "String": "AdvanceAction"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "probe.firefly.operation.advance-action"
+          },
+          "target_selector_id": {
+            "Integer": 24351
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24307
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 24309
+              },
+              "resource_kind": {
+                "String": "Energy"
+              },
+              "rounding": {
+                "String": "Floor"
+              },
+              "scales_with_energy_regeneration": {
+                "Bool": false
+              },
+              "type": {
+                "String": "ModifyResource"
+              },
+              "update_kind": {
+                "String": "Set"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "probe.firefly.operation.reset-energy"
+          },
+          "target_selector_id": {
+            "Integer": 24351
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Skip"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24308
+          },
+          "payload": {
+            "Object": {
+              "element": {
+                "String": "Fire"
+              },
+              "type": {
+                "String": "AddWeakness"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "OnHitStart"
+          },
+          "stable_key": {
+            "String": "probe.firefly.operation.add-fire-weakness"
+          },
+          "target_selector_id": {
+            "Integer": 24352
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Skip"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24309
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 24310
+              },
+              "element": {
+                "String": "Fire"
+              },
+              "type": {
+                "String": "ReduceToughness"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "OnHitStart"
+          },
+          "stable_key": {
+            "String": "probe.firefly.operation.reduce-toughness"
+          },
+          "target_selector_id": {
+            "Integer": 24352
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Skip"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24310
+          },
+          "payload": {
+            "Object": {
+              "multiplier_expression_id": {
+                "Integer": 24311
+              },
+              "type": {
+                "String": "SuperBreak"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "OnHitStart"
+          },
+          "stable_key": {
+            "String": "probe.firefly.operation.super-break"
+          },
+          "target_selector_id": {
+            "Integer": 24352
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24401
+          },
+          "payload": {
+            "Object": {
+              "replacement_definition_identity_id": {
+                "Integer": 24402
+              },
+              "type": {
+                "String": "Transform"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "probe.firefly-transform.operation.transform"
+          },
+          "target_selector_id": {
+            "Integer": 24451
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24402
+          },
+          "payload": {
+            "Object": {
+              "new_ability_id": {
+                "Integer": 20023
+              },
+              "old_ability_id": {
+                "Integer": 20025
+              },
+              "type": {
+                "String": "ReplaceAbility"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "probe.firefly-transform.operation.replace-skill"
+          },
+          "target_selector_id": {
+            "Integer": 24451
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24403
+          },
+          "payload": {
+            "Object": {
+              "presence": {
+                "String": "Transformed"
+              },
+              "type": {
+                "String": "ChangePresence"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "probe.firefly-transform.operation.transformed-presence"
+          },
+          "target_selector_id": {
+            "Integer": 24451
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24501
+          },
+          "payload": {
+            "Object": {
+              "owner_selector_id": {
+                "Integer": 24551
+              },
+              "type": {
+                "String": "Summon"
+              },
+              "unit_definition_identity_id": {
+                "Integer": 24505
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "probe.aglaea.operation.summon-garmentmaker"
+          },
+          "target_selector_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24502
+          },
+          "payload": {
+            "Object": {
+              "presence": {
+                "String": "Linked"
+              },
+              "type": {
+                "String": "ChangePresence"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "probe.aglaea.operation.link-garmentmaker"
+          },
+          "target_selector_id": {
+            "Integer": 24552
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24503
+          },
+          "payload": {
+            "Object": {
+              "type": {
+                "String": "Despawn"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "probe.aglaea.operation.depart-garmentmaker"
+          },
+          "target_selector_id": {
+            "Integer": 24552
+          }
+        }
+      }
+    ]
   }
 }

@@ -2,7 +2,7 @@ use starclock_combat::{
     ProgramId, SelectorId, SourceDefinitionId, StateSlotDefinitionId, UnitId,
     catalog::{
         builder::{CatalogBuildErrorKind, CombatCatalogBuilder},
-        definition::{ProgramDefinition, RuleDefinition, SelectorDefinition},
+        definition::{AbilityDefinition, ProgramDefinition, RuleDefinition, SelectorDefinition},
     },
     rule::{
         evaluate::{
@@ -242,7 +242,45 @@ fn catalog_rejects_unresolved_linked_and_countdown_emissions() {
 
         assert_eq!(
             builder.build().unwrap_err().kind(),
-            CatalogBuildErrorKind::InvalidDefinition
+            CatalogBuildErrorKind::MissingReference
+        );
+    }
+}
+
+#[test]
+fn ability_owned_programs_reject_unresolved_lifecycle_emissions() {
+    for (revision, operation, selectors) in [
+        (
+            "ability-missing-linked-unit-v1",
+            RuleOperationTemplate::Summon {
+                owner_selector: definition(1),
+                unit_definition: definition(9),
+            },
+            vec![definition(1)],
+        ),
+        (
+            "ability-missing-countdown-v1",
+            RuleOperationTemplate::CreateCountdown { code: 9 },
+            vec![],
+        ),
+    ] {
+        let program = definition(1);
+        let mut builder = CombatCatalogBuilder::new(revision, [0x27; 32]);
+        builder.add_selector(SelectorDefinition::new(definition(1)));
+        builder.add_program(
+            ProgramDefinition::new(program, vec![], selectors, vec![], vec![])
+                .with_steps(vec![ProgramStep::Operation(operation)]),
+        );
+        builder.add_ability(AbilityDefinition::new(
+            definition(1),
+            program,
+            definition(1),
+            vec![],
+        ));
+
+        assert_eq!(
+            builder.build().unwrap_err().kind(),
+            CatalogBuildErrorKind::MissingReference
         );
     }
 }

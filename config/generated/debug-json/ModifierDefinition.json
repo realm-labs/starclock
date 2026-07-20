@@ -1,6 +1,2876 @@
 {
   "table": {
     "name": "ModifierDefinition",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24004
+          },
+          "owner_selector_id": {
+            "Integer": 24051
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": {
+            "Integer": 24002
+          },
+          "stacking_group_id": {
+            "Integer": 24001
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24052
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24005
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "OrdinaryDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24701
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24801
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24702
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "CritRate"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24802
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "OrdinaryDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24703
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24803
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24704
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Def"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24804
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "OrdinaryDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24705
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24805
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24706
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "CritRate"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24806
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "OrdinaryDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24707
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24807
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24708
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Def"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24808
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24709
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "CritRate"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24809
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "OrdinaryDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24710
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24810
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "OrdinaryDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24711
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24811
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24712
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Def"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24812
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "OrdinaryDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24713
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24813
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24714
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "CritRate"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24814
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "OrdinaryDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24715
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24815
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24716
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Def"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24816
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "OrdinaryDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24717
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24817
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24718
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "CritRate"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24818
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24719
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Def"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24819
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "OrdinaryDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24720
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24820
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24721
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24821
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "OrdinaryDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24722
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24822
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24723
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24823
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24724
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Hp"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24824
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24725
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24825
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "OrdinaryDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24726
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24826
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24727
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24827
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24728
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Hp"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24828
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "OrdinaryDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24729
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24829
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24730
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24830
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24731
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "BreakEffect"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24831
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24732
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "EffectResistance"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24832
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24733
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "BreakEffect"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24833
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "Flat"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "Flat"
+          },
+          "id": {
+            "Integer": 24734
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Spd"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Scalar"
+          },
+          "value_expression_id": {
+            "Integer": 24834
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24735
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "BreakEffect"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24835
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24736
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "EffectResistance"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24836
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24737
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "BreakEffect"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24837
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "Flat"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "Flat"
+          },
+          "id": {
+            "Integer": 24738
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Spd"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Scalar"
+          },
+          "value_expression_id": {
+            "Integer": 24838
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24739
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "EffectResistance"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24839
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24740
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "BreakEffect"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24840
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24741
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24841
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24742
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "EffectHitRate"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24842
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24743
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24843
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24744
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Hp"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24844
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24745
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24845
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24746
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "EffectHitRate"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24846
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24747
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24847
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24748
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Hp"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24848
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24749
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "EffectHitRate"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24849
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 24750
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24850
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24751
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "CritRate"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24851
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "Flat"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "Flat"
+          },
+          "id": {
+            "Integer": 24752
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Spd"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Scalar"
+          },
+          "value_expression_id": {
+            "Integer": 24852
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24753
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "CritRate"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24853
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "ElationDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24754
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24854
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24755
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "CritRate"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24855
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "Flat"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "Flat"
+          },
+          "id": {
+            "Integer": 24756
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Spd"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Scalar"
+          },
+          "value_expression_id": {
+            "Integer": 24856
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24757
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "CritRate"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24857
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "ElationDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 24758
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24858
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "Flat"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "Flat"
+          },
+          "id": {
+            "Integer": 24759
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "Spd"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Scalar"
+          },
+          "value_expression_id": {
+            "Integer": 24859
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "BaseAdd"
+          },
+          "duration_scope": {
+            "String": "Battle"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "BaseAdd"
+          },
+          "id": {
+            "Integer": 24760
+          },
+          "owner_selector_id": {
+            "Integer": 24990
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": "Null",
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 24980
+          },
+          "stat": {
+            "String": "CritRate"
+          },
+          "subject_selector_id": {
+            "Integer": 24991
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 24860
+          }
+        }
+      }
+    ]
   }
 }

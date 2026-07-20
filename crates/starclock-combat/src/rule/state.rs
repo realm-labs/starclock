@@ -13,6 +13,7 @@ pub(crate) struct RuleInstanceState {
     pub(crate) id: RuleInstanceId,
     pub(crate) rule: RuleId,
     pub(crate) owner: Option<UnitId>,
+    pub(crate) source_effect: Option<crate::EffectInstanceId>,
     pub(crate) slots: Box<[(StateSlotDef, RuleValue)]>,
     pub(crate) ledger: super::evaluate::TriggerLedger,
 }
@@ -43,6 +44,7 @@ impl RuleStateStore {
             id,
             rule,
             owner,
+            source_effect: None,
             slots: runtime
                 .state_slots()
                 .iter()
@@ -56,6 +58,40 @@ impl RuleStateStore {
             ledger: super::evaluate::TriggerLedger::default(),
         };
         self.entries.insert(id, state).is_none()
+    }
+
+    pub(crate) fn insert_attached(
+        &mut self,
+        id: RuleInstanceId,
+        rule: RuleId,
+        owner: UnitId,
+        effect: crate::EffectInstanceId,
+        runtime: &BattleRuleDefinition,
+    ) -> bool {
+        if !self.insert(id, rule, Some(owner), runtime) {
+            return false;
+        }
+        self.entries
+            .get_mut(&id)
+            .expect("newly inserted rule instance exists")
+            .source_effect = Some(effect);
+        true
+    }
+
+    pub(crate) fn remove_by_effect(
+        &mut self,
+        effect: crate::EffectInstanceId,
+    ) -> Vec<RuleInstanceId> {
+        let ids = self
+            .entries
+            .values()
+            .filter(|instance| instance.source_effect == Some(effect))
+            .map(|instance| instance.id)
+            .collect::<Vec<_>>();
+        for id in &ids {
+            self.entries.remove(id);
+        }
+        ids
     }
 
     pub(crate) fn iter_by_id(&self) -> impl ExactSizeIterator<Item = &RuleInstanceState> {

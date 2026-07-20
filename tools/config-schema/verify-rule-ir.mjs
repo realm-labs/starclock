@@ -316,7 +316,7 @@ function expectedTables() {
     "LightCone", "LightConeStat", "LightConeSuperimposition",
     "NativeHandler", "RuleDefinition", "RuleSourceTag", "StateSlot", "StateSlotReset", "EventFilter", "RuleTrigger",
     "Selector", "SelectorPredicate", "ModifierStackingGroup", "ModifierDefinition", "SnapshotCapture", "ModifierFilter", "ValueExpression", "ConditionExpression",
-    "Effect", "EffectTag", "EffectModifierBinding", "EffectRuleBinding", "EffectGrantedAbility", "Program", "ProgramStep", "Operation", "OperationNativeArgument"
+    "Effect", "EffectTag", "EffectModifierBinding", "EffectRuleBinding", "EffectGrantedAbility", "Program", "ProgramStep", "Operation", "LinkedUnitDefinition", "CountdownDefinition", "OperationNativeArgument"
   ];
 }
 function assertVariantSet(union, expected) { assert(union?.tag === "type" && JSON.stringify(union.variants.map((variant) => variant.name)) === JSON.stringify(expected), `${union?.name ?? "missing union"} variants differ`); }

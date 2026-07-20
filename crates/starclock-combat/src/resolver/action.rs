@@ -282,6 +282,7 @@ pub(super) fn execute_action_plan(
                             targets: targets.clone(),
                             definition: *definition,
                             rng_purpose: None,
+                            resolved_runtime: None,
                         })
                     }
                     HitOperationDefinition::RemoveEffects(definition) => {
@@ -447,6 +448,22 @@ pub(super) fn execute_action_plan(
         &mut HitOperationScratch::default(),
     )?;
     parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
+    if plan.origin == crate::ActionOrigin::Countdown
+        && catalog
+            .countdown_for_ability(plan.ability)
+            .is_some_and(|definition| definition.definition().ends_transformation())
+    {
+        let operation = txn.allocate_operation();
+        parent = super::lifecycle::execute_end_transform(
+            txn,
+            base.with_applier(plan.actor),
+            parent,
+            UnitLifecycleOp {
+                id: operation,
+                targets: vec![plan.owner].into_boxed_slice(),
+            },
+        )?;
+    }
     parent = apply_resource_gains(txn, base, parent, plan)?;
     parent = txn.emit(
         base.with_parent(parent),

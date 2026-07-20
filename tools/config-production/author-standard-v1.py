@@ -214,7 +214,9 @@ def json_cell(type_: str, **fields: Any) -> str:
 
 def generated_rows() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, Any]], list[dict[str, Any]]]:
     manifest, variants, templates, abilities, encounters = source_data()
-    original_identities = [row for row in current_identity_rows() if int(row["id"]) <= 283]
+    current_identities = current_identity_rows()
+    original_identities = [row for row in current_identities if int(row["id"]) <= 283]
+    later_identities = [dict(row) for row in current_identities if int(row["id"]) >= 20_000]
     ids = transport_maps(original_identities, variants, templates, abilities)
     by_variant = {row["id"]: row for row in variants}
     ability_by_source = {row["source_skill_id"]: row for row in abilities.values()}
@@ -269,12 +271,15 @@ def generated_rows() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, An
             copied["summary_zh_cn"] = str(copied["summary_zh_cn"]).replace(" 当前仅为目录身份；可执行数据尚待转录。", " 已具备标准模式第一版可执行数据与种子黄金证据。")
         updated_identities.append(copied)
     updated_identities.extend(internal_identities)
+    updated_identities.extend(later_identities)
     updated_identities.sort(key=lambda row: int(row["id"]))
 
     _, original_bindings = workbook_rows("ContentEvidenceBinding")
     evidence_bindings = [
         dict(row) for row in original_bindings
-        if int(row["content_id"]) <= 283 and int(row["sequence"]) == 1
+        if (int(row["content_id"]) <= 283 and int(row["sequence"]) == 1)
+        or int(row["content_id"]) in {2, 8, 18, 27, 45, 68}
+        or int(row["content_id"]) >= 20_000
     ]
     for record in internal_identities:
         evidence_bindings.append({
@@ -496,6 +501,20 @@ def generated_rows() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, An
             "master_seed_hex": f"{int(scenario['seed']):016x}", "expected_outcome": "Won",
         })
 
+    later_fields = {
+        "Ability": "id",
+        "AbilityHitPlanBinding": "ability_id",
+        "AbilityPhase": "ability_id",
+        "ConditionExpression": "id",
+        "HitPlan": "id",
+        "HitPlanHit": "hit_plan_id",
+        "Selector": "id",
+    }
+    for name, field in later_fields.items():
+        _, existing = workbook_rows(name)
+        rows[name].extend(
+            dict(row) for row in existing if int(row[field]) >= 20_000
+        )
     for name in rows:
         rows[name].sort(key=lambda record: tuple(str(value) for value in record.values()))
     return rows, updated_identities, evidence_bindings
@@ -503,10 +522,10 @@ def generated_rows() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, An
 
 def expected_manifest_row() -> dict[str, Any]:
     return {
-        "game_version": "4.4", "snapshot_date": "2026-07-17", "data_revision": "core-combat-v1-standard-v1",
+        "game_version": "4.4", "snapshot_date": "2026-07-17", "data_revision": "core-combat-v1-phase7-v1b",
         "required_rules_revision": "core-combat-rules-v1", "sora_cli_version": "0.3.0",
         "numeric_policy_revision": "fixed-i64-6dp-v1", "rng_algorithm_revision": "chacha8-rand-0.10.2-intmap-v1",
-        "state_hash_revision": "sha256-v2", "replay_format_version": "replay-v1",
+        "state_hash_revision": "sha256-v3", "replay_format_version": "replay-v1",
         "coverage_manifest_sha256": GOAL_DIGEST,
     }
 

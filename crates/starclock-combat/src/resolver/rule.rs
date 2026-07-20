@@ -237,6 +237,7 @@ fn evaluate_candidate(
             .with_source_definition(candidate.source),
         parent,
         &context,
+        input,
         emissions,
         &mut HitOperationScratch::default(),
         &resolved,
@@ -270,7 +271,9 @@ fn rule_event(event: &BattleEventKind) -> Option<(RuleEventKind, TriggerPhase)> 
         BattleEventKind::Unit(_) | BattleEventKind::EnemyPhase(_) => RuleEventKind::Unit,
         BattleEventKind::Wave(_) => RuleEventKind::Wave,
         BattleEventKind::Resource(_) => RuleEventKind::Resource,
-        BattleEventKind::Effect(_) | BattleEventKind::RuleState(_) => RuleEventKind::Rule,
+        BattleEventKind::Effect(_)
+        | BattleEventKind::RuleState(_)
+        | BattleEventKind::RuleSignal(_) => RuleEventKind::Rule,
         BattleEventKind::Fault(_) => RuleEventKind::Fault,
     };
     Some((kind, TriggerPhase::AfterEvent))

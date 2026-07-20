@@ -14,7 +14,7 @@ use crate::{
 use super::BattleStateHash;
 
 const STATE_MAGIC: &[u8; 4] = b"SCBS";
-const STATE_CODEC_VERSION: u16 = 1;
+const STATE_CODEC_VERSION: u16 = 2;
 
 pub(crate) fn hash_state(state: &BattleState) -> BattleStateHash {
     let mut sink = Sha256Sink(Sha256::new());
@@ -171,6 +171,13 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
         e.length(team.keyed_resources.len());
         for resource in &team.keyed_resources {
             e.u32(resource.id.get());
+            match &resource.stable_key {
+                None => e.u8(0),
+                Some(stable_key) => {
+                    e.u8(1);
+                    e.text(stable_key);
+                }
+            }
             e.u16(resource.initial);
             e.u16(resource.current);
             e.u16(resource.maximum);
@@ -296,6 +303,13 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
                 e.u64(owner.get());
             }
         }
+        match instance.source_effect {
+            None => e.u8(0),
+            Some(effect) => {
+                e.u8(1);
+                e.u64(effect.get());
+            }
+        }
         e.length(instance.slots.len());
         for (definition, value) in &instance.slots {
             e.u32(definition.id().get());
@@ -324,6 +338,13 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
             Some(action) => {
                 e.u8(1);
                 e.u64(action.get());
+            }
+        }
+        match instance.source_effect {
+            None => e.u8(0),
+            Some(effect) => {
+                e.u8(1);
+                e.u64(effect.get());
             }
         }
         e.length(instance.slots.len());
@@ -557,6 +578,13 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
     e.length(unit.modifiers.len());
     for id in &unit.modifiers {
         e.u32(id.get());
+    }
+    e.length(unit.resources.len());
+    for resource in &unit.resources {
+        e.text(&resource.stable_key);
+        e.i64(resource.initial.scaled());
+        e.i64(resource.current.scaled());
+        e.i64(resource.maximum.scaled());
     }
     e.raw(&unit.digest.bytes());
     match &unit.transformation {

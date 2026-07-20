@@ -64,6 +64,54 @@ pub struct UnitDefinition {
     id: UnitDefinitionId,
     abilities: Box<[AbilityId]>,
     rule_bundles: Box<[RuleBundleId]>,
+    resources: Box<[CharacterResourceDefinition]>,
+}
+
+/// One form-scoped named character resource with checked scalar bounds.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct CharacterResourceDefinition {
+    stable_key: Box<str>,
+    initial: crate::Scalar,
+    maximum: crate::Scalar,
+}
+
+impl CharacterResourceDefinition {
+    /// Creates a non-negative bounded named resource.
+    #[must_use]
+    pub fn new(
+        stable_key: impl Into<Box<str>>,
+        initial: crate::Scalar,
+        maximum: crate::Scalar,
+    ) -> Option<Self> {
+        let stable_key = stable_key.into();
+        if stable_key.trim().is_empty()
+            || initial.scaled() < 0
+            || maximum.scaled() < 0
+            || initial > maximum
+        {
+            return None;
+        }
+        Some(Self {
+            stable_key,
+            initial,
+            maximum,
+        })
+    }
+    /// Returns the exact authored semantic key.
+    #[must_use]
+    pub fn stable_key(&self) -> &str {
+        &self.stable_key
+    }
+    /// Returns the initial value.
+    #[must_use]
+    pub const fn initial(&self) -> crate::Scalar {
+        self.initial
+    }
+    /// Returns the inclusive upper bound.
+    #[must_use]
+    pub const fn maximum(&self) -> crate::Scalar {
+        self.maximum
+    }
 }
 
 impl UnitDefinition {
@@ -78,7 +126,15 @@ impl UnitDefinition {
             id,
             abilities: abilities.into_boxed_slice(),
             rule_bundles: rule_bundles.into_boxed_slice(),
+            resources: Box::new([]),
         }
+    }
+
+    /// Attaches form-scoped resources in canonical stable-key order.
+    #[must_use]
+    pub fn with_resources(mut self, resources: Vec<CharacterResourceDefinition>) -> Self {
+        self.resources = resources.into_boxed_slice();
+        self
     }
 
     /// Returns the stable definition ID.
@@ -95,6 +151,11 @@ impl UnitDefinition {
     #[must_use]
     pub fn rule_bundles(&self) -> &[RuleBundleId] {
         &self.rule_bundles
+    }
+    /// Returns the canonical form-scoped resource definitions.
+    #[must_use]
+    pub fn resources(&self) -> &[CharacterResourceDefinition] {
+        &self.resources
     }
 }
 
@@ -178,6 +239,7 @@ pub struct EffectDefinition {
     rules: Box<[RuleId]>,
     modifiers: Box<[ModifierDefinitionId]>,
     runtime: Option<crate::effect::model::EffectRuntimeDefinition>,
+    runtime_template: Option<crate::effect::model::EffectRuntimeTemplate>,
 }
 
 impl EffectDefinition {
@@ -193,12 +255,22 @@ impl EffectDefinition {
             rules: rules.into_boxed_slice(),
             modifiers: modifiers.into_boxed_slice(),
             runtime: None,
+            runtime_template: None,
         }
     }
     /// Attaches the validated generic runtime behavior.
     #[must_use]
     pub fn with_runtime(mut self, runtime: crate::effect::model::EffectRuntimeDefinition) -> Self {
         self.runtime = Some(runtime);
+        self
+    }
+    /// Attaches expression-backed runtime behavior resolved for each application target.
+    #[must_use]
+    pub fn with_runtime_template(
+        mut self,
+        runtime: crate::effect::model::EffectRuntimeTemplate,
+    ) -> Self {
+        self.runtime_template = Some(runtime);
         self
     }
     /// Returns the stable definition ID.
@@ -220,6 +292,11 @@ impl EffectDefinition {
     #[must_use]
     pub const fn runtime(&self) -> Option<&crate::effect::model::EffectRuntimeDefinition> {
         self.runtime.as_ref()
+    }
+    /// Returns expression-backed effect semantics when authored.
+    #[must_use]
+    pub const fn runtime_template(&self) -> Option<&crate::effect::model::EffectRuntimeTemplate> {
+        self.runtime_template.as_ref()
     }
 }
 

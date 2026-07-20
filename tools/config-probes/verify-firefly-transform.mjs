@@ -30,7 +30,7 @@ assertSameTree(first.debug, second.debug, "independent Firefly transform debug e
 
 const counts = Object.fromEntries(fs.readdirSync(first.debug).filter((file) => file.endsWith(".json")).sort().map((file) => [path.basename(file, ".json"), readJson(path.join(first.debug, file)).table.rows.length]));
 const expectedCounts = { Ability: 2, AbilityPhase: 2, ConfigManifest: 1, ContentEvidenceBinding: 5, ContentIdentity: 5, EvidenceRecord: 4, Operation: 3, Program: 1, ProgramStep: 3, Selector: 1, SourceRecord: 1 };
-assert(Object.keys(counts).length === 80, "Firefly transform probe does not export all production tables");
+assert(Object.keys(counts).length === 82, "Firefly transform probe does not export all production tables");
 for (const [name, count] of Object.entries(counts)) assert(count === (expectedCounts[name] ?? 0), `${name} probe row count differs`);
 
 const golden = {
@@ -41,7 +41,7 @@ const golden = {
   ultimate_text_sha256: "fe0c7311434bf03b3b122ac5328a6b5c0d61273f76d357ac99424d1bece11b87",
   normal_skill_text_sha256: "78cddf0b6fce13aa578aa8564bad7a7ad9a5f553ffde066c8ad2bdeccc3852ac",
   enhanced_skill_text_sha256: "a48558d7d5a6f8967142a2d7bf7064e23f55a40ed0f175c6bc3da6377cfcae54",
-  table_count: 80,
+  table_count: 82,
   populated_table_count: Object.values(counts).filter((count) => count > 0).length,
   identity_count: counts.ContentIdentity,
   production_coverage_credit: 0,

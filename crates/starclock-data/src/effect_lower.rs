@@ -1,9 +1,25 @@
 //! Closed generated-enum mappings for authored generic effects.
 
+use starclock_combat::formula::model::CombatElement;
 use starclock_combat::{
     DispelCategory, DurationClock, EffectCategory, EffectSnapshotPolicy, EffectStackPolicy,
     EffectTeardownPolicy, EffectTickPhase,
 };
+
+pub(super) fn lower_element(
+    value: crate::generated::combat_element::CombatElement,
+) -> CombatElement {
+    use crate::generated::combat_element::CombatElement as V;
+    match value {
+        V::Physical => CombatElement::Physical,
+        V::Fire => CombatElement::Fire,
+        V::Ice => CombatElement::Ice,
+        V::Lightning => CombatElement::Lightning,
+        V::Wind => CombatElement::Wind,
+        V::Quantum => CombatElement::Quantum,
+        V::Imaginary => CombatElement::Imaginary,
+    }
+}
 
 pub(super) fn lower_effect_category(
     value: crate::generated::effect_category::EffectCategory,

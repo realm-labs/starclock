@@ -5,6 +5,7 @@ use std::collections::BTreeSet;
 use starclock_combat::{
     AbilityId, EffectDefinitionId, NativeHandlerId, PresenceState, ProgramId, Rounding, SelectorId,
     UnitDefinitionId,
+    catalog::action::ReactionBoundary,
     formula::model::{CombatElement, DamageClass},
     rule::{
         evaluate::ProgramLookup,
@@ -21,8 +22,8 @@ use crate::{
     generated::{
         self, SoraConfig, combat_element, damage_class, effect_chance_policy, operation_payload,
         presence_state, program_step_node, queued_action_owner_policy,
-        queued_action_payment_policy, resource_kind, resource_update_kind, rounding_policy,
-        state_slot_update_kind,
+        queued_action_payment_policy, reaction_boundary, resource_kind, resource_update_kind,
+        rounding_policy, state_slot_update_kind,
     },
 };
 
@@ -376,6 +377,7 @@ fn lower_operation(
             actor_selector_id,
             priority,
             forced_use,
+            reaction_boundary,
             owner_policy,
             payment_policy,
             payment_resource_key,
@@ -387,6 +389,7 @@ fn lower_operation(
                 domain_fail(format!("operation {} priority does not fit i16", row.id))
             })?),
             forced_use: *forced_use,
+            boundary: lower_reaction_boundary(*reaction_boundary)?,
             owner: lower_queue_owner(*owner_policy),
             payment: lower_queue_payment(*payment_policy, payment_resource_key.as_deref())?,
         },
@@ -566,6 +569,22 @@ fn lower_queue_payment(
             .ok_or_else(|| domain_fail("queued team-resource payment lacks its authored key")),
         _ => Err(domain_fail(
             "queued payment policy/key combination is invalid",
+        )),
+    }
+}
+
+fn lower_reaction_boundary(
+    value: Option<reaction_boundary::ReactionBoundary>,
+) -> Result<ReactionBoundary, CatalogLoadError> {
+    match value {
+        Some(reaction_boundary::ReactionBoundary::AfterHit) => Ok(ReactionBoundary::AfterHit),
+        Some(reaction_boundary::ReactionBoundary::AfterPhase) => Ok(ReactionBoundary::AfterPhase),
+        Some(reaction_boundary::ReactionBoundary::AfterAction) => Ok(ReactionBoundary::AfterAction),
+        Some(reaction_boundary::ReactionBoundary::BeforeTimeline) => {
+            Ok(ReactionBoundary::BeforeTimeline)
+        }
+        None => Err(domain_fail(
+            "queued action lacks its explicit reaction boundary",
         )),
     }
 }

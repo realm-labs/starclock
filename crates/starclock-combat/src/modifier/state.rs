@@ -23,4 +23,20 @@ impl ModifierStore {
     pub(crate) fn canonical_instances(&self) -> impl ExactSizeIterator<Item = &ActiveModifier> {
         self.entries.values()
     }
+
+    pub(crate) fn remove_by_effect(
+        &mut self,
+        effect: crate::EffectInstanceId,
+    ) -> Vec<crate::ModifierInstanceId> {
+        let ids = self
+            .entries
+            .values()
+            .filter(|instance| instance.source_effect == Some(effect))
+            .map(|instance| instance.instance)
+            .collect::<Vec<_>>();
+        for id in &ids {
+            self.entries.remove(id);
+        }
+        ids
+    }
 }

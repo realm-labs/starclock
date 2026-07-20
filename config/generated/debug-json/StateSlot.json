@@ -1,6 +1,100 @@
 {
   "table": {
     "name": "StateSlot",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "id": {
+            "Integer": 24003
+          },
+          "initial_expression_id": {
+            "Integer": 24001
+          },
+          "maximum_expression_id": {
+            "Integer": 24006
+          },
+          "minimum_expression_id": {
+            "Integer": 24001
+          },
+          "owner_scope": {
+            "String": "Battle"
+          },
+          "persistence": {
+            "String": "ScopeLifetime"
+          },
+          "rule_id": {
+            "Integer": 24002
+          },
+          "value_kind": {
+            "String": "BoundedInteger"
+          },
+          "visibility": {
+            "String": "Public"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24109
+          },
+          "initial_expression_id": {
+            "Integer": 24114
+          },
+          "maximum_expression_id": {
+            "Integer": 24115
+          },
+          "minimum_expression_id": {
+            "Integer": 24114
+          },
+          "owner_scope": {
+            "String": "Turn"
+          },
+          "persistence": {
+            "String": "ScopeLifetime"
+          },
+          "rule_id": {
+            "Integer": 24108
+          },
+          "value_kind": {
+            "String": "BoundedInteger"
+          },
+          "visibility": {
+            "String": "Owner"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24206
+          },
+          "initial_expression_id": {
+            "Integer": 24201
+          },
+          "maximum_expression_id": {
+            "Integer": 24201
+          },
+          "minimum_expression_id": {
+            "Integer": 24202
+          },
+          "owner_scope": {
+            "String": "Battle"
+          },
+          "persistence": {
+            "String": "OwnerLifetime"
+          },
+          "rule_id": {
+            "Integer": 24205
+          },
+          "value_kind": {
+            "String": "BoundedInteger"
+          },
+          "visibility": {
+            "String": "Owner"
+          }
+        }
+      }
+    ]
   }
 }

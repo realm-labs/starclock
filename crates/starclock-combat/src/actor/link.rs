@@ -1,6 +1,6 @@
 use crate::{
-    AbilityId, ActionGauge, FormationIndex, Hp, PresenceState, ResolvedCombatantSpec,
-    SourceDefinitionId, Speed, TimelineActorId, UnitDefinitionId, UnitId,
+    AbilityId, ActionGauge, FormationIndex, Hp, PresenceState, Ratio, ResolvedCombatantSpec,
+    Scalar, SourceDefinitionId, Speed, TimelineActorId, UnitDefinitionId, UnitId,
 };
 
 /// Shared semantic role of an entity linked to a combat unit.
@@ -39,6 +39,63 @@ pub enum WaveLinkPolicy {
     ResetGauge = 1,
     /// Depart/deactivate the entity at wave end.
     Depart = 2,
+}
+
+/// One checked owner-stat formula used to instantiate a linked combatant.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct LinkedStatScaling {
+    owner_ratio: Ratio,
+    flat: Scalar,
+}
+
+impl LinkedStatScaling {
+    #[must_use]
+    pub const fn new(owner_ratio: Ratio, flat: Scalar) -> Self {
+        Self { owner_ratio, flat }
+    }
+    pub(crate) fn resolve(self, owner: Scalar) -> Result<Scalar, crate::NumericError> {
+        self.owner_ratio
+            .checked_apply(owner, crate::Rounding::NearestTiesEven)?
+            .checked_add(self.flat)
+    }
+}
+
+/// Complete owner-scaled stat template for a linked combatant.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct LinkedOwnerScaling {
+    hp: LinkedStatScaling,
+    attack: LinkedStatScaling,
+    defense: LinkedStatScaling,
+    speed: LinkedStatScaling,
+}
+
+impl LinkedOwnerScaling {
+    #[must_use]
+    pub const fn new(
+        hp: LinkedStatScaling,
+        attack: LinkedStatScaling,
+        defense: LinkedStatScaling,
+        speed: LinkedStatScaling,
+    ) -> Self {
+        Self {
+            hp,
+            attack,
+            defense,
+            speed,
+        }
+    }
+    pub(crate) const fn hp(self) -> LinkedStatScaling {
+        self.hp
+    }
+    pub(crate) const fn attack(self) -> LinkedStatScaling {
+        self.attack
+    }
+    pub(crate) const fn defense(self) -> LinkedStatScaling {
+        self.defense
+    }
+    pub(crate) const fn speed(self) -> LinkedStatScaling {
+        self.speed
+    }
 }
 
 /// Runtime entity addressed by one explicit owner link.
@@ -85,6 +142,7 @@ pub struct LinkedUnitDefinition {
     owner_defeat: OwnerLinkPolicy,
     owner_departure: OwnerLinkPolicy,
     wave: WaveLinkPolicy,
+    owner_scaling: Option<LinkedOwnerScaling>,
 }
 
 impl LinkedUnitDefinition {
@@ -125,7 +183,15 @@ impl LinkedUnitDefinition {
             owner_defeat,
             owner_departure,
             wave,
+            owner_scaling: None,
         })
+    }
+
+    /// Derives linked-unit base stats from the owner when the summon is created.
+    #[must_use]
+    pub const fn with_owner_scaling(mut self, scaling: LinkedOwnerScaling) -> Self {
+        self.owner_scaling = Some(scaling);
+        self
     }
 
     pub(crate) const fn combatant(&self) -> &ResolvedCombatantSpec {
@@ -158,6 +224,9 @@ impl LinkedUnitDefinition {
     pub(crate) const fn wave(&self) -> WaveLinkPolicy {
         self.wave
     }
+    pub(crate) const fn owner_scaling(&self) -> Option<LinkedOwnerScaling> {
+        self.owner_scaling
+    }
 }
 
 /// Catalog-owned linked combatant resolved by a typed Rule IR summon.
@@ -175,7 +244,21 @@ impl LinkedUnitCatalogDefinition {
     pub(crate) const fn id(&self) -> crate::UnitDefinitionId {
         self.id
     }
-    pub(crate) const fn definition(&self) -> &LinkedUnitDefinition {
+    #[must_use]
+    pub const fn unit(&self) -> crate::UnitDefinitionId {
+        self.id
+    }
+    #[must_use]
+    pub fn abilities(&self) -> &[crate::AbilityId] {
+        self.definition.combatant().abilities()
+    }
+    #[must_use]
+    pub fn rule_bundles(&self) -> &[crate::RuleBundleId] {
+        self.definition.combatant().rule_bundles()
+    }
+    /// Returns the executable linked-unit runtime definition.
+    #[must_use]
+    pub const fn definition(&self) -> &LinkedUnitDefinition {
         &self.definition
     }
 }
@@ -189,6 +272,7 @@ pub struct CountdownDefinition {
     owner_defeat: OwnerLinkPolicy,
     owner_departure: OwnerLinkPolicy,
     wave: WaveLinkPolicy,
+    end_transformation: bool,
 }
 
 impl CountdownDefinition {
@@ -208,9 +292,16 @@ impl CountdownDefinition {
             owner_defeat,
             owner_departure,
             wave,
+            end_transformation: false,
         }
     }
-    pub(crate) const fn ability(self) -> AbilityId {
+    #[must_use]
+    pub const fn with_end_transformation(mut self) -> Self {
+        self.end_transformation = true;
+        self
+    }
+    #[must_use]
+    pub const fn ability(self) -> AbilityId {
         self.ability
     }
     pub(crate) const fn initial_gauge(self) -> ActionGauge {
@@ -227,6 +318,10 @@ impl CountdownDefinition {
     }
     pub(crate) const fn wave(self) -> WaveLinkPolicy {
         self.wave
+    }
+    #[must_use]
+    pub const fn ends_transformation(self) -> bool {
+        self.end_transformation
     }
 }
 
@@ -249,7 +344,9 @@ impl CountdownCatalogDefinition {
     pub(crate) const fn code(self) -> u32 {
         self.code
     }
-    pub(crate) const fn definition(self) -> CountdownDefinition {
+    /// Returns the executable countdown runtime definition.
+    #[must_use]
+    pub const fn definition(self) -> CountdownDefinition {
         self.definition
     }
 }

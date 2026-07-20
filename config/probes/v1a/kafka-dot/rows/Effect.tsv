@@ -1,2 +1,2 @@
-id	category	dispel_category	stack_limit	duration_expression_id	duration_clock	tick_phase	stack_policy	magnitude_comparator_expression_id	snapshot_policy	teardown_policy	application_priority
-4	Dot	DispellableDebuff	1	8	TargetTurnStart	TurnStart	Refresh	10	Dynamic	RemoveWithOwner	0
+id	category	dispel_category	stack_limit	duration_expression_id	duration_clock	tick_phase	stack_policy	magnitude_comparator_expression_id	dot_element	detonation_tag_identity_id	snapshot_policy	teardown_policy	application_priority
+4	Dot	DispellableDebuff	1	8	TargetTurnStart	TurnStart	Refresh	10	Lightning		Dynamic	RemoveWithOwner	0

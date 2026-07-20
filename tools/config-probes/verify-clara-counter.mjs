@@ -26,7 +26,7 @@ assertSameTree(first.debug, second.debug, "independent Clara probe debug exports
 
 const counts = Object.fromEntries(fs.readdirSync(first.debug).filter((file) => file.endsWith(".json")).sort().map((file) => [path.basename(file, ".json"), readJson(path.join(first.debug, file)).table.rows.length]));
 const expectedCounts = { Ability: 1, AbilityPhase: 1, ConditionExpression: 1, ConfigManifest: 1, ContentEvidenceBinding: 6, ContentIdentity: 6, EventFilter: 1, EvidenceRecord: 4, Operation: 2, Program: 1, ProgramStep: 2, RuleDefinition: 1, RuleTrigger: 1, Selector: 2, SourceRecord: 1, StateSlot: 1, ValueExpression: 3 };
-assert(Object.keys(counts).length === 80, "Clara probe does not export all production tables");
+assert(Object.keys(counts).length === 82, "Clara probe does not export all production tables");
 for (const [name, count] of Object.entries(counts)) assert(count === (expectedCounts[name] ?? 0), `${name} Clara probe row count differs`);
 
 const golden = {
@@ -37,7 +37,7 @@ const golden = {
   ultimate_text_sha256: "d063025569b6ddb708c7f98725e943aa3cc87979736769b3d05a2ff9eadfe159",
   skill_text_sha256: "25c38d455922b5cb2bf9beb377fe2099c9bcbd44aadd7a4b46efe3b531f69e2d",
   fixture_contract_sha256: "d50deb87c40a97805e449a35a8d53b193e9a3cb88f9266e862fcbe1fceeee440",
-  table_count: 80,
+  table_count: 82,
   populated_table_count: Object.values(counts).filter((count) => count > 0).length,
   identity_count: counts.ContentIdentity,
   production_coverage_credit: 0,

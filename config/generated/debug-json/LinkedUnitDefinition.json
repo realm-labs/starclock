@@ -1,0 +1,75 @@
+{
+  "table": {
+    "name": "LinkedUnitDefinition",
+    "rows": [
+      {
+        "values": {
+          "ability_ids": {
+            "List": [
+              {
+                "Integer": 24610
+              }
+            ]
+          },
+          "action_ability_id": {
+            "Integer": 24610
+          },
+          "atk_flat_decimal": {
+            "String": "0"
+          },
+          "atk_owner_ratio_decimal": {
+            "String": "1"
+          },
+          "combatant_digest_sha256": {
+            "String": "af709d10048b253540fe9439ce44beff539202c1336ebd7aee9a8e00c7b3d371"
+          },
+          "def_flat_decimal": {
+            "String": "0"
+          },
+          "def_owner_ratio_decimal": {
+            "String": "1"
+          },
+          "formation_index": {
+            "Integer": 8
+          },
+          "hp_flat_decimal": {
+            "String": "720"
+          },
+          "hp_owner_ratio_decimal": {
+            "String": "0.66"
+          },
+          "id": {
+            "Integer": 24505
+          },
+          "initial_gauge_decimal": {
+            "String": "10000"
+          },
+          "kind": {
+            "String": "Memosprite"
+          },
+          "owner_defeat_policy": {
+            "String": "Depart"
+          },
+          "owner_departure_policy": {
+            "String": "Depart"
+          },
+          "presence": {
+            "String": "Linked"
+          },
+          "source_definition_identity_id": {
+            "Integer": 20005
+          },
+          "spd_flat_decimal": {
+            "String": "35"
+          },
+          "spd_owner_ratio_decimal": {
+            "String": "0"
+          },
+          "wave_policy": {
+            "String": "Depart"
+          }
+        }
+      }
+    ]
+  }
+}

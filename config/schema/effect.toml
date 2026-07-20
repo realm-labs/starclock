@@ -69,6 +69,14 @@ name = "magnitude_comparator_expression_id"
 type = "optional<ref<ValueExpression.id>>"
 
 [[tables.fields]]
+name = "dot_element"
+type = "optional<enum<CombatElement>>"
+
+[[tables.fields]]
+name = "detonation_tag_identity_id"
+type = "optional<ref<ContentIdentity.id>>"
+
+[[tables.fields]]
 name = "snapshot_policy"
 type = "enum<SnapshotPolicy>"
 

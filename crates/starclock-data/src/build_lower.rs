@@ -57,10 +57,10 @@ pub(super) struct CharacterAbilityDefinition {
 
 #[derive(Debug)]
 pub(super) struct CharacterResourceDefinition {
-    sequence: u16,
-    stable_key: Box<str>,
-    maximum: Scalar,
-    initial: Scalar,
+    pub(super) sequence: u16,
+    pub(super) stable_key: Box<str>,
+    pub(super) maximum: Scalar,
+    pub(super) initial: Scalar,
 }
 
 #[derive(Debug)]
@@ -489,6 +489,8 @@ fn lower_traces(
         require_identity(identities, id, IdentityKind::Other, mode)?;
         let mut prerequisites = row
             .prerequisite_trace_ids
+            .as_deref()
+            .unwrap_or(&[])
             .iter()
             .map(|value| positive(*value, "TraceNode.prerequisite_trace_ids"))
             .collect::<Result<Vec<_>, _>>()?;

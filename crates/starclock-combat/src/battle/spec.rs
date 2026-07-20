@@ -546,9 +546,10 @@ pub enum TeamResourceWavePolicy {
 }
 
 /// One generic team-owned resource definition such as a shared subsystem tally.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct KeyedTeamResourceSpec {
     id: crate::SourceDefinitionId,
+    stable_key: Option<Box<str>>,
     initial: u16,
     maximum: u16,
     wave: TeamResourceWavePolicy,
@@ -565,6 +566,7 @@ impl KeyedTeamResourceSpec {
         if initial <= maximum {
             Some(Self {
                 id,
+                stable_key: None,
                 initial,
                 maximum,
                 wave,
@@ -573,20 +575,35 @@ impl KeyedTeamResourceSpec {
             None
         }
     }
+    /// Binds the numeric resource to the exact Rule IR semantic key.
     #[must_use]
-    pub const fn id(self) -> crate::SourceDefinitionId {
-        self.id
+    pub fn with_stable_key(mut self, stable_key: impl Into<Box<str>>) -> Option<Self> {
+        let stable_key = stable_key.into();
+        if stable_key.trim().is_empty() {
+            return None;
+        }
+        self.stable_key = Some(stable_key);
+        Some(self)
     }
     #[must_use]
-    pub const fn initial(self) -> u16 {
+    pub const fn id(&self) -> crate::SourceDefinitionId {
+        self.id
+    }
+    /// Returns the Rule IR semantic key when this resource is named.
+    #[must_use]
+    pub fn stable_key(&self) -> Option<&str> {
+        self.stable_key.as_deref()
+    }
+    #[must_use]
+    pub const fn initial(&self) -> u16 {
         self.initial
     }
     #[must_use]
-    pub const fn maximum(self) -> u16 {
+    pub const fn maximum(&self) -> u16 {
         self.maximum
     }
     #[must_use]
-    pub const fn wave(self) -> TeamResourceWavePolicy {
+    pub const fn wave(&self) -> TeamResourceWavePolicy {
         self.wave
     }
 }
@@ -628,7 +645,17 @@ impl TeamResourceSpec {
     #[must_use]
     pub fn with_keyed(mut self, mut keyed: Vec<KeyedTeamResourceSpec>) -> Option<Self> {
         keyed.sort_by_key(|entry| entry.id);
-        if keyed.windows(2).any(|pair| pair[0].id == pair[1].id) {
+        if keyed.windows(2).any(|pair| pair[0].id == pair[1].id)
+            || keyed
+                .iter()
+                .filter_map(|entry| entry.stable_key())
+                .collect::<std::collections::BTreeSet<_>>()
+                .len()
+                != keyed
+                    .iter()
+                    .filter(|entry| entry.stable_key.is_some())
+                    .count()
+        {
             return None;
         }
         self.keyed = keyed.into_boxed_slice();

@@ -52,8 +52,9 @@ pub use numeric::scalar::{Ratio, Scalar};
 pub use action::model::ActionOrigin;
 pub use actor::link::{
     CountdownCatalogDefinition, CountdownDefinition, LinkedEntity, LinkedEntityKind,
-    LinkedUnitCatalogDefinition, LinkedUnitDefinition, OwnerLinkPolicy, ReviveDefinition,
-    ReviveGaugePolicy, TransformEndPolicy, TransformationDefinition, WaveLinkPolicy,
+    LinkedOwnerScaling, LinkedStatScaling, LinkedUnitCatalogDefinition, LinkedUnitDefinition,
+    OwnerLinkPolicy, ReviveDefinition, ReviveGaugePolicy, TransformEndPolicy,
+    TransformationDefinition, WaveLinkPolicy,
 };
 pub use actor::model::{LifeState, PresenceState};
 pub use battle::aggregate::Battle;
@@ -78,16 +79,16 @@ pub use command::model::{
 pub use effect::model::{
     ControlledAction, DispelCategory, DotDefinition, DotDetonationDefinition, DurationClock,
     EffectApplicationDefinition, EffectCategory, EffectChancePolicy, EffectRemovalDefinition,
-    EffectRuntimeDefinition, EffectSnapshotPolicy, EffectStackPolicy, EffectTeardownPolicy,
-    EffectTickPhase,
+    EffectRuntimeDefinition, EffectRuntimeTemplate, EffectSnapshotPolicy, EffectStackPolicy,
+    EffectTeardownPolicy, EffectTickPhase,
 };
 pub use event::cause::{Cause, CauseActor};
 pub use event::model::{
     ActionEventData, BattleEvent, BattleEventData, BattleEventKind, BreakDamageEventData,
     BreakDamageKind, DamageEventData, DamageKind, DecisionEventData, EffectEventData,
     EnemyPhaseEventData, FaultEventData, HealEventData, HitEventData, HpConsumptionEventData,
-    PhaseEventData, ResourceEventData, RuleStateEventData, ShieldEventData, SkillPointPayer,
-    ToughnessEventData, TurnEventData, UnitEventData, WaveEventData,
+    PhaseEventData, ResourceEventData, RuleSignalEventData, RuleStateEventData, ShieldEventData,
+    SkillPointPayer, ToughnessEventData, TurnEventData, UnitEventData, WaveEventData,
 };
 pub use timeline::state::InterruptWindowKind;
 pub use toughness::model::{
@@ -98,4 +99,4 @@ pub use toughness::model::{
 /// Compatibility identifier for authoritative numeric representation and rounding.
 pub const NUMERIC_POLICY_REVISION: &str = "fixed-i64-6dp-v1";
 /// Compatibility identifier for canonical battle-state hashing.
-pub const STATE_HASH_REVISION: &str = "sha256-v2";
+pub const STATE_HASH_REVISION: &str = "sha256-v3";

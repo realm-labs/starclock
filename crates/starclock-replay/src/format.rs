@@ -17,7 +17,7 @@ pub const REPLAY_FORMAT_VERSION: u32 = 1;
 /// Initial domain-payload schema revision.
 pub const REPLAY_SCHEMA_VERSION: u32 = 1;
 /// Full canonical state hash policy revision.
-pub const STATE_HASH_REVISION: &str = "sha256-v2";
+pub const STATE_HASH_REVISION: &str = "sha256-v3";
 /// Maximum bytes in any compatibility/header text identity.
 pub const MAX_HEADER_TEXT_BYTES: u32 = 128;
 /// Maximum participant/build digests bound into one entry header.

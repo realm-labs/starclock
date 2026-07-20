@@ -106,7 +106,7 @@ function verifySchemaLock(file) {
     assert(field?.ty?.Ref?.table === target, `${tableName}.${fieldName} is not a typed ${target} reference`);
   }
   const prerequisites = tables.get("TraceNode").fields.find((field) => field.name === "prerequisite_trace_ids");
-  assert(prerequisites.ty.List.Ref.table === "TraceNode", "Trace prerequisites are not typed self-references");
+  assert(prerequisites.ty.Optional.List.Ref.table === "TraceNode", "Trace prerequisites are not typed optional self-reference lists");
 }
 
 function verifyFixtureOutput(directory) {

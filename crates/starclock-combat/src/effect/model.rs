@@ -2,7 +2,9 @@
 
 use crate::{
     EffectDefinitionId, Probability, Ratio, Scalar, SourceDefinitionId,
-    catalog::action::OrdinaryDamageDefinition, formula::model::CombatElement,
+    catalog::action::{OrdinaryDamageDefinition, OrdinaryDamageMultipliers},
+    formula::model::{CombatElement, DamageClass},
+    rule::model::ValueExpr,
 };
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -151,6 +153,128 @@ pub struct EffectRuntimeDefinition {
     tags: Box<[SourceDefinitionId]>,
     controlled_actions: Box<[ControlledAction]>,
     dot: Option<DotDefinition>,
+}
+
+/// Authored effect semantics whose expression-backed values are resolved at application time.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct EffectRuntimeTemplate {
+    category: EffectCategory,
+    dispel: DispelCategory,
+    stack_limit: u16,
+    duration: Option<ValueExpr>,
+    duration_clock: DurationClock,
+    tick_phase: EffectTickPhase,
+    stack_policy: EffectStackPolicy,
+    magnitude: Option<ValueExpr>,
+    snapshot_policy: EffectSnapshotPolicy,
+    teardown_policy: EffectTeardownPolicy,
+    application_priority: i32,
+    dot: Option<(CombatElement, Option<SourceDefinitionId>)>,
+}
+
+impl EffectRuntimeTemplate {
+    #[must_use]
+    pub fn new(
+        category: EffectCategory,
+        dispel: DispelCategory,
+        stack_limit: u16,
+        duration: Option<ValueExpr>,
+        duration_clock: DurationClock,
+        tick_phase: EffectTickPhase,
+        stack_policy: EffectStackPolicy,
+    ) -> Option<Self> {
+        if stack_limit == 0 || (duration_clock == DurationClock::Permanent) != duration.is_none() {
+            return None;
+        }
+        Some(Self {
+            category,
+            dispel,
+            stack_limit,
+            duration,
+            duration_clock,
+            tick_phase,
+            stack_policy,
+            magnitude: None,
+            snapshot_policy: EffectSnapshotPolicy::Dynamic,
+            teardown_policy: EffectTeardownPolicy::RemoveWithOwner,
+            application_priority: 0,
+            dot: None,
+        })
+    }
+
+    #[must_use]
+    pub fn with_comparison(mut self, magnitude: Option<ValueExpr>, priority: i32) -> Self {
+        self.magnitude = magnitude;
+        self.application_priority = priority;
+        self
+    }
+
+    #[must_use]
+    pub const fn with_snapshot(mut self, policy: EffectSnapshotPolicy) -> Self {
+        self.snapshot_policy = policy;
+        self
+    }
+
+    #[must_use]
+    pub const fn with_teardown(mut self, policy: EffectTeardownPolicy) -> Self {
+        self.teardown_policy = policy;
+        self
+    }
+
+    #[must_use]
+    pub fn with_dot(
+        mut self,
+        element: CombatElement,
+        detonation_tag: Option<SourceDefinitionId>,
+    ) -> Option<Self> {
+        if self.category != EffectCategory::Dot {
+            return None;
+        }
+        self.dot = Some((element, detonation_tag));
+        Some(self)
+    }
+
+    #[must_use]
+    pub const fn duration_expression(&self) -> Option<&ValueExpr> {
+        self.duration.as_ref()
+    }
+
+    #[must_use]
+    pub const fn magnitude_expression(&self) -> Option<&ValueExpr> {
+        self.magnitude.as_ref()
+    }
+
+    /// Materializes immutable runtime state from values evaluated for one target.
+    #[must_use]
+    pub fn resolve(
+        &self,
+        duration: Option<u16>,
+        magnitude: Scalar,
+    ) -> Option<EffectRuntimeDefinition> {
+        let mut runtime = EffectRuntimeDefinition::new(
+            self.category,
+            self.dispel,
+            self.stack_limit,
+            duration,
+            self.duration_clock,
+            self.tick_phase,
+            self.stack_policy,
+        )?
+        .with_comparison(magnitude, self.application_priority)
+        .with_snapshot(self.snapshot_policy)
+        .with_teardown(self.teardown_policy);
+        if self.category == EffectCategory::Dot {
+            let (element, detonation_tag) = self.dot?;
+            let formula = OrdinaryDamageDefinition::new(
+                magnitude,
+                OrdinaryDamageMultipliers::new([Ratio::ONE; 9]).ok()?,
+            )
+            .ok()?
+            .with_class(DamageClass::Dot);
+            runtime = runtime.with_dot(DotDefinition::new(formula, element, detonation_tag))?;
+        }
+        Some(runtime)
+    }
 }
 
 impl EffectRuntimeDefinition {

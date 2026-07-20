@@ -3,6 +3,18 @@ name = "OperationFaultPolicy"
 values = ["Rollback", "CommitFault"]
 
 [[enums]]
+name = "LinkedUnitKind"
+values = ["Summon", "Memosprite", "SharedActor"]
+
+[[enums]]
+name = "OwnerLinkPolicy"
+values = ["Persist", "Depart", "Defeat"]
+
+[[enums]]
+name = "WaveLinkPolicy"
+values = ["Persist", "ResetGauge", "Depart"]
+
+[[enums]]
 name = "SnapshotBoundary"
 values = ["Dynamic", "OnApplication", "OnActionStart", "OnPhaseStart", "OnHitStart", "EventSnapshot"]
 
@@ -33,6 +45,10 @@ values = ["Actor", "CauseOwner", "CauseApplier"]
 [[enums]]
 name = "QueuedActionPaymentPolicy"
 values = ["TeamSkillPoints", "Suppressed", "TeamResource"]
+
+[[enums]]
+name = "ReactionBoundary"
+values = ["AfterHit", "AfterPhase", "AfterAction", "BeforeTimeline"]
 
 [[enums]]
 name = "ReplacementProposalKind"
@@ -284,6 +300,9 @@ range = [-1000000, 1000000]
 name = "forced_use"
 type = "bool"
 [[unions.variants.fields]]
+name = "reaction_boundary"
+type = "optional<enum<ReactionBoundary>>"
+[[unions.variants.fields]]
 name = "owner_policy"
 type = "optional<enum<QueuedActionOwnerPolicy>>"
 [[unions.variants.fields]]
@@ -506,6 +525,152 @@ type = "union<OperationPayload>"
 name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
+
+[[tables]]
+name = "LinkedUnitDefinition"
+mode = "map"
+key = "id"
+
+[tables.source]
+format = "xlsx"
+file = "LinkedUnitDefinition.xlsx"
+
+[[tables.fields]]
+name = "id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "source_definition_identity_id"
+type = "ref<ContentIdentity.id>"
+
+[[tables.fields]]
+name = "kind"
+type = "enum<LinkedUnitKind>"
+
+[[tables.fields]]
+name = "presence"
+type = "enum<PresenceState>"
+
+[[tables.fields]]
+name = "ability_ids"
+type = "list<ref<Ability.id>>"
+parser = { kind = "split", separator = "|" }
+length = [1, 32]
+
+[[tables.fields]]
+name = "action_ability_id"
+type = "optional<ref<Ability.id>>"
+
+[[tables.fields]]
+name = "formation_index"
+type = "i32"
+range = [0, 63]
+
+[[tables.fields]]
+name = "initial_gauge_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "hp_owner_ratio_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "hp_flat_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "atk_owner_ratio_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "atk_flat_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "def_owner_ratio_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "def_flat_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "spd_owner_ratio_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "spd_flat_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "owner_defeat_policy"
+type = "enum<OwnerLinkPolicy>"
+
+[[tables.fields]]
+name = "owner_departure_policy"
+type = "enum<OwnerLinkPolicy>"
+
+[[tables.fields]]
+name = "wave_policy"
+type = "enum<WaveLinkPolicy>"
+
+[[tables.fields]]
+name = "combatant_digest_sha256"
+type = "string"
+length = [64, 64]
+
+[[tables]]
+name = "CountdownDefinition"
+mode = "map"
+key = "code"
+
+[tables.source]
+format = "xlsx"
+file = "CountdownDefinition.xlsx"
+
+[[tables.fields]]
+name = "code"
+type = "i32"
+range = [1, 2147483647]
+
+[[tables.fields]]
+name = "ability_id"
+type = "ref<Ability.id>"
+
+[[tables.fields]]
+name = "initial_gauge_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "speed_decimal"
+type = "string"
+length = [1, 32]
+
+[[tables.fields]]
+name = "owner_defeat_policy"
+type = "enum<OwnerLinkPolicy>"
+
+[[tables.fields]]
+name = "owner_departure_policy"
+type = "enum<OwnerLinkPolicy>"
+
+[[tables.fields]]
+name = "wave_policy"
+type = "enum<WaveLinkPolicy>"
+
+[[tables.fields]]
+name = "end_transformation"
+type = "bool"
 
 [[tables]]
 name = "OperationNativeArgument"

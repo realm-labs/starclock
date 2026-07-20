@@ -59,6 +59,9 @@ impl Battle {
             let spawn = sequences.spawn();
             let combatant = participant.combatant();
             let enemy = enemy_runtime(&catalog, encounter_slot(&catalog, &spec, participant));
+            let definition = catalog
+                .unit(combatant.form())
+                .expect("battle build validated unit definition");
             units.insert(UnitState {
                 id: unit_id,
                 spawn,
@@ -95,6 +98,17 @@ impl Battle {
                 abilities: combatant.abilities().into(),
                 rule_bundles: combatant.rule_bundles().into(),
                 modifiers: combatant.modifiers().into(),
+                resources: definition
+                    .resources()
+                    .iter()
+                    .map(|resource| crate::actor::store::CharacterResourceState {
+                        stable_key: resource.stable_key().into(),
+                        initial: resource.initial(),
+                        current: resource.initial(),
+                        maximum: resource.maximum(),
+                    })
+                    .collect::<Vec<_>>()
+                    .into_boxed_slice(),
                 digest: combatant.digest(),
                 transformation: None,
                 enemy,
@@ -116,6 +130,7 @@ impl Battle {
                     source_class: source.class(),
                     insertion_sequence: instance.get(),
                     application_action: None,
+                    source_effect: None,
                     slots: Box::new([]),
                     captured_value: None,
                     captured_stats: Box::new([]),
@@ -153,6 +168,7 @@ impl Battle {
                     .iter()
                     .map(|entry| KeyedTeamResourceState {
                         id: entry.id(),
+                        stable_key: entry.stable_key().map(Into::into),
                         initial: entry.initial(),
                         current: entry.initial(),
                         maximum: entry.maximum(),
@@ -171,6 +187,7 @@ impl Battle {
                     .iter()
                     .map(|entry| KeyedTeamResourceState {
                         id: entry.id(),
+                        stable_key: entry.stable_key().map(Into::into),
                         initial: entry.initial(),
                         current: entry.initial(),
                         maximum: entry.maximum(),

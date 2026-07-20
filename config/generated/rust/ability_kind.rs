@@ -15,6 +15,7 @@ pub enum AbilityKind {
     Memosprite,
     Passive,
     Entry,
+    Countdown,
 }
 
 impl super::runtime::SoraDecode for AbilityKind {
@@ -35,6 +36,7 @@ impl super::runtime::SoraDecode for AbilityKind {
             10 => Ok(Self::Memosprite),
             11 => Ok(Self::Passive),
             12 => Ok(Self::Entry),
+            13 => Ok(Self::Countdown),
             value => Err(super::runtime::SoraReadError::new(format!(
                 "invalid enum ordinal {} for AbilityKind",
                 value

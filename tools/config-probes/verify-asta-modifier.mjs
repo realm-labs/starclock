@@ -26,7 +26,7 @@ assertSameTree(first.debug, second.debug, "independent Asta probe debug exports 
 
 const counts = Object.fromEntries(fs.readdirSync(first.debug).filter((file) => file.endsWith(".json")).sort().map((file) => [path.basename(file, ".json"), readJson(path.join(first.debug, file)).table.rows.length]));
 const expectedCounts = { ConfigManifest: 1, ContentEvidenceBinding: 7, ContentIdentity: 7, Effect: 1, EvidenceRecord: 4, ModifierDefinition: 1, ModifierStackingGroup: 1, Operation: 1, Program: 1, ProgramStep: 1, RuleDefinition: 1, Selector: 3, SourceRecord: 1, StateSlot: 1, ValueExpression: 8 };
-assert(Object.keys(counts).length === 80, "Asta probe does not export all production tables");
+assert(Object.keys(counts).length === 82, "Asta probe does not export all production tables");
 for (const [name, count] of Object.entries(counts)) assert(count === (expectedCounts[name] ?? 0), `${name} probe row count differs`);
 
 const golden = {
@@ -36,7 +36,7 @@ const golden = {
   source_payload_sha256: "eca2d92a18987e4bd41ccdc5b307a858e03e819d2317b1825da22a7e65cc2ace",
   astrometry_text_sha256: "b00dc7630f0abc0ef32599775006374faf5a5bf13298b6f9f84d7747ec32ce94",
   astral_blessing_text_sha256: "32d8604a1ca3cd07b3deb3975522eff72678da0fafee5bcc4cafcc2e0847851a",
-  table_count: 80,
+  table_count: 82,
   populated_table_count: Object.values(counts).filter((count) => count > 0).length,
   identity_count: counts.ContentIdentity,
   production_coverage_credit: 0,

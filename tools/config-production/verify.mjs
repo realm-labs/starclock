@@ -41,9 +41,9 @@ if (bless) {
     sora_cli_version: toolPolicy.version,
     reference_pack_sha256: "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
     goal_manifest_sha256: "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19",
-    identity_count: 424,
-    enabled_identity_count: 171,
-    table_count: 80,
+    identity_count: 750,
+    enabled_identity_count: 503,
+    table_count: 82,
     output_digest: outputDigest,
     files: stable,
   }, null, 2)}\n`);
@@ -100,22 +100,30 @@ function verifyBootstrapReproduction() {
 
 function verifyGeneratedOutput(directory) {
   const schema = readJson(path.join(directory, "schema.lock")).schema;
-  assert(schema.package === "starclock_production_config" && schema.tables.length === 80, "production schema lock differs");
+  assert(schema.package === "starclock_production_config" && schema.tables.length === 82, "production schema lock differs");
   const debug = path.join(directory, "debug-json");
   const counts = new Map(schema.tables.map((table) => [table.name, rows(debug, table.name).length]));
   assert(counts.get("SourceRecord") === 2 && counts.get("EvidenceRecord") === 3, "production provenance counts differ");
-  assert(counts.get("ContentIdentity") === 424 && counts.get("ContentEvidenceBinding") === 454 && counts.get("ConfigManifest") === 1, "production identity counts differ");
+  assert(counts.get("ContentIdentity") === 754 && counts.get("ContentEvidenceBinding") === 790 && counts.get("ConfigManifest") === 1, "production identity counts differ");
   for (const [name, expected] of Object.entries({
-    Ability: 63, AiGraph: 17, EnemyTemplate: 17, EnemyVariant: 17, Encounter: 6,
-    StandardProfile: 1, StandardScenario: 6, HitPlan: 42,
-  })) assert(counts.get(name) === expected, `${name} Standard-v1 count differs`);
-  for (const name of ["Character", "CharacterStat", "LightCone", "LightConeStat", "CharacterTrace", "CharacterEidolon"])
-    assert((counts.get(name) ?? 0) === 0, `${name} contains premature Phase 7 content`);
+    Ability: 113, AbilityLevelParameter: 1407, AbilityResourceDelta: 63,
+    AiGraph: 17, EnemyTemplate: 17, EnemyVariant: 17, Encounter: 6,
+    StandardProfile: 1, StandardScenario: 6, HitPlan: 72,
+    Character: 6, CharacterStat: 516, CharacterResource: 7,
+    CharacterAbilityBinding: 45, TraceNode: 116, TracePatch: 60, Eidolon: 36, EidolonPatch: 36,
+    Effect: 3, EffectModifierBinding: 1, ModifierDefinition: 61,
+    ModifierStackingGroup: 2, ModifierFilter: 13,
+    CountdownDefinition: 1, LinkedUnitDefinition: 1,
+    Operation: 26, Program: 11, RuleDefinition: 3, Selector: 16,
+    StateSlot: 3, ValueExpression: 97,
+  })) assert(counts.get(name) === expected, `${name} production count differs`);
+  for (const name of ["LightCone", "LightConeStat"])
+    assert((counts.get(name) ?? 0) === 0, `${name} contains premature Light Cone content`);
   const identities = rows(debug, "ContentIdentity");
   assert(identities.every((row) => value(row, "release_state") === "Released"), "production identities must be released");
-  assert(identities.filter((row) => value(row, "enabled") === true).length === 171, "production enabled identity count differs");
+  assert(identities.filter((row) => value(row, "enabled") === true).length === 507, "production enabled identity count differs");
   const coverage = Object.groupBy(identities, (row) => value(row, "coverage_state"));
-  assert((coverage.GoldenVerified?.length ?? 0) === 30 && (coverage.DataReady?.length ?? 0) === 141, "Standard-v1 ready coverage states differ");
+  assert((coverage.GoldenVerified?.length ?? 0) === 36 && (coverage.DataReady?.length ?? 0) === 471, "V1B ready coverage states differ");
   const rust = walk(path.join(directory, "rust")).filter((file) => file.endsWith(".rs")).map((file) => fs.readFileSync(file, "utf8")).join("\n");
   assert(!rust.includes("serde_json") && !rust.includes("json-debug"), "generated runtime reader gained a JSON path");
   const boundary = fs.readFileSync(path.join(root, "crates/starclock-data/src/bundle.rs"), "utf8");
@@ -131,7 +139,7 @@ function verifyBootstrapOutput(debug) {
 
 function verifyTemplateList(directory) {
   const templates = fs.readdirSync(directory, { withFileTypes: true }).filter((entry) => entry.isFile()).map((entry) => entry.name).sort();
-  assert(templates.length === 80 && templates.every((name) => name.endsWith(".xlsx")), "production template file list differs");
+  assert(templates.length === 82 && templates.every((name) => name.endsWith(".xlsx")), "production template file list differs");
   const data = fs.readdirSync(path.join(root, "config/data"), { withFileTypes: true }).filter((entry) => entry.isFile()).map((entry) => entry.name).sort();
   assert(JSON.stringify(data) === JSON.stringify(templates), "designer workbook layout differs from schema template layout");
 }

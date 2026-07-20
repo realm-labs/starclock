@@ -1,6 +1,2325 @@
 {
   "table": {
     "name": "ValueExpression",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "id": {
+            "Integer": 24001
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 0
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "probe.asta.expr.zero"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24002
+          },
+          "node": {
+            "Object": {
+              "state_slot_id": {
+                "Integer": 24003
+              },
+              "type": {
+                "String": "ReadStateSlot"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "probe.asta.expr.charging"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24003
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.14"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "probe.asta.expr.atk-per-stack"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24004
+          },
+          "node": {
+            "Object": {
+              "operand_expression_id": {
+                "Integer": 24002
+              },
+              "rounding": {
+                "String": "TowardZero"
+              },
+              "target_kind": {
+                "String": "Scalar"
+              },
+              "type": {
+                "String": "Convert"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "probe.asta.expr.charging-scalar"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24005
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 24004
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 24003
+              },
+              "rounding": {
+                "String": "NearestTiesEven"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "probe.asta.expr.dynamic-atk-ratio"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24006
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 5
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "probe.asta.expr.maximum-charging"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24007
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 2
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "probe.asta.expr.astral-duration"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24008
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "50"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "probe.asta.expr.astral-spd"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24101
+          },
+          "node": {
+            "Object": {
+              "formula_purpose": {
+                "String": "Dot"
+              },
+              "stat": {
+                "String": "Atk"
+              },
+              "subject_selector_id": {
+                "Integer": 24153
+              },
+              "type": {
+                "String": "QueryStat"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.attack"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24102
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "1.6"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.skill-ratio"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24103
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 24101
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 24102
+              },
+              "rounding": {
+                "String": "NearestTiesEven"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.skill-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24104
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.75"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.skill-detonation"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24105
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.8"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.ultimate-ratio"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24106
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 24101
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 24105
+              },
+              "rounding": {
+                "String": "NearestTiesEven"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.ultimate-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24107
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ProbabilityLiteral"
+              },
+              "value_decimal": {
+                "String": "1"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Probability"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.shock-base-chance"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24108
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 2
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.shock-duration"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24109
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "2.9"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.shock-ratio"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24110
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 24101
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 24109
+              },
+              "rounding": {
+                "String": "NearestTiesEven"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.shock-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24111
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "1.4"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.follow-up-ratio"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24112
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 24101
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 24111
+              },
+              "rounding": {
+                "String": "NearestTiesEven"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.follow-up-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24113
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "1"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.full-detonation"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24114
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 0
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.zero"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24115
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 1
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "probe.kafka.expr.one"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24201
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 2
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "probe.clara.expr.two"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24202
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 0
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "probe.clara.expr.zero"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24203
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 1
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "probe.clara.expr.one"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24301
+          },
+          "node": {
+            "Object": {
+              "formula_purpose": {
+                "String": "Stat"
+              },
+              "stat": {
+                "String": "Hp"
+              },
+              "subject_selector_id": {
+                "Integer": 24351
+              },
+              "type": {
+                "String": "QueryStat"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "probe.firefly.expr.maximum-hp"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24302
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.4"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "probe.firefly.expr.hp-cost-ratio"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24303
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 24301
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 24302
+              },
+              "rounding": {
+                "String": "NearestTiesEven"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "probe.firefly.expr.hp-cost"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24304
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "1"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "probe.firefly.expr.hp-floor"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24305
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.6"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "probe.firefly.expr.energy-ratio"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24306
+          },
+          "node": {
+            "Object": {
+              "formula_purpose": {
+                "String": "OrdinaryDamage"
+              },
+              "stat": {
+                "String": "Atk"
+              },
+              "subject_selector_id": {
+                "Integer": 24351
+              },
+              "type": {
+                "String": "QueryStat"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "probe.firefly.expr.attack"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24307
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "2"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "probe.firefly.expr.damage-ratio"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24308
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 24306
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 24307
+              },
+              "rounding": {
+                "String": "NearestTiesEven"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "probe.firefly.expr.base-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24309
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "1"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "probe.firefly.expr.full-ratio"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24310
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "90"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "probe.firefly.expr.enhanced-skill-toughness"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24311
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.5"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "probe.firefly.expr.full-super-break-ratio"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24801
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.032"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.01"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24802
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.027"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.02"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24803
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.032"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.03"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24804
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.05"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.04"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24805
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.048"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.05"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24806
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.04"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.06"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24807
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.048"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.07"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24808
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.075"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.08"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24809
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.053"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.09"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24810
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.064"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.10"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24811
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.032"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.11"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24812
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.05"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.12"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24813
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.032"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.13"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24814
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.027"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.14"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24815
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.048"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.15"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24816
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.075"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.16"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24817
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.048"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.17"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24818
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.04"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.18"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24819
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.1"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.19"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24820
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.064"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.20"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24821
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.04"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.21"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24822
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.032"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.22"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24823
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.04"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.23"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24824
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.04"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.24"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24825
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.06"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.25"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24826
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.048"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.26"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24827
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.06"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.27"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24828
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.06"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.28"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24829
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.064"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.29"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24830
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.08"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.30"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24831
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.053"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.31"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24832
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.04"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.32"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24833
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.053"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.33"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24834
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "2"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.34"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24835
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.08"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.35"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24836
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.06"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.36"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24837
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.08"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.37"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24838
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "3"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.38"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24839
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.08"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.39"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24840
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.107"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.40"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24841
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.04"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.41"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24842
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.04"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.42"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24843
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.04"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.43"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24844
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.04"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.44"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24845
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.06"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.45"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24846
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.06"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.46"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24847
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.06"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.47"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24848
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.06"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.48"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24849
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.08"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.49"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24850
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.08"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.50"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24851
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.027"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.51"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24852
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "2"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.52"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24853
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.027"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.53"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24854
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.04"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.54"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24855
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.04"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.55"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24856
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "3"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.56"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24857
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.04"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.57"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24858
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.06"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.58"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24859
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "4"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.59"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24860
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "RatioLiteral"
+              },
+              "value_decimal": {
+                "String": "0.053"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Ratio"
+          },
+          "stable_key": {
+            "String": "v1b.trace-minor.value.60"
+          }
+        }
+      }
+    ]
   }
 }

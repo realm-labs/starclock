@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "068d2f9f08cced81",
+  "fingerprint": "c315ad58e2451b9e",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -166,7 +166,8 @@
           "Summon",
           "Memosprite",
           "Passive",
-          "Entry"
+          "Entry",
+          "Countdown"
         ]
       },
       {
@@ -1151,6 +1152,45 @@
         ]
       },
       {
+        "name": "LinkedUnitKind",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Summon",
+          "Memosprite",
+          "SharedActor"
+        ]
+      },
+      {
+        "name": "OwnerLinkPolicy",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Persist",
+          "Depart",
+          "Defeat"
+        ]
+      },
+      {
+        "name": "WaveLinkPolicy",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Persist",
+          "ResetGauge",
+          "Depart"
+        ]
+      },
+      {
         "name": "SnapshotBoundary",
         "scope": {
           "values": [
@@ -1257,6 +1297,20 @@
           "TeamSkillPoints",
           "Suppressed",
           "TeamResource"
+        ]
+      },
+      {
+        "name": "ReactionBoundary",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "AfterHit",
+          "AfterPhase",
+          "AfterAction",
+          "BeforeTimeline"
         ]
       },
       {
@@ -5769,6 +5823,26 @@
                 "derived_from": null
               },
               {
+                "name": "reaction_boundary",
+                "ty": {
+                  "Optional": {
+                    "Enum": "ReactionBoundary"
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
                 "name": "owner_policy",
                 "ty": {
                   "Optional": {
@@ -9104,10 +9178,12 @@
           {
             "name": "prerequisite_trace_ids",
             "ty": {
-              "List": {
-                "Ref": {
-                  "table": "TraceNode",
-                  "field": "id"
+              "Optional": {
+                "List": {
+                  "Ref": {
+                    "table": "TraceNode",
+                    "field": "id"
+                  }
                 }
               }
             },
@@ -12552,6 +12628,49 @@
             "derived_from": null
           },
           {
+            "name": "dot_element",
+            "ty": {
+              "Optional": {
+                "Enum": "CombatElement"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "detonation_tag_identity_id",
+            "ty": {
+              "Optional": {
+                "Ref": {
+                  "table": "ContentIdentity",
+                  "field": "id"
+                }
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
             "name": "snapshot_policy",
             "ty": {
               "Enum": "SnapshotPolicy"
@@ -13325,6 +13444,583 @@
             "unique": true
           }
         ]
+      },
+      {
+        "name": "LinkedUnitDefinition",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "LinkedUnitDefinition.xlsx"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": {
+              "Ref": {
+                "table": "ContentIdentity",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_definition_identity_id",
+            "ty": {
+              "Ref": {
+                "table": "ContentIdentity",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "kind",
+            "ty": {
+              "Enum": "LinkedUnitKind"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "presence",
+            "ty": {
+              "Enum": "PresenceState"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "ability_ids",
+            "ty": {
+              "List": {
+                "Ref": {
+                  "table": "Ability",
+                  "field": "id"
+                }
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": {
+              "kind": "split",
+              "options": {
+                "separator": "|"
+              }
+            },
+            "derived_from": null
+          },
+          {
+            "name": "action_ability_id",
+            "ty": {
+              "Optional": {
+                "Ref": {
+                  "table": "Ability",
+                  "field": "id"
+                }
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "formation_index",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              0,
+              63
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "initial_gauge_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "hp_owner_ratio_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "hp_flat_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "atk_owner_ratio_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "atk_flat_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "def_owner_ratio_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "def_flat_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "spd_owner_ratio_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "spd_flat_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "owner_defeat_policy",
+            "ty": {
+              "Enum": "OwnerLinkPolicy"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "owner_departure_policy",
+            "ty": {
+              "Enum": "OwnerLinkPolicy"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "wave_policy",
+            "ty": {
+              "Enum": "WaveLinkPolicy"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "combatant_digest_sha256",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              64,
+              64
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "name": "CountdownDefinition",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "code",
+        "source": {
+          "format": "xlsx",
+          "file": "CountdownDefinition.xlsx"
+        },
+        "fields": [
+          {
+            "name": "code",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "ability_id",
+            "ty": {
+              "Ref": {
+                "table": "Ability",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "initial_gauge_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "speed_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "owner_defeat_policy",
+            "ty": {
+              "Enum": "OwnerLinkPolicy"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "owner_departure_policy",
+            "ty": {
+              "Enum": "OwnerLinkPolicy"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "wave_policy",
+            "ty": {
+              "Enum": "WaveLinkPolicy"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "end_transformation",
+            "ty": "Bool",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": []
       },
       {
         "name": "OperationNativeArgument",

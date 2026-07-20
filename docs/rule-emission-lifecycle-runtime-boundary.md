@@ -1,6 +1,7 @@
 # Rule-emission lifecycle runtime boundary
 
-Status: implemented by `G01-P7-M06`. This is generic combat infrastructure;
+Status: implemented by `G01-P7-M06` and completed for production by
+`G01-P7-M07`. This is generic combat infrastructure;
 it does not promote any production character or Light Cone by itself.
 
 ## Authoritative lowering
@@ -20,46 +21,62 @@ through the same transactional services used by authored hit plans:
 - `CreateCountdown` resolves a catalog-owned countdown definition, allocates a
   timeline-only actor and creates the same canonical owner link used by other
   linked entities.
+- `ModifyResource` resolves a character key against the selected unit form or
+  a team key against the battle specification's explicit numeric binding;
+  forced queue payment uses the same team binding;
+- `EmitRuleEvent` creates an ordinary typed `RuleSignal` event that downstream
+  Rule triggers observe through the normal event dispatcher.
 
 Missing linked-unit or countdown definitions fail catalog construction. A
 runtime failure rolls back the whole command, including allocated IDs, emitted
 events, RNG draws, effects, links, queued work and rule-slot mutations.
 
-Hit lifecycle events now retain the action actor as their explicit applier.
+Queue emissions retain an explicit `AfterHit`, `AfterPhase`, `AfterAction` or
+`BeforeTimeline` boundary. No compiler or resolver default selects the timing.
+
+Effect definitions instantiate their ordered modifier and rule bindings only
+when a new effect instance is inserted. Refresh preserves those instances;
+replacement, explicit removal, expiry, phase carry and wave carry tear them
+down with the owning effect. Attachment ownership, named resources and team
+semantic keys are part of canonical state encoding `sha256-v3`.
+
+Hit lifecycle events retain the action actor as their explicit applier.
 This makes effect attribution from a Hit Ended rule unambiguous without
 inferring applier from owner, actor or target later.
 
 ## Deliberate compatibility limits
 
-The current Rule IR schema has no queue-boundary field, so rule-emitted queued
-actions enter `AfterAction`. An explicit authored boundary belongs to the
-production schema/compiler follow-up rather than an implicit runtime default.
+The production and committed probe inventory reaches `Damage`, `ConsumeHp`,
+`ReduceToughness`, `SuperBreak`, `ApplyEffect`, `DetonateDot`, resource/slot
+mutation, action shift/queue, presence/lifecycle, weakness addition, ability
+replacement and informational signal operations. Every one has an ordinary
+transaction-service mapping.
 
-Skill Point and suppressed-cost rule queues are executable. A keyed
-`TeamResource` payment remains rejected until the data compiler supplies a
-canonical key-to-`SourceDefinitionId` registry. Named Character/Team resource
-mutations have the same prerequisite. The remaining non-representative
-emissions—including shields, break and Toughness-layer operations, weakness
-removal, true damage, extra turns and informational events—remain fail-closed
-until their ordinary-service mappings are completed.
-
-Effect-bound rule/modifier instantiation and production authoring of linked-unit
-and countdown definitions are likewise later import prerequisites. No content
-may receive `DataReady` while one of its reachable emissions depends on these
-unresolved paths.
+Unreached emissions—true damage, shields, explicit break, Toughness-layer
+creation/removal, weakness removal, extra turns, replacement proposals and
+native handlers—remain fail-closed. A later content partition must register an
+`M08+` prerequisite before authoring one of those operations; M07 does not
+claim unexercised semantics.
 
 ## Regression evidence
 
-`ability_program_execution.rs` executes one rule that mutates its slot, applies
-and removes an effect, queues and resolves a counter, summons a memosprite and
-creates a countdown. `rule_ir_contract.rs` proves unresolved summon/countdown
-references are rejected during catalog construction.
+`ability_program_execution.rs` executes named character/team mutations,
+team-resource payment, an explicit queue boundary and a typed signal alongside
+the M06 lifecycle set. Separate cases prove dynamic effect templates and
+effect-owned rule/modifier creation and teardown. `linked_lifecycle.rs` proves
+owner-scaled production-shaped linked units and a separately authored
+countdown ending transformation. `starclock-data::catalog_tests` asserts that
+the production bundle contains the Aglaea linked unit, Firefly countdown,
+Asta effect attachment and Clara named resource.
 
 Validation commands:
 
 ```text
 cargo test -p starclock-combat --test ability_program_execution --all-features
 cargo test -p starclock-combat --test rule_ir_contract --all-features
+cargo test -p starclock-combat --test linked_lifecycle --all-features
 cargo test -p starclock-combat --all-targets --all-features
+cargo test -p starclock-data --all-targets --all-features
+node tools/config-production/verify.mjs
 node tools/repository-check/verify-source-policy.mjs
 ```

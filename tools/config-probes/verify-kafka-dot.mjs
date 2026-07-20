@@ -26,7 +26,7 @@ assertSameTree(first.debug, second.debug, "independent Kafka probe debug exports
 
 const counts = Object.fromEntries(fs.readdirSync(first.debug).filter((file) => file.endsWith(".json")).sort().map((file) => [path.basename(file, ".json"), readJson(path.join(first.debug, file)).table.rows.length]));
 const expectedCounts = { ConfigManifest: 1, ContentEvidenceBinding: 9, ContentIdentity: 9, Effect: 1, EvidenceRecord: 4, Operation: 7, Program: 3, ProgramStep: 7, RuleDefinition: 1, Selector: 3, SourceRecord: 1, StateSlot: 1, StateSlotReset: 1, ValueExpression: 15 };
-assert(Object.keys(counts).length === 80, "Kafka probe does not export all production tables");
+assert(Object.keys(counts).length === 82, "Kafka probe does not export all production tables");
 for (const [name, count] of Object.entries(counts)) assert(count === (expectedCounts[name] ?? 0), `${name} Kafka probe row count differs`);
 
 const golden = {
@@ -38,7 +38,7 @@ const golden = {
   ultimate_text_sha256: "db74faed79ab0239c580c7690fb1c3e26483cbf9280a34f80a65bda2e672799f",
   talent_text_sha256: "459f96d9ff2695ebaab77a3983b153e0c425043cfd9fe80cc15fd8cf53f6c926",
   observation_sha256: "9d65d647f562badfec8104e962748061373baff3057343bba6fd833d38be18bc",
-  table_count: 80,
+  table_count: 82,
   populated_table_count: Object.values(counts).filter((count) => count > 0).length,
   identity_count: counts.ContentIdentity,
   production_coverage_credit: 0,

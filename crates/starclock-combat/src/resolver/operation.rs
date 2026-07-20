@@ -1,6 +1,6 @@
 use crate::{
     DamageAmount, HealingAmount, Hp, LifeState,
-    battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
+    battle::fault::BattleFault,
     event::{
         cause::Cause,
         model::{
@@ -18,6 +18,10 @@ use crate::{
 };
 
 use super::transaction::Transaction;
+
+mod fault;
+
+use fault::{invariant_fault, numeric_fault};
 
 pub(super) fn execute_operation(
     catalog: &crate::catalog::CombatCatalog,
@@ -663,6 +667,7 @@ fn advance_effect_clock(
                 .effects
                 .remove(id)
                 .ok_or_else(|| invariant_fault(40))?;
+            txn.remove_effect_attachments(id);
             txn.record_effect_change(1, 0, id.get());
             parent = txn.emit(
                 cause.with_parent(parent).with_primary_target(Some(target)),
@@ -790,12 +795,22 @@ fn execute_apply_effect(
     let definition = catalog
         .effect(operation.definition.effect)
         .ok_or_else(|| invariant_fault(30))?;
-    let runtime = definition.runtime().ok_or_else(|| invariant_fault(31))?;
+    if let Some(runtime) = &operation.resolved_runtime
+        && runtime.len() != operation.targets.len()
+    {
+        return Err(invariant_fault(31));
+    }
     let source = cause
         .source_definition()
         .ok_or_else(|| invariant_fault(32))?;
     let applier = cause.applier().ok_or_else(|| invariant_fault(33))?;
-    for target in operation.targets {
+    for (index, target) in operation.targets.into_iter().enumerate() {
+        let runtime = operation
+            .resolved_runtime
+            .as_ref()
+            .map(|values| &values[index])
+            .or_else(|| definition.runtime())
+            .ok_or_else(|| invariant_fault(31))?;
         let (pre_clamp, probability) = match operation.definition.chance {
             crate::EffectChancePolicy::Guaranteed => (crate::Scalar::ONE, crate::Probability::ONE),
             crate::EffectChancePolicy::Fixed { chance } => (
@@ -855,6 +870,7 @@ fn execute_apply_effect(
         match result {
             crate::effect::state::EffectApplyResult::Inserted { effect, removed } => {
                 for removed in removed {
+                    txn.remove_effect_attachments(removed);
                     parent = txn.emit(
                         cause.with_parent(parent).with_primary_target(Some(target)),
                         BattleEventKind::Effect(EffectEventData::Removed {
@@ -880,6 +896,7 @@ fn execute_apply_effect(
                         remaining: state.remaining,
                     }),
                 );
+                instantiate_effect_attachments(catalog, txn, effect)?;
             }
             crate::effect::state::EffectApplyResult::Refreshed {
                 effect,
@@ -930,6 +947,7 @@ fn execute_remove_effects(
                 .effects
                 .remove(effect)
                 .ok_or_else(|| invariant_fault(35))?;
+            txn.remove_effect_attachments(effect);
             let after = txn.state.effects.canonical_entries().len() as u64;
             txn.record_effect_change(before, after, effect.get());
             parent = txn.emit(
@@ -943,6 +961,54 @@ fn execute_remove_effects(
         }
     }
     Ok(parent)
+}
+
+fn instantiate_effect_attachments(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    effect: crate::EffectInstanceId,
+) -> Result<(), BattleFault> {
+    let state = txn
+        .state
+        .effects
+        .get(effect)
+        .cloned()
+        .ok_or_else(|| invariant_fault(38))?;
+    let definition = catalog
+        .effect(state.definition)
+        .ok_or_else(|| invariant_fault(39))?;
+    for modifier in definition.modifiers() {
+        let instance = txn.allocate_modifier();
+        txn.insert_modifier(crate::modifier::model::ActiveModifier {
+            instance,
+            definition: *modifier,
+            owner: state.applier,
+            subject: state.target,
+            source: state.source_definition,
+            source_class: crate::rule::model::SourceClass::Effect,
+            insertion_sequence: instance.get(),
+            application_action: None,
+            source_effect: Some(effect),
+            slots: Box::new([]),
+            captured_value: None,
+            captured_stats: Box::new([]),
+        })?;
+    }
+    for rule in definition.rules() {
+        let runtime = catalog
+            .rule(*rule)
+            .and_then(crate::catalog::definition::RuleDefinition::runtime)
+            .ok_or_else(|| invariant_fault(40))?;
+        let instance = txn.allocate_rule();
+        if !txn
+            .state
+            .rules
+            .insert_attached(instance, *rule, state.target, effect, runtime)
+        {
+            return Err(invariant_fault(41));
+        }
+    }
+    Ok(())
 }
 
 fn execute_detonate_dots(
@@ -1125,24 +1191,4 @@ fn execute_heal(
         );
     }
     Ok(parent)
-}
-
-fn numeric_fault(context: u32, value: i64) -> BattleFault {
-    BattleFault::new(
-        FaultKind::Numeric,
-        FaultBoundary::Command,
-        FaultPolicy::Rollback,
-        0x3200 + context,
-        Some(value),
-    )
-}
-
-fn invariant_fault(context: u32) -> BattleFault {
-    BattleFault::new(
-        FaultKind::InvariantViolation,
-        FaultBoundary::Command,
-        FaultPolicy::Rollback,
-        0x3280 + context,
-        None,
-    )
 }

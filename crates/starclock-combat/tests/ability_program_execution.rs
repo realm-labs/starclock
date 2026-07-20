@@ -3,12 +3,13 @@ use std::sync::Arc;
 use starclock_combat::{
     ActionGauge, Battle, BattleEventKind, BattleSeed, BattleSpec, BattleSpecDigest,
     CombatantSpecDigest, Command, ConcedePolicy, CountdownCatalogDefinition, CountdownDefinition,
-    DispelCategory, DurationClock, EffectCategory, EffectRuntimeDefinition, EffectStackPolicy,
-    EffectTickPhase, EncounterWaveId, FormationIndex, Hp, LinkedEntityKind,
-    LinkedUnitCatalogDefinition, LinkedUnitDefinition, OwnerLinkPolicy, ParticipantSource,
-    ParticipantSpec, PresenceState, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings,
-    ResolvedModifierBinding, Scalar, SourceDefinitionId, Speed, StatValue, TeamResourceSpec,
-    TeamSide, UnitLevel, WaveLinkPolicy,
+    DispelCategory, DurationClock, EffectCategory, EffectRuntimeDefinition, EffectRuntimeTemplate,
+    EffectStackPolicy, EffectTickPhase, EncounterWaveId, FormationIndex, Hp, KeyedTeamResourceSpec,
+    LinkedEntityKind, LinkedUnitCatalogDefinition, LinkedUnitDefinition, OwnerLinkPolicy,
+    ParticipantSource, ParticipantSpec, PresenceState, Ratio, ResolvedCombatantSpec,
+    ResolvedDefinitionBindings, ResolvedModifierBinding, Rounding, Scalar, SourceDefinitionId,
+    Speed, StatValue, TeamResourceSpec, TeamResourceWavePolicy, TeamSide, UnitLevel,
+    WaveLinkPolicy,
     catalog::{
         CombatCatalog,
         action::{
@@ -19,8 +20,9 @@ use starclock_combat::{
         },
         builder::CombatCatalogBuilder,
         definition::{
-            AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition,
-            ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
+            AbilityDefinition, CharacterResourceDefinition, EffectDefinition, EncounterDefinition,
+            EnemyDefinition, ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition,
+            UnitDefinition,
         },
         encounter::{EncounterWaveDefinition, WaveCarry, WaveSlotDefinition, WaveTransitionPolicy},
         selector::{
@@ -36,9 +38,10 @@ use starclock_combat::{
     },
     rule::model::{
         BattleRuleDefinition, BattleRuleScope, ConditionExpr, EventFilter, OnceScope, ProgramStep,
-        ReactionPriority, RuleActionOwner, RuleEffectChancePolicy, RuleEventKind,
-        RuleOperationTemplate, RuleSource, RuleValue, RuleValueKind, SourceClass, StateSlotDef,
-        StateSlotUpdateKind, TriggerDef, TriggerPhase, ValueExpr,
+        ReactionPriority, ResourceUpdateKind, RuleActionOwner, RuleActionPaymentPolicy,
+        RuleEffectChancePolicy, RuleEventKind, RuleOperationTemplate, RuleResourceKind, RuleSource,
+        RuleValue, RuleValueKind, SourceClass, StateSlotDef, StateSlotUpdateKind, TriggerDef,
+        TriggerPhase, ValueExpr,
     },
 };
 
@@ -72,6 +75,7 @@ fn catalog(
     mechanics_rule: bool,
 ) -> Arc<CombatCatalog> {
     let mut builder = CombatCatalogBuilder::new("ability-program-v1", [0x43; 32]);
+    let authored_effects = program.effects().to_vec();
     builder.add_selector(SelectorDefinition::new(id(1)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
     ));
@@ -98,6 +102,36 @@ fn catalog(
         UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
     ));
     builder.add_program(program);
+    if authored_effects.binary_search(&id(1)).is_ok() {
+        let template = EffectRuntimeTemplate::new(
+            EffectCategory::Dot,
+            DispelCategory::DispellableDebuff,
+            1,
+            Some(ValueExpr::Literal(RuleValue::Integer(2))),
+            DurationClock::TargetTurnStart,
+            EffectTickPhase::TurnStart,
+            EffectStackPolicy::Refresh,
+        )
+        .unwrap()
+        .with_comparison(
+            Some(ValueExpr::QueryStat {
+                subject: StatQuerySubject::Actor,
+                stat: StatKind::Atk,
+                purpose: FormulaPurpose::Stat,
+            }),
+            0,
+        )
+        .with_dot(CombatElement::Lightning, None)
+        .unwrap();
+        builder.add_effect(
+            EffectDefinition::new(
+                id(1),
+                with_rule.then(|| id(1)).into_iter().collect(),
+                with_modifier.then(|| id(1)).into_iter().collect(),
+            )
+            .with_runtime_template(template),
+        );
+    }
     if with_rule {
         if mechanics_rule {
             add_mechanics_definitions(&mut builder);
@@ -236,7 +270,7 @@ fn catalog(
     .with_hits(hits)
     .unwrap();
     builder.add_ability(
-        AbilityDefinition::new(id(1), id(1), id(1), vec![])
+        AbilityDefinition::new(id(1), id(1), id(1), authored_effects)
             .with_action(action)
             .with_programs(vec![
                 AbilityProgramBinding::new(1, AbilityProgramTiming::Hits, id(1)).unwrap(),
@@ -245,11 +279,22 @@ fn catalog(
     builder.add_ability(
         AbilityDefinition::new(id(2), id(2), id(3), vec![]).with_action(empty_action()),
     );
-    builder.add_unit(UnitDefinition::new(
+    let mut player = UnitDefinition::new(
         id(1),
         vec![id(1)],
         with_rule.then(|| id(1)).into_iter().collect(),
-    ));
+    );
+    if mechanics_rule {
+        player = player.with_resources(vec![
+            CharacterResourceDefinition::new(
+                "enhanced-counter-charges",
+                Scalar::ZERO,
+                Scalar::checked_from_integer(2).unwrap(),
+            )
+            .unwrap(),
+        ]);
+    }
+    builder.add_unit(player);
     builder.add_unit(UnitDefinition::new(id(2), vec![id(2)], vec![]));
     builder.add_enemy(EnemyDefinition::new(id(1), id(2), vec![id(2)]));
     builder.add_encounter(
@@ -311,14 +356,37 @@ fn mechanics_steps() -> Vec<ProgramStep> {
             selector: id(2),
             effect: id(1),
         }),
+        ProgramStep::Operation(RuleOperationTemplate::ModifyResource {
+            selector: id(4),
+            resource: RuleResourceKind::Character("enhanced-counter-charges".into()),
+            update: ResourceUpdateKind::Gain,
+            amount: ValueExpr::Literal(RuleValue::Scalar(Scalar::checked_from_integer(1).unwrap())),
+            scales_with_regeneration: false,
+            rounding: Rounding::Floor,
+        }),
+        ProgramStep::Operation(RuleOperationTemplate::EmitRuleEvent {
+            code: 77,
+            value: Some(ValueExpr::Literal(RuleValue::Integer(3))),
+        }),
+        ProgramStep::Operation(RuleOperationTemplate::ModifyResource {
+            selector: id(4),
+            resource: RuleResourceKind::Team("shared.punchline".into()),
+            update: ResourceUpdateKind::Gain,
+            amount: ValueExpr::Literal(RuleValue::Scalar(Scalar::checked_from_integer(2).unwrap())),
+            scales_with_regeneration: false,
+            rounding: Rounding::Floor,
+        }),
         ProgramStep::Operation(RuleOperationTemplate::QueueAction {
             actor_selector: id(4),
             target_selector: id(2),
             ability: id(3),
             priority: ReactionPriority::new(-10),
-            forced_use: false,
+            forced_use: true,
+            boundary: starclock_combat::catalog::action::ReactionBoundary::AfterAction,
             owner: RuleActionOwner::Actor,
-            payment: None,
+            payment: Some(RuleActionPaymentPolicy::TeamResource(
+                "shared.punchline".into(),
+            )),
         }),
         ProgramStep::Operation(RuleOperationTemplate::Summon {
             owner_selector: id(4),
@@ -368,7 +436,7 @@ fn add_mechanics_definitions(builder: &mut CombatCatalogBuilder) {
     )
     .unwrap();
     let counter = AbilityActionDefinition::new(
-        AbilityKind::Counter,
+        AbilityKind::ExtraAction,
         1,
         TargetInvalidationPolicy::CancelRemainingForTarget,
         ActionResourcePolicy::new(
@@ -506,7 +574,24 @@ fn battle(
                 combatant(2, 2, 0x46, false, false, false),
             ),
         ],
-        TeamResourceSpec::new(0, 5).unwrap(),
+        if with_mechanics {
+            TeamResourceSpec::new(0, 5)
+                .unwrap()
+                .with_keyed(vec![
+                    KeyedTeamResourceSpec::new(
+                        SourceDefinitionId::new(90).unwrap(),
+                        1,
+                        5,
+                        TeamResourceWavePolicy::Persist,
+                    )
+                    .unwrap()
+                    .with_stable_key("shared.punchline")
+                    .unwrap(),
+                ])
+                .unwrap()
+        } else {
+            TeamResourceSpec::new(0, 5).unwrap()
+        },
         TeamResourceSpec::new(0, 0).unwrap(),
         ConcedePolicy::Allowed,
     )
@@ -633,6 +718,90 @@ fn selected_build_modifier_changes_rule_ir_stat_query_inside_transaction() {
 }
 
 #[test]
+fn expression_backed_dot_runtime_resolves_per_application_target() {
+    let program = ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![id(1)], vec![])
+        .with_steps(vec![
+            ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
+                selector: id(2),
+                effect: id(1),
+                chance: RuleEffectChancePolicy::Guaranteed,
+                base_chance: None,
+                rng_purpose: None,
+            }),
+            ProgramStep::Operation(RuleOperationTemplate::DetonateDot {
+                selector: id(2),
+                fraction: ValueExpr::Literal(RuleValue::Scalar(Scalar::ONE)),
+                required_tag: None,
+            }),
+        ]);
+    let mut battle = battle(
+        catalog(program, true, true, false, false),
+        true,
+        true,
+        false,
+    );
+    let resolution = start_and_use(&mut battle).unwrap();
+    let damage = resolution
+        .events()
+        .iter()
+        .filter_map(|event| match event.kind() {
+            BattleEventKind::Damage(value) => Some(value.applied.get()),
+            _ => None,
+        })
+        .collect::<Vec<_>>();
+
+    assert_eq!(damage, [400, 50, 50, 400]);
+    let retained = battle.view().effects_by_id().next().unwrap();
+    assert_eq!(retained.category(), EffectCategory::Dot);
+    assert_eq!(retained.remaining(), Some(2));
+    let attachments = battle
+        .view()
+        .modifier_instances_by_id()
+        .filter(|modifier| modifier.source_effect() == Some(retained.id()))
+        .collect::<Vec<_>>();
+    assert_eq!(attachments.len(), 1);
+    assert_eq!(attachments[0].subject(), retained.target());
+    assert_eq!(battle.view().rule_instances_by_id().count(), 2);
+    assert!(resolution.fault().is_none());
+}
+
+#[test]
+fn removing_an_effect_tears_down_its_modifier_attachments() {
+    let program = ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![id(1)], vec![])
+        .with_steps(vec![
+            ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
+                selector: id(2),
+                effect: id(1),
+                chance: RuleEffectChancePolicy::Guaranteed,
+                base_chance: None,
+                rng_purpose: None,
+            }),
+            ProgramStep::Operation(RuleOperationTemplate::RemoveEffect {
+                selector: id(2),
+                effect: id(1),
+            }),
+        ]);
+    let mut battle = battle(
+        catalog(program, true, true, false, false),
+        true,
+        true,
+        false,
+    );
+    let resolution = start_and_use(&mut battle).unwrap();
+
+    assert!(resolution.fault().is_none());
+    assert_eq!(battle.view().effects_by_id().count(), 0);
+    assert_eq!(battle.view().modifier_instances_by_id().count(), 1);
+    assert_eq!(battle.view().rule_instances_by_id().count(), 1);
+    assert!(
+        battle
+            .view()
+            .modifier_instances_by_id()
+            .all(|modifier| modifier.source_effect().is_none())
+    );
+}
+
+#[test]
 fn selected_rule_bundle_dispatches_once_after_the_authored_hit_event() {
     let program = ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![], vec![]);
     let mut battle = battle(
@@ -722,9 +891,17 @@ fn representative_rule_emissions_use_authoritative_runtime_services() {
         event.kind(),
         BattleEventKind::Action(starclock_combat::ActionEventData::Queued {
             ability,
-            origin: starclock_combat::ActionOrigin::Counter,
+            origin: starclock_combat::ActionOrigin::Forced,
             ..
         }) if ability.get() == 3
+    )));
+    assert!(resolution.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::RuleSignal(starclock_combat::RuleSignalEventData {
+            code: 77,
+            value: Some(RuleValue::Integer(3)),
+            ..
+        })
     )));
     assert!(resolution.events().iter().any(|event| matches!(
         event.kind(),
@@ -749,6 +926,22 @@ fn representative_rule_emissions_use_authoritative_runtime_services() {
     assert_eq!(battle.view().effects_by_id().count(), 0);
     assert_eq!(battle.view().units_by_id().count(), 3);
     assert_eq!(battle.view().links().count(), 2);
+    assert_eq!(
+        battle
+            .view()
+            .units_by_id()
+            .next()
+            .unwrap()
+            .character_resource("enhanced-counter-charges"),
+        Some((
+            Scalar::checked_from_integer(1).unwrap(),
+            Scalar::checked_from_integer(2).unwrap()
+        ))
+    );
+    assert_eq!(
+        battle.view().team(TeamSide::Player).keyed_resource(id(90)),
+        Some((3, 5))
+    );
     assert_eq!(
         battle
             .view()

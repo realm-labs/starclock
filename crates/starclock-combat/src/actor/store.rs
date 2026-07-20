@@ -40,9 +40,34 @@ pub(crate) struct UnitState {
     pub(crate) abilities: Box<[AbilityId]>,
     pub(crate) rule_bundles: Box<[RuleBundleId]>,
     pub(crate) modifiers: Box<[ModifierDefinitionId]>,
+    pub(crate) resources: Box<[CharacterResourceState]>,
     pub(crate) digest: CombatantSpecDigest,
     pub(crate) transformation: Option<TransformationState>,
     pub(crate) enemy: Option<EnemyRuntimeState>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct CharacterResourceState {
+    pub(crate) stable_key: Box<str>,
+    pub(crate) initial: crate::Scalar,
+    pub(crate) current: crate::Scalar,
+    pub(crate) maximum: crate::Scalar,
+}
+
+impl UnitState {
+    pub(crate) fn resource(&self, stable_key: &str) -> Option<&CharacterResourceState> {
+        self.resources
+            .binary_search_by(|entry| entry.stable_key.as_ref().cmp(stable_key))
+            .ok()
+            .map(|index| &self.resources[index])
+    }
+
+    pub(crate) fn resource_mut(&mut self, stable_key: &str) -> Option<&mut CharacterResourceState> {
+        self.resources
+            .binary_search_by(|entry| entry.stable_key.as_ref().cmp(stable_key))
+            .ok()
+            .map(|index| &mut self.resources[index])
+    }
 }
 
 /// Authoritative enemy-orchestration cursor kept separate from generic unit form.
@@ -256,9 +281,10 @@ pub(crate) struct TeamState {
     pub(crate) keyed_resources: Box<[KeyedTeamResourceState]>,
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct KeyedTeamResourceState {
     pub(crate) id: crate::SourceDefinitionId,
+    pub(crate) stable_key: Option<Box<str>>,
     pub(crate) initial: u16,
     pub(crate) current: u16,
     pub(crate) maximum: u16,
@@ -280,6 +306,14 @@ impl TeamState {
             .binary_search_by_key(&id, |entry| entry.id)
             .ok()
             .map(|index| &mut self.keyed_resources[index])
+    }
+    pub(crate) fn keyed_by_name(&self, stable_key: &str) -> Option<&KeyedTeamResourceState> {
+        self.keyed_resources.iter().find(|entry| {
+            entry
+                .stable_key
+                .as_deref()
+                .is_some_and(|candidate| candidate == stable_key)
+        })
     }
 }
 

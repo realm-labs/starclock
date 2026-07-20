@@ -336,6 +336,7 @@ fn asta_dynamic_team_aura_tracks_one_charging_instance() {
         source_class: SourceClass::Ability,
         insertion_sequence: 1,
         application_action: None,
+        source_effect: None,
         slots: vec![(slot, RuleValue::Integer(0))].into_boxed_slice(),
         captured_value: None,
         captured_stats: Box::new([]),
