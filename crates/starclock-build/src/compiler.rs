@@ -11,9 +11,9 @@ use crate::{
     ability::{AbilityInvestment, AbilityLevel},
     catalog::BuildCatalog,
     output::CompiledBuild,
+    patch::BuildPatch,
     report::{BuildCompilationReport, BuildValidationEntry, BuildValidationStage},
     spec::CombatantBuildSpec,
-    trace::BuildPatch,
 };
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -23,6 +23,7 @@ pub enum BuildCompileErrorKind {
     UnsupportedLevel,
     InvalidAbilitySelection,
     InvalidTraceSelection,
+    InvalidEidolonSelection,
     PatchConflict,
     InvalidCombatBindings,
     InvalidCombatant,
@@ -63,7 +64,7 @@ impl LoadoutCompiler {
         combat_catalog: &CombatCatalog,
         spec: &CombatantBuildSpec,
     ) -> Result<CompiledBuild, BuildCompileError> {
-        let mut entries = Vec::with_capacity(7);
+        let mut entries = Vec::with_capacity(8);
         if build_catalog.compatible_combat_revision() != combat_catalog.revision().as_str()
             || build_catalog.compatible_combat_digest() != combat_catalog.digest()
         {
@@ -123,16 +124,28 @@ impl LoadoutCompiler {
                 BuildCompileErrorKind::InvalidTraceSelection,
             ));
         }
+        entries.push(BuildValidationEntry::passed(
+            BuildValidationStage::TraceSelection,
+        ));
+
+        if apply_eidolons(definition, spec, &mut workspace).is_err() {
+            return Err(failure(
+                spec,
+                entries,
+                BuildValidationStage::EidolonSelection,
+                BuildCompileErrorKind::InvalidEidolonSelection,
+            ));
+        }
         if resolve_ability_levels(definition, spec.ability_levels(), &mut workspace).is_err() {
             return Err(failure(
                 spec,
                 entries,
-                BuildValidationStage::TraceSelection,
+                BuildValidationStage::EidolonSelection,
                 BuildCompileErrorKind::PatchConflict,
             ));
         }
         entries.push(BuildValidationEntry::passed(
-            BuildValidationStage::TraceSelection,
+            BuildValidationStage::EidolonSelection,
         ));
 
         if combat_catalog.unit(definition.form()).is_none()
@@ -228,6 +241,31 @@ impl CompilationWorkspace {
             ability_adjustments: BTreeMap::new(),
         }
     }
+
+    fn apply_patch(&mut self, patch: BuildPatch) -> Result<(), ()> {
+        match patch {
+            BuildPatch::AddAbility(id) if !self.abilities.insert(id) => Err(()),
+            BuildPatch::AddRuleBundle(id) if !self.rule_bundles.insert(id) => Err(()),
+            BuildPatch::RemoveRuleBundle(id) if !self.rule_bundles.remove(&id) => Err(()),
+            BuildPatch::AddModifier(id) if !self.modifiers.insert(id) => Err(()),
+            BuildPatch::ReplaceAbility { old, new }
+                if old == new || !self.abilities.remove(&old) || !self.abilities.insert(new) =>
+            {
+                Err(())
+            }
+            BuildPatch::AdjustAbilityLevel {
+                family,
+                bonus,
+                cap_delta,
+            } => {
+                let adjustment = self.ability_adjustments.entry(family).or_default();
+                adjustment.0 = adjustment.0.checked_add(i16::from(bonus)).ok_or(())?;
+                adjustment.1 = adjustment.1.checked_add(i16::from(cap_delta)).ok_or(())?;
+                Ok(())
+            }
+            _ => Ok(()),
+        }
+    }
 }
 
 fn apply_traces(
@@ -257,23 +295,22 @@ fn apply_traces(
     {
         let node = graph.node(*id).expect("canonical Trace ID resolves");
         for patch in node.patches() {
-            match *patch {
-                BuildPatch::AddAbility(id) if !workspace.abilities.insert(id) => return Err(()),
-                BuildPatch::AddRuleBundle(id) if !workspace.rule_bundles.insert(id) => {
-                    return Err(());
-                }
-                BuildPatch::AddModifier(id) if !workspace.modifiers.insert(id) => return Err(()),
-                BuildPatch::AdjustAbilityLevel {
-                    family,
-                    bonus,
-                    cap_delta,
-                } => {
-                    let adjustment = workspace.ability_adjustments.entry(family).or_default();
-                    adjustment.0 = adjustment.0.checked_add(i16::from(bonus)).ok_or(())?;
-                    adjustment.1 = adjustment.1.checked_add(i16::from(cap_delta)).ok_or(())?;
-                }
-                _ => {}
-            }
+            workspace.apply_patch(*patch)?;
+        }
+    }
+    Ok(())
+}
+
+fn apply_eidolons(
+    definition: &crate::catalog::CharacterBuildDefinition,
+    spec: &CombatantBuildSpec,
+    workspace: &mut CompilationWorkspace,
+) -> Result<(), ()> {
+    for raw_rank in 1..=spec.eidolon().get() {
+        let rank = crate::spec::EidolonLevel::new(raw_rank).ok_or(())?;
+        let definition = definition.eidolons().rank(rank).ok_or(())?;
+        for patch in definition.patches() {
+            workspace.apply_patch(*patch)?;
         }
     }
     Ok(())

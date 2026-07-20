@@ -77,6 +77,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 52. [Native-handler and content-branch audit](native-handler-and-content-branch-audit.md) — zero-handler V1a review, exact static/Sora metadata agreement and mechanical rejection of scattered content-ID branches.
 53. [Build catalog and compilation boundary](build-catalog-and-compilation-boundary.md) — independent build catalog/spec ownership, exact cross-catalog compatibility, typed validation reports and generic combat-only output.
 54. [Ability-level and Trace compilation](ability-level-and-trace-compilation.md) — exact level tables, canonical Trace graphs, typed unlock/stat/rule patches and order-invariant build output.
+55. [Eidolon compilation](eidolon-compilation.md) — exact E0-E6 selection, complete rank sets, ordered patches and deterministic replacement/conflict validation.
 
 ## Execution goals
 

@@ -7,9 +7,11 @@ use starclock_build::{
         CharacterBuildDefinition, CharacterStatRow,
     },
     compiler::{BuildCompileErrorKind, LoadoutCompiler},
-    id::TraceNodeId,
-    spec::{CombatantBuildSpec, PromotionStage},
-    trace::{BuildPatch, TraceGraphDefinition, TraceNodeDefinition},
+    eidolon::{EidolonDefinition, EidolonSetDefinition},
+    id::{EidolonDefinitionId, TraceNodeId},
+    patch::BuildPatch,
+    spec::{CombatantBuildSpec, EidolonLevel, PromotionStage},
+    trace::{TraceGraphDefinition, TraceNodeDefinition},
 };
 use starclock_combat::{
     AbilityId, CombatantSpecDigest, Energy, Hp, ModifierDefinitionId, ModifierStackingGroupId,
@@ -220,6 +222,22 @@ fn base_character() -> CharacterBuildDefinition {
             Speed::from_scaled(100_000_000).unwrap(),
         ),
     ])
+    .with_eidolons(empty_eidolons())
+}
+
+fn empty_eidolons() -> EidolonSetDefinition {
+    EidolonSetDefinition::new(
+        form(1),
+        (1..=6)
+            .map(|rank| {
+                EidolonDefinition::new(
+                    EidolonDefinitionId::new(rank).unwrap(),
+                    EidolonLevel::new(u8::try_from(rank).unwrap()).unwrap(),
+                    vec![],
+                )
+            })
+            .collect(),
+    )
 }
 
 fn build_builder() -> BuildCatalogBuilder {

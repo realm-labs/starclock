@@ -8,8 +8,10 @@ use starclock_combat::{
 
 use crate::{
     ability::AbilityLevelTable,
+    eidolon::{EidolonSetDefinition, EidolonSetError},
+    patch::BuildPatch,
     spec::PromotionStage,
-    trace::{BuildPatch, TraceGraphDefinition, TraceGraphError},
+    trace::{TraceGraphDefinition, TraceGraphError},
 };
 
 /// Human-readable immutable build-catalog revision.
@@ -40,6 +42,7 @@ pub struct CharacterBuildDefinition {
     bindings: ResolvedDefinitionBindings,
     ability_levels: Box<[AbilityLevelTable]>,
     trace_graph: Option<TraceGraphDefinition>,
+    eidolons: Option<EidolonSetDefinition>,
     combatant_digest: CombatantSpecDigest,
 }
 
@@ -57,6 +60,7 @@ impl CharacterBuildDefinition {
             bindings,
             ability_levels: Box::new([]),
             trace_graph: None,
+            eidolons: None,
             combatant_digest,
         }
     }
@@ -76,6 +80,12 @@ impl CharacterBuildDefinition {
     #[must_use]
     pub fn with_trace_graph(mut self, graph: TraceGraphDefinition) -> Self {
         self.trace_graph = Some(graph);
+        self
+    }
+
+    #[must_use]
+    pub fn with_eidolons(mut self, eidolons: EidolonSetDefinition) -> Self {
+        self.eidolons = Some(eidolons);
         self
     }
 
@@ -128,6 +138,12 @@ impl CharacterBuildDefinition {
     #[must_use]
     pub const fn trace_graph(&self) -> Option<&TraceGraphDefinition> {
         self.trace_graph.as_ref()
+    }
+    #[must_use]
+    pub fn eidolons(&self) -> &EidolonSetDefinition {
+        self.eidolons
+            .as_ref()
+            .expect("validated character has an E1-E6 set")
     }
 }
 
@@ -369,6 +385,29 @@ fn validate_character(
         })?;
         validate_trace_patches(definition, combat, unit)?;
     }
+    let Some(eidolons) = &mut definition.eidolons else {
+        return Err(character_error(
+            BuildCatalogErrorKind::MissingEidolonSet,
+            form,
+        ));
+    };
+    if eidolons.form() != form {
+        return Err(character_error(
+            BuildCatalogErrorKind::InvalidEidolonSet,
+            form,
+        ));
+    }
+    eidolons.canonicalize().map_err(|error| {
+        character_error(
+            match error {
+                EidolonSetError::IncompleteRankSet => BuildCatalogErrorKind::IncompleteEidolonSet,
+                EidolonSetError::DuplicateDefinition => BuildCatalogErrorKind::InvalidEidolonSet,
+            },
+            form,
+        )
+    })?;
+    validate_eidolon_patches(definition, combat, unit)?;
+    validate_level_adjustments(definition)?;
     Ok(())
 }
 
@@ -378,7 +417,6 @@ fn validate_trace_patches(
     unit: &starclock_combat::catalog::definition::UnitDefinition,
 ) -> Result<(), BuildCatalogError> {
     let form = definition.form;
-    let mut adjustments = std::collections::BTreeMap::<AbilityId, (i16, i16)>::new();
     for patch in definition
         .trace_graph
         .iter()
@@ -409,22 +447,138 @@ fn validate_trace_patches(
                     form,
                 ));
             }
-            BuildPatch::AdjustAbilityLevel {
-                family,
-                bonus,
-                cap_delta,
-            } => {
-                if definition.ability_level_table(family).is_none() {
-                    return Err(character_error(
-                        BuildCatalogErrorKind::InvalidTracePatch,
-                        form,
-                    ));
-                }
-                let entry = adjustments.entry(family).or_default();
-                entry.0 += i16::from(bonus);
-                entry.1 += i16::from(cap_delta);
+            BuildPatch::RemoveRuleBundle(id)
+                if combat.rule_bundle(id).is_none()
+                    || unit.rule_bundles().binary_search(&id).is_err() =>
+            {
+                return Err(character_error(
+                    BuildCatalogErrorKind::InvalidTracePatch,
+                    form,
+                ));
+            }
+            BuildPatch::ReplaceAbility { old, new }
+                if old == new
+                    || combat.ability(old).is_none()
+                    || combat.ability(new).is_none()
+                    || unit.abilities().binary_search(&old).is_err()
+                    || unit.abilities().binary_search(&new).is_err() =>
+            {
+                return Err(character_error(
+                    BuildCatalogErrorKind::InvalidTracePatch,
+                    form,
+                ));
+            }
+            BuildPatch::AdjustAbilityLevel { family, .. }
+                if definition.ability_level_table(family).is_none() =>
+            {
+                return Err(character_error(
+                    BuildCatalogErrorKind::InvalidTracePatch,
+                    form,
+                ));
             }
             _ => {}
+        }
+    }
+    Ok(())
+}
+
+fn validate_eidolon_patches(
+    definition: &CharacterBuildDefinition,
+    combat: &CombatCatalog,
+    unit: &starclock_combat::catalog::definition::UnitDefinition,
+) -> Result<(), BuildCatalogError> {
+    let form = definition.form;
+    let mut abilities = definition
+        .abilities()
+        .iter()
+        .copied()
+        .collect::<std::collections::BTreeSet<_>>();
+    let mut rules = definition
+        .rule_bundles()
+        .iter()
+        .copied()
+        .collect::<std::collections::BTreeSet<_>>();
+    let mut modifiers = definition
+        .modifiers()
+        .iter()
+        .copied()
+        .collect::<std::collections::BTreeSet<_>>();
+    for patch in definition
+        .eidolons()
+        .ranks()
+        .iter()
+        .flat_map(|rank| rank.patches())
+    {
+        let valid = match *patch {
+            BuildPatch::AddAbility(id) => {
+                combat.ability(id).is_some()
+                    && unit.abilities().binary_search(&id).is_ok()
+                    && abilities.insert(id)
+            }
+            BuildPatch::AddRuleBundle(id) => {
+                combat.rule_bundle(id).is_some()
+                    && unit.rule_bundles().binary_search(&id).is_ok()
+                    && rules.insert(id)
+            }
+            BuildPatch::RemoveRuleBundle(id) => rules.remove(&id),
+            BuildPatch::AddModifier(id) => combat.modifier(id).is_some() && modifiers.insert(id),
+            BuildPatch::ReplaceAbility { old, new } => {
+                old != new
+                    && combat.ability(new).is_some()
+                    && unit.abilities().binary_search(&new).is_ok()
+                    && abilities.remove(&old)
+                    && abilities.insert(new)
+            }
+            BuildPatch::AdjustAbilityLevel { family, .. } => {
+                definition.ability_level_table(family).is_some()
+            }
+        };
+        if !valid {
+            return Err(character_error(
+                BuildCatalogErrorKind::InvalidEidolonPatch,
+                form,
+            ));
+        }
+    }
+    Ok(())
+}
+
+fn validate_level_adjustments(
+    definition: &CharacterBuildDefinition,
+) -> Result<(), BuildCatalogError> {
+    let mut adjustments = std::collections::BTreeMap::<AbilityId, (i16, i16)>::new();
+    let patches = definition
+        .trace_graph
+        .iter()
+        .flat_map(|graph| graph.nodes())
+        .flat_map(|node| node.patches())
+        .chain(
+            definition
+                .eidolons()
+                .ranks()
+                .iter()
+                .flat_map(|rank| rank.patches()),
+        );
+    for patch in patches {
+        if let BuildPatch::AdjustAbilityLevel {
+            family,
+            bonus,
+            cap_delta,
+        } = *patch
+        {
+            let entry = adjustments.entry(family).or_default();
+            entry.0 = entry.0.checked_add(i16::from(bonus)).ok_or_else(|| {
+                character_error(
+                    BuildCatalogErrorKind::InvalidAbilityAdjustment,
+                    definition.form,
+                )
+            })?;
+            entry.1 = entry.1.checked_add(i16::from(cap_delta)).ok_or_else(|| {
+                character_error(
+                    BuildCatalogErrorKind::InvalidAbilityAdjustment,
+                    definition.form,
+                )
+            })?;
         }
     }
     for (family, (bonus, cap_delta)) in adjustments {
@@ -442,8 +596,8 @@ fn validate_trace_patches(
             || adjusted_cap > table_max
         {
             return Err(character_error(
-                BuildCatalogErrorKind::InvalidTracePatch,
-                form,
+                BuildCatalogErrorKind::InvalidAbilityAdjustment,
+                definition.form,
             ));
         }
     }
@@ -469,6 +623,11 @@ pub enum BuildCatalogErrorKind {
     DuplicateTraceNode,
     InvalidTraceGraph,
     InvalidTracePatch,
+    MissingEidolonSet,
+    IncompleteEidolonSet,
+    InvalidEidolonSet,
+    InvalidEidolonPatch,
+    InvalidAbilityAdjustment,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

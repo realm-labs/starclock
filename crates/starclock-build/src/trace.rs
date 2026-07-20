@@ -2,21 +2,9 @@
 
 use std::collections::{BTreeMap, BTreeSet};
 
-use starclock_combat::{AbilityId, ModifierDefinitionId, RuleBundleId, UnitDefinitionId};
+use starclock_combat::UnitDefinitionId;
 
-use crate::{id::TraceNodeId, spec::PromotionStage};
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum BuildPatch {
-    AddAbility(AbilityId),
-    AddRuleBundle(RuleBundleId),
-    AddModifier(ModifierDefinitionId),
-    AdjustAbilityLevel {
-        family: AbilityId,
-        bonus: i8,
-        cap_delta: i8,
-    },
-}
+use crate::{id::TraceNodeId, patch::BuildPatch, spec::PromotionStage};
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TraceNodeDefinition {

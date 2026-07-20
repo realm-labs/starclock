@@ -6,8 +6,10 @@ use starclock_build::{
         CharacterBuildDefinition, CharacterStatRow,
     },
     compiler::{BuildCompileErrorKind, LoadoutCompiler},
+    eidolon::{EidolonDefinition, EidolonSetDefinition},
+    id::EidolonDefinitionId,
     report::{BuildValidationOutcome, BuildValidationStage},
-    spec::{CombatantBuildSpec, PromotionStage},
+    spec::{CombatantBuildSpec, EidolonLevel, PromotionStage},
 };
 use starclock_combat::{
     AbilityId, CombatantSpecDigest, Energy, Hp, ResolvedDefinitionBindings, Speed,
@@ -55,6 +57,7 @@ fn catalog_canonicalizes_definition_order_and_compiles_only_combat_types() {
             BuildValidationStage::LevelSelection,
             BuildValidationStage::AbilitySelection,
             BuildValidationStage::TraceSelection,
+            BuildValidationStage::EidolonSelection,
             BuildValidationStage::CombatBindings,
             BuildValidationStage::CombatantConstruction,
         ]
@@ -156,6 +159,18 @@ fn character(form: u32, bound_ability: u32) -> CharacterBuildDefinition {
         ResolvedDefinitionBindings::new(vec![ability(bound_ability)], vec![], vec![]).unwrap(),
         CombatantSpecDigest::new([u8::try_from(form).unwrap(); 32]).unwrap(),
     )
+    .with_eidolons(EidolonSetDefinition::new(
+        self::form(form),
+        (1..=6)
+            .map(|rank| {
+                EidolonDefinition::new(
+                    EidolonDefinitionId::new(rank).unwrap(),
+                    EidolonLevel::new(u8::try_from(rank).unwrap()).unwrap(),
+                    vec![],
+                )
+            })
+            .collect(),
+    ))
 }
 
 fn build_spec(form: UnitDefinitionId, level: u8) -> CombatantBuildSpec {

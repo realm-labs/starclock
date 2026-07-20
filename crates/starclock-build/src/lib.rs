@@ -9,8 +9,10 @@
 pub mod ability;
 pub mod catalog;
 pub mod compiler;
+pub mod eidolon;
 pub mod id;
 pub mod output;
+pub mod patch;
 pub mod report;
 pub mod spec;
 pub mod trace;

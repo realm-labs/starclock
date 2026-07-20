@@ -18,6 +18,28 @@ impl PromotionStage {
     }
 }
 
+/// Exact selected Eidolon level. E0 applies no Eidolon definition; En applies
+/// every rank from E1 through En exactly once.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct EidolonLevel(u8);
+
+impl EidolonLevel {
+    pub const E0: Self = Self(0);
+    pub const MAX: u8 = 6;
+    #[must_use]
+    pub const fn new(raw: u8) -> Option<Self> {
+        if raw <= Self::MAX {
+            Some(Self(raw))
+        } else {
+            None
+        }
+    }
+    #[must_use]
+    pub const fn get(self) -> u8 {
+        self.0
+    }
+}
+
 /// Minimal exact build input. Later Phase 5 batches extend this value with
 /// ability, Trace, Eidolon and equipment selections.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -27,6 +49,7 @@ pub struct CombatantBuildSpec {
     promotion: PromotionStage,
     ability_levels: Box<[AbilityInvestment]>,
     traces: Box<[TraceNodeId]>,
+    eidolon: EidolonLevel,
 }
 
 impl CombatantBuildSpec {
@@ -38,6 +61,7 @@ impl CombatantBuildSpec {
             promotion,
             ability_levels: Box::new([]),
             traces: Box::new([]),
+            eidolon: EidolonLevel::E0,
         }
     }
     pub fn with_ability_levels(
@@ -63,6 +87,11 @@ impl CombatantBuildSpec {
         Ok(self)
     }
     #[must_use]
+    pub fn with_eidolon(mut self, eidolon: EidolonLevel) -> Self {
+        self.eidolon = eidolon;
+        self
+    }
+    #[must_use]
     pub const fn form(&self) -> UnitDefinitionId {
         self.form
     }
@@ -81,6 +110,10 @@ impl CombatantBuildSpec {
     #[must_use]
     pub fn traces(&self) -> &[TraceNodeId] {
         &self.traces
+    }
+    #[must_use]
+    pub const fn eidolon(&self) -> EidolonLevel {
+        self.eidolon
     }
 }
 

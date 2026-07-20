@@ -10,8 +10,9 @@ pub enum BuildValidationStage {
     LevelSelection = 2,
     AbilitySelection = 3,
     TraceSelection = 4,
-    CombatBindings = 5,
-    CombatantConstruction = 6,
+    EidolonSelection = 5,
+    CombatBindings = 6,
+    CombatantConstruction = 7,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
