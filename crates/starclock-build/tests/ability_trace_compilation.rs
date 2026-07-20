@@ -15,8 +15,9 @@ use starclock_build::{
     trace::{TraceGraphDefinition, TraceNodeDefinition},
 };
 use starclock_combat::{
-    AbilityId, CombatantSpecDigest, Energy, Hp, ModifierDefinitionId, ModifierStackingGroupId,
-    ResolvedDefinitionBindings, RuleBundleId, Scalar, Speed, UnitDefinitionId, UnitLevel,
+    AbilityId, Energy, Hp, ModifierDefinitionId, ModifierStackingGroupId,
+    ResolvedDefinitionBindings, RuleBundleId, Scalar, SourceDefinitionId, Speed, UnitDefinitionId,
+    UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -33,7 +34,7 @@ use starclock_combat::{
         FormulaPurpose, FormulaStage, ModifierAggregation, ModifierDefinition,
         ModifierStackingGroup, SnapshotPolicy, StatKind,
     },
-    rule::model::{RuleValue, ValueExpr},
+    rule::model::{RuleSource, RuleValue, SourceClass, ValueExpr},
 };
 
 #[test]
@@ -114,8 +115,20 @@ fn catalog_rejects_incomplete_curves_and_trace_cycles_before_compilation() {
     let cycle = TraceGraphDefinition::new(
         form(1),
         vec![
-            TraceNodeDefinition::new(trace(10), vec![trace(20)], promotion(2), vec![]),
-            TraceNodeDefinition::new(trace(20), vec![trace(10)], promotion(2), vec![]),
+            TraceNodeDefinition::new(
+                trace(10),
+                source(110, SourceClass::Progression),
+                vec![trace(20)],
+                promotion(2),
+                vec![],
+            ),
+            TraceNodeDefinition::new(
+                trace(20),
+                source(120, SourceClass::Progression),
+                vec![trace(10)],
+                promotion(2),
+                vec![],
+            ),
         ],
     );
     let mut builder = build_builder();
@@ -167,6 +180,7 @@ fn build_catalog(combat: &CombatCatalog, reverse: bool) -> BuildCatalog {
     let mut nodes = vec![
         TraceNodeDefinition::new(
             trace(20),
+            source(120, SourceClass::Progression),
             vec![trace(10)],
             promotion(2),
             vec![BuildPatch::AdjustAbilityLevel {
@@ -177,6 +191,7 @@ fn build_catalog(combat: &CombatCatalog, reverse: bool) -> BuildCatalog {
         ),
         TraceNodeDefinition::new(
             trace(10),
+            source(110, SourceClass::Progression),
             vec![],
             promotion(1),
             vec![
@@ -201,6 +216,7 @@ fn base_character() -> CharacterBuildDefinition {
     CharacterBuildDefinition::new(
         form(1),
         CombatPath::Harmony,
+        source(100, SourceClass::Unit),
         CharacterStatRow::new(
             UnitLevel::new(80).unwrap(),
             promotion(6),
@@ -208,7 +224,6 @@ fn base_character() -> CharacterBuildDefinition {
             Speed::from_scaled(100_000_000).unwrap(),
         ),
         ResolvedDefinitionBindings::new(vec![ability(1), ability(4)], vec![], vec![]).unwrap(),
-        CombatantSpecDigest::new([0xb2; 32]).unwrap(),
     )
     .with_stat_rows(vec![
         CharacterStatRow::new(
@@ -234,6 +249,7 @@ fn empty_eidolons() -> EidolonSetDefinition {
             .map(|rank| {
                 EidolonDefinition::new(
                     EidolonDefinitionId::new(rank).unwrap(),
+                    source(200 + rank, SourceClass::Progression),
                     EidolonLevel::new(u8::try_from(rank).unwrap()).unwrap(),
                     vec![],
                 )
@@ -357,6 +373,15 @@ fn rule_bundle(raw: u32) -> RuleBundleId {
 
 fn modifier(raw: u32) -> ModifierDefinitionId {
     ModifierDefinitionId::new(raw).unwrap()
+}
+
+fn source(raw: u32, class: SourceClass) -> RuleSource {
+    RuleSource::new(
+        SourceDefinitionId::new(raw).unwrap(),
+        class,
+        vec![],
+        [u8::try_from(raw).unwrap_or(0x7f); 32],
+    )
 }
 
 fn definition<I: TryFrom<u32>>(raw: u32) -> I

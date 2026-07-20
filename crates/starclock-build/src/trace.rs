@@ -2,13 +2,14 @@
 
 use std::collections::{BTreeMap, BTreeSet};
 
-use starclock_combat::UnitDefinitionId;
+use starclock_combat::{UnitDefinitionId, rule::model::RuleSource};
 
 use crate::{id::TraceNodeId, patch::BuildPatch, spec::PromotionStage};
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TraceNodeDefinition {
     id: TraceNodeId,
+    source: RuleSource,
     prerequisites: Box<[TraceNodeId]>,
     promotion_requirement: PromotionStage,
     patches: Box<[BuildPatch]>,
@@ -18,12 +19,14 @@ impl TraceNodeDefinition {
     #[must_use]
     pub fn new(
         id: TraceNodeId,
+        source: RuleSource,
         prerequisites: Vec<TraceNodeId>,
         promotion_requirement: PromotionStage,
         patches: Vec<BuildPatch>,
     ) -> Self {
         Self {
             id,
+            source,
             prerequisites: prerequisites.into_boxed_slice(),
             promotion_requirement,
             patches: patches.into_boxed_slice(),
@@ -32,6 +35,10 @@ impl TraceNodeDefinition {
     #[must_use]
     pub const fn id(&self) -> TraceNodeId {
         self.id
+    }
+    #[must_use]
+    pub const fn source(&self) -> &RuleSource {
+        &self.source
     }
     #[must_use]
     pub fn prerequisites(&self) -> &[TraceNodeId] {

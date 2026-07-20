@@ -25,6 +25,9 @@ const expectedExternal = new Map([
     { name: "rand", requirement: "=0.10.2", features: ["chacha", "std"] },
     { name: "sha2", requirement: "=0.11.0", features: [] },
   ]],
+  ["starclock-build", [
+    { name: "sha2", requirement: "=0.11.0", features: [] },
+  ]],
   ["starclock-data", [
     { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
     { name: "zstd", requirement: "=0.13.3", features: [] },

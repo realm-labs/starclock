@@ -7,6 +7,7 @@ use crate::{
         UnitDefinitionId,
     },
     numeric::domain::{Energy, Hp, Speed, StatValue},
+    rule::model::RuleSource,
     toughness::model::ToughnessLayerSpec,
 };
 
@@ -210,6 +211,7 @@ pub struct ResolvedCombatantSpec {
     abilities: Box<[AbilityId]>,
     rule_bundles: Box<[RuleBundleId]>,
     modifiers: Box<[ModifierDefinitionId]>,
+    sources: Box<[RuleSource]>,
     digest: CombatantSpecDigest,
 }
 
@@ -241,6 +243,7 @@ impl ResolvedCombatantSpec {
             abilities: bindings.abilities,
             rule_bundles: bindings.rule_bundles,
             modifiers: bindings.modifiers,
+            sources: Box::new([]),
             digest,
         })
     }
@@ -251,6 +254,21 @@ impl ResolvedCombatantSpec {
         self.base_attack = attack;
         self.base_defense = defense;
         self
+    }
+    /// Attaches canonical generic source bindings resolved upstream.
+    pub fn with_sources(mut self, sources: Vec<RuleSource>) -> Result<Self, CombatantSpecError> {
+        if sources
+            .windows(2)
+            .any(|pair| pair[0].definition() >= pair[1].definition())
+            || sources.iter().any(|source| {
+                source.tags().windows(2).any(|pair| pair[0] >= pair[1])
+                    || source.digest().iter().all(|byte| *byte == 0)
+            })
+        {
+            return Err(CombatantSpecError::InvalidSourceBindings);
+        }
+        self.sources = sources.into_boxed_slice();
+        Ok(self)
     }
     /// Sets checked entry and maximum Energy for this resolved combatant.
     pub fn with_energy(
@@ -351,6 +369,11 @@ impl ResolvedCombatantSpec {
     pub fn modifiers(&self) -> &[ModifierDefinitionId] {
         &self.modifiers
     }
+    /// Returns canonical generic source bindings.
+    #[must_use]
+    pub fn sources(&self) -> &[RuleSource] {
+        &self.sources
+    }
     /// Returns the exact resolved assembly digest.
     #[must_use]
     pub const fn digest(&self) -> CombatantSpecDigest {
@@ -367,6 +390,8 @@ pub enum CombatantSpecError {
     EmptyAbilitySet,
     /// Set-like definition references must be strictly increasing and unique.
     NonCanonicalReferences,
+    /// Generic source IDs/tags must be canonical and digests must be nonzero.
+    InvalidSourceBindings,
     /// Entry Energy cannot exceed its authored maximum.
     EnergyAboveMaximum,
     /// Weaknesses and layer keys must be strictly ordered and unique.

@@ -3,17 +3,23 @@
 use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_combat::{
-    AbilityId, CombatantSpecError, Hp, ModifierDefinitionId, ResolvedCombatantSpec,
-    ResolvedDefinitionBindings, RuleBundleId, StatValue, catalog::CombatCatalog,
+    AbilityId, CombatantSpecDigest, CombatantSpecError, Hp, ModifierDefinitionId,
+    ResolvedCombatantSpec, ResolvedDefinitionBindings, RuleBundleId, StatValue,
+    catalog::CombatCatalog, rule::model::RuleSource,
 };
 
 use crate::{
     ability::{AbilityInvestment, AbilityLevel},
     catalog::BuildCatalog,
+    digest::{ResolvedDigestInput, resolved_spec_digest, selected_build_digest},
+    id::BuildPresetId,
     light_cone::{LightConeApplicability, LightConeStatRow},
     output::CompiledBuild,
     patch::BuildPatch,
-    report::{BuildCompilationReport, BuildValidationEntry, BuildValidationStage},
+    report::{
+        BuildCompilationReport, BuildSourceAttribution, BuildSourceOwner, BuildValidationEntry,
+        BuildValidationStage,
+    },
     spec::CombatantBuildSpec,
 };
 
@@ -62,6 +68,19 @@ impl std::error::Error for BuildCompileError {}
 pub struct LoadoutCompiler;
 
 impl LoadoutCompiler {
+    pub fn compile_preset(
+        self,
+        build_catalog: &BuildCatalog,
+        combat_catalog: &CombatCatalog,
+        preset: BuildPresetId,
+    ) -> Result<CompiledBuild, BuildPresetCompileError> {
+        let preset = build_catalog
+            .preset(preset)
+            .ok_or(BuildPresetCompileError::UnknownPreset)?;
+        self.compile(build_catalog, combat_catalog, preset.spec())
+            .map_err(BuildPresetCompileError::Build)
+    }
+
     pub fn compile(
         self,
         build_catalog: &BuildCatalog,
@@ -178,6 +197,15 @@ impl LoadoutCompiler {
             BuildValidationStage::LightConeSelection,
         ));
 
+        let (sources, source_attribution) = selected_sources(build_catalog, definition, spec)
+            .map_err(|()| {
+                failure(
+                    spec,
+                    entries.clone(),
+                    BuildValidationStage::CombatBindings,
+                    BuildCompileErrorKind::InvalidCombatBindings,
+                )
+            })?;
         if combat_catalog.unit(definition.form()).is_none()
             || workspace
                 .abilities
@@ -216,23 +244,115 @@ impl LoadoutCompiler {
             BuildValidationStage::CombatBindings,
         ));
 
+        let digest = CombatantSpecDigest::new(resolved_spec_digest(ResolvedDigestInput {
+            form: definition.form(),
+            level: stat_row.level(),
+            maximum_hp: base_stats.maximum_hp,
+            attack: base_stats.attack,
+            defense: base_stats.defense,
+            speed: stat_row.speed(),
+            abilities: bindings.abilities(),
+            rules: bindings.rule_bundles(),
+            modifiers: bindings.modifiers(),
+            sources: &sources,
+        }))
+        .expect("SHA-256 digest is nonzero");
         let combatant = ResolvedCombatantSpec::new(
             definition.form(),
             stat_row.level(),
             base_stats.maximum_hp,
             stat_row.speed(),
             bindings,
-            definition.combatant_digest(),
+            digest,
         )
         .map(|combatant| combatant.with_base_attack_defense(base_stats.attack, base_stats.defense))
+        .and_then(|combatant| combatant.with_sources(sources))
         .map_err(|error| combatant_failure(spec, entries.clone(), error))?;
         entries.push(BuildValidationEntry::passed(
             BuildValidationStage::CombatantConstruction,
         ));
-        let report = BuildCompilationReport::new(spec.form(), spec.level(), entries);
-        Ok(CompiledBuild::new(combatant, report))
+        let report = BuildCompilationReport::new_with_sources(
+            spec.form(),
+            spec.level(),
+            entries,
+            source_attribution,
+        );
+        Ok(CompiledBuild::new(
+            combatant,
+            report,
+            selected_build_digest(build_catalog.digest(), spec),
+            build_catalog.revision().as_str(),
+            build_catalog.digest(),
+        ))
     }
 }
+
+fn selected_sources(
+    catalog: &BuildCatalog,
+    definition: &crate::catalog::CharacterBuildDefinition,
+    spec: &CombatantBuildSpec,
+) -> Result<(Vec<RuleSource>, Vec<BuildSourceAttribution>), ()> {
+    let mut selected = vec![(
+        definition.source().clone(),
+        BuildSourceOwner::Character(definition.form()),
+    )];
+    let trace_ids = spec.traces().iter().copied().collect::<BTreeSet<_>>();
+    if let Some(graph) = definition.trace_graph() {
+        for id in graph
+            .canonical_order()
+            .iter()
+            .filter(|id| trace_ids.contains(id))
+        {
+            let node = graph.node(*id).ok_or(())?;
+            selected.push((node.source().clone(), BuildSourceOwner::Trace(*id)));
+        }
+    }
+    for raw_rank in 1..=spec.eidolon().get() {
+        let rank = crate::spec::EidolonLevel::new(raw_rank).ok_or(())?;
+        let eidolon = definition.eidolons().rank(rank).ok_or(())?;
+        selected.push((
+            eidolon.source().clone(),
+            BuildSourceOwner::Eidolon(eidolon.id()),
+        ));
+    }
+    if let Some(loadout) = spec.light_cone() {
+        let cone = catalog.light_cone(loadout.definition()).ok_or(())?;
+        selected.push((
+            cone.source().clone(),
+            BuildSourceOwner::LightCone(cone.id()),
+        ));
+    }
+    selected.sort_unstable_by_key(|(source, _)| source.definition());
+    if selected
+        .windows(2)
+        .any(|pair| pair[0].0.definition() == pair[1].0.definition())
+    {
+        return Err(());
+    }
+    let sources = selected.iter().map(|(source, _)| source.clone()).collect();
+    let attribution = selected
+        .into_iter()
+        .map(|(source, owner)| BuildSourceAttribution::new(source.definition(), owner))
+        .collect();
+    Ok((sources, attribution))
+}
+
+#[derive(Debug)]
+pub enum BuildPresetCompileError {
+    UnknownPreset,
+    Build(BuildCompileError),
+}
+
+impl std::fmt::Display for BuildPresetCompileError {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::UnknownPreset => formatter.write_str("unknown named build preset"),
+            Self::Build(error) => error.fmt(formatter),
+        }
+    }
+}
+
+impl std::error::Error for BuildPresetCompileError {}
 
 #[derive(Clone, Copy)]
 struct ResolvedBaseStats {

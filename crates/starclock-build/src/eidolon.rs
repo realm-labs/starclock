@@ -1,6 +1,6 @@
 //! Exact six-rank Eidolon definitions and canonical rank ordering.
 
-use starclock_combat::UnitDefinitionId;
+use starclock_combat::{UnitDefinitionId, rule::model::RuleSource};
 
 use crate::{id::EidolonDefinitionId, patch::BuildPatch, spec::EidolonLevel};
 
@@ -8,15 +8,22 @@ use crate::{id::EidolonDefinitionId, patch::BuildPatch, spec::EidolonLevel};
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EidolonDefinition {
     id: EidolonDefinitionId,
+    source: RuleSource,
     rank: EidolonLevel,
     patches: Box<[BuildPatch]>,
 }
 
 impl EidolonDefinition {
     #[must_use]
-    pub fn new(id: EidolonDefinitionId, rank: EidolonLevel, patches: Vec<BuildPatch>) -> Self {
+    pub fn new(
+        id: EidolonDefinitionId,
+        source: RuleSource,
+        rank: EidolonLevel,
+        patches: Vec<BuildPatch>,
+    ) -> Self {
         Self {
             id,
+            source,
             rank,
             patches: patches.into_boxed_slice(),
         }
@@ -24,6 +31,10 @@ impl EidolonDefinition {
     #[must_use]
     pub const fn id(&self) -> EidolonDefinitionId {
         self.id
+    }
+    #[must_use]
+    pub const fn source(&self) -> &RuleSource {
+        &self.source
     }
     #[must_use]
     pub const fn rank(&self) -> EidolonLevel {

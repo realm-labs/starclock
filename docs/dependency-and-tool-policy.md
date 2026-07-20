@@ -69,6 +69,10 @@ draw-consumption policy.
 registry package. A fresh locked Windows x86-64 replay check including its
 activity/combat dependencies took 4,014 ms.
 
+`G01-P5-B5` reuses that exact package as a private `starclock-build` dependency
+for canonical definition, catalog, selected-build and resolved-spec encoding.
+It adds no registry package and does not expose a dependency digest type.
+
 ## Property-test boundary
 
 `G01-P2-B6` adds exact `proptest = 1.11.0` as a dev-dependency of only

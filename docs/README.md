@@ -79,6 +79,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 54. [Ability-level and Trace compilation](ability-level-and-trace-compilation.md) — exact level tables, canonical Trace graphs, typed unlock/stat/rule patches and order-invariant build output.
 55. [Eidolon compilation](eidolon-compilation.md) — exact E0-E6 selection, complete rank sets, ordered patches and deterministic replacement/conflict validation.
 56. [Light Cone compilation](light-cone-compilation.md) — exact level/promotion stats, explicit applicability, S1-S5 passive selection and valid/invalid wearer fixtures.
+57. [Build identity and locking](build-identity-and-locking.md) — canonical definition/catalog/build/spec digests, generic source attribution, named presets and stale-lock rejection.
 
 ## Execution goals
 

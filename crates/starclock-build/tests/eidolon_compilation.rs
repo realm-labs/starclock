@@ -16,8 +16,9 @@ use starclock_build::{
     trace::{TraceGraphDefinition, TraceNodeDefinition},
 };
 use starclock_combat::{
-    AbilityId, CombatantSpecDigest, Energy, Hp, ModifierDefinitionId, ModifierStackingGroupId,
-    ResolvedDefinitionBindings, RuleBundleId, Scalar, Speed, UnitDefinitionId, UnitLevel,
+    AbilityId, Energy, Hp, ModifierDefinitionId, ModifierStackingGroupId,
+    ResolvedDefinitionBindings, RuleBundleId, Scalar, SourceDefinitionId, Speed, UnitDefinitionId,
+    UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -34,7 +35,7 @@ use starclock_combat::{
         FormulaPurpose, FormulaStage, ModifierAggregation, ModifierDefinition,
         ModifierStackingGroup, SnapshotPolicy, StatKind,
     },
-    rule::model::{RuleValue, ValueExpr},
+    rule::model::{RuleSource, RuleValue, SourceClass, ValueExpr},
 };
 
 #[test]
@@ -94,7 +95,14 @@ fn catalog_requires_one_canonical_e1_through_e6_set() {
     let duplicate_id = EidolonSetDefinition::new(
         form(1),
         (1..=6)
-            .map(|rank| EidolonDefinition::new(eidolon_id(1), eidolon_level(rank), vec![]))
+            .map(|rank| {
+                EidolonDefinition::new(
+                    eidolon_id(1),
+                    source(200 + u32::from(rank), SourceClass::Progression),
+                    eidolon_level(rank),
+                    vec![],
+                )
+            })
             .collect(),
     );
     assert_catalog_error(
@@ -191,6 +199,7 @@ fn build_catalog(combat: &CombatCatalog, reverse: bool, add_trace: bool) -> Buil
             form(1),
             vec![TraceNodeDefinition::new(
                 trace(1),
+                source(110, SourceClass::Progression),
                 vec![],
                 promotion(0),
                 vec![BuildPatch::AddAbility(ability(7))],
@@ -206,6 +215,7 @@ fn base_character() -> CharacterBuildDefinition {
     CharacterBuildDefinition::new(
         form(1),
         CombatPath::Harmony,
+        source(100, SourceClass::Unit),
         CharacterStatRow::new(
             UnitLevel::new(80).unwrap(),
             promotion(6),
@@ -218,7 +228,6 @@ fn base_character() -> CharacterBuildDefinition {
             vec![modifier(1)],
         )
         .unwrap(),
-        CombatantSpecDigest::new([0xe6; 32]).unwrap(),
     )
     .with_ability_levels(vec![AbilityLevelTable::new(
         ability(1),
@@ -342,7 +351,12 @@ fn basic_action() -> AbilityActionDefinition {
 }
 
 fn eidolon(rank: u8, patches: Vec<BuildPatch>) -> EidolonDefinition {
-    EidolonDefinition::new(eidolon_id(u32::from(rank)), eidolon_level(rank), patches)
+    EidolonDefinition::new(
+        eidolon_id(u32::from(rank)),
+        source(200 + u32::from(rank), SourceClass::Progression),
+        eidolon_level(rank),
+        patches,
+    )
 }
 
 fn level(raw: u8) -> AbilityLevel {
@@ -371,6 +385,14 @@ fn rule_bundle(raw: u32) -> RuleBundleId {
 }
 fn modifier(raw: u32) -> ModifierDefinitionId {
     ModifierDefinitionId::new(raw).unwrap()
+}
+fn source(raw: u32, class: SourceClass) -> RuleSource {
+    RuleSource::new(
+        SourceDefinitionId::new(raw).unwrap(),
+        class,
+        vec![],
+        [u8::try_from(raw).unwrap_or(0x7f); 32],
+    )
 }
 fn definition<I: TryFrom<u32>>(raw: u32) -> I
 where

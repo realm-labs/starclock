@@ -1,17 +1,23 @@
 //! Immutable build-domain catalog and validated construction.
 
 use starclock_combat::{
-    AbilityId, CombatantSpecDigest, Hp, ModifierDefinitionId, ResolvedDefinitionBindings,
-    RuleBundleId, Speed, StatValue, UnitDefinitionId, UnitLevel,
+    AbilityId, Hp, ModifierDefinitionId, ResolvedDefinitionBindings, RuleBundleId, Speed,
+    StatValue, UnitDefinitionId, UnitLevel,
     catalog::{CatalogDigest, CombatCatalog},
+    rule::model::{RuleSource, SourceClass},
 };
 
 use crate::{
     ability::AbilityLevelTable,
+    digest::{
+        BuildCatalogDigest, BuildDefinitionDigest, catalog_digest, character_digest,
+        light_cone_digest,
+    },
     eidolon::{EidolonSetDefinition, EidolonSetError},
-    id::LightConeId,
+    id::{BuildPresetId, LightConeId},
     light_cone::{CombatPath, LightConeDefinition, LightConeDefinitionError},
     patch::BuildPatch,
+    preset::BuildPreset,
     spec::PromotionStage,
     trace::{TraceGraphDefinition, TraceGraphError},
 };
@@ -41,12 +47,12 @@ impl BuildCatalogRevision {
 pub struct CharacterBuildDefinition {
     form: UnitDefinitionId,
     path: CombatPath,
+    source: RuleSource,
     stats: Box<[CharacterStatRow]>,
     bindings: ResolvedDefinitionBindings,
     ability_levels: Box<[AbilityLevelTable]>,
     trace_graph: Option<TraceGraphDefinition>,
     eidolons: Option<EidolonSetDefinition>,
-    combatant_digest: CombatantSpecDigest,
 }
 
 impl CharacterBuildDefinition {
@@ -54,19 +60,19 @@ impl CharacterBuildDefinition {
     pub fn new(
         form: UnitDefinitionId,
         path: CombatPath,
+        source: RuleSource,
         stat: CharacterStatRow,
         bindings: ResolvedDefinitionBindings,
-        combatant_digest: CombatantSpecDigest,
     ) -> Self {
         Self {
             form,
             path,
+            source,
             stats: vec![stat].into_boxed_slice(),
             bindings,
             ability_levels: Box::new([]),
             trace_graph: None,
             eidolons: None,
-            combatant_digest,
         }
     }
 
@@ -103,6 +109,10 @@ impl CharacterBuildDefinition {
         self.path
     }
     #[must_use]
+    pub const fn source(&self) -> &RuleSource {
+        &self.source
+    }
+    #[must_use]
     pub fn stat_row(
         &self,
         level: UnitLevel,
@@ -128,10 +138,6 @@ impl CharacterBuildDefinition {
     #[must_use]
     pub fn modifiers(&self) -> &[ModifierDefinitionId] {
         self.bindings.modifiers()
-    }
-    #[must_use]
-    pub const fn combatant_digest(&self) -> CombatantSpecDigest {
-        self.combatant_digest
     }
     #[must_use]
     pub fn ability_levels(&self) -> &[AbilityLevelTable] {
@@ -215,16 +221,22 @@ impl CharacterStatRow {
 #[derive(Debug)]
 pub struct BuildCatalog {
     revision: BuildCatalogRevision,
+    digest: BuildCatalogDigest,
     compatible_combat_revision: Box<str>,
     compatible_combat_digest: CatalogDigest,
     characters: Box<[CharacterBuildDefinition]>,
     light_cones: Box<[LightConeDefinition]>,
+    presets: Box<[BuildPreset]>,
 }
 
 impl BuildCatalog {
     #[must_use]
     pub const fn revision(&self) -> &BuildCatalogRevision {
         &self.revision
+    }
+    #[must_use]
+    pub const fn digest(&self) -> BuildCatalogDigest {
+        self.digest
     }
     #[must_use]
     pub fn compatible_combat_revision(&self) -> &str {
@@ -245,6 +257,10 @@ impl BuildCatalog {
         self.characters.iter().map(CharacterBuildDefinition::form)
     }
     #[must_use]
+    pub fn character_digest(&self, form: UnitDefinitionId) -> Option<BuildDefinitionDigest> {
+        self.character(form).map(character_digest)
+    }
+    #[must_use]
     pub fn light_cone(&self, id: LightConeId) -> Option<&LightConeDefinition> {
         self.light_cones
             .binary_search_by_key(&id, LightConeDefinition::id)
@@ -253,6 +269,20 @@ impl BuildCatalog {
     }
     pub fn light_cone_ids(&self) -> impl ExactSizeIterator<Item = LightConeId> + '_ {
         self.light_cones.iter().map(LightConeDefinition::id)
+    }
+    #[must_use]
+    pub fn light_cone_digest(&self, id: LightConeId) -> Option<BuildDefinitionDigest> {
+        self.light_cone(id).map(light_cone_digest)
+    }
+    #[must_use]
+    pub fn preset(&self, id: BuildPresetId) -> Option<&BuildPreset> {
+        self.presets
+            .binary_search_by_key(&id, BuildPreset::id)
+            .ok()
+            .map(|index| &self.presets[index])
+    }
+    pub fn preset_ids(&self) -> impl ExactSizeIterator<Item = BuildPresetId> + '_ {
+        self.presets.iter().map(BuildPreset::id)
     }
 }
 
@@ -263,6 +293,7 @@ pub struct BuildCatalogBuilder {
     compatible_combat_revision: Box<str>,
     characters: Vec<CharacterBuildDefinition>,
     light_cones: Vec<LightConeDefinition>,
+    presets: Vec<BuildPreset>,
 }
 
 impl BuildCatalogBuilder {
@@ -273,6 +304,7 @@ impl BuildCatalogBuilder {
             compatible_combat_revision: compatible_combat_revision.into(),
             characters: Vec::new(),
             light_cones: Vec::new(),
+            presets: Vec::new(),
         })
     }
 
@@ -282,6 +314,10 @@ impl BuildCatalogBuilder {
 
     pub fn add_light_cone(&mut self, definition: LightConeDefinition) {
         self.light_cones.push(definition);
+    }
+
+    pub fn add_preset(&mut self, preset: BuildPreset) {
+        self.presets.push(preset);
     }
 
     pub fn build(mut self, combat: &CombatCatalog) -> Result<BuildCatalog, BuildCatalogError> {
@@ -321,13 +357,62 @@ impl BuildCatalogBuilder {
         for definition in &mut self.light_cones {
             validate_light_cone(definition, combat)?;
         }
-        Ok(BuildCatalog {
+        self.presets.sort_unstable_by_key(BuildPreset::id);
+        if let Some(pair) = self
+            .presets
+            .windows(2)
+            .find(|pair| pair[0].id() == pair[1].id())
+        {
+            return Err(preset_error(
+                BuildCatalogErrorKind::DuplicateBuildPreset,
+                pair[1].id(),
+            ));
+        }
+        let mut preset_names = std::collections::BTreeSet::new();
+        if let Some(preset) = self
+            .presets
+            .iter()
+            .find(|preset| !preset_names.insert(preset.name()))
+        {
+            return Err(preset_error(
+                BuildCatalogErrorKind::DuplicateBuildPreset,
+                preset.id(),
+            ));
+        }
+        let digest = catalog_digest(
+            &self.revision,
+            &self.compatible_combat_revision,
+            combat.digest().bytes(),
+            &self.characters,
+            &self.light_cones,
+            &self.presets,
+        );
+        let catalog = BuildCatalog {
             revision: self.revision,
+            digest,
             compatible_combat_revision: self.compatible_combat_revision,
             compatible_combat_digest: combat.digest(),
             characters: self.characters.into_boxed_slice(),
             light_cones: self.light_cones.into_boxed_slice(),
-        })
+            presets: self.presets.into_boxed_slice(),
+        };
+        for preset in &catalog.presets {
+            let compiled = crate::compiler::LoadoutCompiler
+                .compile(&catalog, combat, preset.spec())
+                .map_err(|_| {
+                    preset_error(BuildCatalogErrorKind::InvalidBuildPreset, preset.id())
+                })?;
+            if preset
+                .expected_build_digest()
+                .is_some_and(|expected| expected != compiled.build_digest())
+            {
+                return Err(preset_error(
+                    BuildCatalogErrorKind::BuildPresetDigestMismatch,
+                    preset.id(),
+                ));
+            }
+        }
+        Ok(catalog)
     }
 }
 
@@ -352,6 +437,12 @@ fn validate_character(
         return Err(BuildCatalogError::new(
             BuildCatalogErrorKind::InvalidStatCurve,
             Some(form),
+        ));
+    }
+    if !valid_source(definition.source(), SourceClass::Unit) {
+        return Err(character_error(
+            BuildCatalogErrorKind::InvalidSourceBinding,
+            form,
         ));
     }
     if definition.abilities().is_empty() {
@@ -438,6 +529,16 @@ fn validate_character(
                 form,
             )
         })?;
+        if graph
+            .nodes()
+            .iter()
+            .any(|node| !valid_source(node.source(), SourceClass::Progression))
+        {
+            return Err(character_error(
+                BuildCatalogErrorKind::InvalidSourceBinding,
+                form,
+            ));
+        }
         validate_trace_patches(definition, combat, unit)?;
     }
     let Some(eidolons) = &mut definition.eidolons else {
@@ -461,6 +562,16 @@ fn validate_character(
             form,
         )
     })?;
+    if eidolons
+        .ranks()
+        .iter()
+        .any(|rank| !valid_source(rank.source(), SourceClass::Progression))
+    {
+        return Err(character_error(
+            BuildCatalogErrorKind::InvalidSourceBinding,
+            form,
+        ));
+    }
     validate_eidolon_patches(definition, combat, unit)?;
     validate_level_adjustments(definition)?;
     Ok(())
@@ -664,6 +775,12 @@ fn validate_light_cone(
     combat: &CombatCatalog,
 ) -> Result<(), BuildCatalogError> {
     let id = definition.id();
+    if !valid_source(definition.source(), SourceClass::Equipment) {
+        return Err(light_cone_error(
+            BuildCatalogErrorKind::InvalidSourceBinding,
+            id,
+        ));
+    }
     definition.canonicalize().map_err(|error| {
         light_cone_error(
             match error {
@@ -707,12 +824,22 @@ fn validate_light_cone(
     Ok(())
 }
 
+fn valid_source(source: &RuleSource, expected: SourceClass) -> bool {
+    source.class() == expected
+        && !source.digest().iter().all(|byte| *byte == 0)
+        && !source.tags().windows(2).any(|pair| pair[0] >= pair[1])
+}
+
 const fn character_error(kind: BuildCatalogErrorKind, form: UnitDefinitionId) -> BuildCatalogError {
     BuildCatalogError::new(kind, Some(form))
 }
 
 const fn light_cone_error(kind: BuildCatalogErrorKind, id: LightConeId) -> BuildCatalogError {
     BuildCatalogError::new_light_cone(kind, id)
+}
+
+const fn preset_error(kind: BuildCatalogErrorKind, id: BuildPresetId) -> BuildCatalogError {
+    BuildCatalogError::new_preset(kind, id)
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -739,6 +866,10 @@ pub enum BuildCatalogErrorKind {
     InvalidLightConeStatCurve,
     IncompleteLightConePassive,
     InvalidLightConePassive,
+    DuplicateBuildPreset,
+    InvalidBuildPreset,
+    BuildPresetDigestMismatch,
+    InvalidSourceBinding,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -746,6 +877,7 @@ pub struct BuildCatalogError {
     kind: BuildCatalogErrorKind,
     form: Option<UnitDefinitionId>,
     light_cone: Option<LightConeId>,
+    preset: Option<BuildPresetId>,
 }
 
 impl BuildCatalogError {
@@ -754,6 +886,7 @@ impl BuildCatalogError {
             kind,
             form,
             light_cone: None,
+            preset: None,
         }
     }
     const fn new_light_cone(kind: BuildCatalogErrorKind, light_cone: LightConeId) -> Self {
@@ -761,6 +894,15 @@ impl BuildCatalogError {
             kind,
             form: None,
             light_cone: Some(light_cone),
+            preset: None,
+        }
+    }
+    const fn new_preset(kind: BuildCatalogErrorKind, preset: BuildPresetId) -> Self {
+        Self {
+            kind,
+            form: None,
+            light_cone: None,
+            preset: Some(preset),
         }
     }
     #[must_use]
@@ -774,6 +916,10 @@ impl BuildCatalogError {
     #[must_use]
     pub const fn light_cone(self) -> Option<LightConeId> {
         self.light_cone
+    }
+    #[must_use]
+    pub const fn preset(self) -> Option<BuildPresetId> {
+        self.preset
     }
 }
 

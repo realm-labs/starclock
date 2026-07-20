@@ -17,7 +17,7 @@ use starclock_build::{
     spec::{CombatantBuildSpec, EidolonLevel, LightConeLoadout, PromotionStage},
 };
 use starclock_combat::{
-    AbilityId, CombatantSpecDigest, Energy, Hp, ResolvedDefinitionBindings, RuleBundleId, Speed,
+    AbilityId, Energy, Hp, ResolvedDefinitionBindings, RuleBundleId, SourceDefinitionId, Speed,
     StatValue, UnitDefinitionId, UnitLevel,
     catalog::{
         CombatCatalog,
@@ -31,6 +31,7 @@ use starclock_combat::{
             UnitDefinition,
         },
     },
+    rule::model::{RuleSource, SourceClass},
 };
 
 #[test]
@@ -127,6 +128,7 @@ fn catalog_rejects_duplicate_incomplete_and_unresolved_cones() {
     let mut incomplete = default_cone(1);
     incomplete = LightConeDefinition::new(
         incomplete.id(),
+        incomplete.source().clone(),
         incomplete.path(),
         incomplete.applicability(),
         incomplete.stats().to_vec(),
@@ -144,6 +146,7 @@ fn catalog_rejects_duplicate_incomplete_and_unresolved_cones() {
         &combat,
         LightConeDefinition::new(
             cone_id(1),
+            source(301, SourceClass::Equipment),
             CombatPath::Harmony,
             LightConeApplicability::MatchingPath,
             duplicate_stats,
@@ -232,7 +235,14 @@ fn cone(
         stats.reverse();
         passive.reverse();
     }
-    LightConeDefinition::new(cone_id(id), path, applicability, stats, passive)
+    LightConeDefinition::new(
+        cone_id(id),
+        source(300 + id, SourceClass::Equipment),
+        path,
+        applicability,
+        stats,
+        passive,
+    )
 }
 
 fn stat_rows() -> Vec<LightConeStatRow> {
@@ -271,6 +281,7 @@ fn character() -> CharacterBuildDefinition {
     CharacterBuildDefinition::new(
         form(1),
         CombatPath::Harmony,
+        source(100, SourceClass::Unit),
         CharacterStatRow::new(
             UnitLevel::new(80).unwrap(),
             promotion(6),
@@ -279,7 +290,6 @@ fn character() -> CharacterBuildDefinition {
         )
         .with_attack_defense(stat(500_000_000), stat(300_000_000)),
         ResolvedDefinitionBindings::new(vec![ability(1)], vec![rule(1)], vec![]).unwrap(),
-        CombatantSpecDigest::new([0xb4; 32]).unwrap(),
     )
     .with_eidolons(EidolonSetDefinition::new(
         form(1),
@@ -287,6 +297,7 @@ fn character() -> CharacterBuildDefinition {
             .map(|rank| {
                 EidolonDefinition::new(
                     EidolonDefinitionId::new(rank).unwrap(),
+                    source(200 + rank, SourceClass::Progression),
                     EidolonLevel::new(u8::try_from(rank).unwrap()).unwrap(),
                     vec![],
                 )
@@ -400,6 +411,14 @@ fn ability(raw: u32) -> AbilityId {
 }
 fn rule(raw: u32) -> RuleBundleId {
     RuleBundleId::new(raw).unwrap()
+}
+fn source(raw: u32, class: SourceClass) -> RuleSource {
+    RuleSource::new(
+        SourceDefinitionId::new(raw).unwrap(),
+        class,
+        vec![],
+        [u8::try_from(raw).unwrap_or(0x7f); 32],
+    )
 }
 fn definition<I: TryFrom<u32>>(raw: u32) -> I
 where

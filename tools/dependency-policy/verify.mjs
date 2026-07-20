@@ -63,6 +63,8 @@ assert(workspaceManifest.includes('allocation-counter = { version = "=0.8.1", de
 assert(combatManifest.includes("rand.workspace = true") && combatManifest.includes("sha2.workspace = true"), "combat RNG/hash dependencies differ");
 const replayManifest = fs.readFileSync(path.join(root, "crates", "starclock-replay", "Cargo.toml"), "utf8");
 assert(replayManifest.includes("sha2.workspace = true"), "replay SHA-256 dependency differs");
+const buildManifest = fs.readFileSync(path.join(root, "crates", "starclock-build", "Cargo.toml"), "utf8");
+assert(buildManifest.includes("sha2.workspace = true"), "build SHA-256 dependency differs");
 assert(combatManifest.includes("[dev-dependencies]") && combatManifest.includes("proptest.workspace = true"), "combat property dev-dependency differs");
 assert(replayManifest.includes("[dev-dependencies]") && replayManifest.includes("proptest.workspace = true"), "replay property dev-dependency differs");
 const cliManifest = fs.readFileSync(path.join(root, "crates", "starclock-cli", "Cargo.toml"), "utf8");

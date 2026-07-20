@@ -1,6 +1,6 @@
 //! Exact Light Cone stat rows, applicability and S1-S5 passive selections.
 
-use starclock_combat::{Hp, StatValue};
+use starclock_combat::{Hp, StatValue, rule::model::RuleSource};
 
 use crate::{id::LightConeId, patch::BuildPatch, spec::PromotionStage};
 
@@ -137,6 +137,7 @@ impl LightConePassiveRank {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LightConeDefinition {
     id: LightConeId,
+    source: RuleSource,
     path: CombatPath,
     applicability: LightConeApplicability,
     stats: Box<[LightConeStatRow]>,
@@ -147,6 +148,7 @@ impl LightConeDefinition {
     #[must_use]
     pub fn new(
         id: LightConeId,
+        source: RuleSource,
         path: CombatPath,
         applicability: LightConeApplicability,
         stats: Vec<LightConeStatRow>,
@@ -154,6 +156,7 @@ impl LightConeDefinition {
     ) -> Self {
         Self {
             id,
+            source,
             path,
             applicability,
             stats: stats.into_boxed_slice(),
@@ -191,6 +194,10 @@ impl LightConeDefinition {
     #[must_use]
     pub const fn id(&self) -> LightConeId {
         self.id
+    }
+    #[must_use]
+    pub const fn source(&self) -> &RuleSource {
+        &self.source
     }
     #[must_use]
     pub const fn path(&self) -> CombatPath {

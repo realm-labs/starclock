@@ -13,8 +13,8 @@ use starclock_build::{
     spec::{CombatantBuildSpec, EidolonLevel, PromotionStage},
 };
 use starclock_combat::{
-    AbilityId, CombatantSpecDigest, Energy, Hp, ResolvedDefinitionBindings, Speed,
-    UnitDefinitionId, UnitLevel,
+    AbilityId, Energy, Hp, ResolvedDefinitionBindings, SourceDefinitionId, Speed, UnitDefinitionId,
+    UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -24,6 +24,7 @@ use starclock_combat::{
         builder::CombatCatalogBuilder,
         definition::{AbilityDefinition, ProgramDefinition, SelectorDefinition, UnitDefinition},
     },
+    rule::model::{RuleSource, SourceClass},
 };
 
 #[test]
@@ -153,6 +154,7 @@ fn character(form: u32, bound_ability: u32) -> CharacterBuildDefinition {
     CharacterBuildDefinition::new(
         self::form(form),
         CombatPath::Harmony,
+        source(100 + form, SourceClass::Unit),
         CharacterStatRow::new(
             UnitLevel::new(80).unwrap(),
             PromotionStage::new(6).unwrap(),
@@ -160,7 +162,6 @@ fn character(form: u32, bound_ability: u32) -> CharacterBuildDefinition {
             Speed::from_scaled(100_000_000).unwrap(),
         ),
         ResolvedDefinitionBindings::new(vec![ability(bound_ability)], vec![], vec![]).unwrap(),
-        CombatantSpecDigest::new([u8::try_from(form).unwrap(); 32]).unwrap(),
     )
     .with_eidolons(EidolonSetDefinition::new(
         self::form(form),
@@ -168,6 +169,7 @@ fn character(form: u32, bound_ability: u32) -> CharacterBuildDefinition {
             .map(|rank| {
                 EidolonDefinition::new(
                     EidolonDefinitionId::new(rank).unwrap(),
+                    source(200 + rank, SourceClass::Progression),
                     EidolonLevel::new(u8::try_from(rank).unwrap()).unwrap(),
                     vec![],
                 )
@@ -226,6 +228,15 @@ fn form(raw: u32) -> UnitDefinitionId {
 
 fn ability(raw: u32) -> AbilityId {
     AbilityId::new(raw).unwrap()
+}
+
+fn source(raw: u32, class: SourceClass) -> RuleSource {
+    RuleSource::new(
+        SourceDefinitionId::new(raw).unwrap(),
+        class,
+        vec![],
+        [u8::try_from(raw).unwrap_or(0x7f); 32],
+    )
 }
 
 fn definition<I: TryFrom<u32>>(raw: u32) -> I

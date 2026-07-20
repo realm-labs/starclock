@@ -1,6 +1,8 @@
 //! Stable typed build-validation evidence.
 
-use starclock_combat::{UnitDefinitionId, UnitLevel};
+use starclock_combat::{SourceDefinitionId, UnitDefinitionId, UnitLevel};
+
+use crate::id::{EidolonDefinitionId, LightConeId, TraceNodeId};
 
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]
@@ -56,6 +58,7 @@ pub struct BuildCompilationReport {
     form: UnitDefinitionId,
     level: UnitLevel,
     entries: Box<[BuildValidationEntry]>,
+    sources: Box<[BuildSourceAttribution]>,
 }
 
 impl BuildCompilationReport {
@@ -69,6 +72,21 @@ impl BuildCompilationReport {
             form,
             level,
             entries: entries.into_boxed_slice(),
+            sources: Box::new([]),
+        }
+    }
+    pub(crate) fn new_with_sources(
+        form: UnitDefinitionId,
+        level: UnitLevel,
+        entries: Vec<BuildValidationEntry>,
+        sources: Vec<BuildSourceAttribution>,
+    ) -> Self {
+        debug_assert!(entries.windows(2).all(|pair| pair[0].stage < pair[1].stage));
+        Self {
+            form,
+            level,
+            entries: entries.into_boxed_slice(),
+            sources: sources.into_boxed_slice(),
         }
     }
     #[must_use]
@@ -84,9 +102,41 @@ impl BuildCompilationReport {
         &self.entries
     }
     #[must_use]
+    pub fn sources(&self) -> &[BuildSourceAttribution] {
+        &self.sources
+    }
+    #[must_use]
     pub fn is_valid(&self) -> bool {
         self.entries
             .iter()
             .all(|entry| entry.outcome == BuildValidationOutcome::Passed)
     }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct BuildSourceAttribution {
+    source: SourceDefinitionId,
+    owner: BuildSourceOwner,
+}
+
+impl BuildSourceAttribution {
+    pub(crate) const fn new(source: SourceDefinitionId, owner: BuildSourceOwner) -> Self {
+        Self { source, owner }
+    }
+    #[must_use]
+    pub const fn source(self) -> SourceDefinitionId {
+        self.source
+    }
+    #[must_use]
+    pub const fn owner(self) -> BuildSourceOwner {
+        self.owner
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum BuildSourceOwner {
+    Character(UnitDefinitionId),
+    Trace(TraceNodeId),
+    Eidolon(EidolonDefinitionId),
+    LightCone(LightConeId),
 }
