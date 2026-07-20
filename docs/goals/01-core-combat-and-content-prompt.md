@@ -70,6 +70,16 @@ Repository execution contract
    domain definitions. Never introduce a JSON-direct runtime path as a milestone
    shortcut.
 
+6. For agent-authored `.xlsx` inspection, creation and modification, run Python
+   through `uv` with `openpyxl`, for example
+   `uv run --with openpyxl python <script>`. This is the approved workbook
+   authoring adapter; it does not replace Sora validation, code generation or
+   export, and it must not create a second runtime data path. Do not require the
+   generic Spreadsheets artifact workflow, `load_workspace_dependencies` or
+   `@oai/artifact-tool` for these repository-owned workbooks. Their absence is
+   not a blocker: use `uv` plus `openpyxl`, then run the repository's pinned Sora
+   verification and export gates.
+
 Persistent execution loop
 =========================
 
