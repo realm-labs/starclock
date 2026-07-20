@@ -6,6 +6,12 @@ use starclock_combat::{
     catalog::{CatalogDigest, CombatCatalog},
 };
 
+use crate::{
+    ability::AbilityLevelTable,
+    spec::PromotionStage,
+    trace::{BuildPatch, TraceGraphDefinition, TraceGraphError},
+};
+
 /// Human-readable immutable build-catalog revision.
 #[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct BuildCatalogRevision(Box<str>);
@@ -30,10 +36,10 @@ impl BuildCatalogRevision {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CharacterBuildDefinition {
     form: UnitDefinitionId,
-    level: UnitLevel,
-    maximum_hp: Hp,
-    speed: Speed,
+    stats: Box<[CharacterStatRow]>,
     bindings: ResolvedDefinitionBindings,
+    ability_levels: Box<[AbilityLevelTable]>,
+    trace_graph: Option<TraceGraphDefinition>,
     combatant_digest: CombatantSpecDigest,
 }
 
@@ -41,20 +47,36 @@ impl CharacterBuildDefinition {
     #[must_use]
     pub fn new(
         form: UnitDefinitionId,
-        level: UnitLevel,
-        maximum_hp: Hp,
-        speed: Speed,
+        stat: CharacterStatRow,
         bindings: ResolvedDefinitionBindings,
         combatant_digest: CombatantSpecDigest,
     ) -> Self {
         Self {
             form,
-            level,
-            maximum_hp,
-            speed,
+            stats: vec![stat].into_boxed_slice(),
             bindings,
+            ability_levels: Box::new([]),
+            trace_graph: None,
             combatant_digest,
         }
+    }
+
+    #[must_use]
+    pub fn with_stat_rows(mut self, stats: Vec<CharacterStatRow>) -> Self {
+        self.stats = stats.into_boxed_slice();
+        self
+    }
+
+    #[must_use]
+    pub fn with_ability_levels(mut self, tables: Vec<AbilityLevelTable>) -> Self {
+        self.ability_levels = tables.into_boxed_slice();
+        self
+    }
+
+    #[must_use]
+    pub fn with_trace_graph(mut self, graph: TraceGraphDefinition) -> Self {
+        self.trace_graph = Some(graph);
+        self
     }
 
     #[must_use]
@@ -62,16 +84,19 @@ impl CharacterBuildDefinition {
         self.form
     }
     #[must_use]
-    pub const fn level(&self) -> UnitLevel {
-        self.level
+    pub fn stat_row(
+        &self,
+        level: UnitLevel,
+        promotion: PromotionStage,
+    ) -> Option<&CharacterStatRow> {
+        self.stats
+            .binary_search_by_key(&(level, promotion), |row| (row.level, row.promotion))
+            .ok()
+            .map(|index| &self.stats[index])
     }
     #[must_use]
-    pub const fn maximum_hp(&self) -> Hp {
-        self.maximum_hp
-    }
-    #[must_use]
-    pub const fn speed(&self) -> Speed {
-        self.speed
+    pub fn stat_rows(&self) -> &[CharacterStatRow] {
+        &self.stats
     }
     #[must_use]
     pub fn abilities(&self) -> &[AbilityId] {
@@ -88,6 +113,63 @@ impl CharacterBuildDefinition {
     #[must_use]
     pub const fn combatant_digest(&self) -> CombatantSpecDigest {
         self.combatant_digest
+    }
+    #[must_use]
+    pub fn ability_levels(&self) -> &[AbilityLevelTable] {
+        &self.ability_levels
+    }
+    #[must_use]
+    pub fn ability_level_table(&self, family: AbilityId) -> Option<&AbilityLevelTable> {
+        self.ability_levels
+            .binary_search_by_key(&family, AbilityLevelTable::family)
+            .ok()
+            .map(|index| &self.ability_levels[index])
+    }
+    #[must_use]
+    pub const fn trace_graph(&self) -> Option<&TraceGraphDefinition> {
+        self.trace_graph.as_ref()
+    }
+}
+
+/// Exact fixed-point/integer base row at one level and promotion boundary.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CharacterStatRow {
+    level: UnitLevel,
+    promotion: PromotionStage,
+    maximum_hp: Hp,
+    speed: Speed,
+}
+
+impl CharacterStatRow {
+    #[must_use]
+    pub const fn new(
+        level: UnitLevel,
+        promotion: PromotionStage,
+        maximum_hp: Hp,
+        speed: Speed,
+    ) -> Self {
+        Self {
+            level,
+            promotion,
+            maximum_hp,
+            speed,
+        }
+    }
+    #[must_use]
+    pub const fn level(self) -> UnitLevel {
+        self.level
+    }
+    #[must_use]
+    pub const fn promotion(self) -> PromotionStage {
+        self.promotion
+    }
+    #[must_use]
+    pub const fn maximum_hp(self) -> Hp {
+        self.maximum_hp
+    }
+    #[must_use]
+    pub const fn speed(self) -> Speed {
+        self.speed
     }
 }
 
@@ -166,7 +248,7 @@ impl BuildCatalogBuilder {
                 Some(pair[0].form),
             ));
         }
-        for definition in &self.characters {
+        for definition in &mut self.characters {
             validate_character(definition, combat)?;
         }
         Ok(BuildCatalog {
@@ -179,16 +261,25 @@ impl BuildCatalogBuilder {
 }
 
 fn validate_character(
-    definition: &CharacterBuildDefinition,
+    definition: &mut CharacterBuildDefinition,
     combat: &CombatCatalog,
 ) -> Result<(), BuildCatalogError> {
     let form = definition.form;
     let unit = combat.unit(form).ok_or_else(|| {
         BuildCatalogError::new(BuildCatalogErrorKind::MissingCombatForm, Some(form))
     })?;
-    if definition.maximum_hp.get() == 0 {
+    definition
+        .stats
+        .sort_unstable_by_key(|row| (row.level, row.promotion));
+    if definition.stats.is_empty()
+        || definition
+            .stats
+            .windows(2)
+            .any(|pair| (pair[0].level, pair[0].promotion) == (pair[1].level, pair[1].promotion))
+        || definition.stats.iter().any(|row| row.maximum_hp.get() == 0)
+    {
         return Err(BuildCatalogError::new(
-            BuildCatalogErrorKind::ZeroMaximumHp,
+            BuildCatalogErrorKind::InvalidStatCurve,
             Some(form),
         ));
     }
@@ -226,7 +317,141 @@ fn validate_character(
             Some(form),
         ));
     }
+    definition
+        .ability_levels
+        .sort_unstable_by_key(AbilityLevelTable::family);
+    if definition
+        .ability_levels
+        .windows(2)
+        .any(|pair| pair[0].family() == pair[1].family())
+    {
+        return Err(character_error(
+            BuildCatalogErrorKind::DuplicateAbilityFamily,
+            form,
+        ));
+    }
+    let mut resolved_curve_abilities = std::collections::BTreeSet::new();
+    for table in &mut definition.ability_levels {
+        table.canonicalize();
+        if !table.is_complete()
+            || table.rows().iter().any(|row| {
+                combat.ability(row.resolved_ability()).is_none()
+                    || unit
+                        .abilities()
+                        .binary_search(&row.resolved_ability())
+                        .is_err()
+                    || !resolved_curve_abilities.insert(row.resolved_ability())
+            })
+        {
+            return Err(character_error(
+                BuildCatalogErrorKind::InvalidAbilityCurve,
+                form,
+            ));
+        }
+    }
+    if let Some(graph) = &mut definition.trace_graph {
+        if graph.form() != form {
+            return Err(character_error(
+                BuildCatalogErrorKind::InvalidTraceGraph,
+                form,
+            ));
+        }
+        graph.canonicalize().map_err(|error| {
+            character_error(
+                match error {
+                    TraceGraphError::DuplicateNode => BuildCatalogErrorKind::DuplicateTraceNode,
+                    TraceGraphError::InvalidPrerequisite | TraceGraphError::Cycle => {
+                        BuildCatalogErrorKind::InvalidTraceGraph
+                    }
+                },
+                form,
+            )
+        })?;
+        validate_trace_patches(definition, combat, unit)?;
+    }
     Ok(())
+}
+
+fn validate_trace_patches(
+    definition: &CharacterBuildDefinition,
+    combat: &CombatCatalog,
+    unit: &starclock_combat::catalog::definition::UnitDefinition,
+) -> Result<(), BuildCatalogError> {
+    let form = definition.form;
+    let mut adjustments = std::collections::BTreeMap::<AbilityId, (i16, i16)>::new();
+    for patch in definition
+        .trace_graph
+        .iter()
+        .flat_map(|graph| graph.nodes())
+        .flat_map(|node| node.patches())
+    {
+        match *patch {
+            BuildPatch::AddAbility(id)
+                if combat.ability(id).is_none() || unit.abilities().binary_search(&id).is_err() =>
+            {
+                return Err(character_error(
+                    BuildCatalogErrorKind::InvalidTracePatch,
+                    form,
+                ));
+            }
+            BuildPatch::AddRuleBundle(id)
+                if combat.rule_bundle(id).is_none()
+                    || unit.rule_bundles().binary_search(&id).is_err() =>
+            {
+                return Err(character_error(
+                    BuildCatalogErrorKind::InvalidTracePatch,
+                    form,
+                ));
+            }
+            BuildPatch::AddModifier(id) if combat.modifier(id).is_none() => {
+                return Err(character_error(
+                    BuildCatalogErrorKind::InvalidTracePatch,
+                    form,
+                ));
+            }
+            BuildPatch::AdjustAbilityLevel {
+                family,
+                bonus,
+                cap_delta,
+            } => {
+                if definition.ability_level_table(family).is_none() {
+                    return Err(character_error(
+                        BuildCatalogErrorKind::InvalidTracePatch,
+                        form,
+                    ));
+                }
+                let entry = adjustments.entry(family).or_default();
+                entry.0 += i16::from(bonus);
+                entry.1 += i16::from(cap_delta);
+            }
+            _ => {}
+        }
+    }
+    for (family, (bonus, cap_delta)) in adjustments {
+        let table = definition
+            .ability_level_table(family)
+            .expect("adjustment family was checked");
+        let invested_cap = i16::from(table.invested_cap().get());
+        let effective_min = 1_i16 + bonus;
+        let effective_max = invested_cap + bonus;
+        let adjusted_cap = invested_cap + cap_delta;
+        let table_max = i16::from(table.maximum_effective_level().get());
+        if effective_min < 1
+            || effective_max > adjusted_cap
+            || adjusted_cap < 1
+            || adjusted_cap > table_max
+        {
+            return Err(character_error(
+                BuildCatalogErrorKind::InvalidTracePatch,
+                form,
+            ));
+        }
+    }
+    Ok(())
+}
+
+const fn character_error(kind: BuildCatalogErrorKind, form: UnitDefinitionId) -> BuildCatalogError {
+    BuildCatalogError::new(kind, Some(form))
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -234,11 +459,16 @@ pub enum BuildCatalogErrorKind {
     IncompatibleCombatRevision,
     DuplicateCharacter,
     MissingCombatForm,
-    ZeroMaximumHp,
+    InvalidStatCurve,
     NonCanonicalReferences,
     InvalidAbilityBinding,
     InvalidRuleBinding,
     InvalidModifierBinding,
+    DuplicateAbilityFamily,
+    InvalidAbilityCurve,
+    DuplicateTraceNode,
+    InvalidTraceGraph,
+    InvalidTracePatch,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

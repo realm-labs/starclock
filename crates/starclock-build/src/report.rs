@@ -8,8 +8,10 @@ pub enum BuildValidationStage {
     CatalogCompatibility = 0,
     CharacterLookup = 1,
     LevelSelection = 2,
-    CombatBindings = 3,
-    CombatantConstruction = 4,
+    AbilitySelection = 3,
+    TraceSelection = 4,
+    CombatBindings = 5,
+    CombatantConstruction = 6,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

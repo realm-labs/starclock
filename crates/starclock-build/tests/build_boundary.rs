@@ -3,11 +3,11 @@ use std::sync::Arc;
 use starclock_build::{
     catalog::{
         BuildCatalog, BuildCatalogBuilder, BuildCatalogErrorKind, BuildCatalogRevision,
-        CharacterBuildDefinition,
+        CharacterBuildDefinition, CharacterStatRow,
     },
     compiler::{BuildCompileErrorKind, LoadoutCompiler},
     report::{BuildValidationOutcome, BuildValidationStage},
-    spec::CombatantBuildSpec,
+    spec::{CombatantBuildSpec, PromotionStage},
 };
 use starclock_combat::{
     AbilityId, CombatantSpecDigest, Energy, Hp, ResolvedDefinitionBindings, Speed,
@@ -35,7 +35,7 @@ fn catalog_canonicalizes_definition_order_and_compiles_only_combat_types() {
         catalog.character_ids().collect::<Vec<_>>(),
         vec![form(1), form(2)]
     );
-    let spec = CombatantBuildSpec::new(form(1), UnitLevel::new(80).unwrap());
+    let spec = build_spec(form(1), 80);
     let compiled = LoadoutCompiler.compile(&catalog, &combat, &spec).unwrap();
 
     assert_eq!(compiled.combatant().form(), form(1));
@@ -53,6 +53,8 @@ fn catalog_canonicalizes_definition_order_and_compiles_only_combat_types() {
             BuildValidationStage::CatalogCompatibility,
             BuildValidationStage::CharacterLookup,
             BuildValidationStage::LevelSelection,
+            BuildValidationStage::AbilitySelection,
+            BuildValidationStage::TraceSelection,
             BuildValidationStage::CombatBindings,
             BuildValidationStage::CombatantConstruction,
         ]
@@ -80,7 +82,7 @@ fn catalog_rejects_duplicate_forms_and_cross_catalog_bindings() {
 fn invalid_builds_return_ordered_typed_validation_reports() {
     let combat = combat_catalog("combat-v1");
     let catalog = build_catalog(&combat, "combat-v1");
-    let unknown = CombatantBuildSpec::new(form(3), UnitLevel::new(80).unwrap());
+    let unknown = build_spec(form(3), 80);
     let error = LoadoutCompiler
         .compile(&catalog, &combat, &unknown)
         .unwrap_err();
@@ -95,7 +97,7 @@ fn invalid_builds_return_ordered_typed_validation_reports() {
         BuildValidationStage::CharacterLookup
     );
 
-    let wrong_level = CombatantBuildSpec::new(form(1), UnitLevel::new(79).unwrap());
+    let wrong_level = build_spec(form(1), 79);
     let error = LoadoutCompiler
         .compile(&catalog, &combat, &wrong_level)
         .unwrap_err();
@@ -111,7 +113,7 @@ fn compile_rechecks_catalog_compatibility_without_mutating_either_catalog() {
     let combat_v1 = combat_catalog("combat-v1");
     let catalog = build_catalog(&combat_v1, "combat-v1");
     let combat_v2 = combat_catalog_with_digest("combat-v2", 0x72);
-    let spec = CombatantBuildSpec::new(form(1), UnitLevel::new(80).unwrap());
+    let spec = build_spec(form(1), 80);
 
     let error = LoadoutCompiler
         .compile(&catalog, &combat_v2, &spec)
@@ -145,11 +147,22 @@ fn build_builder(compatible: &str) -> BuildCatalogBuilder {
 fn character(form: u32, bound_ability: u32) -> CharacterBuildDefinition {
     CharacterBuildDefinition::new(
         self::form(form),
-        UnitLevel::new(80).unwrap(),
-        Hp::new(10_000).unwrap(),
-        Speed::from_scaled(100_000_000).unwrap(),
+        CharacterStatRow::new(
+            UnitLevel::new(80).unwrap(),
+            PromotionStage::new(6).unwrap(),
+            Hp::new(10_000).unwrap(),
+            Speed::from_scaled(100_000_000).unwrap(),
+        ),
         ResolvedDefinitionBindings::new(vec![ability(bound_ability)], vec![], vec![]).unwrap(),
         CombatantSpecDigest::new([u8::try_from(form).unwrap(); 32]).unwrap(),
+    )
+}
+
+fn build_spec(form: UnitDefinitionId, level: u8) -> CombatantBuildSpec {
+    CombatantBuildSpec::new(
+        form,
+        UnitLevel::new(level).unwrap(),
+        PromotionStage::new(6).unwrap(),
     )
 }
 

@@ -16,7 +16,7 @@ bundle and modifier against both the immutable `CombatCatalog` and the selected
 unit definition. It captures the exact compatible combat revision and digest.
 
 This fixed row is synthetic foundation evidence, not production character
-coverage. B2 replaces it with level/ability curves and Trace patches; B3 adds
+coverage. B2 extends it with exact stat rows, ability curves and Trace patches; B3 adds
 Eidolons; B4 adds Light Cones; B5 owns canonical build/catalog/report digest
 encoding, source attribution and presets; B6 protects the relic boundary.
 Production Excel/Sora lowering is not bypassed, and coverage remains 0/283

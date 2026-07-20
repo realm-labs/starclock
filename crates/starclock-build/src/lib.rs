@@ -6,8 +6,11 @@
 
 #![forbid(unsafe_code)]
 
+pub mod ability;
 pub mod catalog;
 pub mod compiler;
+pub mod id;
 pub mod output;
 pub mod report;
 pub mod spec;
+pub mod trace;

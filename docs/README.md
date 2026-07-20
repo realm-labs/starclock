@@ -76,6 +76,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 51. [Enemy AI and encounter runtime boundary](enemy-ai-and-encounter-runtime-boundary.md) — finite controller graphs, exact wave slots/boundaries, boss-phase replacement and canonical orchestration state.
 52. [Native-handler and content-branch audit](native-handler-and-content-branch-audit.md) — zero-handler V1a review, exact static/Sora metadata agreement and mechanical rejection of scattered content-ID branches.
 53. [Build catalog and compilation boundary](build-catalog-and-compilation-boundary.md) — independent build catalog/spec ownership, exact cross-catalog compatibility, typed validation reports and generic combat-only output.
+54. [Ability-level and Trace compilation](ability-level-and-trace-compilation.md) — exact level tables, canonical Trace graphs, typed unlock/stat/rule patches and order-invariant build output.
 
 ## Execution goals
 
