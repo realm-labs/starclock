@@ -2,9 +2,9 @@
   "schema_revision": "starclock.standard-encounter-schema-golden.v1",
   "sora_cli_version": "0.3.0",
   "base_rule_ir_digest": "2aa4ccd572c58697ee37be3bbeaa1850d49e2c70f6fada33680e02e3cc1c4483",
-  "output_digest": "105d8c2e765fc48df15a66047ffd4fd6e2a65eab173278ef085ff02e3551dced",
+  "output_digest": "a7d9990df91ada0e68fe3be6c2e9b511df7c84afff69ad86ba7cecfb6a74dd76",
   "files": {
-    "config.sora": "4cba910ce746f5c12ec43b9844b577737a561faf29719836b9bb9aaf637c3aa0",
+    "config.sora": "a57560973f1416477a6b842df553df48a1eb4f6873f45882404558b17f212294",
     "debug-json/Ability.json": "095e444d1c12a37dcb87ac97e0cef1b4f821439b8b811d9a9c381d97f102bbdc",
     "debug-json/AbilityHitPlanBinding.json": "70066256661e6a4a74022986bb33117d13fc920fffb3b1cf81b5479b28edbc5d",
     "debug-json/AbilityLevelParameter.json": "01a35cb12de96c8307ddc40b8e343543df915ca3a8dc132650032b24411a87a8",
@@ -46,7 +46,7 @@
     "debug-json/EnemyAbility.json": "9260a0bbec8aba01e3574b05f61832e1b8214a166fbb437c6c4cde262d0331b8",
     "debug-json/EnemyDebuffResistance.json": "0820d3b5d1f0e327e6a33e45a00ad7b14b5340ed2348c167cb6b04de707a8248",
     "debug-json/EnemyLink.json": "ec213b6828669e7b56c5956c6f52da372996e4c0d984eb04e5cbfd54ef12629a",
-    "debug-json/EnemyPhase.json": "52f0dc3dd4959bacc5035b3744f155d76ef222bc2dcf7258ea634fce5ab856e4",
+    "debug-json/EnemyPhase.json": "b14d477b8c1f8da48153465eeb0a45bb6c032db64b2106985b7a29551abde27c",
     "debug-json/EnemyResistance.json": "069f8b881c1facfd85c8470dbbf9cd38d5186ce15f30e7b4dc3667820682a32a",
     "debug-json/EnemyStat.json": "5638482e20280d5073651f198cfa95fa1cff49f433ddc7eb382c441e147d18ef",
     "debug-json/EnemyTemplate.json": "66fd0023bff017e1f1cdbb722404af168b6cdeca07ccc789fa7c76f44698807c",
@@ -110,7 +110,7 @@
     "rust/ai_state.rs": "7c6bb41888b1a3f57b1bc4f5cc864f75ee1664d003acfe31a96c7e9eb8958efb",
     "rust/ai_transition.rs": "9a15de8fe3b2d41fdb89435a5fb747179367d7295caf8cf3c4bf028400f6cc2a",
     "rust/ai_transition_timing.rs": "7f7520da9a7c2f3368d15c418a4ff7c798cbbd714f70af2c7eee4c6fde067f71",
-    "rust/battle_binding.rs": "860c4fbcb0c37a91b3d93c42ace075b1a087f5ce237e520daf5700806bbca1a8",
+    "rust/battle_binding.rs": "7ff6de62528565aafad1f547d7bc8ca050377a052b6091c8c27df934375c6b9d",
     "rust/battle_binding_rule.rs": "5aaff09e95e663879160b9d243fa9e7c31f373cf95b123947c5df223c18d7ebe",
     "rust/battle_decision_kind.rs": "e68908ae3b13478622421d29618bbe629f94a37d09084ee0ebc6849ed92edecf",
     "rust/battle_event_point.rs": "245b6540dc6afb1df1a9b3165eed481e76d1634a6112bae1b0a7d08766861972",
@@ -198,7 +198,7 @@
     "rust/linked_formation_policy.rs": "c819e5721cef1ab00907a1f8c80e0e9bbb4f71a97e59070271f00f8951ec0d37",
     "rust/loadout_lock_scope.rs": "1efae84637315b00194eeca193f10fd5f34588d22743dc398935a51f119f4c80",
     "rust/mechanism_quality.rs": "bbfab5ab6e6090646d24fa8c3b732b450613226275c8e33081b8fc9168fecc70",
-    "rust/mod.rs": "fc2db487c8af9c7d5a5b87f4638d310e4b74cd424639995ec9bf6875d076b1ef",
+    "rust/mod.rs": "f1f6648c429a2bce39a8a662754d6939d76bc0e8c1db18d32cc8a110b3a87ecb",
     "rust/modifier_aggregation.rs": "15096825d07af7aa96097c1f949cf1e3dcb462f9b6d5d8683df0adf006edced6",
     "rust/modifier_definition.rs": "07a2174f9cbca75d67d3aa754aac45bb1b39156af2e9fce5608932ea91324460",
     "rust/modifier_filter.rs": "dac6f92c18ca6200fb7b244db645451c73713e6ae9cb49932bec240a08268b24",
@@ -279,6 +279,6 @@
     "rust/wave_carry_policy.rs": "a4479abc8e74580f637a2dc8d2e58bdb0385fdebbc075189455b0b9691e993ab",
     "rust/wave_slot.rs": "08cdd04c3e1c0fd28c25436a1278b6529e48834997e421fcb6b3093cae7c76c1",
     "rust/wave_transition_policy.rs": "bb8017b95e2577087f5838e7211fd4e785a8c992e5f76be477b66042eb356354",
-    "schema.lock": "e58638fc7026d0e5b6d3d1812cdb2c4623314f33a02e51a3a0d75874186829e8"
+    "schema.lock": "9b5dfa6b1fd599e31bd73838a406dd2b55b418a458ba33aafb59d750f37405aa"
   }
 }

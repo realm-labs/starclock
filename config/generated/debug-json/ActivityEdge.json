@@ -1,6 +1,91 @@
 {
   "table": {
     "name": "ActivityEdge",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "activity_id": {
+            "Integer": 15001
+          },
+          "condition": {
+            "String": "BattleWon"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "maximum_traversals": {
+            "Integer": 1
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "source_node_id": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.edge.won"
+          },
+          "target_node_id": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "activity_id": {
+            "Integer": 15001
+          },
+          "condition": {
+            "String": "BattleLost"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "maximum_traversals": {
+            "Integer": 1
+          },
+          "priority": {
+            "Integer": 2
+          },
+          "source_node_id": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.edge.lost"
+          },
+          "target_node_id": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "activity_id": {
+            "Integer": 15001
+          },
+          "condition": {
+            "String": "BattleFaulted"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "maximum_traversals": {
+            "Integer": 1
+          },
+          "priority": {
+            "Integer": 3
+          },
+          "source_node_id": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.edge.faulted"
+          },
+          "target_node_id": {
+            "Integer": 4
+          }
+        }
+      }
+    ]
   }
 }

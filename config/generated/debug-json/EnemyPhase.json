@@ -1,6 +1,257 @@
 {
   "table": {
     "name": "EnemyPhase",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "action_gauge_carry": {
+            "String": "CarryExact"
+          },
+          "ai_graph_id": {
+            "Integer": 13004
+          },
+          "effect_carry": {
+            "String": "Clear"
+          },
+          "entry_condition_id": {
+            "Integer": 1
+          },
+          "entry_program_id": "Null",
+          "exit_condition_id": {
+            "Integer": 1
+          },
+          "hp_carry": {
+            "String": "CarryRatio"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "replacement_priority": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.phase.enemy.cocolia-mother-of-deception.bigboss.variant.01.1"
+          },
+          "summon_carry": {
+            "String": "Clear"
+          },
+          "targetable": {
+            "Bool": true
+          },
+          "toughness_carry": {
+            "String": "Reset"
+          },
+          "transition_model": {
+            "String": "TransformSameUnit"
+          },
+          "variant_id": {
+            "Integer": 98
+          }
+        }
+      },
+      {
+        "values": {
+          "action_gauge_carry": {
+            "String": "CarryExact"
+          },
+          "ai_graph_id": {
+            "Integer": 13004
+          },
+          "effect_carry": {
+            "String": "Clear"
+          },
+          "entry_condition_id": {
+            "Integer": 1
+          },
+          "entry_program_id": "Null",
+          "exit_condition_id": {
+            "Integer": 1
+          },
+          "hp_carry": {
+            "String": "CarryRatio"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "replacement_priority": {
+            "Integer": 2
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "standard-v1.phase.enemy.cocolia-mother-of-deception.bigboss.variant.01.2"
+          },
+          "summon_carry": {
+            "String": "Clear"
+          },
+          "targetable": {
+            "Bool": true
+          },
+          "toughness_carry": {
+            "String": "Reset"
+          },
+          "transition_model": {
+            "String": "TransformSameUnit"
+          },
+          "variant_id": {
+            "Integer": 98
+          }
+        }
+      },
+      {
+        "values": {
+          "action_gauge_carry": {
+            "String": "CarryExact"
+          },
+          "ai_graph_id": {
+            "Integer": 13011
+          },
+          "effect_carry": {
+            "String": "Clear"
+          },
+          "entry_condition_id": {
+            "Integer": 1
+          },
+          "entry_program_id": "Null",
+          "exit_condition_id": {
+            "Integer": 1
+          },
+          "hp_carry": {
+            "String": "CarryRatio"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "replacement_priority": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.phase.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.1"
+          },
+          "summon_carry": {
+            "String": "Clear"
+          },
+          "targetable": {
+            "Bool": true
+          },
+          "toughness_carry": {
+            "String": "Reset"
+          },
+          "transition_model": {
+            "String": "TransformSameUnit"
+          },
+          "variant_id": {
+            "Integer": 105
+          }
+        }
+      },
+      {
+        "values": {
+          "action_gauge_carry": {
+            "String": "CarryExact"
+          },
+          "ai_graph_id": {
+            "Integer": 13011
+          },
+          "effect_carry": {
+            "String": "Clear"
+          },
+          "entry_condition_id": {
+            "Integer": 1
+          },
+          "entry_program_id": "Null",
+          "exit_condition_id": {
+            "Integer": 1
+          },
+          "hp_carry": {
+            "String": "CarryRatio"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "replacement_priority": {
+            "Integer": 2
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "standard-v1.phase.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.2"
+          },
+          "summon_carry": {
+            "String": "Clear"
+          },
+          "targetable": {
+            "Bool": true
+          },
+          "toughness_carry": {
+            "String": "Reset"
+          },
+          "transition_model": {
+            "String": "TransformSameUnit"
+          },
+          "variant_id": {
+            "Integer": 105
+          }
+        }
+      },
+      {
+        "values": {
+          "action_gauge_carry": {
+            "String": "CarryExact"
+          },
+          "ai_graph_id": {
+            "Integer": 13011
+          },
+          "effect_carry": {
+            "String": "Clear"
+          },
+          "entry_condition_id": {
+            "Integer": 1
+          },
+          "entry_program_id": "Null",
+          "exit_condition_id": {
+            "Integer": 1
+          },
+          "hp_carry": {
+            "String": "CarryRatio"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "replacement_priority": {
+            "Integer": 3
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "stable_key": {
+            "String": "standard-v1.phase.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.3"
+          },
+          "summon_carry": {
+            "String": "Clear"
+          },
+          "targetable": {
+            "Bool": true
+          },
+          "toughness_carry": {
+            "String": "Reset"
+          },
+          "transition_model": {
+            "String": "TransformSameUnit"
+          },
+          "variant_id": {
+            "Integer": 105
+          }
+        }
+      }
+    ]
   }
 }

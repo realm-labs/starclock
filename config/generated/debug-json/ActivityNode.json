@@ -1,6 +1,93 @@
 {
   "table": {
     "name": "ActivityNode",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "Battle"
+          },
+          "maximum_visits": {
+            "Integer": 1
+          },
+          "section_id": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.node.battle"
+          },
+          "terminal_outcome": "Null"
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "Terminal"
+          },
+          "maximum_visits": {
+            "Integer": 1
+          },
+          "section_id": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.node.complete"
+          },
+          "terminal_outcome": {
+            "String": "Complete"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "Terminal"
+          },
+          "maximum_visits": {
+            "Integer": 1
+          },
+          "section_id": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.node.failed"
+          },
+          "terminal_outcome": {
+            "String": "Failed"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "Terminal"
+          },
+          "maximum_visits": {
+            "Integer": 1
+          },
+          "section_id": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.node.faulted"
+          },
+          "terminal_outcome": {
+            "String": "Faulted"
+          }
+        }
+      }
+    ]
   }
 }

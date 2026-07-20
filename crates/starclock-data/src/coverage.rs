@@ -203,9 +203,9 @@ mod tests {
         let catalog = crate::catalog::load(PRODUCTION_BUNDLE).unwrap();
         let report = catalog.goal_coverage();
         assert_eq!(report.required(), 283);
-        assert_eq!(report.enabled(), 0);
-        assert_eq!(report.data_ready(), 0);
-        assert_eq!(report.golden_verified(), 0);
+        assert_eq!(report.enabled(), 30);
+        assert_eq!(report.data_ready(), 30);
+        assert_eq!(report.golden_verified(), 30);
         assert_eq!(
             report
                 .category(GoalCoverageCategory::ReleasedCharacterCombatForms)
@@ -242,5 +242,16 @@ mod tests {
                 .required(),
             1
         );
+        for category in [
+            GoalCoverageCategory::StandardEnemyVariants,
+            GoalCoverageCategory::StandardEncounters,
+            GoalCoverageCategory::StandardScenarios,
+            GoalCoverageCategory::StandardProfile,
+        ] {
+            let summary = report.category(category);
+            assert_eq!(summary.enabled(), summary.required());
+            assert_eq!(summary.data_ready(), summary.required());
+            assert_eq!(summary.golden_verified(), summary.required());
+        }
     }
 }

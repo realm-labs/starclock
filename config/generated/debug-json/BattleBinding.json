@@ -1,6 +1,193 @@
 {
   "table": {
     "name": "BattleBinding",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "battle_spec_policy_revision": {
+            "String": "starclock.battle-spec.v1"
+          },
+          "encounter_id": {
+            "Integer": 89
+          },
+          "id": {
+            "Integer": 1
+          },
+          "node_id": {
+            "Integer": 1
+          },
+          "participant_lock_sha256": {
+            "String": "2653b6c5734a8fe03289d476417574b6c563112c3e6605d3932537361397becb"
+          },
+          "participant_policy_id": {
+            "Integer": 1
+          },
+          "projection_id": {
+            "Integer": 1
+          },
+          "seed_stream_label": {
+            "String": "standard-v1-battle"
+          },
+          "stable_key": {
+            "String": "standard-v1.binding.scenario.standard-v1.basic-single-wave"
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_spec_policy_revision": {
+            "String": "starclock.battle-spec.v1"
+          },
+          "encounter_id": {
+            "Integer": 92
+          },
+          "id": {
+            "Integer": 2
+          },
+          "node_id": {
+            "Integer": 1
+          },
+          "participant_lock_sha256": {
+            "String": "a265e780a22d630458150eab53e784c77f7d6c19b869c677a44de07b8c34288f"
+          },
+          "participant_policy_id": {
+            "Integer": 1
+          },
+          "projection_id": {
+            "Integer": 1
+          },
+          "seed_stream_label": {
+            "String": "standard-v1-battle"
+          },
+          "stable_key": {
+            "String": "standard-v1.binding.scenario.standard-v1.multi-wave-dot-revival"
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_spec_policy_revision": {
+            "String": "starclock.battle-spec.v1"
+          },
+          "encounter_id": {
+            "Integer": 90
+          },
+          "id": {
+            "Integer": 3
+          },
+          "node_id": {
+            "Integer": 1
+          },
+          "participant_lock_sha256": {
+            "String": "dadaa5c0fc642db0b9ab7cbe0b7f70ef0674af89102de43514489ffcdd4c182c"
+          },
+          "participant_policy_id": {
+            "Integer": 1
+          },
+          "projection_id": {
+            "Integer": 1
+          },
+          "seed_stream_label": {
+            "String": "standard-v1-battle"
+          },
+          "stable_key": {
+            "String": "standard-v1.binding.scenario.standard-v1.elite-control-counter"
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_spec_policy_revision": {
+            "String": "starclock.battle-spec.v1"
+          },
+          "encounter_id": {
+            "Integer": 91
+          },
+          "id": {
+            "Integer": 4
+          },
+          "node_id": {
+            "Integer": 1
+          },
+          "participant_lock_sha256": {
+            "String": "e636c5683bda9ebb1b400530badf5d9b602ee9d46b40565b9a8d1f03e2bf6166"
+          },
+          "participant_policy_id": {
+            "Integer": 1
+          },
+          "projection_id": {
+            "Integer": 1
+          },
+          "seed_stream_label": {
+            "String": "standard-v1-battle"
+          },
+          "stable_key": {
+            "String": "standard-v1.binding.scenario.standard-v1.cocolia-phase-change"
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_spec_policy_revision": {
+            "String": "starclock.battle-spec.v1"
+          },
+          "encounter_id": {
+            "Integer": 93
+          },
+          "id": {
+            "Integer": 5
+          },
+          "node_id": {
+            "Integer": 1
+          },
+          "participant_lock_sha256": {
+            "String": "90bd50584c020208ef660b0294097303c88c2e3405e2da4729a1ab478f6f058c"
+          },
+          "participant_policy_id": {
+            "Integer": 1
+          },
+          "projection_id": {
+            "Integer": 1
+          },
+          "seed_stream_label": {
+            "String": "standard-v1-battle"
+          },
+          "stable_key": {
+            "String": "standard-v1.binding.scenario.standard-v1.layered-toughness"
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_spec_policy_revision": {
+            "String": "starclock.battle-spec.v1"
+          },
+          "encounter_id": {
+            "Integer": 94
+          },
+          "id": {
+            "Integer": 6
+          },
+          "node_id": {
+            "Integer": 1
+          },
+          "participant_lock_sha256": {
+            "String": "584dffd8535226c5fc288812bce4887a899338d148c71eae2d785c49853e7cfa"
+          },
+          "participant_policy_id": {
+            "Integer": 1
+          },
+          "projection_id": {
+            "Integer": 1
+          },
+          "seed_stream_label": {
+            "String": "standard-v1-battle"
+          },
+          "stable_key": {
+            "String": "standard-v1.binding.scenario.standard-v1.target-invalidation-and-return"
+          }
+        }
+      }
+    ]
   }
 }

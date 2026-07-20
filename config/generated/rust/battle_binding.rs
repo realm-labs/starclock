@@ -52,7 +52,7 @@ pub struct BattleBindingTable {
     keys: Vec<i32>,
     rows: SoraMap<i32, BattleBinding>,
     by_stable_key: SoraMap<String, i32>,
-    by_node: SoraMap<i32, i32>,
+    by_node: SoraMap<i32, Vec<i32>>,
 }
 
 impl BattleBindingTable {
@@ -73,7 +73,7 @@ impl BattleBindingTable {
             },
             super::SoraIndexInfo {
                 name: "by_node",
-                unique: true,
+                unique: false,
                 fields: &["node_id"],
             },
         ],
@@ -85,7 +85,7 @@ impl BattleBindingTable {
         let keys = rows.iter().map(|row| row.id).collect::<Vec<_>>();
         let by_stable_key =
             super::build_unique_map_index(rows.iter(), |row| row.stable_key.clone(), |row| row.id);
-        let by_node = super::build_unique_map_index(rows.iter(), |row| row.node_id, |row| row.id);
+        let by_node = super::build_map_index(rows.iter(), |row| row.node_id, |row| row.id);
         let rows = super::decode_map_table(rows, |row| row.id);
         Ok(Self {
             keys,
@@ -111,10 +111,12 @@ impl BattleBindingTable {
             .get(stable_key)
             .and_then(|key| self.rows.get(key))
     }
-    pub fn get_by_node(&self, node_id: i32) -> Option<&BattleBinding> {
+    pub fn find_by_node(&self, node_id: i32) -> impl Iterator<Item = &BattleBinding> {
         self.by_node
             .get(&node_id)
-            .and_then(|key| self.rows.get(key))
+            .into_iter()
+            .flat_map(|keys| keys.iter())
+            .filter_map(|key| self.rows.get(key))
     }
 }
 

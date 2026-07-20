@@ -197,7 +197,7 @@ pub mod wave_slot;
 pub mod wave_transition_policy;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "5f296f2f929ffda0";
+pub const SCHEMA_FINGERPRINT: &str = "068d2f9f08cced81";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -1276,6 +1276,21 @@ where
     K: std::cmp::Eq + std::hash::Hash,
 {
     rows.into_iter().map(|row| (key(&row), row)).collect()
+}
+fn build_map_index<'a, K, P, V: 'a>(
+    rows: impl Iterator<Item = &'a V>,
+    key: impl Fn(&V) -> K,
+    primary_key: impl Fn(&V) -> P,
+) -> SoraMap<K, Vec<P>>
+where
+    K: std::cmp::Eq + std::hash::Hash,
+    P: std::cmp::Eq + std::hash::Hash,
+{
+    let mut index: SoraMap<K, Vec<P>> = SoraMap::default();
+    for row in rows {
+        index.entry(key(row)).or_default().push(primary_key(row));
+    }
+    index
 }
 
 fn build_unique_list_index<'a, K, V: 'a>(

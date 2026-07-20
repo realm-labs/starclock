@@ -1,6 +1,592 @@
 {
   "table": {
     "name": "EnemyWeakness",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "element": {
+            "String": "Ice"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 100
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Imaginary"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 100
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Wind"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "variant_id": {
+            "Integer": 100
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Physical"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 101
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Wind"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 101
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Imaginary"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 102
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Lightning"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 102
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Physical"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "variant_id": {
+            "Integer": 102
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Ice"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 103
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Physical"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 103
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Fire"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 104
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Wind"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 104
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Fire"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 105
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Imaginary"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 105
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Lightning"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "variant_id": {
+            "Integer": 105
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Ice"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 106
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Imaginary"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 106
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Wind"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "variant_id": {
+            "Integer": 106
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Fire"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 107
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Ice"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 107
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Quantum"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "variant_id": {
+            "Integer": 107
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Ice"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 108
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Lightning"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 108
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Quantum"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "variant_id": {
+            "Integer": 108
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Fire"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 109
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Imaginary"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 109
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Lightning"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 110
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Physical"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 110
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Imaginary"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 111
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Physical"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 111
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Wind"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "variant_id": {
+            "Integer": 111
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Ice"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 95
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Lightning"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 95
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Quantum"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "variant_id": {
+            "Integer": 95
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Lightning"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 96
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Quantum"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 96
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Wind"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "variant_id": {
+            "Integer": 96
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Lightning"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 97
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Wind"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 97
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Fire"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 98
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Lightning"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 98
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Quantum"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "variant_id": {
+            "Integer": 98
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Ice"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 99
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Physical"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 99
+          }
+        }
+      },
+      {
+        "values": {
+          "element": {
+            "String": "Wind"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "variant_id": {
+            "Integer": 99
+          }
+        }
+      }
+    ]
   }
 }

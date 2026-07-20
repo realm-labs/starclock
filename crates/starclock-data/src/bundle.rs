@@ -65,12 +65,12 @@ mod tests {
     const PRODUCTION_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
 
     #[test]
-    fn production_bundle_crosses_only_the_stable_metadata_boundary() {
+    fn production_bundle_exposes_the_standard_v1_metadata_boundary() {
         let metadata = inspect(PRODUCTION_BUNDLE).expect("production bundle must load");
         assert_eq!(metadata.game_version, "4.4");
-        assert_eq!(metadata.data_revision, "core-combat-v1-bootstrap-v1");
-        assert_eq!(metadata.identity_count, 283);
-        assert_eq!(metadata.enabled_identity_count, 0);
+        assert_eq!(metadata.data_revision, "core-combat-v1-standard-v1");
+        assert_eq!(metadata.identity_count, 424);
+        assert_eq!(metadata.enabled_identity_count, 171);
         assert_eq!(
             metadata.coverage_manifest_sha256,
             "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19"

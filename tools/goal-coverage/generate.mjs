@@ -7,7 +7,7 @@ const MANIFEST_SHA = "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c04
 const PROVENANCE_SHA = "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466";
 const RESEARCH_SHA = "448a7571d103fedbb97450ff658aa52eb5a944085c731babbddf0b112e5ea374";
 const SCHEMA = "starclock-goal-coverage-v1";
-const GENERATED_ON = "2026-07-17";
+const GENERATED_ON = "2026-07-20";
 const root = path.resolve(process.cwd());
 const manifestRoot = path.join(root, "content-manifests", "core-combat-v1");
 const evidenceRoot = path.join(root, "evidence", "core-combat-v1");
@@ -51,10 +51,10 @@ categories.push(category(
   2,
 ));
 categories.push(category("released-light-cones", "LightCone", coneManifest.entries, () => "Cataloged"));
-categories.push(category("standard-v1-enemy-variants", "StandardEnemyVariant", standardManifest.enemies, () => "Cataloged"));
-categories.push(category("standard-v1-encounters", "StandardEncounter", standardManifest.encounters, () => "Cataloged"));
-categories.push(category("standard-v1-scenarios", "StandardScenario", standardManifest.scenarios, () => "Documented"));
-categories.push(category("standard-v1-profile", "StandardProfile", [standardManifest.profile], () => "Documented"));
+categories.push(category("standard-v1-enemy-variants", "StandardEnemyVariant", standardManifest.enemies, () => "GoldenVerified"));
+categories.push(category("standard-v1-encounters", "StandardEncounter", standardManifest.encounters, () => "GoldenVerified"));
+categories.push(category("standard-v1-scenarios", "StandardScenario", standardManifest.scenarios, () => "GoldenVerified"));
+categories.push(category("standard-v1-profile", "StandardProfile", [standardManifest.profile], () => "GoldenVerified"));
 
 const entries = categories.flatMap((entry) => entry.entries);
 const expectedKeys = new Set(entries.map((entry) => `${entry.manifest_kind}\0${entry.id}`));
@@ -68,6 +68,9 @@ const disabledAudit = [
   { id: "character.rin-tohsaka", release_state: "Announced", enabled: false, denominator: false, reason: "Not released in the frozen enabled pack." },
 ];
 const terminalStateCounts = countBy(entries, (entry) => entry.terminal_state);
+const dataReady = entries.filter((entry) => entry.milestones.DataReady).length;
+const goldenVerified = entries.filter((entry) => entry.milestones.GoldenVerified).length;
+const productionGolden = readJson(path.join(root, "config", "production-golden.json"));
 const documentation = verifyDocumentation(categories);
 const report = {
   schema_revision: SCHEMA,
@@ -79,15 +82,15 @@ const report = {
     goal_manifest_sha256: MANIFEST_SHA,
     provenance_evidence_sha256: PROVENANCE_SHA,
     research_evidence_sha256: RESEARCH_SHA,
-    runtime_catalog: { state: "AbsentPreWorkspace", digest: null, note: "No Excel/Sora production catalog exists yet; prepared JSON and probe specifications receive no DataReady credit." },
+    runtime_catalog: { state: "StandardV1Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains the frozen Standard-v1 executable catalog; character and Light Cone imports remain pending." },
   },
   summary: {
     required: entries.length,
     accounted: entries.length,
-    enabled_incomplete: entries.length,
-    data_ready: 0,
-    golden_verified: 0,
-    data_ready_percent: "0%",
+    enabled_incomplete: entries.length - dataReady,
+    data_ready: dataReady,
+    golden_verified: goldenVerified,
+    data_ready_percent: percent(dataReady, entries.length),
     terminal_state_counts: completeStates(terminalStateCounts),
     disabled_audit_only: disabledAudit.length,
   },
@@ -100,10 +103,10 @@ const report = {
     duplicate_manifest_ids: [],
     duplicate_runtime_ids: [],
     stale_version_ids: [],
-    missing_data_ready_ids: entries.map((entry) => entry.id),
-    not_evaluable_production_provenance_ids: entries.map((entry) => entry.id),
-    not_evaluable_bilingual_validation_ids: entries.filter((entry) => entry.category !== "standard-v1-profile").map((entry) => entry.id),
-    not_evaluable_runtime_reference_ids: entries.map((entry) => entry.id),
+    missing_data_ready_ids: entries.filter((entry) => !entry.milestones.DataReady).map((entry) => entry.id),
+    not_evaluable_production_provenance_ids: entries.filter((entry) => !entry.milestones.DataReady).map((entry) => entry.id),
+    not_evaluable_bilingual_validation_ids: entries.filter((entry) => !entry.milestones.DataReady && entry.category !== "standard-v1-profile").map((entry) => entry.id),
+    not_evaluable_runtime_reference_ids: entries.filter((entry) => !entry.milestones.DataReady).map((entry) => entry.id),
     unresolved_native_handler_ids: [],
     unowned_research_case_ids: research.cases.filter((entry) => !entry.owner_batch).map((entry) => entry.id),
     orphaned_provenance_mappings: mappingExtra,
@@ -111,7 +114,7 @@ const report = {
   },
   documentation_assertions: documentation,
   exclusions: [
-    "Prepared JSON reference records are evidence/bootstrap input, not runtime content.",
+    "Prepared JSON reference records receive runtime credit only through reviewed Excel/Sora production rows.",
     "Phase 4 probe fixtures are excluded from production coverage.",
     "Announced disabled forms are outside the required denominator.",
     "Challenge, universe, UI, account, relic/planar and full public enemy catalogs are not claimed.",
@@ -132,11 +135,11 @@ if (checkOnly) {
     assert(fs.existsSync(file), `missing generated ${name}`);
     assert(fs.readFileSync(file, "utf8") === formatJson(value), `${name} has generated drift`);
   }
-  console.log(`Goal coverage is current (${index.coverage_sha256}; 0/${entries.length} DataReady).`);
+  console.log(`Goal coverage is current (${index.coverage_sha256}; ${dataReady}/${entries.length} DataReady).`);
 } else {
   fs.mkdirSync(outputRoot, { recursive: true });
   for (const [name, value] of Object.entries(outputs)) fs.writeFileSync(path.join(outputRoot, name), formatJson(value));
-  console.log(`Wrote goal coverage (${index.coverage_sha256}; 0/${entries.length} DataReady).`);
+  console.log(`Wrote goal coverage (${index.coverage_sha256}; ${dataReady}/${entries.length} DataReady).`);
 }
 
 function category(id, manifestKind, sourceEntries, terminalState, disabledAuditOnly = 0) {
@@ -144,22 +147,24 @@ function category(id, manifestKind, sourceEntries, terminalState, disabledAuditO
     assert(source.inclusion_state === "Required", `${source.id} is not Required`);
     assert(source.implementation_state === "Pending", `${source.id} unexpectedly claims implementation`);
     const researchCases = [...(researchByCharacter.get(source.id) ?? [])].sort();
+    const state = terminalState(source);
+    const ready = state === "DataReady" || state === "GoldenVerified";
     return {
       category: id,
       manifest_kind: manifestKind,
       id: source.id,
       inclusion_state: source.inclusion_state,
       manifest_implementation_state: source.implementation_state,
-      terminal_state: terminalState(source),
+      terminal_state: state,
       milestones: {
         Cataloged: true,
-        Documented: terminalState(source) !== "Cataloged",
+        Documented: state !== "Cataloged",
         Researching: researchCases.length > 0,
-        DataReady: false,
-        GoldenVerified: false,
+        DataReady: ready,
+        GoldenVerified: state === "GoldenVerified",
       },
       research_case_ids: researchCases,
-      data_ready_blockers: ["MissingExcelSoraProductionDefinition", "MissingRuntimeDomainDefinition", "MissingProductionValidation", "MissingExecutableGolden"],
+      data_ready_blockers: ready ? [] : ["MissingExcelSoraProductionDefinition", "MissingRuntimeDomainDefinition", "MissingProductionValidation", "MissingExecutableGolden"],
     };
   });
   return {
@@ -167,9 +172,9 @@ function category(id, manifestKind, sourceEntries, terminalState, disabledAuditO
     manifest_kind: manifestKind,
     required: categoryEntries.length,
     accounted: categoryEntries.length,
-    data_ready: 0,
-    golden_verified: 0,
-    data_ready_percent: "0%",
+    data_ready: categoryEntries.filter((entry) => entry.milestones.DataReady).length,
+    golden_verified: categoryEntries.filter((entry) => entry.milestones.GoldenVerified).length,
+    data_ready_percent: percent(categoryEntries.filter((entry) => entry.milestones.DataReady).length, categoryEntries.length),
     terminal_state_counts: completeStates(countBy(categoryEntries, (entry) => entry.terminal_state)),
     disabled_audit_only: disabledAuditOnly,
     entries: categoryEntries,
@@ -185,9 +190,9 @@ function verifyDocumentation(categoryReports) {
   const expectedStatus = [
     ["Released character combat forms", 88, 0],
     ["Released Light Cones", 165, 0],
-    ["`standard-v1` enemies/variants", 17, 0],
-    ["`standard-v1` encounters", 6, 0],
-    ["`standard-v1` scenarios", 6, 0],
+    ["`standard-v1` enemies/variants", 17, 17],
+    ["`standard-v1` encounters", 6, 6],
+    ["`standard-v1` scenarios", 6, 6],
   ];
   const statusRows = expectedStatus.map(([label, required, ready]) => {
     const line = status.split(/\r?\n/).find((candidate) => candidate.startsWith(`| ${label} |`));
@@ -230,6 +235,7 @@ function verifyDocumentation(categoryReports) {
 }
 
 function completeStates(counts) { return Object.fromEntries(["Cataloged", "Documented", "Researching", "DataReady", "GoldenVerified"].map((state) => [state, counts[state] ?? 0])); }
+function percent(numerator, denominator) { return numerator === 0 ? "0%" : `${(100 * numerator / denominator).toFixed(1).replace(/\.0$/, "")}%`; }
 function countBy(rows, key) { const out = {}; for (const row of rows) { const value = key(row); out[value] = (out[value] ?? 0) + 1; } return out; }
 function escapeRegex(value) { return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
 function readJson(file) { return JSON.parse(fs.readFileSync(file, "utf8")); }

@@ -374,7 +374,7 @@ unique = true
 [[tables.indexes]]
 name = "by_node"
 fields = ["node_id"]
-unique = true
+unique = false
 
 [[tables]]
 name = "BattleBindingRule"
@@ -416,7 +416,7 @@ type = "i32"
 range = [0, 7]
 [[tables.fields]]
 name = "character_id"
-type = "ref<Character.id>"
+type = "ref<ContentIdentity.id>"
 [[tables.fields]]
 name = "resolved_spec_sha256"
 type = "string"

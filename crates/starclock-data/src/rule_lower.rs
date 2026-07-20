@@ -254,7 +254,7 @@ fn lower_once_scope(value: once_scope::OnceScope) -> Result<OnceScope, CatalogLo
     })
 }
 
-fn lower_condition(
+pub(super) fn lower_condition(
     config: &SoraConfig,
     id: i32,
     visiting: &mut BTreeSet<i32>,

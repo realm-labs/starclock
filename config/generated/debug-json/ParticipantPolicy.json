@@ -1,6 +1,38 @@
 {
   "table": {
     "name": "ParticipantPolicy",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "activity_id": {
+            "Integer": 15001
+          },
+          "allow_substitution": {
+            "Bool": false
+          },
+          "id": {
+            "Integer": 1
+          },
+          "loadout_lock_scope": {
+            "String": "Attempt"
+          },
+          "maximum_team_size": {
+            "Integer": 4
+          },
+          "minimum_team_size": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.participants"
+          },
+          "team_count": {
+            "Integer": 1
+          },
+          "uniqueness_scope": {
+            "String": "Team"
+          }
+        }
+      }
+    ]
   }
 }

@@ -109,7 +109,7 @@ function verifySchemaLock(file) {
   assertRef(tables, "AiCandidate", "ability_id", "EnemyAbility");
   assertRef(tables, "WaveSlot", "enemy_variant_id", "EnemyVariant");
   assertRef(tables, "BattleBinding", "encounter_id", "Encounter");
-  assertRef(tables, "BattleParticipantSlot", "character_id", "Character");
+  assertRef(tables, "BattleParticipantSlot", "character_id", "ContentIdentity");
   assertRef(tables, "StandardScenario", "battle_binding_id", "BattleBinding");
   for (const table of ["ActivityDefinition", "ActivitySection", "ActivityNode", "ActivityEdge", "ActivitySlot", "ParticipantPolicy", "BattleResultProjection", "BattleResultProjectionField", "BattleBinding", "BattleBindingRule", "BattleParticipantSlot"])
     assert(tables.has(table), `missing minimum Activity seam ${table}`);

@@ -1,6 +1,83 @@
 {
   "table": {
     "name": "EnemyLink",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "contributes_to_victory": {
+            "Bool": false
+          },
+          "fixed_formation_index": "Null",
+          "formation_policy": {
+            "String": "NextAvailable"
+          },
+          "initial_action_gauge_decimal": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Summon"
+          },
+          "linked_variant_id": {
+            "Integer": 107
+          },
+          "maximum_simultaneous": {
+            "Integer": 2
+          },
+          "overflow_policy": {
+            "String": "ReplaceOldest"
+          },
+          "owner_defeat_policy": {
+            "String": "Despawn"
+          },
+          "owner_variant_id": {
+            "Integer": 100
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "wave_persistence": {
+            "String": "WaveOwned"
+          }
+        }
+      },
+      {
+        "values": {
+          "contributes_to_victory": {
+            "Bool": false
+          },
+          "fixed_formation_index": "Null",
+          "formation_policy": {
+            "String": "NextAvailable"
+          },
+          "initial_action_gauge_decimal": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Summon"
+          },
+          "linked_variant_id": {
+            "Integer": 102
+          },
+          "maximum_simultaneous": {
+            "Integer": 2
+          },
+          "overflow_policy": {
+            "String": "ReplaceOldest"
+          },
+          "owner_defeat_policy": {
+            "String": "Despawn"
+          },
+          "owner_variant_id": {
+            "Integer": 96
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "wave_persistence": {
+            "String": "WaveOwned"
+          }
+        }
+      }
+    ]
   }
 }

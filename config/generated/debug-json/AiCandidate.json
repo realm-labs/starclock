@@ -1,6 +1,2035 @@
 {
   "table": {
     "name": "AiCandidate",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11001
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11001
+          },
+          "id": {
+            "Integer": 1
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.abundance-sprite-golden-hound.minionlv2.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 1
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11019
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11012
+          },
+          "id": {
+            "Integer": 10
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 2
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.cocolia-mother-of-deception.bigboss.variant.01.02"
+          },
+          "state_id": {
+            "Integer": 4
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11017
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11012
+          },
+          "id": {
+            "Integer": 11
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 3
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.cocolia-mother-of-deception.bigboss.variant.01.03"
+          },
+          "state_id": {
+            "Integer": 4
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11016
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11012
+          },
+          "id": {
+            "Integer": 12
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 4
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 4
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.cocolia-mother-of-deception.bigboss.variant.01.04"
+          },
+          "state_id": {
+            "Integer": 4
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11014
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11012
+          },
+          "id": {
+            "Integer": 13
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 5
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 5
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.cocolia-mother-of-deception.bigboss.variant.01.05"
+          },
+          "state_id": {
+            "Integer": 4
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11020
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11012
+          },
+          "id": {
+            "Integer": 14
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 6
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 6
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.cocolia-mother-of-deception.bigboss.variant.01.06"
+          },
+          "state_id": {
+            "Integer": 4
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11018
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11012
+          },
+          "id": {
+            "Integer": 15
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 7
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 7
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.cocolia-mother-of-deception.bigboss.variant.01.07"
+          },
+          "state_id": {
+            "Integer": 4
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11015
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11012
+          },
+          "id": {
+            "Integer": 16
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 8
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 8
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.cocolia-mother-of-deception.bigboss.variant.01.08"
+          },
+          "state_id": {
+            "Integer": 4
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11021
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11021
+          },
+          "id": {
+            "Integer": 17
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.disciples-of-sanctus-medicus-ballistarius.minionlv2.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 5
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11025
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11025
+          },
+          "id": {
+            "Integer": 18
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 6
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11023
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11025
+          },
+          "id": {
+            "Integer": 19
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 2
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01.02"
+          },
+          "state_id": {
+            "Integer": 6
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11003
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11003
+          },
+          "id": {
+            "Integer": 2
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.aurumaton-gatekeeper.elite.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 2
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11024
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11025
+          },
+          "id": {
+            "Integer": 20
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 3
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01.03"
+          },
+          "state_id": {
+            "Integer": 6
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11022
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11025
+          },
+          "id": {
+            "Integer": 21
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 4
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 4
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01.04"
+          },
+          "state_id": {
+            "Integer": 6
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11027
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11027
+          },
+          "id": {
+            "Integer": 22
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.eclipse-wolftrooper.minionlv2.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 7
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11028
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11027
+          },
+          "id": {
+            "Integer": 23
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 2
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.eclipse-wolftrooper.minionlv2.variant.01.02"
+          },
+          "state_id": {
+            "Integer": 7
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11030
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11030
+          },
+          "id": {
+            "Integer": 24
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.entranced-ingenium-illumination-dragonfish.minionlv2.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 8
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11031
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11031
+          },
+          "id": {
+            "Integer": 25
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.flamespawn.minion.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 9
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11032
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11032
+          },
+          "id": {
+            "Integer": 26
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.frostspawn.minion.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 10
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11038
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11038
+          },
+          "id": {
+            "Integer": 27
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 11
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11041
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11038
+          },
+          "id": {
+            "Integer": 28
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 2
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.02"
+          },
+          "state_id": {
+            "Integer": 11
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11043
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11038
+          },
+          "id": {
+            "Integer": 29
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 3
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.03"
+          },
+          "state_id": {
+            "Integer": 11
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11006
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11003
+          },
+          "id": {
+            "Integer": 3
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 2
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.aurumaton-gatekeeper.elite.variant.01.02"
+          },
+          "state_id": {
+            "Integer": 2
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11034
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11038
+          },
+          "id": {
+            "Integer": 30
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 4
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 4
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.04"
+          },
+          "state_id": {
+            "Integer": 11
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11035
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11038
+          },
+          "id": {
+            "Integer": 31
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 5
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 5
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.05"
+          },
+          "state_id": {
+            "Integer": 11
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11044
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11038
+          },
+          "id": {
+            "Integer": 32
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 6
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 6
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.06"
+          },
+          "state_id": {
+            "Integer": 11
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11045
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11038
+          },
+          "id": {
+            "Integer": 33
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 7
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 7
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.07"
+          },
+          "state_id": {
+            "Integer": 11
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11042
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11038
+          },
+          "id": {
+            "Integer": 34
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 8
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 8
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.08"
+          },
+          "state_id": {
+            "Integer": 11
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11036
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11038
+          },
+          "id": {
+            "Integer": 35
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 9
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 9
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.09"
+          },
+          "state_id": {
+            "Integer": 11
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11033
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11038
+          },
+          "id": {
+            "Integer": 36
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 10
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 10
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.10"
+          },
+          "state_id": {
+            "Integer": 11
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11039
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11038
+          },
+          "id": {
+            "Integer": 37
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 11
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 11
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.11"
+          },
+          "state_id": {
+            "Integer": 11
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11040
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11038
+          },
+          "id": {
+            "Integer": 38
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 12
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 12
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.harmonious-choir-the-great-septimus.bigboss.variant.01.12"
+          },
+          "state_id": {
+            "Integer": 11
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11047
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11047
+          },
+          "id": {
+            "Integer": 39
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.incineration-shadewalker.minionlv2.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 12
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11004
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11003
+          },
+          "id": {
+            "Integer": 4
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 3
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.aurumaton-gatekeeper.elite.variant.01.03"
+          },
+          "state_id": {
+            "Integer": 2
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11048
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11048
+          },
+          "id": {
+            "Integer": 40
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.mara-struck-soldier.minionlv2.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 13
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11049
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11048
+          },
+          "id": {
+            "Integer": 41
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 2
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.mara-struck-soldier.minionlv2.variant.01.02"
+          },
+          "state_id": {
+            "Integer": 13
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11052
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11052
+          },
+          "id": {
+            "Integer": 42
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.mara-struck-warden.minionlv2.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 14
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11053
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11052
+          },
+          "id": {
+            "Integer": 43
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 2
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.mara-struck-warden.minionlv2.variant.01.02"
+          },
+          "state_id": {
+            "Integer": 14
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11055
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11055
+          },
+          "id": {
+            "Integer": 44
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.sableclaw-wolftrooper.minionlv2.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 15
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11054
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11055
+          },
+          "id": {
+            "Integer": 45
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 2
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.sableclaw-wolftrooper.minionlv2.variant.01.02"
+          },
+          "state_id": {
+            "Integer": 15
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11057
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11057
+          },
+          "id": {
+            "Integer": 46
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.voidranger-reaver.minionlv2.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 16
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11058
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11057
+          },
+          "id": {
+            "Integer": 47
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 2
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.voidranger-reaver.minionlv2.variant.01.02"
+          },
+          "state_id": {
+            "Integer": 16
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11062
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11062
+          },
+          "id": {
+            "Integer": 48
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.voidranger-trampler.elite.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 17
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11060
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11062
+          },
+          "id": {
+            "Integer": 49
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 2
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.voidranger-trampler.elite.variant.01.02"
+          },
+          "state_id": {
+            "Integer": 17
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11008
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11008
+          },
+          "id": {
+            "Integer": 5
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.automaton-spider.minionlv2.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 3
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11063
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11062
+          },
+          "id": {
+            "Integer": 50
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 3
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.voidranger-trampler.elite.variant.01.03"
+          },
+          "state_id": {
+            "Integer": 17
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11061
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11062
+          },
+          "id": {
+            "Integer": 51
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 4
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 4
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.voidranger-trampler.elite.variant.01.04"
+          },
+          "state_id": {
+            "Integer": 17
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11059
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11062
+          },
+          "id": {
+            "Integer": 52
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 5
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 5
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.voidranger-trampler.elite.variant.01.05"
+          },
+          "state_id": {
+            "Integer": 17
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11011
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11008
+          },
+          "id": {
+            "Integer": 6
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 2
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.automaton-spider.minionlv2.variant.01.02"
+          },
+          "state_id": {
+            "Integer": 3
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11009
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11008
+          },
+          "id": {
+            "Integer": 7
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 3
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.automaton-spider.minionlv2.variant.01.03"
+          },
+          "state_id": {
+            "Integer": 3
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11010
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11008
+          },
+          "id": {
+            "Integer": 8
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 4
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 4
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.automaton-spider.minionlv2.variant.01.04"
+          },
+          "state_id": {
+            "Integer": 3
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "ability_id": {
+            "Integer": 11012
+          },
+          "condition_id": {
+            "Integer": 1
+          },
+          "fallback_ability_id": {
+            "Integer": 11012
+          },
+          "id": {
+            "Integer": 9
+          },
+          "no_target_fallback": {
+            "String": "UseFallbackAbility"
+          },
+          "priority": {
+            "Integer": 1
+          },
+          "rng_purpose_key": "Null",
+          "selection": {
+            "String": "FirstLegal"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "standard-v1.ai.candidate.enemy.cocolia-mother-of-deception.bigboss.variant.01.01"
+          },
+          "state_id": {
+            "Integer": 4
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          },
+          "weight_expression_id": "Null"
+        }
+      }
+    ]
   }
 }

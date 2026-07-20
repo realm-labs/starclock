@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "5f296f2f929ffda0",
+  "fingerprint": "068d2f9f08cced81",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -17935,7 +17935,7 @@
             "fields": [
               "node_id"
             ],
-            "unique": true
+            "unique": false
           }
         ]
       },
@@ -18103,7 +18103,7 @@
             "name": "character_id",
             "ty": {
               "Ref": {
-                "table": "Character",
+                "table": "ContentIdentity",
                 "field": "id"
               }
             },

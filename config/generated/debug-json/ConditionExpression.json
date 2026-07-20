@@ -1,6 +1,27 @@
 {
   "table": {
     "name": "ConditionExpression",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "id": {
+            "Integer": 1
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "Constant"
+              },
+              "value": {
+                "Bool": true
+              }
+            }
+          },
+          "stable_key": {
+            "String": "standard-v1.condition.always"
+          }
+        }
+      }
+    ]
   }
 }

@@ -1,6 +1,931 @@
 {
   "table": {
     "name": "HitPlanHit",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12001
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12003
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "All"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12004
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12006
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12007
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12008
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12009
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12012
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12013
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12014
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12017
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "All"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12018
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "All"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12019
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12021
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12023
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12024
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12025
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12027
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12029
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12030
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "All"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12031
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12032
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12036
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12037
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12038
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12040
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "All"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12041
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "All"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12042
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "All"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12044
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12045
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12047
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12048
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12049
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12052
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12053
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12055
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12057
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12058
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12059
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12060
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12062
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "crit_policy": {
+            "String": "PerTarget"
+          },
+          "damage_ratio_decimal": {
+            "String": "1"
+          },
+          "hit_plan_id": {
+            "Integer": 12063
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target_group": {
+            "String": "Primary"
+          },
+          "toughness_ratio_decimal": {
+            "String": "1"
+          }
+        }
+      }
+    ]
   }
 }

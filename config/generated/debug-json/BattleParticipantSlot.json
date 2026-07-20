@@ -1,6 +1,679 @@
 {
   "table": {
     "name": "BattleParticipantSlot",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 1
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "f80e924aec625d8da6a3f689b62c6d27d3d4ca90eb54896541638353cd5afee4"
+          },
+          "character_id": {
+            "Integer": 8
+          },
+          "formation_index": {
+            "Integer": 0
+          },
+          "resolved_spec_sha256": {
+            "String": "8d5060b04e8428b6b5473765d13b925f7e74fe93dcb7bca5fdd72c9f301c095f"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 1
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "6c4e50106b672578bf7822762c33ac106fbdad19175e24e99d28f84cc68f1fd5"
+          },
+          "character_id": {
+            "Integer": 20
+          },
+          "formation_index": {
+            "Integer": 1
+          },
+          "resolved_spec_sha256": {
+            "String": "ee9d5b5fc7255b3b32932b40a363e36c1683a70d2b3a13630cb1878de401f90f"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 1
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "c3cb98f6b44182f76286c14d873cf7264d17c8b8ffcece5fbccbfa97726e6f0c"
+          },
+          "character_id": {
+            "Integer": 50
+          },
+          "formation_index": {
+            "Integer": 2
+          },
+          "resolved_spec_sha256": {
+            "String": "1feb0af0ba76cb3564127af5cc888ceb5bf42b28a2a999ac79dbf4a7bcf7a3d8"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 1
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "9bf44d41a0d47d7332ab30329716debf55128f27d59886f45554bdf5ae814f81"
+          },
+          "character_id": {
+            "Integer": 56
+          },
+          "formation_index": {
+            "Integer": 3
+          },
+          "resolved_spec_sha256": {
+            "String": "f8aa1b56c50b3653dc626bcc39f9e6c3a33719c8799b13b78d83db225b50970a"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 2
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "23f974a203825424afe4b3f6bcf62296316a3224181673fd25bae3eb7d3572a8"
+          },
+          "character_id": {
+            "Integer": 45
+          },
+          "formation_index": {
+            "Integer": 0
+          },
+          "resolved_spec_sha256": {
+            "String": "d3ae8fc125f315bbae5403ab5ffc94a46159a1d38eca13acbfa2828788261898"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 2
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "135d6e408d724c0a50185d8ec68bee2ebc5dd0e76ad443c39c8a9a230d28e4cd"
+          },
+          "character_id": {
+            "Integer": 64
+          },
+          "formation_index": {
+            "Integer": 1
+          },
+          "resolved_spec_sha256": {
+            "String": "fa44ea5bf95c2afdf8543b207de124cfd74a90bbf75511a00c91d2d52134b98e"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 2
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "904f956908e2d3bcf8c2004e669a9c5950382c149d31ae401d03dc5d629c85d3"
+          },
+          "character_id": {
+            "Integer": 8
+          },
+          "formation_index": {
+            "Integer": 2
+          },
+          "resolved_spec_sha256": {
+            "String": "3d43c6f8a446677b3edef7ad91687f78f80a564300adf4fe48d80d87a2705aba"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 2
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "26f0b674f23351e9189300069c17e17be9b896420e4ece79907f591526a76a64"
+          },
+          "character_id": {
+            "Integer": 10
+          },
+          "formation_index": {
+            "Integer": 3
+          },
+          "resolved_spec_sha256": {
+            "String": "3ade846823f90766dee559c4292bf8749af837d3bd7ab2d1696dac32cc448440"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 3
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "b31e161e0f1a606898d380331fbb5c5e8f759c4095d99ae5b9d3deb7578f4065"
+          },
+          "character_id": {
+            "Integer": 18
+          },
+          "formation_index": {
+            "Integer": 0
+          },
+          "resolved_spec_sha256": {
+            "String": "c11035afed08b857a04e88ca3d36c3ab06596f82ac159bdf9bf392a808094db5"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 3
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "ddb5a3fe27cb00d0ed3c18f49df63474ae1ff2d3dda37fbbbb279821cf547442"
+          },
+          "character_id": {
+            "Integer": 75
+          },
+          "formation_index": {
+            "Integer": 1
+          },
+          "resolved_spec_sha256": {
+            "String": "571fc8fee55be81537ba85c0454a9e8604858e151e2c0d6d0948a56be7fe520d"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 3
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "8951cbc84324faf83b25501428387bb5676d793af3a1af1acdbf72d1b32baf17"
+          },
+          "character_id": {
+            "Integer": 50
+          },
+          "formation_index": {
+            "Integer": 2
+          },
+          "resolved_spec_sha256": {
+            "String": "fc613adbdfae5244572920bc00a92adbc22aec22ef02f1937991de7b1be1d42f"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 3
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "ab8ab0fc81cc098fb48363faddb954d5582184d3029a08123d5fccba467652a2"
+          },
+          "character_id": {
+            "Integer": 49
+          },
+          "formation_index": {
+            "Integer": 3
+          },
+          "resolved_spec_sha256": {
+            "String": "a0d9f5ea751658aad984dbbf4c612824d16fc32970dbe96ef63daddb98a3fc87"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 4
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "04b8aed67e72dea4f3f9fec66bd9ae0a179ce7764239ff691de185b0623290ef"
+          },
+          "character_id": {
+            "Integer": 27
+          },
+          "formation_index": {
+            "Integer": 0
+          },
+          "resolved_spec_sha256": {
+            "String": "835d8eb9c579ccbb9682367db864613f29ec70d09d50c0226bf7eaa2163d3c5b"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 4
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "66a65b558cb9ebf019353e15c389804a69f63b54754834622a856bee56ca1b64"
+          },
+          "character_id": {
+            "Integer": 62
+          },
+          "formation_index": {
+            "Integer": 1
+          },
+          "resolved_spec_sha256": {
+            "String": "bf1a45925eeeaa743355bd269d258b990e9f5f6cab1eb36eaa21d29672bffdfd"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 4
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "cdd521df219940e4c8cc8366c8e876df0edc3e673e725fa7df731419230bcaf5"
+          },
+          "character_id": {
+            "Integer": 79
+          },
+          "formation_index": {
+            "Integer": 2
+          },
+          "resolved_spec_sha256": {
+            "String": "37c248434529716f95ccafdd6041311d2e62f1cb3f84c99454ddb5d700d98e0a"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 4
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "a3a1441f8e176ea5f06fbe63262922e4f1f8b4519d9999cd3818d584489a7daa"
+          },
+          "character_id": {
+            "Integer": 30
+          },
+          "formation_index": {
+            "Integer": 3
+          },
+          "resolved_spec_sha256": {
+            "String": "b0da33d4dd21abd1bcd903ec06987492fcda81a392876091485d3fee79aa1fc4"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 5
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "adedaec847876f5c285d857e3a06291d6a5fce05ddd4ae067f952d8cac2a84e4"
+          },
+          "character_id": {
+            "Integer": 27
+          },
+          "formation_index": {
+            "Integer": 0
+          },
+          "resolved_spec_sha256": {
+            "String": "aaa2acd6299558ffebb6990f149fc02afa43f7581c7d4d7fcbc9c04a8d8b82f2"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 5
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "37a05eef9cba797fb6739e5ec864aa98121607c79e1d13b92b28c33aea10c4f2"
+          },
+          "character_id": {
+            "Integer": 29
+          },
+          "formation_index": {
+            "Integer": 1
+          },
+          "resolved_spec_sha256": {
+            "String": "bae7eaa4c8a942db9e01e97759c8de632157d160c4ef61c7dc12401ea1461299"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 5
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "ce20bfbe495e213ba7c5a99cce7599a70de8a3caaf4f2453a3cc862e352f0393"
+          },
+          "character_id": {
+            "Integer": 62
+          },
+          "formation_index": {
+            "Integer": 2
+          },
+          "resolved_spec_sha256": {
+            "String": "9dcf60a1bd5b9f36df91a17bd5551ad4af98842f034e956ec7d11046ebbbfef7"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 5
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "052cfa883dd6152d68f207bc49cb471b22ee008095cd5a1d86f6197dbc9a3687"
+          },
+          "character_id": {
+            "Integer": 30
+          },
+          "formation_index": {
+            "Integer": 3
+          },
+          "resolved_spec_sha256": {
+            "String": "1008b4605dc59fef4fc5d8d81e6970b63eba734c7a8c74ec8e730e334b824b78"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 6
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "28c2565f7d623303f65524d35688d179632c09b36651a442d174576f13093ce4"
+          },
+          "character_id": {
+            "Integer": 34
+          },
+          "formation_index": {
+            "Integer": 0
+          },
+          "resolved_spec_sha256": {
+            "String": "4763166908ed0f028ae1c06e7e631efe66534b63ba800c45ab2ec4e2a76905a4"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 6
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "7be734f4b49e860df9d1f57a7d39cd48570ae88497583a86211cccaa665c3e85"
+          },
+          "character_id": {
+            "Integer": 35
+          },
+          "formation_index": {
+            "Integer": 1
+          },
+          "resolved_spec_sha256": {
+            "String": "12493244c0b4a719902be2aecb7e03f73666d48457f73215b56fcba0811bce19"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 6
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "310d08e9904ff50743b524f67032f6c8de52b3512ec4277a4a3300d63576099e"
+          },
+          "character_id": {
+            "Integer": 8
+          },
+          "formation_index": {
+            "Integer": 2
+          },
+          "resolved_spec_sha256": {
+            "String": "58f577cbe4d542ee544651f85bd98e7d275cfb3453bb0852076d4eff27aeb912"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_binding_id": {
+            "Integer": 6
+          },
+          "build_catalog_revision": {
+            "String": "core-combat-v1-standard-lock-v1"
+          },
+          "build_digest_sha256": {
+            "String": "51582a1b3b289b6bd3c11767b6b505033b915abab34e0dc59d473aacff22603e"
+          },
+          "character_id": {
+            "Integer": 10
+          },
+          "formation_index": {
+            "Integer": 3
+          },
+          "resolved_spec_sha256": {
+            "String": "641af1c45a128d462231678ca4412d2f92621ae8680a069e4b4831deb3889dfe"
+          },
+          "source_kind": {
+            "String": "CompiledBuild"
+          },
+          "team_index": {
+            "Integer": 0
+          }
+        }
+      }
+    ]
   }
 }

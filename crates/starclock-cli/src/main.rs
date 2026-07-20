@@ -2,13 +2,15 @@
 
 #![forbid(unsafe_code)]
 
+mod standard_v1;
+
 use std::{env, fmt, fs, path::PathBuf, process::ExitCode};
 
 use starclock_ai::baseline::{
     BaselineAbilityClass, BaselineAbilityHint, BaselineController, BaselineHints,
     BaselineScoreComponents, BaselineTargetHint,
 };
-use starclock_combat::{AbilityId, BattlePhase, UnitId};
+use starclock_combat::{AbilityId, BattlePhase, Command, DecisionKind, UnitId};
 use starclock_data::{
     catalog::{CatalogLoadError, SimulationCatalog},
     coverage::{GoalCoverageCategory, GoalCoverageCategorySummary},
@@ -29,7 +31,10 @@ use starclock_replay::{
 
 const CONTROLLER_REVISION: &str = BaselineController::REVISION;
 const CONTROLLER_DESCRIPTOR: &[u8] = b"baseline-battle-controller-v1\0synthetic-standard-v1\0ability:1:basic:0:0:0:0:0:false\0target:2:0";
+const STANDARD_CONTROLLER_DESCRIPTOR: &[u8] =
+    b"baseline-battle-controller-v1\0standard-v1\0first-canonical-supported-command";
 const MAX_SMOKE_COMMANDS: usize = 16;
+const MAX_STANDARD_COMMANDS: usize = 512;
 const PRODUCTION_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
 const CLI_SCHEMA_REVISION: &str = "starclock-cli-v1";
 
@@ -237,9 +242,7 @@ fn battle_run(args: &[String]) -> Result<(), CliError> {
         }
         index += 1;
     }
-    if scenario != Some(SYNTHETIC_STANDARD_SCENARIO_ID) {
-        return Err(CliError::UnknownScenario);
-    }
+    let scenario = scenario.ok_or(CliError::UnknownScenario)?;
     let seed = seed.ok_or(CliError::Usage("battle run requires --seed"))?;
     if controller == "replay" {
         return Err(CliError::Usage(
@@ -248,6 +251,9 @@ fn battle_run(args: &[String]) -> Result<(), CliError> {
     }
     if controller != "baseline" {
         return Err(CliError::Usage("unknown battle controller"));
+    }
+    if scenario != SYNTHETIC_STANDARD_SCENARIO_ID {
+        return standard_v1_battle_run(scenario, seed, replay_out, json);
     }
     let instantiated = SyntheticStandardProfile.instantiate(seed);
     let mut battle = instantiated
@@ -306,6 +312,81 @@ fn battle_run(args: &[String]) -> Result<(), CliError> {
     Ok(())
 }
 
+fn standard_v1_battle_run(
+    scenario: &str,
+    seed: u64,
+    replay_out: Option<PathBuf>,
+    json: bool,
+) -> Result<(), CliError> {
+    let mut instantiated =
+        standard_v1::instantiate(scenario, Some(seed)).map_err(|_| CliError::UnknownScenario)?;
+    let header_identity = (
+        instantiated.encounter(),
+        instantiated.spec_digest(),
+        instantiated.master_seed(),
+    );
+    let mut trace = Vec::new();
+    let battle = instantiated.battle_mut();
+    while !battle.view().phase().is_terminal() {
+        if trace.len() == MAX_STANDARD_COMMANDS {
+            return Err(CliError::Simulation("Standard-v1 command budget exhausted"));
+        }
+        let decision = battle
+            .decision()
+            .ok_or(CliError::Simulation("nonterminal battle has no decision"))?;
+        let command = match decision.kind() {
+            DecisionKind::BattleStart => decision.legal_commands().first(),
+            DecisionKind::InterruptWindow => decision
+                .legal_commands()
+                .iter()
+                .find(|command| matches!(command, Command::PassInterruptWindow { .. })),
+            DecisionKind::NormalAction => decision
+                .legal_commands()
+                .iter()
+                .find(|command| matches!(command, Command::UseAbility { .. })),
+            DecisionKind::BattleChoice => None,
+        }
+        .cloned()
+        .ok_or(CliError::Simulation(
+            "Standard-v1 decision has no supported command",
+        ))?;
+        let resolution = battle
+            .apply(command.clone())
+            .map_err(|_| CliError::Simulation("offered command was rejected"))?;
+        trace.push(BattleTraceEntry::new(command, resolution.state_hash()));
+    }
+    if battle.view().phase() != BattlePhase::Won {
+        return Err(CliError::Simulation("Standard-v1 battle did not win"));
+    }
+    let header = standard_replay_header(header_identity, trace.len())?;
+    let replay = encode_battle_trace(&header, &trace)?;
+    if let Some(path) = &replay_out {
+        fs::write(path, &replay).map_err(CliError::Io)?;
+    }
+    let final_hash = battle.state_hash().bytes();
+    if json {
+        println!(
+            "{{\"schema_revision\":\"{}\",\"kind\":\"battle-run\",\"scenario\":\"{}\",\"seed\":{},\"controller\":\"baseline\",\"commands\":{},\"phase\":\"won\",\"state_hash\":\"{}\",\"replay_bytes\":{}}}",
+            CLI_SCHEMA_REVISION,
+            json_escape(scenario),
+            seed,
+            trace.len(),
+            hex(final_hash),
+            replay.len()
+        );
+    } else {
+        println!(
+            "battle won scenario={} seed={} controller=baseline commands={} hash={} replay_bytes={}",
+            scenario,
+            seed,
+            trace.len(),
+            hex(final_hash),
+            replay.len()
+        );
+    }
+    Ok(())
+}
+
 fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
     let json = match args {
         [] => false,
@@ -319,7 +400,8 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
     let bytes = fs::read(file).map_err(CliError::Io)?;
     let decoded = decode_replay(&bytes).map_err(BattleReplayError::from)?;
     let seed = decoded.header().master_seed();
-    match decoded.header().entry() {
+    let synthetic = matches!(
+        decoded.header().entry(),
         ReplayEntry::Battle {
             definition_id: 1, ..
         } if decoded.header().identity().config_bundle()
@@ -330,13 +412,43 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
             && decoded.header().identity().data_revision()
                 == SYNTHETIC_STANDARD_CATALOG_REVISION
             && decoded.header().controller().revision() == CONTROLLER_REVISION
-            && decoded.header().controller().digest() == controller_digest() => {}
-        _ => return Err(CliError::UnknownScenario),
-    }
-    let instantiated = SyntheticStandardProfile.instantiate(seed);
-    let battle = instantiated
-        .create_battle()
-        .map_err(|_| CliError::Simulation("synthetic replay battle construction failed"))?;
+            && decoded.header().controller().digest() == controller_digest()
+    );
+    let battle = if synthetic {
+        SyntheticStandardProfile
+            .instantiate(seed)
+            .create_battle()
+            .map_err(|_| CliError::Simulation("synthetic replay battle construction failed"))?
+    } else {
+        let (definition_id, spec_digest) = match decoded.header().entry() {
+            ReplayEntry::Battle {
+                definition_id,
+                spec_digest,
+            } => (*definition_id, *spec_digest),
+            _ => return Err(CliError::UnknownScenario),
+        };
+        let scenario = standard_v1::SCENARIOS
+            .iter()
+            .find(|(_, _, encounter)| *encounter == definition_id)
+            .map(|(scenario, _, _)| *scenario)
+            .ok_or(CliError::UnknownScenario)?;
+        let valid_identity = decoded.header().identity().config_bundle()
+            == ConfigBundleDigest::new(standard_v1::CONFIG_DIGEST)
+            && decoded.header().identity().game_version() == "4.4"
+            && decoded.header().identity().rules_revision() == standard_v1::RULES_REVISION
+            && decoded.header().identity().data_revision() == standard_v1::CATALOG_REVISION
+            && decoded.header().controller().revision() == CONTROLLER_REVISION
+            && decoded.header().controller().digest() == standard_controller_digest();
+        if !valid_identity {
+            return Err(CliError::UnknownScenario);
+        }
+        let instantiated = standard_v1::instantiate(scenario, Some(seed))
+            .map_err(|_| CliError::UnknownScenario)?;
+        if EntrySpecDigest::new(instantiated.spec_digest().bytes()) != spec_digest {
+            return Err(CliError::UnknownScenario);
+        }
+        instantiated.into_battle()
+    };
     let report = verify_battle_replay(&bytes, battle)?;
     if json {
         println!(
@@ -402,6 +514,37 @@ fn replay_header(
     .map_err(Into::into)
 }
 
+fn standard_replay_header(
+    (encounter, spec_digest, master_seed): (
+        starclock_combat::EncounterId,
+        starclock_combat::BattleSpecDigest,
+        u64,
+    ),
+    command_count: usize,
+) -> Result<ReplayHeader, CliError> {
+    let identity = ReplayIdentity::new(
+        "4.4",
+        standard_v1::RULES_REVISION,
+        standard_v1::CATALOG_REVISION,
+        ConfigBundleDigest::new(standard_v1::CONFIG_DIGEST),
+        starclock_combat::NUMERIC_POLICY_REVISION,
+        starclock_combat::rng::RNG_ALGORITHM_REVISION,
+        starclock_combat::STATE_HASH_REVISION,
+    )?;
+    let controller = ControllerIdentity::new(CONTROLLER_REVISION, standard_controller_digest())?;
+    ReplayHeader::new(
+        identity,
+        controller,
+        master_seed,
+        ReplayEntry::Battle {
+            definition_id: encounter.get(),
+            spec_digest: EntrySpecDigest::new(spec_digest.bytes()),
+        },
+        battle_record_count(command_count)?,
+    )
+    .map_err(Into::into)
+}
+
 fn value_after<'a>(
     args: &'a [String],
     index: &mut usize,
@@ -437,6 +580,12 @@ fn hex(bytes: [u8; 32]) -> String {
 fn controller_digest() -> ControllerDigest {
     let mut digest = Sha256Sink::new();
     digest.write(CONTROLLER_DESCRIPTOR);
+    ControllerDigest::new(digest.finalize().bytes())
+}
+
+fn standard_controller_digest() -> ControllerDigest {
+    let mut digest = Sha256Sink::new();
+    digest.write(STANDARD_CONTROLLER_DESCRIPTOR);
     ControllerDigest::new(digest.finalize().bytes())
 }
 

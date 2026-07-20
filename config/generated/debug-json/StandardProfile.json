@@ -1,6 +1,35 @@
 {
   "table": {
     "name": "StandardProfile",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "activity_id": {
+            "Integer": 15001
+          },
+          "default_wave_transition": {
+            "String": "AfterAction"
+          },
+          "has_global_clock": {
+            "Bool": false
+          },
+          "has_score": {
+            "Bool": false
+          },
+          "has_seasonal_rules": {
+            "Bool": false
+          },
+          "id": {
+            "Integer": 277
+          },
+          "maximum_party_size": {
+            "Integer": 4
+          },
+          "player_team_count": {
+            "Integer": 1
+          }
+        }
+      }
+    ]
   }
 }

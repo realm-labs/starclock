@@ -1,13 +1,13 @@
 //! Validated Sora-row to immutable Starclock catalog boundary.
 //! Generated rows and preliminary definition storage remain private.
 use starclock_combat::modifier::registry::ModifierRegistry;
-use starclock_combat::rule::model::BattleRuleDefinition;
 use starclock_combat::{
     AbilityId, DispelCategory, DurationClock, EffectCategory, EffectDefinitionId,
-    EffectSnapshotPolicy, EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase, Ratio, RuleId,
+    EffectSnapshotPolicy, EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase, Ratio,
 };
 use std::{collections::BTreeMap, sync::Arc};
 
+use crate::catalog_manifest::convert_manifest;
 use crate::coverage::{GoalCoverageCategory, GoalCoverageState};
 use crate::effect_lower::{
     lower_dispel, lower_duration_clock, lower_effect_category, lower_snapshot_policy,
@@ -25,15 +25,44 @@ const METADATA_TABLES: [&str; 5] = [
     "EvidenceRecord",
     "SourceRecord",
 ];
-const LOWERED_TABLES: [&str; 24] = [
+const LOWERED_TABLES: [&str; 57] = [
     "Ability",
     "AbilityHitPlanBinding",
     "AbilityPhase",
+    "ActivityDefinition",
+    "ActivityEdge",
+    "ActivityNode",
+    "ActivitySection",
+    "ActivitySlot",
+    "ActivitySlotReset",
+    "AiCandidate",
+    "AiGraph",
+    "AiState",
+    "AiTransition",
+    "BattleBinding",
+    "BattleBindingRule",
+    "BattleParticipantSlot",
+    "BattleResultProjection",
+    "BattleResultProjectionField",
     "Character",
     "CharacterAbilityBinding",
     "CharacterStat",
     "ConditionExpression",
     "Effect",
+    "Encounter",
+    "EncounterRuleBinding",
+    "EncounterWave",
+    "EnemyAbility",
+    "EnemyDebuffResistance",
+    "EnemyLink",
+    "EnemyPhase",
+    "EnemyResistance",
+    "EnemyStat",
+    "EnemyTemplate",
+    "EnemyToughnessLayer",
+    "EnemyVariant",
+    "EnemyVariantAbility",
+    "EnemyWeakness",
     "EventFilter",
     "HitPlan",
     "HitPlanHit",
@@ -42,14 +71,18 @@ const LOWERED_TABLES: [&str; 24] = [
     "ModifierStackingGroup",
     "NativeHandler",
     "Operation",
+    "ParticipantPolicy",
     "Program",
     "ProgramStep",
     "RuleDefinition",
     "RuleTrigger",
     "Selector",
+    "StandardProfile",
+    "StandardScenario",
     "StateSlot",
     "StateSlotReset",
     "ValueExpression",
+    "WaveSlot",
 ];
 
 /// Stable category for a catalog-load failure.
@@ -130,6 +163,54 @@ pub struct CatalogSummary {
     pub character_count: usize,
     /// Lowered generic effect definitions.
     pub effect_count: usize,
+    /// Lowered deterministic enemy AI graphs.
+    pub ai_graph_count: usize,
+    /// Lowered mechanically distinct enemy variants.
+    pub enemy_count: usize,
+    /// Lowered ordered encounter definitions.
+    pub encounter_count: usize,
+    /// Lowered ordinary Standard profiles.
+    pub standard_profile_count: usize,
+    /// Lowered reproducible Standard scenario descriptors.
+    pub standard_scenario_count: usize,
+}
+
+/// Generated-row-free binding data for one reproducible Standard scenario.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct StandardScenarioDefinition {
+    pub(super) id: starclock_mode_standard::StandardScenarioId,
+    pub(super) profile: starclock_mode_standard::StandardProfileId,
+    pub(super) activity: starclock_activity::ActivityDefinitionId,
+    pub(super) binding: starclock_mode_standard::StandardBindingId,
+    pub(super) master_seed: u64,
+    pub(super) expected_outcome: starclock_mode_standard::StandardExpectedOutcome,
+}
+
+impl StandardScenarioDefinition {
+    #[must_use]
+    pub const fn id(self) -> starclock_mode_standard::StandardScenarioId {
+        self.id
+    }
+    #[must_use]
+    pub const fn profile(self) -> starclock_mode_standard::StandardProfileId {
+        self.profile
+    }
+    #[must_use]
+    pub const fn activity(self) -> starclock_activity::ActivityDefinitionId {
+        self.activity
+    }
+    #[must_use]
+    pub const fn binding(self) -> starclock_mode_standard::StandardBindingId {
+        self.binding
+    }
+    #[must_use]
+    pub const fn master_seed(self) -> u64 {
+        self.master_seed
+    }
+    #[must_use]
+    pub const fn expected_outcome(self) -> starclock_mode_standard::StandardExpectedOutcome {
+        self.expected_outcome
+    }
 }
 
 /// Immutable application/data-layer catalog aggregate.
@@ -138,73 +219,12 @@ pub struct CatalogSummary {
 /// Starclock-owned values and contain no generated-reader types.
 #[derive(Debug)]
 pub struct SimulationCatalog {
-    manifest: CatalogManifest,
+    pub(super) manifest: CatalogManifest,
     pub(super) identities: Box<[IdentityDefinition]>,
     pub(super) combat: CombatDefinitions,
-    builds: crate::build_lower::BuildDefinitions,
-}
-
-impl SimulationCatalog {
-    /// Returns immutable bundle compatibility metadata.
-    #[must_use]
-    pub const fn manifest(&self) -> &CatalogManifest {
-        &self.manifest
-    }
-
-    /// Returns deterministic catalog counts without exposing transport rows.
-    #[must_use]
-    pub fn summary(&self) -> CatalogSummary {
-        CatalogSummary {
-            identity_count: self.identities.len(),
-            enabled_identity_count: self
-                .identities
-                .iter()
-                .filter(|identity| identity.enabled)
-                .count(),
-            ability_count: self.combat.abilities.len(),
-            hit_plan_count: self.combat.hit_plans.len(),
-            character_count: self.builds.len(),
-            effect_count: self.combat.effects.len(),
-        }
-    }
-
-    /// Returns immutable Starclock-owned modifier definitions lowered from Sora rows.
-    #[must_use]
-    pub const fn modifiers(&self) -> &ModifierRegistry {
-        &self.combat.modifiers
-    }
-    /// Looks up one Starclock-owned effect definition lowered from Sora rows.
-    #[must_use]
-    pub fn effect(&self, id: EffectDefinitionId) -> Option<&EffectDataDefinition> {
-        self.combat
-            .effects
-            .binary_search_by_key(&id, |effect| effect.id)
-            .ok()
-            .map(|index| &self.combat.effects[index])
-    }
-
-    /// Returns the typed semantic tags retained for one lowered ability.
-    #[must_use]
-    pub fn ability_semantic_tags(
-        &self,
-        id: AbilityId,
-    ) -> Option<starclock_combat::catalog::action::AbilityTags> {
-        self.combat
-            .abilities
-            .iter()
-            .find(|ability| ability.id == id)
-            .map(|ability| ability.semantic_tags)
-    }
-
-    /// Looks up one executable battle rule lowered from Sora rows.
-    #[must_use]
-    pub fn battle_rule(&self, id: RuleId) -> Option<&BattleRuleDefinition> {
-        self.combat
-            .rules
-            .binary_search_by_key(&id, |rule| rule.id)
-            .ok()
-            .map(|index| &self.combat.rules[index].runtime)
-    }
+    pub(super) builds: crate::build_lower::BuildDefinitions,
+    pub(super) encounters: crate::encounter_lower::EncounterDefinitions,
+    pub(super) standard: crate::standard_lower::StandardDefinitions,
 }
 
 /// Loads and validates a production bundle into an immutable shared catalog.
@@ -239,12 +259,12 @@ pub(super) enum IdentityKind {
 
 #[derive(Debug)]
 pub(super) struct CombatDefinitions {
-    abilities: Box<[AbilityDefinition]>,
-    hit_plans: Box<[HitPlanDefinition]>,
-    modifiers: ModifierRegistry,
+    pub(super) abilities: Box<[AbilityDefinition]>,
+    pub(super) hit_plans: Box<[HitPlanDefinition]>,
+    pub(super) modifiers: ModifierRegistry,
     pub(super) programs: Box<[crate::operation_lower::RuleProgramDefinition]>,
-    effects: Box<[EffectDataDefinition]>,
-    rules: Box<[crate::rule_lower::RuleDataDefinition]>,
+    pub(super) effects: Box<[EffectDataDefinition]>,
+    pub(super) rules: Box<[crate::rule_lower::RuleDataDefinition]>,
 }
 
 /// Generated-row-free authored effect data retained for build compilation.
@@ -321,14 +341,14 @@ impl EffectDataDefinition {
 }
 
 #[derive(Debug)]
-struct AbilityDefinition {
-    id: AbilityId,
+pub(super) struct AbilityDefinition {
+    pub(super) id: AbilityId,
     kind: u8,
     target_pattern: u8,
     retarget_policy: u8,
     level_cap: u16,
     cooldown_actions: u16,
-    semantic_tags: starclock_combat::catalog::action::AbilityTags,
+    pub(super) semantic_tags: starclock_combat::catalog::action::AbilityTags,
     phases: Box<[AbilityPhaseDefinition]>,
 }
 
@@ -338,7 +358,7 @@ struct AbilityPhaseDefinition {
 }
 
 #[derive(Debug)]
-struct HitPlanDefinition {
+pub(super) struct HitPlanDefinition {
     id: u32,
     target_pattern: u8,
     retarget_policy: u8,
@@ -380,11 +400,15 @@ pub(super) fn load_with_mode(
         .collect::<BTreeMap<_, _>>();
     let combat = convert_combat(&config, mode, &identity_by_id)?;
     let builds = crate::build_lower::convert(&config, mode, &identity_by_id, &combat)?;
+    let encounters = crate::encounter_lower::convert(&config, mode, &identity_by_id, &combat)?;
+    let standard = crate::standard_lower::convert(&config, mode, &identity_by_id, &encounters)?;
     let catalog = SimulationCatalog {
         manifest,
         identities: identities.into_boxed_slice(),
         combat,
         builds,
+        encounters,
+        standard,
     };
     validate_converted_catalog(&catalog)?;
     Ok(Arc::new(catalog))
@@ -436,68 +460,6 @@ fn validate_populated_tables(config: &SoraConfig) -> Result<(), CatalogLoadError
         ));
     }
     Ok(())
-}
-
-fn convert_manifest(config: &SoraConfig) -> Result<CatalogManifest, CatalogLoadError> {
-    let row = config.config_manifest();
-    if row.sora_cli_version != "0.3.0" {
-        return Err(fail(
-            CatalogLoadErrorKind::Manifest,
-            format!(
-                "unsupported Sora authoring version {}",
-                row.sora_cli_version
-            ),
-        ));
-    }
-    if !valid_date(&row.snapshot_date) {
-        return Err(fail(
-            CatalogLoadErrorKind::Manifest,
-            "invalid snapshot date",
-        ));
-    }
-    if !valid_sha256(&row.coverage_manifest_sha256) {
-        return Err(fail(
-            CatalogLoadErrorKind::Manifest,
-            "coverage manifest digest is not lowercase SHA-256",
-        ));
-    }
-    for (name, value) in [
-        ("game_version", row.game_version.as_str()),
-        ("data_revision", row.data_revision.as_str()),
-        (
-            "required_rules_revision",
-            row.required_rules_revision.as_str(),
-        ),
-        (
-            "numeric_policy_revision",
-            row.numeric_policy_revision.as_str(),
-        ),
-        (
-            "rng_algorithm_revision",
-            row.rng_algorithm_revision.as_str(),
-        ),
-        ("state_hash_revision", row.state_hash_revision.as_str()),
-        ("replay_format_version", row.replay_format_version.as_str()),
-    ] {
-        if value.trim().is_empty() {
-            return Err(fail(
-                CatalogLoadErrorKind::Manifest,
-                format!("manifest field {name} is empty"),
-            ));
-        }
-    }
-    Ok(CatalogManifest {
-        game_version: row.game_version.clone(),
-        snapshot_date: row.snapshot_date.clone(),
-        data_revision: row.data_revision.clone(),
-        required_rules_revision: row.required_rules_revision.clone(),
-        sora_cli_version: row.sora_cli_version.clone(),
-        numeric_policy_revision: row.numeric_policy_revision.clone(),
-        rng_algorithm_revision: row.rng_algorithm_revision.clone(),
-        state_hash_revision: row.state_hash_revision.clone(),
-        replay_format_version: row.replay_format_version.clone(),
-        coverage_manifest_sha256: row.coverage_manifest_sha256.clone(),
-    })
 }
 
 fn convert_metadata(
@@ -1079,14 +1041,14 @@ fn decimal_error(source: &str) -> CatalogLoadError {
     )
 }
 
-fn valid_sha256(value: &str) -> bool {
+pub(super) fn valid_sha256(value: &str) -> bool {
     value.len() == 64
         && value
             .bytes()
             .all(|byte| byte.is_ascii_digit() || (b'a'..=b'f').contains(&byte))
 }
 
-fn valid_date(value: &str) -> bool {
+pub(super) fn valid_date(value: &str) -> bool {
     let bytes = value.as_bytes();
     if bytes.len() != 10 || bytes[4] != b'-' || bytes[7] != b'-' {
         return false;
@@ -1098,7 +1060,10 @@ fn valid_date(value: &str) -> bool {
         && matches!(number(8..10), Some(1..=31))
 }
 
-fn fail(kind: CatalogLoadErrorKind, message: impl std::fmt::Display) -> CatalogLoadError {
+pub(super) fn fail(
+    kind: CatalogLoadErrorKind,
+    message: impl std::fmt::Display,
+) -> CatalogLoadError {
     CatalogLoadError {
         kind,
         message: message.to_string(),
@@ -1110,90 +1075,5 @@ pub(super) fn domain_fail(message: impl std::fmt::Display) -> CatalogLoadError {
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-
-    const PRODUCTION_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
-    const REPRESENTATIVE_BUNDLE: &[u8] =
-        include_bytes!("../../../config/catalog-fixtures/representative/config.sora");
-
-    #[test]
-    fn production_bundle_builds_a_valid_empty_domain_catalog() {
-        let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
-        assert_eq!(catalog.manifest().game_version, "4.4");
-        assert_eq!(
-            catalog.manifest().coverage_manifest_sha256,
-            "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19"
-        );
-        assert_eq!(
-            catalog.summary(),
-            CatalogSummary {
-                identity_count: 283,
-                enabled_identity_count: 0,
-                ability_count: 0,
-                hit_plan_count: 0,
-                character_count: 0,
-                effect_count: 0,
-            }
-        );
-        assert!(Arc::ptr_eq(&catalog, &Arc::clone(&catalog)));
-    }
-
-    #[test]
-    fn real_fixture_bundle_builds_representative_private_definitions() {
-        let catalog = load_with_mode(REPRESENTATIVE_BUNDLE, LoadMode::Fixture)
-            .expect("representative catalog must load");
-        assert_eq!(
-            catalog.manifest().data_revision,
-            "catalog-representative-v1"
-        );
-        assert_eq!(
-            catalog.summary(),
-            CatalogSummary {
-                identity_count: 3,
-                enabled_identity_count: 0,
-                ability_count: 1,
-                hit_plan_count: 1,
-                character_count: 1,
-                effect_count: 0,
-            }
-        );
-        let ability = &catalog.combat.abilities[0];
-        assert_eq!(ability.id.get(), 2);
-        assert_eq!(ability.level_cap, 6);
-        assert_eq!(ability.phases[0].sequence, 1);
-        let hit = &catalog.combat.hit_plans[0].hits[0];
-        assert_eq!(hit.damage_ratio.scaled(), 1_000_000);
-        assert_eq!(hit.toughness_ratio.scaled(), 1_000_000);
-        let character = &catalog.builds.characters[0];
-        assert_eq!(character.id.get(), 1);
-        assert_eq!(character.base_energy.scaled(), 120_000_000);
-        assert_eq!(character.base_aggro.scaled(), 100_000_000);
-        assert_eq!(character.stats.len(), 2);
-        assert_eq!(character.abilities[0].ability.get(), 2);
-    }
-
-    #[test]
-    fn production_loader_rejects_fixture_labels() {
-        let error = load(REPRESENTATIVE_BUNDLE).expect_err("fixture cannot enter production");
-        assert_eq!(error.kind(), CatalogLoadErrorKind::Metadata);
-        assert!(error.to_string().contains("synthetic") || error.to_string().contains("fixture"));
-    }
-
-    #[test]
-    fn canonical_decimal_parser_has_no_floating_point_path() {
-        for (source, expected) in [
-            ("0", 0),
-            ("1", 1_000_000),
-            ("0.000001", 1),
-            ("-12.345678", -12_345_678),
-            ("9223372036854.775807", i64::MAX),
-            ("-9223372036854.775808", i64::MIN),
-        ] {
-            assert_eq!(parse_decimal(source), Ok(expected));
-        }
-        for invalid in ["", "+1", "01", "-0", "1.", "1.0", "1e2", "0.0000001"] {
-            assert!(parse_decimal(invalid).is_err(), "accepted {invalid}");
-        }
-    }
-}
+#[path = "catalog_tests.rs"]
+mod tests;

@@ -1,6 +1,75 @@
 {
   "table": {
     "name": "BattleResultProjectionField",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "field": {
+            "Object": {
+              "type": {
+                "String": "Outcome"
+              }
+            }
+          },
+          "projection_id": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "field": {
+            "Object": {
+              "type": {
+                "String": "FinalStateHash"
+              }
+            }
+          },
+          "projection_id": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "field": {
+            "Object": {
+              "type": {
+                "String": "EventDigest"
+              }
+            }
+          },
+          "projection_id": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "field": {
+            "Object": {
+              "type": {
+                "String": "TerminalFault"
+              }
+            }
+          },
+          "projection_id": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 4
+          }
+        }
+      }
+    ]
   }
 }

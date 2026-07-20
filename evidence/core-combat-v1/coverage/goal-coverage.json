@@ -2,31 +2,31 @@
   "schema_revision": "starclock-goal-coverage-v1",
   "goal_id": "core-combat-v1",
   "snapshot": "4.4",
-  "generated_on": "2026-07-17",
+  "generated_on": "2026-07-20",
   "basis": {
     "reference_pack_sha256": "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
     "goal_manifest_sha256": "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19",
     "provenance_evidence_sha256": "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466",
     "research_evidence_sha256": "448a7571d103fedbb97450ff658aa52eb5a944085c731babbddf0b112e5ea374",
     "runtime_catalog": {
-      "state": "AbsentPreWorkspace",
-      "digest": null,
-      "note": "No Excel/Sora production catalog exists yet; prepared JSON and probe specifications receive no DataReady credit."
+      "state": "StandardV1Production",
+      "digest": "f5cb9eba2e5c5229bbf471dfa6991b997932d82adb3de39afda82ea26d0cb1c8",
+      "note": "Pinned Sora production bundle contains the frozen Standard-v1 executable catalog; character and Light Cone imports remain pending."
     }
   },
   "summary": {
     "required": 283,
     "accounted": 283,
-    "enabled_incomplete": 283,
-    "data_ready": 0,
-    "golden_verified": 0,
-    "data_ready_percent": "0%",
+    "enabled_incomplete": 253,
+    "data_ready": 30,
+    "golden_verified": 30,
+    "data_ready_percent": "10.6%",
     "terminal_state_counts": {
-      "Cataloged": 188,
-      "Documented": 85,
+      "Cataloged": 165,
+      "Documented": 78,
       "Researching": 10,
       "DataReady": 0,
-      "GoldenVerified": 0
+      "GoldenVerified": 30
     },
     "disabled_audit_only": 2
   },
@@ -70,15 +70,15 @@
       "manifest_kind": "StandardEnemyVariant",
       "required": 17,
       "accounted": 17,
-      "data_ready": 0,
-      "golden_verified": 0,
-      "data_ready_percent": "0%",
+      "data_ready": 17,
+      "golden_verified": 17,
+      "data_ready_percent": "100%",
       "terminal_state_counts": {
-        "Cataloged": 17,
+        "Cataloged": 0,
         "Documented": 0,
         "Researching": 0,
         "DataReady": 0,
-        "GoldenVerified": 0
+        "GoldenVerified": 17
       },
       "disabled_audit_only": 0
     },
@@ -87,15 +87,15 @@
       "manifest_kind": "StandardEncounter",
       "required": 6,
       "accounted": 6,
-      "data_ready": 0,
-      "golden_verified": 0,
-      "data_ready_percent": "0%",
+      "data_ready": 6,
+      "golden_verified": 6,
+      "data_ready_percent": "100%",
       "terminal_state_counts": {
-        "Cataloged": 6,
+        "Cataloged": 0,
         "Documented": 0,
         "Researching": 0,
         "DataReady": 0,
-        "GoldenVerified": 0
+        "GoldenVerified": 6
       },
       "disabled_audit_only": 0
     },
@@ -104,15 +104,15 @@
       "manifest_kind": "StandardScenario",
       "required": 6,
       "accounted": 6,
-      "data_ready": 0,
-      "golden_verified": 0,
-      "data_ready_percent": "0%",
+      "data_ready": 6,
+      "golden_verified": 6,
+      "data_ready_percent": "100%",
       "terminal_state_counts": {
         "Cataloged": 0,
-        "Documented": 6,
+        "Documented": 0,
         "Researching": 0,
         "DataReady": 0,
-        "GoldenVerified": 0
+        "GoldenVerified": 6
       },
       "disabled_audit_only": 0
     },
@@ -121,15 +121,15 @@
       "manifest_kind": "StandardProfile",
       "required": 1,
       "accounted": 1,
-      "data_ready": 0,
-      "golden_verified": 0,
-      "data_ready_percent": "0%",
+      "data_ready": 1,
+      "golden_verified": 1,
+      "data_ready_percent": "100%",
       "terminal_state_counts": {
         "Cataloged": 0,
-        "Documented": 1,
+        "Documented": 0,
         "Researching": 0,
         "DataReady": 0,
-        "GoldenVerified": 0
+        "GoldenVerified": 1
       },
       "disabled_audit_only": 0
     }
@@ -5766,21 +5766,16 @@
       "id": "enemy.abundance-sprite-golden-hound.minionlv2.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -5788,21 +5783,16 @@
       "id": "enemy.aurumaton-gatekeeper.elite.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -5810,21 +5800,16 @@
       "id": "enemy.automaton-spider.minionlv2.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -5832,21 +5817,16 @@
       "id": "enemy.cocolia-mother-of-deception.bigboss.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -5854,21 +5834,16 @@
       "id": "enemy.disciples-of-sanctus-medicus-ballistarius.minionlv2.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -5876,21 +5851,16 @@
       "id": "enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -5898,21 +5868,16 @@
       "id": "enemy.eclipse-wolftrooper.minionlv2.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -5920,21 +5885,16 @@
       "id": "enemy.entranced-ingenium-illumination-dragonfish.minionlv2.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -5942,21 +5902,16 @@
       "id": "enemy.flamespawn.minion.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -5964,21 +5919,16 @@
       "id": "enemy.frostspawn.minion.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -5986,21 +5936,16 @@
       "id": "enemy.harmonious-choir-the-great-septimus.bigboss.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -6008,21 +5953,16 @@
       "id": "enemy.incineration-shadewalker.minionlv2.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -6030,21 +5970,16 @@
       "id": "enemy.mara-struck-soldier.minionlv2.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -6052,21 +5987,16 @@
       "id": "enemy.mara-struck-warden.minionlv2.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -6074,21 +6004,16 @@
       "id": "enemy.sableclaw-wolftrooper.minionlv2.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -6096,21 +6021,16 @@
       "id": "enemy.voidranger-reaver.minionlv2.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-enemy-variants",
@@ -6118,21 +6038,16 @@
       "id": "enemy.voidranger-trampler.elite.variant.01",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-encounters",
@@ -6140,21 +6055,16 @@
       "id": "encounter.cocoon.0001",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-encounters",
@@ -6162,21 +6072,16 @@
       "id": "encounter.mainline.0541",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-encounters",
@@ -6184,21 +6089,16 @@
       "id": "encounter.farmelement.0008",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-encounters",
@@ -6206,21 +6106,16 @@
       "id": "encounter.mainline.0276",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-encounters",
@@ -6228,21 +6123,16 @@
       "id": "encounter.mainline.0755",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-encounters",
@@ -6250,21 +6140,16 @@
       "id": "encounter.mainline.1253",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-scenarios",
@@ -6272,21 +6157,16 @@
       "id": "scenario.standard-v1.basic-single-wave",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-scenarios",
@@ -6294,21 +6174,16 @@
       "id": "scenario.standard-v1.multi-wave-dot-revival",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-scenarios",
@@ -6316,21 +6191,16 @@
       "id": "scenario.standard-v1.elite-control-counter",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-scenarios",
@@ -6338,21 +6208,16 @@
       "id": "scenario.standard-v1.cocolia-phase-change",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-scenarios",
@@ -6360,21 +6225,16 @@
       "id": "scenario.standard-v1.layered-toughness",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-scenarios",
@@ -6382,21 +6242,16 @@
       "id": "scenario.standard-v1.target-invalidation-and-return",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "standard-v1-profile",
@@ -6404,21 +6259,16 @@
       "id": "profile.standard-v1",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     }
   ],
   "disabled_audit": [
@@ -6696,37 +6546,7 @@
       "light-cone.why-does-the-ocean-sing",
       "light-cone.woof-walk-time",
       "light-cone.worrisome-blissful",
-      "light-cone.yet-hope-is-priceless",
-      "enemy.abundance-sprite-golden-hound.minionlv2.variant.01",
-      "enemy.aurumaton-gatekeeper.elite.variant.01",
-      "enemy.automaton-spider.minionlv2.variant.01",
-      "enemy.cocolia-mother-of-deception.bigboss.variant.01",
-      "enemy.disciples-of-sanctus-medicus-ballistarius.minionlv2.variant.01",
-      "enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01",
-      "enemy.eclipse-wolftrooper.minionlv2.variant.01",
-      "enemy.entranced-ingenium-illumination-dragonfish.minionlv2.variant.01",
-      "enemy.flamespawn.minion.variant.01",
-      "enemy.frostspawn.minion.variant.01",
-      "enemy.harmonious-choir-the-great-septimus.bigboss.variant.01",
-      "enemy.incineration-shadewalker.minionlv2.variant.01",
-      "enemy.mara-struck-soldier.minionlv2.variant.01",
-      "enemy.mara-struck-warden.minionlv2.variant.01",
-      "enemy.sableclaw-wolftrooper.minionlv2.variant.01",
-      "enemy.voidranger-reaver.minionlv2.variant.01",
-      "enemy.voidranger-trampler.elite.variant.01",
-      "encounter.cocoon.0001",
-      "encounter.mainline.0541",
-      "encounter.farmelement.0008",
-      "encounter.mainline.0276",
-      "encounter.mainline.0755",
-      "encounter.mainline.1253",
-      "scenario.standard-v1.basic-single-wave",
-      "scenario.standard-v1.multi-wave-dot-revival",
-      "scenario.standard-v1.elite-control-counter",
-      "scenario.standard-v1.cocolia-phase-change",
-      "scenario.standard-v1.layered-toughness",
-      "scenario.standard-v1.target-invalidation-and-return",
-      "profile.standard-v1"
+      "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_production_provenance_ids": [
       "character.acheron",
@@ -6981,37 +6801,7 @@
       "light-cone.why-does-the-ocean-sing",
       "light-cone.woof-walk-time",
       "light-cone.worrisome-blissful",
-      "light-cone.yet-hope-is-priceless",
-      "enemy.abundance-sprite-golden-hound.minionlv2.variant.01",
-      "enemy.aurumaton-gatekeeper.elite.variant.01",
-      "enemy.automaton-spider.minionlv2.variant.01",
-      "enemy.cocolia-mother-of-deception.bigboss.variant.01",
-      "enemy.disciples-of-sanctus-medicus-ballistarius.minionlv2.variant.01",
-      "enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01",
-      "enemy.eclipse-wolftrooper.minionlv2.variant.01",
-      "enemy.entranced-ingenium-illumination-dragonfish.minionlv2.variant.01",
-      "enemy.flamespawn.minion.variant.01",
-      "enemy.frostspawn.minion.variant.01",
-      "enemy.harmonious-choir-the-great-septimus.bigboss.variant.01",
-      "enemy.incineration-shadewalker.minionlv2.variant.01",
-      "enemy.mara-struck-soldier.minionlv2.variant.01",
-      "enemy.mara-struck-warden.minionlv2.variant.01",
-      "enemy.sableclaw-wolftrooper.minionlv2.variant.01",
-      "enemy.voidranger-reaver.minionlv2.variant.01",
-      "enemy.voidranger-trampler.elite.variant.01",
-      "encounter.cocoon.0001",
-      "encounter.mainline.0541",
-      "encounter.farmelement.0008",
-      "encounter.mainline.0276",
-      "encounter.mainline.0755",
-      "encounter.mainline.1253",
-      "scenario.standard-v1.basic-single-wave",
-      "scenario.standard-v1.multi-wave-dot-revival",
-      "scenario.standard-v1.elite-control-counter",
-      "scenario.standard-v1.cocolia-phase-change",
-      "scenario.standard-v1.layered-toughness",
-      "scenario.standard-v1.target-invalidation-and-return",
-      "profile.standard-v1"
+      "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_bilingual_validation_ids": [
       "character.acheron",
@@ -7266,36 +7056,7 @@
       "light-cone.why-does-the-ocean-sing",
       "light-cone.woof-walk-time",
       "light-cone.worrisome-blissful",
-      "light-cone.yet-hope-is-priceless",
-      "enemy.abundance-sprite-golden-hound.minionlv2.variant.01",
-      "enemy.aurumaton-gatekeeper.elite.variant.01",
-      "enemy.automaton-spider.minionlv2.variant.01",
-      "enemy.cocolia-mother-of-deception.bigboss.variant.01",
-      "enemy.disciples-of-sanctus-medicus-ballistarius.minionlv2.variant.01",
-      "enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01",
-      "enemy.eclipse-wolftrooper.minionlv2.variant.01",
-      "enemy.entranced-ingenium-illumination-dragonfish.minionlv2.variant.01",
-      "enemy.flamespawn.minion.variant.01",
-      "enemy.frostspawn.minion.variant.01",
-      "enemy.harmonious-choir-the-great-septimus.bigboss.variant.01",
-      "enemy.incineration-shadewalker.minionlv2.variant.01",
-      "enemy.mara-struck-soldier.minionlv2.variant.01",
-      "enemy.mara-struck-warden.minionlv2.variant.01",
-      "enemy.sableclaw-wolftrooper.minionlv2.variant.01",
-      "enemy.voidranger-reaver.minionlv2.variant.01",
-      "enemy.voidranger-trampler.elite.variant.01",
-      "encounter.cocoon.0001",
-      "encounter.mainline.0541",
-      "encounter.farmelement.0008",
-      "encounter.mainline.0276",
-      "encounter.mainline.0755",
-      "encounter.mainline.1253",
-      "scenario.standard-v1.basic-single-wave",
-      "scenario.standard-v1.multi-wave-dot-revival",
-      "scenario.standard-v1.elite-control-counter",
-      "scenario.standard-v1.cocolia-phase-change",
-      "scenario.standard-v1.layered-toughness",
-      "scenario.standard-v1.target-invalidation-and-return"
+      "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_runtime_reference_ids": [
       "character.acheron",
@@ -7550,37 +7311,7 @@
       "light-cone.why-does-the-ocean-sing",
       "light-cone.woof-walk-time",
       "light-cone.worrisome-blissful",
-      "light-cone.yet-hope-is-priceless",
-      "enemy.abundance-sprite-golden-hound.minionlv2.variant.01",
-      "enemy.aurumaton-gatekeeper.elite.variant.01",
-      "enemy.automaton-spider.minionlv2.variant.01",
-      "enemy.cocolia-mother-of-deception.bigboss.variant.01",
-      "enemy.disciples-of-sanctus-medicus-ballistarius.minionlv2.variant.01",
-      "enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01",
-      "enemy.eclipse-wolftrooper.minionlv2.variant.01",
-      "enemy.entranced-ingenium-illumination-dragonfish.minionlv2.variant.01",
-      "enemy.flamespawn.minion.variant.01",
-      "enemy.frostspawn.minion.variant.01",
-      "enemy.harmonious-choir-the-great-septimus.bigboss.variant.01",
-      "enemy.incineration-shadewalker.minionlv2.variant.01",
-      "enemy.mara-struck-soldier.minionlv2.variant.01",
-      "enemy.mara-struck-warden.minionlv2.variant.01",
-      "enemy.sableclaw-wolftrooper.minionlv2.variant.01",
-      "enemy.voidranger-reaver.minionlv2.variant.01",
-      "enemy.voidranger-trampler.elite.variant.01",
-      "encounter.cocoon.0001",
-      "encounter.mainline.0541",
-      "encounter.farmelement.0008",
-      "encounter.mainline.0276",
-      "encounter.mainline.0755",
-      "encounter.mainline.1253",
-      "scenario.standard-v1.basic-single-wave",
-      "scenario.standard-v1.multi-wave-dot-revival",
-      "scenario.standard-v1.elite-control-counter",
-      "scenario.standard-v1.cocolia-phase-change",
-      "scenario.standard-v1.layered-toughness",
-      "scenario.standard-v1.target-invalidation-and-return",
-      "profile.standard-v1"
+      "light-cone.yet-hope-is-priceless"
     ],
     "unresolved_native_handler_ids": [],
     "unowned_research_case_ids": [],
@@ -7605,19 +7336,19 @@
       {
         "label": "`standard-v1` enemies/variants",
         "required": 17,
-        "data_ready": 0,
+        "data_ready": 17,
         "matches": true
       },
       {
         "label": "`standard-v1` encounters",
         "required": 6,
-        "data_ready": 0,
+        "data_ready": 6,
         "matches": true
       },
       {
         "label": "`standard-v1` scenarios",
         "required": 6,
-        "data_ready": 0,
+        "data_ready": 6,
         "matches": true
       }
     ],
@@ -7681,7 +7412,7 @@
     "goal_required_total_including_profile": 283
   },
   "exclusions": [
-    "Prepared JSON reference records are evidence/bootstrap input, not runtime content.",
+    "Prepared JSON reference records receive runtime credit only through reviewed Excel/Sora production rows.",
     "Phase 4 probe fixtures are excluded from production coverage.",
     "Announced disabled forms are outside the required denominator.",
     "Challenge, universe, UI, account, relic/planar and full public enemy catalogs are not claimed."

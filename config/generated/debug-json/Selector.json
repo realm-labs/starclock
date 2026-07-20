@@ -1,6 +1,52 @@
 {
   "table": {
     "name": "Selector",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 14001
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "Formation"
+          },
+          "origin": {
+            "String": "Actor"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "OpposingSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      }
+    ]
   }
 }

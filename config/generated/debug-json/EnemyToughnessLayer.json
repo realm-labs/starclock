@@ -1,6 +1,482 @@
 {
   "table": {
     "name": "EnemyToughnessLayer",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "360"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 100
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "90"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 101
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "60"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 102
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "30"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 103
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "30"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 104
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "180"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 105
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "Sequential"
+          },
+          "layer_key": {
+            "String": "layer-2"
+          },
+          "maximum_decimal": {
+            "String": "180"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "variant_id": {
+            "Integer": 105
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "Sequential"
+          },
+          "layer_key": {
+            "String": "layer-3"
+          },
+          "maximum_decimal": {
+            "String": "180"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "variant_id": {
+            "Integer": 105
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "60"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 106
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "60"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 107
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "90"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 108
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "90"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 109
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "60"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 110
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "300"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 111
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "90"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 95
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "300"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 96
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "60"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 97
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "540"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 98
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "layer-1"
+          },
+          "maximum_decimal": {
+            "String": "90"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 99
+          }
+        }
+      }
+    ]
   }
 }

@@ -1,6 +1,724 @@
 {
   "table": {
     "name": "WaveSlot",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 103
+          },
+          "formation_index": {
+            "Integer": 4
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 16
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 1
+          },
+          "wave_id": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 104
+          },
+          "formation_index": {
+            "Integer": 5
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 16
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 2
+          },
+          "wave_id": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 103
+          },
+          "formation_index": {
+            "Integer": 6
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 16
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 3
+          },
+          "wave_id": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 104
+          },
+          "formation_index": {
+            "Integer": 7
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 16
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 4
+          },
+          "wave_id": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 97
+          },
+          "formation_index": {
+            "Integer": 4
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 1
+          },
+          "wave_id": {
+            "Integer": 10
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 100
+          },
+          "formation_index": {
+            "Integer": 5
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 2
+          },
+          "wave_id": {
+            "Integer": 10
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 108
+          },
+          "formation_index": {
+            "Integer": 6
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 3
+          },
+          "wave_id": {
+            "Integer": 10
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 107
+          },
+          "formation_index": {
+            "Integer": 4
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 1
+          },
+          "wave_id": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 99
+          },
+          "formation_index": {
+            "Integer": 5
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 2
+          },
+          "wave_id": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 107
+          },
+          "formation_index": {
+            "Integer": 6
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 3
+          },
+          "wave_id": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 109
+          },
+          "formation_index": {
+            "Integer": 7
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 4
+          },
+          "wave_id": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 101
+          },
+          "formation_index": {
+            "Integer": 4
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 1
+          },
+          "wave_id": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 99
+          },
+          "formation_index": {
+            "Integer": 5
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 2
+          },
+          "wave_id": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 99
+          },
+          "formation_index": {
+            "Integer": 6
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 3
+          },
+          "wave_id": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 101
+          },
+          "formation_index": {
+            "Integer": 7
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 4
+          },
+          "wave_id": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 109
+          },
+          "formation_index": {
+            "Integer": 4
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 1
+          },
+          "wave_id": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 100
+          },
+          "formation_index": {
+            "Integer": 5
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 2
+          },
+          "wave_id": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 101
+          },
+          "formation_index": {
+            "Integer": 6
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 3
+          },
+          "wave_id": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 102
+          },
+          "formation_index": {
+            "Integer": 4
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 1
+          },
+          "wave_id": {
+            "Integer": 5
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 96
+          },
+          "formation_index": {
+            "Integer": 5
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 2
+          },
+          "wave_id": {
+            "Integer": 5
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 102
+          },
+          "formation_index": {
+            "Integer": 6
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 3
+          },
+          "wave_id": {
+            "Integer": 5
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 98
+          },
+          "formation_index": {
+            "Integer": 4
+          },
+          "initial_phase_id": {
+            "Integer": 1
+          },
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 1
+          },
+          "wave_id": {
+            "Integer": 6
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 105
+          },
+          "formation_index": {
+            "Integer": 4
+          },
+          "initial_phase_id": {
+            "Integer": 3
+          },
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 1
+          },
+          "wave_id": {
+            "Integer": 7
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 106
+          },
+          "formation_index": {
+            "Integer": 4
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 1
+          },
+          "wave_id": {
+            "Integer": 8
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 111
+          },
+          "formation_index": {
+            "Integer": 5
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 2
+          },
+          "wave_id": {
+            "Integer": 8
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 95
+          },
+          "formation_index": {
+            "Integer": 6
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 3
+          },
+          "wave_id": {
+            "Integer": 8
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 106
+          },
+          "formation_index": {
+            "Integer": 7
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 4
+          },
+          "wave_id": {
+            "Integer": 8
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 102
+          },
+          "formation_index": {
+            "Integer": 4
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 1
+          },
+          "wave_id": {
+            "Integer": 9
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 110
+          },
+          "formation_index": {
+            "Integer": 5
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 2
+          },
+          "wave_id": {
+            "Integer": 9
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 97
+          },
+          "formation_index": {
+            "Integer": 6
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 3
+          },
+          "wave_id": {
+            "Integer": 9
+          }
+        }
+      },
+      {
+        "values": {
+          "enemy_variant_id": {
+            "Integer": 102
+          },
+          "formation_index": {
+            "Integer": 7
+          },
+          "initial_phase_id": "Null",
+          "level_override": {
+            "Integer": 24
+          },
+          "required_for_victory": {
+            "Bool": true
+          },
+          "spawn_sequence": {
+            "Integer": 4
+          },
+          "wave_id": {
+            "Integer": 9
+          }
+        }
+      }
+    ]
   }
 }
