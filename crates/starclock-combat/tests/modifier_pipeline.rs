@@ -56,6 +56,20 @@ fn full_stat_pipeline_applies_groups_filters_and_stage_cap() {
 }
 
 #[test]
+fn uncapped_damage_pipeline_modifiers_are_valid_registry_definitions() {
+    let definition = definition(
+        1,
+        1,
+        FormulaStage::DamageBoost,
+        literal(Scalar::from_scaled(320_000)),
+    );
+    let registry =
+        ModifierRegistry::new(vec![group(1, ModifierAggregation::Sum)], vec![definition])
+            .expect("uncapped damage-stage modifiers are valid");
+    assert_eq!(registry.len(), 1);
+}
+
+#[test]
 fn every_stacking_policy_has_a_stable_result() {
     let cases = [
         (ModifierAggregation::Sum, 6),

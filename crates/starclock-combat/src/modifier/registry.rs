@@ -47,7 +47,9 @@ impl ModifierRegistry {
                     definition.id.get()
                 )));
             }
-            if !valid_cap_stage(definition.stage, definition.cap_stage) {
+            if (definition.floor.is_some() || definition.cap.is_some())
+                && !valid_cap_stage(definition.stage, definition.cap_stage)
+            {
                 return Err(error(format!(
                     "modifier {} has an invalid cap stage",
                     definition.id.get()
@@ -78,6 +80,10 @@ impl ModifierRegistry {
 
     pub fn definitions(&self) -> impl ExactSizeIterator<Item = &ModifierDefinition> {
         self.definitions.values()
+    }
+
+    pub fn groups(&self) -> impl ExactSizeIterator<Item = &ModifierStackingGroup> {
+        self.groups.values()
     }
 
     #[must_use]

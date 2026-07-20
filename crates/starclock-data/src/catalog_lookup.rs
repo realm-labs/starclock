@@ -7,6 +7,31 @@ use starclock_combat::rule::model::BattleRuleDefinition;
 use starclock_combat::{AbilityId, EffectDefinitionId, RuleId};
 
 impl SimulationCatalog {
+    /// Returns the immutable combat catalog compiled from this exact Sora bundle.
+    #[must_use]
+    pub fn combat_catalog(&self) -> &starclock_combat::catalog::CombatCatalog {
+        &self.combat_catalog
+    }
+
+    /// Returns the compatible immutable build catalog compiled from the same bundle.
+    #[must_use]
+    pub fn build_catalog(&self) -> &starclock_build::catalog::BuildCatalog {
+        &self.build_catalog
+    }
+
+    /// Looks up one complete production character data definition.
+    #[must_use]
+    pub fn character(
+        &self,
+        id: starclock_combat::UnitDefinitionId,
+    ) -> Option<&crate::build_lower::CharacterDataDefinition> {
+        self.builds
+            .characters
+            .binary_search_by_key(&id, |character| character.id())
+            .ok()
+            .map(|index| &self.builds.characters[index])
+    }
+
     /// Returns immutable bundle compatibility metadata.
     #[must_use]
     pub const fn manifest(&self) -> &CatalogManifest {

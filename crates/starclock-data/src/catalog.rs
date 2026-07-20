@@ -1,5 +1,6 @@
 //! Validated Sora-row to immutable Starclock catalog boundary.
 //! Generated rows and preliminary definition storage remain private.
+use sha2::{Digest, Sha256};
 use starclock_combat::modifier::registry::ModifierRegistry;
 use starclock_combat::{
     AbilityId, DispelCategory, DurationClock, EffectCategory, EffectDefinitionId,
@@ -8,6 +9,9 @@ use starclock_combat::{
 use std::{collections::BTreeMap, sync::Arc};
 
 use crate::catalog_manifest::convert_manifest;
+pub(super) use crate::catalog_support::{
+    domain_fail, fail, parse_decimal, valid_date, valid_sha256,
+};
 use crate::coverage::{GoalCoverageCategory, GoalCoverageState};
 use crate::effect_lower::{
     lower_dispel, lower_duration_clock, lower_effect_category, lower_snapshot_policy,
@@ -25,10 +29,12 @@ const METADATA_TABLES: [&str; 5] = [
     "EvidenceRecord",
     "SourceRecord",
 ];
-const LOWERED_TABLES: [&str; 57] = [
+const LOWERED_TABLES: [&str; 64] = [
     "Ability",
     "AbilityHitPlanBinding",
+    "AbilityLevelParameter",
     "AbilityPhase",
+    "AbilityResourceDelta",
     "ActivityDefinition",
     "ActivityEdge",
     "ActivityNode",
@@ -46,9 +52,12 @@ const LOWERED_TABLES: [&str; 57] = [
     "BattleResultProjectionField",
     "Character",
     "CharacterAbilityBinding",
+    "CharacterResource",
     "CharacterStat",
     "ConditionExpression",
     "Effect",
+    "Eidolon",
+    "EidolonPatch",
     "Encounter",
     "EncounterRuleBinding",
     "EncounterWave",
@@ -81,6 +90,8 @@ const LOWERED_TABLES: [&str; 57] = [
     "StandardScenario",
     "StateSlot",
     "StateSlotReset",
+    "TraceNode",
+    "TracePatch",
     "ValueExpression",
     "WaveSlot",
 ];
@@ -103,8 +114,8 @@ pub enum CatalogLoadErrorKind {
 /// Stable load error that never exposes a generated Sora error type.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct CatalogLoadError {
-    kind: CatalogLoadErrorKind,
-    message: String,
+    pub(super) kind: CatalogLoadErrorKind,
+    pub(super) message: String,
 }
 
 impl CatalogLoadError {
@@ -225,6 +236,8 @@ pub struct SimulationCatalog {
     pub(super) builds: crate::build_lower::BuildDefinitions,
     pub(super) encounters: crate::encounter_lower::EncounterDefinitions,
     pub(super) standard: crate::standard_lower::StandardDefinitions,
+    pub(super) combat_catalog: Arc<starclock_combat::catalog::CombatCatalog>,
+    pub(super) build_catalog: starclock_build::catalog::BuildCatalog,
 }
 
 /// Loads and validates a production bundle into an immutable shared catalog.
@@ -262,6 +275,7 @@ pub(super) struct CombatDefinitions {
     pub(super) abilities: Box<[AbilityDefinition]>,
     pub(super) hit_plans: Box<[HitPlanDefinition]>,
     pub(super) modifiers: ModifierRegistry,
+    pub(super) selectors: Box<[starclock_combat::SelectorId]>,
     pub(super) programs: Box<[crate::operation_lower::RuleProgramDefinition]>,
     pub(super) effects: Box<[EffectDataDefinition]>,
     pub(super) rules: Box<[crate::rule_lower::RuleDataDefinition]>,
@@ -343,18 +357,31 @@ impl EffectDataDefinition {
 #[derive(Debug)]
 pub(super) struct AbilityDefinition {
     pub(super) id: AbilityId,
-    kind: u8,
-    target_pattern: u8,
-    retarget_policy: u8,
-    level_cap: u16,
-    cooldown_actions: u16,
+    pub(super) kind: u8,
+    pub(super) target_pattern: u8,
+    pub(super) retarget_policy: u8,
+    pub(super) level_cap: u16,
+    pub(super) cooldown_actions: u16,
     pub(super) semantic_tags: starclock_combat::catalog::action::AbilityTags,
-    phases: Box<[AbilityPhaseDefinition]>,
+    pub(super) entry_rule: Option<starclock_combat::RuleId>,
+    pub(super) phases: Box<[AbilityPhaseDefinition]>,
+    pub(super) resources: Box<[AbilityResourceDefinition]>,
 }
 
 #[derive(Debug)]
-struct AbilityPhaseDefinition {
-    sequence: u16,
+pub(super) struct AbilityPhaseDefinition {
+    pub(super) sequence: u16,
+    pub(super) program: Option<starclock_combat::ProgramId>,
+}
+
+#[derive(Debug)]
+pub(super) struct AbilityResourceDefinition {
+    pub(super) sequence: u16,
+    pub(super) resource_kind: u8,
+    pub(super) character_resource_key: Option<Box<str>>,
+    pub(super) delta_kind: u8,
+    pub(super) timing: u8,
+    pub(super) amount: starclock_combat::Scalar,
 }
 
 #[derive(Debug)]
@@ -387,6 +414,7 @@ pub(super) fn load_with_mode(
     bytes: &[u8],
     mode: LoadMode,
 ) -> Result<Arc<SimulationCatalog>, CatalogLoadError> {
+    let config_digest: [u8; 32] = Sha256::digest(bytes).into();
     let bundle =
         SoraBundle::parse(bytes).map_err(|error| fail(CatalogLoadErrorKind::Bundle, error))?;
     let config = SoraConfig::from_source(&bundle)
@@ -402,6 +430,14 @@ pub(super) fn load_with_mode(
     let builds = crate::build_lower::convert(&config, mode, &identity_by_id, &combat)?;
     let encounters = crate::encounter_lower::convert(&config, mode, &identity_by_id, &combat)?;
     let standard = crate::standard_lower::convert(&config, mode, &identity_by_id, &encounters)?;
+    let (combat_catalog, build_catalog) = crate::domain_catalog::compile(
+        &manifest.data_revision,
+        config_digest,
+        &identities,
+        &combat,
+        &builds,
+        &encounters,
+    )?;
     let catalog = SimulationCatalog {
         manifest,
         identities: identities.into_boxed_slice(),
@@ -409,6 +445,8 @@ pub(super) fn load_with_mode(
         builds,
         encounters,
         standard,
+        combat_catalog,
+        build_catalog,
     };
     validate_converted_catalog(&catalog)?;
     Ok(Arc::new(catalog))
@@ -422,6 +460,18 @@ fn validate_converted_catalog(catalog: &SimulationCatalog) -> Result<(), Catalog
             || ability.level_cap == 0
             || ability.cooldown_actions > 100
             || ability.phases.is_empty()
+            || ability
+                .phases
+                .iter()
+                .any(|phase| phase.program.is_some_and(|program| program.get() == 0))
+            || ability.resources.iter().any(|resource| {
+                resource.sequence == 0
+                    || resource.resource_kind > 4
+                    || resource.delta_kind > 2
+                    || resource.timing > 4
+                    || resource.amount.scaled() <= 0
+                    || (resource.resource_kind == 3) != resource.character_resource_key.is_some()
+            })
     }) || catalog.combat.hit_plans.iter().any(|plan| {
         plan.target_pattern > 7
             || plan.retarget_policy > 3
@@ -546,7 +596,13 @@ fn convert_metadata(
             stable_key: row.stable_key.clone().into_boxed_str(),
             kind: identity_kind(row.content_kind),
             enabled: row.enabled,
-            goal_category: GoalCoverageCategory::from_content_kind(row.content_kind),
+            // Phase 0 assigned the frozen Goal 01 denominator the permanent
+            // transport IDs 1..=283. Runtime support identities may share a
+            // denominator content kind (for example a transformation-owned
+            // unit definition), but they are not additional manifest entries.
+            goal_category: (id <= 283)
+                .then(|| GoalCoverageCategory::from_content_kind(row.content_kind))
+                .flatten(),
             coverage_state: GoalCoverageState::from_generated(row.coverage_state),
         });
     }
@@ -689,25 +745,30 @@ fn convert_combat(
                 "ability level cap must be positive",
             ));
         }
-        if row.entry_rule_identity_id.is_some() {
-            return Err(fail(
-                CatalogLoadErrorKind::UnsupportedTable,
-                format!("ability {} requires Rule IR lowering", row.id),
-            ));
-        }
+        let entry_rule = row
+            .entry_rule_identity_id
+            .map(|id| {
+                starclock_combat::RuleId::new(positive(id, "Ability.entry_rule_identity_id")?)
+                    .ok_or_else(|| domain_fail("ability entry rule ID is zero"))
+            })
+            .transpose()?;
         let mut phases = config
             .ability_phase()
             .iter()
             .filter(|phase| phase.ability_id == row.id)
             .map(|phase| {
-                if phase.program_identity_id.is_some() {
-                    return Err(fail(
-                        CatalogLoadErrorKind::UnsupportedTable,
-                        format!("ability {} phase requires program lowering", row.id),
-                    ));
-                }
                 Ok(AbilityPhaseDefinition {
                     sequence: positive_u16(phase.sequence, "AbilityPhase.sequence")?,
+                    program: phase
+                        .program_identity_id
+                        .map(|id| {
+                            starclock_combat::ProgramId::new(positive(
+                                id,
+                                "AbilityPhase.program_identity_id",
+                            )?)
+                            .ok_or_else(|| domain_fail("ability phase program ID is zero"))
+                        })
+                        .transpose()?,
                 })
             })
             .collect::<Result<Vec<_>, CatalogLoadError>>()?;
@@ -719,6 +780,44 @@ fn convert_combat(
                 format!("ability {} has no authored phase", row.id),
             ));
         }
+        let mut resources = config
+            .ability_resource_delta()
+            .iter()
+            .filter(|resource| resource.ability_id == row.id)
+            .map(|resource| {
+                let sequence = positive_u16(resource.sequence, "AbilityResourceDelta.sequence")?;
+                let amount =
+                    starclock_combat::Scalar::from_scaled(parse_decimal(&resource.amount_decimal)?);
+                if amount.scaled() <= 0 {
+                    return Err(domain_fail("ability resource amount must be positive"));
+                }
+                let resource_kind = ability_resource_kind(resource.resource_kind);
+                let key = resource
+                    .character_resource_key
+                    .as_ref()
+                    .map(|value| value.clone().into_boxed_str());
+                if (resource_kind == 3) != key.is_some()
+                    || key.as_ref().is_some_and(|value| value.trim().is_empty())
+                {
+                    return Err(domain_fail(
+                        "character-resource delta requires exactly one nonempty key",
+                    ));
+                }
+                Ok(AbilityResourceDefinition {
+                    sequence,
+                    resource_kind,
+                    character_resource_key: key,
+                    delta_kind: resource_delta_kind(resource.delta_kind),
+                    timing: resource_timing(resource.timing),
+                    amount,
+                })
+            })
+            .collect::<Result<Vec<_>, CatalogLoadError>>()?;
+        resources.sort_unstable_by_key(|resource| resource.sequence);
+        contiguous(
+            resources.iter().map(|resource| resource.sequence),
+            "ability resource deltas",
+        )?;
         abilities.push(AbilityDefinition {
             id: AbilityId::new(raw).expect("positive u32 is a valid AbilityId"),
             kind: ability_kind(row.kind),
@@ -740,7 +839,9 @@ fn convert_combat(
                     "unknown ability semantic tag bit",
                 )
             })?,
+            entry_rule,
             phases: phases.into_boxed_slice(),
+            resources: resources.into_boxed_slice(),
         });
     }
     abilities.sort_unstable_by_key(|ability| ability.id);
@@ -822,16 +923,74 @@ fn convert_combat(
     }
     let native_handlers = crate::native_handler_lower::audit(config)?;
     let modifiers = crate::modifier_lower::convert(config)?;
+    let selectors = config
+        .selector()
+        .ordered_rows()
+        .map(|row| {
+            starclock_combat::SelectorId::new(positive(row.id, "Selector.id")?)
+                .ok_or_else(|| domain_fail("selector ID is zero"))
+        })
+        .collect::<Result<Vec<_>, _>>()?;
     let programs = crate::operation_lower::convert(config, &native_handlers)?;
     let rules = crate::rule_lower::convert(config, mode, identities, &native_handlers)?;
+    for ability in &abilities {
+        if ability
+            .entry_rule
+            .is_some_and(|id| rules.binary_search_by_key(&id, |rule| rule.id).is_err())
+            || ability.phases.iter().any(|phase| {
+                phase.program.is_some_and(|id| {
+                    programs
+                        .binary_search_by_key(&id, |program| program.id)
+                        .is_err()
+                })
+            })
+        {
+            return Err(domain_fail(format!(
+                "ability {} refers to a missing entry rule or phase program",
+                ability.id.get()
+            )));
+        }
+    }
     Ok(CombatDefinitions {
         abilities: abilities.into_boxed_slice(),
         hit_plans: hit_plans.into_boxed_slice(),
         modifiers,
+        selectors: selectors.into_boxed_slice(),
         programs: programs.into_boxed_slice(),
         effects: effects.into_boxed_slice(),
         rules: rules.into_boxed_slice(),
     })
+}
+
+fn ability_resource_kind(value: crate::generated::resource_kind::ResourceKind) -> u8 {
+    use crate::generated::resource_kind::ResourceKind as V;
+    match value {
+        V::Energy => 0,
+        V::SkillPoints => 1,
+        V::Hp => 2,
+        V::CharacterResource => 3,
+        V::TeamResource => 4,
+    }
+}
+
+fn resource_delta_kind(value: crate::generated::resource_delta_kind::ResourceDeltaKind) -> u8 {
+    use crate::generated::resource_delta_kind::ResourceDeltaKind as V;
+    match value {
+        V::Spend => 0,
+        V::Reserve => 1,
+        V::Gain => 2,
+    }
+}
+
+fn resource_timing(value: crate::generated::resource_timing::ResourceTiming) -> u8 {
+    use crate::generated::resource_timing::ResourceTiming as V;
+    match value {
+        V::CommandAccepted => 0,
+        V::ActionStarted => 1,
+        V::PerHit => 2,
+        V::AbilityResolved => 3,
+        V::ActionFinished => 4,
+    }
 }
 
 pub(super) fn require_identity(
@@ -985,93 +1144,6 @@ pub(super) fn contiguous(
         }
     }
     Ok(())
-}
-
-pub(super) fn parse_decimal(source: &str) -> Result<i64, CatalogLoadError> {
-    let (negative, unsigned) = source
-        .strip_prefix('-')
-        .map_or((false, source), |rest| (true, rest));
-    if unsigned.is_empty() || (negative && unsigned == "0") {
-        return Err(decimal_error(source));
-    }
-    let mut parts = unsigned.split('.');
-    let integer = parts.next().expect("split always has one part");
-    let fraction = parts.next();
-    if parts.next().is_some()
-        || integer.is_empty()
-        || !integer.bytes().all(|byte| byte.is_ascii_digit())
-        || (integer.len() > 1 && integer.starts_with('0'))
-        || fraction.is_some_and(|value| {
-            value.is_empty()
-                || value.len() > 6
-                || !value.bytes().all(|byte| byte.is_ascii_digit())
-                || value.ends_with('0')
-        })
-    {
-        return Err(decimal_error(source));
-    }
-    let integer = integer.parse::<i128>().map_err(|_| decimal_error(source))?;
-    let fraction_text = fraction.unwrap_or("");
-    let fraction_value = if fraction_text.is_empty() {
-        0
-    } else {
-        fraction_text
-            .parse::<i128>()
-            .map_err(|_| decimal_error(source))?
-            * 10_i128.pow(6 - u32::try_from(fraction_text.len()).expect("length is at most six"))
-    };
-    let magnitude = integer
-        .checked_mul(1_000_000)
-        .and_then(|value| value.checked_add(fraction_value))
-        .ok_or_else(|| decimal_error(source))?;
-    let scaled = if negative {
-        magnitude
-            .checked_neg()
-            .ok_or_else(|| decimal_error(source))?
-    } else {
-        magnitude
-    };
-    i64::try_from(scaled).map_err(|_| decimal_error(source))
-}
-
-fn decimal_error(source: &str) -> CatalogLoadError {
-    fail(
-        CatalogLoadErrorKind::Domain,
-        format!("{source:?} is not a canonical six-place decimal"),
-    )
-}
-
-pub(super) fn valid_sha256(value: &str) -> bool {
-    value.len() == 64
-        && value
-            .bytes()
-            .all(|byte| byte.is_ascii_digit() || (b'a'..=b'f').contains(&byte))
-}
-
-pub(super) fn valid_date(value: &str) -> bool {
-    let bytes = value.as_bytes();
-    if bytes.len() != 10 || bytes[4] != b'-' || bytes[7] != b'-' {
-        return false;
-    }
-    let number =
-        |range: std::ops::Range<usize>| value.get(range).and_then(|part| part.parse::<u16>().ok());
-    matches!(number(0..4), Some(1..=9999))
-        && matches!(number(5..7), Some(1..=12))
-        && matches!(number(8..10), Some(1..=31))
-}
-
-pub(super) fn fail(
-    kind: CatalogLoadErrorKind,
-    message: impl std::fmt::Display,
-) -> CatalogLoadError {
-    CatalogLoadError {
-        kind,
-        message: message.to_string(),
-    }
-}
-
-pub(super) fn domain_fail(message: impl std::fmt::Display) -> CatalogLoadError {
-    fail(CatalogLoadErrorKind::Domain, message)
 }
 
 #[cfg(test)]

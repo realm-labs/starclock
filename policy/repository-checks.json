@@ -44,6 +44,10 @@
       {
         "path": "crates/starclock-mode-standard/src/lib.rs",
         "reason": "Deliberate small Standard profile facade over its private one-battle profile/scenario construction module."
+      },
+      {
+        "path": "crates/starclock-data/src/lib.rs",
+        "reason": "Deliberate generated-row-free data facade exposing the retained character definition returned by public catalog lookup."
       }
     ],
     "forbidden_public_api_tokens": ["fixnum::", "FixedPoint", "rand::", "sha2::", "ChaCha8Rng", "sora::"]

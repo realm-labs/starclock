@@ -8,6 +8,7 @@ publish.workspace = true
 workspace = true
 
 [dependencies]
+sha2.workspace = true
 serde.workspace = true
 starclock-activity = { path = "../starclock-activity" }
 starclock-build = { path = "../starclock-build" }

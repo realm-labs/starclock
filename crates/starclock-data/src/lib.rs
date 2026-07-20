@@ -14,7 +14,9 @@ pub mod bundle;
 pub mod catalog;
 mod catalog_lookup;
 mod catalog_manifest;
+mod catalog_support;
 pub mod coverage;
+mod domain_catalog;
 mod effect_lower;
 mod encounter_lower;
 mod modifier_lower;
@@ -24,3 +26,5 @@ mod operation_lower;
 mod probe_tests;
 mod rule_lower;
 mod standard_lower;
+
+pub use build_lower::CharacterDataDefinition;
