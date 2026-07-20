@@ -16,6 +16,7 @@ pub mod light_cone;
 pub mod output;
 pub mod patch;
 pub mod preset;
+pub mod relic_boundary;
 pub mod report;
 pub mod spec;
 pub mod trace;

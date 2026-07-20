@@ -80,6 +80,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 55. [Eidolon compilation](eidolon-compilation.md) — exact E0-E6 selection, complete rank sets, ordered patches and deterministic replacement/conflict validation.
 56. [Light Cone compilation](light-cone-compilation.md) — exact level/promotion stats, explicit applicability, S1-S5 passive selection and valid/invalid wearer fixtures.
 57. [Build identity and locking](build-identity-and-locking.md) — canonical definition/catalog/build/spec digests, generic source attribution, named presets and stale-lock rejection.
+58. [Deferred relic/planar boundary](deferred-relic-planar-boundary.md) — versioned explicit empty selection, closed slot-family seam and no deferred dataset import.
 
 ## Execution goals
 

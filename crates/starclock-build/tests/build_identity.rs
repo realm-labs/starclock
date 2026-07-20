@@ -71,7 +71,7 @@ fn canonical_definition_catalog_build_and_spec_digests_are_stable() {
     );
     assert_eq!(
         hex(compiled.build_digest().bytes()),
-        "a75b0fc005273ff743bdbabbae259145edecc5d09a5ba228107940a539554588"
+        "dd3d94158a289d54d4d78fe68e94591df3620968644d54548bd25e65ce1c8572"
     );
     assert_eq!(
         hex(compiled.combatant().digest().bytes()),

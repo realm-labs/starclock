@@ -38,6 +38,8 @@ digest_type!(
     BuildDefinitionDigest,
     "Digest of one canonical build definition."
 );
+
+pub const COMBATANT_BUILD_DIGEST_REVISION: &str = "starclock-combatant-build-v2";
 digest_type!(BuildCatalogDigest, "Digest of one canonical build catalog.");
 digest_type!(
     CombatantBuildDigest,
@@ -89,7 +91,7 @@ pub(crate) fn selected_build_digest(
     catalog: BuildCatalogDigest,
     spec: &CombatantBuildSpec,
 ) -> CombatantBuildDigest {
-    let mut encoder = Encoder::new(b"starclock-combatant-build-v1");
+    let mut encoder = Encoder::new(COMBATANT_BUILD_DIGEST_REVISION.as_bytes());
     encoder.bytes(&catalog.bytes());
     encode_spec(&mut encoder, spec);
     CombatantBuildDigest::new(encoder.finish())
@@ -220,6 +222,8 @@ fn encode_spec(encoder: &mut Encoder, spec: &CombatantBuildSpec) {
             encoder.u8(cone.superimposition().get());
         }
     }
+    encoder.string(spec.relic_boundary().revision());
+    encoder.len(spec.relic_boundary().piece_count());
 }
 
 fn encode_patches(encoder: &mut Encoder, patches: &[BuildPatch]) {
