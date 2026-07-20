@@ -69,6 +69,7 @@ pub(crate) struct ActionPlan {
     pub(crate) owner: UnitId,
     pub(crate) ability: AbilityId,
     pub(crate) origin: ActionOrigin,
+    pub(crate) tags: crate::catalog::action::AbilityTags,
     pub(crate) normal_turn: Option<TimelineActorId>,
     pub(crate) selector: UnitTargetSelector,
     pub(crate) targets: TargetCommitment,

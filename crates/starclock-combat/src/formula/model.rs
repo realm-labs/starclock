@@ -21,6 +21,8 @@ pub enum DamageClass {
     Direct,
     Dot,
     Additional,
+    /// Shared Elation subsystem damage; never aliases additional damage.
+    Elation,
 }
 
 /// One authored term in a base amount, preserving mixed-stat expressions.

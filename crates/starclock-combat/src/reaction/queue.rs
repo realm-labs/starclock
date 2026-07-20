@@ -31,9 +31,11 @@ pub(crate) struct QueuedAction {
     pub(crate) root: CommandId,
     pub(crate) parent: EventId,
     pub(crate) actor: UnitId,
+    pub(crate) owner: UnitId,
     pub(crate) ability: AbilityId,
     pub(crate) origin: ActionOrigin,
     pub(crate) targets: TargetCommitment,
+    pub(crate) payment: Option<crate::catalog::action::SkillPointPaymentPolicy>,
 }
 
 #[derive(Clone, Debug, Default)]
@@ -114,6 +116,7 @@ mod tests {
             root: runtime(1),
             parent: runtime(1),
             actor,
+            owner: actor,
             ability,
             origin: ActionOrigin::FollowUp,
             targets: TargetCommitment {
@@ -123,6 +126,7 @@ mod tests {
                 primary: Some(runtime(2)),
                 targets: vec![runtime(2)].into_boxed_slice(),
             },
+            payment: None,
         }
     }
 

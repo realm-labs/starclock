@@ -1,0 +1,5 @@
+id	stable_key	domain	target_selector_id	condition_id	empty_target_policy	snapshot_boundary	fault_policy	payload
+1	probe.trailblazer-elation.operation.grant-holder	Battle	1		Fault	Dynamic	Rollback	{"type":"ApplyEffect","effect_id":3,"chance_policy":"Guaranteed"}
+2	probe.trailblazer-elation.operation.force-skill	Battle	2		Skip	EventSnapshot	Rollback	{"type":"QueueAction","ability_id":2,"actor_selector_id":1,"priority":-100,"forced_use":true,"owner_policy":"CauseOwner","payment_policy":"TeamResource","payment_resource_key":"shared.punchline"}
+3	probe.trailblazer-elation.operation.elation-damage	Battle	2		Skip	OnHitStart	CommitFault	{"type":"Damage","amount_expression_id":1,"damage_class":"Elation","element":"Lightning","can_crit":true}
+4	probe.trailblazer-elation.operation.punchline	Battle	1		Fault	Dynamic	Rollback	{"type":"ModifyResource","resource_kind":"TeamResource","character_resource_key":"shared.punchline","update_kind":"Gain","amount_expression_id":2,"scales_with_energy_regeneration":false,"rounding":"Floor"}

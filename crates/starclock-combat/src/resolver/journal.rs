@@ -39,6 +39,7 @@ pub(crate) enum MutationField {
     ActionGauge,
     Speed,
     TeamSkillPoints,
+    TeamKeyedResource,
     UnitEnergy,
     UnitHp,
     UnitLife,

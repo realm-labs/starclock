@@ -233,11 +233,39 @@ impl FormationState {
     }
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct TeamState {
     pub(crate) side: TeamSide,
     pub(crate) skill_points: u16,
     pub(crate) maximum_skill_points: u16,
+    pub(crate) keyed_resources: Box<[KeyedTeamResourceState]>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct KeyedTeamResourceState {
+    pub(crate) id: crate::SourceDefinitionId,
+    pub(crate) initial: u16,
+    pub(crate) current: u16,
+    pub(crate) maximum: u16,
+    pub(crate) wave: crate::battle::spec::TeamResourceWavePolicy,
+}
+
+impl TeamState {
+    pub(crate) fn keyed(&self, id: crate::SourceDefinitionId) -> Option<&KeyedTeamResourceState> {
+        self.keyed_resources
+            .binary_search_by_key(&id, |entry| entry.id)
+            .ok()
+            .map(|index| &self.keyed_resources[index])
+    }
+    pub(crate) fn keyed_mut(
+        &mut self,
+        id: crate::SourceDefinitionId,
+    ) -> Option<&mut KeyedTeamResourceState> {
+        self.keyed_resources
+            .binary_search_by_key(&id, |entry| entry.id)
+            .ok()
+            .map(|index| &mut self.keyed_resources[index])
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

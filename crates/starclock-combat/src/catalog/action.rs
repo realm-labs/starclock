@@ -28,6 +28,57 @@ pub enum AbilityKind {
     Countdown = 10,
 }
 
+/// Orthogonal semantic labels inspected by rules independently from the action family.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum AbilityTag {
+    Attack = 0,
+    Basic = 1,
+    Skill = 2,
+    Ultimate = 3,
+    FollowUp = 4,
+    Counter = 5,
+    Summon = 6,
+    Memosprite = 7,
+    AdditionalDamage = 8,
+    Joint = 9,
+    ElationSkill = 10,
+}
+
+/// Compact, canonically encoded set of generic ability tags.
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct AbilityTags(u32);
+
+impl AbilityTags {
+    const ALL_BITS: u32 = (1_u32 << 11) - 1;
+    #[must_use]
+    pub fn new(tags: &[AbilityTag]) -> Self {
+        Self(
+            tags.iter()
+                .fold(0, |bits, tag| bits | (1_u32 << (*tag as u8))),
+        )
+    }
+
+    #[must_use]
+    pub const fn from_bits(bits: u32) -> Option<Self> {
+        if bits & !Self::ALL_BITS == 0 {
+            Some(Self(bits))
+        } else {
+            None
+        }
+    }
+
+    #[must_use]
+    pub const fn contains(self, tag: AbilityTag) -> bool {
+        self.0 & (1_u32 << (tag as u8)) != 0
+    }
+
+    #[must_use]
+    pub const fn bits(self) -> u32 {
+        self.0
+    }
+}
+
 impl AbilityKind {
     #[must_use]
     pub const fn is_normal_turn(self) -> bool {
@@ -51,6 +102,53 @@ pub enum QueuedActor {
     CauseOwner,
     CauseApplier,
     PrimaryTarget,
+    /// The unique active linked entity of this generic kind on the provider's side.
+    SharedEntity(crate::LinkedEntityKind),
+}
+
+/// Explicit attribution owner for a queued action whose actor may differ.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum QueuedOwner {
+    Actor,
+    CauseOwner,
+    CauseApplier,
+}
+
+/// Actual payer selected for an authored Skill Point cost.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum SkillPointPaymentPolicy {
+    TeamSkillPoints,
+    Suppressed,
+    TeamResource(crate::SourceDefinitionId),
+}
+
+/// Checked mutation selected for a generic team-owned resource.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum TeamResourceChange {
+    Gain(u16),
+    Spend(u16),
+    Set(u16),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct TeamResourceChangeDefinition {
+    resource: crate::SourceDefinitionId,
+    change: TeamResourceChange,
+}
+
+impl TeamResourceChangeDefinition {
+    #[must_use]
+    pub const fn new(resource: crate::SourceDefinitionId, change: TeamResourceChange) -> Self {
+        Self { resource, change }
+    }
+    #[must_use]
+    pub const fn resource(self) -> crate::SourceDefinitionId {
+        self.resource
+    }
+    #[must_use]
+    pub const fn change(self) -> TeamResourceChange {
+        self.change
+    }
 }
 
 /// Cause-relative primary target retained when queued work is created.
@@ -72,6 +170,8 @@ pub struct QueueActionDefinition {
     target: QueuedTarget,
     boundary: ReactionBoundary,
     priority: i16,
+    owner: QueuedOwner,
+    payment: Option<SkillPointPaymentPolicy>,
 }
 
 impl QueueActionDefinition {
@@ -91,7 +191,20 @@ impl QueueActionDefinition {
             target,
             boundary,
             priority,
+            owner: QueuedOwner::Actor,
+            payment: None,
         }
+    }
+    /// Overrides queued action attribution and cost handling explicitly.
+    #[must_use]
+    pub const fn with_envelope(
+        mut self,
+        owner: QueuedOwner,
+        payment: Option<SkillPointPaymentPolicy>,
+    ) -> Self {
+        self.owner = owner;
+        self.payment = payment;
+        self
     }
     #[must_use]
     pub const fn ability(self) -> crate::AbilityId {
@@ -116,6 +229,14 @@ impl QueueActionDefinition {
     #[must_use]
     pub const fn priority(self) -> i16 {
         self.priority
+    }
+    #[must_use]
+    pub const fn owner(self) -> QueuedOwner {
+        self.owner
+    }
+    #[must_use]
+    pub const fn payment(self) -> Option<SkillPointPaymentPolicy> {
+        self.payment
     }
 }
 
@@ -212,6 +333,7 @@ pub struct ActionResourcePolicy {
     skill_point_gain: u16,
     energy_cost: Energy,
     energy_gain: Energy,
+    skill_point_payment: SkillPointPaymentPolicy,
 }
 
 impl ActionResourcePolicy {
@@ -228,7 +350,14 @@ impl ActionResourcePolicy {
             skill_point_gain,
             energy_cost,
             energy_gain,
+            skill_point_payment: SkillPointPaymentPolicy::TeamSkillPoints,
         }
+    }
+    /// Selects the actual payer while retaining the authored attempted SP cost.
+    #[must_use]
+    pub const fn with_skill_point_payment(mut self, payment: SkillPointPaymentPolicy) -> Self {
+        self.skill_point_payment = payment;
+        self
     }
     /// Returns the team Skill Point cost.
     #[must_use]
@@ -249,6 +378,10 @@ impl ActionResourcePolicy {
     #[must_use]
     pub const fn energy_gain(self) -> Energy {
         self.energy_gain
+    }
+    #[must_use]
+    pub const fn skill_point_payment(self) -> SkillPointPaymentPolicy {
+        self.skill_point_payment
     }
 }
 
@@ -307,6 +440,7 @@ impl OrdinaryDamageMultipliers {
 pub struct OrdinaryDamageDefinition {
     base_damage: Scalar,
     multipliers: OrdinaryDamageMultipliers,
+    class: crate::formula::model::DamageClass,
 }
 
 impl OrdinaryDamageDefinition {
@@ -321,6 +455,7 @@ impl OrdinaryDamageDefinition {
             Ok(Self {
                 base_damage,
                 multipliers,
+                class: crate::formula::model::DamageClass::Direct,
             })
         }
     }
@@ -333,6 +468,16 @@ impl OrdinaryDamageDefinition {
     #[must_use]
     pub const fn multipliers(self) -> OrdinaryDamageMultipliers {
         self.multipliers
+    }
+    /// Selects the independently queryable ordinary-formula damage class.
+    #[must_use]
+    pub const fn with_class(mut self, class: crate::formula::model::DamageClass) -> Self {
+        self.class = class;
+        self
+    }
+    #[must_use]
+    pub const fn class(self) -> crate::formula::model::DamageClass {
+        self.class
     }
 }
 
@@ -520,6 +665,8 @@ pub enum HitOperationDefinition {
     DetonateDots(crate::DotDetonationDefinition),
     /// Mutates one battle-owned typed slot on the actor's bound rule instance.
     ModifyStateSlot(crate::rule::model::RuleSlotMutationDefinition),
+    /// Mutates one generic resource owned by the acting side.
+    ModifyTeamResource(TeamResourceChangeDefinition),
     /// Queues one cause-relative action through the deterministic reaction scheduler.
     QueueAction(QueueActionDefinition),
     /// Allocates one linked unit and optional independent timeline actor.
@@ -561,6 +708,7 @@ impl ActionHitDefinition {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AbilityActionDefinition {
     kind: AbilityKind,
+    tags: AbilityTags,
     hits: Box<[ActionHitDefinition]>,
     invalidation: TargetInvalidationPolicy,
     resources: ActionResourcePolicy,
@@ -580,6 +728,7 @@ impl AbilityActionDefinition {
         } else {
             Some(Self {
                 kind,
+                tags: AbilityTags::new(&default_tags(kind)),
                 hits: (0..hit_count)
                     .map(|_| ActionHitDefinition::new(Vec::new()))
                     .collect::<Vec<_>>()
@@ -588,6 +737,12 @@ impl AbilityActionDefinition {
                 resources,
             })
         }
+    }
+    /// Adds orthogonal semantic labels, including explicit Elation Skill identity.
+    #[must_use]
+    pub fn with_tags(mut self, tags: &[AbilityTag]) -> Self {
+        self.tags = AbilityTags::new(tags);
+        self
     }
     /// Replaces structural hits with one to 64 concrete authored hit plans.
     #[must_use]
@@ -603,6 +758,11 @@ impl AbilityActionDefinition {
     #[must_use]
     pub const fn kind(&self) -> AbilityKind {
         self.kind
+    }
+    /// Returns independently queryable semantic labels.
+    #[must_use]
+    pub const fn tags(&self) -> AbilityTags {
+        self.tags
     }
     /// Returns the finite authored hit count.
     #[must_use]
@@ -624,4 +784,21 @@ impl AbilityActionDefinition {
     pub const fn resources(&self) -> ActionResourcePolicy {
         self.resources
     }
+}
+
+fn default_tags(kind: AbilityKind) -> [AbilityTag; 2] {
+    let family = match kind {
+        AbilityKind::Basic => AbilityTag::Basic,
+        AbilityKind::Skill => AbilityTag::Skill,
+        AbilityKind::Ultimate => AbilityTag::Ultimate,
+        AbilityKind::FollowUp => AbilityTag::FollowUp,
+        AbilityKind::Counter => AbilityTag::Counter,
+        AbilityKind::Summon => AbilityTag::Summon,
+        AbilityKind::Memosprite => AbilityTag::Memosprite,
+        AbilityKind::ExtraTurn
+        | AbilityKind::ExtraAction
+        | AbilityKind::DelayedAction
+        | AbilityKind::Countdown => AbilityTag::Attack,
+    };
+    [AbilityTag::Attack, family]
 }

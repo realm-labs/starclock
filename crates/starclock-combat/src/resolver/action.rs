@@ -11,9 +11,9 @@ use crate::{
     id::{CommandId, EventId, SourceDefinitionId},
     operation::{
         AddWeaknessOp, ApplyEffectOp, ChangePresenceOp, ConsumeHpOp, DamageOp, DetonateDotsOp,
-        HealOp, HitOperationScratch, ModifyStateSlotOp, Operation, QueueActionOp,
-        ReduceToughnessOp, RemoveEffectsOp, ReviveOp, ShieldOp, SummonLinkedOp, SuperBreakOp,
-        TransformOp, UnitLifecycleOp,
+        HealOp, HitOperationScratch, ModifyStateSlotOp, ModifyTeamResourceOp, Operation,
+        QueueActionOp, ReduceToughnessOp, RemoveEffectsOp, ReviveOp, ShieldOp, SummonLinkedOp,
+        SuperBreakOp, TransformOp, UnitLifecycleOp,
     },
 };
 
@@ -56,12 +56,36 @@ pub(super) fn drain_reactions(
             parent = cancel_queued(txn, &queued);
             continue;
         }
+        let Some(action) = catalog
+            .ability(queued.ability)
+            .and_then(|ability| ability.action())
+        else {
+            parent = cancel_queued(txn, &queued);
+            continue;
+        };
+        let payment = queued
+            .payment
+            .unwrap_or(action.resources().skill_point_payment());
+        if !crate::resource::check::can_pay_with_policy(
+            &txn.state.units,
+            &txn.state.teams,
+            queued.actor,
+            action.resources(),
+            payment,
+        ) {
+            parent = cancel_queued(txn, &queued);
+            continue;
+        }
         let mut plan = crate::action::lower::lower_queued_action(
             catalog,
             txn,
-            queued.actor,
+            crate::action::lower::QueuedActionContext {
+                actor: queued.actor,
+                owner: queued.owner,
+                origin: queued.origin,
+                payment: queued.payment,
+            },
             queued.ability,
-            queued.origin,
             queued.targets.clone(),
         )
         .ok_or_else(|| action_fault(72))?;
@@ -121,6 +145,7 @@ pub(super) fn execute_action_plan(
             actor: plan.actor,
             ability: plan.ability,
             origin: plan.origin,
+            tags: plan.tags,
         }),
     );
     parent = apply_resource_costs(txn, base, parent, plan)?;
@@ -131,6 +156,7 @@ pub(super) fn execute_action_plan(
             actor: plan.actor,
             ability: plan.ability,
             origin: plan.origin,
+            tags: plan.tags,
         }),
     );
     txn.reset_rule_slots(
@@ -240,6 +266,13 @@ pub(super) fn execute_action_plan(
                             definition: definition.clone(),
                         })
                     }
+                    HitOperationDefinition::ModifyTeamResource(definition) => {
+                        Operation::ModifyTeamResource(ModifyTeamResourceOp {
+                            id: operation.id,
+                            actor: plan.actor,
+                            definition: *definition,
+                        })
+                    }
                     HitOperationDefinition::QueueAction(definition) => {
                         Operation::QueueAction(QueueActionOp {
                             id: operation.id,
@@ -333,6 +366,7 @@ pub(super) fn execute_action_plan(
             actor: plan.actor,
             ability: plan.ability,
             origin: plan.origin,
+            tags: plan.tags,
         }),
     ))
 }
@@ -351,15 +385,51 @@ fn apply_resource_costs(
         .ok_or_else(|| action_fault(20))?
         .side;
     if policy.skill_point_cost() > 0 {
-        let before = txn.state.teams.get(side).skill_points;
-        let after = before
-            .checked_sub(policy.skill_point_cost())
-            .ok_or_else(|| action_fault(21))?;
-        txn.set_skill_points(side, after);
+        let attempted = policy.skill_point_cost();
+        let (payer, before, after, effective) = match policy.skill_point_payment() {
+            crate::catalog::action::SkillPointPaymentPolicy::TeamSkillPoints => {
+                let before = txn.state.teams.get(side).skill_points;
+                let after = before
+                    .checked_sub(attempted)
+                    .ok_or_else(|| action_fault(21))?;
+                txn.set_skill_points(side, after);
+                (
+                    crate::SkillPointPayer::TeamSkillPoints,
+                    before,
+                    after,
+                    attempted,
+                )
+            }
+            crate::catalog::action::SkillPointPaymentPolicy::Suppressed => {
+                (crate::SkillPointPayer::Suppressed, 0, 0, 0)
+            }
+            crate::catalog::action::SkillPointPaymentPolicy::TeamResource(resource) => {
+                let before = txn
+                    .state
+                    .teams
+                    .get(side)
+                    .keyed(resource)
+                    .ok_or_else(|| action_fault(31))?
+                    .current;
+                let after = before
+                    .checked_sub(attempted)
+                    .ok_or_else(|| action_fault(32))?;
+                txn.set_team_resource(side, resource, after)?;
+                (
+                    crate::SkillPointPayer::TeamResource(resource),
+                    before,
+                    after,
+                    attempted,
+                )
+            }
+        };
         parent = txn.emit(
             cause.with_parent(parent),
             BattleEventKind::Resource(ResourceEventData::SkillPoints {
                 side,
+                attempted,
+                payer,
+                effective,
                 before,
                 after,
                 overflow: 0,
@@ -408,17 +478,23 @@ fn apply_resource_gains(
         .ok_or_else(|| action_fault(25))?
         .side;
     if policy.skill_point_gain() > 0 {
-        let team = *txn.state.teams.get(side);
-        let uncapped = u32::from(team.skill_points) + u32::from(policy.skill_point_gain());
-        let after = u16::try_from(uncapped.min(u32::from(team.maximum_skill_points)))
-            .map_err(|_| action_fault(26))?;
+        let (before, maximum) = {
+            let team = txn.state.teams.get(side);
+            (team.skill_points, team.maximum_skill_points)
+        };
+        let uncapped = u32::from(before) + u32::from(policy.skill_point_gain());
+        let after =
+            u16::try_from(uncapped.min(u32::from(maximum))).map_err(|_| action_fault(26))?;
         let overflow = u16::try_from(uncapped - u32::from(after)).map_err(|_| action_fault(26))?;
         txn.set_skill_points(side, after);
         parent = txn.emit(
             cause.with_parent(parent),
             BattleEventKind::Resource(ResourceEventData::SkillPoints {
                 side,
-                before: team.skill_points,
+                attempted: policy.skill_point_gain(),
+                payer: crate::SkillPointPayer::TeamSkillPoints,
+                effective: after - before,
+                before,
                 after,
                 overflow,
             }),

@@ -1,0 +1,5 @@
+id	stable_key	domain	target_selector_id	condition_id	empty_target_policy	snapshot_boundary	fault_policy	payload
+1	probe.yao-guang.operation.punchline	Battle	1		Fault	Dynamic	Rollback	{"type":"ModifyResource","resource_kind":"TeamResource","character_resource_key":"shared.punchline","update_kind":"Gain","amount_expression_id":2,"scales_with_energy_regeneration":false,"rounding":"Floor"}
+2	probe.yao-guang.operation.summon-shared-actor	Battle			Fault	Dynamic	Rollback	{"type":"Summon","unit_definition_identity_id":3,"owner_selector_id":1}
+3	probe.yao-guang.operation.force-shared-skill	Battle	2		Skip	EventSnapshot	Rollback	{"type":"QueueAction","ability_id":2,"actor_selector_id":3,"priority":-100,"forced_use":true,"owner_policy":"CauseOwner","payment_policy":"Suppressed"}
+4	probe.yao-guang.operation.elation-damage	Battle	2		Skip	OnHitStart	CommitFault	{"type":"Damage","amount_expression_id":1,"damage_class":"Elation","element":"Physical","can_crit":true}

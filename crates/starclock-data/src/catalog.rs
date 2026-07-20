@@ -186,6 +186,19 @@ impl SimulationCatalog {
             .map(|index| &self.combat.effects[index])
     }
 
+    /// Returns the typed semantic tags retained for one lowered ability.
+    #[must_use]
+    pub fn ability_semantic_tags(
+        &self,
+        id: AbilityId,
+    ) -> Option<starclock_combat::catalog::action::AbilityTags> {
+        self.combat
+            .abilities
+            .iter()
+            .find(|ability| ability.id == id)
+            .map(|ability| ability.semantic_tags)
+    }
+
     /// Looks up one executable battle rule lowered from Sora rows.
     #[must_use]
     pub fn battle_rule(&self, id: RuleId) -> Option<&BattleRuleDefinition> {
@@ -316,6 +329,7 @@ struct AbilityDefinition {
     retarget_policy: u8,
     level_cap: u16,
     cooldown_actions: u16,
+    semantic_tags: starclock_combat::catalog::action::AbilityTags,
     phases: Box<[AbilityPhaseDefinition]>,
 }
 
@@ -749,6 +763,20 @@ fn convert_combat(
             retarget_policy: retarget_policy(row.retarget_policy),
             level_cap,
             cooldown_actions: bounded_u16(row.cooldown_actions, "Ability.cooldown_actions")?,
+            semantic_tags: starclock_combat::catalog::action::AbilityTags::from_bits(
+                u32::try_from(row.semantic_tags_mask).map_err(|_| {
+                    fail(
+                        CatalogLoadErrorKind::Domain,
+                        "negative ability semantic tag mask",
+                    )
+                })?,
+            )
+            .ok_or_else(|| {
+                fail(
+                    CatalogLoadErrorKind::Domain,
+                    "unknown ability semantic tag bit",
+                )
+            })?,
             phases: phases.into_boxed_slice(),
         });
     }

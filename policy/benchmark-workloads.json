@@ -32,14 +32,14 @@
     "concurrent-replay-shared-catalog-v1": { "maximum_elapsed_ns": 30000000, "minimum_commands_per_second_core": 20000, "maximum_allocation_bytes": 12000000, "maximum_peak_live_bytes": 262144 }
   },
   "expected_rows": [
-    { "id": "ordinary-apply-v1", "commands": 1000, "hashes": 0, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "54108f308d14ca81f767d948afbef758d07e9e4466f6c86f09eb01dfddc8948d" },
-    { "id": "trigger-heavy-proxy-v1", "commands": 500, "hashes": 0, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "eab2e3386aecea0d06df175517a0588a0ac30bdb0536f61d6c6c08906d8d49e5" },
-    { "id": "invalid-rejection-v1", "commands": 10000, "hashes": 0, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "26c8fa9efcc80de2db990f1d83e11d8aa78c8baab378cfb0cd88801a2bf945aa" },
-    { "id": "hash-small-v1", "commands": 0, "hashes": 5000, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "0323f704dcc1d78be639b325b95b9308d6b2234bef67e972bb4e81007835189b" },
-    { "id": "hash-medium-v1", "commands": 0, "hashes": 5000, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "d859166af2595fde7d4f61315e79d84d24a745231a03b8b5985c88902bd6bb45" },
-    { "id": "hash-large-v1", "commands": 0, "hashes": 5000, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "04a4c439a555b9aa9524705016444744c980a6d453eca18363bb905810c50f66" },
-    { "id": "one-shot-replay-100-v1", "commands": 2000, "hashes": 0, "jobs": 20, "workers": 1, "replay_bytes": 8235, "final_hash": "dbdd00bfb476f33de3ca921ee50c450134ac2896af195e338711e8403d133124" },
-    { "id": "one-shot-replay-500-v1", "commands": 2500, "hashes": 0, "jobs": 5, "workers": 1, "replay_bytes": 40035, "final_hash": "5e6f1064d8e1654a1815b16dfd3d3631341984df466b6125621929a7f47e8ee0" },
-    { "id": "concurrent-replay-shared-catalog-v1", "commands": 1600, "hashes": 0, "jobs": 16, "workers": 4, "replay_bytes": 8235, "final_hash": "dbdd00bfb476f33de3ca921ee50c450134ac2896af195e338711e8403d133124" }
+    { "id": "ordinary-apply-v1", "commands": 1000, "hashes": 0, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "f10b469cd98a1ba7f34cf82967f67d19beeac7d6ed023f05260ad68cba853135" },
+    { "id": "trigger-heavy-proxy-v1", "commands": 500, "hashes": 0, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "deac40e73b3326b8419392fca773e9cc813fea84cdeba84802983cfc8cdb594b" },
+    { "id": "invalid-rejection-v1", "commands": 10000, "hashes": 0, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "2dba180bf3af99e91cb2ff6a4aa96da59d7a6acf5e21cb6046ee211cc00b7075" },
+    { "id": "hash-small-v1", "commands": 0, "hashes": 5000, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "9902c1a77434433b7c474a0e69996a39e1c2711e69dd12a8d6469773a8cf8fda" },
+    { "id": "hash-medium-v1", "commands": 0, "hashes": 5000, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "033ea02bd6e7176747314f3cf39a6e527f90205950ae84d15333e8ebbb290f45" },
+    { "id": "hash-large-v1", "commands": 0, "hashes": 5000, "jobs": 1, "workers": 1, "replay_bytes": 0, "final_hash": "8d844df7ee5b9e46830e814682f9c4cc3d380c72c7347edbff366950f741080e" },
+    { "id": "one-shot-replay-100-v1", "commands": 2000, "hashes": 0, "jobs": 20, "workers": 1, "replay_bytes": 8235, "final_hash": "a4bd1aaf086732333e45e72ca40538204f54bef97295968fb7aaf35fbeff2607" },
+    { "id": "one-shot-replay-500-v1", "commands": 2500, "hashes": 0, "jobs": 5, "workers": 1, "replay_bytes": 40035, "final_hash": "c8ebee4b45578c185fa2217bc14ed04f2010da56cf1780ecfca7008ea65c4f2d" },
+    { "id": "concurrent-replay-shared-catalog-v1", "commands": 1600, "hashes": 0, "jobs": 16, "workers": 4, "replay_bytes": 8235, "final_hash": "a4bd1aaf086732333e45e72ca40538204f54bef97295968fb7aaf35fbeff2607" }
   ]
 }

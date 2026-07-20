@@ -6,6 +6,8 @@ use super::damage_class::DamageClass;
 use super::effect_chance_policy::EffectChancePolicy;
 use super::encounter_transition_kind::EncounterTransitionKind;
 use super::presence_state::PresenceState;
+use super::queued_action_owner_policy::QueuedActionOwnerPolicy;
+use super::queued_action_payment_policy::QueuedActionPaymentPolicy;
 use super::replacement_proposal_kind::ReplacementProposalKind;
 use super::resource_kind::ResourceKind;
 use super::resource_update_kind::ResourceUpdateKind;
@@ -148,6 +150,14 @@ pub enum OperationPayload {
         actor_selector_id: i32,
         #[serde(rename = "priority")]
         priority: i32,
+        #[serde(rename = "forced_use")]
+        forced_use: bool,
+        #[serde(rename = "owner_policy")]
+        owner_policy: Option<QueuedActionOwnerPolicy>,
+        #[serde(rename = "payment_policy")]
+        payment_policy: Option<QueuedActionPaymentPolicy>,
+        #[serde(rename = "payment_resource_key")]
+        payment_resource_key: Option<String>,
     },
     CancelAction {
         #[serde(rename = "owner_selector_id")]
@@ -329,6 +339,16 @@ impl super::runtime::SoraDecode for OperationPayload {
                 ability_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 actor_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 priority: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+                forced_use: <bool as super::runtime::SoraDecode>::decode(reader)?,
+                owner_policy:
+                    <Option<QueuedActionOwnerPolicy> as super::runtime::SoraDecode>::decode(reader)?,
+                payment_policy:
+                    <Option<QueuedActionPaymentPolicy> as super::runtime::SoraDecode>::decode(
+                        reader,
+                    )?,
+                payment_resource_key: <Option<String> as super::runtime::SoraDecode>::decode(
+                    reader,
+                )?,
             }),
             22 => Ok(Self::CancelAction {
                 owner_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,

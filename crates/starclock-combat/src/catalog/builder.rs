@@ -453,7 +453,11 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
                         crate::ActionOrigin::DelayedAction,
                         super::action::AbilityKind::DelayedAction
                     )
-                );
+                ) || (queue.origin() == crate::ActionOrigin::Forced
+                    && queued.kind() == super::action::AbilityKind::Skill
+                    && queued
+                        .tags()
+                        .contains(super::action::AbilityTag::ElationSkill));
                 if !compatible {
                     return Err(error(
                         CatalogBuildErrorKind::InvalidDefinition,

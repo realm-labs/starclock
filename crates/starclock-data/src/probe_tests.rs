@@ -29,6 +29,103 @@ const KAFKA_PROBE: &[u8] = include_bytes!("../../../config/probes/v1a/kafka-dot/
 const CLARA_PROBE: &[u8] = include_bytes!("../../../config/probes/v1a/clara-counter/config.sora");
 const AGLAEA_PROBE: &[u8] =
     include_bytes!("../../../config/probes/v1a/aglaea-memosprite/config.sora");
+const TRAILBLAZER_ELATION_PROBE: &[u8] =
+    include_bytes!("../../../config/probes/v1a/trailblazer-elation/config.sora");
+const YAO_GUANG_ELATION_PROBE: &[u8] =
+    include_bytes!("../../../config/probes/v1a/yao-guang-elation/config.sora");
+
+#[test]
+fn trailblazer_elation_probe_lowers_forced_skill_and_team_resource_envelope() {
+    use starclock_combat::{
+        catalog::action::{AbilityTag, AbilityTags},
+        formula::model::DamageClass,
+        rule::model::{RuleActionOwner, RuleActionPaymentPolicy, RuleResourceKind},
+    };
+
+    let catalog = load_with_mode(TRAILBLAZER_ELATION_PROBE, LoadMode::Fixture)
+        .expect("Trailblazer Elation probe must lower");
+    assert_eq!(
+        catalog.ability_semantic_tags(AbilityId::new(2).unwrap()),
+        Some(AbilityTags::new(&[
+            AbilityTag::Attack,
+            AbilityTag::Skill,
+            AbilityTag::ElationSkill,
+        ]))
+    );
+    let emissions = evaluate_program(
+        &*catalog,
+        ProgramId::new(4).unwrap(),
+        firefly_input(&FireflyStats {
+            maximum_hp: 1,
+            attack: 1,
+        }),
+        EvaluationBudget::STANDARD,
+    )
+    .unwrap();
+    assert!(matches!(
+        emissions.as_slice(),
+        [
+            RuleEmission::ApplyEffect { effect, .. },
+            RuleEmission::QueueAction {
+                ability,
+                forced_use: true,
+                owner: RuleActionOwner::CauseOwner,
+                payment: Some(RuleActionPaymentPolicy::TeamResource(key)),
+                ..
+            },
+            RuleEmission::Damage { class: DamageClass::Elation, .. },
+            RuleEmission::ModifyResource {
+                resource: RuleResourceKind::Team(resource),
+                update: ResourceUpdateKind::Gain,
+                ..
+            },
+        ] if effect.get() == 3 && ability.get() == 2 && key.as_ref() == "shared.punchline" && resource.as_ref() == "shared.punchline"
+    ));
+}
+
+#[test]
+fn yao_guang_elation_probe_lowers_shared_actor_without_form_specific_ir() {
+    use starclock_combat::{
+        formula::model::DamageClass,
+        rule::model::{RuleActionOwner, RuleActionPaymentPolicy, RuleResourceKind},
+    };
+
+    let catalog = load_with_mode(YAO_GUANG_ELATION_PROBE, LoadMode::Fixture)
+        .expect("Yao Guang Elation probe must lower");
+    let emissions = evaluate_program(
+        &*catalog,
+        ProgramId::new(4).unwrap(),
+        firefly_input(&FireflyStats {
+            maximum_hp: 1,
+            attack: 1,
+        }),
+        EvaluationBudget::STANDARD,
+    )
+    .unwrap();
+    assert!(matches!(
+        emissions.as_slice(),
+        [
+            RuleEmission::ModifyResource { resource: RuleResourceKind::Team(key), .. },
+            RuleEmission::Summon { unit_definition, .. },
+            RuleEmission::QueueAction {
+                actor_selector,
+                forced_use: true,
+                owner: RuleActionOwner::CauseOwner,
+                payment: Some(RuleActionPaymentPolicy::Suppressed),
+                ..
+            },
+            RuleEmission::Damage { class: DamageClass::Elation, .. },
+        ] if key.as_ref() == "shared.punchline" && unit_definition.get() == 3 && actor_selector.get() == 3
+    ));
+}
+
+#[test]
+fn production_loader_rejects_nonproduction_elation_probes() {
+    for probe in [TRAILBLAZER_ELATION_PROBE, YAO_GUANG_ELATION_PROBE] {
+        let error = crate::catalog::load(probe).expect_err("probe cannot enter production");
+        assert_eq!(error.kind(), crate::catalog::CatalogLoadErrorKind::Metadata);
+    }
+}
 
 #[test]
 fn asta_ultimate_effect_keeps_an_independent_two_turn_clock() {

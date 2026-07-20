@@ -21,6 +21,7 @@ const commands = [
   ["node", "tools/config-probes/verify-kafka-dot.mjs"],
   ["node", "tools/config-probes/verify-clara-counter.mjs"],
   ["node", "tools/config-probes/verify-aglaea-memosprite.mjs"],
+  ["node", "tools/config-probes/verify-elation-probes.mjs"],
   ["cargo", "fmt", "--all", "--", "--check"],
   ["cargo", "clippy", "--workspace", "--all-targets", "--all-features", "--", "-D", "warnings"],
   ["cargo", "test", "--workspace", "--all-targets", "--all-features"],

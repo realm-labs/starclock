@@ -263,6 +263,8 @@ fn validate_operation(
             actor_selector,
             target_selector,
             ability,
+            forced_use,
+            payment,
             ..
         } => {
             require_selector(catalog, *actor_selector)?;
@@ -271,11 +273,19 @@ fn validate_operation(
                 .ability(*ability)
                 .and_then(|ability| ability.action())
                 .ok_or_else(|| format!("queued ability {} is not executable", ability.get()))?;
-            if action.kind().is_normal_turn() {
+            let forced_skill = *forced_use
+                && action.kind() == crate::catalog::action::AbilityKind::Skill
+                && action
+                    .tags()
+                    .contains(crate::catalog::action::AbilityTag::ElationSkill);
+            if action.kind().is_normal_turn() && !forced_skill {
                 return Err(format!(
-                    "queued ability {} must declare a queued action kind",
+                    "queued ability {} must declare a queued action kind or an explicitly tagged forced Skill",
                     ability.get()
                 ));
+            }
+            if !*forced_use && payment.is_some() {
+                return Err("only forced queued actions can override action payment".into());
             }
         }
         RuleOperationTemplate::GrantExtraTurn { actor_selector } => {

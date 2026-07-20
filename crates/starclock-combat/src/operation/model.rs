@@ -20,6 +20,7 @@ pub(crate) enum Operation {
     RemoveEffects(RemoveEffectsOp),
     DetonateDots(DetonateDotsOp),
     ModifyStateSlot(ModifyStateSlotOp),
+    ModifyTeamResource(ModifyTeamResourceOp),
     QueueAction(QueueActionOp),
     SummonLinked(SummonLinkedOp),
     ChangePresence(ChangePresenceOp),
@@ -43,6 +44,7 @@ impl Operation {
             Self::RemoveEffects(operation) => operation.id,
             Self::DetonateDots(operation) => operation.id,
             Self::ModifyStateSlot(operation) => operation.id,
+            Self::ModifyTeamResource(operation) => operation.id,
             Self::QueueAction(operation) => operation.id,
             Self::SummonLinked(operation) => operation.id,
             Self::ChangePresence(operation) => operation.id,
@@ -99,6 +101,13 @@ pub(crate) struct ModifyStateSlotOp {
     pub(crate) id: OperationId,
     pub(crate) owner: UnitId,
     pub(crate) definition: crate::rule::model::RuleSlotMutationDefinition,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct ModifyTeamResourceOp {
+    pub(crate) id: OperationId,
+    pub(crate) actor: UnitId,
+    pub(crate) definition: crate::catalog::action::TeamResourceChangeDefinition,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

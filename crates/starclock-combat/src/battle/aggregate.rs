@@ -4,8 +4,8 @@ use crate::{
     actor::{
         model::{LifeState, PresenceState},
         store::{
-            FormationEntry, FormationState, TeamState, TeamStateStore, TimelineActorState,
-            TimelineActorStore, UnitState, UnitStore,
+            FormationEntry, FormationState, KeyedTeamResourceState, TeamState, TeamStateStore,
+            TimelineActorState, TimelineActorStore, UnitState, UnitStore,
         },
     },
     catalog::CombatCatalog,
@@ -118,11 +118,35 @@ impl Battle {
                 side: TeamSide::Player,
                 skill_points: player_resources.skill_points(),
                 maximum_skill_points: player_resources.maximum_skill_points(),
+                keyed_resources: player_resources
+                    .keyed()
+                    .iter()
+                    .map(|entry| KeyedTeamResourceState {
+                        id: entry.id(),
+                        initial: entry.initial(),
+                        current: entry.initial(),
+                        maximum: entry.maximum(),
+                        wave: entry.wave(),
+                    })
+                    .collect::<Vec<_>>()
+                    .into_boxed_slice(),
             },
             TeamState {
                 side: TeamSide::Enemy,
                 skill_points: enemy_resources.skill_points(),
                 maximum_skill_points: enemy_resources.maximum_skill_points(),
+                keyed_resources: enemy_resources
+                    .keyed()
+                    .iter()
+                    .map(|entry| KeyedTeamResourceState {
+                        id: entry.id(),
+                        initial: entry.initial(),
+                        current: entry.initial(),
+                        maximum: entry.maximum(),
+                        wave: entry.wave(),
+                    })
+                    .collect::<Vec<_>>()
+                    .into_boxed_slice(),
             },
         );
         let mut rules = crate::rule::state::RuleStateStore::default();

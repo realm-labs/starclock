@@ -61,8 +61,9 @@ pub use battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy};
 pub use battle::model::{BattlePhase, Resolution};
 pub use battle::spec::{
     BattleSeed, BattleSpec, BattleSpecDigest, BattleSpecError, CombatantSpecDigest,
-    CombatantSpecError, ConcedePolicy, FormationIndex, ParticipantSource, ParticipantSpec,
-    ResolvedCombatantSpec, ResolvedDefinitionBindings, TeamResourceSpec, TeamSide, UnitLevel,
+    CombatantSpecError, ConcedePolicy, FormationIndex, KeyedTeamResourceSpec, ParticipantSource,
+    ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, TeamResourceSpec,
+    TeamResourceWavePolicy, TeamSide, UnitLevel,
 };
 pub use battle::view::{
     ActiveTurnView, BattleIdentityView, BattleView, BreakEffectView, EffectView, EncounterView,
@@ -84,8 +85,8 @@ pub use event::model::{
     ActionEventData, BattleEvent, BattleEventData, BattleEventKind, BreakDamageEventData,
     BreakDamageKind, DamageEventData, DamageKind, DecisionEventData, EffectEventData,
     FaultEventData, HealEventData, HitEventData, HpConsumptionEventData, PhaseEventData,
-    ResourceEventData, RuleStateEventData, ShieldEventData, ToughnessEventData, TurnEventData,
-    UnitEventData, WaveEventData,
+    ResourceEventData, RuleStateEventData, ShieldEventData, SkillPointPayer, ToughnessEventData,
+    TurnEventData, UnitEventData, WaveEventData,
 };
 pub use timeline::state::InterruptWindowKind;
 pub use toughness::model::{

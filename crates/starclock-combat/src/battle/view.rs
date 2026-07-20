@@ -740,6 +740,13 @@ impl TeamView<'_> {
     pub const fn maximum_skill_points(self) -> u16 {
         self.state.maximum_skill_points
     }
+    /// Returns a generic team resource and its cap by stable semantic identity.
+    #[must_use]
+    pub fn keyed_resource(self, id: crate::SourceDefinitionId) -> Option<(u16, u16)> {
+        self.state
+            .keyed(id)
+            .map(|resource| (resource.current, resource.maximum))
+    }
 }
 
 /// Immutable encounter progress projection.

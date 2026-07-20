@@ -13,6 +13,8 @@ pub enum LinkedEntityKind {
     Memosprite = 1,
     /// Timeline-only state-ending or encounter countdown.
     Countdown = 2,
+    /// Team-shared subsystem unit whose provider is attribution, not lifecycle ownership.
+    SharedActor = 3,
 }
 
 /// Authored response of a link when its owner reaches a lifecycle boundary.
@@ -102,6 +104,7 @@ impl LinkedUnitDefinition {
         wave: WaveLinkPolicy,
     ) -> Option<Self> {
         if kind == LinkedEntityKind::Countdown
+            || (kind == LinkedEntityKind::SharedActor && action_ability.is_some())
             || !matches!(
                 presence,
                 PresenceState::Present | PresenceState::Untargetable | PresenceState::Linked

@@ -59,6 +59,7 @@ pub(super) fn settle_after_action(
         }),
     );
     parent = super::lifecycle::settle_wave_links(txn, cause, parent)?;
+    parent = settle_team_resources(txn, cause, parent)?;
     let departing = txn
         .state
         .units
@@ -92,6 +93,52 @@ pub(super) fn settle_after_action(
         BattleEventKind::Wave(WaveEventData::Started { wave, number: next }),
     );
     Ok(ActionBoundary::Continue(parent))
+}
+
+fn settle_team_resources(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+) -> Result<EventId, BattleFault> {
+    let changes = [TeamSide::Player, TeamSide::Enemy]
+        .into_iter()
+        .flat_map(|side| {
+            txn.state
+                .teams
+                .get(side)
+                .keyed_resources
+                .iter()
+                .filter_map(move |resource| {
+                    let after = match resource.wave {
+                        crate::TeamResourceWavePolicy::Persist => return None,
+                        crate::TeamResourceWavePolicy::ResetToInitial => resource.initial,
+                        crate::TeamResourceWavePolicy::Clear => 0,
+                    };
+                    (after != resource.current).then_some((
+                        side,
+                        resource.id,
+                        resource.current,
+                        after,
+                    ))
+                })
+        })
+        .collect::<Vec<_>>();
+    for (side, resource, before, after) in changes {
+        txn.set_team_resource(side, resource, after)?;
+        parent = txn.emit(
+            cause.with_parent(parent),
+            BattleEventKind::Resource(crate::ResourceEventData::TeamResource {
+                side,
+                resource,
+                attempted: after,
+                effective: before.abs_diff(after),
+                before,
+                after,
+                overflow: 0,
+            }),
+        );
+    }
+    Ok(parent)
 }
 
 fn has_living_present(txn: &Transaction<'_>, side: TeamSide, wave: Option<u16>) -> bool {

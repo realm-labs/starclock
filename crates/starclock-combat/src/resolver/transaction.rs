@@ -889,6 +889,33 @@ impl<'a> Transaction<'a> {
         }
     }
 
+    pub(super) fn set_team_resource(
+        &mut self,
+        side: crate::TeamSide,
+        resource: crate::SourceDefinitionId,
+        value: u16,
+    ) -> Result<(), BattleFault> {
+        let state = self
+            .state
+            .teams
+            .get_mut(side)
+            .keyed_mut(resource)
+            .ok_or_else(|| action_fault(53))?;
+        let before = state.current;
+        if value > state.maximum {
+            return Err(action_fault(54));
+        }
+        if before != value {
+            state.current = value;
+            self.journal.mutation(
+                MutationField::TeamKeyedResource,
+                u64::from(before),
+                u64::from(value),
+            );
+        }
+        Ok(())
+    }
+
     pub(super) fn set_energy(
         &mut self,
         unit: crate::UnitId,

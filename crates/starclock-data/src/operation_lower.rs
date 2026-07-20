@@ -9,8 +9,9 @@ use starclock_combat::{
     rule::{
         evaluate::ProgramLookup,
         model::{
-            ProgramStep, ReactionPriority, ResourceUpdateKind, RuleEffectChancePolicy,
-            RuleOperationTemplate, RuleResourceKind, StateSlotUpdateKind,
+            ProgramStep, ReactionPriority, ResourceUpdateKind, RuleActionOwner,
+            RuleActionPaymentPolicy, RuleEffectChancePolicy, RuleOperationTemplate,
+            RuleResourceKind, StateSlotUpdateKind,
         },
     },
 };
@@ -19,7 +20,8 @@ use crate::{
     catalog::{CatalogLoadError, SimulationCatalog, domain_fail},
     generated::{
         self, SoraConfig, combat_element, damage_class, effect_chance_policy, operation_payload,
-        presence_state, program_step_node, resource_kind, resource_update_kind, rounding_policy,
+        presence_state, program_step_node, queued_action_owner_policy,
+        queued_action_payment_policy, resource_kind, resource_update_kind, rounding_policy,
         state_slot_update_kind,
     },
 };
@@ -212,6 +214,13 @@ fn lower_operation(
                         .ok_or_else(|| domain_fail("character resource lacks its authored key"))?
                         .into(),
                 ),
+                resource_kind::ResourceKind::TeamResource => RuleResourceKind::Team(
+                    character_resource_key
+                        .as_deref()
+                        .filter(|key| !key.trim().is_empty())
+                        .ok_or_else(|| domain_fail("team resource lacks its authored key"))?
+                        .into(),
+                ),
                 resource_kind::ResourceKind::Hp => {
                     return Err(domain_fail("HP changes must use ConsumeHp, Heal or Damage"));
                 }
@@ -288,6 +297,10 @@ fn lower_operation(
             ability_id,
             actor_selector_id,
             priority,
+            forced_use,
+            owner_policy,
+            payment_policy,
+            payment_resource_key,
         } => RuleOperationTemplate::QueueAction {
             actor_selector: selector_id(*actor_selector_id)?,
             target_selector: selector()?,
@@ -295,6 +308,9 @@ fn lower_operation(
             priority: ReactionPriority::new(i16::try_from(*priority).map_err(|_| {
                 domain_fail(format!("operation {} priority does not fit i16", row.id))
             })?),
+            forced_use: *forced_use,
+            owner: lower_queue_owner(*owner_policy),
+            payment: lower_queue_payment(*payment_policy, payment_resource_key.as_deref())?,
         },
         Payload::GrantExtraTurn { actor_selector_id } => RuleOperationTemplate::GrantExtraTurn {
             actor_selector: selector_id(*actor_selector_id)?,
@@ -393,6 +409,7 @@ fn lower_damage_class(value: damage_class::DamageClass) -> Result<DamageClass, C
         damage_class::DamageClass::Ordinary => Ok(DamageClass::Direct),
         damage_class::DamageClass::Dot => Ok(DamageClass::Dot),
         damage_class::DamageClass::Additional => Ok(DamageClass::Additional),
+        damage_class::DamageClass::Elation => Ok(DamageClass::Elation),
         _ => Err(domain_fail(
             "damage class belongs to another formula family",
         )),
@@ -417,6 +434,48 @@ fn lower_update(value: resource_update_kind::ResourceUpdateKind) -> ResourceUpda
         resource_update_kind::ResourceUpdateKind::Reserve => ResourceUpdateKind::Reserve,
         resource_update_kind::ResourceUpdateKind::Gain => ResourceUpdateKind::Gain,
         resource_update_kind::ResourceUpdateKind::Set => ResourceUpdateKind::Set,
+    }
+}
+
+fn lower_queue_owner(
+    value: Option<queued_action_owner_policy::QueuedActionOwnerPolicy>,
+) -> RuleActionOwner {
+    match value {
+        None | Some(queued_action_owner_policy::QueuedActionOwnerPolicy::Actor) => {
+            RuleActionOwner::Actor
+        }
+        Some(queued_action_owner_policy::QueuedActionOwnerPolicy::CauseOwner) => {
+            RuleActionOwner::CauseOwner
+        }
+        Some(queued_action_owner_policy::QueuedActionOwnerPolicy::CauseApplier) => {
+            RuleActionOwner::CauseApplier
+        }
+    }
+}
+
+fn lower_queue_payment(
+    value: Option<queued_action_payment_policy::QueuedActionPaymentPolicy>,
+    resource_key: Option<&str>,
+) -> Result<Option<RuleActionPaymentPolicy>, CatalogLoadError> {
+    match value {
+        None if resource_key.is_none() => Ok(None),
+        Some(queued_action_payment_policy::QueuedActionPaymentPolicy::TeamSkillPoints)
+            if resource_key.is_none() =>
+        {
+            Ok(Some(RuleActionPaymentPolicy::TeamSkillPoints))
+        }
+        Some(queued_action_payment_policy::QueuedActionPaymentPolicy::Suppressed)
+            if resource_key.is_none() =>
+        {
+            Ok(Some(RuleActionPaymentPolicy::Suppressed))
+        }
+        Some(queued_action_payment_policy::QueuedActionPaymentPolicy::TeamResource) => resource_key
+            .filter(|key| !key.trim().is_empty())
+            .map(|key| Some(RuleActionPaymentPolicy::TeamResource(key.into())))
+            .ok_or_else(|| domain_fail("queued team-resource payment lacks its authored key")),
+        _ => Err(domain_fail(
+            "queued payment policy/key combination is invalid",
+        )),
     }
 }
 

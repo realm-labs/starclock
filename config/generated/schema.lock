@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "468c8ecf498f576c",
+  "fingerprint": "5f296f2f929ffda0",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -227,7 +227,8 @@
           "Energy",
           "SkillPoints",
           "Hp",
-          "CharacterResource"
+          "CharacterResource",
+          "TeamResource"
         ]
       },
       {
@@ -1230,6 +1231,32 @@
         "values": [
           "BossPhase",
           "Wave"
+        ]
+      },
+      {
+        "name": "QueuedActionOwnerPolicy",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Actor",
+          "CauseOwner",
+          "CauseApplier"
+        ]
+      },
+      {
+        "name": "QueuedActionPaymentPolicy",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "TeamSkillPoints",
+          "Suppressed",
+          "TeamResource"
         ]
       },
       {
@@ -5724,6 +5751,80 @@
                 "length": null,
                 "parser": null,
                 "derived_from": null
+              },
+              {
+                "name": "forced_use",
+                "ty": "Bool",
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "owner_policy",
+                "ty": {
+                  "Optional": {
+                    "Enum": "QueuedActionOwnerPolicy"
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "payment_policy",
+                "ty": {
+                  "Optional": {
+                    "Enum": "QueuedActionPaymentPolicy"
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "payment_resource_key",
+                "ty": {
+                  "Optional": "String"
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
               }
             ]
           },
@@ -7612,6 +7713,25 @@
             "range": [
               0,
               100
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "semantic_tags_mask",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              0,
+              2047
             ],
             "length": null,
             "parser": null,

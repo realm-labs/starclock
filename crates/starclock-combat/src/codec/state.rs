@@ -167,6 +167,14 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
         e.u8(team.side as u8);
         e.u16(team.skill_points);
         e.u16(team.maximum_skill_points);
+        e.length(team.keyed_resources.len());
+        for resource in &team.keyed_resources {
+            e.u32(resource.id.get());
+            e.u16(resource.initial);
+            e.u16(resource.current);
+            e.u16(resource.maximum);
+            e.u8(resource.wave as u8);
+        }
     }
     e.length(state.shields.canonical_entries().len());
     for shield in state.shields.canonical_entries() {

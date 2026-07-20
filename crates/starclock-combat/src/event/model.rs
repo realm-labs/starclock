@@ -89,6 +89,7 @@ pub struct DamageEventData {
     pub operation: OperationId,
     /// Semantic damage family, including retained DoT attribution.
     pub kind: DamageKind,
+    pub class: crate::formula::model::DamageClass,
     /// Original retained effect instance for a tick or detonation.
     pub source_effect: Option<crate::EffectInstanceId>,
     /// Unit whose HP changed.
@@ -393,18 +394,21 @@ pub enum ActionEventData {
         actor: UnitId,
         ability: AbilityId,
         origin: ActionOrigin,
+        tags: crate::catalog::action::AbilityTags,
     },
     Started {
         action: ActionId,
         actor: UnitId,
         ability: AbilityId,
         origin: ActionOrigin,
+        tags: crate::catalog::action::AbilityTags,
     },
     Resolved {
         action: ActionId,
         actor: UnitId,
         ability: AbilityId,
         origin: ActionOrigin,
+        tags: crate::catalog::action::AbilityTags,
     },
     Cancelled {
         insertion: u64,
@@ -438,12 +442,23 @@ pub enum HitEventData {
     },
 }
 
+/// Actual payer of one authored Skill Point cost attempt.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum SkillPointPayer {
+    TeamSkillPoints,
+    TeamResource(crate::SourceDefinitionId),
+    Suppressed,
+}
+
 /// Checked resource changes applied at action-envelope boundaries.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ResourceEventData {
     /// Team Skill Points changed; overflow records discarded ordinary gain.
     SkillPoints {
         side: TeamSide,
+        attempted: u16,
+        payer: SkillPointPayer,
+        effective: u16,
         before: u16,
         after: u16,
         overflow: u16,
@@ -454,6 +469,16 @@ pub enum ResourceEventData {
         before: crate::Energy,
         after: crate::Energy,
         overflow: crate::Energy,
+    },
+    /// Generic team-owned resource mutation with cap/spend effectiveness.
+    TeamResource {
+        side: TeamSide,
+        resource: crate::SourceDefinitionId,
+        attempted: u16,
+        effective: u16,
+        before: u16,
+        after: u16,
+        overflow: u16,
     },
 }
 

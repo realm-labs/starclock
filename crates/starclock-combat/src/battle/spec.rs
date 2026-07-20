@@ -425,21 +425,78 @@ impl ParticipantSpec {
     }
 }
 
-/// Initial team-scoped Skill Point state.
+/// Authored wave-boundary behavior for one keyed team resource.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum TeamResourceWavePolicy {
+    Persist = 0,
+    ResetToInitial = 1,
+    Clear = 2,
+}
+
+/// One generic team-owned resource definition such as a shared subsystem tally.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct KeyedTeamResourceSpec {
+    id: crate::SourceDefinitionId,
+    initial: u16,
+    maximum: u16,
+    wave: TeamResourceWavePolicy,
+}
+
+impl KeyedTeamResourceSpec {
+    #[must_use]
+    pub const fn new(
+        id: crate::SourceDefinitionId,
+        initial: u16,
+        maximum: u16,
+        wave: TeamResourceWavePolicy,
+    ) -> Option<Self> {
+        if initial <= maximum {
+            Some(Self {
+                id,
+                initial,
+                maximum,
+                wave,
+            })
+        } else {
+            None
+        }
+    }
+    #[must_use]
+    pub const fn id(self) -> crate::SourceDefinitionId {
+        self.id
+    }
+    #[must_use]
+    pub const fn initial(self) -> u16 {
+        self.initial
+    }
+    #[must_use]
+    pub const fn maximum(self) -> u16 {
+        self.maximum
+    }
+    #[must_use]
+    pub const fn wave(self) -> TeamResourceWavePolicy {
+        self.wave
+    }
+}
+
+/// Initial team-scoped Skill Point and generic shared-resource state.
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TeamResourceSpec {
     skill_points: u16,
     maximum_skill_points: u16,
+    keyed: Box<[KeyedTeamResourceSpec]>,
 }
 
 impl TeamResourceSpec {
     /// Creates a bounded team resource state.
     #[must_use]
-    pub const fn new(skill_points: u16, maximum_skill_points: u16) -> Option<Self> {
+    pub fn new(skill_points: u16, maximum_skill_points: u16) -> Option<Self> {
         if skill_points <= maximum_skill_points {
             Some(Self {
                 skill_points,
                 maximum_skill_points,
+                keyed: Box::new([]),
             })
         } else {
             None
@@ -448,13 +505,27 @@ impl TeamResourceSpec {
 
     /// Returns current Skill Points.
     #[must_use]
-    pub const fn skill_points(self) -> u16 {
+    pub const fn skill_points(&self) -> u16 {
         self.skill_points
     }
     /// Returns the authored cap.
     #[must_use]
-    pub const fn maximum_skill_points(self) -> u16 {
+    pub const fn maximum_skill_points(&self) -> u16 {
         self.maximum_skill_points
+    }
+    /// Adds a canonical unique set of generic team-owned resources.
+    #[must_use]
+    pub fn with_keyed(mut self, mut keyed: Vec<KeyedTeamResourceSpec>) -> Option<Self> {
+        keyed.sort_by_key(|entry| entry.id);
+        if keyed.windows(2).any(|pair| pair[0].id == pair[1].id) {
+            return None;
+        }
+        self.keyed = keyed.into_boxed_slice();
+        Some(self)
+    }
+    #[must_use]
+    pub fn keyed(&self) -> &[KeyedTeamResourceSpec] {
+        &self.keyed
     }
 }
 
@@ -549,10 +620,10 @@ impl BattleSpec {
     }
     /// Returns one side's initial team resource state.
     #[must_use]
-    pub const fn resources(&self, side: TeamSide) -> TeamResourceSpec {
+    pub const fn resources(&self, side: TeamSide) -> &TeamResourceSpec {
         match side {
-            TeamSide::Player => self.player_resources,
-            TeamSide::Enemy => self.enemy_resources,
+            TeamSide::Player => &self.player_resources,
+            TeamSide::Enemy => &self.enemy_resources,
         }
     }
     /// Returns whether concession is part of this profile's command surface.

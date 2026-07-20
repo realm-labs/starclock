@@ -18,6 +18,8 @@ pub struct Ability {
     pub level_cap: i32,
     #[serde(rename = "cooldown_actions")]
     pub cooldown_actions: i32,
+    #[serde(rename = "semantic_tags_mask")]
+    pub semantic_tags_mask: i32,
     #[serde(rename = "entry_rule_identity_id")]
     pub entry_rule_identity_id: Option<i32>,
 }
@@ -33,6 +35,7 @@ impl super::runtime::SoraDecode for Ability {
             retarget_policy: <RetargetPolicy as super::runtime::SoraDecode>::decode(reader)?,
             level_cap: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             cooldown_actions: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+            semantic_tags_mask: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             entry_rule_identity_id: <Option<i32> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }

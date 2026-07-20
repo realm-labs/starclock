@@ -16,7 +16,7 @@ values = ["Entry", "BeforeHits", "Hits", "AfterHits", "Resolved"]
 
 [[enums]]
 name = "ResourceKind"
-values = ["Energy", "SkillPoints", "Hp", "CharacterResource"]
+values = ["Energy", "SkillPoints", "Hp", "CharacterResource", "TeamResource"]
 
 [[enums]]
 name = "ResourceDeltaKind"
@@ -68,6 +68,11 @@ range = [1, 30]
 name = "cooldown_actions"
 type = "i32"
 range = [0, 100]
+
+[[tables.fields]]
+name = "semantic_tags_mask"
+type = "i32"
+range = [0, 2047]
 
 [[tables.fields]]
 name = "entry_rule_identity_id"

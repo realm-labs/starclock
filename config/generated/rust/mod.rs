@@ -137,6 +137,8 @@ pub mod presence_state;
 pub mod program;
 pub mod program_step;
 pub mod program_step_node;
+pub mod queued_action_owner_policy;
+pub mod queued_action_payment_policy;
 pub mod release_state;
 pub mod replacement_proposal_kind;
 pub mod resource_delta_kind;
@@ -195,7 +197,7 @@ pub mod wave_slot;
 pub mod wave_transition_policy;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "468c8ecf498f576c";
+pub const SCHEMA_FINGERPRINT: &str = "5f296f2f929ffda0";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {

@@ -5,6 +5,7 @@ target_pattern = "SingleTarget"
 retarget_policy = "CancelRemaining"
 level_cap = 6
 cooldown_actions = 0
+semantic_tags_mask = 3
 
 [[rows]]
 id = 3
@@ -13,3 +14,4 @@ target_pattern = "None"
 retarget_policy = "Locked"
 level_cap = 1
 cooldown_actions = 0
+semantic_tags_mask = 0

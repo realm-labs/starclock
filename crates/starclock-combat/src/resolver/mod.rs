@@ -2,6 +2,7 @@ pub(crate) mod action;
 pub(crate) mod journal;
 pub(crate) mod lifecycle;
 pub(crate) mod operation;
+pub(crate) mod operation_resource;
 pub(crate) mod schedule;
 pub(crate) mod settle;
 pub(crate) mod toughness;

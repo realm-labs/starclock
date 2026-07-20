@@ -234,6 +234,7 @@ add({
   question: "How are Elation ability identity and Elation damage category represented independently across released kits?",
   fixed_expectations: ["Elation damage is not ordinary additional or follow-up damage.", "Ability tags and emitted damage-class tags are separate queryable fields."],
   observations_required: ["Cross-kit trigger matrix for ordinary abilities that emit Elation damage and explicit Elation Skills."],
+  executable_evidence: ["config/probes/v1a/trailblazer-elation/golden.json", "config/probes/v1a/yao-guang-elation/golden.json", "crates/starclock-combat/tests/elation_subsystem.rs", "crates/starclock-data/src/probe_tests.rs"],
   fixture: actionFixture("elation-damage-ability-tags", ["Execute one ordinary ability with Elation emission and one explicit Elation Skill from at least Silver Wolf LV.999, Trailblazer (Elation), Sparxie and Yao Guang."], ["Assert independent ability/damage tags and a negative control using visually similar ordinary damage."]),
 });
 add({
@@ -241,6 +242,7 @@ add({
   question: "Is Punchline a team subsystem resource, which actor receives each credit, and when do spend/threshold triggers observe it?",
   fixed_expectations: ["Punchline has explicit team/actor ownership and one canonical mutation event.", "Threshold checks observe ordered effective resource changes."],
   observations_required: ["Simultaneous cross-kit credit ordering, caps/overflow and wave persistence."],
+  executable_evidence: ["config/probes/v1a/trailblazer-elation/golden.json", "config/probes/v1a/yao-guang-elation/golden.json", "crates/starclock-combat/tests/elation_subsystem.rs", "crates/starclock-data/src/probe_tests.rs"],
   fixture: actionFixture("elation-punchline-scope-credit", ["Trigger Punchline gains from two released forms in the same reaction chain, including an over-cap gain."], ["Assert owner, effective delta, threshold order and no duplicate mirrored mutation."]),
 });
 add({
@@ -248,6 +250,7 @@ add({
   question: "Is Certified Banger held by a unit, team subsystem or shared actor, and how do grant/replace/consume operations interact across providers?",
   fixed_expectations: ["The holder and provider remain distinct identities.", "Grant/replace/consume policy is authored rather than inferred from path."],
   observations_required: ["Cross-provider replacement and teardown at transformation/departure/wave boundaries."],
+  executable_evidence: ["config/probes/v1a/trailblazer-elation/golden.json", "crates/starclock-combat/tests/elation_subsystem.rs", "crates/starclock-data/src/probe_tests.rs"],
   fixture: boundaryFixture("elation-certified-banger-ownership", ["Grant the state from two providers, transform one holder and cross a wave boundary."], ["Assert explicit holder/provider identities, one active-policy result and authored teardown."]),
 });
 add({
@@ -255,6 +258,7 @@ add({
   question: "Does Trailblazer's forced ally Elation Skill create an extra action, forced ability envelope or nested program, and which triggers/once-scopes see it?",
   fixed_expectations: ["The forced use retains Trailblazer as cause/provider and the ally as ability actor.", "It is not an ordinary action advance."],
   observations_required: ["Turn consumption, gauge movement, action-start/end events and Ultimate/follow-up trigger eligibility."],
+  executable_evidence: ["config/probes/v1a/trailblazer-elation/golden.json", "crates/starclock-combat/tests/elation_subsystem.rs", "crates/starclock-data/src/probe_tests.rs"],
   fixture: reactionFixture("elation-forced-skill-envelope", ["Target an Elation ally and a non-Elation ally with the same Ultimate under identical gauge state."], ["Assert forced-skill versus action-advance branches, cause ownership and turn/gauge effects."]),
 });
 add({
@@ -262,6 +266,7 @@ add({
   question: "Which target, cost, decision and invalidation policies apply to a forced Elation Skill?",
   fixed_expectations: ["Cost suppression/substitution and target choice are explicit forced-use arguments.", "Invalid target handling consumes no undeclared RNG or resource."],
   observations_required: ["Manual-target versus authored automatic-target behavior, insufficient substitute resource and target death."],
+  executable_evidence: ["config/probes/v1a/trailblazer-elation/golden.json", "crates/starclock-combat/tests/elation_subsystem.rs", "crates/starclock-data/src/probe_tests.rs"],
   fixture: reactionFixture("elation-forced-skill-target-cost", ["Force an Elation Skill with multiple targets, insufficient ordinary SP, substitute resource present/absent and target invalidation."], ["Assert target program, cost source, decision exposure and deterministic cancellation/retargeting."]),
 });
 add({
@@ -269,6 +274,7 @@ add({
   question: "What actor, owner, resource contribution and timeline semantics apply when Yao Guang grants Aha an extra turn?",
   fixed_expectations: ["Aha is a shared subsystem actor, not a hidden Yao Guang action.", "Its resource contribution and provider cause are explicit."],
   observations_required: ["Timeline identity, targeting, extra-turn priority, ownership after Yao Guang departure and concurrent providers."],
+  executable_evidence: ["config/probes/v1a/yao-guang-elation/golden.json", "crates/starclock-combat/tests/elation_subsystem.rs", "crates/starclock-data/src/probe_tests.rs"],
   fixture: turnFixture("elation-shared-actor-aha", ["Grant Aha an extra turn with Yao Guang present, departed and alongside another Elation provider."], ["Assert stable shared-actor identity, provider cause, timeline priority and resource sample."]),
 });
 add({
@@ -276,6 +282,7 @@ add({
   question: "Which attempted/effective Skill Point spend event triggers shared Elation effects when substitute or suppressed costs are used?",
   fixed_expectations: ["Attempted cost, actual payer and effective spend are distinct event fields.", "Each rule declares which field it inspects."],
   observations_required: ["Ordinary SP, zero-cost, suppressed-cost and substitute-resource matrix across released forms."],
+  executable_evidence: ["config/probes/v1a/trailblazer-elation/golden.json", "crates/starclock-combat/tests/elation_subsystem.rs", "crates/starclock-data/src/probe_tests.rs"],
   fixture: actionFixture("elation-sp-spend-observation", ["Execute qualifying abilities under ordinary, zero, suppressed and substitute cost paths."], ["Assert one cost event with payer/source/effective delta and the exact cross-kit trigger matrix."]),
 });
 add({
@@ -283,6 +290,7 @@ add({
   question: "Can the shared subsystem express all probe cases using generic tags, slots, actor links and operations without content-form IDs?",
   fixed_expectations: ["No core API or resolver branch names a released form.", "Kit-specific programs remain data or use a reviewed static handler only after an IR-insufficiency decision."],
   observations_required: ["Compilation audit of four released-form probes and negative one-kit API scan."],
+  executable_evidence: ["config/probes/v1a/trailblazer-elation/golden.json", "config/probes/v1a/yao-guang-elation/golden.json", "crates/starclock-combat/tests/elation_subsystem.rs", "crates/starclock-data/src/probe_tests.rs"],
   fixture: catalogFixture("elation-generic-api-boundary", ["Compile minimum probe rows for four released Elation forms from the dedicated Sora probe scope."], ["Assert shared domain shapes, no character-ID branch and equivalent event envelopes for common semantics."]),
 });
 

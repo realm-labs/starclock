@@ -449,11 +449,17 @@ fn evaluate_operation(
             target_selector,
             ability,
             priority,
+            forced_use,
+            owner,
+            payment,
         } => RuleEmission::QueueAction {
             actor_selector: *actor_selector,
             target_selector: *target_selector,
             ability: *ability,
             priority: *priority,
+            forced_use: *forced_use,
+            owner: *owner,
+            payment: payment.clone(),
             current_target,
         },
         RuleOperationTemplate::GrantExtraTurn { actor_selector } => RuleEmission::GrantExtraTurn {

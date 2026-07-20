@@ -521,6 +521,9 @@ pub enum RuleOperationTemplate {
         target_selector: SelectorId,
         ability: AbilityId,
         priority: ReactionPriority,
+        forced_use: bool,
+        owner: RuleActionOwner,
+        payment: Option<RuleActionPaymentPolicy>,
     },
     GrantExtraTurn {
         actor_selector: SelectorId,
@@ -577,6 +580,23 @@ pub enum RuleResourceKind {
     Energy,
     SkillPoints,
     Character(Box<str>),
+    Team(Box<str>),
+}
+
+/// Cause-relative attribution retained by a queued Rule IR action.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum RuleActionOwner {
+    Actor,
+    CauseOwner,
+    CauseApplier,
+}
+
+/// Explicit payer for a queued action's authored Skill Point cost.
+#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum RuleActionPaymentPolicy {
+    TeamSkillPoints,
+    Suppressed,
+    TeamResource(Box<str>),
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -817,6 +837,9 @@ pub enum RuleEmission {
         target_selector: SelectorId,
         ability: AbilityId,
         priority: ReactionPriority,
+        forced_use: bool,
+        owner: RuleActionOwner,
+        payment: Option<RuleActionPaymentPolicy>,
         current_target: Option<UnitId>,
     },
     GrantExtraTurn {

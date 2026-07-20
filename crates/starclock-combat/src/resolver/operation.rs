@@ -5,16 +5,15 @@ use crate::{
         cause::Cause,
         model::{
             BattleEventKind, BreakDamageEventData, BreakDamageKind, DamageEventData, DamageKind,
-            EffectEventData, HealEventData, HpConsumptionEventData, RuleStateEventData,
-            ShieldEventData, ToughnessEventData, UnitEventData,
+            EffectEventData, HealEventData, HpConsumptionEventData, ShieldEventData,
+            ToughnessEventData, UnitEventData,
         },
     },
     formula,
     id::EventId,
     operation::{
         AddWeaknessOp, ApplyEffectOp, ConsumeHpOp, DamageOp, DetonateDotsOp, HealOp,
-        HitOperationScratch, ModifyStateSlotOp, Operation, ReduceToughnessOp, RemoveEffectsOp,
-        ShieldOp, SuperBreakOp,
+        HitOperationScratch, Operation, ReduceToughnessOp, RemoveEffectsOp, ShieldOp, SuperBreakOp,
     },
 };
 
@@ -49,7 +48,10 @@ pub(super) fn execute_operation(
         }
         Operation::DetonateDots(operation) => execute_detonate_dots(txn, cause, parent, operation),
         Operation::ModifyStateSlot(operation) => {
-            execute_modify_state_slot(txn, cause, parent, operation)
+            super::operation_resource::execute_modify_state_slot(txn, cause, parent, operation)
+        }
+        Operation::ModifyTeamResource(operation) => {
+            super::operation_resource::execute_modify_team_resource(txn, cause, parent, operation)
         }
         Operation::QueueAction(operation) => {
             super::schedule::execute_queue_action(catalog, txn, cause, parent, operation)
@@ -73,42 +75,6 @@ pub(super) fn execute_operation(
             super::lifecycle::execute_despawn(txn, cause, parent, operation)
         }
     }
-}
-
-fn execute_modify_state_slot(
-    txn: &mut Transaction<'_>,
-    cause: Cause,
-    parent: EventId,
-    operation: ModifyStateSlotOp,
-) -> Result<EventId, BattleFault> {
-    let instance = txn
-        .state
-        .rules
-        .instance_for(operation.owner, operation.definition.rule)
-        .ok_or_else(|| invariant_fault(41))?;
-    let (before, after) = txn
-        .state
-        .rules
-        .update(
-            instance,
-            operation.definition.slot,
-            operation.definition.update,
-            operation.definition.value,
-        )
-        .map_err(|_| invariant_fault(42))?;
-    txn.record_rule_state_change(instance, operation.definition.slot, &before, &after);
-    Ok(txn.emit(
-        cause
-            .with_parent(parent)
-            .with_primary_target(Some(operation.owner)),
-        BattleEventKind::RuleState(RuleStateEventData {
-            operation: operation.id,
-            instance,
-            slot: operation.definition.slot,
-            before,
-            after,
-        }),
-    ))
 }
 
 fn execute_add_weakness(
@@ -573,6 +539,7 @@ pub(super) fn settle_effects_at_turn_start(
                 effect.source_operation,
                 owner,
                 DamageKind::DotTick,
+                dot.formula().class(),
                 Some(effect.id),
                 calculation.raw,
                 calculation.finalized,
@@ -711,6 +678,7 @@ fn execute_damage(
             operation.id,
             target,
             DamageKind::Direct,
+            operation.formula.class(),
             None,
             calculation.raw,
             calculation.finalized,
@@ -727,6 +695,7 @@ fn apply_ordinary_damage(
     operation: crate::OperationId,
     target: crate::UnitId,
     kind: DamageKind,
+    class: crate::formula::model::DamageClass,
     source_effect: Option<crate::EffectInstanceId>,
     raw: crate::Scalar,
     calculated: crate::DamageAmount,
@@ -765,6 +734,7 @@ fn apply_ordinary_damage(
         BattleEventKind::Damage(DamageEventData {
             operation,
             kind,
+            class,
             source_effect,
             target,
             raw,
@@ -986,6 +956,7 @@ fn execute_detonate_dots(
                 operation.id,
                 target,
                 DamageKind::DotDetonation,
+                dot.formula().class(),
                 Some(effect.id),
                 raw,
                 finalized,

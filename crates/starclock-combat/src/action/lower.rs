@@ -47,6 +47,7 @@ pub(crate) fn lower_normal_action(
         },
         ability,
         targets,
+        None,
     )
 }
 
@@ -68,28 +69,36 @@ pub(crate) fn lower_interrupt_action(
         },
         ability,
         targets,
+        None,
     )
+}
+
+pub(crate) struct QueuedActionContext {
+    pub(crate) actor: UnitId,
+    pub(crate) owner: UnitId,
+    pub(crate) origin: ActionOrigin,
+    pub(crate) payment: Option<crate::catalog::action::SkillPointPaymentPolicy>,
 }
 
 pub(crate) fn lower_queued_action(
     catalog: &CombatCatalog,
     allocator: &mut impl ActionIdentityAllocator,
-    actor: UnitId,
+    context: QueuedActionContext,
     ability: AbilityId,
-    origin: ActionOrigin,
     targets: TargetCommitment,
 ) -> Option<ActionPlan> {
     lower_action(
         catalog,
         allocator,
         ActionContext {
-            actor,
-            owner: actor,
-            origin,
+            actor: context.actor,
+            owner: context.owner,
+            origin: context.origin,
             timeline_actor: None,
         },
         ability,
         targets,
+        context.payment,
     )
 }
 
@@ -111,6 +120,7 @@ pub(crate) fn lower_timeline_action(
         },
         ability,
         targets,
+        None,
     )
 }
 
@@ -120,6 +130,7 @@ fn lower_action(
     context: ActionContext,
     ability: AbilityId,
     targets: TargetCommitment,
+    payment: Option<crate::catalog::action::SkillPointPaymentPolicy>,
 ) -> Option<ActionPlan> {
     let definition = catalog.ability(ability)?;
     let action = definition.action()?;
@@ -130,8 +141,13 @@ fn lower_action(
         ActionOrigin::FollowUp => action.kind() == AbilityKind::FollowUp,
         ActionOrigin::Counter => action.kind() == AbilityKind::Counter,
         ActionOrigin::ExtraTurn => action.kind() == AbilityKind::ExtraTurn,
-        ActionOrigin::ExtraAction | ActionOrigin::Forced => {
+        ActionOrigin::ExtraAction => action.kind() == AbilityKind::ExtraAction,
+        ActionOrigin::Forced => {
             action.kind() == AbilityKind::ExtraAction
+                || (action.kind() == AbilityKind::Skill
+                    && action
+                        .tags()
+                        .contains(crate::catalog::action::AbilityTag::ElationSkill))
         }
         ActionOrigin::DelayedAction => action.kind() == AbilityKind::DelayedAction,
         ActionOrigin::SummonAction => action.kind() == AbilityKind::Summon,
@@ -169,10 +185,13 @@ fn lower_action(
         owner: context.owner,
         ability,
         origin: context.origin,
+        tags: action.tags(),
         normal_turn: context.timeline_actor,
         selector,
         targets,
-        resources: action.resources(),
+        resources: payment.map_or(action.resources(), |payment| {
+            action.resources().with_skill_point_payment(payment)
+        }),
         phases: vec![ActionPhasePlan { id: phase_id, hits }].into_boxed_slice(),
     })
 }

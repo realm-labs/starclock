@@ -72,6 +72,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 47. [Phase 3 command and replay property contract](command-replay-property-contract.md) — fixed-seed mixed command streams, rollback convergence, deterministic hashes and replay envelope/domain corruption.
 48. [Typed Rule IR runtime boundary](rule-ir-runtime-boundary.md) — validated expressions/programs, trigger indexes, once scopes, evaluation budgets and the immutable native-handler registry contract.
 49. [Toughness, Break and Super Break runtime boundary](toughness-break-runtime-boundary.md) — ordered non-spilling layers, weakness lifetimes, base Break effects, Super Break samples and the source-bound Firefly probe.
+50. [Shared Elation runtime boundary](shared-elation-runtime-boundary.md) — independent ability/damage tags, keyed team resources, holder/provider attribution, forced Skill payment and generic shared actors.
 
 ## Execution goals
 

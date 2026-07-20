@@ -27,6 +27,14 @@ name = "EncounterTransitionKind"
 values = ["BossPhase", "Wave"]
 
 [[enums]]
+name = "QueuedActionOwnerPolicy"
+values = ["Actor", "CauseOwner", "CauseApplier"]
+
+[[enums]]
+name = "QueuedActionPaymentPolicy"
+values = ["TeamSkillPoints", "Suppressed", "TeamResource"]
+
+[[enums]]
 name = "ReplacementProposalKind"
 values = ["PreventDefeat", "RedirectDamage", "ReplaceValue", "ReplaceTarget", "CancelOperation"]
 
@@ -272,6 +280,18 @@ type = "ref<Selector.id>"
 name = "priority"
 type = "i32"
 range = [-1000000, 1000000]
+[[unions.variants.fields]]
+name = "forced_use"
+type = "bool"
+[[unions.variants.fields]]
+name = "owner_policy"
+type = "optional<enum<QueuedActionOwnerPolicy>>"
+[[unions.variants.fields]]
+name = "payment_policy"
+type = "optional<enum<QueuedActionPaymentPolicy>>"
+[[unions.variants.fields]]
+name = "payment_resource_key"
+type = "optional<string>"
 
 [[unions.variants]]
 name = "CancelAction"

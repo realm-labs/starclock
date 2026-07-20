@@ -345,7 +345,11 @@
       ],
       "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
       "state": "PendingObservation",
-      "executable_evidence": []
+      "executable_evidence": [
+        "config/probes/v1a/trailblazer-elation/golden.json",
+        "crates/starclock-combat/tests/elation_subsystem.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-ELATION-DAMAGE-ABILITY-TAGS",
@@ -371,7 +375,12 @@
       ],
       "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
       "state": "PendingObservation",
-      "executable_evidence": []
+      "executable_evidence": [
+        "config/probes/v1a/trailblazer-elation/golden.json",
+        "config/probes/v1a/yao-guang-elation/golden.json",
+        "crates/starclock-combat/tests/elation_subsystem.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-ELATION-FORCED-SKILL-ENVELOPE",
@@ -397,7 +406,11 @@
       ],
       "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
       "state": "PendingObservation",
-      "executable_evidence": []
+      "executable_evidence": [
+        "config/probes/v1a/trailblazer-elation/golden.json",
+        "crates/starclock-combat/tests/elation_subsystem.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-ELATION-FORCED-SKILL-TARGET-COST",
@@ -423,7 +436,11 @@
       ],
       "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
       "state": "PendingObservation",
-      "executable_evidence": []
+      "executable_evidence": [
+        "config/probes/v1a/trailblazer-elation/golden.json",
+        "crates/starclock-combat/tests/elation_subsystem.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-ELATION-GENERIC-API-BOUNDARY",
@@ -449,7 +466,12 @@
       ],
       "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
       "state": "PendingObservation",
-      "executable_evidence": []
+      "executable_evidence": [
+        "config/probes/v1a/trailblazer-elation/golden.json",
+        "config/probes/v1a/yao-guang-elation/golden.json",
+        "crates/starclock-combat/tests/elation_subsystem.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-ELATION-PUNCHLINE-SCOPE-CREDIT",
@@ -475,7 +497,12 @@
       ],
       "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
       "state": "PendingObservation",
-      "executable_evidence": []
+      "executable_evidence": [
+        "config/probes/v1a/trailblazer-elation/golden.json",
+        "config/probes/v1a/yao-guang-elation/golden.json",
+        "crates/starclock-combat/tests/elation_subsystem.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-ELATION-SHARED-ACTOR-AHA",
@@ -501,7 +528,11 @@
       ],
       "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
       "state": "PendingObservation",
-      "executable_evidence": []
+      "executable_evidence": [
+        "config/probes/v1a/yao-guang-elation/golden.json",
+        "crates/starclock-combat/tests/elation_subsystem.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-ELATION-SP-SPEND-OBSERVATION",
@@ -527,7 +558,11 @@
       ],
       "completion_rule": "Replace Researching only after the named observation is source-bound and its executable golden passes through the production data-to-domain boundary.",
       "state": "PendingObservation",
-      "executable_evidence": []
+      "executable_evidence": [
+        "config/probes/v1a/trailblazer-elation/golden.json",
+        "crates/starclock-combat/tests/elation_subsystem.rs",
+        "crates/starclock-data/src/probe_tests.rs"
+      ]
     },
     {
       "case_id": "G01-R-FIREFLY-COUNTDOWN-TEARDOWN",

@@ -33,6 +33,7 @@ pub(crate) fn plan_next_turn(
                         crate::ActionOrigin::MemospriteAction
                     }
                     Some(crate::LinkedEntityKind::Countdown) => crate::ActionOrigin::Countdown,
+                    Some(crate::LinkedEntityKind::SharedActor) => crate::ActionOrigin::ExtraTurn,
                     None => crate::ActionOrigin::NormalTurn,
                 };
                 (ability, origin)

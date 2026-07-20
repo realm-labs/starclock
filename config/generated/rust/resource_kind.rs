@@ -6,6 +6,7 @@ pub enum ResourceKind {
     SkillPoints,
     Hp,
     CharacterResource,
+    TeamResource,
 }
 
 impl super::runtime::SoraDecode for ResourceKind {
@@ -17,6 +18,7 @@ impl super::runtime::SoraDecode for ResourceKind {
             1 => Ok(Self::SkillPoints),
             2 => Ok(Self::Hp),
             3 => Ok(Self::CharacterResource),
+            4 => Ok(Self::TeamResource),
             value => Err(super::runtime::SoraReadError::new(format!(
                 "invalid enum ordinal {} for ResourceKind",
                 value

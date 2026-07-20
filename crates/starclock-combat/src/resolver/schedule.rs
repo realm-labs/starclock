@@ -3,7 +3,7 @@
 use crate::{
     BattleEventKind, EventId,
     battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
-    catalog::action::{QueuedActor, QueuedTarget},
+    catalog::action::{QueuedActor, QueuedOwner, QueuedTarget},
     event::cause::{Cause, CauseActor},
     operation::QueueActionOp,
 };
@@ -22,8 +22,49 @@ pub(super) fn execute_queue_action(
         QueuedActor::CauseOwner => cause.owner(),
         QueuedActor::CauseApplier => cause.applier(),
         QueuedActor::PrimaryTarget => cause.primary_target(),
+        QueuedActor::SharedEntity(kind) => {
+            let provider = cause
+                .owner()
+                .or(cause.applier())
+                .ok_or_else(|| invariant_fault(58))?;
+            let side = txn
+                .state
+                .units
+                .get(provider)
+                .ok_or_else(|| invariant_fault(59))?
+                .side;
+            let mut matches = txn
+                .state
+                .links
+                .canonical_entries()
+                .iter()
+                .filter_map(|link| {
+                    if !link.active || link.kind != kind {
+                        return None;
+                    }
+                    let crate::LinkedEntity::Unit(unit) = link.entity else {
+                        return None;
+                    };
+                    txn.state
+                        .units
+                        .get(unit)
+                        .filter(|state| state.side == side)
+                        .map(|_| unit)
+                });
+            let actor = matches.next().ok_or_else(|| invariant_fault(60))?;
+            if matches.next().is_some() {
+                return Err(invariant_fault(61));
+            }
+            Some(actor)
+        }
     }
     .ok_or_else(|| invariant_fault(50))?;
+    let owner = match definition.owner() {
+        QueuedOwner::Actor => Some(actor),
+        QueuedOwner::CauseOwner => cause.owner(),
+        QueuedOwner::CauseApplier => cause.applier(),
+    }
+    .ok_or_else(|| invariant_fault(62))?;
     let primary = match definition.target() {
         QueuedTarget::CauseActor => match cause.actor() {
             Some(CauseActor::Unit(unit)) => Some(unit),
@@ -87,9 +128,11 @@ pub(super) fn execute_queue_action(
         root: cause.root_command(),
         parent: queued,
         actor,
+        owner,
         ability: definition.ability(),
         origin: definition.origin(),
         targets,
+        payment: definition.payment(),
     });
     Ok(queued)
 }
