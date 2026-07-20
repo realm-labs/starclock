@@ -1,7 +1,7 @@
 use crate::{
     catalog::action::{
-        ActionResourcePolicy, HitOperationDefinition, HitTargetGroup, TargetInvalidationPolicy,
-        UnitTargetSelector,
+        AbilityProgramBinding, ActionResourcePolicy, HitCritPolicy, HitOperationDefinition,
+        HitTargetGroup, TargetInvalidationPolicy, UnitTargetSelector,
     },
     id::{AbilityId, ActionId, HitId, OperationId, PhaseId, TimelineActorId, UnitId},
     target::model::TargetCommitment,
@@ -49,6 +49,9 @@ pub(crate) struct HitPlan {
     pub(crate) id: HitId,
     pub(crate) invalidation: TargetInvalidationPolicy,
     pub(crate) target_group: HitTargetGroup,
+    pub(crate) damage_share: crate::Ratio,
+    pub(crate) toughness_share: crate::Ratio,
+    pub(crate) crit_policy: HitCritPolicy,
     pub(crate) operations: Box<[OperationPlan]>,
 }
 
@@ -76,5 +79,6 @@ pub(crate) struct ActionPlan {
     pub(crate) selector: UnitTargetSelector,
     pub(crate) targets: TargetCommitment,
     pub(crate) resources: ActionResourcePolicy,
+    pub(crate) programs: Box<[AbilityProgramBinding]>,
     pub(crate) phases: Box<[ActionPhasePlan]>,
 }

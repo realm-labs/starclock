@@ -314,6 +314,30 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             DefinitionKind::Program,
             ability.program().get(),
         )?;
+        if ability
+            .programs()
+            .windows(2)
+            .any(|pair| pair[0].sequence() >= pair[1].sequence())
+        {
+            return Err(error(
+                CatalogBuildErrorKind::InvalidDefinition,
+                format!(
+                    "ability definition {} has unordered phase programs",
+                    id.get()
+                ),
+            ));
+        }
+        require_all(
+            &ability
+                .programs()
+                .iter()
+                .map(|binding| binding.program())
+                .collect::<Vec<_>>(),
+            |value| catalog.programs.get(value).is_some(),
+            DefinitionKind::Ability,
+            id.get(),
+            DefinitionKind::Program,
+        )?;
         require(
             catalog.selectors.get(ability.selector()).is_some(),
             DefinitionKind::Ability,

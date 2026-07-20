@@ -275,7 +275,7 @@ pub(super) struct CombatDefinitions {
     pub(super) abilities: Box<[AbilityDefinition]>,
     pub(super) hit_plans: Box<[HitPlanDefinition]>,
     pub(super) modifiers: ModifierRegistry,
-    pub(super) selectors: Box<[starclock_combat::SelectorId]>,
+    pub(super) selectors: Box<[crate::selector_lower::SelectorDataDefinition]>,
     pub(super) programs: Box<[crate::operation_lower::RuleProgramDefinition]>,
     pub(super) effects: Box<[EffectDataDefinition]>,
     pub(super) rules: Box<[crate::rule_lower::RuleDataDefinition]>,
@@ -372,6 +372,7 @@ pub(super) struct AbilityDefinition {
 #[derive(Debug)]
 pub(super) struct AbilityPhaseDefinition {
     pub(super) sequence: u16,
+    pub(super) kind: u8,
     pub(super) program: Option<starclock_combat::ProgramId>,
 }
 
@@ -760,6 +761,13 @@ fn convert_combat(
             .map(|phase| {
                 Ok(AbilityPhaseDefinition {
                     sequence: positive_u16(phase.sequence, "AbilityPhase.sequence")?,
+                    kind: match phase.kind {
+                        crate::generated::ability_phase_kind::AbilityPhaseKind::Entry => 0,
+                        crate::generated::ability_phase_kind::AbilityPhaseKind::BeforeHits => 1,
+                        crate::generated::ability_phase_kind::AbilityPhaseKind::Hits => 2,
+                        crate::generated::ability_phase_kind::AbilityPhaseKind::AfterHits => 3,
+                        crate::generated::ability_phase_kind::AbilityPhaseKind::Resolved => 4,
+                    },
                     program: phase
                         .program_identity_id
                         .map(|id| {
@@ -949,10 +957,7 @@ fn convert_combat(
     let selectors = config
         .selector()
         .ordered_rows()
-        .map(|row| {
-            starclock_combat::SelectorId::new(positive(row.id, "Selector.id")?)
-                .ok_or_else(|| domain_fail("selector ID is zero"))
-        })
+        .map(crate::selector_lower::lower)
         .collect::<Result<Vec<_>, _>>()?;
     let programs = crate::operation_lower::convert(config, &native_handlers)?;
     let rules = crate::rule_lower::convert(config, mode, identities, &native_handlers)?;

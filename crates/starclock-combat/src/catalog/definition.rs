@@ -1,10 +1,11 @@
 //! Immutable battle-domain definition inputs accepted by the catalog builder.
 
-use super::action::{AbilityActionDefinition, UnitTargetSelector};
+use super::action::{AbilityActionDefinition, AbilityProgramBinding, UnitTargetSelector};
 use super::encounter::{
     EncounterWaveDefinition, EnemyLinkDefinition, EnemyPhaseDefinition, WaveCarry,
     WaveSlotDefinition, WaveTransitionPolicy,
 };
+use super::selector::RuleUnitSelector;
 use crate::rule::model::{BattleRuleDefinition, ProgramStep};
 use crate::{
     AbilityId, AiGraphId, EffectDefinitionId, EncounterId, EnemyDefinitionId, ModifierDefinitionId,
@@ -16,6 +17,7 @@ use crate::{
 pub struct SelectorDefinition {
     id: SelectorId,
     unit_targets: Option<UnitTargetSelector>,
+    rule_units: Option<RuleUnitSelector>,
 }
 
 impl SelectorDefinition {
@@ -25,12 +27,19 @@ impl SelectorDefinition {
         Self {
             id,
             unit_targets: None,
+            rule_units: None,
         }
     }
     /// Attaches deterministic unit-target semantics.
     #[must_use]
     pub const fn with_unit_targets(mut self, selector: UnitTargetSelector) -> Self {
         self.unit_targets = Some(selector);
+        self
+    }
+    /// Attaches the complete typed Rule IR unit-selector plan.
+    #[must_use]
+    pub fn with_rule_units(mut self, selector: RuleUnitSelector) -> Self {
+        self.rule_units = Some(selector);
         self
     }
     /// Returns the stable selector definition ID.
@@ -42,6 +51,11 @@ impl SelectorDefinition {
     #[must_use]
     pub const fn unit_targets(&self) -> Option<UnitTargetSelector> {
         self.unit_targets
+    }
+    /// Returns executable Rule IR unit-selector semantics, if configured.
+    #[must_use]
+    pub const fn rule_units(&self) -> Option<&RuleUnitSelector> {
+        self.rule_units.as_ref()
     }
 }
 /// Generic unit-form definition referencing combat abilities and rule bundles.
@@ -92,6 +106,7 @@ pub struct AbilityDefinition {
     selector: SelectorId,
     effects: Box<[EffectDefinitionId]>,
     action: Option<AbilityActionDefinition>,
+    programs: Box<[AbilityProgramBinding]>,
 }
 
 impl AbilityDefinition {
@@ -109,12 +124,19 @@ impl AbilityDefinition {
             selector,
             effects: effects.into_boxed_slice(),
             action: None,
+            programs: Box::new([]),
         }
     }
     /// Attaches a validated finite action definition.
     #[must_use]
     pub fn with_action(mut self, action: AbilityActionDefinition) -> Self {
         self.action = Some(action);
+        self
+    }
+    /// Attaches authored phase programs in strict sequence order.
+    #[must_use]
+    pub fn with_programs(mut self, programs: Vec<AbilityProgramBinding>) -> Self {
+        self.programs = programs.into_boxed_slice();
         self
     }
     /// Returns the stable definition ID.
@@ -141,6 +163,11 @@ impl AbilityDefinition {
     #[must_use]
     pub const fn action(&self) -> Option<&AbilityActionDefinition> {
         self.action.as_ref()
+    }
+    /// Returns authored phase programs in execution order.
+    #[must_use]
+    pub fn programs(&self) -> &[AbilityProgramBinding] {
+        &self.programs
     }
 }
 

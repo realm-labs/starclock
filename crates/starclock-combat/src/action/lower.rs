@@ -167,6 +167,9 @@ fn lower_action(
             id: allocator.hit(),
             invalidation: action.invalidation(),
             target_group: hit.target_group(),
+            damage_share: hit.damage_share(),
+            toughness_share: hit.toughness_share(),
+            crit_policy: hit.crit_policy(),
             operations: hit
                 .operations()
                 .iter()
@@ -193,6 +196,7 @@ fn lower_action(
         resources: payment.map_or(action.resources(), |payment| {
             action.resources().with_skill_point_payment(payment)
         }),
+        programs: definition.programs().into(),
         phases: vec![ActionPhasePlan { id: phase_id, hits }].into_boxed_slice(),
     })
 }

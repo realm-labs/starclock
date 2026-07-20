@@ -6,6 +6,7 @@ pub mod definition;
 pub mod encounter;
 mod index;
 mod rule_validate;
+pub mod selector;
 mod table;
 
 use crate::modifier::{model::ModifierDefinition, registry::ModifierRegistry};
@@ -177,6 +178,10 @@ impl CombatCatalog {
     /// Iterates program IDs in canonical numeric order.
     pub fn program_ids(&self) -> impl ExactSizeIterator<Item = ProgramId> + '_ {
         self.programs.ids()
+    }
+    /// Iterates selector IDs in canonical numeric order.
+    pub fn selector_ids(&self) -> impl ExactSizeIterator<Item = SelectorId> + '_ {
+        self.selectors.ids()
     }
 }
 

@@ -28,6 +28,56 @@ pub enum AbilityKind {
     Countdown = 10,
 }
 
+/// Stable execution boundary for one authored ability-phase program.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum AbilityProgramTiming {
+    Entry = 0,
+    BeforeHits = 1,
+    Hits = 2,
+    AfterHits = 3,
+    Resolved = 4,
+}
+
+/// Ordered program binding retained from one authored ability phase.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct AbilityProgramBinding {
+    sequence: u16,
+    timing: AbilityProgramTiming,
+    program: crate::ProgramId,
+}
+
+impl AbilityProgramBinding {
+    #[must_use]
+    pub const fn new(
+        sequence: u16,
+        timing: AbilityProgramTiming,
+        program: crate::ProgramId,
+    ) -> Option<Self> {
+        if sequence == 0 {
+            None
+        } else {
+            Some(Self {
+                sequence,
+                timing,
+                program,
+            })
+        }
+    }
+    #[must_use]
+    pub const fn sequence(self) -> u16 {
+        self.sequence
+    }
+    #[must_use]
+    pub const fn timing(self) -> AbilityProgramTiming {
+        self.timing
+    }
+    #[must_use]
+    pub const fn program(self) -> crate::ProgramId {
+        self.program
+    }
+}
+
 /// Orthogonal semantic labels inspected by rules independently from the action family.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]

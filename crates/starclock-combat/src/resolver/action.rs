@@ -19,6 +19,7 @@ use crate::{
 
 use super::{
     operation::execute_operation,
+    program::{AbilityProgramContext, execute_ability_program},
     transaction::{Transaction, action_fault},
 };
 
@@ -148,6 +149,16 @@ pub(super) fn execute_action_plan(
             tags: plan.tags,
         }),
     );
+    parent = run_programs_at(
+        catalog,
+        txn,
+        base.with_applier(plan.actor),
+        parent,
+        plan,
+        crate::catalog::action::AbilityProgramTiming::Entry,
+        None,
+        &mut HitOperationScratch::default(),
+    )?;
     parent = apply_resource_costs(txn, base, parent, plan)?;
     parent = txn.emit(
         base.with_parent(parent),
@@ -163,6 +174,16 @@ pub(super) fn execute_action_plan(
         crate::rule::model::SlotResetPoint::ActionStart,
         Some(plan.actor),
     );
+    parent = run_programs_at(
+        catalog,
+        txn,
+        base.with_applier(plan.actor),
+        parent,
+        plan,
+        crate::catalog::action::AbilityProgramTiming::BeforeHits,
+        None,
+        &mut HitOperationScratch::default(),
+    )?;
     let phases = plan.phases.clone();
     for phase in &phases {
         let phase_cause = base.with_phase(phase.id);
@@ -195,6 +216,16 @@ pub(super) fn execute_action_plan(
                     targets: targets.clone(),
                 }),
             );
+            parent = run_programs_at(
+                catalog,
+                txn,
+                hit_cause.with_applier(plan.actor),
+                parent,
+                plan,
+                crate::catalog::action::AbilityProgramTiming::Hits,
+                Some(hit),
+                &mut operation_scratch,
+            )?;
             for operation in &hit.operations {
                 let request = match &operation.definition {
                     HitOperationDefinition::Damage(formula) => Operation::Damage(DamageOp {
@@ -363,6 +394,16 @@ pub(super) fn execute_action_plan(
                 crate::catalog::encounter::WaveTransitionPolicy::AfterHit,
             )?;
         }
+        parent = run_programs_at(
+            catalog,
+            txn,
+            phase_cause.with_applier(plan.actor),
+            parent,
+            plan,
+            crate::catalog::action::AbilityProgramTiming::AfterHits,
+            None,
+            &mut HitOperationScratch::default(),
+        )?;
         parent = txn.emit(
             phase_cause.with_parent(parent),
             BattleEventKind::Phase(PhaseEventData::Ended {
@@ -384,6 +425,16 @@ pub(super) fn execute_action_plan(
             crate::catalog::encounter::WaveTransitionPolicy::AfterPhase,
         )?;
     }
+    parent = run_programs_at(
+        catalog,
+        txn,
+        base.with_applier(plan.actor),
+        parent,
+        plan,
+        crate::catalog::action::AbilityProgramTiming::Resolved,
+        None,
+        &mut HitOperationScratch::default(),
+    )?;
     parent = apply_resource_gains(txn, base, parent, plan)?;
     Ok(txn.emit(
         base.with_parent(parent),
@@ -395,6 +446,47 @@ pub(super) fn execute_action_plan(
             tags: plan.tags,
         }),
     ))
+}
+
+#[allow(clippy::too_many_arguments)]
+fn run_programs_at(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    plan: &ActionPlan,
+    timing: crate::catalog::action::AbilityProgramTiming,
+    hit: Option<&crate::action::model::HitPlan>,
+    scratch: &mut HitOperationScratch,
+) -> Result<EventId, BattleFault> {
+    for binding in plan
+        .programs
+        .iter()
+        .filter(|binding| binding.timing() == timing)
+    {
+        parent = execute_ability_program(
+            catalog,
+            txn,
+            cause,
+            parent,
+            AbilityProgramContext {
+                program: binding.program(),
+                owner: plan.owner,
+                actor: plan.actor,
+                ability: plan.ability,
+                action: plan.id,
+                hit: hit.map(|value| value.id),
+                primary: plan.targets.primary,
+                damage_share: hit.map_or(crate::Ratio::ONE, |value| value.damage_share),
+                toughness_share: hit.map_or(crate::Ratio::ONE, |value| value.toughness_share),
+                crit_policy: hit.map_or(crate::catalog::action::HitCritPolicy::Never, |value| {
+                    value.crit_policy
+                }),
+            },
+            scratch,
+        )?;
+    }
+    Ok(parent)
 }
 
 fn project_hit_targets(

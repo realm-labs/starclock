@@ -491,7 +491,7 @@ impl<'a> Transaction<'a> {
         id
     }
 
-    fn allocate_operation(&mut self) -> OperationId {
+    pub(super) fn allocate_operation(&mut self) -> OperationId {
         let id = self
             .state
             .sequences

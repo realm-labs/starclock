@@ -24,9 +24,9 @@ use starclock_combat::{
     catalog::{
         CombatCatalog,
         action::{
-            AbilityActionDefinition, AbilityKind, AbilityTag, ActionHitDefinition,
-            ActionResourcePolicy, HitCritPolicy, HitTargetGroup, TargetInvalidationPolicy,
-            TargetPattern, TargetRelation, UnitTargetSelector,
+            AbilityActionDefinition, AbilityKind, AbilityProgramBinding, AbilityProgramTiming,
+            AbilityTag, ActionHitDefinition, ActionResourcePolicy, HitCritPolicy, HitTargetGroup,
+            TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
         definition::{
@@ -82,7 +82,9 @@ fn compile_combat(
         .collect::<BTreeMap<_, _>>();
 
     for selector in &combat.selectors {
-        builder.add_selector(SelectorDefinition::new(*selector));
+        builder.add_selector(
+            SelectorDefinition::new(selector.id).with_rule_units(selector.units.clone()),
+        );
     }
     for ability in &combat.abilities {
         let selector = ability_selector(ability.id)?;
@@ -96,8 +98,14 @@ fn compile_combat(
     for program in &combat.programs {
         existing_programs.insert(program.id);
         builder.add_program(
-            ProgramDefinition::new(program.id, Vec::new(), Vec::new(), Vec::new(), Vec::new())
-                .with_steps(program.steps.to_vec()),
+            ProgramDefinition::new(
+                program.id,
+                Vec::new(),
+                program.selectors.to_vec(),
+                program.effects.to_vec(),
+                Vec::new(),
+            )
+            .with_steps(program.steps.to_vec()),
         );
     }
     for ability in &combat.abilities {
@@ -409,8 +417,30 @@ fn add_combat_ability(
             .with_hits(hits)
             .ok_or_else(|| domain_fail("compiled ability hit count exceeds combat bounds"))?;
     }
+    let programs = source
+        .phases
+        .iter()
+        .filter_map(|phase| phase.program.map(|program| (phase, program)))
+        .map(|(phase, program)| {
+            AbilityProgramBinding::new(
+                phase.sequence,
+                match phase.kind {
+                    0 => AbilityProgramTiming::Entry,
+                    1 => AbilityProgramTiming::BeforeHits,
+                    2 => AbilityProgramTiming::Hits,
+                    3 => AbilityProgramTiming::AfterHits,
+                    4 => AbilityProgramTiming::Resolved,
+                    _ => unreachable!("validated ability phase kind"),
+                },
+                program,
+            )
+            .expect("validated ability phase sequence")
+        })
+        .collect();
     builder.add_ability(
-        CombatAbilityDefinition::new(id, program, selector, Vec::new()).with_action(action),
+        CombatAbilityDefinition::new(id, program, selector, Vec::new())
+            .with_action(action)
+            .with_programs(programs),
     );
     Ok(())
 }

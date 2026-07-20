@@ -30,6 +30,8 @@ use crate::{
 pub(super) struct RuleProgramDefinition {
     pub(super) id: ProgramId,
     pub(super) steps: Box<[ProgramStep]>,
+    pub(super) selectors: Box<[SelectorId]>,
+    pub(super) effects: Box<[EffectDefinitionId]>,
 }
 
 impl SimulationCatalog {
@@ -87,14 +89,86 @@ pub(super) fn convert(
                     ))),
                 })
                 .collect::<Result<Vec<_>, _>>()?;
+            let (selectors, effects) = program_references(&steps);
             Ok(RuleProgramDefinition {
                 id: ProgramId::new(positive(program.id)?).expect("positive program ID"),
                 steps: steps.into_boxed_slice(),
+                selectors,
+                effects,
             })
         })
         .collect::<Result<Vec<_>, CatalogLoadError>>()?;
     programs.sort_unstable_by_key(|program| program.id);
     Ok(programs)
+}
+
+fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectDefinitionId]>) {
+    use starclock_combat::rule::model::RuleOperationTemplate as O;
+    let mut selectors = BTreeSet::new();
+    let mut effects = BTreeSet::new();
+    for step in steps {
+        let ProgramStep::Operation(operation) = step else {
+            continue;
+        };
+        match operation {
+            O::Damage { selector, .. }
+            | O::TrueDamage { selector, .. }
+            | O::Heal { selector, .. }
+            | O::ConsumeHp { selector, .. }
+            | O::ReduceToughness { selector, .. }
+            | O::Break { selector, .. }
+            | O::SuperBreak { selector, .. }
+            | O::AddWeakness { selector, .. }
+            | O::RemoveWeakness { selector, .. }
+            | O::CreateToughnessLayer { selector, .. }
+            | O::RemoveToughnessLayer { selector, .. }
+            | O::ModifyResource { selector, .. }
+            | O::RemoveEffect { selector, .. }
+            | O::DetonateDot { selector, .. }
+            | O::AdvanceAction { selector, .. }
+            | O::DelayAction { selector, .. }
+            | O::Despawn { selector }
+            | O::Transform { selector, .. }
+            | O::ReplaceAbility { selector, .. }
+            | O::ChangePresence { selector, .. } => {
+                selectors.insert(*selector);
+            }
+            O::Shield {
+                selector, effect, ..
+            }
+            | O::ApplyEffect {
+                selector, effect, ..
+            } => {
+                selectors.insert(*selector);
+                effects.insert(*effect);
+            }
+            O::QueueAction {
+                actor_selector,
+                target_selector,
+                ..
+            } => {
+                selectors.insert(*actor_selector);
+                selectors.insert(*target_selector);
+            }
+            O::GrantExtraTurn { actor_selector } => {
+                selectors.insert(*actor_selector);
+            }
+            O::Summon { owner_selector, .. } => {
+                selectors.insert(*owner_selector);
+            }
+            O::SetSlot { .. }
+            | O::AddSlot { .. }
+            | O::ModifyStateSlot { .. }
+            | O::CreateCountdown { .. }
+            | O::EmitRuleEvent { .. }
+            | O::ProposeReplacement { .. }
+            | O::InvokeNative { .. } => {}
+        }
+    }
+    (
+        selectors.into_iter().collect::<Vec<_>>().into_boxed_slice(),
+        effects.into_iter().collect::<Vec<_>>().into_boxed_slice(),
+    )
 }
 
 fn lower_operation(
