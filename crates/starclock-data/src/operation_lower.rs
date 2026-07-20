@@ -3,7 +3,7 @@
 use std::collections::BTreeSet;
 
 use starclock_combat::{
-    AbilityId, EffectDefinitionId, PresenceState, ProgramId, Rounding, SelectorId,
+    AbilityId, EffectDefinitionId, NativeHandlerId, PresenceState, ProgramId, Rounding, SelectorId,
     UnitDefinitionId,
     formula::model::{CombatElement, DamageClass},
     rule::{
@@ -50,7 +50,10 @@ impl ProgramLookup for SimulationCatalog {
     }
 }
 
-pub(super) fn convert(config: &SoraConfig) -> Result<Vec<RuleProgramDefinition>, CatalogLoadError> {
+pub(super) fn convert(
+    config: &SoraConfig,
+    native_handlers: &BTreeSet<NativeHandlerId>,
+) -> Result<Vec<RuleProgramDefinition>, CatalogLoadError> {
     let mut programs = config
         .program()
         .ordered_rows()
@@ -76,7 +79,7 @@ pub(super) fn convert(config: &SoraConfig) -> Result<Vec<RuleProgramDefinition>,
                         .operation()
                         .get(operation_id)
                         .ok_or_else(|| domain_fail(format!("missing operation {operation_id}")))
-                        .and_then(|operation| lower_operation(config, operation))
+                        .and_then(|operation| lower_operation(config, operation, native_handlers))
                         .map(ProgramStep::Operation),
                     _ => Err(domain_fail(format!(
                         "probe program {} uses an unsupported control-flow row",
@@ -97,6 +100,7 @@ pub(super) fn convert(config: &SoraConfig) -> Result<Vec<RuleProgramDefinition>,
 fn lower_operation(
     config: &SoraConfig,
     row: &generated::operation::Operation,
+    native_handlers: &BTreeSet<NativeHandlerId>,
 ) -> Result<RuleOperationTemplate, CatalogLoadError> {
     if row.condition_id.is_some() {
         return Err(domain_fail(format!(
@@ -352,6 +356,19 @@ fn lower_operation(
         Payload::EmitRuleEvent { .. } if row.target_selector_id.is_none() => {
             RuleOperationTemplate::CreateCountdown {
                 code: positive(row.id)?,
+            }
+        }
+        Payload::InvokeNativeHandler { native_handler_id } => {
+            let handler = crate::native_handler_lower::handler_id(*native_handler_id)?;
+            if !native_handlers.contains(&handler) {
+                return Err(domain_fail(format!(
+                    "operation {} invokes an unregistered native handler {}",
+                    row.id, native_handler_id
+                )));
+            }
+            RuleOperationTemplate::InvokeNative {
+                handler,
+                arguments: Box::new([]),
             }
         }
         _ => {

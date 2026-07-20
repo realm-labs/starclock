@@ -72,13 +72,15 @@ evaluation input plus validated typed arguments and returns ordinary
 `RuleEmission` values. It has no mutable battle handle, dynamic library name,
 filesystem/network/time access or global mutable registry.
 
-An enabled authoring requirement must match handler domain, version and
-argument-schema digest and must carry a written IR-insufficiency decision.
-Every registration also requires a determinism note, owner and removal
-condition. B1 registers no production/content handler; its only implementation
-is a test-local synthetic echo used to prove that native and equivalent IR
-produce the same emission shape. The manifest-wide content-ID and admitted-
-handler audit remains the terminal review in `G01-P4-B10`.
+An enabled authoring requirement must match handler domain, stable key, version,
+argument-schema digest, determinism note, owner, written IR-insufficiency
+decision and removal condition exactly. B1 registered no production/content
+handler; its only implementation was a test-local synthetic echo used to prove
+that native and equivalent IR produce the same emission shape. `G01-P4-B10`
+completed the manifest-wide V1a review: all eight probe scopes remain
+expressible through typed IR, the production registry is explicitly empty, and
+the universal repository gate rejects scattered content-ID branches. See the
+[native-handler and content-branch audit](native-handler-and-content-branch-audit.md).
 
 ## Focused evidence
 

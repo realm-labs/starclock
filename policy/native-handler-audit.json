@@ -1,0 +1,77 @@
+{
+  "schema_revision": "starclock.native-handler-audit.v1",
+  "registry_revision": "native-registry-v1",
+  "admitted_handlers": [],
+  "v1a_reviews": [
+    {
+      "probe": "aglaea-memosprite",
+      "forms": ["aglaea"],
+      "outcome": "ir-sufficient",
+      "decision": "Typed Summon, ChangePresence and Despawn proposals plus generic link policies express the reviewed memosprite lifecycle.",
+      "evidence": ["config/probes/v1a/aglaea-memosprite/golden.json", "crates/starclock-combat/tests/linked_lifecycle.rs"],
+      "admitted_handler_ids": []
+    },
+    {
+      "probe": "asta-modifier",
+      "forms": ["asta"],
+      "outcome": "ir-sufficient",
+      "decision": "Typed slots, modifier stacking groups, dynamic stat expressions, effects and reset policies express the reviewed Charging and Speed behavior.",
+      "evidence": ["config/probes/v1a/asta-modifier/golden.json", "crates/starclock-combat/tests/modifier_pipeline.rs"],
+      "admitted_handler_ids": []
+    },
+    {
+      "probe": "clara-counter",
+      "forms": ["clara"],
+      "outcome": "ir-sufficient",
+      "decision": "After-hit triggers, cause-role selectors, bounded slots and queued Counter actions express the reviewed counter and charge behavior.",
+      "evidence": ["config/probes/v1a/clara-counter/golden.json", "crates/starclock-combat/tests/reaction_scheduler.rs"],
+      "admitted_handler_ids": []
+    },
+    {
+      "probe": "firefly-damage",
+      "forms": ["firefly"],
+      "outcome": "ir-sufficient",
+      "decision": "Checked HP/resource operations, weakness, Toughness, Super Break, effects and formula-stage expressions express the reviewed damage behavior.",
+      "evidence": ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-combat/tests/damage_sustain_pipeline.rs", "crates/starclock-combat/tests/toughness_formula.rs"],
+      "admitted_handler_ids": []
+    },
+    {
+      "probe": "firefly-transform",
+      "forms": ["firefly"],
+      "outcome": "ir-sufficient",
+      "decision": "Typed Transform, ReplaceAbility and ChangePresence proposals express the reviewed form transition without content-specific resolver code.",
+      "evidence": ["config/probes/v1a/firefly-transform/golden.json", "crates/starclock-combat/tests/linked_lifecycle.rs"],
+      "admitted_handler_ids": []
+    },
+    {
+      "probe": "kafka-dot",
+      "forms": ["kafka"],
+      "outcome": "ir-sufficient",
+      "decision": "Typed DoT application, snapshot policy, tagged detonation, chance checks and queued follow-up actions express the reviewed behavior.",
+      "evidence": ["config/probes/v1a/kafka-dot/golden.json", "crates/starclock-combat/tests/effect_resource_pipeline.rs"],
+      "admitted_handler_ids": []
+    },
+    {
+      "probe": "trailblazer-elation",
+      "forms": ["trailblazer-elation"],
+      "outcome": "ir-sufficient",
+      "decision": "Generic keyed team resources, forced Skill payment, source ownership and Elation damage express the reviewed shared behavior.",
+      "evidence": ["config/probes/v1a/trailblazer-elation/golden.json", "crates/starclock-combat/tests/elation_subsystem.rs"],
+      "admitted_handler_ids": []
+    },
+    {
+      "probe": "yao-guang-elation",
+      "forms": ["yao-guang-elation"],
+      "outcome": "ir-sufficient",
+      "decision": "Generic shared actors, keyed team resources, forced Skills and Elation damage express the reviewed shared behavior.",
+      "evidence": ["config/probes/v1a/yao-guang-elation/golden.json", "crates/starclock-combat/tests/elation_subsystem.rs"],
+      "admitted_handler_ids": []
+    }
+  ],
+  "content_branch_audit": {
+    "roots": ["crates/starclock-combat/src", "crates/starclock-rules/src"],
+    "forbidden_content_type_tokens": ["CharacterId", "LightConeId", "EidolonId", "SuperimpositionId", "RelicSetId"],
+    "forbidden_v1a_symbols": ["aglaea", "asta", "clara", "firefly", "kafka", "trailblazer", "yao_guang", "yaoguang", "punchline", "certified_banger"],
+    "definition_id_types": ["AbilityId", "EffectDefinitionId", "NativeHandlerId", "RuleId", "SourceDefinitionId", "UnitDefinitionId"]
+  }
+}

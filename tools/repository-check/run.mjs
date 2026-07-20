@@ -13,6 +13,7 @@ const commands = [
   ["node", "tools/workspace/verify-dependencies.mjs"],
   ["node", "tools/ci/verify-workflow.mjs"],
   ["node", "tools/repository-check/verify-source-policy.mjs"],
+  ["node", "tools/repository-check/verify-native-handlers.mjs"],
   ["node", "tools/repository-check/verify-generated-drift.mjs", ...(includeSourceCache ? ["--with-source-cache"] : [])],
   ["node", "tools/benchmark/verify.mjs"],
   ["node", "tools/config-probes/verify-asta-modifier.mjs"],

@@ -32,11 +32,12 @@ pub(super) fn convert(
     config: &SoraConfig,
     mode: LoadMode,
     identities: &BTreeMap<u32, &IdentityDefinition>,
+    native_handlers: &BTreeSet<NativeHandlerId>,
 ) -> Result<Vec<RuleDataDefinition>, CatalogLoadError> {
     let mut rules = config
         .rule_definition()
         .ordered_rows()
-        .map(|row| lower_rule(config, row, mode, identities))
+        .map(|row| lower_rule(config, row, mode, identities, native_handlers))
         .collect::<Result<Vec<_>, _>>()?;
     rules.sort_unstable_by_key(|rule| rule.id);
     Ok(rules)
@@ -47,6 +48,7 @@ fn lower_rule(
     row: &generated::rule_definition::RuleDefinition,
     mode: LoadMode,
     identities: &BTreeMap<u32, &IdentityDefinition>,
+    native_handlers: &BTreeSet<NativeHandlerId>,
 ) -> Result<RuleDataDefinition, CatalogLoadError> {
     if row.domain != rule_domain::RuleDomain::Battle {
         return Err(domain_fail(format!(
@@ -54,7 +56,11 @@ fn lower_rule(
             row.id
         )));
     }
-    if row.native_handler_id.is_some() {
+    let native_handler = row
+        .native_handler_id
+        .map(crate::native_handler_lower::handler_id)
+        .transpose()?;
+    if native_handler.is_some_and(|handler| !native_handlers.contains(&handler)) {
         return Err(domain_fail(format!(
             "rule {} requires an unregistered native handler",
             row.id
@@ -119,7 +125,7 @@ fn lower_rule(
         ),
         slots,
         triggers,
-        None::<NativeHandlerId>,
+        native_handler,
     );
     Ok(RuleDataDefinition {
         id: RuleId::new(raw_id).expect("positive rule ID"),

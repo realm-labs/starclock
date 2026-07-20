@@ -74,7 +74,8 @@ pub type BattleHandler =
 #[derive(Clone, Copy)]
 pub struct BattleHandlerRegistration {
     pub id: NativeHandlerId,
-    pub version: u32,
+    pub stable_key: &'static str,
+    pub version: &'static str,
     pub argument_schema_digest: [u8; 32],
     pub determinism_note: &'static str,
     pub owner: &'static str,
@@ -88,6 +89,7 @@ impl core::fmt::Debug for BattleHandlerRegistration {
         formatter
             .debug_struct("BattleHandlerRegistration")
             .field("id", &self.id)
+            .field("stable_key", &self.stable_key)
             .field("version", &self.version)
             .field("argument_schema_digest", &self.argument_schema_digest)
             .field("determinism_note", &self.determinism_note)
@@ -99,13 +101,17 @@ impl core::fmt::Debug for BattleHandlerRegistration {
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NativeHandlerRequirement {
+pub struct NativeHandlerRequirement<'a> {
     pub id: NativeHandlerId,
+    pub stable_key: &'a str,
     pub domain: HandlerDomain,
-    pub version: u32,
+    pub version: &'a str,
     pub argument_schema_digest: [u8; 32],
+    pub determinism_note: &'a str,
+    pub owner: &'a str,
+    pub ir_insufficiency: &'a str,
+    pub removal_condition: &'a str,
     pub enabled: bool,
-    pub has_ir_insufficiency_decision: bool,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -113,11 +119,17 @@ pub enum RegistryErrorKind {
     InvalidRevision,
     NonCanonicalRegistration,
     InvalidRegistration,
+    InvalidRequirement,
     MissingRegistration,
     UnsupportedDomain,
+    StableKeyMismatch,
     VersionMismatch,
     ArgumentSchemaMismatch,
     MissingIrInsufficiencyDecision,
+    DeterminismNoteMismatch,
+    OwnerMismatch,
+    IrInsufficiencyMismatch,
+    RemovalConditionMismatch,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

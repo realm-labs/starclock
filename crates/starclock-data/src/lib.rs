@@ -14,6 +14,7 @@ pub mod bundle;
 pub mod catalog;
 mod effect_lower;
 mod modifier_lower;
+mod native_handler_lower;
 mod operation_lower;
 #[cfg(test)]
 mod probe_tests;

@@ -29,7 +29,7 @@ const METADATA_TABLES: [&str; 5] = [
     "EvidenceRecord",
     "SourceRecord",
 ];
-const LOWERED_TABLES: [&str; 23] = [
+const LOWERED_TABLES: [&str; 24] = [
     "Ability",
     "AbilityHitPlanBinding",
     "AbilityPhase",
@@ -44,6 +44,7 @@ const LOWERED_TABLES: [&str; 23] = [
     "ModifierDefinition",
     "ModifierFilter",
     "ModifierStackingGroup",
+    "NativeHandler",
     "Operation",
     "Program",
     "ProgramStep",
@@ -857,9 +858,10 @@ fn convert_combat(
             ));
         }
     }
+    let native_handlers = crate::native_handler_lower::audit(config)?;
     let modifiers = crate::modifier_lower::convert(config)?;
-    let programs = crate::operation_lower::convert(config)?;
-    let rules = crate::rule_lower::convert(config, mode, identities)?;
+    let programs = crate::operation_lower::convert(config, &native_handlers)?;
+    let rules = crate::rule_lower::convert(config, mode, identities, &native_handlers)?;
     Ok(CombatDefinitions {
         abilities: abilities.into_boxed_slice(),
         hit_plans: hit_plans.into_boxed_slice(),
