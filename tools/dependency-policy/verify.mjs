@@ -65,6 +65,12 @@ const replayManifest = fs.readFileSync(path.join(root, "crates", "starclock-repl
 assert(replayManifest.includes("sha2.workspace = true"), "replay SHA-256 dependency differs");
 const buildManifest = fs.readFileSync(path.join(root, "crates", "starclock-build", "Cargo.toml"), "utf8");
 assert(buildManifest.includes("sha2.workspace = true"), "build SHA-256 dependency differs");
+const activityManifest = fs.readFileSync(path.join(root, "crates", "starclock-activity", "Cargo.toml"), "utf8");
+assert(activityManifest.includes("sha2.workspace = true"), "activity SHA-256 dependency differs");
+const activityHashUsers = walk(path.join(root, "crates", "starclock-activity", "src"))
+  .filter((file) => file.endsWith(".rs") && /\bsha2::/.test(fs.readFileSync(file, "utf8")))
+  .map((file) => path.relative(root, file).replaceAll("\\", "/"));
+assert(JSON.stringify(activityHashUsers) === JSON.stringify(["crates/starclock-activity/src/codec.rs"]), `sha2 escaped the private activity codec: ${activityHashUsers.join(", ")}`);
 assert(combatManifest.includes("[dev-dependencies]") && combatManifest.includes("proptest.workspace = true"), "combat property dev-dependency differs");
 assert(replayManifest.includes("[dev-dependencies]") && replayManifest.includes("proptest.workspace = true"), "replay property dev-dependency differs");
 const cliManifest = fs.readFileSync(path.join(root, "crates", "starclock-cli", "Cargo.toml"), "utf8");

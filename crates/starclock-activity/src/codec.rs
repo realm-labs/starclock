@@ -1,0 +1,121 @@
+use sha2::{Digest, Sha256};
+
+macro_rules! digest_type {
+    ($name:ident, $description:literal, $checked:literal) => {
+        #[doc = $description]
+        #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+        pub struct $name([u8; 32]);
+
+        impl $name {
+            /// Creates a digest from canonical SHA-256 bytes.
+            #[must_use]
+            pub const fn new(bytes: [u8; 32]) -> Option<Self> {
+                if $checked && all_zero(&bytes) {
+                    None
+                } else {
+                    Some(Self(bytes))
+                }
+            }
+
+            /// Returns the exact canonical bytes.
+            #[must_use]
+            pub const fn bytes(self) -> [u8; 32] {
+                self.0
+            }
+        }
+    };
+}
+
+const fn all_zero(bytes: &[u8; 32]) -> bool {
+    let mut index = 0;
+    while index < bytes.len() {
+        if bytes[index] != 0 {
+            return false;
+        }
+        index += 1;
+    }
+    true
+}
+
+digest_type!(
+    ActivityDefinitionDigest,
+    "Digest of the immutable activity definition.",
+    true
+);
+digest_type!(
+    ActivityConfigDigest,
+    "Digest of the complete validated activity configuration.",
+    true
+);
+digest_type!(
+    ParticipantLockDigest,
+    "Digest of the canonical participant/loadout lock.",
+    true
+);
+digest_type!(
+    BuildDigest,
+    "Opaque digest of an upstream selected combatant build.",
+    true
+);
+digest_type!(
+    EventDigest,
+    "Digest of the complete ordered battle-event stream.",
+    true
+);
+digest_type!(
+    BattleResultDigest,
+    "Digest of one returned battle-result envelope.",
+    true
+);
+digest_type!(
+    ActivityStateHash,
+    "SHA-256 digest of canonical activity state at a command boundary.",
+    false
+);
+
+pub(crate) struct CanonicalWriter(Sha256);
+
+impl CanonicalWriter {
+    pub(crate) fn new(domain: &[u8]) -> Self {
+        let mut writer = Self(Sha256::new());
+        writer.bytes(domain);
+        writer
+    }
+
+    pub(crate) fn byte(&mut self, value: u8) {
+        self.0.update([value]);
+    }
+
+    pub(crate) fn bool(&mut self, value: bool) {
+        self.byte(u8::from(value));
+    }
+
+    pub(crate) fn u32(&mut self, value: u32) {
+        self.0.update(value.to_be_bytes());
+    }
+
+    pub(crate) fn u64(&mut self, value: u64) {
+        self.0.update(value.to_be_bytes());
+    }
+
+    pub(crate) fn i64(&mut self, value: i64) {
+        self.0.update(value.to_be_bytes());
+    }
+
+    pub(crate) fn bytes(&mut self, value: &[u8]) {
+        self.u64(value.len() as u64);
+        self.0.update(value);
+    }
+
+    pub(crate) fn text(&mut self, value: &str) {
+        self.bytes(value.as_bytes());
+    }
+
+    pub(crate) fn digest(&mut self, value: [u8; 32]) {
+        self.0.update(value);
+    }
+
+    pub(crate) fn finish(self) -> [u8; 32] {
+        self.0.finalize().into()
+    }
+}

@@ -34,7 +34,7 @@ generated types remain private. A fresh Windows x86-64 check of
 `sha2 = 0.11.0` with no default features. Rand's thread/system RNG features are
 disabled, generic distribution helpers are mechanically unused, and only the
 private Starclock wrapper names `ChaCha8Rng`. SHA-256 is confined to canonical
-stream derivation. The nine newly resolved packages are recorded as one
+stream/state/digest encoders. The nine newly resolved packages are recorded as one
 reviewed group. A fresh locked Windows x86-64 combat check including numeric,
 RNG and hash packages took 3,500 ms.
 
@@ -56,7 +56,8 @@ numeric faults without changing the reviewed dependency graph.
 ## RNG and hashing boundary
 
 Only `starclock-combat/src/rng/engine.rs` names `rand`. SHA-256 is confined to
-combat stream derivation and the replay crate's canonical hash sink. Public
+combat stream/state derivation and the build, activity and replay crates'
+private canonical encoders. Public
 consumers see Starclock seed, purpose, sample, selection, digest and error
 types. The wrapper never implements `Clone`, and no dependency generator,
 distribution or digest type is re-exported.
@@ -72,6 +73,11 @@ activity/combat dependencies took 4,014 ms.
 `G01-P5-B5` reuses that exact package as a private `starclock-build` dependency
 for canonical definition, catalog, selected-build and resolved-spec encoding.
 It adds no registry package and does not expose a dependency digest type.
+
+`G01-P6-B1` reuses the same package only in
+`starclock-activity/src/codec.rs` for purpose-derived battle seeds and canonical
+participant-lock, battle-result and activity-state hashes. Public APIs expose
+only Starclock-owned fixed digest wrappers. It adds no registry package.
 
 ## Property-test boundary
 
