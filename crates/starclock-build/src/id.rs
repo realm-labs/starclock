@@ -20,3 +20,4 @@ macro_rules! build_id {
 
 build_id!(TraceNodeId);
 build_id!(EidolonDefinitionId);
+build_id!(LightConeId);

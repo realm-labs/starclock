@@ -9,6 +9,7 @@ use starclock_build::{
     compiler::{BuildCompileErrorKind, LoadoutCompiler},
     eidolon::{EidolonDefinition, EidolonSetDefinition},
     id::{EidolonDefinitionId, TraceNodeId},
+    light_cone::CombatPath,
     patch::BuildPatch,
     report::BuildValidationStage,
     spec::{CombatantBuildSpec, EidolonLevel, PromotionStage},
@@ -204,6 +205,7 @@ fn build_catalog(combat: &CombatCatalog, reverse: bool, add_trace: bool) -> Buil
 fn base_character() -> CharacterBuildDefinition {
     CharacterBuildDefinition::new(
         form(1),
+        CombatPath::Harmony,
         CharacterStatRow::new(
             UnitLevel::new(80).unwrap(),
             promotion(6),

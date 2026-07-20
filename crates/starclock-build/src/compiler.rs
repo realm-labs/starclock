@@ -3,13 +3,14 @@
 use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_combat::{
-    AbilityId, CombatantSpecError, ModifierDefinitionId, ResolvedCombatantSpec,
-    ResolvedDefinitionBindings, RuleBundleId, catalog::CombatCatalog,
+    AbilityId, CombatantSpecError, Hp, ModifierDefinitionId, ResolvedCombatantSpec,
+    ResolvedDefinitionBindings, RuleBundleId, StatValue, catalog::CombatCatalog,
 };
 
 use crate::{
     ability::{AbilityInvestment, AbilityLevel},
     catalog::BuildCatalog,
+    light_cone::{LightConeApplicability, LightConeStatRow},
     output::CompiledBuild,
     patch::BuildPatch,
     report::{BuildCompilationReport, BuildValidationEntry, BuildValidationStage},
@@ -24,6 +25,9 @@ pub enum BuildCompileErrorKind {
     InvalidAbilitySelection,
     InvalidTraceSelection,
     InvalidEidolonSelection,
+    UnknownLightCone,
+    UnsupportedLightConeLevel,
+    InvalidLightConeStats,
     PatchConflict,
     InvalidCombatBindings,
     InvalidCombatant,
@@ -64,7 +68,7 @@ impl LoadoutCompiler {
         combat_catalog: &CombatCatalog,
         spec: &CombatantBuildSpec,
     ) -> Result<CompiledBuild, BuildCompileError> {
-        let mut entries = Vec::with_capacity(8);
+        let mut entries = Vec::with_capacity(9);
         if build_catalog.compatible_combat_revision() != combat_catalog.revision().as_str()
             || build_catalog.compatible_combat_digest() != combat_catalog.digest()
         {
@@ -148,6 +152,32 @@ impl LoadoutCompiler {
             BuildValidationStage::EidolonSelection,
         ));
 
+        let base_stats =
+            match apply_light_cone(build_catalog, definition, stat_row, spec, &mut workspace) {
+                Ok(stats) => stats,
+                Err(error) => {
+                    let kind = match error {
+                        LightConeCompileError::Unknown => BuildCompileErrorKind::UnknownLightCone,
+                        LightConeCompileError::UnsupportedLevel => {
+                            BuildCompileErrorKind::UnsupportedLightConeLevel
+                        }
+                        LightConeCompileError::Patch => BuildCompileErrorKind::PatchConflict,
+                        LightConeCompileError::StatOverflow => {
+                            BuildCompileErrorKind::InvalidLightConeStats
+                        }
+                    };
+                    return Err(failure(
+                        spec,
+                        entries,
+                        BuildValidationStage::LightConeSelection,
+                        kind,
+                    ));
+                }
+            };
+        entries.push(BuildValidationEntry::passed(
+            BuildValidationStage::LightConeSelection,
+        ));
+
         if combat_catalog.unit(definition.form()).is_none()
             || workspace
                 .abilities
@@ -189,11 +219,12 @@ impl LoadoutCompiler {
         let combatant = ResolvedCombatantSpec::new(
             definition.form(),
             stat_row.level(),
-            stat_row.maximum_hp(),
+            base_stats.maximum_hp,
             stat_row.speed(),
             bindings,
             definition.combatant_digest(),
         )
+        .map(|combatant| combatant.with_base_attack_defense(base_stats.attack, base_stats.defense))
         .map_err(|error| combatant_failure(spec, entries.clone(), error))?;
         entries.push(BuildValidationEntry::passed(
             BuildValidationStage::CombatantConstruction,
@@ -201,6 +232,85 @@ impl LoadoutCompiler {
         let report = BuildCompilationReport::new(spec.form(), spec.level(), entries);
         Ok(CompiledBuild::new(combatant, report))
     }
+}
+
+#[derive(Clone, Copy)]
+struct ResolvedBaseStats {
+    maximum_hp: Hp,
+    attack: StatValue,
+    defense: StatValue,
+}
+
+#[derive(Clone, Copy)]
+enum LightConeCompileError {
+    Unknown,
+    UnsupportedLevel,
+    Patch,
+    StatOverflow,
+}
+
+fn apply_light_cone(
+    catalog: &BuildCatalog,
+    character: &crate::catalog::CharacterBuildDefinition,
+    character_stats: &crate::catalog::CharacterStatRow,
+    spec: &CombatantBuildSpec,
+    workspace: &mut CompilationWorkspace,
+) -> Result<ResolvedBaseStats, LightConeCompileError> {
+    let Some(loadout) = spec.light_cone() else {
+        return Ok(ResolvedBaseStats {
+            maximum_hp: character_stats.maximum_hp(),
+            attack: character_stats.attack(),
+            defense: character_stats.defense(),
+        });
+    };
+    let cone = catalog
+        .light_cone(loadout.definition())
+        .ok_or(LightConeCompileError::Unknown)?;
+    let row = cone
+        .stat_row(loadout.level(), loadout.promotion())
+        .ok_or(LightConeCompileError::UnsupportedLevel)?;
+    let passive_active = match cone.applicability() {
+        LightConeApplicability::MatchingPath => cone.path() == character.path(),
+        LightConeApplicability::Always => true,
+        LightConeApplicability::BaseStatsOnly => false,
+    };
+    if passive_active {
+        for patch in cone.passive_rank(loadout.superimposition()).patches() {
+            workspace
+                .apply_patch(*patch)
+                .map_err(|()| LightConeCompileError::Patch)?;
+        }
+    }
+    combine_base_stats(character_stats, row)
+}
+
+fn combine_base_stats(
+    character: &crate::catalog::CharacterStatRow,
+    cone: &LightConeStatRow,
+) -> Result<ResolvedBaseStats, LightConeCompileError> {
+    let maximum_hp = character
+        .maximum_hp()
+        .get()
+        .checked_add(cone.maximum_hp().get())
+        .and_then(|raw| Hp::new(raw).ok())
+        .ok_or(LightConeCompileError::StatOverflow)?;
+    let attack = character
+        .attack()
+        .scaled()
+        .checked_add(cone.attack().scaled())
+        .and_then(|raw| StatValue::from_scaled(raw).ok())
+        .ok_or(LightConeCompileError::StatOverflow)?;
+    let defense = character
+        .defense()
+        .scaled()
+        .checked_add(cone.defense().scaled())
+        .and_then(|raw| StatValue::from_scaled(raw).ok())
+        .ok_or(LightConeCompileError::StatOverflow)?;
+    Ok(ResolvedBaseStats {
+        maximum_hp,
+        attack,
+        defense,
+    })
 }
 
 fn valid_ability_input(

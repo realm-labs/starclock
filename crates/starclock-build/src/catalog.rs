@@ -2,13 +2,15 @@
 
 use starclock_combat::{
     AbilityId, CombatantSpecDigest, Hp, ModifierDefinitionId, ResolvedDefinitionBindings,
-    RuleBundleId, Speed, UnitDefinitionId, UnitLevel,
+    RuleBundleId, Speed, StatValue, UnitDefinitionId, UnitLevel,
     catalog::{CatalogDigest, CombatCatalog},
 };
 
 use crate::{
     ability::AbilityLevelTable,
     eidolon::{EidolonSetDefinition, EidolonSetError},
+    id::LightConeId,
+    light_cone::{CombatPath, LightConeDefinition, LightConeDefinitionError},
     patch::BuildPatch,
     spec::PromotionStage,
     trace::{TraceGraphDefinition, TraceGraphError},
@@ -38,6 +40,7 @@ impl BuildCatalogRevision {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CharacterBuildDefinition {
     form: UnitDefinitionId,
+    path: CombatPath,
     stats: Box<[CharacterStatRow]>,
     bindings: ResolvedDefinitionBindings,
     ability_levels: Box<[AbilityLevelTable]>,
@@ -50,12 +53,14 @@ impl CharacterBuildDefinition {
     #[must_use]
     pub fn new(
         form: UnitDefinitionId,
+        path: CombatPath,
         stat: CharacterStatRow,
         bindings: ResolvedDefinitionBindings,
         combatant_digest: CombatantSpecDigest,
     ) -> Self {
         Self {
             form,
+            path,
             stats: vec![stat].into_boxed_slice(),
             bindings,
             ability_levels: Box::new([]),
@@ -92,6 +97,10 @@ impl CharacterBuildDefinition {
     #[must_use]
     pub const fn form(&self) -> UnitDefinitionId {
         self.form
+    }
+    #[must_use]
+    pub const fn path(&self) -> CombatPath {
+        self.path
     }
     #[must_use]
     pub fn stat_row(
@@ -153,23 +162,28 @@ pub struct CharacterStatRow {
     level: UnitLevel,
     promotion: PromotionStage,
     maximum_hp: Hp,
+    attack: StatValue,
+    defense: StatValue,
     speed: Speed,
 }
 
 impl CharacterStatRow {
     #[must_use]
-    pub const fn new(
-        level: UnitLevel,
-        promotion: PromotionStage,
-        maximum_hp: Hp,
-        speed: Speed,
-    ) -> Self {
+    pub fn new(level: UnitLevel, promotion: PromotionStage, maximum_hp: Hp, speed: Speed) -> Self {
         Self {
             level,
             promotion,
             maximum_hp,
+            attack: StatValue::from_scaled(0).expect("zero is a valid stat"),
+            defense: StatValue::from_scaled(0).expect("zero is a valid stat"),
             speed,
         }
+    }
+    #[must_use]
+    pub const fn with_attack_defense(mut self, attack: StatValue, defense: StatValue) -> Self {
+        self.attack = attack;
+        self.defense = defense;
+        self
     }
     #[must_use]
     pub const fn level(self) -> UnitLevel {
@@ -184,6 +198,14 @@ impl CharacterStatRow {
         self.maximum_hp
     }
     #[must_use]
+    pub const fn attack(self) -> StatValue {
+        self.attack
+    }
+    #[must_use]
+    pub const fn defense(self) -> StatValue {
+        self.defense
+    }
+    #[must_use]
     pub const fn speed(self) -> Speed {
         self.speed
     }
@@ -196,6 +218,7 @@ pub struct BuildCatalog {
     compatible_combat_revision: Box<str>,
     compatible_combat_digest: CatalogDigest,
     characters: Box<[CharacterBuildDefinition]>,
+    light_cones: Box<[LightConeDefinition]>,
 }
 
 impl BuildCatalog {
@@ -221,6 +244,16 @@ impl BuildCatalog {
     pub fn character_ids(&self) -> impl ExactSizeIterator<Item = UnitDefinitionId> + '_ {
         self.characters.iter().map(CharacterBuildDefinition::form)
     }
+    #[must_use]
+    pub fn light_cone(&self, id: LightConeId) -> Option<&LightConeDefinition> {
+        self.light_cones
+            .binary_search_by_key(&id, LightConeDefinition::id)
+            .ok()
+            .map(|index| &self.light_cones[index])
+    }
+    pub fn light_cone_ids(&self) -> impl ExactSizeIterator<Item = LightConeId> + '_ {
+        self.light_cones.iter().map(LightConeDefinition::id)
+    }
 }
 
 /// Validated catalog builder; input order is never retained as semantics.
@@ -229,6 +262,7 @@ pub struct BuildCatalogBuilder {
     revision: BuildCatalogRevision,
     compatible_combat_revision: Box<str>,
     characters: Vec<CharacterBuildDefinition>,
+    light_cones: Vec<LightConeDefinition>,
 }
 
 impl BuildCatalogBuilder {
@@ -238,11 +272,16 @@ impl BuildCatalogBuilder {
             revision,
             compatible_combat_revision: compatible_combat_revision.into(),
             characters: Vec::new(),
+            light_cones: Vec::new(),
         })
     }
 
     pub fn add_character(&mut self, definition: CharacterBuildDefinition) {
         self.characters.push(definition);
+    }
+
+    pub fn add_light_cone(&mut self, definition: LightConeDefinition) {
+        self.light_cones.push(definition);
     }
 
     pub fn build(mut self, combat: &CombatCatalog) -> Result<BuildCatalog, BuildCatalogError> {
@@ -267,11 +306,27 @@ impl BuildCatalogBuilder {
         for definition in &mut self.characters {
             validate_character(definition, combat)?;
         }
+        self.light_cones
+            .sort_unstable_by_key(LightConeDefinition::id);
+        if let Some(pair) = self
+            .light_cones
+            .windows(2)
+            .find(|pair| pair[0].id() == pair[1].id())
+        {
+            return Err(light_cone_error(
+                BuildCatalogErrorKind::DuplicateLightCone,
+                pair[0].id(),
+            ));
+        }
+        for definition in &mut self.light_cones {
+            validate_light_cone(definition, combat)?;
+        }
         Ok(BuildCatalog {
             revision: self.revision,
             compatible_combat_revision: self.compatible_combat_revision,
             compatible_combat_digest: combat.digest(),
             characters: self.characters.into_boxed_slice(),
+            light_cones: self.light_cones.into_boxed_slice(),
         })
     }
 }
@@ -604,8 +659,60 @@ fn validate_level_adjustments(
     Ok(())
 }
 
+fn validate_light_cone(
+    definition: &mut LightConeDefinition,
+    combat: &CombatCatalog,
+) -> Result<(), BuildCatalogError> {
+    let id = definition.id();
+    definition.canonicalize().map_err(|error| {
+        light_cone_error(
+            match error {
+                LightConeDefinitionError::InvalidStatCurve => {
+                    BuildCatalogErrorKind::InvalidLightConeStatCurve
+                }
+                LightConeDefinitionError::IncompletePassiveRanks => {
+                    BuildCatalogErrorKind::IncompleteLightConePassive
+                }
+            },
+            id,
+        )
+    })?;
+    for rank in definition.passive_ranks() {
+        if rank.patches().is_empty() {
+            return Err(light_cone_error(
+                BuildCatalogErrorKind::InvalidLightConePassive,
+                id,
+            ));
+        }
+        let mut rules = std::collections::BTreeSet::new();
+        let mut modifiers = std::collections::BTreeSet::new();
+        for patch in rank.patches() {
+            let valid = match *patch {
+                BuildPatch::AddRuleBundle(rule) => {
+                    combat.rule_bundle(rule).is_some() && rules.insert(rule)
+                }
+                BuildPatch::AddModifier(modifier) => {
+                    combat.modifier(modifier).is_some() && modifiers.insert(modifier)
+                }
+                _ => false,
+            };
+            if !valid {
+                return Err(light_cone_error(
+                    BuildCatalogErrorKind::InvalidLightConePassive,
+                    id,
+                ));
+            }
+        }
+    }
+    Ok(())
+}
+
 const fn character_error(kind: BuildCatalogErrorKind, form: UnitDefinitionId) -> BuildCatalogError {
     BuildCatalogError::new(kind, Some(form))
+}
+
+const fn light_cone_error(kind: BuildCatalogErrorKind, id: LightConeId) -> BuildCatalogError {
+    BuildCatalogError::new_light_cone(kind, id)
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -628,17 +735,33 @@ pub enum BuildCatalogErrorKind {
     InvalidEidolonSet,
     InvalidEidolonPatch,
     InvalidAbilityAdjustment,
+    DuplicateLightCone,
+    InvalidLightConeStatCurve,
+    IncompleteLightConePassive,
+    InvalidLightConePassive,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BuildCatalogError {
     kind: BuildCatalogErrorKind,
     form: Option<UnitDefinitionId>,
+    light_cone: Option<LightConeId>,
 }
 
 impl BuildCatalogError {
     const fn new(kind: BuildCatalogErrorKind, form: Option<UnitDefinitionId>) -> Self {
-        Self { kind, form }
+        Self {
+            kind,
+            form,
+            light_cone: None,
+        }
+    }
+    const fn new_light_cone(kind: BuildCatalogErrorKind, light_cone: LightConeId) -> Self {
+        Self {
+            kind,
+            form: None,
+            light_cone: Some(light_cone),
+        }
     }
     #[must_use]
     pub const fn kind(self) -> BuildCatalogErrorKind {
@@ -647,6 +770,10 @@ impl BuildCatalogError {
     #[must_use]
     pub const fn form(self) -> Option<UnitDefinitionId> {
         self.form
+    }
+    #[must_use]
+    pub const fn light_cone(self) -> Option<LightConeId> {
+        self.light_cone
     }
 }
 

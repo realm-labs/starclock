@@ -11,6 +11,7 @@ pub mod catalog;
 pub mod compiler;
 pub mod eidolon;
 pub mod id;
+pub mod light_cone;
 pub mod output;
 pub mod patch;
 pub mod report;

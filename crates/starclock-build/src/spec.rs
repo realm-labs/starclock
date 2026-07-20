@@ -2,7 +2,11 @@
 
 use starclock_combat::{UnitDefinitionId, UnitLevel};
 
-use crate::{ability::AbilityInvestment, id::TraceNodeId};
+use crate::{
+    ability::AbilityInvestment,
+    id::{LightConeId, TraceNodeId},
+    light_cone::{LightConeLevel, Superimposition},
+};
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct PromotionStage(u8);
@@ -40,6 +44,47 @@ impl EidolonLevel {
     }
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct LightConeLoadout {
+    definition: LightConeId,
+    level: LightConeLevel,
+    promotion: PromotionStage,
+    superimposition: Superimposition,
+}
+
+impl LightConeLoadout {
+    #[must_use]
+    pub const fn new(
+        definition: LightConeId,
+        level: LightConeLevel,
+        promotion: PromotionStage,
+        superimposition: Superimposition,
+    ) -> Self {
+        Self {
+            definition,
+            level,
+            promotion,
+            superimposition,
+        }
+    }
+    #[must_use]
+    pub const fn definition(self) -> LightConeId {
+        self.definition
+    }
+    #[must_use]
+    pub const fn level(self) -> LightConeLevel {
+        self.level
+    }
+    #[must_use]
+    pub const fn promotion(self) -> PromotionStage {
+        self.promotion
+    }
+    #[must_use]
+    pub const fn superimposition(self) -> Superimposition {
+        self.superimposition
+    }
+}
+
 /// Minimal exact build input. Later Phase 5 batches extend this value with
 /// ability, Trace, Eidolon and equipment selections.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -50,6 +95,7 @@ pub struct CombatantBuildSpec {
     ability_levels: Box<[AbilityInvestment]>,
     traces: Box<[TraceNodeId]>,
     eidolon: EidolonLevel,
+    light_cone: Option<LightConeLoadout>,
 }
 
 impl CombatantBuildSpec {
@@ -62,6 +108,7 @@ impl CombatantBuildSpec {
             ability_levels: Box::new([]),
             traces: Box::new([]),
             eidolon: EidolonLevel::E0,
+            light_cone: None,
         }
     }
     pub fn with_ability_levels(
@@ -92,6 +139,11 @@ impl CombatantBuildSpec {
         self
     }
     #[must_use]
+    pub fn with_light_cone(mut self, light_cone: LightConeLoadout) -> Self {
+        self.light_cone = Some(light_cone);
+        self
+    }
+    #[must_use]
     pub const fn form(&self) -> UnitDefinitionId {
         self.form
     }
@@ -114,6 +166,10 @@ impl CombatantBuildSpec {
     #[must_use]
     pub const fn eidolon(&self) -> EidolonLevel {
         self.eidolon
+    }
+    #[must_use]
+    pub const fn light_cone(&self) -> Option<LightConeLoadout> {
+        self.light_cone
     }
 }
 

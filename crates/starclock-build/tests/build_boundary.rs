@@ -8,6 +8,7 @@ use starclock_build::{
     compiler::{BuildCompileErrorKind, LoadoutCompiler},
     eidolon::{EidolonDefinition, EidolonSetDefinition},
     id::EidolonDefinitionId,
+    light_cone::CombatPath,
     report::{BuildValidationOutcome, BuildValidationStage},
     spec::{CombatantBuildSpec, EidolonLevel, PromotionStage},
 };
@@ -58,6 +59,7 @@ fn catalog_canonicalizes_definition_order_and_compiles_only_combat_types() {
             BuildValidationStage::AbilitySelection,
             BuildValidationStage::TraceSelection,
             BuildValidationStage::EidolonSelection,
+            BuildValidationStage::LightConeSelection,
             BuildValidationStage::CombatBindings,
             BuildValidationStage::CombatantConstruction,
         ]
@@ -150,6 +152,7 @@ fn build_builder(compatible: &str) -> BuildCatalogBuilder {
 fn character(form: u32, bound_ability: u32) -> CharacterBuildDefinition {
     CharacterBuildDefinition::new(
         self::form(form),
+        CombatPath::Harmony,
         CharacterStatRow::new(
             UnitLevel::new(80).unwrap(),
             PromotionStage::new(6).unwrap(),

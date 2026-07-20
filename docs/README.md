@@ -78,6 +78,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 53. [Build catalog and compilation boundary](build-catalog-and-compilation-boundary.md) — independent build catalog/spec ownership, exact cross-catalog compatibility, typed validation reports and generic combat-only output.
 54. [Ability-level and Trace compilation](ability-level-and-trace-compilation.md) — exact level tables, canonical Trace graphs, typed unlock/stat/rule patches and order-invariant build output.
 55. [Eidolon compilation](eidolon-compilation.md) — exact E0-E6 selection, complete rank sets, ordered patches and deterministic replacement/conflict validation.
+56. [Light Cone compilation](light-cone-compilation.md) — exact level/promotion stats, explicit applicability, S1-S5 passive selection and valid/invalid wearer fixtures.
 
 ## Execution goals
 

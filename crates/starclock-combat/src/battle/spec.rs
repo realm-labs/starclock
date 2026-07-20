@@ -6,7 +6,7 @@ use crate::{
         AbilityId, EncounterId, EnemyDefinitionId, ModifierDefinitionId, RuleBundleId,
         UnitDefinitionId,
     },
-    numeric::domain::{Energy, Hp, Speed},
+    numeric::domain::{Energy, Hp, Speed, StatValue},
     toughness::model::ToughnessLayerSpec,
 };
 
@@ -199,6 +199,8 @@ pub struct ResolvedCombatantSpec {
     form: UnitDefinitionId,
     level: UnitLevel,
     maximum_hp: Hp,
+    base_attack: StatValue,
+    base_defense: StatValue,
     speed: Speed,
     current_energy: Energy,
     maximum_energy: Energy,
@@ -228,6 +230,8 @@ impl ResolvedCombatantSpec {
             form,
             level,
             maximum_hp,
+            base_attack: StatValue::from_scaled(0).expect("zero is a valid stat"),
+            base_defense: StatValue::from_scaled(0).expect("zero is a valid stat"),
             speed,
             current_energy: Energy::ZERO,
             maximum_energy: Energy::ZERO,
@@ -239,6 +243,14 @@ impl ResolvedCombatantSpec {
             modifiers: bindings.modifiers,
             digest,
         })
+    }
+
+    /// Attaches generic base ATK and DEF contributions resolved upstream.
+    #[must_use]
+    pub const fn with_base_attack_defense(mut self, attack: StatValue, defense: StatValue) -> Self {
+        self.base_attack = attack;
+        self.base_defense = defense;
+        self
     }
     /// Sets checked entry and maximum Energy for this resolved combatant.
     pub fn with_energy(
@@ -286,6 +298,16 @@ impl ResolvedCombatantSpec {
     #[must_use]
     pub const fn maximum_hp(&self) -> Hp {
         self.maximum_hp
+    }
+    /// Returns the resolved generic base ATK contribution.
+    #[must_use]
+    pub const fn base_attack(&self) -> StatValue {
+        self.base_attack
+    }
+    /// Returns the resolved generic base DEF contribution.
+    #[must_use]
+    pub const fn base_defense(&self) -> StatValue {
+        self.base_defense
     }
     /// Returns base entry Speed.
     #[must_use]
