@@ -180,7 +180,9 @@ pub(super) fn execute_action_plan(
             );
             let mut operation_scratch = HitOperationScratch::default();
             debug_assert_eq!(hit.invalidation, plan.targets.invalidation);
-            let targets = txn.resolve_hit_targets(plan.actor, &mut plan.targets)?;
+            let selected = txn.resolve_hit_targets(plan.actor, &mut plan.targets)?;
+            let targets =
+                project_hit_targets(txn, plan.actor, &plan.targets, hit.target_group, selected)?;
             let hit_cause = phase_cause
                 .with_hit(hit.id)
                 .with_primary_target(plan.targets.primary);
@@ -393,6 +395,34 @@ pub(super) fn execute_action_plan(
             tags: plan.tags,
         }),
     ))
+}
+
+fn project_hit_targets(
+    txn: &mut Transaction<'_>,
+    actor: crate::UnitId,
+    commitment: &crate::target::model::TargetCommitment,
+    group: crate::catalog::action::HitTargetGroup,
+    selected: Box<[crate::UnitId]>,
+) -> Result<Box<[crate::UnitId]>, BattleFault> {
+    use crate::catalog::action::HitTargetGroup;
+    let targets = match group {
+        HitTargetGroup::Primary => commitment
+            .primary
+            .or_else(|| selected.first().copied())
+            .into_iter()
+            .collect::<Vec<_>>(),
+        HitTargetGroup::Adjacent => selected
+            .iter()
+            .copied()
+            .filter(|target| Some(*target) != commitment.primary)
+            .collect(),
+        HitTargetGroup::Selected | HitTargetGroup::All => selected.into_vec(),
+        HitTargetGroup::BounceDraw => {
+            vec![txn.draw_bounce_target(actor, commitment.selector.relation())?]
+        }
+        HitTargetGroup::SelfTarget => vec![actor],
+    };
+    Ok(targets.into_boxed_slice())
 }
 
 fn apply_resource_costs(

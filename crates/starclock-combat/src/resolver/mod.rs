@@ -5,6 +5,7 @@ pub(crate) mod operation;
 pub(crate) mod operation_resource;
 pub(crate) mod schedule;
 pub(crate) mod settle;
+mod target;
 pub(crate) mod toughness;
 pub(crate) mod transaction;
 pub(crate) mod turn;

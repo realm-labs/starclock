@@ -280,6 +280,36 @@ pub enum TargetInvalidationPolicy {
     FailAction = 4,
 }
 
+/// Per-hit target projection authored independently from the ability selector.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum HitTargetGroup {
+    /// The controller-selected or retained primary target only.
+    Primary = 0,
+    /// Valid selected targets adjacent to the primary, excluding the primary.
+    Adjacent = 1,
+    /// The complete committed selector result for this hit.
+    Selected = 2,
+    /// Every target in the committed all-target selector result.
+    All = 3,
+    /// One deterministic RNG draw from the current legal target pool.
+    BounceDraw = 4,
+    /// The acting unit.
+    SelfTarget = 5,
+}
+
+/// Authored CRIT sampling relationship retained for later damage operations.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum HitCritPolicy {
+    /// Each target owns an independent CRIT sample.
+    PerTarget = 0,
+    /// All targets share one CRIT sample.
+    Shared = 1,
+    /// This hit cannot CRIT.
+    Never = 2,
+}
+
 /// Target semantics attached to one catalog selector definition.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UnitTargetSelector {
@@ -691,6 +721,10 @@ pub enum HitOperationDefinition {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ActionHitDefinition {
     operations: Box<[HitOperationDefinition]>,
+    target_group: HitTargetGroup,
+    damage_share: Ratio,
+    toughness_share: Ratio,
+    crit_policy: HitCritPolicy,
 }
 
 impl ActionHitDefinition {
@@ -699,12 +733,51 @@ impl ActionHitDefinition {
     pub fn new(operations: Vec<HitOperationDefinition>) -> Self {
         Self {
             operations: operations.into_boxed_slice(),
+            target_group: HitTargetGroup::Selected,
+            damage_share: Ratio::ONE,
+            toughness_share: Ratio::ONE,
+            crit_policy: HitCritPolicy::PerTarget,
         }
+    }
+    /// Attaches the validated authored targeting and ratio metadata for this hit.
+    #[must_use]
+    pub const fn with_profile(
+        mut self,
+        target_group: HitTargetGroup,
+        damage_share: Ratio,
+        toughness_share: Ratio,
+        crit_policy: HitCritPolicy,
+    ) -> Self {
+        self.target_group = target_group;
+        self.damage_share = damage_share;
+        self.toughness_share = toughness_share;
+        self.crit_policy = crit_policy;
+        self
     }
     /// Returns operations in authored execution order.
     #[must_use]
     pub fn operations(&self) -> &[HitOperationDefinition] {
         &self.operations
+    }
+    /// Returns the authored target projection for this hit.
+    #[must_use]
+    pub const fn target_group(&self) -> HitTargetGroup {
+        self.target_group
+    }
+    /// Returns this hit's exact share of the ability damage payload.
+    #[must_use]
+    pub const fn damage_share(&self) -> Ratio {
+        self.damage_share
+    }
+    /// Returns this hit's exact share of the ability Toughness payload.
+    #[must_use]
+    pub const fn toughness_share(&self) -> Ratio {
+        self.toughness_share
+    }
+    /// Returns the authored CRIT sampling relationship.
+    #[must_use]
+    pub const fn crit_policy(&self) -> HitCritPolicy {
+        self.crit_policy
     }
 }
 
@@ -719,7 +792,7 @@ pub struct AbilityActionDefinition {
 }
 
 impl AbilityActionDefinition {
-    /// Creates an action with one to 64 authored hits.
+    /// Creates an action with one to 100 authored hits.
     #[must_use]
     pub fn new(
         kind: AbilityKind,
@@ -727,7 +800,7 @@ impl AbilityActionDefinition {
         invalidation: TargetInvalidationPolicy,
         resources: ActionResourcePolicy,
     ) -> Option<Self> {
-        if hit_count == 0 || hit_count > 64 {
+        if hit_count == 0 || hit_count > 100 {
             None
         } else {
             Some(Self {
@@ -748,10 +821,10 @@ impl AbilityActionDefinition {
         self.tags = AbilityTags::new(tags);
         self
     }
-    /// Replaces structural hits with one to 64 concrete authored hit plans.
+    /// Replaces structural hits with one to 100 concrete authored hit plans.
     #[must_use]
     pub fn with_hits(mut self, hits: Vec<ActionHitDefinition>) -> Option<Self> {
-        if hits.is_empty() || hits.len() > 64 {
+        if hits.is_empty() || hits.len() > 100 {
             None
         } else {
             self.hits = hits.into_boxed_slice();
@@ -771,7 +844,7 @@ impl AbilityActionDefinition {
     /// Returns the finite authored hit count.
     #[must_use]
     pub fn hit_count(&self) -> u16 {
-        u16::try_from(self.hits.len()).expect("action hit count is validated at 64 or fewer")
+        u16::try_from(self.hits.len()).expect("action hit count is validated at 100 or fewer")
     }
     /// Returns hit templates in authored order.
     #[must_use]

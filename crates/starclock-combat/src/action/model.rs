@@ -1,6 +1,7 @@
 use crate::{
     catalog::action::{
-        ActionResourcePolicy, HitOperationDefinition, TargetInvalidationPolicy, UnitTargetSelector,
+        ActionResourcePolicy, HitOperationDefinition, HitTargetGroup, TargetInvalidationPolicy,
+        UnitTargetSelector,
     },
     id::{AbilityId, ActionId, HitId, OperationId, PhaseId, TimelineActorId, UnitId},
     target::model::TargetCommitment,
@@ -47,6 +48,7 @@ impl ActionOrigin {
 pub(crate) struct HitPlan {
     pub(crate) id: HitId,
     pub(crate) invalidation: TargetInvalidationPolicy,
+    pub(crate) target_group: HitTargetGroup,
     pub(crate) operations: Box<[OperationPlan]>,
 }
 

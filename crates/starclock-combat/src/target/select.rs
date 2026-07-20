@@ -201,7 +201,7 @@ fn build_pattern(
     }
 }
 
-fn stable_pool(
+pub(crate) fn stable_pool(
     units: &UnitStore,
     formations: &FormationState,
     actor_side: TeamSide,

@@ -2,7 +2,7 @@
 
 Goal 01 batch `G01-P3-B4` replaces the B3 structural action flag with typed,
 finite catalog action definitions. An executable ability now declares its
-Basic, Skill or Ultimate family, one to 64 authored hits, target selector,
+Basic, Skill or Ultimate family, one to 100 authored hits, target selector,
 target-invalidation policy and explicit Skill Point/Energy costs and gains.
 
 ## Offered targets and commitments
@@ -29,6 +29,15 @@ Retarget draws use the pinned battle RNG purpose and enter the forward journal.
 Selectors declare whether repeated identities are permitted; the baseline is
 no repetition. Catalog construction rejects executable abilities whose selector
 has no target semantics.
+
+Phase 7 mechanic batch `G01-P7-M03` carries each Sora `HitPlanHit` into the
+immutable action definition with its target group, damage share, Toughness
+share and CRIT policy. `Primary`, `Adjacent`, complete selected/all groups,
+repeated bounce draws and self-target hits project from the same committed
+selector result; bounce draws consume the same journaled RNG purpose as
+retargeting. The finite action bound is 100 hits, matching the validated Sora
+schema and the largest released Version 4.4 plan instead of truncating content
+to the earlier synthetic 64-hit ceiling.
 
 ## Resource legality and timing
 

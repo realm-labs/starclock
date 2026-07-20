@@ -24,8 +24,9 @@ use starclock_combat::{
     catalog::{
         CombatCatalog,
         action::{
-            AbilityActionDefinition, AbilityKind, AbilityTag, ActionResourcePolicy,
-            TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
+            AbilityActionDefinition, AbilityKind, AbilityTag, ActionHitDefinition,
+            ActionResourcePolicy, HitCritPolicy, HitTargetGroup, TargetInvalidationPolicy,
+            TargetPattern, TargetRelation, UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
         definition::{
@@ -116,6 +117,7 @@ fn compile_combat(
             ability,
             program,
             ultimate_costs.get(&ability.id).copied(),
+            &combat.hit_plans,
         )?;
         for variant in variant_ids.get(&ability.id).into_iter().flatten() {
             add_combat_ability(
@@ -124,6 +126,7 @@ fn compile_combat(
                 ability,
                 program,
                 ultimate_costs.get(&ability.id).copied(),
+                &combat.hit_plans,
             )?;
         }
     }
@@ -368,9 +371,10 @@ fn add_combat_ability(
     source: &crate::catalog::AbilityDefinition,
     program: ProgramId,
     ultimate_cost: Option<starclock_combat::Scalar>,
+    hit_plans: &[crate::catalog::HitPlanDefinition],
 ) -> Result<(), CatalogLoadError> {
     let selector = ability_selector(source.id)?;
-    let action = AbilityActionDefinition::new(
+    let mut action = AbilityActionDefinition::new(
         action_kind(source.kind),
         1,
         invalidation(source.retarget_policy),
@@ -378,10 +382,58 @@ fn add_combat_ability(
     )
     .ok_or_else(|| domain_fail("invalid structural ability action"))?
     .with_tags(&ability_tags(source.semantic_tags));
+    if !source.hit_plan_ids.is_empty() {
+        let hits = source
+            .hit_plan_ids
+            .iter()
+            .map(|id| {
+                hit_plans
+                    .binary_search_by_key(id, |plan| plan.id)
+                    .ok()
+                    .map(|index| &hit_plans[index])
+                    .ok_or_else(|| domain_fail("ability hit plan disappeared during compilation"))
+            })
+            .collect::<Result<Vec<_>, _>>()?
+            .into_iter()
+            .flat_map(|plan| plan.hits.iter())
+            .map(|hit| {
+                ActionHitDefinition::new(Vec::new()).with_profile(
+                    hit_target_group(hit.target_group),
+                    hit.damage_ratio,
+                    hit.toughness_ratio,
+                    hit_crit_policy(hit.crit_policy),
+                )
+            })
+            .collect::<Vec<_>>();
+        action = action
+            .with_hits(hits)
+            .ok_or_else(|| domain_fail("compiled ability hit count exceeds combat bounds"))?;
+    }
     builder.add_ability(
         CombatAbilityDefinition::new(id, program, selector, Vec::new()).with_action(action),
     );
     Ok(())
+}
+
+fn hit_target_group(value: u8) -> HitTargetGroup {
+    match value {
+        0 => HitTargetGroup::Primary,
+        1 => HitTargetGroup::Adjacent,
+        2 => HitTargetGroup::Selected,
+        3 => HitTargetGroup::All,
+        4 => HitTargetGroup::BounceDraw,
+        5 => HitTargetGroup::SelfTarget,
+        _ => unreachable!("validated hit target group"),
+    }
+}
+
+fn hit_crit_policy(value: u8) -> HitCritPolicy {
+    match value {
+        0 => HitCritPolicy::PerTarget,
+        1 => HitCritPolicy::Shared,
+        2 => HitCritPolicy::Never,
+        _ => unreachable!("validated hit CRIT policy"),
+    }
 }
 
 fn variant_map(

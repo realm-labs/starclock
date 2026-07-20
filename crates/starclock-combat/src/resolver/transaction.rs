@@ -1032,29 +1032,6 @@ impl<'a> Transaction<'a> {
         }
     }
 
-    pub(super) fn resolve_hit_targets(
-        &mut self,
-        actor: crate::UnitId,
-        commitment: &mut crate::target::model::TargetCommitment,
-    ) -> Result<Box<[crate::UnitId]>, BattleFault> {
-        let units = &self.state.units;
-        let formations = &self.state.formations;
-        let rng = &mut self.state.rng;
-        let journal = &mut self.journal;
-        select::resolve_for_hit(units, formations, actor, commitment, |count| {
-            let before = rng.draw_count();
-            let selection = rng
-                .choose_index(DrawPurpose::BOUNCE_TARGET, count)
-                .map_err(|_| select::TargetError::ChoiceFailed)?
-                .ok_or(select::TargetError::ChoiceFailed)?;
-            for index in before..rng.draw_count() {
-                journal.rng_draw(index, DrawPurpose::BOUNCE_TARGET.code());
-            }
-            usize::try_from(selection.value()).map_err(|_| select::TargetError::ChoiceFailed)
-        })
-        .map_err(|_| action_fault(32))
-    }
-
     fn bump_revision(&mut self) -> Result<(), BattleFault> {
         let before = self.state.committed_revision;
         let after = before.checked_add(1).ok_or_else(|| {

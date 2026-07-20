@@ -365,6 +365,7 @@ pub(super) struct AbilityDefinition {
     pub(super) semantic_tags: starclock_combat::catalog::action::AbilityTags,
     pub(super) entry_rule: Option<starclock_combat::RuleId>,
     pub(super) phases: Box<[AbilityPhaseDefinition]>,
+    pub(super) hit_plan_ids: Box<[u32]>,
     pub(super) resources: Box<[AbilityResourceDefinition]>,
 }
 
@@ -386,19 +387,19 @@ pub(super) struct AbilityResourceDefinition {
 
 #[derive(Debug)]
 pub(super) struct HitPlanDefinition {
-    id: u32,
-    target_pattern: u8,
-    retarget_policy: u8,
-    hits: Box<[HitDefinition]>,
+    pub(super) id: u32,
+    pub(super) target_pattern: u8,
+    pub(super) retarget_policy: u8,
+    pub(super) hits: Box<[HitDefinition]>,
 }
 
 #[derive(Debug)]
-struct HitDefinition {
-    sequence: u16,
-    target_group: u8,
-    damage_ratio: Ratio,
-    toughness_ratio: Ratio,
-    crit_policy: u8,
+pub(super) struct HitDefinition {
+    pub(super) sequence: u16,
+    pub(super) target_group: u8,
+    pub(super) damage_ratio: Ratio,
+    pub(super) toughness_ratio: Ratio,
+    pub(super) crit_policy: u8,
 }
 
 impl CombatDefinitions {
@@ -841,6 +842,7 @@ fn convert_combat(
             })?,
             entry_rule,
             phases: phases.into_boxed_slice(),
+            hit_plan_ids: Box::new([]),
             resources: resources.into_boxed_slice(),
         });
     }
@@ -895,6 +897,7 @@ fn convert_combat(
     }
     hit_plans.sort_unstable_by_key(|plan| plan.id);
 
+    let mut bound_plans = BTreeMap::<AbilityId, Vec<(u16, u32)>>::new();
     for binding in config.ability_hit_plan_binding().iter() {
         let ability = abilities
             .iter()
@@ -920,6 +923,26 @@ fn convert_combat(
                 "ability/hit-plan binding refers to a missing definition or phase",
             ));
         }
+        let ability = ability.expect("validated ability binding");
+        let plan = plan.expect("validated hit-plan binding");
+        bound_plans
+            .entry(ability.id)
+            .or_default()
+            .push((phase, plan.id));
+    }
+    for ability in &mut abilities {
+        let Some(mut bindings) = bound_plans.remove(&ability.id) else {
+            continue;
+        };
+        bindings.sort_unstable();
+        if bindings.windows(2).any(|pair| pair[0].0 == pair[1].0) {
+            return Err(domain_fail("ability phase has duplicate hit-plan bindings"));
+        }
+        ability.hit_plan_ids = bindings
+            .into_iter()
+            .map(|(_, plan)| plan)
+            .collect::<Vec<_>>()
+            .into_boxed_slice();
     }
     let native_handlers = crate::native_handler_lower::audit(config)?;
     let modifiers = crate::modifier_lower::convert(config)?;

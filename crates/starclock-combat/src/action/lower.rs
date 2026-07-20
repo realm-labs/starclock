@@ -166,6 +166,7 @@ fn lower_action(
         .map(|hit| HitPlan {
             id: allocator.hit(),
             invalidation: action.invalidation(),
+            target_group: hit.target_group(),
             operations: hit
                 .operations()
                 .iter()
