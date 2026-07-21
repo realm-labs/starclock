@@ -33,6 +33,59 @@ REFERENCE_DIGEST = "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45
 V1B_MIN_ID = 20_000
 V1B_MAX_ID = 29_999
 
+CHARACTER_ELEMENTS = {
+    "character.aglaea": "Lightning",
+    "character.asta": "Fire",
+    "character.clara": "Physical",
+    "character.firefly": "Fire",
+    "character.kafka": "Lightning",
+    "character.silver-wolf-lv-999": "Imaginary",
+}
+
+# Exact primary/secondary coefficient positions for battle-facing damage
+# envelopes. Rows omitted here carry setup/passive metadata but do not execute a
+# direct damage hit merely because the prepared source graph mentions damage.
+DIRECT_DAMAGE_PARAMETERS = {
+    "character.aglaea.ability.meteoric-sunder.maze": {"All": 1},
+    "character.aglaea.ability.slash-by-a-thousandfold-kiss.normal": {"Primary": 1, "Adjacent": 2},
+    "character.aglaea.ability.thorned-nectar.normal": {"Primary": 1},
+    "character.asta.ability.meteor-storm.bpskill": {"Primary": 1, "BounceDraw": 1},
+    "character.asta.ability.miracle-flash.maze": {"All": 1},
+    "character.asta.ability.spectrum-beam.normal": {"Primary": 1},
+    "character.clara.ability.because-were-family.skillp01": {"Primary": 2, "Adjacent": 2},
+    "character.clara.ability.i-want-to-help.normal": {"Primary": 1},
+    "character.clara.ability.svarog-watches-over-you.bpskill": {"All": 1},
+    "character.firefly.ability.fyrefly-type-iv-deathstar-overload.bpskill": {"Primary": 1, "Adjacent": 2},
+    "character.firefly.ability.fyrefly-type-iv-pyrogenic-decimation.normal": {"Primary": 1},
+    "character.firefly.ability.order-aerial-bombardment.bpskill": {"Primary": 1},
+    "character.firefly.ability.order-flare-propulsion.normal": {"Primary": 1},
+    "character.kafka.ability.caressing-moonlight.bpskill": {"Primary": 1, "Adjacent": 3},
+    "character.kafka.ability.gentle-but-cruel.skillp01": {"Primary": 1},
+    "character.kafka.ability.mercy-is-not-forgiveness.maze": {"All": 1},
+    "character.kafka.ability.midnight-tumult.normal": {"Primary": 1},
+    "character.kafka.ability.twilight-trill.ultra": {"All": 1},
+    "character.silver-wolf-lv-999.ability.bonus-stage-αwolf-instant.normal": {"Primary": 1, "BounceDraw": 1, "All": 4},
+    "character.silver-wolf-lv-999.ability.honkai-dmg-demo.elationdamage": {"Primary": 1, "BounceDraw": 1},
+    "character.silver-wolf-lv-999.ability.one-punch.normal": {"Primary": 1},
+    "character.silver-wolf-lv-999.ability.trigger-happy.bpskill": {"All": 1},
+}
+
+# The prepared source uses -1 both for an ordinary Basic ATK's one-point gain
+# and for internal/enhanced Normal abilities that are Skill-Point neutral.  Do
+# not infer resource behavior from the source kind alone.
+SKILL_POINT_GAIN_ABILITIES = {
+    "character.aglaea.ability.thorned-nectar.normal",
+    "character.asta.ability.spectrum-beam.normal",
+    "character.clara.ability.i-want-to-help.normal",
+    "character.firefly.ability.order-flare-propulsion.normal",
+    "character.kafka.ability.midnight-tumult.normal",
+    "character.silver-wolf-lv-999.ability.one-punch.normal",
+}
+
+SILVER_WOLF_ENHANCED_BASIC = (
+    "character.silver-wolf-lv-999.ability.bonus-stage-αwolf-instant.normal"
+)
+
 OWNED_TABLES = (
     "Ability",
     "AbilityHitPlanBinding",
@@ -222,6 +275,8 @@ def invested_level_cap(source_kind: str, effective_cap: int) -> int:
 
 
 def target_pattern(row: dict[str, Any]) -> str:
+    if row["id"] == SILVER_WOLF_ENHANCED_BASIC:
+        return "Bounce"
     return {
         "SingleEnemy": "SingleTarget",
         "Blast": "Blast",
@@ -259,7 +314,15 @@ def hit_shape(row: dict[str, Any]) -> list[tuple[str, Decimal]]:
     pattern = target_pattern(row)
     toughness = [Decimal(str(value)) for value in row.get("display_toughness", [])]
     if pattern == "Bounce":
-        count = 5
+        count = next(
+            (
+                int(Decimal(str(value)))
+                for value in row["levels"][0]["parameters"][1:]
+                if Decimal(str(value)) == Decimal(str(value)).to_integral_value()
+                and 1 < Decimal(str(value)) <= 100
+            ),
+            5,
+        )
         share = Decimal(1) / Decimal(count)
         return [("Primary" if index == 0 else "BounceDraw", share) for index in range(count)]
     weighted = []
@@ -270,6 +333,22 @@ def hit_shape(row: dict[str, Any]) -> list[tuple[str, Decimal]]:
         return [("All" if pattern == "Aoe" else "Primary", Decimal(1))]
     total = sum(value for _, value in weighted)
     return [(group, value / total) for group, value in weighted]
+
+
+def hit_phase_shapes(row: dict[str, Any]) -> list[tuple[int, list[tuple[str, Decimal]]]]:
+    if row["id"] != SILVER_WOLF_ENHANCED_BASIC:
+        return [(1, hit_shape(row))]
+    # Sora caps one plan at 100 hits. The released ability already defines
+    # explicit 34 + 34 + 32 resumable bounce stages followed by one final hit,
+    # so each stage is represented as its own ordinary phase/plan.
+    result = []
+    for phase, count in enumerate((34, 34, 32), start=1):
+        result.append((phase, [
+            ("Primary" if phase == 1 and index == 0 else "BounceDraw", Decimal(1) / Decimal(count))
+            for index in range(count)
+        ]))
+    result.append((4, [("All", Decimal(1))]))
+    return result
 
 
 def split_shares(shape: list[tuple[str, Decimal]]) -> list[tuple[str, str]]:
@@ -381,7 +460,9 @@ def generated_rows() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, An
                 })
         delta_sequence = 1
         skill_points = ability.get("skill_point_cost")
-        if skill_points not in (None, "0", 0):
+        if skill_points not in (None, "0", 0) and (
+            Decimal(str(skill_points)) > 0 or ability["id"] in SKILL_POINT_GAIN_ABILITIES
+        ):
             amount = Decimal(str(skill_points))
             rows["AbilityResourceDelta"].append({
                 "ability_id": ability_id, "sequence": delta_sequence,
@@ -397,68 +478,75 @@ def generated_rows() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, An
                 "resource_kind": "Energy", "delta_kind": "Gain", "timing": "AbilityResolved",
                 "amount_decimal": canonical_decimal(energy),
             })
-        rows["AbilityPhase"].append({
-            "ability_id": ability_id, "sequence": 1, "kind": "Hits" if damage else "Resolved",
-        })
-        if damage:
-            plan_id = ids["hit_plan"][ability["id"]]
-            internals.append(identity(
-                plan_id, f"program.hit-plan.{ability['id']}", "Program",
-                f"{ability['name_en']} Hit Plan", f"{ability['name_zh_cn']}命中计划",
-                "Ordered hit and Toughness-share structure transcribed from the prepared ability record.",
-            ))
-            shape = split_shares(hit_shape(ability))
-            rows["HitPlan"].append({
-                "id": plan_id, "target_pattern": target_pattern(ability),
-                "retarget_policy": "RecomputeEachHit" if target_pattern(ability) == "Bounce" else "CancelRemaining",
-                "declared_hit_count": len(shape),
+        phase_shapes = hit_phase_shapes(ability) if damage else [(1, [])]
+        for phase_sequence, _ in phase_shapes:
+            rows["AbilityPhase"].append({
+                "ability_id": ability_id, "sequence": phase_sequence,
+                "kind": "Hits" if damage else "Resolved",
             })
-            for sequence, (group, share) in enumerate(shape, start=1):
-                hit = {
-                    "hit_plan_id": plan_id, "sequence": sequence, "target_group": group,
-                    "damage_ratio_decimal": share, "toughness_ratio_decimal": share,
-                    "crit_policy": "PerTarget",
+        if damage:
+            silver_bounce_ordinal = 0
+            for phase_sequence, raw_shape in phase_shapes:
+                plan_id = (
+                    ids["hit_plan"][ability["id"]]
+                    if phase_sequence == 1
+                    else 21_988 + phase_sequence
+                )
+                suffix = "" if phase_sequence == 1 else f".phase-{phase_sequence}"
+                internals.append(identity(
+                    plan_id, f"program.hit-plan.{ability['id']}{suffix}", "Program",
+                    f"{ability['name_en']} Hit Plan {phase_sequence}",
+                    f"{ability['name_zh_cn']}命中计划{phase_sequence}",
+                    "Ordered hit and Toughness-share structure transcribed from the prepared ability record.",
+                ))
+                shape = split_shares(raw_shape)
+                phase_pattern = target_pattern(ability)
+                rows["HitPlan"].append({
+                    "id": plan_id, "target_pattern": phase_pattern,
+                    "retarget_policy": "RecomputeEachHit" if phase_pattern == "Bounce" else "CancelRemaining",
+                    "declared_hit_count": len(shape),
+                })
+                for sequence, (group, share) in enumerate(shape, start=1):
+                    hit = {
+                        "hit_plan_id": plan_id, "sequence": sequence, "target_group": group,
+                        "damage_ratio_decimal": share, "toughness_ratio_decimal": share,
+                        "crit_policy": "PerTarget",
+                    }
+                    parameter_map = DIRECT_DAMAGE_PARAMETERS.get(ability["id"])
+                    parameter = parameter_map.get(group) if parameter_map else None
+                    if parameter is not None:
+                        operation_ratio = "1"
+                        toughness_index = {"Primary": 0, "All": 1, "Adjacent": 2}.get(group, 0)
+                        toughness = Decimal(str(ability["display_toughness"][toughness_index]))
+                        if ability["id"] == SILVER_WOLF_ENHANCED_BASIC and phase_sequence <= 3:
+                            # parameter.01 is the total coefficient of all 100
+                            # bounces; the final hit independently uses parameter.04.
+                            operation_ratio = "0.01"
+                            silver_bounce_ordinal += 1
+                            # Raw Toughness is integral. Preserve the prepared
+                            # stage total exactly instead of flooring 0.3 on
+                            # every bounce to zero.
+                            toughness = Decimal(1) if silver_bounce_ordinal <= 30 else Decimal(0)
+                        hit.update({
+                            "damage_parameter_key_override": f"parameter.{parameter:02d}",
+                            "damage_operation_ratio_decimal": operation_ratio,
+                        })
+                        if toughness > 0:
+                            hit["toughness_amount_decimal"] = canonical_decimal(toughness)
+                    rows["HitPlanHit"].append(hit)
+                binding = {
+                    "ability_id": ability_id, "phase_sequence": phase_sequence, "hit_plan_id": plan_id,
                 }
-                if ability["id"] == "character.asta.ability.meteor-storm.bpskill":
-                    hit.update({
-                        "damage_operation_ratio_decimal": "1",
-                        "toughness_amount_decimal": "30",
+                parameter_map = DIRECT_DAMAGE_PARAMETERS.get(ability["id"])
+                if parameter_map:
+                    first_parameter = next(iter(parameter_map.values()))
+                    binding.update({
+                        "damage_parameter_key": f"parameter.{first_parameter:02d}",
+                        "damage_scaling_stat": "Atk",
+                        "damage_class": "Elation" if ability["kind"] == "ElationDamage" else "Ordinary",
+                        "element": CHARACTER_ELEMENTS[ability["character_id"]],
                     })
-                elif ability["id"] == "character.kafka.ability.caressing-moonlight.bpskill":
-                    hit.update({
-                        "damage_parameter_key_override": "parameter.01" if group == "Primary" else "parameter.03",
-                        "damage_operation_ratio_decimal": "1",
-                        "toughness_amount_decimal": "60" if group == "Primary" else "30",
-                    })
-                rows["HitPlanHit"].append(hit)
-            binding = {
-                "ability_id": ability_id, "phase_sequence": 1, "hit_plan_id": plan_id,
-            }
-            # M09 proves the generic live-stat/effective-level hit binding on
-            # Asta's single-target Basic before the wider V1B behavior pass.
-            if ability["id"] == "character.asta.ability.spectrum-beam.normal":
-                binding.update({
-                    "damage_parameter_key": "parameter.01",
-                    "damage_scaling_stat": "Atk",
-                    "damage_class": "Ordinary",
-                    "element": "Fire",
-                    "base_toughness_decimal": "30",
-                })
-            elif ability["id"] == "character.asta.ability.meteor-storm.bpskill":
-                binding.update({
-                    "damage_parameter_key": "parameter.01",
-                    "damage_scaling_stat": "Atk",
-                    "damage_class": "Ordinary",
-                    "element": "Fire",
-                })
-            elif ability["id"] == "character.kafka.ability.caressing-moonlight.bpskill":
-                binding.update({
-                    "damage_parameter_key": "parameter.01",
-                    "damage_scaling_stat": "Atk",
-                    "damage_class": "Ordinary",
-                    "element": "Lightning",
-                })
-            rows["AbilityHitPlanBinding"].append(binding)
+                rows["AbilityHitPlanBinding"].append(binding)
 
     by_character: dict[str, list[dict[str, Any]]] = {}
     for binding in rows["CharacterAbilityBinding"]:
@@ -492,7 +580,7 @@ def generated_rows() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, An
             "character.clara": [("enhanced-counter-charges", "2", "0")],
             "character.firefly": [("complete-combustion", "1", "0")],
             "character.kafka": [("follow-up-used", "1", "0")],
-            "character.silver-wolf-lv-999": [("hidden-mmr", "120", "0"), ("enhanced-basic-count", "3", "0")],
+            "character.silver-wolf-lv-999": [("hidden-mmr", "300", "0"), ("enhanced-basic-count", "3", "0")],
         }[character["id"]]
         for sequence, (key, maximum, initial) in enumerate(resources, start=1):
             rows["CharacterResource"].append({
@@ -613,6 +701,63 @@ def generated_rows() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, An
     for name, promoted_table_rows in promoted.items():
         rows[name].extend(promoted_table_rows)
     internals.extend(promoted_identities)
+
+    # Released Elation Skill: Pro-Gamer Move gains exactly 15 Hidden MMR.
+    # This is a normal typed named-resource program; no character branch enters
+    # the resolver.
+    silver_owner_selector = 24_620
+    silver_mmr_expression = 24_621
+    silver_mmr_operation = 24_622
+    silver_mmr_program = 24_623
+    internals.extend([
+        identity(
+            silver_owner_selector,
+            "selector.v1b.silver-wolf.owner",
+            "Selector",
+            "Silver Wolf Owner Selector",
+            "银狼自身选择器",
+            "Single owner selector for source-bound Silver Wolf resource programs.",
+        ),
+        identity(
+            silver_mmr_program,
+            "program.v1b.silver-wolf.pro-gamer-move",
+            "Program",
+            "Pro-Gamer Move Program",
+            "高手玩家程序",
+            "Exact released Elation Skill resource gain program.",
+        ),
+    ])
+    rows["Selector"].append({
+        "id": silver_owner_selector, "domain": "Battle", "origin": "Owner",
+        "side_relationship": "SameSide", "life": "Alive", "presence": "Present",
+        "reference_point": "CurrentState", "ordering": "StableId", "choice": "First",
+        "minimum_count": 1, "maximum_count": 1, "allow_repeated_targets": False,
+        "empty_pool_policy": "Fault",
+    })
+    rows["ValueExpression"].append({
+        "id": silver_mmr_expression,
+        "stable_key": "v1b.silver-wolf.expr.fifteen-hidden-mmr",
+        "result_kind": "Scalar",
+        "node": json.dumps({"type": "ScalarLiteral", "value_decimal": "15"}, separators=(",", ":")),
+    })
+    rows["Operation"].append({
+        "id": silver_mmr_operation,
+        "stable_key": "v1b.silver-wolf.operation.gain-hidden-mmr",
+        "domain": "Battle", "target_selector_id": silver_owner_selector,
+        "empty_target_policy": "Fault", "snapshot_boundary": "Dynamic",
+        "fault_policy": "Rollback",
+        "payload": json.dumps({
+            "type": "ModifyResource", "resource_kind": "CharacterResource",
+            "character_resource_key": "hidden-mmr", "update_kind": "Gain",
+            "amount_expression_id": silver_mmr_expression,
+            "scales_with_energy_regeneration": False, "rounding": "Floor",
+        }, separators=(",", ":")),
+    })
+    rows["Program"].append({"id": silver_mmr_program, "domain": "Battle"})
+    rows["ProgramStep"].append({
+        "program_id": silver_mmr_program, "sequence": 1,
+        "step": json.dumps({"type": "Operation", "operation_id": silver_mmr_operation}, separators=(",", ":")),
+    })
     # Production lifecycle definitions replace the probe-only immediate teardown
     # with independently scheduled actors owned by the catalog.
     aglaea_program = resolved["aglaea-memosprite"]["6"]
@@ -714,6 +859,13 @@ def generated_rows() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, An
             if int(row["ability_id"]) == ability_id and int(row["sequence"]) == 1
         )
         phase["program_identity_id"] = program_id
+    silver_elation_skill = stable_ids[
+        "character.silver-wolf-lv-999.ability.pro-gamer-move.elationdamage"
+    ]
+    next(
+        row for row in rows["AbilityPhase"]
+        if int(row["ability_id"]) == silver_elation_skill and int(row["sequence"]) == 1
+    )["program_identity_id"] = silver_mmr_program
     for ability_id, rule_id in entry_rule_overrides(stable_ids, resolved).items():
         ability = next(row for row in rows["Ability"] if int(row["id"]) == ability_id)
         ability["entry_rule_identity_id"] = rule_id
@@ -797,7 +949,7 @@ def update_metadata(
             "content_id": identity_map()[stable_key], "sequence": 2,
             "fact_key": f"v1b.executable:{stable_key}",
             "source_record_id": 1, "evidence_record_id": 3,
-            "quality": "ExactStructured", "mechanism_quality": "Observed",
+            "quality": "ExactStructured", "mechanism_quality": "ExactStructured",
         })
     kept.sort(key=lambda row: (int(row["content_id"]), int(row["sequence"])))
     return retained, kept

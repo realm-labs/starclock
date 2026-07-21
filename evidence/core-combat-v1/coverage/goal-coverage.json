@@ -9,24 +9,24 @@
     "provenance_evidence_sha256": "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466",
     "research_evidence_sha256": "448a7571d103fedbb97450ff658aa52eb5a944085c731babbddf0b112e5ea374",
     "runtime_catalog": {
-      "state": "StandardV1Production",
-      "digest": "ca65b35c59b35928f8e8f78b010e50427798f192f3363edd9b5095b63ed33436",
-      "note": "Pinned Sora production bundle contains the frozen Standard-v1 executable catalog; character and Light Cone imports remain pending."
+      "state": "CharacterV1BProduction",
+      "digest": "68be19515464c1111e522867abb8c186d1c3381cae157a61c37a7cfff30e9c87",
+      "note": "Pinned Sora production bundle contains frozen Standard-v1 plus the six representative V1B character forms; remaining character and Light Cone partitions are pending."
     }
   },
   "summary": {
     "required": 283,
     "accounted": 283,
-    "enabled_incomplete": 253,
-    "data_ready": 30,
-    "golden_verified": 30,
-    "data_ready_percent": "10.6%",
+    "enabled_incomplete": 247,
+    "data_ready": 36,
+    "golden_verified": 36,
+    "data_ready_percent": "12.7%",
     "terminal_state_counts": {
       "Cataloged": 165,
       "Documented": 78,
-      "Researching": 10,
+      "Researching": 4,
       "DataReady": 0,
-      "GoldenVerified": 30
+      "GoldenVerified": 36
     },
     "disabled_audit_only": 2
   },
@@ -36,15 +36,15 @@
       "manifest_kind": "CharacterCombatForm",
       "required": 88,
       "accounted": 88,
-      "data_ready": 0,
-      "golden_verified": 0,
-      "data_ready_percent": "0%",
+      "data_ready": 6,
+      "golden_verified": 6,
+      "data_ready_percent": "6.8%",
       "terminal_state_counts": {
         "Cataloged": 0,
         "Documented": 78,
-        "Researching": 10,
+        "Researching": 4,
         "DataReady": 0,
-        "GoldenVerified": 0
+        "GoldenVerified": 6
       },
       "disabled_audit_only": 2
     },
@@ -163,13 +163,13 @@
       "id": "character.aglaea",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Researching",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": true,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [
         "G01-R-AGLAEA-COUNTDOWN-TEARDOWN",
@@ -177,12 +177,7 @@
         "G01-R-AGLAEA-PRESENCE-TIMELINE-OWNERSHIP",
         "G01-R-AGLAEA-SPD-STACK-SCOPE"
       ],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -300,25 +295,20 @@
       "id": "character.asta",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Researching",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": true,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [
         "G01-R-ASTA-AURA-STACK-QUERY",
         "G01-R-ASTA-INDEPENDENT-CLOCKS",
         "G01-R-ASTA-UNIQUE-TARGET-CREDIT"
       ],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -524,13 +514,13 @@
       "id": "character.clara",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Researching",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": true,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [
         "G01-R-CLARA-CAUSE-ATTACKER-ALLY",
@@ -538,12 +528,7 @@
         "G01-R-CLARA-ENHANCED-CHARGE-SCOPE",
         "G01-R-CLARA-MARK-CONSUME-ORDER"
       ],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -727,13 +712,13 @@
       "id": "character.firefly",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Researching",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": true,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [
         "G01-R-FIREFLY-COUNTDOWN-TEARDOWN",
@@ -742,12 +727,7 @@
         "G01-R-FIREFLY-TRANSFORM-ADVANCE",
         "G01-R-FIREFLY-WEAKNESS-TOUGHNESS-ORDER"
       ],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -1140,25 +1120,20 @@
       "id": "character.kafka",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Researching",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": true,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [
         "G01-R-KAFKA-DETONATION-SNAPSHOT-DURATION",
         "G01-R-KAFKA-DOT-SELECTION-ATTRIBUTION",
         "G01-R-KAFKA-FOLLOWUP-ONCE-ORDER"
       ],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -1650,13 +1625,13 @@
       "id": "character.silver-wolf-lv-999",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Researching",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": true,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [
         "G01-R-ELATION-CERTIFIED-BANGER-OWNERSHIP",
@@ -1664,12 +1639,7 @@
         "G01-R-ELATION-GENERIC-API-BOUNDARY",
         "G01-R-ELATION-SP-SPEND-OBSERVATION"
       ],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -6295,13 +6265,11 @@
     "stale_version_ids": [],
     "missing_data_ready_ids": [
       "character.acheron",
-      "character.aglaea",
       "character.anaxa",
       "character.archer",
       "character.argenti",
       "character.arlan",
       "character.ashveil",
-      "character.asta",
       "character.aventurine",
       "character.bailu",
       "character.black-swan",
@@ -6311,7 +6279,6 @@
       "character.castorice",
       "character.cerydra",
       "character.cipher",
-      "character.clara",
       "character.cyrene",
       "character.dan-heng",
       "character.dan-heng-imbibitor-lunae",
@@ -6320,7 +6287,6 @@
       "character.evanescia",
       "character.evernight",
       "character.feixiao",
-      "character.firefly",
       "character.fu-xuan",
       "character.fugue",
       "character.gallagher",
@@ -6338,7 +6304,6 @@
       "character.jiaoqiu",
       "character.jing-yuan",
       "character.jingliu",
-      "character.kafka",
       "character.lingsha",
       "character.luka",
       "character.luocha",
@@ -6361,7 +6326,6 @@
       "character.seele",
       "character.serval",
       "character.silver-wolf",
-      "character.silver-wolf-lv-999",
       "character.sparkle",
       "character.sparxie",
       "character.sunday",
@@ -6550,13 +6514,11 @@
     ],
     "not_evaluable_production_provenance_ids": [
       "character.acheron",
-      "character.aglaea",
       "character.anaxa",
       "character.archer",
       "character.argenti",
       "character.arlan",
       "character.ashveil",
-      "character.asta",
       "character.aventurine",
       "character.bailu",
       "character.black-swan",
@@ -6566,7 +6528,6 @@
       "character.castorice",
       "character.cerydra",
       "character.cipher",
-      "character.clara",
       "character.cyrene",
       "character.dan-heng",
       "character.dan-heng-imbibitor-lunae",
@@ -6575,7 +6536,6 @@
       "character.evanescia",
       "character.evernight",
       "character.feixiao",
-      "character.firefly",
       "character.fu-xuan",
       "character.fugue",
       "character.gallagher",
@@ -6593,7 +6553,6 @@
       "character.jiaoqiu",
       "character.jing-yuan",
       "character.jingliu",
-      "character.kafka",
       "character.lingsha",
       "character.luka",
       "character.luocha",
@@ -6616,7 +6575,6 @@
       "character.seele",
       "character.serval",
       "character.silver-wolf",
-      "character.silver-wolf-lv-999",
       "character.sparkle",
       "character.sparxie",
       "character.sunday",
@@ -6805,13 +6763,11 @@
     ],
     "not_evaluable_bilingual_validation_ids": [
       "character.acheron",
-      "character.aglaea",
       "character.anaxa",
       "character.archer",
       "character.argenti",
       "character.arlan",
       "character.ashveil",
-      "character.asta",
       "character.aventurine",
       "character.bailu",
       "character.black-swan",
@@ -6821,7 +6777,6 @@
       "character.castorice",
       "character.cerydra",
       "character.cipher",
-      "character.clara",
       "character.cyrene",
       "character.dan-heng",
       "character.dan-heng-imbibitor-lunae",
@@ -6830,7 +6785,6 @@
       "character.evanescia",
       "character.evernight",
       "character.feixiao",
-      "character.firefly",
       "character.fu-xuan",
       "character.fugue",
       "character.gallagher",
@@ -6848,7 +6802,6 @@
       "character.jiaoqiu",
       "character.jing-yuan",
       "character.jingliu",
-      "character.kafka",
       "character.lingsha",
       "character.luka",
       "character.luocha",
@@ -6871,7 +6824,6 @@
       "character.seele",
       "character.serval",
       "character.silver-wolf",
-      "character.silver-wolf-lv-999",
       "character.sparkle",
       "character.sparxie",
       "character.sunday",
@@ -7060,13 +7012,11 @@
     ],
     "not_evaluable_runtime_reference_ids": [
       "character.acheron",
-      "character.aglaea",
       "character.anaxa",
       "character.archer",
       "character.argenti",
       "character.arlan",
       "character.ashveil",
-      "character.asta",
       "character.aventurine",
       "character.bailu",
       "character.black-swan",
@@ -7076,7 +7026,6 @@
       "character.castorice",
       "character.cerydra",
       "character.cipher",
-      "character.clara",
       "character.cyrene",
       "character.dan-heng",
       "character.dan-heng-imbibitor-lunae",
@@ -7085,7 +7034,6 @@
       "character.evanescia",
       "character.evernight",
       "character.feixiao",
-      "character.firefly",
       "character.fu-xuan",
       "character.fugue",
       "character.gallagher",
@@ -7103,7 +7051,6 @@
       "character.jiaoqiu",
       "character.jing-yuan",
       "character.jingliu",
-      "character.kafka",
       "character.lingsha",
       "character.luka",
       "character.luocha",
@@ -7126,7 +7073,6 @@
       "character.seele",
       "character.serval",
       "character.silver-wolf",
-      "character.silver-wolf-lv-999",
       "character.sparkle",
       "character.sparxie",
       "character.sunday",
@@ -7324,7 +7270,7 @@
       {
         "label": "Released character combat forms",
         "required": 88,
-        "data_ready": 0,
+        "data_ready": 6,
         "matches": true
       },
       {

@@ -15,10 +15,10 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
     assert_eq!(
         catalog.summary(),
         CatalogSummary {
-            identity_count: 754,
-            enabled_identity_count: 507,
+            identity_count: 759,
+            enabled_identity_count: 512,
             ability_count: 113,
-            hit_plan_count: 72,
+            hit_plan_count: 75,
             character_count: 6,
             effect_count: 3,
             ai_graph_count: 17,
@@ -277,6 +277,114 @@ fn production_bounce_and_blast_hits_use_exact_payload_overrides() {
             assert_eq!(reduction.reduction.base.get(), toughness);
         }
     }
+}
+
+#[test]
+fn production_silver_wolf_executes_released_elation_envelopes() {
+    use starclock_combat::{
+        catalog::action::{
+            AbilityProgramTiming, AbilityTag, HitOperationDefinition, HitTargetGroup,
+        },
+        formula::model::DamageClass,
+    };
+
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let combat = catalog.combat_catalog();
+    let enhanced = combat
+        .ability(starclock_combat::AbilityId::new(20_036).unwrap())
+        .expect("Silver Wolf enhanced Basic");
+    let action = enhanced.action().expect("enhanced Basic action");
+    assert_eq!(action.hit_count(), 101);
+    assert_eq!(action.resources().skill_point_gain(), 0);
+    assert_eq!(
+        combat
+            .ability(starclock_combat::AbilityId::new(20_042).unwrap())
+            .unwrap()
+            .action()
+            .unwrap()
+            .resources()
+            .skill_point_gain(),
+        1
+    );
+    assert_eq!(
+        combat
+            .ability(starclock_combat::AbilityId::new(20_045).unwrap())
+            .unwrap()
+            .action()
+            .unwrap()
+            .resources()
+            .skill_point_cost(),
+        1
+    );
+    assert_eq!(action.hits()[0].target_group(), HitTargetGroup::Primary);
+    assert!(
+        action.hits()[1..100]
+            .iter()
+            .all(|hit| hit.target_group() == HitTargetGroup::BounceDraw)
+    );
+    assert_eq!(action.hits()[100].target_group(), HitTargetGroup::All);
+
+    let mut toughness = 0;
+    for hit in &action.hits()[..100] {
+        let HitOperationDefinition::ScalingDamage(damage) = hit.operations()[0] else {
+            panic!("bounce must execute scaling damage");
+        };
+        assert_eq!(damage.coefficient().scaled(), 12_000);
+        for operation in hit.operations() {
+            if let HitOperationDefinition::ReduceToughness(reduction) = operation {
+                toughness += reduction.reduction.base.get();
+            }
+        }
+    }
+    let final_hit = action.hits().last().unwrap();
+    let HitOperationDefinition::ScalingDamage(damage) = final_hit.operations()[0] else {
+        panic!("final hit must execute scaling damage");
+    };
+    assert_eq!(damage.coefficient().scaled(), 500_000);
+    let HitOperationDefinition::ReduceToughness(reduction) = final_hit.operations()[1] else {
+        panic!("final hit must execute Toughness reduction");
+    };
+    toughness += reduction.reduction.base.get();
+    assert_eq!(toughness, 60);
+
+    let elation_skill = combat
+        .ability(starclock_combat::AbilityId::new(20_039).unwrap())
+        .expect("Silver Wolf enhanced Elation Skill");
+    assert!(
+        elation_skill
+            .action()
+            .unwrap()
+            .tags()
+            .contains(AbilityTag::ElationSkill)
+    );
+    assert_eq!(elation_skill.action().unwrap().hit_count(), 6);
+    for hit in elation_skill.action().unwrap().hits() {
+        let HitOperationDefinition::ScalingDamage(damage) = hit.operations()[0] else {
+            panic!("Elation bounce must execute scaling damage");
+        };
+        assert_eq!(damage.coefficient().scaled(), 450_000);
+        assert_eq!(damage.class(), DamageClass::Elation);
+    }
+
+    let pro_gamer = combat
+        .ability(starclock_combat::AbilityId::new(20_043).unwrap())
+        .expect("Silver Wolf Elation Skill");
+    assert_eq!(pro_gamer.programs().len(), 1);
+    assert_eq!(
+        pro_gamer.programs()[0].timing(),
+        AbilityProgramTiming::Resolved
+    );
+    assert_eq!(pro_gamer.programs()[0].program().get(), 24_623);
+
+    let silver = combat
+        .unit(starclock_combat::UnitDefinitionId::new(68).unwrap())
+        .expect("Silver Wolf form");
+    let mmr = silver
+        .resources()
+        .iter()
+        .find(|resource| resource.stable_key() == "hidden-mmr")
+        .expect("Hidden MMR resource");
+    assert_eq!(mmr.maximum().scaled(), 300_000_000);
 }
 
 #[test]

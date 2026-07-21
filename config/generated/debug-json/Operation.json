@@ -1044,6 +1044,57 @@
             "Integer": 24552
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24622
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 24621
+              },
+              "character_resource_key": {
+                "String": "hidden-mmr"
+              },
+              "resource_kind": {
+                "String": "CharacterResource"
+              },
+              "rounding": {
+                "String": "Floor"
+              },
+              "scales_with_energy_regeneration": {
+                "Bool": false
+              },
+              "type": {
+                "String": "ModifyResource"
+              },
+              "update_kind": {
+                "String": "Gain"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "v1b.silver-wolf.operation.gain-hidden-mmr"
+          },
+          "target_selector_id": {
+            "Integer": 24620
+          }
+        }
       }
     ]
   }

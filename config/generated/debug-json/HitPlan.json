@@ -1045,16 +1045,16 @@
       {
         "values": {
           "declared_hit_count": {
-            "Integer": 2
+            "Integer": 34
           },
           "id": {
             "Integer": 21024
           },
           "retarget_policy": {
-            "String": "CancelRemaining"
+            "String": "RecomputeEachHit"
           },
           "target_pattern": {
-            "String": "Aoe"
+            "String": "Bounce"
           }
         }
       },
@@ -1077,7 +1077,7 @@
       {
         "values": {
           "declared_hit_count": {
-            "Integer": 5
+            "Integer": 6
           },
           "id": {
             "Integer": 21026
@@ -1151,6 +1151,54 @@
           },
           "target_pattern": {
             "String": "Aoe"
+          }
+        }
+      },
+      {
+        "values": {
+          "declared_hit_count": {
+            "Integer": 34
+          },
+          "id": {
+            "Integer": 21990
+          },
+          "retarget_policy": {
+            "String": "RecomputeEachHit"
+          },
+          "target_pattern": {
+            "String": "Bounce"
+          }
+        }
+      },
+      {
+        "values": {
+          "declared_hit_count": {
+            "Integer": 32
+          },
+          "id": {
+            "Integer": 21991
+          },
+          "retarget_policy": {
+            "String": "RecomputeEachHit"
+          },
+          "target_pattern": {
+            "String": "Bounce"
+          }
+        }
+      },
+      {
+        "values": {
+          "declared_hit_count": {
+            "Integer": 1
+          },
+          "id": {
+            "Integer": 21992
+          },
+          "retarget_policy": {
+            "String": "RecomputeEachHit"
+          },
+          "target_pattern": {
+            "String": "Bounce"
           }
         }
       }

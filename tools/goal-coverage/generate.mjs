@@ -41,13 +41,23 @@ for (const researchCase of research.cases) {
     researchByCharacter.get(characterId).add(researchCase.id);
   }
 }
+const goldenCharacterForms = new Set([
+  "character.aglaea",
+  "character.asta",
+  "character.clara",
+  "character.firefly",
+  "character.kafka",
+  "character.silver-wolf-lv-999",
+]);
 
 const categories = [];
 categories.push(category(
   "released-character-combat-forms",
   "CharacterCombatForm",
   characterManifest.entries,
-  (entry) => researchByCharacter.has(entry.id) ? "Researching" : "Documented",
+  (entry) => goldenCharacterForms.has(entry.id)
+    ? "GoldenVerified"
+    : researchByCharacter.has(entry.id) ? "Researching" : "Documented",
   2,
 ));
 categories.push(category("released-light-cones", "LightCone", coneManifest.entries, () => "Cataloged"));
@@ -82,7 +92,7 @@ const report = {
     goal_manifest_sha256: MANIFEST_SHA,
     provenance_evidence_sha256: PROVENANCE_SHA,
     research_evidence_sha256: RESEARCH_SHA,
-    runtime_catalog: { state: "StandardV1Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains the frozen Standard-v1 executable catalog; character and Light Cone imports remain pending." },
+    runtime_catalog: { state: "CharacterV1BProduction", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains frozen Standard-v1 plus the six representative V1B character forms; remaining character and Light Cone partitions are pending." },
   },
   summary: {
     required: entries.length,
@@ -188,7 +198,7 @@ function verifyDocumentation(categoryReports) {
   const referenceCoverage = fs.readFileSync(path.join(root, "docs", "content-reference", "coverage.md"), "utf8");
   const referenceCounts = readJson(path.join(root, "content-reference", "v4.4", "coverage.json"));
   const expectedStatus = [
-    ["Released character combat forms", 88, 0],
+    ["Released character combat forms", 88, 6],
     ["Released Light Cones", 165, 0],
     ["`standard-v1` enemies/variants", 17, 17],
     ["`standard-v1` encounters", 6, 6],
