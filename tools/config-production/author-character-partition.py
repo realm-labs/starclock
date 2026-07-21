@@ -126,7 +126,41 @@ C02_DAMAGE = {
     "character.cyrene.ability.to-love-and-tomorrow.normal": [("Primary", 1, 1), ("All", 3, 1)],
 }
 
-DAMAGE_BY_PARTITION = {"C01": C01_DAMAGE, "C02": C02_DAMAGE}
+C03_DAMAGE = {
+    "character.dan-heng.ability.cloudlancer-art-north-wind.normal": [("Primary", 1, 1)],
+    "character.dan-heng.ability.cloudlancer-art-torrent.bpskill": [("Primary", 1, 1)],
+    "character.dan-heng.ability.ethereal-dream.ultra": [("Primary", 1, 1)],
+    "character.dan-heng-imbibitor-lunae.ability.azures-aqua-ablutes-all.ultra": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.dan-heng-imbibitor-lunae.ability.beneficent-lotus.normal": [("Primary", 1, 1)],
+    "character.dan-heng-imbibitor-lunae.ability.divine-spear.normal": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.dan-heng-imbibitor-lunae.ability.fulgurant-leap.normal": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.dan-heng-imbibitor-lunae.ability.heaven-quelling-prismadrakon.maze": [("All", 3, 1)],
+    "character.dan-heng-imbibitor-lunae.ability.transcendence.normal": [("Primary", 1, 1)],
+    "character.dan-heng-permansor-terrae.ability.a-dragons-zenith-knows-no-rue.ultra": [("All", 1, 1)],
+    "character.dan-heng-permansor-terrae.ability.aegis-vitae.normal": [("Primary", 1, 1)],
+    "character.dr-ratio.ability.cogito-ergo-sum.skillp01": [("Primary", 1, 1)],
+    "character.dr-ratio.ability.intellectual-midwifery.bpskill": [("Primary", 1, 1)],
+    "character.dr-ratio.ability.mind-is-might.normal": [("Primary", 1, 1)],
+    "character.dr-ratio.ability.syllogistic-paradox.ultra": [("Primary", 1, 1)],
+    "character.evanescia.ability.discipline-final-verdict.bpskill": [("Primary", 2, 1), ("Adjacent", 3, 1)],
+    "character.evanescia.ability.scarlet-elation-or-execution.elationdamage": [("All", 2, 1)],
+    "character.evanescia.ability.swordsong-absolution-denied.ultra": [("All", 1, 1)],
+    "character.evanescia.ability.syllabus-pop-quiz.normal": [("Primary", 1, 1)],
+    "character.evanescia.ability.youth-halcyon-evermore.skillp01": [("All", 1, 1)],
+    "character.evernight.ability.o-wakeful-world-goodnight.ultra": [("All", 1, 1)],
+    "character.evernight.ability.time-thence-blurs.normal": [("Primary", 1, 1)],
+    "character.feixiao.ability.boltsunder-blitz.ultra": [("Primary", 1, 1)],
+    "character.feixiao.ability.boltsunder.normal": [("Primary", 1, 1)],
+    "character.feixiao.ability.stormborn.maze": [("All", 2, 1)],
+    "character.feixiao.ability.terrasplit.ultra": [("Primary", 4, 1)],
+    "character.feixiao.ability.thunderhunt.skillp01": [("Primary", 1, 1)],
+    "character.feixiao.ability.waraxe-skyward.ultra": [("Primary", 1, 1)],
+    "character.feixiao.ability.waraxe.bpskill": [("Primary", 1, 1)],
+    "character.fu-xuan.ability.novaburst.normal": [("Primary", 1, 1)],
+    "character.fu-xuan.ability.woes-of-many-morphed-to-one.ultra": [("All", 1, 1)],
+}
+
+DAMAGE_BY_PARTITION = {"C01": C01_DAMAGE, "C02": C02_DAMAGE, "C03": C03_DAMAGE}
 
 C01_TARGET_OVERRIDES = {
     "character.acheron.ability.rainblade.ultra": "Aoe",
@@ -146,7 +180,12 @@ C02_TARGET_OVERRIDES = {
     "character.cyrene.ability.to-love-and-tomorrow.normal": "Blast",
 }
 
-TARGET_OVERRIDES = {**C01_TARGET_OVERRIDES, **C02_TARGET_OVERRIDES}
+C03_TARGET_OVERRIDES = {
+    "character.feixiao.ability.boltsunder-blitz.ultra": "SingleTarget",
+    "character.feixiao.ability.waraxe-skyward.ultra": "SingleTarget",
+}
+
+TARGET_OVERRIDES = {**C01_TARGET_OVERRIDES, **C02_TARGET_OVERRIDES, **C03_TARGET_OVERRIDES}
 
 C01_SCALING_STATS = {
     "character.aventurine.ability.roulette-shark.ultra": "Def",
@@ -161,12 +200,30 @@ C02_SCALING_STATS = {
     "character.castorice.ability.silence-wraithflys-caress.bpskill": "Hp",
 }
 
-SCALING_STATS = {**C01_SCALING_STATS, **C02_SCALING_STATS}
+C03_SCALING_STATS = {
+    "character.evernight.ability.o-wakeful-world-goodnight.ultra": "Hp",
+    "character.evernight.ability.time-thence-blurs.normal": "Hp",
+    "character.fu-xuan.ability.novaburst.normal": "Hp",
+    "character.fu-xuan.ability.woes-of-many-morphed-to-one.ultra": "Hp",
+}
+
+SCALING_STATS = {**C01_SCALING_STATS, **C02_SCALING_STATS, **C03_SCALING_STATS}
 
 ABILITY_KIND_OVERRIDES = {
     "character.blade.ability.forest-of-swords.normal": "EnhancedBasic",
     "character.boothill.ability.fanning-the-hammer.normal": "EnhancedBasic",
     "character.cyrene.ability.to-love-and-tomorrow.normal": "EnhancedBasic",
+    "character.dan-heng-imbibitor-lunae.ability.divine-spear.normal": "EnhancedBasic",
+    "character.dan-heng-imbibitor-lunae.ability.fulgurant-leap.normal": "EnhancedBasic",
+    "character.dan-heng-imbibitor-lunae.ability.transcendence.normal": "EnhancedBasic",
+    "character.feixiao.ability.boltsunder-blitz.ultra": "Passive",
+    "character.feixiao.ability.waraxe-skyward.ultra": "Passive",
+}
+
+SKILL_POINT_COST_OVERRIDES = {
+    "character.dan-heng-imbibitor-lunae.ability.transcendence.normal": "1",
+    "character.dan-heng-imbibitor-lunae.ability.divine-spear.normal": "2",
+    "character.dan-heng-imbibitor-lunae.ability.fulgurant-leap.normal": "3",
 }
 
 CHARACTER_RESOURCES = {
@@ -181,10 +238,21 @@ CHARACTER_RESOURCES = {
     "character.castorice": [("newbud", "100", "0")],
     "character.cerydra": [("charge", "6", "0")],
     "character.cyrene": [("recollection", "24", "0")],
+    "character.dan-heng-imbibitor-lunae": [("squama-sacrosancta", "3", "0")],
+    "character.dan-heng-permansor-terrae": [("empowered-souldragon-actions", "2", "0")],
+    "character.evanescia": [("certified-banger", "480", "0")],
+    "character.evernight": [("memoria", "16", "0")],
+    "character.feixiao": [("flying-aureus", "12", "0")],
+    "character.fu-xuan": [("self-heal-charge", "2", "1")],
 }
 
 CHARACTER_RESOURCE_COSTS = {
     "character.castorice.ability.doomshriek-dawns-chime.ultra": [("newbud", "100")],
+    "character.feixiao.ability.terrasplit.ultra": [("flying-aureus", "6")],
+}
+
+BASE_ENERGY_OVERRIDES = {
+    "character.feixiao": "0",
 }
 
 
@@ -267,6 +335,7 @@ def modifier_spec(property_type: str) -> tuple[str, str, str, str | None]:
         "StatusResistanceBase": ("EffectResistance", "BaseAdd", "Stat", None),
         "StatusProbabilityBase": ("EffectHitRate", "BaseAdd", "Stat", None),
         "BreakDamageAddedRatioBase": ("BreakEffect", "BaseAdd", "Stat", None),
+        "ElationDamageAddedRatioBase": ("Atk", "DamageBoost", "ElationDamage", None),
         "FireAddedRatio": ("Atk", "DamageBoost", "OrdinaryDamage", "Fire"),
         "IceAddedRatio": ("Atk", "DamageBoost", "OrdinaryDamage", "Ice"),
         "ImaginaryAddedRatio": ("Atk", "DamageBoost", "OrdinaryDamage", "Imaginary"),
@@ -337,7 +406,7 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
                     "value_decimal": V1B.canonical_decimal(value),
                 })
         delta_sequence = 1
-        skill_points = ability.get("skill_point_cost")
+        skill_points = SKILL_POINT_COST_OVERRIDES.get(ability["id"], ability.get("skill_point_cost"))
         is_basic = kind == "Basic"
         archer_skill = ability["id"] == "character.archer.ability.caladbolg-ii-fake-spiral-sword.bpskill"
         if is_basic or archer_skill or (skill_points is not None and Decimal(str(skill_points)) > 0):
@@ -391,7 +460,8 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
                 "ability_id": ability_id, "phase_sequence": 1, "hit_plan_id": plan_id,
                 "damage_parameter_key": f"parameter.{expanded[0][1]:02d}",
                 "damage_scaling_stat": SCALING_STATS.get(ability["id"], "Atk"),
-                "damage_class": "Ordinary", "element": next(row["element"] for row in characters if row["id"] == ability["character_id"]),
+                "damage_class": "Elation" if ability["kind"] == "ElationDamage" else "Ordinary",
+                "element": next(row["element"] for row in characters if row["id"] == ability["character_id"]),
             })
 
     by_character: dict[int, list[dict[str, Any]]] = {}
@@ -405,7 +475,7 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
     for character in sorted(characters, key=lambda row: row["id"]):
         character_id = frozen[character["id"]]
         path = {"The Hunt": "Hunt", "Warrior": "Destruction"}.get(character["path"], character["path"])
-        rows["Character"].append({"id": character_id, "rarity": character["rarity"], "path": path, "element": character["element"], "base_energy_decimal": character["max_energy"] or "0", "base_aggro_decimal": character["promotions"][0]["aggro"]})
+        rows["Character"].append({"id": character_id, "rarity": character["rarity"], "path": path, "element": character["element"], "base_energy_decimal": BASE_ENERGY_OVERRIDES.get(character["id"], character["max_energy"] or "0"), "base_aggro_decimal": character["promotions"][0]["aggro"]})
         for promotion, stat in enumerate(character["promotions"]):
             first_level = 1 if promotion == 0 else promotion * 10 + 10
             # ExactPreviousRelease rows carry an explicit promotion ordinal;

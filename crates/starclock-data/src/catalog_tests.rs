@@ -15,11 +15,11 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
     assert_eq!(
         catalog.summary(),
         CatalogSummary {
-            identity_count: 1475,
-            enabled_identity_count: 1244,
-            ability_count: 218,
-            hit_plan_count: 131,
-            character_count: 22,
+            identity_count: 1838,
+            enabled_identity_count: 1615,
+            ability_count: 273,
+            hit_plan_count: 162,
+            character_count: 30,
             effect_count: 3,
             ai_graph_count: 17,
             enemy_count: 17,
@@ -512,6 +512,49 @@ fn production_c02_executes_hp_scaling_and_named_ultimate_cost_envelopes() {
 }
 
 #[test]
+fn production_c03_executes_enhanced_elation_and_flying_aureus_envelopes() {
+    use starclock_combat::{
+        Energy, catalog::action::HitOperationDefinition, formula::model::DamageClass,
+    };
+
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let combat = catalog.combat_catalog();
+
+    let fulgurant = combat
+        .ability(starclock_combat::AbilityId::new(50_007).unwrap())
+        .expect("Imbibitor Lunae enhanced Basic");
+    let action = fulgurant.action().expect("Fulgurant Leap action");
+    assert_eq!(action.resources().skill_point_cost(), 3);
+    assert_eq!(action.resources().skill_point_gain(), 0);
+    assert_eq!(action.hits().len(), 2);
+
+    let evanescia = combat
+        .ability(starclock_combat::AbilityId::new(50_032).unwrap())
+        .expect("Evanescia Elation damage");
+    let HitOperationDefinition::ScalingDamage(elation) =
+        evanescia.action().unwrap().hits()[0].operations()[0]
+    else {
+        panic!("Evanescia hit must execute scaling damage");
+    };
+    assert_eq!(elation.class(), DamageClass::Elation);
+
+    let feixiao = combat
+        .ability(starclock_combat::AbilityId::new(50_046).unwrap())
+        .expect("Feixiao Ultimate");
+    let resources = feixiao.action().expect("Feixiao action").resources();
+    assert_eq!(resources.energy_cost(), Energy::ZERO);
+    assert_eq!(resources.character_resource_costs().len(), 1);
+    assert_eq!(
+        resources.character_resource_costs()[0].stable_key(),
+        "flying-aureus"
+    );
+    assert_eq!(
+        resources.character_resource_costs()[0].amount().scaled(),
+        6_000_000
+    );
+}
+
+#[test]
 fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_build::{
         ability::AbilityInvestment,
@@ -522,7 +565,7 @@ fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_combat::UnitLevel;
 
     let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
-    for raw in (1..=19).chain([27, 45, 68]) {
+    for raw in (1..=28).chain([45, 68]) {
         let form = starclock_combat::UnitDefinitionId::new(raw).unwrap();
         let character = catalog
             .build_catalog()

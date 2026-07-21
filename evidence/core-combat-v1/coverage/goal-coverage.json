@@ -9,24 +9,24 @@
     "provenance_evidence_sha256": "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466",
     "research_evidence_sha256": "448a7571d103fedbb97450ff658aa52eb5a944085c731babbddf0b112e5ea374",
     "runtime_catalog": {
-      "state": "CharacterC02Production",
-      "digest": "2af0d5286f14904e0ffa2b7fba174b0aa5dd8f40edb6f5d0b42ed5e408341fac",
-      "note": "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all sixteen C01-C02 character forms; remaining character and Light Cone partitions are pending."
+      "state": "CharacterC03Production",
+      "digest": "362552fd86421bb6f54610ff83807fc308e668c2d40cbac4e49c535ed622ef51",
+      "note": "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all twenty-four C01-C03 character forms; remaining character and Light Cone partitions are pending."
     }
   },
   "summary": {
     "required": 283,
     "accounted": 283,
-    "enabled_incomplete": 231,
-    "data_ready": 52,
-    "golden_verified": 52,
-    "data_ready_percent": "18.4%",
+    "enabled_incomplete": 223,
+    "data_ready": 60,
+    "golden_verified": 60,
+    "data_ready_percent": "21.2%",
     "terminal_state_counts": {
       "Cataloged": 165,
-      "Documented": 62,
+      "Documented": 54,
       "Researching": 4,
       "DataReady": 0,
-      "GoldenVerified": 52
+      "GoldenVerified": 60
     },
     "disabled_audit_only": 2
   },
@@ -36,15 +36,15 @@
       "manifest_kind": "CharacterCombatForm",
       "required": 88,
       "accounted": 88,
-      "data_ready": 22,
-      "golden_verified": 22,
-      "data_ready_percent": "25%",
+      "data_ready": 30,
+      "golden_verified": 30,
+      "data_ready_percent": "34.1%",
       "terminal_state_counts": {
         "Cataloged": 0,
-        "Documented": 62,
+        "Documented": 54,
         "Researching": 4,
         "DataReady": 0,
-        "GoldenVerified": 22
+        "GoldenVerified": 30
       },
       "disabled_audit_only": 2
     },
@@ -478,21 +478,16 @@
       "id": "character.dan-heng",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -500,21 +495,16 @@
       "id": "character.dan-heng-imbibitor-lunae",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -522,21 +512,16 @@
       "id": "character.dan-heng-permansor-terrae",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -544,21 +529,16 @@
       "id": "character.dr-ratio",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -566,21 +546,16 @@
       "id": "character.evanescia",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -588,21 +563,16 @@
       "id": "character.evernight",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -610,21 +580,16 @@
       "id": "character.feixiao",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -655,21 +620,16 @@
       "id": "character.fu-xuan",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -6184,14 +6144,6 @@
     "duplicate_runtime_ids": [],
     "stale_version_ids": [],
     "missing_data_ready_ids": [
-      "character.dan-heng",
-      "character.dan-heng-imbibitor-lunae",
-      "character.dan-heng-permansor-terrae",
-      "character.dr-ratio",
-      "character.evanescia",
-      "character.evernight",
-      "character.feixiao",
-      "character.fu-xuan",
       "character.fugue",
       "character.gallagher",
       "character.gepard",
@@ -6417,14 +6369,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_production_provenance_ids": [
-      "character.dan-heng",
-      "character.dan-heng-imbibitor-lunae",
-      "character.dan-heng-permansor-terrae",
-      "character.dr-ratio",
-      "character.evanescia",
-      "character.evernight",
-      "character.feixiao",
-      "character.fu-xuan",
       "character.fugue",
       "character.gallagher",
       "character.gepard",
@@ -6650,14 +6594,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_bilingual_validation_ids": [
-      "character.dan-heng",
-      "character.dan-heng-imbibitor-lunae",
-      "character.dan-heng-permansor-terrae",
-      "character.dr-ratio",
-      "character.evanescia",
-      "character.evernight",
-      "character.feixiao",
-      "character.fu-xuan",
       "character.fugue",
       "character.gallagher",
       "character.gepard",
@@ -6883,14 +6819,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_runtime_reference_ids": [
-      "character.dan-heng",
-      "character.dan-heng-imbibitor-lunae",
-      "character.dan-heng-permansor-terrae",
-      "character.dr-ratio",
-      "character.evanescia",
-      "character.evernight",
-      "character.feixiao",
-      "character.fu-xuan",
       "character.fugue",
       "character.gallagher",
       "character.gepard",
@@ -7126,7 +7054,7 @@
       {
         "label": "Released character combat forms",
         "required": 88,
-        "data_ready": 22,
+        "data_ready": 30,
         "matches": true
       },
       {
