@@ -236,8 +236,13 @@ impl<'a> StatResolver<'a> {
         } else {
             &snapshot_reader
         };
+        let event_facts = crate::rule::model::RuleEventFacts {
+            point: Some(crate::rule::model::RuleEventPoint::RuleStateChanged),
+            ..crate::rule::model::RuleEventFacts::default()
+        };
         let input = RuleEvaluationInput {
             event_kind: crate::rule::model::RuleEventKind::Rule,
+            event_facts: &event_facts,
             cause: RuleCause {
                 owner: Some(instance.owner),
                 actor: None,
@@ -260,6 +265,8 @@ impl<'a> StatResolver<'a> {
             selectors: &[],
             stat_reader: Some(reader),
             ability_parameter_reader: None,
+            resource_reader: None,
+            battle_query_reader: None,
         };
         let value = evaluate_value(&definition.value, input, Some(instance.subject));
         if let Some(error) = self.deferred_error.borrow_mut().take() {

@@ -5,9 +5,11 @@ use std::collections::{BTreeMap, BTreeSet};
 use starclock_combat::{
     NativeHandlerId, ProgramId, RuleId, SourceDefinitionId, StateSlotDefinitionId, TriggerId,
     rule::model::{
-        BattleRuleDefinition, BattleRuleScope, Comparison, ConditionExpr, EventFilter, OnceScope,
-        ReactionPriority, RuleEventKind, RuleSource, RuleValue, RuleValueKind, SlotPersistence,
-        SlotResetPoint, SlotVisibility, StateSlotDef, TriggerDef, TriggerPhase, ValueExpr,
+        BattleRuleDefinition, BattleRuleScope, CauseAncestry, Comparison, ConditionExpr,
+        EventFilter, EventValueProperty, OnceScope, ReactionPriority, RuleActionKind,
+        RuleDamageClass, RuleEventPoint, RuleResourceKind, RuleSource, RuleValue, RuleValueKind,
+        SlotPersistence, SlotResetPoint, SlotVisibility, StateSlotDef, TriggerDef, TriggerPhase,
+        ValueExpr,
     },
 };
 
@@ -141,25 +143,6 @@ fn lower_trigger(
         .event_filter()
         .get(&row.filter_id)
         .ok_or_else(|| domain_fail(format!("missing event filter {}", row.filter_id)))?;
-    if filter.source_class.is_some()
-        || filter.owner_selector_id.is_some()
-        || filter.actor_selector_id.is_some()
-        || filter.applier_selector_id.is_some()
-        || filter.target_selector_id.is_some()
-        || filter.action_kind.is_some()
-        || filter.ability_tag.is_some()
-        || filter.element.is_some()
-        || filter.damage_class.is_some()
-        || !matches!(
-            filter.cause_ancestry,
-            generated::cause_ancestry::CauseAncestry::Any
-        )
-    {
-        return Err(domain_fail(format!(
-            "event filter {} exceeds the executable cause-field boundary",
-            filter.id
-        )));
-    }
     let source = filter
         .source_definition_identity_id
         .map(|id| {
@@ -173,12 +156,32 @@ fn lower_trigger(
             row.id, row.program_id
         )));
     }
+    let event_point = lower_event(&row.event)?;
     Ok(TriggerDef {
         id: TriggerId::new(positive(row.id, "RuleTrigger.id")?).expect("positive trigger ID"),
-        event: lower_event(&row.event)?,
+        event: event_point.kind(),
+        event_point,
         phase: lower_trigger_phase(row.phase),
         filter: EventFilter {
             source,
+            source_class: filter.source_class.map(lower_source_class),
+            owner_selector: filter.owner_selector_id.map(selector).transpose()?,
+            actor_selector: filter.actor_selector_id.map(selector).transpose()?,
+            applier_selector: filter.applier_selector_id.map(selector).transpose()?,
+            target_selector: filter.target_selector_id.map(selector).transpose()?,
+            action_kind: filter.action_kind.map(lower_action_kind),
+            ability_tag: filter
+                .ability_tag
+                .as_deref()
+                .map(lower_ability_tag)
+                .transpose()?,
+            element: filter.element.map(crate::effect_lower::lower_element),
+            damage_class: filter.damage_class.map(lower_damage_class).transpose()?,
+            resource: lower_filter_resource(
+                filter.resource_kind,
+                filter.character_resource_key.as_deref(),
+            )?,
+            cause_ancestry: lower_ancestry(filter.cause_ancestry),
             ..EventFilter::default()
         },
         condition: lower_condition(config, row.condition_id, &mut BTreeSet::new())?,
@@ -191,35 +194,188 @@ fn lower_trigger(
     })
 }
 
-fn lower_event(value: &event_pattern::EventPattern) -> Result<RuleEventKind, CatalogLoadError> {
+fn lower_event(value: &event_pattern::EventPattern) -> Result<RuleEventPoint, CatalogLoadError> {
     use event_pattern::EventPattern as V;
     Ok(match value {
-        V::Hit {
-            point: generated::boundary_event_point::BoundaryEventPoint::Ended,
-        } => RuleEventKind::Hit,
-        V::Battle { .. }
-        | V::Wave { .. }
-        | V::Turn { .. }
-        | V::Action { .. }
-        | V::Hit { .. }
-        | V::Damage { .. }
-        | V::Effect { .. }
-        | V::Unit { .. } => {
-            return Err(domain_fail(
-                "event-point pattern exceeds the current executable trigger boundary",
-            ));
-        }
-        V::EncounterTransition {} => RuleEventKind::Wave,
-        V::TimelineChanged {} => RuleEventKind::Turn,
-        V::HpChanged {} => RuleEventKind::Damage,
-        V::ToughnessChanged {} | V::WeaknessBroken {} => RuleEventKind::Toughness,
-        V::HealApplied {} | V::ShieldChanged {} => RuleEventKind::Heal,
-        V::ResourceChanged {} => RuleEventKind::Resource,
-        V::PresenceChanged {} => RuleEventKind::Unit,
-        V::RuleStateChanged {} | V::InformationalRule {} => RuleEventKind::Rule,
-        V::DecisionRequested {} => RuleEventKind::Decision,
-        V::FaultRaised {} => RuleEventKind::Fault,
+        V::Battle { point } => match point {
+            generated::battle_event_point::BattleEventPoint::Started => {
+                RuleEventPoint::BattleStarted
+            }
+            generated::battle_event_point::BattleEventPoint::Won => RuleEventPoint::BattleWon,
+            generated::battle_event_point::BattleEventPoint::Lost => RuleEventPoint::BattleLost,
+            generated::battle_event_point::BattleEventPoint::Faulted => {
+                RuleEventPoint::BattleFaulted
+            }
+        },
+        V::Wave { point } => boundary(
+            *point,
+            RuleEventPoint::WaveStarted,
+            RuleEventPoint::WaveEnded,
+        ),
+        V::Turn { point } => boundary(
+            *point,
+            RuleEventPoint::TurnStarted,
+            RuleEventPoint::TurnEnded,
+        ),
+        V::Action { point } => match point {
+            generated::action_event_point::ActionEventPoint::Declared => {
+                RuleEventPoint::ActionDeclared
+            }
+            generated::action_event_point::ActionEventPoint::Started => {
+                RuleEventPoint::ActionStarted
+            }
+            generated::action_event_point::ActionEventPoint::Resolved => {
+                RuleEventPoint::ActionResolved
+            }
+        },
+        V::Hit { point } => boundary(*point, RuleEventPoint::HitStarted, RuleEventPoint::HitEnded),
+        V::Damage { point } => match point {
+            generated::damage_event_point::DamageEventPoint::Calculated => {
+                RuleEventPoint::DamageCalculated
+            }
+            generated::damage_event_point::DamageEventPoint::Applied => {
+                RuleEventPoint::DamageApplied
+            }
+        },
+        V::Effect { point } => match point {
+            generated::effect_event_point::EffectEventPoint::Applied => {
+                RuleEventPoint::EffectApplied
+            }
+            generated::effect_event_point::EffectEventPoint::Removed => {
+                RuleEventPoint::EffectRemoved
+            }
+            generated::effect_event_point::EffectEventPoint::Refreshed => {
+                RuleEventPoint::EffectRefreshed
+            }
+            generated::effect_event_point::EffectEventPoint::StacksChanged => {
+                RuleEventPoint::EffectStacksChanged
+            }
+        },
+        V::Unit { point } => match point {
+            generated::unit_event_point::UnitEventPoint::Downed => RuleEventPoint::UnitDowned,
+            generated::unit_event_point::UnitEventPoint::Defeated => RuleEventPoint::UnitDefeated,
+            generated::unit_event_point::UnitEventPoint::Revived => RuleEventPoint::UnitRevived,
+            generated::unit_event_point::UnitEventPoint::Transformed => {
+                RuleEventPoint::UnitTransformed
+            }
+        },
+        V::EncounterTransition {} => RuleEventPoint::EncounterTransition,
+        V::TimelineChanged {} => RuleEventPoint::TimelineChanged,
+        V::HpChanged {} => RuleEventPoint::HpChanged,
+        V::ToughnessChanged {} => RuleEventPoint::ToughnessChanged,
+        V::WeaknessBroken {} => RuleEventPoint::WeaknessBroken,
+        V::HealApplied {} => RuleEventPoint::HealApplied,
+        V::ShieldChanged {} => RuleEventPoint::ShieldChanged,
+        V::ResourceChanged {} => RuleEventPoint::ResourceChanged,
+        V::PresenceChanged {} => RuleEventPoint::PresenceChanged,
+        V::RuleStateChanged {} => RuleEventPoint::RuleStateChanged,
+        V::InformationalRule {} => RuleEventPoint::InformationalRule,
+        V::DecisionRequested {} => RuleEventPoint::DecisionRequested,
+        V::FaultRaised {} => RuleEventPoint::FaultRaised,
     })
+}
+
+fn boundary(
+    point: generated::boundary_event_point::BoundaryEventPoint,
+    started: RuleEventPoint,
+    ended: RuleEventPoint,
+) -> RuleEventPoint {
+    match point {
+        generated::boundary_event_point::BoundaryEventPoint::Started => started,
+        generated::boundary_event_point::BoundaryEventPoint::Ended => ended,
+    }
+}
+
+fn selector(value: i32) -> Result<starclock_combat::SelectorId, CatalogLoadError> {
+    Ok(
+        starclock_combat::SelectorId::new(positive(value, "EventFilter.selector")?)
+            .expect("positive selector ID"),
+    )
+}
+
+fn lower_action_kind(value: generated::action_kind::ActionKind) -> RuleActionKind {
+    use generated::action_kind::ActionKind as V;
+    match value {
+        V::Basic => RuleActionKind::Basic,
+        V::Skill => RuleActionKind::Skill,
+        V::Ultimate => RuleActionKind::Ultimate,
+        V::Talent => RuleActionKind::Talent,
+        V::TechniqueEntry => RuleActionKind::TechniqueEntry,
+        V::FollowUp => RuleActionKind::FollowUp,
+        V::Counter => RuleActionKind::Counter,
+        V::Summon => RuleActionKind::Summon,
+        V::Memosprite => RuleActionKind::Memosprite,
+        V::Enemy => RuleActionKind::Enemy,
+        V::ExtraTurn => RuleActionKind::ExtraTurn,
+        V::Scripted => RuleActionKind::Scripted,
+    }
+}
+
+fn lower_ability_tag(
+    value: &str,
+) -> Result<starclock_combat::catalog::action::AbilityTag, CatalogLoadError> {
+    use starclock_combat::catalog::action::AbilityTag as V;
+    match value {
+        "Attack" => Ok(V::Attack),
+        "Basic" => Ok(V::Basic),
+        "Skill" => Ok(V::Skill),
+        "Ultimate" => Ok(V::Ultimate),
+        "FollowUp" => Ok(V::FollowUp),
+        "Counter" => Ok(V::Counter),
+        "Summon" => Ok(V::Summon),
+        "Memosprite" => Ok(V::Memosprite),
+        "AdditionalDamage" => Ok(V::AdditionalDamage),
+        "Joint" => Ok(V::Joint),
+        "ElationSkill" => Ok(V::ElationSkill),
+        _ => Err(domain_fail(format!("unknown ability tag {value}"))),
+    }
+}
+
+fn lower_damage_class(
+    value: generated::damage_class::DamageClass,
+) -> Result<RuleDamageClass, CatalogLoadError> {
+    use generated::damage_class::DamageClass as V;
+    Ok(match value {
+        V::Ordinary => RuleDamageClass::Ordinary,
+        V::Dot => RuleDamageClass::Dot,
+        V::Break => RuleDamageClass::Break,
+        V::SuperBreak => RuleDamageClass::SuperBreak,
+        V::Additional => RuleDamageClass::Additional,
+        V::Joint => RuleDamageClass::Joint,
+        V::Elation => RuleDamageClass::Elation,
+        V::TrueDamage => RuleDamageClass::TrueDamage,
+    })
+}
+
+fn lower_filter_resource(
+    kind: Option<generated::resource_kind::ResourceKind>,
+    key: Option<&str>,
+) -> Result<Option<RuleResourceKind>, CatalogLoadError> {
+    use generated::resource_kind::ResourceKind as V;
+    match (kind, key) {
+        (None, None) => Ok(None),
+        (Some(V::Energy), None) => Ok(Some(RuleResourceKind::Energy)),
+        (Some(V::SkillPoints), None) => Ok(Some(RuleResourceKind::SkillPoints)),
+        (Some(V::CharacterResource), Some(key)) => {
+            Ok(Some(RuleResourceKind::Character(key.into())))
+        }
+        (Some(V::TeamResource), Some(key)) => Ok(Some(RuleResourceKind::Team(key.into()))),
+        _ => Err(domain_fail(
+            "event-filter resource kind/key combination is invalid",
+        )),
+    }
+}
+
+fn lower_ancestry(value: generated::cause_ancestry::CauseAncestry) -> CauseAncestry {
+    use generated::cause_ancestry::CauseAncestry as V;
+    match value {
+        V::Any => CauseAncestry::Any,
+        V::RootCommand => CauseAncestry::RootCommand,
+        V::DirectParent => CauseAncestry::DirectParent,
+        V::SameAction => CauseAncestry::SameAction,
+        V::SamePhase => CauseAncestry::SamePhase,
+        V::SameHit => CauseAncestry::SameHit,
+    }
 }
 
 fn lower_trigger_phase(value: trigger_phase::TriggerPhase) -> TriggerPhase {
@@ -303,6 +459,105 @@ pub(super) fn lower_condition(
         V::Not { condition_id } => {
             ConditionExpr::Not(Box::new(lower_condition(config, *condition_id, visiting)?))
         }
+        V::LifePresence {
+            selector_id,
+            life,
+            presence,
+        } => ConditionExpr::LifePresence {
+            selector: selector(*selector_id)?,
+            life: lower_life_predicate(*life),
+            presence: lower_presence_predicate(*presence),
+        },
+        V::ResourceBounds {
+            resource_expression_id,
+            minimum_expression_id,
+            maximum_expression_id,
+        } => ConditionExpr::All(
+            vec![
+                ConditionExpr::Compare {
+                    lhs: Box::new(crate::modifier_lower::expression(
+                        config,
+                        *resource_expression_id,
+                        &mut BTreeSet::new(),
+                    )?),
+                    operator: Comparison::GreaterOrEqual,
+                    rhs: Box::new(crate::modifier_lower::expression(
+                        config,
+                        *minimum_expression_id,
+                        &mut BTreeSet::new(),
+                    )?),
+                },
+                ConditionExpr::Compare {
+                    lhs: Box::new(crate::modifier_lower::expression(
+                        config,
+                        *resource_expression_id,
+                        &mut BTreeSet::new(),
+                    )?),
+                    operator: Comparison::LessOrEqual,
+                    rhs: Box::new(crate::modifier_lower::expression(
+                        config,
+                        *maximum_expression_id,
+                        &mut BTreeSet::new(),
+                    )?),
+                },
+            ]
+            .into_boxed_slice(),
+        ),
+        V::EffectExists {
+            selector_id,
+            effect_id,
+        } => ConditionExpr::EffectExists {
+            selector: selector(*selector_id)?,
+            effect: starclock_combat::EffectDefinitionId::new(positive(
+                *effect_id,
+                "ConditionExpression.effect_id",
+            )?)
+            .expect("positive effect ID"),
+        },
+        V::HasWeakness {
+            selector_id,
+            element,
+        } => ConditionExpr::HasWeakness {
+            selector: selector(*selector_id)?,
+            element: crate::effect_lower::lower_element(*element),
+        },
+        V::IsBroken { selector_id } => ConditionExpr::IsBroken(selector(*selector_id)?),
+        V::SelectorCardinality {
+            selector_id,
+            minimum_count,
+            maximum_count,
+        } => ConditionExpr::All(
+            vec![
+                ConditionExpr::SelectorCardinality {
+                    selector: selector(*selector_id)?,
+                    operator: Comparison::GreaterOrEqual,
+                    count: u16::try_from(*minimum_count)
+                        .map_err(|_| domain_fail("selector minimum does not fit u16"))?,
+                },
+                ConditionExpr::SelectorCardinality {
+                    selector: selector(*selector_id)?,
+                    operator: Comparison::LessOrEqual,
+                    count: u16::try_from(*maximum_count)
+                        .map_err(|_| domain_fail("selector maximum does not fit u16"))?,
+                },
+            ]
+            .into_boxed_slice(),
+        ),
+        V::EventPropertyCompare {
+            property,
+            comparison,
+            expected_expression_id,
+        } => ConditionExpr::Compare {
+            lhs: Box::new(ValueExpr::ReadEventProperty(lower_event_property(
+                *property,
+            ))),
+            operator: lower_comparison(*comparison),
+            rhs: Box::new(crate::modifier_lower::expression(
+                config,
+                *expected_expression_id,
+                &mut BTreeSet::new(),
+            )?),
+        },
         _ => {
             return Err(domain_fail(format!(
                 "condition expression {id} exceeds the current executable boundary"
@@ -311,6 +566,51 @@ pub(super) fn lower_condition(
     };
     visiting.remove(&id);
     Ok(condition)
+}
+
+fn lower_life_predicate(
+    value: generated::life_predicate::LifePredicate,
+) -> Option<starclock_combat::LifeState> {
+    use generated::life_predicate::LifePredicate as V;
+    match value {
+        V::Any => None,
+        V::Alive => Some(starclock_combat::LifeState::Alive),
+        V::Downed => Some(starclock_combat::LifeState::Downed),
+        V::Defeated => Some(starclock_combat::LifeState::Defeated),
+    }
+}
+
+fn lower_presence_predicate(
+    value: generated::presence_predicate::PresencePredicate,
+) -> Option<starclock_combat::PresenceState> {
+    use generated::presence_predicate::PresencePredicate as V;
+    match value {
+        V::Any => None,
+        V::Present => Some(starclock_combat::PresenceState::Present),
+        V::Reserved => Some(starclock_combat::PresenceState::Reserved),
+        V::Departed => Some(starclock_combat::PresenceState::Departed),
+        V::Untargetable => Some(starclock_combat::PresenceState::Untargetable),
+        V::Linked => Some(starclock_combat::PresenceState::Linked),
+        V::Transformed => Some(starclock_combat::PresenceState::Transformed),
+    }
+}
+
+pub(super) fn lower_event_property(
+    value: generated::event_value_property::EventValueProperty,
+) -> EventValueProperty {
+    use generated::event_value_property::EventValueProperty as V;
+    match value {
+        V::OwnerId => EventValueProperty::OwnerId,
+        V::ActorId => EventValueProperty::ActorId,
+        V::ApplierId => EventValueProperty::ApplierId,
+        V::SourceDefinitionId => EventValueProperty::SourceDefinitionId,
+        V::PrimaryTargetId => EventValueProperty::PrimaryTargetId,
+        V::DamageAmount => EventValueProperty::DamageAmount,
+        V::HpChangeAmount => EventValueProperty::HpChangeAmount,
+        V::ResourceDelta => EventValueProperty::ResourceDelta,
+        V::StackCount => EventValueProperty::StackCount,
+        V::HitIndex => EventValueProperty::HitIndex,
+    }
 }
 
 fn lower_comparison(value: comparison_operator::ComparisonOperator) -> Comparison {

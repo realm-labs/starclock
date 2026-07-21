@@ -5,8 +5,9 @@ use std::collections::BTreeSet;
 use crate::{
     ProgramId, SelectorId, StateSlotDefinitionId,
     rule::model::{
-        BattleRuleDefinition, ConditionExpr, OnceScope, ProgramStep, RuleOperationTemplate,
-        RuleValue, RuleValueKind, SlotPersistence, TriggerDef, TriggerPhase, ValueExpr,
+        BattleRuleDefinition, ConditionExpr, EventValueProperty, OnceScope, ProgramStep,
+        RuleOperationTemplate, RuleValue, RuleValueKind, SlotPersistence, TriggerDef, TriggerPhase,
+        ValueExpr,
     },
 };
 
@@ -105,6 +106,12 @@ fn validate_runtime(runtime: &BattleRuleDefinition) -> Result<(), String> {
         }
     }
     for trigger in runtime.triggers() {
+        if trigger.event_point.kind() != trigger.event {
+            return Err(format!(
+                "trigger {} event point does not belong to its indexed event family",
+                trigger.id.get()
+            ));
+        }
         if !once_scope_constructible(trigger) {
             return Err(format!(
                 "trigger {} once scope cannot be constructed from its event family",
@@ -498,6 +505,15 @@ fn validate_condition(
         ConditionExpr::SelectorCardinality { selector, .. } => {
             require_selector(catalog, *selector)?;
         }
+        ConditionExpr::LifePresence { selector, .. }
+        | ConditionExpr::HasWeakness { selector, .. }
+        | ConditionExpr::IsBroken(selector) => require_selector(catalog, *selector)?,
+        ConditionExpr::EffectExists { selector, effect } => {
+            require_selector(catalog, *selector)?;
+            if catalog.effect(*effect).is_none() {
+                return Err("effect predicate refers to a missing effect".into());
+            }
+        }
     }
     Ok(())
 }
@@ -516,9 +532,32 @@ fn infer_value(
         }
         ValueExpr::Slot(slot) => slot_kind(runtime, *slot)?,
         ValueExpr::AbilityParameter { kind, .. } => *kind,
+        ValueExpr::ReadResource { selector, .. } => {
+            require_selector(catalog, *selector)?;
+            RuleValueKind::Scalar
+        }
+        ValueExpr::ReadEventProperty(property) => match property {
+            EventValueProperty::OwnerId
+            | EventValueProperty::ActorId
+            | EventValueProperty::ApplierId
+            | EventValueProperty::SourceDefinitionId
+            | EventValueProperty::PrimaryTargetId => RuleValueKind::OptionalStableId,
+            EventValueProperty::DamageAmount
+            | EventValueProperty::HpChangeAmount
+            | EventValueProperty::ResourceDelta => RuleValueKind::Scalar,
+            EventValueProperty::StackCount | EventValueProperty::HitIndex => RuleValueKind::Integer,
+        },
         ValueExpr::SelectorCount(selector) => {
             require_selector(catalog, *selector)?;
             RuleValueKind::Integer
+        }
+        ValueExpr::SelectorSum { selector, value } => {
+            require_selector(catalog, *selector)?;
+            let kind = infer_value(catalog, runtime, value, depth + 1)?;
+            if !matches!(kind, RuleValueKind::Integer | RuleValueKind::Scalar) {
+                return Err("selector sum requires a numeric value".into());
+            }
+            kind
         }
         ValueExpr::EventId => RuleValueKind::StableId,
         ValueExpr::EventOwner

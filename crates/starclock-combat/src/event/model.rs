@@ -94,6 +94,7 @@ pub struct DamageEventData {
     /// Semantic damage family, including retained DoT attribution.
     pub kind: DamageKind,
     pub class: crate::formula::model::DamageClass,
+    pub element: Option<crate::formula::model::CombatElement>,
     /// Original retained effect instance for a tick or detonation.
     pub source_effect: Option<crate::EffectInstanceId>,
     /// Unit whose HP changed.
@@ -483,7 +484,7 @@ pub enum SkillPointPayer {
 }
 
 /// Checked resource changes applied at action-envelope boundaries.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub enum ResourceEventData {
     /// Team Skill Points changed; overflow records discarded ordinary gain.
     SkillPoints {
@@ -505,6 +506,7 @@ pub enum ResourceEventData {
     /// Form-scoped named character resource mutation.
     CharacterResource {
         unit: UnitId,
+        resource: Box<str>,
         before: crate::Scalar,
         after: crate::Scalar,
         maximum: crate::Scalar,

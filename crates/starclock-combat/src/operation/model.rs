@@ -209,6 +209,7 @@ pub(crate) struct DamageOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
     pub(crate) formula: OrdinaryDamageDefinition,
+    pub(crate) element: Option<crate::formula::model::CombatElement>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

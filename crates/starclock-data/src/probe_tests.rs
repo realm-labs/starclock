@@ -13,7 +13,8 @@ use starclock_combat::{
         evaluate::{EvaluationBudget, RuleEvaluationError, StatQueryReader, evaluate_program},
         model::{
             ResourceUpdateKind, RuleCause, RuleEffectChancePolicy, RuleEmission,
-            RuleEvaluationInput, RuleEventKind, RuleOccurrence, RuleValue, SourceClass,
+            RuleEvaluationInput, RuleEventFacts, RuleEventKind, RuleEventPoint, RuleOccurrence,
+            RuleValue, SourceClass,
         },
     },
 };
@@ -259,6 +260,7 @@ fn clara_counter_trigger_and_shared_charge_program_lower_in_authored_order() {
         panic!("Clara probe must expose exactly one trigger");
     };
     assert_eq!(trigger.event, RuleEventKind::Hit);
+    assert_eq!(trigger.event_point, RuleEventPoint::HitEnded);
     assert_eq!(
         trigger.phase,
         starclock_combat::rule::model::TriggerPhase::AfterEvent
@@ -637,8 +639,13 @@ impl StatQueryReader for FireflyStats {
 }
 
 fn firefly_input(stats: &FireflyStats) -> RuleEvaluationInput<'_> {
+    let event_facts = Box::leak(Box::new(RuleEventFacts {
+        point: Some(RuleEventPoint::ActionResolved),
+        ..RuleEventFacts::default()
+    }));
     RuleEvaluationInput {
         event_kind: RuleEventKind::Action,
+        event_facts,
         cause: RuleCause {
             owner: Some(unit(1)),
             actor: Some(unit(1)),
@@ -661,6 +668,8 @@ fn firefly_input(stats: &FireflyStats) -> RuleEvaluationInput<'_> {
         selectors: &[],
         stat_reader: Some(stats),
         ability_parameter_reader: None,
+        resource_reader: None,
+        battle_query_reader: None,
     }
 }
 

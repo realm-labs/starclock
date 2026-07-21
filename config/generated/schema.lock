@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "01cf5166c065d85e",
+  "fingerprint": "1b700d744eb3e6a0",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -11072,6 +11072,47 @@
             "default": null,
             "range": null,
             "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "resource_kind",
+            "ty": {
+              "Optional": {
+                "Enum": "ResourceKind"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "character_resource_key",
+            "ty": {
+              "Optional": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              120
+            ],
             "parser": null,
             "derived_from": null
           },

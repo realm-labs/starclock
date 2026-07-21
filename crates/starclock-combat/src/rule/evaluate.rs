@@ -7,8 +7,9 @@ use crate::modifier::model::{FormulaPurpose, StatKind, StatQuerySubject};
 use crate::{NumericError, ProgramId, RuleId, Scalar, StateSlotDefinitionId, UnitId};
 
 use super::model::{
-    Comparison, ConditionExpr, EventFilter, ProgramStep, RuleEmission, RuleEvaluationInput,
-    RuleOperationTemplate, RuleValue, RuleValueKind, TriggerDef, ValueExpr, once_key,
+    CauseAncestry, Comparison, ConditionExpr, EventFilter, EventValueProperty, ProgramStep,
+    RuleEmission, RuleEvaluationInput, RuleOperationTemplate, RuleResourceKind, RuleValue,
+    RuleValueKind, TriggerDef, ValueExpr, once_key,
 };
 
 /// Immutable program lookup used by the evaluator and static handler tests.
@@ -32,6 +33,19 @@ pub trait StatQueryReader {
 pub trait AbilityParameterReader {
     /// Returns one parameter selected by the exact resolved ability and semantic key.
     fn ability_parameter(&self, ability: crate::AbilityId, key: &str) -> Option<RuleValue>;
+}
+
+/// Read-only bridge used by the Rule IR `ReadResource` leaf.
+pub trait ResourceQueryReader {
+    fn query_resource(&self, subject: UnitId, resource: &RuleResourceKind) -> Option<RuleValue>;
+}
+
+/// Read-only battlefield predicates used by authored contextual conditions.
+pub trait BattleQueryReader {
+    fn life_presence(&self, subject: UnitId) -> Option<(crate::LifeState, crate::PresenceState)>;
+    fn has_effect(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> bool;
+    fn has_weakness(&self, subject: UnitId, element: crate::formula::model::CombatElement) -> bool;
+    fn is_broken(&self, subject: UnitId) -> bool;
 }
 
 /// Stable evaluation failure category.
@@ -184,6 +198,7 @@ impl TriggerLedger {
         maximum_once_keys: usize,
     ) -> Result<Vec<RuleEmission>, RuleEvaluationError> {
         if input.event_kind != trigger.event
+            || input.event_facts.point != Some(trigger.event_point)
             || !matches_filter(&trigger.filter, input)
             || !evaluate_condition(&trigger.condition, input, None)?
         {
@@ -589,6 +604,62 @@ pub fn evaluate_condition(
                 .cmp(&usize::from(*count)),
             *operator,
         ),
+        ConditionExpr::LifePresence {
+            selector,
+            life,
+            presence,
+        } => selector_units(input, *selector)
+            .ok_or(RuleEvaluationError {
+                kind: RuleEvaluationErrorKind::MissingValue,
+                context: selector.get(),
+            })?
+            .iter()
+            .copied()
+            .all(|unit| {
+                input
+                    .battle_query_reader
+                    .and_then(|reader| reader.life_presence(unit))
+                    .is_some_and(|(actual_life, actual_presence)| {
+                        life.is_none_or(|expected| expected == actual_life)
+                            && presence.is_none_or(|expected| expected == actual_presence)
+                    })
+            }),
+        ConditionExpr::EffectExists { selector, effect } => selector_units(input, *selector)
+            .ok_or(RuleEvaluationError {
+                kind: RuleEvaluationErrorKind::MissingValue,
+                context: selector.get(),
+            })?
+            .iter()
+            .copied()
+            .all(|unit| {
+                input
+                    .battle_query_reader
+                    .is_some_and(|reader| reader.has_effect(unit, *effect))
+            }),
+        ConditionExpr::HasWeakness { selector, element } => selector_units(input, *selector)
+            .ok_or(RuleEvaluationError {
+                kind: RuleEvaluationErrorKind::MissingValue,
+                context: selector.get(),
+            })?
+            .iter()
+            .copied()
+            .all(|unit| {
+                input
+                    .battle_query_reader
+                    .is_some_and(|reader| reader.has_weakness(unit, *element))
+            }),
+        ConditionExpr::IsBroken(selector) => selector_units(input, *selector)
+            .ok_or(RuleEvaluationError {
+                kind: RuleEvaluationErrorKind::MissingValue,
+                context: selector.get(),
+            })?
+            .iter()
+            .copied()
+            .all(|unit| {
+                input
+                    .battle_query_reader
+                    .is_some_and(|reader| reader.is_broken(unit))
+            }),
     })
 }
 
@@ -610,6 +681,53 @@ pub fn matches_filter(filter: &EventFilter, input: RuleEvaluationInput<'_>) -> b
         && filter
             .source
             .is_none_or(|value| input.cause.source == Some(value))
+        && filter
+            .source_class
+            .is_none_or(|value| input.event_facts.source_class == Some(value))
+        && selector_matches(filter.owner_selector, input.cause.owner, input)
+        && selector_matches(filter.actor_selector, input.cause.actor, input)
+        && selector_matches(filter.applier_selector, input.cause.applier, input)
+        && selector_matches(filter.target_selector, input.cause.target, input)
+        && filter
+            .action_kind
+            .is_none_or(|value| input.event_facts.action_kind == Some(value))
+        && filter
+            .ability_tag
+            .is_none_or(|value| input.event_facts.ability_tags.contains(value))
+        && filter
+            .element
+            .is_none_or(|value| input.event_facts.element == Some(value))
+        && filter
+            .damage_class
+            .is_none_or(|value| input.event_facts.damage_class == Some(value))
+        && filter
+            .resource
+            .as_ref()
+            .is_none_or(|value| input.event_facts.resource.as_ref() == Some(value))
+        && ancestry_matches(filter.cause_ancestry, input)
+}
+
+fn selector_matches(
+    selector: Option<crate::SelectorId>,
+    unit: Option<UnitId>,
+    input: RuleEvaluationInput<'_>,
+) -> bool {
+    selector.is_none_or(|selector| {
+        unit.is_some_and(|unit| {
+            selector_units(input, selector).is_some_and(|units| units.binary_search(&unit).is_ok())
+        })
+    })
+}
+
+fn ancestry_matches(value: CauseAncestry, input: RuleEvaluationInput<'_>) -> bool {
+    match value {
+        CauseAncestry::Any => true,
+        CauseAncestry::RootCommand => !input.event_facts.has_parent,
+        CauseAncestry::DirectParent => input.event_facts.has_parent,
+        CauseAncestry::SameAction => input.event_facts.has_action,
+        CauseAncestry::SamePhase => input.event_facts.has_phase,
+        CauseAncestry::SameHit => input.event_facts.has_hit,
+    }
 }
 
 pub fn evaluate_value(
@@ -637,6 +755,26 @@ pub fn evaluate_value(
                 kind: RuleEvaluationErrorKind::MissingValue,
                 context: 0x203,
             }),
+        ValueExpr::ReadResource { selector, resource } => {
+            let units = selector_units(input, *selector).ok_or(RuleEvaluationError {
+                kind: RuleEvaluationErrorKind::MissingValue,
+                context: selector.get(),
+            })?;
+            let [unit] = units else {
+                return Err(RuleEvaluationError {
+                    kind: RuleEvaluationErrorKind::MissingValue,
+                    context: selector.get(),
+                });
+            };
+            input
+                .resource_reader
+                .and_then(|reader| reader.query_resource(*unit, resource))
+                .ok_or(RuleEvaluationError {
+                    kind: RuleEvaluationErrorKind::MissingValue,
+                    context: 0x204,
+                })
+        }
+        ValueExpr::ReadEventProperty(property) => event_property(*property, input),
         ValueExpr::SelectorCount(selector) => selector_units(input, *selector)
             .and_then(|units| i64::try_from(units.len()).ok())
             .map(RuleValue::Integer)
@@ -644,6 +782,23 @@ pub fn evaluate_value(
                 kind: RuleEvaluationErrorKind::MissingValue,
                 context: selector.get(),
             }),
+        ValueExpr::SelectorSum { selector, value } => {
+            let units = selector_units(input, *selector).ok_or(RuleEvaluationError {
+                kind: RuleEvaluationErrorKind::MissingValue,
+                context: selector.get(),
+            })?;
+            let mut values = units
+                .iter()
+                .copied()
+                .map(|unit| evaluate_value(value, input, Some(unit)));
+            let Some(first) = values.next() else {
+                return Err(RuleEvaluationError {
+                    kind: RuleEvaluationErrorKind::MissingValue,
+                    context: selector.get(),
+                });
+            };
+            values.try_fold(first?, |sum, value| add_values(sum, value?))
+        }
         ValueExpr::EventId => Ok(RuleValue::StableId(input.occurrence.event.get())),
         ValueExpr::EventOwner => optional_unit(input.cause.owner),
         ValueExpr::EventActor => optional_unit(input.cause.actor),
@@ -737,6 +892,64 @@ pub fn evaluate_value(
             *target,
             *rounding,
         ),
+    }
+}
+
+fn event_property(
+    property: EventValueProperty,
+    input: RuleEvaluationInput<'_>,
+) -> Result<RuleValue, RuleEvaluationError> {
+    let missing = || RuleEvaluationError {
+        kind: RuleEvaluationErrorKind::MissingValue,
+        context: 0x205 + property as u32,
+    };
+    match property {
+        EventValueProperty::OwnerId => optional_unit(input.cause.owner),
+        EventValueProperty::ActorId => optional_unit(input.cause.actor),
+        EventValueProperty::ApplierId => optional_unit(input.cause.applier),
+        EventValueProperty::SourceDefinitionId => Ok(RuleValue::OptionalStableId(
+            input.cause.source.map(|value| u64::from(value.get())),
+        )),
+        EventValueProperty::PrimaryTargetId => optional_unit(input.cause.target),
+        EventValueProperty::DamageAmount => input
+            .event_facts
+            .damage_amount
+            .map(RuleValue::Scalar)
+            .ok_or_else(missing),
+        EventValueProperty::HpChangeAmount => input
+            .event_facts
+            .hp_change_amount
+            .map(RuleValue::Scalar)
+            .ok_or_else(missing),
+        EventValueProperty::ResourceDelta => input
+            .event_facts
+            .resource_delta
+            .map(RuleValue::Scalar)
+            .ok_or_else(missing),
+        EventValueProperty::StackCount => input
+            .event_facts
+            .stack_count
+            .map(RuleValue::Integer)
+            .ok_or_else(missing),
+        EventValueProperty::HitIndex => input
+            .event_facts
+            .hit_index
+            .map(RuleValue::Integer)
+            .ok_or_else(missing),
+    }
+}
+
+fn add_values(lhs: RuleValue, rhs: RuleValue) -> Result<RuleValue, RuleEvaluationError> {
+    match (lhs, rhs) {
+        (RuleValue::Integer(lhs), RuleValue::Integer(rhs)) => lhs
+            .checked_add(rhs)
+            .map(RuleValue::Integer)
+            .ok_or_else(|| numeric_error(0x114)),
+        (RuleValue::Scalar(lhs), RuleValue::Scalar(rhs)) => lhs
+            .checked_add(rhs)
+            .map(RuleValue::Scalar)
+            .map_err(|_| numeric_error(0x115)),
+        _ => Err(type_error(0x116)),
     }
 }
 

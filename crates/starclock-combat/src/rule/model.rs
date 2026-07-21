@@ -266,7 +266,161 @@ pub enum RuleEventKind {
     Fault,
 }
 
-/// Trigger timing is independent from the observed event family.
+/// Exact authored observation point retained within one indexed event family.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum RuleEventPoint {
+    BattleStarted,
+    BattleWon,
+    BattleLost,
+    BattleFaulted,
+    WaveStarted,
+    WaveEnded,
+    TurnStarted,
+    TurnEnded,
+    ActionDeclared,
+    ActionStarted,
+    ActionResolved,
+    PhaseStarted,
+    PhaseEnded,
+    HitStarted,
+    HitEnded,
+    DamageCalculated,
+    DamageApplied,
+    HpChanged,
+    HealApplied,
+    ShieldChanged,
+    ToughnessChanged,
+    WeaknessBroken,
+    EffectApplied,
+    EffectRemoved,
+    EffectRefreshed,
+    EffectStacksChanged,
+    ResourceChanged,
+    TimelineChanged,
+    UnitDowned,
+    UnitDefeated,
+    UnitRevived,
+    UnitTransformed,
+    PresenceChanged,
+    EncounterTransition,
+    RuleStateChanged,
+    DecisionRequested,
+    FaultRaised,
+    InformationalRule,
+}
+
+impl RuleEventPoint {
+    #[must_use]
+    pub const fn kind(self) -> RuleEventKind {
+        match self {
+            Self::BattleStarted | Self::BattleWon | Self::BattleLost | Self::BattleFaulted => {
+                RuleEventKind::Battle
+            }
+            Self::WaveStarted | Self::WaveEnded | Self::EncounterTransition => RuleEventKind::Wave,
+            Self::TurnStarted | Self::TurnEnded | Self::TimelineChanged => RuleEventKind::Turn,
+            Self::ActionDeclared | Self::ActionStarted | Self::ActionResolved => {
+                RuleEventKind::Action
+            }
+            Self::PhaseStarted | Self::PhaseEnded => RuleEventKind::Phase,
+            Self::HitStarted | Self::HitEnded => RuleEventKind::Hit,
+            Self::DamageCalculated | Self::DamageApplied | Self::HpChanged => RuleEventKind::Damage,
+            Self::HealApplied | Self::ShieldChanged => RuleEventKind::Heal,
+            Self::ToughnessChanged | Self::WeaknessBroken => RuleEventKind::Toughness,
+            Self::EffectApplied
+            | Self::EffectRemoved
+            | Self::EffectRefreshed
+            | Self::EffectStacksChanged
+            | Self::RuleStateChanged
+            | Self::InformationalRule => RuleEventKind::Rule,
+            Self::ResourceChanged => RuleEventKind::Resource,
+            Self::UnitDowned
+            | Self::UnitDefeated
+            | Self::UnitRevived
+            | Self::UnitTransformed
+            | Self::PresenceChanged => RuleEventKind::Unit,
+            Self::DecisionRequested => RuleEventKind::Decision,
+            Self::FaultRaised => RuleEventKind::Fault,
+        }
+    }
+}
+
+/// Generic action family accepted by authored event filters.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum RuleActionKind {
+    Basic,
+    Skill,
+    Ultimate,
+    Talent,
+    TechniqueEntry,
+    FollowUp,
+    Counter,
+    Summon,
+    Memosprite,
+    Enemy,
+    ExtraTurn,
+    Scripted,
+}
+
+/// Complete semantic damage family accepted by event filters.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum RuleDamageClass {
+    Ordinary,
+    Dot,
+    Break,
+    SuperBreak,
+    Additional,
+    Joint,
+    Elation,
+    TrueDamage,
+}
+
+/// Explicit relationship between a matched event and its cause envelope.
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum CauseAncestry {
+    #[default]
+    Any,
+    RootCommand,
+    DirectParent,
+    SameAction,
+    SamePhase,
+    SameHit,
+}
+
+/// Typed event property readable by expressions and comparisons.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum EventValueProperty {
+    OwnerId,
+    ActorId,
+    ApplierId,
+    SourceDefinitionId,
+    PrimaryTargetId,
+    DamageAmount,
+    HpChangeAmount,
+    ResourceDelta,
+    StackCount,
+    HitIndex,
+}
+
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct RuleEventFacts {
+    pub point: Option<RuleEventPoint>,
+    pub source_class: Option<SourceClass>,
+    pub action_kind: Option<RuleActionKind>,
+    pub ability_tags: crate::catalog::action::AbilityTags,
+    pub element: Option<CombatElement>,
+    pub damage_class: Option<RuleDamageClass>,
+    pub resource: Option<RuleResourceKind>,
+    pub damage_amount: Option<Scalar>,
+    pub hp_change_amount: Option<Scalar>,
+    pub resource_delta: Option<Scalar>,
+    pub stack_count: Option<i64>,
+    pub hit_index: Option<i64>,
+    pub has_parent: bool,
+    pub has_action: bool,
+    pub has_phase: bool,
+    pub has_hit: bool,
+}
+
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum TriggerPhase {
     Before,
@@ -314,6 +468,17 @@ pub struct EventFilter {
     pub applier: Option<UnitId>,
     pub target: Option<UnitId>,
     pub source: Option<SourceDefinitionId>,
+    pub source_class: Option<SourceClass>,
+    pub owner_selector: Option<SelectorId>,
+    pub actor_selector: Option<SelectorId>,
+    pub applier_selector: Option<SelectorId>,
+    pub target_selector: Option<SelectorId>,
+    pub action_kind: Option<RuleActionKind>,
+    pub ability_tag: Option<crate::catalog::action::AbilityTag>,
+    pub element: Option<CombatElement>,
+    pub damage_class: Option<RuleDamageClass>,
+    pub resource: Option<RuleResourceKind>,
+    pub cause_ancestry: CauseAncestry,
 }
 
 /// Closed checked value-expression tree.
@@ -326,7 +491,16 @@ pub enum ValueExpr {
         key: Box<str>,
         kind: RuleValueKind,
     },
+    ReadResource {
+        selector: SelectorId,
+        resource: RuleResourceKind,
+    },
+    ReadEventProperty(EventValueProperty),
     SelectorCount(SelectorId),
+    SelectorSum {
+        selector: SelectorId,
+        value: Box<ValueExpr>,
+    },
     EventId,
     EventOwner,
     EventActor,
@@ -400,6 +574,20 @@ pub enum ConditionExpr {
         operator: Comparison,
         count: u16,
     },
+    LifePresence {
+        selector: SelectorId,
+        life: Option<crate::LifeState>,
+        presence: Option<crate::PresenceState>,
+    },
+    EffectExists {
+        selector: SelectorId,
+        effect: EffectDefinitionId,
+    },
+    HasWeakness {
+        selector: SelectorId,
+        element: CombatElement,
+    },
+    IsBroken(SelectorId),
 }
 
 /// One finite ordered program step.
@@ -634,6 +822,7 @@ pub struct RuleSlotMutationDefinition {
 pub struct TriggerDef {
     pub id: TriggerId,
     pub event: RuleEventKind,
+    pub event_point: RuleEventPoint,
     pub phase: TriggerPhase,
     pub filter: EventFilter,
     pub condition: ConditionExpr,
@@ -903,6 +1092,7 @@ pub enum RuleEmission {
 #[derive(Clone, Copy)]
 pub struct RuleEvaluationInput<'a> {
     pub event_kind: RuleEventKind,
+    pub event_facts: &'a RuleEventFacts,
     pub cause: RuleCause,
     pub occurrence: RuleOccurrence,
     pub source_tags: &'a [SourceDefinitionId],
@@ -910,6 +1100,8 @@ pub struct RuleEvaluationInput<'a> {
     pub selectors: &'a [SelectorResult<'a>],
     pub stat_reader: Option<&'a dyn super::evaluate::StatQueryReader>,
     pub ability_parameter_reader: Option<&'a dyn super::evaluate::AbilityParameterReader>,
+    pub resource_reader: Option<&'a dyn super::evaluate::ResourceQueryReader>,
+    pub battle_query_reader: Option<&'a dyn super::evaluate::BattleQueryReader>,
 }
 
 impl core::fmt::Debug for RuleEvaluationInput<'_> {
@@ -917,6 +1109,7 @@ impl core::fmt::Debug for RuleEvaluationInput<'_> {
         formatter
             .debug_struct("RuleEvaluationInput")
             .field("event_kind", &self.event_kind)
+            .field("event_facts", &self.event_facts)
             .field("cause", &self.cause)
             .field("occurrence", &self.occurrence)
             .field("source_tags", &self.source_tags)
@@ -926,6 +1119,11 @@ impl core::fmt::Debug for RuleEvaluationInput<'_> {
             .field(
                 "has_ability_parameter_reader",
                 &self.ability_parameter_reader.is_some(),
+            )
+            .field("has_resource_reader", &self.resource_reader.is_some())
+            .field(
+                "has_battle_query_reader",
+                &self.battle_query_reader.is_some(),
             )
             .finish()
     }

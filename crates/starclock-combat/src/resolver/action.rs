@@ -240,12 +240,14 @@ pub(super) fn execute_action_plan(
                             id: operation.id,
                             targets: targets.clone(),
                             formula,
+                            element: Some(definition.element()),
                         })
                     }
                     HitOperationDefinition::Damage(formula) => Operation::Damage(DamageOp {
                         id: operation.id,
                         targets: targets.clone(),
                         formula: *formula,
+                        element: None,
                     }),
                     HitOperationDefinition::Heal(formula) => Operation::Heal(HealOp {
                         id: operation.id,

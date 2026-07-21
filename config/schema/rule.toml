@@ -441,6 +441,15 @@ name = "damage_class"
 type = "optional<enum<DamageClass>>"
 
 [[tables.fields]]
+name = "resource_kind"
+type = "optional<enum<ResourceKind>>"
+
+[[tables.fields]]
+name = "character_resource_key"
+type = "optional<string>"
+length = [1, 120]
+
+[[tables.fields]]
 name = "cause_ancestry"
 type = "enum<CauseAncestry>"
 

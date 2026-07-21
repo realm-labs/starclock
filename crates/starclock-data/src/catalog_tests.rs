@@ -139,6 +139,10 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
     };
     let mut input = starclock_combat::rule::model::RuleEvaluationInput {
         event_kind: starclock_combat::rule::model::RuleEventKind::Action,
+        event_facts: &starclock_combat::rule::model::RuleEventFacts {
+            point: Some(starclock_combat::rule::model::RuleEventPoint::ActionResolved),
+            ..starclock_combat::rule::model::RuleEventFacts::default()
+        },
         cause: starclock_combat::rule::model::RuleCause {
             owner: None,
             actor: None,
@@ -161,6 +165,8 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
         selectors: &[],
         stat_reader: None,
         ability_parameter_reader: Some(combat),
+        resource_reader: None,
+        battle_query_reader: None,
     };
     assert_eq!(
         starclock_combat::rule::evaluate::evaluate_value(&formula, input, None).unwrap(),

@@ -39,9 +39,9 @@ use starclock_combat::{
     rule::model::{
         BattleRuleDefinition, BattleRuleScope, ConditionExpr, EventFilter, OnceScope, ProgramStep,
         ReactionPriority, ResourceUpdateKind, RuleActionOwner, RuleActionPaymentPolicy,
-        RuleEffectChancePolicy, RuleEventKind, RuleOperationTemplate, RuleResourceKind, RuleSource,
-        RuleValue, RuleValueKind, SourceClass, StateSlotDef, StateSlotUpdateKind, TriggerDef,
-        TriggerPhase, ValueExpr,
+        RuleEffectChancePolicy, RuleEventKind, RuleEventPoint, RuleOperationTemplate,
+        RuleResourceKind, RuleSource, RuleValue, RuleValueKind, SourceClass, StateSlotDef,
+        StateSlotUpdateKind, TriggerDef, TriggerPhase, ValueExpr,
     },
 };
 
@@ -188,6 +188,11 @@ fn catalog(
                         RuleEventKind::Damage
                     } else {
                         RuleEventKind::Hit
+                    },
+                    event_point: if recursive_rule {
+                        RuleEventPoint::DamageApplied
+                    } else {
+                        RuleEventPoint::HitEnded
                     },
                     phase: TriggerPhase::AfterEvent,
                     filter: if mechanics_rule {

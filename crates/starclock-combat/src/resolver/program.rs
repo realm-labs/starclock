@@ -87,8 +87,17 @@ pub(super) fn execute_ability_program(
         &bases,
         &modifiers,
     );
+    let event_facts = crate::rule::model::RuleEventFacts {
+        point: Some(crate::rule::model::RuleEventPoint::PhaseStarted),
+        has_parent: true,
+        has_action: true,
+        has_phase: true,
+        has_hit: context.hit.is_some(),
+        ..crate::rule::model::RuleEventFacts::default()
+    };
     let input = RuleEvaluationInput {
         event_kind: crate::rule::model::RuleEventKind::Phase,
+        event_facts: &event_facts,
         cause: RuleCause {
             owner: Some(context.owner),
             actor: Some(context.actor),
@@ -112,6 +121,8 @@ pub(super) fn execute_ability_program(
         selectors: &selectors,
         stat_reader: Some(&stat_reader),
         ability_parameter_reader: Some(catalog),
+        resource_reader: None,
+        battle_query_reader: None,
     };
     let emissions = evaluate_program(catalog, context.program, input, EvaluationBudget::STANDARD)
         .map_err(|error| program_fault(1, i64::from(error.context())))?;
@@ -211,6 +222,7 @@ fn execute_emission(
             selector,
             amount,
             class,
+            element,
             ..
         } => {
             let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
@@ -225,6 +237,7 @@ fn execute_emission(
                 id: operation_id,
                 targets: targets(resolved, selector)?,
                 formula,
+                element: Some(element),
             })
         }
         RuleEmission::Heal {
@@ -720,6 +733,7 @@ fn modify_resource(
                     cause.with_parent(parent).with_primary_target(Some(target)),
                     BattleEventKind::Resource(ResourceEventData::CharacterResource {
                         unit: target,
+                        resource: stable_key.clone(),
                         before,
                         after,
                         maximum,

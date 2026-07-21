@@ -4,8 +4,9 @@ use starclock_combat::{
     rule::{
         evaluate::{EvaluationBudget, ProgramLookup, evaluate_program},
         model::{
-            ProgramStep, RuleCause, RuleEmission, RuleEvaluationInput, RuleEventKind,
-            RuleOccurrence, RuleOperationTemplate, RuleValue, ValueExpr,
+            ProgramStep, RuleCause, RuleEmission, RuleEvaluationInput, RuleEventFacts,
+            RuleEventKind, RuleEventPoint, RuleOccurrence, RuleOperationTemplate, RuleValue,
+            ValueExpr,
         },
     },
 };
@@ -228,8 +229,13 @@ fn synthetic_native_and_equivalent_ir_emit_the_same_shape() {
 }
 
 fn evaluation_input<'a>() -> RuleEvaluationInput<'a> {
+    let event_facts = Box::leak(Box::new(RuleEventFacts {
+        point: Some(RuleEventPoint::ActionResolved),
+        ..RuleEventFacts::default()
+    }));
     RuleEvaluationInput {
         event_kind: RuleEventKind::Action,
+        event_facts,
         cause: RuleCause {
             owner: None,
             actor: None,
@@ -252,5 +258,7 @@ fn evaluation_input<'a>() -> RuleEvaluationInput<'a> {
         selectors: &[],
         stat_reader: None,
         ability_parameter_reader: None,
+        resource_reader: None,
+        battle_query_reader: None,
     }
 }

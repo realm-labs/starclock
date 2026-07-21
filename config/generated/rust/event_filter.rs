@@ -4,6 +4,7 @@ use super::action_kind::ActionKind;
 use super::cause_ancestry::CauseAncestry;
 use super::combat_element::CombatElement;
 use super::damage_class::DamageClass;
+use super::resource_kind::ResourceKind;
 use super::source_class::SourceClass;
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -32,6 +33,10 @@ pub struct EventFilter {
     pub element: Option<CombatElement>,
     #[serde(rename = "damage_class")]
     pub damage_class: Option<DamageClass>,
+    #[serde(rename = "resource_kind")]
+    pub resource_kind: Option<ResourceKind>,
+    #[serde(rename = "character_resource_key")]
+    pub character_resource_key: Option<String>,
     #[serde(rename = "cause_ancestry")]
     pub cause_ancestry: CauseAncestry,
 }
@@ -55,6 +60,8 @@ impl super::runtime::SoraDecode for EventFilter {
             ability_tag: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             element: <Option<CombatElement> as super::runtime::SoraDecode>::decode(reader)?,
             damage_class: <Option<DamageClass> as super::runtime::SoraDecode>::decode(reader)?,
+            resource_kind: <Option<ResourceKind> as super::runtime::SoraDecode>::decode(reader)?,
+            character_resource_key: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             cause_ancestry: <CauseAncestry as super::runtime::SoraDecode>::decode(reader)?,
         })
     }

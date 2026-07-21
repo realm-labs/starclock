@@ -1,6 +1,7 @@
 use starclock_combat::{
     ProgramId, SelectorId, SourceDefinitionId, StateSlotDefinitionId, UnitId,
     catalog::{
+        action::AbilityTag,
         builder::{CatalogBuildErrorKind, CombatCatalogBuilder},
         definition::{
             AbilityDefinition, AbilityParameterDefinition, ProgramDefinition, RuleDefinition,
@@ -9,15 +10,16 @@ use starclock_combat::{
     },
     rule::{
         evaluate::{
-            EvaluationBudget, RuleEvaluationErrorKind, TriggerLedger, evaluate_condition,
-            evaluate_program, evaluate_value, matches_filter,
+            EvaluationBudget, ResourceQueryReader, RuleEvaluationErrorKind, TriggerLedger,
+            evaluate_condition, evaluate_program, evaluate_value, matches_filter,
         },
         model::{
-            BattleRuleDefinition, BattleRuleScope, Comparison, ConditionExpr, EventFilter,
-            OnceScope, ProgramStep, ReactionPriority, RuleCause, RuleEmission, RuleEvaluationInput,
-            RuleEventKind, RuleOccurrence, RuleOperationTemplate, RuleSource, RuleValue,
-            RuleValueKind, SelectorResult, SourceClass, StateSlotDef, TriggerDef, TriggerPhase,
-            ValueExpr, once_key,
+            BattleRuleDefinition, BattleRuleScope, CauseAncestry, Comparison, ConditionExpr,
+            EventFilter, EventValueProperty, OnceScope, ProgramStep, ReactionPriority,
+            RuleActionKind, RuleCause, RuleEmission, RuleEvaluationInput, RuleEventFacts,
+            RuleEventKind, RuleEventPoint, RuleOccurrence, RuleOperationTemplate, RuleResourceKind,
+            RuleSource, RuleValue, RuleValueKind, SelectorResult, SourceClass, StateSlotDef,
+            TriggerDef, TriggerPhase, ValueExpr, once_key,
         },
     },
 };
@@ -49,6 +51,7 @@ fn trigger(id: u32, program: ProgramId) -> TriggerDef {
     TriggerDef {
         id: definition(id),
         event: RuleEventKind::Action,
+        event_point: RuleEventPoint::ActionResolved,
         phase: TriggerPhase::AfterEvent,
         filter: EventFilter::default(),
         condition: ConditionExpr::Literal(true),
@@ -64,8 +67,13 @@ fn input<'a>(
     slots: &'a [(StateSlotDefinitionId, RuleValue)],
 ) -> RuleEvaluationInput<'a> {
     let selectors = Box::leak(vec![SelectorResult { selector, units }].into_boxed_slice());
+    let event_facts = Box::leak(Box::new(RuleEventFacts {
+        point: Some(RuleEventPoint::ActionResolved),
+        ..RuleEventFacts::default()
+    }));
     RuleEvaluationInput {
         event_kind: RuleEventKind::Action,
+        event_facts,
         cause: RuleCause {
             owner: Some(runtime(1)),
             actor: Some(runtime(2)),
@@ -79,6 +87,8 @@ fn input<'a>(
         selectors,
         stat_reader: None,
         ability_parameter_reader: None,
+        resource_reader: None,
+        battle_query_reader: None,
     }
 }
 
@@ -144,6 +154,93 @@ fn ability_parameter_leaf_reads_the_exact_resolved_ability_and_fails_closed() {
     )
     .unwrap_err();
     assert_eq!(error.kind(), RuleEvaluationErrorKind::MissingValue);
+}
+
+struct FixedSkillPoints;
+
+impl ResourceQueryReader for FixedSkillPoints {
+    fn query_resource(&self, subject: UnitId, resource: &RuleResourceKind) -> Option<RuleValue> {
+        (subject == runtime(2) && resource == &RuleResourceKind::SkillPoints)
+            .then_some(RuleValue::Integer(4))
+    }
+}
+
+#[test]
+fn exact_event_points_filters_and_observed_values_fail_closed() {
+    let program = definition(1);
+    let selector = definition(1);
+    let mut builder = CombatCatalogBuilder::new("event-observation-v1", [0x29; 32]);
+    builder.add_selector(SelectorDefinition::new(selector));
+    builder.add_program(
+        ProgramDefinition::new(program, vec![], vec![selector], vec![], vec![]).with_steps(vec![
+            ProgramStep::Operation(RuleOperationTemplate::EmitRuleEvent {
+                code: 29,
+                value: Some(ValueExpr::ReadResource {
+                    selector,
+                    resource: RuleResourceKind::SkillPoints,
+                }),
+            }),
+        ]),
+    );
+    let mut observed = trigger(1, program);
+    observed.filter = EventFilter {
+        actor_selector: Some(selector),
+        action_kind: Some(RuleActionKind::Skill),
+        ability_tag: Some(AbilityTag::Basic),
+        resource: Some(RuleResourceKind::SkillPoints),
+        cause_ancestry: CauseAncestry::SameAction,
+        ..EventFilter::default()
+    };
+    builder.add_rule(
+        RuleDefinition::new(definition(1), vec![program], vec![selector]).with_runtime(
+            BattleRuleDefinition::new(source(1), vec![], vec![observed.clone()], None),
+        ),
+    );
+    let catalog = builder.build().unwrap();
+    let units = [runtime(2)];
+    let facts = RuleEventFacts {
+        point: Some(RuleEventPoint::ActionStarted),
+        action_kind: Some(RuleActionKind::Skill),
+        ability_tags: starclock_combat::catalog::action::AbilityTags::new(&[AbilityTag::Basic]),
+        resource: Some(RuleResourceKind::SkillPoints),
+        resource_delta: Some(starclock_combat::Scalar::from_scaled(-1_000_000)),
+        has_action: true,
+        ..RuleEventFacts::default()
+    };
+    let resources = FixedSkillPoints;
+    let mut context = input(&units, selector, &[]);
+    context.event_facts = &facts;
+    context.resource_reader = Some(&resources);
+
+    let mut ledger = TriggerLedger::default();
+    assert!(
+        ledger
+            .evaluate(&*catalog, &observed, context, EvaluationBudget::STANDARD, 1,)
+            .unwrap()
+            .is_empty()
+    );
+    assert!(ledger.is_empty());
+
+    observed.event_point = RuleEventPoint::ActionStarted;
+    assert_eq!(
+        ledger
+            .evaluate(&*catalog, &observed, context, EvaluationBudget::STANDARD, 1,)
+            .unwrap(),
+        vec![RuleEmission::Informational {
+            code: 29,
+            value: Some(RuleValue::Integer(4)),
+            current_target: None,
+        }]
+    );
+    assert_eq!(
+        evaluate_value(
+            &ValueExpr::ReadEventProperty(EventValueProperty::ResourceDelta),
+            context,
+            None,
+        )
+        .unwrap(),
+        RuleValue::Scalar(starclock_combat::Scalar::from_scaled(-1_000_000))
+    );
 }
 
 #[test]
@@ -442,6 +539,7 @@ fn conditions_and_filters_keep_owner_actor_applier_target_distinct() {
             applier: Some(runtime(3)),
             target: Some(runtime(4)),
             source: Some(definition(1)),
+            ..EventFilter::default()
         },
         context
     ));

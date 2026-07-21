@@ -10,7 +10,7 @@ use starclock_combat::modifier::model::{
 use starclock_combat::modifier::registry::ModifierRegistry;
 use starclock_combat::{
     ModifierDefinitionId, ModifierStackingGroupId, Rounding, Scalar, SelectorId,
-    rule::model::{RuleValue, RuleValueKind, ValueExpr},
+    rule::model::{RuleResourceKind, RuleValue, RuleValueKind, ValueExpr},
 };
 
 use crate::{
@@ -152,6 +152,14 @@ pub(super) fn expression(
             key: parameter_key.clone().into_boxed_str(),
             kind: value_kind(row.result_kind)?,
         },
+        Node::ReadResource {
+            subject_selector_id,
+            resource_kind,
+            character_resource_key,
+        } => ValueExpr::ReadResource {
+            selector: selector(*subject_selector_id)?,
+            resource: lower_resource(*resource_kind, character_resource_key.as_deref())?,
+        },
         Node::QueryStat {
             subject_selector_id,
             stat: query_stat,
@@ -162,6 +170,16 @@ pub(super) fn expression(
             purpose: purpose(*formula_purpose),
         },
         Node::SelectorCount { selector_id } => ValueExpr::SelectorCount(selector(*selector_id)?),
+        Node::ReadEventProperty { property } => {
+            ValueExpr::ReadEventProperty(crate::rule_lower::lower_event_property(*property))
+        }
+        Node::SelectorSum {
+            selector_id,
+            value_expression_id,
+        } => ValueExpr::SelectorSum {
+            selector: selector(*selector_id)?,
+            value: Box::new(expression(config, *value_expression_id, stack)?),
+        },
         Node::CheckedBinary {
             operator,
             left_expression_id,
@@ -200,6 +218,19 @@ pub(super) fn expression(
         Node::Negate {
             operand_expression_id,
         } => ValueExpr::Negate(Box::new(expression(config, *operand_expression_id, stack)?)),
+        Node::Choose {
+            condition_id,
+            when_true_expression_id,
+            when_false_expression_id,
+        } => ValueExpr::Choose {
+            condition: Box::new(crate::rule_lower::lower_condition(
+                config,
+                *condition_id,
+                &mut BTreeSet::new(),
+            )?),
+            when_true: Box::new(expression(config, *when_true_expression_id, stack)?),
+            when_false: Box::new(expression(config, *when_false_expression_id, stack)?),
+        },
         Node::Convert {
             operand_expression_id,
             target_kind,
@@ -209,14 +240,25 @@ pub(super) fn expression(
             target: value_kind(*target_kind)?,
             rounding: round(*rounding),
         },
-        _ => {
-            return Err(domain_fail(format!(
-                "value expression {id} uses an unsupported probe node"
-            )));
-        }
     };
     stack.remove(&id);
     Ok(result)
+}
+
+fn lower_resource(
+    kind: generated::resource_kind::ResourceKind,
+    key: Option<&str>,
+) -> Result<RuleResourceKind, CatalogLoadError> {
+    use generated::resource_kind::ResourceKind as V;
+    match (kind, key) {
+        (V::Energy, None) => Ok(RuleResourceKind::Energy),
+        (V::SkillPoints, None) => Ok(RuleResourceKind::SkillPoints),
+        (V::CharacterResource, Some(key)) => Ok(RuleResourceKind::Character(key.into())),
+        (V::TeamResource, Some(key)) => Ok(RuleResourceKind::Team(key.into())),
+        _ => Err(domain_fail(
+            "resource expression kind/key combination is invalid",
+        )),
+    }
 }
 
 fn optional_scalar(

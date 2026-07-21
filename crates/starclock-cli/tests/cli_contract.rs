@@ -21,7 +21,7 @@ fn config_validation_uses_only_a_validated_sora_bundle() {
     assert!(default.status.success(), "{:?}", default);
     assert_eq!(
         text(default.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"4.4\",\"data_revision\":\"core-combat-v1-phase7-v1b\",\"bundle_sha256\":\"d4d5ddb0cd4a7813ea94cfa00f71d4d7db3619dacb5c4c035dd0f702d2e82d54\",\"identities\":754,\"enabled\":507}"
+        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"4.4\",\"data_revision\":\"core-combat-v1-phase7-v1b\",\"bundle_sha256\":\"ca65b35c59b35928f8e8f78b010e50427798f192f3363edd9b5095b63ed33436\",\"identities\":754,\"enabled\":507}"
     );
 
     let bundle =
