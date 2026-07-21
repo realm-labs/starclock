@@ -2,11 +2,27 @@
   "schema_revision": "starclock.benchmark-policy.v1",
   "workload_revision": "g01-phase4-full-kernel-v1",
   "master_seed": 7,
-  "budget_stage": "phase4-provisional-full-kernel",
-  "reviewed_on": "2026-07-20",
+  "budget_stage": "phase8-final",
+  "reviewed_on": "2026-07-21",
+  "phase4_reviewed_on": "2026-07-20",
   "phase3_baseline": {
     "path": "evidence/core-combat-v1/performance/phase3-baseline-windows-x64.json",
     "sha256": "c4f038101c10e63e261ab255cec13301d4ca830c49244977ddd43058a84b8908"
+  },
+  "phase4_provisional": {
+    "path": "evidence/core-combat-v1/performance/phase4-provisional-windows-x64.json",
+    "sha256": "7c7517271116b200100c8afa40cdeda3978e3aa63d1395d26c738ef8e6d021f3"
+  },
+  "phase8_final": {
+    "path": "evidence/core-combat-v1/performance/phase8-final-windows-x64.json",
+    "sha256": "ce3d58142cc20e7b15126f9bbdcfb4140d277e7cf96ee58faebbd576baf67e08"
+  },
+  "material_regression_thresholds": {
+    "maximum_elapsed_ratio_milli": 1250,
+    "minimum_throughput_ratio_milli": 800,
+    "maximum_allocation_ratio_milli": 1250,
+    "maximum_peak_live_ratio_milli": 1250,
+    "minimum_concurrent_scaling_ratio_milli": 3000
   },
   "shared_ci_smoke_ceiling": {
     "maximum_total_elapsed_ns": 30000000000,

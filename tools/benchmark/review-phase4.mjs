@@ -41,7 +41,7 @@ assert(full.event_entries > proxy.event_entries && full.journal_entries > proxy.
 
 const review = {
   schema_revision: "starclock.phase4-benchmark-growth-review.v1",
-  reviewed_on: policy.reviewed_on,
+  reviewed_on: policy.phase4_reviewed_on,
   baseline: { path: policy.phase3_baseline.path, sha256: digest(policy.phase3_baseline.path) },
   phase4: { path: phase4Path, sha256: digest(phase4Path) },
   stable_runner_id: policy.stable_runner.id,

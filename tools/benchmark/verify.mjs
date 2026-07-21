@@ -6,7 +6,7 @@ import { execFileSync } from "node:child_process";
 
 const root = path.resolve(import.meta.dirname, "../..");
 const policy = JSON.parse(fs.readFileSync(path.join(root, "policy/benchmark-workloads.json"), "utf8"));
-assert(policy.budget_stage === "phase4-provisional-full-kernel", "benchmark budget stage differs");
+assert(policy.budget_stage === "phase8-final", "benchmark budget stage differs");
 const baselinePath = path.join(root, policy.phase3_baseline.path);
 const baselineDigest = crypto.createHash("sha256").update(fs.readFileSync(baselinePath)).digest("hex");
 assert(baselineDigest === policy.phase3_baseline.sha256, "Phase 3 baseline digest differs");

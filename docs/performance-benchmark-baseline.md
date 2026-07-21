@@ -117,3 +117,32 @@ Regenerate and verify the comparison with:
 node tools/benchmark/review-phase4.mjs
 node tools/benchmark/review-phase4.mjs --check
 ```
+
+## Phase 8 final review
+
+`G01-P8-B5` freezes the unchanged `g01-phase4-full-kernel-v1` workload on the
+same designated runner. The final evidence is a seven-sample median rather
+than a new harness: incremental Standard-shaped apply rows cover latency,
+commands/second/core, allocations, semantic copy cost and journal growth;
+one-shot and four-worker isolated replay rows cover representative server
+verification throughput, replay size and scaling; the hash rows measure
+canonical streamed bytes without allocation.
+
+The committed strict report is
+[`phase8-final-windows-x64.json`](../evidence/core-combat-v1/performance/phase8-final-windows-x64.json),
+and the deterministic comparison is
+[`phase8-final-review.json`](../evidence/core-combat-v1/performance/phase8-final-review.json).
+The ten final medians satisfy the reviewed per-row budgets. No latency,
+throughput, allocation or peak-live change crosses the recorded 25% material
+regression boundary relative to Phase 4. Four-worker replay delivers 3.397x
+the total throughput of the sequential 100-command audit, above its final
+3.0x floor. The broader shared-CI ceilings remain unchanged and continue to
+detect hangs or order-of-magnitude growth without turning shared machines into
+latency authorities.
+
+Regenerate or verify the final comparison with:
+
+```text
+node tools/benchmark/review-phase8.mjs
+node tools/benchmark/review-phase8.mjs --check
+```

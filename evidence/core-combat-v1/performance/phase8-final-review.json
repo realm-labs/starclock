@@ -1,0 +1,279 @@
+{
+  "schema_revision": "starclock.phase8-final-benchmark-review.v1",
+  "reviewed_on": "2026-07-21",
+  "workload_revision": "g01-phase4-full-kernel-v1",
+  "runner": {
+    "id": "starclock-bench-win10-i7-10700f-v1",
+    "profile": "stable-runner-strict",
+    "samples": 7
+  },
+  "evidence": {
+    "phase3_baseline": {
+      "path": "evidence/core-combat-v1/performance/phase3-baseline-windows-x64.json",
+      "sha256": "c4f038101c10e63e261ab255cec13301d4ca830c49244977ddd43058a84b8908"
+    },
+    "phase4_provisional": {
+      "path": "evidence/core-combat-v1/performance/phase4-provisional-windows-x64.json",
+      "sha256": "7c7517271116b200100c8afa40cdeda3978e3aa63d1395d26c738ef8e6d021f3"
+    },
+    "phase8_final": {
+      "path": "evidence/core-combat-v1/performance/phase8-final-windows-x64.json",
+      "sha256": "ce3d58142cc20e7b15126f9bbdcfb4140d277e7cf96ee58faebbd576baf67e08"
+    }
+  },
+  "workload_roles": {
+    "representative_standard": [
+      "ordinary-apply-v1",
+      "trigger-heavy-proxy-v1",
+      "full-kernel-apply-v1"
+    ],
+    "server_verification": [
+      "one-shot-replay-100-v1",
+      "one-shot-replay-500-v1",
+      "concurrent-replay-shared-catalog-v1"
+    ],
+    "deterministic_guards": [
+      "invalid-rejection-v1",
+      "hash-small-v1",
+      "hash-medium-v1",
+      "hash-large-v1"
+    ]
+  },
+  "reviewed_dimensions": [
+    "incremental command latency",
+    "one-shot replay throughput",
+    "commands/second/core",
+    "concurrent isolated-job scaling",
+    "peak bytes/job",
+    "allocations",
+    "semantic state-copy bytes",
+    "canonical hash bytes",
+    "journal/event/operation growth"
+  ],
+  "material_regression_thresholds": {
+    "maximum_elapsed_ratio_milli": 1250,
+    "minimum_throughput_ratio_milli": 800,
+    "maximum_allocation_ratio_milli": 1250,
+    "maximum_peak_live_ratio_milli": 1250,
+    "minimum_concurrent_scaling_ratio_milli": 3000
+  },
+  "rows": [
+    {
+      "id": "ordinary-apply-v1",
+      "phase4_to_phase8": {
+        "elapsed_ratio_milli": 1102,
+        "throughput_ratio_milli": 907,
+        "allocation_ratio_milli": 1030,
+        "peak_live_ratio_milli": 1005,
+        "semantic_copy_bytes_delta": 81000,
+        "canonical_bytes_hashed_delta": 0,
+        "journal_entries_delta": 0,
+        "event_entries_delta": 0,
+        "operation_allocations_delta": 0,
+        "journal_retained_bytes_delta": 0
+      },
+      "final_budget_headroom_milli": {
+        "elapsed": 3127,
+        "throughput": 3127,
+        "allocation_bytes": 1374,
+        "peak_live_bytes": 19968
+      }
+    },
+    {
+      "id": "trigger-heavy-proxy-v1",
+      "phase4_to_phase8": {
+        "elapsed_ratio_milli": 1107,
+        "throughput_ratio_milli": 902,
+        "allocation_ratio_milli": 1071,
+        "peak_live_ratio_milli": 1048,
+        "semantic_copy_bytes_delta": 40500,
+        "canonical_bytes_hashed_delta": 0,
+        "journal_entries_delta": 0,
+        "event_entries_delta": 0,
+        "operation_allocations_delta": 0,
+        "journal_retained_bytes_delta": 0
+      },
+      "final_budget_headroom_milli": {
+        "elapsed": 4767,
+        "throughput": 3178,
+        "allocation_bytes": 1354,
+        "peak_live_bytes": 5431
+      }
+    },
+    {
+      "id": "full-kernel-apply-v1",
+      "phase4_to_phase8": {
+        "elapsed_ratio_milli": 1131,
+        "throughput_ratio_milli": 883,
+        "allocation_ratio_milli": 1104,
+        "peak_live_ratio_milli": 1130,
+        "semantic_copy_bytes_delta": 40500,
+        "canonical_bytes_hashed_delta": 0,
+        "journal_entries_delta": 0,
+        "event_entries_delta": 0,
+        "operation_allocations_delta": 0,
+        "journal_retained_bytes_delta": 0
+      },
+      "final_budget_headroom_milli": {
+        "elapsed": 5325,
+        "throughput": 3550,
+        "allocation_bytes": 1250,
+        "peak_live_bytes": 3067
+      }
+    },
+    {
+      "id": "invalid-rejection-v1",
+      "phase4_to_phase8": {
+        "elapsed_ratio_milli": 1044,
+        "throughput_ratio_milli": 957,
+        "allocation_ratio_milli": 1000,
+        "peak_live_ratio_milli": 1000,
+        "semantic_copy_bytes_delta": 0,
+        "canonical_bytes_hashed_delta": 0,
+        "journal_entries_delta": 0,
+        "event_entries_delta": 0,
+        "operation_allocations_delta": 0,
+        "journal_retained_bytes_delta": 0
+      },
+      "final_budget_headroom_milli": {
+        "elapsed": 91743,
+        "throughput": 183486,
+        "allocation_bytes": 1000,
+        "peak_live_bytes": 1000
+      }
+    },
+    {
+      "id": "hash-small-v1",
+      "phase4_to_phase8": {
+        "elapsed_ratio_milli": 1058,
+        "throughput_ratio_milli": null,
+        "allocation_ratio_milli": 1000,
+        "peak_live_ratio_milli": 1000,
+        "semantic_copy_bytes_delta": 0,
+        "canonical_bytes_hashed_delta": 405000,
+        "journal_entries_delta": 0,
+        "event_entries_delta": 0,
+        "operation_allocations_delta": 0,
+        "journal_retained_bytes_delta": 0
+      },
+      "final_budget_headroom_milli": {
+        "elapsed": 4807,
+        "throughput": null,
+        "allocation_bytes": 1000,
+        "peak_live_bytes": 1000
+      }
+    },
+    {
+      "id": "hash-medium-v1",
+      "phase4_to_phase8": {
+        "elapsed_ratio_milli": 1067,
+        "throughput_ratio_milli": null,
+        "allocation_ratio_milli": 1000,
+        "peak_live_ratio_milli": 1000,
+        "semantic_copy_bytes_delta": 0,
+        "canonical_bytes_hashed_delta": 725000,
+        "journal_entries_delta": 0,
+        "event_entries_delta": 0,
+        "operation_allocations_delta": 0,
+        "journal_retained_bytes_delta": 0
+      },
+      "final_budget_headroom_milli": {
+        "elapsed": 4091,
+        "throughput": null,
+        "allocation_bytes": 1000,
+        "peak_live_bytes": 1000
+      }
+    },
+    {
+      "id": "hash-large-v1",
+      "phase4_to_phase8": {
+        "elapsed_ratio_milli": 1097,
+        "throughput_ratio_milli": null,
+        "allocation_ratio_milli": 1000,
+        "peak_live_ratio_milli": 1000,
+        "semantic_copy_bytes_delta": 0,
+        "canonical_bytes_hashed_delta": 1365000,
+        "journal_entries_delta": 0,
+        "event_entries_delta": 0,
+        "operation_allocations_delta": 0,
+        "journal_retained_bytes_delta": 0
+      },
+      "final_budget_headroom_milli": {
+        "elapsed": 3479,
+        "throughput": null,
+        "allocation_bytes": 1000,
+        "peak_live_bytes": 1000
+      }
+    },
+    {
+      "id": "one-shot-replay-100-v1",
+      "phase4_to_phase8": {
+        "elapsed_ratio_milli": 1026,
+        "throughput_ratio_milli": 974,
+        "allocation_ratio_milli": 1030,
+        "peak_live_ratio_milli": 1014,
+        "semantic_copy_bytes_delta": 0,
+        "canonical_bytes_hashed_delta": 0,
+        "journal_entries_delta": 0,
+        "event_entries_delta": 0,
+        "operation_allocations_delta": 0,
+        "journal_retained_bytes_delta": 0
+      },
+      "final_budget_headroom_milli": {
+        "elapsed": 3266,
+        "throughput": 4355,
+        "allocation_bytes": 1347,
+        "peak_live_bytes": 17617
+      }
+    },
+    {
+      "id": "one-shot-replay-500-v1",
+      "phase4_to_phase8": {
+        "elapsed_ratio_milli": 880,
+        "throughput_ratio_milli": 1135,
+        "allocation_ratio_milli": 1029,
+        "peak_live_ratio_milli": 1005,
+        "semantic_copy_bytes_delta": 0,
+        "canonical_bytes_hashed_delta": 0,
+        "journal_entries_delta": 0,
+        "event_entries_delta": 0,
+        "operation_allocations_delta": 0,
+        "journal_retained_bytes_delta": 0
+      },
+      "final_budget_headroom_milli": {
+        "elapsed": 3222,
+        "throughput": 4475,
+        "allocation_bytes": 1262,
+        "peak_live_bytes": 6475
+      }
+    },
+    {
+      "id": "concurrent-replay-shared-catalog-v1",
+      "phase4_to_phase8": {
+        "elapsed_ratio_milli": 1173,
+        "throughput_ratio_milli": 852,
+        "allocation_ratio_milli": 1030,
+        "peak_live_ratio_milli": 1014,
+        "semantic_copy_bytes_delta": 0,
+        "canonical_bytes_hashed_delta": 0,
+        "journal_entries_delta": 0,
+        "event_entries_delta": 0,
+        "operation_allocations_delta": 0,
+        "journal_retained_bytes_delta": 0
+      },
+      "final_budget_headroom_milli": {
+        "elapsed": 8323,
+        "throughput": 5548,
+        "allocation_bytes": 1684,
+        "peak_live_bytes": 17617
+      }
+    }
+  ],
+  "concurrent_scaling": {
+    "phase4_throughput_ratio_milli": 3885,
+    "phase8_throughput_ratio_milli": 3397,
+    "final_floor_milli": 3000
+  },
+  "material_regressions": [],
+  "conclusion": "All ten seven-sample stable-runner medians satisfy the final reviewed budgets. No Phase 4-to-Phase 8 change crosses a material-regression threshold; four-worker isolated replay retains at least 3.0x total throughput. Shared CI remains a broad smoke gate only."
+}
