@@ -307,6 +307,8 @@ def semantic_mask(kind: str, row: dict[str, Any]) -> int:
         mask |= 1 << 7
     if row["character_id"] == "character.silver-wolf-lv-999" and row["kind"] == "ElationDamage":
         mask |= 1 << 10
+    if row["kind"] == "Assist":
+        mask |= 1 << 11
     return mask
 
 

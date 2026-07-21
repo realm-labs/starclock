@@ -9,24 +9,24 @@
     "provenance_evidence_sha256": "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466",
     "research_evidence_sha256": "00b0f3054552304f28fd32f3b2d07193eb814a764e8a152967572eee6f04a7ea",
     "runtime_catalog": {
-      "state": "CharacterC03Production",
-      "digest": "006c5eb393cc22abb767ea42d69159fa4238e346a445909938c7952d4db65eb8",
-      "note": "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all twenty-four C01-C03 character forms; remaining character and Light Cone partitions are pending."
+      "state": "CharacterC04Production",
+      "digest": "d3e137ab30fb4f6a2587bb755cd0e16d765f2b2bb25e312fac83cdcac7ddae05",
+      "note": "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all thirty-two C01-C04 character forms; remaining character and Light Cone partitions are pending."
     }
   },
   "summary": {
     "required": 283,
     "accounted": 283,
-    "enabled_incomplete": 223,
-    "data_ready": 60,
-    "golden_verified": 60,
-    "data_ready_percent": "21.2%",
+    "enabled_incomplete": 215,
+    "data_ready": 68,
+    "golden_verified": 68,
+    "data_ready_percent": "24%",
     "terminal_state_counts": {
       "Cataloged": 165,
-      "Documented": 58,
+      "Documented": 50,
       "Researching": 0,
       "DataReady": 0,
-      "GoldenVerified": 60
+      "GoldenVerified": 68
     },
     "disabled_audit_only": 2
   },
@@ -36,15 +36,15 @@
       "manifest_kind": "CharacterCombatForm",
       "required": 88,
       "accounted": 88,
-      "data_ready": 30,
-      "golden_verified": 30,
-      "data_ready_percent": "34.1%",
+      "data_ready": 38,
+      "golden_verified": 38,
+      "data_ready_percent": "43.2%",
       "terminal_state_counts": {
         "Cataloged": 0,
-        "Documented": 58,
+        "Documented": 50,
         "Researching": 0,
         "DataReady": 0,
-        "GoldenVerified": 30
+        "GoldenVerified": 38
       },
       "disabled_audit_only": 2
     },
@@ -617,21 +617,16 @@
       "id": "character.fugue",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -639,21 +634,16 @@
       "id": "character.gallagher",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -661,21 +651,16 @@
       "id": "character.gepard",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -683,21 +668,16 @@
       "id": "character.guinaifen",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -705,21 +685,16 @@
       "id": "character.hanya",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -727,21 +702,16 @@
       "id": "character.herta",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -749,21 +719,16 @@
       "id": "character.himeko",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -771,21 +736,16 @@
       "id": "character.himeko-nova",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -6085,14 +6045,6 @@
     "duplicate_runtime_ids": [],
     "stale_version_ids": [],
     "missing_data_ready_ids": [
-      "character.fugue",
-      "character.gallagher",
-      "character.gepard",
-      "character.guinaifen",
-      "character.hanya",
-      "character.herta",
-      "character.himeko",
-      "character.himeko-nova",
       "character.hook",
       "character.huohuo",
       "character.hyacine",
@@ -6310,14 +6262,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_production_provenance_ids": [
-      "character.fugue",
-      "character.gallagher",
-      "character.gepard",
-      "character.guinaifen",
-      "character.hanya",
-      "character.herta",
-      "character.himeko",
-      "character.himeko-nova",
       "character.hook",
       "character.huohuo",
       "character.hyacine",
@@ -6535,14 +6479,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_bilingual_validation_ids": [
-      "character.fugue",
-      "character.gallagher",
-      "character.gepard",
-      "character.guinaifen",
-      "character.hanya",
-      "character.herta",
-      "character.himeko",
-      "character.himeko-nova",
       "character.hook",
       "character.huohuo",
       "character.hyacine",
@@ -6760,14 +6696,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_runtime_reference_ids": [
-      "character.fugue",
-      "character.gallagher",
-      "character.gepard",
-      "character.guinaifen",
-      "character.hanya",
-      "character.herta",
-      "character.himeko",
-      "character.himeko-nova",
       "character.hook",
       "character.huohuo",
       "character.hyacine",
@@ -6995,7 +6923,7 @@
       {
         "label": "Released character combat forms",
         "required": 88,
-        "data_ready": 30,
+        "data_ready": 38,
         "matches": true
       },
       {

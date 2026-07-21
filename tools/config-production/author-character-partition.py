@@ -49,6 +49,8 @@ OWNED_TABLES = (
     "CharacterAbilityBinding",
     "CharacterResource",
     "CharacterStat",
+    "Effect",
+    "EffectGrantedAbility",
     "Eidolon",
     "EidolonPatch",
     "HitPlan",
@@ -56,6 +58,9 @@ OWNED_TABLES = (
     "ModifierDefinition",
     "ModifierFilter",
     "ModifierStackingGroup",
+    "Operation",
+    "Program",
+    "ProgramStep",
     "Selector",
     "TraceNode",
     "TracePatch",
@@ -160,7 +165,42 @@ C03_DAMAGE = {
     "character.fu-xuan.ability.woes-of-many-morphed-to-one.ultra": [("All", 1, 1)],
 }
 
-DAMAGE_BY_PARTITION = {"C01": C01_DAMAGE, "C02": C02_DAMAGE, "C03": C03_DAMAGE}
+C04_DAMAGE = {
+    "character.fugue.ability.fiery-caress.normal": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.fugue.ability.radiant-streak.normal": [("Primary", 1, 1)],
+    "character.fugue.ability.solar-splendor-shines-upon-all.ultra": [("All", 1, 1)],
+    "character.gallagher.ability.artisan-elixir.maze": [("All", 2, 1)],
+    "character.gallagher.ability.champagne-etiquette.ultra": [("All", 1, 1)],
+    "character.gallagher.ability.corkage-fee.normal": [("Primary", 1, 1)],
+    "character.gallagher.ability.nectar-blitz.normal": [("Primary", 1, 1)],
+    "character.gepard.ability.daunting-smite.bpskill": [("Primary", 1, 1)],
+    "character.gepard.ability.fist-of-conviction.normal": [("Primary", 1, 1)],
+    "character.guinaifen.ability.blazing-welcome.bpskill": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.guinaifen.ability.skill-showcase.maze": [("Primary", 1, 1)],
+    "character.guinaifen.ability.standing-ovation.normal": [("Primary", 1, 1)],
+    "character.guinaifen.ability.watch-this-showstopper.ultra": [("All", 1, 1)],
+    "character.hanya.ability.oracle-brush.normal": [("Primary", 1, 1)],
+    "character.hanya.ability.samsara-locked.bpskill": [("Primary", 1, 1)],
+    "character.herta.ability.fine-ill-do-it-myself.skillp01": [("All", 1, 1)],
+    "character.herta.ability.its-magic-i-added-some-magic.ultra": [("All", 1, 1)],
+    "character.herta.ability.one-time-offer.bpskill": [("All", 1, 1)],
+    "character.herta.ability.what-are-you-looking-at.normal": [("Primary", 1, 1)],
+    "character.himeko-nova.ability.companion-protocol-decimation.assist": [("All", 1, 1), ("BounceDraw", 3, 3)],
+    "character.himeko-nova.ability.companion-protocol-verdict.assist": [("All", 1, 1), ("BounceDraw", 3, 3)],
+    "character.himeko-nova.ability.enkindle-the-first-lodestar.normal": [("Primary", 1, 1)],
+    "character.himeko-nova.ability.hyperluminal-particle-beam.ultra": [("All", 1, 1)],
+    "character.himeko-nova.ability.orbital-annihilation-pulse.ultra": [("All", 1, 1), ("BounceDraw", 3, 3)],
+    "character.himeko-nova.ability.trailblaze-by-your-side.assist": [("All", 1, 1), ("BounceDraw", 3, 3)],
+    "character.himeko-nova.ability.we-too-stride-the-stars.ultra": [("All", 1, 6), ("BounceDraw", 7, 3)],
+    "character.himeko.ability.heavenly-flare.ultra": [("All", 1, 1)],
+    "character.himeko.ability.molten-detonation.bpskill": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.himeko.ability.sawblade-tuning.normal": [("Primary", 1, 1)],
+    "character.himeko.ability.victory-rush.skillp01": [("All", 1, 1)],
+}
+
+DAMAGE_BY_PARTITION = {
+    "C01": C01_DAMAGE, "C02": C02_DAMAGE, "C03": C03_DAMAGE, "C04": C04_DAMAGE,
+}
 
 C01_TARGET_OVERRIDES = {
     "character.acheron.ability.rainblade.ultra": "Aoe",
@@ -185,7 +225,18 @@ C03_TARGET_OVERRIDES = {
     "character.feixiao.ability.waraxe-skyward.ultra": "SingleTarget",
 }
 
-TARGET_OVERRIDES = {**C01_TARGET_OVERRIDES, **C02_TARGET_OVERRIDES, **C03_TARGET_OVERRIDES}
+C04_TARGET_OVERRIDES = {
+    "character.himeko-nova.ability.companion-protocol-decimation.assist": "Bounce",
+    "character.himeko-nova.ability.companion-protocol-verdict.assist": "Bounce",
+    "character.himeko-nova.ability.orbital-annihilation-pulse.ultra": "Bounce",
+    "character.himeko-nova.ability.trailblaze-by-your-side.assist": "Bounce",
+    "character.himeko-nova.ability.we-too-stride-the-stars.ultra": "Bounce",
+}
+
+TARGET_OVERRIDES = {
+    **C01_TARGET_OVERRIDES, **C02_TARGET_OVERRIDES, **C03_TARGET_OVERRIDES,
+    **C04_TARGET_OVERRIDES,
+}
 
 C01_SCALING_STATS = {
     "character.aventurine.ability.roulette-shark.ultra": "Def",
@@ -244,11 +295,29 @@ CHARACTER_RESOURCES = {
     "character.evernight": [("memoria", "16", "0")],
     "character.feixiao": [("flying-aureus", "12", "0")],
     "character.fu-xuan": [("self-heal-charge", "2", "1")],
+    "character.gepard": [("revive", "1", "1")],
+    "character.himeko": [("charge", "3", "0")],
+    "character.himeko-nova": [("source-energy", "3", "0")],
 }
 
 CHARACTER_RESOURCE_COSTS = {
     "character.castorice.ability.doomshriek-dawns-chime.ultra": [("newbud", "100")],
     "character.feixiao.ability.terrasplit.ultra": [("flying-aureus", "6")],
+    "character.himeko-nova.ability.orbital-annihilation-pulse.ultra": [("source-energy", "3")],
+}
+
+CHARACTER_RESOURCE_GAINS = {
+    "character.himeko-nova.ability.hyperluminal-particle-beam.ultra": [("source-energy", "1")],
+}
+
+TEAM_RESOURCE_COSTS = {
+    "character.himeko-nova.ability.companion-protocol-decimation.assist": [("assist-use", "1")],
+    "character.himeko-nova.ability.companion-protocol-verdict.assist": [("assist-use", "1")],
+    "character.himeko-nova.ability.trailblaze-by-your-side.assist": [("assist-use", "1")],
+}
+
+TEAM_RESOURCE_GAINS = {
+    "character.himeko-nova.ability.upraise-the-vanward-cresset.bpskill": [("assist-use", "4")],
 }
 
 BASE_ENERGY_OVERRIDES = {
@@ -380,6 +449,156 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
             "empty_pool_policy": "Fault",
         })
 
+    phase_programs: dict[str, int] = {}
+    if code == "C04":
+        assist_effect = base + 7_001
+        assist_program = base + 7_002
+        assist_operation = base + 7_003
+        assist_allies = base + 7_004
+        assist_duration = base + 7_005
+        assist_four = base + 7_006
+        assist_gain_operation = base + 7_007
+        source_one = base + 7_008
+        source_gain_operation = base + 7_009
+        source_gain_program = base + 7_010
+        internals.extend([
+            V1B.identity(
+                assist_effect,
+                "effect.c04.himeko-nova.starblazer-assist-protocol",
+                "Effect",
+                "Starblazer Assist Protocol",
+                "星际领航员协攻协议",
+                "Project-policy three-turn provider effect that grants Himeko Nova's Assist abilities.",
+            ),
+            V1B.identity(
+                assist_program,
+                "program.c04.himeko-nova.deploy-starblazer",
+                "Program",
+                "Deploy Starblazer Program",
+                "部署星际领航员程序",
+                "Project-policy stable-formation program that grants the Assist protocol to living allies.",
+            ),
+            V1B.identity(
+                assist_allies,
+                "selector.c04.himeko-nova.living-allies",
+                "Selector",
+                "Himeko Nova Living Allies Selector",
+                "姬子·新星存活队友选择器",
+                "Stable-formation selection of one to four living same-side units.",
+            ),
+            V1B.identity(
+                source_gain_program,
+                "program.c04.himeko-nova.gain-source-energy",
+                "Program",
+                "Gain Source Energy Program",
+                "获得源能程序",
+                "Released-text program that gains one bounded Source Energy after Hyperluminal Particle Beam.",
+            ),
+        ])
+        rows["Selector"].append({
+            "id": assist_allies, "domain": "Battle", "origin": "Owner",
+            "side_relationship": "SameSide", "life": "Alive", "presence": "Present",
+            "reference_point": "CurrentState", "ordering": "Formation", "choice": "All",
+            "minimum_count": 1, "maximum_count": 4, "allow_repeated_targets": False,
+            "empty_pool_policy": "Fault",
+        })
+        rows["ValueExpression"].append({
+            "id": assist_duration,
+            "stable_key": "c04.himeko-nova.expr.three-target-turns",
+            "result_kind": "Integer",
+            "node": json.dumps({"type": "IntegerLiteral", "value": 3}, separators=(",", ":")),
+        })
+        rows["ValueExpression"].extend([
+            {
+                "id": assist_four,
+                "stable_key": "c04.himeko-nova.expr.four-assist-uses",
+                "result_kind": "Integer",
+                "node": json.dumps({"type": "IntegerLiteral", "value": 4}, separators=(",", ":")),
+            },
+            {
+                "id": source_one,
+                "stable_key": "c04.himeko-nova.expr.one-source-energy",
+                "result_kind": "Integer",
+                "node": json.dumps({"type": "IntegerLiteral", "value": 1}, separators=(",", ":")),
+            },
+        ])
+        rows["Effect"].append({
+            "id": assist_effect, "category": "Buff", "dispel_category": "NonDispellable",
+            "stack_limit": 1, "duration_expression_id": assist_duration,
+            "duration_clock": "TargetTurnEnd", "tick_phase": "None",
+            "stack_policy": "Refresh", "snapshot_policy": "OnApplication",
+            "teardown_policy": "RemoveWithOwner", "application_priority": 0,
+        })
+        for sequence, stable_key in enumerate((
+            "character.himeko-nova.ability.companion-protocol-decimation.assist",
+            "character.himeko-nova.ability.companion-protocol-verdict.assist",
+            "character.himeko-nova.ability.trailblaze-by-your-side.assist",
+        ), start=1):
+            rows["EffectGrantedAbility"].append({
+                "effect_id": assist_effect, "sequence": sequence,
+                "ability_id": ids["ability"][stable_key],
+            })
+        rows["Operation"].append({
+            "id": assist_operation,
+            "stable_key": "c04.himeko-nova.operation.apply-assist-protocol",
+            "domain": "Battle", "target_selector_id": assist_allies,
+            "empty_target_policy": "Fault", "snapshot_boundary": "Dynamic",
+            "fault_policy": "Rollback",
+            "payload": json.dumps({
+                "type": "ApplyEffect", "effect_id": assist_effect,
+                "chance_policy": "Guaranteed",
+            }, separators=(",", ":")),
+        })
+        rows["Operation"].extend([
+            {
+                "id": assist_gain_operation,
+                "stable_key": "c04.himeko-nova.operation.restore-assist-uses",
+                "domain": "Battle", "target_selector_id": selector_owner,
+                "empty_target_policy": "Fault", "snapshot_boundary": "Dynamic",
+                "fault_policy": "Rollback",
+                "payload": json.dumps({
+                    "type": "ModifyResource", "resource_kind": "TeamResource",
+                    "character_resource_key": "assist-use", "update_kind": "Gain",
+                    "amount_expression_id": assist_four,
+                    "scales_with_energy_regeneration": False, "rounding": "Floor",
+                }, separators=(",", ":")),
+            },
+            {
+                "id": source_gain_operation,
+                "stable_key": "c04.himeko-nova.operation.gain-source-energy",
+                "domain": "Battle", "target_selector_id": selector_owner,
+                "empty_target_policy": "Fault", "snapshot_boundary": "Dynamic",
+                "fault_policy": "Rollback",
+                "payload": json.dumps({
+                    "type": "ModifyResource", "resource_kind": "CharacterResource",
+                    "character_resource_key": "source-energy", "update_kind": "Gain",
+                    "amount_expression_id": source_one,
+                    "scales_with_energy_regeneration": False, "rounding": "Floor",
+                }, separators=(",", ":")),
+            },
+        ])
+        rows["Program"].append({"id": assist_program, "domain": "Battle"})
+        rows["Program"].append({"id": source_gain_program, "domain": "Battle"})
+        rows["ProgramStep"].extend([
+            {
+                "program_id": assist_program, "sequence": 1,
+                "step": json.dumps({"type": "Operation", "operation_id": assist_operation}, separators=(",", ":")),
+            },
+            {
+                "program_id": assist_program, "sequence": 2,
+                "step": json.dumps({"type": "Operation", "operation_id": assist_gain_operation}, separators=(",", ":")),
+            },
+            {
+                "program_id": source_gain_program, "sequence": 1,
+                "step": json.dumps({"type": "Operation", "operation_id": source_gain_operation}, separators=(",", ":")),
+            },
+        ])
+        phase_programs = {
+            "character.himeko-nova.ability.hyperluminal-particle-beam.ultra": source_gain_program,
+            "character.himeko-nova.ability.starcharter-cruise.maze": assist_program,
+            "character.himeko-nova.ability.upraise-the-vanward-cresset.bpskill": assist_program,
+        }
+
     for ability in sorted(abilities, key=lambda row: row["id"]):
         ability_id = ids["ability"][ability["id"]]
         kind = ABILITY_KIND_OVERRIDES.get(ability["id"], V1B.ability_kind(ability))
@@ -427,6 +646,30 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
                 "amount_decimal": V1B.canonical_decimal(amount),
             })
             delta_sequence += 1
+        for resource_key, amount in CHARACTER_RESOURCE_GAINS.get(ability["id"], []):
+            rows["AbilityResourceDelta"].append({
+                "ability_id": ability_id, "sequence": delta_sequence,
+                "resource_kind": "CharacterResource", "character_resource_key": resource_key,
+                "delta_kind": "Gain", "timing": "AbilityResolved",
+                "amount_decimal": V1B.canonical_decimal(amount),
+            })
+            delta_sequence += 1
+        for resource_key, amount in TEAM_RESOURCE_COSTS.get(ability["id"], []):
+            rows["AbilityResourceDelta"].append({
+                "ability_id": ability_id, "sequence": delta_sequence,
+                "resource_kind": "TeamResource", "character_resource_key": resource_key,
+                "delta_kind": "Spend", "timing": "ActionStarted",
+                "amount_decimal": V1B.canonical_decimal(amount),
+            })
+            delta_sequence += 1
+        for resource_key, amount in TEAM_RESOURCE_GAINS.get(ability["id"], []):
+            rows["AbilityResourceDelta"].append({
+                "ability_id": ability_id, "sequence": delta_sequence,
+                "resource_kind": "TeamResource", "character_resource_key": resource_key,
+                "delta_kind": "Gain", "timing": "AbilityResolved",
+                "amount_decimal": V1B.canonical_decimal(amount),
+            })
+            delta_sequence += 1
         energy = ability.get("energy_gain")
         if energy not in (None, "0", 0):
             rows["AbilityResourceDelta"].append({
@@ -434,7 +677,10 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
                 "resource_kind": "Energy", "delta_kind": "Gain", "timing": "AbilityResolved",
                 "amount_decimal": V1B.canonical_decimal(energy),
             })
-        rows["AbilityPhase"].append({"ability_id": ability_id, "sequence": 1, "kind": "Hits" if damage_shape else "Resolved"})
+        phase = {"ability_id": ability_id, "sequence": 1, "kind": "Hits" if damage_shape else "Resolved"}
+        if ability["id"] in phase_programs:
+            phase["program_identity_id"] = phase_programs[ability["id"]]
+        rows["AbilityPhase"].append(phase)
         if damage_shape:
             plan_id = ids["hit_plan"][ability["id"]]
             internals.append(V1B.identity(plan_id, f"program.hit-plan.{ability['id']}", "Program", f"{ability['name_en']} Hit Plan", f"{ability['name_zh_cn']}命中计划", "Exact ordered damage and Toughness structure from the prepared ability record."))
@@ -455,6 +701,8 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
                 toughness = toughness_for(ability, group)
                 if toughness is not None:
                     hit["toughness_amount_decimal"] = toughness
+                if ability["kind"] == "Assist":
+                    hit["ignores_weakness"] = True
                 rows["HitPlanHit"].append(hit)
             rows["AbilityHitPlanBinding"].append({
                 "ability_id": ability_id, "phase_sequence": 1, "hit_plan_id": plan_id,
@@ -550,9 +798,11 @@ def owned_predicate(name: str, base: int, selected: list[str]) -> Callable[[dict
         "Ability": "id", "AbilityHitPlanBinding": "ability_id", "AbilityLevelParameter": "ability_id",
         "AbilityPhase": "ability_id", "AbilityResourceDelta": "ability_id", "Character": "id",
         "CharacterAbilityBinding": "ability_id", "CharacterResource": "character_id", "CharacterStat": "character_id",
-        "Eidolon": "id", "EidolonPatch": "eidolon_id", "HitPlan": "id", "HitPlanHit": "hit_plan_id",
+        "Effect": "id", "EffectGrantedAbility": "effect_id", "Eidolon": "id",
+        "EidolonPatch": "eidolon_id", "HitPlan": "id", "HitPlanHit": "hit_plan_id",
         "ModifierDefinition": "id", "ModifierFilter": "modifier_id", "ModifierStackingGroup": "id",
-        "Selector": "id", "TraceNode": "id", "TracePatch": "trace_id", "ValueExpression": "id",
+        "Operation": "id", "Program": "id", "ProgramStep": "program_id", "Selector": "id",
+        "TraceNode": "id", "TracePatch": "trace_id", "ValueExpression": "id",
     }[name]
     frozen_ids = {V1B.identity_map()[key] for key in selected}
     if name in ("Character", "CharacterResource", "CharacterStat"):
@@ -590,6 +840,13 @@ def update_metadata(code: str, internals: list[dict[str, Any]], source_rows: lis
         source = source_by_id.get(record["stable_key"])
         quality = source.get("quality", "ExactStructured") if source else "ExactStructured"
         mechanism = source.get("mechanism_quality", quality) if source else quality
+        if str(record["stable_key"]).startswith((
+            "effect.c04.himeko-nova.",
+            "program.c04.himeko-nova.",
+            "selector.c04.himeko-nova.",
+        )):
+            quality = "ProjectPolicy"
+            mechanism = "ProjectPolicy"
         if mechanism == "ExactPreviousRelease":
             mechanism = "ExactPreviousReleaseText"
         kept.append({"content_id": record["id"], "sequence": 1, "fact_key": f"{code.lower()}.prepared:{record['stable_key']}", "source_record_id": 1, "evidence_record_id": 3, "quality": quality, "mechanism_quality": mechanism})

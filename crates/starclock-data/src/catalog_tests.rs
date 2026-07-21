@@ -15,12 +15,12 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
     assert_eq!(
         catalog.summary(),
         CatalogSummary {
-            identity_count: 1838,
-            enabled_identity_count: 1615,
-            ability_count: 273,
-            hit_plan_count: 162,
-            character_count: 30,
-            effect_count: 3,
+            identity_count: 2201,
+            enabled_identity_count: 1986,
+            ability_count: 328,
+            hit_plan_count: 192,
+            character_count: 38,
+            effect_count: 4,
             ai_graph_count: 17,
             enemy_count: 17,
             encounter_count: 6,
@@ -555,6 +555,91 @@ fn production_c03_executes_enhanced_elation_and_flying_aureus_envelopes() {
 }
 
 #[test]
+fn production_c04_executes_assist_and_source_energy_envelopes() {
+    use starclock_combat::{
+        AbilityId, EffectDefinitionId, ProgramId,
+        catalog::action::{AbilityTag, HitOperationDefinition},
+    };
+
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let combat = catalog.combat_catalog();
+
+    let assist = combat
+        .ability(AbilityId::new(60_047).unwrap())
+        .expect("Himeko Nova Assist");
+    let action = assist.action().expect("Assist damage action");
+    assert!(action.tags().contains(AbilityTag::Assist));
+    assert!(action.tags().supports_forced_skill());
+    assert_eq!(action.resources().team_resource_costs().len(), 1);
+    assert_eq!(
+        action.resources().team_resource_costs()[0].stable_key(),
+        "assist-use"
+    );
+    assert_eq!(action.resources().team_resource_costs()[0].amount(), 1);
+    assert_eq!(action.hits().len(), 4);
+    for hit in action.hits() {
+        let toughness = hit
+            .operations()
+            .iter()
+            .find_map(|operation| match operation {
+                HitOperationDefinition::ReduceToughness(reduction) => Some(reduction),
+                _ => None,
+            })
+            .expect("every Assist hit reduces Toughness");
+        assert!(toughness.ignores_weakness);
+    }
+
+    let effect = combat
+        .effect(EffectDefinitionId::new(67_001).unwrap())
+        .expect("Starblazer Assist protocol effect");
+    assert_eq!(
+        effect.granted_abilities(),
+        &[
+            AbilityId::new(60_040).unwrap(),
+            AbilityId::new(60_041).unwrap(),
+            AbilityId::new(60_047).unwrap(),
+        ]
+    );
+    let upraise = combat
+        .ability(AbilityId::new(60_048).unwrap())
+        .expect("Upraise the Vanward Cresset");
+    assert_eq!(upraise.programs().len(), 1);
+    assert_eq!(
+        upraise.programs()[0].program(),
+        ProgramId::new(67_002).unwrap()
+    );
+    let hyperluminal = combat
+        .ability(AbilityId::new(60_043).unwrap())
+        .expect("Hyperluminal Particle Beam");
+    assert_eq!(hyperluminal.programs().len(), 1);
+    assert_eq!(
+        hyperluminal.programs()[0].program(),
+        ProgramId::new(67_010).unwrap()
+    );
+
+    let form = combat
+        .unit(starclock_combat::UnitDefinitionId::new(36).unwrap())
+        .expect("Himeko Nova form");
+    let source_energy = form
+        .resources()
+        .iter()
+        .find(|resource| resource.stable_key() == "source-energy")
+        .expect("Himeko Nova Source Energy");
+    assert_eq!(source_energy.maximum().scaled(), 3_000_000);
+    let orbital = combat
+        .ability(AbilityId::new(60_045).unwrap())
+        .expect("Orbital Annihilation Pulse");
+    let costs = orbital
+        .action()
+        .expect("Orbital action")
+        .resources()
+        .character_resource_costs();
+    assert_eq!(costs.len(), 1);
+    assert_eq!(costs[0].stable_key(), "source-energy");
+    assert_eq!(costs[0].amount().scaled(), 3_000_000);
+}
+
+#[test]
 fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_build::{
         ability::AbilityInvestment,
@@ -565,7 +650,7 @@ fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_combat::UnitLevel;
 
     let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
-    for raw in (1..=28).chain([45, 68]) {
+    for raw in (1..=36).chain([45, 68]) {
         let form = starclock_combat::UnitDefinitionId::new(raw).unwrap();
         let character = catalog
             .build_catalog()

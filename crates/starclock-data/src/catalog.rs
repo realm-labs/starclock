@@ -44,7 +44,7 @@ const METADATA_TABLES: [&str; 5] = [
     "EvidenceRecord",
     "SourceRecord",
 ];
-const LOWERED_TABLES: [&str; 68] = [
+const LOWERED_TABLES: [&str; 69] = [
     "Ability",
     "AbilityHitPlanBinding",
     "AbilityLevelParameter",
@@ -72,6 +72,7 @@ const LOWERED_TABLES: [&str; 68] = [
     "ConditionExpression",
     "CountdownDefinition",
     "Effect",
+    "EffectGrantedAbility",
     "EffectModifierBinding",
     "EffectRuleBinding",
     "Eidolon",

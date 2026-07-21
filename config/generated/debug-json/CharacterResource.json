@@ -457,6 +457,63 @@
             "String": "self-heal-charge"
           }
         }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 31
+          },
+          "initial_decimal": {
+            "String": "1"
+          },
+          "maximum_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "revive"
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 35
+          },
+          "initial_decimal": {
+            "String": "0"
+          },
+          "maximum_decimal": {
+            "String": "3"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "charge"
+          }
+        }
+      },
+      {
+        "values": {
+          "character_id": {
+            "Integer": 36
+          },
+          "initial_decimal": {
+            "String": "0"
+          },
+          "maximum_decimal": {
+            "String": "3"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "source-energy"
+          }
+        }
       }
     ]
   }

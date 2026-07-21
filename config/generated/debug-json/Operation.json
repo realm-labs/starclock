@@ -1095,6 +1095,147 @@
             "Integer": 24620
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 67003
+          },
+          "payload": {
+            "Object": {
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 67001
+              },
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "c04.himeko-nova.operation.apply-assist-protocol"
+          },
+          "target_selector_id": {
+            "Integer": 67004
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 67007
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 67006
+              },
+              "character_resource_key": {
+                "String": "assist-use"
+              },
+              "resource_kind": {
+                "String": "TeamResource"
+              },
+              "rounding": {
+                "String": "Floor"
+              },
+              "scales_with_energy_regeneration": {
+                "Bool": false
+              },
+              "type": {
+                "String": "ModifyResource"
+              },
+              "update_kind": {
+                "String": "Gain"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "c04.himeko-nova.operation.restore-assist-uses"
+          },
+          "target_selector_id": {
+            "Integer": 66001
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 67009
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 67008
+              },
+              "character_resource_key": {
+                "String": "source-energy"
+              },
+              "resource_kind": {
+                "String": "CharacterResource"
+              },
+              "rounding": {
+                "String": "Floor"
+              },
+              "scales_with_energy_regeneration": {
+                "Bool": false
+              },
+              "type": {
+                "String": "ModifyResource"
+              },
+              "update_kind": {
+                "String": "Gain"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "c04.himeko-nova.operation.gain-source-energy"
+          },
+          "target_selector_id": {
+            "Integer": 66001
+          }
+        }
       }
     ]
   }
