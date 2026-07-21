@@ -21,7 +21,7 @@ fn config_validation_uses_only_a_validated_sora_bundle() {
     assert!(default.status.success(), "{:?}", default);
     assert_eq!(
         text(default.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"4.4\",\"data_revision\":\"core-combat-v1-phase7-l05\",\"bundle_sha256\":\"328e0f7b1cdba9060bbc510b46d1357c910e231002f91bbe830cfdf4a6940414\",\"identities\":4821,\"enabled\":4736}"
+        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"4.4\",\"data_revision\":\"core-combat-v1-phase7-l06\",\"bundle_sha256\":\"e3df797ee58016e225c26e6f8bd2cea813b4ba2411811e37d6fa54b9c0e510e6\",\"identities\":4889,\"enabled\":4820}"
     );
 
     let bundle =
@@ -30,7 +30,7 @@ fn config_validation_uses_only_a_validated_sora_bundle() {
     assert!(explicit.status.success(), "{:?}", explicit);
     let human = text(explicit.stdout);
     assert!(human.contains("config valid game_version=4.4"));
-    assert!(human.contains("identities=4821 enabled=4736"));
+    assert!(human.contains("identities=4889 enabled=4820"));
 
     let invalid = temporary("invalid.sora");
     fs::write(&invalid, br#"{\"debug\":\"json\"}"#).unwrap();
@@ -47,7 +47,7 @@ fn coverage_is_goal_aware_filterable_and_not_readiness_inflated() {
     let all = text(all.stdout);
     assert!(all.contains("\"goal_id\":\"core-combat-v1\""));
     assert!(
-        all.contains("\"required\":283,\"enabled\":198,\"data_ready\":198,\"golden_verified\":198")
+        all.contains("\"required\":283,\"enabled\":214,\"data_ready\":214,\"golden_verified\":214")
     );
     for expected in [
         "released-character-combat-forms\",\"required\":88",
@@ -70,7 +70,7 @@ fn coverage_is_goal_aware_filterable_and_not_readiness_inflated() {
     assert!(filtered.status.success(), "{:?}", filtered);
     let filtered = text(filtered.stdout);
     assert!(filtered.contains("\"required\":165"));
-    assert!(filtered.contains("\"data_ready\":80"));
+    assert!(filtered.contains("\"data_ready\":96"));
     assert!(!filtered.contains("released-character-combat-forms"));
 
     let unknown = output(&["catalog", "coverage", "--category", "characters"]);

@@ -9,24 +9,24 @@
     "provenance_evidence_sha256": "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466",
     "research_evidence_sha256": "5625e2c5483cf97f597e52da8af7e17d52af1e6cc5beeadbd5501ed3e6247cfb",
     "runtime_catalog": {
-      "state": "LightConeL05Production",
-      "digest": "328e0f7b1cdba9060bbc510b46d1357c910e231002f91bbe830cfdf4a6940414",
-      "note": "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and the first eighty released Light Cones through S5."
+      "state": "LightConeL06Production",
+      "digest": "e3df797ee58016e225c26e6f8bd2cea813b4ba2411811e37d6fa54b9c0e510e6",
+      "note": "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and the first ninety-six released Light Cones through S5."
     }
   },
   "summary": {
     "required": 283,
     "accounted": 283,
-    "enabled_incomplete": 85,
-    "data_ready": 198,
-    "golden_verified": 198,
-    "data_ready_percent": "70%",
+    "enabled_incomplete": 69,
+    "data_ready": 214,
+    "golden_verified": 214,
+    "data_ready_percent": "75.6%",
     "terminal_state_counts": {
-      "Cataloged": 85,
+      "Cataloged": 69,
       "Documented": 0,
       "Researching": 0,
       "DataReady": 0,
-      "GoldenVerified": 198
+      "GoldenVerified": 214
     },
     "disabled_audit_only": 2
   },
@@ -53,15 +53,15 @@
       "manifest_kind": "LightCone",
       "required": 165,
       "accounted": 165,
-      "data_ready": 80,
-      "golden_verified": 80,
-      "data_ready_percent": "48.5%",
+      "data_ready": 96,
+      "golden_verified": 96,
+      "data_ready_percent": "58.2%",
       "terminal_state_counts": {
-        "Cataloged": 85,
+        "Cataloged": 69,
         "Documented": 0,
         "Researching": 0,
         "DataReady": 0,
-        "GoldenVerified": 80
+        "GoldenVerified": 96
       },
       "disabled_audit_only": 0
     },
@@ -2997,21 +2997,16 @@
       "id": "light-cone.meshing-cogs",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3019,21 +3014,16 @@
       "id": "light-cone.moment-of-victory",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3041,21 +3031,16 @@
       "id": "light-cone.multiplication",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3063,21 +3048,16 @@
       "id": "light-cone.mushy-shroomys-adventures",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3085,21 +3065,16 @@
       "id": "light-cone.mutual-demise",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3107,21 +3082,16 @@
       "id": "light-cone.never-forget-her-flame",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3129,21 +3099,16 @@
       "id": "light-cone.night-of-fright",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3151,21 +3116,16 @@
       "id": "light-cone.night-on-the-milky-way",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3173,21 +3133,16 @@
       "id": "light-cone.ninja-record-sound-hunt",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3195,21 +3150,16 @@
       "id": "light-cone.ninjutsu-inscription-dazzling-evilbreaker",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3217,21 +3167,16 @@
       "id": "light-cone.nowhere-to-run",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3239,21 +3184,16 @@
       "id": "light-cone.on-the-fall-of-an-aeon",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3261,21 +3201,16 @@
       "id": "light-cone.only-silence-remains",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3283,21 +3218,16 @@
       "id": "light-cone.passkey",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3305,21 +3235,16 @@
       "id": "light-cone.past-and-future",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3327,21 +3252,16 @@
       "id": "light-cone.past-self-in-mirror",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -5395,22 +5315,6 @@
     "duplicate_runtime_ids": [],
     "stale_version_ids": [],
     "missing_data_ready_ids": [
-      "light-cone.meshing-cogs",
-      "light-cone.moment-of-victory",
-      "light-cone.multiplication",
-      "light-cone.mushy-shroomys-adventures",
-      "light-cone.mutual-demise",
-      "light-cone.never-forget-her-flame",
-      "light-cone.night-of-fright",
-      "light-cone.night-on-the-milky-way",
-      "light-cone.ninja-record-sound-hunt",
-      "light-cone.ninjutsu-inscription-dazzling-evilbreaker",
-      "light-cone.nowhere-to-run",
-      "light-cone.on-the-fall-of-an-aeon",
-      "light-cone.only-silence-remains",
-      "light-cone.passkey",
-      "light-cone.past-and-future",
-      "light-cone.past-self-in-mirror",
       "light-cone.patience-is-all-you-need",
       "light-cone.perfect-timing",
       "light-cone.pioneering",
@@ -5482,22 +5386,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_production_provenance_ids": [
-      "light-cone.meshing-cogs",
-      "light-cone.moment-of-victory",
-      "light-cone.multiplication",
-      "light-cone.mushy-shroomys-adventures",
-      "light-cone.mutual-demise",
-      "light-cone.never-forget-her-flame",
-      "light-cone.night-of-fright",
-      "light-cone.night-on-the-milky-way",
-      "light-cone.ninja-record-sound-hunt",
-      "light-cone.ninjutsu-inscription-dazzling-evilbreaker",
-      "light-cone.nowhere-to-run",
-      "light-cone.on-the-fall-of-an-aeon",
-      "light-cone.only-silence-remains",
-      "light-cone.passkey",
-      "light-cone.past-and-future",
-      "light-cone.past-self-in-mirror",
       "light-cone.patience-is-all-you-need",
       "light-cone.perfect-timing",
       "light-cone.pioneering",
@@ -5569,22 +5457,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_bilingual_validation_ids": [
-      "light-cone.meshing-cogs",
-      "light-cone.moment-of-victory",
-      "light-cone.multiplication",
-      "light-cone.mushy-shroomys-adventures",
-      "light-cone.mutual-demise",
-      "light-cone.never-forget-her-flame",
-      "light-cone.night-of-fright",
-      "light-cone.night-on-the-milky-way",
-      "light-cone.ninja-record-sound-hunt",
-      "light-cone.ninjutsu-inscription-dazzling-evilbreaker",
-      "light-cone.nowhere-to-run",
-      "light-cone.on-the-fall-of-an-aeon",
-      "light-cone.only-silence-remains",
-      "light-cone.passkey",
-      "light-cone.past-and-future",
-      "light-cone.past-self-in-mirror",
       "light-cone.patience-is-all-you-need",
       "light-cone.perfect-timing",
       "light-cone.pioneering",
@@ -5656,22 +5528,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_runtime_reference_ids": [
-      "light-cone.meshing-cogs",
-      "light-cone.moment-of-victory",
-      "light-cone.multiplication",
-      "light-cone.mushy-shroomys-adventures",
-      "light-cone.mutual-demise",
-      "light-cone.never-forget-her-flame",
-      "light-cone.night-of-fright",
-      "light-cone.night-on-the-milky-way",
-      "light-cone.ninja-record-sound-hunt",
-      "light-cone.ninjutsu-inscription-dazzling-evilbreaker",
-      "light-cone.nowhere-to-run",
-      "light-cone.on-the-fall-of-an-aeon",
-      "light-cone.only-silence-remains",
-      "light-cone.passkey",
-      "light-cone.past-and-future",
-      "light-cone.past-self-in-mirror",
       "light-cone.patience-is-all-you-need",
       "light-cone.perfect-timing",
       "light-cone.pioneering",
@@ -5759,7 +5615,7 @@
       {
         "label": "Released Light Cones",
         "required": 165,
-        "data_ready": 80,
+        "data_ready": 96,
         "matches": true
       },
       {

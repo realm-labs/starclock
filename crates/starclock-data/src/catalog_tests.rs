@@ -20,12 +20,12 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
     assert_eq!(
         catalog.summary(),
         CatalogSummary {
-            identity_count: 4821,
-            enabled_identity_count: 4736,
+            identity_count: 4889,
+            enabled_identity_count: 4820,
             ability_count: 651,
             hit_plan_count: 354,
             character_count: 88,
-            light_cone_count: 80,
+            light_cone_count: 96,
             effect_count: 4,
             ai_graph_count: 17,
             enemy_count: 17,

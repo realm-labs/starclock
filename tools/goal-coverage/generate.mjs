@@ -214,6 +214,22 @@ const goldenLightCones = new Set([
   "light-cone.mediation",
   "light-cone.memories-of-the-past",
   "light-cone.memorys-curtain-never-falls",
+  "light-cone.meshing-cogs",
+  "light-cone.moment-of-victory",
+  "light-cone.multiplication",
+  "light-cone.mushy-shroomys-adventures",
+  "light-cone.mutual-demise",
+  "light-cone.never-forget-her-flame",
+  "light-cone.night-of-fright",
+  "light-cone.night-on-the-milky-way",
+  "light-cone.ninja-record-sound-hunt",
+  "light-cone.ninjutsu-inscription-dazzling-evilbreaker",
+  "light-cone.nowhere-to-run",
+  "light-cone.on-the-fall-of-an-aeon",
+  "light-cone.only-silence-remains",
+  "light-cone.passkey",
+  "light-cone.past-and-future",
+  "light-cone.past-self-in-mirror",
 ]);
 
 const categories = [];
@@ -263,7 +279,7 @@ const report = {
     goal_manifest_sha256: MANIFEST_SHA,
     provenance_evidence_sha256: PROVENANCE_SHA,
     research_evidence_sha256: RESEARCH_SHA,
-    runtime_catalog: { state: "LightConeL05Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and the first eighty released Light Cones through S5." },
+    runtime_catalog: { state: "LightConeL06Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and the first ninety-six released Light Cones through S5." },
   },
   summary: {
     required: entries.length,
@@ -370,7 +386,7 @@ function verifyDocumentation(categoryReports) {
   const referenceCounts = readJson(path.join(root, "content-reference", "v4.4", "coverage.json"));
   const expectedStatus = [
     ["Released character combat forms", 88, 88],
-    ["Released Light Cones", 165, 80],
+    ["Released Light Cones", 165, 96],
     ["`standard-v1` enemies/variants", 17, 17],
     ["`standard-v1` encounters", 6, 6],
     ["`standard-v1` scenarios", 6, 6],
