@@ -8,8 +8,8 @@ use starclock_combat::{
     catalog::{
         CombatCatalog,
         action::{
-            AbilityActionDefinition, AbilityKind, ActionResourcePolicy, TargetInvalidationPolicy,
-            TargetPattern, TargetRelation, UnitTargetSelector,
+            AbilityActionDefinition, AbilityKind, ActionHitDefinition, ActionResourcePolicy,
+            TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
         },
         builder::{CatalogBuildErrorKind, CombatCatalogBuilder},
         definition::{
@@ -478,4 +478,33 @@ fn definition_id_types_are_not_interchangeable_at_catalog_boundaries() {
     let _: EncounterId = id(1);
     let _: RuleBundleId = id(1);
     let _: SelectorId = id(1);
+}
+
+#[test]
+fn phased_actions_accept_the_released_101_hit_envelope_but_remain_finite() {
+    let base = AbilityActionDefinition::new(
+        AbilityKind::Basic,
+        1,
+        TargetInvalidationPolicy::CancelRemainingForTarget,
+        ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
+    )
+    .unwrap();
+    let hits = |count| {
+        (0..count)
+            .map(|_| ActionHitDefinition::new(Vec::new()))
+            .collect::<Vec<_>>()
+    };
+
+    assert_eq!(base.clone().with_hits(hits(101)).unwrap().hit_count(), 101);
+    assert_eq!(base.clone().with_hits(hits(256)).unwrap().hit_count(), 256);
+    assert!(base.with_hits(hits(257)).is_none());
+    assert!(
+        AbilityActionDefinition::new(
+            AbilityKind::Basic,
+            257,
+            TargetInvalidationPolicy::CancelRemainingForTarget,
+            ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
+        )
+        .is_none()
+    );
 }

@@ -902,8 +902,10 @@ pub struct AbilityActionDefinition {
     resources: ActionResourcePolicy,
 }
 
+const MAX_ACTION_HITS: usize = 256;
+
 impl AbilityActionDefinition {
-    /// Creates an action with one to 100 authored hits.
+    /// Creates an action with one to 256 authored hits across all phases.
     #[must_use]
     pub fn new(
         kind: AbilityKind,
@@ -911,7 +913,7 @@ impl AbilityActionDefinition {
         invalidation: TargetInvalidationPolicy,
         resources: ActionResourcePolicy,
     ) -> Option<Self> {
-        if hit_count == 0 || hit_count > 100 {
+        if hit_count == 0 || usize::from(hit_count) > MAX_ACTION_HITS {
             None
         } else {
             Some(Self {
@@ -932,10 +934,10 @@ impl AbilityActionDefinition {
         self.tags = AbilityTags::new(tags);
         self
     }
-    /// Replaces structural hits with one to 100 concrete authored hit plans.
+    /// Replaces structural hits with one to 256 concrete authored hits.
     #[must_use]
     pub fn with_hits(mut self, hits: Vec<ActionHitDefinition>) -> Option<Self> {
-        if hits.is_empty() || hits.len() > 100 {
+        if hits.is_empty() || hits.len() > MAX_ACTION_HITS {
             None
         } else {
             self.hits = hits.into_boxed_slice();
@@ -955,7 +957,7 @@ impl AbilityActionDefinition {
     /// Returns the finite authored hit count.
     #[must_use]
     pub fn hit_count(&self) -> u16 {
-        u16::try_from(self.hits.len()).expect("action hit count is validated at 100 or fewer")
+        u16::try_from(self.hits.len()).expect("action hit count is validated at 256 or fewer")
     }
     /// Returns hit templates in authored order.
     #[must_use]

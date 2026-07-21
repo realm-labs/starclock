@@ -2,7 +2,8 @@
 
 Goal 01 batch `G01-P3-B4` replaces the B3 structural action flag with typed,
 finite catalog action definitions. An executable ability now declares its
-Basic, Skill or Ultimate family, one to 100 authored hits, target selector,
+Basic, Skill or Ultimate family, one to 256 authored hits across its phases,
+target selector,
 target-invalidation policy and explicit Skill Point/Energy costs and gains.
 
 ## Offered targets and commitments
@@ -35,9 +36,11 @@ immutable action definition with its target group, damage share, Toughness
 share and CRIT policy. `Primary`, `Adjacent`, complete selected/all groups,
 repeated bounce draws and self-target hits project from the same committed
 selector result; bounce draws consume the same journaled RNG purpose as
-retargeting. The finite action bound is 100 hits, matching the validated Sora
-schema and the largest released Version 4.4 plan instead of truncating content
-to the earlier synthetic 64-hit ceiling.
+retargeting. Each Sora hit plan remains bounded to 100 rows. Phase 7 batch
+`G01-P7-M12` raises the finite aggregate action bound to 256 because Silver
+Wolf LV.999's released enhanced Basic contains three plans totaling 100
+bounces and a fourth final hit. The separate per-plan and per-action bounds
+retain deterministic budgets without truncating the 101-hit action.
 
 ## Resource legality and timing
 
