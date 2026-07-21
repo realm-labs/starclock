@@ -4,14 +4,13 @@
 
 The target is a headless battle kernel plus a generic activity orchestrator that can later be driven by Bevy, another engine, the `starclock` CLI, tests, or a simulation service.
 
-**Current repository status:** Goal 01 implementation and content coverage are
-complete and undergoing final release acceptance. The deterministic Rust
+**Current repository status:** Goal 01 is complete. The deterministic Rust
 workspace, production Excel/Sora pipeline, battle/runtime libraries, headless
 CLI, six frozen Standard scenarios, all 88 released combat forms and all 165
 released Light Cones are executable. Machine evidence reports 283/283
-`GoldenVerified`; see the
-[Goal 01 status ledger](goals/01-core-combat-and-content-status.md) for the
-current acceptance batch.
+`GoldenVerified`; the final source-cache and isolated clean-checkout gates pass.
+See the [Goal 01 status ledger](goals/01-core-combat-and-content-status.md) for
+the complete batch and evidence record.
 
 ## Research baseline
 
