@@ -198,8 +198,35 @@ C04_DAMAGE = {
     "character.himeko.ability.victory-rush.skillp01": [("All", 1, 1)],
 }
 
+C05_DAMAGE = {
+    "character.hook.ability.ack-look-at-this-mess.maze": [("Primary", 1, 1)],
+    "character.hook.ability.boom-here-comes-the-fire.ultra": [("Primary", 1, 1), ("Adjacent", 1, 1)],
+    "character.hook.ability.hehe-dont-get-burned.normal": [("Primary", 1, 1)],
+    "character.hook.ability.hey-remember-hook.bpskill": [("Primary", 1, 1)],
+    "character.huohuo.ability.banner-stormcaller.normal": [("Primary", 1, 1)],
+    "character.hyacine.ability.when-breeze-kisses-cirrus.normal": [("Primary", 1, 1)],
+    "character.hysilens.ability.aeolian-mode-echoes-in-still-waters.normal": [("Primary", 1, 1)],
+    "character.hysilens.ability.maelstrom-rhapsody.ultra": [("All", 1, 1)],
+    "character.hysilens.ability.overtone-hum-chorus-after-dark-tides.bpskill": [("All", 1, 1)],
+    "character.jade.ability.fang-of-flare-flaying.skillp01": [("All", 5, 1)],
+    "character.jade.ability.lash-of-riches.normal": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.jade.ability.vow-of-the-deep.ultra": [("All", 3, 1)],
+    "character.jiaoqiu.ability.heart-afire.normal": [("Primary", 1, 1)],
+    "character.jiaoqiu.ability.pyrograph-arcanum.ultra": [("All", 1, 1)],
+    "character.jiaoqiu.ability.scorch-onslaught.bpskill": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.jing-yuan.ability.glistening-light.normal": [("Primary", 1, 1)],
+    "character.jing-yuan.ability.lightbringer.ultra": [("All", 1, 1)],
+    "character.jing-yuan.ability.prana-extirpated.skillp01": [("BounceDraw", 2, 3)],
+    "character.jing-yuan.ability.rifting-zenith.bpskill": [("All", 1, 1)],
+    "character.jingliu.ability.florephemeral-dreamflux.ultra": [("Primary", 1, 1), ("Adjacent", 3, 1)],
+    "character.jingliu.ability.lucent-moonglow.normal": [("Primary", 1, 1)],
+    "character.jingliu.ability.moon-on-glacial-river.bpskill": [("Primary", 1, 1), ("Adjacent", 3, 1)],
+    "character.jingliu.ability.transcendent-flash.bpskill": [("Primary", 1, 1)],
+}
+
 DAMAGE_BY_PARTITION = {
     "C01": C01_DAMAGE, "C02": C02_DAMAGE, "C03": C03_DAMAGE, "C04": C04_DAMAGE,
+    "C05": C05_DAMAGE,
 }
 
 C01_TARGET_OVERRIDES = {
@@ -233,9 +260,13 @@ C04_TARGET_OVERRIDES = {
     "character.himeko-nova.ability.we-too-stride-the-stars.ultra": "Bounce",
 }
 
+C05_TARGET_OVERRIDES = {
+    "character.jing-yuan.ability.prana-extirpated.skillp01": "Bounce",
+}
+
 TARGET_OVERRIDES = {
     **C01_TARGET_OVERRIDES, **C02_TARGET_OVERRIDES, **C03_TARGET_OVERRIDES,
-    **C04_TARGET_OVERRIDES,
+    **C04_TARGET_OVERRIDES, **C05_TARGET_OVERRIDES,
 }
 
 C01_SCALING_STATS = {
@@ -269,6 +300,9 @@ ABILITY_KIND_OVERRIDES = {
     "character.dan-heng-imbibitor-lunae.ability.transcendence.normal": "EnhancedBasic",
     "character.feixiao.ability.boltsunder-blitz.ultra": "Passive",
     "character.feixiao.ability.waraxe-skyward.ultra": "Passive",
+    "character.jade.ability.fang-of-flare-flaying.skillp01": "FollowUp",
+    "character.jing-yuan.ability.prana-extirpated.skillp01": "Summon",
+    "character.jingliu.ability.moon-on-glacial-river.bpskill": "EnhancedSkill",
 }
 
 SKILL_POINT_COST_OVERRIDES = {
@@ -298,16 +332,22 @@ CHARACTER_RESOURCES = {
     "character.gepard": [("revive", "1", "1")],
     "character.himeko": [("charge", "3", "0")],
     "character.himeko-nova": [("source-energy", "3", "0")],
+    "character.jade": [("charge", "8", "0")],
+    "character.jing-yuan": [("lightning-lord-hits", "10", "3")],
+    "character.jingliu": [("syzygy", "3", "0")],
 }
 
 CHARACTER_RESOURCE_COSTS = {
     "character.castorice.ability.doomshriek-dawns-chime.ultra": [("newbud", "100")],
     "character.feixiao.ability.terrasplit.ultra": [("flying-aureus", "6")],
     "character.himeko-nova.ability.orbital-annihilation-pulse.ultra": [("source-energy", "3")],
+    "character.jingliu.ability.moon-on-glacial-river.bpskill": [("syzygy", "1")],
 }
 
 CHARACTER_RESOURCE_GAINS = {
     "character.himeko-nova.ability.hyperluminal-particle-beam.ultra": [("source-energy", "1")],
+    "character.jingliu.ability.florephemeral-dreamflux.ultra": [("syzygy", "1")],
+    "character.jingliu.ability.transcendent-flash.bpskill": [("syzygy", "1")],
 }
 
 TEAM_RESOURCE_COSTS = {

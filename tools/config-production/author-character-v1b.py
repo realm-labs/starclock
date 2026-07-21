@@ -260,6 +260,10 @@ def ability_slot(kind: str) -> str:
         "Technique": "Technique",
         "EnhancedBasic": "Enhanced",
         "EnhancedSkill": "Enhanced",
+        "FollowUp": "Passive",
+        "Counter": "Passive",
+        "Summon": "Summon",
+        "Memosprite": "Memosprite",
         "Entry": "Passive",
         "Passive": "Passive",
     }[kind]
@@ -299,6 +303,10 @@ def semantic_mask(kind: str, row: dict[str, Any]) -> int:
         "Skill": 2,
         "EnhancedSkill": 2,
         "Ultimate": 3,
+        "FollowUp": 4,
+        "Counter": 5,
+        "Summon": 6,
+        "Memosprite": 7,
         "Technique": 0,
     }.get(kind)
     if family is not None:

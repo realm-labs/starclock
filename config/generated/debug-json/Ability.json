@@ -8535,6 +8535,1280 @@
             "String": "Aoe"
           }
         }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70001
+          },
+          "kind": {
+            "String": "Technique"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "RecomputeEachHit"
+          },
+          "semantic_tags_mask": {
+            "Integer": 1
+          },
+          "target_pattern": {
+            "String": "Bounce"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70002
+          },
+          "kind": {
+            "String": "Entry"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 0
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70003
+          },
+          "kind": {
+            "String": "Ultimate"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 9
+          },
+          "target_pattern": {
+            "String": "Blast"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70004
+          },
+          "kind": {
+            "String": "Talent"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 1
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70005
+          },
+          "kind": {
+            "String": "Basic"
+          },
+          "level_cap": {
+            "Integer": 10
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 3
+          },
+          "target_pattern": {
+            "String": "SingleTarget"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70006
+          },
+          "kind": {
+            "String": "Skill"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 5
+          },
+          "target_pattern": {
+            "String": "SingleTarget"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70007
+          },
+          "kind": {
+            "String": "Entry"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 0
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70008
+          },
+          "kind": {
+            "String": "Basic"
+          },
+          "level_cap": {
+            "Integer": 10
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 3
+          },
+          "target_pattern": {
+            "String": "SingleTarget"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70009
+          },
+          "kind": {
+            "String": "Technique"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 1
+          },
+          "target_pattern": {
+            "String": "SingleTarget"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70010
+          },
+          "kind": {
+            "String": "Talent"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 0
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70011
+          },
+          "kind": {
+            "String": "Ultimate"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 8
+          },
+          "target_pattern": {
+            "String": "Enhance"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70012
+          },
+          "kind": {
+            "String": "Skill"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 4
+          },
+          "target_pattern": {
+            "String": "Support"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70013
+          },
+          "kind": {
+            "String": "Entry"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 0
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70014
+          },
+          "kind": {
+            "String": "Technique"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 1
+          },
+          "target_pattern": {
+            "String": "Support"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70015
+          },
+          "kind": {
+            "String": "Talent"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 1
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70016
+          },
+          "kind": {
+            "String": "Skill"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 4
+          },
+          "target_pattern": {
+            "String": "Support"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70017
+          },
+          "kind": {
+            "String": "Ultimate"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 8
+          },
+          "target_pattern": {
+            "String": "Support"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70018
+          },
+          "kind": {
+            "String": "Basic"
+          },
+          "level_cap": {
+            "Integer": 10
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 3
+          },
+          "target_pattern": {
+            "String": "SingleTarget"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70019
+          },
+          "kind": {
+            "String": "Basic"
+          },
+          "level_cap": {
+            "Integer": 10
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 3
+          },
+          "target_pattern": {
+            "String": "SingleTarget"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70020
+          },
+          "kind": {
+            "String": "Technique"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 1
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70021
+          },
+          "kind": {
+            "String": "Entry"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 0
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70022
+          },
+          "kind": {
+            "String": "Ultimate"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 9
+          },
+          "target_pattern": {
+            "String": "Aoe"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70023
+          },
+          "kind": {
+            "String": "Skill"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 5
+          },
+          "target_pattern": {
+            "String": "Aoe"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70024
+          },
+          "kind": {
+            "String": "Talent"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 0
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70025
+          },
+          "kind": {
+            "String": "Skill"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 5
+          },
+          "target_pattern": {
+            "String": "SingleTarget"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70026
+          },
+          "kind": {
+            "String": "Entry"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 0
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70027
+          },
+          "kind": {
+            "String": "FollowUp"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 17
+          },
+          "target_pattern": {
+            "String": "Aoe"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70028
+          },
+          "kind": {
+            "String": "Basic"
+          },
+          "level_cap": {
+            "Integer": 10
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 3
+          },
+          "target_pattern": {
+            "String": "Blast"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70029
+          },
+          "kind": {
+            "String": "Technique"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 1
+          },
+          "target_pattern": {
+            "String": "Aoe"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70030
+          },
+          "kind": {
+            "String": "Ultimate"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 9
+          },
+          "target_pattern": {
+            "String": "Aoe"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70031
+          },
+          "kind": {
+            "String": "Entry"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 0
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70032
+          },
+          "kind": {
+            "String": "Technique"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 1
+          },
+          "target_pattern": {
+            "String": "Aoe"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70033
+          },
+          "kind": {
+            "String": "Basic"
+          },
+          "level_cap": {
+            "Integer": 10
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 3
+          },
+          "target_pattern": {
+            "String": "SingleTarget"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70034
+          },
+          "kind": {
+            "String": "Ultimate"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 9
+          },
+          "target_pattern": {
+            "String": "Aoe"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70035
+          },
+          "kind": {
+            "String": "Talent"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 1
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70036
+          },
+          "kind": {
+            "String": "Skill"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 5
+          },
+          "target_pattern": {
+            "String": "Blast"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70037
+          },
+          "kind": {
+            "String": "Entry"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 0
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70038
+          },
+          "kind": {
+            "String": "Basic"
+          },
+          "level_cap": {
+            "Integer": 10
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 3
+          },
+          "target_pattern": {
+            "String": "SingleTarget"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70039
+          },
+          "kind": {
+            "String": "Ultimate"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 9
+          },
+          "target_pattern": {
+            "String": "Aoe"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70040
+          },
+          "kind": {
+            "String": "Summon"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "RecomputeEachHit"
+          },
+          "semantic_tags_mask": {
+            "Integer": 65
+          },
+          "target_pattern": {
+            "String": "Bounce"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70041
+          },
+          "kind": {
+            "String": "Skill"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 5
+          },
+          "target_pattern": {
+            "String": "Aoe"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70042
+          },
+          "kind": {
+            "String": "Technique"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 1
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70043
+          },
+          "kind": {
+            "String": "Entry"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 0
+          },
+          "target_pattern": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70044
+          },
+          "kind": {
+            "String": "Talent"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 0
+          },
+          "target_pattern": {
+            "String": "Support"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70045
+          },
+          "kind": {
+            "String": "Ultimate"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 9
+          },
+          "target_pattern": {
+            "String": "Blast"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70046
+          },
+          "kind": {
+            "String": "Basic"
+          },
+          "level_cap": {
+            "Integer": 10
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 3
+          },
+          "target_pattern": {
+            "String": "SingleTarget"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70047
+          },
+          "kind": {
+            "String": "EnhancedSkill"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 5
+          },
+          "target_pattern": {
+            "String": "Blast"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70048
+          },
+          "kind": {
+            "String": "Technique"
+          },
+          "level_cap": {
+            "Integer": 1
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 1
+          },
+          "target_pattern": {
+            "String": "Aoe"
+          }
+        }
+      },
+      {
+        "values": {
+          "cooldown_actions": {
+            "Integer": 0
+          },
+          "entry_rule_identity_id": "Null",
+          "id": {
+            "Integer": 70049
+          },
+          "kind": {
+            "String": "Skill"
+          },
+          "level_cap": {
+            "Integer": 15
+          },
+          "retarget_policy": {
+            "String": "CancelRemaining"
+          },
+          "semantic_tags_mask": {
+            "Integer": 5
+          },
+          "target_pattern": {
+            "String": "SingleTarget"
+          }
+        }
       }
     ]
   }

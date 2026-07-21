@@ -15,11 +15,11 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
     assert_eq!(
         catalog.summary(),
         CatalogSummary {
-            identity_count: 2201,
-            enabled_identity_count: 1986,
-            ability_count: 328,
-            hit_plan_count: 192,
-            character_count: 38,
+            identity_count: 2550,
+            enabled_identity_count: 2343,
+            ability_count: 377,
+            hit_plan_count: 215,
+            character_count: 46,
             effect_count: 4,
             ai_graph_count: 17,
             enemy_count: 17,
@@ -640,6 +640,78 @@ fn production_c04_executes_assist_and_source_energy_envelopes() {
 }
 
 #[test]
+fn production_c05_executes_follow_up_summon_and_syzygy_envelopes() {
+    use starclock_combat::{
+        AbilityId, UnitDefinitionId,
+        catalog::action::{AbilityKind, AbilityTag, HitOperationDefinition},
+    };
+
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let combat = catalog.combat_catalog();
+
+    let jade = combat
+        .ability(AbilityId::new(70_027).unwrap())
+        .expect("Jade follow-up");
+    let jade_action = jade.action().expect("Jade follow-up action");
+    assert_eq!(jade_action.kind(), AbilityKind::FollowUp);
+    assert!(jade_action.tags().contains(AbilityTag::FollowUp));
+    assert_eq!(jade_action.hits().len(), 1);
+    let HitOperationDefinition::ScalingDamage(jade_damage) = jade_action.hits()[0].operations()[0]
+    else {
+        panic!("Jade follow-up must execute scaling damage");
+    };
+    assert_eq!(jade_damage.coefficient().scaled(), 600_000);
+    let jade_form = combat
+        .unit(UnitDefinitionId::new(41).unwrap())
+        .expect("Jade form");
+    let charge = jade_form
+        .resources()
+        .iter()
+        .find(|resource| resource.stable_key() == "charge")
+        .expect("Jade Charge");
+    assert_eq!(charge.maximum().scaled(), 8_000_000);
+
+    let lightning_lord = combat
+        .ability(AbilityId::new(70_040).unwrap())
+        .expect("Lightning-Lord summon action");
+    let lightning_lord_action = lightning_lord.action().expect("Lightning-Lord action");
+    assert_eq!(lightning_lord_action.kind(), AbilityKind::Summon);
+    assert!(lightning_lord_action.tags().contains(AbilityTag::Summon));
+    assert_eq!(lightning_lord_action.hits().len(), 3);
+    let jing_yuan = combat
+        .unit(UnitDefinitionId::new(43).unwrap())
+        .expect("Jing Yuan form");
+    let lightning_lord_hits = jing_yuan
+        .resources()
+        .iter()
+        .find(|resource| resource.stable_key() == "lightning-lord-hits")
+        .expect("Lightning-Lord hit counter");
+    assert_eq!(lightning_lord_hits.initial().scaled(), 3_000_000);
+    assert_eq!(lightning_lord_hits.maximum().scaled(), 10_000_000);
+
+    let moon = combat
+        .ability(AbilityId::new(70_047).unwrap())
+        .expect("Jingliu enhanced Skill");
+    let moon_action = moon.action().expect("Jingliu enhanced Skill action");
+    assert_eq!(moon_action.kind(), AbilityKind::Skill);
+    assert_eq!(moon_action.resources().skill_point_cost(), 0);
+    assert_eq!(moon_action.resources().skill_point_gain(), 0);
+    let costs = moon_action.resources().character_resource_costs();
+    assert_eq!(costs.len(), 1);
+    assert_eq!(costs[0].stable_key(), "syzygy");
+    assert_eq!(costs[0].amount().scaled(), 1_000_000);
+    let jingliu = combat
+        .unit(UnitDefinitionId::new(44).unwrap())
+        .expect("Jingliu form");
+    let syzygy = jingliu
+        .resources()
+        .iter()
+        .find(|resource| resource.stable_key() == "syzygy")
+        .expect("Jingliu Syzygy");
+    assert_eq!(syzygy.maximum().scaled(), 3_000_000);
+}
+
+#[test]
 fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_build::{
         ability::AbilityInvestment,
@@ -650,7 +722,7 @@ fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_combat::UnitLevel;
 
     let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
-    for raw in (1..=36).chain([45, 68]) {
+    for raw in (1..=45).chain([68]) {
         let form = starclock_combat::UnitDefinitionId::new(raw).unwrap();
         let character = catalog
             .build_catalog()
