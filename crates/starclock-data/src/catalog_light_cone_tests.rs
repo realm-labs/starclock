@@ -5,7 +5,7 @@ use starclock_build::{
     id::LightConeId,
     light_cone::{LightConeLevel, Superimposition},
     patch::BuildPatch,
-    spec::{CombatantBuildSpec, LightConeLoadout, PromotionStage},
+    spec::{CombatantBuildSpec, EidolonLevel, LightConeLoadout, PromotionStage},
 };
 use starclock_combat::UnitLevel;
 
@@ -142,6 +142,82 @@ fn seeded_build_matrix_fuzzes_matching_and_mismatched_content_compilation() {
             );
         }
     }
+}
+
+#[test]
+fn every_compatible_character_and_light_cone_pair_compiles_at_e0_s1_and_e6_s5() {
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let builds = catalog.build_catalog();
+    let combat = catalog.combat_catalog();
+    let mut compatible_pairs = 0;
+    let mut compiled_builds = 0;
+
+    for character_id in builds.character_ids() {
+        let character = builds.character(character_id).unwrap();
+        let investments = character
+            .ability_levels()
+            .iter()
+            .map(|table| AbilityInvestment::new(table.family(), table.invested_cap()))
+            .collect::<Vec<_>>();
+        let base = CombatantBuildSpec::new(
+            character_id,
+            UnitLevel::new(80).unwrap(),
+            PromotionStage::new(6).unwrap(),
+        )
+        .with_ability_levels(investments)
+        .unwrap();
+        let traces = character
+            .trace_graph()
+            .expect("released character has a complete Trace graph")
+            .canonical_order()
+            .to_vec();
+
+        for cone_id in builds.light_cone_ids() {
+            let cone = builds.light_cone(cone_id).unwrap();
+            if cone.path() != character.path() {
+                continue;
+            }
+            compatible_pairs += 1;
+            for (eidolon, trace_nodes, rank) in [
+                (EidolonLevel::E0, Vec::new(), 1),
+                (EidolonLevel::new(6).unwrap(), traces.clone(), 5),
+            ] {
+                let spec = base
+                    .clone()
+                    .with_traces(trace_nodes)
+                    .unwrap()
+                    .with_eidolon(eidolon)
+                    .with_light_cone(LightConeLoadout::new(
+                        cone_id,
+                        LightConeLevel::new(80).unwrap(),
+                        PromotionStage::new(6).unwrap(),
+                        Superimposition::new(rank).unwrap(),
+                    ));
+                let compiled = LoadoutCompiler
+                    .compile(builds, combat, &spec)
+                    .expect("every compatible E0/S1 and E6/S5 fixture must compile");
+                for patch in cone
+                    .passive_rank(Superimposition::new(rank).unwrap())
+                    .patches()
+                {
+                    let active = match *patch {
+                        BuildPatch::AddRuleBundle(rule) => {
+                            compiled.combatant().rule_bundles().contains(&rule)
+                        }
+                        BuildPatch::AddModifier(modifier) => {
+                            compiled.combatant().modifiers().contains(&modifier)
+                        }
+                        _ => panic!("Light Cone passive contains an unsupported patch"),
+                    };
+                    assert!(active, "compatible Light Cone passive must be active");
+                }
+                compiled_builds += 1;
+            }
+        }
+    }
+
+    assert_eq!(compatible_pairs, 1_746);
+    assert_eq!(compiled_builds, 3_492);
 }
 
 #[test]
