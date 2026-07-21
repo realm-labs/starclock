@@ -224,9 +224,37 @@ C05_DAMAGE = {
     "character.jingliu.ability.transcendent-flash.bpskill": [("Primary", 1, 1)],
 }
 
+C06_DAMAGE = {
+    "character.lingsha.ability.dripping-mistscape.ultra": [("All", 1, 1)],
+    "character.lingsha.ability.mistdance-manifest.skillp01": [("All", 2, 1), ("BounceDraw", 8, 1)],
+    "character.lingsha.ability.smoke-and-splendor.bpskill": [("All", 1, 1)],
+    "character.lingsha.ability.votive-incense.normal": [("Primary", 1, 1)],
+    "character.luka.ability.anticipator.maze": [("Primary", 1, 1)],
+    "character.luka.ability.coup-de-gra-ce.ultra": [("Primary", 1, 1)],
+    "character.luka.ability.direct-punch.normal": [("Primary", 1, 1)],
+    "character.luka.ability.lacerating-fist.bpskill": [("Primary", 1, 1)],
+    "character.luka.ability.sky-shatter-fist.normal": [("Primary", 1, 3), ("Primary", 2, 1)],
+    "character.luocha.ability.death-wish.ultra": [("All", 1, 1)],
+    "character.luocha.ability.thorns-of-the-abyss.normal": [("Primary", 1, 1)],
+    "character.lynx.ability.ice-crampon-technique.normal": [("Primary", 1, 1)],
+    "character.march-7th.preservation.ability.frigid-cold-arrow.normal": [("Primary", 1, 1)],
+    "character.march-7th.preservation.ability.girl-power.skillp01": [("Primary", 1, 1)],
+    "character.march-7th.preservation.ability.glacial-cascade.ultra": [("All", 1, 1)],
+    "character.march-7th.the-hunt.ability.brows-be-smitten-heart-be-bitten.normal": [("Primary", 1, 3)],
+    "character.march-7th.the-hunt.ability.march-7th-the-apex-heroine.ultra": [("Primary", 1, 1)],
+    "character.march-7th.the-hunt.ability.my-sword-zaps-demons.normal": [("Primary", 1, 1)],
+    "character.misha.ability.e-excuse-me-please.normal": [("Primary", 1, 1)],
+    "character.misha.ability.g-gonna-be-late.ultra": [("Primary", 2, 1), ("BounceDraw", 2, 2)],
+    "character.misha.ability.r-room-service.bpskill": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.mortenax-blade.ability.a-broken-blade-still-slays.normal": [("Primary", 1, 1)],
+    "character.mortenax-blade.ability.a-rain-of-blades-seals-fate.bpskill": [("All", 1, 1), ("BounceDraw", 3, 4)],
+    "character.mortenax-blade.ability.a-tempered-blade-severs-souls.normal": [("Primary", 1, 1)],
+    "character.mortenax-blade.ability.tenax-per-ignem.ultra": [("All", 1, 1)],
+}
+
 DAMAGE_BY_PARTITION = {
     "C01": C01_DAMAGE, "C02": C02_DAMAGE, "C03": C03_DAMAGE, "C04": C04_DAMAGE,
-    "C05": C05_DAMAGE,
+    "C05": C05_DAMAGE, "C06": C06_DAMAGE,
 }
 
 C01_TARGET_OVERRIDES = {
@@ -264,9 +292,16 @@ C05_TARGET_OVERRIDES = {
     "character.jing-yuan.ability.prana-extirpated.skillp01": "Bounce",
 }
 
+C06_TARGET_OVERRIDES = {
+    "character.lingsha.ability.mistdance-manifest.skillp01": "Bounce",
+    "character.march-7th.preservation.ability.girl-power.skillp01": "SingleTarget",
+    "character.misha.ability.g-gonna-be-late.ultra": "Bounce",
+    "character.mortenax-blade.ability.a-rain-of-blades-seals-fate.bpskill": "Bounce",
+}
+
 TARGET_OVERRIDES = {
     **C01_TARGET_OVERRIDES, **C02_TARGET_OVERRIDES, **C03_TARGET_OVERRIDES,
-    **C04_TARGET_OVERRIDES, **C05_TARGET_OVERRIDES,
+    **C04_TARGET_OVERRIDES, **C05_TARGET_OVERRIDES, **C06_TARGET_OVERRIDES,
 }
 
 C01_SCALING_STATS = {
@@ -289,7 +324,18 @@ C03_SCALING_STATS = {
     "character.fu-xuan.ability.woes-of-many-morphed-to-one.ultra": "Hp",
 }
 
-SCALING_STATS = {**C01_SCALING_STATS, **C02_SCALING_STATS, **C03_SCALING_STATS}
+C06_SCALING_STATS = {
+    "character.lynx.ability.ice-crampon-technique.normal": "Hp",
+    "character.mortenax-blade.ability.a-broken-blade-still-slays.normal": "Hp",
+    "character.mortenax-blade.ability.a-rain-of-blades-seals-fate.bpskill": "Hp",
+    "character.mortenax-blade.ability.a-tempered-blade-severs-souls.normal": "Hp",
+    "character.mortenax-blade.ability.tenax-per-ignem.ultra": "Hp",
+}
+
+SCALING_STATS = {
+    **C01_SCALING_STATS, **C02_SCALING_STATS, **C03_SCALING_STATS,
+    **C06_SCALING_STATS,
+}
 
 ABILITY_KIND_OVERRIDES = {
     "character.blade.ability.forest-of-swords.normal": "EnhancedBasic",
@@ -303,6 +349,18 @@ ABILITY_KIND_OVERRIDES = {
     "character.jade.ability.fang-of-flare-flaying.skillp01": "FollowUp",
     "character.jing-yuan.ability.prana-extirpated.skillp01": "Summon",
     "character.jingliu.ability.moon-on-glacial-river.bpskill": "EnhancedSkill",
+    "character.lingsha.ability.mistdance-manifest.skillp01": "Summon",
+    "character.luka.ability.sky-shatter-fist.normal": "EnhancedBasic",
+    "character.march-7th.preservation.ability.girl-power.skillp01": "Counter",
+    "character.march-7th.the-hunt.ability.brows-be-smitten-heart-be-bitten.normal": "EnhancedBasic",
+    "character.mortenax-blade.ability.a-tempered-blade-severs-souls.normal": "EnhancedBasic",
+}
+
+ABILITY_TAG_MASK_OVERRIDES = {
+    # Fuyuan takes summon turns that the released text also classifies as follow-up attacks.
+    "character.lingsha.ability.mistdance-manifest.skillp01": 1 << 4,
+    # Mortenax's ordinary zero-SP Skill can also be queued as a free follow-up use.
+    "character.mortenax-blade.ability.a-rain-of-blades-seals-fate.bpskill": 1 << 4,
 }
 
 SKILL_POINT_COST_OVERRIDES = {
@@ -335,6 +393,12 @@ CHARACTER_RESOURCES = {
     "character.jade": [("charge", "8", "0")],
     "character.jing-yuan": [("lightning-lord-hits", "10", "3")],
     "character.jingliu": [("syzygy", "3", "0")],
+    "character.lingsha": [("fuyuan-actions", "5", "0")],
+    "character.luka": [("fighting-will", "4", "1")],
+    "character.luocha": [("abyss-flower", "2", "0")],
+    "character.march-7th.the-hunt": [("charge", "10", "0")],
+    "character.misha": [("hits-per-action", "10", "3")],
+    "character.mortenax-blade": [("charge", "9", "0")],
 }
 
 CHARACTER_RESOURCE_COSTS = {
@@ -342,12 +406,25 @@ CHARACTER_RESOURCE_COSTS = {
     "character.feixiao.ability.terrasplit.ultra": [("flying-aureus", "6")],
     "character.himeko-nova.ability.orbital-annihilation-pulse.ultra": [("source-energy", "3")],
     "character.jingliu.ability.moon-on-glacial-river.bpskill": [("syzygy", "1")],
+    "character.luka.ability.sky-shatter-fist.normal": [("fighting-will", "2")],
+    "character.march-7th.the-hunt.ability.brows-be-smitten-heart-be-bitten.normal": [("charge", "7")],
 }
 
 CHARACTER_RESOURCE_GAINS = {
     "character.himeko-nova.ability.hyperluminal-particle-beam.ultra": [("source-energy", "1")],
     "character.jingliu.ability.florephemeral-dreamflux.ultra": [("syzygy", "1")],
     "character.jingliu.ability.transcendent-flash.bpskill": [("syzygy", "1")],
+    "character.lingsha.ability.smoke-and-splendor.bpskill": [("fuyuan-actions", "3")],
+    "character.lingsha.ability.wisps-of-aurora.maze": [("fuyuan-actions", "3")],
+    "character.luka.ability.anticipator.maze": [("fighting-will", "1")],
+    "character.luka.ability.coup-de-gra-ce.ultra": [("fighting-will", "2")],
+    "character.luka.ability.direct-punch.normal": [("fighting-will", "1")],
+    "character.luka.ability.lacerating-fist.bpskill": [("fighting-will", "1")],
+    "character.luocha.ability.death-wish.ultra": [("abyss-flower", "1")],
+    "character.luocha.ability.prayer-of-abyss-flower.bpskill": [("abyss-flower", "1")],
+    "character.march-7th.the-hunt.ability.my-sword-zaps-demons.normal": [("charge", "1")],
+    "character.misha.ability.r-room-service.bpskill": [("hits-per-action", "1")],
+    "character.misha.ability.wait-you-are-so-beautiful.maze": [("hits-per-action", "2")],
 }
 
 TEAM_RESOURCE_COSTS = {
@@ -650,7 +727,10 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
             "retarget_policy": "RecomputeEachHit" if pattern == "Bounce" else "CancelRemaining",
             "level_cap": max(1, int(ability["max_level"] or 1)),
             "cooldown_actions": max(0, int(ability.get("cooldown") or 0)),
-            "semantic_tags_mask": V1B.semantic_mask(kind, ability),
+            "semantic_tags_mask": (
+                V1B.semantic_mask(kind, ability)
+                | ABILITY_TAG_MASK_OVERRIDES.get(ability["id"], 0)
+            ),
         })
         rows["CharacterAbilityBinding"].append({
             "character_id": frozen[ability["character_id"]], "sequence": 0,

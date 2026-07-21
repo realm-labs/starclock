@@ -15,11 +15,11 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
     assert_eq!(
         catalog.summary(),
         CatalogSummary {
-            identity_count: 2550,
-            enabled_identity_count: 2343,
-            ability_count: 377,
-            hit_plan_count: 215,
-            character_count: 46,
+            identity_count: 2901,
+            enabled_identity_count: 2702,
+            ability_count: 429,
+            hit_plan_count: 240,
+            character_count: 54,
             effect_count: 4,
             ai_graph_count: 17,
             enemy_count: 17,
@@ -712,6 +712,119 @@ fn production_c05_executes_follow_up_summon_and_syzygy_envelopes() {
 }
 
 #[test]
+fn production_c06_executes_summon_counter_and_bounded_resource_envelopes() {
+    use starclock_combat::{
+        AbilityId, UnitDefinitionId,
+        catalog::action::{AbilityKind, AbilityTag, HitOperationDefinition},
+        modifier::model::StatKind,
+    };
+
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let combat = catalog.combat_catalog();
+
+    let fuyuan = combat
+        .ability(AbilityId::new(80_003).unwrap())
+        .expect("Fuyuan summon action");
+    let action = fuyuan.action().expect("Fuyuan action");
+    assert_eq!(action.kind(), AbilityKind::Summon);
+    assert!(action.tags().contains(AbilityTag::Summon));
+    assert!(action.tags().contains(AbilityTag::FollowUp));
+    assert_eq!(action.hits().len(), 2);
+    let lingsha = combat
+        .unit(UnitDefinitionId::new(46).unwrap())
+        .expect("Lingsha form");
+    let fuyuan_actions = lingsha
+        .resources()
+        .iter()
+        .find(|resource| resource.stable_key() == "fuyuan-actions")
+        .expect("Fuyuan action count");
+    assert_eq!(fuyuan_actions.maximum().scaled(), 5_000_000);
+
+    let luka = combat
+        .ability(AbilityId::new(80_013).unwrap())
+        .expect("Luka enhanced Basic");
+    let action = luka.action().expect("Luka enhanced Basic action");
+    assert_eq!(action.kind(), AbilityKind::Basic);
+    assert_eq!(action.hits().len(), 4);
+    assert_eq!(action.resources().skill_point_gain(), 0);
+    let costs = action.resources().character_resource_costs();
+    assert_eq!(costs.len(), 1);
+    assert_eq!(costs[0].stable_key(), "fighting-will");
+    assert_eq!(costs[0].amount().scaled(), 2_000_000);
+    let luka_form = combat
+        .unit(UnitDefinitionId::new(47).unwrap())
+        .expect("Luka form");
+    let fighting_will = luka_form
+        .resources()
+        .iter()
+        .find(|resource| resource.stable_key() == "fighting-will")
+        .expect("Luka Fighting Will");
+    assert_eq!(fighting_will.initial().scaled(), 1_000_000);
+    assert_eq!(fighting_will.maximum().scaled(), 4_000_000);
+
+    let counter = combat
+        .ability(AbilityId::new(80_029).unwrap())
+        .expect("March 7th counter");
+    let action = counter.action().expect("March 7th counter action");
+    assert_eq!(action.kind(), AbilityKind::Counter);
+    assert!(action.tags().contains(AbilityTag::Counter));
+    assert_eq!(action.hits().len(), 1);
+    let HitOperationDefinition::ScalingDamage(counter_damage) = action.hits()[0].operations()[0]
+    else {
+        panic!("March 7th counter must execute scaling damage");
+    };
+    assert_eq!(counter_damage.coefficient().scaled(), 500_000);
+
+    let march = combat
+        .ability(AbilityId::new(80_033).unwrap())
+        .expect("March 7th enhanced Basic");
+    let action = march.action().expect("March 7th enhanced Basic action");
+    assert_eq!(action.kind(), AbilityKind::Basic);
+    assert_eq!(action.hits().len(), 3);
+    assert_eq!(action.resources().skill_point_gain(), 0);
+    assert_eq!(
+        action.resources().character_resource_costs()[0].stable_key(),
+        "charge"
+    );
+    assert_eq!(
+        action.resources().character_resource_costs()[0]
+            .amount()
+            .scaled(),
+        7_000_000
+    );
+
+    let misha = combat
+        .ability(AbilityId::new(80_041).unwrap())
+        .expect("Misha Ultimate");
+    assert_eq!(misha.action().unwrap().hits().len(), 3);
+    let misha_form = combat
+        .unit(UnitDefinitionId::new(52).unwrap())
+        .expect("Misha form");
+    let hits_per_action = misha_form
+        .resources()
+        .iter()
+        .find(|resource| resource.stable_key() == "hits-per-action")
+        .expect("Misha Hits Per Action");
+    assert_eq!(hits_per_action.initial().scaled(), 3_000_000);
+    assert_eq!(hits_per_action.maximum().scaled(), 10_000_000);
+
+    let mortenax = combat
+        .ability(AbilityId::new(80_046).unwrap())
+        .expect("Mortenax Blade Skill");
+    let action = mortenax.action().expect("Mortenax Blade Skill action");
+    assert_eq!(action.kind(), AbilityKind::Skill);
+    assert!(action.tags().contains(AbilityTag::FollowUp));
+    assert_eq!(action.resources().skill_point_cost(), 0);
+    assert_eq!(action.hits().len(), 5);
+    for hit in action.hits() {
+        let HitOperationDefinition::ScalingDamage(damage) = hit.operations()[0] else {
+            panic!("Mortenax Blade Skill must execute scaling damage");
+        };
+        assert_eq!(damage.scaling_stat(), StatKind::Hp);
+    }
+}
+
+#[test]
 fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_build::{
         ability::AbilityInvestment,
@@ -722,7 +835,7 @@ fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_combat::UnitLevel;
 
     let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
-    for raw in (1..=45).chain([68]) {
+    for raw in (1..=53).chain([68]) {
         let form = starclock_combat::UnitDefinitionId::new(raw).unwrap();
         let character = catalog
             .build_catalog()

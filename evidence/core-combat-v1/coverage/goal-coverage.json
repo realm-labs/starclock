@@ -9,24 +9,24 @@
     "provenance_evidence_sha256": "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466",
     "research_evidence_sha256": "00b0f3054552304f28fd32f3b2d07193eb814a764e8a152967572eee6f04a7ea",
     "runtime_catalog": {
-      "state": "CharacterC05Production",
-      "digest": "749e338cb9df87817cf131174a5ecc9ae549de28c9f6612b8213c1520592d31d",
-      "note": "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all forty C01-C05 character forms; remaining character and Light Cone partitions are pending."
+      "state": "CharacterC06Production",
+      "digest": "f89ad20e3caadb3a1f756186b8572f11ed031c08b28fa284d0a984ab01ce50a0",
+      "note": "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all forty-eight C01-C06 character forms; remaining character and Light Cone partitions are pending."
     }
   },
   "summary": {
     "required": 283,
     "accounted": 283,
-    "enabled_incomplete": 207,
-    "data_ready": 76,
-    "golden_verified": 76,
-    "data_ready_percent": "26.9%",
+    "enabled_incomplete": 199,
+    "data_ready": 84,
+    "golden_verified": 84,
+    "data_ready_percent": "29.7%",
     "terminal_state_counts": {
       "Cataloged": 165,
-      "Documented": 42,
+      "Documented": 34,
       "Researching": 0,
       "DataReady": 0,
-      "GoldenVerified": 76
+      "GoldenVerified": 84
     },
     "disabled_audit_only": 2
   },
@@ -36,15 +36,15 @@
       "manifest_kind": "CharacterCombatForm",
       "required": 88,
       "accounted": 88,
-      "data_ready": 46,
-      "golden_verified": 46,
-      "data_ready_percent": "52.3%",
+      "data_ready": 54,
+      "golden_verified": 54,
+      "data_ready_percent": "61.4%",
       "terminal_state_counts": {
         "Cataloged": 0,
-        "Documented": 42,
+        "Documented": 34,
         "Researching": 0,
         "DataReady": 0,
-        "GoldenVerified": 46
+        "GoldenVerified": 54
       },
       "disabled_audit_only": 2
     },
@@ -906,21 +906,16 @@
       "id": "character.lingsha",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -928,21 +923,16 @@
       "id": "character.luka",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -950,21 +940,16 @@
       "id": "character.luocha",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -972,21 +957,16 @@
       "id": "character.lynx",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -994,21 +974,16 @@
       "id": "character.march-7th.preservation",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -1016,21 +991,16 @@
       "id": "character.march-7th.the-hunt",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -1038,21 +1008,16 @@
       "id": "character.misha",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -1060,21 +1025,16 @@
       "id": "character.mortenax-blade",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -6005,14 +5965,6 @@
     "duplicate_runtime_ids": [],
     "stale_version_ids": [],
     "missing_data_ready_ids": [
-      "character.lingsha",
-      "character.luka",
-      "character.luocha",
-      "character.lynx",
-      "character.march-7th.preservation",
-      "character.march-7th.the-hunt",
-      "character.misha",
-      "character.mortenax-blade",
       "character.moze",
       "character.mydei",
       "character.natasha",
@@ -6214,14 +6166,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_production_provenance_ids": [
-      "character.lingsha",
-      "character.luka",
-      "character.luocha",
-      "character.lynx",
-      "character.march-7th.preservation",
-      "character.march-7th.the-hunt",
-      "character.misha",
-      "character.mortenax-blade",
       "character.moze",
       "character.mydei",
       "character.natasha",
@@ -6423,14 +6367,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_bilingual_validation_ids": [
-      "character.lingsha",
-      "character.luka",
-      "character.luocha",
-      "character.lynx",
-      "character.march-7th.preservation",
-      "character.march-7th.the-hunt",
-      "character.misha",
-      "character.mortenax-blade",
       "character.moze",
       "character.mydei",
       "character.natasha",
@@ -6632,14 +6568,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_runtime_reference_ids": [
-      "character.lingsha",
-      "character.luka",
-      "character.luocha",
-      "character.lynx",
-      "character.march-7th.preservation",
-      "character.march-7th.the-hunt",
-      "character.misha",
-      "character.mortenax-blade",
       "character.moze",
       "character.mydei",
       "character.natasha",
@@ -6851,7 +6779,7 @@
       {
         "label": "Released character combat forms",
         "required": 88,
-        "data_ready": 46,
+        "data_ready": 54,
         "matches": true
       },
       {
