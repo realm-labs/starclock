@@ -1,0 +1,354 @@
+{
+  "schema_revision": "starclock.goal01.architecture-audit.v1",
+  "policy": {
+    "repository_checks_sha256": "28d176cc32622cc7af9bee2f942f5c309bd1ee9198e44c017e07a2b7f14b0d5b",
+    "dependency_policy_sha256": "ed73d3bbf93a1c85b495b907a31a85a83ad9c1f6ce8fc05063c22ab5694e9519"
+  },
+  "source_size_audit": {
+    "handwritten_files": 220,
+    "generated_vendor_exclusions": [
+      {
+        "path": "config/sora-golden/expected/reader/generated",
+        "kind": "generated",
+        "reason": "Exact Sora 0.3.0 codegen golden; regenerated and byte-verified by tools/sora/verify-golden.mjs."
+      },
+      {
+        "path": "config/schema-fixtures/common/expected/rust",
+        "kind": "generated",
+        "reason": "Exact shared-schema Sora 0.3.0 codegen golden; regenerated and byte-verified by tools/config-schema/verify-common.mjs."
+      },
+      {
+        "path": "config/generated/rust",
+        "kind": "generated",
+        "reason": "Production Sora 0.3.0 Rust models/readers; regenerated and byte-verified by tools/config-production/verify.mjs."
+      }
+    ],
+    "handwritten_limit": 1200,
+    "facade_limit": 200,
+    "line_limit_exceptions": [],
+    "near_limit_files": [
+      "crates/starclock-combat/src/catalog/builder.rs",
+      "crates/starclock-combat/src/catalog/mod.rs",
+      "crates/starclock-combat/src/resolver/operation.rs",
+      "crates/starclock-combat/src/resolver/transaction.rs",
+      "crates/starclock-combat/src/rule/evaluate.rs",
+      "crates/starclock-combat/src/rule/model.rs",
+      "crates/starclock-data/src/catalog.rs",
+      "crates/starclock-data/src/catalog_tests.rs",
+      "crates/starclock-data/src/domain_catalog.rs"
+    ],
+    "near_limit_policy": "These files remain within the enforced limit and receive no exception; any growth beyond the limit requires a module split, not an implicit allowance.",
+    "largest_files": [
+      {
+        "path": "crates/starclock-combat/src/resolver/operation.rs",
+        "lines": 1200,
+        "limit": 1200,
+        "utilization_percent": 100,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-data/src/catalog.rs",
+        "lines": 1198,
+        "limit": 1200,
+        "utilization_percent": 99,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-combat/src/catalog/builder.rs",
+        "lines": 1195,
+        "limit": 1200,
+        "utilization_percent": 99,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-combat/src/resolver/transaction.rs",
+        "lines": 1194,
+        "limit": 1200,
+        "utilization_percent": 99,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-combat/src/rule/model.rs",
+        "lines": 1194,
+        "limit": 1200,
+        "utilization_percent": 99,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-combat/src/catalog/mod.rs",
+        "lines": 197,
+        "limit": 200,
+        "utilization_percent": 98,
+        "facade": true
+      },
+      {
+        "path": "crates/starclock-data/src/domain_catalog.rs",
+        "lines": 1169,
+        "limit": 1200,
+        "utilization_percent": 97,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-combat/src/rule/evaluate.rs",
+        "lines": 1158,
+        "limit": 1200,
+        "utilization_percent": 96,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-data/src/catalog_tests.rs",
+        "lines": 1157,
+        "limit": 1200,
+        "utilization_percent": 96,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-combat/src/catalog/action.rs",
+        "lines": 1118,
+        "limit": 1200,
+        "utilization_percent": 93,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-replay/src/activity.rs",
+        "lines": 1087,
+        "limit": 1200,
+        "utilization_percent": 90,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-combat/tests/ability_program_execution.rs",
+        "lines": 1033,
+        "limit": 1200,
+        "utilization_percent": 86,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-combat/tests/damage_lifecycle.rs",
+        "lines": 1017,
+        "limit": 1200,
+        "utilization_percent": 84,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-combat/src/resolver/lifecycle.rs",
+        "lines": 995,
+        "limit": 1200,
+        "utilization_percent": 82,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-combat/src/resolver/program.rs",
+        "lines": 985,
+        "limit": 1200,
+        "utilization_percent": 82,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-build/src/catalog.rs",
+        "lines": 932,
+        "limit": 1200,
+        "utilization_percent": 77,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-data/src/encounter_lower.rs",
+        "lines": 900,
+        "limit": 1200,
+        "utilization_percent": 75,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-combat/src/battle/view.rs",
+        "lines": 873,
+        "limit": 1200,
+        "utilization_percent": 72,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-data/src/rule_lower.rs",
+        "lines": 836,
+        "limit": 1200,
+        "utilization_percent": 69,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-combat/src/resolver/action.rs",
+        "lines": 821,
+        "limit": 1200,
+        "utilization_percent": 68,
+        "facade": false
+      }
+    ]
+  },
+  "public_api_audit": {
+    "public_declarations": 1788,
+    "public_reexports": 30,
+    "reexport_files": {
+      "crates/starclock-activity/src/lib.rs": 8,
+      "crates/starclock-combat/src/lib.rs": 20,
+      "crates/starclock-data/src/lib.rs": 1,
+      "crates/starclock-mode-standard/src/lib.rs": 1
+    },
+    "forbidden_implementation_tokens": [
+      "fixnum::",
+      "FixedPoint",
+      "rand::",
+      "sha2::",
+      "ChaCha8Rng",
+      "sora::"
+    ],
+    "leaked_tokens": 0,
+    "preludes": 0,
+    "wildcard_reexports": 0
+  },
+  "dependency_audit": {
+    "workspace_crates": 9,
+    "graph": [
+      {
+        "crate": "starclock-activity",
+        "local_dependencies": [
+          "starclock-combat"
+        ],
+        "registry_dependencies": [
+          {
+            "name": "sha2",
+            "kind": "production",
+            "requirement": "=0.11.0"
+          }
+        ]
+      },
+      {
+        "crate": "starclock-ai",
+        "local_dependencies": [
+          "starclock-combat"
+        ],
+        "registry_dependencies": []
+      },
+      {
+        "crate": "starclock-build",
+        "local_dependencies": [
+          "starclock-combat"
+        ],
+        "registry_dependencies": [
+          {
+            "name": "sha2",
+            "kind": "production",
+            "requirement": "=0.11.0"
+          }
+        ]
+      },
+      {
+        "crate": "starclock-cli",
+        "local_dependencies": [
+          "starclock-activity",
+          "starclock-ai",
+          "starclock-build",
+          "starclock-combat",
+          "starclock-data",
+          "starclock-mode-standard",
+          "starclock-replay",
+          "starclock-rules"
+        ],
+        "registry_dependencies": [
+          {
+            "name": "allocation-counter",
+            "kind": "dev",
+            "requirement": "=0.8.1"
+          }
+        ]
+      },
+      {
+        "crate": "starclock-combat",
+        "local_dependencies": [],
+        "registry_dependencies": [
+          {
+            "name": "fixnum",
+            "kind": "production",
+            "requirement": "=0.9.5"
+          },
+          {
+            "name": "proptest",
+            "kind": "dev",
+            "requirement": "=1.11.0"
+          },
+          {
+            "name": "rand",
+            "kind": "production",
+            "requirement": "=0.10.2"
+          },
+          {
+            "name": "sha2",
+            "kind": "production",
+            "requirement": "=0.11.0"
+          }
+        ]
+      },
+      {
+        "crate": "starclock-data",
+        "local_dependencies": [
+          "starclock-activity",
+          "starclock-build",
+          "starclock-combat",
+          "starclock-mode-standard",
+          "starclock-rules"
+        ],
+        "registry_dependencies": [
+          {
+            "name": "serde",
+            "kind": "production",
+            "requirement": "=1.0.228"
+          },
+          {
+            "name": "sha2",
+            "kind": "production",
+            "requirement": "=0.11.0"
+          },
+          {
+            "name": "zstd",
+            "kind": "production",
+            "requirement": "=0.13.3"
+          }
+        ]
+      },
+      {
+        "crate": "starclock-mode-standard",
+        "local_dependencies": [
+          "starclock-activity",
+          "starclock-combat"
+        ],
+        "registry_dependencies": []
+      },
+      {
+        "crate": "starclock-replay",
+        "local_dependencies": [
+          "starclock-activity",
+          "starclock-combat"
+        ],
+        "registry_dependencies": [
+          {
+            "name": "proptest",
+            "kind": "dev",
+            "requirement": "=1.11.0"
+          },
+          {
+            "name": "sha2",
+            "kind": "production",
+            "requirement": "=0.11.0"
+          }
+        ]
+      },
+      {
+        "crate": "starclock-rules",
+        "local_dependencies": [
+          "starclock-activity",
+          "starclock-combat"
+        ],
+        "registry_dependencies": []
+      }
+    ],
+    "reviewed_registry_packages": 50,
+    "pinned_tools": 6,
+    "unreviewed_packages": 0
+  }
+}

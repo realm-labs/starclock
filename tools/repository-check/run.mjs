@@ -17,6 +17,7 @@ const commands = [
   ["node", "tools/repository-check/verify-native-handlers.mjs"],
   ["node", "tools/goal-hardening/verify-content-audits.mjs"],
   ["node", "tools/goal-hardening/verify-property-hardening.mjs"],
+  ["node", "tools/goal-hardening/verify-architecture-audit.mjs"],
   ["node", "tools/repository-check/verify-generated-drift.mjs", ...(includeSourceCache ? ["--with-source-cache"] : [])],
   ["node", "tools/core-kernel/verify-phase4.mjs"],
   ["cargo", "fmt", "--all", "--", "--check"],
