@@ -112,9 +112,7 @@ pub(crate) fn validate(catalog: &CombatCatalog, spec: &BattleSpec) -> Result<(),
                 .ability(*ability)
                 .and_then(|definition| definition.action())
                 .is_some_and(|action| {
-                    action.kind().is_normal_turn()
-                        && action.resources().skill_point_cost() == 0
-                        && action.resources().energy_cost() == crate::Energy::ZERO
+                    action.kind().is_normal_turn() && !action.resources().has_payable_cost()
                 })
         }) {
             return Err(BattleBuildError::new(

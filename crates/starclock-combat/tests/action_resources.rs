@@ -8,13 +8,13 @@ use starclock_combat::{
     catalog::{
         CombatCatalog,
         action::{
-            AbilityActionDefinition, AbilityKind, ActionResourcePolicy, TargetInvalidationPolicy,
-            TargetPattern, TargetRelation, UnitTargetSelector,
+            AbilityActionDefinition, AbilityKind, ActionResourcePolicy, CharacterResourceCost,
+            TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
         },
-        builder::CombatCatalogBuilder,
+        builder::{CatalogBuildErrorKind, CombatCatalogBuilder},
         definition::{
-            AbilityDefinition, EncounterDefinition, EnemyDefinition, ProgramDefinition,
-            SelectorDefinition, UnitDefinition,
+            AbilityDefinition, CharacterResourceDefinition, EncounterDefinition, EnemyDefinition,
+            ProgramDefinition, SelectorDefinition, UnitDefinition,
         },
     },
 };
@@ -404,4 +404,236 @@ fn basic_gain_clamps_at_caps_and_reports_overflow() {
                 Command::UseAbility { ability, .. } if ability.get() == 2
             ))
     );
+}
+
+fn named_resource_catalog() -> Arc<CombatCatalog> {
+    let mut builder = CombatCatalogBuilder::new("named-action-resource-v1", [0x91; 32]);
+    for (raw, relation) in [
+        (10, TargetRelation::SelfUnit),
+        (11, TargetRelation::Opposing),
+        (12, TargetRelation::SelfUnit),
+    ] {
+        builder.add_selector(
+            SelectorDefinition::new(definition(raw)).with_unit_targets(
+                UnitTargetSelector::new(relation, TargetPattern::Single).unwrap(),
+            ),
+        );
+        builder.add_program(ProgramDefinition::new(
+            definition(raw),
+            vec![],
+            vec![definition(raw)],
+            vec![],
+            vec![],
+        ));
+    }
+    let free = ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO);
+    builder.add_ability(
+        AbilityDefinition::new(definition(10), definition(10), definition(10), vec![]).with_action(
+            action(
+                AbilityKind::Basic,
+                1,
+                TargetInvalidationPolicy::CancelRemainingForTarget,
+                free.clone(),
+            ),
+        ),
+    );
+    let named_cost = ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO)
+        .with_character_resource_costs(vec![
+            CharacterResourceCost::new(
+                "newbud",
+                starclock_combat::Scalar::checked_from_integer(100).unwrap(),
+            )
+            .unwrap(),
+        ])
+        .unwrap();
+    builder.add_ability(
+        AbilityDefinition::new(definition(11), definition(11), definition(11), vec![]).with_action(
+            action(
+                AbilityKind::Ultimate,
+                1,
+                TargetInvalidationPolicy::CancelRemainingForTarget,
+                named_cost,
+            ),
+        ),
+    );
+    builder.add_ability(
+        AbilityDefinition::new(definition(12), definition(12), definition(12), vec![]).with_action(
+            action(
+                AbilityKind::Basic,
+                1,
+                TargetInvalidationPolicy::CancelRemainingForTarget,
+                free,
+            ),
+        ),
+    );
+    builder.add_unit(
+        UnitDefinition::new(definition(10), vec![definition(10), definition(11)], vec![])
+            .with_resources(vec![
+                CharacterResourceDefinition::new(
+                    "newbud",
+                    starclock_combat::Scalar::checked_from_integer(100).unwrap(),
+                    starclock_combat::Scalar::checked_from_integer(100).unwrap(),
+                )
+                .unwrap(),
+            ]),
+    );
+    builder.add_unit(UnitDefinition::new(
+        definition(12),
+        vec![definition(12)],
+        vec![],
+    ));
+    builder.add_enemy(EnemyDefinition::new(
+        definition(10),
+        definition(12),
+        vec![definition(12)],
+    ));
+    builder.add_encounter(EncounterDefinition::new(
+        definition(10),
+        vec![definition(10)],
+        vec![],
+    ));
+    builder.build().unwrap()
+}
+
+fn named_resource_battle() -> Battle {
+    let participants = vec![
+        ParticipantSpec::new(
+            TeamSide::Player,
+            FormationIndex::new(0).unwrap(),
+            ParticipantSource::Player,
+            combatant(10, vec![10, 11], 150_000_000, 0xa1),
+        ),
+        ParticipantSpec::new(
+            TeamSide::Enemy,
+            FormationIndex::new(3).unwrap(),
+            ParticipantSource::EncounterEnemy(definition(10)),
+            combatant(12, vec![12], 100_000_000, 0xa2),
+        ),
+    ];
+    let spec = BattleSpec::new(
+        "named-action-resource-v1",
+        BattleSpecDigest::new([0xa3; 32]).unwrap(),
+        definition(10),
+        participants,
+        TeamResourceSpec::new(0, 5).unwrap(),
+        TeamResourceSpec::new(0, 0).unwrap(),
+        ConcedePolicy::Allowed,
+    )
+    .unwrap();
+    Battle::create(named_resource_catalog(), spec, BattleSeed::new([0xa4; 32])).unwrap()
+}
+
+#[test]
+fn named_character_resource_costs_are_canonical_and_make_ultimates_payable() {
+    let amount = starclock_combat::Scalar::checked_from_integer(1).unwrap();
+    assert!(CharacterResourceCost::new("", amount).is_none());
+    assert!(CharacterResourceCost::new("newbud", starclock_combat::Scalar::ZERO).is_none());
+    let duplicate = CharacterResourceCost::new("newbud", amount).unwrap();
+    assert!(
+        ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO)
+            .with_character_resource_costs(vec![duplicate.clone(), duplicate])
+            .is_none()
+    );
+
+    let mut builder = CombatCatalogBuilder::new("free-ultimate-v1", [0xb1; 32]);
+    builder.add_selector(SelectorDefinition::new(definition(1)).with_unit_targets(
+        UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
+    ));
+    builder.add_program(ProgramDefinition::new(
+        definition(1),
+        vec![],
+        vec![definition(1)],
+        vec![],
+        vec![],
+    ));
+    builder.add_ability(
+        AbilityDefinition::new(definition(1), definition(1), definition(1), vec![]).with_action(
+            action(
+                AbilityKind::Ultimate,
+                1,
+                TargetInvalidationPolicy::CancelRemainingForTarget,
+                ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
+            ),
+        ),
+    );
+    assert_eq!(
+        builder.build().unwrap_err().kind(),
+        CatalogBuildErrorKind::InvalidDefinition
+    );
+
+    assert!(named_resource_catalog().ability(definition(11)).is_some());
+}
+
+#[test]
+fn named_character_resource_cost_gates_offers_and_pays_at_action_start() {
+    let mut battle = named_resource_battle();
+    battle
+        .apply(Command::StartBattle {
+            decision: battle.decision().unwrap().id(),
+        })
+        .unwrap();
+    let offered = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(|command| matches!(command, Command::UseInterrupt { ability, .. } if ability.get() == 11))
+        .unwrap()
+        .clone();
+    let before = battle.state_hash();
+    assert_eq!(
+        battle
+            .apply(Command::UseInterrupt {
+                decision: battle.decision().unwrap().id(),
+                actor: runtime(1),
+                ability: definition(11),
+                primary_target: Some(runtime(99)),
+            })
+            .unwrap_err()
+            .kind(),
+        CommandErrorKind::NotOffered
+    );
+    assert_eq!(battle.state_hash(), before);
+    assert_eq!(
+        battle
+            .view()
+            .units_by_id()
+            .next()
+            .unwrap()
+            .character_resource("newbud")
+            .unwrap()
+            .0
+            .scaled(),
+        100_000_000
+    );
+
+    let resolution = battle.apply(offered).unwrap();
+    assert!(resolution.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Resource(ResourceEventData::CharacterResource {
+            unit,
+            resource,
+            before,
+            after,
+            maximum,
+        }) if unit.get() == 1
+            && resource.as_ref() == "newbud"
+            && before.scaled() == 100_000_000
+            && after.scaled() == 0
+            && maximum.scaled() == 100_000_000
+    )));
+    assert_eq!(
+        battle
+            .view()
+            .units_by_id()
+            .next()
+            .unwrap()
+            .character_resource("newbud")
+            .unwrap()
+            .0,
+        starclock_combat::Scalar::ZERO
+    );
+    assert!(!battle.decision().unwrap().legal_commands().iter().any(
+        |command| matches!(command, Command::UseInterrupt { ability, .. } if ability.get() == 11)
+    ));
 }

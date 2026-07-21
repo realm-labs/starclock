@@ -605,7 +605,7 @@ fn apply_resource_costs(
     mut parent: EventId,
     plan: &ActionPlan,
 ) -> Result<EventId, BattleFault> {
-    let policy = plan.resources;
+    let policy = &plan.resources;
     let side = txn
         .state
         .units
@@ -689,6 +689,35 @@ fn apply_resource_costs(
             }),
         );
     }
+    for cost in policy.character_resource_costs() {
+        let (before, maximum) = txn
+            .state
+            .units
+            .get(plan.actor)
+            .and_then(|unit| unit.resource(cost.stable_key()))
+            .map(|resource| (resource.current, resource.maximum))
+            .ok_or_else(|| action_fault(73))?;
+        let after = crate::Scalar::from_scaled(
+            before
+                .scaled()
+                .checked_sub(cost.amount().scaled())
+                .filter(|value| *value >= 0)
+                .ok_or_else(|| action_fault(74))?,
+        );
+        txn.set_character_resource(plan.actor, cost.stable_key(), after)?;
+        parent = txn.emit(
+            cause
+                .with_parent(parent)
+                .with_primary_target(Some(plan.actor)),
+            BattleEventKind::Resource(ResourceEventData::CharacterResource {
+                unit: plan.actor,
+                resource: cost.stable_key().into(),
+                before,
+                after,
+                maximum,
+            }),
+        );
+    }
     Ok(parent)
 }
 
@@ -698,7 +727,7 @@ fn apply_resource_gains(
     mut parent: EventId,
     plan: &ActionPlan,
 ) -> Result<EventId, BattleFault> {
-    let policy = plan.resources;
+    let policy = &plan.resources;
     let side = txn
         .state
         .units

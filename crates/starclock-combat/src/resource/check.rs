@@ -8,7 +8,7 @@ pub(crate) fn can_pay(
     units: &UnitStore,
     teams: &TeamStateStore,
     actor: UnitId,
-    policy: ActionResourcePolicy,
+    policy: &ActionResourcePolicy,
 ) -> bool {
     can_pay_with_policy(units, teams, actor, policy, policy.skill_point_payment())
 }
@@ -17,7 +17,7 @@ pub(crate) fn can_pay_with_policy(
     units: &UnitStore,
     teams: &TeamStateStore,
     actor: UnitId,
-    policy: ActionResourcePolicy,
+    policy: &ActionResourcePolicy,
     payment: crate::catalog::action::SkillPointPaymentPolicy,
 ) -> bool {
     units.get(actor).is_some_and(|unit| {
@@ -31,9 +31,14 @@ pub(crate) fn can_pay_with_policy(
                 .keyed(resource)
                 .is_some_and(|state| state.current >= policy.skill_point_cost()),
         };
+        let payable_character_resources = policy.character_resource_costs().iter().all(|cost| {
+            unit.resource(cost.stable_key())
+                .is_some_and(|state| state.current >= cost.amount())
+        });
         unit.life == crate::LifeState::Alive
             && unit.presence.is_active()
             && payable_sp
             && unit.current_energy >= policy.energy_cost()
+            && payable_character_resources
     })
 }

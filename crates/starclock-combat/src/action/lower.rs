@@ -193,9 +193,10 @@ fn lower_action(
         normal_turn: context.timeline_actor,
         selector,
         targets,
-        resources: payment.map_or(action.resources(), |payment| {
-            action.resources().with_skill_point_payment(payment)
-        }),
+        resources: payment.map_or_else(
+            || action.resources().clone(),
+            |payment| action.resources().clone().with_skill_point_payment(payment),
+        ),
         programs: definition.programs().into(),
         phases: vec![ActionPhasePlan { id: phase_id, hits }].into_boxed_slice(),
     })

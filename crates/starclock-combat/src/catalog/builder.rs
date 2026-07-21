@@ -455,8 +455,7 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
         }
         if ability.action().is_some_and(|action| {
             action.kind() == super::action::AbilityKind::Ultimate
-                && action.resources().skill_point_cost() == 0
-                && action.resources().energy_cost() == crate::Energy::ZERO
+                && !action.resources().has_payable_cost()
         }) {
             return Err(error(
                 CatalogBuildErrorKind::InvalidDefinition,

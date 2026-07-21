@@ -25,8 +25,8 @@ use starclock_combat::{
         CombatCatalog,
         action::{
             AbilityActionDefinition, AbilityKind, AbilityProgramBinding, AbilityProgramTiming,
-            AbilityTag, ActionHitDefinition, ActionResourcePolicy, HitCritPolicy,
-            HitOperationDefinition, HitTargetGroup, ScalingDamageDefinition,
+            AbilityTag, ActionHitDefinition, ActionResourcePolicy, CharacterResourceCost,
+            HitCritPolicy, HitOperationDefinition, HitTargetGroup, ScalingDamageDefinition,
             TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
@@ -762,6 +762,7 @@ fn action_resources(
     let mut sp_gain = 0_u16;
     let mut energy_cost = Energy::ZERO;
     let mut energy_gain = Energy::ZERO;
+    let mut character_resource_costs = Vec::new();
     for resource in &source.resources {
         match (resource.resource_kind, resource.delta_kind) {
             (1, 0) => sp_cost = scalar_u16(resource.amount)?,
@@ -772,20 +773,31 @@ fn action_resources(
             (0, 2) => {
                 energy_gain = Energy::from_scaled(resource.amount.scaled()).map_err(domain_fail)?
             }
+            (3, 0) if resource.timing == 1 => {
+                character_resource_costs.push(
+                    CharacterResourceCost::new(
+                        resource
+                            .character_resource_key
+                            .as_deref()
+                            .ok_or_else(|| domain_fail("character-resource cost requires a key"))?,
+                        resource.amount,
+                    )
+                    .ok_or_else(|| domain_fail("invalid character-resource action cost"))?,
+                );
+            }
             _ => {}
         }
     }
-    if source.kind == 2 && energy_cost == Energy::ZERO {
+    character_resource_costs
+        .sort_unstable_by(|left, right| left.stable_key().cmp(right.stable_key()));
+    if source.kind == 2 && energy_cost == Energy::ZERO && character_resource_costs.is_empty() {
         energy_cost =
             Energy::from_scaled(ultimate_cost.map_or(1_000_000, starclock_combat::Scalar::scaled))
                 .map_err(domain_fail)?;
     }
-    Ok(ActionResourcePolicy::new(
-        sp_cost,
-        sp_gain,
-        energy_cost,
-        energy_gain,
-    ))
+    ActionResourcePolicy::new(sp_cost, sp_gain, energy_cost, energy_gain)
+        .with_character_resource_costs(character_resource_costs)
+        .ok_or_else(|| domain_fail("character-resource action costs must have unique keys"))
 }
 
 fn scalar_u16(value: starclock_combat::Scalar) -> Result<u16, CatalogLoadError> {
@@ -906,6 +918,40 @@ mod tests {
         );
         assert_eq!(e6.combatant().rule_bundles(), &[bundle(2)]);
         assert_eq!(e6.combatant().modifiers(), &[modifier(1), modifier(2)]);
+    }
+
+    #[test]
+    fn zero_energy_ultimate_lowers_action_started_character_resource_cost() {
+        let source = crate::catalog::AbilityDefinition {
+            id: ability(9),
+            kind: 2,
+            target_pattern: 0,
+            retarget_policy: 0,
+            level_cap: 1,
+            cooldown_actions: 0,
+            semantic_tags: starclock_combat::catalog::action::AbilityTags::new(&[]),
+            entry_rule: None,
+            phases: Box::new([]),
+            hit_plan_bindings: Box::new([]),
+            resources: vec![crate::catalog::AbilityResourceDefinition {
+                sequence: 1,
+                resource_kind: 3,
+                character_resource_key: Some("newbud".into()),
+                delta_kind: 0,
+                timing: 1,
+                amount: Scalar::checked_from_integer(100).unwrap(),
+            }]
+            .into_boxed_slice(),
+        };
+
+        let policy = action_resources(&source, Some(Scalar::ZERO)).unwrap();
+        assert_eq!(policy.energy_cost(), Energy::ZERO);
+        assert_eq!(policy.character_resource_costs().len(), 1);
+        assert_eq!(policy.character_resource_costs()[0].stable_key(), "newbud");
+        assert_eq!(
+            policy.character_resource_costs()[0].amount().scaled(),
+            100_000_000
+        );
     }
 
     fn character_definition() -> CharacterDataDefinition {

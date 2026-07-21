@@ -406,20 +406,50 @@ impl UnitTargetSelector {
     }
 }
 
+/// One exact form-scoped resource cost paid when an action starts.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct CharacterResourceCost {
+    stable_key: Box<str>,
+    amount: Scalar,
+}
+
+impl CharacterResourceCost {
+    /// Creates a positive cost for one nonempty character-resource key.
+    #[must_use]
+    pub fn new(stable_key: impl Into<Box<str>>, amount: Scalar) -> Option<Self> {
+        let stable_key = stable_key.into();
+        if stable_key.trim().is_empty() || amount.scaled() <= 0 {
+            return None;
+        }
+        Some(Self { stable_key, amount })
+    }
+    /// Returns the exact form-scoped resource key.
+    #[must_use]
+    pub fn stable_key(&self) -> &str {
+        &self.stable_key
+    }
+    /// Returns the positive amount paid at action start.
+    #[must_use]
+    pub const fn amount(&self) -> Scalar {
+        self.amount
+    }
+}
+
 /// Costs and gains applied at their common action-envelope boundaries.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ActionResourcePolicy {
     skill_point_cost: u16,
     skill_point_gain: u16,
     energy_cost: Energy,
     energy_gain: Energy,
     skill_point_payment: SkillPointPaymentPolicy,
+    character_resource_costs: Box<[CharacterResourceCost]>,
 }
 
 impl ActionResourcePolicy {
     /// Creates an explicit resource policy; zero values disable a component.
     #[must_use]
-    pub const fn new(
+    pub fn new(
         skill_point_cost: u16,
         skill_point_gain: u16,
         energy_cost: Energy,
@@ -431,6 +461,7 @@ impl ActionResourcePolicy {
             energy_cost,
             energy_gain,
             skill_point_payment: SkillPointPaymentPolicy::TeamSkillPoints,
+            character_resource_costs: Box::new([]),
         }
     }
     /// Selects the actual payer while retaining the authored attempted SP cost.
@@ -439,29 +470,56 @@ impl ActionResourcePolicy {
         self.skill_point_payment = payment;
         self
     }
+    /// Attaches costs in strictly increasing, unique stable-key order.
+    #[must_use]
+    pub fn with_character_resource_costs(
+        mut self,
+        costs: Vec<CharacterResourceCost>,
+    ) -> Option<Self> {
+        if costs
+            .windows(2)
+            .any(|pair| pair[0].stable_key() >= pair[1].stable_key())
+        {
+            return None;
+        }
+        self.character_resource_costs = costs.into_boxed_slice();
+        Some(self)
+    }
     /// Returns the team Skill Point cost.
     #[must_use]
-    pub const fn skill_point_cost(self) -> u16 {
+    pub const fn skill_point_cost(&self) -> u16 {
         self.skill_point_cost
     }
     /// Returns the ordinary team Skill Point gain.
     #[must_use]
-    pub const fn skill_point_gain(self) -> u16 {
+    pub const fn skill_point_gain(&self) -> u16 {
         self.skill_point_gain
     }
     /// Returns the personal Energy cost.
     #[must_use]
-    pub const fn energy_cost(self) -> Energy {
+    pub const fn energy_cost(&self) -> Energy {
         self.energy_cost
     }
     /// Returns the ordinary personal Energy gain.
     #[must_use]
-    pub const fn energy_gain(self) -> Energy {
+    pub const fn energy_gain(&self) -> Energy {
         self.energy_gain
     }
     #[must_use]
-    pub const fn skill_point_payment(self) -> SkillPointPaymentPolicy {
+    pub const fn skill_point_payment(&self) -> SkillPointPaymentPolicy {
         self.skill_point_payment
+    }
+    /// Returns canonical form-scoped costs paid by the acting unit.
+    #[must_use]
+    pub fn character_resource_costs(&self) -> &[CharacterResourceCost] {
+        &self.character_resource_costs
+    }
+    /// Returns whether the action requires any current resource.
+    #[must_use]
+    pub fn has_payable_cost(&self) -> bool {
+        self.skill_point_cost > 0
+            || self.energy_cost > Energy::ZERO
+            || !self.character_resource_costs.is_empty()
     }
 }
 
@@ -971,8 +1029,8 @@ impl AbilityActionDefinition {
     }
     /// Returns explicit action-boundary costs and gains.
     #[must_use]
-    pub const fn resources(&self) -> ActionResourcePolicy {
-        self.resources
+    pub const fn resources(&self) -> &ActionResourcePolicy {
+        &self.resources
     }
 }
 
