@@ -12,13 +12,13 @@ use starclock_combat::UnitLevel;
 const PRODUCTION_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
 
 #[test]
-fn production_through_l04_has_complete_curves_ranks_and_compilable_passives() {
+fn production_through_l05_has_complete_curves_ranks_and_compilable_passives() {
     let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
     let builds = catalog.build_catalog();
     let combat = catalog.combat_catalog();
-    assert_eq!(builds.light_cone_ids().count(), 64);
+    assert_eq!(builds.light_cone_ids().count(), 80);
 
-    for raw in 112..=175 {
+    for raw in 112..=191 {
         let id = LightConeId::new(raw).unwrap();
         let cone = builds.light_cone(id).expect("released cone must lower");
         assert_eq!(cone.stats().len(), 86);
