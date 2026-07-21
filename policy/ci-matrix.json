@@ -1,9 +1,41 @@
 {
-  "schema_revision": "starclock.ci-matrix.v1",
+  "schema_revision": "starclock.ci-matrix.v2",
   "reviewed_on": "2026-07-17",
   "workflow": ".github/workflows/ci.yml",
   "repository_gate": "node tools/repository-check/run.mjs",
   "evidence_retention_days": 30,
+  "golden_suites": [
+    {
+      "id": "numeric",
+      "test_targets": ["crates/starclock-combat/tests/numeric_golden.rs", "crates/starclock-combat/tests/numeric_formula_oracle.rs", "crates/starclock-combat/tests/toughness_formula.rs"],
+      "claim": "Checked fixed-point arithmetic, formula and Toughness vectors execute with exact expected values."
+    },
+    {
+      "id": "rng",
+      "test_targets": ["crates/starclock-combat/tests/rng_golden.rs"],
+      "claim": "Pinned ChaCha8 integer mapping and counter vectors execute with exact expected values."
+    },
+    {
+      "id": "codec",
+      "test_targets": ["crates/starclock-replay/tests/codec_golden.rs"],
+      "claim": "Canonical primitive, record and framing vectors execute with exact expected bytes."
+    },
+    {
+      "id": "battle",
+      "test_targets": ["crates/starclock-combat/tests/battle_boundary.rs", "crates/starclock-combat/tests/damage_lifecycle.rs", "crates/starclock-mode-standard/tests/standard_profile.rs"],
+      "claim": "Battle lifecycle and frozen Standard scenario vectors execute to exact outcomes and hashes."
+    },
+    {
+      "id": "build",
+      "test_targets": ["crates/starclock-build/tests/build_identity.rs", "crates/starclock-build/tests/eidolon_compilation.rs", "crates/starclock-build/tests/light_cone_compilation.rs", "crates/starclock-data/src/catalog_tests.rs"],
+      "claim": "Canonical build identity and production E0/E6/S1/S5 compilation vectors execute."
+    },
+    {
+      "id": "replay",
+      "test_targets": ["crates/starclock-replay/tests/activity_replay.rs", "crates/starclock-replay/tests/battle_property_contract.rs", "crates/starclock-cli/tests/standard_replay_smoke.rs"],
+      "claim": "Replay round-trip, corruption rejection and production-scenario verification vectors execute."
+    }
+  ],
   "actions": [
     {
       "name": "actions/checkout",

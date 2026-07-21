@@ -93,6 +93,9 @@ jobs:
         run: |
           rustup toolchain install 1.97.0 --profile minimal
           rustup target add "${{ matrix.target }}" --toolchain 1.97.0
+      - name: Install Linux ARM64 cross compiler
+        if: matrix.profile == 'linux-arm64-compile'
+        run: sudo apt-get update && sudo apt-get install --yes gcc-aarch64-linux-gnu
       - name: Check the alternate CPU target without execution
         run: cargo check --workspace --all-targets --all-features --target "${{ matrix.target }}"
       - name: Record compile-only evidence

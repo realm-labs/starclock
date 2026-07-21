@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { verifyOptionalSourcePayload } from "./source-payload.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const args = process.argv.slice(2);
@@ -52,9 +53,7 @@ for (const probe of probes) verifyProbe(probe);
 function verifyProbe(probe) {
   const fixture = path.join(root, "config/probes/v1a", probe.name);
   const sourcePayload = path.join(root, probe.payload);
-  assert(fs.existsSync(sourcePayload), `prepared ${probe.name} source payload is absent`);
-  const sourcePayloadSha256 = sha256(sourcePayload);
-  assert(sourcePayloadSha256 === probe.payloadSha256, `prepared ${probe.name} source payload drifted`);
+  const sourcePayloadSha256 = verifyOptionalSourcePayload(sourcePayload, probe.payloadSha256, probe.name);
 
   const first = generate(probe.name, "first");
   const second = generate(probe.name, "second");

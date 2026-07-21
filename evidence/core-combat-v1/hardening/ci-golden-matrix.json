@@ -1,0 +1,215 @@
+{
+  "schema_revision": "starclock.goal01.ci-golden-matrix.v1",
+  "policy_sha256": "92919525a4815fdcdf130802377f0c62f661084927ad87c3731c66d546c02820",
+  "golden_suite_contract_sha256": "b61b3482f6dc41b2347ed4a749b6fd1f092c1f063907ccba1ce76ce98e38737e",
+  "production_contract": {
+    "data_revision": "core-combat-v1-phase7-l11",
+    "numeric_policy_revision": "fixed-i64-6dp-v1",
+    "rng_algorithm_revision": "chacha8-rand-0.10.2-intmap-v1",
+    "replay_format_version": "replay-v1",
+    "bundle_sha256": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440"
+  },
+  "suites": [
+    {
+      "id": "numeric",
+      "claim": "Checked fixed-point arithmetic, formula and Toughness vectors execute with exact expected values.",
+      "targets": [
+        {
+          "path": "crates/starclock-combat/tests/numeric_golden.rs",
+          "normalized_sha256": "392528f69bc4db5d3ec1c91884c911ccf38fda32e7020ed441077935cdd1974d"
+        },
+        {
+          "path": "crates/starclock-combat/tests/numeric_formula_oracle.rs",
+          "normalized_sha256": "a442cf4c8c9b5da44cf46969bbb6a6c2827dd9a326756c8031264cecc246b667"
+        },
+        {
+          "path": "crates/starclock-combat/tests/toughness_formula.rs",
+          "normalized_sha256": "a86768ebc7efe17efb1bbb85caf7b22e72c3f9677e2c82cb91cc5958123374a1"
+        }
+      ]
+    },
+    {
+      "id": "rng",
+      "claim": "Pinned ChaCha8 integer mapping and counter vectors execute with exact expected values.",
+      "targets": [
+        {
+          "path": "crates/starclock-combat/tests/rng_golden.rs",
+          "normalized_sha256": "757af1e1bf7d894e9b1e5972b0f653d41e46a0d6402a04714de1da432e0c9d2c"
+        }
+      ]
+    },
+    {
+      "id": "codec",
+      "claim": "Canonical primitive, record and framing vectors execute with exact expected bytes.",
+      "targets": [
+        {
+          "path": "crates/starclock-replay/tests/codec_golden.rs",
+          "normalized_sha256": "650a01bc97d47fedc8459d70b4fcdecfdc31087a197d9234ca1587fe57411757"
+        }
+      ]
+    },
+    {
+      "id": "battle",
+      "claim": "Battle lifecycle and frozen Standard scenario vectors execute to exact outcomes and hashes.",
+      "targets": [
+        {
+          "path": "crates/starclock-combat/tests/battle_boundary.rs",
+          "normalized_sha256": "9c5741237d2a09fd91afb04d4017296cb54120aec79b6d91844c77025517a2b2"
+        },
+        {
+          "path": "crates/starclock-combat/tests/damage_lifecycle.rs",
+          "normalized_sha256": "559a352bb772e5b79c6ba23d2589feb9ffde4095bbeaf7dbcb1bafbe1e074b04"
+        },
+        {
+          "path": "crates/starclock-mode-standard/tests/standard_profile.rs",
+          "normalized_sha256": "8ffe4272fc270350569f85e8f8d9c9e6868c47e5a722de8d6f9905d8dcb69a15"
+        }
+      ]
+    },
+    {
+      "id": "build",
+      "claim": "Canonical build identity and production E0/E6/S1/S5 compilation vectors execute.",
+      "targets": [
+        {
+          "path": "crates/starclock-build/tests/build_identity.rs",
+          "normalized_sha256": "9ac88c5927bc4a3ec264bd46525e36a884d91e6ca3d1d71e74becb8dacbc8755"
+        },
+        {
+          "path": "crates/starclock-build/tests/eidolon_compilation.rs",
+          "normalized_sha256": "1ce97123392fd1efba05c454dec8f41e9f2504373bd390902063323d3bf07668"
+        },
+        {
+          "path": "crates/starclock-build/tests/light_cone_compilation.rs",
+          "normalized_sha256": "2c81cd98c4426f1e3867ea414362d065309ba00efffb206740e54e18613d09e7"
+        },
+        {
+          "path": "crates/starclock-data/src/catalog_tests.rs",
+          "normalized_sha256": "ec5aa1e801f24ea095a636417a46e1c28fd6e797e63fd66519018a3ed7dcd2e6"
+        }
+      ]
+    },
+    {
+      "id": "replay",
+      "claim": "Replay round-trip, corruption rejection and production-scenario verification vectors execute.",
+      "targets": [
+        {
+          "path": "crates/starclock-replay/tests/activity_replay.rs",
+          "normalized_sha256": "157d262233b7638e6be8e2f9022dc58de4e06d80ad531624d79bb28b57be61d3"
+        },
+        {
+          "path": "crates/starclock-replay/tests/battle_property_contract.rs",
+          "normalized_sha256": "fb50194165c5aee1ac87dac359559d062726a9ce7feacedf77e22d6eca1f43ea"
+        },
+        {
+          "path": "crates/starclock-cli/tests/standard_replay_smoke.rs",
+          "normalized_sha256": "e4d5e6ba5b5b6e5c2c1cad18dc28d6e960e12c39be4c8955d3a4abc0cfefe298"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "windows-x64-native",
+      "runner": "windows-2025",
+      "host": "x86_64-pc-windows-msvc",
+      "target": "x86_64-pc-windows-msvc",
+      "execution_mode": "native",
+      "tests_executed_on_successful_job": true,
+      "suite_disposition": {
+        "numeric": "executed",
+        "rng": "executed",
+        "codec": "executed",
+        "battle": "executed",
+        "build": "executed",
+        "replay": "executed"
+      }
+    },
+    {
+      "id": "linux-x64-native",
+      "runner": "ubuntu-24.04",
+      "host": "x86_64-unknown-linux-gnu",
+      "target": "x86_64-unknown-linux-gnu",
+      "execution_mode": "native",
+      "tests_executed_on_successful_job": true,
+      "suite_disposition": {
+        "numeric": "executed",
+        "rng": "executed",
+        "codec": "executed",
+        "battle": "executed",
+        "build": "executed",
+        "replay": "executed"
+      }
+    },
+    {
+      "id": "macos-arm64-native",
+      "runner": "macos-15",
+      "host": "aarch64-apple-darwin",
+      "target": "aarch64-apple-darwin",
+      "execution_mode": "native",
+      "tests_executed_on_successful_job": true,
+      "suite_disposition": {
+        "numeric": "executed",
+        "rng": "executed",
+        "codec": "executed",
+        "battle": "executed",
+        "build": "executed",
+        "replay": "executed"
+      }
+    },
+    {
+      "id": "windows-arm64-compile",
+      "runner": "windows-2025",
+      "host": "x86_64-pc-windows-msvc",
+      "target": "aarch64-pc-windows-msvc",
+      "execution_mode": "compile-only",
+      "tests_executed_on_successful_job": false,
+      "suite_disposition": {
+        "numeric": "compiled-not-executed",
+        "rng": "compiled-not-executed",
+        "codec": "compiled-not-executed",
+        "battle": "compiled-not-executed",
+        "build": "compiled-not-executed",
+        "replay": "compiled-not-executed"
+      }
+    },
+    {
+      "id": "linux-arm64-compile",
+      "runner": "ubuntu-24.04",
+      "host": "x86_64-unknown-linux-gnu",
+      "target": "aarch64-unknown-linux-gnu",
+      "execution_mode": "compile-only",
+      "tests_executed_on_successful_job": false,
+      "suite_disposition": {
+        "numeric": "compiled-not-executed",
+        "rng": "compiled-not-executed",
+        "codec": "compiled-not-executed",
+        "battle": "compiled-not-executed",
+        "build": "compiled-not-executed",
+        "replay": "compiled-not-executed"
+      }
+    },
+    {
+      "id": "macos-x64-compile",
+      "runner": "macos-15",
+      "host": "aarch64-apple-darwin",
+      "target": "x86_64-apple-darwin",
+      "execution_mode": "compile-only",
+      "tests_executed_on_successful_job": false,
+      "suite_disposition": {
+        "numeric": "compiled-not-executed",
+        "rng": "compiled-not-executed",
+        "codec": "compiled-not-executed",
+        "battle": "compiled-not-executed",
+        "build": "compiled-not-executed",
+        "replay": "compiled-not-executed"
+      }
+    }
+  ],
+  "evidence_boundary": {
+    "native_profiles": 3,
+    "compile_only_profiles": 3,
+    "hosted_records_require_non_null_workflow_run_id": true,
+    "compile_only_runtime_claims": 0,
+    "note": "This committed file freezes the matrix contract. Per-run hosted evidence is retained by CI artifacts and only native records may claim executed vectors."
+  }
+}

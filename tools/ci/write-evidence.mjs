@@ -50,8 +50,14 @@ const evidence = {
     node: process.version
   },
   target: profile.target,
+  evidence_origin: process.env.GITHUB_ACTIONS === "true" ? "hosted-ci" : "local-smoke",
   policy_sha256: sha256(policyBytes),
-  sora_golden_output_digest: expectedManifest.output_digest
+  sora_golden_output_digest: expectedManifest.output_digest,
+  golden_suite_contract_sha256: sha256(Buffer.from(JSON.stringify(policy.golden_suites))),
+  golden_suites: policy.golden_suites.map((suite) => ({
+    id: suite.id,
+    disposition: profile.execution_mode === "native" ? "executed" : "compiled-not-executed"
+  }))
 };
 
 if (profile.execution_mode === "native") {

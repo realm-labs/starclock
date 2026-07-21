@@ -20,6 +20,11 @@ Clippy, native workspace tests and the broad release benchmark smoke ceiling.
 A successful evidence record therefore sets
 `execution_mode` to `native` and `tests_executed` to `true`.
 
+Each record also lists the six executed golden suites: numeric, RNG, codec,
+battle, build and replay. The committed matrix evidence binds those claims to
+the exact normalized test-source hashes; the per-run record binds them to the
+hosted image, workflow run and checked commit.
+
 ## Compile-only coverage
 
 | Profile | Execution host | Checked target |
@@ -32,6 +37,9 @@ These profiles install the target standard library and run `cargo check`.
 They never run target binaries or tests, do not install Sora for the target,
 and always record `execution_mode: compile-only` and `tests_executed: false`.
 Compile success is not runtime, numeric-golden or compatibility evidence.
+Its evidence lists every suite as `compiled-not-executed`, never `executed`.
+The Linux ARM64 profile installs `gcc-aarch64-linux-gnu` because the workspace's
+compression dependency compiles native target code during `cargo check`.
 
 ## Evidence boundary
 
@@ -41,6 +49,11 @@ workflow commit/run identity, hosted image metadata, Rust/Cargo/Node versions,
 target, CI-policy hash and Sora golden output digest. Native records also prove
 the installed Sora version; compile-only records prove that the named target
 was installed.
+
+Prepared reference JSON is forced to LF by `.gitattributes`, so its byte-level
+pack digest is stable on Windows hosted checkouts. Probe generation uses only
+committed fixture rows; when the ignored raw source cache is present it is
+hash-checked, but its absence never blocks a clean-checkout golden run.
 
 This batch commits the workflows and locally verifies their static contract. It
 does not claim those hosted jobs have run. Goal batch `G01-P8-B2` owns retained

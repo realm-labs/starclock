@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { verifyOptionalSourcePayload } from "./source-payload.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const args = process.argv.slice(2);
@@ -17,9 +18,7 @@ const sora = path.join(root, policy.install_root, "bin", process.platform === "w
 assert(fs.existsSync(sora), `Sora ${policy.version} is not installed`);
 assert(capture(sora, ["--version"]).stdout.trim() === `sora ${policy.version}`, "wrong Sora version");
 const sourcePayload = path.join(root, ".cache/content-reference/turnbasedgamedata/Config/ConfigAbility/Avatar/Avatar_Sam_00_Ability.json");
-assert(fs.existsSync(sourcePayload), "prepared Firefly source payload is absent");
-const sourcePayloadSha256 = sha256(sourcePayload);
-assert(sourcePayloadSha256 === "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c", "prepared Firefly source payload drifted");
+const sourcePayloadSha256 = verifyOptionalSourcePayload(sourcePayload, "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c", "Firefly");
 
 fs.rmSync(work, { recursive: true, force: true });
 fs.mkdirSync(work, { recursive: true });

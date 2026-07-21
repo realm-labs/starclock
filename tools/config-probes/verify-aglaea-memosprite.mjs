@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { verifyOptionalSourcePayload } from "./source-payload.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const args = process.argv.slice(2);
@@ -17,9 +18,7 @@ const sora = path.join(root, policy.install_root, "bin", process.platform === "w
 assert(fs.existsSync(sora), `Sora ${policy.version} is not installed`);
 assert(capture(sora, ["--version"]).stdout.trim() === `sora ${policy.version}`, "wrong Sora version");
 const sourcePayload = path.join(root, ".cache/content-reference/turnbasedgamedata/Config/ConfigAbility/Avatar/Avatar_Aglaea_00_Ability.json");
-assert(fs.existsSync(sourcePayload), "prepared Aglaea source payload is absent");
-const sourcePayloadSha256 = sha256(sourcePayload);
-assert(sourcePayloadSha256 === "e26fa36f13e9b0eccda98cb8537e68cbe39e792b7100af5b3bf6e6c4a08f746b", "prepared Aglaea source payload drifted");
+const sourcePayloadSha256 = verifyOptionalSourcePayload(sourcePayload, "e26fa36f13e9b0eccda98cb8537e68cbe39e792b7100af5b3bf6e6c4a08f746b", "Aglaea");
 
 fs.rmSync(work, { recursive: true, force: true });
 fs.mkdirSync(work, { recursive: true });
