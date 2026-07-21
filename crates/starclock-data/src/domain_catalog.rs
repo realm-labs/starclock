@@ -309,6 +309,9 @@ fn compile_build(
     {
         builder.add_character(character.compile(combat.digest().bytes())?);
     }
+    for light_cone in &builds.light_cones {
+        builder.add_light_cone(light_cone.compile(combat.digest().bytes())?);
+    }
     builder.build(combat).map_err(domain_fail)
 }
 
@@ -865,7 +868,11 @@ fn build_patch(patch: DataBuildPatch) -> BuildPatch {
     }
 }
 
-fn source(id: u32, class: SourceClass, digest: [u8; 32]) -> Result<RuleSource, CatalogLoadError> {
+pub(super) fn source(
+    id: u32,
+    class: SourceClass,
+    digest: [u8; 32],
+) -> Result<RuleSource, CatalogLoadError> {
     Ok(RuleSource::new(
         SourceDefinitionId::new(id).ok_or_else(|| domain_fail("source ID is zero"))?,
         class,

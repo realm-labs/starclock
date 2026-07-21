@@ -6,6 +6,8 @@ const REPRESENTATIVE_BUNDLE: &[u8] =
 
 #[path = "catalog_character_partition_tests.rs"]
 mod character_partition_tests;
+#[path = "catalog_light_cone_tests.rs"]
+mod light_cone_tests;
 
 #[test]
 fn production_bundle_builds_standard_v1_and_representative_characters() {
@@ -18,11 +20,12 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
     assert_eq!(
         catalog.summary(),
         CatalogSummary {
-            identity_count: 4421,
-            enabled_identity_count: 4256,
+            identity_count: 4519,
+            enabled_identity_count: 4370,
             ability_count: 651,
             hit_plan_count: 354,
             character_count: 88,
+            light_cone_count: 16,
             effect_count: 4,
             ai_graph_count: 17,
             enemy_count: 17,
@@ -1105,6 +1108,7 @@ fn real_fixture_bundle_builds_representative_private_definitions() {
             ability_count: 1,
             hit_plan_count: 1,
             character_count: 1,
+            light_cone_count: 0,
             effect_count: 0,
             ai_graph_count: 0,
             enemy_count: 0,

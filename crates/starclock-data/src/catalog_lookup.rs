@@ -90,6 +90,7 @@ impl SimulationCatalog {
             ability_count: self.combat.abilities.len(),
             hit_plan_count: self.combat.hit_plans.len(),
             character_count: self.builds.len(),
+            light_cone_count: self.builds.light_cones.len(),
             effect_count: self.combat.effects.len(),
             ai_graph_count: self.encounters.ai_graphs.len(),
             enemy_count: self.encounters.enemies.len(),

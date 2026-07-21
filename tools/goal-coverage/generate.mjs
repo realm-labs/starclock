@@ -5,7 +5,7 @@ import path from "node:path";
 const PACK_SHA = "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a";
 const MANIFEST_SHA = "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19";
 const PROVENANCE_SHA = "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466";
-const RESEARCH_SHA = "00b0f3054552304f28fd32f3b2d07193eb814a764e8a152967572eee6f04a7ea";
+const RESEARCH_SHA = "5625e2c5483cf97f597e52da8af7e17d52af1e6cc5beeadbd5501ed3e6247cfb";
 const SCHEMA = "starclock-goal-coverage-v1";
 const GENERATED_ON = "2026-07-20";
 const root = path.resolve(process.cwd());
@@ -133,6 +133,25 @@ const goldenCharacterForms = new Set([
   "character.silver-wolf-lv-999",
 ]);
 
+const goldenLightCones = new Set([
+  "light-cone.a-dream-scented-in-wheat",
+  "light-cone.a-grounded-ascent",
+  "light-cone.a-secret-vow",
+  "light-cone.a-star-that-lights-the-night",
+  "light-cone.a-thankless-coronation",
+  "light-cone.a-trail-of-bygone-blood",
+  "light-cone.adversarial",
+  "light-cone.after-the-charmony-fall",
+  "light-cone.along-the-passing-shore",
+  "light-cone.amber",
+  "light-cone.an-instant-before-a-gaze",
+  "light-cone.arrows",
+  "light-cone.baptism-of-pure-thought",
+  "light-cone.before-dawn",
+  "light-cone.before-the-tutorial-mission-starts",
+  "light-cone.boundless-choreo",
+]);
+
 const categories = [];
 categories.push(category(
   "released-character-combat-forms",
@@ -143,7 +162,12 @@ categories.push(category(
     : researchByCharacter.has(entry.id) ? "Researching" : "Documented",
   2,
 ));
-categories.push(category("released-light-cones", "LightCone", coneManifest.entries, () => "Cataloged"));
+categories.push(category(
+  "released-light-cones",
+  "LightCone",
+  coneManifest.entries,
+  (entry) => goldenLightCones.has(entry.id) ? "GoldenVerified" : "Cataloged",
+));
 categories.push(category("standard-v1-enemy-variants", "StandardEnemyVariant", standardManifest.enemies, () => "GoldenVerified"));
 categories.push(category("standard-v1-encounters", "StandardEncounter", standardManifest.encounters, () => "GoldenVerified"));
 categories.push(category("standard-v1-scenarios", "StandardScenario", standardManifest.scenarios, () => "GoldenVerified"));
@@ -175,7 +199,7 @@ const report = {
     goal_manifest_sha256: MANIFEST_SHA,
     provenance_evidence_sha256: PROVENANCE_SHA,
     research_evidence_sha256: RESEARCH_SHA,
-    runtime_catalog: { state: "CharacterC11Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains frozen Standard-v1 and all eighty-eight released character combat forms; Light Cone partitions remain pending." },
+    runtime_catalog: { state: "LightConeL01Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and the first sixteen released Light Cones through S5." },
   },
   summary: {
     required: entries.length,
@@ -282,7 +306,7 @@ function verifyDocumentation(categoryReports) {
   const referenceCounts = readJson(path.join(root, "content-reference", "v4.4", "coverage.json"));
   const expectedStatus = [
     ["Released character combat forms", 88, 88],
-    ["Released Light Cones", 165, 0],
+    ["Released Light Cones", 165, 16],
     ["`standard-v1` enemies/variants", 17, 17],
     ["`standard-v1` encounters", 6, 6],
     ["`standard-v1` scenarios", 6, 6],

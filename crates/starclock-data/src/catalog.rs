@@ -44,7 +44,7 @@ const METADATA_TABLES: [&str; 5] = [
     "EvidenceRecord",
     "SourceRecord",
 ];
-const LOWERED_TABLES: [&str; 69] = [
+const LOWERED_TABLES: [&str; 73] = [
     "Ability",
     "AbilityHitPlanBinding",
     "AbilityLevelParameter",
@@ -94,6 +94,9 @@ const LOWERED_TABLES: [&str; 69] = [
     "EventFilter",
     "HitPlan",
     "HitPlanHit",
+    "LightCone",
+    "LightConeStat",
+    "LightConeSuperimposition",
     "LinkedUnitDefinition",
     "ModifierDefinition",
     "ModifierFilter",
@@ -104,6 +107,7 @@ const LOWERED_TABLES: [&str; 69] = [
     "Program",
     "ProgramStep",
     "RuleDefinition",
+    "RuleSourceTag",
     "RuleTrigger",
     "Selector",
     "StandardProfile",
@@ -192,6 +196,8 @@ pub struct CatalogSummary {
     pub hit_plan_count: usize,
     /// Lowered build-side character definitions.
     pub character_count: usize,
+    /// Lowered build-side Light Cone definitions.
+    pub light_cone_count: usize,
     /// Lowered generic effect definitions.
     pub effect_count: usize,
     /// Lowered deterministic enemy AI graphs.
@@ -285,6 +291,7 @@ pub(super) struct IdentityDefinition {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub(super) enum IdentityKind {
     Character,
+    LightCone,
     Ability,
     Program,
     Other,

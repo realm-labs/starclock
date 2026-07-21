@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "429994a4975c23fd",
+  "fingerprint": "87a51f96716c32a8",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -10082,6 +10082,39 @@
             "range": null,
             "length": null,
             "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "modifier_identity_ids",
+            "ty": {
+              "Optional": {
+                "List": {
+                  "Ref": {
+                    "table": "ContentIdentity",
+                    "field": "id"
+                  }
+                }
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              0,
+              32
+            ],
+            "parser": {
+              "kind": "split",
+              "options": {
+                "separator": "|"
+              }
+            },
             "derived_from": null
           }
         ],

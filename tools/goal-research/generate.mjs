@@ -320,7 +320,7 @@ const resolutions = new Map([
     observation: {
       accessed_on: GENERATED_ON,
       source_payload_sha256: "eca2d92a18987e4bd41ccdc5b307a858e03e819d2317b1825da22a7e65cc2ace",
-      executable_bundle_sha256: "b88f7c5a70d3162bff9a0d489b84b0a0e84125508ebc4af6cbf7041db7343415",
+      executable_bundle_sha256: "ce020679da4eb0b3580066b5d68b291a529c24dddfe9ad62b371b2ed9773935c",
       result: "One ReplaceByCaster aura instance reads the current Charging slot; level-10 ATK ratio changes at 0/1/5/3 stacks without instance replacement.",
       evidence_paths: ["config/probes/v1a/asta-modifier/golden.json", "crates/starclock-data/src/probe_tests.rs"],
       validation_commands: ["node tools/config-probes/verify-asta-modifier.mjs", "cargo test -p starclock-data probe_tests"],
@@ -332,7 +332,7 @@ const resolutions = new Map([
     observation: {
       accessed_on: GENERATED_ON,
       source_payload_sha256: "eca2d92a18987e4bd41ccdc5b307a858e03e819d2317b1825da22a7e65cc2ace",
-      executable_bundle_sha256: "b88f7c5a70d3162bff9a0d489b84b0a0e84125508ebc4af6cbf7041db7343415",
+      executable_bundle_sha256: "ce020679da4eb0b3580066b5d68b291a529c24dddfe9ad62b371b2ed9773935c",
       result: "A seeded four-hit sequence against three stable targets yields credits 1/2/0/1; repeats are coalesced and Fire weakness is sampled for the current hit.",
       evidence_paths: ["config/probes/v1a/asta-modifier/golden.json", "crates/starclock-data/src/probe_tests.rs"],
       validation_commands: ["node tools/config-probes/verify-asta-modifier.mjs", "cargo test -p starclock-data probe_tests"],
@@ -344,7 +344,7 @@ const resolutions = new Map([
     observation: {
       accessed_on: GENERATED_ON,
       source_payload_sha256: "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
-      executable_bundle_sha256: "8a7deb7ecd50c999ec2f3f0504295fcecba64172a89ccc59638c080292376417",
+      executable_bundle_sha256: "b984a88f2e2bc74aa0c62d4145bc0722b6eb141b9227bba1a15ee723421f25fd",
       result: "The normal Skill prepares ordered ConsumeHp, ModifyEnergy and Damage emissions: 40% Max HP with a one-HP floor, 60% Max Energy gain and level-10 200% ATK Fire damage. Invalid preparation leaves the caller's state unchanged.",
       evidence_paths: ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-data/src/probe_tests.rs"],
       validation_commands: ["node tools/config-probes/verify-firefly-damage.mjs", "cargo test -p starclock-data probe_tests"],
@@ -356,7 +356,7 @@ const resolutions = new Map([
     observation: {
       accessed_on: GENERATED_ON,
       source_payload_sha256: "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
-      executable_bundle_sha256: "8a7deb7ecd50c999ec2f3f0504295fcecba64172a89ccc59638c080292376417",
+      executable_bundle_sha256: "b984a88f2e2bc74aa0c62d4145bc0722b6eb141b9227bba1a15ee723421f25fd",
       result: "The Ultimate program makes the countdown creation and RedMode effect visible before full action advance, then resets Energy; the four operations retain one ordered typed Rule IR program.",
       evidence_paths: ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-data/src/probe_tests.rs"],
       validation_commands: ["node tools/config-probes/verify-firefly-damage.mjs", "cargo test -p starclock-data probe_tests"],
@@ -368,7 +368,7 @@ const resolutions = new Map([
     observation: {
       accessed_on: GENERATED_ON,
       source_payload_sha256: "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
-      executable_bundle_sha256: "8a7deb7ecd50c999ec2f3f0504295fcecba64172a89ccc59638c080292376417",
+      executable_bundle_sha256: "b984a88f2e2bc74aa0c62d4145bc0722b6eb141b9227bba1a15ee723421f25fd",
       result: "The enhanced Skill probe emits AddWeakness(Fire) before its 90-raw ReduceToughness operation. The battle golden applies the source-bound two-target-turn weakness to a target without Fire weakness, uses it for that hit, retains it through the first target turn and emits removal at the second without changing RES.",
       evidence_paths: ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-data/src/probe_tests.rs", "crates/starclock-combat/tests/damage_lifecycle.rs"],
       validation_commands: ["node tools/config-probes/verify-firefly-damage.mjs", "cargo test -p starclock-data probe_tests", "cargo test -p starclock-combat --test damage_lifecycle"],
@@ -380,7 +380,7 @@ const resolutions = new Map([
     observation: {
       accessed_on: GENERATED_ON,
       source_payload_sha256: "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
-      executable_bundle_sha256: "8a7deb7ecd50c999ec2f3f0504295fcecba64172a89ccc59638c080292376417",
+      executable_bundle_sha256: "b984a88f2e2bc74aa0c62d4145bc0722b6eb141b9227bba1a15ee723421f25fd",
       result: "The source-bound program retains the 50% Autoreactive Armor branch after Toughness reduction. The action golden records attempted 90/effective 50 on the ordinary layer, effective 40 on the reducible-while-broken Exo layer, and effective zero with a skipped Super Break after both layers are empty; Super Break uses the effective per-target sample.",
       evidence_paths: ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-data/src/probe_tests.rs", "crates/starclock-combat/tests/damage_lifecycle.rs", "crates/starclock-combat/tests/toughness_formula.rs"],
       validation_commands: ["node tools/config-probes/verify-firefly-damage.mjs", "cargo test -p starclock-data probe_tests", "cargo test -p starclock-combat --test damage_lifecycle", "cargo test -p starclock-combat --test toughness_formula"],

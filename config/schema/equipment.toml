@@ -105,6 +105,12 @@ length = [1, 32]
 name = "constant_across_ranks"
 type = "bool"
 
+[[tables.fields]]
+name = "modifier_identity_ids"
+type = "optional<list<ref<ContentIdentity.id>>>"
+parser = { kind = "split", separator = "|" }
+length = [0, 32]
+
 [[tables.indexes]]
 name = "by_light_cone_parameter_rank"
 fields = ["light_cone_id", "parameter_key", "rank"]

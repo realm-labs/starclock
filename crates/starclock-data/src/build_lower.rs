@@ -15,6 +15,7 @@ use crate::{
 #[derive(Debug)]
 pub(super) struct BuildDefinitions {
     pub(super) characters: Box<[CharacterDataDefinition]>,
+    pub(super) light_cones: Box<[crate::light_cone_lower::LightConeDataDefinition]>,
 }
 
 /// Generated-row-free production character definition retained by the data catalog.
@@ -163,7 +164,10 @@ impl BuildDefinitions {
                             .ability_level_cap(binding.ability)
                             .is_none_or(|level_cap| level_cap != binding.effective_level_cap)
                 })
-        })
+        }) || self
+            .light_cones
+            .iter()
+            .any(crate::light_cone_lower::LightConeDataDefinition::violates_invariants)
     }
 }
 
@@ -344,8 +348,10 @@ pub(super) fn convert(
         });
     }
     characters.sort_unstable_by_key(|character| character.id);
+    let light_cones = crate::light_cone_lower::convert(config, mode, identities, combat)?;
     Ok(BuildDefinitions {
         characters: characters.into_boxed_slice(),
+        light_cones: light_cones.into_boxed_slice(),
     })
 }
 

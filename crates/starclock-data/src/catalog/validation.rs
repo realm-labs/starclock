@@ -88,6 +88,7 @@ pub(crate) fn require_identity(
 pub(super) fn identity_kind(kind: ContentKind) -> IdentityKind {
     match kind {
         ContentKind::CharacterForm => IdentityKind::Character,
+        ContentKind::LightCone => IdentityKind::LightCone,
         ContentKind::Ability => IdentityKind::Ability,
         ContentKind::Program => IdentityKind::Program,
         _ => IdentityKind::Other,

@@ -12,6 +12,8 @@ pub struct LightConeSuperimposition {
     pub value_decimal: String,
     #[serde(rename = "constant_across_ranks")]
     pub constant_across_ranks: bool,
+    #[serde(rename = "modifier_identity_ids")]
+    pub modifier_identity_ids: Option<Vec<i32>>,
 }
 
 impl super::runtime::SoraDecode for LightConeSuperimposition {
@@ -24,6 +26,9 @@ impl super::runtime::SoraDecode for LightConeSuperimposition {
             rank: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             value_decimal: <String as super::runtime::SoraDecode>::decode(reader)?,
             constant_across_ranks: <bool as super::runtime::SoraDecode>::decode(reader)?,
+            modifier_identity_ids: <Option<Vec<i32>> as super::runtime::SoraDecode>::decode(
+                reader,
+            )?,
         })
     }
 }
