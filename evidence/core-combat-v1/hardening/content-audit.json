@@ -1,0 +1,65 @@
+{
+  "schema_revision": "starclock.goal01.content-audit.v1",
+  "config": {
+    "data_revision": "core-combat-v1-phase7-l11",
+    "schema_fingerprint": "87a51f96716c32a8",
+    "bundle_sha256": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440",
+    "output_digest": "d7d71fbbdea0f8fcb8bd83dea9143a7b36b16975bd1b75496a7b5eb9cc5e6c03"
+  },
+  "manifest_reference_audit": {
+    "tables": 82,
+    "rows": 64555,
+    "references": 87699,
+    "unique_indexes": 84,
+    "identities": 5278,
+    "enabled_data_ready_or_golden_verified": 5278
+  },
+  "rule_reachability_audit": {
+    "definitions": 168,
+    "ability_roots": 3,
+    "light_cone_roots": 165,
+    "unreachable": 0,
+    "source_digests_bound_to_reference_pack": 168
+  },
+  "native_handler_audit": {
+    "definitions": 0,
+    "rule_bindings": 0,
+    "operation_invocations": 0
+  },
+  "once_scope_audit": {
+    "triggers": 1,
+    "counts": {
+      "Ability": 0,
+      "Action": 0,
+      "Activity": 0,
+      "Attempt": 0,
+      "Battle": 0,
+      "Event": 1,
+      "Hit": 0,
+      "Node": 0,
+      "Section": 0,
+      "TargetWithinHit": 0,
+      "Turn": 0,
+      "Wave": 0
+    },
+    "duplicate_rule_local_keys": 0
+  },
+  "modifier_conflict_audit": {
+    "definitions": 1556,
+    "stacking_groups": 24,
+    "reachable_definitions": 1556,
+    "conflict_clusters": {
+      "singletons": 1,
+      "sum": 200,
+      "replace_group": 0
+    },
+    "unresolved_policies": 0
+  },
+  "source_provenance_audit": {
+    "source_records": 2,
+    "evidence_records": 3,
+    "bindings": 5561,
+    "enabled_identities_with_sources_and_evidence": 5278,
+    "missing": 0
+  }
+}

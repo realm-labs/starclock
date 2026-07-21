@@ -11,8 +11,8 @@ commit as every implementation or content batch.
 | Goal ID | `core-combat-v1` |
 | State | `InProgress` |
 | Active phase | Phase 8 — Hardening and documentation freeze |
-| Next unblocked batch | `G01-P8-B1` (`InProgress`) |
-| Last completed batch | `G01-P7-L11` |
+| Next unblocked batch | `G01-P8-B2` (`InProgress`) |
+| Last completed batch | `G01-P8-B1` |
 | Last completed commit | This row's containing commit |
 | Goal plan baseline | Phase 0 complete; bound to frozen manifests and coverage evidence |
 | Content prerequisite | Verified and bound by `G01-P0-B1` |
@@ -53,7 +53,7 @@ required-coverage denominator until public release and a new manifest revision.
 | Phase 5 — Build compiler, Traces, Eidolons and Light Cones | `Complete` | B1-B5 implement the independent pure build catalog/compiler, exact character/ability/Trace/Eidolon/Light Cone selection, generic combat output, source attribution, canonical definition/catalog/build/spec digests, named presets and build locks. B6 adds the versioned explicit-empty relic/planar seam and advances the selected-build digest domain to v2 without importing deferred data. Representative E0/E6 and S1/S5 builds, valid/invalid wearer behavior, canonical order, Windows x64 runtime tests and Windows ARM64 compile-only checks pass; production remains Excel/Sora-only at 0/283 `DataReady`. |
 | Phase 6 — Standard orchestration, AI, CLI and replay | `Complete` | B1-B5 establish the minimum Activity/Standard aggregate, deterministic controllers, replay envelope and CLI contracts. B6 imports the exact frozen 17-variant/6-encounter/6-scenario manifest through production Excel/Sora, lowers 63 source-bound enemy abilities and 17 finite AI graphs, validates phase/link/multi-wave topology, and runs every declared seed to `Won` with committed event counts and final state hashes; the CLI emits and verifies production-scenario replays. |
 | Phase 7 — Complete released content import | `Complete` | Generic batches M01-M13 supply production build/rule/hit/lifecycle execution, effective-level formulas, exact event observations, bounded 101-hit actions, named action-resource costs, effect-granted Assist Skills, provider/caller attribution, universal Toughness hits and forced no-cost companion actions. V1B through C11 promote all 88 character forms through complete statistics, abilities, Techniques, Traces, E1-E6, representative programs and execution goldens. L01-L11 add the executable Light Cone lowering boundary and promote all 165 cones through complete stat curves and S1-S5 selections. Coverage is 283/283 overall, 88/88 character forms and 165/165 Light Cones. |
-| Phase 8 — Hardening and documentation freeze | `InProgress` | Phase 7 is complete; B1 manifest-wide audits are next. |
+| Phase 8 — Hardening and documentation freeze | `InProgress` | B1 verifies the complete production reference graph, rule roots, native-handler boundary, once scopes, modifier conflict resolution and source provenance. B2 CI-matrix golden evidence is next. |
 
 Allowed batch/phase states are `Pending`, `InProgress`, `Researching`, `Blocked`,
 `Complete` and `NotApplicable`. `NotApplicable` requires a decision-log entry and
@@ -157,8 +157,8 @@ Phase 0 manifests are frozen.
 | `G01-P7-M14+` | `Pending` | — | — | Add later-discovered shared primitive or reviewed native-handler prerequisites before their dependent content partitions. |
 | `G01-P7-R1` | `Pending` | — | — | Clean catalog and coverage regeneration. |
 | `G01-P7-R2` | `Pending` | — | — | Manifest-wide build compilation. |
-| `G01-P8-B1` | `InProgress` | — | — | Manifest-wide reference, rule-reachability, native-handler, once-scope, modifier-conflict and source-provenance audits. |
-| `G01-P8-B2` | `Pending` | — | — | Retain native versus compile-only golden-vector evidence for every declared CI target. |
+| `G01-P8-B1` | `Complete` | This row's containing commit | `node tools/goal-hardening/verify-content-audits.mjs`; `node tools/repository-check/verify-native-handlers.mjs`; `node tools/repository-check/run.mjs --with-source-cache`; `git diff --check`. Evidence: [`content-audit.json`](../../evidence/core-combat-v1/hardening/content-audit.json), [`verify-content-audits.mjs`](../../tools/goal-hardening/verify-content-audits.mjs). | Audited all 82 production tables, 64,555 rows, 87,699 typed references and every unique index. All 168 rules have an ability or Light Cone root and a prepared-source digest; production has zero native handlers or invocations; once keys are rule-local and valid; all 1,556 modifiers are reachable under one of 24 explicit conflict policies; every enabled identity has source and fact evidence. |
+| `G01-P8-B2` | `InProgress` | — | — | Retain native versus compile-only golden-vector evidence for every declared CI target. |
 | `G01-P8-B3` | `Pending` | — | — | Expand long-sequence and coverage-guided property/fuzz regression evidence. |
 | `G01-P8-B4` | `Pending` | — | — | Audit source size, public API surfaces, dependency direction and reviewed exceptions. |
 | `G01-P8-B5` | `Pending` | — | — | Freeze stable-runner benchmarks, reviewed budgets and the CI smoke ceiling. |
