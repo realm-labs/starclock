@@ -900,8 +900,11 @@ def owned_predicate(name: str) -> Callable[[dict[str, Any]], bool]:
 def merged_table(name: str, authored: list[dict[str, Any]]) -> list[dict[str, Any]]:
     _, existing = workbook_rows(name)
     owns = owned_predicate(name)
-    merged = [dict(row) for row in existing if not owns(row)] + authored
-    return merged
+    owned_positions = [index for index, row in enumerate(existing) if owns(row)]
+    insertion = min(owned_positions) if owned_positions else len(existing)
+    retained = [dict(row) for row in existing if not owns(row)]
+    retained[insertion:insertion] = authored
+    return retained
 
 
 def update_metadata(
@@ -977,8 +980,8 @@ def main() -> None:
     _, manifest_rows = workbook_rows("ConfigManifest")
     if len(manifest_rows) != 1:
         raise ValueError("production ConfigManifest must remain a singleton")
-    manifest_rows[0]["data_revision"] = "core-combat-v1-phase7-v1b"
     if args.write:
+        manifest_rows[0]["data_revision"] = "core-combat-v1-phase7-v1b"
         for name in OWNED_TABLES:
             write_rows(name, expected[name])
         write_rows("ContentIdentity", identities)

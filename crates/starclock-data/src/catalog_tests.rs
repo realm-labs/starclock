@@ -15,11 +15,11 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
     assert_eq!(
         catalog.summary(),
         CatalogSummary {
-            identity_count: 759,
-            enabled_identity_count: 512,
-            ability_count: 113,
-            hit_plan_count: 75,
-            character_count: 6,
+            identity_count: 1118,
+            enabled_identity_count: 879,
+            ability_count: 165,
+            hit_plan_count: 108,
+            character_count: 14,
             effect_count: 3,
             ai_graph_count: 17,
             enemy_count: 17,
@@ -388,7 +388,81 @@ fn production_silver_wolf_executes_released_elation_envelopes() {
 }
 
 #[test]
-fn production_representatives_compile_at_e0_and_complete_e6() {
+fn production_c01_executes_exact_bounce_and_hp_skill_envelopes() {
+    use starclock_combat::{
+        catalog::action::{HitOperationDefinition, HitTargetGroup},
+        formula::model::CombatElement,
+        modifier::model::StatKind,
+    };
+
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let combat = catalog.combat_catalog();
+
+    let anaxa = combat
+        .ability(starclock_combat::AbilityId::new(30_010).unwrap())
+        .expect("Anaxa Skill");
+    let hits = anaxa.action().expect("Anaxa damage action").hits();
+    assert_eq!(hits.len(), 5);
+    assert_eq!(hits[0].target_group(), HitTargetGroup::Primary);
+    assert!(
+        hits[1..]
+            .iter()
+            .all(|hit| hit.target_group() == HitTargetGroup::BounceDraw)
+    );
+    for (index, hit) in hits.iter().enumerate() {
+        let HitOperationDefinition::ScalingDamage(damage) = hit.operations()[0] else {
+            panic!("Anaxa hit must execute scaling damage");
+        };
+        assert_eq!(damage.scaling_stat(), StatKind::Atk);
+        assert_eq!(damage.element(), CombatElement::Wind);
+        assert_eq!(
+            damage.coefficient().scaled(),
+            if index == 0 { 350_000 } else { 200_000 }
+        );
+        let HitOperationDefinition::ReduceToughness(toughness) = hit.operations()[1] else {
+            panic!("Anaxa hit must execute Toughness reduction");
+        };
+        assert_eq!(toughness.reduction.base.get(), 30);
+    }
+
+    let aventurine = combat
+        .ability(starclock_combat::AbilityId::new(30_044).unwrap())
+        .expect("Aventurine follow-up");
+    let hits = aventurine
+        .action()
+        .expect("Aventurine damage action")
+        .hits();
+    assert_eq!(hits.len(), 7);
+    for hit in hits {
+        let HitOperationDefinition::ScalingDamage(damage) = hit.operations()[0] else {
+            panic!("Aventurine hit must execute scaling damage");
+        };
+        assert_eq!(damage.scaling_stat(), StatKind::Def);
+        assert_eq!(damage.element(), CombatElement::Imaginary);
+        assert_eq!(damage.coefficient().scaled(), 125_000);
+    }
+
+    let arlan_skill = combat
+        .ability(starclock_combat::AbilityId::new(30_033).unwrap())
+        .expect("Arlan HP-funded Skill");
+    assert_eq!(
+        arlan_skill.action().unwrap().resources().skill_point_cost(),
+        0
+    );
+    assert_eq!(
+        combat
+            .ability(starclock_combat::AbilityId::new(30_031).unwrap())
+            .unwrap()
+            .action()
+            .unwrap()
+            .resources()
+            .skill_point_gain(),
+        1
+    );
+}
+
+#[test]
+fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_build::{
         ability::AbilityInvestment,
         compiler::LoadoutCompiler,
@@ -398,12 +472,12 @@ fn production_representatives_compile_at_e0_and_complete_e6() {
     use starclock_combat::UnitLevel;
 
     let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
-    for raw in [2, 8, 18, 27, 45, 68] {
+    for raw in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 18, 27, 45, 68] {
         let form = starclock_combat::UnitDefinitionId::new(raw).unwrap();
         let character = catalog
             .build_catalog()
             .character(form)
-            .expect("representative build definition");
+            .expect("production character build definition");
         let investments = character
             .ability_levels()
             .iter()
@@ -418,7 +492,7 @@ fn production_representatives_compile_at_e0_and_complete_e6() {
         .unwrap();
         let e0 = LoadoutCompiler
             .compile(catalog.build_catalog(), catalog.combat_catalog(), &base)
-            .expect("representative E0 build");
+            .expect("production E0 build");
         assert!(e0.combatant().modifiers().is_empty());
 
         let graph = character.trace_graph().expect("complete Trace graph");
@@ -435,7 +509,7 @@ fn production_representatives_compile_at_e0_and_complete_e6() {
             .with_eidolon(EidolonLevel::new(6).unwrap());
         let e6 = LoadoutCompiler
             .compile(catalog.build_catalog(), catalog.combat_catalog(), &e6_spec)
-            .expect("representative E6 build");
+            .expect("production E6 build");
         assert_eq!(e6.combatant().modifiers().len(), trace_modifiers);
     }
 }

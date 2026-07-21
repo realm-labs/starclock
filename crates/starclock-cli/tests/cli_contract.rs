@@ -21,7 +21,7 @@ fn config_validation_uses_only_a_validated_sora_bundle() {
     assert!(default.status.success(), "{:?}", default);
     assert_eq!(
         text(default.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"4.4\",\"data_revision\":\"core-combat-v1-phase7-v1b\",\"bundle_sha256\":\"68be19515464c1111e522867abb8c186d1c3381cae157a61c37a7cfff30e9c87\",\"identities\":759,\"enabled\":512}"
+        "{\"schema_revision\":\"starclock-cli-v1\",\"kind\":\"config-validation\",\"valid\":true,\"game_version\":\"4.4\",\"data_revision\":\"core-combat-v1-phase7-c01\",\"bundle_sha256\":\"77e8ac150bad7b3c81e93e51f01a691a9f9fc94c76756dfceaa06fe0f36218de\",\"identities\":1118,\"enabled\":879}"
     );
 
     let bundle =
@@ -30,7 +30,7 @@ fn config_validation_uses_only_a_validated_sora_bundle() {
     assert!(explicit.status.success(), "{:?}", explicit);
     let human = text(explicit.stdout);
     assert!(human.contains("config valid game_version=4.4"));
-    assert!(human.contains("identities=759 enabled=512"));
+    assert!(human.contains("identities=1118 enabled=879"));
 
     let invalid = temporary("invalid.sora");
     fs::write(&invalid, br#"{\"debug\":\"json\"}"#).unwrap();
@@ -47,7 +47,7 @@ fn coverage_is_goal_aware_filterable_and_not_readiness_inflated() {
     let all = text(all.stdout);
     assert!(all.contains("\"goal_id\":\"core-combat-v1\""));
     assert!(
-        all.contains("\"required\":283,\"enabled\":36,\"data_ready\":36,\"golden_verified\":36")
+        all.contains("\"required\":283,\"enabled\":44,\"data_ready\":44,\"golden_verified\":44")
     );
     for expected in [
         "released-character-combat-forms\",\"required\":88",
