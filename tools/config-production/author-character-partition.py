@@ -26,9 +26,9 @@ PARTITIONS = ROOT / "content-manifests" / "core-combat-v1" / "partitions.json"
 REFERENCE_DIGEST = "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a"
 
 
-def load_v1b() -> Any:
-    path = Path(__file__).with_name("author-character-v1b.py")
-    spec = importlib.util.spec_from_file_location("starclock_character_v1b", path)
+def load_sibling(filename: str, module_name: str) -> Any:
+    path = Path(__file__).with_name(filename)
+    spec = importlib.util.spec_from_file_location(module_name, path)
     if spec is None or spec.loader is None:
         raise RuntimeError("unable to load V1B authoring helpers")
     module = importlib.util.module_from_spec(spec)
@@ -37,7 +37,8 @@ def load_v1b() -> Any:
     return module
 
 
-V1B = load_v1b()
+V1B = load_sibling("author-character-v1b.py", "starclock_character_v1b")
+LATE = load_sibling("character_partition_late.py", "starclock_character_partition_late")
 
 OWNED_TABLES = (
     "Ability",
@@ -318,6 +319,7 @@ DAMAGE_BY_PARTITION = {
     "C01": C01_DAMAGE, "C02": C02_DAMAGE, "C03": C03_DAMAGE, "C04": C04_DAMAGE,
     "C05": C05_DAMAGE, "C06": C06_DAMAGE, "C07": C07_DAMAGE, "C08": C08_DAMAGE,
 }
+DAMAGE_BY_PARTITION.update(LATE.DAMAGE_BY_PARTITION)
 
 C01_TARGET_OVERRIDES = {
     "character.acheron.ability.rainblade.ultra": "Aoe",
@@ -385,6 +387,7 @@ TARGET_OVERRIDES = {
     **C04_TARGET_OVERRIDES, **C05_TARGET_OVERRIDES, **C06_TARGET_OVERRIDES,
     **C07_TARGET_OVERRIDES, **C08_TARGET_OVERRIDES,
 }
+TARGET_OVERRIDES.update(LATE.TARGET_OVERRIDES)
 
 C01_SCALING_STATS = {
     "character.aventurine.ability.roulette-shark.ultra": "Def",
@@ -458,6 +461,7 @@ ABILITY_KIND_OVERRIDES = {
     "character.sparxie.ability.boom-sparxicles-poppin.bpskill": "Passive",
     "character.sparxie.ability.engagement-farming.bpskill": "Passive",
 }
+ABILITY_KIND_OVERRIDES.update(LATE.ABILITY_KIND_OVERRIDES)
 
 ABILITY_TAG_MASK_OVERRIDES = {
     # Fuyuan takes summon turns that the released text also classifies as follow-up attacks.
@@ -478,6 +482,7 @@ ABILITY_TAG_MASK_OVERRIDES = {
     # Sparxie's forced Aha action is an Elation Skill, independent of family.
     "character.sparxie.ability.signal-overflow-the-great-encore.elationdamage": 1 << 10,
 }
+ABILITY_TAG_MASK_OVERRIDES.update(LATE.ABILITY_TAG_MASK_OVERRIDES)
 
 ABILITY_TAG_MASK_REPLACEMENTS = {
     # These support/setup abilities mention downstream damage but do not
@@ -496,6 +501,7 @@ ABILITY_TAG_MASK_REPLACEMENTS = {
     # enhanced Basic or Ultimate trigger.
     "character.sparxie.ability.sleight-of-sparx-hand.skillp01": (1 << 0) | (1 << 8) | (1 << 10),
 }
+ABILITY_TAG_MASK_REPLACEMENTS.update(LATE.ABILITY_TAG_MASK_REPLACEMENTS)
 
 SKILL_POINT_COST_OVERRIDES = {
     "character.dan-heng-imbibitor-lunae.ability.transcendence.normal": "1",
@@ -509,6 +515,7 @@ SKILL_POINT_GAIN_OVERRIDES = {
     "character.sparxie.ability.bloom-winner-takes-all.normal": "1",
     "character.sparxie.ability.content-monetization.maze": "2",
 }
+ENERGY_GAIN_OVERRIDES = dict(LATE.ENERGY_GAIN_OVERRIDES)
 
 IGNORES_WEAKNESS = {
     "character.silver-wolf.ability.force-quit-program.maze",
@@ -551,6 +558,7 @@ CHARACTER_RESOURCES = {
     "character.rappa": [("chroma-ink", "3", "0"), ("charge", "10", "0")],
     "character.saber": [("core-resonance", "99", "1")],
 }
+CHARACTER_RESOURCES.update(LATE.CHARACTER_RESOURCES)
 
 CHARACTER_RESOURCE_COSTS = {
     "character.castorice.ability.doomshriek-dawns-chime.ultra": [("newbud", "100")],
@@ -564,6 +572,7 @@ CHARACTER_RESOURCE_COSTS = {
     "character.qingque.ability.cherry-on-top.normal": [("jade-tiles", "4")],
     "character.rappa.ability.ningu-demonbane-petalblade.normal": [("chroma-ink", "1")],
 }
+CHARACTER_RESOURCE_COSTS.update(LATE.CHARACTER_RESOURCE_COSTS)
 
 CHARACTER_RESOURCE_GAINS = {
     "character.himeko-nova.ability.hyperluminal-particle-beam.ultra": [("source-energy", "1")],
@@ -590,6 +599,7 @@ CHARACTER_RESOURCE_GAINS = {
     "character.rappa.ability.nindo-supreme-aishiteru.ultra": [("chroma-ink", "3")],
     "character.saber.ability.behold-the-king-of-knights.maze": [("core-resonance", "2")],
 }
+CHARACTER_RESOURCE_GAINS.update(LATE.CHARACTER_RESOURCE_GAINS)
 
 TEAM_RESOURCE_COSTS = {
     "character.himeko-nova.ability.companion-protocol-decimation.assist": [("assist-use", "1")],
@@ -601,6 +611,7 @@ TEAM_RESOURCE_GAINS = {
     "character.himeko-nova.ability.upraise-the-vanward-cresset.bpskill": [("assist-use", "4")],
     "character.sparxie.ability.partys-wildin-and-cameras-rollin.ultra": [("shared.punchline", "2")],
 }
+TEAM_RESOURCE_GAINS.update(LATE.TEAM_RESOURCE_GAINS)
 
 BASE_ENERGY_OVERRIDES = {
     "character.feixiao": "0",
@@ -965,7 +976,7 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
                 "amount_decimal": V1B.canonical_decimal(amount),
             })
             delta_sequence += 1
-        energy = ability.get("energy_gain")
+        energy = ENERGY_GAIN_OVERRIDES.get(ability["id"], ability.get("energy_gain"))
         if energy not in (None, "0", 0):
             rows["AbilityResourceDelta"].append({
                 "ability_id": ability_id, "sequence": delta_sequence,

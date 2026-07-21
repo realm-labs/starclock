@@ -9,24 +9,24 @@
     "provenance_evidence_sha256": "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466",
     "research_evidence_sha256": "00b0f3054552304f28fd32f3b2d07193eb814a764e8a152967572eee6f04a7ea",
     "runtime_catalog": {
-      "state": "CharacterC08Production",
-      "digest": "e9ed142db4e0aaf64ce6af3222a6c31d845e737d844c88299ab48957188de467",
-      "note": "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all sixty-four C01-C08 character forms; remaining character and Light Cone partitions are pending."
+      "state": "CharacterC09Production",
+      "digest": "1440fa2d495b779f6b23a6a31569da9ce14223be81399c93b04a3918855fb234",
+      "note": "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all seventy-two C01-C09 character forms; remaining character and Light Cone partitions are pending."
     }
   },
   "summary": {
     "required": 283,
     "accounted": 283,
-    "enabled_incomplete": 183,
-    "data_ready": 100,
-    "golden_verified": 100,
-    "data_ready_percent": "35.3%",
+    "enabled_incomplete": 175,
+    "data_ready": 108,
+    "golden_verified": 108,
+    "data_ready_percent": "38.2%",
     "terminal_state_counts": {
       "Cataloged": 165,
-      "Documented": 18,
+      "Documented": 10,
       "Researching": 0,
       "DataReady": 0,
-      "GoldenVerified": 100
+      "GoldenVerified": 108
     },
     "disabled_audit_only": 2
   },
@@ -36,15 +36,15 @@
       "manifest_kind": "CharacterCombatForm",
       "required": 88,
       "accounted": 88,
-      "data_ready": 70,
-      "golden_verified": 70,
-      "data_ready_percent": "79.5%",
+      "data_ready": 78,
+      "golden_verified": 78,
+      "data_ready_percent": "88.6%",
       "terminal_state_counts": {
         "Cataloged": 0,
-        "Documented": 18,
+        "Documented": 10,
         "Researching": 0,
         "DataReady": 0,
-        "GoldenVerified": 70
+        "GoldenVerified": 78
       },
       "disabled_audit_only": 2
     },
@@ -1331,21 +1331,16 @@
       "id": "character.sunday",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -1353,21 +1348,16 @@
       "id": "character.sushang",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -1375,21 +1365,16 @@
       "id": "character.the-dahlia",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -1397,21 +1382,16 @@
       "id": "character.the-herta",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -1419,21 +1399,16 @@
       "id": "character.tingyun",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -1441,21 +1416,16 @@
       "id": "character.topaz-numby",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -1463,21 +1433,16 @@
       "id": "character.trailblazer.destruction",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -1485,21 +1450,16 @@
       "id": "character.trailblazer.elation",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -5885,14 +5845,6 @@
     "duplicate_runtime_ids": [],
     "stale_version_ids": [],
     "missing_data_ready_ids": [
-      "character.sunday",
-      "character.sushang",
-      "character.the-dahlia",
-      "character.the-herta",
-      "character.tingyun",
-      "character.topaz-numby",
-      "character.trailblazer.destruction",
-      "character.trailblazer.elation",
       "character.trailblazer.harmony",
       "character.trailblazer.preservation",
       "character.trailblazer.remembrance",
@@ -6070,14 +6022,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_production_provenance_ids": [
-      "character.sunday",
-      "character.sushang",
-      "character.the-dahlia",
-      "character.the-herta",
-      "character.tingyun",
-      "character.topaz-numby",
-      "character.trailblazer.destruction",
-      "character.trailblazer.elation",
       "character.trailblazer.harmony",
       "character.trailblazer.preservation",
       "character.trailblazer.remembrance",
@@ -6255,14 +6199,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_bilingual_validation_ids": [
-      "character.sunday",
-      "character.sushang",
-      "character.the-dahlia",
-      "character.the-herta",
-      "character.tingyun",
-      "character.topaz-numby",
-      "character.trailblazer.destruction",
-      "character.trailblazer.elation",
       "character.trailblazer.harmony",
       "character.trailblazer.preservation",
       "character.trailblazer.remembrance",
@@ -6440,14 +6376,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_runtime_reference_ids": [
-      "character.sunday",
-      "character.sushang",
-      "character.the-dahlia",
-      "character.the-herta",
-      "character.tingyun",
-      "character.topaz-numby",
-      "character.trailblazer.destruction",
-      "character.trailblazer.elation",
       "character.trailblazer.harmony",
       "character.trailblazer.preservation",
       "character.trailblazer.remembrance",
@@ -6635,7 +6563,7 @@
       {
         "label": "Released character combat forms",
         "required": 88,
-        "data_ready": 70,
+        "data_ready": 78,
         "matches": true
       },
       {
