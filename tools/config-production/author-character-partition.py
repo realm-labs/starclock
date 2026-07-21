@@ -430,6 +430,7 @@ SCALING_STATS = {
     **C01_SCALING_STATS, **C02_SCALING_STATS, **C03_SCALING_STATS,
     **C06_SCALING_STATS, **C07_SCALING_STATS,
 }
+SCALING_STATS.update(LATE.SCALING_STATS)
 
 ABILITY_KIND_OVERRIDES = {
     "character.blade.ability.forest-of-swords.normal": "EnhancedBasic",
@@ -517,9 +518,7 @@ SKILL_POINT_GAIN_OVERRIDES = {
 }
 ENERGY_GAIN_OVERRIDES = dict(LATE.ENERGY_GAIN_OVERRIDES)
 
-IGNORES_WEAKNESS = {
-    "character.silver-wolf.ability.force-quit-program.maze",
-}
+IGNORES_WEAKNESS = {"character.silver-wolf.ability.force-quit-program.maze"} | LATE.IGNORES_WEAKNESS
 
 CHARACTER_RESOURCES = {
     "character.acheron": [("slashed-dream", "9", "0")],
@@ -1014,7 +1013,7 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
                 "ability_id": ability_id, "phase_sequence": 1, "hit_plan_id": plan_id,
                 "damage_parameter_key": f"parameter.{expanded[0][1]:02d}",
                 "damage_scaling_stat": SCALING_STATS.get(ability["id"], "Atk"),
-                "damage_class": "Elation" if ability["kind"] == "ElationDamage" else "Ordinary",
+                "damage_class": LATE.DAMAGE_CLASSES.get(ability["id"], "Elation" if ability["kind"] == "ElationDamage" else "Ordinary"),
                 "element": next(row["element"] for row in characters if row["id"] == ability["character_id"]),
             })
 

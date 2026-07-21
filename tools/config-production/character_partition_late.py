@@ -39,13 +39,48 @@ C09_DAMAGE = {
     "character.trailblazer.elation.ability.make-some-noise.normal": [("Primary", 1, 1)],
 }
 
-DAMAGE_BY_PARTITION = {"C09": C09_DAMAGE}
+C10_DAMAGE = {
+    "character.trailblazer.harmony.ability.halftime-to-make-it-rain.bpskill": [("Primary", 1, 1), ("BounceDraw", 1, 4)],
+    "character.trailblazer.harmony.ability.swing-dance-etiquette.normal": [("Primary", 1, 1)],
+    "character.trailblazer.preservation.ability.ice-breaking-light.normal": [("Primary", 1, 1)],
+    "character.trailblazer.preservation.ability.war-flaming-lance.ultra": [("All", 2, 1)],
+    "character.trailblazer.remembrance.ability.leave-it-to-me.normal": [("Primary", 1, 1)],
+    "character.trailblazer.remembrance.ability.memories-back-as-echoes.maze": [("All", 3, 1)],
+    "character.trailblazer.remembrance.ability.together-mem.ultra": [("All", 1, 1)],
+    "character.trailblazer.remembrance.ability.together-we-script-tomorrow.normal": [("All", 1, 1), ("All", 2, 1)],
+    "character.tribbie.ability.busy-as-tribbie.skillp01": [("All", 1, 1)],
+    "character.tribbie.ability.guess-who-lives-here.ultra": [("All", 1, 1)],
+    "character.tribbie.ability.hundred-rockets.normal": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.welt.ability.edge-of-the-void.bpskill": [("Primary", 1, 1), ("BounceDraw", 1, 2)],
+    "character.welt.ability.gravity-suppression.normal": [("Primary", 1, 1)],
+    "character.welt.ability.synthetic-black-hole.ultra": [("All", 1, 1)],
+    "character.welt.ability.time-distortion.skillp01": [("Primary", 1, 1)],
+    "character.xueyi.ability.divine-castigation.ultra": [("Primary", 1, 1)],
+    "character.xueyi.ability.iniquity-obliteration.bpskill": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.xueyi.ability.karmic-perpetuation.skillp01": [("BounceDraw", 2, 3)],
+    "character.xueyi.ability.mara-sunder-awl.normal": [("Primary", 1, 1)],
+    "character.xueyi.ability.summary-execution.maze": [("All", 1, 1)],
+    "character.yanqing.ability.amidst-the-raining-bliss.ultra": [("Primary", 3, 1)],
+    "character.yanqing.ability.darting-ironthorn.bpskill": [("Primary", 1, 1)],
+    "character.yanqing.ability.frost-thorn.normal": [("Primary", 1, 1)],
+    "character.yanqing.ability.one-with-the-sword.skillp01": [("Primary", 4, 1)],
+    "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01": [("Primary", 1, 1)],
+    "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage": [("All", 2, 1), ("BounceDraw", 6, 5)],
+    "character.yao-guang.ability.whistlebolt-sings-joy.normal": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+}
+
+DAMAGE_BY_PARTITION = {"C09": C09_DAMAGE, "C10": C10_DAMAGE}
 
 TARGET_OVERRIDES = {
     "character.the-herta.ability.hear-me-out.bpskill": "Blast",
     "character.tingyun.ability.violet-sparknado.skillp01": "SingleTarget",
     "character.topaz-numby.ability.difficulty-paying.bpskill": "SingleTarget",
     "character.trailblazer.elation.ability.i-said-elation-did-i-stutter.elationdamage": "Bounce",
+    "character.welt.ability.time-distortion.skillp01": "SingleTarget",
+    "character.yanqing.ability.one-with-the-sword.skillp01": "SingleTarget",
+    "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01": "SingleTarget",
+    "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage": "Bounce",
+    "character.yao-guang.ability.whistlebolt-sings-joy.normal": "Blast",
 }
 
 ABILITY_KIND_OVERRIDES = {
@@ -54,6 +89,10 @@ ABILITY_KIND_OVERRIDES = {
     "character.topaz-numby.ability.trotter-market.skillp01": "Summon",
     "character.trailblazer.destruction.ability.blowout-farewell-hit.ultra": "Passive",
     "character.trailblazer.destruction.ability.blowout-rip-home-run.ultra": "Passive",
+    "character.trailblazer.remembrance.ability.together-we-script-tomorrow.normal": "EnhancedBasic",
+    "character.tribbie.ability.busy-as-tribbie.skillp01": "FollowUp",
+    "character.xueyi.ability.karmic-perpetuation.skillp01": "FollowUp",
+    "character.yanqing.ability.one-with-the-sword.skillp01": "FollowUp",
 }
 
 ABILITY_TAG_MASK_OVERRIDES = {
@@ -65,6 +104,12 @@ ABILITY_TAG_MASK_OVERRIDES = {
     "character.trailblazer.destruction.ability.blowout-farewell-hit.ultra": 1 << 3,
     "character.trailblazer.destruction.ability.blowout-rip-home-run.ultra": 1 << 3,
     "character.trailblazer.elation.ability.i-said-elation-did-i-stutter.elationdamage": 1 << 10,
+    "character.trailblazer.remembrance.ability.i-choose-you.bpskill": 1 << 7,
+    "character.trailblazer.remembrance.ability.together-mem.ultra": 1 << 7,
+    "character.trailblazer.remembrance.ability.together-we-script-tomorrow.normal": 1 << 9,
+    "character.welt.ability.time-distortion.skillp01": 1 << 8,
+    "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01": 1 << 8,
+    "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage": 1 << 10,
 }
 
 ABILITY_TAG_MASK_REPLACEMENTS = {
@@ -79,14 +124,35 @@ ABILITY_TAG_MASK_REPLACEMENTS = {
     "character.topaz-numby.ability.turn-a-profit.ultra": 1 << 3,
     "character.trailblazer.elation.ability.may-the-trailblaze-fly-you-starward.ultra": 1 << 3,
     "character.trailblazer.elation.ability.that-smile-hits-different.skillp01": (1 << 0) | (1 << 8) | (1 << 10),
+    "character.trailblazer.harmony.ability.all-out-footlight-parade.ultra": 1 << 3,
+    "character.trailblazer.harmony.ability.full-on-aerial-dance.skillp01": 0,
+    "character.trailblazer.harmony.ability.now-im-the-band.maze": 0,
+    "character.trailblazer.preservation.ability.call-of-the-guardian.maze": 0,
+    "character.trailblazer.preservation.ability.ever-burning-amber.bpskill": 1 << 2,
+    "character.trailblazer.preservation.ability.treasure-of-the-architects.skillp01": 0,
+    "character.trailblazer.remembrance.ability.almighty-companion.skillp01": 1 << 7,
+    "character.trailblazer.remembrance.ability.i-choose-you.bpskill": (1 << 2) | (1 << 7),
+    "character.trailblazer.remembrance.ability.together-mem.ultra": (1 << 0) | (1 << 3) | (1 << 7),
+    "character.trailblazer.remembrance.ability.together-we-script-tomorrow.normal": (1 << 0) | (1 << 1) | (1 << 9),
+    "character.tribbie.ability.if-youre-happy-and-you-know-it.maze": 0,
+    "character.tribbie.ability.whered-the-gifts-go.bpskill": 1 << 2,
+    "character.welt.ability.gravitational-imprisonment.maze": 0,
+    "character.yanqing.ability.the-one-true-sword.maze": 0,
+    "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01": 1 << 8,
+    "character.yao-guang.ability.decalight-unveils-all.bpskill": 1 << 2,
+    "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra": 1 << 3,
+    "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage": (1 << 0) | (1 << 10),
+    "character.yao-guang.ability.untethered-glimmer-sails-far.maze": 0,
 }
 
 CHARACTER_RESOURCES = {
     "character.the-herta": [("inspiration", "4", "0")],
+    "character.xueyi": [("karma", "8", "0")],
 }
 
 CHARACTER_RESOURCE_COSTS = {
     "character.the-herta.ability.hear-me-out.bpskill": [("inspiration", "1")],
+    "character.xueyi.ability.karmic-perpetuation.skillp01": [("karma", "8")],
 }
 
 CHARACTER_RESOURCE_GAINS = {
@@ -95,8 +161,25 @@ CHARACTER_RESOURCE_GAINS = {
 
 TEAM_RESOURCE_GAINS = {
     "character.trailblazer.elation.ability.may-the-trailblaze-fly-you-starward.ultra": [("shared.punchline", "5")],
+    "character.yao-guang.ability.decalight-unveils-all.bpskill": [("shared.punchline", "3")],
+    "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra": [("shared.punchline", "5")],
 }
 
 ENERGY_GAIN_OVERRIDES = {
     "character.tingyun.ability.gentle-breeze.maze": "50",
+}
+
+SCALING_STATS = {
+    "character.trailblazer.preservation.ability.war-flaming-lance.ultra": "Def",
+    "character.tribbie.ability.busy-as-tribbie.skillp01": "Hp",
+    "character.tribbie.ability.guess-who-lives-here.ultra": "Hp",
+    "character.tribbie.ability.hundred-rockets.normal": "Hp",
+}
+
+DAMAGE_CLASSES = {
+    "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01": "Elation",
+}
+
+IGNORES_WEAKNESS = {
+    "character.xueyi.ability.divine-castigation.ultra",
 }

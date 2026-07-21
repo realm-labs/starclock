@@ -90,3 +90,133 @@ fn production_c09_executes_follow_up_inspiration_and_elation_envelopes() {
         assert_eq!(damage.class(), DamageClass::Elation);
     }
 }
+
+#[test]
+fn production_c10_executes_joint_hp_karma_and_elation_envelopes() {
+    use starclock_combat::{
+        AbilityId, UnitDefinitionId,
+        catalog::action::{AbilityKind, AbilityTag, HitOperationDefinition},
+        formula::model::DamageClass,
+        modifier::model::StatKind,
+    };
+
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let combat = catalog.combat_catalog();
+
+    let harmony = combat
+        .ability(AbilityId::new(120_004).unwrap())
+        .expect("Harmony Trailblazer Skill")
+        .action()
+        .expect("Harmony Trailblazer Skill action");
+    assert_eq!(harmony.kind(), AbilityKind::Skill);
+    assert_eq!(harmony.hits().len(), 5);
+
+    let preservation = combat
+        .ability(AbilityId::new(120_012).unwrap())
+        .expect("Preservation Trailblazer Ultimate")
+        .action()
+        .expect("Preservation Trailblazer Ultimate action");
+    let HitOperationDefinition::ScalingDamage(preservation_damage) =
+        preservation.hits()[0].operations()[0]
+    else {
+        panic!("Preservation Trailblazer Ultimate must execute scaling damage");
+    };
+    assert_eq!(preservation_damage.scaling_stat(), StatKind::Def);
+
+    let joint = combat
+        .ability(AbilityId::new(120_019).unwrap())
+        .expect("Remembrance Trailblazer Joint ATK")
+        .action()
+        .expect("Remembrance Trailblazer Joint ATK action");
+    assert_eq!(joint.kind(), AbilityKind::Basic);
+    assert!(joint.tags().contains(AbilityTag::Joint));
+    assert_eq!(joint.hits().len(), 2);
+
+    let tribbie = combat
+        .ability(AbilityId::new(120_021).unwrap())
+        .expect("Tribbie follow-up")
+        .action()
+        .expect("Tribbie follow-up action");
+    assert_eq!(tribbie.kind(), AbilityKind::FollowUp);
+    let HitOperationDefinition::ScalingDamage(tribbie_damage) = tribbie.hits()[0].operations()[0]
+    else {
+        panic!("Tribbie follow-up must execute scaling damage");
+    };
+    assert_eq!(tribbie_damage.scaling_stat(), StatKind::Hp);
+
+    let welt = combat
+        .ability(AbilityId::new(120_027).unwrap())
+        .expect("Welt bounce Skill")
+        .action()
+        .expect("Welt bounce Skill action");
+    assert_eq!(welt.hits().len(), 3);
+
+    let xueyi = combat
+        .unit(UnitDefinitionId::new(84).unwrap())
+        .expect("Xueyi form");
+    let karma = xueyi
+        .resources()
+        .iter()
+        .find(|resource| resource.stable_key() == "karma")
+        .expect("Xueyi Karma");
+    assert_eq!(karma.maximum().scaled(), 8_000_000);
+    let karmic = combat
+        .ability(AbilityId::new(120_035).unwrap())
+        .expect("Xueyi Karma follow-up")
+        .action()
+        .expect("Xueyi Karma follow-up action");
+    assert_eq!(karmic.kind(), AbilityKind::FollowUp);
+    assert_eq!(karmic.hits().len(), 3);
+    assert_eq!(
+        karmic.resources().character_resource_costs()[0].stable_key(),
+        "karma"
+    );
+    let xueyi_ultimate = combat
+        .ability(AbilityId::new(120_033).unwrap())
+        .expect("Xueyi Ultimate")
+        .action()
+        .expect("Xueyi Ultimate action");
+    let ignores_weakness = xueyi_ultimate.hits()[0]
+        .operations()
+        .iter()
+        .find_map(|operation| match operation {
+            HitOperationDefinition::ReduceToughness(reduction) => Some(reduction.ignores_weakness),
+            _ => None,
+        })
+        .expect("Xueyi Ultimate Toughness operation");
+    assert!(ignores_weakness);
+
+    let yanqing = combat
+        .ability(AbilityId::new(120_042).unwrap())
+        .expect("Yanqing follow-up")
+        .action()
+        .expect("Yanqing follow-up action");
+    assert_eq!(yanqing.kind(), AbilityKind::FollowUp);
+
+    let boon = combat
+        .ability(AbilityId::new(120_044).unwrap())
+        .expect("Yao Guang Great Boon")
+        .action()
+        .expect("Yao Guang Great Boon action");
+    assert_eq!(boon.kind(), AbilityKind::ExtraAction);
+    assert!(boon.tags().contains(AbilityTag::AdditionalDamage));
+    assert!(!boon.tags().contains(AbilityTag::Attack));
+    let HitOperationDefinition::ScalingDamage(boon_damage) = boon.hits()[0].operations()[0] else {
+        panic!("Great Boon must execute scaling damage");
+    };
+    assert_eq!(boon_damage.class(), DamageClass::Elation);
+
+    let yao_guang = combat
+        .ability(AbilityId::new(120_047).unwrap())
+        .expect("Yao Guang Elation Skill")
+        .action()
+        .expect("Yao Guang Elation Skill action");
+    assert!(yao_guang.tags().contains(AbilityTag::ElationSkill));
+    assert_eq!(yao_guang.hits().len(), 6);
+    for hit in yao_guang.hits() {
+        let HitOperationDefinition::ScalingDamage(damage) = hit.operations()[0] else {
+            panic!("Yao Guang Elation Skill must execute scaling damage");
+        };
+        assert_eq!(damage.class(), DamageClass::Elation);
+    }
+}

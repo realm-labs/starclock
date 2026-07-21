@@ -120,6 +120,14 @@ const goldenCharacterForms = new Set([
   "character.topaz-numby",
   "character.trailblazer.destruction",
   "character.trailblazer.elation",
+  "character.trailblazer.harmony",
+  "character.trailblazer.preservation",
+  "character.trailblazer.remembrance",
+  "character.tribbie",
+  "character.welt",
+  "character.xueyi",
+  "character.yanqing",
+  "character.yao-guang",
   "character.silver-wolf-lv-999",
 ]);
 
@@ -165,7 +173,7 @@ const report = {
     goal_manifest_sha256: MANIFEST_SHA,
     provenance_evidence_sha256: PROVENANCE_SHA,
     research_evidence_sha256: RESEARCH_SHA,
-    runtime_catalog: { state: "CharacterC09Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all seventy-two C01-C09 character forms; remaining character and Light Cone partitions are pending." },
+    runtime_catalog: { state: "CharacterC10Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all eighty C01-C10 character forms; the final character and all Light Cone partitions remain pending." },
   },
   summary: {
     required: entries.length,
@@ -271,7 +279,7 @@ function verifyDocumentation(categoryReports) {
   const referenceCoverage = fs.readFileSync(path.join(root, "docs", "content-reference", "coverage.md"), "utf8");
   const referenceCounts = readJson(path.join(root, "content-reference", "v4.4", "coverage.json"));
   const expectedStatus = [
-    ["Released character combat forms", 88, 78],
+    ["Released character combat forms", 88, 86],
     ["Released Light Cones", 165, 0],
     ["`standard-v1` enemies/variants", 17, 17],
     ["`standard-v1` encounters", 6, 6],
