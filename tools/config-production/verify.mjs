@@ -41,8 +41,8 @@ if (bless) {
     sora_cli_version: toolPolicy.version,
     reference_pack_sha256: "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
     goal_manifest_sha256: "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19",
-    identity_count: 4333,
-    enabled_identity_count: 4166,
+    identity_count: 4421,
+    enabled_identity_count: 4256,
     table_count: 82,
     output_digest: outputDigest,
     files: stable,
@@ -104,26 +104,26 @@ function verifyGeneratedOutput(directory) {
   const debug = path.join(directory, "debug-json");
   const counts = new Map(schema.tables.map((table) => [table.name, rows(debug, table.name).length]));
   assert(counts.get("SourceRecord") === 2 && counts.get("EvidenceRecord") === 3, "production provenance counts differ");
-  assert(counts.get("ContentIdentity") === 4333 && counts.get("ContentEvidenceBinding") === 4449 && counts.get("ConfigManifest") === 1, "production identity counts differ");
+  assert(counts.get("ContentIdentity") === 4421 && counts.get("ContentEvidenceBinding") === 4539 && counts.get("ConfigManifest") === 1, "production identity counts differ");
   for (const [name, expected] of Object.entries({
-    Ability: 639, AbilityLevelParameter: 17236, AbilityResourceDelta: 500,
+    Ability: 651, AbilityLevelParameter: 17606, AbilityResourceDelta: 513,
     AiGraph: 17, EnemyTemplate: 17, EnemyVariant: 17, Encounter: 6,
-    StandardProfile: 1, StandardScenario: 6, HitPlan: 348,
-    Character: 86, CharacterStat: 7396, CharacterResource: 45,
-    CharacterAbilityBinding: 571, TraceNode: 1582, TracePatch: 874, Eidolon: 516, EidolonPatch: 404,
-    Effect: 4, EffectGrantedAbility: 3, EffectModifierBinding: 1, ModifierDefinition: 866,
-    ModifierStackingGroup: 12, ModifierFilter: 146,
+    StandardProfile: 1, StandardScenario: 6, HitPlan: 354,
+    Character: 88, CharacterStat: 7568, CharacterResource: 46,
+    CharacterAbilityBinding: 583, TraceNode: 1618, TracePatch: 894, Eidolon: 528, EidolonPatch: 412,
+    Effect: 4, EffectGrantedAbility: 3, EffectModifierBinding: 1, ModifierDefinition: 886,
+    ModifierStackingGroup: 13, ModifierFilter: 151,
     CountdownDefinition: 1, LinkedUnitDefinition: 1,
-    Operation: 30, Program: 14, ProgramStep: 35, RuleDefinition: 3, Selector: 38,
-    StateSlot: 3, ValueExpression: 906,
+    Operation: 30, Program: 14, ProgramStep: 35, RuleDefinition: 3, Selector: 40,
+    StateSlot: 3, ValueExpression: 926,
   })) assert(counts.get(name) === expected, `${name} production count differs`);
   for (const name of ["LightCone", "LightConeStat"])
     assert((counts.get(name) ?? 0) === 0, `${name} contains premature Light Cone content`);
   const identities = rows(debug, "ContentIdentity");
   assert(identities.every((row) => value(row, "release_state") === "Released"), "production identities must be released");
-  assert(identities.filter((row) => value(row, "enabled") === true).length === 4166, "production enabled identity count differs");
+  assert(identities.filter((row) => value(row, "enabled") === true).length === 4256, "production enabled identity count differs");
   const coverage = Object.groupBy(identities, (row) => value(row, "coverage_state"));
-  assert((coverage.GoldenVerified?.length ?? 0) === 116 && (coverage.DataReady?.length ?? 0) === 4050, "character ready coverage states differ");
+  assert((coverage.GoldenVerified?.length ?? 0) === 118 && (coverage.DataReady?.length ?? 0) === 4138, "character ready coverage states differ");
   const rust = walk(path.join(directory, "rust")).filter((file) => file.endsWith(".rs")).map((file) => fs.readFileSync(file, "utf8")).join("\n");
   assert(!rust.includes("serde_json") && !rust.includes("json-debug"), "generated runtime reader gained a JSON path");
   const boundary = fs.readFileSync(path.join(root, "crates/starclock-data/src/bundle.rs"), "utf8");

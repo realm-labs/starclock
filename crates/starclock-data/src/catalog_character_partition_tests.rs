@@ -220,3 +220,60 @@ fn production_c10_executes_joint_hp_karma_and_elation_envelopes() {
         assert_eq!(damage.class(), DamageClass::Elation);
     }
 }
+
+#[test]
+fn production_c11_executes_bowstrings_counter_and_partial_energy_envelopes() {
+    use starclock_combat::{
+        AbilityId, UnitDefinitionId,
+        catalog::action::{AbilityKind, AbilityTag},
+    };
+
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let combat = catalog.combat_catalog();
+
+    let yukong = combat
+        .unit(UnitDefinitionId::new(87).unwrap())
+        .expect("Yukong form");
+    let bowstrings = yukong
+        .resources()
+        .iter()
+        .find(|resource| resource.stable_key() == "roaring-bowstrings")
+        .expect("Yukong Roaring Bowstrings");
+    assert_eq!(bowstrings.maximum().scaled(), 2_000_000);
+    let salvo = combat
+        .ability(AbilityId::new(130_004).unwrap())
+        .expect("Yukong Skill")
+        .action()
+        .expect("Yukong Skill action");
+    assert!(!salvo.tags().contains(AbilityTag::Attack));
+    let arrow = combat
+        .ability(AbilityId::new(130_005).unwrap())
+        .expect("Yukong additional damage")
+        .action()
+        .expect("Yukong additional-damage action");
+    assert_eq!(arrow.kind(), AbilityKind::ExtraAction);
+    assert!(arrow.tags().contains(AbilityTag::AdditionalDamage));
+    assert_eq!(arrow.hits().len(), 1);
+
+    let ultimate = combat
+        .ability(AbilityId::new(130_009).unwrap())
+        .expect("Yunli Ultimate")
+        .action()
+        .expect("Yunli Ultimate action");
+    assert_eq!(ultimate.resources().energy_cost().scaled(), 120_000_000);
+    assert!(!ultimate.tags().contains(AbilityTag::Attack));
+    assert!(
+        ultimate
+            .hits()
+            .iter()
+            .all(|hit| hit.operations().is_empty())
+    );
+    let counter = combat
+        .ability(AbilityId::new(130_010).unwrap())
+        .expect("Yunli Counter")
+        .action()
+        .expect("Yunli Counter action");
+    assert_eq!(counter.kind(), AbilityKind::Counter);
+    assert!(counter.tags().contains(AbilityTag::Counter));
+    assert_eq!(counter.hits().len(), 2);
+}

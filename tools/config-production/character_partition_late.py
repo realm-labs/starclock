@@ -69,7 +69,16 @@ C10_DAMAGE = {
     "character.yao-guang.ability.whistlebolt-sings-joy.normal": [("Primary", 1, 1), ("Adjacent", 2, 1)],
 }
 
-DAMAGE_BY_PARTITION = {"C09": C09_DAMAGE, "C10": C10_DAMAGE}
+C11_DAMAGE = {
+    "character.yukong.ability.arrowslinger.normal": [("Primary", 1, 1)],
+    "character.yukong.ability.diving-kestrel.ultra": [("Primary", 1, 1)],
+    "character.yukong.ability.seven-layers-one-arrow.skillp01": [("Primary", 1, 1)],
+    "character.yunli.ability.bladeborne-quake.bpskill": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.yunli.ability.flashforge.skillp01": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.yunli.ability.galespin-summersault.normal": [("Primary", 1, 1)],
+}
+
+DAMAGE_BY_PARTITION = {"C09": C09_DAMAGE, "C10": C10_DAMAGE, "C11": C11_DAMAGE}
 
 TARGET_OVERRIDES = {
     "character.the-herta.ability.hear-me-out.bpskill": "Blast",
@@ -81,6 +90,8 @@ TARGET_OVERRIDES = {
     "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01": "SingleTarget",
     "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage": "Bounce",
     "character.yao-guang.ability.whistlebolt-sings-joy.normal": "Blast",
+    "character.yukong.ability.seven-layers-one-arrow.skillp01": "SingleTarget",
+    "character.yunli.ability.earthbind-etherbreak.ultra": "Enhance",
 }
 
 ABILITY_KIND_OVERRIDES = {
@@ -93,6 +104,7 @@ ABILITY_KIND_OVERRIDES = {
     "character.tribbie.ability.busy-as-tribbie.skillp01": "FollowUp",
     "character.xueyi.ability.karmic-perpetuation.skillp01": "FollowUp",
     "character.yanqing.ability.one-with-the-sword.skillp01": "FollowUp",
+    "character.yunli.ability.flashforge.skillp01": "Counter",
 }
 
 ABILITY_TAG_MASK_OVERRIDES = {
@@ -110,6 +122,7 @@ ABILITY_TAG_MASK_OVERRIDES = {
     "character.welt.ability.time-distortion.skillp01": 1 << 8,
     "character.yao-guang.ability.behold-wherever-light-unfolds.skillp01": 1 << 8,
     "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage": 1 << 10,
+    "character.yukong.ability.seven-layers-one-arrow.skillp01": 1 << 8,
 }
 
 ABILITY_TAG_MASK_REPLACEMENTS = {
@@ -143,11 +156,17 @@ ABILITY_TAG_MASK_REPLACEMENTS = {
     "character.yao-guang.ability.hexagram-of-feathered-fortune.ultra": 1 << 3,
     "character.yao-guang.ability.let-thy-fortune-burst-in-flames.elationdamage": (1 << 0) | (1 << 10),
     "character.yao-guang.ability.untethered-glimmer-sails-far.maze": 0,
+    "character.yukong.ability.emboldening-salvo.bpskill": 1 << 2,
+    "character.yukong.ability.seven-layers-one-arrow.skillp01": (1 << 0) | (1 << 8),
+    "character.yukong.ability.windchaser.maze": 0,
+    "character.yunli.ability.earthbind-etherbreak.ultra": 1 << 3,
+    "character.yunli.ability.posterior-precedence.maze": 0,
 }
 
 CHARACTER_RESOURCES = {
     "character.the-herta": [("inspiration", "4", "0")],
     "character.xueyi": [("karma", "8", "0")],
+    "character.yukong": [("roaring-bowstrings", "2", "0")],
 }
 
 CHARACTER_RESOURCE_COSTS = {
@@ -157,6 +176,7 @@ CHARACTER_RESOURCE_COSTS = {
 
 CHARACTER_RESOURCE_GAINS = {
     "character.the-herta.ability.told-ya-magic-happens.ultra": [("inspiration", "1")],
+    "character.yukong.ability.emboldening-salvo.bpskill": [("roaring-bowstrings", "2")],
 }
 
 TEAM_RESOURCE_GAINS = {
@@ -167,6 +187,10 @@ TEAM_RESOURCE_GAINS = {
 
 ENERGY_GAIN_OVERRIDES = {
     "character.tingyun.ability.gentle-breeze.maze": "50",
+}
+
+ENERGY_COST_OVERRIDES = {
+    "character.yunli.ability.earthbind-etherbreak.ultra": "120",
 }
 
 SCALING_STATS = {

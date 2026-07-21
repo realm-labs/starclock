@@ -975,6 +975,8 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
                 "amount_decimal": V1B.canonical_decimal(amount),
             })
             delta_sequence += 1
+        if ability["id"] in LATE.ENERGY_COST_OVERRIDES:
+            rows["AbilityResourceDelta"].append({"ability_id": ability_id, "sequence": delta_sequence, "resource_kind": "Energy", "delta_kind": "Spend", "timing": "ActionStarted", "amount_decimal": LATE.ENERGY_COST_OVERRIDES[ability["id"]]}); delta_sequence += 1
         energy = ENERGY_GAIN_OVERRIDES.get(ability["id"], ability.get("energy_gain"))
         if energy not in (None, "0", 0):
             rows["AbilityResourceDelta"].append({

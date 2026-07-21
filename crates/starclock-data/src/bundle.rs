@@ -68,9 +68,9 @@ mod tests {
     fn production_bundle_exposes_the_standard_v1_metadata_boundary() {
         let metadata = inspect(PRODUCTION_BUNDLE).expect("production bundle must load");
         assert_eq!(metadata.game_version, "4.4");
-        assert_eq!(metadata.data_revision, "core-combat-v1-phase7-c10");
-        assert_eq!(metadata.identity_count, 4333);
-        assert_eq!(metadata.enabled_identity_count, 4166);
+        assert_eq!(metadata.data_revision, "core-combat-v1-phase7-c11");
+        assert_eq!(metadata.identity_count, 4421);
+        assert_eq!(metadata.enabled_identity_count, 4256);
         assert_eq!(
             metadata.coverage_manifest_sha256,
             "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19"

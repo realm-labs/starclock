@@ -9,24 +9,24 @@
     "provenance_evidence_sha256": "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466",
     "research_evidence_sha256": "00b0f3054552304f28fd32f3b2d07193eb814a764e8a152967572eee6f04a7ea",
     "runtime_catalog": {
-      "state": "CharacterC10Production",
-      "digest": "23dd3833fa236be66d096e417d1e6529d1a6aca46ed2672043368e5345dfcfe4",
-      "note": "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all eighty C01-C10 character forms; the final character and all Light Cone partitions remain pending."
+      "state": "CharacterC11Production",
+      "digest": "f4206ffdeca0ba9f652f112ee01fd71b905a70c4b50a8b524bf397f7a8fb70e0",
+      "note": "Pinned Sora production bundle contains frozen Standard-v1 and all eighty-eight released character combat forms; Light Cone partitions remain pending."
     }
   },
   "summary": {
     "required": 283,
     "accounted": 283,
-    "enabled_incomplete": 167,
-    "data_ready": 116,
-    "golden_verified": 116,
-    "data_ready_percent": "41%",
+    "enabled_incomplete": 165,
+    "data_ready": 118,
+    "golden_verified": 118,
+    "data_ready_percent": "41.7%",
     "terminal_state_counts": {
       "Cataloged": 165,
-      "Documented": 2,
+      "Documented": 0,
       "Researching": 0,
       "DataReady": 0,
-      "GoldenVerified": 116
+      "GoldenVerified": 118
     },
     "disabled_audit_only": 2
   },
@@ -36,15 +36,15 @@
       "manifest_kind": "CharacterCombatForm",
       "required": 88,
       "accounted": 88,
-      "data_ready": 86,
-      "golden_verified": 86,
-      "data_ready_percent": "97.7%",
+      "data_ready": 88,
+      "golden_verified": 88,
+      "data_ready_percent": "100%",
       "terminal_state_counts": {
         "Cataloged": 0,
-        "Documented": 2,
+        "Documented": 0,
         "Researching": 0,
         "DataReady": 0,
-        "GoldenVerified": 86
+        "GoldenVerified": 88
       },
       "disabled_audit_only": 2
     },
@@ -1603,21 +1603,16 @@
       "id": "character.yukong",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -1625,21 +1620,16 @@
       "id": "character.yunli",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -5805,8 +5795,6 @@
     "duplicate_runtime_ids": [],
     "stale_version_ids": [],
     "missing_data_ready_ids": [
-      "character.yukong",
-      "character.yunli",
       "light-cone.a-dream-scented-in-wheat",
       "light-cone.a-grounded-ascent",
       "light-cone.a-secret-vow",
@@ -5974,8 +5962,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_production_provenance_ids": [
-      "character.yukong",
-      "character.yunli",
       "light-cone.a-dream-scented-in-wheat",
       "light-cone.a-grounded-ascent",
       "light-cone.a-secret-vow",
@@ -6143,8 +6129,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_bilingual_validation_ids": [
-      "character.yukong",
-      "character.yunli",
       "light-cone.a-dream-scented-in-wheat",
       "light-cone.a-grounded-ascent",
       "light-cone.a-secret-vow",
@@ -6312,8 +6296,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_runtime_reference_ids": [
-      "character.yukong",
-      "character.yunli",
       "light-cone.a-dream-scented-in-wheat",
       "light-cone.a-grounded-ascent",
       "light-cone.a-secret-vow",
@@ -6491,7 +6473,7 @@
       {
         "label": "Released character combat forms",
         "required": 88,
-        "data_ready": 86,
+        "data_ready": 88,
         "matches": true
       },
       {
