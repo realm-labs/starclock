@@ -9,24 +9,24 @@
     "provenance_evidence_sha256": "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466",
     "research_evidence_sha256": "448a7571d103fedbb97450ff658aa52eb5a944085c731babbddf0b112e5ea374",
     "runtime_catalog": {
-      "state": "CharacterC01Production",
-      "digest": "77e8ac150bad7b3c81e93e51f01a691a9f9fc94c76756dfceaa06fe0f36218de",
-      "note": "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all eight C01 character forms; remaining character and Light Cone partitions are pending."
+      "state": "CharacterC02Production",
+      "digest": "2af0d5286f14904e0ffa2b7fba174b0aa5dd8f40edb6f5d0b42ed5e408341fac",
+      "note": "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all sixteen C01-C02 character forms; remaining character and Light Cone partitions are pending."
     }
   },
   "summary": {
     "required": 283,
     "accounted": 283,
-    "enabled_incomplete": 239,
-    "data_ready": 44,
-    "golden_verified": 44,
-    "data_ready_percent": "15.5%",
+    "enabled_incomplete": 231,
+    "data_ready": 52,
+    "golden_verified": 52,
+    "data_ready_percent": "18.4%",
     "terminal_state_counts": {
       "Cataloged": 165,
-      "Documented": 70,
+      "Documented": 62,
       "Researching": 4,
       "DataReady": 0,
-      "GoldenVerified": 44
+      "GoldenVerified": 52
     },
     "disabled_audit_only": 2
   },
@@ -36,15 +36,15 @@
       "manifest_kind": "CharacterCombatForm",
       "required": 88,
       "accounted": 88,
-      "data_ready": 14,
-      "golden_verified": 14,
-      "data_ready_percent": "15.9%",
+      "data_ready": 22,
+      "golden_verified": 22,
+      "data_ready_percent": "25%",
       "terminal_state_counts": {
         "Cataloged": 0,
-        "Documented": 70,
+        "Documented": 62,
         "Researching": 4,
         "DataReady": 0,
-        "GoldenVerified": 14
+        "GoldenVerified": 22
       },
       "disabled_audit_only": 2
     },
@@ -320,21 +320,16 @@
       "id": "character.black-swan",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -342,21 +337,16 @@
       "id": "character.blade",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -364,21 +354,16 @@
       "id": "character.boothill",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -386,21 +371,16 @@
       "id": "character.bronya",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -408,21 +388,16 @@
       "id": "character.castorice",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -430,21 +405,16 @@
       "id": "character.cerydra",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -452,21 +422,16 @@
       "id": "character.cipher",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -496,21 +461,16 @@
       "id": "character.cyrene",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Documented",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-character-combat-forms",
@@ -6224,14 +6184,6 @@
     "duplicate_runtime_ids": [],
     "stale_version_ids": [],
     "missing_data_ready_ids": [
-      "character.black-swan",
-      "character.blade",
-      "character.boothill",
-      "character.bronya",
-      "character.castorice",
-      "character.cerydra",
-      "character.cipher",
-      "character.cyrene",
       "character.dan-heng",
       "character.dan-heng-imbibitor-lunae",
       "character.dan-heng-permansor-terrae",
@@ -6465,14 +6417,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_production_provenance_ids": [
-      "character.black-swan",
-      "character.blade",
-      "character.boothill",
-      "character.bronya",
-      "character.castorice",
-      "character.cerydra",
-      "character.cipher",
-      "character.cyrene",
       "character.dan-heng",
       "character.dan-heng-imbibitor-lunae",
       "character.dan-heng-permansor-terrae",
@@ -6706,14 +6650,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_bilingual_validation_ids": [
-      "character.black-swan",
-      "character.blade",
-      "character.boothill",
-      "character.bronya",
-      "character.castorice",
-      "character.cerydra",
-      "character.cipher",
-      "character.cyrene",
       "character.dan-heng",
       "character.dan-heng-imbibitor-lunae",
       "character.dan-heng-permansor-terrae",
@@ -6947,14 +6883,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_runtime_reference_ids": [
-      "character.black-swan",
-      "character.blade",
-      "character.boothill",
-      "character.bronya",
-      "character.castorice",
-      "character.cerydra",
-      "character.cipher",
-      "character.cyrene",
       "character.dan-heng",
       "character.dan-heng-imbibitor-lunae",
       "character.dan-heng-permansor-terrae",
@@ -7198,7 +7126,7 @@
       {
         "label": "Released character combat forms",
         "required": 88,
-        "data_ready": 14,
+        "data_ready": 22,
         "matches": true
       },
       {

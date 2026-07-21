@@ -15,11 +15,11 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
     assert_eq!(
         catalog.summary(),
         CatalogSummary {
-            identity_count: 1118,
-            enabled_identity_count: 879,
-            ability_count: 165,
-            hit_plan_count: 108,
-            character_count: 14,
+            identity_count: 1475,
+            enabled_identity_count: 1244,
+            ability_count: 218,
+            hit_plan_count: 131,
+            character_count: 22,
             effect_count: 3,
             ai_graph_count: 17,
             enemy_count: 17,
@@ -462,6 +462,56 @@ fn production_c01_executes_exact_bounce_and_hp_skill_envelopes() {
 }
 
 #[test]
+fn production_c02_executes_hp_scaling_and_named_ultimate_cost_envelopes() {
+    use starclock_combat::{
+        Energy,
+        catalog::action::{AbilityKind, HitOperationDefinition},
+        modifier::model::StatKind,
+    };
+
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let combat = catalog.combat_catalog();
+
+    let blade = combat
+        .ability(starclock_combat::AbilityId::new(40_009).unwrap())
+        .expect("Blade enhanced Basic");
+    let action = blade.action().expect("Blade damage action");
+    assert_eq!(action.kind(), AbilityKind::Basic);
+    assert_eq!(action.resources().skill_point_gain(), 0);
+    assert_eq!(action.hits().len(), 2);
+    for hit in action.hits() {
+        let HitOperationDefinition::ScalingDamage(damage) = hit.operations()[0] else {
+            panic!("Blade hit must execute scaling damage");
+        };
+        assert_eq!(damage.scaling_stat(), StatKind::Hp);
+    }
+
+    let castorice = combat
+        .ability(starclock_combat::AbilityId::new(40_030).unwrap())
+        .expect("Castorice Ultimate");
+    let resources = castorice.action().expect("Castorice action").resources();
+    assert_eq!(resources.energy_cost(), Energy::ZERO);
+    assert_eq!(resources.character_resource_costs().len(), 1);
+    assert_eq!(
+        resources.character_resource_costs()[0].stable_key(),
+        "newbud"
+    );
+    assert_eq!(
+        resources.character_resource_costs()[0].amount().scaled(),
+        100_000_000
+    );
+    let form = combat
+        .unit(starclock_combat::UnitDefinitionId::new(15).unwrap())
+        .expect("Castorice form");
+    let newbud = form
+        .resources()
+        .iter()
+        .find(|resource| resource.stable_key() == "newbud")
+        .expect("Castorice Newbud");
+    assert_eq!(newbud.maximum().scaled(), 100_000_000);
+}
+
+#[test]
 fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_build::{
         ability::AbilityInvestment,
@@ -472,7 +522,7 @@ fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_combat::UnitLevel;
 
     let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
-    for raw in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 18, 27, 45, 68] {
+    for raw in (1..=19).chain([27, 45, 68]) {
         let form = starclock_combat::UnitDefinitionId::new(raw).unwrap();
         let character = catalog
             .build_catalog()

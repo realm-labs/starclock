@@ -100,6 +100,34 @@ C01_DAMAGE = {
     "character.bailu.ability.diagnostic-kick.normal": [("Primary", 1, 1)],
 }
 
+C02_DAMAGE = {
+    "character.black-swan.ability.bliss-of-otherworlds-embrace.ultra": [("All", 1, 1)],
+    "character.black-swan.ability.decadence-false-twilight.bpskill": [("Primary", 1, 1), ("Adjacent", 1, 1)],
+    "character.black-swan.ability.percipience-silent-dawn.normal": [("Primary", 1, 1)],
+    "character.blade.ability.death-sentence.ultra": [("Primary", 2, 1), ("Adjacent", 4, 1)],
+    "character.blade.ability.forest-of-swords.normal": [("Primary", 4, 1), ("Adjacent", 5, 1)],
+    "character.blade.ability.karma-wind.maze": [("All", 1, 1)],
+    "character.blade.ability.shard-sword.normal": [("Primary", 1, 1)],
+    "character.blade.ability.shuhus-gift.skillp01": [("All", 4, 1)],
+    "character.boothill.ability.dust-devils-sunset-rodeo.ultra": [("Primary", 1, 1)],
+    "character.boothill.ability.fanning-the-hammer.normal": [("Primary", 1, 1)],
+    "character.boothill.ability.skullcrush-spurs.normal": [("Primary", 1, 1)],
+    "character.bronya.ability.windrider-bullet.normal": [("Primary", 1, 1)],
+    "character.castorice.ability.boneclaw-doomdrakes-embrace.bpskill": [("All", 1, 1)],
+    "character.castorice.ability.lament-netherseas-ripple.normal": [("Primary", 1, 1)],
+    "character.castorice.ability.silence-wraithflys-caress.bpskill": [("Primary", 1, 1), ("Adjacent", 3, 1)],
+    "character.cerydra.ability.kings-castling.normal": [("Primary", 1, 1)],
+    "character.cerydra.ability.scholars-mate.ultra": [("All", 1, 1)],
+    "character.cipher.ability.hey-jackpot-for-the-taking.bpskill": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.cipher.ability.oops-a-missed-catch.normal": [("Primary", 1, 1)],
+    "character.cipher.ability.the-hospitable-dolosian.skillp01": [("Primary", 1, 1)],
+    "character.cipher.ability.yours-truly-kitty-phantom-thief.ultra": [("Primary", 1, 1), ("All", 2, 1)],
+    "character.cyrene.ability.lo-hope-takes-flight.normal": [("Primary", 1, 1)],
+    "character.cyrene.ability.to-love-and-tomorrow.normal": [("Primary", 1, 1), ("All", 3, 1)],
+}
+
+DAMAGE_BY_PARTITION = {"C01": C01_DAMAGE, "C02": C02_DAMAGE}
+
 C01_TARGET_OVERRIDES = {
     "character.acheron.ability.rainblade.ultra": "Aoe",
     "character.acheron.ability.slashed-dream-cries-in-red.ultra": "Aoe",
@@ -111,18 +139,52 @@ C01_TARGET_OVERRIDES = {
     "character.aventurine.ability.shot-loaded-right.skillp01": "Bounce",
 }
 
+C02_TARGET_OVERRIDES = {
+    "character.blade.ability.forest-of-swords.normal": "Blast",
+    "character.blade.ability.shuhus-gift.skillp01": "Aoe",
+    "character.cipher.ability.yours-truly-kitty-phantom-thief.ultra": "Blast",
+    "character.cyrene.ability.to-love-and-tomorrow.normal": "Blast",
+}
+
+TARGET_OVERRIDES = {**C01_TARGET_OVERRIDES, **C02_TARGET_OVERRIDES}
+
 C01_SCALING_STATS = {
     "character.aventurine.ability.roulette-shark.ultra": "Def",
     "character.aventurine.ability.shot-loaded-right.skillp01": "Def",
 }
 
-C01_RESOURCES = {
+C02_SCALING_STATS = {
+    "character.blade.ability.death-sentence.ultra": "Hp",
+    "character.blade.ability.forest-of-swords.normal": "Hp",
+    "character.blade.ability.shuhus-gift.skillp01": "Hp",
+    "character.castorice.ability.boneclaw-doomdrakes-embrace.bpskill": "Hp",
+    "character.castorice.ability.silence-wraithflys-caress.bpskill": "Hp",
+}
+
+SCALING_STATS = {**C01_SCALING_STATS, **C02_SCALING_STATS}
+
+ABILITY_KIND_OVERRIDES = {
+    "character.blade.ability.forest-of-swords.normal": "EnhancedBasic",
+    "character.boothill.ability.fanning-the-hammer.normal": "EnhancedBasic",
+    "character.cyrene.ability.to-love-and-tomorrow.normal": "EnhancedBasic",
+}
+
+CHARACTER_RESOURCES = {
     "character.acheron": [("slashed-dream", "9", "0")],
     "character.archer": [("charge", "4", "0")],
     "character.argenti": [("apotheosis", "10", "0")],
     "character.ashveil": [("rancor", "12", "0")],
     "character.aventurine": [("blind-bet", "10", "0")],
     "character.bailu": [("revive", "1", "1")],
+    "character.blade": [("charge", "5", "0")],
+    "character.boothill": [("pocket-trickshot", "3", "0")],
+    "character.castorice": [("newbud", "100", "0")],
+    "character.cerydra": [("charge", "6", "0")],
+    "character.cyrene": [("recollection", "24", "0")],
+}
+
+CHARACTER_RESOURCE_COSTS = {
+    "character.castorice.ability.doomshriek-dawns-chime.ultra": [("newbud", "100")],
 }
 
 
@@ -154,18 +216,18 @@ def sources(selected_ids: list[str]) -> tuple[list[dict[str, Any]], ...]:
     return tuple(result)
 
 
-def internal_maps(base: int, abilities: list[dict[str, Any]], traces: list[dict[str, Any]], eidolons: list[dict[str, Any]]) -> dict[str, dict[str, int]]:
+def internal_maps(base: int, abilities: list[dict[str, Any]], traces: list[dict[str, Any]], eidolons: list[dict[str, Any]], damage: dict[str, list[tuple[str, int, int]]]) -> dict[str, dict[str, int]]:
     return {
         "ability": {row["id"]: base + 1 + index for index, row in enumerate(sorted(abilities, key=lambda row: row["id"]))},
-        "hit_plan": {row["id"]: base + 1_001 + index for index, row in enumerate(sorted((row for row in abilities if row["id"] in C01_DAMAGE), key=lambda row: row["id"]))},
+        "hit_plan": {row["id"]: base + 1_001 + index for index, row in enumerate(sorted((row for row in abilities if row["id"] in damage), key=lambda row: row["id"]))},
         "trace": {row["id"]: base + 2_001 + index for index, row in enumerate(sorted(traces, key=lambda row: row["id"]))},
         "eidolon": {row["id"]: base + 3_001 + index for index, row in enumerate(sorted(eidolons, key=lambda row: row["id"]))},
     }
 
 
 def target_pattern(row: dict[str, Any]) -> str:
-    if row["id"] in C01_TARGET_OVERRIDES:
-        return C01_TARGET_OVERRIDES[row["id"]]
+    if row["id"] in TARGET_OVERRIDES:
+        return TARGET_OVERRIDES[row["id"]]
     return {
         "SingleEnemy": "SingleTarget", "Blast": "Blast", "AllEnemies": "Aoe",
         "RandomEnemy": "Bounce", "AllAllies": "Support", "SingleAlly": "Support",
@@ -234,7 +296,7 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
     base, selected = partition(code)
     characters, abilities, traces, eidolons = sources(selected)
     frozen = V1B.identity_map()
-    ids = internal_maps(base, abilities, traces, eidolons)
+    ids = internal_maps(base, abilities, traces, eidolons, DAMAGE_BY_PARTITION.get(code, {}))
     rows = {name: [] for name in OWNED_TABLES}
     internals = []
     selector_owner, selector_subject, stacking_group = base + 6_001, base + 6_002, base + 6_003
@@ -251,9 +313,9 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
 
     for ability in sorted(abilities, key=lambda row: row["id"]):
         ability_id = ids["ability"][ability["id"]]
-        kind = V1B.ability_kind(ability)
+        kind = ABILITY_KIND_OVERRIDES.get(ability["id"], V1B.ability_kind(ability))
         pattern = target_pattern(ability)
-        damage_shape = C01_DAMAGE.get(ability["id"], []) if code == "C01" else []
+        damage_shape = DAMAGE_BY_PARTITION.get(code, {}).get(ability["id"], [])
         internals.append(V1B.identity(ability_id, ability["id"], "Ability", ability["name_en"], ability["name_zh_cn"], "Complete prepared ability metadata, exact level parameters, resources and ordered hit structure."))
         rows["Ability"].append({
             "id": ability_id, "kind": kind, "target_pattern": pattern,
@@ -276,7 +338,7 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
                 })
         delta_sequence = 1
         skill_points = ability.get("skill_point_cost")
-        is_basic = ability["kind"] == "Normal"
+        is_basic = kind == "Basic"
         archer_skill = ability["id"] == "character.archer.ability.caladbolg-ii-fake-spiral-sword.bpskill"
         if is_basic or archer_skill or (skill_points is not None and Decimal(str(skill_points)) > 0):
             spend = archer_skill or (skill_points is not None and Decimal(str(skill_points)) > 0)
@@ -286,6 +348,14 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
                 "resource_kind": "SkillPoints", "delta_kind": "Spend" if spend else "Gain",
                 "timing": "ActionStarted" if spend else "AbilityResolved",
                 "amount_decimal": V1B.canonical_decimal(abs(amount)),
+            })
+            delta_sequence += 1
+        for resource_key, amount in CHARACTER_RESOURCE_COSTS.get(ability["id"], []):
+            rows["AbilityResourceDelta"].append({
+                "ability_id": ability_id, "sequence": delta_sequence,
+                "resource_kind": "CharacterResource", "character_resource_key": resource_key,
+                "delta_kind": "Spend", "timing": "ActionStarted",
+                "amount_decimal": V1B.canonical_decimal(amount),
             })
             delta_sequence += 1
         energy = ability.get("energy_gain")
@@ -320,7 +390,7 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
             rows["AbilityHitPlanBinding"].append({
                 "ability_id": ability_id, "phase_sequence": 1, "hit_plan_id": plan_id,
                 "damage_parameter_key": f"parameter.{expanded[0][1]:02d}",
-                "damage_scaling_stat": C01_SCALING_STATS.get(ability["id"], "Atk"),
+                "damage_scaling_stat": SCALING_STATS.get(ability["id"], "Atk"),
                 "damage_class": "Ordinary", "element": next(row["element"] for row in characters if row["id"] == ability["character_id"]),
             })
 
@@ -335,7 +405,7 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
     for character in sorted(characters, key=lambda row: row["id"]):
         character_id = frozen[character["id"]]
         path = {"The Hunt": "Hunt", "Warrior": "Destruction"}.get(character["path"], character["path"])
-        rows["Character"].append({"id": character_id, "rarity": character["rarity"], "path": path, "element": character["element"], "base_energy_decimal": character["max_energy"], "base_aggro_decimal": character["promotions"][0]["aggro"]})
+        rows["Character"].append({"id": character_id, "rarity": character["rarity"], "path": path, "element": character["element"], "base_energy_decimal": character["max_energy"] or "0", "base_aggro_decimal": character["promotions"][0]["aggro"]})
         for promotion, stat in enumerate(character["promotions"]):
             first_level = 1 if promotion == 0 else promotion * 10 + 10
             # ExactPreviousRelease rows carry an explicit promotion ordinal;
@@ -350,7 +420,7 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
                     "def_decimal": V1B.canonical_decimal(Decimal(stat["def_base"]) + Decimal(stat["def_per_level"]) * offset),
                     "spd_decimal": V1B.canonical_decimal(stat["spd"]),
                 })
-        for sequence, (key, maximum, initial) in enumerate(C01_RESOURCES.get(character["id"], []), start=1):
+        for sequence, (key, maximum, initial) in enumerate(CHARACTER_RESOURCES.get(character["id"], []), start=1):
             rows["CharacterResource"].append({"character_id": character_id, "sequence": sequence, "stable_key": key, "maximum_decimal": maximum, "initial_decimal": initial})
 
     point_to_trace = {source_id: row["id"] for row in traces for source_id in row["source_point_ids"]}
@@ -423,7 +493,11 @@ def owned_predicate(name: str, base: int, selected: list[str]) -> Callable[[dict
 def merged_table(name: str, authored: list[dict[str, Any]], base: int, selected: list[str]) -> list[dict[str, Any]]:
     _, existing = V1B.workbook_rows(name)
     owns = owned_predicate(name, base, selected)
-    return [dict(row) for row in existing if not owns(row)] + authored
+    owned_positions = [index for index, row in enumerate(existing) if owns(row)]
+    insertion = min(owned_positions) if owned_positions else len(existing)
+    retained = [dict(row) for row in existing if not owns(row)]
+    retained[insertion:insertion] = authored
+    return retained
 
 
 def update_metadata(code: str, internals: list[dict[str, Any]], source_rows: list[dict[str, Any]], selected: list[str], base: int) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
@@ -471,8 +545,8 @@ def main() -> None:
     _, manifest_rows = V1B.workbook_rows("ConfigManifest")
     if len(manifest_rows) != 1:
         raise ValueError("production ConfigManifest must remain a singleton")
-    manifest_rows[0]["data_revision"] = f"core-combat-v1-phase7-{code.lower()}"
     if args.write:
+        manifest_rows[0]["data_revision"] = f"core-combat-v1-phase7-{code.lower()}"
         for name in OWNED_TABLES:
             V1B.write_rows(name, expected[name])
         V1B.write_rows("ContentIdentity", identities)
