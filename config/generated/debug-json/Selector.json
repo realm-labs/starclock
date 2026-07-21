@@ -2521,6 +2521,96 @@
           },
           "weight_expression_id": "Null"
         }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 296001
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "StableId"
+          },
+          "origin": {
+            "String": "Owner"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "allow_repeated_targets": {
+            "Bool": false
+          },
+          "choice": {
+            "String": "First"
+          },
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_pool_policy": {
+            "String": "Fault"
+          },
+          "id": {
+            "Integer": 296002
+          },
+          "life": {
+            "String": "Alive"
+          },
+          "maximum_count": {
+            "Integer": 1
+          },
+          "minimum_count": {
+            "Integer": 1
+          },
+          "ordering": {
+            "String": "StableId"
+          },
+          "origin": {
+            "String": "CurrentSubject"
+          },
+          "presence": {
+            "String": "Present"
+          },
+          "reference_point": {
+            "String": "CurrentState"
+          },
+          "rng_purpose_key": "Null",
+          "side_relationship": {
+            "String": "SameSide"
+          },
+          "weight_expression_id": "Null"
+        }
       }
     ]
   }

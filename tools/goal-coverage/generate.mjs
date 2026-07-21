@@ -262,6 +262,22 @@ const goldenLightCones = new Set([
   "light-cone.texture-of-memories",
   "light-cone.the-birth-of-the-self",
   "light-cone.the-day-the-cosmos-fell",
+  "light-cone.the-finale-of-a-lie",
+  "light-cone.the-flower-remembers",
+  "light-cone.the-forever-victual",
+  "light-cone.the-great-cosmic-enterprise",
+  "light-cone.the-hell-where-ideals-burn",
+  "light-cone.the-moles-welcome-you",
+  "light-cone.the-seriousness-of-breakfast",
+  "light-cone.the-storys-next-page",
+  "light-cone.the-unreachable-side",
+  "light-cone.this-is-me",
+  "light-cone.this-love-forever",
+  "light-cone.those-many-springs",
+  "light-cone.though-worlds-apart",
+  "light-cone.thus-burns-the-dawn",
+  "light-cone.time-waits-for-no-one",
+  "light-cone.time-woven-into-gold",
 ]);
 
 const categories = [];
@@ -311,7 +327,7 @@ const report = {
     goal_manifest_sha256: MANIFEST_SHA,
     provenance_evidence_sha256: PROVENANCE_SHA,
     research_evidence_sha256: RESEARCH_SHA,
-    runtime_catalog: { state: "LightConeL08Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and the first one hundred twenty-eight released Light Cones through S5." },
+    runtime_catalog: { state: "LightConeL09Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and the first one hundred forty-four released Light Cones through S5." },
   },
   summary: {
     required: entries.length,
@@ -418,7 +434,7 @@ function verifyDocumentation(categoryReports) {
   const referenceCounts = readJson(path.join(root, "content-reference", "v4.4", "coverage.json"));
   const expectedStatus = [
     ["Released character combat forms", 88, 88],
-    ["Released Light Cones", 165, 128],
+    ["Released Light Cones", 165, 144],
     ["`standard-v1` enemies/variants", 17, 17],
     ["`standard-v1` encounters", 6, 6],
     ["`standard-v1` scenarios", 6, 6],
