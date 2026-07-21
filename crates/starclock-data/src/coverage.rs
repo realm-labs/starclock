@@ -203,9 +203,9 @@ mod tests {
         let catalog = crate::catalog::load(PRODUCTION_BUNDLE).unwrap();
         let report = catalog.goal_coverage();
         assert_eq!(report.required(), 283);
-        assert_eq!(report.enabled(), 262);
-        assert_eq!(report.data_ready(), 262);
-        assert_eq!(report.golden_verified(), 262);
+        assert_eq!(report.enabled(), 278);
+        assert_eq!(report.data_ready(), 278);
+        assert_eq!(report.golden_verified(), 278);
         assert_eq!(
             report
                 .category(GoalCoverageCategory::ReleasedCharacterCombatForms)
@@ -228,7 +228,7 @@ mod tests {
             report
                 .category(GoalCoverageCategory::ReleasedLightCones)
                 .data_ready(),
-            144
+            160
         );
         assert_eq!(
             report

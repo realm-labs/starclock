@@ -9,24 +9,24 @@
     "provenance_evidence_sha256": "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466",
     "research_evidence_sha256": "5625e2c5483cf97f597e52da8af7e17d52af1e6cc5beeadbd5501ed3e6247cfb",
     "runtime_catalog": {
-      "state": "LightConeL09Production",
-      "digest": "486b686149592765d73d6d761e97c2256857b2a8ecb2739b901b0731612c0631",
-      "note": "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and the first one hundred forty-four released Light Cones through S5."
+      "state": "LightConeL10Production",
+      "digest": "7d68bfac9161f450e4160a24974fddd5ea3789f26086a15b7230df4268fa527a",
+      "note": "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and the first one hundred sixty released Light Cones through S5."
     }
   },
   "summary": {
     "required": 283,
     "accounted": 283,
-    "enabled_incomplete": 21,
-    "data_ready": 262,
-    "golden_verified": 262,
-    "data_ready_percent": "92.6%",
+    "enabled_incomplete": 5,
+    "data_ready": 278,
+    "golden_verified": 278,
+    "data_ready_percent": "98.2%",
     "terminal_state_counts": {
-      "Cataloged": 21,
+      "Cataloged": 5,
       "Documented": 0,
       "Researching": 0,
       "DataReady": 0,
-      "GoldenVerified": 262
+      "GoldenVerified": 278
     },
     "disabled_audit_only": 2
   },
@@ -53,15 +53,15 @@
       "manifest_kind": "LightCone",
       "required": 165,
       "accounted": 165,
-      "data_ready": 144,
-      "golden_verified": 144,
-      "data_ready_percent": "87.3%",
+      "data_ready": 160,
+      "golden_verified": 160,
+      "data_ready_percent": "97%",
       "terminal_state_counts": {
-        "Cataloged": 21,
+        "Cataloged": 5,
         "Documented": 0,
         "Researching": 0,
         "DataReady": 0,
-        "GoldenVerified": 144
+        "GoldenVerified": 160
       },
       "disabled_audit_only": 0
     },
@@ -4085,21 +4085,16 @@
       "id": "light-cone.to-evernights-stars",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4107,21 +4102,16 @@
       "id": "light-cone.today-is-another-peaceful-day",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4129,21 +4119,16 @@
       "id": "light-cone.todays-good-luck",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4151,21 +4136,16 @@
       "id": "light-cone.tomorrow-together",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4173,21 +4153,16 @@
       "id": "light-cone.trend-of-the-universal-market",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4195,21 +4170,16 @@
       "id": "light-cone.under-the-blue-sky",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4217,21 +4187,16 @@
       "id": "light-cone.until-the-flowers-bloom-again",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4239,21 +4204,16 @@
       "id": "light-cone.unto-tomorrows-morrow",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4261,21 +4221,16 @@
       "id": "light-cone.victory-in-a-blink",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4283,21 +4238,16 @@
       "id": "light-cone.void",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4305,21 +4255,16 @@
       "id": "light-cone.warmth-shortens-cold-nights",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4327,21 +4272,16 @@
       "id": "light-cone.we-are-wildfire",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4349,21 +4289,16 @@
       "id": "light-cone.we-will-meet-again",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4371,21 +4306,16 @@
       "id": "light-cone.welcome-to-the-cosmic-city",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4393,21 +4323,16 @@
       "id": "light-cone.what-is-real",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -4415,21 +4340,16 @@
       "id": "light-cone.when-she-decided-to-see",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -5075,22 +4995,6 @@
     "duplicate_runtime_ids": [],
     "stale_version_ids": [],
     "missing_data_ready_ids": [
-      "light-cone.to-evernights-stars",
-      "light-cone.today-is-another-peaceful-day",
-      "light-cone.todays-good-luck",
-      "light-cone.tomorrow-together",
-      "light-cone.trend-of-the-universal-market",
-      "light-cone.under-the-blue-sky",
-      "light-cone.until-the-flowers-bloom-again",
-      "light-cone.unto-tomorrows-morrow",
-      "light-cone.victory-in-a-blink",
-      "light-cone.void",
-      "light-cone.warmth-shortens-cold-nights",
-      "light-cone.we-are-wildfire",
-      "light-cone.we-will-meet-again",
-      "light-cone.welcome-to-the-cosmic-city",
-      "light-cone.what-is-real",
-      "light-cone.when-she-decided-to-see",
       "light-cone.whereabouts-should-dreams-rest",
       "light-cone.why-does-the-ocean-sing",
       "light-cone.woof-walk-time",
@@ -5098,22 +5002,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_production_provenance_ids": [
-      "light-cone.to-evernights-stars",
-      "light-cone.today-is-another-peaceful-day",
-      "light-cone.todays-good-luck",
-      "light-cone.tomorrow-together",
-      "light-cone.trend-of-the-universal-market",
-      "light-cone.under-the-blue-sky",
-      "light-cone.until-the-flowers-bloom-again",
-      "light-cone.unto-tomorrows-morrow",
-      "light-cone.victory-in-a-blink",
-      "light-cone.void",
-      "light-cone.warmth-shortens-cold-nights",
-      "light-cone.we-are-wildfire",
-      "light-cone.we-will-meet-again",
-      "light-cone.welcome-to-the-cosmic-city",
-      "light-cone.what-is-real",
-      "light-cone.when-she-decided-to-see",
       "light-cone.whereabouts-should-dreams-rest",
       "light-cone.why-does-the-ocean-sing",
       "light-cone.woof-walk-time",
@@ -5121,22 +5009,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_bilingual_validation_ids": [
-      "light-cone.to-evernights-stars",
-      "light-cone.today-is-another-peaceful-day",
-      "light-cone.todays-good-luck",
-      "light-cone.tomorrow-together",
-      "light-cone.trend-of-the-universal-market",
-      "light-cone.under-the-blue-sky",
-      "light-cone.until-the-flowers-bloom-again",
-      "light-cone.unto-tomorrows-morrow",
-      "light-cone.victory-in-a-blink",
-      "light-cone.void",
-      "light-cone.warmth-shortens-cold-nights",
-      "light-cone.we-are-wildfire",
-      "light-cone.we-will-meet-again",
-      "light-cone.welcome-to-the-cosmic-city",
-      "light-cone.what-is-real",
-      "light-cone.when-she-decided-to-see",
       "light-cone.whereabouts-should-dreams-rest",
       "light-cone.why-does-the-ocean-sing",
       "light-cone.woof-walk-time",
@@ -5144,22 +5016,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_runtime_reference_ids": [
-      "light-cone.to-evernights-stars",
-      "light-cone.today-is-another-peaceful-day",
-      "light-cone.todays-good-luck",
-      "light-cone.tomorrow-together",
-      "light-cone.trend-of-the-universal-market",
-      "light-cone.under-the-blue-sky",
-      "light-cone.until-the-flowers-bloom-again",
-      "light-cone.unto-tomorrows-morrow",
-      "light-cone.victory-in-a-blink",
-      "light-cone.void",
-      "light-cone.warmth-shortens-cold-nights",
-      "light-cone.we-are-wildfire",
-      "light-cone.we-will-meet-again",
-      "light-cone.welcome-to-the-cosmic-city",
-      "light-cone.what-is-real",
-      "light-cone.when-she-decided-to-see",
       "light-cone.whereabouts-should-dreams-rest",
       "light-cone.why-does-the-ocean-sing",
       "light-cone.woof-walk-time",
@@ -5183,7 +5039,7 @@
       {
         "label": "Released Light Cones",
         "required": 165,
-        "data_ready": 144,
+        "data_ready": 160,
         "matches": true
       },
       {
