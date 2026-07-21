@@ -294,6 +294,11 @@ const goldenLightCones = new Set([
   "light-cone.welcome-to-the-cosmic-city",
   "light-cone.what-is-real",
   "light-cone.when-she-decided-to-see",
+  "light-cone.whereabouts-should-dreams-rest",
+  "light-cone.why-does-the-ocean-sing",
+  "light-cone.woof-walk-time",
+  "light-cone.worrisome-blissful",
+  "light-cone.yet-hope-is-priceless",
 ]);
 
 const categories = [];
@@ -343,7 +348,7 @@ const report = {
     goal_manifest_sha256: MANIFEST_SHA,
     provenance_evidence_sha256: PROVENANCE_SHA,
     research_evidence_sha256: RESEARCH_SHA,
-    runtime_catalog: { state: "LightConeL10Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and the first one hundred sixty released Light Cones through S5." },
+    runtime_catalog: { state: "LightConeL11Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and all one hundred sixty-five released Light Cones through S5." },
   },
   summary: {
     required: entries.length,
@@ -450,7 +455,7 @@ function verifyDocumentation(categoryReports) {
   const referenceCounts = readJson(path.join(root, "content-reference", "v4.4", "coverage.json"));
   const expectedStatus = [
     ["Released character combat forms", 88, 88],
-    ["Released Light Cones", 165, 160],
+    ["Released Light Cones", 165, 165],
     ["`standard-v1` enemies/variants", 17, 17],
     ["`standard-v1` encounters", 6, 6],
     ["`standard-v1` scenarios", 6, 6],
