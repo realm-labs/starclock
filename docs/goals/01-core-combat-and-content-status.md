@@ -326,46 +326,46 @@ Change an item to `[x]` only with evidence in this file.
 - [x] Pinned dependencies/tools have purpose, license, deterministic-impact and
       compile-cost records; the Sora 0.3.0 golden project proves every relied-on
       command, schema and export capability before production schemas.
-- [ ] Fixed-point, RNG, canonical codec and state hashing pass cross-platform
+- [x] Fixed-point, RNG, canonical codec and state hashing pass cross-platform
       golden vectors.
-- [ ] Canonical hashing streams through the shared encoder, and accepted-command
+- [x] Canonical hashing streams through the shared encoder, and accepted-command
       transactions reuse bounded battle-local scratch only after legality
       validation while preserving rollback/fault hashes.
 - [x] Core formula, timeline, effect, Toughness, lifecycle and rule suites pass.
 - [x] Asta, Kafka, Clara, Firefly, Aglaea and cross-kit Elation V1a probes pass
       through the production Excel/Sora-to-domain boundary without entering
       production coverage.
-- [ ] Standard single-wave, multi-wave, elite and multi-phase boss scenarios run
+- [x] Standard single-wave, multi-wave, elite and multi-phase boss scenarios run
       from build selection to terminal battle result.
-- [ ] CLI configuration validation, coverage, battle run and replay verification
+- [x] CLI configuration validation, coverage, battle run and replay verification
       pass from a clean checkout.
-- [ ] Released character combat-form manifest is 100% `DataReady`, including
+- [x] Released character combat-form manifest is 100% `DataReady`, including
       abilities, Techniques, Traces and E1-E6.
-- [ ] Released Light Cone manifest is 100% `DataReady`, including levels,
+- [x] Released Light Cone manifest is 100% `DataReady`, including levels,
       promotions and S1-S5.
-- [ ] `standard-v1` enemy, encounter and scenario manifests are 100% `DataReady`.
-- [ ] All required bilingual fields, provenance and evidence hashes validate.
+- [x] `standard-v1` enemy, encounter and scenario manifests are 100% `DataReady`.
+- [x] All required bilingual fields, provenance and evidence hashes validate.
 - [x] Sora/Excel export and generated outputs reproduce without drift.
-- [ ] Manifest-wide E0/S1 and E6/S5 build compilation passes.
-- [ ] Baseline controller decisions and replay hashes are deterministic.
+- [x] Manifest-wide E0/S1 and E6/S5 build compilation passes.
+- [x] Baseline controller decisions and replay hashes are deterministic.
 - [x] Committed Windows/Linux/macOS CI workflows distinguish native execution
       from compile-only CPU coverage and retain golden evidence.
-- [ ] Versioned Standard/server-verification workloads satisfy the reviewed
+- [x] Versioned Standard/server-verification workloads satisfy the reviewed
       stable-runner budgets for incremental latency, 100/500-command one-shot
       replay throughput, commands/second/core, concurrent isolated jobs, peak
       bytes/job, allocations, state-copy/hash cost and journal growth.
-- [ ] Formatting, clippy, workspace tests, source-size and public-API audits pass.
-- [ ] No excluded universe, challenge, UI, account or full relic/enemy dataset is
+- [x] Formatting, clippy, workspace tests, source-size and public-API audits pass.
+- [x] No excluded universe, challenge, UI, account or full relic/enemy dataset is
       claimed as part of Goal 01.
-- [ ] Clean-checkout acceptance report is committed and linked here.
+- [x] Clean-checkout acceptance report is committed and linked here.
 
 ## Completion record
 
 | Field | Value |
 |---|---|
-| Final state | Not complete |
-| Completion commit | — |
-| Catalog digest | — |
-| Clean-checkout report | — |
-| Cross-platform report | — |
-| Remaining required work | All execution phases |
+| Final state | `Complete` |
+| Completion commit | `453f76e2c98a896d3166e2a57364941ceea86ee2` (`G01-P8-B7`) |
+| Catalog digest | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
+| Clean-checkout report | [Goal 01 release evidence](../../evidence/core-combat-v1/release/release-evidence.json) |
+| Cross-platform report | [CI golden matrix](../../evidence/core-combat-v1/hardening/ci-golden-matrix.json) |
+| Remaining required work | None within Goal 01; excluded modes and datasets require later goals. |

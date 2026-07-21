@@ -15,6 +15,20 @@ assert(policy.cli_schema_revision === "starclock-cli-v1", "CLI schema differs");
 assert(JSON.stringify(policy.cli_commands) === JSON.stringify(["config validate", "catalog coverage", "battle run", "replay verify"]), "CLI command surface differs");
 assert(JSON.stringify(policy.cli_exit_codes) === JSON.stringify([0, 2, 3, 4, 5, 6, 7]), "CLI exit classes differ");
 
+const goalStatus = readText("docs/goals/01-core-combat-and-content-status.md");
+assert(goalStatus.includes("| State | `Complete` |"), "Goal 01 state is not Complete");
+assert(goalStatus.includes("| `G01-P8-B7` | `Complete` |"), "Goal 01 final batch is not Complete");
+assert((goalStatus.match(/^\| Phase [0-8].*\| `Complete` \|/gm) ?? []).length === 9, "not every Goal 01 phase is Complete");
+assert(!goalStatus.includes("- [ ]"), "Goal 01 terminal checklist has unchecked items");
+assert(goalStatus.includes("| Final state | `Complete` |"), "Goal 01 completion record is not Complete");
+assert(goalStatus.includes(`| Catalog digest | \`${policy.production.bundle_sha256}\` |`), "Goal 01 completion catalog digest differs");
+assert(goalStatus.includes("[Goal 01 release evidence](../../evidence/core-combat-v1/release/release-evidence.json)"), "Goal 01 clean-checkout evidence link is missing");
+assert(goalStatus.includes("[CI golden matrix](../../evidence/core-combat-v1/hardening/ci-golden-matrix.json)"), "Goal 01 cross-platform evidence link is missing");
+assert(goalStatus.includes("| Remaining required work | None within Goal 01;"), "Goal 01 still records required work");
+const completionCommit = goalStatus.match(/\| Completion commit \| `([0-9a-f]{40})` \(`G01-P8-B7`\) \|/);
+assert(completionCommit !== null, "Goal 01 completion commit is missing or malformed");
+execFileSync("git", ["cat-file", "-e", `${completionCommit[1]}^{commit}`], { cwd: root, stdio: "ignore" });
+
 for (const group of [policy.cli_contract_files, policy.library_contract_files, policy.documentation_files, policy.hardening_evidence]) validateReferences(group);
 assert(policy.cli_contract_files.length === 5, "CLI contract inventory differs");
 assert(policy.library_contract_files.length === 16, "library contract inventory differs");
