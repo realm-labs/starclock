@@ -285,9 +285,38 @@ C07_DAMAGE = {
     "character.robin.ability.wingflip-white-noise.normal": [("Primary", 1, 1)],
 }
 
+C08_DAMAGE = {
+    "character.ruan-mei.ability.threading-fragrance.normal": [("Primary", 1, 1)],
+    "character.saber.ability.excalibur.ultra": [("All", 1, 1), ("BounceDraw", 2, 10)],
+    "character.saber.ability.invisible-air-barrier-of-the-wind-king.normal": [("Primary", 1, 1)],
+    "character.saber.ability.release-the-golden-scepter.normal": [("All", 1, 1)],
+    "character.saber.ability.strike-air-hammer-of-the-wind-king.bpskill": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.sampo.ability.dazzling-blades.normal": [("Primary", 1, 1)],
+    "character.sampo.ability.ricochet-love.bpskill": [("Primary", 2, 1), ("BounceDraw", 2, 4)],
+    "character.sampo.ability.surprise-present.ultra": [("All", 1, 1)],
+    "character.seele.ability.butterfly-flurry.ultra": [("Primary", 1, 1)],
+    "character.seele.ability.sheathed-blade.bpskill": [("Primary", 1, 1)],
+    "character.seele.ability.thwack.normal": [("Primary", 1, 1)],
+    "character.serval.ability.galvanic-chords.skillp01": [("All", 1, 1)],
+    "character.serval.ability.good-night-belobog.maze": [("BounceDraw", 4, 1)],
+    "character.serval.ability.here-comes-the-mechanical-fever.ultra": [("All", 1, 1)],
+    "character.serval.ability.lightning-flash.bpskill": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.serval.ability.roaring-thunderclap.normal": [("Primary", 1, 1)],
+    "character.silver-wolf.ability.allow-changes.bpskill": [("Primary", 1, 1)],
+    "character.silver-wolf.ability.force-quit-program.maze": [("All", 1, 1)],
+    "character.silver-wolf.ability.system-warning.normal": [("Primary", 1, 1)],
+    "character.silver-wolf.ability.user-banned.ultra": [("Primary", 1, 1)],
+    "character.sparkle.ability.monodrama.normal": [("Primary", 1, 1)],
+    "character.sparxie.ability.bloom-winner-takes-all.normal": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.sparxie.ability.cat-got-your-flametongue.normal": [("Primary", 1, 1)],
+    "character.sparxie.ability.content-monetization.maze": [("All", 2, 1)],
+    "character.sparxie.ability.partys-wildin-and-cameras-rollin.ultra": [("All", 2, 1)],
+    "character.sparxie.ability.signal-overflow-the-great-encore.elationdamage": [("All", 2, 1), ("BounceDraw", 1, 20)],
+}
+
 DAMAGE_BY_PARTITION = {
     "C01": C01_DAMAGE, "C02": C02_DAMAGE, "C03": C03_DAMAGE, "C04": C04_DAMAGE,
-    "C05": C05_DAMAGE, "C06": C06_DAMAGE, "C07": C07_DAMAGE,
+    "C05": C05_DAMAGE, "C06": C06_DAMAGE, "C07": C07_DAMAGE, "C08": C08_DAMAGE,
 }
 
 C01_TARGET_OVERRIDES = {
@@ -343,10 +372,18 @@ C07_TARGET_OVERRIDES = {
     "character.rappa.ability.ningu-demonbane-petalblade.normal": "Blast",
 }
 
+C08_TARGET_OVERRIDES = {
+    "character.saber.ability.excalibur.ultra": "Bounce",
+    "character.serval.ability.galvanic-chords.skillp01": "Aoe",
+    "character.serval.ability.good-night-belobog.maze": "Bounce",
+    "character.sparkle.ability.dreamdiver.bpskill": "Support",
+    "character.sparxie.ability.signal-overflow-the-great-encore.elationdamage": "Bounce",
+}
+
 TARGET_OVERRIDES = {
     **C01_TARGET_OVERRIDES, **C02_TARGET_OVERRIDES, **C03_TARGET_OVERRIDES,
     **C04_TARGET_OVERRIDES, **C05_TARGET_OVERRIDES, **C06_TARGET_OVERRIDES,
-    **C07_TARGET_OVERRIDES,
+    **C07_TARGET_OVERRIDES, **C08_TARGET_OVERRIDES,
 }
 
 C01_SCALING_STATS = {
@@ -416,6 +453,10 @@ ABILITY_KIND_OVERRIDES = {
     "character.phainon.ability.foundation-stardeath-verdict.bpskill": "EnhancedSkill",
     "character.qingque.ability.cherry-on-top.normal": "EnhancedBasic",
     "character.rappa.ability.ningu-demonbane-petalblade.normal": "EnhancedBasic",
+    "character.saber.ability.release-the-golden-scepter.normal": "EnhancedBasic",
+    "character.sparxie.ability.bloom-winner-takes-all.normal": "EnhancedBasic",
+    "character.sparxie.ability.boom-sparxicles-poppin.bpskill": "Passive",
+    "character.sparxie.ability.engagement-farming.bpskill": "Passive",
 }
 
 ABILITY_TAG_MASK_OVERRIDES = {
@@ -432,12 +473,45 @@ ABILITY_TAG_MASK_OVERRIDES = {
     "character.rappa.ability.ningu-demonbane-petalblade.normal": 1 << 0,
     # Robin's Ultimate enables an additional-damage instance after ally attacks.
     "character.robin.ability.vox-harmonique-opus-cosmique.ultra": 1 << 8,
+    # Galvanic Chords is the damage instance that follows Serval's attack.
+    "character.serval.ability.galvanic-chords.skillp01": 1 << 8,
+    # Sparxie's forced Aha action is an Elation Skill, independent of family.
+    "character.sparxie.ability.signal-overflow-the-great-encore.elationdamage": 1 << 10,
+}
+
+ABILITY_TAG_MASK_REPLACEMENTS = {
+    # These support/setup abilities mention downstream damage but do not
+    # themselves execute an attack.
+    "character.ruan-mei.ability.petals-to-stream-repose-in-dream.ultra": 1 << 3,
+    "character.ruan-mei.ability.silken-serenade.maze": 0,
+    "character.ruan-mei.ability.somatotypical-helix.skillp01": 0,
+    "character.ruan-mei.ability.string-sings-slow-swirls.bpskill": 1 << 2,
+    "character.saber.ability.dragon-reactor-core.talent": 0,
+    "character.sparkle.ability.dreamdiver.bpskill": 1 << 2,
+    "character.sparkle.ability.red-herring.skillp01": 0,
+    "character.sparkle.ability.the-hero-with-a-thousand-faces.ultra": 1 << 3,
+    "character.sparxie.ability.boom-sparxicles-poppin.bpskill": 0,
+    "character.sparxie.ability.engagement-farming.bpskill": 0,
+    # Sleight of Sparx Hand emits additional Elation damage after the authored
+    # enhanced Basic or Ultimate trigger.
+    "character.sparxie.ability.sleight-of-sparx-hand.skillp01": (1 << 0) | (1 << 8) | (1 << 10),
 }
 
 SKILL_POINT_COST_OVERRIDES = {
     "character.dan-heng-imbibitor-lunae.ability.transcendence.normal": "1",
     "character.dan-heng-imbibitor-lunae.ability.divine-spear.normal": "2",
     "character.dan-heng-imbibitor-lunae.ability.fulgurant-leap.normal": "3",
+}
+
+SKILL_POINT_GAIN_OVERRIDES = {
+    "character.sparkle.ability.the-hero-with-a-thousand-faces.ultra": "4",
+    "character.sparkle.ability.unreliable-narrator.maze": "3",
+    "character.sparxie.ability.bloom-winner-takes-all.normal": "1",
+    "character.sparxie.ability.content-monetization.maze": "2",
+}
+
+IGNORES_WEAKNESS = {
+    "character.silver-wolf.ability.force-quit-program.maze",
 }
 
 CHARACTER_RESOURCES = {
@@ -475,6 +549,7 @@ CHARACTER_RESOURCES = {
     "character.phainon": [("coreflame", "15", "0")],
     "character.qingque": [("jade-tiles", "4", "0")],
     "character.rappa": [("chroma-ink", "3", "0"), ("charge", "10", "0")],
+    "character.saber": [("core-resonance", "99", "1")],
 }
 
 CHARACTER_RESOURCE_COSTS = {
@@ -513,6 +588,7 @@ CHARACTER_RESOURCE_GAINS = {
     "character.qingque.ability.a-scoop-of-moon.bpskill": [("jade-tiles", "2")],
     "character.qingque.ability.game-solitaire.maze": [("jade-tiles", "2")],
     "character.rappa.ability.nindo-supreme-aishiteru.ultra": [("chroma-ink", "3")],
+    "character.saber.ability.behold-the-king-of-knights.maze": [("core-resonance", "2")],
 }
 
 TEAM_RESOURCE_COSTS = {
@@ -523,6 +599,7 @@ TEAM_RESOURCE_COSTS = {
 
 TEAM_RESOURCE_GAINS = {
     "character.himeko-nova.ability.upraise-the-vanward-cresset.bpskill": [("assist-use", "4")],
+    "character.sparxie.ability.partys-wildin-and-cameras-rollin.ultra": [("shared.punchline", "2")],
 }
 
 BASE_ENERGY_OVERRIDES = {
@@ -816,9 +893,10 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
             "retarget_policy": "RecomputeEachHit" if pattern == "Bounce" else "CancelRemaining",
             "level_cap": max(1, int(ability["max_level"] or 1)),
             "cooldown_actions": max(0, int(ability.get("cooldown") or 0)),
-            "semantic_tags_mask": (
+            "semantic_tags_mask": ABILITY_TAG_MASK_REPLACEMENTS.get(
+                ability["id"],
                 V1B.semantic_mask(kind, ability)
-                | ABILITY_TAG_MASK_OVERRIDES.get(ability["id"], 0)
+                | ABILITY_TAG_MASK_OVERRIDES.get(ability["id"], 0),
             ),
         })
         rows["CharacterAbilityBinding"].append({
@@ -845,6 +923,14 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
                 "resource_kind": "SkillPoints", "delta_kind": "Spend" if spend else "Gain",
                 "timing": "ActionStarted" if spend else "AbilityResolved",
                 "amount_decimal": V1B.canonical_decimal(abs(amount)),
+            })
+            delta_sequence += 1
+        if ability["id"] in SKILL_POINT_GAIN_OVERRIDES:
+            rows["AbilityResourceDelta"].append({
+                "ability_id": ability_id, "sequence": delta_sequence,
+                "resource_kind": "SkillPoints", "delta_kind": "Gain",
+                "timing": "AbilityResolved",
+                "amount_decimal": SKILL_POINT_GAIN_OVERRIDES[ability["id"]],
             })
             delta_sequence += 1
         for resource_key, amount in CHARACTER_RESOURCE_COSTS.get(ability["id"], []):
@@ -910,7 +996,7 @@ def generated_rows(code: str) -> tuple[dict[str, list[dict[str, Any]]], list[dic
                 toughness = toughness_for(ability, group)
                 if toughness is not None:
                     hit["toughness_amount_decimal"] = toughness
-                if ability["kind"] == "Assist":
+                if ability["kind"] == "Assist" or ability["id"] in IGNORES_WEAKNESS:
                     hit["ignores_weakness"] = True
                 rows["HitPlanHit"].append(hit)
             rows["AbilityHitPlanBinding"].append({

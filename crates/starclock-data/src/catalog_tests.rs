@@ -15,11 +15,11 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
     assert_eq!(
         catalog.summary(),
         CatalogSummary {
-            identity_count: 3261,
-            enabled_identity_count: 3070,
-            ability_count: 485,
-            hit_plan_count: 270,
-            character_count: 62,
+            identity_count: 3616,
+            enabled_identity_count: 3433,
+            ability_count: 537,
+            hit_plan_count: 296,
+            character_count: 70,
             effect_count: 4,
             ai_graph_count: 17,
             enemy_count: 17,
@@ -933,6 +933,107 @@ fn production_c07_executes_enhanced_actions_and_named_resource_envelopes() {
 }
 
 #[test]
+fn production_c08_executes_bounce_elation_and_support_resource_envelopes() {
+    use starclock_combat::{
+        AbilityId, UnitDefinitionId,
+        catalog::action::{AbilityKind, AbilityTag, HitOperationDefinition},
+        formula::model::DamageClass,
+    };
+
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let combat = catalog.combat_catalog();
+
+    let excalibur = combat
+        .ability(AbilityId::new(100_010).unwrap())
+        .expect("Saber Ultimate")
+        .action()
+        .expect("Saber Ultimate action");
+    assert_eq!(excalibur.kind(), AbilityKind::Ultimate);
+    assert_eq!(excalibur.hits().len(), 11);
+    let saber = combat
+        .unit(UnitDefinitionId::new(63).unwrap())
+        .expect("Saber form");
+    let core = saber
+        .resources()
+        .iter()
+        .find(|resource| resource.stable_key() == "core-resonance")
+        .expect("Saber Core Resonance");
+    assert_eq!(core.initial().scaled(), 1_000_000);
+    assert_eq!(core.maximum().scaled(), 99_000_000);
+
+    let sampo = combat
+        .ability(AbilityId::new(100_016).unwrap())
+        .expect("Sampo bounce Skill")
+        .action()
+        .expect("Sampo bounce Skill action");
+    assert_eq!(sampo.kind(), AbilityKind::Skill);
+    assert_eq!(sampo.hits().len(), 5);
+
+    let serval = combat
+        .ability(AbilityId::new(100_027).unwrap())
+        .expect("Serval additional damage")
+        .action()
+        .expect("Serval additional-damage action");
+    assert_eq!(serval.kind(), AbilityKind::ExtraAction);
+    assert!(serval.tags().contains(AbilityTag::AdditionalDamage));
+    assert_eq!(serval.hits().len(), 1);
+
+    let silver_wolf = combat
+        .ability(AbilityId::new(100_035).unwrap())
+        .expect("Silver Wolf Technique")
+        .action()
+        .expect("Silver Wolf Technique action");
+    assert_eq!(silver_wolf.hits().len(), 1);
+    let reduction = silver_wolf.hits()[0]
+        .operations()
+        .iter()
+        .find_map(|operation| match operation {
+            HitOperationDefinition::ReduceToughness(reduction) => Some(reduction),
+            _ => None,
+        })
+        .expect("Silver Wolf Technique Toughness operation");
+    assert!(reduction.ignores_weakness);
+
+    let sparkle_ultimate = combat
+        .ability(AbilityId::new(100_042).unwrap())
+        .expect("Sparkle Ultimate")
+        .action()
+        .expect("Sparkle Ultimate action");
+    assert_eq!(sparkle_ultimate.resources().skill_point_gain(), 4);
+    assert!(!sparkle_ultimate.tags().contains(AbilityTag::Attack));
+    let sparkle_technique = combat
+        .ability(AbilityId::new(100_043).unwrap())
+        .expect("Sparkle Technique")
+        .action()
+        .expect("Sparkle Technique action");
+    assert_eq!(sparkle_technique.resources().skill_point_gain(), 3);
+
+    let bloom = combat
+        .ability(AbilityId::new(100_045).unwrap())
+        .expect("Sparxie enhanced Basic")
+        .action()
+        .expect("Sparxie enhanced Basic action");
+    assert_eq!(bloom.kind(), AbilityKind::Basic);
+    assert_eq!(bloom.hits().len(), 2);
+    assert_eq!(bloom.resources().skill_point_gain(), 1);
+
+    let encore = combat
+        .ability(AbilityId::new(100_051).unwrap())
+        .expect("Sparxie Elation Skill")
+        .action()
+        .expect("Sparxie Elation Skill action");
+    assert_eq!(encore.kind(), AbilityKind::ExtraAction);
+    assert!(encore.tags().contains(AbilityTag::ElationSkill));
+    assert_eq!(encore.hits().len(), 21);
+    for hit in encore.hits() {
+        let HitOperationDefinition::ScalingDamage(damage) = hit.operations()[0] else {
+            panic!("Sparxie Elation Skill must execute scaling damage");
+        };
+        assert_eq!(damage.class(), DamageClass::Elation);
+    }
+}
+
+#[test]
 fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_build::{
         ability::AbilityInvestment,
@@ -943,7 +1044,7 @@ fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_combat::UnitLevel;
 
     let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
-    for raw in (1..=61).chain([68]) {
+    for raw in 1..=70 {
         let form = starclock_combat::UnitDefinitionId::new(raw).unwrap();
         let character = catalog
             .build_catalog()
