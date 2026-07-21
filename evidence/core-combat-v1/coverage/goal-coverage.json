@@ -9,24 +9,24 @@
     "provenance_evidence_sha256": "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466",
     "research_evidence_sha256": "5625e2c5483cf97f597e52da8af7e17d52af1e6cc5beeadbd5501ed3e6247cfb",
     "runtime_catalog": {
-      "state": "LightConeL06Production",
-      "digest": "e3df797ee58016e225c26e6f8bd2cea813b4ba2411811e37d6fa54b9c0e510e6",
-      "note": "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and the first ninety-six released Light Cones through S5."
+      "state": "LightConeL07Production",
+      "digest": "de87c71a74678e4a6d6b344d4aefd42aafec5ab5770202d932dd37a5db62cb4e",
+      "note": "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and the first one hundred twelve released Light Cones through S5."
     }
   },
   "summary": {
     "required": 283,
     "accounted": 283,
-    "enabled_incomplete": 69,
-    "data_ready": 214,
-    "golden_verified": 214,
-    "data_ready_percent": "75.6%",
+    "enabled_incomplete": 53,
+    "data_ready": 230,
+    "golden_verified": 230,
+    "data_ready_percent": "81.3%",
     "terminal_state_counts": {
-      "Cataloged": 69,
+      "Cataloged": 53,
       "Documented": 0,
       "Researching": 0,
       "DataReady": 0,
-      "GoldenVerified": 214
+      "GoldenVerified": 230
     },
     "disabled_audit_only": 2
   },
@@ -53,15 +53,15 @@
       "manifest_kind": "LightCone",
       "required": 165,
       "accounted": 165,
-      "data_ready": 96,
-      "golden_verified": 96,
-      "data_ready_percent": "58.2%",
+      "data_ready": 112,
+      "golden_verified": 112,
+      "data_ready_percent": "67.9%",
       "terminal_state_counts": {
-        "Cataloged": 69,
+        "Cataloged": 53,
         "Documented": 0,
         "Researching": 0,
         "DataReady": 0,
-        "GoldenVerified": 96
+        "GoldenVerified": 112
       },
       "disabled_audit_only": 0
     },
@@ -3269,21 +3269,16 @@
       "id": "light-cone.patience-is-all-you-need",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3291,21 +3286,16 @@
       "id": "light-cone.perfect-timing",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3313,21 +3303,16 @@
       "id": "light-cone.pioneering",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3335,21 +3320,16 @@
       "id": "light-cone.planetary-rendezvous",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3357,21 +3337,16 @@
       "id": "light-cone.poised-to-bloom",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3379,21 +3354,16 @@
       "id": "light-cone.post-op-conversation",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3401,21 +3371,16 @@
       "id": "light-cone.quid-pro-quo",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3423,21 +3388,16 @@
       "id": "light-cone.reforged-in-hellfire",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3445,21 +3405,16 @@
       "id": "light-cone.reforged-remembrance",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3467,21 +3422,16 @@
       "id": "light-cone.reminiscence",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3489,21 +3439,16 @@
       "id": "light-cone.resolution-shines-as-pearls-of-sweat",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3511,21 +3456,16 @@
       "id": "light-cone.return-to-darkness",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3533,21 +3473,16 @@
       "id": "light-cone.river-flows-in-spring",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3555,21 +3490,16 @@
       "id": "light-cone.sagacity",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3577,21 +3507,16 @@
       "id": "light-cone.sailing-towards-a-second-life",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -3599,21 +3524,16 @@
       "id": "light-cone.scent-alone-stays-true",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Cataloged",
+      "terminal_state": "GoldenVerified",
       "milestones": {
         "Cataloged": true,
-        "Documented": false,
+        "Documented": true,
         "Researching": false,
-        "DataReady": false,
-        "GoldenVerified": false
+        "DataReady": true,
+        "GoldenVerified": true
       },
       "research_case_ids": [],
-      "data_ready_blockers": [
-        "MissingExcelSoraProductionDefinition",
-        "MissingRuntimeDomainDefinition",
-        "MissingProductionValidation",
-        "MissingExecutableGolden"
-      ]
+      "data_ready_blockers": []
     },
     {
       "category": "released-light-cones",
@@ -5315,22 +5235,6 @@
     "duplicate_runtime_ids": [],
     "stale_version_ids": [],
     "missing_data_ready_ids": [
-      "light-cone.patience-is-all-you-need",
-      "light-cone.perfect-timing",
-      "light-cone.pioneering",
-      "light-cone.planetary-rendezvous",
-      "light-cone.poised-to-bloom",
-      "light-cone.post-op-conversation",
-      "light-cone.quid-pro-quo",
-      "light-cone.reforged-in-hellfire",
-      "light-cone.reforged-remembrance",
-      "light-cone.reminiscence",
-      "light-cone.resolution-shines-as-pearls-of-sweat",
-      "light-cone.return-to-darkness",
-      "light-cone.river-flows-in-spring",
-      "light-cone.sagacity",
-      "light-cone.sailing-towards-a-second-life",
-      "light-cone.scent-alone-stays-true",
       "light-cone.see-you-at-the-end",
       "light-cone.shadowburn",
       "light-cone.shadowed-by-night",
@@ -5386,22 +5290,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_production_provenance_ids": [
-      "light-cone.patience-is-all-you-need",
-      "light-cone.perfect-timing",
-      "light-cone.pioneering",
-      "light-cone.planetary-rendezvous",
-      "light-cone.poised-to-bloom",
-      "light-cone.post-op-conversation",
-      "light-cone.quid-pro-quo",
-      "light-cone.reforged-in-hellfire",
-      "light-cone.reforged-remembrance",
-      "light-cone.reminiscence",
-      "light-cone.resolution-shines-as-pearls-of-sweat",
-      "light-cone.return-to-darkness",
-      "light-cone.river-flows-in-spring",
-      "light-cone.sagacity",
-      "light-cone.sailing-towards-a-second-life",
-      "light-cone.scent-alone-stays-true",
       "light-cone.see-you-at-the-end",
       "light-cone.shadowburn",
       "light-cone.shadowed-by-night",
@@ -5457,22 +5345,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_bilingual_validation_ids": [
-      "light-cone.patience-is-all-you-need",
-      "light-cone.perfect-timing",
-      "light-cone.pioneering",
-      "light-cone.planetary-rendezvous",
-      "light-cone.poised-to-bloom",
-      "light-cone.post-op-conversation",
-      "light-cone.quid-pro-quo",
-      "light-cone.reforged-in-hellfire",
-      "light-cone.reforged-remembrance",
-      "light-cone.reminiscence",
-      "light-cone.resolution-shines-as-pearls-of-sweat",
-      "light-cone.return-to-darkness",
-      "light-cone.river-flows-in-spring",
-      "light-cone.sagacity",
-      "light-cone.sailing-towards-a-second-life",
-      "light-cone.scent-alone-stays-true",
       "light-cone.see-you-at-the-end",
       "light-cone.shadowburn",
       "light-cone.shadowed-by-night",
@@ -5528,22 +5400,6 @@
       "light-cone.yet-hope-is-priceless"
     ],
     "not_evaluable_runtime_reference_ids": [
-      "light-cone.patience-is-all-you-need",
-      "light-cone.perfect-timing",
-      "light-cone.pioneering",
-      "light-cone.planetary-rendezvous",
-      "light-cone.poised-to-bloom",
-      "light-cone.post-op-conversation",
-      "light-cone.quid-pro-quo",
-      "light-cone.reforged-in-hellfire",
-      "light-cone.reforged-remembrance",
-      "light-cone.reminiscence",
-      "light-cone.resolution-shines-as-pearls-of-sweat",
-      "light-cone.return-to-darkness",
-      "light-cone.river-flows-in-spring",
-      "light-cone.sagacity",
-      "light-cone.sailing-towards-a-second-life",
-      "light-cone.scent-alone-stays-true",
       "light-cone.see-you-at-the-end",
       "light-cone.shadowburn",
       "light-cone.shadowed-by-night",
@@ -5615,7 +5471,7 @@
       {
         "label": "Released Light Cones",
         "required": 165,
-        "data_ready": 96,
+        "data_ready": 112,
         "matches": true
       },
       {
