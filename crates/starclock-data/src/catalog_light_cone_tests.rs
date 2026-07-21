@@ -83,6 +83,68 @@ fn production_has_all_complete_curves_ranks_and_compilable_passives() {
 }
 
 #[test]
+fn seeded_build_matrix_fuzzes_matching_and_mismatched_content_compilation() {
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let builds = catalog.build_catalog();
+    let combat = catalog.combat_catalog();
+    let characters = builds.character_ids().collect::<Vec<_>>();
+    let cones = builds.light_cone_ids().collect::<Vec<_>>();
+    let mut state = 0x636f_6e74_656e_7431_u64;
+
+    for _ in 0..1_024 {
+        state = state
+            .wrapping_mul(6_364_136_223_846_793_005)
+            .wrapping_add(1_442_695_040_888_963_407);
+        let character_id = characters[(state as usize) % characters.len()];
+        state = state.rotate_left(29) ^ 0x9e37_79b9_7f4a_7c15;
+        let cone_id = cones[(state as usize) % cones.len()];
+        let rank = ((state >> 32) % 5 + 1) as u8;
+        let character = builds.character(character_id).unwrap();
+        let cone = builds.light_cone(cone_id).unwrap();
+        let investments = character
+            .ability_levels()
+            .iter()
+            .map(|table| AbilityInvestment::new(table.family(), table.invested_cap()))
+            .collect::<Vec<_>>();
+        let spec = CombatantBuildSpec::new(
+            character_id,
+            UnitLevel::new(80).unwrap(),
+            PromotionStage::new(6).unwrap(),
+        )
+        .with_ability_levels(investments)
+        .unwrap()
+        .with_light_cone(LightConeLoadout::new(
+            cone_id,
+            LightConeLevel::new(80).unwrap(),
+            PromotionStage::new(6).unwrap(),
+            Superimposition::new(rank).unwrap(),
+        ));
+        let compiled = LoadoutCompiler
+            .compile(builds, combat, &spec)
+            .expect("valid selected content must compile even when its passive is inactive");
+        let passive = cone.passive_rank(Superimposition::new(rank).unwrap());
+        for patch in passive.patches() {
+            let active = match *patch {
+                BuildPatch::AddRuleBundle(rule) => {
+                    compiled.combatant().rule_bundles().contains(&rule)
+                }
+                BuildPatch::AddModifier(modifier) => {
+                    compiled.combatant().modifiers().contains(&modifier)
+                }
+                _ => panic!("Light Cone passive contains an unsupported patch"),
+            };
+            assert_eq!(
+                active,
+                character.path() == cone.path(),
+                "path applicability changed for character {} and Light Cone {}",
+                character_id.get(),
+                cone_id.get(),
+            );
+        }
+    }
+}
+
+#[test]
 fn dream_scented_in_wheat_keeps_exact_boundary_stats_and_rank_modifiers() {
     let catalog = load(PRODUCTION_BUNDLE).unwrap();
     let cone = catalog

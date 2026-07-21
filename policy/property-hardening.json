@@ -1,0 +1,46 @@
+{
+  "schema_revision": "starclock.property-hardening.v1",
+  "proptest_cases": 256,
+  "max_shrink_iterations": 4096,
+  "families": [
+    {
+      "id": "invalid-command-and-rollback",
+      "source": "crates/starclock-combat/src/battle/aggregate.rs",
+      "seeds": ["0x636f_6d6d_616e_6431", "0x726f_6c6c_6261_636b"],
+      "coverage": ["invalid commands", "inert rejection", "RNG rollback", "state rollback", "long sequence"],
+      "required_markers": ["1..513", "0_usize..257", "FileFailurePersistence::SourceParallel"]
+    },
+    {
+      "id": "selector-and-effect-timing",
+      "source": "crates/starclock-combat/tests/property_contract.rs",
+      "seeds": ["0x7365_6c65_6374_6f72"],
+      "coverage": ["selector validity", "ability timing", "effect duration timing"],
+      "required_markers": ["selector_and_timing_constructors_reject_every_invalid_generated_boundary", "stack_limit != 0 && permanent != has_duration"]
+    },
+    {
+      "id": "production-content-compilation",
+      "source": "crates/starclock-data/src/catalog_light_cone_tests.rs",
+      "seeds": ["0x636f_6e74_656e_7431"],
+      "coverage": ["character selection", "Light Cone selection", "S1-S5", "path applicability", "content compilation"],
+      "required_markers": ["for _ in 0..1_024", "seeded_build_matrix_fuzzes_matching_and_mismatched_content_compilation"]
+    },
+    {
+      "id": "replay-codec-mutations",
+      "source": "crates/starclock-replay/tests/property_contract.rs",
+      "seeds": ["0x636f_6465_632d_7631", "0x7265_706c_6179_2d31", "0x6d61_6c66_6f72_6d31"],
+      "coverage": ["codec round trip", "record framing", "truncation", "unknown kind", "sequence corruption", "oversize payload", "arbitrary bytes"],
+      "required_markers": ["0..257", "0..1025", "0..4097", "FileFailurePersistence::SourceParallel"]
+    },
+    {
+      "id": "battle-replay-corruption",
+      "source": "crates/starclock-replay/tests/battle_property_contract.rs",
+      "seeds": ["0x6261_7474_6c65_2d31"],
+      "coverage": ["512-command replay", "catalog digest", "command payload", "state payload", "record kind", "record sequence"],
+      "required_markers": ["const COMMANDS: usize = 512", "corruption in 0_u8..8", "OnceLock<Vec<u8>>"]
+    }
+  ],
+  "failure_persistence": [
+    "crates/starclock-combat/proptest-regressions/README.md",
+    "crates/starclock-replay/proptest-regressions/README.md"
+  ]
+}

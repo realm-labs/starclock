@@ -1,4 +1,4 @@
-use std::sync::Arc;
+use std::sync::{Arc, OnceLock};
 
 use proptest::{
     prelude::*,
@@ -31,7 +31,7 @@ use starclock_replay::{
 };
 
 const BATTLE_REPLAY_CORRUPTION_SEED: u64 = 0x6261_7474_6c65_2d31;
-const COMMANDS: usize = 64;
+const COMMANDS: usize = 512;
 const CATALOG_DIGEST: [u8; 32] = [0xd1; 32];
 const SPEC_DIGEST: [u8; 32] = [0xd2; 32];
 const BATTLE_SEED: [u8; 32] = [0xd3; 32];
@@ -187,7 +187,12 @@ fn supported_command(battle: &Battle) -> Command {
     selected.cloned().unwrap()
 }
 
-fn replay() -> Vec<u8> {
+fn replay() -> &'static [u8] {
+    static REPLAY: OnceLock<Vec<u8>> = OnceLock::new();
+    REPLAY.get_or_init(build_replay)
+}
+
+fn build_replay() -> Vec<u8> {
     let mut battle = battle();
     let mut trace = Vec::with_capacity(COMMANDS);
     for _ in 0..COMMANDS {
@@ -217,7 +222,7 @@ proptest! {
         selector in any::<usize>(),
         mask in 1_u8..=u8::MAX,
     ) {
-        let original = replay();
+        let original = replay().to_vec();
         let original_report = verify_battle_replay(&original, battle()).unwrap();
         prop_assert_eq!(original_report.command_count(), COMMANDS as u32);
         let decoded = decode_replay(&original).unwrap();

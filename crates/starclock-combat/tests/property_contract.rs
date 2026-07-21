@@ -4,17 +4,27 @@ use proptest::{
     test_runner::{Config as ProptestConfig, FileFailurePersistence, RngAlgorithm, RngSeed},
 };
 use starclock_combat::{
-    NumericError, Ratio, Rounding, Scalar, UnitDefinitionId,
-    catalog::{builder::CombatCatalogBuilder, definition::UnitDefinition},
+    DispelCategory, DurationClock, EffectCategory, EffectRuntimeTemplate, EffectStackPolicy,
+    EffectTickPhase, NumericError, ProgramId, Ratio, Rounding, Scalar, UnitDefinitionId,
+    catalog::{
+        action::{
+            AbilityProgramBinding, AbilityProgramTiming, TargetPattern, TargetRelation,
+            UnitTargetSelector,
+        },
+        builder::CombatCatalogBuilder,
+        definition::UnitDefinition,
+    },
     rng::{
         engine::DeterministicRng,
         types::{DrawPurpose, RngError, RngSeed as CombatRngSeed},
     },
+    rule::model::ValueExpr,
 };
 
 const ARITHMETIC_SEED: u64 = 0x6e75_6d65_7269_6321;
 const RNG_SEED: u64 = 0x7261_6e67_652d_6d61;
 const CATALOG_SEED: u64 = 0x6361_7461_6c6f_6721;
+const SELECTOR_TIMING_SEED: u64 = 0x7365_6c65_6374_6f72;
 
 fn property_config(seed: u64) -> ProptestConfig {
     ProptestConfig {
@@ -26,6 +36,59 @@ fn property_config(seed: u64) -> ProptestConfig {
         rng_algorithm: RngAlgorithm::ChaCha,
         rng_seed: RngSeed::Fixed(seed),
         ..ProptestConfig::default()
+    }
+}
+
+proptest! {
+    #![proptest_config(property_config(SELECTOR_TIMING_SEED))]
+
+    #[test]
+    fn selector_and_timing_constructors_reject_every_invalid_generated_boundary(
+        relation_raw in 0_u8..3,
+        pattern_raw in 0_u8..3,
+        timing_raw in 0_u8..5,
+        sequence in any::<u16>(),
+        stack_limit in any::<u16>(),
+        permanent in any::<bool>(),
+        has_duration in any::<bool>(),
+    ) {
+        let relation = [TargetRelation::SelfUnit, TargetRelation::Allied, TargetRelation::Opposing]
+            [usize::from(relation_raw)];
+        let pattern = [TargetPattern::Single, TargetPattern::Blast, TargetPattern::All]
+            [usize::from(pattern_raw)];
+        let selector = UnitTargetSelector::new(relation, pattern);
+        prop_assert_eq!(selector.is_some(), relation != TargetRelation::SelfUnit || pattern == TargetPattern::Single);
+        if let Some(selector) = selector {
+            prop_assert_eq!(selector.relation(), relation);
+            prop_assert_eq!(selector.pattern(), pattern);
+        }
+
+        let timing = [
+            AbilityProgramTiming::Entry,
+            AbilityProgramTiming::BeforeHits,
+            AbilityProgramTiming::Hits,
+            AbilityProgramTiming::AfterHits,
+            AbilityProgramTiming::Resolved,
+        ][usize::from(timing_raw)];
+        let binding = AbilityProgramBinding::new(sequence, timing, ProgramId::new(1).unwrap());
+        prop_assert_eq!(binding.is_some(), sequence != 0);
+        if let Some(binding) = binding {
+            prop_assert_eq!(binding.sequence(), sequence);
+            prop_assert_eq!(binding.timing(), timing);
+        }
+
+        let clock = if permanent { DurationClock::Permanent } else { DurationClock::TargetTurnEnd };
+        let duration = has_duration.then_some(ValueExpr::EventId);
+        let template = EffectRuntimeTemplate::new(
+            EffectCategory::Buff,
+            DispelCategory::NonDispellable,
+            stack_limit,
+            duration,
+            clock,
+            EffectTickPhase::None,
+            EffectStackPolicy::Refresh,
+        );
+        prop_assert_eq!(template.is_some(), stack_limit != 0 && permanent != has_duration);
     }
 }
 

@@ -1,0 +1,100 @@
+{
+  "schema_revision": "starclock.goal01.property-hardening-evidence.v1",
+  "policy_sha256": "7710253990c63ddfeb4d66e85854ff80371239b7c727ce7b184f9bbd1c96e563",
+  "fixed_seed_count": 8,
+  "proptest_cases": 256,
+  "max_shrink_iterations": 4096,
+  "long_sequence_limits": {
+    "battle_commands": 512,
+    "rollback_prefix": 256,
+    "replay_records": 256,
+    "replay_payload_bytes": 1024,
+    "arbitrary_decoder_bytes": 4096,
+    "production_builds": 1024
+  },
+  "families": [
+    {
+      "id": "invalid-command-and-rollback",
+      "source": "crates/starclock-combat/src/battle/aggregate.rs",
+      "normalized_sha256": "31fc7456ed3b652632b6bb24795b5e0aaec5f7d5e04fae3a4468deb3a61a185e",
+      "seeds": [
+        "0x636f_6d6d_616e_6431",
+        "0x726f_6c6c_6261_636b"
+      ],
+      "coverage": [
+        "invalid commands",
+        "inert rejection",
+        "RNG rollback",
+        "state rollback",
+        "long sequence"
+      ]
+    },
+    {
+      "id": "selector-and-effect-timing",
+      "source": "crates/starclock-combat/tests/property_contract.rs",
+      "normalized_sha256": "d9a71e7703ae5562d18ddc59e8f9c597fc2a5eb08b6fbc0e2ffe49993b5d9f0f",
+      "seeds": [
+        "0x7365_6c65_6374_6f72"
+      ],
+      "coverage": [
+        "selector validity",
+        "ability timing",
+        "effect duration timing"
+      ]
+    },
+    {
+      "id": "production-content-compilation",
+      "source": "crates/starclock-data/src/catalog_light_cone_tests.rs",
+      "normalized_sha256": "81f521615dcbb2caae6c4e16ce6065be6635539488ad46405cf8fb7fe9ec7cfa",
+      "seeds": [
+        "0x636f_6e74_656e_7431"
+      ],
+      "coverage": [
+        "character selection",
+        "Light Cone selection",
+        "S1-S5",
+        "path applicability",
+        "content compilation"
+      ]
+    },
+    {
+      "id": "replay-codec-mutations",
+      "source": "crates/starclock-replay/tests/property_contract.rs",
+      "normalized_sha256": "57b7855cdb03feb8648ee05ba6cf94447bd639c0cfa86c8e9fb4ddbedf457f88",
+      "seeds": [
+        "0x636f_6465_632d_7631",
+        "0x7265_706c_6179_2d31",
+        "0x6d61_6c66_6f72_6d31"
+      ],
+      "coverage": [
+        "codec round trip",
+        "record framing",
+        "truncation",
+        "unknown kind",
+        "sequence corruption",
+        "oversize payload",
+        "arbitrary bytes"
+      ]
+    },
+    {
+      "id": "battle-replay-corruption",
+      "source": "crates/starclock-replay/tests/battle_property_contract.rs",
+      "normalized_sha256": "0e32efd02bea5aa22a49747c76f1fbf25d604f8070cf46422047801601d91b99",
+      "seeds": [
+        "0x6261_7474_6c65_2d31"
+      ],
+      "coverage": [
+        "512-command replay",
+        "catalog digest",
+        "command payload",
+        "state payload",
+        "record kind",
+        "record sequence"
+      ]
+    }
+  ],
+  "failure_persistence": [
+    "crates/starclock-combat/proptest-regressions/README.md",
+    "crates/starclock-replay/proptest-regressions/README.md"
+  ]
+}

@@ -704,7 +704,7 @@ mod tests {
 
         #[test]
         fn generated_command_sequences_are_deterministic_and_rejections_are_inert(
-            steps in vec(any::<u8>(), 1..129),
+            steps in vec(any::<u8>(), 1..513),
         ) {
             let mut first = fixture_battle();
             let mut second = fixture_battle();
@@ -750,7 +750,7 @@ mod tests {
         #![proptest_config(property_config(ROLLBACK_SEQUENCE_SEED))]
 
         #[test]
-        fn rollback_converges_after_every_generated_valid_prefix(prefix in 0_usize..65) {
+        fn rollback_converges_after_every_generated_valid_prefix(prefix in 0_usize..257) {
             let mut early = fixture_battle();
             let mut late = fixture_battle();
             for _ in 0..prefix {

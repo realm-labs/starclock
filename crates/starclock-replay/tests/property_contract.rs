@@ -153,7 +153,7 @@ proptest! {
     #[test]
     fn replay_records_round_trip_with_stable_bytes(
         master_seed in any::<u64>(),
-        generated in vec((0_u8..7, vec(any::<u8>(), 0..257)), 0..33),
+        generated in vec((0_u8..7, vec(any::<u8>(), 0..1025)), 0..257),
     ) {
         let records = generated
             .iter()
@@ -180,7 +180,7 @@ proptest! {
     #[test]
     fn malformed_replay_framing_is_always_rejected_before_payload_use(
         master_seed in any::<u64>(),
-        payload in vec(any::<u8>(), 0..257),
+        payload in vec(any::<u8>(), 0..1025),
         mutation in 0_u8..5,
         selector in any::<usize>(),
     ) {
@@ -232,7 +232,7 @@ proptest! {
     #![proptest_config(property_config(MALFORMED_SEED ^ 0x55aa_55aa_55aa_55aa))]
 
     #[test]
-    fn arbitrary_bytes_never_escape_the_total_decoder(bytes in vec(any::<u8>(), 0..1025)) {
+    fn arbitrary_bytes_never_escape_the_total_decoder(bytes in vec(any::<u8>(), 0..4097)) {
         let _ = decode_replay(&bytes);
     }
 }
