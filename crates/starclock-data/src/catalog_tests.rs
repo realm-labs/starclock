@@ -15,11 +15,11 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
     assert_eq!(
         catalog.summary(),
         CatalogSummary {
-            identity_count: 2901,
-            enabled_identity_count: 2702,
-            ability_count: 429,
-            hit_plan_count: 240,
-            character_count: 54,
+            identity_count: 3261,
+            enabled_identity_count: 3070,
+            ability_count: 485,
+            hit_plan_count: 270,
+            character_count: 62,
             effect_count: 4,
             ai_graph_count: 17,
             enemy_count: 17,
@@ -825,6 +825,114 @@ fn production_c06_executes_summon_counter_and_bounded_resource_envelopes() {
 }
 
 #[test]
+fn production_c07_executes_enhanced_actions_and_named_resource_envelopes() {
+    use starclock_combat::{
+        AbilityId, UnitDefinitionId,
+        catalog::action::{AbilityKind, AbilityTag, HitOperationDefinition},
+        modifier::model::StatKind,
+    };
+
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let combat = catalog.combat_catalog();
+
+    let moze = combat
+        .ability(AbilityId::new(90_003).unwrap())
+        .expect("Moze follow-up");
+    let action = moze.action().expect("Moze follow-up action");
+    assert_eq!(action.kind(), AbilityKind::FollowUp);
+    assert!(action.tags().contains(AbilityTag::FollowUp));
+    assert!(action.tags().contains(AbilityTag::AdditionalDamage));
+    assert_eq!(action.hits().len(), 1);
+
+    let godslayer = combat
+        .ability(AbilityId::new(90_011).unwrap())
+        .expect("Mydei enhanced Skill");
+    let action = godslayer.action().expect("Mydei enhanced Skill action");
+    assert_eq!(action.kind(), AbilityKind::Skill);
+    assert_eq!(action.hits().len(), 2);
+    for hit in action.hits() {
+        let HitOperationDefinition::ScalingDamage(damage) = hit.operations()[0] else {
+            panic!("Mydei enhanced Skill must execute scaling damage");
+        };
+        assert_eq!(damage.scaling_stat(), StatKind::Hp);
+    }
+    let costs = action.resources().character_resource_costs();
+    assert_eq!(costs.len(), 1);
+    assert_eq!(costs[0].stable_key(), "charge");
+    assert_eq!(costs[0].amount().scaled(), 150_000_000);
+    let mydei = combat
+        .unit(UnitDefinitionId::new(55).unwrap())
+        .expect("Mydei form");
+    assert_eq!(mydei.resources()[0].maximum().scaled(), 200_000_000);
+
+    let foundation = combat
+        .ability(AbilityId::new(90_032).unwrap())
+        .expect("Phainon enhanced Skill");
+    let action = foundation.action().expect("Phainon enhanced Skill action");
+    assert_eq!(action.kind(), AbilityKind::Skill);
+    assert_eq!(action.hits().len(), 17);
+    let phainon = combat
+        .unit(UnitDefinitionId::new(58).unwrap())
+        .expect("Phainon form");
+    let coreflame = phainon
+        .resources()
+        .iter()
+        .find(|resource| resource.stable_key() == "coreflame")
+        .expect("Phainon Coreflame");
+    assert_eq!(coreflame.maximum().scaled(), 15_000_000);
+    let ultimate = combat
+        .ability(AbilityId::new(90_033).unwrap())
+        .expect("Phainon Ultimate")
+        .action()
+        .expect("Phainon Ultimate action");
+    assert_eq!(ultimate.resources().energy_cost().scaled(), 0);
+    assert_eq!(
+        ultimate.resources().character_resource_costs()[0]
+            .amount()
+            .scaled(),
+        12_000_000
+    );
+
+    let qingque = combat
+        .ability(AbilityId::new(90_041).unwrap())
+        .expect("Qingque enhanced Basic")
+        .action()
+        .expect("Qingque enhanced Basic action");
+    assert_eq!(qingque.kind(), AbilityKind::Basic);
+    assert_eq!(qingque.hits().len(), 2);
+    assert_eq!(qingque.resources().skill_point_gain(), 0);
+    assert_eq!(
+        qingque.resources().character_resource_costs()[0]
+            .amount()
+            .scaled(),
+        4_000_000
+    );
+
+    let rappa = combat
+        .ability(AbilityId::new(90_046).unwrap())
+        .expect("Rappa enhanced Basic")
+        .action()
+        .expect("Rappa enhanced Basic action");
+    assert_eq!(rappa.kind(), AbilityKind::Basic);
+    assert!(rappa.tags().contains(AbilityTag::Attack));
+    assert_eq!(rappa.hits().len(), 5);
+    assert_eq!(rappa.resources().skill_point_gain(), 0);
+    assert_eq!(
+        rappa.resources().character_resource_costs()[0].stable_key(),
+        "chroma-ink"
+    );
+
+    let robin = combat
+        .ability(AbilityId::new(90_055).unwrap())
+        .expect("Robin Ultimate")
+        .action()
+        .expect("Robin Ultimate action");
+    assert!(robin.tags().contains(AbilityTag::AdditionalDamage));
+    assert_eq!(robin.hits().len(), 1);
+    assert!(robin.hits()[0].operations().is_empty());
+}
+
+#[test]
 fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_build::{
         ability::AbilityInvestment,
@@ -835,7 +943,7 @@ fn production_characters_compile_at_e0_and_complete_e6() {
     use starclock_combat::UnitLevel;
 
     let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
-    for raw in (1..=53).chain([68]) {
+    for raw in (1..=61).chain([68]) {
         let form = starclock_combat::UnitDefinitionId::new(raw).unwrap();
         let character = catalog
             .build_catalog()

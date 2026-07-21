@@ -96,6 +96,14 @@ const goldenCharacterForms = new Set([
   "character.march-7th.the-hunt",
   "character.misha",
   "character.mortenax-blade",
+  "character.moze",
+  "character.mydei",
+  "character.natasha",
+  "character.pela",
+  "character.phainon",
+  "character.qingque",
+  "character.rappa",
+  "character.robin",
   "character.silver-wolf-lv-999",
 ]);
 
@@ -141,7 +149,7 @@ const report = {
     goal_manifest_sha256: MANIFEST_SHA,
     provenance_evidence_sha256: PROVENANCE_SHA,
     research_evidence_sha256: RESEARCH_SHA,
-    runtime_catalog: { state: "CharacterC06Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all forty-eight C01-C06 character forms; remaining character and Light Cone partitions are pending." },
+    runtime_catalog: { state: "CharacterC07Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all fifty-six C01-C07 character forms; remaining character and Light Cone partitions are pending." },
   },
   summary: {
     required: entries.length,
@@ -247,7 +255,7 @@ function verifyDocumentation(categoryReports) {
   const referenceCoverage = fs.readFileSync(path.join(root, "docs", "content-reference", "coverage.md"), "utf8");
   const referenceCounts = readJson(path.join(root, "content-reference", "v4.4", "coverage.json"));
   const expectedStatus = [
-    ["Released character combat forms", 88, 54],
+    ["Released character combat forms", 88, 62],
     ["Released Light Cones", 165, 0],
     ["`standard-v1` enemies/variants", 17, 17],
     ["`standard-v1` encounters", 6, 6],

@@ -252,9 +252,42 @@ C06_DAMAGE = {
     "character.mortenax-blade.ability.tenax-per-ignem.ultra": [("All", 1, 1)],
 }
 
+C07_DAMAGE = {
+    "character.moze.ability.cascading-featherblade.skillp01": [("Primary", 3, 1)],
+    "character.moze.ability.dash-in-gash-out.ultra": [("Primary", 1, 1)],
+    "character.moze.ability.fleetwinged-raid.bpskill": [("Primary", 1, 1)],
+    "character.moze.ability.hurlthorn.normal": [("Primary", 1, 1)],
+    "character.mydei.ability.cage-of-broken-lance.maze": [("All", 2, 1)],
+    "character.mydei.ability.deaths-are-legion-regrets-are-none.bpskill": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.mydei.ability.godslayer-be-god.bpskill": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.mydei.ability.kingslayer-be-king.bpskill": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.mydei.ability.throne-of-bones.ultra": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.mydei.ability.vow-of-voyage.normal": [("Primary", 1, 1)],
+    "character.natasha.ability.behind-the-kindness.normal": [("Primary", 1, 1)],
+    "character.natasha.ability.hypnosis-research.maze": [("BounceDraw", 4, 1)],
+    "character.pela.ability.frost-shot.normal": [("Primary", 1, 1)],
+    "character.pela.ability.frostbite.bpskill": [("Primary", 1, 1)],
+    "character.pela.ability.preemptive-strike.maze": [("BounceDraw", 4, 1)],
+    "character.pela.ability.zone-suppression.ultra": [("All", 4, 1)],
+    "character.phainon.ability.beginning-of-the-end.maze": [("All", 1, 1)],
+    "character.phainon.ability.calamity-soulscorch-edict.bpskill": [("All", 1, 1), ("BounceDraw", 4, 4)],
+    "character.phainon.ability.creation-bloodthorn-ferry.normal": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.phainon.ability.foundation-stardeath-verdict.bpskill": [("BounceDraw", 2, 16), ("All", 1, 1)],
+    "character.phainon.ability.he-who-bears-the-world-must-burn.ultra": [("All", 1, 1)],
+    "character.phainon.ability.let-there-be-light.bpskill": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.phainon.ability.stride-to-deliverance.normal": [("Primary", 1, 1)],
+    "character.qingque.ability.a-quartet-woo-hoo.ultra": [("All", 1, 1)],
+    "character.qingque.ability.cherry-on-top.normal": [("Primary", 1, 1), ("Adjacent", 2, 1)],
+    "character.qingque.ability.flower-pick.normal": [("Primary", 1, 1)],
+    "character.rappa.ability.ningu-demonbane-petalblade.normal": [("Primary", 1, 2), ("Adjacent", 2, 2), ("All", 3, 1)],
+    "character.rappa.ability.ninja-strike-rooted-resolute.bpskill": [("All", 1, 1)],
+    "character.rappa.ability.ninjutsu-rise-above-tumbles.normal": [("Primary", 1, 1)],
+    "character.robin.ability.wingflip-white-noise.normal": [("Primary", 1, 1)],
+}
+
 DAMAGE_BY_PARTITION = {
     "C01": C01_DAMAGE, "C02": C02_DAMAGE, "C03": C03_DAMAGE, "C04": C04_DAMAGE,
-    "C05": C05_DAMAGE, "C06": C06_DAMAGE,
+    "C05": C05_DAMAGE, "C06": C06_DAMAGE, "C07": C07_DAMAGE,
 }
 
 C01_TARGET_OVERRIDES = {
@@ -299,9 +332,21 @@ C06_TARGET_OVERRIDES = {
     "character.mortenax-blade.ability.a-rain-of-blades-seals-fate.bpskill": "Bounce",
 }
 
+C07_TARGET_OVERRIDES = {
+    "character.moze.ability.cascading-featherblade.skillp01": "SingleTarget",
+    "character.mydei.ability.cage-of-broken-lance.maze": "Aoe",
+    "character.natasha.ability.hypnosis-research.maze": "Bounce",
+    "character.pela.ability.preemptive-strike.maze": "Bounce",
+    "character.phainon.ability.calamity-soulscorch-edict.bpskill": "Bounce",
+    "character.phainon.ability.foundation-stardeath-verdict.bpskill": "Bounce",
+    "character.phainon.ability.he-who-bears-the-world-must-burn.ultra": "Aoe",
+    "character.rappa.ability.ningu-demonbane-petalblade.normal": "Blast",
+}
+
 TARGET_OVERRIDES = {
     **C01_TARGET_OVERRIDES, **C02_TARGET_OVERRIDES, **C03_TARGET_OVERRIDES,
     **C04_TARGET_OVERRIDES, **C05_TARGET_OVERRIDES, **C06_TARGET_OVERRIDES,
+    **C07_TARGET_OVERRIDES,
 }
 
 C01_SCALING_STATS = {
@@ -332,9 +377,18 @@ C06_SCALING_STATS = {
     "character.mortenax-blade.ability.tenax-per-ignem.ultra": "Hp",
 }
 
+C07_SCALING_STATS = {
+    "character.mydei.ability.cage-of-broken-lance.maze": "Hp",
+    "character.mydei.ability.deaths-are-legion-regrets-are-none.bpskill": "Hp",
+    "character.mydei.ability.godslayer-be-god.bpskill": "Hp",
+    "character.mydei.ability.kingslayer-be-king.bpskill": "Hp",
+    "character.mydei.ability.throne-of-bones.ultra": "Hp",
+    "character.mydei.ability.vow-of-voyage.normal": "Hp",
+}
+
 SCALING_STATS = {
     **C01_SCALING_STATS, **C02_SCALING_STATS, **C03_SCALING_STATS,
-    **C06_SCALING_STATS,
+    **C06_SCALING_STATS, **C07_SCALING_STATS,
 }
 
 ABILITY_KIND_OVERRIDES = {
@@ -353,7 +407,15 @@ ABILITY_KIND_OVERRIDES = {
     "character.luka.ability.sky-shatter-fist.normal": "EnhancedBasic",
     "character.march-7th.preservation.ability.girl-power.skillp01": "Counter",
     "character.march-7th.the-hunt.ability.brows-be-smitten-heart-be-bitten.normal": "EnhancedBasic",
+    "character.moze.ability.cascading-featherblade.skillp01": "FollowUp",
     "character.mortenax-blade.ability.a-tempered-blade-severs-souls.normal": "EnhancedBasic",
+    "character.mydei.ability.godslayer-be-god.bpskill": "EnhancedSkill",
+    "character.mydei.ability.kingslayer-be-king.bpskill": "EnhancedSkill",
+    "character.phainon.ability.calamity-soulscorch-edict.bpskill": "Counter",
+    "character.phainon.ability.creation-bloodthorn-ferry.normal": "EnhancedBasic",
+    "character.phainon.ability.foundation-stardeath-verdict.bpskill": "EnhancedSkill",
+    "character.qingque.ability.cherry-on-top.normal": "EnhancedBasic",
+    "character.rappa.ability.ningu-demonbane-petalblade.normal": "EnhancedBasic",
 }
 
 ABILITY_TAG_MASK_OVERRIDES = {
@@ -361,6 +423,15 @@ ABILITY_TAG_MASK_OVERRIDES = {
     "character.lingsha.ability.mistdance-manifest.skillp01": 1 << 4,
     # Mortenax's ordinary zero-SP Skill can also be queued as a free follow-up use.
     "character.mortenax-blade.ability.a-rain-of-blades-seals-fate.bpskill": 1 << 4,
+    # Moze's follow-up includes an additional-damage component.
+    "character.moze.ability.cascading-featherblade.skillp01": 1 << 8,
+    # Phainon's counter is explicitly also considered Skill damage.
+    "character.phainon.ability.calamity-soulscorch-edict.bpskill": 1 << 2,
+    # Rappa's three-stage enhanced Basic is an attack even though its prepared
+    # text is split across stage descriptions.
+    "character.rappa.ability.ningu-demonbane-petalblade.normal": 1 << 0,
+    # Robin's Ultimate enables an additional-damage instance after ally attacks.
+    "character.robin.ability.vox-harmonique-opus-cosmique.ultra": 1 << 8,
 }
 
 SKILL_POINT_COST_OVERRIDES = {
@@ -399,6 +470,11 @@ CHARACTER_RESOURCES = {
     "character.march-7th.the-hunt": [("charge", "10", "0")],
     "character.misha": [("hits-per-action", "10", "3")],
     "character.mortenax-blade": [("charge", "9", "0")],
+    "character.moze": [("charge", "9", "0")],
+    "character.mydei": [("charge", "200", "0")],
+    "character.phainon": [("coreflame", "15", "0")],
+    "character.qingque": [("jade-tiles", "4", "0")],
+    "character.rappa": [("chroma-ink", "3", "0"), ("charge", "10", "0")],
 }
 
 CHARACTER_RESOURCE_COSTS = {
@@ -408,6 +484,10 @@ CHARACTER_RESOURCE_COSTS = {
     "character.jingliu.ability.moon-on-glacial-river.bpskill": [("syzygy", "1")],
     "character.luka.ability.sky-shatter-fist.normal": [("fighting-will", "2")],
     "character.march-7th.the-hunt.ability.brows-be-smitten-heart-be-bitten.normal": [("charge", "7")],
+    "character.mydei.ability.godslayer-be-god.bpskill": [("charge", "150")],
+    "character.phainon.ability.he-who-bears-the-world-must-burn.ultra": [("coreflame", "12")],
+    "character.qingque.ability.cherry-on-top.normal": [("jade-tiles", "4")],
+    "character.rappa.ability.ningu-demonbane-petalblade.normal": [("chroma-ink", "1")],
 }
 
 CHARACTER_RESOURCE_GAINS = {
@@ -425,6 +505,14 @@ CHARACTER_RESOURCE_GAINS = {
     "character.march-7th.the-hunt.ability.my-sword-zaps-demons.normal": [("charge", "1")],
     "character.misha.ability.r-room-service.bpskill": [("hits-per-action", "1")],
     "character.misha.ability.wait-you-are-so-beautiful.maze": [("hits-per-action", "2")],
+    "character.moze.ability.fleetwinged-raid.bpskill": [("charge", "9")],
+    "character.mydei.ability.cage-of-broken-lance.maze": [("charge", "50")],
+    "character.mydei.ability.throne-of-bones.ultra": [("charge", "20")],
+    "character.phainon.ability.let-there-be-light.bpskill": [("coreflame", "2")],
+    "character.qingque.ability.a-quartet-woo-hoo.ultra": [("jade-tiles", "4")],
+    "character.qingque.ability.a-scoop-of-moon.bpskill": [("jade-tiles", "2")],
+    "character.qingque.ability.game-solitaire.maze": [("jade-tiles", "2")],
+    "character.rappa.ability.nindo-supreme-aishiteru.ultra": [("chroma-ink", "3")],
 }
 
 TEAM_RESOURCE_COSTS = {
@@ -439,6 +527,7 @@ TEAM_RESOURCE_GAINS = {
 
 BASE_ENERGY_OVERRIDES = {
     "character.feixiao": "0",
+    "character.phainon": "0",
 }
 
 
