@@ -148,16 +148,19 @@ Generated reports must provide, per category and source snapshot:
 
 The release gate requires 100% manifest accounting, zero enabled incomplete entries, and `DataReady` for every released entry in the promised category. Golden verification has a separately declared target so lack of an observation fixture is not hidden.
 
-## Pre-implementation status
+## Goal 01 release status
 
-At this repository stage, the character profiles are `Documented` behavioral
-contracts and the [Version 4.4 content reference pack](content-reference/README.md)
-provides normalized pre-implementation numerical/source evidence for released
-characters, Light Cones, enemies, abilities, and ordinary encounter candidates.
-The reference pack is not an Excel/Sora import and is not executable Rule IR.
-The exact runtime workbooks/catalogs and activity/universe/challenge data have
-not yet been imported; reference records must not be reported as `DataReady`.
-This statement remains until Sora-generated coverage evidence replaces it.
+The [Version 4.4 content reference pack](content-reference/README.md) remains
+the normalized source input. Goal 01 has imported its frozen scope through the
+authoritative Excel/Sora path: all 88 released combat forms, all 165 released
+Light Cones, 17 Standard enemy variants, six encounters, six scenarios and the
+Standard profile validate and execute. The generated coverage report records
+283/283 character and Light Cone entries as `GoldenVerified`, with two announced
+forms retained as disabled audit-only entries outside the denominator.
+
+Universe and rotating-challenge datasets remain outside Goal 01 and retain the
+data-pending status defined above. Their absence does not reduce Goal 01
+coverage and must not be described as implemented by this release.
 
 ## Acceptance audit
 

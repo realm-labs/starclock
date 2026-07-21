@@ -4,12 +4,14 @@
 
 The target is a headless battle kernel plus a generic activity orchestrator that can later be driven by Bevy, another engine, the `starclock` CLI, tests, or a simulation service.
 
-**Current repository status:** implementation in progress. The normalized
-Version 4.4 content reference pack and the responsibility-separated Rust
-workspace, production Excel/Sora pipeline and validated empty catalog exist,
-but released executable content, battle runtime and CLI commands are not
-completed artifacts. See the
-[Goal 01 status ledger](goals/01-core-combat-and-content-status.md).
+**Current repository status:** Goal 01 implementation and content coverage are
+complete and undergoing final release acceptance. The deterministic Rust
+workspace, production Excel/Sora pipeline, battle/runtime libraries, headless
+CLI, six frozen Standard scenarios, all 88 released combat forms and all 165
+released Light Cones are executable. Machine evidence reports 283/283
+`GoldenVerified`; see the
+[Goal 01 status ledger](goals/01-core-combat-and-content-status.md) for the
+current acceptance batch.
 
 ## Research baseline
 
@@ -83,6 +85,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 58. [Deferred relic/planar boundary](deferred-relic-planar-boundary.md) — versioned explicit empty selection, closed slot-family seam and no deferred dataset import.
 59. [Activity replay and controller diagnostics](activity-replay-and-controller-diagnostics.md) — versioned Activity command/result payloads, exact nested battle boundaries, controller score diagnostics and first-divergence verification.
 60. [Headless CLI contract](headless-cli-contract.md) — production Sora bundle validation, frozen Goal 01 coverage, baseline synthetic battle runs, replay verification, JSON schemas and exit classes.
+61. [Goal 01 release contract](goal-01-release-contract.md) — frozen CLI/library surfaces, coverage identity, hardening reports and clean-checkout acceptance.
 
 ## Execution goals
 

@@ -1,7 +1,8 @@
 # Headless CLI contract
 
-Goal 01 batch `G01-P6-B5` completes the first versioned `starclock` command
-surface without claiming production content readiness.
+Goal 01 batch `G01-P6-B5` established the first versioned `starclock` command
+surface. Phase 7 subsequently populated its production bundle, coverage and
+Standard scenario paths; `G01-P8-B6` freezes the resulting release contract.
 
 ## Production bundle and coverage
 
@@ -16,34 +17,36 @@ validated Sora identities:
 
 | Category | Current required | Current DataReady |
 |---|---:|---:|
-| released character combat forms | 88 | 0 |
-| released Light Cones | 165 | 0 |
-| Standard enemy variants | 17 | 0 |
-| Standard encounters | 6 | 0 |
-| Standard scenarios | 6 | 0 |
-| Standard profile | 1 | 0 |
+| released character combat forms | 88 | 88 |
+| released Light Cones | 165 | 165 |
+| Standard enemy variants | 17 | 17 |
+| Standard encounters | 6 | 6 |
+| Standard scenarios | 6 | 6 |
+| Standard profile | 1 | 1 |
 
 The optional goal selector accepts `core-combat-v1`; the optional category
 filter accepts the canonical hyphenated category name.
 Abilities, programs and future supporting identities may exist in a catalog but
-do not inflate this frozen denominator. Bootstrap identities remain disabled;
-the CLI reports 0/283 DataReady rather than treating metadata presence as
-implementation.
+do not inflate this frozen denominator. The production bundle contains 5,278
+enabled identities and is bound to SHA-256
+`abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440`.
+All 283 released character/Light Cone entries are both `DataReady` and
+`GoldenVerified`; the Standard/profile categories are separately complete.
 
 ## Battle and replay
 
-The existing smoke-only `synthetic-standard-v1` scenario now runs through
+The retained smoke-only `synthetic-standard-v1` scenario runs through
 `baseline-battle-controller-v1`, using explicit authored ability and target
 hints. The header controller digest is SHA-256 over the exact versioned hint
 descriptor. Repeated runs produce identical JSON, commands, state hash and
 replay bytes. `--replay-out` writes the canonical low-level replay.
 
-`replay verify` decodes the bounded envelope, resolves the compatible synthetic
-scenario from the header, reconstructs a fresh battle and compares every
+`replay verify` decodes the bounded envelope, resolves its compatible synthetic
+or production Standard scenario, reconstructs a fresh battle and compares every
 recorded command state. Corruption reports the first command divergence and
-uses the replay exit class. Activity replay payload verification is already a
-library contract; production Activity/profile resolution follows the B6
-Standard manifest import.
+uses the replay exit class. The six frozen `scenario.standard-v1.*` identities
+resolve through the production Activity/profile/catalog path; the CLI golden
+runs and verifies `scenario.standard-v1.basic-single-wave` at seed 104729.
 
 Human and JSON modes are projections of the same result. JSON stdout contains
 one `starclock-cli-v1` object; errors go to stderr. Exit codes are stable:

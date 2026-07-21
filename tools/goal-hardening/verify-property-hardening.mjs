@@ -43,7 +43,7 @@ for (const relative of policy.failure_persistence) {
 
 const report = {
   schema_revision: "starclock.goal01.property-hardening-evidence.v1",
-  policy_sha256: sha(policyBytes),
+  policy_sha256: sha(Buffer.from(policyBytes.toString("utf8").replaceAll("\r\n", "\n"))),
   fixed_seed_count: seeds.size,
   proptest_cases: policy.proptest_cases,
   max_shrink_iterations: policy.max_shrink_iterations,

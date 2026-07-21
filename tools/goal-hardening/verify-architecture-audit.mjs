@@ -64,7 +64,7 @@ const largest = [...sourceRows].sort((left, right) => right.utilization_percent 
 const nearLimit = sourceRows.filter((entry) => entry.utilization_percent >= 95).map((entry) => entry.path).sort();
 const report = {
   schema_revision: "starclock.goal01.architecture-audit.v1",
-  policy: { repository_checks_sha256: sha(repositoryBytes), dependency_policy_sha256: sha(dependencyBytes) },
+  policy: { repository_checks_sha256: normalizedSha(repositoryBytes), dependency_policy_sha256: normalizedSha(dependencyBytes) },
   source_size_audit: {
     handwritten_files: handwritten.length,
     generated_vendor_exclusions: rules.excluded_roots,
@@ -105,4 +105,5 @@ console.log(`Architecture audit verified (${sha(output)}; ${handwritten.length} 
 function physicalLineCount(value) { return value.length === 0 ? 0 : value.split(/\r\n|\n|\r/).length - (/(?:\r\n|\n|\r)$/.test(value) ? 1 : 0); }
 function stripComments(value) { return value.replace(/\/\*[\s\S]*?\*\//g, "").replace(/\/\/.*$/gm, ""); }
 function sha(value) { return crypto.createHash("sha256").update(value).digest("hex"); }
+function normalizedSha(value) { return sha(Buffer.from(value.toString("utf8").replaceAll("\r\n", "\n"))); }
 function assert(condition, message) { if (!condition) throw new Error(message); }

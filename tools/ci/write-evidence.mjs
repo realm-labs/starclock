@@ -51,7 +51,7 @@ const evidence = {
   },
   target: profile.target,
   evidence_origin: process.env.GITHUB_ACTIONS === "true" ? "hosted-ci" : "local-smoke",
-  policy_sha256: sha256(policyBytes),
+  policy_sha256: sha256(Buffer.from(policyBytes.toString("utf8").replaceAll("\r\n", "\n"))),
   sora_golden_output_digest: expectedManifest.output_digest,
   golden_suite_contract_sha256: sha256(Buffer.from(JSON.stringify(policy.golden_suites))),
   golden_suites: policy.golden_suites.map((suite) => ({

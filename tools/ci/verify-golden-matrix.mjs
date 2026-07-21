@@ -40,7 +40,7 @@ const manifest = JSON.parse(fs.readFileSync(path.join(root, "config/generated/de
 const production = JSON.parse(fs.readFileSync(path.join(root, "config/production-golden.json"), "utf8"));
 const report = {
   schema_revision: "starclock.goal01.ci-golden-matrix.v1",
-  policy_sha256: sha(policyBytes),
+  policy_sha256: sha(normalizedBytes(policyBytes)),
   golden_suite_contract_sha256: sha(Buffer.from(JSON.stringify(policy.golden_suites))),
   production_contract: {
     data_revision: manifest.data_revision.String,
@@ -83,5 +83,6 @@ function profileEvidence(profile, disposition, runtimeClaim) {
   };
 }
 function normalized(file) { return Buffer.from(fs.readFileSync(file, "utf8").replaceAll("\r\n", "\n")); }
+function normalizedBytes(value) { return Buffer.from(value.toString("utf8").replaceAll("\r\n", "\n")); }
 function sha(value) { return crypto.createHash("sha256").update(value).digest("hex"); }
 function assert(condition, message) { if (!condition) throw new Error(message); }

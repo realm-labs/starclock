@@ -1,3 +1,5 @@
+* text=auto eol=lf
+
 # Sora golden text hashes are cross-platform evidence and must retain LF bytes.
 config/sora-golden/** text eol=lf
 config/sora-golden/expected/generated/config.sora -text
@@ -7,3 +9,5 @@ config/schema-fixtures/common/expected/config.sora -text
 content-reference/v4.4/** text eol=lf
 # Benchmark evidence is byte-bound by SHA-256 and must survive fresh checkouts.
 evidence/core-combat-v1/performance/** text eol=lf
+evidence/core-combat-v1/hardening/** text eol=lf
+evidence/core-combat-v1/release/** text eol=lf

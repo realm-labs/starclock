@@ -1,11 +1,12 @@
 # Replay, CLI, and Engine Integration
 
-This document defines the planned replay contract, headless command-line surface,
+This document defines the replay contract, headless command-line surface,
 deterministic baseline controllers, and integration boundary for Bevy or another
 engine. The `starclock-cli` package owns the versioned headless validation,
 coverage, synthetic Standard battle and replay-verification surface implemented
-by Goal 01 batch `G01-P6-B5`. Production Standard scenario execution remains
-gated on the frozen manifest import in B6.
+by Goal 01 batch `G01-P6-B5`. The subsequent frozen manifest import exposes all
+six production Standard scenarios through the same `battle run` and `replay
+verify` contracts.
 
 ## Replay identity
 
