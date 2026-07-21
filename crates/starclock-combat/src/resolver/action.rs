@@ -44,7 +44,13 @@ pub(super) fn drain_reactions(
         let eligible = txn.state.units.get(queued.actor).is_some_and(|unit| {
             unit.life == crate::LifeState::Alive
                 && unit.presence.is_active()
-                && unit.abilities.binary_search(&queued.ability).is_ok()
+                && crate::command::legal::ability_owner(
+                    txn.state,
+                    catalog,
+                    queued.actor,
+                    queued.ability,
+                )
+                .is_some()
                 && !(matches!(
                     queued.origin,
                     crate::ActionOrigin::FollowUp | crate::ActionOrigin::Counter
@@ -138,7 +144,8 @@ pub(super) fn execute_action_plan(
         CauseActor::Unit(plan.actor),
         source,
     )
-    .with_primary_target(plan.targets.primary);
+    .with_primary_target(plan.targets.primary)
+    .with_applier(plan.owner);
     let mut parent = txn.emit(
         base.with_parent(command_parent),
         BattleEventKind::Action(ActionEventData::Declared {
@@ -152,7 +159,7 @@ pub(super) fn execute_action_plan(
     parent = run_programs_at(
         catalog,
         txn,
-        base.with_applier(plan.actor),
+        base.with_applier(plan.owner),
         parent,
         plan,
         crate::catalog::action::AbilityProgramTiming::Entry,
@@ -178,7 +185,7 @@ pub(super) fn execute_action_plan(
     parent = run_programs_at(
         catalog,
         txn,
-        base.with_applier(plan.actor),
+        base.with_applier(plan.owner),
         parent,
         plan,
         crate::catalog::action::AbilityProgramTiming::BeforeHits,
@@ -211,7 +218,7 @@ pub(super) fn execute_action_plan(
                 .with_hit(hit.id)
                 .with_primary_target(plan.targets.primary);
             parent = txn.emit(
-                hit_cause.with_applier(plan.actor).with_parent(parent),
+                hit_cause.with_applier(plan.owner).with_parent(parent),
                 BattleEventKind::Hit(HitEventData::Started {
                     action: plan.id,
                     phase: phase.id,
@@ -223,7 +230,7 @@ pub(super) fn execute_action_plan(
             parent = run_programs_at(
                 catalog,
                 txn,
-                hit_cause.with_applier(plan.actor),
+                hit_cause.with_applier(plan.owner),
                 parent,
                 plan,
                 crate::catalog::action::AbilityProgramTiming::Hits,
@@ -235,7 +242,7 @@ pub(super) fn execute_action_plan(
                 let request = match &operation.definition {
                     HitOperationDefinition::ScalingDamage(definition) => {
                         let formula =
-                            resolve_scaling_damage(catalog, txn, plan.actor, *definition)?;
+                            resolve_scaling_damage(catalog, txn, plan.owner, *definition)?;
                         Operation::Damage(DamageOp {
                             id: operation.id,
                             targets: targets.clone(),
@@ -383,7 +390,7 @@ pub(super) fn execute_action_plan(
                 parent = execute_operation(
                     catalog,
                     txn,
-                    hit_cause.with_applier(plan.actor),
+                    hit_cause.with_applier(plan.owner),
                     parent,
                     request,
                     &mut operation_scratch,
@@ -392,7 +399,7 @@ pub(super) fn execute_action_plan(
             }
             txn.increment_entanglement_for_hit(&targets)?;
             parent = txn.emit(
-                hit_cause.with_applier(plan.actor).with_parent(parent),
+                hit_cause.with_applier(plan.owner).with_parent(parent),
                 BattleEventKind::Hit(HitEventData::Ended {
                     action: plan.id,
                     phase: phase.id,
@@ -418,7 +425,7 @@ pub(super) fn execute_action_plan(
         parent = run_programs_at(
             catalog,
             txn,
-            phase_cause.with_applier(plan.actor),
+            phase_cause.with_applier(plan.owner),
             parent,
             plan,
             crate::catalog::action::AbilityProgramTiming::AfterHits,
@@ -451,7 +458,7 @@ pub(super) fn execute_action_plan(
     parent = run_programs_at(
         catalog,
         txn,
-        base.with_applier(plan.actor),
+        base.with_applier(plan.owner),
         parent,
         plan,
         crate::catalog::action::AbilityProgramTiming::Resolved,
@@ -467,7 +474,7 @@ pub(super) fn execute_action_plan(
         let operation = txn.allocate_operation();
         parent = super::lifecycle::execute_end_transform(
             txn,
-            base.with_applier(plan.actor),
+            base.with_applier(plan.owner),
             parent,
             UnitLifecycleOp {
                 id: operation,
@@ -717,6 +724,32 @@ fn apply_resource_costs(
                 maximum,
             }),
         );
+    }
+    for cost in policy.team_resource_costs() {
+        let (resource, before, maximum) = txn
+            .state
+            .teams
+            .get(side)
+            .keyed_by_name(cost.stable_key())
+            .map(|state| (state.id, state.current, state.maximum))
+            .ok_or_else(|| action_fault(75))?;
+        let after = before
+            .checked_sub(cost.amount())
+            .ok_or_else(|| action_fault(76))?;
+        txn.set_team_resource(side, resource, after)?;
+        parent = txn.emit(
+            cause.with_parent(parent),
+            BattleEventKind::Resource(ResourceEventData::TeamResource {
+                side,
+                resource,
+                attempted: cost.amount(),
+                effective: cost.amount(),
+                before,
+                after,
+                overflow: 0,
+            }),
+        );
+        debug_assert!(after <= maximum);
     }
     Ok(parent)
 }

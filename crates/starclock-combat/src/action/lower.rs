@@ -32,6 +32,7 @@ pub(crate) fn lower_normal_action(
     catalog: &CombatCatalog,
     allocator: &mut impl ActionIdentityAllocator,
     actor: UnitId,
+    owner: UnitId,
     timeline_actor: TimelineActorId,
     ability: AbilityId,
     targets: TargetCommitment,
@@ -41,7 +42,7 @@ pub(crate) fn lower_normal_action(
         allocator,
         ActionContext {
             actor,
-            owner: actor,
+            owner,
             origin: ActionOrigin::NormalTurn,
             timeline_actor: Some(timeline_actor),
         },
@@ -55,6 +56,7 @@ pub(crate) fn lower_interrupt_action(
     catalog: &CombatCatalog,
     allocator: &mut impl ActionIdentityAllocator,
     actor: UnitId,
+    owner: UnitId,
     ability: AbilityId,
     targets: TargetCommitment,
 ) -> Option<ActionPlan> {
@@ -63,7 +65,7 @@ pub(crate) fn lower_interrupt_action(
         allocator,
         ActionContext {
             actor,
-            owner: actor,
+            owner,
             origin: ActionOrigin::UltimateInterrupt,
             timeline_actor: None,
         },
@@ -144,10 +146,7 @@ fn lower_action(
         ActionOrigin::ExtraAction => action.kind() == AbilityKind::ExtraAction,
         ActionOrigin::Forced => {
             action.kind() == AbilityKind::ExtraAction
-                || (action.kind() == AbilityKind::Skill
-                    && action
-                        .tags()
-                        .contains(crate::catalog::action::AbilityTag::ElationSkill))
+                || (action.kind() == AbilityKind::Skill && action.tags().supports_forced_skill())
         }
         ActionOrigin::DelayedAction => action.kind() == AbilityKind::DelayedAction,
         ActionOrigin::SummonAction => action.kind() == AbilityKind::Summon,
@@ -195,7 +194,12 @@ fn lower_action(
         targets,
         resources: payment.map_or_else(
             || action.resources().clone(),
-            |payment| action.resources().clone().with_skill_point_payment(payment),
+            |payment| match payment {
+                crate::catalog::action::SkillPointPaymentPolicy::Suppressed => {
+                    action.resources().clone().with_costs_suppressed()
+                }
+                payment => action.resources().clone().with_skill_point_payment(payment),
+            },
         ),
         programs: definition.programs().into(),
         phases: vec![ActionPhasePlan { id: phase_id, hits }].into_boxed_slice(),

@@ -22,6 +22,8 @@ pub struct HitPlanHit {
     pub damage_operation_ratio_decimal: Option<String>,
     #[serde(rename = "toughness_amount_decimal")]
     pub toughness_amount_decimal: Option<String>,
+    #[serde(rename = "ignores_weakness")]
+    pub ignores_weakness: Option<bool>,
 }
 
 impl super::runtime::SoraDecode for HitPlanHit {
@@ -44,6 +46,7 @@ impl super::runtime::SoraDecode for HitPlanHit {
             toughness_amount_decimal: <Option<String> as super::runtime::SoraDecode>::decode(
                 reader,
             )?,
+            ignores_weakness: <Option<bool> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

@@ -146,12 +146,13 @@ fn execute_toughness_reduction(
                 )
             })
             .ok_or_else(|| invariant_fault(6))?;
-        let routed = crate::toughness::state::route_reduction(
+        let routed = crate::toughness::state::route_reduction_with_override(
             &mut layers,
             &weaknesses,
             was_broken,
             operation.definition.element,
             calculation.attempted,
+            operation.definition.ignores_weakness,
         );
         let zero = crate::RawToughness::new(0).expect("zero Toughness is valid");
         let (layer_key, effective, before, after) =

@@ -277,6 +277,7 @@ pub struct EffectDefinition {
     id: EffectDefinitionId,
     rules: Box<[RuleId]>,
     modifiers: Box<[ModifierDefinitionId]>,
+    granted_abilities: Box<[AbilityId]>,
     runtime: Option<crate::effect::model::EffectRuntimeDefinition>,
     runtime_template: Option<crate::effect::model::EffectRuntimeTemplate>,
 }
@@ -293,6 +294,7 @@ impl EffectDefinition {
             id,
             rules: rules.into_boxed_slice(),
             modifiers: modifiers.into_boxed_slice(),
+            granted_abilities: Box::new([]),
             runtime: None,
             runtime_template: None,
         }
@@ -312,6 +314,12 @@ impl EffectDefinition {
         self.runtime_template = Some(runtime);
         self
     }
+    /// Attaches abilities that are offered while this effect is active on a unit.
+    #[must_use]
+    pub fn with_granted_abilities(mut self, granted_abilities: Vec<AbilityId>) -> Self {
+        self.granted_abilities = granted_abilities.into_boxed_slice();
+        self
+    }
     /// Returns the stable definition ID.
     #[must_use]
     pub const fn id(&self) -> EffectDefinitionId {
@@ -326,6 +334,11 @@ impl EffectDefinition {
     #[must_use]
     pub fn modifiers(&self) -> &[ModifierDefinitionId] {
         &self.modifiers
+    }
+    /// Returns the canonical abilities granted to the effect holder.
+    #[must_use]
+    pub fn granted_abilities(&self) -> &[AbilityId] {
+        &self.granted_abilities
     }
     /// Returns executable effect semantics when authored.
     #[must_use]

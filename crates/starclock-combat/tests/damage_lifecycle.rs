@@ -143,6 +143,7 @@ fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<Comb
                     ),
                     HitOperationDefinition::ReduceToughness(ToughnessReductionDefinition {
                         element: CombatElement::Fire,
+                        ignores_weakness: false,
                         reduction: ToughnessReductionContext {
                             base: starclock_combat::RawToughness::new(90).unwrap(),
                             additive: starclock_combat::RawToughness::new(0).unwrap(),

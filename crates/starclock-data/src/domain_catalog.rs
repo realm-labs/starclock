@@ -27,7 +27,8 @@ use starclock_combat::{
             AbilityActionDefinition, AbilityKind, AbilityProgramBinding, AbilityProgramTiming,
             AbilityTag, ActionHitDefinition, ActionResourcePolicy, CharacterResourceCost,
             HitCritPolicy, HitOperationDefinition, HitTargetGroup, ScalingDamageDefinition,
-            TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
+            TargetInvalidationPolicy, TargetPattern, TargetRelation, TeamResourceCost,
+            UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
         definition::{
@@ -165,6 +166,7 @@ fn compile_combat(
                 effect.rules().to_vec(),
                 effect.modifiers().to_vec(),
             )
+            .with_granted_abilities(effect.granted_abilities().to_vec())
             .with_runtime_template(effect.runtime_template().clone()),
         );
     }
@@ -521,6 +523,7 @@ fn add_combat_ability(
                         toughness_reduction(
                             binding.element.expect("validated Toughness element"),
                             base,
+                            hit.ignores_weakness,
                         ),
                     ));
                 }
@@ -588,10 +591,12 @@ fn hit_crit_policy(value: u8) -> HitCritPolicy {
 fn toughness_reduction(
     element: starclock_combat::formula::model::CombatElement,
     base: RawToughness,
+    ignores_weakness: bool,
 ) -> starclock_combat::ToughnessReductionDefinition {
     use starclock_combat::formula::toughness::{BreakDamageDefinition, ToughnessReductionContext};
     starclock_combat::ToughnessReductionDefinition {
         element,
+        ignores_weakness,
         reduction: ToughnessReductionContext {
             base,
             additive: RawToughness::new(0).expect("zero is valid"),
@@ -748,6 +753,7 @@ fn ability_tags(tags: starclock_combat::catalog::action::AbilityTags) -> Vec<Abi
         AbilityTag::AdditionalDamage,
         AbilityTag::Joint,
         AbilityTag::ElationSkill,
+        AbilityTag::Assist,
     ]
     .into_iter()
     .filter(|tag| tags.contains(*tag))
@@ -763,6 +769,7 @@ fn action_resources(
     let mut energy_cost = Energy::ZERO;
     let mut energy_gain = Energy::ZERO;
     let mut character_resource_costs = Vec::new();
+    let mut team_resource_costs = Vec::new();
     for resource in &source.resources {
         match (resource.resource_kind, resource.delta_kind) {
             (1, 0) => sp_cost = scalar_u16(resource.amount)?,
@@ -785,11 +792,24 @@ fn action_resources(
                     .ok_or_else(|| domain_fail("invalid character-resource action cost"))?,
                 );
             }
+            (4, 0) if resource.timing == 1 => {
+                team_resource_costs.push(
+                    TeamResourceCost::new(
+                        resource
+                            .character_resource_key
+                            .as_deref()
+                            .ok_or_else(|| domain_fail("team-resource cost requires a key"))?,
+                        scalar_u16(resource.amount)?,
+                    )
+                    .ok_or_else(|| domain_fail("invalid team-resource action cost"))?,
+                );
+            }
             _ => {}
         }
     }
     character_resource_costs
         .sort_unstable_by(|left, right| left.stable_key().cmp(right.stable_key()));
+    team_resource_costs.sort_unstable_by(|left, right| left.stable_key().cmp(right.stable_key()));
     if source.kind == 2 && energy_cost == Energy::ZERO && character_resource_costs.is_empty() {
         energy_cost =
             Energy::from_scaled(ultimate_cost.map_or(1_000_000, starclock_combat::Scalar::scaled))
@@ -797,7 +817,9 @@ fn action_resources(
     }
     ActionResourcePolicy::new(sp_cost, sp_gain, energy_cost, energy_gain)
         .with_character_resource_costs(character_resource_costs)
-        .ok_or_else(|| domain_fail("character-resource action costs must have unique keys"))
+        .ok_or_else(|| domain_fail("character-resource action costs must have unique keys"))?
+        .with_team_resource_costs(team_resource_costs)
+        .ok_or_else(|| domain_fail("team-resource action costs must have unique keys"))
 }
 
 fn scalar_u16(value: starclock_combat::Scalar) -> Result<u16, CatalogLoadError> {

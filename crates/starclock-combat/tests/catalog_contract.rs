@@ -429,6 +429,40 @@ fn set_like_references_must_be_strictly_ordered_and_unique() {
 }
 
 #[test]
+fn effect_granted_abilities_require_existing_canonical_references() {
+    let mut missing = CombatCatalogBuilder::new("missing-effect-grant-v1", [0x31; 32]);
+    missing.add_effect(
+        EffectDefinition::new(id(1), vec![], vec![])
+            .with_granted_abilities(vec![id::<AbilityId>(9)]),
+    );
+    assert_eq!(
+        missing.build().unwrap_err().kind(),
+        CatalogBuildErrorKind::MissingReference
+    );
+
+    let mut unsorted = CombatCatalogBuilder::new("unsorted-effect-grant-v1", [0x32; 32]);
+    for raw in [1, 2] {
+        unsorted.add_selector(SelectorDefinition::new(id(raw)));
+        unsorted.add_program(ProgramDefinition::new(
+            id(raw),
+            vec![],
+            vec![],
+            vec![],
+            vec![],
+        ));
+        unsorted.add_ability(AbilityDefinition::new(id(raw), id(raw), id(raw), vec![]));
+    }
+    unsorted.add_effect(
+        EffectDefinition::new(id(1), vec![], vec![])
+            .with_granted_abilities(vec![id::<AbilityId>(2), id(1)]),
+    );
+    assert_eq!(
+        unsorted.build().unwrap_err().kind(),
+        CatalogBuildErrorKind::NonCanonicalReferences
+    );
+}
+
+#[test]
 fn program_cycles_report_a_canonical_closed_path() {
     let mut builder = CombatCatalogBuilder::new("cycle-v1", [4; 32]);
     builder.add_program(ProgramDefinition::new(

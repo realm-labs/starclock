@@ -553,9 +553,7 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
                     )
                 ) || (queue.origin() == crate::ActionOrigin::Forced
                     && queued.kind() == super::action::AbilityKind::Skill
-                    && queued
-                        .tags()
-                        .contains(super::action::AbilityTag::ElationSkill));
+                    && queued.tags().supports_forced_skill());
                 if !compatible {
                     return Err(error(
                         CatalogBuildErrorKind::InvalidDefinition,
@@ -581,26 +579,32 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             .effects
             .get(id)
             .expect("ID originated from this table");
-        canonical(effect.rules(), DefinitionKind::Effect, id.get(), "rules")?;
-        canonical(
-            effect.modifiers(),
-            DefinitionKind::Effect,
-            id.get(),
-            "modifiers",
-        )?;
+        let grants = effect.granted_abilities();
+        let kind = DefinitionKind::Effect;
+        let raw = id.get();
+        canonical(effect.rules(), kind, raw, "rules")?;
+        canonical(effect.modifiers(), kind, raw, "modifiers")?;
+        canonical(grants, kind, raw, "granted abilities")?;
         require_all(
             effect.rules(),
             |value| catalog.rules.get(value).is_some(),
-            DefinitionKind::Effect,
-            id.get(),
+            kind,
+            raw,
             DefinitionKind::Rule,
         )?;
         require_all(
             effect.modifiers(),
             |value| catalog.modifiers.definition(value).is_some(),
-            DefinitionKind::Effect,
-            id.get(),
+            kind,
+            raw,
             DefinitionKind::Modifier,
+        )?;
+        require_all(
+            grants,
+            |value| catalog.abilities.get(value).is_some(),
+            kind,
+            raw,
+            DefinitionKind::Ability,
         )?;
     }
     for id in catalog.rules.ids() {

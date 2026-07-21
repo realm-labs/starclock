@@ -5,7 +5,7 @@ import path from "node:path";
 const PACK_SHA = "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a";
 const MANIFEST_SHA = "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19";
 const PROVENANCE_SHA = "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466";
-const RESEARCH_SHA = "448a7571d103fedbb97450ff658aa52eb5a944085c731babbddf0b112e5ea374";
+const RESEARCH_SHA = "00b0f3054552304f28fd32f3b2d07193eb814a764e8a152967572eee6f04a7ea";
 const SCHEMA = "starclock-goal-coverage-v1";
 const GENERATED_ON = "2026-07-20";
 const root = path.resolve(process.cwd());
@@ -32,6 +32,7 @@ const research = readJson(path.join(evidenceRoot, "research-register", "research
 const mappingKeys = new Set(provenance.mappings.map((entry) => `${entry.kind}\0${entry.id}`));
 const researchByCharacter = new Map();
 for (const researchCase of research.cases) {
+  if (researchCase.state !== "Researching") continue;
   for (const binding of researchCase.evidence) {
     const marker = ".ability.";
     const index = binding.record_id.indexOf(marker);

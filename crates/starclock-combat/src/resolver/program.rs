@@ -842,6 +842,7 @@ fn toughness_reduction(
 ) -> crate::ToughnessReductionDefinition {
     crate::ToughnessReductionDefinition {
         element,
+        ignores_weakness: false,
         reduction: crate::formula::toughness::ToughnessReductionContext {
             base,
             additive: crate::RawToughness::new(0).expect("zero is valid"),

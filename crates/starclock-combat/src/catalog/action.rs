@@ -93,6 +93,8 @@ pub enum AbilityTag {
     AdditionalDamage = 8,
     Joint = 9,
     ElationSkill = 10,
+    /// Skill temporarily offered by an authored provider effect.
+    Assist = 11,
 }
 
 /// Compact, canonically encoded set of generic ability tags.
@@ -100,7 +102,7 @@ pub enum AbilityTag {
 pub struct AbilityTags(u32);
 
 impl AbilityTags {
-    const ALL_BITS: u32 = (1_u32 << 11) - 1;
+    const ALL_BITS: u32 = (1_u32 << 12) - 1;
     #[must_use]
     pub fn new(tags: &[AbilityTag]) -> Self {
         Self(
@@ -121,6 +123,11 @@ impl AbilityTags {
     #[must_use]
     pub const fn contains(self, tag: AbilityTag) -> bool {
         self.0 & (1_u32 << (tag as u8)) != 0
+    }
+
+    #[must_use]
+    pub const fn supports_forced_skill(self) -> bool {
+        self.contains(AbilityTag::ElationSkill) || self.contains(AbilityTag::Assist)
     }
 
     #[must_use]
@@ -435,6 +442,35 @@ impl CharacterResourceCost {
     }
 }
 
+/// One exact side-scoped keyed resource cost paid when an action starts.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct TeamResourceCost {
+    stable_key: Box<str>,
+    amount: u16,
+}
+
+impl TeamResourceCost {
+    /// Creates a positive cost for one nonempty team-resource key.
+    #[must_use]
+    pub fn new(stable_key: impl Into<Box<str>>, amount: u16) -> Option<Self> {
+        let stable_key = stable_key.into();
+        if stable_key.trim().is_empty() || amount == 0 {
+            return None;
+        }
+        Some(Self { stable_key, amount })
+    }
+    /// Returns the exact side-scoped resource key.
+    #[must_use]
+    pub fn stable_key(&self) -> &str {
+        &self.stable_key
+    }
+    /// Returns the positive amount paid at action start.
+    #[must_use]
+    pub const fn amount(&self) -> u16 {
+        self.amount
+    }
+}
+
 /// Costs and gains applied at their common action-envelope boundaries.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ActionResourcePolicy {
@@ -444,6 +480,7 @@ pub struct ActionResourcePolicy {
     energy_gain: Energy,
     skill_point_payment: SkillPointPaymentPolicy,
     character_resource_costs: Box<[CharacterResourceCost]>,
+    team_resource_costs: Box<[TeamResourceCost]>,
 }
 
 impl ActionResourcePolicy {
@@ -462,12 +499,23 @@ impl ActionResourcePolicy {
             energy_gain,
             skill_point_payment: SkillPointPaymentPolicy::TeamSkillPoints,
             character_resource_costs: Box::new([]),
+            team_resource_costs: Box::new([]),
         }
     }
     /// Selects the actual payer while retaining the authored attempted SP cost.
     #[must_use]
     pub const fn with_skill_point_payment(mut self, payment: SkillPointPaymentPolicy) -> Self {
         self.skill_point_payment = payment;
+        self
+    }
+    /// Suppresses every payable cost while retaining authored gains and the
+    /// attempted Skill Point amount for deterministic event telemetry.
+    #[must_use]
+    pub fn with_costs_suppressed(mut self) -> Self {
+        self.skill_point_payment = SkillPointPaymentPolicy::Suppressed;
+        self.energy_cost = crate::Energy::ZERO;
+        self.character_resource_costs = Box::new([]);
+        self.team_resource_costs = Box::new([]);
         self
     }
     /// Attaches costs in strictly increasing, unique stable-key order.
@@ -483,6 +531,18 @@ impl ActionResourcePolicy {
             return None;
         }
         self.character_resource_costs = costs.into_boxed_slice();
+        Some(self)
+    }
+    /// Attaches side-scoped costs in strictly increasing, unique stable-key order.
+    #[must_use]
+    pub fn with_team_resource_costs(mut self, costs: Vec<TeamResourceCost>) -> Option<Self> {
+        if costs
+            .windows(2)
+            .any(|pair| pair[0].stable_key() >= pair[1].stable_key())
+        {
+            return None;
+        }
+        self.team_resource_costs = costs.into_boxed_slice();
         Some(self)
     }
     /// Returns the team Skill Point cost.
@@ -514,12 +574,18 @@ impl ActionResourcePolicy {
     pub fn character_resource_costs(&self) -> &[CharacterResourceCost] {
         &self.character_resource_costs
     }
+    /// Returns canonical side-scoped costs paid by the acting unit's team.
+    #[must_use]
+    pub fn team_resource_costs(&self) -> &[TeamResourceCost] {
+        &self.team_resource_costs
+    }
     /// Returns whether the action requires any current resource.
     #[must_use]
     pub fn has_payable_cost(&self) -> bool {
         self.skill_point_cost > 0
             || self.energy_cost > Energy::ZERO
             || !self.character_resource_costs.is_empty()
+            || !self.team_resource_costs.is_empty()
     }
 }
 

@@ -178,8 +178,11 @@ fn execute(
                 return Err(action_fault(4));
             }
             let targets = commit_targets(catalog, txn, actor, ability, primary_target)?;
-            let mut plan = lower_normal_action(catalog, txn, actor, turn.actor, ability, targets)
+            let owner = legal::ability_owner(txn.state, catalog, actor, ability)
                 .ok_or_else(|| action_fault(5))?;
+            let mut plan =
+                lower_normal_action(catalog, txn, actor, owner, turn.actor, ability, targets)
+                    .ok_or_else(|| action_fault(5))?;
             let action_resolved = execute_action_plan(catalog, txn, root, closed, &mut plan)?;
             let boundary_cause = action_cause(root, &plan)?;
             let action_resolved = super::operation::settle_effects_at_action_end(
@@ -237,7 +240,9 @@ fn execute(
                 return Err(action_fault(11));
             }
             let targets = commit_targets(catalog, txn, actor, ability, primary_target)?;
-            let mut plan = lower_interrupt_action(catalog, txn, actor, ability, targets)
+            let owner = legal::ability_owner(txn.state, catalog, actor, ability)
+                .ok_or_else(|| action_fault(12))?;
+            let mut plan = lower_interrupt_action(catalog, txn, actor, owner, ability, targets)
                 .ok_or_else(|| action_fault(12))?;
             let resolved = execute_action_plan(catalog, txn, root, closed, &mut plan)?;
             let boundary_cause = action_cause(root, &plan)?;
@@ -288,7 +293,7 @@ pub(super) fn action_cause(
         source,
     )
     .with_primary_target(plan.targets.primary)
-    .with_applier(plan.actor))
+    .with_applier(plan.owner))
 }
 
 pub(super) fn commit_targets(

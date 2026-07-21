@@ -6,8 +6,7 @@
   "case_count": 37,
   "state_counts": {
     "Observed": 6,
-    "Researching": 10,
-    "ResolvedProjectPolicy": 21
+    "ResolvedProjectPolicy": 31
   },
   "family_counts": {
     "HimekoNovaApproximation": 10,
@@ -327,7 +326,7 @@
       "observation": {
         "accessed_on": "2026-07-17",
         "source_payload_sha256": "eca2d92a18987e4bd41ccdc5b307a858e03e819d2317b1825da22a7e65cc2ace",
-        "executable_bundle_sha256": "63b138645278e74e9836eafec09a9637aa9d91b05603a44160b0506e2874faed",
+        "executable_bundle_sha256": "b88f7c5a70d3162bff9a0d489b84b0a0e84125508ebc4af6cbf7041db7343415",
         "result": "One ReplaceByCaster aura instance reads the current Charging slot; level-10 ATK ratio changes at 0/1/5/3 stacks without instance replacement.",
         "evidence_paths": [
           "config/probes/v1a/asta-modifier/golden.json",
@@ -450,7 +449,7 @@
       "observation": {
         "accessed_on": "2026-07-17",
         "source_payload_sha256": "eca2d92a18987e4bd41ccdc5b307a858e03e819d2317b1825da22a7e65cc2ace",
-        "executable_bundle_sha256": "63b138645278e74e9836eafec09a9637aa9d91b05603a44160b0506e2874faed",
+        "executable_bundle_sha256": "b88f7c5a70d3162bff9a0d489b84b0a0e84125508ebc4af6cbf7041db7343415",
         "result": "A seeded four-hit sequence against three stable targets yields credits 1/2/0/1; repeats are coalesced and Fire weakness is sampled for the current hit.",
         "evidence_paths": [
           "config/probes/v1a/asta-modifier/golden.json",
@@ -2026,7 +2025,7 @@
       "observation": {
         "accessed_on": "2026-07-17",
         "source_payload_sha256": "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
-        "executable_bundle_sha256": "62d6b0efaa55193d7e344469ccd0a0b61d147310a3f1cf9b796f8ec2b37f73ba",
+        "executable_bundle_sha256": "8a7deb7ecd50c999ec2f3f0504295fcecba64172a89ccc59638c080292376417",
         "result": "The normal Skill prepares ordered ConsumeHp, ModifyEnergy and Damage emissions: 40% Max HP with a one-HP floor, 60% Max Energy gain and level-10 200% ATK Fire damage. Invalid preparation leaves the caller's state unchanged.",
         "evidence_paths": [
           "config/probes/v1a/firefly-damage/golden.json",
@@ -2089,7 +2088,7 @@
       "observation": {
         "accessed_on": "2026-07-17",
         "source_payload_sha256": "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
-        "executable_bundle_sha256": "62d6b0efaa55193d7e344469ccd0a0b61d147310a3f1cf9b796f8ec2b37f73ba",
+        "executable_bundle_sha256": "8a7deb7ecd50c999ec2f3f0504295fcecba64172a89ccc59638c080292376417",
         "result": "The source-bound program retains the 50% Autoreactive Armor branch after Toughness reduction. The action golden records attempted 90/effective 50 on the ordinary layer, effective 40 on the reducible-while-broken Exo layer, and effective zero with a skipped Super Break after both layers are empty; Super Break uses the effective per-target sample.",
         "evidence_paths": [
           "config/probes/v1a/firefly-damage/golden.json",
@@ -2144,7 +2143,7 @@
       "observation": {
         "accessed_on": "2026-07-17",
         "source_payload_sha256": "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
-        "executable_bundle_sha256": "62d6b0efaa55193d7e344469ccd0a0b61d147310a3f1cf9b796f8ec2b37f73ba",
+        "executable_bundle_sha256": "8a7deb7ecd50c999ec2f3f0504295fcecba64172a89ccc59638c080292376417",
         "result": "The Ultimate program makes the countdown creation and RedMode effect visible before full action advance, then resets Energy; the four operations retain one ordered typed Rule IR program.",
         "evidence_paths": [
           "config/probes/v1a/firefly-damage/golden.json",
@@ -2207,7 +2206,7 @@
       "observation": {
         "accessed_on": "2026-07-17",
         "source_payload_sha256": "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
-        "executable_bundle_sha256": "62d6b0efaa55193d7e344469ccd0a0b61d147310a3f1cf9b796f8ec2b37f73ba",
+        "executable_bundle_sha256": "8a7deb7ecd50c999ec2f3f0504295fcecba64172a89ccc59638c080292376417",
         "result": "The enhanced Skill probe emits AddWeakness(Fire) before its 90-raw ReduceToughness operation. The battle golden applies the source-bound two-target-turn weakness to a target without Fire weakness, uses it for that hit, retains it through the first target turn and emits removal at the second without changing RES.",
         "evidence_paths": [
           "config/probes/v1a/firefly-damage/golden.json",
@@ -2237,8 +2236,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "ReleasedTextBoundApproximation",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4",
         "source.hoyolab.version-4.4",
@@ -2262,6 +2261,27 @@
         "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
         "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P7-M01-01",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-HIMEKO-NOVA-COMPANION-PROTOCOL-DECIMATION.",
+        "evidence_paths": [
+          "crates/starclock-combat/tests/assist_skill_subsystem.rs",
+          "crates/starclock-combat/tests/catalog_contract.rs",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "docs/assist-skill-and-companion-protocol-boundary.md"
+        ],
+        "validation_commands": [
+          "cargo test -p starclock-combat --test assist_skill_subsystem --test elation_subsystem --test catalog_contract",
+          "cargo test -p starclock-data --all-targets --all-features",
+          "node tools/config-production/verify.mjs",
+          "node tools/goal-research/verify.mjs"
+        ],
+        "remaining_content_gate": "C04 may use this deterministic released-text approximation for DataReady only while retaining the named observation envelope; the policy is not an Observed game fact and stronger source-bound evidence must replace conflicts."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -2277,8 +2297,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "ReleasedTextBoundApproximation",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4",
         "source.hoyolab.version-4.4",
@@ -2302,6 +2322,27 @@
         "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
         "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P7-M01-01",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-HIMEKO-NOVA-COMPANION-PROTOCOL-VERDICT.",
+        "evidence_paths": [
+          "crates/starclock-combat/tests/assist_skill_subsystem.rs",
+          "crates/starclock-combat/tests/catalog_contract.rs",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "docs/assist-skill-and-companion-protocol-boundary.md"
+        ],
+        "validation_commands": [
+          "cargo test -p starclock-combat --test assist_skill_subsystem --test elation_subsystem --test catalog_contract",
+          "cargo test -p starclock-data --all-targets --all-features",
+          "node tools/config-production/verify.mjs",
+          "node tools/goal-research/verify.mjs"
+        ],
+        "remaining_content_gate": "C04 may use this deterministic released-text approximation for DataReady only while retaining the named observation envelope; the policy is not an Observed game fact and stronger source-bound evidence must replace conflicts."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -2317,8 +2358,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "ReleasedTextBoundApproximation",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4",
         "source.hoyolab.version-4.4",
@@ -2342,6 +2383,27 @@
         "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
         "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P7-M01-01",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-HIMEKO-NOVA-ENKINDLE-THE-FIRST-LODESTAR.",
+        "evidence_paths": [
+          "crates/starclock-combat/tests/assist_skill_subsystem.rs",
+          "crates/starclock-combat/tests/catalog_contract.rs",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "docs/assist-skill-and-companion-protocol-boundary.md"
+        ],
+        "validation_commands": [
+          "cargo test -p starclock-combat --test assist_skill_subsystem --test elation_subsystem --test catalog_contract",
+          "cargo test -p starclock-data --all-targets --all-features",
+          "node tools/config-production/verify.mjs",
+          "node tools/goal-research/verify.mjs"
+        ],
+        "remaining_content_gate": "C04 may use this deterministic released-text approximation for DataReady only while retaining the named observation envelope; the policy is not an Observed game fact and stronger source-bound evidence must replace conflicts."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -2357,8 +2419,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "ReleasedTextBoundApproximation",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4",
         "source.hoyolab.version-4.4",
@@ -2382,6 +2444,27 @@
         "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
         "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P7-M01-01",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-HIMEKO-NOVA-HYPERLUMINAL-PARTICLE-BEAM.",
+        "evidence_paths": [
+          "crates/starclock-combat/tests/assist_skill_subsystem.rs",
+          "crates/starclock-combat/tests/catalog_contract.rs",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "docs/assist-skill-and-companion-protocol-boundary.md"
+        ],
+        "validation_commands": [
+          "cargo test -p starclock-combat --test assist_skill_subsystem --test elation_subsystem --test catalog_contract",
+          "cargo test -p starclock-data --all-targets --all-features",
+          "node tools/config-production/verify.mjs",
+          "node tools/goal-research/verify.mjs"
+        ],
+        "remaining_content_gate": "C04 may use this deterministic released-text approximation for DataReady only while retaining the named observation envelope; the policy is not an Observed game fact and stronger source-bound evidence must replace conflicts."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -2397,8 +2480,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "ReleasedTextBoundApproximation",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4",
         "source.hoyolab.version-4.4",
@@ -2422,6 +2505,27 @@
         "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
         "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P7-M01-01",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-HIMEKO-NOVA-OF-FIRE-AND-FAR-FARING.",
+        "evidence_paths": [
+          "crates/starclock-combat/tests/assist_skill_subsystem.rs",
+          "crates/starclock-combat/tests/catalog_contract.rs",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "docs/assist-skill-and-companion-protocol-boundary.md"
+        ],
+        "validation_commands": [
+          "cargo test -p starclock-combat --test assist_skill_subsystem --test elation_subsystem --test catalog_contract",
+          "cargo test -p starclock-data --all-targets --all-features",
+          "node tools/config-production/verify.mjs",
+          "node tools/goal-research/verify.mjs"
+        ],
+        "remaining_content_gate": "C04 may use this deterministic released-text approximation for DataReady only while retaining the named observation envelope; the policy is not an Observed game fact and stronger source-bound evidence must replace conflicts."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -2437,8 +2541,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "ReleasedTextBoundApproximation",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4",
         "source.hoyolab.version-4.4",
@@ -2462,6 +2566,27 @@
         "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
         "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P7-M01-01",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-HIMEKO-NOVA-ORBITAL-ANNIHILATION-PULSE.",
+        "evidence_paths": [
+          "crates/starclock-combat/tests/assist_skill_subsystem.rs",
+          "crates/starclock-combat/tests/catalog_contract.rs",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "docs/assist-skill-and-companion-protocol-boundary.md"
+        ],
+        "validation_commands": [
+          "cargo test -p starclock-combat --test assist_skill_subsystem --test elation_subsystem --test catalog_contract",
+          "cargo test -p starclock-data --all-targets --all-features",
+          "node tools/config-production/verify.mjs",
+          "node tools/goal-research/verify.mjs"
+        ],
+        "remaining_content_gate": "C04 may use this deterministic released-text approximation for DataReady only while retaining the named observation envelope; the policy is not an Observed game fact and stronger source-bound evidence must replace conflicts."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -2477,8 +2602,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "ReleasedTextBoundApproximation",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4",
         "source.hoyolab.version-4.4",
@@ -2502,6 +2627,27 @@
         "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
         "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P7-M01-01",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-HIMEKO-NOVA-STARCHARTER-CRUISE.",
+        "evidence_paths": [
+          "crates/starclock-combat/tests/assist_skill_subsystem.rs",
+          "crates/starclock-combat/tests/catalog_contract.rs",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "docs/assist-skill-and-companion-protocol-boundary.md"
+        ],
+        "validation_commands": [
+          "cargo test -p starclock-combat --test assist_skill_subsystem --test elation_subsystem --test catalog_contract",
+          "cargo test -p starclock-data --all-targets --all-features",
+          "node tools/config-production/verify.mjs",
+          "node tools/goal-research/verify.mjs"
+        ],
+        "remaining_content_gate": "C04 may use this deterministic released-text approximation for DataReady only while retaining the named observation envelope; the policy is not an Observed game fact and stronger source-bound evidence must replace conflicts."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -2517,8 +2663,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "ReleasedTextBoundApproximation",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4",
         "source.hoyolab.version-4.4",
@@ -2542,6 +2688,27 @@
         "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
         "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P7-M01-01",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-HIMEKO-NOVA-TRAILBLAZE-BY-YOUR-SIDE.",
+        "evidence_paths": [
+          "crates/starclock-combat/tests/assist_skill_subsystem.rs",
+          "crates/starclock-combat/tests/catalog_contract.rs",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "docs/assist-skill-and-companion-protocol-boundary.md"
+        ],
+        "validation_commands": [
+          "cargo test -p starclock-combat --test assist_skill_subsystem --test elation_subsystem --test catalog_contract",
+          "cargo test -p starclock-data --all-targets --all-features",
+          "node tools/config-production/verify.mjs",
+          "node tools/goal-research/verify.mjs"
+        ],
+        "remaining_content_gate": "C04 may use this deterministic released-text approximation for DataReady only while retaining the named observation envelope; the policy is not an Observed game fact and stronger source-bound evidence must replace conflicts."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -2557,8 +2724,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "ReleasedTextBoundApproximation",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4",
         "source.hoyolab.version-4.4",
@@ -2582,6 +2749,27 @@
         "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
         "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P7-M01-01",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-HIMEKO-NOVA-UPRAISE-THE-VANWARD-CRESSET.",
+        "evidence_paths": [
+          "crates/starclock-combat/tests/assist_skill_subsystem.rs",
+          "crates/starclock-combat/tests/catalog_contract.rs",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "docs/assist-skill-and-companion-protocol-boundary.md"
+        ],
+        "validation_commands": [
+          "cargo test -p starclock-combat --test assist_skill_subsystem --test elation_subsystem --test catalog_contract",
+          "cargo test -p starclock-data --all-targets --all-features",
+          "node tools/config-production/verify.mjs",
+          "node tools/goal-research/verify.mjs"
+        ],
+        "remaining_content_gate": "C04 may use this deterministic released-text approximation for DataReady only while retaining the named observation envelope; the policy is not an Observed game fact and stronger source-bound evidence must replace conflicts."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",
@@ -2597,8 +2785,8 @@
       ]
     },
     {
-      "state": "Researching",
-      "confidence": "ReleasedTextBoundApproximation",
+      "state": "ResolvedProjectPolicy",
+      "confidence": "AcceptedProjectPolicyPendingContentObservation",
       "source_ids": [
         "source.dimbreath.4.4",
         "source.hoyolab.version-4.4",
@@ -2622,6 +2810,27 @@
         "Actor/owner/source/cause identities for Assist Skill and protocol-triggered use.",
         "Cost/use-counter, threshold, target-invalidation and action/turn-consumption behavior."
       ],
+      "resolution": {
+        "decided_on": "2026-07-20",
+        "decision_ids": [
+          "G01-D-P7-M01-01",
+          "G01-D-P4-B11-05"
+        ],
+        "result": "Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for G01-R-HIMEKO-NOVA-WE-TOO-STRIDE-THE-STARS.",
+        "evidence_paths": [
+          "crates/starclock-combat/tests/assist_skill_subsystem.rs",
+          "crates/starclock-combat/tests/catalog_contract.rs",
+          "crates/starclock-combat/tests/elation_subsystem.rs",
+          "docs/assist-skill-and-companion-protocol-boundary.md"
+        ],
+        "validation_commands": [
+          "cargo test -p starclock-combat --test assist_skill_subsystem --test elation_subsystem --test catalog_contract",
+          "cargo test -p starclock-data --all-targets --all-features",
+          "node tools/config-production/verify.mjs",
+          "node tools/goal-research/verify.mjs"
+        ],
+        "remaining_content_gate": "C04 may use this deterministic released-text approximation for DataReady only while retaining the named observation envelope; the policy is not an Observed game fact and stronger source-bound evidence must replace conflicts."
+      },
       "evidence": [
         {
           "record_file": "character-abilities.json",

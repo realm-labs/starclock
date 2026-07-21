@@ -182,6 +182,8 @@ impl ToughnessLayerSpec {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ToughnessReductionDefinition {
     pub element: CombatElement,
+    /// Allows this operation to route reduction without a matching weakness.
+    pub ignores_weakness: bool,
     pub reduction: crate::formula::toughness::ToughnessReductionContext,
     pub break_damage: crate::formula::toughness::BreakDamageDefinition,
     /// Final clamped result of 150% base chance, EHR, Effect RES and debuff RES.

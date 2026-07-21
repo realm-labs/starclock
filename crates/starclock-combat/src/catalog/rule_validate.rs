@@ -282,9 +282,7 @@ fn validate_operation(
                 .ok_or_else(|| format!("queued ability {} is not executable", ability.get()))?;
             let forced_skill = *forced_use
                 && action.kind() == crate::catalog::action::AbilityKind::Skill
-                && action
-                    .tags()
-                    .contains(crate::catalog::action::AbilityTag::ElationSkill);
+                && action.tags().supports_forced_skill();
             if action.kind().is_normal_turn() && !forced_skill {
                 return Err(format!(
                     "queued ability {} must declare a queued action kind or an explicitly tagged forced Skill",

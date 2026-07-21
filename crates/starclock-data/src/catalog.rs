@@ -23,6 +23,7 @@ use crate::generated::{
     release_state::ReleaseState, runtime::SoraBundle,
 };
 
+mod effect_bindings;
 mod hit_formula;
 mod validation;
 mod value_map;
@@ -319,6 +320,7 @@ pub struct EffectDataDefinition {
     tags: Box<[Box<str>]>,
     rules: Box<[RuleId]>,
     modifiers: Box<[ModifierDefinitionId]>,
+    granted_abilities: Box<[AbilityId]>,
     runtime_template: EffectRuntimeTemplate,
 }
 
@@ -384,6 +386,10 @@ impl EffectDataDefinition {
         &self.modifiers
     }
     #[must_use]
+    pub fn granted_abilities(&self) -> &[AbilityId] {
+        &self.granted_abilities
+    }
+    #[must_use]
     pub const fn runtime_template(&self) -> &EffectRuntimeTemplate {
         &self.runtime_template
     }
@@ -439,6 +445,7 @@ pub(super) struct HitDefinition {
     pub(super) damage_parameter_key_override: Option<Box<str>>,
     pub(super) damage_operation_ratio: Option<Ratio>,
     pub(super) toughness_amount: Option<starclock_combat::Scalar>,
+    pub(super) ignores_weakness: bool,
 }
 
 impl CombatDefinitions {
@@ -511,7 +518,8 @@ fn validate_converted_catalog(catalog: &SimulationCatalog) -> Result<(), Catalog
                     || resource.delta_kind > 2
                     || resource.timing > 4
                     || resource.amount.scaled() <= 0
-                    || (resource.resource_kind == 3) != resource.character_resource_key.is_some()
+                    || matches!(resource.resource_kind, 3 | 4)
+                        != resource.character_resource_key.is_some()
             })
     }) || catalog.combat.hit_plans.iter().any(|plan| {
         plan.target_pattern > 7
@@ -848,6 +856,7 @@ fn convert_combat(
                     .map(|id| ModifierDefinitionId::new(id).expect("positive modifier ID"))
             })
             .collect::<Result<Vec<_>, _>>()?;
+        let granted_abilities = effect_bindings::granted_abilities(config, row.id)?;
         effects.push(EffectDataDefinition {
             id: EffectDefinitionId::new(raw).expect("positive effect ID"),
             category,
@@ -868,6 +877,7 @@ fn convert_combat(
                 .into_boxed_slice(),
             rules: rules.into_boxed_slice(),
             modifiers: modifiers.into_boxed_slice(),
+            granted_abilities: granted_abilities.into_boxed_slice(),
             runtime_template,
         });
     }
@@ -941,11 +951,11 @@ fn convert_combat(
                     .character_resource_key
                     .as_ref()
                     .map(|value| value.clone().into_boxed_str());
-                if (resource_kind == 3) != key.is_some()
+                if matches!(resource_kind, 3 | 4) != key.is_some()
                     || key.as_ref().is_some_and(|value| value.trim().is_empty())
                 {
                     return Err(domain_fail(
-                        "character-resource delta requires exactly one nonempty key",
+                        "character/team-resource delta requires exactly one nonempty key",
                     ));
                 }
                 Ok(AbilityResourceDefinition {
@@ -1026,6 +1036,7 @@ fn convert_combat(
                         .map(parse_decimal)
                         .transpose()?
                         .map(starclock_combat::Scalar::from_scaled),
+                    ignores_weakness: hit.ignores_weakness.unwrap_or(false),
                 })
             })
             .collect::<Result<Vec<_>, CatalogLoadError>>()?;

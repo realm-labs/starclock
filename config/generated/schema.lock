@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "1b700d744eb3e6a0",
+  "fingerprint": "429994a4975c23fd",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -7878,7 +7878,7 @@
             "default": null,
             "range": [
               0,
-              2047
+              4095
             ],
             "length": null,
             "parser": null,
@@ -8560,6 +8560,24 @@
               1,
               32
             ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "ignores_weakness",
+            "ty": {
+              "Optional": "Bool"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
             "parser": null,
             "derived_from": null
           }

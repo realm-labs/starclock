@@ -320,7 +320,7 @@ const resolutions = new Map([
     observation: {
       accessed_on: GENERATED_ON,
       source_payload_sha256: "eca2d92a18987e4bd41ccdc5b307a858e03e819d2317b1825da22a7e65cc2ace",
-      executable_bundle_sha256: "63b138645278e74e9836eafec09a9637aa9d91b05603a44160b0506e2874faed",
+      executable_bundle_sha256: "b88f7c5a70d3162bff9a0d489b84b0a0e84125508ebc4af6cbf7041db7343415",
       result: "One ReplaceByCaster aura instance reads the current Charging slot; level-10 ATK ratio changes at 0/1/5/3 stacks without instance replacement.",
       evidence_paths: ["config/probes/v1a/asta-modifier/golden.json", "crates/starclock-data/src/probe_tests.rs"],
       validation_commands: ["node tools/config-probes/verify-asta-modifier.mjs", "cargo test -p starclock-data probe_tests"],
@@ -332,7 +332,7 @@ const resolutions = new Map([
     observation: {
       accessed_on: GENERATED_ON,
       source_payload_sha256: "eca2d92a18987e4bd41ccdc5b307a858e03e819d2317b1825da22a7e65cc2ace",
-      executable_bundle_sha256: "63b138645278e74e9836eafec09a9637aa9d91b05603a44160b0506e2874faed",
+      executable_bundle_sha256: "b88f7c5a70d3162bff9a0d489b84b0a0e84125508ebc4af6cbf7041db7343415",
       result: "A seeded four-hit sequence against three stable targets yields credits 1/2/0/1; repeats are coalesced and Fire weakness is sampled for the current hit.",
       evidence_paths: ["config/probes/v1a/asta-modifier/golden.json", "crates/starclock-data/src/probe_tests.rs"],
       validation_commands: ["node tools/config-probes/verify-asta-modifier.mjs", "cargo test -p starclock-data probe_tests"],
@@ -344,7 +344,7 @@ const resolutions = new Map([
     observation: {
       accessed_on: GENERATED_ON,
       source_payload_sha256: "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
-      executable_bundle_sha256: "62d6b0efaa55193d7e344469ccd0a0b61d147310a3f1cf9b796f8ec2b37f73ba",
+      executable_bundle_sha256: "8a7deb7ecd50c999ec2f3f0504295fcecba64172a89ccc59638c080292376417",
       result: "The normal Skill prepares ordered ConsumeHp, ModifyEnergy and Damage emissions: 40% Max HP with a one-HP floor, 60% Max Energy gain and level-10 200% ATK Fire damage. Invalid preparation leaves the caller's state unchanged.",
       evidence_paths: ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-data/src/probe_tests.rs"],
       validation_commands: ["node tools/config-probes/verify-firefly-damage.mjs", "cargo test -p starclock-data probe_tests"],
@@ -356,7 +356,7 @@ const resolutions = new Map([
     observation: {
       accessed_on: GENERATED_ON,
       source_payload_sha256: "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
-      executable_bundle_sha256: "62d6b0efaa55193d7e344469ccd0a0b61d147310a3f1cf9b796f8ec2b37f73ba",
+      executable_bundle_sha256: "8a7deb7ecd50c999ec2f3f0504295fcecba64172a89ccc59638c080292376417",
       result: "The Ultimate program makes the countdown creation and RedMode effect visible before full action advance, then resets Energy; the four operations retain one ordered typed Rule IR program.",
       evidence_paths: ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-data/src/probe_tests.rs"],
       validation_commands: ["node tools/config-probes/verify-firefly-damage.mjs", "cargo test -p starclock-data probe_tests"],
@@ -368,7 +368,7 @@ const resolutions = new Map([
     observation: {
       accessed_on: GENERATED_ON,
       source_payload_sha256: "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
-      executable_bundle_sha256: "62d6b0efaa55193d7e344469ccd0a0b61d147310a3f1cf9b796f8ec2b37f73ba",
+      executable_bundle_sha256: "8a7deb7ecd50c999ec2f3f0504295fcecba64172a89ccc59638c080292376417",
       result: "The enhanced Skill probe emits AddWeakness(Fire) before its 90-raw ReduceToughness operation. The battle golden applies the source-bound two-target-turn weakness to a target without Fire weakness, uses it for that hit, retains it through the first target turn and emits removal at the second without changing RES.",
       evidence_paths: ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-data/src/probe_tests.rs", "crates/starclock-combat/tests/damage_lifecycle.rs"],
       validation_commands: ["node tools/config-probes/verify-firefly-damage.mjs", "cargo test -p starclock-data probe_tests", "cargo test -p starclock-combat --test damage_lifecycle"],
@@ -380,7 +380,7 @@ const resolutions = new Map([
     observation: {
       accessed_on: GENERATED_ON,
       source_payload_sha256: "edd2cf12b2944f2be234c77a6e77da9e162bda384b45123083c3f1df2b0fc19c",
-      executable_bundle_sha256: "62d6b0efaa55193d7e344469ccd0a0b61d147310a3f1cf9b796f8ec2b37f73ba",
+      executable_bundle_sha256: "8a7deb7ecd50c999ec2f3f0504295fcecba64172a89ccc59638c080292376417",
       result: "The source-bound program retains the 50% Autoreactive Armor branch after Toughness reduction. The action golden records attempted 90/effective 50 on the ordinary layer, effective 40 on the reducible-while-broken Exo layer, and effective zero with a skipped Super Break after both layers are empty; Super Break uses the effective per-target sample.",
       evidence_paths: ["config/probes/v1a/firefly-damage/golden.json", "crates/starclock-data/src/probe_tests.rs", "crates/starclock-combat/tests/damage_lifecycle.rs", "crates/starclock-combat/tests/toughness_formula.rs"],
       validation_commands: ["node tools/config-probes/verify-firefly-damage.mjs", "cargo test -p starclock-data probe_tests", "cargo test -p starclock-combat --test damage_lifecycle", "cargo test -p starclock-combat --test toughness_formula"],
@@ -394,6 +394,7 @@ const policyDecisionByFamily = {
   V1aFirefly: "G01-D-P4-B11-03",
   V1aAglaea: "G01-D-P4-B11-03",
   SharedElation: "G01-D-P4-B11-04",
+  HimekoNovaApproximation: "G01-D-P7-M01-01",
 };
 const policyEvidenceByFamily = {
   V1aAsta: [
@@ -435,6 +436,12 @@ const policyEvidenceByFamily = {
     "crates/starclock-data/src/probe_tests.rs",
     "policy/native-handler-audit.json",
   ],
+  HimekoNovaApproximation: [
+    "docs/assist-skill-and-companion-protocol-boundary.md",
+    "crates/starclock-combat/tests/assist_skill_subsystem.rs",
+    "crates/starclock-combat/tests/elation_subsystem.rs",
+    "crates/starclock-combat/tests/catalog_contract.rs",
+  ],
 };
 const policyValidationByFamily = {
   V1aAsta: ["node tools/config-probes/verify-asta-modifier.mjs", "cargo test -p starclock-combat --test effect_resource_pipeline --test modifier_pipeline", "cargo test -p starclock-data probe_tests"],
@@ -443,9 +450,10 @@ const policyValidationByFamily = {
   V1aFirefly: ["node tools/config-probes/verify-firefly-damage.mjs", "node tools/config-probes/verify-firefly-transform.mjs", "cargo test -p starclock-combat --test damage_lifecycle --test linked_lifecycle", "cargo test -p starclock-data probe_tests"],
   V1aAglaea: ["node tools/config-probes/verify-aglaea-memosprite.mjs", "cargo test -p starclock-combat --test battle_boundary --test linked_lifecycle --test modifier_pipeline", "cargo test -p starclock-data probe_tests"],
   SharedElation: ["node tools/config-probes/verify-elation-probes.mjs", "cargo test -p starclock-combat --test elation_subsystem", "cargo test -p starclock-data probe_tests", "node tools/repository-check/verify-native-handlers.mjs"],
+  HimekoNovaApproximation: ["cargo test -p starclock-combat --test assist_skill_subsystem --test elation_subsystem --test catalog_contract", "cargo test -p starclock-data --all-targets --all-features", "node tools/config-production/verify.mjs", "node tools/goal-research/verify.mjs"],
 };
 for (const definition of definitions) {
-  if (definition.family === "HimekoNovaApproximation" || resolutions.has(definition.id)) continue;
+  if (resolutions.has(definition.id)) continue;
   const decisionId = policyDecisionByFamily[definition.family];
   const familyEvidence = policyEvidenceByFamily[definition.family];
   const validationCommands = policyValidationByFamily[definition.family];
@@ -459,7 +467,9 @@ for (const definition of definitions) {
       result: `Goal 01 uses the case's fixed expectations as explicit authored policy at the typed operation/boundary named by its fixture; no additional game fact is inferred for ${definition.id}.`,
       evidence_paths: [...new Set([...(definition.executable_evidence ?? []), ...familyEvidence])].sort(),
       validation_commands: validationCommands,
-      remaining_content_gate: "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact.",
+      remaining_content_gate: definition.family === "HimekoNovaApproximation"
+        ? "C04 may use this deterministic released-text approximation for DataReady only while retaining the named observation envelope; the policy is not an Observed game fact and stronger source-bound evidence must replace conflicts."
+        : "Before this mechanic becomes DataReady, V1B must bind the exact public observation envelope or record a stronger source-backed revision; this core policy is not an Observed game fact.",
     },
   });
 }
@@ -496,6 +506,7 @@ const decisions = [
   decisionAt("G01-D-P4-B11-03", "Explicit linked-actor and transformation policy", "Summon/memosprite life, presence, gauge rescaling, contribution causes and teardown are authored link, action, modifier and boundary policies. Countdown teardown is once-only and ordinary form restoration is explicit.", "G01-P4-B11"),
   decisionAt("G01-D-P4-B11-04", "Explicit shared Elation policy", "Shared Elation behavior uses independent semantic tags, keyed team resources, forced-use owner/payment/target arguments and generic linked actors. Exact cross-kit observations remain a V1B content gate and cannot create form-specific core branches.", "G01-P4-B11"),
   decisionAt("G01-D-P4-B11-05", "Core resolution is not content observation", "A ResolvedProjectPolicy case closes only the generic Phase 4 architecture blocker. It grants no DataReady credit and retains its named public-observation or stronger-source requirement for the complete V1B content batch.", "G01-P4-B11"),
+  decisionAt("G01-D-P7-M01-01", "Deterministic Assist approximation envelope", "The ten Himeko Nova released-text cases use effect-granted Assist abilities, a named side-wide use counter, provider-owned attribution and scaling, explicit weakness-independent Toughness hits, generic shared actors, exact typed thresholds and forced no-cost queue envelopes. Stable formation/hit order and lowest effect-instance provider selection resolve hidden ordering deterministically. This closes the C04 architecture prerequisite without claiming a live observation; every source-bound observation and stronger-evidence replacement gate remains attached.", "G01-P7-M01"),
 ];
 
 const familyCounts = countBy(cases, (entry) => entry.family);

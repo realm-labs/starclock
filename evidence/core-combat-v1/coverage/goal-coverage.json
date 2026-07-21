@@ -7,10 +7,10 @@
     "reference_pack_sha256": "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
     "goal_manifest_sha256": "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19",
     "provenance_evidence_sha256": "e629313eee624ccb124036ec6fd4664df9ca761e392d026ce6f2f7c34a184466",
-    "research_evidence_sha256": "448a7571d103fedbb97450ff658aa52eb5a944085c731babbddf0b112e5ea374",
+    "research_evidence_sha256": "00b0f3054552304f28fd32f3b2d07193eb814a764e8a152967572eee6f04a7ea",
     "runtime_catalog": {
       "state": "CharacterC03Production",
-      "digest": "362552fd86421bb6f54610ff83807fc308e668c2d40cbac4e49c535ed622ef51",
+      "digest": "006c5eb393cc22abb767ea42d69159fa4238e346a445909938c7952d4db65eb8",
       "note": "Pinned Sora production bundle contains frozen Standard-v1, the six representative V1B forms and all twenty-four C01-C03 character forms; remaining character and Light Cone partitions are pending."
     }
   },
@@ -23,8 +23,8 @@
     "data_ready_percent": "21.2%",
     "terminal_state_counts": {
       "Cataloged": 165,
-      "Documented": 54,
-      "Researching": 4,
+      "Documented": 58,
+      "Researching": 0,
       "DataReady": 0,
       "GoldenVerified": 60
     },
@@ -41,8 +41,8 @@
       "data_ready_percent": "34.1%",
       "terminal_state_counts": {
         "Cataloged": 0,
-        "Documented": 54,
-        "Researching": 4,
+        "Documented": 58,
+        "Researching": 0,
         "DataReady": 0,
         "GoldenVerified": 30
       },
@@ -162,16 +162,11 @@
       "milestones": {
         "Cataloged": true,
         "Documented": true,
-        "Researching": true,
+        "Researching": false,
         "DataReady": true,
         "GoldenVerified": true
       },
-      "research_case_ids": [
-        "G01-R-AGLAEA-COUNTDOWN-TEARDOWN",
-        "G01-R-AGLAEA-JOINT-ACTION-CONTRIBUTIONS",
-        "G01-R-AGLAEA-PRESENCE-TIMELINE-OWNERSHIP",
-        "G01-R-AGLAEA-SPD-STACK-SCOPE"
-      ],
+      "research_case_ids": [],
       "data_ready_blockers": []
     },
     {
@@ -269,15 +264,11 @@
       "milestones": {
         "Cataloged": true,
         "Documented": true,
-        "Researching": true,
+        "Researching": false,
         "DataReady": true,
         "GoldenVerified": true
       },
-      "research_case_ids": [
-        "G01-R-ASTA-AURA-STACK-QUERY",
-        "G01-R-ASTA-INDEPENDENT-CLOCKS",
-        "G01-R-ASTA-UNIQUE-TARGET-CREDIT"
-      ],
+      "research_case_ids": [],
       "data_ready_blockers": []
     },
     {
@@ -443,16 +434,11 @@
       "milestones": {
         "Cataloged": true,
         "Documented": true,
-        "Researching": true,
+        "Researching": false,
         "DataReady": true,
         "GoldenVerified": true
       },
-      "research_case_ids": [
-        "G01-R-CLARA-CAUSE-ATTACKER-ALLY",
-        "G01-R-CLARA-COUNTER-TARGET-PRIORITY",
-        "G01-R-CLARA-ENHANCED-CHARGE-SCOPE",
-        "G01-R-CLARA-MARK-CONSUME-ORDER"
-      ],
+      "research_case_ids": [],
       "data_ready_blockers": []
     },
     {
@@ -601,17 +587,11 @@
       "milestones": {
         "Cataloged": true,
         "Documented": true,
-        "Researching": true,
+        "Researching": false,
         "DataReady": true,
         "GoldenVerified": true
       },
-      "research_case_ids": [
-        "G01-R-FIREFLY-COUNTDOWN-TEARDOWN",
-        "G01-R-FIREFLY-HP-ENERGY-ATOMIC",
-        "G01-R-FIREFLY-SUPERBREAK-SAMPLE",
-        "G01-R-FIREFLY-TRANSFORM-ADVANCE",
-        "G01-R-FIREFLY-WEAKNESS-TOUGHNESS-ORDER"
-      ],
+      "research_case_ids": [],
       "data_ready_blockers": []
     },
     {
@@ -791,26 +771,15 @@
       "id": "character.himeko-nova",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Researching",
+      "terminal_state": "Documented",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
-        "Researching": true,
+        "Researching": false,
         "DataReady": false,
         "GoldenVerified": false
       },
-      "research_case_ids": [
-        "G01-R-HIMEKO-NOVA-COMPANION-PROTOCOL-DECIMATION",
-        "G01-R-HIMEKO-NOVA-COMPANION-PROTOCOL-VERDICT",
-        "G01-R-HIMEKO-NOVA-ENKINDLE-THE-FIRST-LODESTAR",
-        "G01-R-HIMEKO-NOVA-HYPERLUMINAL-PARTICLE-BEAM",
-        "G01-R-HIMEKO-NOVA-OF-FIRE-AND-FAR-FARING",
-        "G01-R-HIMEKO-NOVA-ORBITAL-ANNIHILATION-PULSE",
-        "G01-R-HIMEKO-NOVA-STARCHARTER-CRUISE",
-        "G01-R-HIMEKO-NOVA-TRAILBLAZE-BY-YOUR-SIDE",
-        "G01-R-HIMEKO-NOVA-UPRAISE-THE-VANWARD-CRESSET",
-        "G01-R-HIMEKO-NOVA-WE-TOO-STRIDE-THE-STARS"
-      ],
+      "research_case_ids": [],
       "data_ready_blockers": [
         "MissingExcelSoraProductionDefinition",
         "MissingRuntimeDomainDefinition",
@@ -1004,15 +973,11 @@
       "milestones": {
         "Cataloged": true,
         "Documented": true,
-        "Researching": true,
+        "Researching": false,
         "DataReady": true,
         "GoldenVerified": true
       },
-      "research_case_ids": [
-        "G01-R-KAFKA-DETONATION-SNAPSHOT-DURATION",
-        "G01-R-KAFKA-DOT-SELECTION-ATTRIBUTION",
-        "G01-R-KAFKA-FOLLOWUP-ONCE-ORDER"
-      ],
+      "research_case_ids": [],
       "data_ready_blockers": []
     },
     {
@@ -1509,16 +1474,11 @@
       "milestones": {
         "Cataloged": true,
         "Documented": true,
-        "Researching": true,
+        "Researching": false,
         "DataReady": true,
         "GoldenVerified": true
       },
-      "research_case_ids": [
-        "G01-R-ELATION-CERTIFIED-BANGER-OWNERSHIP",
-        "G01-R-ELATION-DAMAGE-ABILITY-TAGS",
-        "G01-R-ELATION-GENERIC-API-BOUNDARY",
-        "G01-R-ELATION-SP-SPEND-OBSERVATION"
-      ],
+      "research_case_ids": [],
       "data_ready_blockers": []
     },
     {
@@ -1549,20 +1509,15 @@
       "id": "character.sparxie",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Researching",
+      "terminal_state": "Documented",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
-        "Researching": true,
+        "Researching": false,
         "DataReady": false,
         "GoldenVerified": false
       },
-      "research_case_ids": [
-        "G01-R-ELATION-DAMAGE-ABILITY-TAGS",
-        "G01-R-ELATION-FORCED-SKILL-TARGET-COST",
-        "G01-R-ELATION-GENERIC-API-BOUNDARY",
-        "G01-R-ELATION-SP-SPEND-OBSERVATION"
-      ],
+      "research_case_ids": [],
       "data_ready_blockers": [
         "MissingExcelSoraProductionDefinition",
         "MissingRuntimeDomainDefinition",
@@ -1730,22 +1685,15 @@
       "id": "character.trailblazer.elation",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Researching",
+      "terminal_state": "Documented",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
-        "Researching": true,
+        "Researching": false,
         "DataReady": false,
         "GoldenVerified": false
       },
-      "research_case_ids": [
-        "G01-R-ELATION-CERTIFIED-BANGER-OWNERSHIP",
-        "G01-R-ELATION-DAMAGE-ABILITY-TAGS",
-        "G01-R-ELATION-FORCED-SKILL-ENVELOPE",
-        "G01-R-ELATION-FORCED-SKILL-TARGET-COST",
-        "G01-R-ELATION-GENERIC-API-BOUNDARY",
-        "G01-R-ELATION-PUNCHLINE-SCOPE-CREDIT"
-      ],
+      "research_case_ids": [],
       "data_ready_blockers": [
         "MissingExcelSoraProductionDefinition",
         "MissingRuntimeDomainDefinition",
@@ -1913,22 +1861,15 @@
       "id": "character.yao-guang",
       "inclusion_state": "Required",
       "manifest_implementation_state": "Pending",
-      "terminal_state": "Researching",
+      "terminal_state": "Documented",
       "milestones": {
         "Cataloged": true,
         "Documented": true,
-        "Researching": true,
+        "Researching": false,
         "DataReady": false,
         "GoldenVerified": false
       },
-      "research_case_ids": [
-        "G01-R-ELATION-CERTIFIED-BANGER-OWNERSHIP",
-        "G01-R-ELATION-DAMAGE-ABILITY-TAGS",
-        "G01-R-ELATION-GENERIC-API-BOUNDARY",
-        "G01-R-ELATION-PUNCHLINE-SCOPE-CREDIT",
-        "G01-R-ELATION-SHARED-ACTOR-AHA",
-        "G01-R-ELATION-SP-SPEND-OBSERVATION"
-      ],
+      "research_case_ids": [],
       "data_ready_blockers": [
         "MissingExcelSoraProductionDefinition",
         "MissingRuntimeDomainDefinition",

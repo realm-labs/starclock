@@ -31,14 +31,25 @@ pub(crate) fn can_pay_with_policy(
                 .keyed(resource)
                 .is_some_and(|state| state.current >= policy.skill_point_cost()),
         };
-        let payable_character_resources = policy.character_resource_costs().iter().all(|cost| {
-            unit.resource(cost.stable_key())
-                .is_some_and(|state| state.current >= cost.amount())
-        });
+        let suppresses_costs =
+            payment == crate::catalog::action::SkillPointPaymentPolicy::Suppressed;
+        let payable_character_resources = suppresses_costs
+            || policy.character_resource_costs().iter().all(|cost| {
+                unit.resource(cost.stable_key())
+                    .is_some_and(|state| state.current >= cost.amount())
+            });
+        let payable_team_resources = suppresses_costs
+            || policy.team_resource_costs().iter().all(|cost| {
+                teams
+                    .get(unit.side)
+                    .keyed_by_name(cost.stable_key())
+                    .is_some_and(|state| state.current >= cost.amount())
+            });
         unit.life == crate::LifeState::Alive
             && unit.presence.is_active()
             && payable_sp
-            && unit.current_energy >= policy.energy_cost()
+            && (suppresses_costs || unit.current_energy >= policy.energy_cost())
             && payable_character_resources
+            && payable_team_resources
     })
 }
