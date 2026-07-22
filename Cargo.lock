@@ -837,8 +837,11 @@ name = "starclock-mcp"
 version = "0.1.0"
 dependencies = [
  "rmcp",
+ "schemars",
+ "serde",
  "serde_json",
  "starclock-agent-api",
+ "tokio",
 ]
 
 [[package]]

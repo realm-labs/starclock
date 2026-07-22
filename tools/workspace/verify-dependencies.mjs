@@ -51,7 +51,10 @@ const expectedExternal = new Map([
   ]],
   ["starclock-mcp", [
     { name: "rmcp", requirement: "=2.2.0", features: ["client", "macros", "server", "transport-io", "transport-streamable-http-server"] },
+    { name: "schemars", requirement: "=1.2.1", features: ["derive", "std"] },
+    { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
     { name: "serde_json", requirement: "=1.0.151", features: ["std"] },
+    { name: "tokio", requirement: "=1.53.1", features: ["io-util", "macros", "rt-multi-thread", "time"], kind: "dev" },
   ]],
   ["starclock-cli", [
     { name: "allocation-counter", requirement: "=0.8.1", features: [], kind: "dev" },
@@ -111,7 +114,7 @@ const agentApi = packages.find((entry) => entry.name === "starclock-agent-api");
 assert(agentApi.dependencies.every((dependency) => ["starclock-ai", "starclock-combat", "starclock-data", "starclock-replay", "serde", "serde_json", "sha2"].includes(dependency.name) || (dependency.kind === "dev" && ["allocation-counter", "proptest"].includes(dependency.name))), "starclock-agent-api may use only reviewed Goal 01 controller/composition/replay boundaries, deterministic serialization/token-digest dependencies and property/benchmark tooling");
 
 const mcp = packages.find((entry) => entry.name === "starclock-mcp");
-assert(mcp.dependencies.every((dependency) => ["starclock-agent-api", "rmcp", "serde_json"].includes(dependency.name)), "starclock-mcp may depend only on the protocol-neutral agent API, frozen official MCP SDK and deterministic JSON conversion");
+assert(mcp.dependencies.every((dependency) => ["starclock-agent-api", "rmcp", "schemars", "serde", "serde_json", "tokio"].includes(dependency.name)), "starclock-mcp may depend only on the protocol-neutral agent API, frozen official MCP SDK, schema/JSON conversion and test-only async runtime");
 
 console.log("Workspace dependency boundaries verified (11 crates; protocol-neutral agent boundary and one-way frozen MCP adapter dependency).");
 

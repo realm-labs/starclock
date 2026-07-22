@@ -1,6 +1,7 @@
 //! Structured tool failures preserve the frozen agent error schema.
 
 use rmcp::{ErrorData as McpError, model::CallToolResult};
+use serde::Serialize;
 use starclock_agent_api::error::AgentError;
 
 pub fn structured_agent_error(error: AgentError) -> CallToolResult {
@@ -11,6 +12,17 @@ pub fn structured_agent_error(error: AgentError) -> CallToolResult {
 
 pub fn internal_protocol_error() -> McpError {
     McpError::internal_error("The Starclock MCP adapter failed.", None)
+}
+
+pub(crate) fn structured_result<T: Serialize>(
+    result: Result<T, AgentError>,
+) -> Result<CallToolResult, McpError> {
+    match result {
+        Ok(value) => serde_json::to_value(value)
+            .map(CallToolResult::structured)
+            .map_err(|_| internal_protocol_error()),
+        Err(error) => Ok(structured_agent_error(error)),
+    }
 }
 
 #[cfg(test)]

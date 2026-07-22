@@ -13,10 +13,12 @@ fixnum = { version = "=0.9.5", default-features = false, features = ["i64", "std
 rand = { version = "=0.10.2", default-features = false, features = ["chacha", "std"] }
 proptest = { version = "=1.11.0", default-features = false, features = ["std"] }
 rmcp = { version = "=2.2.0", default-features = false, features = ["client", "macros", "server", "transport-io", "transport-streamable-http-server"] }
+schemars = { version = "=1.2.1", default-features = false, features = ["derive", "std"] }
 serde = { version = "=1.0.228", default-features = false, features = ["derive", "rc", "std"] }
 serde_json = { version = "=1.0.151", default-features = false, features = ["std"] }
 sha2 = { version = "=0.11.0", default-features = false }
 zstd = { version = "=0.13.3", default-features = false }
+tokio = { version = "=1.53.1", default-features = false, features = ["io-util", "macros", "rt-multi-thread", "time"] }
 
 [workspace.lints.rust]
 unsafe_code = "forbid"

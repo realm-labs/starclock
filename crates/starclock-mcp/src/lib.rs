@@ -11,3 +11,5 @@ pub mod error;
 pub mod metadata;
 /// MCP server handler boundary.
 pub mod server;
+// Seven frozen tool schemas and handlers stay behind the server boundary.
+mod tools;

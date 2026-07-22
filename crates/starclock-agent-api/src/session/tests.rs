@@ -45,6 +45,29 @@ fn factory_creates_only_frozen_scenarios_and_settles_internal_start() {
 }
 
 #[test]
+fn factory_lists_exact_frozen_scenario_identities_and_default_seeds() {
+    let factory = AgentSessionFactory::load_production().unwrap();
+    let summaries = factory.list_scenarios().unwrap();
+    let default_seeds = [104_729, 419_431, 314_159, 524_287, 209_759, 629_137];
+
+    assert_eq!(summaries.len(), SCENARIOS.len());
+    for ((summary, (scenario, definition, encounter)), expected_seed) in
+        summaries.iter().zip(SCENARIOS).zip(default_seeds)
+    {
+        assert_eq!(summary.scenario_id.as_str(), scenario);
+        assert_eq!(
+            summary.scenario_definition_id.to_u64(),
+            u64::from(definition)
+        );
+        assert_eq!(
+            summary.encounter_definition_id.to_u64(),
+            u64::from(encounter)
+        );
+        assert_eq!(summary.default_seed.to_u64(), expected_seed);
+    }
+}
+
+#[test]
 fn explicit_seed_is_exact_reproducible_and_operational_identity_is_inert() {
     let factory = AgentSessionFactory::load_production().unwrap();
     let scenario = SCENARIOS[0].0;

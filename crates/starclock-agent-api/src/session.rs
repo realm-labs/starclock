@@ -14,7 +14,7 @@ use starclock_combat::{
     rule::model::ConditionExpr,
 };
 use starclock_data::standard_v1::{
-    CATALOG_REVISION, CONFIG_DIGEST, RULES_REVISION, StandardV1Catalog,
+    CATALOG_REVISION, CONFIG_DIGEST, RULES_REVISION, SCENARIOS, StandardV1Catalog,
 };
 use starclock_replay::{
     battle::{BattleTraceEntry, battle_record_count, encode_battle_trace, verify_battle_replay},
@@ -83,6 +83,14 @@ pub struct AgentSessionFactory {
     standard: StandardV1Catalog,
 }
 
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentScenarioSummary {
+    pub scenario_id: ScenarioId,
+    pub scenario_definition_id: AgentUInt,
+    pub encounter_definition_id: AgentUInt,
+    pub default_seed: AgentUInt,
+}
+
 impl AgentSessionFactory {
     pub fn load_production() -> Result<Self, AgentError> {
         let standard = StandardV1Catalog::load().map_err(|_| {
@@ -102,6 +110,65 @@ impl AgentSessionFactory {
             visibility_policy,
         } = request;
         self.create_with_id_source(scenario_id, seed, visibility_policy, || Ok(session_id))
+    }
+
+    pub fn list_scenarios(&self) -> Result<Box<[AgentScenarioSummary]>, AgentError> {
+        SCENARIOS
+            .into_iter()
+            .map(|(scenario, definition, encounter)| {
+                let scenario_id = ScenarioId::parse(scenario).map_err(|_| replay_header_error())?;
+                let default_seed = self
+                    .standard
+                    .instantiate(scenario, None)
+                    .map_err(|_| replay_header_error())?
+                    .master_seed();
+                Ok(AgentScenarioSummary {
+                    scenario_id,
+                    scenario_definition_id: AgentUInt::from_u64(u64::from(definition)),
+                    encounter_definition_id: AgentUInt::from_u64(u64::from(encounter)),
+                    default_seed: AgentUInt::from_u64(default_seed),
+                })
+            })
+            .collect::<Result<Vec<_>, _>>()
+            .map(Vec::into_boxed_slice)
+    }
+
+    pub fn verify_replay(
+        &self,
+        scenario_id: &ScenarioId,
+        seed: &AgentSeedPolicy,
+        bytes: &[u8],
+    ) -> Result<AgentReplayVerification, AgentError> {
+        let seed_override = match seed {
+            AgentSeedPolicy::ScenarioDefault => None,
+            AgentSeedPolicy::Explicit(value) => Some(value.to_u64()),
+        };
+        let instantiated = self
+            .standard
+            .instantiate(scenario_id.as_str(), seed_override)
+            .map_err(|_| {
+                agent_error(
+                    AgentErrorCode::ConfigurationRejected,
+                    "The replay's frozen Standard scenario could not be reconstructed.",
+                )
+            })?;
+        let decoded = decode_replay(bytes).map_err(|_| replay_diverged_error())?;
+        let expected = build_replay_header(
+            instantiated.master_seed(),
+            instantiated.encounter(),
+            instantiated.spec_digest(),
+            decoded.header().record_count(),
+        )?;
+        if decoded.header() != &expected {
+            return Err(replay_diverged_error());
+        }
+        let report = verify_battle_replay(bytes, instantiated.into_battle())
+            .map_err(|_| replay_diverged_error())?;
+        Ok(AgentReplayVerification {
+            command_count: AgentUInt::from_u64(u64::from(report.command_count())),
+            final_state_hash: AgentHash::from_bytes(report.final_hash().bytes()),
+            phase: replay_phase(report.phase())?,
+        })
     }
 
     fn create_with_id_source(
@@ -392,56 +459,23 @@ impl AgentSession {
     }
 
     pub fn verify_replay(&self, bytes: &[u8]) -> Result<AgentReplayVerification, AgentError> {
-        let replay = decode_replay(bytes).map_err(|_| replay_diverged_error())?;
-        if replay.header() != &self.replay_header()? {
-            return Err(replay_diverged_error());
+        AgentSessionFactory {
+            standard: self.standard.clone(),
         }
-        let battle = self
-            .standard
-            .instantiate(self.scenario.as_str(), Some(self.master_seed))
-            .map_err(|_| {
-                agent_error(
-                    AgentErrorCode::ConfigurationRejected,
-                    "The replay's frozen Standard scenario could not be reconstructed.",
-                )
-            })?
-            .into_battle();
-        let report = verify_battle_replay(bytes, battle).map_err(|_| replay_diverged_error())?;
-        let phase = replay_phase(report.phase())?;
-        Ok(AgentReplayVerification {
-            command_count: AgentUInt::from_u64(u64::from(report.command_count())),
-            final_state_hash: AgentHash::from_bytes(report.final_hash().bytes()),
-            phase,
-        })
+        .verify_replay(
+            &self.scenario,
+            &AgentSeedPolicy::Explicit(AgentUInt::from_u64(self.master_seed)),
+            bytes,
+        )
     }
 
     fn replay_header(&self) -> Result<ReplayHeader, AgentError> {
-        let identity = ReplayIdentity::new(
-            "4.4",
-            RULES_REVISION,
-            CATALOG_REVISION,
-            ConfigBundleDigest::new(CONFIG_DIGEST),
-            starclock_combat::NUMERIC_POLICY_REVISION,
-            starclock_combat::rng::RNG_ALGORITHM_REVISION,
-            starclock_combat::STATE_HASH_REVISION,
-        )
-        .map_err(|_| replay_header_error())?;
-        let controller = ControllerIdentity::new(
-            AGENT_REPLAY_CONTROLLER_REVISION,
-            ControllerDigest::new(Sha256::digest(AGENT_REPLAY_CONTROLLER_DESCRIPTOR).into()),
-        )
-        .map_err(|_| replay_header_error())?;
-        ReplayHeader::new(
-            identity,
-            controller,
+        build_replay_header(
             self.master_seed,
-            ReplayEntry::Battle {
-                definition_id: self.encounter.get(),
-                spec_digest: EntrySpecDigest::new(self.spec_digest.bytes()),
-            },
+            self.encounter,
+            self.spec_digest,
             battle_record_count(self.replay.trace.len()).map_err(|_| replay_header_error())?,
         )
-        .map_err(|_| replay_header_error())
     }
 
     /// Applies one preconditioned action or returns the byte-identical cached response.
@@ -761,6 +795,40 @@ fn cursor_id(cursor: &EventCursor) -> Result<u64, AgentError> {
         },
         |value| Ok(value.to_u64()),
     )
+}
+
+fn build_replay_header(
+    master_seed: u64,
+    encounter: EncounterId,
+    spec_digest: BattleSpecDigest,
+    record_count: u32,
+) -> Result<ReplayHeader, AgentError> {
+    let identity = ReplayIdentity::new(
+        "4.4",
+        RULES_REVISION,
+        CATALOG_REVISION,
+        ConfigBundleDigest::new(CONFIG_DIGEST),
+        starclock_combat::NUMERIC_POLICY_REVISION,
+        starclock_combat::rng::RNG_ALGORITHM_REVISION,
+        starclock_combat::STATE_HASH_REVISION,
+    )
+    .map_err(|_| replay_header_error())?;
+    let controller = ControllerIdentity::new(
+        AGENT_REPLAY_CONTROLLER_REVISION,
+        ControllerDigest::new(Sha256::digest(AGENT_REPLAY_CONTROLLER_DESCRIPTOR).into()),
+    )
+    .map_err(|_| replay_header_error())?;
+    ReplayHeader::new(
+        identity,
+        controller,
+        master_seed,
+        ReplayEntry::Battle {
+            definition_id: encounter.get(),
+            spec_digest: EntrySpecDigest::new(spec_digest.bytes()),
+        },
+        record_count,
+    )
+    .map_err(|_| replay_header_error())
 }
 
 fn replay_phase(phase: BattlePhase) -> Result<crate::observation::AgentBattlePhase, AgentError> {
