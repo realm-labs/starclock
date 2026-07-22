@@ -158,8 +158,8 @@ const categories = [
   ),
   category(
     "curio_states",
-    "RogueMiracle state rows linked to a CosmosRogue type-100 handbook Curio.",
-    curios.filter(({ row }) => standardCurioHandbookIds.has(row.UnlockHandbookMiracleID)).map((entry) => item(entry, entry.row.MiracleID, { curio_id: String(entry.row.UnlockHandbookMiracleID) })),
+    "RogueMiracle base-mode effect rows below 1000 linked to a CosmosRogue type-100 handbook Curio; 1000/3000 mode copies are excluded.",
+    curios.filter(({ row }) => standardCurioHandbookIds.has(row.UnlockHandbookMiracleID) && row.MiracleID < 1000).map((entry) => item(entry, entry.row.MiracleID, { curio_id: String(entry.row.UnlockHandbookMiracleID) })),
   ),
   category(
     "occurrences",
@@ -237,6 +237,7 @@ if (payload.categories.paths.count !== 9) throw new Error("expected exactly nine
 if (payload.categories.blessings.count !== 162) throw new Error("expected 18 Blessings for each of nine Paths");
 if (payload.categories.blessing_levels.count !== 324) throw new Error("expected two levels for every Blessing");
 if (payload.categories.resonances_and_formations.count !== 36) throw new Error("expected four resonance rows for every Path");
+if (payload.categories.curios.count !== 61 || payload.categories.curio_states.count !== 61) throw new Error("expected 61 Standard Curios and base-mode effect states");
 
 const encoded = `${JSON.stringify(payload, null, 2)}\n`;
 if (check) {

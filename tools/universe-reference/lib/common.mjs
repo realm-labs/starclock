@@ -34,6 +34,7 @@ export function cleanText(value) {
     .replace(/<\/color>/gu, "")
     .replace(/<nobr>/gu, "")
     .replace(/<\/nobr>/gu, "")
+    .replace(/<[^>]+>/gu, "")
     .replace(/\\n/gu, " ")
     .replace(/\s+/gu, " ")
     .trim();

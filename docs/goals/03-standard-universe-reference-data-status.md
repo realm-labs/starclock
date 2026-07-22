@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Normalized reference pack |
 | Active batch | None |
-| Next unblocked batch | `G03-P1-B4` |
+| Next unblocked batch | `G03-P1-B5` |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -18,7 +18,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope/evidence | `Complete` | Snapshot/scope, 2,646-file evidence inventory, 2,838-row main-world manifest, stable normalized record families, provenance/quality labels, canonical JSON rules and semantic fixture contract are frozen and machine-verified. |
+| Phase 0 — Scope/evidence | `Complete` | Snapshot/scope, 2,646-file evidence inventory, corrected 2,717-row main-world manifest, stable normalized record families, provenance/quality labels, canonical JSON rules and semantic fixture contract are frozen and machine-verified. |
 | Phase 1 — Reference pack | `InProgress` | Ready for deterministic normalized import by table family. |
 | Phase 2 — Sora schema | `Pending` | — |
 | Phase 3 — Excel authoring | `Pending` | — |
@@ -30,12 +30,12 @@
 |---|---|---|---|
 | `G03-P0-B1` | `Complete` | This row's containing commit | Frozen Version 4.4 / 2026-07-22 main-world scope, nine-World/nine-Path public boundary, pinned source revisions, required/excluded categories, evidence/quality policy, normalized pack and Excel/Sora promotion contracts. Added the 28-batch plan, persistent ledger and launch prompt; both prior release contracts and source-policy checks pass. |
 | `G03-P0-B2` | `Complete` | This row's containing commit | Expanded the pinned sparse cache with every Rogue Excel table and Rogue battle/level ability file. Deterministic inventory `4c45418e…8972` hashes 372 files: 35 Standard candidates, 17 shared/reachability-review tables, 165 other-mode tables, 17 presentation/account tables and 138 mechanic-evidence files. The generator's `--check` mode rejects drift; classification is table-level only and does not pre-approve shared rows. |
-| `G03-P0-B3` | `Complete` | This row's containing commit | Expanded mechanic evidence to 2,646 pinned files (`1d5c7b03…99e7d`) and froze a reproducible 2,838-row content manifest (`5ac3d484…7f7ae`). Membership resolves the current 33 World difficulties, nine Paths, 36 Resonance/Formation rows, 162 Blessings with 324 levels, 61 Curios with 182 states, 59 Occurrences with 55 base variants, nine domains, 42 Ability Tree nodes, 108 service/bonus rows and the reachable 154-group/347-member encounter set. DLC-prefixed variants, Resonance Interplays and activity map families are explicitly excluded. Both generators support drift-rejecting `--check`. |
+| `G03-P0-B3` | `Complete` | `b08a632` | Expanded mechanic evidence to 2,646 pinned files (`1d5c7b03…99e7d`) and introduced the reproducible content manifest. P1-B4's effect-table review corrected the initial Curio-state denominator by excluding 121 `1000/3000` DLC copies; the current manifest is 2,717 rows (`f2e611a1…2a416`). Membership resolves 33 World difficulties, nine Paths, 36 Resonance/Formation rows, 162 Blessings with 324 levels, 61 Curios/base effects, 59 Occurrences with 55 base variants, nine domains, 42 Ability Tree nodes, 108 service/bonus rows and the reachable 154-group/347-member encounter set. |
 | `G03-P0-B4` | `Complete` | This row's containing commit | Frozen the machine-readable normalized schema for 25 pack files, stable common/provenance envelopes, explicit definition/level/state/variant separation, five evidence-quality labels, canonical decimal/JSON rules and semantic review-fixture shape. Added a deterministic contract verifier covering category counts, ID uniqueness, row evidence/locators and the 9/9/162/324/36 denominators; documentation now records validation order and the JSON-to-Excel/Sora-only promotion boundary. |
 | `G03-P1-B1` | `Complete` | This row's containing commit | Added deterministic normalized-pack bootstrap modules and generated 9 Worlds, 33 difficulty profiles, 9 domain kinds, 579 map nodes and 669 rooms. Records carry stable Starclock IDs, bilingual names/summaries, exact source IDs, row-level provenance and evidence digests. Difficulty rows retain recommended levels/elements, score curves and Goal 01 enemy-variant bindings; topology retains source-semantic edge order and exact room content/section maps. Regeneration and `--check` are byte-identical. |
 | `G03-P1-B2` | `Complete` | This row's containing commit | Normalized all nine selectable Paths and 36 Path Resonance/Resonance Formation definitions. Paths retain exact Aeon/display identity, source buff type/groups, unlock reference, three formation-selection thresholds, energy defaults and the exact 18-Blessing membership. Resonances retain kind, threshold, energy policy, released modifier/binding keys, ordered exact parameter vectors, description digests and mechanic tags without redistributing source prose. Bilingual and provenance checks plus deterministic regeneration pass. |
 | `G03-P1-B3` | `Complete` | This row's containing commit | Normalized the exact 18-Blessing pool for each of nine Paths (162 definitions) and both authored levels for every Blessing (324 level rows). Definitions retain rarity, prerequisites, pool/source tags, extra effects, rule IDs and content-specific mechanic tags. Level rows retain ordered canonical-string parameters, modifier/binding keys and bilingual source-description digests; no source prose or binary float enters the pack. Count, uniqueness, parameter transport and byte-regeneration checks pass. |
-| `G03-P1-B4` | `Pending` | — | — |
+| `G03-P1-B4` | `Complete` | This row's containing commit | Corrected the source boundary so `1000/3000` RogueMiracle rows remain Swarm/Gold evidence instead of fake Standard states. Normalized all 61 Standard Curios and 67 lifecycle states: one base active/effect state each plus explicit repairing/fixed phases for six Error Code Curios. Rows retain exact parameter/display vectors, effect IDs, lifecycle charge/transition fields, polarity and mechanic tags, rule references and description digests. Deterministic checks prove every definition/state reference and the 61/67 denominator. |
 | `G03-P1-B5` | `Pending` | — | — |
 | `G03-P1-B6` | `Pending` | — | — |
 | `G03-P1-B7` | `Pending` | — | — |
@@ -68,7 +68,7 @@ Populate only from generated manifests in `G03-P0-B3`.
 | Paths | 9 | 9 | 9 | Main-world selectable Paths. |
 | Resonances/Formations | 36 | 36 | 36 | Four per Path; Interplays are excluded. |
 | Blessings/upgrades | 162 / 324 levels | 162 / 324 | 162 / 324 | Exactly 18 Blessings and two levels per Path. |
-| Curios/states | 61 / 182 states | 61 / 182 | 0 | CosmosRogue handbook type 100. |
+| Curios/states | 61 / 61 source effects / 67 normalized states | 61 / 61 / 67 | 61 / 61 / 67 | CosmosRogue type 100; six Error Codes derive repairing/fixed phases from one released effect row each. |
 | Occurrences/choices | 59 / 55 base variants | 59 / 55 | 0 | Four index records lack a base-mode NPC variant and remain normalized as index-only. |
 | Services/currency rules | 108 | 108 | 0 | 79 run bonuses plus 29 base shops; currency constants are normalized in P1. |
 | Ability Tree | 42 | 42 | 0 | Battle/run/reward classification occurs in P1-B7. |
@@ -83,6 +83,7 @@ Populate only from generated manifests in `G03-P0-B3`.
 | 2026-07-22 | Use normalized JSON only for research/bootstrap; production authoring is Excel/Sora. | Preserves the established configuration architecture. |
 | 2026-07-22 | Use Python `openpyxl` for workbook authoring/inspection. | Explicit user direction; Sora retains schema/export authority. |
 | 2026-07-22 | Include exact or labeled approximate mechanics, not account rewards/story/assets. | Keeps the package implementation-ready and legally bounded. |
+| 2026-07-22 | Treat RogueMiracle `1000/3000` rows as DLC copies, not Standard Curio states. | Their effect-display IDs and mode prefixes bind them to Swarm Disaster and Gold and Gears; Standard lifecycle phases are derived from the base effect program instead. |
 
 ## Research cases
 
