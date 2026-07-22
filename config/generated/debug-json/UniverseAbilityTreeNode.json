@@ -1,0 +1,1849 @@
+{
+  "table": {
+    "name": "UniverseAbilityTreeNode",
+    "rows": [
+      {
+        "values": {
+          "effect_class": {
+            "String": "RunAndBattle"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Unlock"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制解锁"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 1
+          },
+          "important": {
+            "Bool": true
+          },
+          "name_en": {
+            "String": "Path Resonance"
+          },
+          "name_zh_cn": {
+            "String": "命途回响"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.1"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.1"
+          },
+          "summary_en": {
+            "String": "Path Resonance Ability Tree node contributing 2 explicit effects to run and battle state."
+          },
+          "summary_zh_cn": {
+            "String": "命途回响能力树节点，向运行与战斗状态贡献2项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10401"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 12
+          },
+          "important": {
+            "Bool": true
+          },
+          "name_en": {
+            "String": "All Ability Boost"
+          },
+          "name_zh_cn": {
+            "String": "全能力强化"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.2"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.2"
+          },
+          "summary_en": {
+            "String": "All Ability Boost Ability Tree node contributing 3 explicit effects to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "全能力强化能力树节点，向战斗状态贡献3项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10402"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 23
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "ATK Boost I"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化Ⅰ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.3"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.3"
+          },
+          "summary_en": {
+            "String": "ATK Boost I Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化Ⅰ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10402"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 34
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "DEF Boost I"
+          },
+          "name_zh_cn": {
+            "String": "防御强化Ⅰ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.4"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.4"
+          },
+          "summary_en": {
+            "String": "DEF Boost I Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化Ⅰ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10402"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 38
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "HP Boost I"
+          },
+          "name_zh_cn": {
+            "String": "生命强化Ⅰ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.5"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.5"
+          },
+          "summary_en": {
+            "String": "HP Boost I Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化Ⅰ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "RunAndBattle"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Boost"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制强化"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10405"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 39
+          },
+          "important": {
+            "Bool": true
+          },
+          "name_en": {
+            "String": "Resonance Formation I"
+          },
+          "name_zh_cn": {
+            "String": "回响构音Ⅰ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.6"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.6"
+          },
+          "summary_en": {
+            "String": "Resonance Formation I Ability Tree node contributing 2 explicit effects to run and battle state."
+          },
+          "summary_zh_cn": {
+            "String": "回响构音Ⅰ能力树节点，向运行与战斗状态贡献2项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Run"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Boost"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制强化"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10406"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 40
+          },
+          "important": {
+            "Bool": true
+          },
+          "name_en": {
+            "String": "Reviver"
+          },
+          "name_zh_cn": {
+            "String": "复活装置"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.7"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.7"
+          },
+          "summary_en": {
+            "String": "Reviver Ability Tree node contributing 2 explicit effects to run state."
+          },
+          "summary_zh_cn": {
+            "String": "复活装置能力树节点，向运行状态贡献2项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10407"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 41
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "ATK Boost II"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化Ⅱ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.8"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.8"
+          },
+          "summary_en": {
+            "String": "ATK Boost II Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化Ⅱ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10407"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 42
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "DEF Boost II"
+          },
+          "name_zh_cn": {
+            "String": "防御强化Ⅱ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.9"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.9"
+          },
+          "summary_en": {
+            "String": "DEF Boost II Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化Ⅱ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10407"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 2
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "HP Boost II"
+          },
+          "name_zh_cn": {
+            "String": "生命强化Ⅱ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.10"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.10"
+          },
+          "summary_en": {
+            "String": "HP Boost II Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化Ⅱ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Run"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Unlock"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制解锁"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10410"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 3
+          },
+          "important": {
+            "Bool": true
+          },
+          "name_en": {
+            "String": "Reset Blessings"
+          },
+          "name_zh_cn": {
+            "String": "重置祝福"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.11"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.11"
+          },
+          "summary_en": {
+            "String": "Reset Blessings Ability Tree node contributing 1 explicit effect to run state."
+          },
+          "summary_zh_cn": {
+            "String": "重置祝福能力树节点，向运行状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Run"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Boost"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制强化"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10411"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 4
+          },
+          "important": {
+            "Bool": true
+          },
+          "name_en": {
+            "String": "Blessings of Trailblaze"
+          },
+          "name_zh_cn": {
+            "String": "开拓祝福"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.12"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.12"
+          },
+          "summary_en": {
+            "String": "Blessings of Trailblaze Ability Tree node contributing 1 explicit effect to run state."
+          },
+          "summary_zh_cn": {
+            "String": "开拓祝福能力树节点，向运行状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10412"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 5
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "ATK Boost III"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化Ⅲ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.13"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.13"
+          },
+          "summary_en": {
+            "String": "ATK Boost III Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化Ⅲ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10412"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 6
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "DEF Boost III"
+          },
+          "name_zh_cn": {
+            "String": "防御强化Ⅲ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.14"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.14"
+          },
+          "summary_en": {
+            "String": "DEF Boost III Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化Ⅲ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10412"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 7
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "HP Boost III"
+          },
+          "name_zh_cn": {
+            "String": "生命强化Ⅲ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.15"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.15"
+          },
+          "summary_en": {
+            "String": "HP Boost III Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化Ⅲ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "RunAndBattle"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Boost"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制强化"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10415"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 8
+          },
+          "important": {
+            "Bool": true
+          },
+          "name_en": {
+            "String": "Resonance Formation II"
+          },
+          "name_zh_cn": {
+            "String": "回响构音Ⅱ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.16"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.16"
+          },
+          "summary_en": {
+            "String": "Resonance Formation II Ability Tree node contributing 2 explicit effects to run and battle state."
+          },
+          "summary_zh_cn": {
+            "String": "回响构音Ⅱ能力树节点，向运行与战斗状态贡献2项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Run"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanisms Boost"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制强化"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10416"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 9
+          },
+          "important": {
+            "Bool": true
+          },
+          "name_en": {
+            "String": "Initial Resource"
+          },
+          "name_zh_cn": {
+            "String": "起始资源"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.17"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.17"
+          },
+          "summary_en": {
+            "String": "Initial Resource Ability Tree node contributing 1 explicit effect to run state."
+          },
+          "summary_zh_cn": {
+            "String": "起始资源能力树节点，向运行状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10417"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 10
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "ATK Boost IV"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化Ⅳ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.18"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.18"
+          },
+          "summary_en": {
+            "String": "ATK Boost IV Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化Ⅳ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10417"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 11
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "DEF Boost IV"
+          },
+          "name_zh_cn": {
+            "String": "防御强化Ⅳ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.19"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.19"
+          },
+          "summary_en": {
+            "String": "DEF Boost IV Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化Ⅳ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10417"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 13
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "HP Boost IV"
+          },
+          "name_zh_cn": {
+            "String": "生命强化Ⅳ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.20"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.20"
+          },
+          "summary_en": {
+            "String": "HP Boost IV Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化Ⅳ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Run"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Unlock"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制解锁"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10420"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 14
+          },
+          "important": {
+            "Bool": true
+          },
+          "name_en": {
+            "String": "Extra Blessings"
+          },
+          "name_zh_cn": {
+            "String": "额外祝福"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.21"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.21"
+          },
+          "summary_en": {
+            "String": "Extra Blessings Ability Tree node contributing 1 explicit effect to run state."
+          },
+          "summary_zh_cn": {
+            "String": "额外祝福能力树节点，向运行状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10421"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 15
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "ATK Boost V"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化Ⅴ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.22"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.22"
+          },
+          "summary_en": {
+            "String": "ATK Boost V Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化Ⅴ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10421"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 16
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "DEF Boost V"
+          },
+          "name_zh_cn": {
+            "String": "防御强化Ⅴ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.23"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.23"
+          },
+          "summary_en": {
+            "String": "DEF Boost V Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化Ⅴ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10421"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 17
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "HP Boost V"
+          },
+          "name_zh_cn": {
+            "String": "生命强化Ⅴ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.24"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.24"
+          },
+          "summary_en": {
+            "String": "HP Boost V Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化Ⅴ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "RunAndBattle"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Boost"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制强化"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10424"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 18
+          },
+          "important": {
+            "Bool": true
+          },
+          "name_en": {
+            "String": "Resonance Formation III"
+          },
+          "name_zh_cn": {
+            "String": "回响构音Ⅲ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.25"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.25"
+          },
+          "summary_en": {
+            "String": "Resonance Formation III Ability Tree node contributing 2 explicit effects to run and battle state."
+          },
+          "summary_zh_cn": {
+            "String": "回响构音Ⅲ能力树节点，向运行与战斗状态贡献2项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10425"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 19
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "CRIT Rate Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击率强化"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.26"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.26"
+          },
+          "summary_en": {
+            "String": "CRIT Rate Boost Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "暴击率强化能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10425"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 20
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "Resonance Charge Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响充能强化"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.27"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.27"
+          },
+          "summary_en": {
+            "String": "Resonance Charge Boost Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "回响充能强化能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10425"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 21
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "SPD Boost"
+          },
+          "name_zh_cn": {
+            "String": "速度强化"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.28"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.28"
+          },
+          "summary_en": {
+            "String": "SPD Boost Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "速度强化能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10426"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 22
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "ATK Boost VI"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化Ⅵ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.29"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.29"
+          },
+          "summary_en": {
+            "String": "ATK Boost VI Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化Ⅵ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10427"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 24
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "DEF Boost VI"
+          },
+          "name_zh_cn": {
+            "String": "防御强化Ⅵ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.30"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.30"
+          },
+          "summary_en": {
+            "String": "DEF Boost VI Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化Ⅵ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10428"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 25
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "HP Boost VI"
+          },
+          "name_zh_cn": {
+            "String": "生命强化Ⅵ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.31"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.31"
+          },
+          "summary_en": {
+            "String": "HP Boost VI Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化Ⅵ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10431"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 26
+          },
+          "important": {
+            "Bool": true
+          },
+          "name_en": {
+            "String": "Bonus Charge"
+          },
+          "name_zh_cn": {
+            "String": "额外充能"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.32"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.32"
+          },
+          "summary_en": {
+            "String": "Bonus Charge Ability Tree node contributing 2 explicit effects to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "额外充能能力树节点，向战斗状态贡献2项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10432"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 27
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "CRIT DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击伤害强化"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.33"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.33"
+          },
+          "summary_en": {
+            "String": "CRIT DMG Boost Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "暴击伤害强化能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10432"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 28
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "Resonance DMG Boost I"
+          },
+          "name_zh_cn": {
+            "String": "回响伤害强化Ⅰ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.34"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.34"
+          },
+          "summary_en": {
+            "String": "Resonance DMG Boost I Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "回响伤害强化Ⅰ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10432"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 29
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "DMG Mitigation Boost"
+          },
+          "name_zh_cn": {
+            "String": "伤害减免强化"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.35"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.35"
+          },
+          "summary_en": {
+            "String": "DMG Mitigation Boost Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "伤害减免强化能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10433"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 30
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "ATK Boost VII"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化Ⅶ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.36"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.36"
+          },
+          "summary_en": {
+            "String": "ATK Boost VII Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化Ⅶ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10434"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 31
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "DEF Boost VII"
+          },
+          "name_zh_cn": {
+            "String": "防御强化Ⅶ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.37"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.37"
+          },
+          "summary_en": {
+            "String": "DEF Boost VII Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化Ⅶ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10435"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 32
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "HP Boost VII"
+          },
+          "name_zh_cn": {
+            "String": "生命强化Ⅶ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.38"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.38"
+          },
+          "summary_en": {
+            "String": "HP Boost VII Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化Ⅶ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10436"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 33
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "Resonance DMG Boost II"
+          },
+          "name_zh_cn": {
+            "String": "回响伤害强化Ⅱ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.39"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.39"
+          },
+          "summary_en": {
+            "String": "Resonance DMG Boost II Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "回响伤害强化Ⅱ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10437"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 35
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "Effect Hit Rate Boost"
+          },
+          "name_zh_cn": {
+            "String": "效果命中强化"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.40"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.40"
+          },
+          "summary_en": {
+            "String": "Effect Hit Rate Boost Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "效果命中强化能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10438"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 36
+          },
+          "important": {
+            "Bool": false
+          },
+          "name_en": {
+            "String": "Resonance DMG Boost II"
+          },
+          "name_zh_cn": {
+            "String": "回响伤害强化Ⅱ"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.41"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.41"
+          },
+          "summary_en": {
+            "String": "Resonance DMG Boost II Ability Tree node contributing 1 explicit effect to battle state."
+          },
+          "summary_zh_cn": {
+            "String": "回响伤害强化Ⅱ能力树节点，向战斗状态贡献1项显式效果。"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_class": {
+            "String": "Run"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Unlock"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制解锁"
+          },
+          "external_unlock_ids": {
+            "List": [
+              {
+                "String": "10444"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 37
+          },
+          "important": {
+            "Bool": true
+          },
+          "name_en": {
+            "String": "Use Consumable"
+          },
+          "name_zh_cn": {
+            "String": "使用消耗品"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.ability-tree.42"
+          },
+          "stable_key": {
+            "String": "universe.ability-tree.42"
+          },
+          "summary_en": {
+            "String": "Use Consumable Ability Tree node contributing 1 explicit effect to run state."
+          },
+          "summary_zh_cn": {
+            "String": "使用消耗品能力树节点，向运行状态贡献1项显式效果。"
+          }
+        }
+      }
+    ]
+  }
+}

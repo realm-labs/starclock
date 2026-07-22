@@ -1,0 +1,3411 @@
+{
+  "table": {
+    "name": "UniverseEncounterPool",
+    "rows": [
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "map_entrance": {
+            "String": "8000101"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 100"
+          },
+          "name_zh_cn": {
+            "String": "房间100遭遇池"
+          },
+          "room_id": {
+            "Integer": 1
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "10"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.100"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 46
+          },
+          "map_entrance": {
+            "String": "8000102"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 201"
+          },
+          "name_zh_cn": {
+            "String": "房间201遭遇池"
+          },
+          "room_id": {
+            "Integer": 82
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "19"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.201"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 47
+          },
+          "map_entrance": {
+            "String": "8000102"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 202"
+          },
+          "name_zh_cn": {
+            "String": "房间202遭遇池"
+          },
+          "room_id": {
+            "Integer": 83
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "18"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.202"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Boss"
+          },
+          "id": {
+            "Integer": 48
+          },
+          "map_entrance": {
+            "String": "8000102"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 203"
+          },
+          "name_zh_cn": {
+            "String": "房间203遭遇池"
+          },
+          "room_id": {
+            "Integer": 84
+          },
+          "selection_policy": {
+            "String": "ResolveWorldDifficultyBossEliteBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "29"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.203"
+          },
+          "summary_en": {
+            "String": "Room-scoped boss encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级boss遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 73
+          },
+          "map_entrance": {
+            "String": "8000102"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 301"
+          },
+          "name_zh_cn": {
+            "String": "房间301遭遇池"
+          },
+          "room_id": {
+            "Integer": 130
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "31"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.301"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Elite"
+          },
+          "id": {
+            "Integer": 74
+          },
+          "map_entrance": {
+            "String": "8000102"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 302"
+          },
+          "name_zh_cn": {
+            "String": "房间302遭遇池"
+          },
+          "room_id": {
+            "Integer": 131
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "35"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.302"
+          },
+          "summary_en": {
+            "String": "Room-scoped elite encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级elite遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 75
+          },
+          "map_entrance": {
+            "String": "8000103"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 304"
+          },
+          "name_zh_cn": {
+            "String": "房间304遭遇池"
+          },
+          "room_id": {
+            "Integer": 133
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "18"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.304"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Boss"
+          },
+          "id": {
+            "Integer": 76
+          },
+          "map_entrance": {
+            "String": "8000103"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 307"
+          },
+          "name_zh_cn": {
+            "String": "房间307遭遇池"
+          },
+          "room_id": {
+            "Integer": 136
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "23"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.307"
+          },
+          "summary_en": {
+            "String": "Room-scoped boss encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级boss遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Elite"
+          },
+          "id": {
+            "Integer": 92
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 501"
+          },
+          "name_zh_cn": {
+            "String": "房间501遭遇池"
+          },
+          "room_id": {
+            "Integer": 163
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "99"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.501"
+          },
+          "summary_en": {
+            "String": "Room-scoped elite encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级elite遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200111"
+          },
+          "name_zh_cn": {
+            "String": "房间200111遭遇池"
+          },
+          "room_id": {
+            "Integer": 37
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "57"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200111"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200112"
+          },
+          "name_zh_cn": {
+            "String": "房间200112遭遇池"
+          },
+          "room_id": {
+            "Integer": 38
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "57"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200112"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200121"
+          },
+          "name_zh_cn": {
+            "String": "房间200121遭遇池"
+          },
+          "room_id": {
+            "Integer": 39
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "61"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200121"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200122"
+          },
+          "name_zh_cn": {
+            "String": "房间200122遭遇池"
+          },
+          "room_id": {
+            "Integer": 40
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "61"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200122"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200131"
+          },
+          "name_zh_cn": {
+            "String": "房间200131遭遇池"
+          },
+          "room_id": {
+            "Integer": 41
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "65"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200131"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200132"
+          },
+          "name_zh_cn": {
+            "String": "房间200132遭遇池"
+          },
+          "room_id": {
+            "Integer": 42
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "65"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200132"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200141"
+          },
+          "name_zh_cn": {
+            "String": "房间200141遭遇池"
+          },
+          "room_id": {
+            "Integer": 43
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "85"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200141"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200142"
+          },
+          "name_zh_cn": {
+            "String": "房间200142遭遇池"
+          },
+          "room_id": {
+            "Integer": 44
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "85"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200142"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200152"
+          },
+          "name_zh_cn": {
+            "String": "房间200152遭遇池"
+          },
+          "room_id": {
+            "Integer": 45
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "94"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200152"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200211"
+          },
+          "name_zh_cn": {
+            "String": "房间200211遭遇池"
+          },
+          "room_id": {
+            "Integer": 46
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "68"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200211"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200212"
+          },
+          "name_zh_cn": {
+            "String": "房间200212遭遇池"
+          },
+          "room_id": {
+            "Integer": 47
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "68"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200212"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200213"
+          },
+          "name_zh_cn": {
+            "String": "房间200213遭遇池"
+          },
+          "room_id": {
+            "Integer": 48
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "68"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200213"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200221"
+          },
+          "name_zh_cn": {
+            "String": "房间200221遭遇池"
+          },
+          "room_id": {
+            "Integer": 49
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "69"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200221"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200222"
+          },
+          "name_zh_cn": {
+            "String": "房间200222遭遇池"
+          },
+          "room_id": {
+            "Integer": 50
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "69"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200222"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200223"
+          },
+          "name_zh_cn": {
+            "String": "房间200223遭遇池"
+          },
+          "room_id": {
+            "Integer": 51
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "69"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200223"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 37
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200231"
+          },
+          "name_zh_cn": {
+            "String": "房间200231遭遇池"
+          },
+          "room_id": {
+            "Integer": 52
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "88"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200231"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 38
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200232"
+          },
+          "name_zh_cn": {
+            "String": "房间200232遭遇池"
+          },
+          "room_id": {
+            "Integer": 53
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "88"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200232"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 39
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200233"
+          },
+          "name_zh_cn": {
+            "String": "房间200233遭遇池"
+          },
+          "room_id": {
+            "Integer": 54
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "88"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200233"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 40
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200241"
+          },
+          "name_zh_cn": {
+            "String": "房间200241遭遇池"
+          },
+          "room_id": {
+            "Integer": 55
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "90"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200241"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 41
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200242"
+          },
+          "name_zh_cn": {
+            "String": "房间200242遭遇池"
+          },
+          "room_id": {
+            "Integer": 56
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "90"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200242"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 42
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200243"
+          },
+          "name_zh_cn": {
+            "String": "房间200243遭遇池"
+          },
+          "room_id": {
+            "Integer": 57
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "90"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200243"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Elite"
+          },
+          "id": {
+            "Integer": 43
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200611"
+          },
+          "name_zh_cn": {
+            "String": "房间200611遭遇池"
+          },
+          "room_id": {
+            "Integer": 76
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "80"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200611"
+          },
+          "summary_en": {
+            "String": "Room-scoped elite encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级elite遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Elite"
+          },
+          "id": {
+            "Integer": 44
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200612"
+          },
+          "name_zh_cn": {
+            "String": "房间200612遭遇池"
+          },
+          "room_id": {
+            "Integer": 77
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "80"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200612"
+          },
+          "summary_en": {
+            "String": "Room-scoped elite encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级elite遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Boss"
+          },
+          "id": {
+            "Integer": 45
+          },
+          "map_entrance": {
+            "String": "8100201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 200713"
+          },
+          "name_zh_cn": {
+            "String": "房间200713遭遇池"
+          },
+          "room_id": {
+            "Integer": 78
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "93"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.200713"
+          },
+          "summary_en": {
+            "String": "Room-scoped boss encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级boss遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 49
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300111"
+          },
+          "name_zh_cn": {
+            "String": "房间300111遭遇池"
+          },
+          "room_id": {
+            "Integer": 85
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "64"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300111"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 50
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300112"
+          },
+          "name_zh_cn": {
+            "String": "房间300112遭遇池"
+          },
+          "room_id": {
+            "Integer": 86
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "64"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300112"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 51
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300121"
+          },
+          "name_zh_cn": {
+            "String": "房间300121遭遇池"
+          },
+          "room_id": {
+            "Integer": 87
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "67"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300121"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 52
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300122"
+          },
+          "name_zh_cn": {
+            "String": "房间300122遭遇池"
+          },
+          "room_id": {
+            "Integer": 88
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "67"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300122"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 53
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300131"
+          },
+          "name_zh_cn": {
+            "String": "房间300131遭遇池"
+          },
+          "room_id": {
+            "Integer": 89
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "70"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300131"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 54
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300132"
+          },
+          "name_zh_cn": {
+            "String": "房间300132遭遇池"
+          },
+          "room_id": {
+            "Integer": 90
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "70"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300132"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 55
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300141"
+          },
+          "name_zh_cn": {
+            "String": "房间300141遭遇池"
+          },
+          "room_id": {
+            "Integer": 91
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "85"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300141"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 56
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300142"
+          },
+          "name_zh_cn": {
+            "String": "房间300142遭遇池"
+          },
+          "room_id": {
+            "Integer": 92
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "85"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300142"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 57
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300152"
+          },
+          "name_zh_cn": {
+            "String": "房间300152遭遇池"
+          },
+          "room_id": {
+            "Integer": 93
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "95"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300152"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 58
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300211"
+          },
+          "name_zh_cn": {
+            "String": "房间300211遭遇池"
+          },
+          "room_id": {
+            "Integer": 94
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "73"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300211"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 59
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300212"
+          },
+          "name_zh_cn": {
+            "String": "房间300212遭遇池"
+          },
+          "room_id": {
+            "Integer": 95
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "73"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300212"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 60
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300213"
+          },
+          "name_zh_cn": {
+            "String": "房间300213遭遇池"
+          },
+          "room_id": {
+            "Integer": 96
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "73"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300213"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 61
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300221"
+          },
+          "name_zh_cn": {
+            "String": "房间300221遭遇池"
+          },
+          "room_id": {
+            "Integer": 97
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "74"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300221"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 62
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300222"
+          },
+          "name_zh_cn": {
+            "String": "房间300222遭遇池"
+          },
+          "room_id": {
+            "Integer": 98
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "74"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300222"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 63
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300223"
+          },
+          "name_zh_cn": {
+            "String": "房间300223遭遇池"
+          },
+          "room_id": {
+            "Integer": 99
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "74"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300223"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 64
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300231"
+          },
+          "name_zh_cn": {
+            "String": "房间300231遭遇池"
+          },
+          "room_id": {
+            "Integer": 100
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "88"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300231"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 65
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300232"
+          },
+          "name_zh_cn": {
+            "String": "房间300232遭遇池"
+          },
+          "room_id": {
+            "Integer": 101
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "88"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300232"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 66
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300233"
+          },
+          "name_zh_cn": {
+            "String": "房间300233遭遇池"
+          },
+          "room_id": {
+            "Integer": 102
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "88"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300233"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 67
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300241"
+          },
+          "name_zh_cn": {
+            "String": "房间300241遭遇池"
+          },
+          "room_id": {
+            "Integer": 103
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "90"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300241"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 68
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300242"
+          },
+          "name_zh_cn": {
+            "String": "房间300242遭遇池"
+          },
+          "room_id": {
+            "Integer": 104
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "90"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300242"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 69
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300243"
+          },
+          "name_zh_cn": {
+            "String": "房间300243遭遇池"
+          },
+          "room_id": {
+            "Integer": 105
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "90"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300243"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Elite"
+          },
+          "id": {
+            "Integer": 70
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300611"
+          },
+          "name_zh_cn": {
+            "String": "房间300611遭遇池"
+          },
+          "room_id": {
+            "Integer": 124
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "94"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300611"
+          },
+          "summary_en": {
+            "String": "Room-scoped elite encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级elite遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Elite"
+          },
+          "id": {
+            "Integer": 71
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300612"
+          },
+          "name_zh_cn": {
+            "String": "房间300612遭遇池"
+          },
+          "room_id": {
+            "Integer": 125
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "94"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300612"
+          },
+          "summary_en": {
+            "String": "Room-scoped elite encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级elite遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Boss"
+          },
+          "id": {
+            "Integer": 72
+          },
+          "map_entrance": {
+            "String": "8100301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 300713"
+          },
+          "name_zh_cn": {
+            "String": "房间300713遭遇池"
+          },
+          "room_id": {
+            "Integer": 126
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "92"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.300713"
+          },
+          "summary_en": {
+            "String": "Room-scoped boss encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级boss遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 77
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400111"
+          },
+          "name_zh_cn": {
+            "String": "房间400111遭遇池"
+          },
+          "room_id": {
+            "Integer": 137
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "74"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400111"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 78
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400112"
+          },
+          "name_zh_cn": {
+            "String": "房间400112遭遇池"
+          },
+          "room_id": {
+            "Integer": 138
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "74"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400112"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 79
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400121"
+          },
+          "name_zh_cn": {
+            "String": "房间400121遭遇池"
+          },
+          "room_id": {
+            "Integer": 139
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "80"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400121"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 80
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400122"
+          },
+          "name_zh_cn": {
+            "String": "房间400122遭遇池"
+          },
+          "room_id": {
+            "Integer": 140
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "80"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400122"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 81
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400131"
+          },
+          "name_zh_cn": {
+            "String": "房间400131遭遇池"
+          },
+          "room_id": {
+            "Integer": 141
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "86"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400131"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 82
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400132"
+          },
+          "name_zh_cn": {
+            "String": "房间400132遭遇池"
+          },
+          "room_id": {
+            "Integer": 142
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "86"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400132"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatPrimary"
+          },
+          "id": {
+            "Integer": 83
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400142"
+          },
+          "name_zh_cn": {
+            "String": "房间400142遭遇池"
+          },
+          "room_id": {
+            "Integer": 143
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "86"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400142"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-primary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-primary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 84
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400211"
+          },
+          "name_zh_cn": {
+            "String": "房间400211遭遇池"
+          },
+          "room_id": {
+            "Integer": 144
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "15"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400211"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 85
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400212"
+          },
+          "name_zh_cn": {
+            "String": "房间400212遭遇池"
+          },
+          "room_id": {
+            "Integer": 145
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "23"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400212"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 86
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400221"
+          },
+          "name_zh_cn": {
+            "String": "房间400221遭遇池"
+          },
+          "room_id": {
+            "Integer": 146
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "15"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400221"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 87
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400222"
+          },
+          "name_zh_cn": {
+            "String": "房间400222遭遇池"
+          },
+          "room_id": {
+            "Integer": 147
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "31"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400222"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 88
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400231"
+          },
+          "name_zh_cn": {
+            "String": "房间400231遭遇池"
+          },
+          "room_id": {
+            "Integer": 148
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "23"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400231"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 89
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400232"
+          },
+          "name_zh_cn": {
+            "String": "房间400232遭遇池"
+          },
+          "room_id": {
+            "Integer": 149
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "39"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400232"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Elite"
+          },
+          "id": {
+            "Integer": 90
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400611"
+          },
+          "name_zh_cn": {
+            "String": "房间400611遭遇池"
+          },
+          "room_id": {
+            "Integer": 161
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "7"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400611"
+          },
+          "summary_en": {
+            "String": "Room-scoped elite encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级elite遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Elite"
+          },
+          "id": {
+            "Integer": 91
+          },
+          "map_entrance": {
+            "String": "8100401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 400612"
+          },
+          "name_zh_cn": {
+            "String": "房间400612遭遇池"
+          },
+          "room_id": {
+            "Integer": 162
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "7"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.400612"
+          },
+          "summary_en": {
+            "String": "Room-scoped elite encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级elite遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "map_entrance": {
+            "String": "8030101"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000001"
+          },
+          "name_zh_cn": {
+            "String": "房间1000001遭遇池"
+          },
+          "room_id": {
+            "Integer": 2
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "42"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000001"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Boss"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "map_entrance": {
+            "String": "8030101"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000002"
+          },
+          "name_zh_cn": {
+            "String": "房间1000002遭遇池"
+          },
+          "room_id": {
+            "Integer": 3
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "30"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000002"
+          },
+          "summary_en": {
+            "String": "Room-scoped boss encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级boss遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "map_entrance": {
+            "String": "8030101"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000003"
+          },
+          "name_zh_cn": {
+            "String": "房间1000003遭遇池"
+          },
+          "room_id": {
+            "Integer": 4
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "87"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000003"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "map_entrance": {
+            "String": "8030101"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000004"
+          },
+          "name_zh_cn": {
+            "String": "房间1000004遭遇池"
+          },
+          "room_id": {
+            "Integer": 5
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "46"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000004"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Elite"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "map_entrance": {
+            "String": "8030101"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000005"
+          },
+          "name_zh_cn": {
+            "String": "房间1000005遭遇池"
+          },
+          "room_id": {
+            "Integer": 6
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "54"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000005"
+          },
+          "summary_en": {
+            "String": "Room-scoped elite encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级elite遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Boss"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "map_entrance": {
+            "String": "8030301"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000014"
+          },
+          "name_zh_cn": {
+            "String": "房间1000014遭遇池"
+          },
+          "room_id": {
+            "Integer": 15
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "65"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000014"
+          },
+          "summary_en": {
+            "String": "Room-scoped boss encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级boss遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Boss"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "map_entrance": {
+            "String": "8030501"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000015"
+          },
+          "name_zh_cn": {
+            "String": "房间1000015遭遇池"
+          },
+          "room_id": {
+            "Integer": 16
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "78"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000015"
+          },
+          "summary_en": {
+            "String": "Room-scoped boss encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级boss遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "map_entrance": {
+            "String": "8030501"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000017"
+          },
+          "name_zh_cn": {
+            "String": "房间1000017遭遇池"
+          },
+          "room_id": {
+            "Integer": 18
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "84"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000017"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Elite"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "map_entrance": {
+            "String": "8030501"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000018"
+          },
+          "name_zh_cn": {
+            "String": "房间1000018遭遇池"
+          },
+          "room_id": {
+            "Integer": 19
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "88"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000018"
+          },
+          "summary_en": {
+            "String": "Room-scoped elite encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级elite遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "map_entrance": {
+            "String": "8030501"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000019"
+          },
+          "name_zh_cn": {
+            "String": "房间1000019遭遇池"
+          },
+          "room_id": {
+            "Integer": 20
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "91"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000019"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "map_entrance": {
+            "String": "8030501"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000020"
+          },
+          "name_zh_cn": {
+            "String": "房间1000020遭遇池"
+          },
+          "room_id": {
+            "Integer": 21
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "96"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000020"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Boss"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "map_entrance": {
+            "String": "8030201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000022"
+          },
+          "name_zh_cn": {
+            "String": "房间1000022遭遇池"
+          },
+          "room_id": {
+            "Integer": 23
+          },
+          "selection_policy": {
+            "String": "SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "source_primary_condition_key": {
+            "String": "68"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000022"
+          },
+          "summary_en": {
+            "String": "Room-scoped boss encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级boss遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "map_entrance": {
+            "String": "8030201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000024"
+          },
+          "name_zh_cn": {
+            "String": "房间1000024遭遇池"
+          },
+          "room_id": {
+            "Integer": 25
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "74"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000024"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "map_entrance": {
+            "String": "8030201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000025"
+          },
+          "name_zh_cn": {
+            "String": "房间1000025遭遇池"
+          },
+          "room_id": {
+            "Integer": 26
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "79"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000025"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Elite"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "map_entrance": {
+            "String": "8030201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000026"
+          },
+          "name_zh_cn": {
+            "String": "房间1000026遭遇池"
+          },
+          "room_id": {
+            "Integer": 27
+          },
+          "selection_policy": {
+            "String": "ResolveWorldDifficultyBossEliteBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "86"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000026"
+          },
+          "summary_en": {
+            "String": "Room-scoped elite encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级elite遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Elite"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "map_entrance": {
+            "String": "8030201"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000027"
+          },
+          "name_zh_cn": {
+            "String": "房间1000027遭遇池"
+          },
+          "room_id": {
+            "Integer": 28
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "89"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000027"
+          },
+          "summary_en": {
+            "String": "Room-scoped elite encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级elite遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Boss"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "map_entrance": {
+            "String": "8030401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000029"
+          },
+          "name_zh_cn": {
+            "String": "房间1000029遭遇池"
+          },
+          "room_id": {
+            "Integer": 30
+          },
+          "selection_policy": {
+            "String": "ResolveWorldDifficultyBossEliteBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "95"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000029"
+          },
+          "summary_en": {
+            "String": "Room-scoped boss encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级boss遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "map_entrance": {
+            "String": "8030401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000031"
+          },
+          "name_zh_cn": {
+            "String": "房间1000031遭遇池"
+          },
+          "room_id": {
+            "Integer": 32
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "101"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000031"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "Elite"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "map_entrance": {
+            "String": "8030401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000032"
+          },
+          "name_zh_cn": {
+            "String": "房间1000032遭遇池"
+          },
+          "room_id": {
+            "Integer": 33
+          },
+          "selection_policy": {
+            "String": "ResolveWorldDifficultyBossEliteBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "106"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000032"
+          },
+          "summary_en": {
+            "String": "Room-scoped elite encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级elite遭遇选择，保留精确的源条件键。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_kind": {
+            "String": "CombatSecondary"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "map_entrance": {
+            "String": "8030401"
+          },
+          "name_en": {
+            "String": "Encounter Pool for Room 1000033"
+          },
+          "name_zh_cn": {
+            "String": "房间1000033遭遇池"
+          },
+          "room_id": {
+            "Integer": 34
+          },
+          "selection_policy": {
+            "String": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "source_primary_condition_key": {
+            "String": "109"
+          },
+          "stable_key": {
+            "String": "universe.encounter-pool.room.1000033"
+          },
+          "summary_en": {
+            "String": "Room-scoped combat-secondary encounter selection retaining exact source condition keys."
+          },
+          "summary_zh_cn": {
+            "String": "房间级combat-secondary遭遇选择，保留精确的源条件键。"
+          }
+        }
+      }
+    ]
+  }
+}

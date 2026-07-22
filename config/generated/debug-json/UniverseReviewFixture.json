@@ -1,0 +1,3355 @@
+{
+  "table": {
+    "name": "UniverseReviewFixture",
+    "rows": [
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"effects.kind\",\"value\":\"AddChoice\"}]"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.ability-tree.21"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "ability-operation:AddChoice"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2446
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.ability-operation.addchoice"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"effects.kind\",\"value\":\"AddCurrency\"}]"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.ability-tree.17"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "ability-operation:AddCurrency"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2441
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.ability-operation.addcurrency"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"effects.kind\",\"value\":\"AddLimit\"}]"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.ability-tree.11"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "ability-operation:AddLimit"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2435
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.ability-operation.addlimit"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"effects.kind\",\"value\":\"AddResource\"}]"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.ability-tree.27"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "ability-operation:AddResource"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2452
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.ability-operation.addresource"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"effects.kind\",\"value\":\"AddStat\"}]"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.ability-tree.2"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "ability-operation:AddStat"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2434
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.ability-operation.addstat"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"effects.kind\",\"value\":\"Enable\"}]"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.ability-tree.12"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "ability-operation:Enable"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2436
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.ability-operation.enable"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"effects.kind\",\"value\":\"Set\"}]"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.ability-tree.7"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "ability-operation:Set"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2471
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.ability-operation.set"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"effects.kind\",\"value\":\"SetRatio\"}]"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.ability-tree.32"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "ability-operation:SetRatio"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2458
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.ability-operation.setratio"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"effects.kind\",\"value\":\"Unlock\"}]"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.ability-tree.1"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "ability-operation:Unlock"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2433
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.ability-operation.unlock"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"effects.kind\",\"value\":\"UnlockFormationSlot\"}]"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.ability-tree.6"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "ability-operation:UnlockFormationSlot"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2470
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.ability-operation.unlockformationslot"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"action\"}]"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612432"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:action"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 330
+              },
+              {
+                "Integer": 1364
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.action"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"basic-attack\"}]"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612743"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:basic-attack"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 392
+              },
+              {
+                "Integer": 1567
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.basic-attack"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"brain-in-a-vat\"}]"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612830"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:brain-in-a-vat"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 407
+              },
+              {
+                "Integer": 1601
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.brain-in-a-vat"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"break\"}]"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612053"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:break"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 459
+              },
+              {
+                "Integer": 1494
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.break"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"critical\"}]"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612056"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:critical"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 462
+              },
+              {
+                "Integer": 1527
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.critical"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"damage\"}]"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612030"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:damage"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 446
+              },
+              {
+                "Integer": 1348
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"defense\"}]"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612031"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:defense"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 447
+              },
+              {
+                "Integer": 1460
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.defense"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"dot\"}]"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612041"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:dot"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 450
+              },
+              {
+                "Integer": 1675
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.dot"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"effect-res\"}]"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612150"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:effect-res"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 279
+              },
+              {
+                "Integer": 1462
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.effect-res"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"follow-up\"}]"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612630"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:follow-up"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 368
+              },
+              {
+                "Integer": 1479
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.follow-up"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"freeze\"}]"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612130"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:freeze"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 268
+              },
+              {
+                "Integer": 1439
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.freeze"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"healing\"}]"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612256"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:healing"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 304
+              },
+              {
+                "Integer": 1673
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.healing"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"hp-loss\"}]"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612152"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:hp-loss"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 281
+              },
+              {
+                "Integer": 1464
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.hp-loss"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"shield\"}]"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612030"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:shield"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 446
+              },
+              {
+                "Integer": 1348
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.shield"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"skill-points\"}]"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612357"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:skill-points"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 326
+              },
+              {
+                "Integer": 1357
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.skill-points"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"speed\"}]"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612356"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:speed"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 325
+              },
+              {
+                "Integer": 1355
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.speed"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"spores\"}]"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612730"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:spores"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 386
+              },
+              {
+                "Integer": 1554
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.spores"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"mechanic_tags\",\"value\":\"ultimate\"}]"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.blessing.612145"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "blessing-tag:ultimate"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 277
+              },
+              {
+                "Integer": 1451
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.blessing-tag.ultimate"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"state_kind\",\"value\":\"Active\"}]"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.211.state.active"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-state:Active"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 1768
+              },
+              {
+                "Integer": 1873
+              },
+              {
+                "Integer": 1934
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-state.active"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"state_kind\",\"value\":\"Fixed\"}]"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.45.state.fixed"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-state:Fixed"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 1727
+              },
+              {
+                "Integer": 1848
+              },
+              {
+                "Integer": 1909
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-state.fixed"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"state_kind\",\"value\":\"Repairing\"}]"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.45.state.repairing"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-state:Repairing"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 1727
+              },
+              {
+                "Integer": 1848
+              },
+              {
+                "Integer": 1909
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-state.repairing"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"blessing\"}]"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.211"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:blessing"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 766
+              },
+              {
+                "Integer": 1829
+              },
+              {
+                "Integer": 1768
+              },
+              {
+                "Integer": 1873
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.blessing"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"critical\"}]"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.113"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:critical"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 757
+              },
+              {
+                "Integer": 1819
+              },
+              {
+                "Integer": 1760
+              },
+              {
+                "Integer": 1883
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.critical"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"curio\"}]"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.211"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:curio"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 766
+              },
+              {
+                "Integer": 1829
+              },
+              {
+                "Integer": 1768
+              },
+              {
+                "Integer": 1873
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.curio"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"damage\"}]"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.104"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:damage"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 749
+              },
+              {
+                "Integer": 1811
+              },
+              {
+                "Integer": 1752
+              },
+              {
+                "Integer": 1875
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"destructible\"}]"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.58"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:destructible"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 733
+              },
+              {
+                "Integer": 1794
+              },
+              {
+                "Integer": 1736
+              },
+              {
+                "Integer": 1856
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.destructible"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"energy\"}]"
+          },
+          "id": {
+            "Integer": 37
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.11"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:energy"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 767
+              },
+              {
+                "Integer": 1827
+              },
+              {
+                "Integer": 1710
+              },
+              {
+                "Integer": 1890
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.energy"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"enhance\"}]"
+          },
+          "id": {
+            "Integer": 38
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.115"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:enhance"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 758
+              },
+              {
+                "Integer": 1820
+              },
+              {
+                "Integer": 1761
+              },
+              {
+                "Integer": 1884
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.enhance"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"fragments\"}]"
+          },
+          "id": {
+            "Integer": 39
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.106"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:fragments"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 750
+              },
+              {
+                "Integer": 1812
+              },
+              {
+                "Integer": 1753
+              },
+              {
+                "Integer": 1876
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.fragments"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"healing\"}]"
+          },
+          "id": {
+            "Integer": 40
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.118"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:healing"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 760
+              },
+              {
+                "Integer": 1821
+              },
+              {
+                "Integer": 1762
+              },
+              {
+                "Integer": 1885
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.healing"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"limited-use\"}]"
+          },
+          "id": {
+            "Integer": 41
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.104"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:limited-use"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 749
+              },
+              {
+                "Integer": 1811
+              },
+              {
+                "Integer": 1752
+              },
+              {
+                "Integer": 1875
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.limited-use"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"negative\"}]"
+          },
+          "id": {
+            "Integer": 42
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.45"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:negative"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 725
+              },
+              {
+                "Integer": 1786
+              },
+              {
+                "Integer": 1727
+              },
+              {
+                "Integer": 1848
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.negative"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"repair\"}]"
+          },
+          "id": {
+            "Integer": 43
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.17"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:repair"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 713
+              },
+              {
+                "Integer": 1774
+              },
+              {
+                "Integer": 1715
+              },
+              {
+                "Integer": 1836
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.repair"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"replacement\"}]"
+          },
+          "id": {
+            "Integer": 44
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.115"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:replacement"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 758
+              },
+              {
+                "Integer": 1820
+              },
+              {
+                "Integer": 1761
+              },
+              {
+                "Integer": 1884
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.replacement"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"skill-points\"}]"
+          },
+          "id": {
+            "Integer": 45
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.55"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:skill-points"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 730
+              },
+              {
+                "Integer": 1792
+              },
+              {
+                "Integer": 1733
+              },
+              {
+                "Integer": 1854
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.skill-points"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"speed\"}]"
+          },
+          "id": {
+            "Integer": 46
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.121"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:speed"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 762
+              },
+              {
+                "Integer": 1824
+              },
+              {
+                "Integer": 1765
+              },
+              {
+                "Integer": 1888
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.speed"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"tags\",\"value\":\"technique-points\"}]"
+          },
+          "id": {
+            "Integer": 47
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.curio.107"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "curio-tag:technique-points"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 752
+              },
+              {
+                "Integer": 1813
+              },
+              {
+                "Integer": 1754
+              },
+              {
+                "Integer": 1877
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.curio-tag.technique-points"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"selection_policy\",\"value\":\"ResolveWorldDifficultyBossEliteBinding\"}]"
+          },
+          "id": {
+            "Integer": 48
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.encounter-pool.room.203"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "encounter-selection:ResolveWorldDifficultyBossEliteBinding"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2277
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.encounter-selection.resolveworlddifficultybosselitebinding"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"selection_policy\",\"value\":\"SelectConditionKeyThenResolveGroupOrDifficultyBinding\"}]"
+          },
+          "id": {
+            "Integer": 49
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.encounter-pool.room.100"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "encounter-selection:SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2252
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.encounter-selection.selectconditionkeythenresolvegroupordifficultybinding"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"selection_policy\",\"value\":\"SelectExactConditionKeyThenWeightedStableOrder\"}]"
+          },
+          "id": {
+            "Integer": 50
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.encounter-pool.room.201"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "encounter-selection:SelectExactConditionKeyThenWeightedStableOrder"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2253
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.encounter-selection.selectexactconditionkeythenweightedstableorder"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"wave_policy\",\"value\":\"SingleWave\"}]"
+          },
+          "id": {
+            "Integer": 51
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.encounter-group.1001"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "encounter-wave:SingleWave"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2192
+              },
+              {
+                "Integer": 1952
+              },
+              {
+                "Integer": 2475
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.encounter-wave.singlewave"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"outcomes.kinds\",\"value\":\"Battle\"}]"
+          },
+          "id": {
+            "Integer": 52
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.occurrence.62.variant.19501.choice.04"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "occurrence-outcome:Battle"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 630
+              },
+              {
+                "Integer": 66
+              },
+              {
+                "Integer": 129
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactPublicText"
+          },
+          "stable_key": {
+            "String": "universe.fixture.occurrence-outcome.battle"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"outcomes.kinds\",\"value\":\"Consume\"}]"
+          },
+          "id": {
+            "Integer": 53
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.occurrence.43.variant.12601.choice.01"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "occurrence-outcome:Consume"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 539
+              },
+              {
+                "Integer": 35
+              },
+              {
+                "Integer": 102
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactPublicText"
+          },
+          "stable_key": {
+            "String": "universe.fixture.occurrence-outcome.consume"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"outcomes.kinds\",\"value\":\"Discard\"}]"
+          },
+          "id": {
+            "Integer": 54
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.occurrence.39.variant.12201.choice.05"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "occurrence-outcome:Discard"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 520
+              },
+              {
+                "Integer": 31
+              },
+              {
+                "Integer": 98
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ProjectPolicy"
+          },
+          "stable_key": {
+            "String": "universe.fixture.occurrence-outcome.discard"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"outcomes.kinds\",\"value\":\"Enhance\"}]"
+          },
+          "id": {
+            "Integer": 55
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.occurrence.39.variant.12201.choice.01"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "occurrence-outcome:Enhance"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 517
+              },
+              {
+                "Integer": 31
+              },
+              {
+                "Integer": 98
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ProjectPolicy"
+          },
+          "stable_key": {
+            "String": "universe.fixture.occurrence-outcome.enhance"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"outcomes.kinds\",\"value\":\"Lose\"}]"
+          },
+          "id": {
+            "Integer": 56
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.occurrence.41.variant.12401.choice.08"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "occurrence-outcome:Lose"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 534
+              },
+              {
+                "Integer": 33
+              },
+              {
+                "Integer": 100
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactPublicText"
+          },
+          "stable_key": {
+            "String": "universe.fixture.occurrence-outcome.lose"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"outcomes.kinds\",\"value\":\"Obtain\"}]"
+          },
+          "id": {
+            "Integer": 57
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.occurrence.39.variant.12201.choice.02"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "occurrence-outcome:Obtain"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 518
+              },
+              {
+                "Integer": 31
+              },
+              {
+                "Integer": 98
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactPublicText"
+          },
+          "stable_key": {
+            "String": "universe.fixture.occurrence-outcome.obtain"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"outcomes.kinds\",\"value\":\"Repair\"}]"
+          },
+          "id": {
+            "Integer": 58
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.occurrence.43.variant.12601.choice.01"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "occurrence-outcome:Repair"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 539
+              },
+              {
+                "Integer": 35
+              },
+              {
+                "Integer": 102
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactPublicText"
+          },
+          "stable_key": {
+            "String": "universe.fixture.occurrence-outcome.repair"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"outcomes.kinds\",\"value\":\"Restore\"}]"
+          },
+          "id": {
+            "Integer": 59
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.occurrence.8.variant.10601.choice.03"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "occurrence-outcome:Restore"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 640
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 82
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactPublicText"
+          },
+          "stable_key": {
+            "String": "universe.fixture.occurrence-outcome.restore"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"contains\",\"path\":\"outcomes.kinds\",\"value\":\"Special\"}]"
+          },
+          "id": {
+            "Integer": 60
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.occurrence.40.variant.12301.choice.01"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "occurrence-outcome:Special"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 528
+              },
+              {
+                "Integer": 32
+              },
+              {
+                "Integer": 99
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ProjectPolicy"
+          },
+          "stable_key": {
+            "String": "universe.fixture.occurrence-outcome.special"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"blessing_ids.length\",\"value\":18}]"
+          },
+          "id": {
+            "Integer": 61
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.path.abundance"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "path:abundance"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 139
+              },
+              {
+                "Integer": 148
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.path.abundance"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"blessing_ids.length\",\"value\":18}]"
+          },
+          "id": {
+            "Integer": 62
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.path.destruction"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "path:destruction"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 141
+              },
+              {
+                "Integer": 150
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.path.destruction"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"blessing_ids.length\",\"value\":18}]"
+          },
+          "id": {
+            "Integer": 63
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.path.elation"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "path:elation"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 142
+              },
+              {
+                "Integer": 151
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.path.elation"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"blessing_ids.length\",\"value\":18}]"
+          },
+          "id": {
+            "Integer": 64
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.path.erudition"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "path:erudition"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 144
+              },
+              {
+                "Integer": 153
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.path.erudition"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"blessing_ids.length\",\"value\":18}]"
+          },
+          "id": {
+            "Integer": 65
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.path.hunt"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "path:hunt"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 140
+              },
+              {
+                "Integer": 149
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.path.hunt"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"blessing_ids.length\",\"value\":18}]"
+          },
+          "id": {
+            "Integer": 66
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.path.nihility"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "path:nihility"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 138
+              },
+              {
+                "Integer": 147
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.path.nihility"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"blessing_ids.length\",\"value\":18}]"
+          },
+          "id": {
+            "Integer": 67
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.path.preservation"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "path:preservation"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 136
+              },
+              {
+                "Integer": 145
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.path.preservation"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"blessing_ids.length\",\"value\":18}]"
+          },
+          "id": {
+            "Integer": 68
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.path.propagation"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "path:propagation"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 143
+              },
+              {
+                "Integer": 152
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.path.propagation"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"blessing_ids.length\",\"value\":18}]"
+          },
+          "id": {
+            "Integer": 69
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.path.remembrance"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "path:remembrance"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 137
+              },
+              {
+                "Integer": 146
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.path.remembrance"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"kind\",\"value\":\"BlessingShop\"}]"
+          },
+          "id": {
+            "Integer": 70
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.service.shop.100011"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "service:BlessingShop"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2424
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.service.blessingshop"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"kind\",\"value\":\"CurioShop\"}]"
+          },
+          "id": {
+            "Integer": 71
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.service.shop.100021"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "service:CurioShop"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2425
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.service.curioshop"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"kind\",\"value\":\"Currency\"}]"
+          },
+          "id": {
+            "Integer": 72
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.currency.cosmic-fragments"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "service:Currency"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 133
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.service.currency"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"kind\",\"value\":\"Downloader\"}]"
+          },
+          "id": {
+            "Integer": 73
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.service.downloader"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "service:Downloader"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactPublicText"
+          },
+          "stable_key": {
+            "String": "universe.fixture.service.downloader"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"kind\",\"value\":\"EnhanceBlessing\"}]"
+          },
+          "id": {
+            "Integer": 74
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.service.enhance-blessing"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "service:EnhanceBlessing"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 2
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactPublicText"
+          },
+          "stable_key": {
+            "String": "universe.fixture.service.enhanceblessing"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"kind\",\"value\":\"ResetBlessing\"}]"
+          },
+          "id": {
+            "Integer": 75
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.service.reset-blessing-choice"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "service:ResetBlessing"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 132
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.service.resetblessing"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"kind\",\"value\":\"RespiteOffers\"}]"
+          },
+          "id": {
+            "Integer": 76
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.service.respite-offers"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "service:RespiteOffers"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 3
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactPublicText"
+          },
+          "stable_key": {
+            "String": "universe.fixture.service.respiteoffers"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"kind\",\"value\":\"Reviver\"}]"
+          },
+          "id": {
+            "Integer": 77
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.service.reviver"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "service:Reviver"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 135
+              },
+              {
+                "Integer": 134
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.service.reviver"
+          }
+        }
+      },
+      {
+        "values": {
+          "commands_json": {
+            "String": "[]"
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"kind\",\"value\":\"TrailblazeBonus\"}]"
+          },
+          "id": {
+            "Integer": 78
+          },
+          "initial_state_json": {
+            "String": "{}"
+          },
+          "input_stable_keys": {
+            "List": [
+              {
+                "String": "universe.service.trailblaze-bonus.1"
+              }
+            ]
+          },
+          "mechanic_family": {
+            "String": "service:TrailblazeBonus"
+          },
+          "provenance_ids": {
+            "List": [
+              {
+                "Integer": 187
+              }
+            ]
+          },
+          "quality_floor": {
+            "String": "ExactStructured"
+          },
+          "stable_key": {
+            "String": "universe.fixture.service.trailblazebonus"
+          }
+        }
+      }
+    ]
+  }
+}

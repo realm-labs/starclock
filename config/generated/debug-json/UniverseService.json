@@ -1,0 +1,3155 @@
+{
+  "table": {
+    "name": "UniverseService",
+    "rows": [
+      {
+        "values": {
+          "currency_stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "Currency"
+          },
+          "name_en": {
+            "String": "Cosmic Fragments"
+          },
+          "name_zh_cn": {
+            "String": "宇宙碎片"
+          },
+          "offer_pool_stable_key": "Null",
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.currency.cosmic-fragments"
+          },
+          "stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "summary_en": {
+            "String": "Run-scoped Standard Simulated Universe currency used by choices, shops, resets, enhancement and revival."
+          },
+          "summary_zh_cn": {
+            "String": "标准模拟宇宙的局内货币，用于事件选择、商店、刷新、强化与复活。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "ResetBlessing"
+          },
+          "name_en": {
+            "String": "Reset Blessing Choice"
+          },
+          "name_zh_cn": {
+            "String": "重置祝福选择"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.blessings.standard"
+          },
+          "price_formula_stable_key": {
+            "String": "universe.price.reset-blessing"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.service.reset-blessing"
+          },
+          "stable_key": {
+            "String": "universe.service.reset-blessing-choice"
+          },
+          "summary_en": {
+            "String": "Consumes Cosmic Fragments to regenerate the ordered Blessing candidates after battle."
+          },
+          "summary_zh_cn": {
+            "String": "消耗宇宙碎片，重新生成战斗后的有序祝福候选项。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "Reviver"
+          },
+          "name_en": {
+            "String": "Reviver"
+          },
+          "name_zh_cn": {
+            "String": "复活装置"
+          },
+          "offer_pool_stable_key": "Null",
+          "price_formula_stable_key": {
+            "String": "universe.price.reviver"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.service.reviver"
+          },
+          "stable_key": {
+            "String": "universe.service.reviver"
+          },
+          "summary_en": {
+            "String": "Revives one downed character for 80 Cosmic Fragments and restores that character to full HP."
+          },
+          "summary_zh_cn": {
+            "String": "消耗80宇宙碎片复活一名倒下角色，并恢复至满生命值。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "Downloader"
+          },
+          "name_en": {
+            "String": "Downloader"
+          },
+          "name_zh_cn": {
+            "String": "下载装置"
+          },
+          "offer_pool_stable_key": "Null",
+          "price_formula_stable_key": {
+            "String": "universe.service.downloader.price"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.service.downloader"
+          },
+          "stable_key": {
+            "String": "universe.service.downloader"
+          },
+          "summary_en": {
+            "String": "Adds one selected reserve character to the current run without a currency cost."
+          },
+          "summary_zh_cn": {
+            "String": "不消耗货币，将一名选定的后备角色加入当前运行。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "RespiteOffers"
+          },
+          "name_en": {
+            "String": "Respite Offers"
+          },
+          "name_zh_cn": {
+            "String": "休整区交易"
+          },
+          "offer_pool_stable_key": "Null",
+          "price_formula_stable_key": {
+            "String": "universe.service.respite-offers.price"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.service.respite-offers"
+          },
+          "stable_key": {
+            "String": "universe.service.respite-offers"
+          },
+          "summary_en": {
+            "String": "The first two Respite domains offer a 1-star Blessing for 80, a Curio for 120, or two random Blessing enhancements for 180 Cosmic Fragments."
+          },
+          "summary_zh_cn": {
+            "String": "前两个休整区可用80购买1星祝福、120购买奇物，或180强化两个随机祝福。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "EnhanceBlessing"
+          },
+          "name_en": {
+            "String": "Enhance Blessing"
+          },
+          "name_zh_cn": {
+            "String": "强化祝福"
+          },
+          "offer_pool_stable_key": "Null",
+          "price_formula_stable_key": {
+            "String": "universe.service.enhance-blessing.price"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.service.enhance-blessing"
+          },
+          "stable_key": {
+            "String": "universe.service.enhance-blessing"
+          },
+          "summary_en": {
+            "String": "Enhances a selected Blessing once; prices are 100, 130 and 160 Cosmic Fragments for 1-, 2- and 3-star Blessings."
+          },
+          "summary_zh_cn": {
+            "String": "每个祝福最多强化一次；1星、2星、3星费用分别为100、130、160宇宙碎片。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "BlessingShop"
+          },
+          "name_en": {
+            "String": "Blessing Shop 100011"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店100011"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.shop.100011"
+          },
+          "price_formula_stable_key": {
+            "String": "universe.price.shop.100011"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.service.shop.100011"
+          },
+          "stable_key": {
+            "String": "universe.service.shop.100011"
+          },
+          "summary_en": {
+            "String": "Standard source shop definition of kind BlessingShop; offer rows are selected by the authored shop stage/pool."
+          },
+          "summary_zh_cn": {
+            "String": "标准源商店，类型为BlessingShop；商品由已配置的商店阶段与池选择。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "CurioShop"
+          },
+          "name_en": {
+            "String": "Curio Shop 100021"
+          },
+          "name_zh_cn": {
+            "String": "奇物商店100021"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.shop.100021"
+          },
+          "price_formula_stable_key": {
+            "String": "universe.price.shop.100021"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.service.shop.100021"
+          },
+          "stable_key": {
+            "String": "universe.service.shop.100021"
+          },
+          "summary_en": {
+            "String": "Standard source shop definition of kind CurioShop; offer rows are selected by the authored shop stage/pool."
+          },
+          "summary_zh_cn": {
+            "String": "标准源商店，类型为CurioShop；商品由已配置的商店阶段与池选择。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "BlessingShop"
+          },
+          "name_en": {
+            "String": "Blessing Shop 101010"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店101010"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.shop.101010"
+          },
+          "price_formula_stable_key": {
+            "String": "universe.price.shop.101010"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.service.shop.101010"
+          },
+          "stable_key": {
+            "String": "universe.service.shop.101010"
+          },
+          "summary_en": {
+            "String": "Standard source shop definition of kind BlessingShop; offer rows are selected by the authored shop stage/pool."
+          },
+          "summary_zh_cn": {
+            "String": "标准源商店，类型为BlessingShop；商品由已配置的商店阶段与池选择。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "BlessingShop"
+          },
+          "name_en": {
+            "String": "Blessing Shop 101011"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店101011"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.shop.101011"
+          },
+          "price_formula_stable_key": {
+            "String": "universe.price.shop.101011"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.service.shop.101011"
+          },
+          "stable_key": {
+            "String": "universe.service.shop.101011"
+          },
+          "summary_en": {
+            "String": "Standard source shop definition of kind BlessingShop; offer rows are selected by the authored shop stage/pool."
+          },
+          "summary_zh_cn": {
+            "String": "标准源商店，类型为BlessingShop；商品由已配置的商店阶段与池选择。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "BlessingShop"
+          },
+          "name_en": {
+            "String": "Blessing Shop 101012"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店101012"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.shop.101012"
+          },
+          "price_formula_stable_key": {
+            "String": "universe.price.shop.101012"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.service.shop.101012"
+          },
+          "stable_key": {
+            "String": "universe.service.shop.101012"
+          },
+          "summary_en": {
+            "String": "Standard source shop definition of kind BlessingShop; offer rows are selected by the authored shop stage/pool."
+          },
+          "summary_zh_cn": {
+            "String": "标准源商店，类型为BlessingShop；商品由已配置的商店阶段与池选择。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "CurioShop"
+          },
+          "name_en": {
+            "String": "Curio Shop 101020"
+          },
+          "name_zh_cn": {
+            "String": "奇物商店101020"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.shop.101020"
+          },
+          "price_formula_stable_key": {
+            "String": "universe.price.shop.101020"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.service.shop.101020"
+          },
+          "stable_key": {
+            "String": "universe.service.shop.101020"
+          },
+          "summary_en": {
+            "String": "Standard source shop definition of kind CurioShop; offer rows are selected by the authored shop stage/pool."
+          },
+          "summary_zh_cn": {
+            "String": "标准源商店，类型为CurioShop；商品由已配置的商店阶段与池选择。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "CurioShop"
+          },
+          "name_en": {
+            "String": "Curio Shop 101021"
+          },
+          "name_zh_cn": {
+            "String": "奇物商店101021"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.shop.101021"
+          },
+          "price_formula_stable_key": {
+            "String": "universe.price.shop.101021"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.service.shop.101021"
+          },
+          "stable_key": {
+            "String": "universe.service.shop.101021"
+          },
+          "summary_en": {
+            "String": "Standard source shop definition of kind CurioShop; offer rows are selected by the authored shop stage/pool."
+          },
+          "summary_zh_cn": {
+            "String": "标准源商店，类型为CurioShop；商品由已配置的商店阶段与池选择。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "BlessingShop"
+          },
+          "name_en": {
+            "String": "Blessing Shop 102011"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店102011"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.shop.102011"
+          },
+          "price_formula_stable_key": {
+            "String": "universe.price.shop.102011"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.service.shop.102011"
+          },
+          "stable_key": {
+            "String": "universe.service.shop.102011"
+          },
+          "summary_en": {
+            "String": "Standard source shop definition of kind BlessingShop; offer rows are selected by the authored shop stage/pool."
+          },
+          "summary_zh_cn": {
+            "String": "标准源商店，类型为BlessingShop；商品由已配置的商店阶段与池选择。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "CurioShop"
+          },
+          "name_en": {
+            "String": "Curio Shop 102021"
+          },
+          "name_zh_cn": {
+            "String": "奇物商店102021"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.shop.102021"
+          },
+          "price_formula_stable_key": {
+            "String": "universe.price.shop.102021"
+          },
+          "rule_stable_key": {
+            "String": "universe.rule.service.shop.102021"
+          },
+          "stable_key": {
+            "String": "universe.service.shop.102021"
+          },
+          "summary_en": {
+            "String": "Standard source shop definition of kind CurioShop; offer rows are selected by the authored shop stage/pool."
+          },
+          "summary_zh_cn": {
+            "String": "标准源商店，类型为CurioShop；商品由已配置的商店阶段与池选择。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Fragmented Universe"
+          },
+          "name_zh_cn": {
+            "String": "破碎宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.1"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.1"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with fragments effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Blessing Universe"
+          },
+          "name_zh_cn": {
+            "String": "祝福宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.2"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.2"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Miracle Universe"
+          },
+          "name_zh_cn": {
+            "String": "神奇宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.3"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.3"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with fragments, curio effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Fragmented Universe"
+          },
+          "name_zh_cn": {
+            "String": "破碎宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.4"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.4"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with fragments effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 63
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Blessing Universe"
+          },
+          "name_zh_cn": {
+            "String": "祝福宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.5"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.5"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 94
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Miracle Universe"
+          },
+          "name_zh_cn": {
+            "String": "神奇宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.6"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.6"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with curio effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Fragmented Universe"
+          },
+          "name_zh_cn": {
+            "String": "破碎宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.101"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.101"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with fragments effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Blessing Universe"
+          },
+          "name_zh_cn": {
+            "String": "祝福宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.102"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.102"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Miracle Universe"
+          },
+          "name_zh_cn": {
+            "String": "神奇宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.103"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.103"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with curio effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Orderly Universe"
+          },
+          "name_zh_cn": {
+            "String": "有序宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.104"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.104"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with fragments, curio effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Hungry Universe"
+          },
+          "name_zh_cn": {
+            "String": "巨胃宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.105"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.105"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with curio effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Bloodthirsty Universe"
+          },
+          "name_zh_cn": {
+            "String": "嗜血宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.106"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.106"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Fragmented Universe"
+          },
+          "name_zh_cn": {
+            "String": "破碎宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.201"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.201"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with fragments effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Blessing Universe"
+          },
+          "name_zh_cn": {
+            "String": "祝福宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.202"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.202"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Miracle Universe"
+          },
+          "name_zh_cn": {
+            "String": "神奇宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.203"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.203"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with curio effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Inorganic Universe"
+          },
+          "name_zh_cn": {
+            "String": "无机宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.204"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.204"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with special effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Equilibrium Universe"
+          },
+          "name_zh_cn": {
+            "String": "均衡宇宙"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.205"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.205"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with curio effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Mechanic"
+          },
+          "name_zh_cn": {
+            "String": "机修工"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.401"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.401"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Surveyor"
+          },
+          "name_zh_cn": {
+            "String": "测绘师"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.402"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.402"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 33
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Adventurer"
+          },
+          "name_zh_cn": {
+            "String": "冒险家"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.403"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.403"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 34
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Path of Abundance"
+          },
+          "name_zh_cn": {
+            "String": "丰饶之路"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.404"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.404"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 35
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Path of The Hunt"
+          },
+          "name_zh_cn": {
+            "String": "巡猎之路"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.405"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.405"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 36
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Path of Destruction"
+          },
+          "name_zh_cn": {
+            "String": "毁灭之路"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.406"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.406"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 37
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Path of Elation"
+          },
+          "name_zh_cn": {
+            "String": "欢愉之路"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.407"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.407"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 38
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Path of Propagation"
+          },
+          "name_zh_cn": {
+            "String": "繁育之路"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.408"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.408"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 39
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Path of Erudition"
+          },
+          "name_zh_cn": {
+            "String": "智识之路"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.409"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.409"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 40
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Coronal Sea"
+          },
+          "name_zh_cn": {
+            "String": "日冕海"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.410"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.410"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 41
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Skycruiser"
+          },
+          "name_zh_cn": {
+            "String": "巡天舰"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.411"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.411"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 42
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Diamond Precipitation"
+          },
+          "name_zh_cn": {
+            "String": "钻石雨"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.412"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.412"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with special effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 43
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Ivory Tower"
+          },
+          "name_zh_cn": {
+            "String": "象牙塔"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.413"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.413"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 44
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Fool's Play"
+          },
+          "name_zh_cn": {
+            "String": "愚人戏"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.414"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.414"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 45
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Fountain of Youth"
+          },
+          "name_zh_cn": {
+            "String": "不老泉"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.415"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.415"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 46
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Reimbursement Form"
+          },
+          "name_zh_cn": {
+            "String": "报销单"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.416"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.416"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 47
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Sea of Forgetfulness"
+          },
+          "name_zh_cn": {
+            "String": "遗忘海"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.417"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.417"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 48
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Phenomenal Field"
+          },
+          "name_zh_cn": {
+            "String": "现象场"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.418"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.418"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 49
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Lying Cap"
+          },
+          "name_zh_cn": {
+            "String": "说谎帽"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.419"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.419"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 50
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Case Folder"
+          },
+          "name_zh_cn": {
+            "String": "案件簿"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.420"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.420"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 51
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Bloodguilt Tome"
+          },
+          "name_zh_cn": {
+            "String": "血罪书"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.421"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.421"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 52
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Shuttle Boat"
+          },
+          "name_zh_cn": {
+            "String": "梭子船"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.422"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.422"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 53
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Consciousness Cluster"
+          },
+          "name_zh_cn": {
+            "String": "意识群"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.423"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.423"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 54
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Oscillating Stars"
+          },
+          "name_zh_cn": {
+            "String": "振荡星"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.424"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.424"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 55
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Boundless Sea"
+          },
+          "name_zh_cn": {
+            "String": "无涯海"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.425"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.425"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 56
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Aether Well"
+          },
+          "name_zh_cn": {
+            "String": "以太井"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.426"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.426"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 57
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Silent Orifice"
+          },
+          "name_zh_cn": {
+            "String": "静默孔"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.427"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.427"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 58
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Water-Mirrored Moon"
+          },
+          "name_zh_cn": {
+            "String": "水中月"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.428"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.428"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 59
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Stardust"
+          },
+          "name_zh_cn": {
+            "String": "星之尘"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.429"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.429"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing, curio effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 60
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Praisesong"
+          },
+          "name_zh_cn": {
+            "String": "赞美诗"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.430"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.430"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing, curio effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 61
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Data Hole"
+          },
+          "name_zh_cn": {
+            "String": "数据孔"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.431"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.431"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing, curio effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 62
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Butterfly Adores Flower"
+          },
+          "name_zh_cn": {
+            "String": "蝶恋花"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.432"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.432"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 64
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Guard"
+          },
+          "name_zh_cn": {
+            "String": "守卫"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.501"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.501"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 65
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Teacher"
+          },
+          "name_zh_cn": {
+            "String": "导师"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.502"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.502"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 66
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Messenger"
+          },
+          "name_zh_cn": {
+            "String": "信使"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.503"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.503"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 67
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Dream Oracles"
+          },
+          "name_zh_cn": {
+            "String": "梦的谕示"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.504"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.504"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 68
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Lightning Residues"
+          },
+          "name_zh_cn": {
+            "String": "雷的残骸"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.505"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.505"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 69
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Sword Fragments"
+          },
+          "name_zh_cn": {
+            "String": "剑的碎片"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.506"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.506"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 70
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Heart Embers"
+          },
+          "name_zh_cn": {
+            "String": "心的余火"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.507"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.507"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 71
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Sweet Dreams of Flowers"
+          },
+          "name_zh_cn": {
+            "String": "花的美梦"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.508"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.508"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 72
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Endless Verse of the Night"
+          },
+          "name_zh_cn": {
+            "String": "夜的长诗"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.509"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.509"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 73
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Budding of Knowledge"
+          },
+          "name_zh_cn": {
+            "String": "知的萌芽"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.510"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.510"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 74
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Lingering Whispers of Love"
+          },
+          "name_zh_cn": {
+            "String": "爱的残语"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.511"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.511"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 75
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Scattered Poems"
+          },
+          "name_zh_cn": {
+            "String": "零落诗篇"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.512"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.512"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 76
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Rusted Gold Coin"
+          },
+          "name_zh_cn": {
+            "String": "锈蚀金币"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.513"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.513"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 77
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Golden Short Sword"
+          },
+          "name_zh_cn": {
+            "String": "黄金短剑"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.514"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.514"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 78
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Mirage In The Water"
+          },
+          "name_zh_cn": {
+            "String": "水中影"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.515"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.515"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 79
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Gift of Creation"
+          },
+          "name_zh_cn": {
+            "String": "创生之赐"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.516"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.516"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 80
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Final Spear"
+          },
+          "name_zh_cn": {
+            "String": "最后的枪"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.517"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.517"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 81
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Poem of the Stars"
+          },
+          "name_zh_cn": {
+            "String": "星的诗篇"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.518"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.518"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 82
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Data Collection"
+          },
+          "name_zh_cn": {
+            "String": "集群数据"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.519"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.519"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 83
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Recursion"
+          },
+          "name_zh_cn": {
+            "String": "递归"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.520"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.520"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 84
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Dream of Flowers"
+          },
+          "name_zh_cn": {
+            "String": "花之梦"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.521"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.521"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 85
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Bedtime Story"
+          },
+          "name_zh_cn": {
+            "String": "睡前故事"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.522"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.522"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 86
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Happy Heart"
+          },
+          "name_zh_cn": {
+            "String": "快乐的心"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.523"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.523"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing, curio effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 87
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Enkindled Dreams"
+          },
+          "name_zh_cn": {
+            "String": "焚烧的梦"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.524"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.524"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 88
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "A New Beginning"
+          },
+          "name_zh_cn": {
+            "String": "新的开始"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.525"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.525"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 89
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Melodious Strings"
+          },
+          "name_zh_cn": {
+            "String": "袅袅弦音"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.526"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.526"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 90
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Rousing War Song"
+          },
+          "name_zh_cn": {
+            "String": "昂扬战歌"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.527"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.527"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 91
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Condensed Heart"
+          },
+          "name_zh_cn": {
+            "String": "凝结的心"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.528"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.528"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 92
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Spore Ball"
+          },
+          "name_zh_cn": {
+            "String": "孢子团"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.529"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.529"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      },
+      {
+        "values": {
+          "currency_stable_key": "Null",
+          "id": {
+            "Integer": 93
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Mini Meme"
+          },
+          "name_zh_cn": {
+            "String": "迷你模因"
+          },
+          "offer_pool_stable_key": {
+            "String": "universe.pool.trailblaze-bonuses"
+          },
+          "price_formula_stable_key": "Null",
+          "rule_stable_key": {
+            "String": "universe.rule.service.trailblaze-bonus.530"
+          },
+          "stable_key": {
+            "String": "universe.service.trailblaze-bonus.530"
+          },
+          "summary_en": {
+            "String": "Run-entry bonus with blessing effects; exact event binding is retained."
+          },
+          "summary_zh_cn": {
+            "String": "运行入口增益，包含特殊效果并保留精确事件绑定。"
+          }
+        }
+      }
+    ]
+  }
+}

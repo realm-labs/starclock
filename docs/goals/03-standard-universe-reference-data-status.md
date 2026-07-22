@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `standard-universe-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 3 — Complete Excel authoring |
+| Active phase | Phase 4 — Review and freeze |
 | Active batch | None |
-| Next unblocked batch | `G03-P3-B6` |
+| Next unblocked batch | `G03-P4-B1` |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -21,7 +21,7 @@
 | Phase 0 — Scope/evidence | `Complete` | Snapshot/scope, 2,646-file evidence inventory, corrected 1,935-row main-world manifest, stable normalized record families, provenance/quality labels, canonical JSON rules and semantic fixture contract are frozen and machine-verified. |
 | Phase 1 — Reference pack | `Complete` | Twenty-four contract files contain 2,201 DataReady content records, 786 rule bindings and 78 mechanic-family fixtures; pack/index regeneration and reference closure are machine-verified. |
 | Phase 2 — Sora schema | `Complete` | All 49 Universe tables, templates and readers validate; openpyxl-generated empty and representative workbook sets export deterministically and load through generated Rust readers. |
-| Phase 3 — Excel authoring | `InProgress` | The pinned `openpyxl` authoring adapter now creates all three grouped Universe workbooks from Sora templates with fixed metadata, common styling, frozen panes, filters, semantic hashing and post-save QA; content-family row builders follow in B2-B5. |
+| Phase 3 — Excel authoring | `Complete` | The pinned `openpyxl` adapter authors 13,793 rows across all 49 sheets in three production workbooks. Byte-identical double generation, Sora binary/debug export, generated-reader loading, semantic workbook QA and a 49-page rendered visual review all pass. |
 | Phase 4 — Review/freeze | `Pending` | — |
 
 ## Batch ledger
@@ -51,7 +51,7 @@
 | `G03-P3-B3` | `Complete` | This row's containing commit | Authored nine Paths with 162 ordered membership rows, 36 Resonances/Formations with 238 exact parameters, 162 Blessings, 72 released unlock prerequisites, 324 level rows and 638 exact level parameters. Real-data validation corrected prerequisite transport from a false Blessing foreign key to an unlock-condition stable key and made zero-length Sora lists optional rather than inventing sentinel values. The resulting 4,974-row workbook set exports through Sora and matches normalized builder counts exactly. |
 | `G03-P3-B4` | `Complete` | This row's containing commit | Authored 61 Curios, 67 explicit lifecycle states and 89 exact state parameters, including charge parameter indices and typed next/repair/replacement links. Authored 59 Occurrences, 67 base-mode variants, 321 choices, 70 costs and 321 classified outcomes; conditions, text digests, parameter vectors, numeric literals, chance fields and the 52 policy-bound random outcomes remain explicit. Sora export and normalized row-count verification pass for the resulting 6,029-row workbook set. |
 | `G03-P3-B5` | `Complete` | This row's containing commit | Completed all remaining sheets: 94 services/12 parameters, 42 Ability Tree nodes with 55 edges, 42 costs, 50 typed effects and 43 source parameters; 786 mechanic-rule bindings; 23 deterministic candidate indexes/1,651 entries; 2,645 source records; 2,201 content-audit rows; 18 coverage rows; 78 mechanic fixtures; and 24 pack-file digests. Pool entries close against audited content, every service pool resolves, every rule source is audited and provenance references are valid. All 49 sheets now contain their final 13,793 normalized rows and export through Sora. |
-| `G03-P3-B6` | `Pending` | — | — |
+| `G03-P3-B6` | `Complete` | This row's containing commit | Published the three production `openpyxl` workbooks and regenerated the authoritative Sora bundle/debug output. Two clean authoring/export runs reproduce byte-identical workbooks and bundle (`4e639d25…9700c`); the workbook verifier closes 13,793 rows, 49 sheets and 86 Goal 01 enemy stable keys with semantic digest `d54c6c1b…9390`. Automated QA enforces metadata, ordering, widths, wrapping, filters, frozen panes and formula/error exclusion. Excel exported all 49 sheets to PDF and the rendered PNG review found no clipping, overlap or rendering defects. Generated Rust readers load all production Universe tables. |
 | `G03-P4-B1` | `Pending` | — | — |
 | `G03-P4-B2` | `Pending` | — | — |
 | `G03-P4-B3` | `Pending` | — | — |
@@ -102,9 +102,9 @@ Populate only from generated manifests in `G03-P0-B3`.
 - [x] Complete normalized pack and evidence index regenerate deterministically.
 - [x] All required rows have bilingual summaries and provenance.
 - [x] All required mechanics are exact or explicitly approximate/policy-bound.
-- [ ] Universe/Activity/Rule Sora schemas and generated readers validate.
-- [ ] `openpyxl` workbooks are complete, styled, checked and visually reviewed.
-- [ ] Sora production/debug exports regenerate without drift.
+- [x] Universe/Activity/Rule Sora schemas and generated readers validate.
+- [x] `openpyxl` workbooks are complete, styled, checked and visually reviewed.
+- [x] Sora production/debug exports regenerate without drift.
 - [x] Coverage reports 100% `DataReady` and no blocking research row.
 - [x] Semantic review fixtures cover every distinct mechanic family.
 - [ ] Clean checkout and prior Goal 01/02 release contracts pass.

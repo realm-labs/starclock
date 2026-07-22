@@ -1,0 +1,38 @@
+{
+  "table": {
+    "name": "UniverseActivityBinding",
+    "rows": [
+      {
+        "values": {
+          "activity_stable_key": {
+            "String": "activity.standard-simulated-universe.v1"
+          },
+          "battle_handoff_contract": {
+            "String": "activity.battle-handoff.rule-bundle.v1"
+          },
+          "external_outcome_contract": {
+            "String": "activity.external-outcome.command.v1"
+          },
+          "fork_join_reserved": {
+            "Bool": true
+          },
+          "id": {
+            "Integer": 1
+          },
+          "participant_digest_locked": {
+            "Bool": true
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "scoped_slots_supported": {
+            "Bool": true
+          },
+          "stable_key": {
+            "String": "universe.activity-binding.standard-main-world.v1"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
+import zipfile
 from copy import copy
 from datetime import datetime, timezone
 from pathlib import Path
@@ -90,7 +92,29 @@ def prepare_workbook(template: Path, target: Path, tables: dict[str, dict], rows
     workbook.calculation.fullCalcOnLoad = False
     workbook.calculation.forceFullCalc = False
     workbook.save(target)
+    normalize_archive(target)
     return counts
+
+
+def normalize_archive(path: Path) -> None:
+    """Canonicalize ZIP metadata so equivalent workbooks are byte-identical."""
+    temporary = path.with_suffix(f"{path.suffix}.canonical")
+    with zipfile.ZipFile(path, "r") as source:
+        members = [(name, source.read(name)) for name in sorted(source.namelist())]
+    with zipfile.ZipFile(temporary, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as target:
+        for name, payload in members:
+            if name == "docProps/core.xml":
+                payload = re.sub(
+                    rb"(<dcterms:modified[^>]*>)[^<]*(</dcterms:modified>)",
+                    rb"\g<1>2000-01-01T00:00:00Z\g<2>",
+                    payload,
+                )
+            info = zipfile.ZipInfo(name, date_time=(2000, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.create_system = 0
+            info.external_attr = 0
+            target.writestr(info, payload, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
+    temporary.replace(path)
 
 
 def author(root: Path, output: Path, rows: dict[str, list[dict]]) -> dict[str, int]:
@@ -123,10 +147,20 @@ def verify(root: Path, directory: Path, expected_counts: dict[str, int] | None =
             counts[sheet_name] = count
             if sheet.freeze_panes != "A8" or not sheet.auto_filter.ref:
                 raise ValueError(f"{name}/{sheet_name}: authoring affordances missing")
+            for cell in sheet[3]:
+                if cell.value is not None and not cell.alignment.wrap_text:
+                    raise ValueError(f"{name}/{sheet_name}/{cell.coordinate}: header wrapping missing")
+            for column in range(1, sheet.max_column + 1):
+                letter = sheet.cell(row=3, column=column).column_letter
+                width = sheet.column_dimensions[letter].width
+                if width is None or not 10 <= width <= 60:
+                    raise ValueError(f"{name}/{sheet_name}/{letter}: invalid authoring width {width}")
             for row in sheet.iter_rows(min_row=8):
                 for cell in row:
                     if cell.data_type in (TYPE_FORMULA, TYPE_ERROR):
                         raise ValueError(f"{name}/{sheet_name}/{cell.coordinate}: formula or Excel error forbidden")
+                    if cell.value is not None and not cell.alignment.wrap_text:
+                        raise ValueError(f"{name}/{sheet_name}/{cell.coordinate}: data wrapping missing")
     if expected_counts is not None and counts != expected_counts:
         raise ValueError("workbook row counts changed after save/reload")
     return counts

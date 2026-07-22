@@ -1,0 +1,313 @@
+{
+  "table": {
+    "name": "UniverseDomain",
+    "rows": [
+      {
+        "values": {
+          "decision_policy": {
+            "String": "BattleHandoff"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CombatPrimary"
+          },
+          "name_en": {
+            "String": "Domain — Combat"
+          },
+          "name_zh_cn": {
+            "String": "区域 - 战斗"
+          },
+          "source_type": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "universe.domain.combat-primary"
+          },
+          "summary_en": {
+            "String": "Standard run domain kind combat-primary; room content determines its concrete decision or battle."
+          },
+          "summary_zh_cn": {
+            "String": "标准运行区域类型“combat-primary”，具体决策或战斗由房间内容决定。"
+          },
+          "terminal": {
+            "Bool": false
+          }
+        }
+      },
+      {
+        "values": {
+          "decision_policy": {
+            "String": "BattleHandoff"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CombatSecondary"
+          },
+          "name_en": {
+            "String": "Domain — Combat"
+          },
+          "name_zh_cn": {
+            "String": "区域 - 战斗"
+          },
+          "source_type": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "universe.domain.combat-secondary"
+          },
+          "summary_en": {
+            "String": "Standard run domain kind combat-secondary; room content determines its concrete decision or battle."
+          },
+          "summary_zh_cn": {
+            "String": "标准运行区域类型“combat-secondary”，具体决策或战斗由房间内容决定。"
+          },
+          "terminal": {
+            "Bool": false
+          }
+        }
+      },
+      {
+        "values": {
+          "decision_policy": {
+            "String": "ExternalCommand"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "Occurrence"
+          },
+          "name_en": {
+            "String": "Domain — Occurrence"
+          },
+          "name_zh_cn": {
+            "String": "区域 - 事件"
+          },
+          "source_type": {
+            "Integer": 3
+          },
+          "stable_key": {
+            "String": "universe.domain.occurrence"
+          },
+          "summary_en": {
+            "String": "Standard run domain kind occurrence; room content determines its concrete decision or battle."
+          },
+          "summary_zh_cn": {
+            "String": "标准运行区域类型“occurrence”，具体决策或战斗由房间内容决定。"
+          },
+          "terminal": {
+            "Bool": false
+          }
+        }
+      },
+      {
+        "values": {
+          "decision_policy": {
+            "String": "ExternalCommand"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "Encounter"
+          },
+          "name_en": {
+            "String": "Domain — Encounter"
+          },
+          "name_zh_cn": {
+            "String": "区域 - 遭遇"
+          },
+          "source_type": {
+            "Integer": 4
+          },
+          "stable_key": {
+            "String": "universe.domain.encounter"
+          },
+          "summary_en": {
+            "String": "Standard run domain kind encounter; room content determines its concrete decision or battle."
+          },
+          "summary_zh_cn": {
+            "String": "标准运行区域类型“encounter”，具体决策或战斗由房间内容决定。"
+          },
+          "terminal": {
+            "Bool": false
+          }
+        }
+      },
+      {
+        "values": {
+          "decision_policy": {
+            "String": "ExternalCommand"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "Respite"
+          },
+          "name_en": {
+            "String": "Domain — Respite"
+          },
+          "name_zh_cn": {
+            "String": "区域 - 休整"
+          },
+          "source_type": {
+            "Integer": 5
+          },
+          "stable_key": {
+            "String": "universe.domain.respite"
+          },
+          "summary_en": {
+            "String": "Standard run domain kind respite; room content determines its concrete decision or battle."
+          },
+          "summary_zh_cn": {
+            "String": "标准运行区域类型“respite”，具体决策或战斗由房间内容决定。"
+          },
+          "terminal": {
+            "Bool": false
+          }
+        }
+      },
+      {
+        "values": {
+          "decision_policy": {
+            "String": "BattleHandoff"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "Elite"
+          },
+          "name_en": {
+            "String": "Domain — Elite"
+          },
+          "name_zh_cn": {
+            "String": "区域 - 精英"
+          },
+          "source_type": {
+            "Integer": 6
+          },
+          "stable_key": {
+            "String": "universe.domain.elite"
+          },
+          "summary_en": {
+            "String": "Standard run domain kind elite; room content determines its concrete decision or battle."
+          },
+          "summary_zh_cn": {
+            "String": "标准运行区域类型“elite”，具体决策或战斗由房间内容决定。"
+          },
+          "terminal": {
+            "Bool": false
+          }
+        }
+      },
+      {
+        "values": {
+          "decision_policy": {
+            "String": "BattleHandoff"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "Boss"
+          },
+          "name_en": {
+            "String": "Domain — Boss"
+          },
+          "name_zh_cn": {
+            "String": "区域 - 首领"
+          },
+          "source_type": {
+            "Integer": 7
+          },
+          "stable_key": {
+            "String": "universe.domain.boss"
+          },
+          "summary_en": {
+            "String": "Standard run domain kind boss; room content determines its concrete decision or battle."
+          },
+          "summary_zh_cn": {
+            "String": "标准运行区域类型“boss”，具体决策或战斗由房间内容决定。"
+          },
+          "terminal": {
+            "Bool": true
+          }
+        }
+      },
+      {
+        "values": {
+          "decision_policy": {
+            "String": "ExternalCommand"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "Transaction"
+          },
+          "name_en": {
+            "String": "Domain — Transaction"
+          },
+          "name_zh_cn": {
+            "String": "区域 - 交易"
+          },
+          "source_type": {
+            "Integer": 8
+          },
+          "stable_key": {
+            "String": "universe.domain.transaction"
+          },
+          "summary_en": {
+            "String": "Standard run domain kind transaction; room content determines its concrete decision or battle."
+          },
+          "summary_zh_cn": {
+            "String": "标准运行区域类型“transaction”，具体决策或战斗由房间内容决定。"
+          },
+          "terminal": {
+            "Bool": false
+          }
+        }
+      },
+      {
+        "values": {
+          "decision_policy": {
+            "String": "ExternalCommand"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "Adventure"
+          },
+          "name_en": {
+            "String": "Domain — Adventure"
+          },
+          "name_zh_cn": {
+            "String": "区域 - 冒险"
+          },
+          "source_type": {
+            "Integer": 9
+          },
+          "stable_key": {
+            "String": "universe.domain.adventure"
+          },
+          "summary_en": {
+            "String": "Standard run domain kind adventure; room content determines its concrete decision or battle."
+          },
+          "summary_zh_cn": {
+            "String": "标准运行区域类型“adventure”，具体决策或战斗由房间内容决定。"
+          },
+          "terminal": {
+            "Bool": false
+          }
+        }
+      }
+    ]
+  }
+}

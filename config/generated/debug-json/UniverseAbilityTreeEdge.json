@@ -1,0 +1,722 @@
+{
+  "table": {
+    "name": "UniverseAbilityTreeEdge",
+    "rows": [
+      {
+        "values": {
+          "node_id": {
+            "Integer": 12
+          },
+          "prerequisite_node_id": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 23
+          },
+          "prerequisite_node_id": {
+            "Integer": 12
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 34
+          },
+          "prerequisite_node_id": {
+            "Integer": 12
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 38
+          },
+          "prerequisite_node_id": {
+            "Integer": 12
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 39
+          },
+          "prerequisite_node_id": {
+            "Integer": 23
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 39
+          },
+          "prerequisite_node_id": {
+            "Integer": 34
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 39
+          },
+          "prerequisite_node_id": {
+            "Integer": 38
+          },
+          "sequence": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 40
+          },
+          "prerequisite_node_id": {
+            "Integer": 39
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 41
+          },
+          "prerequisite_node_id": {
+            "Integer": 40
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 42
+          },
+          "prerequisite_node_id": {
+            "Integer": 40
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 2
+          },
+          "prerequisite_node_id": {
+            "Integer": 40
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 3
+          },
+          "prerequisite_node_id": {
+            "Integer": 41
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 3
+          },
+          "prerequisite_node_id": {
+            "Integer": 42
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 3
+          },
+          "prerequisite_node_id": {
+            "Integer": 2
+          },
+          "sequence": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 4
+          },
+          "prerequisite_node_id": {
+            "Integer": 3
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 5
+          },
+          "prerequisite_node_id": {
+            "Integer": 4
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 6
+          },
+          "prerequisite_node_id": {
+            "Integer": 4
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 7
+          },
+          "prerequisite_node_id": {
+            "Integer": 4
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 8
+          },
+          "prerequisite_node_id": {
+            "Integer": 5
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 8
+          },
+          "prerequisite_node_id": {
+            "Integer": 6
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 8
+          },
+          "prerequisite_node_id": {
+            "Integer": 7
+          },
+          "sequence": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 9
+          },
+          "prerequisite_node_id": {
+            "Integer": 8
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 10
+          },
+          "prerequisite_node_id": {
+            "Integer": 9
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 11
+          },
+          "prerequisite_node_id": {
+            "Integer": 9
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 13
+          },
+          "prerequisite_node_id": {
+            "Integer": 9
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 14
+          },
+          "prerequisite_node_id": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 14
+          },
+          "prerequisite_node_id": {
+            "Integer": 11
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 14
+          },
+          "prerequisite_node_id": {
+            "Integer": 13
+          },
+          "sequence": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 15
+          },
+          "prerequisite_node_id": {
+            "Integer": 14
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 16
+          },
+          "prerequisite_node_id": {
+            "Integer": 14
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 17
+          },
+          "prerequisite_node_id": {
+            "Integer": 14
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 18
+          },
+          "prerequisite_node_id": {
+            "Integer": 15
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 18
+          },
+          "prerequisite_node_id": {
+            "Integer": 16
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 18
+          },
+          "prerequisite_node_id": {
+            "Integer": 17
+          },
+          "sequence": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 19
+          },
+          "prerequisite_node_id": {
+            "Integer": 18
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 20
+          },
+          "prerequisite_node_id": {
+            "Integer": 18
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 21
+          },
+          "prerequisite_node_id": {
+            "Integer": 18
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 22
+          },
+          "prerequisite_node_id": {
+            "Integer": 19
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 24
+          },
+          "prerequisite_node_id": {
+            "Integer": 20
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 25
+          },
+          "prerequisite_node_id": {
+            "Integer": 21
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 26
+          },
+          "prerequisite_node_id": {
+            "Integer": 22
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 26
+          },
+          "prerequisite_node_id": {
+            "Integer": 24
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 26
+          },
+          "prerequisite_node_id": {
+            "Integer": 25
+          },
+          "sequence": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 27
+          },
+          "prerequisite_node_id": {
+            "Integer": 26
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 28
+          },
+          "prerequisite_node_id": {
+            "Integer": 26
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 29
+          },
+          "prerequisite_node_id": {
+            "Integer": 26
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 30
+          },
+          "prerequisite_node_id": {
+            "Integer": 27
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 31
+          },
+          "prerequisite_node_id": {
+            "Integer": 28
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 32
+          },
+          "prerequisite_node_id": {
+            "Integer": 29
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 33
+          },
+          "prerequisite_node_id": {
+            "Integer": 30
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 35
+          },
+          "prerequisite_node_id": {
+            "Integer": 31
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 36
+          },
+          "prerequisite_node_id": {
+            "Integer": 32
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 37
+          },
+          "prerequisite_node_id": {
+            "Integer": 33
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 37
+          },
+          "prerequisite_node_id": {
+            "Integer": 35
+          },
+          "sequence": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "node_id": {
+            "Integer": 37
+          },
+          "prerequisite_node_id": {
+            "Integer": 36
+          },
+          "sequence": {
+            "Integer": 3
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,1173 @@
+{
+  "table": {
+    "name": "UniverseAbilityTreeEffect",
+    "rows": [
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "Unlock"
+          },
+          "node_id": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "run.path_selection"
+          },
+          "unit": {
+            "String": "Boolean"
+          },
+          "value_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": {
+            "String": "chosen_path_blessing_count>=3"
+          },
+          "kind": {
+            "String": "Unlock"
+          },
+          "node_id": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "target": {
+            "String": "battle.path_resonance"
+          },
+          "unit": {
+            "String": "Boolean"
+          },
+          "value_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 12
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.atk_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "70"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 12
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "target": {
+            "String": "party.def_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "60"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 12
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "target": {
+            "String": "party.max_hp_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "130"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 23
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.atk_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "35"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 34
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.def_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "30"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 38
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.max_hp_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "60"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": {
+            "String": "chosen_path_blessing_count>=6"
+          },
+          "kind": {
+            "String": "UnlockFormationSlot"
+          },
+          "node_id": {
+            "Integer": 39
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "run.path_resonance"
+          },
+          "unit": {
+            "String": "Count"
+          },
+          "value_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 39
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "target": {
+            "String": "path_resonance.damage_ratio"
+          },
+          "unit": {
+            "String": "Ratio"
+          },
+          "value_decimal": {
+            "String": "0.1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "Unlock"
+          },
+          "node_id": {
+            "Integer": 40
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "service.reviver"
+          },
+          "unit": {
+            "String": "Boolean"
+          },
+          "value_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "Set"
+          },
+          "node_id": {
+            "Integer": 40
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "target": {
+            "String": "service.reviver.restored_hp_ratio"
+          },
+          "unit": {
+            "String": "Ratio"
+          },
+          "value_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 41
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.atk_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "40"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 42
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.def_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "35"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 2
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.max_hp_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "65"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddLimit"
+          },
+          "node_id": {
+            "Integer": 3
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "reward.blessing_choice.reset_count"
+          },
+          "unit": {
+            "String": "Count"
+          },
+          "value_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "Enable"
+          },
+          "node_id": {
+            "Integer": 4
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "run.trailblaze_bonus.enhanced"
+          },
+          "unit": {
+            "String": "Boolean"
+          },
+          "value_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 5
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.atk_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "45"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 6
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.def_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "35"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 7
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.max_hp_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "70"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": {
+            "String": "chosen_path_blessing_count>=10"
+          },
+          "kind": {
+            "String": "UnlockFormationSlot"
+          },
+          "node_id": {
+            "Integer": 8
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "run.path_resonance"
+          },
+          "unit": {
+            "String": "Count"
+          },
+          "value_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 8
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "target": {
+            "String": "path_resonance.damage_ratio"
+          },
+          "unit": {
+            "String": "Ratio"
+          },
+          "value_decimal": {
+            "String": "0.15"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddCurrency"
+          },
+          "node_id": {
+            "Integer": 9
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "universe.currency.cosmic-fragments.initial"
+          },
+          "unit": {
+            "String": "Count"
+          },
+          "value_decimal": {
+            "String": "50"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.atk_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "50"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 11
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.def_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "40"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 13
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.max_hp_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "75"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": {
+            "String": "first_battle_won"
+          },
+          "kind": {
+            "String": "AddChoice"
+          },
+          "node_id": {
+            "Integer": 14
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "reward.first_battle.blessing_count"
+          },
+          "unit": {
+            "String": "Count"
+          },
+          "value_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 15
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.atk_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "60"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 16
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.def_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "45"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 17
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.max_hp_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "80"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": {
+            "String": "chosen_path_blessing_count>=14"
+          },
+          "kind": {
+            "String": "UnlockFormationSlot"
+          },
+          "node_id": {
+            "Integer": 18
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "run.path_resonance"
+          },
+          "unit": {
+            "String": "Count"
+          },
+          "value_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 18
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "target": {
+            "String": "path_resonance.damage_ratio"
+          },
+          "unit": {
+            "String": "Ratio"
+          },
+          "value_decimal": {
+            "String": "0.2"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 19
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.crit_rate_ratio"
+          },
+          "unit": {
+            "String": "Ratio"
+          },
+          "value_decimal": {
+            "String": "0.05"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": {
+            "String": "battle_start"
+          },
+          "kind": {
+            "String": "AddResource"
+          },
+          "node_id": {
+            "Integer": 20
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "path_resonance.initial_energy"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "20"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 21
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.speed_ratio"
+          },
+          "unit": {
+            "String": "Ratio"
+          },
+          "value_decimal": {
+            "String": "0.04"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 22
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.atk_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "60"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 24
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.def_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "45"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 25
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.max_hp_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "80"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": {
+            "String": "battle_start"
+          },
+          "kind": {
+            "String": "SetRatio"
+          },
+          "node_id": {
+            "Integer": 26
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.initial_energy"
+          },
+          "unit": {
+            "String": "Ratio"
+          },
+          "value_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": {
+            "String": "enter_elite_or_boss_domain"
+          },
+          "kind": {
+            "String": "SetRatio"
+          },
+          "node_id": {
+            "Integer": 26
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "target": {
+            "String": "party.energy"
+          },
+          "unit": {
+            "String": "Ratio"
+          },
+          "value_decimal": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 27
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.crit_damage_ratio"
+          },
+          "unit": {
+            "String": "Ratio"
+          },
+          "value_decimal": {
+            "String": "0.09"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 28
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "path_resonance.damage_ratio"
+          },
+          "unit": {
+            "String": "Ratio"
+          },
+          "value_decimal": {
+            "String": "0.15"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 29
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.damage_taken_reduction_ratio"
+          },
+          "unit": {
+            "String": "Ratio"
+          },
+          "value_decimal": {
+            "String": "0.05"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 30
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.atk_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "60"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 31
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.def_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "45"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 32
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.max_hp_flat"
+          },
+          "unit": {
+            "String": "Flat"
+          },
+          "value_decimal": {
+            "String": "80"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 33
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "path_resonance.damage_ratio"
+          },
+          "unit": {
+            "String": "Ratio"
+          },
+          "value_decimal": {
+            "String": "0.1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 35
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "party.effect_hit_rate_ratio"
+          },
+          "unit": {
+            "String": "Ratio"
+          },
+          "value_decimal": {
+            "String": "0.08"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "AddStat"
+          },
+          "node_id": {
+            "Integer": 36
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "path_resonance.damage_ratio"
+          },
+          "unit": {
+            "String": "Ratio"
+          },
+          "value_decimal": {
+            "String": "0.1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition": "Null",
+          "kind": {
+            "String": "Unlock"
+          },
+          "node_id": {
+            "Integer": 37
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "target": {
+            "String": "run.consumable_use"
+          },
+          "unit": {
+            "String": "Boolean"
+          },
+          "value_decimal": {
+            "String": "1"
+          }
+        }
+      }
+    ]
+  }
+}

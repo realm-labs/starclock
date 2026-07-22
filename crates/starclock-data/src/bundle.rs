@@ -99,10 +99,28 @@ mod tests {
             .expect("fixture profile expectation must be an integer");
         assert_eq!(config.universe_profile().len(), expected);
         if expected > 0 {
-            assert_eq!(config.universe_world().len(), 1);
-            assert_eq!(config.universe_domain().len(), 1);
+            let expected_count = |name: &str, fallback: usize| {
+                std::env::var(name)
+                    .map(|value| {
+                        value
+                            .parse::<usize>()
+                            .expect("row expectation must be an integer")
+                    })
+                    .unwrap_or(fallback)
+            };
+            assert_eq!(
+                config.universe_world().len(),
+                expected_count("STARCLOCK_G03_EXPECTED_WORLDS", 1)
+            );
+            assert_eq!(
+                config.universe_domain().len(),
+                expected_count("STARCLOCK_G03_EXPECTED_DOMAINS", 1)
+            );
             assert_eq!(config.universe_activity_binding().len(), 1);
-            assert_eq!(config.universe_source_record().len(), 1);
+            assert_eq!(
+                config.universe_source_record().len(),
+                expected_count("STARCLOCK_G03_EXPECTED_SOURCES", 1)
+            );
         }
     }
 }
