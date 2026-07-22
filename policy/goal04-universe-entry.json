@@ -1,0 +1,35 @@
+{
+  "schema_revision": "starclock.goal04-universe-entry.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P3-B1",
+  "entry_revision": "standard-universe-entry-v1",
+  "catalog_counts": {
+    "worlds": 9,
+    "difficulties": 33,
+    "paths": 9,
+    "ability_tree_nodes": 42
+  },
+  "activity_state": {
+    "slots": 4,
+    "selected_path_initially_absent": true,
+    "owner_scope": "Activity",
+    "visibility": "Player",
+    "carry": "CarryExact"
+  },
+  "participant_policy": {
+    "teams": 1,
+    "minimum_party_size": 1,
+    "maximum_party_size": 4,
+    "uniqueness": "Activity",
+    "loadout_lock": "Activity"
+  },
+  "definition_golden_sha256": "b46746e43b33d8ce3101f8a99dc8e3b86c19e8d747b3c0179f12e09ca91ec65b",
+  "focused_tests": 4,
+  "scope": {
+    "topology_graph_attached": false,
+    "runtime_start_available": false,
+    "complete_world_claim": false,
+    "owner": "G04-P3-B2"
+  },
+  "new_registry_packages": []
+}

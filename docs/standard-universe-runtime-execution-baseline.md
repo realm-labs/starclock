@@ -60,6 +60,18 @@ shows that current state hashing builds canonical scratch bytes (nine allocation
 per sample in the recorded fixture), making streaming state hashing an explicit
 optimization candidate rather than a hidden performance assumption.
 
+### P3-B1 entry compilation
+
+The Standard Universe profile now validates the selected World and difficulty,
+an Activity-scoped 1–4 member participant lock, and prerequisite-closed Ability
+Tree input. It emits four generic Activity-scope slots for World, difficulty,
+selected Path and Ability Tree nodes. The Path slot begins absent and the nine
+catalog Paths are stable ordered candidates for the first Activity decision.
+
+This batch intentionally does not expose `CompiledActivity::start`: P3-B2 must
+first attach the selected World's bounded topology and domain micrographs. The
+entry compiler therefore cannot be mistaken for a runnable or complete World.
+
 ## CI matrix
 
 Goal 04 inherits three native jobs—Windows x64, Linux x64 and macOS ARM64—and

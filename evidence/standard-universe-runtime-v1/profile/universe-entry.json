@@ -1,0 +1,45 @@
+{
+  "schema_revision": "starclock.goal04-universe-entry-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P3-B1",
+  "result": "world-difficulty-roster-path-choice-and-ability-tree-compile-to-generic-activity-state",
+  "catalog_counts": {
+    "worlds": 9,
+    "difficulties": 33,
+    "paths": 9,
+    "ability_tree_nodes": 42
+  },
+  "activity_state": {
+    "slots": 4,
+    "selected_path_initially_absent": true,
+    "owner_scope": "Activity",
+    "visibility": "Player",
+    "carry": "CarryExact"
+  },
+  "participant_policy": {
+    "teams": 1,
+    "minimum_party_size": 1,
+    "maximum_party_size": 4,
+    "uniqueness": "Activity",
+    "loadout_lock": "Activity"
+  },
+  "definition_golden_sha256": "b46746e43b33d8ce3101f8a99dc8e3b86c19e8d747b3c0179f12e09ca91ec65b",
+  "deferred_scope": {
+    "topology_graph_attached": false,
+    "runtime_start_available": false,
+    "complete_world_claim": false,
+    "owner": "G04-P3-B2"
+  },
+  "compatibility": {
+    "generated_rows_public": false,
+    "mutable_mode_engine_added": false,
+    "authoritative_float": false,
+    "catalog_cloned_per_run": false
+  },
+  "source_sha256": {
+    "compiler": "23febdca9fe62c36ac6c84c35e9114480a1a5214ef5be7774b4017b520edf55c",
+    "tests": "226045a5c84aa56fdfd66c295974814f2955779da2b1e2282eaadc503368ae3c"
+  },
+  "focused_tests": 4,
+  "new_registry_packages": []
+}

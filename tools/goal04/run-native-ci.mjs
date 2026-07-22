@@ -23,6 +23,7 @@ for (const [command, args] of [
   ["node", ["tools/goal04/verify-battle-preparation.mjs", "."]],
   ["node", ["tools/goal04/verify-battle-settlement.mjs", "."]],
   ["node", ["tools/goal04/verify-activity-hardening.mjs", ".", "--run"]],
+  ["node", ["tools/goal04/verify-universe-entry.mjs", "."]],
   ["cargo", ["test", "-p", "starclock-activity", "--all-targets", "--all-features"]],
   ["cargo", ["test", "-p", "starclock-mode-universe", "--all-targets", "--all-features"]],
   ["node", ["tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]]

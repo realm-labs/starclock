@@ -13,6 +13,7 @@ pub mod curio;
 pub mod definition;
 pub mod digest;
 pub mod encounter;
+pub mod entry;
 pub mod error;
 pub mod id;
 pub mod occurrence;

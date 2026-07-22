@@ -162,6 +162,10 @@
       "command": ["node", "tools/goal04/verify-activity-hardening.mjs", "."]
     },
     {
+      "name": "Goal 04 Universe entry compilation",
+      "command": ["node", "tools/goal04/verify-universe-entry.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

@@ -11,8 +11,8 @@ assert(policy.schema_revision === "starclock.goal04-structural-catalog.v1", "une
 const metadata = JSON.parse(execFileSync("cargo", ["metadata", "--format-version", "1", "--no-deps"], { cwd: root, encoding: "utf8" }));
 const universe = metadata.packages.find((entry) => entry.name === "starclock-mode-universe");
 assert(universe, "Universe mode crate is absent");
-const local = universe.dependencies.filter((dependency) => dependency.source === null).map((dependency) => dependency.name).sort();
-const external = universe.dependencies.filter((dependency) => dependency.source !== null).map((dependency) => dependency.name).sort();
+const local = universe.dependencies.filter((dependency) => dependency.source === null && dependency.kind !== "dev").map((dependency) => dependency.name).sort();
+const external = universe.dependencies.filter((dependency) => dependency.source !== null && dependency.kind !== "dev").map((dependency) => dependency.name).sort();
 assert(equal(local, policy.local_dependencies), "structural catalog local dependencies differ");
 assert(equal(external, policy.external_dependencies), "structural catalog external dependencies differ");
 

@@ -16,7 +16,7 @@ const expected = new Map([
   ["starclock-replay", ["starclock-activity", "starclock-combat"]],
   ["starclock-ai", ["starclock-combat"]],
   ["starclock-mode-standard", ["starclock-activity", "starclock-combat"]],
-  ["starclock-mode-universe", ["starclock-data"]],
+  ["starclock-mode-universe", ["starclock-activity", "starclock-combat", "starclock-data"]],
   ["starclock-mcp", ["starclock-agent-api"]],
   ["starclock-data", ["starclock-activity", "starclock-build", "starclock-combat", "starclock-mode-standard", "starclock-rules"]],
   ["starclock-cli", ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mcp", "starclock-mode-standard", "starclock-replay", "starclock-rules"]],
@@ -121,7 +121,7 @@ assert(activity.dependencies.every((dependency) => dependency.kind === "dev" ? d
 const data = packages.find((entry) => entry.name === "starclock-data");
 assert(data.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => ["serde", "sha2", "zstd"].includes(dependency.name)), "starclock-data may use only generated-reader transport dependencies plus the reviewed private SHA-256 backend");
 const universe = packages.find((entry) => entry.name === "starclock-mode-universe");
-assert(universe.dependencies.every((dependency) => ["starclock-data", "serde", "serde_json", "sha2", "zstd"].includes(dependency.name)), "starclock-mode-universe may use only the stable data catalog plus generated-reader transport/hash dependencies");
+assert(universe.dependencies.every((dependency) => dependency.kind === "dev" ? dependency.name === "starclock-combat" : ["starclock-activity", "starclock-data", "serde", "serde_json", "sha2", "zstd"].includes(dependency.name)), "starclock-mode-universe may use only generic Activity, stable data catalogs, generated-reader transport/hash dependencies and the combat-domain test fixture dependency");
 const replay = packages.find((entry) => entry.name === "starclock-replay");
 assert(replay.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => dependency.kind === "dev" ? dependency.name === "proptest" : dependency.name === "sha2"), "starclock-replay may use only the reviewed private SHA-256 backend plus the property dev-dependency");
 const cli = packages.find((entry) => entry.name === "starclock-cli");

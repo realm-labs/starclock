@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
 | Active phase | Phase 3 — Standard Universe profile systems |
-| Active batch | `G04-P3-B1` |
-| Next unblocked batch | `G04-P3-B1` |
+| Active batch | `G04-P3-B2` |
+| Next unblocked batch | `G04-P3-B2` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -53,7 +53,7 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P2-B5` | `Complete` | This row's containing commit | Added scope-bound opaque participant/roster locks and encoded domain-attempt state. Prefix-closed preparation variants support up to 8 techniques/512 exact immutable BattleSpecs: non-attacking techniques consume points and accumulate, attacking techniques engage immediately, normal engagement uses the exact accumulated variant, and authored enemy-preemptive policy skips the player decision. Every candidate matches locked team formation, form and resolved-spec digest; Activity neither reads build fields nor constructs combat internals. Rejections preserve state. Goldens: preparation `0388fc342a852d6910dab5461b30425c9188c1b397808616ebeda5b58d8b8553`, pending state `d02021a43081079186b09b7a3968b98199fa46b0587b08caa6c74a02a0bbfc3a`. |
 | `G04-P2-B6` | `Complete` | This row's containing commit | Added a projection-plus-settlement contract with exact identity/digest/fault verification, typed metric aggregation and explicit HP/Energy/life/presence carry. Battle seeds derive from the independent Battle stream without consuming a draw; invalid or stale submissions preserve canonical bytes and all RNG counters. Outcomes traverse one exact authored edge, defeat/departure survive, and a settled attempt can prepare the next immutable battle with bounded carry. Five focused tests cover success, loss, rejection and multi-battle re-entry. Goldens: contract `6f4739492f6f0978c89c8db3fb84735aaa442ba4584db0378ea28af5249e70f4`, first seed `797918f87e5c542cfabf7e726c530fe254a57dba2f929db1131ea950f8965022`, settled state `76c79f401251a353de7efea19d0e46ff1a37dd48c270716ba3bd1d87e206c679`. |
 | `G04-P2-B7` | `Complete` | This row's containing commit | Added the five-kind graph-Activity command envelope and canonical payload v2 while retaining legacy payload v1. A 4,096-case malformed payload corpus is total; 4,096 alternating stale/not-offered commands preserve exact bytes/hash/all RNG counters; perturbing 257 draws in each of eight streams leaves every other next draw identical. The provisional release-mode core harness records 4,096 state hashes, invalid commands and RNG mappings with deterministic final hashes, zero catalog clones and zero replay-prefix reconstruction. Complete World 1/full-run replay/concurrency rows remain explicitly deferred. Evidence: `evidence/standard-universe-runtime-v1/activity/activity-hardening.json`. |
-| `G04-P3-B1` | `Pending` | — | — |
+| `G04-P3-B1` | `Complete` | This row's containing commit | Added `StandardUniverseEntry`, `StandardUniverseProfile` and `CompiledActivity` over the shared immutable catalog. All 9 Worlds/33 difficulties validate, Standard 1–4 participant locks are exact, Ability Tree input is canonical and prerequisite-closed, and all 9 Paths compile as the first authoritative choice while the selected-Path slot begins absent. Four Activity-scope player-visible slots bind World, difficulty, Path and Ability Tree into the definition identity. Topology/start remain explicitly owned by P3-B2. World 1 entry golden: `b46746e43b33d8ce3101f8a99dc8e3b86c19e8d747b3c0179f12e09ca91ec65b`. |
 | `G04-P3-B2` | `Pending` | — | — |
 | `G04-P3-B3` | `Pending` | — | — |
 | `G04-P3-B4` | `Pending` | — | — |
