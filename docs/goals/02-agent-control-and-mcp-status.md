@@ -11,9 +11,9 @@ implementation batch.
 | Goal ID | `agent-control-mcp-v1` |
 | State | `InProgress` |
 | Prerequisite | Goal 01 `Complete` at or after `b23f900` |
-| Active phase | Phase 0 — Freeze protocol, capability and threat model |
-| Next unblocked batch | `G02-P0-B4` |
-| Last completed batch | `G02-P0-B3` |
+| Active phase | Phase 1 — Protocol-neutral types and observation |
+| Next unblocked batch | `G02-P1-B1` |
+| Last completed batch | `G02-P0-B4` |
 | Last completed commit | This row's containing commit |
 | MCP specification baseline | Frozen `2025-11-25` |
 | Agent schema revision | Frozen `agent-api-v1` / `1746004f…6725` |
@@ -29,7 +29,7 @@ external evidence or decision required. Phase completion is not goal completion.
 
 | Phase | State | Exit evidence |
 |---|---|---|
-| Phase 0 — Protocol/capability/threat model | `InProgress` | Surface audit complete; capability/schema/threat freezes pending |
+| Phase 0 — Protocol/capability/threat model | `Complete` | Surface audit; MCP/SDK capability lock; `agent-api-v1` schema/budgets; 19-case threat model and fail-closed startup policy |
 | Phase 1 — Types and observation | `Pending` | Pending |
 | Phase 2 — Authoritative sessions | `Pending` | Pending |
 | Phase 3 — Local MCP | `Pending` | Pending |
@@ -47,7 +47,7 @@ evidence summary.
 | `G02-P0-B1` | `Complete` | This row's containing commit | `node tools/agent-control/verify-surface-audit.mjs`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Frozen seven use cases, six production Standard scenarios, dependency layers, decision ownership, three narrow application seams and forbidden core changes; policy is bound to the Goal 01 production bundle. |
 | `G02-P0-B2` | `Complete` | This row's containing commit | `node tools/agent-control/verify-mcp-sdk-lock.mjs`; `cargo test --manifest-path tools/mcp-sdk-capability/Cargo.toml --locked`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Frozen MCP `2025-11-25` and official `rmcp 2.2.0` with exact tag/checksums/features/Apache-2.0 licenses; executable goldens prove stdio, Streamable HTTP, tools/schema/structured output, resources/templates, cancellation and errors, with unsupported assumptions explicit. |
 | `G02-P0-B3` | `Complete` | This row's containing commit | `node tools/agent-control/verify-agent-api-v1.mjs`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Frozen observation/action/error schemas, canonical string numerics, default/debug visibility policy, cursor semantics, response/retention/settlement bounds and ordinary/trigger-heavy/error goldens at schema bundle `1746004f…6725`. |
-| `G02-P0-B4` | `Pending` | — | — | — |
+| `G02-P0-B4` | `Complete` | This row's containing commit | `node tools/agent-control/verify-threat-model.mjs`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Frozen 19 threats and controls for ownership, forgery/staleness, payload/replay abuse, prompt/data separation, response loss, races, origins, auth/scopes/tenancy, rate/quota/expiry/cancellation, redaction, stdio, drift, visibility and adapter isolation; three startup profiles include fail-closed non-loopback requirements. |
 | `G02-P1-B1` | `Pending` | — | — | — |
 | `G02-P1-B2` | `Pending` | — | — | — |
 | `G02-P1-B3` | `Pending` | — | — | — |
@@ -87,11 +87,11 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | MCP specification | `2025-11-25` | [`mcp-sdk-lock.json`](../../policy/mcp-sdk-lock.json) |
 | MCP Rust SDK/toolchain | `rmcp 2.2.0`; Rust `1.97.0`; Apache-2.0 | [`mcp-sdk-capabilities.json`](../../evidence/agent-control-mcp-v1/protocol/mcp-sdk-capabilities.json) |
 | Agent schema | `agent-api-v1` / `1746004f…6725` | [`agent-api-v1.json`](../../evidence/agent-control-mcp-v1/schema/agent-api-v1.json) |
-| Threat model | Pending | `G02-P0-B4` |
+| Threat model | `starclock.agent-control-threat-model.v1` / `4080b72e…c45a` | [`threat-model.json`](../../evidence/agent-control-mcp-v1/security/threat-model.json) |
 | Standard scenario denominator | 6 scenarios / Goal 01 bundle `abd84f70…0440` | [`agent-control-surfaces.json`](../../policy/agent-control-surfaces.json) |
 | Observation/event limits | 256 KiB observation; 256 events/page; 8,192 retained summaries | [`agent-api-v1.json`](../../policy/agent-api-v1.json) |
 | Settlement limits | 4,096 commands; 65,536 events; 262,144 operations | [`agent-api-v1.json`](../../policy/agent-api-v1.json) |
-| Session/registry limits | Pending | `G02-P0-B4` / `G02-P2-B6` |
+| Session/registry limits | 1,024 global / 64 tenant / 16 principal; idle 1,800 s / max 14,400 s | [`agent-control-threat-model.json`](../../policy/agent-control-threat-model.json) |
 | Performance workload | Pending | `G02-P2-B7` / `G02-P4-B5` |
 
 ## Decision record
@@ -108,6 +108,8 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | 2026-07-22 | MCP revision `2025-11-25` and official Rust SDK `rmcp 2.2.0` are frozen. | The locked executable fixture proves the used surface; newer SDK capabilities and protocol revisions remain opt-in future work. |
 | 2026-07-22 | `agent-api-v1` transports every authoritative number as a canonical integer string. | Avoids JSON floating-point and cross-language safe-integer loss while preserving exact fixed-point backing values. |
 | 2026-07-22 | Event summaries are bounded/cursor-paged while complete facts remain replay-owned. | Keeps observations finite without weakening authoritative audit or silently truncating settlement. |
+| 2026-07-22 | Non-loopback HTTP startup requires the complete remote security prerequisite set. | Missing TLS/proxy attestation, token validation, exact origins, identity/scopes, proxy trust, quotas/rates/limits or audit sink is a startup error. |
+| 2026-07-22 | Expiry/cancellation are checked outside an atomic domain commit. | Operational time and cancellation cannot create platform-dependent partial battle state; idempotent retry resolves delivery ambiguity. |
 
 Add architectural decisions here before implementing a deviation from the goal
 or normative design. A decision cannot silently weaken a terminal gate.

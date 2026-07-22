@@ -1,0 +1,58 @@
+{
+  "schema_revision": "starclock.agent-control-threat-model.v1",
+  "reviewed_on": "2026-07-22",
+  "protected_assets": ["authoritative battle/activity state", "catalog and scenario identity", "RNG position", "exact offered commands", "replay facts", "session ownership", "tenant data", "authorization credentials", "debug-only state", "availability"],
+  "trust_boundaries": ["untrusted agent input to protocol-neutral API", "MCP client to stdio adapter", "HTTP client/proxy to remote adapter", "adapter to session registry", "session orchestrator to deterministic domain crates", "replay bytes to decoder/verifier", "catalog bundle to session factory"],
+  "security_invariants": [
+    "only Battle::apply and Activity::apply mutate authoritative domain state",
+    "one session has exactly one owner tenant/principal binding and serialized mutation lane",
+    "exact offered commands remain private and are selected only by decision-scoped opaque tokens",
+    "rejected, unauthorized, stale, forged, oversized and rate-limited requests consume no IDs or RNG and do not mutate",
+    "a committed response is cached before delivery and an idempotent retry returns the same bytes",
+    "operational clocks, IDs, auth, rate limits and transport metadata never enter canonical hashes, replay facts or RNG",
+    "player_visible is default and omniscient_debug requires a distinct scope and visible marker",
+    "non-loopback HTTP startup fails closed unless every required remote control is configured"
+  ],
+  "authorization_scopes": ["starclock:scenario:read", "starclock:battle:create", "starclock:battle:read", "starclock:battle:act", "starclock:battle:replay", "starclock:battle:close", "starclock:replay:verify", "starclock:debug:omniscient"],
+  "operational_limits": {
+    "global_sessions": 1024,
+    "sessions_per_tenant": 64,
+    "sessions_per_principal": 16,
+    "idle_ttl_seconds": 1800,
+    "maximum_lifetime_seconds": 14400,
+    "idempotency_entries_per_session": 1024,
+    "cached_response_bytes_per_entry": 524288,
+    "create_requests_per_principal_per_minute": 30,
+    "mutation_requests_per_tenant_per_minute": 600,
+    "read_requests_per_tenant_per_minute": 1200,
+    "replay_import_bytes": 67108864,
+    "replay_records": 1000000,
+    "replay_record_payload_bytes": 16777216
+  },
+  "startup_profiles": [
+    { "profile": "stdio_local", "network": false, "required": ["protocol stdout isolation", "stderr-only diagnostics", "session quotas", "payload limits"], "forbidden": ["listener", "ambient remote identity"] },
+    { "profile": "http_loopback", "network": true, "bind": "loopback-only", "required": ["Host validation", "Origin validation when present", "explicit local origin allowlist", "session quotas", "rate limits", "payload limits"], "forbidden": ["wildcard Origin", "forwarded-header trust by default"] },
+    { "profile": "http_remote", "network": true, "bind": "non-loopback", "required": ["TLS or explicitly attested TLS-terminating proxy", "token signature issuer audience and expiry validation", "nonempty exact Origin allowlist", "tenant and principal extraction", "scope enforcement", "trusted-proxy allowlist when forwarded headers are used", "session quotas", "rate limits", "payload limits", "security audit sink"], "forbidden": ["anonymous requests", "wildcard Origin", "token passthrough", "untrusted forwarded headers", "startup with any missing required control"] }
+  ],
+  "threats": [
+    { "id": "G02-T01", "threat": "cross-session or cross-tenant access", "controls": ["opaque high-entropy session IDs", "owner binding checked before lookup result disclosure", "tenant-partitioned quotas"], "verification": ["G02-P2-B6", "G02-P4-B3"] },
+    { "id": "G02-T02", "threat": "forged, stale or cross-decision action", "controls": ["private token-to-command table", "expected decision and state hash", "consume token table on commit"], "verification": ["G02-P1-B4", "G02-P2-B3"] },
+    { "id": "G02-T03", "threat": "response loss causes duplicate mutation", "controls": ["idempotency key bound to canonical request", "cache committed response before delivery", "conflicting key reuse rejected"], "verification": ["G02-P2-B3", "G02-P3-B4", "G02-P4-B4"] },
+    { "id": "G02-T04", "threat": "racing mutations reorder state", "controls": ["single serialized mutation lane per session", "expected state preconditions rechecked inside lane"], "verification": ["G02-P2-B6", "G02-P4-B4"] },
+    { "id": "G02-T05", "threat": "oversized or deeply nested payload exhausts resources", "controls": ["request byte limit before decode", "schema depth and collection bounds", "bounded structured errors"], "verification": ["G02-P0-B3", "G02-P3-B4", "G02-P5-B3"] },
+    { "id": "G02-T06", "threat": "malformed, huge or divergent replay abuses verifier", "controls": ["total byte/record/payload bounds", "existing total decoder", "exact catalog and first-divergence verification"], "verification": ["G02-P2-B5", "G02-P3-B3", "G02-P5-B3"] },
+    { "id": "G02-T07", "threat": "prompt-like catalog/event text becomes instruction or leaks private reasoning", "controls": ["all text treated as inert data", "no model provider or chain-of-thought fields", "bounded escaped structured output"], "verification": ["G02-P1-B3", "G02-P3-B4", "G02-P5-B3"] },
+    { "id": "G02-T08", "threat": "DNS rebinding or malicious browser Origin reaches local/remote HTTP", "controls": ["Host and exact Origin allowlists", "loopback default bind", "403 before MCP/session work"], "verification": ["G02-P4-B1", "G02-P4-B2"] },
+    { "id": "G02-T09", "threat": "unauthenticated non-loopback mutation", "controls": ["remote startup prerequisite set", "401 before session work", "no anonymous remote mode"], "verification": ["G02-P4-B1", "G02-P4-B2"] },
+    { "id": "G02-T10", "threat": "scope escalation exposes act/replay/debug operations", "controls": ["per-tool scope matrix", "debug-only distinct scope", "deny before lookup"], "verification": ["G02-P4-B2", "G02-P4-B3"] },
+    { "id": "G02-T11", "threat": "confused deputy or token passthrough", "controls": ["validate issuer/audience/expiry", "never forward inbound bearer token", "tenant derived only from validated claims"], "verification": ["G02-P4-B2", "G02-P5-B3"] },
+    { "id": "G02-T12", "threat": "session/rate exhaustion denies service", "controls": ["global/tenant/principal quotas", "injected monotonic limiter clock", "bounded retry metadata"], "verification": ["G02-P2-B6", "G02-P4-B3", "G02-P4-B5"] },
+    { "id": "G02-T13", "threat": "expiry clock read mid-commit changes deterministic result", "controls": ["expiry checked only before mutation-lane entry", "commit finishes atomically", "clock excluded from domain"], "verification": ["G02-P2-B6"] },
+    { "id": "G02-T14", "threat": "cancellation tears a committed action or creates ambiguous state", "controls": ["cancel only pre-lane or pre-commit work", "atomic commit is not interrupted", "idempotent observe/retry resolves ambiguity"], "verification": ["G02-P3-B4", "G02-P4-B4"] },
+    { "id": "G02-T15", "threat": "credentials, tokens or hidden state leak through logs/errors", "controls": ["stable bounded error codes", "redaction", "no bearer/session token logging", "debug projection visibly marked"], "verification": ["G02-P4-B2", "G02-P5-B3"] },
+    { "id": "G02-T16", "threat": "stdio diagnostics corrupt protocol stdout", "controls": ["stdout reserved for MCP", "diagnostics to stderr", "child-process conformance fixture"], "verification": ["G02-P0-B2", "G02-P3-B4"] },
+    { "id": "G02-T17", "threat": "catalog or schema drift produces unverifiable sessions", "controls": ["exact bundle/schema/replay revision binding", "unknown revisions rejected", "startup validates catalog"], "verification": ["G02-P2-B1", "G02-P5-B1", "G02-P5-B5"] },
+    { "id": "G02-T18", "threat": "default observation reveals omniscient enemy/RNG/internal data", "controls": ["allowlist projection", "separate debug type/policy/scope", "negative serialization tests"], "verification": ["G02-P1-B3", "G02-P1-B5", "G02-P4-B2"] },
+    { "id": "G02-T19", "threat": "adapter failure corrupts or faults a healthy battle", "controls": ["adapter errors stay outside domain", "committed response retained", "domain fault only from deterministic resolution"], "verification": ["G02-P2-B3", "G02-P3-B4", "G02-P4-B4"] }
+  ]
+}
