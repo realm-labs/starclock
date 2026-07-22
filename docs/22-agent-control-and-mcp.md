@@ -301,6 +301,11 @@ Invalid requests never mutate state. Delivery failure after commit retains the
 result for retry. Adapter errors do not convert a healthy battle to `Faulted`;
 only the combat fault contract may do that.
 
+The retained hardening corpus adds fixed malformed schema/token/cursor and
+replay cases, conflicting idempotency requests, every Standard settlement path
+and repeated two-contender races. Fixed-seed schema and replay properties run
+alongside it; every rejected or losing case must preserve state, replay and RNG.
+
 ## Acceptance contract
 
 - an external client completes every frozen Standard scenario using only

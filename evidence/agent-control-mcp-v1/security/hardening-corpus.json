@@ -1,0 +1,74 @@
+{
+  "schema_revision": "starclock.agent-hardening-corpus.v1",
+  "recorded_on": "2026-07-22",
+  "seed": "0x676f322d70356231",
+  "malformed_requests": [
+    "{}",
+    "{\"schema_revision\":\"agent-api-v2\"}",
+    "{\"schema_revision\":\"agent-api-v1\",\"session_id\":7,\"decision_id\":\"1\",\"expected_state_hash\":\"00\",\"action_token\":\"a\",\"idempotency_key\":\"k\"}",
+    "{\"schema_revision\":\"agent-api-v1\",\"session_id\":\"session\",\"decision_id\":1,\"expected_state_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"action_token\":\"a\",\"idempotency_key\":\"k\"}",
+    "{\"schema_revision\":\"agent-api-v1\",\"session_id\":\"session\",\"decision_id\":\"01\",\"expected_state_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"action_token\":\"a\",\"idempotency_key\":\"k\"}",
+    "{\"schema_revision\":\"agent-api-v1\",\"session_id\":\"session\",\"decision_id\":\"1\",\"expected_state_hash\":\"GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\",\"action_token\":[],\"idempotency_key\":\"k\"}",
+    "[]",
+    "not-json"
+  ],
+  "tokens": [
+    { "value": "", "valid": false },
+    { "value": "contains space", "valid": false },
+    { "value": "slash/value", "valid": false },
+    { "value": "unicode-令牌", "valid": false },
+    { "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "valid": false },
+    { "value": "a", "valid": true },
+    { "value": "action_TOKEN-01", "valid": true },
+    { "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "valid": true }
+  ],
+  "idempotency_mutations": [
+    { "field": "action_token", "error": "idempotency_conflict" },
+    { "field": "expected_state_hash", "error": "idempotency_conflict" },
+    { "field": "decision_id", "error": "idempotency_conflict" },
+    { "field": "session_id", "error": "session_not_owned" }
+  ],
+  "cursors": [
+    { "value": "", "parse": false },
+    { "value": "event/1", "parse": false },
+    { "value": "cursor_wrong_family", "parse": true },
+    { "value": "event_-1", "parse": true },
+    { "value": "event_01", "parse": true },
+    { "value": "event_18446744073709551616", "parse": true },
+    { "value": "event_999999999", "parse": true }
+  ],
+  "replay_mutations": [
+    { "kind": "truncate", "position": 0 },
+    { "kind": "truncate", "position": 1 },
+    { "kind": "truncate", "position": 16 },
+    { "kind": "truncate", "position": 50 },
+    { "kind": "truncate", "position": 99 },
+    { "kind": "trailing", "position": 0 },
+    { "kind": "flip_percent", "position": 0 },
+    { "kind": "flip_percent", "position": 4 },
+    { "kind": "flip_percent", "position": 25 },
+    { "kind": "flip_percent", "position": 50 },
+    { "kind": "flip_percent", "position": 99 }
+  ],
+  "settlement": {
+    "scenario_ids": [
+      "scenario.standard-v1.basic-single-wave",
+      "scenario.standard-v1.multi-wave-dot-revival",
+      "scenario.standard-v1.elite-control-counter",
+      "scenario.standard-v1.cocolia-phase-change",
+      "scenario.standard-v1.layered-toughness",
+      "scenario.standard-v1.target-invalidation-and-return"
+    ],
+    "maximum_external_steps": 512,
+    "maximum_accepted_commands": 4096,
+    "maximum_emitted_events": 65536,
+    "maximum_resolver_operations": 262144
+  },
+  "races": { "rounds": 16, "contenders": 2 },
+  "property_suites": [
+    { "source": "crates/starclock-agent-api/tests/schema_property_contract.rs", "seed": "0x6167656e742d7631", "cases": 512 },
+    { "source": "crates/starclock-replay/tests/property_contract.rs", "seeds": ["0x636f6465632d7631", "0x7265706c61792d31", "0x6d616c666f726d31"], "cases_per_property": 256 },
+    { "source": "crates/starclock-replay/tests/battle_property_contract.rs", "seed": "0x626174746c652d31", "cases": 256 }
+  ],
+  "explicit_cases": 60
+}
