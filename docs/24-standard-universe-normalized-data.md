@@ -22,6 +22,12 @@ Definitions are separate from mutable variants:
   concrete enemy variants and waves;
 - Path Resonance and each Resonance Formation are independent rule sources.
 
+Ability Tree rows reverse released successor edges into explicit
+`prerequisite_ids`. Their `effects` are typed contributions with operation,
+target, exact string value, unit and condition; source parameter order and
+external account-unlock IDs remain available for audit without becoming
+runtime identity.
+
 This prevents an extracted state row or historical schedule row from inflating
 logical coverage.
 

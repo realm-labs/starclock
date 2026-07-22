@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Normalized reference pack |
 | Active batch | None |
-| Next unblocked batch | `G03-P1-B7` |
+| Next unblocked batch | `G03-P1-B8` |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -19,7 +19,7 @@
 | Phase | State | Evidence |
 |---|---|---|
 | Phase 0 — Scope/evidence | `Complete` | Snapshot/scope, 2,646-file evidence inventory, corrected 1,935-row main-world manifest, stable normalized record families, provenance/quality labels, canonical JSON rules and semantic fixture contract are frozen and machine-verified. |
-| Phase 1 — Reference pack | `InProgress` | Worlds, topology, Paths, Blessings, Curios, Occurrences, services and currencies are normalized; Ability Tree and encounters remain. |
+| Phase 1 — Reference pack | `InProgress` | Worlds, topology, Paths, Blessings, Curios, Occurrences, services, currencies and Ability Tree are normalized; encounters and final indexing remain. |
 | Phase 2 — Sora schema | `Pending` | — |
 | Phase 3 — Excel authoring | `Pending` | — |
 | Phase 4 — Review/freeze | `Pending` | — |
@@ -38,7 +38,7 @@
 | `G03-P1-B4` | `Complete` | This row's containing commit | Corrected the source boundary so `1000/3000` RogueMiracle rows remain Swarm/Gold evidence instead of fake Standard states. Normalized all 61 Standard Curios and 67 lifecycle states: one base active/effect state each plus explicit repairing/fixed phases for six Error Code Curios. Rows retain exact parameter/display vectors, effect IDs, lifecycle charge/transition fields, polarity and mechanic tags, rule references and description digests. Deterministic checks prove every definition/state reference and the 61/67 denominator. |
 | `G03-P1-B5` | `Complete` | This row's containing commit | Normalized all 59 CosmosRogue handbook Occurrences, 55 unique base NPC graphs represented by 67 occurrence-variant bindings, and 321 ordered conditional choices. The importer follows released handbook → NPC → dialogue/option graph references, hashes exact bilingual choice/result text, classifies costs/outcome kinds/targets/numeric literals/chances and retains unlock conditions. 269 choices are `ExactPublicText`; 52 random outcomes without released weights carry an explicit `ProjectPolicy` stable-selection rule and replacement condition. No dialogue prose is committed. |
 | `G03-P1-B6` | `Complete` | This row's containing commit | Normalized Cosmic Fragments, Blessing-choice resets, Reviver, Downloader, Respite offers, Blessing enhancement, nine Standard shops and all 79 Trailblaze bonuses into 94 implementation-facing rows. Exact released constants and structured rows retain provenance; public service prices and limits carry dated page-level cross-checks. The same review corrected shared-table membership to 163 Standard rooms, nine shops and the reachable 74-group/171-member encounter set by excluding `811/812/813` DLC room families. Manifest and pack regeneration checks pass. |
-| `G03-P1-B7` | `Pending` | — | — |
+| `G03-P1-B7` | `Complete` | This row's containing commit | Normalized all 42 Ability Tree nodes as an explicit prerequisite DAG by reversing the released successor edges. Every node retains upgrade-point cost, external unlock IDs, exact source parameter vectors and description digests. Thirty-two nodes contribute battle rules, four contribute both run and battle rules, and six contribute run rules; typed operations cover flat/ratio stat changes, Path Resonance thresholds/damage/energy, service unlocks, starting currency, reward-choice limits, full Energy and consumables. No node is reward-only or omitted. |
 | `G03-P1-B8` | `Pending` | — | — |
 | `G03-P1-B9` | `Pending` | — | — |
 | `G03-P2-B1` | `Pending` | — | — |
@@ -71,7 +71,7 @@ Populate only from generated manifests in `G03-P0-B3`.
 | Curios/states | 61 / 61 source effects / 67 normalized states | 61 / 61 / 67 | 61 / 61 / 67 | CosmosRogue type 100; six Error Codes derive repairing/fixed phases from one released effect row each. |
 | Occurrences/choices | 59 / 55 source variants | 59 / 55 | 59 / 55 source variants / 67 bindings / 321 choices | Shared base NPC graphs may bind multiple handbook entries; hidden random weights use explicit policy. |
 | Services/currency rules | 88 source rows / 94 normalized rows | 88 / 94 | 88 / 94 | 79 run bonuses plus nine Standard shops; six normalized currency/device/service rules use released constants or dated public cross-checks. |
-| Ability Tree | 42 | 42 | 0 | Battle/run/reward classification occurs in P1-B7. |
+| Ability Tree | 42 | 42 | 42 | 32 Battle, four RunAndBattle and six Run nodes; exact effect contributions and the prerequisite DAG are normalized. |
 | Encounter pools | 74 groups / 171 members | 74 / 171 | 0 | Directly reachable from the corrected Standard combat/encounter/elite/boss room content maps. |
 | Mechanic fixtures | Pending | 0 | 0 | Distinct shared families. |
 
@@ -93,7 +93,7 @@ Populate only from generated manifests in `G03-P0-B3`.
 | `G03-R01` | `Resolved` | Concrete membership is frozen by source schedule, CosmosRogue type, canonical ID family, base NPC prefix and room-content reachability rules in `content-manifest.json`. | P0-B3 |
 | `G03-R02` | `Resolved` | All released base NPC/option graphs are imported. Fifty-two choice outcomes mention randomness without exact weights and are labeled `ProjectPolicy: StableUniformOrderedCandidates` with a replacement condition. | P1-B5 |
 | `G03-R03` | `Open` | Which Curio effects require battle ability-program inspection or explicit policy? | P1-B4 |
-| `G03-R04` | `Open` | Which Ability Tree nodes affect battle/run state versus account rewards only? | P1-B7 |
+| `G03-R04` | `Resolved` | All 42 nodes affect battle and/or run state: 32 Battle, four RunAndBattle and six Run; no reward-only node exists in the released base tree. | P1-B7 |
 
 ## Terminal checklist
 

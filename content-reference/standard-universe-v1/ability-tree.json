@@ -1,0 +1,2599 @@
+[
+  {
+    "id": "universe.ability-tree.1",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path Resonance",
+    "name_zh_cn": "命途回响",
+    "summary_en": "Path Resonance Ability Tree node contributing 2 explicit effects to run and battle state.",
+    "summary_zh_cn": "命途回响能力树节点，向运行与战斗状态贡献2项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.0"
+    ],
+    "source_ids": [
+      "1"
+    ],
+    "note": "",
+    "prerequisite_ids": [],
+    "next_ids": [
+      "universe.ability-tree.2"
+    ],
+    "external_unlock_ids": [],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "50"
+      }
+    ],
+    "important": true,
+    "effect_class": "RunAndBattle",
+    "effect_tag_en": "Additional Mechanism Unlock",
+    "effect_tag_zh_cn": "附加机制解锁",
+    "effects": [
+      {
+        "kind": "Unlock",
+        "target": "run.path_selection",
+        "value": "1",
+        "unit": "Boolean",
+        "condition": ""
+      },
+      {
+        "kind": "Unlock",
+        "target": "battle.path_resonance",
+        "value": "1",
+        "unit": "Boolean",
+        "condition": "chosen_path_blessing_count>=3"
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "3"
+      }
+    ],
+    "source_description_sha256_en": "c6823669faadace4dc528206ce9f162960dfaffd1912bf85d2ef055adca9c1db",
+    "source_description_sha256_zh_cn": "200d1b65ec812568b001d26c1de75835431cc3b9b048799520d1c68a52b3fbbb",
+    "rule_ids": [
+      "universe.rule.ability-tree.1"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.2",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "All Ability Boost",
+    "name_zh_cn": "全能力强化",
+    "summary_en": "All Ability Boost Ability Tree node contributing 3 explicit effects to battle state.",
+    "summary_zh_cn": "全能力强化能力树节点，向战斗状态贡献3项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.1"
+    ],
+    "source_ids": [
+      "2",
+      "10401"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.1"
+    ],
+    "next_ids": [
+      "universe.ability-tree.3",
+      "universe.ability-tree.4",
+      "universe.ability-tree.5"
+    ],
+    "external_unlock_ids": [
+      "10401"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "50"
+      }
+    ],
+    "important": true,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.atk_flat",
+        "value": "70",
+        "unit": "Flat",
+        "condition": ""
+      },
+      {
+        "kind": "AddStat",
+        "target": "party.def_flat",
+        "value": "60",
+        "unit": "Flat",
+        "condition": ""
+      },
+      {
+        "kind": "AddStat",
+        "target": "party.max_hp_flat",
+        "value": "130",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "70"
+      },
+      {
+        "index": 2,
+        "value": "60"
+      },
+      {
+        "index": 3,
+        "value": "130"
+      }
+    ],
+    "source_description_sha256_en": "76aa9643a12c477fa097ead2a747a015e6b22eaea3e48c83e7d4e14d05cf4d9e",
+    "source_description_sha256_zh_cn": "e35b5a2c4fd94cb66651e45be11c1b27dfc0c35bd90d5fdf340095cbd3e1a818",
+    "rule_ids": [
+      "universe.rule.ability-tree.2"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.3",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ATK Boost I",
+    "name_zh_cn": "攻击强化Ⅰ",
+    "summary_en": "ATK Boost I Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "攻击强化Ⅰ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.2"
+    ],
+    "source_ids": [
+      "3",
+      "10402"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.2"
+    ],
+    "next_ids": [
+      "universe.ability-tree.6"
+    ],
+    "external_unlock_ids": [
+      "10402"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "50"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.atk_flat",
+        "value": "35",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "35"
+      }
+    ],
+    "source_description_sha256_en": "84ddc621620f86662302b9966819fa6b4cd68d239e428572bd65d248f5f97536",
+    "source_description_sha256_zh_cn": "5a486b660d400052bf214e16cf7b5d7a022089e2f171ce0bb7c09d429bcd3bc8",
+    "rule_ids": [
+      "universe.rule.ability-tree.3"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.4",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "DEF Boost I",
+    "name_zh_cn": "防御强化Ⅰ",
+    "summary_en": "DEF Boost I Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "防御强化Ⅰ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.3"
+    ],
+    "source_ids": [
+      "4",
+      "10402"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.2"
+    ],
+    "next_ids": [
+      "universe.ability-tree.6"
+    ],
+    "external_unlock_ids": [
+      "10402"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "50"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.def_flat",
+        "value": "30",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "30"
+      }
+    ],
+    "source_description_sha256_en": "63b2797670aff0b4571a883b7d141ea1878044e5c78f003a41930e4478262a64",
+    "source_description_sha256_zh_cn": "06afb6432b5f4b8f6900510000eef25605f703fad0596247b453cc781204804a",
+    "rule_ids": [
+      "universe.rule.ability-tree.4"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.5",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "HP Boost I",
+    "name_zh_cn": "生命强化Ⅰ",
+    "summary_en": "HP Boost I Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "生命强化Ⅰ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.4"
+    ],
+    "source_ids": [
+      "5",
+      "10402"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.2"
+    ],
+    "next_ids": [
+      "universe.ability-tree.6"
+    ],
+    "external_unlock_ids": [
+      "10402"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "50"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.max_hp_flat",
+        "value": "60",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "60"
+      }
+    ],
+    "source_description_sha256_en": "7df12512485f0f99ea108ee5c5c98f03ebb9ead3e88f099d3b0526a132961ed7",
+    "source_description_sha256_zh_cn": "40bb498e97d1c2eb2fe5ba433389bd138f6bd3f6962c0e23b5dd53114e47b7ed",
+    "rule_ids": [
+      "universe.rule.ability-tree.5"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.6",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation I",
+    "name_zh_cn": "回响构音Ⅰ",
+    "summary_en": "Resonance Formation I Ability Tree node contributing 2 explicit effects to run and battle state.",
+    "summary_zh_cn": "回响构音Ⅰ能力树节点，向运行与战斗状态贡献2项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.5"
+    ],
+    "source_ids": [
+      "6",
+      "10405"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.3",
+      "universe.ability-tree.4",
+      "universe.ability-tree.5"
+    ],
+    "next_ids": [
+      "universe.ability-tree.7"
+    ],
+    "external_unlock_ids": [
+      "10405"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "100"
+      }
+    ],
+    "important": true,
+    "effect_class": "RunAndBattle",
+    "effect_tag_en": "Additional Mechanism Boost",
+    "effect_tag_zh_cn": "附加机制强化",
+    "effects": [
+      {
+        "kind": "UnlockFormationSlot",
+        "target": "run.path_resonance",
+        "value": "1",
+        "unit": "Count",
+        "condition": "chosen_path_blessing_count>=6"
+      },
+      {
+        "kind": "AddStat",
+        "target": "path_resonance.damage_ratio",
+        "value": "0.1",
+        "unit": "Ratio",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "6"
+      },
+      {
+        "index": 2,
+        "value": "0.1"
+      }
+    ],
+    "source_description_sha256_en": "5968ab477e1285113f7fb1ac6b698da0bc481eba249aaaf33e1b8e70093026f2",
+    "source_description_sha256_zh_cn": "836edc25961810fde0bde2776f6e9a5a71678638b62767f533b96be5c37c5473",
+    "rule_ids": [
+      "universe.rule.ability-tree.6"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.7",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Reviver",
+    "name_zh_cn": "复活装置",
+    "summary_en": "Reviver Ability Tree node contributing 2 explicit effects to run state.",
+    "summary_zh_cn": "复活装置能力树节点，向运行状态贡献2项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.6"
+    ],
+    "source_ids": [
+      "7",
+      "10406"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.6"
+    ],
+    "next_ids": [
+      "universe.ability-tree.8",
+      "universe.ability-tree.9",
+      "universe.ability-tree.10"
+    ],
+    "external_unlock_ids": [
+      "10406"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "100"
+      }
+    ],
+    "important": true,
+    "effect_class": "Run",
+    "effect_tag_en": "Additional Mechanism Boost",
+    "effect_tag_zh_cn": "附加机制强化",
+    "effects": [
+      {
+        "kind": "Unlock",
+        "target": "service.reviver",
+        "value": "1",
+        "unit": "Boolean",
+        "condition": ""
+      },
+      {
+        "kind": "Set",
+        "target": "service.reviver.restored_hp_ratio",
+        "value": "1",
+        "unit": "Ratio",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "1"
+      }
+    ],
+    "source_description_sha256_en": "5727e2f34566574ea53f4b918eec6847a56228ecb82522680eae103c17762156",
+    "source_description_sha256_zh_cn": "44b3dd20a94b75e4c86d5028dfe49b9596452cb4a79d3d3ea4bdf10dbb0b7b51",
+    "rule_ids": [
+      "universe.rule.ability-tree.7"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.8",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ATK Boost II",
+    "name_zh_cn": "攻击强化Ⅱ",
+    "summary_en": "ATK Boost II Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "攻击强化Ⅱ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.7"
+    ],
+    "source_ids": [
+      "8",
+      "10407"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.7"
+    ],
+    "next_ids": [
+      "universe.ability-tree.11"
+    ],
+    "external_unlock_ids": [
+      "10407"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "100"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.atk_flat",
+        "value": "40",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "40"
+      }
+    ],
+    "source_description_sha256_en": "84ddc621620f86662302b9966819fa6b4cd68d239e428572bd65d248f5f97536",
+    "source_description_sha256_zh_cn": "5a486b660d400052bf214e16cf7b5d7a022089e2f171ce0bb7c09d429bcd3bc8",
+    "rule_ids": [
+      "universe.rule.ability-tree.8"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.9",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "DEF Boost II",
+    "name_zh_cn": "防御强化Ⅱ",
+    "summary_en": "DEF Boost II Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "防御强化Ⅱ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.8"
+    ],
+    "source_ids": [
+      "9",
+      "10407"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.7"
+    ],
+    "next_ids": [
+      "universe.ability-tree.11"
+    ],
+    "external_unlock_ids": [
+      "10407"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "100"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.def_flat",
+        "value": "35",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "35"
+      }
+    ],
+    "source_description_sha256_en": "63b2797670aff0b4571a883b7d141ea1878044e5c78f003a41930e4478262a64",
+    "source_description_sha256_zh_cn": "06afb6432b5f4b8f6900510000eef25605f703fad0596247b453cc781204804a",
+    "rule_ids": [
+      "universe.rule.ability-tree.9"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.10",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "HP Boost II",
+    "name_zh_cn": "生命强化Ⅱ",
+    "summary_en": "HP Boost II Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "生命强化Ⅱ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.9"
+    ],
+    "source_ids": [
+      "10",
+      "10407"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.7"
+    ],
+    "next_ids": [
+      "universe.ability-tree.11"
+    ],
+    "external_unlock_ids": [
+      "10407"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "100"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.max_hp_flat",
+        "value": "65",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "65"
+      }
+    ],
+    "source_description_sha256_en": "7df12512485f0f99ea108ee5c5c98f03ebb9ead3e88f099d3b0526a132961ed7",
+    "source_description_sha256_zh_cn": "40bb498e97d1c2eb2fe5ba433389bd138f6bd3f6962c0e23b5dd53114e47b7ed",
+    "rule_ids": [
+      "universe.rule.ability-tree.10"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.11",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Reset Blessings",
+    "name_zh_cn": "重置祝福",
+    "summary_en": "Reset Blessings Ability Tree node contributing 1 explicit effect to run state.",
+    "summary_zh_cn": "重置祝福能力树节点，向运行状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.10"
+    ],
+    "source_ids": [
+      "11",
+      "10410"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.8",
+      "universe.ability-tree.9",
+      "universe.ability-tree.10"
+    ],
+    "next_ids": [
+      "universe.ability-tree.12"
+    ],
+    "external_unlock_ids": [
+      "10410"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "150"
+      }
+    ],
+    "important": true,
+    "effect_class": "Run",
+    "effect_tag_en": "Additional Mechanism Unlock",
+    "effect_tag_zh_cn": "附加机制解锁",
+    "effects": [
+      {
+        "kind": "AddLimit",
+        "target": "reward.blessing_choice.reset_count",
+        "value": "1",
+        "unit": "Count",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [],
+    "source_description_sha256_en": "699e3a731e63829d04d8489c7da39fea7aed4936a8027de0d2db1452b58519e2",
+    "source_description_sha256_zh_cn": "c787b39dc8c275a5f82e4ed23828086e4e99e18384c7fd9734c844647c5c5d93",
+    "rule_ids": [
+      "universe.rule.ability-tree.11"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.12",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Blessings of Trailblaze",
+    "name_zh_cn": "开拓祝福",
+    "summary_en": "Blessings of Trailblaze Ability Tree node contributing 1 explicit effect to run state.",
+    "summary_zh_cn": "开拓祝福能力树节点，向运行状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.11"
+    ],
+    "source_ids": [
+      "12",
+      "10411"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.11"
+    ],
+    "next_ids": [
+      "universe.ability-tree.13",
+      "universe.ability-tree.14",
+      "universe.ability-tree.15"
+    ],
+    "external_unlock_ids": [
+      "10411"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "150"
+      }
+    ],
+    "important": true,
+    "effect_class": "Run",
+    "effect_tag_en": "Additional Mechanism Boost",
+    "effect_tag_zh_cn": "附加机制强化",
+    "effects": [
+      {
+        "kind": "Enable",
+        "target": "run.trailblaze_bonus.enhanced",
+        "value": "1",
+        "unit": "Boolean",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [],
+    "source_description_sha256_en": "0adc6bb34ae683970fa139c35afbe4fedee9daa7d3121b760926693e36969075",
+    "source_description_sha256_zh_cn": "edb29be8b96f48a11b0691d70b5905caa39f5bce760020a0ca4f8b060dbe5fd7",
+    "rule_ids": [
+      "universe.rule.ability-tree.12"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.13",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ATK Boost III",
+    "name_zh_cn": "攻击强化Ⅲ",
+    "summary_en": "ATK Boost III Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "攻击强化Ⅲ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.12"
+    ],
+    "source_ids": [
+      "13",
+      "10412"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.12"
+    ],
+    "next_ids": [
+      "universe.ability-tree.16"
+    ],
+    "external_unlock_ids": [
+      "10412"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "150"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.atk_flat",
+        "value": "45",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "45"
+      }
+    ],
+    "source_description_sha256_en": "84ddc621620f86662302b9966819fa6b4cd68d239e428572bd65d248f5f97536",
+    "source_description_sha256_zh_cn": "5a486b660d400052bf214e16cf7b5d7a022089e2f171ce0bb7c09d429bcd3bc8",
+    "rule_ids": [
+      "universe.rule.ability-tree.13"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.14",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "DEF Boost III",
+    "name_zh_cn": "防御强化Ⅲ",
+    "summary_en": "DEF Boost III Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "防御强化Ⅲ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.13"
+    ],
+    "source_ids": [
+      "14",
+      "10412"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.12"
+    ],
+    "next_ids": [
+      "universe.ability-tree.16"
+    ],
+    "external_unlock_ids": [
+      "10412"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "150"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.def_flat",
+        "value": "35",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "35"
+      }
+    ],
+    "source_description_sha256_en": "63b2797670aff0b4571a883b7d141ea1878044e5c78f003a41930e4478262a64",
+    "source_description_sha256_zh_cn": "06afb6432b5f4b8f6900510000eef25605f703fad0596247b453cc781204804a",
+    "rule_ids": [
+      "universe.rule.ability-tree.14"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.15",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "HP Boost III",
+    "name_zh_cn": "生命强化Ⅲ",
+    "summary_en": "HP Boost III Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "生命强化Ⅲ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.14"
+    ],
+    "source_ids": [
+      "15",
+      "10412"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.12"
+    ],
+    "next_ids": [
+      "universe.ability-tree.16"
+    ],
+    "external_unlock_ids": [
+      "10412"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "150"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.max_hp_flat",
+        "value": "70",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "70"
+      }
+    ],
+    "source_description_sha256_en": "7df12512485f0f99ea108ee5c5c98f03ebb9ead3e88f099d3b0526a132961ed7",
+    "source_description_sha256_zh_cn": "40bb498e97d1c2eb2fe5ba433389bd138f6bd3f6962c0e23b5dd53114e47b7ed",
+    "rule_ids": [
+      "universe.rule.ability-tree.15"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.16",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation II",
+    "name_zh_cn": "回响构音Ⅱ",
+    "summary_en": "Resonance Formation II Ability Tree node contributing 2 explicit effects to run and battle state.",
+    "summary_zh_cn": "回响构音Ⅱ能力树节点，向运行与战斗状态贡献2项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.15"
+    ],
+    "source_ids": [
+      "16",
+      "10415"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.13",
+      "universe.ability-tree.14",
+      "universe.ability-tree.15"
+    ],
+    "next_ids": [
+      "universe.ability-tree.17"
+    ],
+    "external_unlock_ids": [
+      "10415"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "200"
+      }
+    ],
+    "important": true,
+    "effect_class": "RunAndBattle",
+    "effect_tag_en": "Additional Mechanism Boost",
+    "effect_tag_zh_cn": "附加机制强化",
+    "effects": [
+      {
+        "kind": "UnlockFormationSlot",
+        "target": "run.path_resonance",
+        "value": "1",
+        "unit": "Count",
+        "condition": "chosen_path_blessing_count>=10"
+      },
+      {
+        "kind": "AddStat",
+        "target": "path_resonance.damage_ratio",
+        "value": "0.15",
+        "unit": "Ratio",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "10"
+      },
+      {
+        "index": 2,
+        "value": "0.15"
+      }
+    ],
+    "source_description_sha256_en": "df27d410779fb177ba4f2fbeca9aa71232d4dbaab1c56e8495fa8cad698313d1",
+    "source_description_sha256_zh_cn": "4e168cade2fa91db47944a90c70907495e09c9ed7f9e7827d64a61231faf65d4",
+    "rule_ids": [
+      "universe.rule.ability-tree.16"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.17",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Initial Resource",
+    "name_zh_cn": "起始资源",
+    "summary_en": "Initial Resource Ability Tree node contributing 1 explicit effect to run state.",
+    "summary_zh_cn": "起始资源能力树节点，向运行状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.16"
+    ],
+    "source_ids": [
+      "17",
+      "10416"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.16"
+    ],
+    "next_ids": [
+      "universe.ability-tree.18",
+      "universe.ability-tree.19",
+      "universe.ability-tree.20"
+    ],
+    "external_unlock_ids": [
+      "10416"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "200"
+      }
+    ],
+    "important": true,
+    "effect_class": "Run",
+    "effect_tag_en": "Additional Mechanisms Boost",
+    "effect_tag_zh_cn": "附加机制强化",
+    "effects": [
+      {
+        "kind": "AddCurrency",
+        "target": "universe.currency.cosmic-fragments.initial",
+        "value": "50",
+        "unit": "Count",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "50"
+      }
+    ],
+    "source_description_sha256_en": "8d568880aae4ca369a95103cc5f52538d71615f365c82fc78c6a0f87f0bb0c1e",
+    "source_description_sha256_zh_cn": "780819e2fd3e50ccb5dc0a7300770969a1ba848bf2ad87622ac8373bc4f44b16",
+    "rule_ids": [
+      "universe.rule.ability-tree.17"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.18",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ATK Boost IV",
+    "name_zh_cn": "攻击强化Ⅳ",
+    "summary_en": "ATK Boost IV Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "攻击强化Ⅳ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.17"
+    ],
+    "source_ids": [
+      "18",
+      "10417"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.17"
+    ],
+    "next_ids": [
+      "universe.ability-tree.21"
+    ],
+    "external_unlock_ids": [
+      "10417"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "200"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.atk_flat",
+        "value": "50",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "50"
+      }
+    ],
+    "source_description_sha256_en": "84ddc621620f86662302b9966819fa6b4cd68d239e428572bd65d248f5f97536",
+    "source_description_sha256_zh_cn": "5a486b660d400052bf214e16cf7b5d7a022089e2f171ce0bb7c09d429bcd3bc8",
+    "rule_ids": [
+      "universe.rule.ability-tree.18"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.19",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "DEF Boost IV",
+    "name_zh_cn": "防御强化Ⅳ",
+    "summary_en": "DEF Boost IV Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "防御强化Ⅳ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.18"
+    ],
+    "source_ids": [
+      "19",
+      "10417"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.17"
+    ],
+    "next_ids": [
+      "universe.ability-tree.21"
+    ],
+    "external_unlock_ids": [
+      "10417"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "200"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.def_flat",
+        "value": "40",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "40"
+      }
+    ],
+    "source_description_sha256_en": "63b2797670aff0b4571a883b7d141ea1878044e5c78f003a41930e4478262a64",
+    "source_description_sha256_zh_cn": "06afb6432b5f4b8f6900510000eef25605f703fad0596247b453cc781204804a",
+    "rule_ids": [
+      "universe.rule.ability-tree.19"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.20",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "HP Boost IV",
+    "name_zh_cn": "生命强化Ⅳ",
+    "summary_en": "HP Boost IV Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "生命强化Ⅳ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.19"
+    ],
+    "source_ids": [
+      "20",
+      "10417"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.17"
+    ],
+    "next_ids": [
+      "universe.ability-tree.21"
+    ],
+    "external_unlock_ids": [
+      "10417"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "200"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.max_hp_flat",
+        "value": "75",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "75"
+      }
+    ],
+    "source_description_sha256_en": "7df12512485f0f99ea108ee5c5c98f03ebb9ead3e88f099d3b0526a132961ed7",
+    "source_description_sha256_zh_cn": "40bb498e97d1c2eb2fe5ba433389bd138f6bd3f6962c0e23b5dd53114e47b7ed",
+    "rule_ids": [
+      "universe.rule.ability-tree.20"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.21",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Extra Blessings",
+    "name_zh_cn": "额外祝福",
+    "summary_en": "Extra Blessings Ability Tree node contributing 1 explicit effect to run state.",
+    "summary_zh_cn": "额外祝福能力树节点，向运行状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.20"
+    ],
+    "source_ids": [
+      "21",
+      "10420"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.18",
+      "universe.ability-tree.19",
+      "universe.ability-tree.20"
+    ],
+    "next_ids": [
+      "universe.ability-tree.22",
+      "universe.ability-tree.23",
+      "universe.ability-tree.24"
+    ],
+    "external_unlock_ids": [
+      "10420"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "300"
+      }
+    ],
+    "important": true,
+    "effect_class": "Run",
+    "effect_tag_en": "Additional Mechanism Unlock",
+    "effect_tag_zh_cn": "附加机制解锁",
+    "effects": [
+      {
+        "kind": "AddChoice",
+        "target": "reward.first_battle.blessing_count",
+        "value": "1",
+        "unit": "Count",
+        "condition": "first_battle_won"
+      }
+    ],
+    "source_parameters": [],
+    "source_description_sha256_en": "d2dda2afddbe7a83769e9a25f716b08099ca08245bbdfbc8f4c9fc614f290786",
+    "source_description_sha256_zh_cn": "94565244eb56dc5e2c10bee69ebcbc62ddff613004aa3de581eacb67a943df10",
+    "rule_ids": [
+      "universe.rule.ability-tree.21"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.22",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ATK Boost V",
+    "name_zh_cn": "攻击强化Ⅴ",
+    "summary_en": "ATK Boost V Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "攻击强化Ⅴ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.21"
+    ],
+    "source_ids": [
+      "22",
+      "10421"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.21"
+    ],
+    "next_ids": [
+      "universe.ability-tree.25"
+    ],
+    "external_unlock_ids": [
+      "10421"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "300"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.atk_flat",
+        "value": "60",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "60"
+      }
+    ],
+    "source_description_sha256_en": "84ddc621620f86662302b9966819fa6b4cd68d239e428572bd65d248f5f97536",
+    "source_description_sha256_zh_cn": "5a486b660d400052bf214e16cf7b5d7a022089e2f171ce0bb7c09d429bcd3bc8",
+    "rule_ids": [
+      "universe.rule.ability-tree.22"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.23",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "DEF Boost V",
+    "name_zh_cn": "防御强化Ⅴ",
+    "summary_en": "DEF Boost V Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "防御强化Ⅴ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.22"
+    ],
+    "source_ids": [
+      "23",
+      "10421"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.21"
+    ],
+    "next_ids": [
+      "universe.ability-tree.25"
+    ],
+    "external_unlock_ids": [
+      "10421"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "300"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.def_flat",
+        "value": "45",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "45"
+      }
+    ],
+    "source_description_sha256_en": "63b2797670aff0b4571a883b7d141ea1878044e5c78f003a41930e4478262a64",
+    "source_description_sha256_zh_cn": "06afb6432b5f4b8f6900510000eef25605f703fad0596247b453cc781204804a",
+    "rule_ids": [
+      "universe.rule.ability-tree.23"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.24",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "HP Boost V",
+    "name_zh_cn": "生命强化Ⅴ",
+    "summary_en": "HP Boost V Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "生命强化Ⅴ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.23"
+    ],
+    "source_ids": [
+      "24",
+      "10421"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.21"
+    ],
+    "next_ids": [
+      "universe.ability-tree.25"
+    ],
+    "external_unlock_ids": [
+      "10421"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "300"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.max_hp_flat",
+        "value": "80",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "80"
+      }
+    ],
+    "source_description_sha256_en": "7df12512485f0f99ea108ee5c5c98f03ebb9ead3e88f099d3b0526a132961ed7",
+    "source_description_sha256_zh_cn": "40bb498e97d1c2eb2fe5ba433389bd138f6bd3f6962c0e23b5dd53114e47b7ed",
+    "rule_ids": [
+      "universe.rule.ability-tree.24"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.25",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation III",
+    "name_zh_cn": "回响构音Ⅲ",
+    "summary_en": "Resonance Formation III Ability Tree node contributing 2 explicit effects to run and battle state.",
+    "summary_zh_cn": "回响构音Ⅲ能力树节点，向运行与战斗状态贡献2项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.24"
+    ],
+    "source_ids": [
+      "25",
+      "10424"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.22",
+      "universe.ability-tree.23",
+      "universe.ability-tree.24"
+    ],
+    "next_ids": [
+      "universe.ability-tree.26",
+      "universe.ability-tree.27",
+      "universe.ability-tree.28"
+    ],
+    "external_unlock_ids": [
+      "10424"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "450"
+      }
+    ],
+    "important": true,
+    "effect_class": "RunAndBattle",
+    "effect_tag_en": "Additional Mechanism Boost",
+    "effect_tag_zh_cn": "附加机制强化",
+    "effects": [
+      {
+        "kind": "UnlockFormationSlot",
+        "target": "run.path_resonance",
+        "value": "1",
+        "unit": "Count",
+        "condition": "chosen_path_blessing_count>=14"
+      },
+      {
+        "kind": "AddStat",
+        "target": "path_resonance.damage_ratio",
+        "value": "0.2",
+        "unit": "Ratio",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "14"
+      },
+      {
+        "index": 2,
+        "value": "0.2"
+      }
+    ],
+    "source_description_sha256_en": "df27d410779fb177ba4f2fbeca9aa71232d4dbaab1c56e8495fa8cad698313d1",
+    "source_description_sha256_zh_cn": "4bbf4596ae43d6a26e33a3b292e2f035f6b1b71a5c4f75bbd65789f8df5082a5",
+    "rule_ids": [
+      "universe.rule.ability-tree.25"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.26",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
+    "summary_en": "CRIT Rate Boost Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "暴击率强化能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.25"
+    ],
+    "source_ids": [
+      "26",
+      "10425"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.25"
+    ],
+    "next_ids": [
+      "universe.ability-tree.29"
+    ],
+    "external_unlock_ids": [
+      "10425"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "450"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.crit_rate_ratio",
+        "value": "0.05",
+        "unit": "Ratio",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.05"
+      }
+    ],
+    "source_description_sha256_en": "d44f96e0ab1f6e061f0191e1628056c1099950c7c51ff693554b87415772c83c",
+    "source_description_sha256_zh_cn": "b93c57bda78d723a2751d9f9ccd58910baa1ca13e68f25bc80db225d202551a7",
+    "rule_ids": [
+      "universe.rule.ability-tree.26"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.27",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Charge Boost",
+    "name_zh_cn": "回响充能强化",
+    "summary_en": "Resonance Charge Boost Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "回响充能强化能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.26"
+    ],
+    "source_ids": [
+      "27",
+      "10425"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.25"
+    ],
+    "next_ids": [
+      "universe.ability-tree.30"
+    ],
+    "external_unlock_ids": [
+      "10425"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "450"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddResource",
+        "target": "path_resonance.initial_energy",
+        "value": "20",
+        "unit": "Flat",
+        "condition": "battle_start"
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "20"
+      }
+    ],
+    "source_description_sha256_en": "b75cbd644dbad8d346e45c3d0d2ccd5dfe22bc3f34156a7469242af59bb02478",
+    "source_description_sha256_zh_cn": "84085e94eb9656a57feeb65dbe6a82e8bcf2140ffccd0488dd28e3b5fe1ef72f",
+    "rule_ids": [
+      "universe.rule.ability-tree.27"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.28",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "SPD Boost",
+    "name_zh_cn": "速度强化",
+    "summary_en": "SPD Boost Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "速度强化能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.27"
+    ],
+    "source_ids": [
+      "28",
+      "10425"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.25"
+    ],
+    "next_ids": [
+      "universe.ability-tree.31"
+    ],
+    "external_unlock_ids": [
+      "10425"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "450"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.speed_ratio",
+        "value": "0.04",
+        "unit": "Ratio",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.04"
+      }
+    ],
+    "source_description_sha256_en": "0e1546d1c727f77bac66a9aa4738eea2b8251038b8a7fd38792e963c5da4d340",
+    "source_description_sha256_zh_cn": "808412b5375dcde4a70cff270e3fe5872dec6a1d5e32b2d7f0c723fc2e7c6abc",
+    "rule_ids": [
+      "universe.rule.ability-tree.28"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.29",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ATK Boost VI",
+    "name_zh_cn": "攻击强化Ⅵ",
+    "summary_en": "ATK Boost VI Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "攻击强化Ⅵ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.28"
+    ],
+    "source_ids": [
+      "29",
+      "10426"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.26"
+    ],
+    "next_ids": [
+      "universe.ability-tree.32"
+    ],
+    "external_unlock_ids": [
+      "10426"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "600"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.atk_flat",
+        "value": "60",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "60"
+      }
+    ],
+    "source_description_sha256_en": "84ddc621620f86662302b9966819fa6b4cd68d239e428572bd65d248f5f97536",
+    "source_description_sha256_zh_cn": "5a486b660d400052bf214e16cf7b5d7a022089e2f171ce0bb7c09d429bcd3bc8",
+    "rule_ids": [
+      "universe.rule.ability-tree.29"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.30",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "DEF Boost VI",
+    "name_zh_cn": "防御强化Ⅵ",
+    "summary_en": "DEF Boost VI Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "防御强化Ⅵ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.29"
+    ],
+    "source_ids": [
+      "30",
+      "10427"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.27"
+    ],
+    "next_ids": [
+      "universe.ability-tree.32"
+    ],
+    "external_unlock_ids": [
+      "10427"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "600"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.def_flat",
+        "value": "45",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "45"
+      }
+    ],
+    "source_description_sha256_en": "63b2797670aff0b4571a883b7d141ea1878044e5c78f003a41930e4478262a64",
+    "source_description_sha256_zh_cn": "06afb6432b5f4b8f6900510000eef25605f703fad0596247b453cc781204804a",
+    "rule_ids": [
+      "universe.rule.ability-tree.30"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.31",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "HP Boost VI",
+    "name_zh_cn": "生命强化Ⅵ",
+    "summary_en": "HP Boost VI Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "生命强化Ⅵ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.30"
+    ],
+    "source_ids": [
+      "31",
+      "10428"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.28"
+    ],
+    "next_ids": [
+      "universe.ability-tree.32"
+    ],
+    "external_unlock_ids": [
+      "10428"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "600"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.max_hp_flat",
+        "value": "80",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "80"
+      }
+    ],
+    "source_description_sha256_en": "7df12512485f0f99ea108ee5c5c98f03ebb9ead3e88f099d3b0526a132961ed7",
+    "source_description_sha256_zh_cn": "40bb498e97d1c2eb2fe5ba433389bd138f6bd3f6962c0e23b5dd53114e47b7ed",
+    "rule_ids": [
+      "universe.rule.ability-tree.31"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.32",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Bonus Charge",
+    "name_zh_cn": "额外充能",
+    "summary_en": "Bonus Charge Ability Tree node contributing 2 explicit effects to battle state.",
+    "summary_zh_cn": "额外充能能力树节点，向战斗状态贡献2项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.31"
+    ],
+    "source_ids": [
+      "32",
+      "10431"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.29",
+      "universe.ability-tree.30",
+      "universe.ability-tree.31"
+    ],
+    "next_ids": [
+      "universe.ability-tree.33",
+      "universe.ability-tree.34",
+      "universe.ability-tree.35"
+    ],
+    "external_unlock_ids": [
+      "10431"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "900"
+      }
+    ],
+    "important": true,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "SetRatio",
+        "target": "party.initial_energy",
+        "value": "1",
+        "unit": "Ratio",
+        "condition": "battle_start"
+      },
+      {
+        "kind": "SetRatio",
+        "target": "party.energy",
+        "value": "1",
+        "unit": "Ratio",
+        "condition": "enter_elite_or_boss_domain"
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "1"
+      }
+    ],
+    "source_description_sha256_en": "84ccb08dc6d0859097da7cfab3c9e91957c6be6c2e17ee7099fece1360d79173",
+    "source_description_sha256_zh_cn": "93e2a4510a5409114f86fea88bab23051e0496b0a549a579d2c82fbf150279b0",
+    "rule_ids": [
+      "universe.rule.ability-tree.32"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.33",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "CRIT DMG Boost",
+    "name_zh_cn": "暴击伤害强化",
+    "summary_en": "CRIT DMG Boost Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "暴击伤害强化能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.32"
+    ],
+    "source_ids": [
+      "33",
+      "10432"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.32"
+    ],
+    "next_ids": [
+      "universe.ability-tree.36"
+    ],
+    "external_unlock_ids": [
+      "10432"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "900"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.crit_damage_ratio",
+        "value": "0.09",
+        "unit": "Ratio",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.09"
+      }
+    ],
+    "source_description_sha256_en": "27b90be16a507f22831bbe686020bb83b7aa3ac1954a6f9a45b9e7b8b4273e8d",
+    "source_description_sha256_zh_cn": "c87f90e370bc544087ffeb0f4518de4495c557db2553ff5b8b0b955593af6ebe",
+    "rule_ids": [
+      "universe.rule.ability-tree.33"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.34",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance DMG Boost I",
+    "name_zh_cn": "回响伤害强化Ⅰ",
+    "summary_en": "Resonance DMG Boost I Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "回响伤害强化Ⅰ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.33"
+    ],
+    "source_ids": [
+      "34",
+      "10432"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.32"
+    ],
+    "next_ids": [
+      "universe.ability-tree.37"
+    ],
+    "external_unlock_ids": [
+      "10432"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "900"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "path_resonance.damage_ratio",
+        "value": "0.15",
+        "unit": "Ratio",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.15"
+      }
+    ],
+    "source_description_sha256_en": "2d5190749b9c6ea0b8a33065275373ad55e3a2450b4d7d172c5927f1643b7e5a",
+    "source_description_sha256_zh_cn": "b8af041cb1806670e42dc64adb5ce16622fe7471ebeba8f0b7d7d0126e431aea",
+    "rule_ids": [
+      "universe.rule.ability-tree.34"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.35",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "DMG Mitigation Boost",
+    "name_zh_cn": "伤害减免强化",
+    "summary_en": "DMG Mitigation Boost Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "伤害减免强化能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.34"
+    ],
+    "source_ids": [
+      "35",
+      "10432"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.32"
+    ],
+    "next_ids": [
+      "universe.ability-tree.38"
+    ],
+    "external_unlock_ids": [
+      "10432"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "900"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.damage_taken_reduction_ratio",
+        "value": "0.05",
+        "unit": "Ratio",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.05"
+      }
+    ],
+    "source_description_sha256_en": "5bdc97aac5f32d96a8512794f13ffa33eb29d035ed1a70cf2aff9fcce02d30ed",
+    "source_description_sha256_zh_cn": "bdb30287a10be0cd45304d3186a28df0c66a99e25d0e9c4bac8c61128fe6d85a",
+    "rule_ids": [
+      "universe.rule.ability-tree.35"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.36",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ATK Boost VII",
+    "name_zh_cn": "攻击强化Ⅶ",
+    "summary_en": "ATK Boost VII Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "攻击强化Ⅶ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.35"
+    ],
+    "source_ids": [
+      "36",
+      "10433"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.33"
+    ],
+    "next_ids": [
+      "universe.ability-tree.39"
+    ],
+    "external_unlock_ids": [
+      "10433"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "1500"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.atk_flat",
+        "value": "60",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "60"
+      }
+    ],
+    "source_description_sha256_en": "84ddc621620f86662302b9966819fa6b4cd68d239e428572bd65d248f5f97536",
+    "source_description_sha256_zh_cn": "5a486b660d400052bf214e16cf7b5d7a022089e2f171ce0bb7c09d429bcd3bc8",
+    "rule_ids": [
+      "universe.rule.ability-tree.36"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.37",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "DEF Boost VII",
+    "name_zh_cn": "防御强化Ⅶ",
+    "summary_en": "DEF Boost VII Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "防御强化Ⅶ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.36"
+    ],
+    "source_ids": [
+      "37",
+      "10434"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.34"
+    ],
+    "next_ids": [
+      "universe.ability-tree.40"
+    ],
+    "external_unlock_ids": [
+      "10434"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "1500"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.def_flat",
+        "value": "45",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "45"
+      }
+    ],
+    "source_description_sha256_en": "63b2797670aff0b4571a883b7d141ea1878044e5c78f003a41930e4478262a64",
+    "source_description_sha256_zh_cn": "06afb6432b5f4b8f6900510000eef25605f703fad0596247b453cc781204804a",
+    "rule_ids": [
+      "universe.rule.ability-tree.37"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.38",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "HP Boost VII",
+    "name_zh_cn": "生命强化Ⅶ",
+    "summary_en": "HP Boost VII Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "生命强化Ⅶ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.37"
+    ],
+    "source_ids": [
+      "38",
+      "10435"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.35"
+    ],
+    "next_ids": [
+      "universe.ability-tree.41"
+    ],
+    "external_unlock_ids": [
+      "10435"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "1500"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.max_hp_flat",
+        "value": "80",
+        "unit": "Flat",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "80"
+      }
+    ],
+    "source_description_sha256_en": "7df12512485f0f99ea108ee5c5c98f03ebb9ead3e88f099d3b0526a132961ed7",
+    "source_description_sha256_zh_cn": "40bb498e97d1c2eb2fe5ba433389bd138f6bd3f6962c0e23b5dd53114e47b7ed",
+    "rule_ids": [
+      "universe.rule.ability-tree.38"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.39",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance DMG Boost II",
+    "name_zh_cn": "回响伤害强化Ⅱ",
+    "summary_en": "Resonance DMG Boost II Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "回响伤害强化Ⅱ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.38"
+    ],
+    "source_ids": [
+      "39",
+      "10436"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.36"
+    ],
+    "next_ids": [
+      "universe.ability-tree.42"
+    ],
+    "external_unlock_ids": [
+      "10436"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "2100"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "path_resonance.damage_ratio",
+        "value": "0.1",
+        "unit": "Ratio",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.1"
+      }
+    ],
+    "source_description_sha256_en": "2d5190749b9c6ea0b8a33065275373ad55e3a2450b4d7d172c5927f1643b7e5a",
+    "source_description_sha256_zh_cn": "b8af041cb1806670e42dc64adb5ce16622fe7471ebeba8f0b7d7d0126e431aea",
+    "rule_ids": [
+      "universe.rule.ability-tree.39"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.40",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Effect Hit Rate Boost",
+    "name_zh_cn": "效果命中强化",
+    "summary_en": "Effect Hit Rate Boost Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "效果命中强化能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.39"
+    ],
+    "source_ids": [
+      "40",
+      "10437"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.37"
+    ],
+    "next_ids": [
+      "universe.ability-tree.42"
+    ],
+    "external_unlock_ids": [
+      "10437"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "2100"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "party.effect_hit_rate_ratio",
+        "value": "0.08",
+        "unit": "Ratio",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.08"
+      }
+    ],
+    "source_description_sha256_en": "031f919bc7b9f9da9ec8654520153cc848dbadead30a72a4133db2985e31f55e",
+    "source_description_sha256_zh_cn": "c2a3e73d495b85360c49d113e4d84a4141a9d45712b0669a33e27ebd2fb1d45f",
+    "rule_ids": [
+      "universe.rule.ability-tree.40"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.41",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance DMG Boost II",
+    "name_zh_cn": "回响伤害强化Ⅱ",
+    "summary_en": "Resonance DMG Boost II Ability Tree node contributing 1 explicit effect to battle state.",
+    "summary_zh_cn": "回响伤害强化Ⅱ能力树节点，向战斗状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.40"
+    ],
+    "source_ids": [
+      "41",
+      "10438"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.38"
+    ],
+    "next_ids": [
+      "universe.ability-tree.42"
+    ],
+    "external_unlock_ids": [
+      "10438"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "2100"
+      }
+    ],
+    "important": false,
+    "effect_class": "Battle",
+    "effect_tag_en": "Combat Ability Amplification",
+    "effect_tag_zh_cn": "战斗能力增幅",
+    "effects": [
+      {
+        "kind": "AddStat",
+        "target": "path_resonance.damage_ratio",
+        "value": "0.1",
+        "unit": "Ratio",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.1"
+      }
+    ],
+    "source_description_sha256_en": "2d5190749b9c6ea0b8a33065275373ad55e3a2450b4d7d172c5927f1643b7e5a",
+    "source_description_sha256_zh_cn": "b8af041cb1806670e42dc64adb5ce16622fe7471ebeba8f0b7d7d0126e431aea",
+    "rule_ids": [
+      "universe.rule.ability-tree.41"
+    ]
+  },
+  {
+    "id": "universe.ability-tree.42",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Use Consumable",
+    "name_zh_cn": "使用消耗品",
+    "summary_en": "Use Consumable Ability Tree node contributing 1 explicit effect to run state.",
+    "summary_zh_cn": "使用消耗品能力树节点，向运行状态贡献1项显式效果。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.41"
+    ],
+    "source_ids": [
+      "42",
+      "10444"
+    ],
+    "note": "",
+    "prerequisite_ids": [
+      "universe.ability-tree.39",
+      "universe.ability-tree.40",
+      "universe.ability-tree.41"
+    ],
+    "next_ids": [],
+    "external_unlock_ids": [
+      "10444"
+    ],
+    "cost": [
+      {
+        "source_item_id": "32",
+        "amount": "700"
+      }
+    ],
+    "important": true,
+    "effect_class": "Run",
+    "effect_tag_en": "Additional Mechanism Unlock",
+    "effect_tag_zh_cn": "附加机制解锁",
+    "effects": [
+      {
+        "kind": "Unlock",
+        "target": "run.consumable_use",
+        "value": "1",
+        "unit": "Boolean",
+        "condition": ""
+      }
+    ],
+    "source_parameters": [],
+    "source_description_sha256_en": "d849821b3082ae84f04be488fdd90ceba324f628fb5785ba6b0c6c8451679049",
+    "source_description_sha256_zh_cn": "1c6abc91a55a8fbf4dd9ce2a9f64307de3a8d7dd535987edd39d91922a31aec6",
+    "rule_ids": [
+      "universe.rule.ability-tree.42"
+    ]
+  }
+]
