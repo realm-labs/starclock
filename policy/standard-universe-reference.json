@@ -1,0 +1,60 @@
+{
+  "schema": "starclock.standard-universe-reference-policy.v1",
+  "goal_id": "standard-universe-reference-v1",
+  "snapshot": {
+    "game_version": "4.4",
+    "access_date": "2026-07-22",
+    "mode_family": "standard-simulated-universe",
+    "world_count": 9,
+    "selectable_path_count": 9
+  },
+  "structured_sources": [
+    {
+      "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+      "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+      "role": "released structured rows, relationships, values and text maps"
+    },
+    {
+      "repository": "https://github.com/Mar-7th/StarRailRes.git",
+      "revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+      "role": "identity and translation cross-check where applicable"
+    }
+  ],
+  "public_cross_checks": [
+    "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe",
+    "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+    "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Paths",
+    "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Curio"
+  ],
+  "required_categories": [
+    "worlds",
+    "world-difficulties",
+    "domains",
+    "paths",
+    "resonances",
+    "blessings",
+    "curios",
+    "occurrences",
+    "services",
+    "ability-tree",
+    "encounter-pools",
+    "mechanic-rules",
+    "review-fixtures"
+  ],
+  "excluded_families": [
+    "swarm-disaster",
+    "gold-and-gears",
+    "unknowable-domain",
+    "divergent-universe",
+    "temporary-event-variants",
+    "account-rewards",
+    "story-presentation",
+    "assets"
+  ],
+  "workbook_authoring": {
+    "adapter": "python-openpyxl",
+    "schema_and_export_authority": "sora-cli-0.3.0",
+    "json_runtime_allowed": false,
+    "overwrite_designer_workbook": false
+  }
+}
