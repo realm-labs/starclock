@@ -13,8 +13,14 @@ use starclock_combat::{
     TeamSide, catalog::encounter::AiTransitionTiming, rng::types::RngSeed,
     rule::model::ConditionExpr,
 };
-use starclock_data::standard_v1::StandardV1Catalog;
-use starclock_replay::battle::BattleTraceEntry;
+use starclock_data::standard_v1::{
+    CATALOG_REVISION, CONFIG_DIGEST, RULES_REVISION, StandardV1Catalog,
+};
+use starclock_replay::{
+    battle::{BattleTraceEntry, battle_record_count, encode_battle_trace, verify_battle_replay},
+    digest::{ConfigBundleDigest, ControllerDigest, EntrySpecDigest},
+    format::{ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, decode_replay},
+};
 
 use crate::{
     action::{ActionBindingError, OfferedAction, OfferedActionSet},
@@ -35,6 +41,9 @@ pub const MAX_ACCEPTED_COMMANDS_PER_SETTLEMENT: usize = 4_096;
 pub const MAX_IDEMPOTENCY_ENTRIES: usize = 1_024;
 pub const MAX_CACHED_RESPONSE_BYTES: usize = 512 * 1_024;
 pub const MAX_RETAINED_EVENT_SUMMARIES: usize = 8_192;
+pub const AGENT_REPLAY_CONTROLLER_REVISION: &str = "agent-standard-session-v1";
+const AGENT_REPLAY_CONTROLLER_DESCRIPTOR: &[u8] =
+    b"agent-standard-session-v1\0agent-api-v1\0external-player\0authored-enemy\0system-automatic";
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
@@ -159,6 +168,37 @@ pub struct AgentActionResponse {
     pub accepted_action_token: ActionToken,
     pub settlement: AgentSettlementSummary,
     pub observation: AgentObservation,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AgentReplayExport {
+    bytes: Box<[u8]>,
+    diagnostics: Box<[AcceptedCommandRecord]>,
+    sha256: AgentHash,
+}
+
+impl AgentReplayExport {
+    #[must_use]
+    pub fn bytes(&self) -> &[u8] {
+        &self.bytes
+    }
+
+    #[must_use]
+    pub fn diagnostics(&self) -> &[AcceptedCommandRecord] {
+        &self.diagnostics
+    }
+
+    #[must_use]
+    pub fn sha256(&self) -> &AgentHash {
+        &self.sha256
+    }
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentReplayVerification {
+    pub command_count: AgentUInt,
+    pub final_state_hash: AgentHash,
+    pub phase: crate::observation::AgentBattlePhase,
 }
 
 struct CachedActionResponse {
@@ -309,6 +349,75 @@ impl AgentSession {
     #[must_use]
     pub fn controller_records(&self) -> &[AcceptedCommandRecord] {
         &self.replay.controllers
+    }
+
+    pub fn export_replay(&self) -> Result<AgentReplayExport, AgentError> {
+        let header = self.replay_header()?;
+        let bytes = encode_battle_trace(&header, &self.replay.trace).map_err(|_| {
+            agent_error(
+                AgentErrorCode::AdapterFailure,
+                "The canonical battle replay could not be encoded.",
+            )
+        })?;
+        let sha256 = AgentHash::from_bytes(Sha256::digest(&bytes).into());
+        Ok(AgentReplayExport {
+            bytes: bytes.into_boxed_slice(),
+            diagnostics: self.replay.controllers.clone().into_boxed_slice(),
+            sha256,
+        })
+    }
+
+    pub fn verify_replay(&self, bytes: &[u8]) -> Result<AgentReplayVerification, AgentError> {
+        let replay = decode_replay(bytes).map_err(|_| replay_diverged_error())?;
+        if replay.header() != &self.replay_header()? {
+            return Err(replay_diverged_error());
+        }
+        let battle = self
+            .standard
+            .instantiate(self.scenario.as_str(), Some(self.master_seed))
+            .map_err(|_| {
+                agent_error(
+                    AgentErrorCode::ConfigurationRejected,
+                    "The replay's frozen Standard scenario could not be reconstructed.",
+                )
+            })?
+            .into_battle();
+        let report = verify_battle_replay(bytes, battle).map_err(|_| replay_diverged_error())?;
+        let phase = replay_phase(report.phase())?;
+        Ok(AgentReplayVerification {
+            command_count: AgentUInt::from_u64(u64::from(report.command_count())),
+            final_state_hash: AgentHash::from_bytes(report.final_hash().bytes()),
+            phase,
+        })
+    }
+
+    fn replay_header(&self) -> Result<ReplayHeader, AgentError> {
+        let identity = ReplayIdentity::new(
+            "4.4",
+            RULES_REVISION,
+            CATALOG_REVISION,
+            ConfigBundleDigest::new(CONFIG_DIGEST),
+            starclock_combat::NUMERIC_POLICY_REVISION,
+            starclock_combat::rng::RNG_ALGORITHM_REVISION,
+            starclock_combat::STATE_HASH_REVISION,
+        )
+        .map_err(|_| replay_header_error())?;
+        let controller = ControllerIdentity::new(
+            AGENT_REPLAY_CONTROLLER_REVISION,
+            ControllerDigest::new(Sha256::digest(AGENT_REPLAY_CONTROLLER_DESCRIPTOR).into()),
+        )
+        .map_err(|_| replay_header_error())?;
+        ReplayHeader::new(
+            identity,
+            controller,
+            self.master_seed,
+            ReplayEntry::Battle {
+                definition_id: self.encounter.get(),
+                spec_digest: EntrySpecDigest::new(self.spec_digest.bytes()),
+            },
+            battle_record_count(self.replay.trace.len()).map_err(|_| replay_header_error())?,
+        )
+        .map_err(|_| replay_header_error())
     }
 
     /// Applies one preconditioned action or returns the byte-identical cached response.
@@ -627,6 +736,33 @@ fn cursor_id(cursor: &EventCursor) -> Result<u64, AgentError> {
             ))
         },
         |value| Ok(value.to_u64()),
+    )
+}
+
+fn replay_phase(phase: BattlePhase) -> Result<crate::observation::AgentBattlePhase, AgentError> {
+    match phase {
+        BattlePhase::AwaitingCommand => Ok(crate::observation::AgentBattlePhase::AwaitingCommand),
+        BattlePhase::Won => Ok(crate::observation::AgentBattlePhase::Won),
+        BattlePhase::Lost => Ok(crate::observation::AgentBattlePhase::Lost),
+        BattlePhase::Faulted => Ok(crate::observation::AgentBattlePhase::Faulted),
+        BattlePhase::Initializing | BattlePhase::Resolving => Err(agent_error(
+            AgentErrorCode::ReplayDiverged,
+            "The verified replay ended outside a stable external boundary.",
+        )),
+    }
+}
+
+fn replay_header_error() -> AgentError {
+    agent_error(
+        AgentErrorCode::AdapterFailure,
+        "The frozen replay compatibility header could not be constructed.",
+    )
+}
+
+fn replay_diverged_error() -> AgentError {
+    agent_error(
+        AgentErrorCode::ReplayDiverged,
+        "The canonical replay did not verify against a fresh battle.",
     )
 }
 
@@ -1024,5 +1160,132 @@ mod tests {
         );
         assert_eq!(session.replay.trace.len(), trace_before + 1);
         assert_eq!(session.replay.controllers.len(), session.replay.trace.len());
+    }
+
+    #[test]
+    fn canonical_replay_round_trips_from_a_fresh_battle() {
+        let factory = AgentSessionFactory::load_production().unwrap();
+        let mut session = factory
+            .create(request(SCENARIOS[0].0, AgentSeedPolicy::ScenarioDefault))
+            .unwrap();
+        let token = session
+            .offered_actions()
+            .iter()
+            .find(|action| action.kind != crate::action::AgentActionKind::Concede)
+            .unwrap()
+            .token
+            .clone();
+        let action = play_request(&session, token, "replay_action_1");
+        session.apply_action(action).unwrap();
+
+        let export = session.export_replay().unwrap();
+        assert!(!export.bytes().is_empty());
+        assert_eq!(export.diagnostics(), session.controller_records());
+        assert_eq!(export.diagnostics().len(), session.replay_command_count());
+        assert_eq!(
+            export.sha256(),
+            &AgentHash::from_bytes(Sha256::digest(export.bytes()).into())
+        );
+        assert!(
+            export
+                .diagnostics()
+                .iter()
+                .any(|record| record.controller == AgentControllerKind::SystemAutomatic)
+        );
+        assert!(
+            export
+                .diagnostics()
+                .iter()
+                .any(|record| record.controller == AgentControllerKind::ExternalPlayer)
+        );
+
+        let live_snapshot = (
+            session.state_hash(),
+            session.replay_command_count(),
+            session.rng_draw_count(),
+        );
+        let verification = session.verify_replay(export.bytes()).unwrap();
+        assert_eq!(
+            verification.command_count.to_u64(),
+            u64::try_from(session.replay_command_count()).unwrap()
+        );
+        assert_eq!(verification.final_state_hash, session.state_hash());
+        assert_eq!(verification.phase, replay_phase(session.phase()).unwrap());
+        assert_eq!(
+            (
+                session.state_hash(),
+                session.replay_command_count(),
+                session.rng_draw_count(),
+            ),
+            live_snapshot
+        );
+    }
+
+    #[test]
+    fn replay_corruption_diverges_without_mutating_the_live_session() {
+        let factory = AgentSessionFactory::load_production().unwrap();
+        let session = factory
+            .create(request(SCENARIOS[1].0, AgentSeedPolicy::ScenarioDefault))
+            .unwrap();
+        let mut bytes = session.export_replay().unwrap().bytes().to_vec();
+        let controller_offset = bytes
+            .windows(AGENT_REPLAY_CONTROLLER_REVISION.len())
+            .position(|window| window == AGENT_REPLAY_CONTROLLER_REVISION.as_bytes())
+            .unwrap();
+        bytes[controller_offset] ^= 0x01;
+        let before = (
+            session.state_hash(),
+            session.replay_command_count(),
+            session.rng_draw_count(),
+        );
+
+        assert_eq!(
+            session.verify_replay(&bytes).unwrap_err().code,
+            AgentErrorCode::ReplayDiverged
+        );
+        assert_eq!(
+            (
+                session.state_hash(),
+                session.replay_command_count(),
+                session.rng_draw_count(),
+            ),
+            before
+        );
+    }
+
+    #[test]
+    fn diagnostic_attribution_cannot_change_canonical_replay_bytes() {
+        let factory = AgentSessionFactory::load_production().unwrap();
+        let mut session = factory
+            .create(request(SCENARIOS[2].0, AgentSeedPolicy::ScenarioDefault))
+            .unwrap();
+        let before = session.export_replay().unwrap();
+        session.replay.controllers.clear();
+        let after = session.export_replay().unwrap();
+
+        assert_eq!(before.bytes(), after.bytes());
+        assert_eq!(before.sha256(), after.sha256());
+        assert!(!before.diagnostics().is_empty());
+        assert!(after.diagnostics().is_empty());
+    }
+
+    #[test]
+    fn operational_session_identity_is_absent_from_canonical_replay() {
+        let factory = AgentSessionFactory::load_production().unwrap();
+        let mut first_request = request(
+            SCENARIOS[3].0,
+            AgentSeedPolicy::Explicit(AgentUInt::from_u64(91)),
+        );
+        first_request.session_id = SessionId::parse("session_replay_first").unwrap();
+        let mut second_request = first_request.clone();
+        second_request.session_id = SessionId::parse("session_replay_second").unwrap();
+        let first = factory.create(first_request).unwrap();
+        let second = factory.create(second_request).unwrap();
+
+        let first_export = first.export_replay().unwrap();
+        let second_export = second.export_replay().unwrap();
+        assert_eq!(first_export.bytes(), second_export.bytes());
+        assert_eq!(first_export.sha256(), second_export.sha256());
+        assert_eq!(first_export.diagnostics(), second_export.diagnostics());
     }
 }

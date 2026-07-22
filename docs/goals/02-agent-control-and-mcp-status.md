@@ -12,8 +12,8 @@ implementation batch.
 | State | `InProgress` |
 | Prerequisite | Goal 01 `Complete` at or after `b23f900` |
 | Active phase | Phase 2 — Authoritative ephemeral sessions |
-| Next unblocked batch | `G02-P2-B5` |
-| Last completed batch | `G02-P2-B4` |
+| Next unblocked batch | `G02-P2-B6` |
+| Last completed batch | `G02-P2-B5` |
 | Last completed commit | This row's containing commit |
 | MCP specification baseline | Frozen `2025-11-25` |
 | Agent schema revision | Frozen `agent-api-v1` / `1746004f…6725` |
@@ -58,7 +58,7 @@ evidence summary.
 | `G02-P2-B2` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Creation now settles the exact system start command to a player-owned decision; external tokens resolve only to retained commands, and synchronous settlement stops at the next player/terminal boundary under the 4,096-command budget. Team-enemy routing uses the immutable authored graph and isolated deterministic `EnemyController`, while unsupported contextual conditions fail closed. Every accepted external/enemy/system command appends an exact replay command/hash plus ordered controller identity; automatic resolver work remains inside `Battle::apply`. |
 | `G02-P2-B3` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Added the frozen typed action request/response and complete next observation, exact session/decision/hash preconditions, full-request idempotency binding and per-session 1,024-entry/512-KiB response cache. Cache insertion follows commit/settlement and canonical serialization before delivery. Simulated response loss returns byte-identical JSON without changing state/replay/controller/RNG; stale hash, forged token, conflicting key reuse and racing-equivalent loser are inert. |
 | `G02-P2-B4` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Retains the newest 8,192 payload-free summaries independently of the complete accepted command/hash trace. Observations page at most 256 events strictly after canonical opaque cursors, visibly truncate, reject future/wrong-family cursors and distinguish evicted cursors. Cached action responses include their settlement page; terminal observations have exact status with no decision/actions, and concession tests preserve ordered events plus complete replay/controller facts. |
-| `G02-P2-B5` | `Pending` | — | — | — |
+| `G02-P2-B5` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Exports the unchanged Goal 01 battle envelope with frozen Standard/controller identities and SHA-256 while keeping external/enemy/system attribution in a nonauthoritative sidecar. Verification reconstructs a fresh production battle and checks every accepted command/hash without touching the live session; round-trip, corruption, sidecar-inertness and operational-ID-independence tests pass. |
 | `G02-P2-B6` | `Pending` | — | — | — |
 | `G02-P2-B7` | `Pending` | — | — | — |
 | `G02-P3-B1` | `Pending` | — | — | — |
@@ -114,6 +114,7 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | 2026-07-22 | Offered-action token digests are deterministic identity bindings, not authorization credentials. | Tokens bind session, decision and canonical ordinal to a private exact-command table; independent session ownership/auth checks remain mandatory, and successful commit replaces the whole decision table. |
 | 2026-07-22 | Frozen v1 debug mode is a separately gated and marked envelope over the bounded battle schema, without extra hidden fields. | The schema defines the policy/authorization markers but no debug payload. AI/rule/command/seed/RNG internals therefore stay absent; adding them requires a new reviewed schema revision rather than an unversioned extension. |
 | 2026-07-22 | Idempotent retries preserve the original response bytes, including its original `idempotent_replay:false` value. | The frozen threat model requires the same bytes after response loss; rewriting the field on a cache hit would make the retry a different response. Full request equality and cache lookup still distinguish retry from conflicting reuse internally. |
+| 2026-07-22 | Controller attribution is an export sidecar, not a new canonical replay record. | Goal 01's battle envelope remains the authority for accepted commands and resulting hashes; diagnostics can be discarded or changed without altering replay bytes, identity or verification. |
 
 Add architectural decisions here before implementing a deviation from the goal
 or normative design. A decision cannot silently weaken a terminal gate.
