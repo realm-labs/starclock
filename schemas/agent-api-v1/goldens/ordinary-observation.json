@@ -1,0 +1,40 @@
+{
+  "schema_revision": "agent-api-v1",
+  "session_id": "session_01",
+  "scenario_id": "scenario.standard-v1.basic-single-wave",
+  "catalog_digest": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440",
+  "decision_id": "12",
+  "state_hash": "5021cdd60c41fd953f6d567905a079255a434248c504c03d95a30d6f7c63625e",
+  "event_cursor": "event_18",
+  "visibility_policy": "player_visible",
+  "status": "awaiting_player",
+  "battle": {
+    "phase": "awaiting_command",
+    "committed_revision": "11",
+    "rng_draw_count": "0",
+    "wave": { "number": "1", "total": "1" },
+    "teams": [
+      { "side": "player", "skill_points": "4", "maximum_skill_points": "5" },
+      { "side": "enemy", "skill_points": "0", "maximum_skill_points": "0" }
+    ],
+    "units": [
+      { "unit_id": "1", "side": "player", "formation": "0", "life": "alive", "presence": "present", "current_hp": "1000", "maximum_hp": "1000", "current_energy_scaled": "50000000", "maximum_energy_scaled": "120000000", "weakness_broken": false },
+      { "unit_id": "5", "side": "enemy", "formation": "4", "life": "alive", "presence": "present", "current_hp": "640", "maximum_hp": "800", "current_energy_scaled": "0", "maximum_energy_scaled": "0", "weakness_broken": false, "public_intent": null }
+    ],
+    "effects": [],
+    "timeline": [
+      { "actor_id": "1", "owner_unit_id": "1", "active": true, "action_gauge_scaled": "0", "speed_scaled": "100000000" },
+      { "actor_id": "5", "owner_unit_id": "5", "active": true, "action_gauge_scaled": "2500000000", "speed_scaled": "90000000" }
+    ]
+  },
+  "legal_actions": [
+    { "token": "action_12_01", "kind": "use_ability", "label": "Basic ATK → enemy 5", "actor_unit_id": "1", "primary_target_unit_id": "5" },
+    { "token": "action_12_02", "kind": "concede", "label": "Concede battle", "actor_unit_id": null, "primary_target_unit_id": null }
+  ],
+  "events": [
+    { "event_id": "16", "kind": "action_resolved", "summary": "Player unit 1 resolved its action.", "root_command_id": "10" },
+    { "event_id": "17", "kind": "turn_started", "summary": "Player unit 1 reached the next external turn.", "root_command_id": "11" },
+    { "event_id": "18", "kind": "decision_offered", "summary": "Decision 12 offered two player actions.", "root_command_id": "11" }
+  ],
+  "events_truncated": false
+}

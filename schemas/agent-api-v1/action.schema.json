@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://starclock.invalid/schema/agent-api-v1/action.schema.json",
+  "title": "Starclock agent action request/response v1",
+  "oneOf": [{ "$ref": "#/$defs/request" }, { "$ref": "#/$defs/response" }],
+  "$defs": {
+    "uint": { "type": "string", "pattern": "^(0|[1-9][0-9]*)$", "maxLength": 20 },
+    "hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "opaqueId": { "type": "string", "pattern": "^[A-Za-z0-9_-]{1,128}$" },
+    "request": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_revision", "session_id", "decision_id", "expected_state_hash", "action_token", "idempotency_key"],
+      "properties": { "schema_revision": { "const": "agent-api-v1" }, "session_id": { "$ref": "#/$defs/opaqueId" }, "decision_id": { "$ref": "#/$defs/uint" }, "expected_state_hash": { "$ref": "#/$defs/hash" }, "action_token": { "$ref": "#/$defs/opaqueId" }, "idempotency_key": { "$ref": "#/$defs/opaqueId" } }
+    },
+    "response": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_revision", "session_id", "committed", "idempotent_replay", "accepted_action_token", "settlement", "observation"],
+      "properties": {
+        "schema_revision": { "const": "agent-api-v1" }, "session_id": { "$ref": "#/$defs/opaqueId" }, "committed": { "type": "boolean" }, "idempotent_replay": { "type": "boolean" }, "accepted_action_token": { "$ref": "#/$defs/opaqueId" },
+        "settlement": { "type": "object", "additionalProperties": false, "required": ["accepted_commands", "emitted_events", "resolver_operations"], "properties": { "accepted_commands": { "$ref": "#/$defs/uint" }, "emitted_events": { "$ref": "#/$defs/uint" }, "resolver_operations": { "$ref": "#/$defs/uint" } } },
+        "observation": { "$ref": "observation.schema.json" }
+      }
+    }
+  }
+}

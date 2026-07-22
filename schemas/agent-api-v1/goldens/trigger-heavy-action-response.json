@@ -1,0 +1,60 @@
+{
+  "schema_revision": "agent-api-v1",
+  "session_id": "session_trigger_heavy",
+  "committed": true,
+  "idempotent_replay": false,
+  "accepted_action_token": "action_99_07",
+  "settlement": { "accepted_commands": "17", "emitted_events": "384", "resolver_operations": "1536" },
+  "observation": {
+    "schema_revision": "agent-api-v1",
+    "session_id": "session_trigger_heavy",
+    "scenario_id": "scenario.standard-v1.target-invalidation-and-return",
+    "catalog_digest": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440",
+    "decision_id": "100",
+    "state_hash": "4133562a7fb1c4324d210e5f68f665775750de0c78dbdfb13f9e0331fd1cfe5a",
+    "event_cursor": "event_4096",
+    "visibility_policy": "player_visible",
+    "status": "awaiting_player",
+    "battle": {
+      "phase": "awaiting_command",
+      "committed_revision": "99",
+      "rng_draw_count": "42",
+      "wave": { "number": "3", "total": "3" },
+      "teams": [
+        { "side": "player", "skill_points": "2", "maximum_skill_points": "5" },
+        { "side": "enemy", "skill_points": "0", "maximum_skill_points": "0" }
+      ],
+      "units": [
+        { "unit_id": "1", "side": "player", "formation": "0", "life": "alive", "presence": "present", "current_hp": "411", "maximum_hp": "1000", "current_energy_scaled": "120000000", "maximum_energy_scaled": "120000000", "weakness_broken": false },
+        { "unit_id": "9", "side": "enemy", "formation": "4", "life": "alive", "presence": "present", "current_hp": "2500", "maximum_hp": "5000", "current_energy_scaled": "0", "maximum_energy_scaled": "0", "weakness_broken": true, "public_intent": "Charged area attack" }
+      ],
+      "effects": [
+        { "effect_id": "301", "target_unit_id": "9", "category": "dot", "stacks": "5", "remaining": "2" },
+        { "effect_id": "302", "target_unit_id": "1", "category": "buff", "stacks": "1", "remaining": null }
+      ],
+      "timeline": [
+        { "actor_id": "1", "owner_unit_id": "1", "active": true, "action_gauge_scaled": "0", "speed_scaled": "112000000" },
+        { "actor_id": "9", "owner_unit_id": "9", "active": true, "action_gauge_scaled": "900000000", "speed_scaled": "98000000" }
+      ]
+    },
+    "legal_actions": [
+      { "token": "action_100_01", "kind": "use_ability", "label": "Skill → enemy 9", "actor_unit_id": "1", "primary_target_unit_id": "9" },
+      { "token": "action_100_02", "kind": "use_interrupt", "label": "Ultimate → enemy 9", "actor_unit_id": "1", "primary_target_unit_id": "9" }
+    ],
+    "events": [
+      { "event_id": "4085", "kind": "effect_ticked", "summary": "A retained damage-over-time effect ticked.", "root_command_id": "98" },
+      { "event_id": "4086", "kind": "unit_downed", "summary": "An enemy add reached zero HP.", "root_command_id": "98" },
+      { "event_id": "4087", "kind": "unit_defeated", "summary": "The enemy add settled as defeated.", "root_command_id": "98" },
+      { "event_id": "4088", "kind": "unit_returned", "summary": "An authored replacement returned to formation.", "root_command_id": "98" },
+      { "event_id": "4089", "kind": "target_invalidated", "summary": "Remaining hits skipped the departed target.", "root_command_id": "98" },
+      { "event_id": "4090", "kind": "action_resolved", "summary": "The trigger-heavy action and reactions resolved.", "root_command_id": "98" },
+      { "event_id": "4091", "kind": "enemy_action", "summary": "An authored enemy action settled internally.", "root_command_id": "99" },
+      { "event_id": "4092", "kind": "effect_applied", "summary": "The enemy action applied one public debuff.", "root_command_id": "99" },
+      { "event_id": "4093", "kind": "turn_ended", "summary": "The enemy turn ended.", "root_command_id": "99" },
+      { "event_id": "4094", "kind": "turn_started", "summary": "The next player turn began.", "root_command_id": "99" },
+      { "event_id": "4095", "kind": "decision_offered", "summary": "Decision 100 exposed two player actions.", "root_command_id": "99" },
+      { "event_id": "4096", "kind": "page_boundary", "summary": "Additional retained summaries remain after this bounded page.", "root_command_id": "99" }
+    ],
+    "events_truncated": true
+  }
+}

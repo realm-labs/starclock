@@ -1,0 +1,39 @@
+{
+  "schema_revision": "agent-api-v1",
+  "schema_bundle_sha256": "1746004f3f73ebbe6fb4cce4b850dd6813a1dc3a8584c3d191903328c0206725",
+  "reviewed_on": "2026-07-22",
+  "numeric_encoding": {
+    "authoritative_integers": "canonical base-10 strings",
+    "scaled_values": "canonical signed scaled-integer strings at six decimal places",
+    "hashes": "lowercase 64-character hexadecimal strings",
+    "json_floats_authoritative": false
+  },
+  "visibility_policies": {
+    "default": "player_visible",
+    "player_visible_excludes": ["enemy controller cursor and private graph candidates", "future RNG state or draws", "unrevealed intent", "private exact commands", "internal stores and resolver queues"],
+    "omniscient_debug": { "separate_authorization": true, "output_marker_required": true, "default_enabled": false }
+  },
+  "limits": {
+    "max_request_bytes": 16384,
+    "max_observation_bytes": 262144,
+    "max_error_bytes": 32768,
+    "max_offered_actions": 256,
+    "max_units": 128,
+    "max_effects": 2048,
+    "max_timeline_entries": 256,
+    "max_events_per_page": 256,
+    "max_event_summary_bytes": 4096,
+    "max_retained_event_summaries": 8192,
+    "max_accepted_commands_per_settlement": 4096,
+    "max_emitted_events_per_settlement": 65536,
+    "max_resolver_operations_per_settlement": 262144
+  },
+  "event_cursor": {
+    "opaque": true,
+    "exclusive_after": true,
+    "canonical_order": "battle event identity ascending",
+    "expired_cursor_error": "event_cursor_expired"
+  },
+  "schemas": ["schemas/agent-api-v1/observation.schema.json", "schemas/agent-api-v1/action.schema.json", "schemas/agent-api-v1/error.schema.json"],
+  "goldens": ["schemas/agent-api-v1/goldens/ordinary-observation.json", "schemas/agent-api-v1/goldens/trigger-heavy-action-response.json", "schemas/agent-api-v1/goldens/stale-decision-error.json"]
+}

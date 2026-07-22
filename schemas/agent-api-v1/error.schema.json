@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://starclock.invalid/schema/agent-api-v1/error.schema.json",
+  "title": "Starclock agent error v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_revision", "code", "message", "retryable", "committed"],
+  "properties": {
+    "schema_revision": { "const": "agent-api-v1" },
+    "code": { "enum": ["invalid_schema", "unknown_revision", "invalid_request", "unknown_session", "expired_session", "session_not_owned", "session_closed", "stale_decision", "stale_state_hash", "invalid_action_token", "idempotency_conflict", "unauthorized_policy", "configuration_rejected", "combat_rejected", "battle_faulted", "event_cursor_expired", "request_too_large", "observation_too_large", "settlement_budget_exceeded", "session_quota_exceeded", "rate_limited", "replay_diverged", "adapter_failure"] },
+    "message": { "type": "string", "minLength": 1, "maxLength": 1024 },
+    "retryable": { "type": "boolean" },
+    "committed": { "type": "boolean" },
+    "session_id": { "type": "string", "pattern": "^[A-Za-z0-9_-]{1,128}$" },
+    "decision_id": { "type": "string", "pattern": "^(0|[1-9][0-9]*)$", "maxLength": 20 },
+    "state_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "details": { "type": "object", "maxProperties": 16, "additionalProperties": { "type": "string", "maxLength": 512 } }
+  }
+}

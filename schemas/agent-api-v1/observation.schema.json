@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://starclock.invalid/schema/agent-api-v1/observation.schema.json",
+  "title": "Starclock agent observation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_revision", "session_id", "scenario_id", "catalog_digest", "decision_id", "state_hash", "event_cursor", "visibility_policy", "status", "battle", "legal_actions", "events", "events_truncated"],
+  "properties": {
+    "schema_revision": { "const": "agent-api-v1" },
+    "session_id": { "$ref": "#/$defs/opaqueId" },
+    "scenario_id": { "type": "string", "pattern": "^scenario\\.standard-v1\\.[a-z0-9-]+$", "maxLength": 128 },
+    "catalog_digest": { "$ref": "#/$defs/hash" },
+    "decision_id": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] },
+    "state_hash": { "$ref": "#/$defs/hash" },
+    "event_cursor": { "$ref": "#/$defs/opaqueId" },
+    "visibility_policy": { "enum": ["player_visible", "omniscient_debug"] },
+    "debug_authorized": { "type": "boolean" },
+    "status": { "enum": ["awaiting_player", "won", "lost", "faulted", "closed"] },
+    "battle": { "$ref": "#/$defs/battle" },
+    "legal_actions": { "type": "array", "maxItems": 256, "items": { "$ref": "#/$defs/action" } },
+    "events": { "type": "array", "maxItems": 256, "items": { "$ref": "#/$defs/event" } },
+    "events_truncated": { "type": "boolean" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "visibility_policy": { "const": "omniscient_debug" } } },
+      "then": { "required": ["debug_authorized"], "properties": { "debug_authorized": { "const": true } } }
+    }
+  ],
+  "$defs": {
+    "uint": { "type": "string", "pattern": "^(0|[1-9][0-9]*)$", "maxLength": 20 },
+    "sint": { "type": "string", "pattern": "^(0|-?[1-9][0-9]*)$", "maxLength": 21 },
+    "hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "opaqueId": { "type": "string", "pattern": "^[A-Za-z0-9_-]{1,128}$" },
+    "battle": {
+      "type": "object", "additionalProperties": false,
+      "required": ["phase", "committed_revision", "rng_draw_count", "wave", "teams", "units", "effects", "timeline"],
+      "properties": {
+        "phase": { "enum": ["awaiting_command", "won", "lost", "faulted"] },
+        "committed_revision": { "$ref": "#/$defs/uint" },
+        "rng_draw_count": { "$ref": "#/$defs/uint" },
+        "wave": { "type": "object", "additionalProperties": false, "required": ["number", "total"], "properties": { "number": { "$ref": "#/$defs/uint" }, "total": { "$ref": "#/$defs/uint" } } },
+        "teams": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "$ref": "#/$defs/team" } },
+        "units": { "type": "array", "maxItems": 128, "items": { "$ref": "#/$defs/unit" } },
+        "effects": { "type": "array", "maxItems": 2048, "items": { "$ref": "#/$defs/effect" } },
+        "timeline": { "type": "array", "maxItems": 256, "items": { "$ref": "#/$defs/timeline" } }
+      }
+    },
+    "team": {
+      "type": "object", "additionalProperties": false, "required": ["side", "skill_points", "maximum_skill_points"],
+      "properties": { "side": { "enum": ["player", "enemy"] }, "skill_points": { "$ref": "#/$defs/uint" }, "maximum_skill_points": { "$ref": "#/$defs/uint" } }
+    },
+    "unit": {
+      "type": "object", "additionalProperties": false,
+      "required": ["unit_id", "side", "formation", "life", "presence", "current_hp", "maximum_hp", "current_energy_scaled", "maximum_energy_scaled", "weakness_broken"],
+      "properties": {
+        "unit_id": { "$ref": "#/$defs/uint" }, "side": { "enum": ["player", "enemy"] }, "formation": { "$ref": "#/$defs/uint" },
+        "life": { "enum": ["alive", "defeated"] }, "presence": { "enum": ["present", "untargetable", "linked", "reserved", "departed"] },
+        "current_hp": { "$ref": "#/$defs/uint" }, "maximum_hp": { "$ref": "#/$defs/uint" },
+        "current_energy_scaled": { "$ref": "#/$defs/sint" }, "maximum_energy_scaled": { "$ref": "#/$defs/sint" },
+        "weakness_broken": { "type": "boolean" }, "public_intent": { "type": ["string", "null"], "maxLength": 256 }
+      }
+    },
+    "effect": {
+      "type": "object", "additionalProperties": false, "required": ["effect_id", "target_unit_id", "category", "stacks", "remaining"],
+      "properties": { "effect_id": { "$ref": "#/$defs/uint" }, "target_unit_id": { "$ref": "#/$defs/uint" }, "category": { "enum": ["buff", "debuff", "control", "dot", "mark", "field", "shield", "neutral_state"] }, "stacks": { "$ref": "#/$defs/uint" }, "remaining": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] } }
+    },
+    "timeline": {
+      "type": "object", "additionalProperties": false, "required": ["actor_id", "owner_unit_id", "active", "action_gauge_scaled", "speed_scaled"],
+      "properties": { "actor_id": { "$ref": "#/$defs/uint" }, "owner_unit_id": { "$ref": "#/$defs/uint" }, "active": { "type": "boolean" }, "action_gauge_scaled": { "$ref": "#/$defs/sint" }, "speed_scaled": { "$ref": "#/$defs/sint" } }
+    },
+    "action": {
+      "type": "object", "additionalProperties": false, "required": ["token", "kind", "label", "actor_unit_id", "primary_target_unit_id"],
+      "properties": { "token": { "$ref": "#/$defs/opaqueId" }, "kind": { "enum": ["use_ability", "use_interrupt", "pass_interrupt", "concede", "battle_choice"] }, "label": { "type": "string", "minLength": 1, "maxLength": 256 }, "actor_unit_id": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] }, "primary_target_unit_id": { "oneOf": [{ "$ref": "#/$defs/uint" }, { "type": "null" }] } }
+    },
+    "event": {
+      "type": "object", "additionalProperties": false, "required": ["event_id", "kind", "summary"],
+      "properties": { "event_id": { "$ref": "#/$defs/uint" }, "kind": { "type": "string", "pattern": "^[a-z][a-z0-9_]{0,63}$" }, "summary": { "type": "string", "maxLength": 4096 }, "root_command_id": { "$ref": "#/$defs/uint" } }
+    }
+  }
+}

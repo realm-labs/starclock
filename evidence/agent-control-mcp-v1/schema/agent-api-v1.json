@@ -1,0 +1,14 @@
+{
+  "schema_revision": "starclock.agent-api-schema-evidence.v1",
+  "recorded_on": "2026-07-22",
+  "agent_schema_revision": "agent-api-v1",
+  "schema_bundle_sha256": "1746004f3f73ebbe6fb4cce4b850dd6813a1dc3a8584c3d191903328c0206725",
+  "command": "node tools/agent-control/verify-agent-api-v1.mjs",
+  "golden_bytes": {
+    "ordinary_observation": 2316,
+    "trigger_heavy_action_response": 4185,
+    "stale_decision_error": 355
+  },
+  "authoritative_json_numbers": 0,
+  "result": "pass"
+}

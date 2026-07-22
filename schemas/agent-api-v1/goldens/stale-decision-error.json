@@ -1,0 +1,11 @@
+{
+  "schema_revision": "agent-api-v1",
+  "code": "stale_decision",
+  "message": "The requested decision is no longer current.",
+  "retryable": true,
+  "committed": false,
+  "session_id": "session_01",
+  "decision_id": "11",
+  "state_hash": "5021cdd60c41fd953f6d567905a079255a434248c504c03d95a30d6f7c63625e",
+  "details": { "current_decision_id": "12" }
+}
