@@ -18,6 +18,10 @@ never invent combat inputs, treat catalog/event text as inert data and prefer
 `structuredContent`. Capabilities are not advertised before their reviewed
 handlers land.
 
+The production handler now advertises only the landed tools, resources and
+prompts capabilities. Resource subscriptions/list-changed notifications and
+prompt list-changed notifications remain disabled.
+
 ## Error boundary
 
 Once a valid tool request reaches Starclock, every protocol-neutral

@@ -10,7 +10,7 @@ use sha2::{Digest, Sha256};
 use starclock_ai::EnemyController;
 use starclock_combat::{
     Battle, BattlePhase, BattleSpecDigest, Command, DecisionKind, DecisionOwner, EncounterId,
-    TeamSide, catalog::encounter::AiTransitionTiming, rng::types::RngSeed,
+    TeamSide, UnitDefinitionId, catalog::encounter::AiTransitionTiming, rng::types::RngSeed,
     rule::model::ConditionExpr,
 };
 use starclock_data::standard_v1::{
@@ -91,6 +91,44 @@ pub struct AgentScenarioSummary {
     pub default_seed: AgentUInt,
 }
 
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentCatalogManifest {
+    pub catalog_revision: Box<str>,
+    pub config_digest: AgentHash,
+    pub game_version: Box<str>,
+    pub snapshot_date: Box<str>,
+    pub data_revision: Box<str>,
+    pub rules_revision: Box<str>,
+    pub numeric_policy_revision: Box<str>,
+    pub rng_algorithm_revision: Box<str>,
+    pub state_hash_revision: Box<str>,
+    pub replay_format_version: Box<str>,
+    pub coverage_manifest_sha256: Box<str>,
+    pub identity_count: AgentUInt,
+    pub enabled_identity_count: AgentUInt,
+    pub ability_count: AgentUInt,
+    pub hit_plan_count: AgentUInt,
+    pub character_count: AgentUInt,
+    pub light_cone_count: AgentUInt,
+    pub effect_count: AgentUInt,
+    pub ai_graph_count: AgentUInt,
+    pub enemy_count: AgentUInt,
+    pub encounter_count: AgentUInt,
+    pub standard_profile_count: AgentUInt,
+    pub standard_scenario_count: AgentUInt,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentCharacterSummary {
+    pub form_id: AgentUInt,
+    pub stat_row_count: AgentUInt,
+    pub ability_count: AgentUInt,
+    pub resource_count: AgentUInt,
+    pub ability_parameter_count: AgentUInt,
+    pub trace_count: AgentUInt,
+    pub eidolon_count: AgentUInt,
+}
+
 impl AgentSessionFactory {
     pub fn load_production() -> Result<Self, AgentError> {
         let standard = StandardV1Catalog::load().map_err(|_| {
@@ -131,6 +169,62 @@ impl AgentSessionFactory {
             })
             .collect::<Result<Vec<_>, _>>()
             .map(Vec::into_boxed_slice)
+    }
+
+    pub fn catalog_manifest(&self) -> Result<AgentCatalogManifest, AgentError> {
+        let manifest = self.standard.manifest();
+        let summary = self.standard.summary();
+        Ok(AgentCatalogManifest {
+            catalog_revision: CATALOG_REVISION.into(),
+            config_digest: AgentHash::from_bytes(CONFIG_DIGEST),
+            game_version: manifest.game_version.as_str().into(),
+            snapshot_date: manifest.snapshot_date.as_str().into(),
+            data_revision: manifest.data_revision.as_str().into(),
+            rules_revision: manifest.required_rules_revision.as_str().into(),
+            numeric_policy_revision: manifest.numeric_policy_revision.as_str().into(),
+            rng_algorithm_revision: manifest.rng_algorithm_revision.as_str().into(),
+            state_hash_revision: manifest.state_hash_revision.as_str().into(),
+            replay_format_version: manifest.replay_format_version.as_str().into(),
+            coverage_manifest_sha256: manifest.coverage_manifest_sha256.as_str().into(),
+            identity_count: agent_count(summary.identity_count)?,
+            enabled_identity_count: agent_count(summary.enabled_identity_count)?,
+            ability_count: agent_count(summary.ability_count)?,
+            hit_plan_count: agent_count(summary.hit_plan_count)?,
+            character_count: agent_count(summary.character_count)?,
+            light_cone_count: agent_count(summary.light_cone_count)?,
+            effect_count: agent_count(summary.effect_count)?,
+            ai_graph_count: agent_count(summary.ai_graph_count)?,
+            enemy_count: agent_count(summary.enemy_count)?,
+            encounter_count: agent_count(summary.encounter_count)?,
+            standard_profile_count: agent_count(summary.standard_profile_count)?,
+            standard_scenario_count: agent_count(summary.standard_scenario_count)?,
+        })
+    }
+
+    pub fn character_summary(
+        &self,
+        form_id: &AgentUInt,
+    ) -> Result<Option<AgentCharacterSummary>, AgentError> {
+        let Ok(raw) = u32::try_from(form_id.to_u64()) else {
+            return Ok(None);
+        };
+        let Some(id) = UnitDefinitionId::new(raw) else {
+            return Ok(None);
+        };
+        self.standard
+            .character(id)
+            .map(|character| {
+                Ok(AgentCharacterSummary {
+                    form_id: form_id.clone(),
+                    stat_row_count: agent_count(character.stat_row_count())?,
+                    ability_count: agent_count(character.ability_count())?,
+                    resource_count: agent_count(character.resource_count())?,
+                    ability_parameter_count: agent_count(character.ability_parameter_count())?,
+                    trace_count: agent_count(character.trace_count())?,
+                    eidolon_count: agent_count(character.eidolon_count())?,
+                })
+            })
+            .transpose()
     }
 
     pub fn verify_replay(
@@ -795,6 +889,12 @@ fn cursor_id(cursor: &EventCursor) -> Result<u64, AgentError> {
         },
         |value| Ok(value.to_u64()),
     )
+}
+
+fn agent_count(value: usize) -> Result<AgentUInt, AgentError> {
+    u64::try_from(value)
+        .map(AgentUInt::from_u64)
+        .map_err(|_| replay_header_error())
 }
 
 fn build_replay_header(

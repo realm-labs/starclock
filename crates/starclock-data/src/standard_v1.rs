@@ -72,6 +72,24 @@ impl StandardV1Catalog {
         Ok(Self { data, combat })
     }
 
+    /// Returns generated-row-free compatibility metadata for bounded adapters.
+    #[must_use]
+    pub fn manifest(&self) -> &crate::catalog::CatalogManifest {
+        self.data.manifest()
+    }
+
+    /// Returns only aggregate counts from the validated production catalog.
+    #[must_use]
+    pub fn summary(&self) -> crate::catalog::CatalogSummary {
+        self.data.summary()
+    }
+
+    /// Looks up one generated-row-free character definition by exact form ID.
+    #[must_use]
+    pub fn character(&self, id: UnitDefinitionId) -> Option<&crate::CharacterDataDefinition> {
+        self.data.character(id)
+    }
+
     /// Constructs one isolated battle from a frozen scenario key and seed policy.
     pub fn instantiate(
         &self,

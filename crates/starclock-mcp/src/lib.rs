@@ -9,6 +9,7 @@
 pub mod error;
 /// Frozen protocol and server implementation metadata.
 pub mod metadata;
+mod resources;
 /// MCP server handler boundary.
 pub mod server;
 // Seven frozen tool schemas and handlers stay behind the server boundary.

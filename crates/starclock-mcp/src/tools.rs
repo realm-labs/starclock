@@ -646,7 +646,10 @@ mod tests {
         atomic::{AtomicU64, Ordering},
     };
 
-    use rmcp::{ServiceExt, model::CallToolRequestParams};
+    use rmcp::{
+        ServerHandler, ServiceExt,
+        model::{CallToolRequestParams, GetPromptRequestParams, ReadResourceRequestParams},
+    };
     use serde_json::{Map, json};
     use starclock_agent_api::session::{OperationalClock, SessionIdSource};
 
@@ -711,6 +714,12 @@ mod tests {
             factory,
             starclock_agent_api::session::AgentSessionOwner::new("local", "test").unwrap(),
         );
+        let info = server.get_info();
+        assert!(info.capabilities.tools.is_some());
+        let resource_capability = info.capabilities.resources.unwrap();
+        assert_eq!(resource_capability.subscribe, None);
+        assert_eq!(resource_capability.list_changed, None);
+        assert_eq!(info.capabilities.prompts.unwrap().list_changed, None);
         let (server_transport, client_transport) = tokio::io::duplex(256 * 1024);
         let task = tokio::spawn(async move {
             server
@@ -761,6 +770,57 @@ mod tests {
                 "{tool_name} has an incomplete nested output schema: {schema}"
             );
         }
+
+        let resources = client.list_all_resources().await.unwrap();
+        assert_eq!(
+            resources
+                .iter()
+                .map(|resource| resource.uri.as_str())
+                .collect::<Vec<_>>(),
+            [
+                "starclock://catalog/manifest",
+                "starclock://rules/core-combat"
+            ]
+        );
+        let templates = client.list_all_resource_templates().await.unwrap();
+        assert_eq!(
+            templates
+                .iter()
+                .map(|template| template.uri_template.as_str())
+                .collect::<Vec<_>>(),
+            [
+                "starclock://scenario/{scenario_id}",
+                "starclock://character/{form_id}"
+            ]
+        );
+        let scenario_resource = client
+            .read_resource(ReadResourceRequestParams::new(
+                "starclock://scenario/scenario.standard-v1.basic-single-wave",
+            ))
+            .await
+            .unwrap();
+        let scenario_json = serde_json::to_string(&scenario_resource).unwrap();
+        assert!(scenario_json.contains("scenario_definition_id"));
+        assert!(scenario_json.contains("inert_data"));
+
+        let prompts = client.list_all_prompts().await.unwrap();
+        assert_eq!(
+            prompts
+                .iter()
+                .map(|prompt| prompt.name.as_str())
+                .collect::<Vec<_>>(),
+            ["starclock_battle_loop"]
+        );
+        let prompt = client
+            .get_prompt(GetPromptRequestParams::new("starclock_battle_loop"))
+            .await
+            .unwrap();
+        assert_eq!(prompt.messages.len(), 1);
+        assert!(
+            serde_json::to_string(&prompt)
+                .unwrap()
+                .contains("grants no authorization")
+        );
 
         let listed = client
             .call_tool(

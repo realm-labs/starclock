@@ -68,6 +68,32 @@ fn factory_lists_exact_frozen_scenario_identities_and_default_seeds() {
 }
 
 #[test]
+fn factory_exposes_only_generated_row_free_catalog_and_character_summaries() {
+    let factory = AgentSessionFactory::load_production().unwrap();
+    let manifest = factory.catalog_manifest().unwrap();
+    assert_eq!(manifest.catalog_revision.as_ref(), CATALOG_REVISION);
+    assert_eq!(manifest.rules_revision.as_ref(), RULES_REVISION);
+    assert_eq!(manifest.config_digest, AgentHash::from_bytes(CONFIG_DIGEST));
+    assert_eq!(manifest.standard_scenario_count.to_u64(), 6);
+    assert_eq!(manifest.character_count.to_u64(), 88);
+
+    let character = factory
+        .character_summary(&AgentUInt::from_u64(1))
+        .unwrap()
+        .unwrap();
+    assert_eq!(character.form_id.to_u64(), 1);
+    assert!(character.stat_row_count.to_u64() > 0);
+    assert!(character.ability_count.to_u64() > 0);
+    assert_eq!(character.eidolon_count.to_u64(), 6);
+    assert!(
+        factory
+            .character_summary(&AgentUInt::from_u64(u64::MAX))
+            .unwrap()
+            .is_none()
+    );
+}
+
+#[test]
 fn explicit_seed_is_exact_reproducible_and_operational_identity_is_inert() {
     let factory = AgentSessionFactory::load_production().unwrap();
     let scenario = SCENARIOS[0].0;
