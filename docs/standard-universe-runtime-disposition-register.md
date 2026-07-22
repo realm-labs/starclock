@@ -20,10 +20,11 @@ membership by hand is forbidden.
 ## Frozen denominator
 
 The register assigns 2,201 content records, 786 mechanic-rule bindings and 78
-semantic fixtures to fifteen partitions. Assignment does not mean implemented:
-every row starts as `Planned`, and executable coverage remains zero until its
-own Phase 4 batch supplies runtime tests and changes the generated coverage
-state through a later audited tool.
+semantic fixtures to fifteen partitions. Assignment does not mean implemented.
+Rows begin as `Planned`; an exact Phase 4 partition changes to `Executable` only
+after its runtime tests and semantic fixtures pass and the generated coverage
+state is advanced through the audited policy tool. `G04-P4-M01` is the first
+closed partition: 42 content records, 42 rules and 10 fixtures are executable.
 
 | Disposition | Content | Rules | Meaning |
 |---|---:|---:|---|
@@ -89,6 +90,14 @@ each assigned fixture against lowered runtime domain values and supply an
 end-to-end or semantic test for every assigned record/rule disposition. Global
 `G04-P4-B1` reruns all 78; `G04-P4-B2` rejects any enabled record whose state is
 still planned, missing or reachable only through scattered content-ID logic.
+
+The M01 Ability Tree executor closes all 22 released targets and seven condition
+forms into typed enums, executes all ten operation kinds with checked six-place
+arithmetic, and retains the source node on every applied effect. Run and battle
+values are projected at explicit lifecycle boundaries; node 17's initial
+Cosmic Fragments are also materialized into authoritative Activity state.
+Unknown targets, conditions, unit combinations or noncanonical selections fail
+catalog/runtime validation.
 
 ## Change control
 

@@ -1,0 +1,55 @@
+{
+  "schema_revision": "starclock.goal04-universe-ability-runtime-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P4-M01",
+  "result": "all-ability-tree-effects-execute-through-a-closed-boundary-projection",
+  "counts": {
+    "ability_tree_nodes": 42,
+    "ability_tree_rules": 42,
+    "ability_tree_effects": 50,
+    "operation_kinds": 10,
+    "target_kinds": 22,
+    "condition_kinds": 7,
+    "semantic_fixtures": 10
+  },
+  "policies": {
+    "numeric": "CheckedSignedI64SixDecimalNoFloat",
+    "selection": "CanonicalStrictlyIncreasingAbilityTreeNodeIds",
+    "execution": "OrderedAddSetUnlockEnableWithCheckedOverflow",
+    "conditions": "ClosedRunBattleBoundaryContext",
+    "provenance": "EveryAppliedEffectRetainsAbilityTreeNodeSource",
+    "run_start_currency": "Node17Materializes50CosmicFragmentsIntoActivityState",
+    "battle_boundary": "ImmutableTypedProjectionWithoutUniverseVocabularyInCombat",
+    "ordinary_blessing_offer": "StableUniformOrderedCandidatesRetainedUntilStrongerPublicEvidence"
+  },
+  "goldens": {
+    "ability_runtime_catalog_sha256": "1788a50ac1f262c20d64185e0bc5ede17be2367897563f5016b2818d802f3a6e",
+    "full_tree_attack_flat": 420,
+    "full_tree_defense_flat": 335,
+    "full_tree_maximum_hp_flat": 640,
+    "full_tree_resonance_damage_ratio_six_decimal": 800000,
+    "full_tree_initial_cosmic_fragments": 50
+  },
+  "runtime_coverage": {
+    "content_records_executable": 42,
+    "rule_bindings_executable": 42,
+    "semantic_fixtures_executable": 10
+  },
+  "compatibility": {
+    "generated_rows_public": false,
+    "authoritative_float": false,
+    "free_form_runtime_target": false,
+    "free_form_runtime_condition": false,
+    "content_id_branch_in_resolver": false,
+    "activity_mutated_from_combat": false
+  },
+  "source_sha256": {
+    "crates/starclock-mode-universe/src/ability_runtime.rs": "b191b118a0af33b19792cb3d9fb4eaa17fd228f843df38c40e7333574bee698e",
+    "crates/starclock-mode-universe/src/entry.rs": "9d3b89668474db4bd36ce22c65ebf0a311568d722bb0fcc40594b15a5203e5da",
+    "crates/starclock-mode-universe/src/runtime.rs": "d86d470a80a0b02339a42687bc5fc88c9ae8cd91bbc745a5b5c93c05a916edc4",
+    "crates/starclock-mode-universe/tests/ability_runtime.rs": "e1375635bf8396a11c80b481e70bb482d4ecd6e114cc1834f66fae63b9b48876",
+    "crates/starclock-mode-universe/tests/entry_compilation.rs": "ae05cdcce373b6125a3910dcdf490ebaa0f42f5b3442c2a9187114ee34233776"
+  },
+  "focused_tests": 4,
+  "new_registry_packages": []
+}

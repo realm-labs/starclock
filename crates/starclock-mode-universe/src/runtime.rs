@@ -13,6 +13,10 @@ use starclock_activity::{
 };
 
 use crate::{
+    ability_runtime::{
+        AbilityExecutionContext, AbilityRuntimeCatalog, AbilityRuntimeError,
+        AbilityRuntimeProjection,
+    },
     battle_overlay::UniverseEncounterOverlay,
     blessing_runtime::{BlessingContributionSet, BlessingRuntimeCatalog, BlessingRuntimeError},
     curio_runtime::{CurioContributionSet, CurioRuntimeCatalog, CurioRuntimeError},
@@ -33,6 +37,7 @@ pub struct StandardUniverseActivity {
     path_runtime: Arc<PathRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
+    ability_runtime: Arc<AbilityRuntimeCatalog>,
     ability_tree: Box<[AbilityTreeNodeId]>,
     blessing_inventory: ActivityInventoryId,
     formation_inventory: ActivityInventoryId,
@@ -51,6 +56,7 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) path_runtime: Arc<PathRuntimeCatalog>,
     pub(crate) curio_runtime: Arc<CurioRuntimeCatalog>,
     pub(crate) run_runtime: Arc<RunRuntimeCatalog>,
+    pub(crate) ability_runtime: Arc<AbilityRuntimeCatalog>,
     pub(crate) ability_tree: Box<[AbilityTreeNodeId]>,
     pub(crate) blessing_inventory: ActivityInventoryId,
     pub(crate) formation_inventory: ActivityInventoryId,
@@ -72,6 +78,7 @@ impl StandardUniverseActivity {
             path_runtime: context.path_runtime,
             curio_runtime: context.curio_runtime,
             run_runtime: context.run_runtime,
+            ability_runtime: context.ability_runtime,
             ability_tree: context.ability_tree,
             blessing_inventory: context.blessing_inventory,
             formation_inventory: context.formation_inventory,
@@ -175,6 +182,13 @@ impl StandardUniverseActivity {
         &self,
     ) -> Result<AbilityTreeContributionSet, RunRuntimeError> {
         self.run_runtime.ability_contributions(&self.ability_tree)
+    }
+
+    pub fn ability_tree_projection(
+        &self,
+        context: AbilityExecutionContext,
+    ) -> Result<AbilityRuntimeProjection, AbilityRuntimeError> {
+        self.ability_runtime.project(&self.ability_tree, context)
     }
 
     pub fn cosmic_fragments(&self) -> Result<CosmicFragments, RunRuntimeError> {

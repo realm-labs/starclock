@@ -13,6 +13,7 @@ use starclock_activity::{
 };
 
 use crate::{
+    ability_runtime::{AbilityExecutionContext, AbilityRuntimeCatalog, AbilityTarget},
     battle_overlay::UniverseEncounterOverlay,
     blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
@@ -168,6 +169,20 @@ impl StandardUniverseProfile {
         }
 
         let ability_tree = canonical_ability_tree(&self.catalog, &entry.ability_tree)?;
+        let ability_runtime = Arc::new(
+            AbilityRuntimeCatalog::compile(&self.catalog)
+                .map_err(|_| StandardUniverseCompileError::InvalidAbilityRuntime)?,
+        );
+        let run_start = ability_runtime
+            .project(&ability_tree, AbilityExecutionContext::run_start())
+            .map_err(|_| StandardUniverseCompileError::InvalidAbilityRuntime)?;
+        let initial_cosmic_fragments = run_start
+            .value(AbilityTarget::InitialCosmicFragments)
+            .map_or(Ok(0), |value| {
+                value
+                    .integral()
+                    .ok_or(StandardUniverseCompileError::InvalidAbilityRuntime)
+            })?;
         let blessing_runtime = Arc::new(
             BlessingRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidBlessingRuntime)?,
@@ -194,7 +209,12 @@ impl StandardUniverseProfile {
             return Err(StandardUniverseCompileError::NoAvailablePaths);
         }
 
-        let state = compile_state(world.id(), difficulty.id(), &ability_tree)?;
+        let state = compile_state(
+            world.id(),
+            difficulty.id(),
+            &ability_tree,
+            initial_cosmic_fragments,
+        )?;
         let participant_digest = entry.participants.digest();
         let identity = compile_identity(
             &self.catalog,
@@ -252,6 +272,7 @@ impl StandardUniverseProfile {
             path_runtime,
             curio_runtime,
             run_runtime,
+            ability_runtime,
         })
     }
 }
@@ -280,6 +301,7 @@ pub struct CompiledActivity {
     path_runtime: Arc<PathRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
+    ability_runtime: Arc<AbilityRuntimeCatalog>,
 }
 
 impl CompiledActivity {
@@ -374,6 +396,11 @@ impl CompiledActivity {
         &self.run_runtime
     }
 
+    #[must_use]
+    pub const fn ability_runtime(&self) -> &Arc<AbilityRuntimeCatalog> {
+        &self.ability_runtime
+    }
+
     pub fn start(
         &self,
         instance: ActivityInstanceId,
@@ -401,6 +428,7 @@ impl CompiledActivity {
                     path_runtime: Arc::clone(&self.path_runtime),
                     curio_runtime: Arc::clone(&self.curio_runtime),
                     run_runtime: Arc::clone(&self.run_runtime),
+                    ability_runtime: Arc::clone(&self.ability_runtime),
                     ability_tree: self.ability_tree.clone(),
                     blessing_inventory: self.blessing_inventory(),
                     formation_inventory: self.formation_inventory(),
@@ -550,6 +578,7 @@ fn compile_state(
     world: WorldId,
     difficulty: DifficultyId,
     ability_tree: &[AbilityTreeNodeId],
+    initial_cosmic_fragments: i64,
 ) -> Result<ActivityStateDefinition, StandardUniverseCompileError> {
     let slots = vec![
         activity_slot(
@@ -647,7 +676,7 @@ fn compile_state(
         )?,
         integer_slot(
             COSMIC_FRAGMENTS_SLOT,
-            0,
+            initial_cosmic_fragments,
             0,
             crate::run_runtime::MAX_COSMIC_FRAGMENTS,
             COSMIC_FRAGMENTS_SOURCE,
@@ -783,6 +812,7 @@ fn compile_identity(
     encoder.text(crate::path_runtime::PATH_RUNTIME_REVISION);
     encoder.text(crate::curio_runtime::CURIO_RUNTIME_REVISION);
     encoder.text(crate::run_runtime::RUN_RUNTIME_REVISION);
+    encoder.text(crate::ability_runtime::ABILITY_RUNTIME_REVISION);
     encoder.digest(catalog_identity.configuration_digest().bytes());
     encoder.digest(catalog_identity.definitions_digest().bytes());
     encoder.digest(catalog_identity.path_definitions_digest().bytes());
@@ -850,6 +880,7 @@ pub enum StandardUniverseCompileError {
     InvalidPathRuntime,
     InvalidCurioRuntime,
     InvalidRunRuntime,
+    InvalidAbilityRuntime,
     EncounterOverlayParticipantMismatch,
     Topology(crate::topology::UniverseTopologyCompileError),
 }

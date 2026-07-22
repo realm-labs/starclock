@@ -41,7 +41,7 @@ for (const record of records.values()) {
   const source = sourceContent.get(record.id);
   assert(record.source_category === source.category, `${record.id} category differs`);
   assert(policy.allowed_dispositions.includes(record.disposition), `${record.id} has unknown disposition`);
-  assert(record.implementation_state === "Planned", `${record.id} prematurely claims implementation`);
+  assert(record.implementation_state === implementationState(record.partition), `${record.id} implementation state differs`);
   assert(equal(record.linked_rule_ids, sorted(source.row.rule_ids ?? [])), `${record.id} rule links differ`);
 }
 for (const rule of rules.values()) {
@@ -49,14 +49,14 @@ for (const rule of rules.values()) {
   assert(records.has(rule.source_record_id), `${rule.id} source is missing`);
   assert(records.get(rule.source_record_id).partition === rule.partition, `${rule.id} partition differs from source`);
   assert(policy.allowed_dispositions.includes(rule.disposition), `${rule.id} has unknown disposition`);
-  assert(rule.implementation_state === "Planned", `${rule.id} prematurely claims implementation`);
+  assert(rule.implementation_state === implementationState(rule.partition), `${rule.id} implementation state differs`);
   assert((source.native_handler_id ? "StaticNativeHandler" : "GenericActivityIr") === rule.disposition, `${rule.id} native/IR disposition differs`);
   if (source.native_handler_id) assert(rule.target === source.native_handler_id, `${rule.id} handler differs`);
 }
 for (const fixture of fixtures.values()) {
   const source = sourceFixtures.get(fixture.id);
   assert(equal(fixture.input_ids, sorted(source.input_ids)), `${fixture.id} inputs differ`);
-  assert(fixture.implementation_state === "Planned", `${fixture.id} prematurely claims implementation`);
+  assert(fixture.implementation_state === implementationState(fixture.partition), `${fixture.id} implementation state differs`);
   assert(fixture.input_ids.every((id) => records.get(id)?.partition === fixture.partition), `${fixture.id} crosses partitions`);
 }
 
@@ -81,10 +81,15 @@ const document = text("docs/standard-universe-runtime-disposition-register.md");
 for (const marker of ["2,201", "786", "78", "G04-P4-M15", "does not mean implemented"])
   assert(document.includes(marker), `disposition document omits ${marker}`);
 
+const executable = {
+  content_records: dispositions.records.filter((row) => row.implementation_state === "Executable").length,
+  rule_bindings: dispositions.rules.filter((row) => row.implementation_state === "Executable").length,
+  semantic_fixtures: dispositions.fixtures.filter((row) => row.implementation_state === "Executable").length
+};
 const evidence = {
   schema_revision: "starclock.goal04-runtime-disposition-evidence.v1",
   goal_id: policy.goal_id,
-  result: "assigned-not-implemented",
+  result: executable.content_records === dispositions.records.length ? "implemented" : "partially-implemented",
   totals: {
     content_records: dispositions.records.length,
     rule_bindings: dispositions.rules.length,
@@ -105,8 +110,15 @@ const evidence = {
     source_rules_sha256: sha256(`${referenceRoot}/mechanic-rules.json`),
     source_fixtures_sha256: sha256(`${referenceRoot}/review-fixtures.json`)
   },
-  implementation_state: "Planned",
-  executable_count: 0
+  implementation_states: {
+    planned: {
+      content_records: dispositions.records.length - executable.content_records,
+      rule_bindings: dispositions.rules.length - executable.rule_bindings,
+      semantic_fixtures: dispositions.fixtures.length - executable.semantic_fixtures
+    },
+    executable
+  },
+  executable_count: executable.content_records + executable.rule_bindings + executable.semantic_fixtures
 };
 const relative = "evidence/standard-universe-runtime-v1/foundation/runtime-disposition-summary.json";
 const output = `${JSON.stringify(evidence, null, 2)}\n`;
@@ -117,10 +129,11 @@ if (bless) {
   assert(fs.existsSync(path.join(root, relative)), "runtime disposition evidence is missing; run with --bless");
   assert(text(relative).replaceAll("\r\n", "\n") === output, "runtime disposition evidence is stale; run with --bless");
 }
-console.log(`Goal 04 runtime dispositions verified (${records.size} content, ${rules.size} rules, ${fixtures.size} fixtures, ${partitions.partitions.length} exact partitions; 0 implemented).`);
+console.log(`Goal 04 runtime dispositions verified (${records.size} content, ${rules.size} rules, ${fixtures.size} fixtures, ${partitions.partitions.length} exact partitions; ${executable.content_records}/${executable.rule_bindings}/${executable.semantic_fixtures} executable).`);
 
 function uniqueMap(values, label) { const map = new Map(); for (const value of values) { assert(!map.has(value.id), `duplicate ${label} ${value.id}`); map.set(value.id, value); } return map; }
 function counts(values, field, keys) { return Object.fromEntries(keys.map((key) => [key, values.filter((value) => value[field] === key).length])); }
+function implementationState(partition) { return policy.implementation_states?.[partition] ?? policy.default_implementation_state; }
 function sorted(values) { return [...values].sort((a, b) => a < b ? -1 : a > b ? 1 : 0); }
 function equal(left, right) { return JSON.stringify(left) === JSON.stringify(right); }
 function text(relative) { return fs.readFileSync(path.join(root, relative), "utf8"); }

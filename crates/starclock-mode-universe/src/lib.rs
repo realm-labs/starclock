@@ -8,6 +8,7 @@
 #[path = "../../../config/generated/rust/universe_reference/mod.rs"]
 mod generated;
 
+pub mod ability_runtime;
 pub mod battle_overlay;
 pub mod blessing_runtime;
 pub mod catalog;

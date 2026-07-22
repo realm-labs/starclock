@@ -1,9 +1,9 @@
 use std::sync::{Arc, OnceLock};
 
 use starclock_activity::{
-    BuildDigest, LoadoutLockScope, OpaqueParticipantBuild, ParticipantId, ParticipantLock,
-    ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
-    SlotValueKind,
+    ActivityValue, BuildDigest, LoadoutLockScope, OpaqueParticipantBuild, ParticipantId,
+    ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
+    ParticipantUniquenessScope, SlotValueKind,
 };
 use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
 use starclock_mode_universe::{
@@ -251,12 +251,38 @@ fn world_difficulty_roster_and_ability_input_are_definition_identity() {
     assert_eq!(
         base.identity().definition_digest().bytes(),
         [
-            154, 237, 244, 117, 217, 91, 134, 153, 9, 135, 145, 251, 144, 132, 246, 200, 174, 123,
-            48, 26, 75, 6, 133, 60, 15, 165, 146, 48, 41, 71, 158, 220,
+            233, 242, 103, 134, 224, 230, 175, 139, 246, 62, 180, 0, 128, 193, 137, 146, 189, 56,
+            125, 251, 26, 0, 65, 238, 169, 113, 164, 169, 217, 68, 200, 93,
         ]
     );
     assert_eq!(
         base.identity().config_digest().bytes(),
         catalog.identity().configuration_digest().bytes()
     );
+}
+
+#[test]
+fn ability_tree_run_start_currency_is_materialized_into_activity_state() {
+    let catalog = catalog();
+    let world = &catalog.worlds()[0];
+    let all_nodes = catalog
+        .ability_tree_nodes()
+        .iter()
+        .map(|node| node.id())
+        .collect::<Vec<_>>();
+    let compiled = StandardUniverseProfile::new(Arc::clone(&catalog))
+        .compile(StandardUniverseEntry::new(
+            world.id(),
+            world.difficulties()[0],
+            participants(96, standard_policy()),
+            all_nodes,
+        ))
+        .expect("complete Ability Tree entry");
+    let fragments = compiled
+        .state_definition()
+        .slots()
+        .iter()
+        .find(|slot| slot.id() == compiled.cosmic_fragments_slot())
+        .expect("Cosmic Fragment slot");
+    assert_eq!(fragments.initial(), &ActivityValue::BoundedInteger(50));
 }

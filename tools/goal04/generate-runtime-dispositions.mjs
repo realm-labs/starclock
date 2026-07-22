@@ -34,7 +34,7 @@ for (const source of [...recordById.values()].sort((a, b) => ascii(a.value.id, b
     disposition,
     target: dispositionTarget(source, disposition),
     linked_rule_ids: sorted(source.value.rule_ids ?? []),
-    implementation_state: policy.implementation_state
+    implementation_state: implementationState(partition)
   });
 }
 
@@ -52,7 +52,7 @@ const rules = sourceRules.map((rule) => {
     disposition,
     target: rule.native_handler_id || ruleTarget(rule.rule_kind),
     rule_kind: rule.rule_kind,
-    implementation_state: policy.implementation_state
+    implementation_state: implementationState(content.partition)
   };
 }).sort((a, b) => ascii(a.id, b.id));
 
@@ -69,7 +69,7 @@ const fixtures = sourceFixtures.map((fixture) => {
     input_ids: sorted(fixture.input_ids),
     partition: partitions[0],
     harness: fixtureHarness(fixture.mechanic_family),
-    implementation_state: policy.implementation_state
+    implementation_state: implementationState(partitions[0])
   };
 }).sort((a, b) => ascii(a.id, b.id));
 
@@ -173,6 +173,11 @@ function fixtureHarness(family) {
   if (family.startsWith("blessing-tag:") || family.startsWith("path:")) return "activity-battle-contribution";
   if (family.startsWith("encounter-")) return "activity-battle-handoff";
   return "activity-semantic-program";
+}
+function implementationState(partition) {
+  const state = policy.implementation_states?.[partition] ?? policy.default_implementation_state;
+  assert(["Planned", "Executable"].includes(state), `invalid implementation state for ${partition}`);
+  return state;
 }
 function writeOrCheck(relative, value) {
   const output = `${JSON.stringify(value, null, 2)}\n`;

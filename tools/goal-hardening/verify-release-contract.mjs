@@ -58,7 +58,9 @@ const metadata = JSON.parse(execFileSync("cargo", ["metadata", "--format-version
 assert(metadata.workspace_members.length >= 11, "released workspace members are missing");
 const architecture = readJson("evidence/core-combat-v1/hardening/architecture-audit.json");
 assert(architecture.public_api_audit.public_reexports === 41, "public re-export count differs");
-assert(architecture.public_api_audit.public_declarations === 3208, "public declaration count differs");
+// Goal 01 freezes the released floor. Later one-way mode crates may add public
+// domain declarations without weakening or removing the released facades.
+assert(architecture.public_api_audit.public_declarations >= 3208, "public declaration count regressed");
 assert(architecture.public_api_audit.leaked_tokens === 0, "public API leaks implementation tokens");
 
 let localLinks = 0;

@@ -281,11 +281,17 @@ the per-choice Occurrence operation lowering and the versioned policy for the
 52 outcomes whose released weights are unknown. P4-M14 owns service-specific
 shop, enhancement, respite, revival, downloader and roster operations.
 
-Selected Ability Tree nodes compile to a canonical typed contribution set with
-effect class, rule key, external unlocks, exact effects and parameters. P4-M01
-materializes battle-visible contributions into `BattleSpec`; run-only effects
-remain Activity operations. This split prevents Ability Tree or service
-vocabulary from entering the combat resolver.
+Selected Ability Tree nodes compile to a canonical typed contribution set and a
+closed M01 execution catalog. Its 22 targets and seven condition forms are Rust
+domain enums; all ten operations use checked signed six-place arithmetic and
+retain the source node. A caller requests an immutable projection for RunStart,
+BattleStart, elite/boss-domain entry or post-battle boundaries. Node 17's
+initial Cosmic Fragments are written into the Activity slot during profile
+compilation; later service and reward partitions consume the remaining run
+targets through the same projection. Battle-visible values are generic
+stat/resource/unlock contributions, so Ability Tree or service vocabulary never
+enters the combat resolver. Path, Blessing and Curio rules join that boundary in
+their owning partitions before the complete battle integration gate.
 
 Non-spatial interactions are identified by public opaque external-outcome IDs.
 Submission succeeds only when both the decision and outcome are currently
