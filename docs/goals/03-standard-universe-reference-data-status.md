@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Normalized reference pack |
 | Active batch | None |
-| Next unblocked batch | `G03-P1-B5` |
+| Next unblocked batch | `G03-P1-B6` |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -36,7 +36,7 @@
 | `G03-P1-B2` | `Complete` | This row's containing commit | Normalized all nine selectable Paths and 36 Path Resonance/Resonance Formation definitions. Paths retain exact Aeon/display identity, source buff type/groups, unlock reference, three formation-selection thresholds, energy defaults and the exact 18-Blessing membership. Resonances retain kind, threshold, energy policy, released modifier/binding keys, ordered exact parameter vectors, description digests and mechanic tags without redistributing source prose. Bilingual and provenance checks plus deterministic regeneration pass. |
 | `G03-P1-B3` | `Complete` | This row's containing commit | Normalized the exact 18-Blessing pool for each of nine Paths (162 definitions) and both authored levels for every Blessing (324 level rows). Definitions retain rarity, prerequisites, pool/source tags, extra effects, rule IDs and content-specific mechanic tags. Level rows retain ordered canonical-string parameters, modifier/binding keys and bilingual source-description digests; no source prose or binary float enters the pack. Count, uniqueness, parameter transport and byte-regeneration checks pass. |
 | `G03-P1-B4` | `Complete` | This row's containing commit | Corrected the source boundary so `1000/3000` RogueMiracle rows remain Swarm/Gold evidence instead of fake Standard states. Normalized all 61 Standard Curios and 67 lifecycle states: one base active/effect state each plus explicit repairing/fixed phases for six Error Code Curios. Rows retain exact parameter/display vectors, effect IDs, lifecycle charge/transition fields, polarity and mechanic tags, rule references and description digests. Deterministic checks prove every definition/state reference and the 61/67 denominator. |
-| `G03-P1-B5` | `Pending` | — | — |
+| `G03-P1-B5` | `Complete` | This row's containing commit | Normalized all 59 CosmosRogue handbook Occurrences, 55 unique base NPC graphs represented by 67 occurrence-variant bindings, and 321 ordered conditional choices. The importer follows released handbook → NPC → dialogue/option graph references, hashes exact bilingual choice/result text, classifies costs/outcome kinds/targets/numeric literals/chances and retains unlock conditions. 269 choices are `ExactPublicText`; 52 random outcomes without released weights carry an explicit `ProjectPolicy` stable-selection rule and replacement condition. No dialogue prose is committed. |
 | `G03-P1-B6` | `Pending` | — | — |
 | `G03-P1-B7` | `Pending` | — | — |
 | `G03-P1-B8` | `Pending` | — | — |
@@ -69,7 +69,7 @@ Populate only from generated manifests in `G03-P0-B3`.
 | Resonances/Formations | 36 | 36 | 36 | Four per Path; Interplays are excluded. |
 | Blessings/upgrades | 162 / 324 levels | 162 / 324 | 162 / 324 | Exactly 18 Blessings and two levels per Path. |
 | Curios/states | 61 / 61 source effects / 67 normalized states | 61 / 61 / 67 | 61 / 61 / 67 | CosmosRogue type 100; six Error Codes derive repairing/fixed phases from one released effect row each. |
-| Occurrences/choices | 59 / 55 base variants | 59 / 55 | 0 | Four index records lack a base-mode NPC variant and remain normalized as index-only. |
+| Occurrences/choices | 59 / 55 source variants | 59 / 55 | 59 / 55 source variants / 67 bindings / 321 choices | Shared base NPC graphs may bind multiple handbook entries; hidden random weights use explicit policy. |
 | Services/currency rules | 108 | 108 | 0 | 79 run bonuses plus 29 base shops; currency constants are normalized in P1. |
 | Ability Tree | 42 | 42 | 0 | Battle/run/reward classification occurs in P1-B7. |
 | Encounter pools | 154 groups / 347 members | 154 / 347 | 0 | Directly reachable from base combat/encounter/elite/boss room content maps. |
@@ -90,7 +90,7 @@ Populate only from generated manifests in `G03-P0-B3`.
 | ID | State | Question | Owner |
 |---|---|---|---|
 | `G03-R01` | `Resolved` | Concrete membership is frozen by source schedule, CosmosRogue type, canonical ID family, base NPC prefix and room-content reachability rules in `content-manifest.json`. | P0-B3 |
-| `G03-R02` | `Open` | Which hidden occurrence conditions/outcomes are not proven by structured rows? | P1-B5 |
+| `G03-R02` | `Resolved` | All released base NPC/option graphs are imported. Fifty-two choice outcomes mention randomness without exact weights and are labeled `ProjectPolicy: StableUniformOrderedCandidates` with a replacement condition. | P1-B5 |
 | `G03-R03` | `Open` | Which Curio effects require battle ability-program inspection or explicit policy? | P1-B4 |
 | `G03-R04` | `Open` | Which Ability Tree nodes affect battle/run state versus account rewards only? | P1-B7 |
 
