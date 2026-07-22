@@ -1,6 +1,8 @@
 //! Generated-row-free immutable Standard Universe definitions.
 
-use crate::digest::{UniverseDefinitionsDigest, UniversePathDefinitionsDigest};
+use crate::digest::{
+    UniverseCurioDefinitionsDigest, UniverseDefinitionsDigest, UniversePathDefinitionsDigest,
+};
 use crate::id::{
     ActivityBindingId, DifficultyId, DomainId, RoomId, TopologyId, TopologyNodeId,
     UniverseProfileId, WorldId,
@@ -635,6 +637,7 @@ impl UniverseActivityBindingDefinition {
 pub(crate) struct UniverseDefinitions {
     pub(crate) digest: UniverseDefinitionsDigest,
     pub(crate) path_digest: UniversePathDefinitionsDigest,
+    pub(crate) curio_digest: UniverseCurioDefinitionsDigest,
     pub(crate) profile: UniverseProfileDefinition,
     pub(crate) worlds: Box<[WorldDefinition]>,
     pub(crate) difficulties: Box<[DifficultyDefinition]>,
@@ -646,4 +649,6 @@ pub(crate) struct UniverseDefinitions {
     pub(crate) blessings: Box<[BlessingDefinition]>,
     pub(crate) blessing_levels: Box<[BlessingLevelDefinition]>,
     pub(crate) resonances: Box<[ResonanceDefinition]>,
+    pub(crate) curios: Box<[crate::curio::CurioDefinition]>,
+    pub(crate) curio_states: Box<[crate::curio::CurioStateDefinition]>,
 }

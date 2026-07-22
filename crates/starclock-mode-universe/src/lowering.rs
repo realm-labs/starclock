@@ -40,9 +40,11 @@ pub(crate) fn lower(config: &SoraConfig) -> Result<UniverseDefinitions, Universe
     let rooms = lower_rooms(config, &domains)?;
     let activity = lower_activity(config, profile.id(), &domains)?;
     let path_definitions = crate::path_lowering::lower(config)?;
+    let curio_definitions = crate::curio_lowering::lower(config)?;
     let mut definitions = UniverseDefinitions {
         digest: UniverseDefinitionsDigest::new([0; 32]),
         path_digest: path_definitions.digest,
+        curio_digest: curio_definitions.digest,
         profile,
         worlds,
         difficulties,
@@ -54,6 +56,8 @@ pub(crate) fn lower(config: &SoraConfig) -> Result<UniverseDefinitions, Universe
         blessings: path_definitions.blessings,
         blessing_levels: path_definitions.levels,
         resonances: path_definitions.resonances,
+        curios: curio_definitions.curios,
+        curio_states: curio_definitions.states,
     };
     definitions.digest = digest(&definitions);
     Ok(definitions)

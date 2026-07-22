@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
 | Active phase | Phase 1 — Universe bundle and domain catalog |
-| Active batch | None |
-| Next unblocked batch | `G04-P1-B4` |
+| Active batch | `G04-P1-B5` |
+| Next unblocked batch | `G04-P1-B5` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -43,7 +43,7 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P1-B1` | `Complete` | This row's containing commit | Added the 12th workspace crate with a private 49-table Sora reader, strict frozen core/Universe/profile compatibility checks and a generated-row-free catalog identity. Three tests load the exact bundles and reject wrong, tampered and revision-mismatched inputs. Composed configuration digest: `7926226540a97faa416ececd38fd865b5f3ef1d77efc8c1107dc5f8697204fcd`. |
 | `G04-P1-B2` | `Complete` | This row's containing commit | Lowered one profile, 9 Worlds, 33 difficulties, 9 abstract domains, 37 acyclic/reachable topologies with 579 nodes/707 edges, 163 rooms and the complete 9-domain Activity binding into generated-row-free immutable definitions. Coordinates are excluded, embedded score curves are typed/bounded, every structural reference is validated and the canonical definition digest is `f9b87efb14e0a376cea18379de7f87ed939acea417a7334e7ea93c7e33b0b430`. Evidence: `evidence/standard-universe-runtime-v1/catalog/structural-definitions.json`. |
 | `G04-P1-B3` | `Complete` | This row's containing commit | Lowered 9 Paths, 162 Blessings, 324 base/enhanced levels, 72 prerequisite policies, 638 Blessing parameters, 9 Resonances, 27 Formations and 238 Resonance parameters. Parent/order/rule references close exactly. Author decimals retain coefficient+scale up to 10 places and defer explicit rounding to six-place combat compilation. Canonical digest: `491d76e6bdbb0a932d2040a652c084c82b48860fd84fcfdea9d21404f9fb4bb5`. |
-| `G04-P1-B4` | `Pending` | — | — |
+| `G04-P1-B4` | `Complete` | This row's containing commit | Lowered 61 Curios, 67 lifecycle states and 89 exact parameters. Initial-state ownership, 55 active/6 repairing/6 fixed states, 9 charge counters, 3 one-based parameter bindings, 6 repair transitions, mechanic rules and the currently empty replacement relation validate without exposing Sora rows. Canonical digest: `b62e2ad9c012a636b45bbf0cbdff5373500c069c000cc470b4c9527c70a7a027`. |
 | `G04-P1-B5` | `Pending` | — | — |
 | `G04-P1-B6` | `Pending` | — | — |
 | `G04-P2-B1` | `Pending` | — | — |
@@ -104,7 +104,7 @@ machine-generated runtime-disposition manifest without changing these counts.
 | Difficulties | 33 | 33 assigned | 33 catalog-verified |
 | Blessings / levels | 162 / 324 | 162 / 324 assigned | 162 / 324 catalog-verified |
 | Resonances/Formations | 36 | 36 assigned | 36 catalog-verified |
-| Curios / states | 61 / 67 | 61 / 67 assigned | 0 / 0 |
+| Curios / states | 61 / 67 | 61 / 67 assigned | 61 / 67 catalog-verified |
 | Occurrences / choices | 59 / 321 | 59 / 321 assigned | 0 / 0 |
 | Encounter groups / enemy slots | 74 / 538 | 74 / 538 assigned | 0 / 0 |
 

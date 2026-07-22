@@ -9,11 +9,13 @@
 mod generated;
 
 pub mod catalog;
+pub mod curio;
 pub mod definition;
 pub mod digest;
 pub mod error;
 pub mod id;
 pub mod path;
 
+mod curio_lowering;
 mod lowering;
 mod path_lowering;

@@ -1,0 +1,36 @@
+{
+  "schema_revision": "starclock.goal04-curio-catalog-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P1-B4",
+  "result": "curio-lifecycle-catalog-lowered",
+  "definitions_digest": "b62e2ad9c012a636b45bbf0cbdff5373500c069c000cc470b4c9527c70a7a027",
+  "counts": {
+    "curios": 61,
+    "states": 67,
+    "parameters": 89,
+    "active_states": 55,
+    "repairing_states": 6,
+    "fixed_states": 6,
+    "charged_states": 9,
+    "charge_parameter_references": 3,
+    "next_transitions": 6,
+    "repair_transitions": 6,
+    "replacement_references": 0
+  },
+  "shape": {
+    "maximum_author_decimal_scale": 10,
+    "combat_decimal_scale": 6,
+    "coordinates_loaded": false,
+    "replacement_reference_supported": true
+  },
+  "boundaries": {
+    "generated_rows_public": false,
+    "authoritative_float": false,
+    "authored_decimal_exact_until_formula_compilation": true,
+    "all_parent_initial_rule_and_lifecycle_references_validated": true,
+    "replacement_reference_modeled_without_fabricated_rows": true,
+    "runtime_logic_implemented": false
+  },
+  "new_registry_packages": 0,
+  "focused_tests": 4
+}

@@ -338,7 +338,10 @@ fn lower_paths(
     Ok(definitions.into_boxed_slice())
 }
 
-fn validate_rule(config: &SoraConfig, key: &str) -> Result<(), UniverseCatalogLoadError> {
+pub(crate) fn validate_rule(
+    config: &SoraConfig,
+    key: &str,
+) -> Result<(), UniverseCatalogLoadError> {
     checked_key(key, "Universe mechanic rule key")?;
     if config
         .universe_mechanic_rule()
@@ -351,7 +354,7 @@ fn validate_rule(config: &SoraConfig, key: &str) -> Result<(), UniverseCatalogLo
     }
 }
 
-fn tags(
+pub(crate) fn tags(
     values: Option<&[String]>,
     label: &str,
 ) -> Result<Box<[Box<str>]>, UniverseCatalogLoadError> {
@@ -374,7 +377,7 @@ fn tags(
     Ok(result.into_boxed_slice())
 }
 
-fn parameter_groups<'a>(
+pub(crate) fn parameter_groups<'a>(
     rows: impl IntoIterator<Item = (i32, i32, &'a str)>,
     label: &str,
 ) -> Result<BTreeMap<i32, Vec<ExactParameter>>, UniverseCatalogLoadError> {
@@ -445,7 +448,7 @@ fn string_groups<'a>(
         .collect()
 }
 
-fn parse_decimal(value: &str) -> Result<ExactParameter, UniverseCatalogLoadError> {
+pub(crate) fn parse_decimal(value: &str) -> Result<ExactParameter, UniverseCatalogLoadError> {
     let (negative, unsigned) = value
         .strip_prefix('-')
         .map_or((false, value), |rest| (true, rest));

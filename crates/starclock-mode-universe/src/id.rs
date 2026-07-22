@@ -43,3 +43,5 @@ id_type!(
     ResonanceId,
     "Stable authored Path Resonance or Formation ID."
 );
+id_type!(CurioId, "Stable authored Curio ID.");
+id_type!(CurioStateId, "Stable authored Curio lifecycle-state ID.");

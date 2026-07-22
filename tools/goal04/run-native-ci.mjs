@@ -13,6 +13,7 @@ for (const [command, args] of [
   ["node", ["tools/goal04/verify-catalog-bootstrap.mjs", "."]],
   ["node", ["tools/goal04/verify-structural-catalog.mjs", "."]],
   ["node", ["tools/goal04/verify-path-catalog.mjs", "."]],
+  ["node", ["tools/goal04/verify-curio-catalog.mjs", "."]],
   ["cargo", ["test", "-p", "starclock-mode-universe", "--all-targets", "--all-features"]],
   ["node", ["tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]]
 ]) execFileSync(command, args, { stdio: "inherit" });

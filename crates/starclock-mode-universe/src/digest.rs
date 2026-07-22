@@ -42,6 +42,10 @@ digest_type!(
     UniversePathDefinitionsDigest,
     "Canonical identity of lowered Path, Blessing and Resonance definitions."
 );
+digest_type!(
+    UniverseCurioDefinitionsDigest,
+    "Canonical identity of lowered Curio and lifecycle-state definitions."
+);
 
 pub(crate) fn bundle_digest(bytes: &[u8]) -> UniverseBundleDigest {
     UniverseBundleDigest::new(Sha256::digest(bytes).into())

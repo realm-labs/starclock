@@ -122,6 +122,10 @@
       "command": ["node", "tools/goal04/verify-path-catalog.mjs", "."]
     },
     {
+      "name": "Goal 04 Curio catalog",
+      "command": ["node", "tools/goal04/verify-curio-catalog.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

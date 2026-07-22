@@ -2,20 +2,21 @@
 
 use std::sync::Arc;
 
+use crate::curio::{CurioDefinition, CurioStateDefinition};
 use crate::definition::{
     DifficultyDefinition, DomainDefinition, RoomDefinition, TopologyDefinition,
     UniverseActivityBindingDefinition, UniverseDefinitions, UniverseProfileDefinition,
     WorldDefinition,
 };
 use crate::digest::{
-    ActivityConfigurationDigest, Encoder, UniverseBundleDigest, UniverseDefinitionsDigest,
-    UniversePathDefinitionsDigest, UniverseProfileDigest, bundle_digest,
+    ActivityConfigurationDigest, Encoder, UniverseBundleDigest, UniverseCurioDefinitionsDigest,
+    UniverseDefinitionsDigest, UniversePathDefinitionsDigest, UniverseProfileDigest, bundle_digest,
 };
 use crate::error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind};
 use crate::generated::{SoraConfig, runtime::SoraBundle};
 use crate::id::{
-    BlessingId, BlessingLevelId, DifficultyId, DomainId, PathId, ResonanceId, RoomId, TopologyId,
-    WorldId,
+    BlessingId, BlessingLevelId, CurioId, CurioStateId, DifficultyId, DomainId, PathId,
+    ResonanceId, RoomId, TopologyId, WorldId,
 };
 use crate::path::{
     BlessingDefinition, BlessingLevelDefinition, PathDefinition, ResonanceDefinition,
@@ -61,6 +62,7 @@ pub struct UniverseCatalogIdentity {
     profile: UniverseProfileDigest,
     definitions: UniverseDefinitionsDigest,
     path_definitions: UniversePathDefinitionsDigest,
+    curio_definitions: UniverseCurioDefinitionsDigest,
     configuration: ActivityConfigurationDigest,
 }
 
@@ -108,6 +110,10 @@ impl UniverseCatalogIdentity {
     #[must_use]
     pub const fn path_definitions_digest(&self) -> UniversePathDefinitionsDigest {
         self.path_definitions
+    }
+    #[must_use]
+    pub const fn curio_definitions_digest(&self) -> UniverseCurioDefinitionsDigest {
+        self.curio_definitions
     }
     #[must_use]
     pub const fn configuration_digest(&self) -> ActivityConfigurationDigest {
@@ -178,6 +184,7 @@ impl UniverseCatalog {
             profile: profile_digest,
             definitions: definitions.digest,
             path_definitions: definitions.path_digest,
+            curio_definitions: definitions.curio_digest,
             configuration,
         };
         Ok(Arc::new(Self {
@@ -306,6 +313,26 @@ impl UniverseCatalog {
     #[must_use]
     pub fn resonance(&self, id: ResonanceId) -> Option<&ResonanceDefinition> {
         lookup(&self.definitions.resonances, id, ResonanceDefinition::id)
+    }
+
+    #[must_use]
+    pub fn curios(&self) -> &[CurioDefinition] {
+        &self.definitions.curios
+    }
+
+    #[must_use]
+    pub fn curio(&self, id: CurioId) -> Option<&CurioDefinition> {
+        lookup(&self.definitions.curios, id, CurioDefinition::id)
+    }
+
+    #[must_use]
+    pub fn curio_states(&self) -> &[CurioStateDefinition] {
+        &self.definitions.curio_states
+    }
+
+    #[must_use]
+    pub fn curio_state(&self, id: CurioStateId) -> Option<&CurioStateDefinition> {
+        lookup(&self.definitions.curio_states, id, CurioStateDefinition::id)
     }
 
     /// Returns the number of privately loaded Sora tables without exposing them.
@@ -589,6 +616,31 @@ mod tests {
         assert_eq!(catalog.blessings().len(), 162);
         assert_eq!(catalog.blessing_levels().len(), 324);
         assert_eq!(catalog.resonances().len(), 36);
+        assert_eq!(catalog.curios().len(), 61);
+        assert_eq!(catalog.curio_states().len(), 67);
+        assert_eq!(
+            catalog
+                .curio_states()
+                .iter()
+                .map(|value| value.parameters().len())
+                .sum::<usize>(),
+            89
+        );
+        assert_eq!(
+            catalog
+                .curio_states()
+                .iter()
+                .filter(|value| value.next_state().is_some())
+                .count(),
+            6
+        );
+        for curio in catalog.curios() {
+            let initial = catalog
+                .curio_state(curio.initial_state())
+                .expect("Curio initial state");
+            assert_eq!(initial.curio(), curio.id());
+            assert!(!curio.states().is_empty());
+        }
         assert_eq!(
             catalog
                 .blessing_levels()
@@ -631,6 +683,14 @@ mod tests {
                 0x49, 0x1d, 0x76, 0xe6, 0xbd, 0xbb, 0x0a, 0x93, 0x2d, 0x20, 0x40, 0xa6, 0x52, 0xc0,
                 0x84, 0xc8, 0x2b, 0x48, 0x86, 0x0f, 0xd8, 0x4f, 0xcf, 0xde, 0xa9, 0xd2, 0x14, 0x04,
                 0xf9, 0xfb, 0x4b, 0xb5,
+            ]
+        );
+        assert_eq!(
+            catalog.identity().curio_definitions_digest().bytes(),
+            [
+                0xb6, 0x2e, 0x2a, 0xd9, 0xc0, 0x12, 0xa6, 0x36, 0xb4, 0x5b, 0xbf, 0x0c, 0xbd, 0xff,
+                0x53, 0x73, 0x50, 0x0c, 0x06, 0x9c, 0x00, 0x0c, 0xc4, 0x70, 0xb4, 0xc9, 0x52, 0x7c,
+                0x70, 0xa7, 0xa0, 0x27,
             ]
         );
         assert_eq!(
