@@ -8,7 +8,12 @@ use starclock_combat::{
     PresenceState, TeamSide,
 };
 
-use crate::schema::{AgentSInt, AgentUInt, EventCursor};
+use crate::{
+    action::OfferedAction,
+    schema::{
+        AgentHash, AgentSInt, AgentSchemaRevision, AgentUInt, EventCursor, ScenarioId, SessionId,
+    },
+};
 
 /// Human-readable responsibility marker used by architecture tests.
 pub const RESPONSIBILITY: &str = "owned visibility-controlled projections";
@@ -137,6 +142,24 @@ pub struct AgentBattleView {
     pub units: Box<[AgentUnitView]>,
     pub effects: Box<[AgentEffectView]>,
     pub timeline: Box<[AgentTimelineView]>,
+}
+
+/// Complete frozen player-visible observation envelope.
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentObservation {
+    pub schema_revision: AgentSchemaRevision,
+    pub session_id: SessionId,
+    pub scenario_id: ScenarioId,
+    pub catalog_digest: AgentHash,
+    pub decision_id: Option<AgentUInt>,
+    pub state_hash: AgentHash,
+    pub event_cursor: EventCursor,
+    pub visibility_policy: VisibilityPolicy,
+    pub status: AgentBattleStatus,
+    pub battle: AgentBattleView,
+    pub legal_actions: Box<[OfferedAction]>,
+    pub events: Box<[AgentEventSummary]>,
+    pub events_truncated: bool,
 }
 
 /// Explicit in-process acknowledgement required before requesting debug mode.

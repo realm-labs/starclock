@@ -3,6 +3,8 @@
 //! Sessions compose deterministic Goal 01 libraries while operational identity,
 //! time, ownership, expiry, quotas and idempotency remain outside domain state.
 
+use std::collections::BTreeMap;
+
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use starclock_ai::EnemyController;
@@ -17,13 +19,18 @@ use starclock_replay::battle::BattleTraceEntry;
 use crate::{
     action::{ActionBindingError, OfferedAction, OfferedActionSet},
     error::{AgentError, AgentErrorCode},
-    observation::VisibilityPolicy,
-    schema::{ActionToken, AgentHash, AgentUInt, ScenarioId, SessionId},
+    observation::{AgentBattleStatus, AgentObservation, VisibilityPolicy, project_player_visible},
+    schema::{
+        ActionToken, AgentHash, AgentSchemaRevision, AgentUInt, EventCursor, IdempotencyKey,
+        ScenarioId, SessionId,
+    },
 };
 
 /// Human-readable responsibility marker used by architecture tests.
 pub const RESPONSIBILITY: &str = "ephemeral authoritative sessions and registry";
 pub const MAX_ACCEPTED_COMMANDS_PER_SETTLEMENT: usize = 4_096;
+pub const MAX_IDEMPOTENCY_ENTRIES: usize = 1_024;
+pub const MAX_CACHED_RESPONSE_BYTES: usize = 512 * 1_024;
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
@@ -38,6 +45,16 @@ pub struct CreateSessionRequest {
     pub scenario_id: ScenarioId,
     pub seed: AgentSeedPolicy,
     pub visibility_policy: VisibilityPolicy,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct PlayActionRequest {
+    pub schema_revision: AgentSchemaRevision,
+    pub session_id: SessionId,
+    pub decision_id: AgentUInt,
+    pub expected_state_hash: AgentHash,
+    pub action_token: ActionToken,
+    pub idempotency_key: IdempotencyKey,
 }
 
 /// Validated shared production catalog factory; mutable battles are never shared.
@@ -91,6 +108,7 @@ impl AgentSessionFactory {
             enemy: EnemyController::new(enemy_seed),
             offered: None,
             replay: AgentReplayRecorder::default(),
+            idempotency: BTreeMap::new(),
         };
         session.settle_to_player(MAX_ACCEPTED_COMMANDS_PER_SETTLEMENT)?;
         Ok(session)
@@ -117,7 +135,32 @@ pub struct AcceptedCommandRecord {
 pub struct AgentSettlement {
     pub accepted_commands: AgentUInt,
     pub emitted_events: AgentUInt,
+    pub resolver_operations: AgentUInt,
     pub controllers: Box<[AcceptedCommandRecord]>,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentSettlementSummary {
+    pub accepted_commands: AgentUInt,
+    pub emitted_events: AgentUInt,
+    pub resolver_operations: AgentUInt,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentActionResponse {
+    pub schema_revision: AgentSchemaRevision,
+    pub session_id: SessionId,
+    pub committed: bool,
+    pub idempotent_replay: bool,
+    pub accepted_action_token: ActionToken,
+    pub settlement: AgentSettlementSummary,
+    pub observation: AgentObservation,
+}
+
+struct CachedActionResponse {
+    request: PlayActionRequest,
+    response: AgentActionResponse,
+    canonical_json: Box<[u8]>,
 }
 
 /// Incremental accepted-command recorder owned by exactly one session.
@@ -140,6 +183,7 @@ pub struct AgentSession {
     enemy: EnemyController,
     offered: Option<OfferedActionSet>,
     replay: AgentReplayRecorder,
+    idempotency: BTreeMap<IdempotencyKey, CachedActionResponse>,
 }
 
 impl AgentSession {
@@ -189,6 +233,11 @@ impl AgentSession {
     }
 
     #[must_use]
+    pub const fn rng_draw_count(&self) -> u64 {
+        self.battle.view().rng_draw_count()
+    }
+
+    #[must_use]
     pub fn offered_actions(&self) -> &[OfferedAction] {
         self.offered.as_ref().map_or(&[], OfferedActionSet::actions)
     }
@@ -198,7 +247,97 @@ impl AgentSession {
         &self.replay.controllers
     }
 
-    pub fn play_action(&mut self, token: &ActionToken) -> Result<AgentSettlement, AgentError> {
+    /// Applies one preconditioned action or returns the byte-identical cached response.
+    pub fn apply_action(
+        &mut self,
+        request: PlayActionRequest,
+    ) -> Result<AgentActionResponse, AgentError> {
+        if request.session_id != self.id {
+            return Err(agent_error(
+                AgentErrorCode::SessionNotOwned,
+                "The action request does not belong to this session.",
+            ));
+        }
+        if let Some(cached) = self.idempotency.get(&request.idempotency_key) {
+            if cached.request == request {
+                debug_assert_eq!(
+                    serde_json::to_vec(&cached.response).expect("cached response serializes"),
+                    cached.canonical_json.as_ref()
+                );
+                return Ok(cached.response.clone());
+            }
+            return Err(agent_error(
+                AgentErrorCode::IdempotencyConflict,
+                "The idempotency key is already bound to a different request.",
+            ));
+        }
+        if self.idempotency.len() == MAX_IDEMPOTENCY_ENTRIES {
+            return Err(agent_error(
+                AgentErrorCode::SessionQuotaExceeded,
+                "The session idempotency cache reached its fixed entry limit.",
+            ));
+        }
+        let current_decision = self
+            .offered
+            .as_ref()
+            .map(OfferedActionSet::decision_id)
+            .ok_or_else(|| {
+                agent_error(
+                    AgentErrorCode::StaleDecision,
+                    "The session has no current external decision.",
+                )
+            })?;
+        if request.decision_id != current_decision {
+            return Err(agent_error(
+                AgentErrorCode::StaleDecision,
+                "The requested decision is no longer current.",
+            ));
+        }
+        if request.expected_state_hash != self.state_hash() {
+            return Err(agent_error(
+                AgentErrorCode::StaleStateHash,
+                "The expected state hash does not match the current battle state.",
+            ));
+        }
+
+        let settlement = self.play_token(&request.action_token)?;
+        let response = AgentActionResponse {
+            schema_revision: AgentSchemaRevision::V1,
+            session_id: self.id.clone(),
+            committed: true,
+            idempotent_replay: false,
+            accepted_action_token: request.action_token.clone(),
+            settlement: AgentSettlementSummary {
+                accepted_commands: settlement.accepted_commands,
+                emitted_events: settlement.emitted_events,
+                resolver_operations: settlement.resolver_operations,
+            },
+            observation: self.observation()?,
+        };
+        let canonical_json = serde_json::to_vec(&response).map_err(|_| {
+            committed_error(
+                AgentErrorCode::AdapterFailure,
+                "The committed action response could not be serialized.",
+            )
+        })?;
+        if canonical_json.len() > MAX_CACHED_RESPONSE_BYTES {
+            return Err(committed_error(
+                AgentErrorCode::ObservationTooLarge,
+                "The committed action response exceeds its fixed cache limit.",
+            ));
+        }
+        self.idempotency.insert(
+            request.idempotency_key.clone(),
+            CachedActionResponse {
+                request,
+                response: response.clone(),
+                canonical_json: canonical_json.into_boxed_slice(),
+            },
+        );
+        Ok(response)
+    }
+
+    fn play_token(&mut self, token: &ActionToken) -> Result<AgentSettlement, AgentError> {
         let offered = self.offered.as_ref().ok_or_else(|| {
             agent_error(
                 AgentErrorCode::CombatRejected,
@@ -221,9 +360,50 @@ impl AgentSession {
                     .expect("settlement command bound fits u64"),
             ),
             emitted_events: AgentUInt::from_u64(events),
+            resolver_operations: AgentUInt::from_u64(0),
             controllers: self.replay.controllers[controller_start..]
                 .to_vec()
                 .into_boxed_slice(),
+        })
+    }
+
+    fn observation(&self) -> Result<AgentObservation, AgentError> {
+        let view = self.battle.view();
+        let status = match view.phase() {
+            BattlePhase::AwaitingCommand => AgentBattleStatus::AwaitingPlayer,
+            BattlePhase::Won => AgentBattleStatus::Won,
+            BattlePhase::Lost => AgentBattleStatus::Lost,
+            BattlePhase::Faulted => AgentBattleStatus::Faulted,
+            BattlePhase::Initializing | BattlePhase::Resolving => {
+                return Err(agent_error(
+                    AgentErrorCode::AdapterFailure,
+                    "The session observation boundary is not stable.",
+                ));
+            }
+        };
+        Ok(AgentObservation {
+            schema_revision: AgentSchemaRevision::V1,
+            session_id: self.id.clone(),
+            scenario_id: self.scenario.clone(),
+            catalog_digest: AgentHash::from_bytes(view.identity().catalog_digest().bytes()),
+            decision_id: self.offered.as_ref().map(OfferedActionSet::decision_id),
+            state_hash: self.state_hash(),
+            event_cursor: EventCursor::parse("event_0")
+                .expect("static initial event cursor is valid"),
+            visibility_policy: self.visibility,
+            status,
+            battle: project_player_visible(view).map_err(|_| {
+                agent_error(
+                    AgentErrorCode::AdapterFailure,
+                    "The stable battle could not be projected.",
+                )
+            })?,
+            legal_actions: self.offered.as_ref().map_or_else(
+                || Vec::new().into_boxed_slice(),
+                |offered| offered.actions().to_vec().into_boxed_slice(),
+            ),
+            events: Box::new([]),
+            events_truncated: false,
         })
     }
 
@@ -437,6 +617,10 @@ fn agent_error(code: AgentErrorCode, message: &'static str) -> AgentError {
     AgentError::new(code, message, false, false).expect("static session error is bounded")
 }
 
+fn committed_error(code: AgentErrorCode, message: &'static str) -> AgentError {
+    AgentError::new(code, message, false, true).expect("static session error is bounded")
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -449,6 +633,17 @@ mod tests {
             scenario_id: ScenarioId::parse(scenario).unwrap(),
             seed,
             visibility_policy: VisibilityPolicy::PlayerVisible,
+        }
+    }
+
+    fn play_request(session: &AgentSession, token: ActionToken, key: &str) -> PlayActionRequest {
+        PlayActionRequest {
+            schema_revision: AgentSchemaRevision::V1,
+            session_id: session.session_id().clone(),
+            decision_id: session.offered.as_ref().unwrap().decision_id(),
+            expected_state_hash: session.state_hash(),
+            action_token: token,
+            idempotency_key: IdempotencyKey::parse(key).unwrap(),
         }
     }
 
@@ -524,17 +719,19 @@ mod tests {
             .unwrap()
             .token
             .clone();
+        let request = play_request(&session, token, "external_action_1");
         let before = session.replay_command_count();
-        let settlement = session.play_action(&token).unwrap();
-        assert!(settlement.accepted_commands.to_u64() >= 1);
-        assert!(settlement.emitted_events.to_u64() >= 1);
+        let controller_before = session.controller_records().len();
+        let response = session.apply_action(request).unwrap();
+        assert!(response.settlement.accepted_commands.to_u64() >= 1);
+        assert!(response.settlement.emitted_events.to_u64() >= 1);
         assert_eq!(
-            settlement.controllers[0].controller,
+            session.controller_records()[controller_before].controller,
             AgentControllerKind::ExternalPlayer
         );
         assert_eq!(
             session.replay_command_count() - before,
-            usize::try_from(settlement.accepted_commands.to_u64()).unwrap()
+            usize::try_from(response.settlement.accepted_commands.to_u64()).unwrap()
         );
         assert!(
             session
@@ -546,5 +743,105 @@ mod tests {
                 })
         );
         assert!(session.phase().is_terminal() || !session.offered_actions().is_empty());
+    }
+
+    #[test]
+    fn response_loss_retry_returns_identical_bytes_without_a_second_commit() {
+        let factory = AgentSessionFactory::load_production().unwrap();
+        let mut session = factory
+            .create(request(SCENARIOS[0].0, AgentSeedPolicy::ScenarioDefault))
+            .unwrap();
+        let token = session
+            .offered_actions()
+            .iter()
+            .find(|action| action.kind != crate::action::AgentActionKind::Concede)
+            .unwrap()
+            .token
+            .clone();
+        let request = play_request(&session, token, "lost_response_1");
+        let first = session.apply_action(request.clone()).unwrap();
+        let first_bytes = serde_json::to_vec(&first).unwrap();
+        let committed_snapshot = (
+            session.state_hash(),
+            session.replay_command_count(),
+            session.rng_draw_count(),
+            session.controller_records().len(),
+        );
+
+        let retry = session.apply_action(request).unwrap();
+        assert_eq!(serde_json::to_vec(&retry).unwrap(), first_bytes);
+        assert_eq!(
+            (
+                session.state_hash(),
+                session.replay_command_count(),
+                session.rng_draw_count(),
+                session.controller_records().len(),
+            ),
+            committed_snapshot
+        );
+        assert_eq!(session.idempotency.len(), 1);
+    }
+
+    #[test]
+    fn stale_forged_conflicting_and_racing_equivalent_requests_are_inert() {
+        let factory = AgentSessionFactory::load_production().unwrap();
+        let mut session = factory
+            .create(request(SCENARIOS[0].0, AgentSeedPolicy::ScenarioDefault))
+            .unwrap();
+        let token = session.offered_actions()[0].token.clone();
+        let mut stale_hash = play_request(&session, token.clone(), "stale_hash");
+        stale_hash.expected_state_hash = AgentHash::from_bytes([0x77; 32]);
+        let before = (
+            session.state_hash(),
+            session.replay_command_count(),
+            session.rng_draw_count(),
+        );
+        assert_eq!(
+            session.apply_action(stale_hash).unwrap_err().code,
+            AgentErrorCode::StaleStateHash
+        );
+
+        let mut forged = play_request(&session, token.clone(), "forged");
+        forged.action_token = ActionToken::parse("a_forged").unwrap();
+        assert_eq!(
+            session.apply_action(forged).unwrap_err().code,
+            AgentErrorCode::InvalidActionToken
+        );
+        assert_eq!(
+            (
+                session.state_hash(),
+                session.replay_command_count(),
+                session.rng_draw_count(),
+            ),
+            before
+        );
+
+        let committed_request = play_request(&session, token, "one_commit");
+        let mut racing_request = committed_request.clone();
+        racing_request.idempotency_key = IdempotencyKey::parse("racing_loser").unwrap();
+        session.apply_action(committed_request.clone()).unwrap();
+        let after_commit = (
+            session.state_hash(),
+            session.replay_command_count(),
+            session.rng_draw_count(),
+        );
+        let mut conflict = committed_request;
+        conflict.action_token = ActionToken::parse("a_conflict").unwrap();
+        assert_eq!(
+            session.apply_action(conflict).unwrap_err().code,
+            AgentErrorCode::IdempotencyConflict
+        );
+        assert_eq!(
+            session.apply_action(racing_request).unwrap_err().code,
+            AgentErrorCode::StaleDecision
+        );
+        assert_eq!(
+            (
+                session.state_hash(),
+                session.replay_command_count(),
+                session.rng_draw_count(),
+            ),
+            after_commit
+        );
     }
 }

@@ -9,6 +9,7 @@ workspace = true
 
 [dependencies]
 serde.workspace = true
+serde_json.workspace = true
 sha2.workspace = true
 starclock-ai = { path = "../starclock-ai" }
 starclock-combat = { path = "../starclock-combat" }
@@ -17,4 +18,3 @@ starclock-replay = { path = "../starclock-replay" }
 
 [dev-dependencies]
 proptest.workspace = true
-serde_json.workspace = true

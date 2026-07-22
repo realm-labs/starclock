@@ -23,7 +23,7 @@ const expectedExternal = new Map([
   ["starclock-agent-api", [
     { name: "proptest", requirement: "=1.11.0", features: ["std"], kind: "dev" },
     { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
-    { name: "serde_json", requirement: "=1.0.151", features: ["std"], kind: "dev" },
+    { name: "serde_json", requirement: "=1.0.151", features: ["std"] },
     { name: "sha2", requirement: "=0.11.0", features: [] },
   ]],
   ["starclock-combat", [
@@ -102,7 +102,7 @@ const cli = packages.find((entry) => entry.name === "starclock-cli");
 const cliBinaries = cli.targets.filter((target) => target.kind.includes("bin")).map((target) => target.name);
 assert(JSON.stringify(cliBinaries) === JSON.stringify(["starclock"]), "starclock-cli must own only the starclock binary");
 const agentApi = packages.find((entry) => entry.name === "starclock-agent-api");
-assert(agentApi.dependencies.every((dependency) => ["starclock-ai", "starclock-combat", "starclock-data", "starclock-replay", "serde", "sha2"].includes(dependency.name) || (dependency.kind === "dev" && ["proptest", "serde_json"].includes(dependency.name))), "starclock-agent-api may use only reviewed Goal 01 controller/composition/replay boundaries, deterministic serialization/token-digest dependencies and property-test tooling");
+assert(agentApi.dependencies.every((dependency) => ["starclock-ai", "starclock-combat", "starclock-data", "starclock-replay", "serde", "serde_json", "sha2"].includes(dependency.name) || (dependency.kind === "dev" && dependency.name === "proptest")), "starclock-agent-api may use only reviewed Goal 01 controller/composition/replay boundaries, deterministic serialization/token-digest dependencies and property-test tooling");
 
 console.log("Workspace dependency boundaries verified (10 crates; protocol-neutral agent scaffold plus production boundaries and reviewed property dev-dependencies).");
 
