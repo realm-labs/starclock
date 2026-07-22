@@ -1,0 +1,317 @@
+{
+  "schema_revision": "starclock.agent-control-security-audit.v1",
+  "result": "pass",
+  "policy": {
+    "agent_control_audit_sha256": "c2ea79e81a0377b38d3365bea94717c112f88c68c7e4dd00b5f9f0be889f7e93",
+    "repository_checks_sha256": "be0ad4d929580c8de9203545fa2924935afaa002e1cc3eab4b74e34e9299cd5a",
+    "dependency_policy_sha256": "0f8aa733c8c4918683542c64778b0937865172c714c264fa1510373a5d38d632",
+    "mcp_sdk_lock_sha256": "75e6caaac63befbd746c8d8db1988cbc1804abb9e4bb45a56ef565837e2b5187",
+    "mcp_http_boundary_sha256": "fa31d03b9fec8069d1d2260a4f53532b99295e9f77f373170629382abd53e03d",
+    "mcp_authorization_sha256": "41f5e3b8079fc359db8d9b8a6ed8b51b8cf6ced5a021f08f0923af98d5696e35"
+  },
+  "source_and_api": {
+    "production_rust_files": 24,
+    "handwritten_limit": 1200,
+    "facade_limit": 200,
+    "line_limit_exceptions": 0,
+    "near_limit_files": [
+      "crates/starclock-mcp/src/http.rs"
+    ],
+    "largest_files": [
+      {
+        "path": "crates/starclock-mcp/src/http.rs",
+        "lines": 1153,
+        "limit": 1200,
+        "utilization_percent": 96,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-agent-api/src/session.rs",
+        "lines": 1043,
+        "limit": 1200,
+        "utilization_percent": 86,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-mcp/src/tools.rs",
+        "lines": 970,
+        "limit": 1200,
+        "utilization_percent": 80,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-agent-api/src/session/registry.rs",
+        "lines": 850,
+        "limit": 1200,
+        "utilization_percent": 70,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-cli/src/main.rs",
+        "lines": 714,
+        "limit": 1200,
+        "utilization_percent": 59,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-mcp/src/authorization.rs",
+        "lines": 514,
+        "limit": 1200,
+        "utilization_percent": 42,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-agent-api/src/session/tests.rs",
+        "lines": 487,
+        "limit": 1200,
+        "utilization_percent": 40,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-agent-api/src/observation.rs",
+        "lines": 438,
+        "limit": 1200,
+        "utilization_percent": 36,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-agent-api/src/action.rs",
+        "lines": 371,
+        "limit": 1200,
+        "utilization_percent": 30,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-mcp/src/rate_limit.rs",
+        "lines": 304,
+        "limit": 1200,
+        "utilization_percent": 25,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-agent-api/src/schema.rs",
+        "lines": 301,
+        "limit": 1200,
+        "utilization_percent": 25,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-mcp/src/http_observability.rs",
+        "lines": 220,
+        "limit": 1200,
+        "utilization_percent": 18,
+        "facade": false
+      }
+    ],
+    "unsafe_syntax_occurrences": 0,
+    "agent_public_declarations": 145,
+    "agent_public_reexports": 1,
+    "forbidden_public_api_leaks": 0
+  },
+  "dependencies_and_licenses": {
+    "workspace_crates": 11,
+    "graph": [
+      {
+        "crate": "starclock-activity",
+        "local_dependencies": [
+          "starclock-combat"
+        ],
+        "registry_dependencies": [
+          "sha2"
+        ]
+      },
+      {
+        "crate": "starclock-agent-api",
+        "local_dependencies": [
+          "starclock-ai",
+          "starclock-combat",
+          "starclock-data",
+          "starclock-replay"
+        ],
+        "registry_dependencies": [
+          "allocation-counter",
+          "proptest",
+          "serde",
+          "serde_json",
+          "sha2"
+        ]
+      },
+      {
+        "crate": "starclock-ai",
+        "local_dependencies": [
+          "starclock-combat"
+        ],
+        "registry_dependencies": []
+      },
+      {
+        "crate": "starclock-build",
+        "local_dependencies": [
+          "starclock-combat"
+        ],
+        "registry_dependencies": [
+          "sha2"
+        ]
+      },
+      {
+        "crate": "starclock-cli",
+        "local_dependencies": [
+          "starclock-activity",
+          "starclock-ai",
+          "starclock-build",
+          "starclock-combat",
+          "starclock-data",
+          "starclock-mcp",
+          "starclock-mode-standard",
+          "starclock-replay",
+          "starclock-rules"
+        ],
+        "registry_dependencies": [
+          "allocation-counter",
+          "serde_json"
+        ]
+      },
+      {
+        "crate": "starclock-combat",
+        "local_dependencies": [],
+        "registry_dependencies": [
+          "fixnum",
+          "proptest",
+          "rand",
+          "sha2"
+        ]
+      },
+      {
+        "crate": "starclock-data",
+        "local_dependencies": [
+          "starclock-activity",
+          "starclock-build",
+          "starclock-combat",
+          "starclock-mode-standard",
+          "starclock-rules"
+        ],
+        "registry_dependencies": [
+          "serde",
+          "sha2",
+          "zstd"
+        ]
+      },
+      {
+        "crate": "starclock-mcp",
+        "local_dependencies": [
+          "starclock-agent-api"
+        ],
+        "registry_dependencies": [
+          "allocation-counter",
+          "axum",
+          "rmcp",
+          "schemars",
+          "serde",
+          "serde_json",
+          "tokio",
+          "tower"
+        ]
+      },
+      {
+        "crate": "starclock-mode-standard",
+        "local_dependencies": [
+          "starclock-activity",
+          "starclock-combat"
+        ],
+        "registry_dependencies": []
+      },
+      {
+        "crate": "starclock-replay",
+        "local_dependencies": [
+          "starclock-activity",
+          "starclock-combat"
+        ],
+        "registry_dependencies": [
+          "proptest",
+          "sha2"
+        ]
+      },
+      {
+        "crate": "starclock-rules",
+        "local_dependencies": [
+          "starclock-activity",
+          "starclock-combat"
+        ],
+        "registry_dependencies": []
+      }
+    ],
+    "reviewed_registry_packages": 136,
+    "sdk_crates": [
+      {
+        "name": "rmcp",
+        "version": "2.2.0",
+        "checksum": "14db48ee17a9ba61810ab1a9c1beb7d06d8136ae39ac25a1137f10d357af01af",
+        "license": "Apache-2.0"
+      },
+      {
+        "name": "rmcp-macros",
+        "version": "2.2.0",
+        "checksum": "783d787bf21813b285f13019adc49e11af501c658890c1e519f31f937c68b7e3",
+        "license": "Apache-2.0"
+      }
+    ],
+    "unreviewed_packages": 0,
+    "forbidden_domain_edges": 0,
+    "provider_packages": []
+  },
+  "secrets_and_logs": {
+    "agent_mcp_logging_macros": 0,
+    "bearer_retained_or_forwarded": false,
+    "secret_echo_regression_test": "crates/starclock-mcp/src/http.rs::authorized_profile_serves_metadata_and_denies_before_mcp_session_work",
+    "redacted_debug_types": [
+      "ActionToken",
+      "AuthorizationGrant",
+      "SessionId"
+    ],
+    "stdio_stdout": "rmcp::transport::stdio"
+  },
+  "remote_boundary": {
+    "startup_profile": "explicit_loopback_development",
+    "non_loopback_startup": false,
+    "scopes": [
+      "starclock:scenario:read",
+      "starclock:battle:create",
+      "starclock:battle:read",
+      "starclock:battle:act",
+      "starclock:battle:replay",
+      "starclock:battle:close",
+      "starclock:replay:verify",
+      "starclock:debug:omniscient"
+    ],
+    "operation_scope_matrix": {
+      "resources/* and prompts/*": "starclock:scenario:read",
+      "starclock_list_scenarios": "starclock:scenario:read",
+      "starclock_create_battle": "starclock:battle:create",
+      "starclock_observe_battle": "starclock:battle:read",
+      "starclock_play_action": "starclock:battle:act",
+      "starclock_export_replay": "starclock:battle:replay",
+      "starclock_close_battle": "starclock:battle:close",
+      "starclock_verify_replay": "starclock:replay:verify",
+      "omniscient_debug": "reserved and required; no MCP debug operation exists in the seven-tool v1 surface"
+    },
+    "limits": {
+      "mcp_revision": "2025-11-25",
+      "sdk_version": "2.2.0",
+      "sdk_license": "Apache-2.0",
+      "scope_count": 8,
+      "allowed_origin_count": 16,
+      "origin_bytes": 256,
+      "bearer_bytes": 8192,
+      "stdio_frame_bytes": 16384,
+      "http_request_bytes": 2097152,
+      "http_response_bytes": 2097152,
+      "http_workers": 32,
+      "global_sessions": 1024,
+      "tenant_sessions": 64,
+      "principal_sessions": 16,
+      "settlement_commands": 4096,
+      "event_summaries": 8192,
+      "replay_import_bytes": 67108864,
+      "non_loopback_startup": false
+    }
+  }
+}

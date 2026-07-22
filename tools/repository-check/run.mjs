@@ -13,6 +13,7 @@ const commands = [
   ["node", "tools/workspace/verify-dependencies.mjs"],
   ["node", "tools/ci/verify-workflow.mjs"],
   ["node", "tools/ci/verify-golden-matrix.mjs"],
+  ["node", "tools/agent-control/verify-agent-security-audit.mjs"],
   ["node", "tools/repository-check/verify-source-policy.mjs"],
   ["node", "tools/repository-check/verify-native-handlers.mjs"],
   ["node", "tools/goal-hardening/verify-content-audits.mjs"],

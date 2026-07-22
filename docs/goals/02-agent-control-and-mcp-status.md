@@ -12,8 +12,8 @@ implementation batch.
 | State | `InProgress` |
 | Prerequisite | Goal 01 `Complete` at or after `b23f900` |
 | Active phase | Phase 5 — Hardening and documentation freeze |
-| Next unblocked batch | `G02-P5-B3` |
-| Last completed batch | `G02-P5-B2` |
+| Next unblocked batch | `G02-P5-B4` |
+| Last completed batch | `G02-P5-B3` |
 | Last completed commit | This row's containing commit |
 | MCP specification baseline | Frozen `2025-11-25` |
 | Agent schema revision | Frozen `agent-api-v1` / `1746004f…6725` |
@@ -34,7 +34,7 @@ external evidence or decision required. Phase completion is not goal completion.
 | Phase 2 — Authoritative sessions | `Complete` | All six production scenarios finish from public observations/tokens at exact seeded hashes; every replay verifies; bounded owner registry race/expiry/close/quota proofs; strict projection/step/registry/memory baseline |
 | Phase 3 — Local MCP | `Complete` | Independent raw JSON-RPC child client discovers seven typed tools/resources/templates/prompt, completes the frozen basic battle in eight external actions, rejects stale/malformed calls inertly, survives advisory cancellation, exports nine-command replay, closes, verifies the same `5021cdd6…1b507ec` hash and shuts down with protocol-only stdout/empty stderr; Inspector fixture and 10-case evidence retained |
 | Phase 4 — Remote HTTP | `Complete` | Authorized loopback Streamable HTTP with exact headers/origins/limits/scopes, request-local tenant ownership, quotas/rates, health/readiness/metrics and ten-second drain; real-TCP client plus eight concurrent sessions reproduce the in-process/stdio nine-hash and exact replay trace; stable HTTP adapter baseline retained |
-| Phase 5 — Hardening/freeze | `Pending` | Pending |
+| Phase 5 — Hardening/freeze | `InProgress` | Hardening corpus, native/compile-only CI evidence and security/architecture audit complete; contracts and clean-checkout freeze remain |
 
 ## Batch ledger
 
@@ -73,7 +73,7 @@ evidence summary.
 | `G02-P4-B5` | `Complete` | This row's containing commit | `node tools/agent-control/verify-mcp-http-conformance.mjs`; `node tools/agent-control/verify-mcp-http-benchmark.mjs`; `$env:STARCLOCK_BENCH_RUNNER_ID='starclock-bench-win10-i7-10700f-v1'; node tools/agent-control/verify-mcp-http-benchmark.mjs --strict --samples 5`; `cargo test -p starclock-agent-api --test standard_session_loop`; `cargo test -p starclock-cli --test mcp_stdio --all-features`; `cargo test -p starclock-mcp --all-targets --all-features`; `cargo clippy -p starclock-agent-api -p starclock-mcp -p starclock-cli --all-targets --all-features -- -D warnings`; `node tools/repository-check/run.mjs`; `cargo fmt --all -- --check`; `git diff --check` | A raw HTTP/1.1 client crosses a real authorized loopback listener, probes operations/discovery and completes/exports/verifies/closes the basic scenario. One shared artifact binds in-process, stdio and HTTP to all nine state hashes and the exact 987-byte/nine-command replay. Eight concurrent independent MCP transport sessions reproduce it exactly. The stable five-sample adapter baseline isolates Axum/auth/rates/SDK/JSON-SSE: median observe/action/resident-create latency is 221.083/321.775/264.456 µs per operation at 4,523/3,107/3,781 ops/s; the 16-resident row records 3,162,914 allocated, 294,515 aggregate peak, 18,408 peak bytes/session and 15,749 retained bytes/session. Phase 4 complete. |
 | `G02-P5-B1` | `Complete` | This row's containing commit | `node tools/agent-control/verify-agent-hardening-corpus.mjs`; `cargo test -p starclock-agent-api --test hardening_corpus --all-features`; `cargo test -p starclock-agent-api --test schema_property_contract --all-features`; `cargo test -p starclock-replay --test property_contract --test battle_property_contract --all-features`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api -p starclock-replay --all-targets --all-features -- -D warnings`; `node tools/repository-check/run.mjs`; `cargo fmt --all -- --check`; `git diff --check` | Retained a 60-case corpus over malformed action JSON and tokens, four idempotency-field mutations, seven cursor forms, eleven replay corruptions, all six Standard settlement paths and sixteen synchronized two-contender races. Rejection/corruption/losers preserve state, replay and RNG; exactly one racer commits. All 62 accepted Standard actions remain within 4,096/65,536/262,144 settlement budgets. Fixed ChaCha seeds retain 512 schema cases, three 256-case codec/framing/arbitrary-byte replay properties and 256 battle-replay corruptions. |
 | `G02-P5-B2` | `Complete` | This row's containing commit | `node tools/ci/verify-workflow.mjs`; `node tools/ci/verify-golden-matrix.mjs`; `node tools/agent-control/verify-agent-ci-matrix.mjs`; `cargo test -p starclock-agent-api --test schema_property_contract --test standard_session_loop --all-features`; `cargo test -p starclock-cli --test mcp_stdio --all-features`; `cargo test -p starclock-mcp --test http_conformance --all-features`; `node tools/ci/write-evidence.mjs --profile windows-x64-native --output .ci-evidence/g02-p5-b2-windows-x64-native.json`; `node tools/repository-check/run.mjs`; `git diff --check` | Extended the immutable CI contract from six to eight suites. Windows x64, Linux x64 and macOS ARM64 native jobs run the complete gate and then explicitly execute exact `agent-api-v1` schema bytes plus in-process/stdio/real-TCP HTTP trace vectors. The current Windows x64 local-smoke record executes all eight; hosted run IDs remain 30-day per-run artifacts and are not fabricated in the repository. Windows ARM64, Linux ARM64 and macOS x64 compile every target/test but record both Goal 02 suites as `compiled-not-executed`, making zero runtime claim. The committed matrix binds schema `1746004f…6725`, trace `b6a4a112…083f` and replay `49910190…a142`. |
-| `G02-P5-B3` | `Pending` | — | — | — |
+| `G02-P5-B3` | `Complete` | This row's containing commit | `node tools/agent-control/verify-agent-security-audit.mjs`; `node tools/dependency-policy/verify.mjs`; `node tools/workspace/verify-dependencies.mjs`; `node tools/repository-check/verify-source-policy.mjs`; `node tools/agent-control/verify-mcp-sdk-lock.mjs`; `node tools/agent-control/verify-mcp-http-boundary.mjs`; `node tools/agent-control/verify-mcp-authorization.mjs`; `node tools/agent-control/verify-mcp-http-operations.mjs`; `cargo test -p starclock-agent-api -p starclock-mcp -p starclock-cli --all-targets --all-features`; `cargo clippy -p starclock-agent-api -p starclock-mcp -p starclock-cli --all-targets --all-features -- -D warnings`; `node tools/repository-check/run.mjs`; `git diff --check` | Retained a reproducible permanent audit over 24 Goal 02 production Rust files, 11 workspace crates and all 136 reviewed registry packages. It proves zero line exceptions, unsafe syntax, provider packages, domain reverse edges, public implementation-type leaks and agent/MCP logging macros; binds protocol-only stdio and redacted bearer/opaque debug behavior; and rechecks exact `rmcp` Apache-2.0 checksums, eight scopes, origins plus every HTTP/session/settlement/event/replay bound. `http.rs` remains reviewed at 1,153/1,200 lines and must split before exceeding the limit. |
 | `G02-P5-B4` | `Pending` | — | — | — |
 | `G02-P5-B5` | `Pending` | — | — | — |
 | `G02-P5-B6` | `Pending` | — | — | — |
@@ -102,6 +102,7 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | MCP tenant authority | `starclock.mcp-tenant-authority.v1`; sessions 1,024/64/16; rates 30/600/1,200; identity tables 4,096/4,096 | [`mcp-tenant-authority.json`](../../policy/mcp-tenant-authority.json) |
 | Hardening corpus | `starclock.agent-hardening-corpus.v1` / `c27fccbf…45b2d`; 60 explicit cases plus fixed-seed properties | [`hardening-corpus.json`](../../evidence/agent-control-mcp-v1/security/hardening-corpus.json) |
 | Cross-platform CI matrix | `starclock.ci-golden-matrix.v2` / `8964b0a8…5dfa`; 8 suites / 3 native / 3 compile-only | [`ci-golden-matrix.json`](../../evidence/core-combat-v1/hardening/ci-golden-matrix.json) |
+| Security/architecture audit | `starclock.agent-control-security-audit.v1` / `ae218d3e…cf235`; 24 sources / 136 packages / 8 scopes / zero unsafe-provider-core-log leaks | [`security-audit.json`](../../evidence/agent-control-mcp-v1/security/security-audit.json) |
 
 ## Decision record
 
@@ -140,6 +141,7 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | 2026-07-22 | Transport equivalence is the exact decision-boundary hash sequence plus canonical replay bytes, not terminal hash alone. HTTP performance is measured below TCP and above combat. | One artifact is consumed by in-process, stdio and real-TCP HTTP tests, so command/event/hash drift cannot hide behind an equal terminal result. The adapter harness measures Axum/auth/rate/SDK/serialization allocations and latency separately; simultaneous resident memory is reported per session without treating warmed executor capacity as domain state. |
 | 2026-07-22 | Hardening retains readable explicit regression cases and fixed-seed generative suites. | The explicit corpus makes security-sensitive failures reviewable and permanently replayable; ChaCha-seeded properties retain broader schema/replay exploration and source-parallel shrunk replay regressions. Neither may replace the other or narrow the six-scenario/race/settlement denominator. |
 | 2026-07-22 | Goal 02 reuses the immutable three-native/three-alternate-target CI evidence boundary and adds two explicit suites. | Windows, Linux and macOS native jobs may claim schema/trace execution only after the dedicated command succeeds. Alternate CPU jobs remain compile-only even though test sources compile. Hosted run identity belongs to per-run artifacts; the committed report freezes inputs and dispositions without inventing an execution record. |
+| 2026-07-22 | Goal 02 closes its security audit by composing the exact dependency, source, SDK, authorization and HTTP policies into one reproducible report. | The permanent gate rejects new provider/domain coupling, unsafe code, public implementation types, agent/MCP logging, unreviewed packages/licenses/checksums, oversized files and drift in origins/scopes/limits. Static evidence remains paired with executable adversarial suites. |
 
 Add architectural decisions here before implementing a deviation from the goal
 or normative design. A decision cannot silently weaken a terminal gate.
@@ -180,16 +182,16 @@ a case does not block it.
 - [x] MCP protocol and official Rust SDK capability lock are committed.
 - [x] All seven tools and bounded resources have schema/conformance evidence.
 - [x] Stdio end-to-end play passes with protocol-only stdout.
-- [ ] Streamable HTTP end-to-end play matches in-process traces.
-- [ ] Non-loopback startup, authorization, scopes, origins, tenant ownership,
+- [x] Streamable HTTP end-to-end play matches in-process traces.
+- [x] Non-loopback startup, authorization, scopes, origins, tenant ownership,
       limits and rate policies fail closed and pass adversarial tests.
 
 ### Engineering and release
 
-- [ ] Windows/Linux/macOS native golden evidence is retained.
-- [ ] Fuzz/property/concurrency/security suites pass with reproducible inputs.
-- [ ] Performance budgets cover projection, stepping, serialization and memory.
-- [ ] Dependency, license, public API, file-size and secret/log audits pass.
+- [x] Windows/Linux/macOS native golden evidence is retained.
+- [x] Fuzz/property/concurrency/security suites pass with reproducible inputs.
+- [x] Performance budgets cover projection, stepping, serialization and memory.
+- [x] Dependency, license, public API, file-size and secret/log audits pass.
 - [ ] Clean-checkout acceptance and generated-drift checks pass.
 - [ ] Contracts/examples are frozen and `G02-P5-B6` is committed cleanly.
 

@@ -1,0 +1,60 @@
+{
+  "schema_revision": "starclock.agent-control-audit.v1",
+  "goal_id": "agent-control-mcp-v1",
+  "reviewed_on": "2026-07-22",
+  "production_roots": [
+    "crates/starclock-agent-api/src",
+    "crates/starclock-mcp/src",
+    "crates/starclock-cli/src"
+  ],
+  "crate_boundary": {
+    "protocol_neutral_crate": "starclock-agent-api",
+    "adapter_crate": "starclock-mcp",
+    "adapter_local_dependencies": ["starclock-agent-api"],
+    "protocol_neutral_local_dependencies": ["starclock-ai", "starclock-combat", "starclock-data", "starclock-replay"],
+    "domain_crates": ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mode-standard", "starclock-replay", "starclock-rules"],
+    "forbidden_domain_dependencies": ["axum", "rmcp", "schemars", "starclock-agent-api", "starclock-mcp", "tokio", "tower"],
+    "forbidden_provider_packages": ["anthropic", "async-openai", "candle-core", "genai", "google-generative-ai-rs", "ollama-rs", "openai", "reqwest", "rig-core", "tch"]
+  },
+  "public_api": {
+    "forbidden_protocol_neutral_tokens": ["axum::", "BattleState", "Command", "fixnum::", "FixedPoint", "rmcp::", "sora::", "tokio::"]
+  },
+  "source_policy": {
+    "maximum_handwritten_lines": 1200,
+    "maximum_facade_lines": 200,
+    "line_limit_exceptions": [],
+    "unsafe_blocks_allowed": 0,
+    "production_logging_allowed_in_agent_or_mcp": false,
+    "stdio_stdout_owner": "rmcp::transport::stdio"
+  },
+  "security_contract": {
+    "mcp_revision": "2025-11-25",
+    "sdk_version": "2.2.0",
+    "sdk_license": "Apache-2.0",
+    "scope_count": 8,
+    "allowed_origin_count": 16,
+    "origin_bytes": 256,
+    "bearer_bytes": 8192,
+    "stdio_frame_bytes": 16384,
+    "http_request_bytes": 2097152,
+    "http_response_bytes": 2097152,
+    "http_workers": 32,
+    "global_sessions": 1024,
+    "tenant_sessions": 64,
+    "principal_sessions": 16,
+    "settlement_commands": 4096,
+    "event_summaries": 8192,
+    "replay_import_bytes": 67108864,
+    "non_loopback_startup": false
+  },
+  "verification": [
+    "node tools/agent-control/verify-agent-security-audit.mjs",
+    "node tools/dependency-policy/verify.mjs",
+    "node tools/workspace/verify-dependencies.mjs",
+    "node tools/repository-check/verify-source-policy.mjs",
+    "node tools/agent-control/verify-mcp-sdk-lock.mjs",
+    "node tools/agent-control/verify-mcp-http-boundary.mjs",
+    "node tools/agent-control/verify-mcp-authorization.mjs",
+    "node tools/agent-control/verify-mcp-http-operations.mjs"
+  ]
+}

@@ -324,6 +324,9 @@ alongside it; every rejected or losing case must preserve state, replay and RNG.
 - native Windows, Linux and macOS CI execute the frozen schema and
   in-process/stdio/HTTP trace suites; alternate CPU targets are compile-only
   and make no runtime claim.
+- the retained security audit proves reviewed dependencies/licenses, bounded
+  source and public API, zero unsafe/provider/core/log leaks and exact remote
+  origins, scopes and limits.
 
 ## Excluded scope
 
