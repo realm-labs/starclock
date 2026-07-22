@@ -172,7 +172,11 @@ Hard limits are authored rules-revision constants. Battle limits cover events, r
 
 ## Canonical state hash
 
-After every accepted command, compute or make available a canonical SHA-256 state digest. `state_hash_revision = "sha256-v2"` identifies both the algorithm and the canonical byte layout. Its byte stream uses:
+After every accepted command, compute or make available a canonical SHA-256
+state digest. The released combat and legacy one-battle implementation uses
+`state_hash_revision = "sha256-v3"`; it superseded `sha256-v2` when linked-unit
+lifecycle and attachment state became authoritative. A revision identifies both
+the algorithm and the canonical byte layout. Its byte stream uses:
 
 - explicit field order and version;
 - fixed-width integers in a declared byte order;
@@ -189,14 +193,26 @@ byte vector; golden tests may direct the encoder to a collecting sink and must
 prove byte-for-byte equivalence. Buffer reuse, chunk size and hasher update
 boundaries are non-authoritative implementation details.
 
-`sha256-v2` is intentionally a full-state digest after each accepted command. It supersedes `sha256-v1` by canonically encoding initial team resources and the enemy definition/AI/phase cursor required for deterministic wave and boss orchestration.
+`sha256-v3` is intentionally a full-state digest after each accepted command.
+The earlier `sha256-v2` had superseded `sha256-v1` by canonically encoding
+initial team resources and the enemy definition/AI/phase cursor; v3 additionally
+binds authoritative linked-unit lifecycle and attachment state.
 Caching encoded immutable definition bodies is unnecessary because the catalog
 is represented by its digest. Incremental field hashes, Merkle roots or dirty
 page hashing require a new documented `state_hash_revision` unless they are
 only an internal accelerator that demonstrably emits the exact existing
 canonical byte stream and final SHA-256 value.
 
-The same `state_hash_revision` family defines a canonical activity digest after every accepted activity command. It includes definition/config digests, graph position/visits, scoped slots, participants and loadout locks, inventories/modifiers, clocks, metrics/objectives, RNG streams, pending options, pending `BattleSpec`, checkpoints, and completed `BattleResult` digests. It excludes calendar schedules, account rewards, UI state, and battle caches. The exact activity layout is a separate codec section so battle-only layout changes do not silently reinterpret activity bytes.
+The same revision family defines a canonical activity digest after every
+accepted activity command, but Activity has its own codec section. Goal 04 graph
+Activities use `starclock-activity-state-v2` and replay identity `sha256-v4`;
+legacy one-battle Activity and nested battle hashes retain v3. Activity v2
+includes definition/config digests, graph position/visits, scoped slots,
+participants and loadout locks, inventories/modifiers, clocks,
+metrics/objectives, RNG streams, pending options, pending `BattleSpec`,
+checkpoints, and completed `BattleResult` digests. It excludes calendar
+schedules, account rewards, UI state, and battle caches. See
+[Standard Universe runtime interface contract](standard-universe-runtime-interface-contract.md).
 
 ## Excel and Sora boundary
 

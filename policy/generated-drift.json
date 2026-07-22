@@ -94,6 +94,10 @@
       "command": ["node", "tools/goal04/verify-surface-audit.mjs", "."]
     },
     {
+      "name": "Goal 04 runtime interface contract",
+      "command": ["node", "tools/goal04/verify-interface-contract.mjs", "."]
+    },
+    {
       "name": "production Excel and Sora configuration golden",
       "command": ["node", "tools/config-production/verify.mjs"]
     },

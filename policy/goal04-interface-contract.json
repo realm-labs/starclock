@@ -1,0 +1,37 @@
+{
+  "schema_revision": "starclock.goal04-interface-contract.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "activity": {
+    "api_revision": "starclock-activity-api-v2",
+    "command_kinds": ["ChooseOption", "StartBattle", "SubmitBattleResult", "SubmitExternalOutcome", "Abandon"],
+    "boundary_kinds": ["Decision", "Battle", "Terminal"],
+    "decision_kinds": ["Choice", "Route", "Encounter", "Preparation", "Reward", "Shop", "Service", "Roster", "ExternalOutcome", "BattleReady", "Checkpoint", "Abandon"],
+    "event_families": ["Lifecycle", "Decision", "State", "Inventory", "Graph", "Battle", "Rng", "Terminal"],
+    "command_error_kinds": ["StaleStateHash", "DecisionNotOffered", "CommandNotOffered", "UnknownOption", "UnknownOutcome", "HandoffMismatch", "BattleResultMismatch", "LimitExceeded", "ConfigurationMismatch", "InvalidCommandPayload"],
+    "terminal_kinds": ["Completed", "Failed", "Abandoned", "Faulted"]
+  },
+  "public_mode_types": ["UniverseCatalog", "UniverseCatalogIdentity", "WorldDefinition", "DifficultyDefinition", "PathDefinition", "StandardUniverseEntry", "StandardUniverseProfile", "CompiledActivity"],
+  "revisions": {
+    "numeric_policy": "fixed-i64-6dp-v1",
+    "combat_rng": "chacha8-rand-0.10.2-intmap-v1",
+    "replay_format": 1,
+    "legacy_replay_schema": 1,
+    "activity_replay_schema": 2,
+    "legacy_activity_command_payload": 1,
+    "activity_command_payload": 2,
+    "nested_battle_payload": 1,
+    "controller_diagnostic_payload": 1,
+    "legacy_state_hash": "sha256-v3",
+    "activity_state_hash": "sha256-v4",
+    "legacy_activity_state_codec": "starclock-activity-state-v1",
+    "activity_state_codec": "starclock-activity-state-v2",
+    "activity_rng": "starclock-activity-rng-v2",
+    "configuration_composition": "starclock-activity-config-v1",
+    "universe_catalog": "standard-universe-v4.4-runtime-v1",
+    "standard_universe_profile": "standard-universe-main-world-v1"
+  },
+  "activity_rng_streams": ["graph", "encounter", "reward", "shop", "occurrence", "spawn", "external-outcome-test", "battle"],
+  "configuration_components": ["combat", "build", "universe", "activity-profile"],
+  "runtime_inputs": ["core-sora-bundle", "universe-sora-bundle", "validated-entry"],
+  "forbidden_public_vocabulary": ["openpyxl", "rust_xlsxwriter", "fixnum", "generated Sora row", "workbook column", "normalized JSON"]
+}

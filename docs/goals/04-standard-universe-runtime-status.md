@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Contract, audit and vertical-slice plan |
 | Active batch | None |
-| Next unblocked batch | `G04-P0-B2` |
+| Next unblocked batch | `G04-P0-B3` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -37,7 +37,7 @@ tests and relevant hashes/counts rather than only naming files.
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
 | `G04-P0-B1` | `Complete` | This row's containing commit | Baseline `285f14f` is reproducibly audited: 11 crates, two Activity commands, three decisions, four scopes, one nested battle pair, five CLI route families and seven battle-v1 MCP tools. Frozen bundle/table/content denominators pass; 13 missing runtime seams have explicit batch owners. Evidence: `evidence/standard-universe-runtime-v1/foundation/surface-audit.json`. |
-| `G04-P0-B2` | `Pending` | — | — |
+| `G04-P0-B2` | `Complete` | This row's containing commit | Frozen API v2 has five command kinds, three exclusive resolution boundaries, twelve decision kinds, eight event families and stable rejection/fault separation. Full graph Activity uses state codec v2, Activity replay hash `sha256-v4`, Activity RNG v2 and replay payload schema 2 while legacy battle/one-battle v1/v3 bytes remain readable. Evidence: `evidence/standard-universe-runtime-v1/foundation/interface-contract.json`. |
 | `G04-P0-B3` | `Pending` | — | — |
 | `G04-P0-B4` | `Pending` | — | — |
 | `G04-P1-B1` | `Pending` | — | — |
@@ -121,6 +121,8 @@ runtime coverage generator proves the assigned behavior and tests.
 | 2026-07-22 | Implement only main-world Standard SU in Goal 04. | Other universe families need their own frozen data and mechanic goals but must reuse the same Activity core. |
 | 2026-07-22 | Extend the existing agent/MCP facade after core and replay completion. | External AI must control authoritative offered decisions, not a parallel universe API. |
 | 2026-07-22 | Split complete mechanics into fifteen explicit source-family partitions. | Prevents the 786-rule implementation from being hidden in one unreviewable content batch. |
+| 2026-07-22 | Model an accepted Activity result as exactly one `Decision`, `Battle` or `Terminal` boundary. | Prevents adapters from interpreting contradictory optional next-state fields and keeps automatic settlement internal. |
+| 2026-07-22 | Emit graph Activities with state codec v2 / `sha256-v4` and Activity RNG v2 while retaining legacy one-battle and nested battle v3 compatibility. | The old Activity writer is big-endian and incomplete for graph state; byte relabeling would invalidate deterministic replay evidence. |
 
 ## Research and policy register
 
