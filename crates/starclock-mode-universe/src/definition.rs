@@ -1,8 +1,8 @@
 //! Generated-row-free immutable Standard Universe definitions.
 
 use crate::digest::{
-    UniverseCurioDefinitionsDigest, UniverseDefinitionsDigest, UniversePathDefinitionsDigest,
-    UniverseRunDefinitionsDigest,
+    UniverseCurioDefinitionsDigest, UniverseDefinitionsDigest, UniverseEncounterDefinitionsDigest,
+    UniversePathDefinitionsDigest, UniverseRunDefinitionsDigest,
 };
 use crate::id::{
     ActivityBindingId, DifficultyId, DomainId, RoomId, TopologyId, TopologyNodeId,
@@ -640,6 +640,7 @@ pub(crate) struct UniverseDefinitions {
     pub(crate) path_digest: UniversePathDefinitionsDigest,
     pub(crate) curio_digest: UniverseCurioDefinitionsDigest,
     pub(crate) run_digest: UniverseRunDefinitionsDigest,
+    pub(crate) encounter_digest: UniverseEncounterDefinitionsDigest,
     pub(crate) profile: UniverseProfileDefinition,
     pub(crate) worlds: Box<[WorldDefinition]>,
     pub(crate) difficulties: Box<[DifficultyDefinition]>,
@@ -658,4 +659,10 @@ pub(crate) struct UniverseDefinitions {
     pub(crate) occurrence_choices: Box<[crate::occurrence::OccurrenceChoiceDefinition]>,
     pub(crate) services: Box<[crate::progression::ServiceDefinition]>,
     pub(crate) ability_tree_nodes: Box<[crate::progression::AbilityTreeNodeDefinition]>,
+    pub(crate) encounter_groups: Box<[crate::encounter::EncounterGroupDefinition]>,
+    pub(crate) difficulty_enemies: Box<[crate::encounter::DifficultyEnemyBinding]>,
+    pub(crate) encounter_pools: Box<[crate::encounter::EncounterPoolDefinition]>,
+    pub(crate) room_content: Box<[crate::encounter::RoomContentBinding]>,
+    pub(crate) content_pools: Box<[crate::encounter::ContentPoolDefinition]>,
+    pub(crate) mechanic_rules: Box<[crate::rule::MechanicRuleDefinition]>,
 }

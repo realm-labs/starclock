@@ -53,3 +53,15 @@ id_type!(
 id_type!(OccurrenceChoiceId, "Stable authored Occurrence choice ID.");
 id_type!(ServiceId, "Stable authored Universe service or shop ID.");
 id_type!(AbilityTreeNodeId, "Stable authored Ability Tree node ID.");
+id_type!(
+    EncounterGroupId,
+    "Stable authored Universe encounter-group ID."
+);
+id_type!(
+    EncounterMemberId,
+    "Stable authored weighted encounter-member ID."
+);
+id_type!(EncounterWaveId, "Stable authored encounter-wave ID.");
+id_type!(EncounterPoolId, "Stable authored room encounter-pool ID.");
+id_type!(ContentPoolId, "Stable authored generic content-pool ID.");
+id_type!(MechanicRuleId, "Stable authored Universe mechanic-rule ID.");

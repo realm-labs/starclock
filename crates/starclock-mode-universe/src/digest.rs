@@ -50,6 +50,10 @@ digest_type!(
     UniverseRunDefinitionsDigest,
     "Canonical identity of lowered Occurrence, service and Ability Tree definitions."
 );
+digest_type!(
+    UniverseEncounterDefinitionsDigest,
+    "Canonical identity of lowered encounter, pool and mechanic-rule definitions."
+);
 
 pub(crate) fn bundle_digest(bytes: &[u8]) -> UniverseBundleDigest {
     UniverseBundleDigest::new(Sha256::digest(bytes).into())

@@ -10,15 +10,19 @@ use crate::definition::{
 };
 use crate::digest::{
     ActivityConfigurationDigest, Encoder, UniverseBundleDigest, UniverseCurioDefinitionsDigest,
-    UniverseDefinitionsDigest, UniversePathDefinitionsDigest, UniverseProfileDigest,
-    UniverseRunDefinitionsDigest, bundle_digest,
+    UniverseDefinitionsDigest, UniverseEncounterDefinitionsDigest, UniversePathDefinitionsDigest,
+    UniverseProfileDigest, UniverseRunDefinitionsDigest, bundle_digest,
+};
+use crate::encounter::{
+    ContentPoolDefinition, DifficultyEnemyBinding, EncounterGroupDefinition,
+    EncounterPoolDefinition, RoomContentBinding,
 };
 use crate::error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind};
 use crate::generated::{SoraConfig, runtime::SoraBundle};
 use crate::id::{
-    AbilityTreeNodeId, BlessingId, BlessingLevelId, CurioId, CurioStateId, DifficultyId, DomainId,
-    OccurrenceChoiceId, OccurrenceId, OccurrenceVariantId, PathId, ResonanceId, RoomId, ServiceId,
-    TopologyId, WorldId,
+    AbilityTreeNodeId, BlessingId, BlessingLevelId, ContentPoolId, CurioId, CurioStateId,
+    DifficultyId, DomainId, EncounterGroupId, EncounterPoolId, MechanicRuleId, OccurrenceChoiceId,
+    OccurrenceId, OccurrenceVariantId, PathId, ResonanceId, RoomId, ServiceId, TopologyId, WorldId,
 };
 use crate::occurrence::{
     OccurrenceChoiceDefinition, OccurrenceDefinition, OccurrenceVariantDefinition,
@@ -27,6 +31,7 @@ use crate::path::{
     BlessingDefinition, BlessingLevelDefinition, PathDefinition, ResonanceDefinition,
 };
 use crate::progression::{AbilityTreeNodeDefinition, ServiceDefinition};
+use crate::rule::MechanicRuleDefinition;
 
 pub const UNIVERSE_CATALOG_REVISION: &str = "standard-universe-v4.4-runtime-v1";
 pub const STANDARD_UNIVERSE_PROFILE_REVISION: &str = "standard-universe-main-world-v1";
@@ -70,6 +75,7 @@ pub struct UniverseCatalogIdentity {
     path_definitions: UniversePathDefinitionsDigest,
     curio_definitions: UniverseCurioDefinitionsDigest,
     run_definitions: UniverseRunDefinitionsDigest,
+    encounter_definitions: UniverseEncounterDefinitionsDigest,
     configuration: ActivityConfigurationDigest,
 }
 
@@ -125,6 +131,10 @@ impl UniverseCatalogIdentity {
     #[must_use]
     pub const fn run_definitions_digest(&self) -> UniverseRunDefinitionsDigest {
         self.run_definitions
+    }
+    #[must_use]
+    pub const fn encounter_definitions_digest(&self) -> UniverseEncounterDefinitionsDigest {
+        self.encounter_definitions
     }
     #[must_use]
     pub const fn configuration_digest(&self) -> ActivityConfigurationDigest {
@@ -197,6 +207,7 @@ impl UniverseCatalog {
             path_definitions: definitions.path_digest,
             curio_definitions: definitions.curio_digest,
             run_definitions: definitions.run_digest,
+            encounter_definitions: definitions.encounter_digest,
             configuration,
         };
         Ok(Arc::new(Self {
@@ -400,6 +411,63 @@ impl UniverseCatalog {
             &self.definitions.ability_tree_nodes,
             id,
             AbilityTreeNodeDefinition::id,
+        )
+    }
+
+    #[must_use]
+    pub fn encounter_groups(&self) -> &[EncounterGroupDefinition] {
+        &self.definitions.encounter_groups
+    }
+    #[must_use]
+    pub fn encounter_group(&self, id: EncounterGroupId) -> Option<&EncounterGroupDefinition> {
+        lookup(
+            &self.definitions.encounter_groups,
+            id,
+            EncounterGroupDefinition::id,
+        )
+    }
+    #[must_use]
+    pub fn difficulty_enemy_bindings(&self) -> &[DifficultyEnemyBinding] {
+        &self.definitions.difficulty_enemies
+    }
+    #[must_use]
+    pub fn encounter_pools(&self) -> &[EncounterPoolDefinition] {
+        &self.definitions.encounter_pools
+    }
+    #[must_use]
+    pub fn encounter_pool(&self, id: EncounterPoolId) -> Option<&EncounterPoolDefinition> {
+        lookup(
+            &self.definitions.encounter_pools,
+            id,
+            EncounterPoolDefinition::id,
+        )
+    }
+    #[must_use]
+    pub fn room_content(&self) -> &[RoomContentBinding] {
+        &self.definitions.room_content
+    }
+    #[must_use]
+    pub fn content_pools(&self) -> &[ContentPoolDefinition] {
+        &self.definitions.content_pools
+    }
+    #[must_use]
+    pub fn content_pool(&self, id: ContentPoolId) -> Option<&ContentPoolDefinition> {
+        lookup(
+            &self.definitions.content_pools,
+            id,
+            ContentPoolDefinition::id,
+        )
+    }
+    #[must_use]
+    pub fn mechanic_rules(&self) -> &[MechanicRuleDefinition] {
+        &self.definitions.mechanic_rules
+    }
+    #[must_use]
+    pub fn mechanic_rule(&self, id: MechanicRuleId) -> Option<&MechanicRuleDefinition> {
+        lookup(
+            &self.definitions.mechanic_rules,
+            id,
+            MechanicRuleDefinition::id,
         )
     }
 
@@ -771,6 +839,62 @@ mod tests {
                 .sum::<usize>(),
             43
         );
+        assert_eq!(catalog.encounter_groups().len(), 74);
+        assert_eq!(
+            catalog
+                .encounter_groups()
+                .iter()
+                .map(|value| value.members().len())
+                .sum::<usize>(),
+            173
+        );
+        assert_eq!(
+            catalog
+                .encounter_groups()
+                .iter()
+                .flat_map(|value| value.members())
+                .flat_map(|value| value.waves())
+                .map(|value| value.enemies().len())
+                .sum::<usize>(),
+            538
+        );
+        assert_eq!(catalog.difficulty_enemy_bindings().len(), 182);
+        assert_eq!(catalog.encounter_pools().len(), 92);
+        assert_eq!(
+            catalog
+                .encounter_pools()
+                .iter()
+                .map(|value| value.fixed().len())
+                .sum::<usize>(),
+            36
+        );
+        assert_eq!(
+            catalog
+                .encounter_pools()
+                .iter()
+                .map(|value| value.weighted().len())
+                .sum::<usize>(),
+            174
+        );
+        assert_eq!(catalog.room_content().len(), 380);
+        assert_eq!(catalog.content_pools().len(), 23);
+        assert_eq!(
+            catalog
+                .content_pools()
+                .iter()
+                .map(|value| value.entries().len())
+                .sum::<usize>(),
+            1_651
+        );
+        assert_eq!(catalog.mechanic_rules().len(), 786);
+        assert_eq!(
+            catalog
+                .mechanic_rules()
+                .iter()
+                .map(|value| value.parameters().len())
+                .sum::<usize>(),
+            1_020
+        );
         assert_eq!(
             catalog
                 .blessing_levels()
@@ -829,6 +953,14 @@ mod tests {
                 0x90, 0x1a, 0x6d, 0xa7, 0xea, 0x7a, 0xfe, 0x8a, 0x77, 0x3d, 0x81, 0x12, 0xdf, 0x1a,
                 0x6f, 0x75, 0x54, 0x56, 0x18, 0x93, 0x1d, 0x01, 0x8a, 0x78, 0xf0, 0xff, 0x3d, 0xff,
                 0x2b, 0x23, 0xaa, 0xeb,
+            ]
+        );
+        assert_eq!(
+            catalog.identity().encounter_definitions_digest().bytes(),
+            [
+                0x4a, 0x6e, 0xd5, 0xd8, 0xdc, 0xc2, 0x28, 0x2e, 0x9b, 0xa7, 0x50, 0x3d, 0x38, 0xfa,
+                0xa3, 0xe2, 0x70, 0xca, 0x9b, 0xed, 0xd4, 0x54, 0xff, 0x3f, 0x73, 0xbd, 0x2d, 0x62,
+                0x18, 0xd9, 0xaa, 0x42,
             ]
         );
         assert_eq!(

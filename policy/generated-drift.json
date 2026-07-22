@@ -130,6 +130,10 @@
       "command": ["node", "tools/goal04/verify-run-catalog.mjs", "."]
     },
     {
+      "name": "Goal 04 encounter catalog",
+      "command": ["node", "tools/goal04/verify-encounter-catalog.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

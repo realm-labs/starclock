@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
-| Active phase | Phase 1 — Universe bundle and domain catalog |
-| Active batch | `G04-P1-B6` |
-| Next unblocked batch | `G04-P1-B6` |
+| Active phase | Phase 2 — Generic Activity runtime |
+| Active batch | `G04-P2-B1` |
+| Next unblocked batch | `G04-P2-B1` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -22,8 +22,8 @@ be `InProgress`; completion evidence and its commit are recorded atomically.
 | Phase | State | Exit evidence |
 |---|---|---|
 | Phase 0 — Contract/audit | `Complete` | APIs/revisions, 2,201/786/78 dispositions, fifteen partitions, World 1 slice, six workloads, 3+3 CI matrix, dependency baseline and release scaffold are mechanically frozen. |
-| Phase 1 — Catalog | `InProgress` | Exact isolated bundle lowers privately; all universe definitions and references validate. |
-| Phase 2 — Activity core | `Pending` | Generic graph/state/transactions/RNG/hash/battle handoff replace the one-battle-only limitation. |
+| Phase 1 — Catalog | `Complete` | All 49 isolated Sora tables lower privately; structural, content, rule, provenance and public enemy-reference catalogs close with independent canonical digests. |
+| Phase 2 — Activity core | `InProgress` | Generic graph/state/transactions/RNG/hash/battle handoff replace the one-battle-only limitation. |
 | Phase 3 — Standard profile | `Pending` | Spatial-free domains and every shared Standard Universe subsystem execute generically. |
 | Phase 4 — Mechanics | `Pending` | Fifteen content partitions, 78 runtime fixtures and 100% runtime dispositions close. |
 | Phase 5 — Interfaces | `Pending` | Baseline AI, full-run replay, CLI, agent API and MCP use the same offered commands. |
@@ -45,7 +45,7 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P1-B3` | `Complete` | This row's containing commit | Lowered 9 Paths, 162 Blessings, 324 base/enhanced levels, 72 prerequisite policies, 638 Blessing parameters, 9 Resonances, 27 Formations and 238 Resonance parameters. Parent/order/rule references close exactly. Author decimals retain coefficient+scale up to 10 places and defer explicit rounding to six-place combat compilation. Canonical digest: `491d76e6bdbb0a932d2040a652c084c82b48860fd84fcfdea9d21404f9fb4bb5`. |
 | `G04-P1-B4` | `Complete` | This row's containing commit | Lowered 61 Curios, 67 lifecycle states and 89 exact parameters. Initial-state ownership, 55 active/6 repairing/6 fixed states, 9 charge counters, 3 one-based parameter bindings, 6 repair transitions, mechanic rules and the currently empty replacement relation validate without exposing Sora rows. Canonical digest: `b62e2ad9c012a636b45bbf0cbdff5373500c069c000cc470b4c9527c70a7a027`. |
 | `G04-P1-B5` | `Complete` | This row's containing commit | Lowered 59 Occurrences, 67 variants, 321 ordered choices, 70 costs and 321 typed outcomes; 52 outcomes retain the explicit stable-uniform project policy instead of fabricated weights. Lowered 94 currency/service/shop entries with 12 parameters and the 42-node/55-edge acyclic Ability Tree with 42 costs, 50 typed effects, 43 exact parameters and 41 external unlocks. Canonical run-definition digest: `901a6da7ea7afe8a773d8112df1a6f75545618931d018a78f0ff3dff2b23aaeb`. |
-| `G04-P1-B6` | `Pending` | — | — |
+| `G04-P1-B6` | `Complete` | This row's containing commit | Lowered 74 encounter groups, 173 members/waves, 538 enemy slots, 182 fixed difficulty enemies, 92 room encounter pools, 380 room-content bindings, 23 generic pools/1,651 entries and all 786 mechanic contributions/1,020 parameters. All 2,201 provenance relations and 86 public enemy keys close; only 13 enemy variants overlap Goal 01's representative catalog, so the remaining 73 executable enemy definitions are explicitly owned by `G04-P4-M15`. Canonical digest: `4a6ed5d8dcc2282e9ba7503d38faa3e270ca9bedd454ff3f73bd2d6218d9aa42`. |
 | `G04-P2-B1` | `Pending` | — | — |
 | `G04-P2-B2` | `Pending` | — | — |
 | `G04-P2-B3` | `Pending` | — | — |
@@ -108,7 +108,7 @@ machine-generated runtime-disposition manifest without changing these counts.
 | Occurrences / choices | 59 / 321 | 59 / 321 assigned | 59 / 321 catalog-verified |
 | Services / parameters | 94 / 12 | 94 / 12 assigned | 94 / 12 catalog-verified |
 | Ability Tree nodes / effects | 42 / 50 | 42 / 50 assigned | 42 / 50 catalog-verified |
-| Encounter groups / enemy slots | 74 / 538 | 74 / 538 assigned | 0 / 0 |
+| Encounter groups / enemy slots | 74 / 538 | 74 / 538 assigned | 74 / 538 catalog-verified |
 
 `Runtime disposition` is not synonymous with custom code. A row may lower to
 validated metadata or a generic typed operation. It is complete only when the
@@ -128,6 +128,7 @@ runtime coverage generator proves the assigned behavior and tests.
 | 2026-07-22 | Treat metadata-only rows as executable obligations owned by a generic compiler, never as ignored data. | Structural maps, rooms, pools and difficulties affect deterministic graph/battle construction without requiring one custom operation per row. |
 | 2026-07-22 | Use World 1 standard difficulty / Preservation / room 100 / group 1001 as the first representative slice without claiming a complete World. | It exercises bundle composition, domain decisions, nested battle, reward and service boundaries with exact frozen IDs before full topology/mechanics land. |
 | 2026-07-22 | Inherit the existing 3-native/3-compile-only CI matrix and add a Goal 04 native gate. | Runtime/hash claims stay on native Windows/Linux/macOS; alternate CPU jobs provide compile evidence only. |
+| 2026-07-22 | Distinguish public enemy-reference closure from executable combat-catalog coverage. | All 86 Universe enemy keys exist in the frozen public reference catalog, but Goal 01 intentionally compiled only a representative set; `G04-P4-M15` owns the 73-variant overlay instead of inflating Phase 1 readiness. |
 
 ## Research and policy register
 

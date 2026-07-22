@@ -43,6 +43,8 @@ pub(crate) fn lower(config: &SoraConfig) -> Result<UniverseDefinitions, Universe
     let curio_definitions = crate::curio_lowering::lower(config)?;
     let occurrence_definitions = crate::occurrence_lowering::lower(config)?;
     let progression_definitions = crate::progression_lowering::lower(config)?;
+    let encounter_definitions = crate::encounter_lowering::lower(config)?;
+    let mechanic_rules = crate::rule_lowering::lower(config)?;
     let run_digest = crate::run_digest::digest(
         &occurrence_definitions.occurrences,
         &occurrence_definitions.variants,
@@ -50,11 +52,20 @@ pub(crate) fn lower(config: &SoraConfig) -> Result<UniverseDefinitions, Universe
         &progression_definitions.services,
         &progression_definitions.ability_tree_nodes,
     );
+    let encounter_digest = crate::encounter_digest::digest(
+        &encounter_definitions.groups,
+        &encounter_definitions.difficulty_enemies,
+        &encounter_definitions.pools,
+        &encounter_definitions.room_content,
+        &encounter_definitions.content_pools,
+        &mechanic_rules,
+    );
     let mut definitions = UniverseDefinitions {
         digest: UniverseDefinitionsDigest::new([0; 32]),
         path_digest: path_definitions.digest,
         curio_digest: curio_definitions.digest,
         run_digest,
+        encounter_digest,
         profile,
         worlds,
         difficulties,
@@ -73,6 +84,12 @@ pub(crate) fn lower(config: &SoraConfig) -> Result<UniverseDefinitions, Universe
         occurrence_choices: occurrence_definitions.choices,
         services: progression_definitions.services,
         ability_tree_nodes: progression_definitions.ability_tree_nodes,
+        encounter_groups: encounter_definitions.groups,
+        difficulty_enemies: encounter_definitions.difficulty_enemies,
+        encounter_pools: encounter_definitions.pools,
+        room_content: encounter_definitions.room_content,
+        content_pools: encounter_definitions.content_pools,
+        mechanic_rules,
     };
     definitions.digest = digest(&definitions);
     Ok(definitions)

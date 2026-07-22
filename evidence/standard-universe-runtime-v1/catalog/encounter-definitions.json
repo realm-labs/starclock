@@ -1,0 +1,48 @@
+{
+  "schema_revision": "starclock.goal04-encounter-catalog-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P1-B6",
+  "result": "encounter-pool-rule-evidence-catalog-lowered",
+  "definitions_digest": "4a6ed5d8dcc2282e9ba7503d38faa3e270ca9bedd454ff3f73bd2d6218d9aa42",
+  "counts": {
+    "encounter_groups": 74,
+    "encounter_members": 173,
+    "encounter_waves": 173,
+    "enemy_slots": 538,
+    "difficulty_enemy_bindings": 182,
+    "encounter_pools": 92,
+    "fixed_pool_bindings": 36,
+    "weighted_pool_bindings": 174,
+    "room_content_bindings": 380,
+    "content_pools": 23,
+    "content_pool_entries": 1651,
+    "mechanic_rules": 786,
+    "mechanic_parameters": 1020,
+    "content_evidence_records": 2201,
+    "unique_enemy_variant_references": 86,
+    "goal01_enemy_overlap": 13,
+    "phase4_enemy_overlay_required": 73
+  },
+  "shape": {
+    "room_encounter_group": 174,
+    "room_fixed_content": 78,
+    "room_external_decision": 128,
+    "content_pool_kinds": 6,
+    "selection_policies": 3,
+    "mechanic_rule_kinds": 7,
+    "enemy_reference_catalog_closed": true,
+    "enemy_runtime_overlay_compiled": false,
+    "enemy_runtime_overlay_owner": "G04-P4-M15"
+  },
+  "boundaries": {
+    "generated_rows_public": false,
+    "authoritative_float": false,
+    "every_internal_parent_order_content_rule_and_provenance_reference_validated": true,
+    "all_enemy_keys_exist_in_frozen_public_reference_catalog": true,
+    "goal01_representative_enemy_catalog_not_misreported_as_complete": true,
+    "runtime_enemy_overlay_deferred_to_declared_mechanic_partition": true,
+    "runtime_logic_implemented": false
+  },
+  "new_registry_packages": 0,
+  "focused_tests": 4
+}
