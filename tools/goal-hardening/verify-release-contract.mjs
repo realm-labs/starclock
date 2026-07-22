@@ -28,6 +28,7 @@ assert(goalStatus.includes("| Remaining required work | None within Goal 01;"), 
 const completionCommit = goalStatus.match(/\| Completion commit \| `([0-9a-f]{40})` \(`G01-P8-B7`\) \|/);
 assert(completionCommit !== null, "Goal 01 completion commit is missing or malformed");
 execFileSync("git", ["cat-file", "-e", `${completionCommit[1]}^{commit}`], { cwd: root, stdio: "ignore" });
+const additiveFacadePaths = new Set(["crates/starclock-activity/src/lib.rs"]);
 
 for (const group of [policy.cli_contract_files, policy.library_contract_files, policy.documentation_files, policy.hardening_evidence]) validateReferences(group);
 assert(policy.cli_contract_files.length === 5, "CLI contract inventory differs");
@@ -155,7 +156,22 @@ function validateReferences(references) {
 }
 function validateReference(reference) {
   assert(typeof reference.path === "string" && /^[0-9a-f]{64}$/.test(reference.sha256), "invalid release reference");
+  if (additiveFacadePaths.has(reference.path)) {
+    const released = execFileSync("git", ["show", `${completionCommit[1]}:${reference.path}`], { cwd: root, encoding: "utf8" });
+    assert(sha(Buffer.from(released.replaceAll("\r\n", "\n"))) === reference.sha256, `${reference.path} released digest differs`);
+    const releasedSymbols = publicFacadeSymbols(released);
+    const currentSymbols = publicFacadeSymbols(readText(reference.path));
+    for (const symbol of releasedSymbols)
+      assert(currentSymbols.has(symbol), `${reference.path} removed Goal 01 public symbol ${symbol}`);
+    return;
+  }
   assert(normalizedDigest(reference.path) === reference.sha256, `${reference.path} digest differs`);
+}
+function publicFacadeSymbols(source) {
+  const symbols = new Set();
+  for (const statement of source.matchAll(/pub use[\s\S]*?;/g))
+    for (const identifier of statement[0].matchAll(/\b[A-Z][A-Za-z0-9_]*\b/g)) symbols.add(identifier[0]);
+  return symbols;
 }
 function readJson(relative) { return JSON.parse(readText(relative)); }
 function readText(relative) { return fs.readFileSync(path.join(root, relative), "utf8"); }

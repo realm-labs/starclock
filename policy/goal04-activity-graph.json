@@ -1,0 +1,30 @@
+{
+  "schema_revision": "starclock.goal04-activity-graph.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P2-B1",
+  "graph_codec": "starclock-activity-graph-definition-v1",
+  "graph_codec_magic": "SCAG",
+  "graph_codec_version": 1,
+  "representative_graph_digest": "0dc5cc21019c61feb44254b4be981ea39a352480e1c25b009c3305baf66f6af7",
+  "bounds": {
+    "maximum_nodes": 4096,
+    "maximum_edges": 16384,
+    "maximum_total_visits": 1000000,
+    "maximum_node_visits": 65535,
+    "maximum_edge_traversals": 65535
+  },
+  "shape": {
+    "node_kinds": 9,
+    "edge_condition_kinds": 4,
+    "terminal_outcomes": 4,
+    "legacy_one_battle_nodes": 4,
+    "legacy_one_battle_edges": 3,
+    "canonical_input_order_independent": true,
+    "all_nodes_reachable_from_entry": true,
+    "all_nodes_can_reach_terminal": true,
+    "loops_require_finite_budgets": true,
+    "legacy_state_codec_unchanged": true
+  },
+  "focused_tests": 4,
+  "new_registry_packages": 0
+}

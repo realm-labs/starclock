@@ -1,9 +1,10 @@
 use starclock_combat::{BattleSeed, BattleSpec};
 
 use crate::{
-    ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId, ActivitySlotDefinition,
-    BattleResultConfiguration, BattleResultIdentity, BattleResultProjection, BattleSequence,
-    OneBattleFlow, ParticipantLock, ParticipantLockDigest, ScopeIdentity, codec::CanonicalWriter,
+    ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId, ActivityGraphDefinition,
+    ActivitySlotDefinition, BattleResultConfiguration, BattleResultIdentity,
+    BattleResultProjection, BattleSequence, OneBattleFlow, ParticipantLock, ParticipantLockDigest,
+    ScopeIdentity, codec::CanonicalWriter,
 };
 
 /// Immutable definition/configuration identity carried through every battle result.
@@ -151,6 +152,7 @@ impl BattleBinding {
 pub struct ActivitySpec {
     identity: ActivityDefinitionIdentity,
     flow: OneBattleFlow,
+    graph: ActivityGraphDefinition,
     slots: Box<[ActivitySlotDefinition]>,
     participants: ParticipantLock,
     projection: BattleResultProjection,
@@ -173,9 +175,11 @@ impl ActivitySpec {
         if participants.digest() != binding.participant_lock_digest() {
             return Err(ActivitySpecError::ParticipantLockMismatch);
         }
+        let graph = flow.into_graph();
         Ok(Self {
             identity,
             flow,
+            graph,
             slots: slots.into_boxed_slice(),
             participants,
             projection,
@@ -190,6 +194,11 @@ impl ActivitySpec {
     #[must_use]
     pub const fn flow(&self) -> OneBattleFlow {
         self.flow
+    }
+    /// Generic graph backing the retained Goal 01 one-battle profile.
+    #[must_use]
+    pub const fn graph(&self) -> &ActivityGraphDefinition {
+        &self.graph
     }
     #[must_use]
     pub fn slots(&self) -> &[ActivitySlotDefinition] {

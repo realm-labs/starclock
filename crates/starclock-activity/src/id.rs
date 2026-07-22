@@ -50,6 +50,12 @@ id_type!(
     "Stable generic Node definition ID."
 );
 id_type!(
+    ActivityEdgeId,
+    u32,
+    NonZeroU32,
+    "Stable authored edge identity within an Activity graph."
+);
+id_type!(
     AttemptId,
     u32,
     NonZeroU32,

@@ -1,8 +1,8 @@
 use starclock_combat::{BattleSeed, BattleSpec};
 
 use crate::{
-    ActivityDefinitionIdentity, ActivityInstanceId, ActivityMasterSeed, ActivitySlotId,
-    ActivitySpec, ActivityStateHash, ActivityValue, BattleOutcome, BattleResult,
+    ActivityDefinitionIdentity, ActivityEdgeCondition, ActivityInstanceId, ActivityMasterSeed,
+    ActivitySlotId, ActivitySpec, ActivityStateHash, ActivityValue, BattleOutcome, BattleResult,
     BattleResultDigest, BattleResultIdentity, BattleSequence, NodeId, ScopeIdentity,
     SlotResetPoint, TerminalOutcome, codec::CanonicalWriter, slot::ScopedSlots,
 };
@@ -119,12 +119,13 @@ impl Activity {
     ) -> Self {
         let attempt = crate::AttemptId::new(1).expect("one is a valid attempt ID");
         let battle_sequence = BattleSequence::new(1).expect("one is a valid sequence");
-        let scope = ScopeIdentity::new(
-            instance,
-            spec.flow().section(),
-            spec.flow().battle_node(),
-            attempt,
-        );
+        let entry = spec.graph().entry();
+        let section = spec
+            .graph()
+            .node(entry)
+            .expect("validated graph contains its entry")
+            .section();
+        let scope = ScopeIdentity::new(instance, section, entry, attempt);
         let seed = spec
             .binding()
             .derive_seed(master_seed, spec.identity(), scope, battle_sequence);
@@ -138,7 +139,7 @@ impl Activity {
         ] {
             let _ = slots.reset(point);
         }
-        let current_node = spec.flow().battle_node();
+        let current_node = entry;
         Self {
             spec,
             scope,
@@ -256,7 +257,13 @@ impl Activity {
                 ));
                 events.push(ActivityEvent::Terminal(outcome));
                 self.phase = ActivityPhase::Terminal(outcome);
-                self.current_node = self.spec.flow().terminal_node(outcome);
+                self.current_node = self
+                    .spec
+                    .graph()
+                    .outgoing(self.current_node)
+                    .find(|edge| edge.condition() == ActivityEdgeCondition::BattleOutcome(outcome))
+                    .expect("one-battle graph has one edge for every battle outcome")
+                    .to();
                 self.completed_result = Some(digest);
                 Ok(self.resolution(events, None))
             }

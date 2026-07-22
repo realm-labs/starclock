@@ -43,6 +43,11 @@ digest_type!(
     true
 );
 digest_type!(
+    ActivityGraphDigest,
+    "Digest of one validated immutable Activity graph.",
+    true
+);
+digest_type!(
     ActivityConfigDigest,
     "Digest of the complete validated activity configuration.",
     true
@@ -113,6 +118,37 @@ impl CanonicalWriter {
 
     pub(crate) fn digest(&mut self, value: [u8; 32]) {
         self.0.update(value);
+    }
+
+    pub(crate) fn finish(self) -> [u8; 32] {
+        self.0.finalize().into()
+    }
+}
+
+/// Goal 04 definition/state primitives. Kept separate from the legacy writer
+/// so old one-battle bytes cannot be silently relabeled as Activity v2 bytes.
+pub(crate) struct ActivityV2Writer(Sha256);
+
+impl ActivityV2Writer {
+    pub(crate) fn new(magic: [u8; 4], version: u32, domain: &[u8]) -> Self {
+        let mut hash = Sha256::new();
+        hash.update(magic);
+        hash.update(version.to_le_bytes());
+        hash.update((domain.len() as u32).to_le_bytes());
+        hash.update(domain);
+        Self(hash)
+    }
+
+    pub(crate) fn byte(&mut self, value: u8) {
+        self.0.update([value]);
+    }
+
+    pub(crate) fn u32(&mut self, value: u32) {
+        self.0.update(value.to_le_bytes());
+    }
+
+    pub(crate) fn i32(&mut self, value: i32) {
+        self.0.update(value.to_le_bytes());
     }
 
     pub(crate) fn finish(self) -> [u8; 32] {

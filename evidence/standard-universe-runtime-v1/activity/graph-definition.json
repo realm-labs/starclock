@@ -1,0 +1,44 @@
+{
+  "schema_revision": "starclock.goal04-activity-graph-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P2-B1",
+  "result": "validated-immutable-activity-graph",
+  "graph_codec": {
+    "domain": "starclock-activity-graph-definition-v1",
+    "magic": "SCAG",
+    "version": 1,
+    "byte_order": "little-endian",
+    "representative_digest": "0dc5cc21019c61feb44254b4be981ea39a352480e1c25b009c3305baf66f6af7"
+  },
+  "bounds": {
+    "maximum_nodes": 4096,
+    "maximum_edges": 16384,
+    "maximum_total_visits": 1000000,
+    "maximum_node_visits": 65535,
+    "maximum_edge_traversals": 65535
+  },
+  "shape": {
+    "node_kinds": 9,
+    "edge_condition_kinds": 4,
+    "terminal_outcomes": 4,
+    "legacy_one_battle_nodes": 4,
+    "legacy_one_battle_edges": 3,
+    "canonical_input_order_independent": true,
+    "all_nodes_reachable_from_entry": true,
+    "all_nodes_can_reach_terminal": true,
+    "loops_require_finite_budgets": true,
+    "legacy_state_codec_unchanged": true
+  },
+  "compatibility": {
+    "goal01_one_battle_profile_compiles_to_generic_graph": true,
+    "goal01_state_hash_goldens_unchanged": true,
+    "graph_activity_state_machine_deferred": "G04-P2-B2/G04-P2-B3",
+    "generated_rows_public": false
+  },
+  "source_sha256": {
+    "graph": "f55d55ff4e63be22679af004103919ec3f3a701cf3eea834471c7f23b3532287",
+    "tests": "daee091dcc9ff73d80975712fdf13e772e95f32d83c142090172b9b623849e5d"
+  },
+  "focused_tests": 4,
+  "new_registry_packages": 0
+}

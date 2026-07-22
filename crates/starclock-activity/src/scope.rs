@@ -114,6 +114,12 @@ impl OneBattleFlow {
         }
     }
 
+    /// Compiles the legacy one-battle profile into the generic immutable graph.
+    #[must_use]
+    pub fn into_graph(self) -> crate::ActivityGraphDefinition {
+        crate::ActivityGraphDefinition::one_battle(self)
+    }
+
     pub(crate) fn encode(self, writer: &mut crate::codec::CanonicalWriter) {
         writer.u32(self.section.get());
         writer.u32(self.battle.get());

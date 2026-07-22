@@ -8,6 +8,7 @@
 
 mod aggregate;
 mod codec;
+mod graph;
 mod id;
 mod participant;
 mod projection;
@@ -20,12 +21,18 @@ pub use aggregate::{
     ActivityEvent, ActivityPhase, ActivityResolution, BattleHandoff, ResultIdentityField,
 };
 pub use codec::{
-    ActivityConfigDigest, ActivityDefinitionDigest, ActivityStateHash, BattleResultDigest,
-    BuildDigest, EventDigest, ParticipantLockDigest,
+    ActivityConfigDigest, ActivityDefinitionDigest, ActivityGraphDigest, ActivityStateHash,
+    BattleResultDigest, BuildDigest, EventDigest, ParticipantLockDigest,
+};
+pub use graph::{
+    ActivityEdgeCondition, ActivityEdgeDefinition, ActivityGraphDefinition,
+    ActivityGraphDefinitionError, ActivityNodeDefinition, ActivityNodeKind,
+    ActivityTerminalOutcome, MAX_ACTIVITY_EDGES, MAX_ACTIVITY_NODES, MAX_ACTIVITY_TOTAL_VISITS,
+    MAX_EDGE_TRAVERSALS, MAX_NODE_VISITS,
 };
 pub use id::{
-    ActivityDefinitionId, ActivityInstanceId, ActivitySlotId, AttemptId, BattleSequence, NodeId,
-    ParticipantId, ProjectionId, SectionId,
+    ActivityDefinitionId, ActivityEdgeId, ActivityInstanceId, ActivitySlotId, AttemptId,
+    BattleSequence, NodeId, ParticipantId, ProjectionId, SectionId,
 };
 pub use participant::{
     LoadoutLockScope, OpaqueParticipantBuild, ParticipantLock, ParticipantLockEntry,
