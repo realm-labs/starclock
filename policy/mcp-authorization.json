@@ -53,7 +53,7 @@
   "startup": {
     "authorized_loopback_embedding": true,
     "anonymous_non_loopback": false,
-    "authorized_non_loopback": "disabled until G02-P4-B4 supplies trusted proxy policy, audit and drain controls"
+    "authorized_non_loopback": "disabled; Goal 02 exposes no complete trusted-proxy and security-audit remote profile"
   },
   "verification": [
     "node tools/agent-control/verify-mcp-authorization.mjs",

@@ -57,7 +57,7 @@ const reviewedPackages = [
   ...dependencyPolicy.packages,
   ...dependencyPolicy.package_groups.flatMap((group) => group.packages),
 ];
-assert(reviewedPackages.length === 134, "reviewed registry package inventory changed without review");
+assert(reviewedPackages.length === 136, "reviewed registry package inventory changed without review");
 assert(new Set(reviewedPackages.map((entry) => `${entry.name}@${entry.version}`)).size === reviewedPackages.length, "reviewed package inventory contains duplicates");
 
 const largest = [...sourceRows].sort((left, right) => right.utilization_percent - left.utilization_percent || right.lines - left.lines || left.path.localeCompare(right.path)).slice(0, 20);

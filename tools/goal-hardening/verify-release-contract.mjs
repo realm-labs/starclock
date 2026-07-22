@@ -54,7 +54,7 @@ const metadata = JSON.parse(execFileSync("cargo", ["metadata", "--format-version
 assert(metadata.workspace_members.length === 11, "workspace member count differs");
 const architecture = readJson("evidence/core-combat-v1/hardening/architecture-audit.json");
 assert(architecture.public_api_audit.public_reexports === 31, "public re-export count differs");
-assert(architecture.public_api_audit.public_declarations === 2039, "public declaration count differs");
+assert(architecture.public_api_audit.public_declarations === 2043, "public declaration count differs");
 assert(architecture.public_api_audit.leaked_tokens === 0, "public API leaks implementation tokens");
 
 let localLinks = 0;

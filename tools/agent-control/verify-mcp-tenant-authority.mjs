@@ -5,6 +5,7 @@ const threat = JSON.parse(await readFile("policy/agent-control-threat-model.json
 const server = await readFile("crates/starclock-mcp/src/server.rs", "utf8");
 const tools = await readFile("crates/starclock-mcp/src/tools.rs", "utf8");
 const http = await readFile("crates/starclock-mcp/src/http.rs", "utf8");
+const authorityTest = await readFile("crates/starclock-mcp/src/http_authority_test.rs", "utf8");
 const quotaTest = await readFile("crates/starclock-mcp/src/http_quota_test.rs", "utf8");
 const limiter = await readFile("crates/starclock-mcp/src/rate_limit.rs", "utf8");
 const fail = (message) => { throw new Error(`MCP tenant authority: ${message}`); };
@@ -56,10 +57,15 @@ for (const marker of [
   "StarclockMcp::new_authorized",
   "rate_class_for_request",
   "StatusCode::TOO_MANY_REQUESTS",
-  "request_authority_binds_sessions_and_idempotency_without_cross_tenant_leakage",
-  "session_not_owned",
 ]) {
   if (!http.includes(marker)) fail(`HTTP authority proof is missing ${marker}`);
+}
+for (const marker of [
+  "request_authority_cancellation_and_idempotency_do_not_cross_tenants",
+  "session_not_owned",
+  "notifications/cancelled",
+]) {
+  if (!authorityTest.includes(marker)) fail(`cross-authority proof is missing ${marker}`);
 }
 for (const marker of ["0..16", "principal", "tenant", "session_quota_exceeded"]) {
   if (!quotaTest.includes(marker)) fail(`quota proof is missing ${marker}`);

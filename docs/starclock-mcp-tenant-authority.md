@@ -36,6 +36,6 @@ bounded `Retry-After` of 1 through 60 seconds and a generic body. Identity,
 bearer, session and battle data never enter the response, combat state, replay,
 RNG or canonical hashes.
 
-Non-loopback startup remains unavailable. Tenant binding and rates complete
-this batch's controls, but they do not substitute for the trusted-proxy, audit
-and bounded-drain requirements of the later remote profile.
+Non-loopback startup remains unavailable. Tenant binding, rates and bounded
+draining do not substitute for a complete trusted-proxy and security-audit
+remote profile, which Goal 02 does not expose.

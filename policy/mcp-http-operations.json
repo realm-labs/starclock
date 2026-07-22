@@ -1,0 +1,34 @@
+{
+  "schema_revision": "starclock.mcp-http-operations.v1",
+  "goal_id": "agent-control-mcp-v1",
+  "reviewed_on": "2026-07-22",
+  "startup_profile": "explicit_loopback_development",
+  "management_endpoints": {
+    "health": { "path": "/healthz", "running_status": 200, "draining_status": 200 },
+    "readiness": { "path": "/readyz", "running_status": 200, "draining_status": 503 },
+    "metrics": { "path": "/metrics", "running_status": 200, "draining_status": 200 }
+  },
+  "network_boundary": "Management endpoints require the same exact Host, optional exact Origin and forwarded-header rejection as /mcp. They are public only on the loopback-only listener and grant no MCP authority.",
+  "metrics": {
+    "schema_revision": "starclock.mcp-http-metrics.v1",
+    "format": "application/json",
+    "authoritative": false,
+    "fields": ["ready", "draining", "in_flight", "requests_started", "requests_completed", "drain_rejections", "worker_rejections", "rate_rejections"],
+    "identity_labels": false,
+    "maximum_cardinality": "one fixed process-local aggregate"
+  },
+  "draining": {
+    "trigger": "Ctrl-C process signal",
+    "timeout_seconds": 10,
+    "new_mcp_requests": "503 with Retry-After: 1",
+    "admitted_requests": "finish normally within the bounded drain window",
+    "after_timeout": "drop the server future and stop the operational lifecycle"
+  },
+  "cancellation": "MCP cancellation is advisory. It cannot roll back an accepted commit; exact same-authority idempotent retry recovers a committed response after ambiguous delivery.",
+  "determinism": "Lifecycle state, counters, signals, operational time and management requests never enter battle state, replay facts, RNG or canonical hashes.",
+  "non_loopback_startup": false,
+  "verification": [
+    "node tools/agent-control/verify-mcp-http-operations.mjs",
+    "cargo test -p starclock-mcp --lib --all-features"
+  ]
+}

@@ -55,7 +55,7 @@ const expectedExternal = new Map([
     { name: "schemars", requirement: "=1.2.1", features: ["derive", "std"] },
     { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
     { name: "serde_json", requirement: "=1.0.151", features: ["std"] },
-    { name: "tokio", requirement: "=1.53.1", features: ["io-util", "macros", "net", "rt-multi-thread", "sync", "time"] },
+    { name: "tokio", requirement: "=1.53.1", features: ["io-util", "macros", "net", "rt-multi-thread", "signal", "sync", "time"] },
     { name: "tower", requirement: "=0.5.3", features: ["util"], kind: "dev" },
   ]],
   ["starclock-cli", [

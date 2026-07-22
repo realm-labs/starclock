@@ -275,6 +275,14 @@ commands without rerunning the external model.
 - Bulk verification/training uses the in-process or batch API, not MCP per step.
 - Cancellation cannot interrupt an accepted command. Idempotency recovers a
   committed response whose delivery was lost.
+- Loopback HTTP exposes `/healthz`, `/readyz` and fixed-cardinality JSON
+  `/metrics` behind the same Host/Origin/forwarded-header boundary as MCP.
+- Metrics are explicitly nonauthoritative and contain no identity, session,
+  battle, token, tool or user-text labels.
+- Ctrl-C stops admission, returns 503 with `Retry-After: 1` to new MCP work and
+  gives already-admitted requests at most ten seconds to drain.
+- Operational lifecycle, counters, signals and probes never enter battle
+  state, replay facts, RNG or canonical hashes.
 
 ## Failure model
 

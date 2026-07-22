@@ -2,10 +2,10 @@
   "schema_revision": "starclock.goal01.architecture-audit.v1",
   "policy": {
     "repository_checks_sha256": "be0ad4d929580c8de9203545fa2924935afaa002e1cc3eab4b74e34e9299cd5a",
-    "dependency_policy_sha256": "9b9739b74f8f098993c1771fad852dd1af0f19234295bf933117adcadd404ba3"
+    "dependency_policy_sha256": "75243d5f04636507610bd09bd051f7ff63739e2fb60277def4c52ad6bf3052d2"
   },
   "source_size_audit": {
-    "handwritten_files": 250,
+    "handwritten_files": 253,
     "generated_vendor_exclusions": [
       {
         "path": "config/sora-golden/expected/reader/generated",
@@ -105,9 +105,9 @@
       },
       {
         "path": "crates/starclock-mcp/src/http.rs",
-        "lines": 1150,
+        "lines": 1153,
         "limit": 1200,
-        "utilization_percent": 95,
+        "utilization_percent": 96,
         "facade": false
       },
       {
@@ -183,7 +183,7 @@
     ]
   },
   "public_api_audit": {
-    "public_declarations": 2039,
+    "public_declarations": 2043,
     "public_reexports": 31,
     "reexport_files": {
       "crates/starclock-activity/src/lib.rs": 8,
@@ -434,7 +434,7 @@
         "registry_dependencies": []
       }
     ],
-    "reviewed_registry_packages": 134,
+    "reviewed_registry_packages": 136,
     "pinned_tools": 6,
     "unreviewed_packages": 0
   }

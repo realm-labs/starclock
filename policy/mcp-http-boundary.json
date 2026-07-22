@@ -27,10 +27,12 @@
     "response_bytes": 2097152,
     "active_workers": 32,
     "allowed_origins": 16,
-    "origin_bytes": 256
+    "origin_bytes": 256,
+    "graceful_drain_seconds": 10
   },
+  "management_endpoints": ["/healthz", "/readyz", "/metrics"],
   "application_limit_composition": "The transport byte caps are intentionally tighter than the 64 MiB decoded replay verifier cap; every request and response must satisfy both layers.",
-  "authorization": "An injected OAuth resource-server profile with request-local tenant ownership and rates is available for loopback embedding. The CLI remains explicit local development, and non-loopback startup stays impossible until trusted-proxy/audit/drain controls are complete.",
+  "authorization": "An injected OAuth resource-server profile with request-local tenant ownership and rates is available for loopback embedding. The CLI remains explicit local development, and non-loopback startup stays impossible because Goal 02 exposes no complete trusted-proxy and security-audit remote profile.",
   "verification": [
     "node tools/agent-control/verify-mcp-http-boundary.mjs",
     "cargo test -p starclock-mcp --all-targets --all-features",

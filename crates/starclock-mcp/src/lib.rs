@@ -11,6 +11,7 @@ pub mod authorization;
 pub mod error;
 /// Bounded loopback-only Streamable HTTP development service.
 pub mod http;
+mod http_observability;
 /// Frozen protocol and server implementation metadata.
 pub mod metadata;
 /// Frozen bounded per-authority operational HTTP rate limits.

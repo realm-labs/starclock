@@ -3,14 +3,18 @@
 use std::{
     collections::HashSet,
     fmt,
+    future::{Future, IntoFuture},
     net::SocketAddr,
     sync::{
         Arc,
         atomic::{AtomicU64, Ordering},
     },
-    time::{Instant, SystemTime, UNIX_EPOCH},
+    time::{Duration, Instant, SystemTime, UNIX_EPOCH},
 };
 
+use crate::http_observability::{
+    DRAIN_TIMEOUT_SECONDS, HEALTH_PATH, HttpOperations, METRICS_PATH, READINESS_PATH,
+};
 use crate::{
     authorization::{
         AuthorizationFailure, AuthorizationPolicy, SUPPORTED_SCOPES, required_scope_for_json_rpc,
@@ -126,13 +130,19 @@ pub fn serve_loopback(config: LoopbackHttpConfig) -> Result<(), HttpServeError> 
 }
 
 async fn serve_loopback_async(config: LoopbackHttpConfig) -> Result<(), HttpServeError> {
-    let router = loopback_router(&config)?;
+    let app = build_loopback_app(&config, None)?;
     let listener = tokio::net::TcpListener::bind(config.bind())
         .await
         .map_err(|_| HttpServeError::Bind)?;
-    axum::serve(listener, router)
-        .await
-        .map_err(|_| HttpServeError::Transport)
+    run_loopback_server(
+        listener,
+        app,
+        async {
+            let _ = tokio::signal::ctrl_c().await;
+        },
+        Duration::from_secs(DRAIN_TIMEOUT_SECONDS),
+    )
+    .await
 }
 
 pub fn loopback_router(config: &LoopbackHttpConfig) -> Result<Router, HttpServeError> {
@@ -161,6 +171,18 @@ fn build_loopback_router(
     config: &LoopbackHttpConfig,
     authorization: Option<AuthorizationPolicy>,
 ) -> Result<Router, HttpServeError> {
+    Ok(build_loopback_app(config, authorization)?.router)
+}
+
+struct LoopbackApp {
+    router: Router,
+    operations: HttpOperations,
+}
+
+fn build_loopback_app(
+    config: &LoopbackHttpConfig,
+    authorization: Option<AuthorizationPolicy>,
+) -> Result<LoopbackApp, HttpServeError> {
     let factory = AgentSessionFactory::load_production().map_err(|_| HttpServeError::Startup)?;
     let operational_clock = Arc::new(HttpClock::new());
     let registry = AgentSessionRegistry::new(
@@ -198,23 +220,79 @@ fn build_loopback_router(
                 .with_allowed_hosts([config.authority()])
                 .with_allowed_origins(config.allowed_origins().iter().cloned()),
         );
-    let guard = HttpGuard::new(config, authorization.clone(), rate_limiter);
-    let router = Router::new()
-        .nest_service(MCP_HTTP_PATH, service)
-        .layer(middleware::from_fn_with_state(guard.clone(), guard_request));
+    let operations = HttpOperations::new();
+    let guard = HttpGuard::new(
+        config,
+        authorization.clone(),
+        rate_limiter,
+        operations.clone(),
+    );
+    let mut router = Router::new().nest_service(MCP_HTTP_PATH, service);
     if let Some(policy) = authorization {
-        let metadata_guard = guard;
-        Ok(router.route(
+        router = router.route(
             PROTECTED_RESOURCE_METADATA_PATH,
-            get(move |headers: HeaderMap| {
+            get(move || {
                 let policy = policy.clone();
-                let guard = metadata_guard.clone();
-                async move { protected_resource_metadata(headers, &guard, &policy) }
+                async move { protected_resource_metadata(&policy) }
             }),
-        ))
-    } else {
-        Ok(router)
+        );
     }
+    let health = operations.clone();
+    router = router.route(
+        HEALTH_PATH,
+        get(move || {
+            let health = health.clone();
+            async move { health.health_response() }
+        }),
+    );
+    let readiness = operations.clone();
+    router = router.route(
+        READINESS_PATH,
+        get(move || {
+            let readiness = readiness.clone();
+            async move { readiness.readiness_response() }
+        }),
+    );
+    let metrics = operations.clone();
+    router = router.route(
+        METRICS_PATH,
+        get(move || {
+            let metrics = metrics.clone();
+            async move { metrics.metrics_response() }
+        }),
+    );
+    Ok(LoopbackApp {
+        router: router.layer(middleware::from_fn_with_state(guard, guard_request)),
+        operations,
+    })
+}
+
+async fn run_loopback_server(
+    listener: tokio::net::TcpListener,
+    app: LoopbackApp,
+    shutdown: impl Future<Output = ()> + Send + 'static,
+    drain_timeout: Duration,
+) -> Result<(), HttpServeError> {
+    let operations = app.operations.clone();
+    let shutdown_operations = operations.clone();
+    let (draining_sender, draining_receiver) = tokio::sync::oneshot::channel();
+    let server = axum::serve(listener, app.router)
+        .with_graceful_shutdown(async move {
+            shutdown.await;
+            shutdown_operations.begin_draining();
+            let _ = draining_sender.send(());
+        })
+        .into_future();
+    tokio::pin!(server);
+    let result = tokio::select! {
+        result = &mut server => result.map_err(|_| HttpServeError::Transport),
+        _ = draining_receiver => match tokio::time::timeout(drain_timeout, &mut server).await {
+            Ok(result) => result.map_err(|_| HttpServeError::Transport),
+            Err(_) => Ok(()),
+        },
+    };
+    operations.stop();
+    result
 }
 
 #[derive(Clone)]
@@ -224,6 +302,7 @@ struct HttpGuard {
     workers: Arc<Semaphore>,
     authorization: Option<AuthorizationPolicy>,
     rate_limiter: Option<McpRateLimiter>,
+    operations: HttpOperations,
 }
 
 impl HttpGuard {
@@ -231,6 +310,7 @@ impl HttpGuard {
         config: &LoopbackHttpConfig,
         authorization: Option<AuthorizationPolicy>,
         rate_limiter: Option<McpRateLimiter>,
+        operations: HttpOperations,
     ) -> Self {
         Self {
             authority: config.authority().into(),
@@ -238,6 +318,7 @@ impl HttpGuard {
             workers: Arc::new(Semaphore::new(MAX_HTTP_WORKERS)),
             authorization,
             rate_limiter,
+            operations,
         }
     }
 
@@ -254,6 +335,12 @@ async fn guard_request(
     if let Some(error) = network_header_error(&guard, request.headers()) {
         return error;
     }
+    if is_management_path(request.uri().path()) {
+        return cap_response(next.run(request).await).await;
+    }
+    let Some(_request_guard) = guard.operations.start_request() else {
+        return draining_response();
+    };
     if request.method() == Method::GET {
         if let Some(policy) = &guard.authorization {
             let grant = match policy.authenticate(request.headers()) {
@@ -281,6 +368,7 @@ async fn guard_request(
         );
     }
     let Some(_permit) = guard.acquire_worker() else {
+        guard.operations.record_worker_rejection();
         return response_with_retry();
     };
     let (parts, body) = request.into_parts();
@@ -341,7 +429,17 @@ fn rate_failure(
         .rate_limiter
         .as_ref()
         .and_then(|limiter| limiter.admit(grant, class).err())
-        .map(rate_limit_response)
+        .map(|failure| {
+            guard.operations.record_rate_rejection();
+            rate_limit_response(failure)
+        })
+}
+
+fn is_management_path(path: &str) -> bool {
+    matches!(
+        path,
+        HEALTH_PATH | READINESS_PATH | METRICS_PATH | PROTECTED_RESOURCE_METADATA_PATH
+    )
 }
 
 fn network_header_error(guard: &HttpGuard, headers: &HeaderMap) -> Option<Response<Body>> {
@@ -398,14 +496,7 @@ fn authorization_failure_response(
     response
 }
 
-fn protected_resource_metadata(
-    headers: HeaderMap,
-    guard: &HttpGuard,
-    policy: &AuthorizationPolicy,
-) -> Response<Body> {
-    if let Some(error) = network_header_error(guard, &headers) {
-        return error;
-    }
+fn protected_resource_metadata(policy: &AuthorizationPolicy) -> Response<Body> {
     let body = serde_json::json!({
         "resource": policy.expected_audience(),
         "authorization_servers": [policy.expected_issuer()],
@@ -457,6 +548,14 @@ fn response(status: StatusCode, message: &'static str) -> Response<Body> {
 
 fn response_with_retry() -> Response<Body> {
     let mut response = response(StatusCode::SERVICE_UNAVAILABLE, "HTTP worker limit reached");
+    response
+        .headers_mut()
+        .insert(RETRY_AFTER, HeaderValue::from_static("1"));
+    response
+}
+
+fn draining_response() -> Response<Body> {
+    let mut response = response(StatusCode::SERVICE_UNAVAILABLE, "HTTP service is draining");
     response
         .headers_mut()
         .insert(RETRY_AFTER, HeaderValue::from_static("1"));
@@ -668,6 +767,16 @@ mod tests {
             .unwrap()
     }
 
+    fn management_request(path: &'static str) -> Request<Body> {
+        Request::builder()
+            .method(Method::GET)
+            .uri(path)
+            .header(HOST, AUTHORITY)
+            .header("origin", ORIGIN)
+            .body(Body::empty())
+            .unwrap()
+    }
+
     fn initialize_body() -> Body {
         Body::from(
             json!({
@@ -771,6 +880,8 @@ mod tests {
         assert_eq!(config().bind().to_string(), AUTHORITY);
     }
 
+    include!("http_observability_test.rs");
+
     #[test]
     fn rate_classes_and_bounded_http_retry_are_frozen() {
         let create = json!({
@@ -810,7 +921,12 @@ mod tests {
         );
         let grant = policy.authenticate(&headers).unwrap();
         let limiter = McpRateLimiter::new(Arc::new(FixedClock));
-        let guard = HttpGuard::new(&config(), Some(policy), Some(limiter.clone()));
+        let guard = HttpGuard::new(
+            &config(),
+            Some(policy),
+            Some(limiter.clone()),
+            HttpOperations::new(),
+        );
         for _ in 0..crate::rate_limit::READ_REQUESTS_PER_TENANT_PER_MINUTE {
             limiter.admit(&grant, RateClass::Read).unwrap();
         }
@@ -925,7 +1041,7 @@ mod tests {
             StatusCode::INTERNAL_SERVER_ERROR
         );
 
-        let guard = HttpGuard::new(&config(), None, None);
+        let guard = HttpGuard::new(&config(), None, None, HttpOperations::new());
         let permits = (0..MAX_HTTP_WORKERS)
             .map(|_| guard.acquire_worker().unwrap())
             .collect::<Vec<_>>();
@@ -1032,119 +1148,6 @@ mod tests {
         assert!(challenge.contains("starclock:battle:create"));
     }
 
-    #[tokio::test]
-    async fn request_authority_binds_sessions_and_idempotency_without_cross_tenant_leakage() {
-        let app = authorized_loopback_router(&config(), authority_policy()).unwrap();
-        let initialized = app
-            .clone()
-            .oneshot(with_bearer(
-                request(Method::POST, initialize_body()),
-                "tenant-a:principal-a",
-            ))
-            .await
-            .unwrap();
-        assert_eq!(initialized.status(), StatusCode::OK);
-        let transport_session = initialized.headers()["mcp-session-id"].clone();
-
-        let create = json!({
-            "jsonrpc":"2.0", "id":2, "method":"tools/call",
-            "params":{"name":"starclock_create_battle","arguments":{
-                "schema_revision":"agent-api-v1",
-                "scenario_id":"scenario.standard-v1.basic-single-wave"
-            }}
-        });
-        let created = app
-            .clone()
-            .oneshot(session_request(
-                create,
-                &transport_session,
-                "tenant-a:principal-a",
-            ))
-            .await
-            .unwrap();
-        assert_eq!(created.status(), StatusCode::OK);
-        let created = response_json(created).await;
-        let observation = &created["result"]["structuredContent"]["observation"];
-        let battle_session = observation["session_id"].as_str().unwrap().to_owned();
-        let action = observation["legal_actions"]
-            .as_array()
-            .unwrap()
-            .iter()
-            .find(|action| action["kind"] != "concede")
-            .unwrap();
-        let play = json!({
-            "jsonrpc":"2.0", "id":3, "method":"tools/call",
-            "params":{"name":"starclock_play_action","arguments":{
-                "schema_revision":"agent-api-v1",
-                "session_id":battle_session,
-                "decision_id":observation["decision_id"],
-                "expected_state_hash":observation["state_hash"],
-                "action_token":action["token"],
-                "idempotency_key":"shared_authority_key"
-            }}
-        });
-
-        let denied = app
-            .clone()
-            .oneshot(session_request(
-                play.clone(),
-                &transport_session,
-                "tenant-b:principal-b",
-            ))
-            .await
-            .unwrap();
-        assert_eq!(denied.status(), StatusCode::OK);
-        let denied = response_json(denied).await;
-        let denied_text = denied.to_string();
-        assert!(denied_text.contains("session_not_owned"));
-        assert!(!denied_text.contains(&battle_session));
-        assert!(!denied_text.contains("state_hash"));
-
-        let committed = response_json(
-            app.clone()
-                .oneshot(session_request(
-                    play.clone(),
-                    &transport_session,
-                    "tenant-a:principal-a",
-                ))
-                .await
-                .unwrap(),
-        )
-        .await;
-        assert_eq!(
-            committed["result"]["structuredContent"]["response"]["idempotent_replay"],
-            false
-        );
-        let replayed = response_json(
-            app.clone()
-                .oneshot(session_request(
-                    play.clone(),
-                    &transport_session,
-                    "tenant-a:principal-a",
-                ))
-                .await
-                .unwrap(),
-        )
-        .await;
-        assert_eq!(
-            replayed["result"]["structuredContent"],
-            committed["result"]["structuredContent"]
-        );
-
-        let denied_after_commit = response_json(
-            app.oneshot(session_request(
-                play,
-                &transport_session,
-                "tenant-b:principal-b",
-            ))
-            .await
-            .unwrap(),
-        )
-        .await;
-        let denied_after_commit = denied_after_commit.to_string();
-        assert!(denied_after_commit.contains("session_not_owned"));
-        assert!(!denied_after_commit.contains("idempotent_replay"));
-    }
-
+    include!("http_authority_test.rs");
     include!("http_quota_test.rs");
 }
