@@ -1,0 +1,508 @@
+[[enums]]
+name = "UniverseServiceKind"
+values = ["Currency", "ResetBlessing", "Reviver", "Downloader", "RespiteOffers", "EnhanceBlessing", "BlessingShop", "CurioShop", "TrailblazeBonus"]
+
+[[enums]]
+name = "UniverseAbilityEffectClass"
+values = ["Run", "Battle", "RunAndBattle"]
+
+[[enums]]
+name = "UniverseAbilityOperationKind"
+values = ["Unlock", "AddStat", "UnlockFormationSlot", "Set", "AddLimit", "Enable", "AddCurrency", "AddChoice", "AddResource", "SetRatio"]
+
+[[enums]]
+name = "UniverseAbilityValueUnit"
+values = ["Boolean", "Flat", "Count", "Ratio"]
+
+[[tables]]
+name = "UniverseOccurrence"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseOccurrence"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "choice_graph_stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "pool_tags"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 32]
+[[tables.fields]]
+name = "index_only"
+type = "bool"
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseOccurrenceVariant"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseOccurrenceVariant"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "occurrence_id"
+type = "ref<UniverseOccurrence.id>"
+[[tables.fields]]
+name = "entry_node_id"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "condition_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 64]
+[[tables.fields]]
+name = "source_dialogue_type"
+type = "string"
+length = [1, 80]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseOccurrenceChoice"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseOccurrenceChoice"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "variant_id"
+type = "ref<UniverseOccurrenceVariant.id>"
+[[tables.fields]]
+name = "condition_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 64]
+[[tables.fields]]
+name = "next_node_id"
+type = "optional<string>"
+[[tables.fields]]
+name = "parameter_vectors_json"
+type = "string"
+length = [2, 8000]
+[[tables.fields]]
+name = "choice_label_sha256_en"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "choice_label_sha256_zh_cn"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "result_sha256_en"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "result_sha256_zh_cn"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseOccurrenceCost"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseOccurrenceCost"
+[[tables.fields]]
+name = "choice_id"
+type = "ref<UniverseOccurrenceChoice.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 32]
+[[tables.fields]]
+name = "kind"
+type = "string"
+length = [1, 80]
+[[tables.fields]]
+name = "targets"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 32]
+[[tables.indexes]]
+name = "by_choice_sequence"
+fields = ["choice_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseOccurrenceOutcome"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseOccurrenceOutcome"
+[[tables.fields]]
+name = "choice_id"
+type = "ref<UniverseOccurrenceChoice.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 32]
+[[tables.fields]]
+name = "kinds"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 32]
+[[tables.fields]]
+name = "targets"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 32]
+[[tables.fields]]
+name = "numeric_literals"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 64]
+[[tables.fields]]
+name = "parameter_refs"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 64]
+[[tables.fields]]
+name = "chance_percentages"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 32]
+[[tables.fields]]
+name = "unspecified_random_policy"
+type = "optional<string>"
+[[tables.indexes]]
+name = "by_choice_sequence"
+fields = ["choice_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseService"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseService"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "kind"
+type = "enum<UniverseServiceKind>"
+[[tables.fields]]
+name = "currency_stable_key"
+type = "optional<string>"
+[[tables.fields]]
+name = "price_formula_stable_key"
+type = "optional<string>"
+[[tables.fields]]
+name = "offer_pool_stable_key"
+type = "optional<string>"
+[[tables.fields]]
+name = "rule_stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseServiceParameter"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseServiceParameter"
+[[tables.fields]]
+name = "service_id"
+type = "ref<UniverseService.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 128]
+[[tables.fields]]
+name = "key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "value"
+type = "string"
+length = [1, 1000]
+[[tables.indexes]]
+name = "by_service_sequence"
+fields = ["service_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseAbilityTreeNode"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseAbilityTreeNode"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "important"
+type = "bool"
+[[tables.fields]]
+name = "effect_class"
+type = "enum<UniverseAbilityEffectClass>"
+[[tables.fields]]
+name = "effect_tag_en"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "effect_tag_zh_cn"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "external_unlock_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 32]
+[[tables.fields]]
+name = "rule_stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseAbilityTreeEdge"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseAbilityTreeEdge"
+[[tables.fields]]
+name = "node_id"
+type = "ref<UniverseAbilityTreeNode.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 32]
+[[tables.fields]]
+name = "prerequisite_node_id"
+type = "ref<UniverseAbilityTreeNode.id>"
+[[tables.indexes]]
+name = "by_node_sequence"
+fields = ["node_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseAbilityTreeCost"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseAbilityTreeCost"
+[[tables.fields]]
+name = "node_id"
+type = "ref<UniverseAbilityTreeNode.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 32]
+[[tables.fields]]
+name = "source_item_id"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "amount_decimal"
+type = "string"
+length = [1, 32]
+[[tables.indexes]]
+name = "by_node_sequence"
+fields = ["node_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseAbilityTreeEffect"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseAbilityTreeEffect"
+[[tables.fields]]
+name = "node_id"
+type = "ref<UniverseAbilityTreeNode.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 32]
+[[tables.fields]]
+name = "kind"
+type = "enum<UniverseAbilityOperationKind>"
+[[tables.fields]]
+name = "target"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "value_decimal"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "unit"
+type = "enum<UniverseAbilityValueUnit>"
+[[tables.fields]]
+name = "condition"
+type = "optional<string>"
+[[tables.indexes]]
+name = "by_node_sequence"
+fields = ["node_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseAbilityTreeParameter"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseAbilityTreeParameter"
+[[tables.fields]]
+name = "node_id"
+type = "ref<UniverseAbilityTreeNode.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 128]
+[[tables.fields]]
+name = "value_decimal"
+type = "string"
+length = [1, 32]
+[[tables.indexes]]
+name = "by_node_sequence"
+fields = ["node_id", "sequence"]
+unique = true

@@ -1,0 +1,411 @@
+[[enums]]
+name = "UniverseResonanceKind"
+values = ["Resonance", "Formation"]
+
+[[enums]]
+name = "UniverseCurioStateKind"
+values = ["Active", "Repairing", "Fixed"]
+
+[[tables]]
+name = "UniverseResonance"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseResonance"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "path_id"
+type = "ref<UniversePath.id>"
+[[tables.fields]]
+name = "kind"
+type = "enum<UniverseResonanceKind>"
+[[tables.fields]]
+name = "threshold"
+type = "i32"
+range = [0, 18]
+[[tables.fields]]
+name = "energy_max_decimal"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "initial_energy_decimal"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "mechanic_tags"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 32]
+[[tables.fields]]
+name = "source_binding_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "rule_stable_key"
+type = "string"
+length = [1, 160]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseResonanceParameter"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseResonanceParameter"
+[[tables.fields]]
+name = "resonance_id"
+type = "ref<UniverseResonance.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 128]
+[[tables.fields]]
+name = "value_decimal"
+type = "string"
+length = [1, 32]
+[[tables.indexes]]
+name = "by_resonance_sequence"
+fields = ["resonance_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseBlessing"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseBlessing"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "path_id"
+type = "ref<UniversePath.id>"
+[[tables.fields]]
+name = "rarity"
+type = "i32"
+range = [1, 3]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "pool_tags"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 32]
+[[tables.fields]]
+name = "mechanic_tags"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 32]
+[[tables.fields]]
+name = "rule_stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "source_description_sha256_en"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "source_description_sha256_zh_cn"
+type = "string"
+length = [64, 64]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseBlessingPrerequisite"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseBlessingPrerequisite"
+[[tables.fields]]
+name = "blessing_id"
+type = "ref<UniverseBlessing.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 32]
+[[tables.fields]]
+name = "prerequisite_blessing_id"
+type = "ref<UniverseBlessing.id>"
+[[tables.indexes]]
+name = "by_blessing_sequence"
+fields = ["blessing_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseBlessingLevel"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseBlessingLevel"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "blessing_id"
+type = "ref<UniverseBlessing.id>"
+[[tables.fields]]
+name = "level"
+type = "i32"
+range = [1, 2]
+[[tables.fields]]
+name = "source_binding_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "rule_stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_blessing_level"
+fields = ["blessing_id", "level"]
+unique = true
+
+[[tables]]
+name = "UniverseBlessingParameter"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseBlessingParameter"
+[[tables.fields]]
+name = "blessing_level_id"
+type = "ref<UniverseBlessingLevel.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 128]
+[[tables.fields]]
+name = "value_decimal"
+type = "string"
+length = [1, 32]
+[[tables.indexes]]
+name = "by_level_sequence"
+fields = ["blessing_level_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseCurio"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseCurio"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "initial_state_stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "handbook_order"
+type = "i32"
+range = [1, 10000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "tags"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 32]
+[[tables.fields]]
+name = "pool_tags"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 32]
+[[tables.fields]]
+name = "rule_stable_key"
+type = "string"
+length = [1, 160]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseCurioState"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseCurioState"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "curio_id"
+type = "ref<UniverseCurio.id>"
+[[tables.fields]]
+name = "state_kind"
+type = "enum<UniverseCurioStateKind>"
+[[tables.fields]]
+name = "charges_decimal"
+type = "optional<string>"
+length = [1, 32]
+[[tables.fields]]
+name = "next_state_id"
+type = "optional<ref<UniverseCurioState.id>>"
+[[tables.fields]]
+name = "repair_state_id"
+type = "optional<ref<UniverseCurioState.id>>"
+[[tables.fields]]
+name = "replacement_curio_id"
+type = "optional<ref<UniverseCurio.id>>"
+[[tables.fields]]
+name = "source_effect_id"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "rule_stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseCurioParameter"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseCurioParameter"
+[[tables.fields]]
+name = "curio_state_id"
+type = "ref<UniverseCurioState.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 128]
+[[tables.fields]]
+name = "value_decimal"
+type = "string"
+length = [1, 32]
+[[tables.indexes]]
+name = "by_state_sequence"
+fields = ["curio_state_id", "sequence"]
+unique = true
