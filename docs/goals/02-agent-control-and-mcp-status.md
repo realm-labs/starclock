@@ -12,8 +12,8 @@ implementation batch.
 | State | `InProgress` |
 | Prerequisite | Goal 01 `Complete` at or after `b23f900` |
 | Active phase | Phase 1 — Protocol-neutral types and observation |
-| Next unblocked batch | `G02-P1-B1` |
-| Last completed batch | `G02-P0-B4` |
+| Next unblocked batch | `G02-P1-B2` |
+| Last completed batch | `G02-P1-B1` |
 | Last completed commit | This row's containing commit |
 | MCP specification baseline | Frozen `2025-11-25` |
 | Agent schema revision | Frozen `agent-api-v1` / `1746004f…6725` |
@@ -30,7 +30,7 @@ external evidence or decision required. Phase completion is not goal completion.
 | Phase | State | Exit evidence |
 |---|---|---|
 | Phase 0 — Protocol/capability/threat model | `Complete` | Surface audit; MCP/SDK capability lock; `agent-api-v1` schema/budgets; 19-case threat model and fail-closed startup policy |
-| Phase 1 — Types and observation | `Pending` | Pending |
+| Phase 1 — Types and observation | `InProgress` | Protocol-neutral crate boundary complete; exact types/projection/actions/debug/schema implementation pending |
 | Phase 2 — Authoritative sessions | `Pending` | Pending |
 | Phase 3 — Local MCP | `Pending` | Pending |
 | Phase 4 — Remote HTTP | `Pending` | Pending |
@@ -48,7 +48,7 @@ evidence summary.
 | `G02-P0-B2` | `Complete` | This row's containing commit | `node tools/agent-control/verify-mcp-sdk-lock.mjs`; `cargo test --manifest-path tools/mcp-sdk-capability/Cargo.toml --locked`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Frozen MCP `2025-11-25` and official `rmcp 2.2.0` with exact tag/checksums/features/Apache-2.0 licenses; executable goldens prove stdio, Streamable HTTP, tools/schema/structured output, resources/templates, cancellation and errors, with unsupported assumptions explicit. |
 | `G02-P0-B3` | `Complete` | This row's containing commit | `node tools/agent-control/verify-agent-api-v1.mjs`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Frozen observation/action/error schemas, canonical string numerics, default/debug visibility policy, cursor semantics, response/retention/settlement bounds and ordinary/trigger-heavy/error goldens at schema bundle `1746004f…6725`. |
 | `G02-P0-B4` | `Complete` | This row's containing commit | `node tools/agent-control/verify-threat-model.mjs`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Frozen 19 threats and controls for ownership, forgery/staleness, payload/replay abuse, prompt/data separation, response loss, races, origins, auth/scopes/tenancy, rate/quota/expiry/cancellation, redaction, stdio, drift, visibility and adapter isolation; three startup profiles include fail-closed non-loopback requirements. |
-| `G02-P1-B1` | `Pending` | — | — | — |
+| `G02-P1-B1` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Added dependency-free, protocol-neutral `starclock-agent-api` with public `schema`, `observation`, `action`, `session` and `error` responsibilities; workspace guard forbids unreviewed dependencies and reverse/protocol coupling. |
 | `G02-P1-B2` | `Pending` | — | — | — |
 | `G02-P1-B3` | `Pending` | — | — | — |
 | `G02-P1-B4` | `Pending` | — | — | — |

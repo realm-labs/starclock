@@ -8,6 +8,7 @@ assert(/\[workspace\.lints\.rust\][\s\S]*?unsafe_code\s*=\s*"forbid"/.test(works
 assert(/\[workspace\.lints\.rust\][\s\S]*?unexpected_cfgs\s*=\s*"deny"/.test(workspaceManifest), "workspace must deny unexpected cfg values");
 assert(/\[workspace\.lints\.rust\][\s\S]*?unused_must_use\s*=\s*"deny"/.test(workspaceManifest), "workspace must deny unused must-use results");
 const expected = new Map([
+  ["starclock-agent-api", []],
   ["starclock-combat", []],
   ["starclock-build", ["starclock-combat"]],
   ["starclock-activity", ["starclock-combat"]],
@@ -94,8 +95,10 @@ assert(replay.dependencies.filter((dependency) => dependency.source !== null).ev
 const cli = packages.find((entry) => entry.name === "starclock-cli");
 const cliBinaries = cli.targets.filter((target) => target.kind.includes("bin")).map((target) => target.name);
 assert(JSON.stringify(cliBinaries) === JSON.stringify(["starclock"]), "starclock-cli must own only the starclock binary");
+const agentApi = packages.find((entry) => entry.name === "starclock-agent-api");
+assert(agentApi.dependencies.length === 0, "starclock-agent-api scaffold must remain protocol-neutral and dependency-free until a responsibility batch adds a reviewed direct dependency");
 
-console.log("Workspace dependency boundaries verified (9 crates; production boundaries plus reviewed property dev-dependencies).");
+console.log("Workspace dependency boundaries verified (10 crates; protocol-neutral agent scaffold plus production boundaries and reviewed property dev-dependencies).");
 
 function normalize(value) { return path.resolve(value).replaceAll("\\", "/").toLowerCase(); }
 function read(file) { return fs.readFileSync(file, "utf8"); }
