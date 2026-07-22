@@ -79,10 +79,10 @@
     "occurrence_variants": ["occurrence_id", "entry_node_id", "condition_ids", "choice_ids"],
     "occurrence_choices": ["variant_id", "condition_ids", "costs", "outcomes", "next_node_id"],
     "services": ["kind", "currency_id", "price_formula_id", "offer_pool_id", "rule_ids"],
-    "ability_tree": ["prerequisite_ids", "cost", "effect_class", "rule_ids"],
-    "encounter_pools": ["domain_kind", "world_ids", "difficulty_ids", "weighted_group_ids"],
+    "ability_tree": ["prerequisite_ids", "cost", "effect_class", "effects", "rule_ids"],
+    "encounter_pools": ["domain_kind", "world_ids", "difficulty_ids", "weighted_group_ids", "fixed_content_entries", "selection_policy"],
     "encounter_groups": ["weighted_member_ids", "wave_policy", "boss_phase_policy"],
-    "mechanic_rules": ["state_slots", "triggers", "native_handler_id", "approximation_replacement_condition"],
+    "mechanic_rules": ["source_record_id", "rule_kind", "state_slots", "triggers", "native_handler_id", "source_binding_key", "approximation_replacement_condition"],
     "review_fixtures": ["mechanic_family", "input_ids", "initial_state", "commands", "expected_facts", "quality_floor"]
   },
   "files": [

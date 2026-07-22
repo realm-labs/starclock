@@ -1,0 +1,2780 @@
+[
+  {
+    "id": "universe.fixture.ability-operation.addchoice",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ability-operation:AddChoice Review Fixture",
+    "name_zh_cn": "ability-operation:AddChoice审查夹具",
+    "summary_en": "Semantic review fixture for the ability-operation:AddChoice mechanic family.",
+    "summary_zh_cn": "ability-operation:AddChoice机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.20"
+    ],
+    "source_ids": [
+      "21",
+      "10420"
+    ],
+    "note": "",
+    "mechanic_family": "ability-operation:AddChoice",
+    "input_ids": [
+      "universe.ability-tree.21"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "effects.kind",
+        "operator": "contains",
+        "value": "AddChoice"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.ability-operation.addcurrency",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ability-operation:AddCurrency Review Fixture",
+    "name_zh_cn": "ability-operation:AddCurrency审查夹具",
+    "summary_en": "Semantic review fixture for the ability-operation:AddCurrency mechanic family.",
+    "summary_zh_cn": "ability-operation:AddCurrency机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.16"
+    ],
+    "source_ids": [
+      "17",
+      "10416"
+    ],
+    "note": "",
+    "mechanic_family": "ability-operation:AddCurrency",
+    "input_ids": [
+      "universe.ability-tree.17"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "effects.kind",
+        "operator": "contains",
+        "value": "AddCurrency"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.ability-operation.addlimit",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ability-operation:AddLimit Review Fixture",
+    "name_zh_cn": "ability-operation:AddLimit审查夹具",
+    "summary_en": "Semantic review fixture for the ability-operation:AddLimit mechanic family.",
+    "summary_zh_cn": "ability-operation:AddLimit机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.10"
+    ],
+    "source_ids": [
+      "11",
+      "10410"
+    ],
+    "note": "",
+    "mechanic_family": "ability-operation:AddLimit",
+    "input_ids": [
+      "universe.ability-tree.11"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "effects.kind",
+        "operator": "contains",
+        "value": "AddLimit"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.ability-operation.addresource",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ability-operation:AddResource Review Fixture",
+    "name_zh_cn": "ability-operation:AddResource审查夹具",
+    "summary_en": "Semantic review fixture for the ability-operation:AddResource mechanic family.",
+    "summary_zh_cn": "ability-operation:AddResource机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.26"
+    ],
+    "source_ids": [
+      "27",
+      "10425"
+    ],
+    "note": "",
+    "mechanic_family": "ability-operation:AddResource",
+    "input_ids": [
+      "universe.ability-tree.27"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "effects.kind",
+        "operator": "contains",
+        "value": "AddResource"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.ability-operation.addstat",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ability-operation:AddStat Review Fixture",
+    "name_zh_cn": "ability-operation:AddStat审查夹具",
+    "summary_en": "Semantic review fixture for the ability-operation:AddStat mechanic family.",
+    "summary_zh_cn": "ability-operation:AddStat机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.1"
+    ],
+    "source_ids": [
+      "2",
+      "10401"
+    ],
+    "note": "",
+    "mechanic_family": "ability-operation:AddStat",
+    "input_ids": [
+      "universe.ability-tree.2"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "effects.kind",
+        "operator": "contains",
+        "value": "AddStat"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.ability-operation.enable",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ability-operation:Enable Review Fixture",
+    "name_zh_cn": "ability-operation:Enable审查夹具",
+    "summary_en": "Semantic review fixture for the ability-operation:Enable mechanic family.",
+    "summary_zh_cn": "ability-operation:Enable机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.11"
+    ],
+    "source_ids": [
+      "12",
+      "10411"
+    ],
+    "note": "",
+    "mechanic_family": "ability-operation:Enable",
+    "input_ids": [
+      "universe.ability-tree.12"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "effects.kind",
+        "operator": "contains",
+        "value": "Enable"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.ability-operation.set",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ability-operation:Set Review Fixture",
+    "name_zh_cn": "ability-operation:Set审查夹具",
+    "summary_en": "Semantic review fixture for the ability-operation:Set mechanic family.",
+    "summary_zh_cn": "ability-operation:Set机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.6"
+    ],
+    "source_ids": [
+      "7",
+      "10406"
+    ],
+    "note": "",
+    "mechanic_family": "ability-operation:Set",
+    "input_ids": [
+      "universe.ability-tree.7"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "effects.kind",
+        "operator": "contains",
+        "value": "Set"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.ability-operation.setratio",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ability-operation:SetRatio Review Fixture",
+    "name_zh_cn": "ability-operation:SetRatio审查夹具",
+    "summary_en": "Semantic review fixture for the ability-operation:SetRatio mechanic family.",
+    "summary_zh_cn": "ability-operation:SetRatio机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.31"
+    ],
+    "source_ids": [
+      "32",
+      "10431"
+    ],
+    "note": "",
+    "mechanic_family": "ability-operation:SetRatio",
+    "input_ids": [
+      "universe.ability-tree.32"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "effects.kind",
+        "operator": "contains",
+        "value": "SetRatio"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.ability-operation.unlock",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ability-operation:Unlock Review Fixture",
+    "name_zh_cn": "ability-operation:Unlock审查夹具",
+    "summary_en": "Semantic review fixture for the ability-operation:Unlock mechanic family.",
+    "summary_zh_cn": "ability-operation:Unlock机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.0"
+    ],
+    "source_ids": [
+      "1"
+    ],
+    "note": "",
+    "mechanic_family": "ability-operation:Unlock",
+    "input_ids": [
+      "universe.ability-tree.1"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "effects.kind",
+        "operator": "contains",
+        "value": "Unlock"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.ability-operation.unlockformationslot",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "ability-operation:UnlockFormationSlot Review Fixture",
+    "name_zh_cn": "ability-operation:UnlockFormationSlot审查夹具",
+    "summary_en": "Semantic review fixture for the ability-operation:UnlockFormationSlot mechanic family.",
+    "summary_zh_cn": "ability-operation:UnlockFormationSlot机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguetalent-json.5"
+    ],
+    "source_ids": [
+      "6",
+      "10405"
+    ],
+    "note": "",
+    "mechanic_family": "ability-operation:UnlockFormationSlot",
+    "input_ids": [
+      "universe.ability-tree.6"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "effects.kind",
+        "operator": "contains",
+        "value": "UnlockFormationSlot"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.action",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:action Review Fixture",
+    "name_zh_cn": "blessing-tag:action审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:action mechanic family.",
+    "summary_zh_cn": "blessing-tag:action机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.226",
+      "source.standard-su.exceloutput-roguemazebuff-json.112"
+    ],
+    "source_ids": [
+      "612432"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:action",
+    "input_ids": [
+      "universe.blessing.612432"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "action"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.basic-attack",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:basic-attack Review Fixture",
+    "name_zh_cn": "blessing-tag:basic-attack审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:basic-attack mechanic family.",
+    "summary_zh_cn": "blessing-tag:basic-attack机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.338",
+      "source.standard-su.exceloutput-roguemazebuff-json.296"
+    ],
+    "source_ids": [
+      "612743"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:basic-attack",
+    "input_ids": [
+      "universe.blessing.612743"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "basic-attack"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.brain-in-a-vat",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:brain-in-a-vat Review Fixture",
+    "name_zh_cn": "blessing-tag:brain-in-a-vat审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:brain-in-a-vat mechanic family.",
+    "summary_zh_cn": "blessing-tag:brain-in-a-vat机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.368",
+      "source.standard-su.exceloutput-roguemazebuff-json.344"
+    ],
+    "source_ids": [
+      "612830"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:brain-in-a-vat",
+    "input_ids": [
+      "universe.blessing.612830"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "brain-in-a-vat"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.break",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:break Review Fixture",
+    "name_zh_cn": "blessing-tag:break审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:break mechanic family.",
+    "summary_zh_cn": "blessing-tag:break机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.93",
+      "source.standard-su.exceloutput-roguemazebuff-json.23"
+    ],
+    "source_ids": [
+      "612053"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:break",
+    "input_ids": [
+      "universe.blessing.612053"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "break"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.critical",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:critical Review Fixture",
+    "name_zh_cn": "blessing-tag:critical审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:critical mechanic family.",
+    "summary_zh_cn": "blessing-tag:critical机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.96",
+      "source.standard-su.exceloutput-roguemazebuff-json.26"
+    ],
+    "source_ids": [
+      "612056"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:critical",
+    "input_ids": [
+      "universe.blessing.612056"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "critical"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.damage",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:damage Review Fixture",
+    "name_zh_cn": "blessing-tag:damage审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:damage mechanic family.",
+    "summary_zh_cn": "blessing-tag:damage机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.80",
+      "source.standard-su.exceloutput-roguemazebuff-json.0"
+    ],
+    "source_ids": [
+      "612030"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:damage",
+    "input_ids": [
+      "universe.blessing.612030"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "damage"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.defense",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:defense Review Fixture",
+    "name_zh_cn": "blessing-tag:defense审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:defense mechanic family.",
+    "summary_zh_cn": "blessing-tag:defense机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.81",
+      "source.standard-su.exceloutput-roguemazebuff-json.2"
+    ],
+    "source_ids": [
+      "612031"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:defense",
+    "input_ids": [
+      "universe.blessing.612031"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "defense"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.dot",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:dot Review Fixture",
+    "name_zh_cn": "blessing-tag:dot审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:dot mechanic family.",
+    "summary_zh_cn": "blessing-tag:dot机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.84",
+      "source.standard-su.exceloutput-roguemazebuff-json.7"
+    ],
+    "source_ids": [
+      "612041"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:dot",
+    "input_ids": [
+      "universe.blessing.612041"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "dot"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.effect-res",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:effect-res Review Fixture",
+    "name_zh_cn": "blessing-tag:effect-res审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:effect-res mechanic family.",
+    "summary_zh_cn": "blessing-tag:effect-res机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.126",
+      "source.standard-su.exceloutput-roguemazebuff-json.200"
+    ],
+    "source_ids": [
+      "612150"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:effect-res",
+    "input_ids": [
+      "universe.blessing.612150"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "effect-res"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.follow-up",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:follow-up Review Fixture",
+    "name_zh_cn": "blessing-tag:follow-up审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:follow-up mechanic family.",
+    "summary_zh_cn": "blessing-tag:follow-up机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.296",
+      "source.standard-su.exceloutput-roguemazebuff-json.216"
+    ],
+    "source_ids": [
+      "612630"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:follow-up",
+    "input_ids": [
+      "universe.blessing.612630"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "follow-up"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.freeze",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:freeze Review Fixture",
+    "name_zh_cn": "blessing-tag:freeze审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:freeze mechanic family.",
+    "summary_zh_cn": "blessing-tag:freeze机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.116",
+      "source.standard-su.exceloutput-roguemazebuff-json.180"
+    ],
+    "source_ids": [
+      "612130"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:freeze",
+    "input_ids": [
+      "universe.blessing.612130"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "freeze"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.healing",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:healing Review Fixture",
+    "name_zh_cn": "blessing-tag:healing审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:healing mechanic family.",
+    "summary_zh_cn": "blessing-tag:healing机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.168",
+      "source.standard-su.exceloutput-roguemazebuff-json.68"
+    ],
+    "source_ids": [
+      "612256"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:healing",
+    "input_ids": [
+      "universe.blessing.612256"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "healing"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.hp-loss",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:hp-loss Review Fixture",
+    "name_zh_cn": "blessing-tag:hp-loss审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:hp-loss mechanic family.",
+    "summary_zh_cn": "blessing-tag:hp-loss机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.128",
+      "source.standard-su.exceloutput-roguemazebuff-json.202"
+    ],
+    "source_ids": [
+      "612152"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:hp-loss",
+    "input_ids": [
+      "universe.blessing.612152"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "hp-loss"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.shield",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:shield Review Fixture",
+    "name_zh_cn": "blessing-tag:shield审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:shield mechanic family.",
+    "summary_zh_cn": "blessing-tag:shield机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.80",
+      "source.standard-su.exceloutput-roguemazebuff-json.0"
+    ],
+    "source_ids": [
+      "612030"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:shield",
+    "input_ids": [
+      "universe.blessing.612030"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "shield"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.skill-points",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:skill-points Review Fixture",
+    "name_zh_cn": "blessing-tag:skill-points审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:skill-points mechanic family.",
+    "summary_zh_cn": "blessing-tag:skill-points机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.205",
+      "source.standard-su.exceloutput-roguemazebuff-json.106"
+    ],
+    "source_ids": [
+      "612357"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:skill-points",
+    "input_ids": [
+      "universe.blessing.612357"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "skill-points"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.speed",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:speed Review Fixture",
+    "name_zh_cn": "blessing-tag:speed审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:speed mechanic family.",
+    "summary_zh_cn": "blessing-tag:speed机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.204",
+      "source.standard-su.exceloutput-roguemazebuff-json.104"
+    ],
+    "source_ids": [
+      "612356"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:speed",
+    "input_ids": [
+      "universe.blessing.612356"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "speed"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.spores",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:spores Review Fixture",
+    "name_zh_cn": "blessing-tag:spores审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:spores mechanic family.",
+    "summary_zh_cn": "blessing-tag:spores机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.332",
+      "source.standard-su.exceloutput-roguemazebuff-json.284"
+    ],
+    "source_ids": [
+      "612730"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:spores",
+    "input_ids": [
+      "universe.blessing.612730"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "spores"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.blessing-tag.ultimate",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "blessing-tag:ultimate Review Fixture",
+    "name_zh_cn": "blessing-tag:ultimate审查夹具",
+    "summary_en": "Semantic review fixture for the blessing-tag:ultimate mechanic family.",
+    "summary_zh_cn": "blessing-tag:ultimate机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebuff-json.124",
+      "source.standard-su.exceloutput-roguemazebuff-json.191"
+    ],
+    "source_ids": [
+      "612145"
+    ],
+    "note": "",
+    "mechanic_family": "blessing-tag:ultimate",
+    "input_ids": [
+      "universe.blessing.612145"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "mechanic_tags",
+        "operator": "contains",
+        "value": "ultimate"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-state.active",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-state:Active Review Fixture",
+    "name_zh_cn": "curio-state:Active审查夹具",
+    "summary_en": "Semantic review fixture for the curio-state:Active mechanic family.",
+    "summary_zh_cn": "curio-state:Active机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemiracle-json.73",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.54",
+      "source.standard-su.exceloutput-roguemiracleeffectdisplay-json.54"
+    ],
+    "source_ids": [
+      "211",
+      "73"
+    ],
+    "note": "",
+    "mechanic_family": "curio-state:Active",
+    "input_ids": [
+      "universe.curio.211.state.active"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "state_kind",
+        "operator": "equals",
+        "value": "Active"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-state.fixed",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-state:Fixed Review Fixture",
+    "name_zh_cn": "curio-state:Fixed审查夹具",
+    "summary_en": "Semantic review fixture for the curio-state:Fixed mechanic family.",
+    "summary_zh_cn": "curio-state:Fixed机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemiracle-json.28",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.26",
+      "source.standard-su.exceloutput-roguemiracleeffectdisplay-json.26"
+    ],
+    "source_ids": [
+      "45"
+    ],
+    "note": "",
+    "mechanic_family": "curio-state:Fixed",
+    "input_ids": [
+      "universe.curio.45.state.fixed"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "state_kind",
+        "operator": "equals",
+        "value": "Fixed"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-state.repairing",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-state:Repairing Review Fixture",
+    "name_zh_cn": "curio-state:Repairing审查夹具",
+    "summary_en": "Semantic review fixture for the curio-state:Repairing mechanic family.",
+    "summary_zh_cn": "curio-state:Repairing机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemiracle-json.28",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.26",
+      "source.standard-su.exceloutput-roguemiracleeffectdisplay-json.26"
+    ],
+    "source_ids": [
+      "45"
+    ],
+    "note": "",
+    "mechanic_family": "curio-state:Repairing",
+    "input_ids": [
+      "universe.curio.45.state.repairing"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "state_kind",
+        "operator": "equals",
+        "value": "Repairing"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.blessing",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:blessing Review Fixture",
+    "name_zh_cn": "curio-tag:blessing审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:blessing mechanic family.",
+    "summary_zh_cn": "curio-tag:blessing机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.76",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.96",
+      "source.standard-su.exceloutput-roguemiracle-json.73",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.54"
+    ],
+    "source_ids": [
+      "211"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:blessing",
+    "input_ids": [
+      "universe.curio.211"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "blessing"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.critical",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:critical Review Fixture",
+    "name_zh_cn": "curio-tag:critical审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:critical mechanic family.",
+    "summary_zh_cn": "curio-tag:critical机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.55",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.64",
+      "source.standard-su.exceloutput-roguemiracle-json.66",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.66"
+    ],
+    "source_ids": [
+      "113"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:critical",
+    "input_ids": [
+      "universe.curio.113"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "critical"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.curio",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:curio Review Fixture",
+    "name_zh_cn": "curio-tag:curio审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:curio mechanic family.",
+    "summary_zh_cn": "curio-tag:curio机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.76",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.96",
+      "source.standard-su.exceloutput-roguemiracle-json.73",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.54"
+    ],
+    "source_ids": [
+      "211"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:curio",
+    "input_ids": [
+      "universe.curio.211"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "curio"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.damage",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:damage Review Fixture",
+    "name_zh_cn": "curio-tag:damage审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:damage mechanic family.",
+    "summary_zh_cn": "curio-tag:damage机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.47",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.55",
+      "source.standard-su.exceloutput-roguemiracle-json.56",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.56"
+    ],
+    "source_ids": [
+      "104"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:damage",
+    "input_ids": [
+      "universe.curio.104"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "damage"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.destructible",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:destructible Review Fixture",
+    "name_zh_cn": "curio-tag:destructible审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:destructible mechanic family.",
+    "summary_zh_cn": "curio-tag:destructible机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.31",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.38",
+      "source.standard-su.exceloutput-roguemiracle-json.41",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.39"
+    ],
+    "source_ids": [
+      "58"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:destructible",
+    "input_ids": [
+      "universe.curio.58"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "destructible"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.energy",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:energy Review Fixture",
+    "name_zh_cn": "curio-tag:energy审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:energy mechanic family.",
+    "summary_zh_cn": "curio-tag:energy机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.8",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.8",
+      "source.standard-su.exceloutput-roguemiracle-json.10",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.9"
+    ],
+    "source_ids": [
+      "11"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:energy",
+    "input_ids": [
+      "universe.curio.11"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "energy"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.enhance",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:enhance Review Fixture",
+    "name_zh_cn": "curio-tag:enhance审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:enhance mechanic family.",
+    "summary_zh_cn": "curio-tag:enhance机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.57",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.66",
+      "source.standard-su.exceloutput-roguemiracle-json.67",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.67"
+    ],
+    "source_ids": [
+      "115"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:enhance",
+    "input_ids": [
+      "universe.curio.115"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "enhance"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.fragments",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:fragments Review Fixture",
+    "name_zh_cn": "curio-tag:fragments审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:fragments mechanic family.",
+    "summary_zh_cn": "curio-tag:fragments机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.49",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.57",
+      "source.standard-su.exceloutput-roguemiracle-json.57",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.57"
+    ],
+    "source_ids": [
+      "106"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:fragments",
+    "input_ids": [
+      "universe.curio.106"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "fragments"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.healing",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:healing Review Fixture",
+    "name_zh_cn": "curio-tag:healing审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:healing mechanic family.",
+    "summary_zh_cn": "curio-tag:healing机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.60",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.69",
+      "source.standard-su.exceloutput-roguemiracle-json.68",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.68"
+    ],
+    "source_ids": [
+      "118"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:healing",
+    "input_ids": [
+      "universe.curio.118"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "healing"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.limited-use",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:limited-use Review Fixture",
+    "name_zh_cn": "curio-tag:limited-use审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:limited-use mechanic family.",
+    "summary_zh_cn": "curio-tag:limited-use机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.47",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.55",
+      "source.standard-su.exceloutput-roguemiracle-json.56",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.56"
+    ],
+    "source_ids": [
+      "104"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:limited-use",
+    "input_ids": [
+      "universe.curio.104"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "limited-use"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.negative",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:negative Review Fixture",
+    "name_zh_cn": "curio-tag:negative审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:negative mechanic family.",
+    "summary_zh_cn": "curio-tag:negative机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.24",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.25",
+      "source.standard-su.exceloutput-roguemiracle-json.28",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.26"
+    ],
+    "source_ids": [
+      "45"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:negative",
+    "input_ids": [
+      "universe.curio.45"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "negative"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.repair",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:repair Review Fixture",
+    "name_zh_cn": "curio-tag:repair审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:repair mechanic family.",
+    "summary_zh_cn": "curio-tag:repair机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.13",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.14",
+      "source.standard-su.exceloutput-roguemiracle-json.16",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.15"
+    ],
+    "source_ids": [
+      "17"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:repair",
+    "input_ids": [
+      "universe.curio.17"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "repair"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.replacement",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:replacement Review Fixture",
+    "name_zh_cn": "curio-tag:replacement审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:replacement mechanic family.",
+    "summary_zh_cn": "curio-tag:replacement机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.57",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.66",
+      "source.standard-su.exceloutput-roguemiracle-json.67",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.67"
+    ],
+    "source_ids": [
+      "115"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:replacement",
+    "input_ids": [
+      "universe.curio.115"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "replacement"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.skill-points",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:skill-points Review Fixture",
+    "name_zh_cn": "curio-tag:skill-points审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:skill-points mechanic family.",
+    "summary_zh_cn": "curio-tag:skill-points机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.29",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.35",
+      "source.standard-su.exceloutput-roguemiracle-json.38",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.36"
+    ],
+    "source_ids": [
+      "55"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:skill-points",
+    "input_ids": [
+      "universe.curio.55"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "skill-points"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.speed",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:speed Review Fixture",
+    "name_zh_cn": "curio-tag:speed审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:speed mechanic family.",
+    "summary_zh_cn": "curio-tag:speed机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.63",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.72",
+      "source.standard-su.exceloutput-roguemiracle-json.70",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.70"
+    ],
+    "source_ids": [
+      "121"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:speed",
+    "input_ids": [
+      "universe.curio.121"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "speed"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.curio-tag.technique-points",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "curio-tag:technique-points Review Fixture",
+    "name_zh_cn": "curio-tag:technique-points审查夹具",
+    "summary_en": "Semantic review fixture for the curio-tag:technique-points mechanic family.",
+    "summary_zh_cn": "curio-tag:technique-points机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguehandbookmiracle-json.50",
+      "source.standard-su.exceloutput-roguemiracledisplay-json.58",
+      "source.standard-su.exceloutput-roguemiracle-json.58",
+      "source.standard-su.exceloutput-roguemiracleeffect-json.58"
+    ],
+    "source_ids": [
+      "107"
+    ],
+    "note": "",
+    "mechanic_family": "curio-tag:technique-points",
+    "input_ids": [
+      "universe.curio.107"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "tags",
+        "operator": "contains",
+        "value": "technique-points"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.encounter-selection.resolveworlddifficultybosselitebinding",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "encounter-selection:ResolveWorldDifficultyBossEliteBinding Review Fixture",
+    "name_zh_cn": "encounter-selection:ResolveWorldDifficultyBossEliteBinding审查夹具",
+    "summary_en": "Semantic review fixture for the encounter-selection:ResolveWorldDifficultyBossEliteBinding mechanic family.",
+    "summary_zh_cn": "encounter-selection:ResolveWorldDifficultyBossEliteBinding机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.3"
+    ],
+    "source_ids": [
+      "203",
+      "8000102"
+    ],
+    "note": "",
+    "mechanic_family": "encounter-selection:ResolveWorldDifficultyBossEliteBinding",
+    "input_ids": [
+      "universe.encounter-pool.room.203"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "selection_policy",
+        "operator": "equals",
+        "value": "ResolveWorldDifficultyBossEliteBinding"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.encounter-selection.selectconditionkeythenresolvegroupordifficultybinding",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "encounter-selection:SelectConditionKeyThenResolveGroupOrDifficultyBinding Review Fixture",
+    "name_zh_cn": "encounter-selection:SelectConditionKeyThenResolveGroupOrDifficultyBinding审查夹具",
+    "summary_en": "Semantic review fixture for the encounter-selection:SelectConditionKeyThenResolveGroupOrDifficultyBinding mechanic family.",
+    "summary_zh_cn": "encounter-selection:SelectConditionKeyThenResolveGroupOrDifficultyBinding机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.0"
+    ],
+    "source_ids": [
+      "100",
+      "8000101"
+    ],
+    "note": "",
+    "mechanic_family": "encounter-selection:SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "input_ids": [
+      "universe.encounter-pool.room.100"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "selection_policy",
+        "operator": "equals",
+        "value": "SelectConditionKeyThenResolveGroupOrDifficultyBinding"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.encounter-selection.selectexactconditionkeythenweightedstableorder",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "encounter-selection:SelectExactConditionKeyThenWeightedStableOrder Review Fixture",
+    "name_zh_cn": "encounter-selection:SelectExactConditionKeyThenWeightedStableOrder审查夹具",
+    "summary_en": "Semantic review fixture for the encounter-selection:SelectExactConditionKeyThenWeightedStableOrder mechanic family.",
+    "summary_zh_cn": "encounter-selection:SelectExactConditionKeyThenWeightedStableOrder机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.1"
+    ],
+    "source_ids": [
+      "201",
+      "8000102"
+    ],
+    "note": "",
+    "mechanic_family": "encounter-selection:SelectExactConditionKeyThenWeightedStableOrder",
+    "input_ids": [
+      "universe.encounter-pool.room.201"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "selection_policy",
+        "operator": "equals",
+        "value": "SelectExactConditionKeyThenWeightedStableOrder"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.encounter-wave.singlewave",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "encounter-wave:SingleWave Review Fixture",
+    "name_zh_cn": "encounter-wave:SingleWave审查夹具",
+    "summary_en": "Semantic review fixture for the encounter-wave:SingleWave mechanic family.",
+    "summary_zh_cn": "encounter-wave:SingleWave机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemonstergroup-json.5",
+      "source.standard-su.exceloutput-roguemonster-json.18",
+      "source.standard-su.exceloutput-stageconfig-json.6854"
+    ],
+    "source_ids": [
+      "1001"
+    ],
+    "note": "",
+    "mechanic_family": "encounter-wave:SingleWave",
+    "input_ids": [
+      "universe.encounter-group.1001"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "wave_policy",
+        "operator": "equals",
+        "value": "SingleWave"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.occurrence-outcome.battle",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "occurrence-outcome:Battle Review Fixture",
+    "name_zh_cn": "occurrence-outcome:Battle审查夹具",
+    "summary_en": "Semantic review fixture for the occurrence-outcome:Battle mechanic family.",
+    "summary_zh_cn": "occurrence-outcome:Battle机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactPublicText",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguedialogueoptiondisplay-json.626",
+      "source.standard-su.config-level-rogue-roguedialogue-event0019501-opt0019501-json.root",
+      "source.standard-su.config-level-rogue-roguenpc-roguenpc19501-json.root"
+    ],
+    "source_ids": [
+      "19501",
+      "19507"
+    ],
+    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "mechanic_family": "occurrence-outcome:Battle",
+    "input_ids": [
+      "universe.occurrence.62.variant.19501.choice.04"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "outcomes.kinds",
+        "operator": "contains",
+        "value": "Battle"
+      }
+    ],
+    "quality_floor": "ExactPublicText"
+  },
+  {
+    "id": "universe.fixture.occurrence-outcome.consume",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "occurrence-outcome:Consume Review Fixture",
+    "name_zh_cn": "occurrence-outcome:Consume审查夹具",
+    "summary_en": "Semantic review fixture for the occurrence-outcome:Consume mechanic family.",
+    "summary_zh_cn": "occurrence-outcome:Consume机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactPublicText",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguedialogueoptiondisplay-json.363",
+      "source.standard-su.config-level-rogue-roguedialogue-event0012601-opt0012601-json.root",
+      "source.standard-su.config-level-rogue-roguenpc-roguenpc12601-json.root"
+    ],
+    "source_ids": [
+      "12601"
+    ],
+    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "mechanic_family": "occurrence-outcome:Consume",
+    "input_ids": [
+      "universe.occurrence.43.variant.12601.choice.01"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "outcomes.kinds",
+        "operator": "contains",
+        "value": "Consume"
+      }
+    ],
+    "quality_floor": "ExactPublicText"
+  },
+  {
+    "id": "universe.fixture.occurrence-outcome.discard",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "occurrence-outcome:Discard Review Fixture",
+    "name_zh_cn": "occurrence-outcome:Discard审查夹具",
+    "summary_en": "Semantic review fixture for the occurrence-outcome:Discard mechanic family.",
+    "summary_zh_cn": "occurrence-outcome:Discard机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ProjectPolicy",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguedialogueoptiondisplay-json.315",
+      "source.standard-su.config-level-rogue-roguedialogue-event0012201-opt0012201-json.root",
+      "source.standard-su.config-level-rogue-roguenpc-roguenpc12201-json.root"
+    ],
+    "source_ids": [
+      "12201",
+      "12204"
+    ],
+    "note": "Released text leaves random weights unspecified; runtime must use a versioned deterministic policy until exact weights are found.",
+    "mechanic_family": "occurrence-outcome:Discard",
+    "input_ids": [
+      "universe.occurrence.39.variant.12201.choice.05"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "outcomes.kinds",
+        "operator": "contains",
+        "value": "Discard"
+      }
+    ],
+    "quality_floor": "ProjectPolicy"
+  },
+  {
+    "id": "universe.fixture.occurrence-outcome.enhance",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "occurrence-outcome:Enhance Review Fixture",
+    "name_zh_cn": "occurrence-outcome:Enhance审查夹具",
+    "summary_en": "Semantic review fixture for the occurrence-outcome:Enhance mechanic family.",
+    "summary_zh_cn": "occurrence-outcome:Enhance机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ProjectPolicy",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguedialogueoptiondisplay-json.312",
+      "source.standard-su.config-level-rogue-roguedialogue-event0012201-opt0012201-json.root",
+      "source.standard-su.config-level-rogue-roguenpc-roguenpc12201-json.root"
+    ],
+    "source_ids": [
+      "12201"
+    ],
+    "note": "Released text leaves random weights unspecified; runtime must use a versioned deterministic policy until exact weights are found.",
+    "mechanic_family": "occurrence-outcome:Enhance",
+    "input_ids": [
+      "universe.occurrence.39.variant.12201.choice.01"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "outcomes.kinds",
+        "operator": "contains",
+        "value": "Enhance"
+      }
+    ],
+    "quality_floor": "ProjectPolicy"
+  },
+  {
+    "id": "universe.fixture.occurrence-outcome.lose",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "occurrence-outcome:Lose Review Fixture",
+    "name_zh_cn": "occurrence-outcome:Lose审查夹具",
+    "summary_en": "Semantic review fixture for the occurrence-outcome:Lose mechanic family.",
+    "summary_zh_cn": "occurrence-outcome:Lose机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactPublicText",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguedialogueoptiondisplay-json.345",
+      "source.standard-su.config-level-rogue-roguedialogue-event0012401-opt0012401-json.root",
+      "source.standard-su.config-level-rogue-roguenpc-roguenpc12401-json.root"
+    ],
+    "source_ids": [
+      "12401",
+      "12407",
+      "12405"
+    ],
+    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "mechanic_family": "occurrence-outcome:Lose",
+    "input_ids": [
+      "universe.occurrence.41.variant.12401.choice.08"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "outcomes.kinds",
+        "operator": "contains",
+        "value": "Lose"
+      }
+    ],
+    "quality_floor": "ExactPublicText"
+  },
+  {
+    "id": "universe.fixture.occurrence-outcome.obtain",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "occurrence-outcome:Obtain Review Fixture",
+    "name_zh_cn": "occurrence-outcome:Obtain审查夹具",
+    "summary_en": "Semantic review fixture for the occurrence-outcome:Obtain mechanic family.",
+    "summary_zh_cn": "occurrence-outcome:Obtain机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactPublicText",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguedialogueoptiondisplay-json.313",
+      "source.standard-su.config-level-rogue-roguedialogue-event0012201-opt0012201-json.root",
+      "source.standard-su.config-level-rogue-roguenpc-roguenpc12201-json.root"
+    ],
+    "source_ids": [
+      "12201",
+      "12202"
+    ],
+    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "mechanic_family": "occurrence-outcome:Obtain",
+    "input_ids": [
+      "universe.occurrence.39.variant.12201.choice.02"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "outcomes.kinds",
+        "operator": "contains",
+        "value": "Obtain"
+      }
+    ],
+    "quality_floor": "ExactPublicText"
+  },
+  {
+    "id": "universe.fixture.occurrence-outcome.repair",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "occurrence-outcome:Repair Review Fixture",
+    "name_zh_cn": "occurrence-outcome:Repair审查夹具",
+    "summary_en": "Semantic review fixture for the occurrence-outcome:Repair mechanic family.",
+    "summary_zh_cn": "occurrence-outcome:Repair机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactPublicText",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguedialogueoptiondisplay-json.363",
+      "source.standard-su.config-level-rogue-roguedialogue-event0012601-opt0012601-json.root",
+      "source.standard-su.config-level-rogue-roguenpc-roguenpc12601-json.root"
+    ],
+    "source_ids": [
+      "12601"
+    ],
+    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "mechanic_family": "occurrence-outcome:Repair",
+    "input_ids": [
+      "universe.occurrence.43.variant.12601.choice.01"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "outcomes.kinds",
+        "operator": "contains",
+        "value": "Repair"
+      }
+    ],
+    "quality_floor": "ExactPublicText"
+  },
+  {
+    "id": "universe.fixture.occurrence-outcome.restore",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "occurrence-outcome:Restore Review Fixture",
+    "name_zh_cn": "occurrence-outcome:Restore审查夹具",
+    "summary_en": "Semantic review fixture for the occurrence-outcome:Restore mechanic family.",
+    "summary_zh_cn": "occurrence-outcome:Restore机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactPublicText",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguedialogueoptiondisplay-json.70",
+      "source.standard-su.config-level-rogue-roguedialogue-event0010601-opt0010601-json.root",
+      "source.standard-su.config-level-rogue-roguenpc-roguenpc10601-json.root"
+    ],
+    "source_ids": [
+      "10601",
+      "10603"
+    ],
+    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "mechanic_family": "occurrence-outcome:Restore",
+    "input_ids": [
+      "universe.occurrence.8.variant.10601.choice.03"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "outcomes.kinds",
+        "operator": "contains",
+        "value": "Restore"
+      }
+    ],
+    "quality_floor": "ExactPublicText"
+  },
+  {
+    "id": "universe.fixture.occurrence-outcome.special",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "occurrence-outcome:Special Review Fixture",
+    "name_zh_cn": "occurrence-outcome:Special审查夹具",
+    "summary_en": "Semantic review fixture for the occurrence-outcome:Special mechanic family.",
+    "summary_zh_cn": "occurrence-outcome:Special机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ProjectPolicy",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguedialogueoptiondisplay-json.337",
+      "source.standard-su.config-level-rogue-roguedialogue-event0012301-opt0012301-json.root",
+      "source.standard-su.config-level-rogue-roguenpc-roguenpc12301-json.root"
+    ],
+    "source_ids": [
+      "12301"
+    ],
+    "note": "Released text leaves random weights unspecified; runtime must use a versioned deterministic policy until exact weights are found.",
+    "mechanic_family": "occurrence-outcome:Special",
+    "input_ids": [
+      "universe.occurrence.40.variant.12301.choice.01"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "outcomes.kinds",
+        "operator": "contains",
+        "value": "Special"
+      }
+    ],
+    "quality_floor": "ProjectPolicy"
+  },
+  {
+    "id": "universe.fixture.path.abundance",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "path:abundance Review Fixture",
+    "name_zh_cn": "path:abundance审查夹具",
+    "summary_en": "Semantic review fixture for the path:abundance mechanic family.",
+    "summary_zh_cn": "path:abundance机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.3",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.3"
+    ],
+    "source_ids": [
+      "4",
+      "123"
+    ],
+    "note": "",
+    "mechanic_family": "path:abundance",
+    "input_ids": [
+      "universe.path.abundance"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "blessing_ids.length",
+        "operator": "equals",
+        "value": 18
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.path.destruction",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "path:destruction Review Fixture",
+    "name_zh_cn": "path:destruction审查夹具",
+    "summary_en": "Semantic review fixture for the path:destruction mechanic family.",
+    "summary_zh_cn": "path:destruction机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.5",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.5"
+    ],
+    "source_ids": [
+      "6",
+      "125"
+    ],
+    "note": "",
+    "mechanic_family": "path:destruction",
+    "input_ids": [
+      "universe.path.destruction"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "blessing_ids.length",
+        "operator": "equals",
+        "value": 18
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.path.elation",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "path:elation Review Fixture",
+    "name_zh_cn": "path:elation审查夹具",
+    "summary_en": "Semantic review fixture for the path:elation mechanic family.",
+    "summary_zh_cn": "path:elation机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.6",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.6"
+    ],
+    "source_ids": [
+      "7",
+      "126"
+    ],
+    "note": "",
+    "mechanic_family": "path:elation",
+    "input_ids": [
+      "universe.path.elation"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "blessing_ids.length",
+        "operator": "equals",
+        "value": 18
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.path.erudition",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "path:erudition Review Fixture",
+    "name_zh_cn": "path:erudition审查夹具",
+    "summary_en": "Semantic review fixture for the path:erudition mechanic family.",
+    "summary_zh_cn": "path:erudition机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.8",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.8"
+    ],
+    "source_ids": [
+      "9",
+      "128"
+    ],
+    "note": "",
+    "mechanic_family": "path:erudition",
+    "input_ids": [
+      "universe.path.erudition"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "blessing_ids.length",
+        "operator": "equals",
+        "value": 18
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.path.hunt",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "path:hunt Review Fixture",
+    "name_zh_cn": "path:hunt审查夹具",
+    "summary_en": "Semantic review fixture for the path:hunt mechanic family.",
+    "summary_zh_cn": "path:hunt机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.4",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.4"
+    ],
+    "source_ids": [
+      "5",
+      "124"
+    ],
+    "note": "",
+    "mechanic_family": "path:hunt",
+    "input_ids": [
+      "universe.path.hunt"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "blessing_ids.length",
+        "operator": "equals",
+        "value": 18
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.path.nihility",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "path:nihility Review Fixture",
+    "name_zh_cn": "path:nihility审查夹具",
+    "summary_en": "Semantic review fixture for the path:nihility mechanic family.",
+    "summary_zh_cn": "path:nihility机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.2",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.2"
+    ],
+    "source_ids": [
+      "3",
+      "122"
+    ],
+    "note": "",
+    "mechanic_family": "path:nihility",
+    "input_ids": [
+      "universe.path.nihility"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "blessing_ids.length",
+        "operator": "equals",
+        "value": 18
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.path.preservation",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "path:preservation Review Fixture",
+    "name_zh_cn": "path:preservation审查夹具",
+    "summary_en": "Semantic review fixture for the path:preservation mechanic family.",
+    "summary_zh_cn": "path:preservation机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.0",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.0"
+    ],
+    "source_ids": [
+      "1",
+      "120"
+    ],
+    "note": "",
+    "mechanic_family": "path:preservation",
+    "input_ids": [
+      "universe.path.preservation"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "blessing_ids.length",
+        "operator": "equals",
+        "value": 18
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.path.propagation",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "path:propagation Review Fixture",
+    "name_zh_cn": "path:propagation审查夹具",
+    "summary_en": "Semantic review fixture for the path:propagation mechanic family.",
+    "summary_zh_cn": "path:propagation机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.7",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.7"
+    ],
+    "source_ids": [
+      "8",
+      "127"
+    ],
+    "note": "",
+    "mechanic_family": "path:propagation",
+    "input_ids": [
+      "universe.path.propagation"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "blessing_ids.length",
+        "operator": "equals",
+        "value": 18
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.path.remembrance",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "path:remembrance Review Fixture",
+    "name_zh_cn": "path:remembrance审查夹具",
+    "summary_en": "Semantic review fixture for the path:remembrance mechanic family.",
+    "summary_zh_cn": "path:remembrance机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.1",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.1"
+    ],
+    "source_ids": [
+      "2",
+      "121"
+    ],
+    "note": "",
+    "mechanic_family": "path:remembrance",
+    "input_ids": [
+      "universe.path.remembrance"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "blessing_ids.length",
+        "operator": "equals",
+        "value": 18
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.service.blessingshop",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "service:BlessingShop Review Fixture",
+    "name_zh_cn": "service:BlessingShop审查夹具",
+    "summary_en": "Semantic review fixture for the service:BlessingShop mechanic family.",
+    "summary_zh_cn": "service:BlessingShop机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueshop-json.0"
+    ],
+    "source_ids": [
+      "100011"
+    ],
+    "note": "",
+    "mechanic_family": "service:BlessingShop",
+    "input_ids": [
+      "universe.service.shop.100011"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "kind",
+        "operator": "equals",
+        "value": "BlessingShop"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.service.curioshop",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "service:CurioShop Review Fixture",
+    "name_zh_cn": "service:CurioShop审查夹具",
+    "summary_en": "Semantic review fixture for the service:CurioShop mechanic family.",
+    "summary_zh_cn": "service:CurioShop机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueshop-json.1"
+    ],
+    "source_ids": [
+      "100021"
+    ],
+    "note": "",
+    "mechanic_family": "service:CurioShop",
+    "input_ids": [
+      "universe.service.shop.100021"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "kind",
+        "operator": "equals",
+        "value": "CurioShop"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.service.currency",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "service:Currency Review Fixture",
+    "name_zh_cn": "service:Currency审查夹具",
+    "summary_en": "Semantic review fixture for the service:Currency mechanic family.",
+    "summary_zh_cn": "service:Currency机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-constvaluerogue-json.41"
+    ],
+    "source_ids": [
+      "31"
+    ],
+    "note": "",
+    "mechanic_family": "service:Currency",
+    "input_ids": [
+      "universe.currency.cosmic-fragments"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "kind",
+        "operator": "equals",
+        "value": "Currency"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.service.downloader",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "service:Downloader Review Fixture",
+    "name_zh_cn": "service:Downloader审查夹具",
+    "summary_en": "Semantic review fixture for the service:Downloader mechanic family.",
+    "summary_zh_cn": "service:Downloader机制族的语义审查夹具。",
+    "quality": "ExactPublicText",
+    "mechanism_quality": "ExactPublicText",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.public.universe-service-downloader"
+    ],
+    "source_ids": [],
+    "note": "",
+    "mechanic_family": "service:Downloader",
+    "input_ids": [
+      "universe.service.downloader"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "kind",
+        "operator": "equals",
+        "value": "Downloader"
+      }
+    ],
+    "quality_floor": "ExactPublicText"
+  },
+  {
+    "id": "universe.fixture.service.enhanceblessing",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "service:EnhanceBlessing Review Fixture",
+    "name_zh_cn": "service:EnhanceBlessing审查夹具",
+    "summary_en": "Semantic review fixture for the service:EnhanceBlessing mechanic family.",
+    "summary_zh_cn": "service:EnhanceBlessing机制族的语义审查夹具。",
+    "quality": "ExactPublicText",
+    "mechanism_quality": "ExactPublicText",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.public.universe-service-enhance-blessing"
+    ],
+    "source_ids": [],
+    "note": "",
+    "mechanic_family": "service:EnhanceBlessing",
+    "input_ids": [
+      "universe.service.enhance-blessing"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "kind",
+        "operator": "equals",
+        "value": "EnhanceBlessing"
+      }
+    ],
+    "quality_floor": "ExactPublicText"
+  },
+  {
+    "id": "universe.fixture.service.resetblessing",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "service:ResetBlessing Review Fixture",
+    "name_zh_cn": "service:ResetBlessing审查夹具",
+    "summary_en": "Semantic review fixture for the service:ResetBlessing mechanic family.",
+    "summary_zh_cn": "service:ResetBlessing机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-constvaluerogue-json.1"
+    ],
+    "source_ids": [
+      "Roll_Buff_Cost"
+    ],
+    "note": "",
+    "mechanic_family": "service:ResetBlessing",
+    "input_ids": [
+      "universe.service.reset-blessing-choice"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "kind",
+        "operator": "equals",
+        "value": "ResetBlessing"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.service.respiteoffers",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "service:RespiteOffers Review Fixture",
+    "name_zh_cn": "service:RespiteOffers审查夹具",
+    "summary_en": "Semantic review fixture for the service:RespiteOffers mechanic family.",
+    "summary_zh_cn": "service:RespiteOffers机制族的语义审查夹具。",
+    "quality": "ExactPublicText",
+    "mechanism_quality": "ExactPublicText",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.public.universe-service-respite-offers"
+    ],
+    "source_ids": [],
+    "note": "",
+    "mechanic_family": "service:RespiteOffers",
+    "input_ids": [
+      "universe.service.respite-offers"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "kind",
+        "operator": "equals",
+        "value": "RespiteOffers"
+      }
+    ],
+    "quality_floor": "ExactPublicText"
+  },
+  {
+    "id": "universe.fixture.service.reviver",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "service:Reviver Review Fixture",
+    "name_zh_cn": "service:Reviver审查夹具",
+    "summary_en": "Semantic review fixture for the service:Reviver mechanic family.",
+    "summary_zh_cn": "service:Reviver机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-constvaluerogue-json.7",
+      "source.standard-su.exceloutput-constvaluerogue-json.5"
+    ],
+    "source_ids": [
+      "Rogue_Recover_ItemCost",
+      "Rogue_Recover_Percent"
+    ],
+    "note": "",
+    "mechanic_family": "service:Reviver",
+    "input_ids": [
+      "universe.service.reviver"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "kind",
+        "operator": "equals",
+        "value": "Reviver"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  },
+  {
+    "id": "universe.fixture.service.trailblazebonus",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "service:TrailblazeBonus Review Fixture",
+    "name_zh_cn": "service:TrailblazeBonus审查夹具",
+    "summary_en": "Semantic review fixture for the service:TrailblazeBonus mechanic family.",
+    "summary_zh_cn": "service:TrailblazeBonus机制族的语义审查夹具。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.0"
+    ],
+    "source_ids": [
+      "1",
+      "100001"
+    ],
+    "note": "",
+    "mechanic_family": "service:TrailblazeBonus",
+    "input_ids": [
+      "universe.service.trailblaze-bonus.1"
+    ],
+    "initial_state": {},
+    "commands": [],
+    "expected_facts": [
+      {
+        "path": "kind",
+        "operator": "equals",
+        "value": "TrailblazeBonus"
+      }
+    ],
+    "quality_floor": "ExactStructured"
+  }
+]

@@ -18,6 +18,13 @@ function areaWorldId(row) {
   return row.AreaProgress ?? Math.floor((row.RogueAreaID - 90) / 10);
 }
 
+function difficultyId(row) {
+  const worldId = areaWorldId(row);
+  return row.RogueAreaID === 100
+    ? `universe.world.${String(worldId).padStart(2, "0")}.difficulty.tutorial`
+    : `universe.world.${String(worldId).padStart(2, "0")}.difficulty.${String(row.Difficulty).padStart(2, "0")}`;
+}
+
 export async function topology(ctx) {
   const managers = await ctx.table("RogueManager");
   const areas = await ctx.table("RogueAreaConfig");
@@ -44,7 +51,7 @@ export async function topology(ctx) {
         sourceIds: [worldId],
       }),
       world_id: worldId,
-      difficulty_ids: entries.sort((left, right) => left.row.Difficulty - right.row.Difficulty).map(({ row }) => `universe.world.${String(worldId).padStart(2, "0")}.difficulty.${String(row.Difficulty).padStart(2, "0")}`),
+      difficulty_ids: entries.sort((left, right) => left.row.RogueAreaID - right.row.RogueAreaID).map(({ row }) => difficultyId(row)),
       entry_rule_id: "universe.rule.run-entry.standard",
       terminal_rule_id: "universe.rule.run-terminal.standard",
     };
@@ -56,7 +63,7 @@ export async function topology(ctx) {
     const mapEnemies = (value) => Object.entries(value ?? {}).map(([sourceId, level]) => ({ source_monster_id: sourceId, enemy_variant_id: enemyBySource.get(sourceId) ?? "", level }));
     return {
       ...ctx.envelope({
-        id: `universe.world.${String(worldId).padStart(2, "0")}.difficulty.${String(row.Difficulty).padStart(2, "0")}`,
+        id: difficultyId(row),
         nameEn: `${ctx.text(row.AreaNameID, "en")} — Difficulty ${row.Difficulty}`,
         nameZh: `${ctx.text(row.AreaNameID, "zh_cn")}·难度${row.Difficulty}`,
         summaryEn: `Difficulty ${row.Difficulty} recommends level ${row.RecommendLevel} and preserves its boss, elite and score references.`,
@@ -66,6 +73,7 @@ export async function topology(ctx) {
       }),
       world_id: `universe.world.${String(worldId).padStart(2, "0")}`,
       difficulty: row.Difficulty,
+      profile_kind: row.RogueAreaID === 100 ? "Tutorial" : "Standard",
       recommended_level: row.RecommendLevel,
       recommended_elements: row.RecommendNature ?? [],
       boss_variant_ids: mapEnemies(row.DisplayMonsterMap),

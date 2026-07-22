@@ -9,6 +9,7 @@ import { occurrences } from "./lib/occurrences.mjs";
 import { services } from "./lib/services.mjs";
 import { abilityTree } from "./lib/ability-tree.mjs";
 import { encounters } from "./lib/encounters.mjs";
+import { finalizePack, makePackIndex } from "./lib/finalize.mjs";
 
 const args = process.argv.slice(2);
 const check = args.includes("--check");
@@ -22,6 +23,8 @@ for (const [name, value] of await occurrences(ctx)) outputs.set(name, value);
 for (const [name, value] of await services(ctx)) outputs.set(name, value);
 for (const [name, value] of await abilityTree(ctx)) outputs.set(name, value);
 for (const [name, value] of await encounters(ctx)) outputs.set(name, value);
+const result = finalizePack(ctx, outputs);
 outputs.set("sources.json", [...ctx.evidence.values()].sort((left, right) => left.id.localeCompare(right.id)));
+outputs.set("pack-index.json", await makePackIndex(ctx, outputs));
 await writeOrCheck(ctx, outputs, check);
-console.log(`Standard universe reference pack ${check ? "verified" : "generated"}: ${outputs.size} files, ${[...outputs.values()].reduce((sum, records) => sum + records.length, 0)} rows.`);
+console.log(`Standard universe reference pack ${check ? "verified" : "generated"}: ${outputs.size} files, ${result.ruleCount} rules, ${result.fixtureCount} fixtures, 100% DataReady.`);

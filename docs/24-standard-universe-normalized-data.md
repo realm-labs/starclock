@@ -73,6 +73,8 @@ through JavaScript, Python or Excel binary floating-point values.
 
 Pack index entries bind each file's byte length, row count and SHA-256 digest.
 The complete pack digest hashes the ordered `(relative_path, sha256)` sequence.
+`pack-index.json` excludes its own bytes from that sequence and indexes the
+schema plus the other 23 contract files, avoiding a recursive self-hash.
 
 ## Review fixture contract
 
