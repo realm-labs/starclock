@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `standard-universe-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 2 — Sora schema and authoring contract |
+| Active phase | Phase 3 — Complete Excel authoring |
 | Active batch | None |
-| Next unblocked batch | `G03-P2-B5` |
+| Next unblocked batch | `G03-P3-B1` |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -20,7 +20,7 @@
 |---|---|---|
 | Phase 0 — Scope/evidence | `Complete` | Snapshot/scope, 2,646-file evidence inventory, corrected 1,935-row main-world manifest, stable normalized record families, provenance/quality labels, canonical JSON rules and semantic fixture contract are frozen and machine-verified. |
 | Phase 1 — Reference pack | `Complete` | Twenty-four contract files contain 2,201 DataReady content records, 786 rule bindings and 78 mechanic-family fixtures; pack/index regeneration and reference closure are machine-verified. |
-| Phase 2 — Sora schema | `InProgress` | All 49 Universe tables, three multi-sheet templates, schema lock and Rust readers validate under pinned Sora 0.3.0; representative data proof remains. |
+| Phase 2 — Sora schema | `Complete` | All 49 Universe tables, templates and readers validate; openpyxl-generated empty and representative workbook sets export deterministically and load through generated Rust readers. |
 | Phase 3 — Excel authoring | `Pending` | — |
 | Phase 4 — Review/freeze | `Pending` | — |
 
@@ -45,7 +45,7 @@
 | `G03-P2-B2` | `Complete` | This row's containing commit | Added normalized Sora tables for Resonances/parameters, Blessings/prerequisites/levels/parameters, Curios/states/parameters, Occurrences/variants/choices/costs/outcomes, services/parameters and Ability Tree nodes/edges/costs/effects/parameters. Complex mechanics are child rows rather than cell-local DSLs; exact decimal values use canonical string fields. All tables share explicit sheets in `Universe.xlsx`, stay below the source-size limit and pass Sora 0.3.0 schema validation. |
 | `G03-P2-B3` | `Complete` | This row's containing commit | Added `UniverseBindings.xlsx` schemas for generic content pools, encounter groups/members/waves/enemy slots, room encounter pools and fixed difficulty bindings, mechanic-rule contributions, and the Activity/domain seam. Enemy slots are typed Goal 01 `EnemyVariant` references; internal encounter references are typed. Activity bindings explicitly reserve participant-digest locking, scoped slots and fork/join without duplicating generic Activity semantics. Sora 0.3.0 validation passes. |
 | `G03-P2-B4` | `Complete` | This row's containing commit | Added source, content-audit, coverage, review-fixture and pack-file Sora tables with typed provenance references and explicit Standard/DLC ownership and quality enums. Generated and committed the 131-table schema lock, 49 Universe Rust readers and three grouped workbook templates. The dedicated verifier checks pinned Sora, workbook ownership, canonical-decimal transport, key typed references, schema-lock drift and formatted reader drift. |
-| `G03-P2-B5` | `Pending` | — | — |
+| `G03-P2-B5` | `Complete` | This row's containing commit | Added a disposable no-overwrite `openpyxl` fixture writer and automated proof for empty and representative workbook sets layered over production combat data. Pinned Sora exports binary/debug output, duplicate representative generation is byte-identical, and `starclock-data` parses all 131 tables through generated readers while asserting representative Universe/Profile/Activity/evidence rows. This proves the schema contract before full authoring. |
 | `G03-P3-B1` | `Pending` | — | — |
 | `G03-P3-B2` | `Pending` | — | — |
 | `G03-P3-B3` | `Pending` | — | — |

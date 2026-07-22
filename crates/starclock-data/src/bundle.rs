@@ -61,6 +61,7 @@ fn load_error(error: impl std::fmt::Display) -> BundleLoadError {
 #[cfg(test)]
 mod tests {
     use super::inspect;
+    use crate::generated::{SoraConfig, runtime::SoraBundle};
 
     const PRODUCTION_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
 
@@ -82,5 +83,26 @@ mod tests {
         let error = inspect(br#"{"table":{"name":"ContentIdentity"}}"#)
             .expect_err("JSON must not be accepted as a Sora bundle");
         assert!(error.to_string().contains("magic"));
+    }
+
+    #[test]
+    fn goal03_fixture_bundle_loads_all_universe_tables() {
+        let Ok(path) = std::env::var("STARCLOCK_G03_FIXTURE_BUNDLE") else {
+            return;
+        };
+        let bytes = std::fs::read(path).expect("Goal 03 fixture bundle must be readable");
+        let bundle = SoraBundle::parse(&bytes).expect("Goal 03 fixture must be a Sora bundle");
+        let config = SoraConfig::from_source(&bundle).expect("all generated readers must load");
+        let expected = std::env::var("STARCLOCK_G03_EXPECTED_PROFILES")
+            .expect("fixture profile expectation must be provided")
+            .parse::<usize>()
+            .expect("fixture profile expectation must be an integer");
+        assert_eq!(config.universe_profile().len(), expected);
+        if expected > 0 {
+            assert_eq!(config.universe_world().len(), 1);
+            assert_eq!(config.universe_domain().len(), 1);
+            assert_eq!(config.universe_activity_binding().len(), 1);
+            assert_eq!(config.universe_source_record().len(), 1);
+        }
     }
 }
