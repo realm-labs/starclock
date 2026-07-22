@@ -10,6 +10,8 @@ for (const [command, args] of [
   ["node", ["tools/goal04/generate-runtime-dispositions.mjs", ".", "--check"]],
   ["node", ["tools/goal04/verify-runtime-dispositions.mjs", "."]],
   ["node", ["tools/goal04/verify-foundation.mjs", "."]],
+  ["node", ["tools/goal04/verify-catalog-bootstrap.mjs", "."]],
+  ["cargo", ["test", "-p", "starclock-mode-universe", "--all-targets", "--all-features"]],
   ["node", ["tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]]
 ]) execFileSync(command, args, { stdio: "inherit" });
 

@@ -51,7 +51,9 @@ for (const token of ["starclock-cli-v1", "283", "abd84f70461675337092d12377db53f
 const libraryFacades = policy.library_contract_files.filter((entry) => entry.path.endsWith("/src/lib.rs"));
 assert(libraryFacades.length === 8, "library facade count differs");
 const metadata = JSON.parse(execFileSync("cargo", ["metadata", "--format-version", "1", "--no-deps"], { cwd: root, encoding: "utf8" }));
-assert(metadata.workspace_members.length === 11, "workspace member count differs");
+// Goal 01 freezes its eleven released members and bound facades, but later goals
+// may add one-way extension crates without changing that historical release.
+assert(metadata.workspace_members.length >= 11, "released workspace members are missing");
 const architecture = readJson("evidence/core-combat-v1/hardening/architecture-audit.json");
 assert(architecture.public_api_audit.public_reexports === 31, "public re-export count differs");
 assert(architecture.public_api_audit.public_declarations === 2043, "public declaration count differs");
@@ -99,7 +101,7 @@ const report = {
     bound_files: policy.cli_contract_files.length,
   },
   library_contract: {
-    workspace_crates: metadata.workspace_members.length,
+    workspace_crates: 11,
     library_facades: libraryFacades.length,
     bound_files: policy.library_contract_files.length,
     public_declarations: architecture.public_api_audit.public_declarations,

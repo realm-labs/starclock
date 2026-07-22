@@ -132,8 +132,8 @@
   "package_groups": [
     {
       "name": "authoritative RNG and SHA-256",
-      "relationship": "rand and sha2 are direct starclock-combat dependencies; sha2 is also a direct starclock-build, starclock-activity, starclock-data and starclock-replay dependency; all other entries are transitive through those packages",
-      "owner": "starclock-combat private ChaCha8/stream-derivation implementation, starclock-build private canonical definition/build encoder, starclock-activity private participant/result/state encoder, starclock-data private exact input-bundle hasher and starclock-replay private canonical SHA-256 sink",
+      "relationship": "rand and sha2 are direct starclock-combat dependencies; sha2 is also a direct starclock-build, starclock-activity, starclock-data, starclock-mode-universe and starclock-replay dependency; all other entries are transitive through those packages",
+      "owner": "starclock-combat private ChaCha8/stream-derivation implementation, starclock-build private canonical definition/build encoder, starclock-activity private participant/result/state encoder, starclock-data and starclock-mode-universe private exact bundle/catalog identity encoders, and starclock-replay private canonical SHA-256 sink",
       "features": ["rand:chacha,std", "sha2:none"],
       "default_features": false,
       "source_url": "https://crates.io/",
@@ -194,14 +194,14 @@
     },
     {
       "name": "production Sora generated reader",
-      "relationship": "serde and zstd are direct starclock-data dependencies; all other entries are transitive through those packages",
-      "owner": "starclock-data private generated transport reader",
+      "relationship": "serde and zstd are direct starclock-data and starclock-mode-universe dependencies; all other entries are transitive through those packages",
+      "owner": "starclock-data and starclock-mode-universe private generated transport readers",
       "features": ["serde:derive,rc,std"],
       "default_features": false,
       "source_url": "https://crates.io/",
-      "purpose": "Compile and execute pinned Sora 0.3.0 generated readers for the production config.sora bundle.",
+      "purpose": "Compile and execute pinned Sora 0.3.0 generated readers for the core and isolated Standard Universe production bundles.",
       "deterministic_impact": "Transport decoding only; exact versions remain locked and generated rows are converted before crossing a Starclock domain API.",
-      "compile_cost": "Fresh production starclock-data check including local dependencies measured 18,782 ms on the recorded Windows runner.",
+      "compile_cost": "The prior fresh starclock-data check measured 18,782 ms; G04-P1-B1 reuses the identical locked Serde/Zstd graph in a second private generated reader and adds no registry package.",
       "rejected_alternatives": [
         "Patching generated code to remove serde/zstd would fork pinned Sora output.",
         "Diagnostic JSON or handwritten binary decoding would create a forbidden competing runtime path."

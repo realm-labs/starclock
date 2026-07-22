@@ -1,0 +1,14 @@
+[package]
+name = "starclock-mode-universe"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+serde.workspace = true
+sha2.workspace = true
+starclock-data = { path = "../starclock-data" }
+zstd.workspace = true

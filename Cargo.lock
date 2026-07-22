@@ -1022,6 +1022,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "starclock-mode-universe"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "sha2",
+ "starclock-data",
+ "zstd",
+]
+
+[[package]]
 name = "starclock-replay"
 version = "0.1.0"
 dependencies = [

@@ -69,6 +69,12 @@ const activityManifest = fs.readFileSync(path.join(root, "crates", "starclock-ac
 assert(activityManifest.includes("sha2.workspace = true"), "activity SHA-256 dependency differs");
 const dataManifest = fs.readFileSync(path.join(root, "crates", "starclock-data", "Cargo.toml"), "utf8");
 assert(dataManifest.includes("sha2.workspace = true"), "data SHA-256 dependency differs");
+const universeManifest = fs.readFileSync(path.join(root, "crates", "starclock-mode-universe", "Cargo.toml"), "utf8");
+assert(universeManifest.includes("sha2.workspace = true") && universeManifest.includes("serde.workspace = true") && universeManifest.includes("zstd.workspace = true"), "Universe private reader/hash dependencies differ");
+const universeHashUsers = walk(path.join(root, "crates", "starclock-mode-universe", "src"))
+  .filter((file) => file.endsWith(".rs") && /\bsha2::/.test(fs.readFileSync(file, "utf8")))
+  .map((file) => path.relative(root, file).replaceAll("\\", "/"));
+assert(JSON.stringify(universeHashUsers) === JSON.stringify(["crates/starclock-mode-universe/src/digest.rs"]), `sha2 escaped the private Universe digest owner: ${universeHashUsers.join(", ")}`);
 const activityHashUsers = walk(path.join(root, "crates", "starclock-activity", "src"))
   .filter((file) => file.endsWith(".rs") && /\bsha2::/.test(fs.readFileSync(file, "utf8")))
   .map((file) => path.relative(root, file).replaceAll("\\", "/"));

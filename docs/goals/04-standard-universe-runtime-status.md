@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Universe bundle and domain catalog |
 | Active batch | None |
-| Next unblocked batch | `G04-P1-B1` |
+| Next unblocked batch | `G04-P1-B2` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -22,7 +22,7 @@ be `InProgress`; completion evidence and its commit are recorded atomically.
 | Phase | State | Exit evidence |
 |---|---|---|
 | Phase 0 — Contract/audit | `Complete` | APIs/revisions, 2,201/786/78 dispositions, fifteen partitions, World 1 slice, six workloads, 3+3 CI matrix, dependency baseline and release scaffold are mechanically frozen. |
-| Phase 1 — Catalog | `Pending` | Exact isolated bundle lowers privately; all universe definitions and references validate. |
+| Phase 1 — Catalog | `InProgress` | Exact isolated bundle lowers privately; all universe definitions and references validate. |
 | Phase 2 — Activity core | `Pending` | Generic graph/state/transactions/RNG/hash/battle handoff replace the one-battle-only limitation. |
 | Phase 3 — Standard profile | `Pending` | Spatial-free domains and every shared Standard Universe subsystem execute generically. |
 | Phase 4 — Mechanics | `Pending` | Fifteen content partitions, 78 runtime fixtures and 100% runtime dispositions close. |
@@ -40,7 +40,7 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P0-B2` | `Complete` | This row's containing commit | Frozen API v2 has five command kinds, three exclusive resolution boundaries, twelve decision kinds, eight event families and stable rejection/fault separation. Full graph Activity uses state codec v2, Activity replay hash `sha256-v4`, Activity RNG v2 and replay payload schema 2 while legacy battle/one-battle v1/v3 bytes remain readable. Evidence: `evidence/standard-universe-runtime-v1/foundation/interface-contract.json`. |
 | `G04-P0-B3` | `Complete` | This row's containing commit | Assigned all 2,201 content rows, 786 rules and 78 fixtures to exact runtime mechanisms and stable M01–M15 membership. Counts are 698 Activity-IR, 427 native-handler, 984 metadata and 92 explicit-policy content rows; all remain `Planned` with zero executable claims. Partition manifest SHA-256: `9eebeb5ad82b30b2ddb789e36dcf2cbb38d7c02426c9d99696d43280ce5f5aaa`. |
 | `G04-P0-B4` | `Complete` | This row's containing commit | Frozen representative World 1/Preservation slice, six server workloads and allocation/copy metrics, 3 native + 3 compile-only CI profiles, 147-package reviewed lock baseline and a 7-phase/50-batch release scaffold. No complete-World or performance claim is made. Evidence SHA-256: `033222084a4e6e95d2c1e91389c2ead797ac9de50015bcf3c751678fd9829a0e`. |
-| `G04-P1-B1` | `Pending` | — | — |
+| `G04-P1-B1` | `Complete` | This row's containing commit | Added the 12th workspace crate with a private 49-table Sora reader, strict frozen core/Universe/profile compatibility checks and a generated-row-free catalog identity. Three tests load the exact bundles and reject wrong, tampered and revision-mismatched inputs. Composed configuration digest: `7926226540a97faa416ececd38fd865b5f3ef1d77efc8c1107dc5f8697204fcd`. |
 | `G04-P1-B2` | `Pending` | — | — |
 | `G04-P1-B3` | `Pending` | — | — |
 | `G04-P1-B4` | `Pending` | — | — |
@@ -97,7 +97,7 @@ machine-generated runtime-disposition manifest without changing these counts.
 | DataReady content records | 2,201 | 2,201 assigned | 0 |
 | Mechanic-rule bindings | 786 | 786 assigned | 0 |
 | Mechanic-family fixtures | 78 | 78 assigned | 0 |
-| Sora Universe tables | 49 | staging only | 0 runtime-lowered |
+| Sora Universe tables | 49 | 49 privately loaded | 0 domain-lowered |
 | Workbook rows | 13,793 | staging only | 0 runtime-lowered |
 | Worlds | 9 | 9 assigned | 0 |
 | Paths | 9 | 9 assigned | 0 |

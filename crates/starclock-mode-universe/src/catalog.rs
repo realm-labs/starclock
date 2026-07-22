@@ -1,0 +1,461 @@
+//! Exact isolated-bundle loading and composed catalog identity.
+
+use std::sync::Arc;
+
+use crate::digest::{
+    ActivityConfigurationDigest, Encoder, UniverseBundleDigest, UniverseProfileDigest,
+    bundle_digest,
+};
+use crate::error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind};
+use crate::generated::{SoraConfig, runtime::SoraBundle};
+
+pub const UNIVERSE_CATALOG_REVISION: &str = "standard-universe-v4.4-runtime-v1";
+pub const STANDARD_UNIVERSE_PROFILE_REVISION: &str = "standard-universe-main-world-v1";
+pub const ACTIVITY_CONFIGURATION_REVISION: &str = "starclock-activity-config-v1";
+
+const EXPECTED_PROFILE_KEY: &str = "universe.profile.standard-main-world.v4.4";
+const EXPECTED_GAME_VERSION: &str = "4.4";
+const EXPECTED_SNAPSHOT_DATE: &str = "2026-07-22";
+const EXPECTED_CONTENT_MANIFEST: &str =
+    "1dac0f8102a8c2a77717a37d206e2288f38fda8d428e490cdd91177190bce216";
+const EXPECTED_PACK_DIGEST: &str =
+    "8a6ea40d777be0c007290dc4af82080c6bc8abd56d5b3e133309dea66e9eb5dd";
+const EXPECTED_CORE_DATA_REVISION: &str = "core-combat-v1-phase7-l11";
+const EXPECTED_CORE_RULES_REVISION: &str = "core-combat-rules-v1";
+const EXPECTED_NUMERIC_REVISION: &str = "fixed-i64-6dp-v1";
+const EXPECTED_RNG_REVISION: &str = "chacha8-rand-0.10.2-intmap-v1";
+const EXPECTED_STATE_HASH_REVISION: &str = "sha256-v3";
+
+const EXPECTED_CORE_BUNDLE: [u8; 32] = [
+    0xab, 0xd8, 0x4f, 0x70, 0x46, 0x16, 0x75, 0x33, 0x70, 0x92, 0xd1, 0x23, 0x77, 0xdb, 0x53, 0xf0,
+    0x8b, 0x45, 0x62, 0x11, 0x4f, 0xa9, 0x0a, 0xa0, 0xb3, 0x7a, 0xd8, 0x69, 0xe9, 0x27, 0x04, 0x40,
+];
+const EXPECTED_UNIVERSE_BUNDLE: UniverseBundleDigest = UniverseBundleDigest::new([
+    0x0d, 0x94, 0xd2, 0x5b, 0xf9, 0x33, 0x92, 0xfb, 0x65, 0xcc, 0xa1, 0xd2, 0x87, 0x9a, 0x36, 0x17,
+    0x0f, 0x70, 0x26, 0x2d, 0x3d, 0xab, 0x5a, 0x92, 0xd5, 0xb6, 0x34, 0xfa, 0xb1, 0x9f, 0x3b, 0x04,
+]);
+
+/// Generated-row-free compatibility identity for one catalog composition.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct UniverseCatalogIdentity {
+    game_version: Box<str>,
+    snapshot_date: Box<str>,
+    core_data_revision: Box<str>,
+    catalog_revision: Box<str>,
+    profile_revision: Box<str>,
+    core_bundle: [u8; 32],
+    build_catalog: [u8; 32],
+    universe_bundle: UniverseBundleDigest,
+    profile: UniverseProfileDigest,
+    configuration: ActivityConfigurationDigest,
+}
+
+impl UniverseCatalogIdentity {
+    #[must_use]
+    pub fn game_version(&self) -> &str {
+        &self.game_version
+    }
+    #[must_use]
+    pub fn snapshot_date(&self) -> &str {
+        &self.snapshot_date
+    }
+    #[must_use]
+    pub fn core_data_revision(&self) -> &str {
+        &self.core_data_revision
+    }
+    #[must_use]
+    pub fn catalog_revision(&self) -> &str {
+        &self.catalog_revision
+    }
+    #[must_use]
+    pub fn profile_revision(&self) -> &str {
+        &self.profile_revision
+    }
+    #[must_use]
+    pub const fn core_bundle_digest(&self) -> [u8; 32] {
+        self.core_bundle
+    }
+    #[must_use]
+    pub const fn build_catalog_digest(&self) -> [u8; 32] {
+        self.build_catalog
+    }
+    #[must_use]
+    pub const fn universe_bundle_digest(&self) -> UniverseBundleDigest {
+        self.universe_bundle
+    }
+    #[must_use]
+    pub const fn profile_digest(&self) -> UniverseProfileDigest {
+        self.profile
+    }
+    #[must_use]
+    pub const fn configuration_digest(&self) -> ActivityConfigurationDigest {
+        self.configuration
+    }
+}
+
+/// Aggregate counts validated before later domain lowering batches.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct UniverseCatalogSummary {
+    pub worlds: usize,
+    pub paths: usize,
+    pub difficulties: usize,
+    pub content_records: usize,
+    pub mechanic_rules: usize,
+    pub semantic_fixtures: usize,
+    pub source_records: usize,
+}
+
+/// Immutable validated Universe transport/catalog aggregate.
+#[derive(Debug)]
+pub struct UniverseCatalog {
+    identity: UniverseCatalogIdentity,
+    summary: UniverseCatalogSummary,
+    transport: SoraConfig,
+    core: Arc<starclock_data::catalog::SimulationCatalog>,
+}
+
+impl UniverseCatalog {
+    /// Loads only the exact Goal 03 bundle and composes it with the exact Goal 01 catalog.
+    pub fn load(
+        universe_bundle: &[u8],
+        core: Arc<starclock_data::catalog::SimulationCatalog>,
+    ) -> Result<Arc<Self>, UniverseCatalogLoadError> {
+        let actual_digest = bundle_digest(universe_bundle);
+        if actual_digest != EXPECTED_UNIVERSE_BUNDLE {
+            return Err(error(
+                UniverseCatalogLoadErrorKind::UniverseBundleDigest,
+                "Universe bundle SHA-256 does not match the frozen Goal 03 release",
+            ));
+        }
+        validate_core(&core)?;
+        let transport = decode(universe_bundle)?;
+        let profile = only_profile(&transport)?;
+        validate_profile(profile)?;
+        let summary = validate_counts(&transport, profile)?;
+        let profile_digest = profile_digest(profile);
+        let build_digest = core.build_catalog().digest().bytes();
+        let configuration = compose_configuration(
+            core.combat_catalog().digest().bytes(),
+            core.combat_catalog().revision().as_str(),
+            build_digest,
+            core.build_catalog().revision().as_str(),
+            actual_digest,
+            profile_digest,
+        );
+        let identity = UniverseCatalogIdentity {
+            game_version: profile.game_version.as_str().into(),
+            snapshot_date: profile.snapshot_date.as_str().into(),
+            core_data_revision: core.manifest().data_revision.as_str().into(),
+            catalog_revision: UNIVERSE_CATALOG_REVISION.into(),
+            profile_revision: STANDARD_UNIVERSE_PROFILE_REVISION.into(),
+            core_bundle: core.combat_catalog().digest().bytes(),
+            build_catalog: build_digest,
+            universe_bundle: actual_digest,
+            profile: profile_digest,
+            configuration,
+        };
+        Ok(Arc::new(Self {
+            identity,
+            summary,
+            transport,
+            core,
+        }))
+    }
+
+    #[must_use]
+    pub const fn identity(&self) -> &UniverseCatalogIdentity {
+        &self.identity
+    }
+
+    #[must_use]
+    pub const fn summary(&self) -> UniverseCatalogSummary {
+        self.summary
+    }
+
+    #[must_use]
+    pub fn simulation_catalog(&self) -> &starclock_data::catalog::SimulationCatalog {
+        &self.core
+    }
+
+    /// Returns the number of privately loaded Sora tables without exposing them.
+    #[must_use]
+    pub fn transport_table_count(&self) -> usize {
+        self.transport.tables().count()
+    }
+}
+
+fn decode(bytes: &[u8]) -> Result<SoraConfig, UniverseCatalogLoadError> {
+    let bundle = SoraBundle::parse(bytes).map_err(|value| {
+        error(
+            UniverseCatalogLoadErrorKind::BundleFormat,
+            format!("Universe Sora envelope rejected: {value}"),
+        )
+    })?;
+    SoraConfig::from_source(&bundle).map_err(|value| {
+        error(
+            UniverseCatalogLoadErrorKind::BundleFormat,
+            format!("Universe Sora schema rejected: {value}"),
+        )
+    })
+}
+
+fn only_profile(
+    config: &SoraConfig,
+) -> Result<&crate::generated::universe_profile::UniverseProfile, UniverseCatalogLoadError> {
+    let mut rows = config.universe_profile().ordered_rows();
+    let profile = rows.next().ok_or_else(|| {
+        error(
+            UniverseCatalogLoadErrorKind::UniverseRevision,
+            "Universe bundle has no profile",
+        )
+    })?;
+    if rows.next().is_some() {
+        return Err(error(
+            UniverseCatalogLoadErrorKind::UniverseRevision,
+            "Universe bundle has multiple profiles",
+        ));
+    }
+    Ok(profile)
+}
+
+fn validate_profile(
+    profile: &crate::generated::universe_profile::UniverseProfile,
+) -> Result<(), UniverseCatalogLoadError> {
+    let valid = profile.id == 1
+        && profile.stable_key == EXPECTED_PROFILE_KEY
+        && profile.game_version == EXPECTED_GAME_VERSION
+        && profile.snapshot_date == EXPECTED_SNAPSHOT_DATE
+        && profile.content_manifest_sha256 == EXPECTED_CONTENT_MANIFEST
+        && profile.pack_sha256 == EXPECTED_PACK_DIGEST
+        && profile.world_count == 9
+        && profile.path_count == 9
+        && profile.runtime_loading == "ForbiddenStagingOnly";
+    if valid {
+        Ok(())
+    } else {
+        Err(error(
+            UniverseCatalogLoadErrorKind::UniverseRevision,
+            "Universe profile identity/revision differs from the frozen Goal 03 release",
+        ))
+    }
+}
+
+fn validate_core(
+    core: &starclock_data::catalog::SimulationCatalog,
+) -> Result<(), UniverseCatalogLoadError> {
+    let manifest = core.manifest();
+    let valid = core.combat_catalog().digest().bytes() == EXPECTED_CORE_BUNDLE
+        && manifest.game_version == EXPECTED_GAME_VERSION
+        && manifest.data_revision == EXPECTED_CORE_DATA_REVISION
+        && manifest.required_rules_revision == EXPECTED_CORE_RULES_REVISION
+        && manifest.numeric_policy_revision == EXPECTED_NUMERIC_REVISION
+        && manifest.rng_algorithm_revision == EXPECTED_RNG_REVISION
+        && manifest.state_hash_revision == EXPECTED_STATE_HASH_REVISION
+        && core.build_catalog().compatible_combat_digest().bytes() == EXPECTED_CORE_BUNDLE;
+    if valid {
+        Ok(())
+    } else {
+        Err(error(
+            UniverseCatalogLoadErrorKind::CoreCompatibility,
+            "combat/build catalog identity is incompatible with Standard Universe v1",
+        ))
+    }
+}
+
+fn validate_counts(
+    config: &SoraConfig,
+    profile: &crate::generated::universe_profile::UniverseProfile,
+) -> Result<UniverseCatalogSummary, UniverseCatalogLoadError> {
+    let coverage = config.universe_coverage();
+    let content_records = coverage.ordered_rows().try_fold(0usize, |total, row| {
+        if row.required != row.accounted
+            || row.required != row.data_ready
+            || row.coverage_percent_decimal != "100"
+        {
+            return Err(error(
+                UniverseCatalogLoadErrorKind::Coverage,
+                format!("Universe coverage category {} is incomplete", row.category),
+            ));
+        }
+        let count = usize::try_from(row.required).map_err(|_| {
+            error(
+                UniverseCatalogLoadErrorKind::Coverage,
+                "Universe coverage has a negative count",
+            )
+        })?;
+        total.checked_add(count).ok_or_else(|| {
+            error(
+                UniverseCatalogLoadErrorKind::Coverage,
+                "Universe coverage count overflow",
+            )
+        })
+    })?;
+    let summary = UniverseCatalogSummary {
+        worlds: config.universe_world().len(),
+        paths: config.universe_path().len(),
+        difficulties: config.universe_difficulty().len(),
+        content_records,
+        mechanic_rules: config.universe_mechanic_rule().len(),
+        semantic_fixtures: config.universe_review_fixture().len(),
+        source_records: config.universe_source_record().len(),
+    };
+    let valid = summary.worlds == usize::try_from(profile.world_count).unwrap_or_default()
+        && summary.paths == usize::try_from(profile.path_count).unwrap_or_default()
+        && summary.difficulties == 33
+        && summary.content_records == 2_201
+        && config.universe_content_audit().len() == 2_201
+        && summary.mechanic_rules == 786
+        && summary.semantic_fixtures == 78
+        && summary.source_records == 2_645
+        && config.universe_pack_file().len() == 24;
+    if valid {
+        Ok(summary)
+    } else {
+        Err(error(
+            UniverseCatalogLoadErrorKind::Coverage,
+            "Universe release denominator differs from Goal 03",
+        ))
+    }
+}
+
+fn profile_digest(
+    profile: &crate::generated::universe_profile::UniverseProfile,
+) -> UniverseProfileDigest {
+    let mut encoder = Encoder::new(b"starclock-standard-universe-profile-v1");
+    encoder.u32(u32::try_from(profile.id).expect("validated positive profile ID"));
+    for value in [
+        &profile.stable_key,
+        &profile.game_version,
+        &profile.snapshot_date,
+        &profile.content_manifest_sha256,
+        &profile.pack_sha256,
+        &profile.runtime_loading,
+    ] {
+        encoder.text(value);
+    }
+    encoder.u32(u32::try_from(profile.world_count).expect("validated world count"));
+    encoder.u32(u32::try_from(profile.path_count).expect("validated path count"));
+    UniverseProfileDigest::new(encoder.finish())
+}
+
+fn compose_configuration(
+    combat_digest: [u8; 32],
+    combat_revision: &str,
+    build_digest: [u8; 32],
+    build_revision: &str,
+    universe_digest: UniverseBundleDigest,
+    profile_digest: UniverseProfileDigest,
+) -> ActivityConfigurationDigest {
+    let mut encoder = Encoder::new(ACTIVITY_CONFIGURATION_REVISION.as_bytes());
+    for (label, revision, digest) in [
+        ("combat", combat_revision, combat_digest),
+        ("build", build_revision, build_digest),
+        (
+            "universe",
+            UNIVERSE_CATALOG_REVISION,
+            universe_digest.bytes(),
+        ),
+        (
+            "activity-profile",
+            STANDARD_UNIVERSE_PROFILE_REVISION,
+            profile_digest.bytes(),
+        ),
+    ] {
+        encoder.text(label);
+        encoder.text(revision);
+        encoder.optional_digest(Some(digest));
+    }
+    ActivityConfigurationDigest::new(encoder.finish())
+}
+
+fn error(
+    kind: UniverseCatalogLoadErrorKind,
+    message: impl Into<Box<str>>,
+) -> UniverseCatalogLoadError {
+    UniverseCatalogLoadError::new(kind, message)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
+    const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../config/universe-generated/config.sora");
+
+    #[test]
+    fn exact_isolated_bundle_composes_with_exact_core_catalog() {
+        let core = starclock_data::catalog::load(CORE_BUNDLE).expect("core catalog");
+        let catalog = UniverseCatalog::load(UNIVERSE_BUNDLE, core).expect("Universe catalog");
+        assert_eq!(catalog.identity().game_version(), "4.4");
+        assert_eq!(
+            catalog.identity().catalog_revision(),
+            UNIVERSE_CATALOG_REVISION
+        );
+        assert_eq!(
+            catalog.identity().core_bundle_digest(),
+            EXPECTED_CORE_BUNDLE
+        );
+        assert_eq!(
+            catalog.identity().universe_bundle_digest(),
+            EXPECTED_UNIVERSE_BUNDLE
+        );
+        assert_eq!(
+            catalog.summary(),
+            UniverseCatalogSummary {
+                worlds: 9,
+                paths: 9,
+                difficulties: 33,
+                content_records: 2_201,
+                mechanic_rules: 786,
+                semantic_fixtures: 78,
+                source_records: 2_645,
+            }
+        );
+        assert_eq!(catalog.transport_table_count(), 49);
+        assert_eq!(
+            catalog.identity().configuration_digest().bytes(),
+            [
+                0x79, 0x26, 0x22, 0x65, 0x40, 0xa9, 0x7f, 0xaa, 0x41, 0x6e, 0xce, 0xcd, 0x38, 0xfd,
+                0x86, 0x5b, 0x5f, 0x3e, 0xf1, 0xd7, 0x7e, 0xfc, 0x8c, 0x11, 0x07, 0xdc, 0x5f, 0x86,
+                0x97, 0x20, 0x4f, 0xcd,
+            ]
+        );
+        assert_eq!(
+            catalog.identity().profile_digest().bytes(),
+            [
+                0xf8, 0xce, 0x0a, 0xfe, 0xa3, 0x91, 0xaa, 0x3a, 0x12, 0xe9, 0x8a, 0x82, 0x0a, 0xf3,
+                0xd5, 0x1e, 0xb8, 0x57, 0x23, 0x38, 0x7b, 0x31, 0x5f, 0xa6, 0xb7, 0xf4, 0x8d, 0x56,
+                0xd9, 0x10, 0xca, 0xf3,
+            ]
+        );
+    }
+
+    #[test]
+    fn wrong_and_tampered_bundles_are_rejected_before_generated_rows_escape() {
+        let core = starclock_data::catalog::load(CORE_BUNDLE).expect("core catalog");
+        let wrong = UniverseCatalog::load(CORE_BUNDLE, Arc::clone(&core)).unwrap_err();
+        assert_eq!(
+            wrong.kind(),
+            UniverseCatalogLoadErrorKind::UniverseBundleDigest
+        );
+        let mut tampered = UNIVERSE_BUNDLE.to_vec();
+        *tampered.last_mut().expect("non-empty bundle") ^= 1;
+        let tampered = UniverseCatalog::load(&tampered, core).unwrap_err();
+        assert_eq!(
+            tampered.kind(),
+            UniverseCatalogLoadErrorKind::UniverseBundleDigest
+        );
+        let format = decode(br#"{"table":{}}"#).unwrap_err();
+        assert_eq!(format.kind(), UniverseCatalogLoadErrorKind::BundleFormat);
+    }
+
+    #[test]
+    fn revision_validation_is_explicit_after_transport_decoding() {
+        let config = decode(UNIVERSE_BUNDLE).expect("Universe bundle");
+        let profile = only_profile(&config).expect("profile");
+        let mut changed = profile.clone();
+        changed.game_version = "4.5".to_owned();
+        let error = validate_profile(&changed).unwrap_err();
+        assert_eq!(error.kind(), UniverseCatalogLoadErrorKind::UniverseRevision);
+    }
+}

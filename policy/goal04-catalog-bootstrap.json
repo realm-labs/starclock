@@ -1,0 +1,31 @@
+{
+  "schema_revision": "starclock.goal04-catalog-bootstrap.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "crate": "starclock-mode-universe",
+  "revisions": {
+    "catalog": "standard-universe-v4.4-runtime-v1",
+    "profile": "standard-universe-main-world-v1",
+    "configuration": "starclock-activity-config-v1"
+  },
+  "digests": {
+    "core_bundle": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440",
+    "universe_bundle": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+    "build_catalog": "8d82e7028613693229324b9d503075780c10f75ad29e967ce6eefe564f8de281",
+    "universe_profile": "f8ce0afea391aa3a12e98a820af3d51eb85723387b315fa6b7f48d56d910caf3",
+    "composed_configuration": "7926226540a97faa416ececd38fd865b5f3ef1d77efc8c1107dc5f8697204fcd"
+  },
+  "summary": {
+    "private_sora_tables": 49,
+    "worlds": 9,
+    "paths": 9,
+    "difficulties": 33,
+    "content_records": 2201,
+    "mechanic_rules": 786,
+    "semantic_fixtures": 78,
+    "source_records": 2645
+  },
+  "local_dependencies": ["starclock-data"],
+  "external_dependencies": ["serde", "sha2", "zstd"],
+  "new_registry_packages": 0,
+  "focused_tests": 3
+}

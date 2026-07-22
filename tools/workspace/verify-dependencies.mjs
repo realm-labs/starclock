@@ -16,6 +16,7 @@ const expected = new Map([
   ["starclock-replay", ["starclock-activity", "starclock-combat"]],
   ["starclock-ai", ["starclock-combat"]],
   ["starclock-mode-standard", ["starclock-activity", "starclock-combat"]],
+  ["starclock-mode-universe", ["starclock-data"]],
   ["starclock-mcp", ["starclock-agent-api"]],
   ["starclock-data", ["starclock-activity", "starclock-build", "starclock-combat", "starclock-mode-standard", "starclock-rules"]],
   ["starclock-cli", ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mcp", "starclock-mode-standard", "starclock-replay", "starclock-rules"]],
@@ -41,6 +42,11 @@ const expectedExternal = new Map([
     { name: "sha2", requirement: "=0.11.0", features: [] },
   ]],
   ["starclock-data", [
+    { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
+    { name: "sha2", requirement: "=0.11.0", features: [] },
+    { name: "zstd", requirement: "=0.13.3", features: [] },
+  ]],
+  ["starclock-mode-universe", [
     { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
     { name: "sha2", requirement: "=0.11.0", features: [] },
     { name: "zstd", requirement: "=0.13.3", features: [] },
@@ -109,6 +115,8 @@ const combat = packages.find((entry) => entry.name === "starclock-combat");
 assert(combat.dependencies.every((dependency) => dependency.kind === "dev" ? dependency.name === "proptest" : ["fixnum", "rand", "sha2"].includes(dependency.name)), "starclock-combat may depend only on the reviewed private numeric/RNG/hash backends plus the property dev-dependency");
 const data = packages.find((entry) => entry.name === "starclock-data");
 assert(data.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => ["serde", "sha2", "zstd"].includes(dependency.name)), "starclock-data may use only generated-reader transport dependencies plus the reviewed private SHA-256 backend");
+const universe = packages.find((entry) => entry.name === "starclock-mode-universe");
+assert(universe.dependencies.every((dependency) => ["starclock-data", "serde", "sha2", "zstd"].includes(dependency.name)), "starclock-mode-universe may use only the stable data catalog plus generated-reader transport/hash dependencies");
 const replay = packages.find((entry) => entry.name === "starclock-replay");
 assert(replay.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => dependency.kind === "dev" ? dependency.name === "proptest" : dependency.name === "sha2"), "starclock-replay may use only the reviewed private SHA-256 backend plus the property dev-dependency");
 const cli = packages.find((entry) => entry.name === "starclock-cli");
@@ -120,7 +128,7 @@ assert(agentApi.dependencies.every((dependency) => ["starclock-ai", "starclock-c
 const mcp = packages.find((entry) => entry.name === "starclock-mcp");
 assert(mcp.dependencies.every((dependency) => ["starclock-agent-api", "allocation-counter", "axum", "rmcp", "schemars", "serde", "serde_json", "tokio", "tower"].includes(dependency.name)), "starclock-mcp may depend only on the protocol-neutral agent API, frozen official MCP SDK, reviewed HTTP service boundary, schema/JSON conversion, async runtime and benchmark-only allocator counter");
 
-console.log("Workspace dependency boundaries verified (11 crates; protocol-neutral agent boundary and one-way frozen MCP adapter dependency).");
+console.log("Workspace dependency boundaries verified (12 crates; generic Activity/mode separation and one-way protocol adapters).");
 
 function normalize(value) { return path.resolve(value).replaceAll("\\", "/").toLowerCase(); }
 function read(file) { return fs.readFileSync(file, "utf8"); }
