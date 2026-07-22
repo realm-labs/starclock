@@ -15,6 +15,7 @@ pub enum ActivityValueType {
     FixedScalar = 1,
     Boolean = 2,
     StableId = 3,
+    OptionalId = 4,
 }
 
 /// Typed, finite expression vocabulary. Checked evaluation belongs to the
@@ -23,6 +24,7 @@ pub enum ActivityValueType {
 pub enum ActivityExpression {
     Literal(ActivityValue),
     Slot(ActivitySlotId),
+    CounterValue { slot: ActivitySlotId, key: u64 },
     Add(Box<ActivityExpression>, Box<ActivityExpression>),
     Subtract(Box<ActivityExpression>, Box<ActivityExpression>),
     Minimum(Box<ActivityExpression>, Box<ActivityExpression>),
@@ -283,6 +285,20 @@ fn expression_type(
             value_type(value.kind()).ok_or(ActivityProgramBindingError::UnsupportedExpressionType)
         }
         ActivityExpression::Slot(slot) => slot_type(state, *slot),
+        ActivityExpression::CounterValue { slot, key } => {
+            if *key == 0 {
+                return Err(ActivityProgramBindingError::UnsupportedExpressionType);
+            }
+            let definition = state
+                .slots()
+                .iter()
+                .find(|item| item.id() == *slot)
+                .ok_or(ActivityProgramBindingError::MissingSlot(*slot))?;
+            if definition.kind() != SlotValueKind::BoundedCounterMap {
+                return Err(ActivityProgramBindingError::TypeMismatch(*slot));
+            }
+            Ok(ActivityValueType::Integer)
+        }
         ActivityExpression::Add(left, right)
         | ActivityExpression::Subtract(left, right)
         | ActivityExpression::Minimum(left, right)
@@ -358,9 +374,8 @@ const fn value_type(kind: SlotValueKind) -> Option<ActivityValueType> {
         SlotValueKind::FixedScalar => Some(ActivityValueType::FixedScalar),
         SlotValueKind::Boolean => Some(ActivityValueType::Boolean),
         SlotValueKind::StableId => Some(ActivityValueType::StableId),
-        SlotValueKind::OptionalId
-        | SlotValueKind::OrderedIdSet
-        | SlotValueKind::BoundedCounterMap => None,
+        SlotValueKind::OptionalId => Some(ActivityValueType::OptionalId),
+        SlotValueKind::OrderedIdSet | SlotValueKind::BoundedCounterMap => None,
     }
 }
 
@@ -432,6 +447,11 @@ fn validate_expression(
             return Err(ActivityProgramDefinitionError::CollectionLiteralNotScalar);
         }
         ActivityExpression::Literal(_) | ActivityExpression::Slot(_) => {}
+        ActivityExpression::CounterValue { key, .. } => {
+            if *key == 0 {
+                return Err(ActivityProgramDefinitionError::CollectionLiteralNotScalar);
+            }
+        }
         ActivityExpression::Add(left, right)
         | ActivityExpression::Subtract(left, right)
         | ActivityExpression::Minimum(left, right)

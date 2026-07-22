@@ -20,6 +20,7 @@ pub mod occurrence;
 pub mod path;
 pub mod progression;
 pub mod rule;
+pub mod topology;
 
 mod curio_lowering;
 mod encounter_digest;

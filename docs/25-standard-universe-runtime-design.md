@@ -176,6 +176,21 @@ Graph validation requires:
   fault;
 - deterministic resolution of every pool and authored fallback.
 
+For the frozen 4.4 Standard snapshot, the 37 released base topology templates
+have no retained World-specific distribution or weights. Starclock therefore
+uses the explicit project policy `StableUniformOrderedCandidates` on the Graph
+RNG stream, with templates ordered by stable topology ID. This is a declared
+approximation and must be replaced by a new policy revision if authoritative
+weights become available.
+
+Each source topology node compiles to a spatial-free domain hub. A room is
+eligible when its section list is empty, contains `0`, or contains the source
+node's section index. The hub exposes one mandatory, once-consumed interaction;
+route handles become legal only after that interaction is recorded in a bounded
+counter map. P3-B3 resolves the eligible-room draw and concrete encounter or
+service content. Coordinates, collision and traversal timing never enter this
+contract.
+
 The activity terminates with a typed completion, defeat, abandonment or fault.
 Account rewards, weekly points, achievements and inventory payout remain
 outside the result.

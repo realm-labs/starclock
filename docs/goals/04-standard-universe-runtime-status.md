@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
 | Active phase | Phase 3 — Standard Universe profile systems |
-| Active batch | `G04-P3-B2` |
-| Next unblocked batch | `G04-P3-B2` |
+| Active batch | `G04-P3-B3` |
+| Next unblocked batch | `G04-P3-B3` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -54,7 +54,7 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P2-B6` | `Complete` | This row's containing commit | Added a projection-plus-settlement contract with exact identity/digest/fault verification, typed metric aggregation and explicit HP/Energy/life/presence carry. Battle seeds derive from the independent Battle stream without consuming a draw; invalid or stale submissions preserve canonical bytes and all RNG counters. Outcomes traverse one exact authored edge, defeat/departure survive, and a settled attempt can prepare the next immutable battle with bounded carry. Five focused tests cover success, loss, rejection and multi-battle re-entry. Goldens: contract `6f4739492f6f0978c89c8db3fb84735aaa442ba4584db0378ea28af5249e70f4`, first seed `797918f87e5c542cfabf7e726c530fe254a57dba2f929db1131ea950f8965022`, settled state `76c79f401251a353de7efea19d0e46ff1a37dd48c270716ba3bd1d87e206c679`. |
 | `G04-P2-B7` | `Complete` | This row's containing commit | Added the five-kind graph-Activity command envelope and canonical payload v2 while retaining legacy payload v1. A 4,096-case malformed payload corpus is total; 4,096 alternating stale/not-offered commands preserve exact bytes/hash/all RNG counters; perturbing 257 draws in each of eight streams leaves every other next draw identical. The provisional release-mode core harness records 4,096 state hashes, invalid commands and RNG mappings with deterministic final hashes, zero catalog clones and zero replay-prefix reconstruction. Complete World 1/full-run replay/concurrency rows remain explicitly deferred. Evidence: `evidence/standard-universe-runtime-v1/activity/activity-hardening.json`. |
 | `G04-P3-B1` | `Complete` | This row's containing commit | Added `StandardUniverseEntry`, `StandardUniverseProfile` and `CompiledActivity` over the shared immutable catalog. All 9 Worlds/33 difficulties validate, Standard 1–4 participant locks are exact, Ability Tree input is canonical and prerequisite-closed, and all 9 Paths compile as the first authoritative choice while the selected-Path slot begins absent. Four Activity-scope player-visible slots bind World, difficulty, Path and Ability Tree into the definition identity. Topology/start remain explicitly owned by P3-B2. World 1 entry golden: `b46746e43b33d8ce3101f8a99dc8e3b86c19e8d747b3c0179f12e09ca91ec65b`. |
-| `G04-P3-B2` | `Pending` | — | — |
+| `G04-P3-B2` | `Complete` | This row's containing commit | Added the generic `GraphActivity` runtime shell and compiled all 37 source topology templates into 582 bounded Activity nodes, 782 edges and 579 spatial-free domain hubs. Start consumes exactly one Graph-stream draw, offers all 9 Paths, auto-settles the single enabled topology checkpoint, then exposes hub interactions/routes. Every hub requires and consumes one bounded interaction before its exit routes appear; eligible rooms use the explicit empty/zero/exact-section policy. Coordinates never enter definitions or hashes. Room draw and encounter content remain P3-B3. Graph golden: `c23732844e564b97b7a55f5576c0d3e0508dd187861b66e51b573a13d2dd51a4`. |
 | `G04-P3-B3` | `Pending` | — | — |
 | `G04-P3-B4` | `Pending` | — | — |
 | `G04-P3-B5` | `Pending` | — | — |
@@ -138,7 +138,7 @@ without new retained evidence.
 | ID | State | Question/replacement condition | Owner |
 |---|---|---|---|
 | `G04-R01` | `Resolved` | All 786 bindings are frozen in the runtime disposition/partition manifests; later changes require complete regeneration and fixture evidence. | P0-B3 |
-| `G04-R02` | `Open` | Freeze exact domain-hub/encounter-slot lowering for every room content pattern and identify any topology row requiring an explicit deterministic policy. | P0-B3/P3-B2 |
+| `G04-R02` | `Resolved` | All 37 topology templates compile without coordinates. The released snapshot has no World-specific topology distribution, so selection is the explicit `StableUniformOrderedCandidates` Graph-stream policy. Room eligibility is empty/zero/exact source section; P3-B3 owns concrete room and encounter-slot resolution. | P0-B3/P3-B2 |
 | `G04-R03` | `Open` | Replace each `universe.native.released-curio-effect-binding` only after an equivalent typed program or audited static handler reproduces its fixtures. | P4-M11/M12 |
 | `G04-R04` | `Open` | Retain `StableUniformOrderedCandidates` for the 52 hidden-weight outcomes until released evidence supplies exact weights. | P4-M13 |
 | `G04-R05` | `Resolved` | Techniques are validated opaque contributions compiled into prefix-closed immutable BattleSpec variants. Non-attacking techniques accumulate within the Attempt, attacking techniques engage, and `EnemyPreemptive` bypasses preparation; combat receives only the selected spec. | P0-B2/P2-B5 |

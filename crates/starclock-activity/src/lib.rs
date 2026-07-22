@@ -12,6 +12,7 @@ mod battle_preparation;
 mod battle_settlement;
 mod codec;
 mod graph;
+mod graph_activity;
 mod graph_command;
 mod id;
 mod participant;
@@ -59,6 +60,11 @@ pub use graph::{
     ActivityGraphDefinitionError, ActivityNodeDefinition, ActivityNodeKind,
     ActivityTerminalOutcome, MAX_ACTIVITY_EDGES, MAX_ACTIVITY_NODES, MAX_ACTIVITY_TOTAL_VISITS,
     MAX_EDGE_TRAVERSALS, MAX_NODE_VISITS,
+};
+pub use graph_activity::{
+    ActivityBootstrapSelection, GraphActivity, GraphActivityCommandError, GraphActivityDefinition,
+    GraphActivityDefinitionError, GraphActivityNodeProgram, GraphActivityResolution,
+    GraphActivityRuntimeError, GraphActivityStartError,
 };
 pub use graph_command::{
     GRAPH_ACTIVITY_API_REVISION, GraphActivityCommand, GraphActivityCommandKind,

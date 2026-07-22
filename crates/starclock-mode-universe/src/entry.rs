@@ -4,10 +4,11 @@ use std::sync::Arc;
 
 use starclock_activity::{
     ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
-    ActivityDefinitionIdentity, ActivityScope, ActivitySlotDefinition, ActivitySlotId,
-    ActivityStateDefinition, ActivityStateSource, ActivityStateVisibility, ActivityValue,
-    LoadoutLockScope, ParticipantLock, ParticipantPolicy, ParticipantUniquenessScope,
-    SlotCarryPolicy, SlotResetPoint,
+    ActivityDefinitionIdentity, ActivityInstanceId, ActivityMasterSeed, ActivityScope,
+    ActivitySlotDefinition, ActivitySlotId, ActivityStateDefinition, ActivityStateSource,
+    ActivityStateVisibility, ActivityValue, GraphActivity, GraphActivityDefinition,
+    GraphActivityResolution, GraphActivityStartError, LoadoutLockScope, ParticipantLock,
+    ParticipantPolicy, ParticipantUniquenessScope, SlotCarryPolicy, SlotResetPoint,
 };
 
 use crate::{
@@ -22,10 +23,14 @@ const WORLD_SLOT: u32 = 1;
 const DIFFICULTY_SLOT: u32 = 2;
 const PATH_SLOT: u32 = 3;
 const ABILITY_TREE_SLOT: u32 = 4;
+const TOPOLOGY_SLOT: u32 = 5;
+const HUB_CLEAR_SLOT: u32 = 6;
 const WORLD_SOURCE: u64 = 0x5355_0001;
 const DIFFICULTY_SOURCE: u64 = 0x5355_0002;
 const PATH_SOURCE: u64 = 0x5355_0003;
 const ABILITY_TREE_SOURCE: u64 = 0x5355_0004;
+const TOPOLOGY_SOURCE: u64 = 0x5355_0005;
+const HUB_CLEAR_SOURCE: u64 = 0x5355_0006;
 
 /// Validated caller-owned inputs for one Standard Universe run.
 ///
@@ -133,16 +138,30 @@ impl StandardUniverseProfile {
             &ability_tree,
             &path_options,
         )?;
+        let participants = Arc::new(entry.participants);
+        let topology = crate::topology::compile(
+            &self.catalog,
+            identity,
+            state.clone(),
+            Arc::clone(&participants),
+            slot(PATH_SLOT),
+            slot(TOPOLOGY_SLOT),
+            slot(HUB_CLEAR_SLOT),
+        )
+        .map_err(StandardUniverseCompileError::Topology)?;
 
         Ok(CompiledActivity {
             catalog: Arc::clone(&self.catalog),
             identity,
             world: world.id(),
             difficulty: difficulty.id(),
-            participants: Arc::new(entry.participants),
+            participants,
             ability_tree: ability_tree.into_boxed_slice(),
             path_options: path_options.into_boxed_slice(),
             state,
+            runtime: topology.runtime,
+            hubs: topology.hubs,
+            topology_candidates: topology.candidates,
         })
     }
 }
@@ -161,6 +180,9 @@ pub struct CompiledActivity {
     ability_tree: Box<[AbilityTreeNodeId]>,
     path_options: Box<[PathId]>,
     state: ActivityStateDefinition,
+    runtime: Arc<GraphActivityDefinition>,
+    hubs: Box<[crate::topology::DomainHubDefinition]>,
+    topology_candidates: Box<[crate::id::TopologyId]>,
 }
 
 impl CompiledActivity {
@@ -206,6 +228,29 @@ impl CompiledActivity {
     }
 
     #[must_use]
+    pub const fn runtime_definition(&self) -> &Arc<GraphActivityDefinition> {
+        &self.runtime
+    }
+
+    #[must_use]
+    pub fn domain_hubs(&self) -> &[crate::topology::DomainHubDefinition] {
+        &self.hubs
+    }
+
+    #[must_use]
+    pub fn topology_candidates(&self) -> &[crate::id::TopologyId] {
+        &self.topology_candidates
+    }
+
+    pub fn start(
+        &self,
+        instance: ActivityInstanceId,
+        master_seed: ActivityMasterSeed,
+    ) -> Result<GraphActivityResolution, GraphActivityStartError> {
+        GraphActivity::start(Arc::clone(&self.runtime), instance, master_seed)
+    }
+
+    #[must_use]
     pub const fn world_slot(&self) -> ActivitySlotId {
         slot(WORLD_SLOT)
     }
@@ -223,6 +268,16 @@ impl CompiledActivity {
     #[must_use]
     pub const fn ability_tree_slot(&self) -> ActivitySlotId {
         slot(ABILITY_TREE_SLOT)
+    }
+
+    #[must_use]
+    pub const fn selected_topology_slot(&self) -> ActivitySlotId {
+        slot(TOPOLOGY_SLOT)
+    }
+
+    #[must_use]
+    pub const fn hub_clear_slot(&self) -> ActivitySlotId {
+        slot(HUB_CLEAR_SLOT)
     }
 }
 
@@ -283,18 +338,21 @@ fn compile_state(
             ActivityValue::StableId(u64::from(world.get())),
             None,
             WORLD_SOURCE,
+            ActivityStateVisibility::Player,
         )?,
         activity_slot(
             DIFFICULTY_SLOT,
             ActivityValue::StableId(u64::from(difficulty.get())),
             None,
             DIFFICULTY_SOURCE,
+            ActivityStateVisibility::Player,
         )?,
         activity_slot(
             PATH_SLOT,
             ActivityValue::OptionalId(None),
             None,
             PATH_SOURCE,
+            ActivityStateVisibility::Player,
         )?,
         activity_slot(
             ABILITY_TREE_SLOT,
@@ -307,6 +365,21 @@ fn compile_state(
             ),
             Some(4_096),
             ABILITY_TREE_SOURCE,
+            ActivityStateVisibility::Player,
+        )?,
+        activity_slot(
+            TOPOLOGY_SLOT,
+            ActivityValue::OptionalId(None),
+            None,
+            TOPOLOGY_SOURCE,
+            ActivityStateVisibility::Private,
+        )?,
+        activity_slot(
+            HUB_CLEAR_SLOT,
+            ActivityValue::BoundedCounterMap(Box::new([])),
+            Some(4_096),
+            HUB_CLEAR_SOURCE,
+            ActivityStateVisibility::Private,
         )?,
     ];
     ActivityStateDefinition::new(slots, vec![], vec![])
@@ -318,16 +391,18 @@ fn activity_slot(
     initial: ActivityValue,
     maximum_entries: Option<u32>,
     source: u64,
+    visibility: ActivityStateVisibility,
 ) -> Result<ActivitySlotDefinition, StandardUniverseCompileError> {
+    let bounds = matches!(&initial, ActivityValue::BoundedCounterMap(_)).then_some((0, 1));
     ActivitySlotDefinition::new_with_policy(
         slot(id),
         ActivityScope::Activity,
         initial,
-        None,
+        bounds,
         maximum_entries,
         vec![SlotResetPoint::ActivityStart],
         SlotCarryPolicy::CarryExact,
-        ActivityStateVisibility::Player,
+        visibility,
         ActivityStateSource::new(source).expect("static state source is non-zero"),
     )
     .map_err(|_| StandardUniverseCompileError::InvalidActivityState)
@@ -397,6 +472,7 @@ pub enum StandardUniverseCompileError {
     NoAvailablePaths,
     InvalidActivityState,
     InvalidCatalogIdentity,
+    Topology(crate::topology::UniverseTopologyCompileError),
 }
 
 impl core::fmt::Display for StandardUniverseCompileError {

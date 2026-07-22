@@ -1,0 +1,50 @@
+{
+  "schema_revision": "starclock.goal04-universe-topology-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P3-B2",
+  "result": "all-source-topologies-compile-to-bounded-spatial-free-domain-hubs",
+  "counts": {
+    "topology_candidates": 37,
+    "source_nodes": 579,
+    "source_edges": 707,
+    "activity_nodes": 582,
+    "activity_edges": 782,
+    "domain_hubs": 579,
+    "path_options": 9
+  },
+  "policies": {
+    "topology_selection": "StableUniformOrderedCandidates",
+    "topology_rng_stream": "Graph",
+    "room_eligibility": "EmptyOrZeroOrExactSourceSection",
+    "mandatory_interactions_per_hub": 1,
+    "interaction_consumption": "BoundedCounterMap0To1",
+    "exit_gate": "MandatoryInteractionConsumed",
+    "spatial_coordinates_authoritative": false
+  },
+  "goldens": {
+    "graph_sha256": "c23732844e564b97b7a55f5576c0d3e0508dd187861b66e51b573a13d2dd51a4",
+    "seed7_initial_state_sha256": "f3c8a5e0a10b3de3e31c16cc8e3d0e84f0c672e6357779836541c94ae13c8e90"
+  },
+  "deferred_scope": {
+    "room_draw_resolved": false,
+    "encounter_slots_resolved": false,
+    "complete_world_claim": false,
+    "owner": "G04-P3-B3"
+  },
+  "compatibility": {
+    "generated_rows_public": false,
+    "mutable_mode_engine_added": false,
+    "coordinates_hashed": false,
+    "invalid_command_mutates_state_or_rng": false
+  },
+  "source_sha256": {
+    "topology": "242ffeb054fd1c2c7a0a4d34ce1c256a7a3e8c1d93747880344ff980fe86c6ca",
+    "entry": "6db37d7212b37825d0624af78b34138606b6b3797309977587e9cf329c5c56db",
+    "graph_activity": "98a547347075125b9c8866d13f843281fbd7b8e784c9a71f080a41325ab0979a",
+    "program": "2cc34469420a8b71c2d15e5e17e50048103ecea4c8b6f67e8a1cdca0cbe866c3",
+    "transaction": "c68d779bd48721c23b18f6d1dbf1818e7cbcbf12106f03e632ac8c2a98e37c39",
+    "tests": "0b57f0f84417ca6421ccbc492e4104a1b310493d2b8f8e8c56c52bcbc2466bda"
+  },
+  "focused_tests": 5,
+  "new_registry_packages": []
+}

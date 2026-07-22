@@ -166,6 +166,10 @@
       "command": ["node", "tools/goal04/verify-universe-entry.mjs", "."]
     },
     {
+      "name": "Goal 04 Universe topology runtime",
+      "command": ["node", "tools/goal04/verify-universe-topology.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

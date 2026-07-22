@@ -22,7 +22,7 @@ for (const marker of [
 assert(source.includes(`pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "${policy.entry_revision}";`), "entry revision differs");
 assert(manifest.includes('starclock-activity = { path = "../starclock-activity" }'), "Universe profile does not compile to generic Activity types");
 assert(!/f32|f64|HashMap|serde_json::/.test(source), "Universe entry compiler uses floats, unordered state or transport JSON");
-assert(!source.includes("pub fn start("), "P3-B1 must not claim runtime start before P3-B2 topology compilation");
+assert(source.includes("pub fn start("), "P3-B2 topology runtime is not attached to the compiled entry");
 assert((tests.match(/^#\[test\]$/gm) ?? []).length === policy.focused_tests, "Universe-entry focused test count differs");
 for (const marker of [
   "every_world_and_difficulty_compiles_the_same_generic_entry_contract",

@@ -198,6 +198,25 @@ impl ActivityTransactionState {
         }
     }
 
+    /// Creates initial state with validated, canonical bootstrap overrides.
+    /// Bootstrap values are definition input, not accepted commands, so the
+    /// command sequence remains zero and no events are emitted.
+    pub fn new_with_initial_values(
+        definition: ActivityStateDefinition,
+        current_node: NodeId,
+        mut overrides: Vec<(ActivitySlotId, ActivityValue)>,
+    ) -> Result<Self, ActivityFault> {
+        overrides.sort_by_key(|item| item.0);
+        if overrides.windows(2).any(|pair| pair[0].0 == pair[1].0) {
+            return Err(ActivityFault::InvalidProgramBoundary);
+        }
+        let mut state = Self::new(definition, current_node);
+        for (slot, value) in overrides {
+            state.set_slot(slot, value)?;
+        }
+        Ok(state)
+    }
+
     #[must_use]
     pub fn slot(&self, id: ActivitySlotId) -> Option<&ActivityValue> {
         self.slots.get(&id)
@@ -675,6 +694,25 @@ impl ActivityTransactionState {
                 .get(slot)
                 .cloned()
                 .ok_or(ActivityFault::MissingSlot(*slot)),
+            ActivityExpression::CounterValue { slot, key } => {
+                if *key == 0 {
+                    return Err(ActivityFault::TypeMismatch);
+                }
+                match self
+                    .slots
+                    .get(slot)
+                    .ok_or(ActivityFault::MissingSlot(*slot))?
+                {
+                    ActivityValue::BoundedCounterMap(values) => Ok(ActivityValue::BoundedInteger(
+                        values
+                            .binary_search_by_key(key, |item| item.0)
+                            .ok()
+                            .map(|index| values[index].1)
+                            .unwrap_or(0),
+                    )),
+                    _ => Err(ActivityFault::TypeMismatch),
+                }
+            }
             ActivityExpression::Add(a, b) => {
                 numeric_binary(self.evaluate(a)?, self.evaluate(b)?, i64::checked_add)
             }

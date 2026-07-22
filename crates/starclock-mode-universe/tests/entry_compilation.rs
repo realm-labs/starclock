@@ -80,7 +80,7 @@ fn every_world_and_difficulty_compiles_the_same_generic_entry_contract() {
             assert_eq!(activity.world(), world.id());
             assert_eq!(activity.difficulty(), *difficulty);
             assert_eq!(activity.path_options().len(), 9);
-            assert_eq!(activity.state_definition().slots().len(), 4);
+            assert_eq!(activity.state_definition().slots().len(), 6);
             assert_eq!(
                 activity
                     .state_definition()
