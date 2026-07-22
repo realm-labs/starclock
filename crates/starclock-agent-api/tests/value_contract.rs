@@ -129,8 +129,8 @@ fn owned_views_have_stable_field_order_and_string_only_authoritative_numbers() {
 fn errors_are_stable_bounded_and_context_order_is_canonical() {
     let mut error =
         AgentError::new(AgentErrorCode::StaleDecision, "stale decision", true, false).unwrap();
-    error.details.insert("z".into(), "last".into());
-    error.details.insert("a".into(), "first".into());
+    error.insert_detail("z", "last").unwrap();
+    error.insert_detail("a", "first").unwrap();
     let json = serde_json::to_string(&error).unwrap();
     assert!(json.contains(r#""details":{"a":"first","z":"last"}"#));
     assert_eq!(error.to_string(), "agent request failed: StaleDecision");

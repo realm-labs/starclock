@@ -5,7 +5,7 @@ use std::collections::BTreeMap;
 
 use serde::{Deserialize, Serialize};
 
-use crate::schema::{AgentHash, AgentUInt, AgentValueError, SessionId};
+use crate::schema::{AgentHash, AgentSchemaRevision, AgentUInt, AgentValueError, SessionId};
 
 /// Human-readable responsibility marker used by architecture tests.
 pub const RESPONSIBILITY: &str = "stable protocol-neutral failures";
@@ -40,6 +40,7 @@ pub enum AgentErrorCode {
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentError {
+    pub schema_revision: AgentSchemaRevision,
     pub code: AgentErrorCode,
     pub message: Box<str>,
     pub retryable: bool,
@@ -51,7 +52,7 @@ pub struct AgentError {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub state_hash: Option<AgentHash>,
     #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
-    pub details: BTreeMap<Box<str>, Box<str>>,
+    details: BTreeMap<Box<str>, Box<str>>,
 }
 
 impl AgentError {
@@ -69,6 +70,7 @@ impl AgentError {
             return Err(AgentValueError::TooLong);
         }
         Ok(Self {
+            schema_revision: AgentSchemaRevision::V1,
             code,
             message,
             retryable,
@@ -78,6 +80,31 @@ impl AgentError {
             state_hash: None,
             details: BTreeMap::new(),
         })
+    }
+
+    pub fn insert_detail(
+        &mut self,
+        key: impl Into<Box<str>>,
+        value: impl Into<Box<str>>,
+    ) -> Result<(), AgentValueError> {
+        let key = key.into();
+        let value = value.into();
+        if key.is_empty() || value.is_empty() {
+            return Err(AgentValueError::Empty);
+        }
+        if key.len() > 128 || value.len() > 512 {
+            return Err(AgentValueError::TooLong);
+        }
+        if !self.details.contains_key(&key) && self.details.len() == 16 {
+            return Err(AgentValueError::TooLong);
+        }
+        self.details.insert(key, value);
+        Ok(())
+    }
+
+    #[must_use]
+    pub const fn details(&self) -> &BTreeMap<Box<str>, Box<str>> {
+        &self.details
     }
 }
 

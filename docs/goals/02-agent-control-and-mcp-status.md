@@ -11,9 +11,9 @@ implementation batch.
 | Goal ID | `agent-control-mcp-v1` |
 | State | `InProgress` |
 | Prerequisite | Goal 01 `Complete` at or after `b23f900` |
-| Active phase | Phase 1 — Protocol-neutral types and observation |
-| Next unblocked batch | `G02-P1-B6` |
-| Last completed batch | `G02-P1-B5` |
+| Active phase | Phase 2 — Authoritative ephemeral sessions |
+| Next unblocked batch | `G02-P2-B1` |
+| Last completed batch | `G02-P1-B6` |
 | Last completed commit | This row's containing commit |
 | MCP specification baseline | Frozen `2025-11-25` |
 | Agent schema revision | Frozen `agent-api-v1` / `1746004f…6725` |
@@ -30,7 +30,7 @@ external evidence or decision required. Phase completion is not goal completion.
 | Phase | State | Exit evidence |
 |---|---|---|
 | Phase 0 — Protocol/capability/threat model | `Complete` | Surface audit; MCP/SDK capability lock; `agent-api-v1` schema/budgets; 19-case threat model and fail-closed startup policy |
-| Phase 1 — Types and observation | `InProgress` | Protocol-neutral crate boundary complete; exact types/projection/actions/debug/schema implementation pending |
+| Phase 1 — Types and observation | `Complete` | Protocol-neutral responsibility split; exact owned values; bounded player projection/events; private exact-command token table; separately gated marked debug mode; embedded frozen schemas/goldens and seeded property contracts |
 | Phase 2 — Authoritative sessions | `Pending` | Pending |
 | Phase 3 — Local MCP | `Pending` | Pending |
 | Phase 4 — Remote HTTP | `Pending` | Pending |
@@ -53,7 +53,7 @@ evidence summary.
 | `G02-P1-B3` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Added an allowlisted stable-boundary projection with canonical team/unit/effect/timeline order, checked exact health conversion, hard collection/event bounds and payload-free cursor pages; negative tests prove default JSON omits enemy AI, automatic ability, rules/modifiers, effect internals, commands and unpublished intent. Existing Goal 01 views were sufficient, so no core query was added. |
 | `G02-P1-B4` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Implemented frozen action DTOs and a 256-entry private exact-command table with replay-canonical order, deterministic bounded summaries and SHA-256 opaque tokens scoped by session, decision and ordinal. Tests prove stale, forged, cross-session, mixed-decision, noncanonical and internal-start inputs fail before command selection, while selected-command debug stays redacted. |
 | `G02-P1-B5` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Added a separately typed debug projection requiring an explicit in-process capability acknowledgement and always emitting `omniscient_debug` plus `debug_authorized:true`; missing capability fails before projection and negative JSON tests prove the default battle value cannot contain either debug marker. The frozen v1 schema adds no hidden payload, so richer debug facts remain revision-gated. |
-| `G02-P1-B6` | `Pending` | — | — | — |
+| `G02-P1-B6` | `Complete` | This row's containing commit | `node tools/agent-control/verify-agent-api-v1.mjs`; `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Embedded and published the exact schema/golden bundle at `1746004f…6725`; added an exact `schema_revision` error field and bounded ordered detail builder; 512-case seeded properties prove all `u64`/`i64` JSON round trips, unknown-revision rejection and insertion-order-independent canonical details, while tests bind implementation limits and stable error output to policy/goldens. Phase 1 complete. |
 | `G02-P2-B1` | `Pending` | — | — | — |
 | `G02-P2-B2` | `Pending` | — | — | — |
 | `G02-P2-B3` | `Pending` | — | — | — |
@@ -133,11 +133,11 @@ a case does not block it.
 
 ### Agent API and observation
 
-- [ ] `starclock-agent-api` is protocol-neutral and responsibility-separated.
-- [ ] Exact versioned observation/action/error schemas are frozen.
-- [ ] Player-visible projection passes hidden-information and bound tests.
-- [ ] Debug projection is separately authorized and visibly marked.
-- [ ] Offered tokens bind retained exact commands and reject stale/forged use.
+- [x] `starclock-agent-api` is protocol-neutral and responsibility-separated.
+- [x] Exact versioned observation/action/error schemas are frozen.
+- [x] Player-visible projection passes hidden-information and bound tests.
+- [x] Debug projection is separately authorized and visibly marked.
+- [x] Offered tokens bind retained exact commands and reject stale/forged use.
 
 ### Session and replay
 

@@ -7,6 +7,20 @@ use serde::{Deserialize, Deserializer, Serialize, de::Error as _};
 pub const RESPONSIBILITY: &str = "schema revisions and exact agent values";
 /// Frozen public schema revision.
 pub const AGENT_SCHEMA_REVISION: &str = "agent-api-v1";
+/// Frozen schema/golden bundle identity.
+pub const AGENT_SCHEMA_BUNDLE_SHA256: &str =
+    "1746004f3f73ebbe6fb4cce4b850dd6813a1dc3a8584c3d191903328c0206725";
+pub const OBSERVATION_SCHEMA_JSON: &str =
+    include_str!("../../../schemas/agent-api-v1/observation.schema.json");
+pub const ACTION_SCHEMA_JSON: &str =
+    include_str!("../../../schemas/agent-api-v1/action.schema.json");
+pub const ERROR_SCHEMA_JSON: &str = include_str!("../../../schemas/agent-api-v1/error.schema.json");
+pub const ORDINARY_OBSERVATION_GOLDEN_JSON: &str =
+    include_str!("../../../schemas/agent-api-v1/goldens/ordinary-observation.json");
+pub const TRIGGER_HEAVY_ACTION_GOLDEN_JSON: &str =
+    include_str!("../../../schemas/agent-api-v1/goldens/trigger-heavy-action-response.json");
+pub const STALE_DECISION_ERROR_GOLDEN_JSON: &str =
+    include_str!("../../../schemas/agent-api-v1/goldens/stale-decision-error.json");
 
 /// Public schema revision accepted by this crate.
 #[derive(Clone, Copy, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
