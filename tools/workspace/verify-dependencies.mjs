@@ -20,6 +20,10 @@ const expected = new Map([
   ["starclock-cli", ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mode-standard", "starclock-replay", "starclock-rules"]],
 ]);
 const expectedExternal = new Map([
+  ["starclock-agent-api", [
+    { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
+    { name: "serde_json", requirement: "=1.0.151", features: ["std"], kind: "dev" },
+  ]],
   ["starclock-combat", [
     { name: "fixnum", requirement: "=0.9.5", features: ["i64", "std"] },
     { name: "proptest", requirement: "=1.11.0", features: ["std"], kind: "dev" },
@@ -96,7 +100,7 @@ const cli = packages.find((entry) => entry.name === "starclock-cli");
 const cliBinaries = cli.targets.filter((target) => target.kind.includes("bin")).map((target) => target.name);
 assert(JSON.stringify(cliBinaries) === JSON.stringify(["starclock"]), "starclock-cli must own only the starclock binary");
 const agentApi = packages.find((entry) => entry.name === "starclock-agent-api");
-assert(agentApi.dependencies.length === 0, "starclock-agent-api scaffold must remain protocol-neutral and dependency-free until a responsibility batch adds a reviewed direct dependency");
+assert(agentApi.dependencies.every((dependency) => dependency.name === "serde" || (dependency.kind === "dev" && dependency.name === "serde_json")), "starclock-agent-api may use only reviewed deterministic serialization dependencies until a responsibility batch adds a Goal 01 library");
 
 console.log("Workspace dependency boundaries verified (10 crates; protocol-neutral agent scaffold plus production boundaries and reviewed property dev-dependencies).");
 

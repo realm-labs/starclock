@@ -11,9 +11,9 @@ implemented:
 - `session` owns authoritative ephemeral session/registry composition;
 - `error` owns stable protocol-neutral failures.
 
-The crate currently has zero dependencies. Later batches may add only direct
-Goal 01 libraries needed by implemented responsibilities plus the reviewed
-serialization dependency used for deterministic schema conversion. MCP,
+The crate uses only the workspace-pinned `serde` runtime and `serde_json` in
+tests for deterministic schema conversion. Later batches may add only direct
+Goal 01 libraries needed by implemented responsibilities. MCP,
 JSON-RPC, HTTP, async runtimes, authentication, model-provider and storage
 dependencies are forbidden here. `starclock-mcp` is the future outward adapter
 and no deterministic/domain crate may depend on either new layer.

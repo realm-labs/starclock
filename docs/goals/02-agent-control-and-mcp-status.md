@@ -12,8 +12,8 @@ implementation batch.
 | State | `InProgress` |
 | Prerequisite | Goal 01 `Complete` at or after `b23f900` |
 | Active phase | Phase 1 — Protocol-neutral types and observation |
-| Next unblocked batch | `G02-P1-B2` |
-| Last completed batch | `G02-P1-B1` |
+| Next unblocked batch | `G02-P1-B3` |
+| Last completed batch | `G02-P1-B2` |
 | Last completed commit | This row's containing commit |
 | MCP specification baseline | Frozen `2025-11-25` |
 | Agent schema revision | Frozen `agent-api-v1` / `1746004f…6725` |
@@ -49,7 +49,7 @@ evidence summary.
 | `G02-P0-B3` | `Complete` | This row's containing commit | `node tools/agent-control/verify-agent-api-v1.mjs`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Frozen observation/action/error schemas, canonical string numerics, default/debug visibility policy, cursor semantics, response/retention/settlement bounds and ordinary/trigger-heavy/error goldens at schema bundle `1746004f…6725`. |
 | `G02-P0-B4` | `Complete` | This row's containing commit | `node tools/agent-control/verify-threat-model.mjs`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Frozen 19 threats and controls for ownership, forgery/staleness, payload/replay abuse, prompt/data separation, response loss, races, origins, auth/scopes/tenancy, rate/quota/expiry/cancellation, redaction, stdio, drift, visibility and adapter isolation; three startup profiles include fail-closed non-loopback requirements. |
 | `G02-P1-B1` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Added dependency-free, protocol-neutral `starclock-agent-api` with public `schema`, `observation`, `action`, `session` and `error` responsibilities; workspace guard forbids unreviewed dependencies and reverse/protocol coupling. |
-| `G02-P1-B2` | `Pending` | — | — | — |
+| `G02-P1-B2` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Implemented checked revision/scenario/opaque IDs, canonical string integer/fixed-point/hash values, owned battle/team/unit/effect/timeline/status DTOs, 23 stable errors and deterministic serde/debug conversion with secret redaction and ordered context. |
 | `G02-P1-B3` | `Pending` | — | — | — |
 | `G02-P1-B4` | `Pending` | — | — | — |
 | `G02-P1-B5` | `Pending` | — | — | — |
