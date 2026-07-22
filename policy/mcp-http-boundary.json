@@ -1,0 +1,39 @@
+{
+  "schema_revision": "starclock.mcp-http-boundary.v1",
+  "goal_id": "agent-control-mcp-v1",
+  "reviewed_on": "2026-07-22",
+  "mcp_revision": "2025-11-25",
+  "endpoint": "/mcp",
+  "startup_profile": "explicit_loopback_development",
+  "bind_policy": {
+    "required_ip_property": "is_loopback",
+    "port_zero_allowed": false,
+    "non_loopback_allowed": false
+  },
+  "http_methods": {
+    "post": "stateful MCP request/notification/response",
+    "delete": "MCP transport session termination",
+    "get": "405; no server-initiated SSE listening stream"
+  },
+  "headers": {
+    "host": "exact configured bind authority",
+    "origin": "when present, exact member of nonempty configured allowlist",
+    "mcp_protocol_version": "exact 2025-11-25 on every POST or DELETE",
+    "mcp_session_id": "SDK-issued UUID on initialize; required on subsequent session requests",
+    "forwarded": "rejected; no forwarded-header trust in loopback development"
+  },
+  "limits": {
+    "request_bytes": 2097152,
+    "response_bytes": 2097152,
+    "active_workers": 32,
+    "allowed_origins": 16,
+    "origin_bytes": 256
+  },
+  "application_limit_composition": "The transport byte caps are intentionally tighter than the 64 MiB decoded replay verifier cap; every request and response must satisfy both layers.",
+  "authorization": "No remote authorization exists in this batch. Non-loopback startup is impossible until the complete G02-P4-B2 profile is implemented.",
+  "verification": [
+    "node tools/agent-control/verify-mcp-http-boundary.mjs",
+    "cargo test -p starclock-mcp --all-targets --all-features",
+    "cargo test -p starclock-cli --test cli_contract --all-features"
+  ]
+}

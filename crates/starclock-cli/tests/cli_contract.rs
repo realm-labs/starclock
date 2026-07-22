@@ -115,3 +115,63 @@ fn battle_controller_and_exit_classes_are_explicit() {
     ]);
     assert_eq!(bad_seed.status.code(), Some(2));
 }
+
+#[test]
+fn streamable_http_requires_an_explicit_exact_loopback_profile() {
+    let implicit = output(&[
+        "mcp",
+        "serve",
+        "--transport",
+        "streamable-http",
+        "--bind",
+        "127.0.0.1:43123",
+        "--allow-origin",
+        "http://127.0.0.1:43123",
+    ]);
+    assert_eq!(implicit.status.code(), Some(2));
+
+    for rejected in [
+        [
+            "mcp",
+            "serve",
+            "--transport",
+            "streamable-http",
+            "--development-loopback",
+            "--bind",
+            "0.0.0.0:43123",
+            "--allow-origin",
+            "http://127.0.0.1:43123",
+        ]
+        .as_slice(),
+        [
+            "mcp",
+            "serve",
+            "--transport",
+            "streamable-http",
+            "--development-loopback",
+            "--bind",
+            "127.0.0.1:43123",
+            "--allow-origin",
+            "*",
+        ]
+        .as_slice(),
+    ] {
+        let result = output(rejected);
+        assert_eq!(result.status.code(), Some(8), "{result:?}");
+        assert!(result.stdout.is_empty(), "{result:?}");
+        let stderr = text(result.stderr);
+        assert!(stderr.contains("MCP service error"), "{stderr}");
+        assert!(!stderr.contains("0.0.0.0"), "{stderr}");
+    }
+
+    let no_origin = output(&[
+        "mcp",
+        "serve",
+        "--transport",
+        "streamable-http",
+        "--development-loopback",
+        "--bind",
+        "127.0.0.1:43123",
+    ]);
+    assert_eq!(no_origin.status.code(), Some(8));
+}

@@ -62,20 +62,49 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
             replay_verify(file, rest)
         }
         _ => Err(CliError::Usage(
-            "starclock config validate [--bundle PATH] [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio",
+            "starclock config validate [--bundle PATH] [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio | mcp serve --transport streamable-http --development-loopback --bind IP:PORT --allow-origin ORIGIN",
         )),
     }
 }
 
 fn mcp_serve(args: &[String]) -> Result<(), CliError> {
-    match args {
-        [flag, transport] if flag == "--transport" && transport == "stdio" => {
-            starclock_mcp::stdio::serve().map_err(CliError::Mcp)
-        }
-        _ => Err(CliError::Usage(
-            "mcp serve requires exactly --transport stdio",
-        )),
+    if matches!(args, [flag, transport] if flag == "--transport" && transport == "stdio") {
+        return starclock_mcp::stdio::serve().map_err(CliError::Mcp);
     }
+    let mut transport = None;
+    let mut development_loopback = false;
+    let mut bind = None;
+    let mut allowed_origins = Vec::new();
+    let mut index = 0;
+    while index < args.len() {
+        match args[index].as_str() {
+            "--transport" if transport.is_none() => {
+                transport = Some(value_after(args, &mut index, "--transport")?);
+            }
+            "--development-loopback" if !development_loopback => development_loopback = true,
+            "--bind" if bind.is_none() => {
+                bind = Some(
+                    value_after(args, &mut index, "--bind")?
+                        .parse::<std::net::SocketAddr>()
+                        .map_err(|_| CliError::Usage("--bind requires an IP socket address"))?,
+                );
+            }
+            "--allow-origin" => {
+                allowed_origins.push(value_after(args, &mut index, "--allow-origin")?.to_owned());
+            }
+            _ => return Err(CliError::Usage("unknown or duplicate mcp serve option")),
+        }
+        index += 1;
+    }
+    if transport != Some("streamable-http") || !development_loopback {
+        return Err(CliError::Usage(
+            "HTTP requires --transport streamable-http --development-loopback",
+        ));
+    }
+    let bind = bind.ok_or(CliError::Usage("HTTP requires --bind IP:PORT"))?;
+    let config = starclock_mcp::http::LoopbackHttpConfig::new(bind, allowed_origins)
+        .map_err(CliError::McpHttp)?;
+    starclock_mcp::http::serve_loopback(config).map_err(CliError::McpHttp)
 }
 
 fn config_validate(args: &[String]) -> Result<(), CliError> {
@@ -633,6 +662,7 @@ enum CliError {
     Io(std::io::Error),
     Replay(BattleReplayError),
     Mcp(starclock_mcp::stdio::StdioServeError),
+    McpHttp(starclock_mcp::http::HttpServeError),
 }
 
 impl CliError {
@@ -644,7 +674,7 @@ impl CliError {
             Self::UnknownScenario => 5,
             Self::Simulation(_) => 6,
             Self::Io(_) => 7,
-            Self::Mcp(_) => 8,
+            Self::Mcp(_) | Self::McpHttp(_) => 8,
         }
     }
 }
@@ -678,6 +708,7 @@ impl fmt::Display for CliError {
             Self::Io(error) => write!(formatter, "I/O error: {error}"),
             Self::Replay(error) => error.fmt(formatter),
             Self::Mcp(error) => write!(formatter, "MCP service error: {error}"),
+            Self::McpHttp(error) => write!(formatter, "MCP service error: {error}"),
         }
     }
 }

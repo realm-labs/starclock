@@ -7,6 +7,8 @@
 
 /// Stable agent failure to MCP tool/protocol conversion.
 pub mod error;
+/// Bounded loopback-only Streamable HTTP development service.
+pub mod http;
 /// Frozen protocol and server implementation metadata.
 pub mod metadata;
 mod resources;
