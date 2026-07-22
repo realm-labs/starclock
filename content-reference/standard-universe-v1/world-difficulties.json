@@ -1,0 +1,3740 @@
+[
+  {
+    "id": "universe.world.01.difficulty.01",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Simulated Universe — Difficulty 1",
+    "name_zh_cn": "模拟宇宙·难度1",
+    "summary_en": "Difficulty 1 recommends level 5 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度1建议等级5，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.0"
+    ],
+    "source_ids": [
+      "100"
+    ],
+    "note": "",
+    "world_id": "universe.world.01",
+    "difficulty": 1,
+    "recommended_level": 5,
+    "recommended_elements": [
+      "Ice"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "8003020",
+        "enemy_variant_id": "enemy.blaze-out-of-space.elite.variant.01",
+        "level": 8
+      }
+    ],
+    "elite_variant_ids": [],
+    "score_curve_id": "universe.score-curve.area-100",
+    "score_curve": [
+      {
+        "tier": 3,
+        "score": "3600"
+      }
+    ],
+    "unlock_source_id": ""
+  },
+  {
+    "id": "universe.world.01.difficulty.01",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 1 — Difficulty 1",
+    "name_zh_cn": "第一世界·难度1",
+    "summary_en": "Difficulty 1 recommends level 14 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度1建议等级14，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.1"
+    ],
+    "source_ids": [
+      "110"
+    ],
+    "note": "",
+    "world_id": "universe.world.01",
+    "difficulty": 1,
+    "recommended_level": 14,
+    "recommended_elements": [
+      "Quantum",
+      "Physical",
+      "Wind"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "8003010",
+        "enemy_variant_id": "enemy.ice-out-of-space.elite.variant.01",
+        "level": 14
+      },
+      {
+        "source_monster_id": "8003020",
+        "enemy_variant_id": "enemy.blaze-out-of-space.elite.variant.01",
+        "level": 14
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "8013010",
+        "enemy_variant_id": "enemy.voidranger-trampler.elite.variant.01",
+        "level": 11
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-110",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "260"
+      },
+      {
+        "tier": 2,
+        "score": "780"
+      },
+      {
+        "tier": 3,
+        "score": "780"
+      },
+      {
+        "tier": 4,
+        "score": "1300"
+      },
+      {
+        "tier": 5,
+        "score": "1560"
+      },
+      {
+        "tier": 6,
+        "score": "1560"
+      },
+      {
+        "tier": 7,
+        "score": "2600"
+      }
+    ],
+    "unlock_source_id": "12001"
+  },
+  {
+    "id": "universe.world.02.difficulty.01",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 2 — Difficulty 1",
+    "name_zh_cn": "第二世界·难度1",
+    "summary_en": "Difficulty 1 recommends level 25 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度1建议等级25，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.2"
+    ],
+    "source_ids": [
+      "120"
+    ],
+    "note": "",
+    "world_id": "universe.world.02",
+    "difficulty": 1,
+    "recommended_level": 25,
+    "recommended_elements": [
+      "Thunder",
+      "Ice"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1013012",
+        "enemy_variant_id": "enemy.automaton-grizzly-complete.elite.variant.01",
+        "level": 27
+      },
+      {
+        "source_monster_id": "1013022",
+        "enemy_variant_id": "enemy.automaton-direwolf-complete.elite.variant.01",
+        "level": 27
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1023010",
+        "enemy_variant_id": "enemy.searing-prowler.elite.variant.01",
+        "level": 21
+      },
+      {
+        "source_monster_id": "8003051",
+        "enemy_variant_id": "enemy.stormbringer-bug.elite.variant.01",
+        "level": 24
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-120",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "180"
+      },
+      {
+        "tier": 2,
+        "score": "360"
+      },
+      {
+        "tier": 3,
+        "score": "540"
+      },
+      {
+        "tier": 4,
+        "score": "900"
+      },
+      {
+        "tier": 5,
+        "score": "900"
+      },
+      {
+        "tier": 6,
+        "score": "1260"
+      },
+      {
+        "tier": 7,
+        "score": "1440"
+      },
+      {
+        "tier": 8,
+        "score": "2160"
+      },
+      {
+        "tier": 9,
+        "score": "2160"
+      },
+      {
+        "tier": 10,
+        "score": "2520"
+      },
+      {
+        "tier": 11,
+        "score": "2880"
+      },
+      {
+        "tier": 12,
+        "score": "2880"
+      },
+      {
+        "tier": 13,
+        "score": "3600"
+      }
+    ],
+    "unlock_source_id": "12002"
+  },
+  {
+    "id": "universe.world.03.difficulty.01",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 3 — Difficulty 1",
+    "name_zh_cn": "第三世界·难度1",
+    "summary_en": "Difficulty 1 recommends level 30 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度1建议等级30，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.3"
+    ],
+    "source_ids": [
+      "130"
+    ],
+    "note": "",
+    "world_id": "universe.world.03",
+    "difficulty": 1,
+    "recommended_level": 30,
+    "recommended_elements": [
+      "Physical",
+      "Thunder",
+      "Imaginary"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1004022",
+        "enemy_variant_id": "enemy.gepard-complete.littleboss.variant.01",
+        "level": 35
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1003011",
+        "enemy_variant_id": "enemy.silvermane-lieutenant-bug.elite.variant.01",
+        "level": 32
+      },
+      {
+        "source_monster_id": "1013020",
+        "enemy_variant_id": "enemy.automaton-direwolf.elite.variant.01",
+        "level": 29
+      },
+      {
+        "source_monster_id": "1023010",
+        "enemy_variant_id": "enemy.searing-prowler.elite.variant.01",
+        "level": 29
+      },
+      {
+        "source_monster_id": "8013010",
+        "enemy_variant_id": "enemy.voidranger-trampler.elite.variant.01",
+        "level": 29
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-130",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "300"
+      },
+      {
+        "tier": 2,
+        "score": "600"
+      },
+      {
+        "tier": 3,
+        "score": "900"
+      },
+      {
+        "tier": 4,
+        "score": "1500"
+      },
+      {
+        "tier": 5,
+        "score": "1500"
+      },
+      {
+        "tier": 6,
+        "score": "2100"
+      },
+      {
+        "tier": 7,
+        "score": "2400"
+      },
+      {
+        "tier": 8,
+        "score": "3300"
+      },
+      {
+        "tier": 9,
+        "score": "3300"
+      },
+      {
+        "tier": 10,
+        "score": "3900"
+      },
+      {
+        "tier": 11,
+        "score": "4500"
+      },
+      {
+        "tier": 12,
+        "score": "4500"
+      },
+      {
+        "tier": 13,
+        "score": "6000"
+      }
+    ],
+    "unlock_source_id": "12003"
+  },
+  {
+    "id": "universe.world.03.difficulty.02",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 3 — Difficulty 2",
+    "name_zh_cn": "第三世界·难度2",
+    "summary_en": "Difficulty 2 recommends level 62 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度2建议等级62，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.4"
+    ],
+    "source_ids": [
+      "131"
+    ],
+    "note": "",
+    "world_id": "universe.world.03",
+    "difficulty": 2,
+    "recommended_level": 62,
+    "recommended_elements": [
+      "Physical",
+      "Thunder",
+      "Imaginary"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1004022",
+        "enemy_variant_id": "enemy.gepard-complete.littleboss.variant.01",
+        "level": 67
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1003011",
+        "enemy_variant_id": "enemy.silvermane-lieutenant-bug.elite.variant.01",
+        "level": 64
+      },
+      {
+        "source_monster_id": "1013020",
+        "enemy_variant_id": "enemy.automaton-direwolf.elite.variant.01",
+        "level": 61
+      },
+      {
+        "source_monster_id": "1023010",
+        "enemy_variant_id": "enemy.searing-prowler.elite.variant.01",
+        "level": 61
+      },
+      {
+        "source_monster_id": "8013010",
+        "enemy_variant_id": "enemy.voidranger-trampler.elite.variant.01",
+        "level": 61
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-131",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "400"
+      },
+      {
+        "tier": 2,
+        "score": "800"
+      },
+      {
+        "tier": 3,
+        "score": "1200"
+      },
+      {
+        "tier": 4,
+        "score": "2000"
+      },
+      {
+        "tier": 5,
+        "score": "2000"
+      },
+      {
+        "tier": 6,
+        "score": "2800"
+      },
+      {
+        "tier": 7,
+        "score": "3200"
+      },
+      {
+        "tier": 8,
+        "score": "4400"
+      },
+      {
+        "tier": 9,
+        "score": "4400"
+      },
+      {
+        "tier": 10,
+        "score": "5200"
+      },
+      {
+        "tier": 11,
+        "score": "6000"
+      },
+      {
+        "tier": 12,
+        "score": "6000"
+      },
+      {
+        "tier": 13,
+        "score": "8000"
+      }
+    ],
+    "unlock_source_id": "12033"
+  },
+  {
+    "id": "universe.world.03.difficulty.03",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 3 — Difficulty 3",
+    "name_zh_cn": "第三世界·难度3",
+    "summary_en": "Difficulty 3 recommends level 67 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度3建议等级67，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.5"
+    ],
+    "source_ids": [
+      "132"
+    ],
+    "note": "",
+    "world_id": "universe.world.03",
+    "difficulty": 3,
+    "recommended_level": 67,
+    "recommended_elements": [
+      "Physical",
+      "Thunder",
+      "Imaginary"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1004022",
+        "enemy_variant_id": "enemy.gepard-complete.littleboss.variant.01",
+        "level": 72
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1003011",
+        "enemy_variant_id": "enemy.silvermane-lieutenant-bug.elite.variant.01",
+        "level": 69
+      },
+      {
+        "source_monster_id": "1013020",
+        "enemy_variant_id": "enemy.automaton-direwolf.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "1023010",
+        "enemy_variant_id": "enemy.searing-prowler.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "8013010",
+        "enemy_variant_id": "enemy.voidranger-trampler.elite.variant.01",
+        "level": 66
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-132",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "425"
+      },
+      {
+        "tier": 2,
+        "score": "850"
+      },
+      {
+        "tier": 3,
+        "score": "1275"
+      },
+      {
+        "tier": 4,
+        "score": "2125"
+      },
+      {
+        "tier": 5,
+        "score": "2125"
+      },
+      {
+        "tier": 6,
+        "score": "2975"
+      },
+      {
+        "tier": 7,
+        "score": "3400"
+      },
+      {
+        "tier": 8,
+        "score": "4675"
+      },
+      {
+        "tier": 9,
+        "score": "4675"
+      },
+      {
+        "tier": 10,
+        "score": "5525"
+      },
+      {
+        "tier": 11,
+        "score": "6375"
+      },
+      {
+        "tier": 12,
+        "score": "6375"
+      },
+      {
+        "tier": 13,
+        "score": "8500"
+      }
+    ],
+    "unlock_source_id": "12034"
+  },
+  {
+    "id": "universe.world.03.difficulty.04",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 3 — Difficulty 4",
+    "name_zh_cn": "第三世界·难度4",
+    "summary_en": "Difficulty 4 recommends level 76 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度4建议等级76，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.6"
+    ],
+    "source_ids": [
+      "133"
+    ],
+    "note": "",
+    "world_id": "universe.world.03",
+    "difficulty": 4,
+    "recommended_level": 76,
+    "recommended_elements": [
+      "Physical",
+      "Thunder",
+      "Imaginary"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1004022",
+        "enemy_variant_id": "enemy.gepard-complete.littleboss.variant.01",
+        "level": 81
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1003011",
+        "enemy_variant_id": "enemy.silvermane-lieutenant-bug.elite.variant.01",
+        "level": 78
+      },
+      {
+        "source_monster_id": "1013020",
+        "enemy_variant_id": "enemy.automaton-direwolf.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "1023010",
+        "enemy_variant_id": "enemy.searing-prowler.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "8013010",
+        "enemy_variant_id": "enemy.voidranger-trampler.elite.variant.01",
+        "level": 75
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-133",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "450"
+      },
+      {
+        "tier": 2,
+        "score": "900"
+      },
+      {
+        "tier": 3,
+        "score": "1350"
+      },
+      {
+        "tier": 4,
+        "score": "2250"
+      },
+      {
+        "tier": 5,
+        "score": "2250"
+      },
+      {
+        "tier": 6,
+        "score": "3150"
+      },
+      {
+        "tier": 7,
+        "score": "3600"
+      },
+      {
+        "tier": 8,
+        "score": "4950"
+      },
+      {
+        "tier": 9,
+        "score": "4950"
+      },
+      {
+        "tier": 10,
+        "score": "5850"
+      },
+      {
+        "tier": 11,
+        "score": "6750"
+      },
+      {
+        "tier": 12,
+        "score": "6750"
+      },
+      {
+        "tier": 13,
+        "score": "9000"
+      }
+    ],
+    "unlock_source_id": "12035"
+  },
+  {
+    "id": "universe.world.03.difficulty.05",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 3 — Difficulty 5",
+    "name_zh_cn": "第三世界·难度5",
+    "summary_en": "Difficulty 5 recommends level 80 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度5建议等级80，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.7"
+    ],
+    "source_ids": [
+      "134"
+    ],
+    "note": "",
+    "world_id": "universe.world.03",
+    "difficulty": 5,
+    "recommended_level": 80,
+    "recommended_elements": [
+      "Physical",
+      "Thunder",
+      "Imaginary"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1004022",
+        "enemy_variant_id": "enemy.gepard-complete.littleboss.variant.01",
+        "level": 90
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1003011",
+        "enemy_variant_id": "enemy.silvermane-lieutenant-bug.elite.variant.01",
+        "level": 87
+      },
+      {
+        "source_monster_id": "1013020",
+        "enemy_variant_id": "enemy.automaton-direwolf.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "1023010",
+        "enemy_variant_id": "enemy.searing-prowler.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "8013010",
+        "enemy_variant_id": "enemy.voidranger-trampler.elite.variant.01",
+        "level": 84
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-134",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "600"
+      },
+      {
+        "tier": 2,
+        "score": "1200"
+      },
+      {
+        "tier": 3,
+        "score": "1800"
+      },
+      {
+        "tier": 4,
+        "score": "3000"
+      },
+      {
+        "tier": 5,
+        "score": "3000"
+      },
+      {
+        "tier": 6,
+        "score": "4200"
+      },
+      {
+        "tier": 7,
+        "score": "4800"
+      },
+      {
+        "tier": 8,
+        "score": "6600"
+      },
+      {
+        "tier": 9,
+        "score": "6600"
+      },
+      {
+        "tier": 10,
+        "score": "7800"
+      },
+      {
+        "tier": 11,
+        "score": "9000"
+      },
+      {
+        "tier": 12,
+        "score": "9000"
+      },
+      {
+        "tier": 13,
+        "score": "12000"
+      }
+    ],
+    "unlock_source_id": "12036"
+  },
+  {
+    "id": "universe.world.04.difficulty.01",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 4 — Difficulty 1",
+    "name_zh_cn": "第四世界·难度1",
+    "summary_en": "Difficulty 1 recommends level 37 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度1建议等级37，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.8"
+    ],
+    "source_ids": [
+      "140"
+    ],
+    "note": "",
+    "world_id": "universe.world.04",
+    "difficulty": 1,
+    "recommended_level": 37,
+    "recommended_elements": [
+      "Thunder",
+      "Wind",
+      "Fire"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1014011",
+        "enemy_variant_id": "enemy.svarog-complete.littleboss.variant.01",
+        "level": 42
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1013010",
+        "enemy_variant_id": "enemy.automaton-grizzly.elite.variant.01",
+        "level": 36
+      },
+      {
+        "source_monster_id": "1023020",
+        "enemy_variant_id": "enemy.frigid-prowler.elite.variant.01",
+        "level": 36
+      },
+      {
+        "source_monster_id": "8003040",
+        "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+        "level": 36
+      },
+      {
+        "source_monster_id": "8003051",
+        "enemy_variant_id": "enemy.stormbringer-bug.elite.variant.01",
+        "level": 39
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-140",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "325"
+      },
+      {
+        "tier": 2,
+        "score": "650"
+      },
+      {
+        "tier": 3,
+        "score": "975"
+      },
+      {
+        "tier": 4,
+        "score": "1625"
+      },
+      {
+        "tier": 5,
+        "score": "1625"
+      },
+      {
+        "tier": 6,
+        "score": "2275"
+      },
+      {
+        "tier": 7,
+        "score": "2600"
+      },
+      {
+        "tier": 8,
+        "score": "3575"
+      },
+      {
+        "tier": 9,
+        "score": "3575"
+      },
+      {
+        "tier": 10,
+        "score": "4225"
+      },
+      {
+        "tier": 11,
+        "score": "4875"
+      },
+      {
+        "tier": 12,
+        "score": "4875"
+      },
+      {
+        "tier": 13,
+        "score": "6500"
+      }
+    ],
+    "unlock_source_id": "12004"
+  },
+  {
+    "id": "universe.world.04.difficulty.02",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 4 — Difficulty 2",
+    "name_zh_cn": "第四世界·难度2",
+    "summary_en": "Difficulty 2 recommends level 62 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度2建议等级62，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.9"
+    ],
+    "source_ids": [
+      "141"
+    ],
+    "note": "",
+    "world_id": "universe.world.04",
+    "difficulty": 2,
+    "recommended_level": 62,
+    "recommended_elements": [
+      "Thunder",
+      "Wind",
+      "Fire"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1014011",
+        "enemy_variant_id": "enemy.svarog-complete.littleboss.variant.01",
+        "level": 67
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1013010",
+        "enemy_variant_id": "enemy.automaton-grizzly.elite.variant.01",
+        "level": 61
+      },
+      {
+        "source_monster_id": "1023020",
+        "enemy_variant_id": "enemy.frigid-prowler.elite.variant.01",
+        "level": 61
+      },
+      {
+        "source_monster_id": "8003040",
+        "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+        "level": 61
+      },
+      {
+        "source_monster_id": "8003051",
+        "enemy_variant_id": "enemy.stormbringer-bug.elite.variant.01",
+        "level": 64
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-141",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "400"
+      },
+      {
+        "tier": 2,
+        "score": "800"
+      },
+      {
+        "tier": 3,
+        "score": "1200"
+      },
+      {
+        "tier": 4,
+        "score": "2000"
+      },
+      {
+        "tier": 5,
+        "score": "2000"
+      },
+      {
+        "tier": 6,
+        "score": "2800"
+      },
+      {
+        "tier": 7,
+        "score": "3200"
+      },
+      {
+        "tier": 8,
+        "score": "4400"
+      },
+      {
+        "tier": 9,
+        "score": "4400"
+      },
+      {
+        "tier": 10,
+        "score": "5200"
+      },
+      {
+        "tier": 11,
+        "score": "6000"
+      },
+      {
+        "tier": 12,
+        "score": "6000"
+      },
+      {
+        "tier": 13,
+        "score": "8000"
+      }
+    ],
+    "unlock_source_id": "12011"
+  },
+  {
+    "id": "universe.world.04.difficulty.03",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 4 — Difficulty 3",
+    "name_zh_cn": "第四世界·难度3",
+    "summary_en": "Difficulty 3 recommends level 67 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度3建议等级67，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.10"
+    ],
+    "source_ids": [
+      "142"
+    ],
+    "note": "",
+    "world_id": "universe.world.04",
+    "difficulty": 3,
+    "recommended_level": 67,
+    "recommended_elements": [
+      "Thunder",
+      "Wind",
+      "Fire"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1014011",
+        "enemy_variant_id": "enemy.svarog-complete.littleboss.variant.01",
+        "level": 72
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1013010",
+        "enemy_variant_id": "enemy.automaton-grizzly.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "1023020",
+        "enemy_variant_id": "enemy.frigid-prowler.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "8003040",
+        "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "8003051",
+        "enemy_variant_id": "enemy.stormbringer-bug.elite.variant.01",
+        "level": 69
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-142",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "425"
+      },
+      {
+        "tier": 2,
+        "score": "850"
+      },
+      {
+        "tier": 3,
+        "score": "1275"
+      },
+      {
+        "tier": 4,
+        "score": "2125"
+      },
+      {
+        "tier": 5,
+        "score": "2125"
+      },
+      {
+        "tier": 6,
+        "score": "2975"
+      },
+      {
+        "tier": 7,
+        "score": "3400"
+      },
+      {
+        "tier": 8,
+        "score": "4675"
+      },
+      {
+        "tier": 9,
+        "score": "4675"
+      },
+      {
+        "tier": 10,
+        "score": "5525"
+      },
+      {
+        "tier": 11,
+        "score": "6375"
+      },
+      {
+        "tier": 12,
+        "score": "6375"
+      },
+      {
+        "tier": 13,
+        "score": "8500"
+      }
+    ],
+    "unlock_source_id": "12012"
+  },
+  {
+    "id": "universe.world.04.difficulty.04",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 4 — Difficulty 4",
+    "name_zh_cn": "第四世界·难度4",
+    "summary_en": "Difficulty 4 recommends level 76 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度4建议等级76，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.11"
+    ],
+    "source_ids": [
+      "143"
+    ],
+    "note": "",
+    "world_id": "universe.world.04",
+    "difficulty": 4,
+    "recommended_level": 76,
+    "recommended_elements": [
+      "Thunder",
+      "Wind",
+      "Fire"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1014011",
+        "enemy_variant_id": "enemy.svarog-complete.littleboss.variant.01",
+        "level": 81
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1013010",
+        "enemy_variant_id": "enemy.automaton-grizzly.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "1023020",
+        "enemy_variant_id": "enemy.frigid-prowler.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "8003040",
+        "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "8003051",
+        "enemy_variant_id": "enemy.stormbringer-bug.elite.variant.01",
+        "level": 78
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-143",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "450"
+      },
+      {
+        "tier": 2,
+        "score": "900"
+      },
+      {
+        "tier": 3,
+        "score": "1350"
+      },
+      {
+        "tier": 4,
+        "score": "2250"
+      },
+      {
+        "tier": 5,
+        "score": "2250"
+      },
+      {
+        "tier": 6,
+        "score": "3150"
+      },
+      {
+        "tier": 7,
+        "score": "3600"
+      },
+      {
+        "tier": 8,
+        "score": "4950"
+      },
+      {
+        "tier": 9,
+        "score": "4950"
+      },
+      {
+        "tier": 10,
+        "score": "5850"
+      },
+      {
+        "tier": 11,
+        "score": "6750"
+      },
+      {
+        "tier": 12,
+        "score": "6750"
+      },
+      {
+        "tier": 13,
+        "score": "9000"
+      }
+    ],
+    "unlock_source_id": "12013"
+  },
+  {
+    "id": "universe.world.04.difficulty.05",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 4 — Difficulty 5",
+    "name_zh_cn": "第四世界·难度5",
+    "summary_en": "Difficulty 5 recommends level 80 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度5建议等级80，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.12"
+    ],
+    "source_ids": [
+      "144"
+    ],
+    "note": "",
+    "world_id": "universe.world.04",
+    "difficulty": 5,
+    "recommended_level": 80,
+    "recommended_elements": [
+      "Thunder",
+      "Wind",
+      "Fire"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1014011",
+        "enemy_variant_id": "enemy.svarog-complete.littleboss.variant.01",
+        "level": 90
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1013010",
+        "enemy_variant_id": "enemy.automaton-grizzly.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "1023020",
+        "enemy_variant_id": "enemy.frigid-prowler.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "8003040",
+        "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "8003051",
+        "enemy_variant_id": "enemy.stormbringer-bug.elite.variant.01",
+        "level": 87
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-144",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "600"
+      },
+      {
+        "tier": 2,
+        "score": "1200"
+      },
+      {
+        "tier": 3,
+        "score": "1800"
+      },
+      {
+        "tier": 4,
+        "score": "3000"
+      },
+      {
+        "tier": 5,
+        "score": "3000"
+      },
+      {
+        "tier": 6,
+        "score": "4200"
+      },
+      {
+        "tier": 7,
+        "score": "4800"
+      },
+      {
+        "tier": 8,
+        "score": "6600"
+      },
+      {
+        "tier": 9,
+        "score": "6600"
+      },
+      {
+        "tier": 10,
+        "score": "7800"
+      },
+      {
+        "tier": 11,
+        "score": "9000"
+      },
+      {
+        "tier": 12,
+        "score": "9000"
+      },
+      {
+        "tier": 13,
+        "score": "12000"
+      }
+    ],
+    "unlock_source_id": "12014"
+  },
+  {
+    "id": "universe.world.05.difficulty.01",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 5 — Difficulty 1",
+    "name_zh_cn": "第五世界·难度1",
+    "summary_en": "Difficulty 1 recommends level 45 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度1建议等级45，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.13"
+    ],
+    "source_ids": [
+      "150"
+    ],
+    "note": "",
+    "world_id": "universe.world.05",
+    "difficulty": 1,
+    "recommended_level": 45,
+    "recommended_elements": [
+      "Wind",
+      "Imaginary",
+      "Physical"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "2004011",
+        "enemy_variant_id": "enemy.stellaron-hunter-kafka-complete.littleboss.variant.01",
+        "level": 50
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "2023010",
+        "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01",
+        "level": 44
+      },
+      {
+        "source_monster_id": "8003020",
+        "enemy_variant_id": "enemy.blaze-out-of-space.elite.variant.01",
+        "level": 44
+      },
+      {
+        "source_monster_id": "8003030",
+        "enemy_variant_id": "enemy.guardian-shadow.elite.variant.01",
+        "level": 44
+      },
+      {
+        "source_monster_id": "8013010",
+        "enemy_variant_id": "enemy.voidranger-trampler.elite.variant.01",
+        "level": 44
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-150",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "350"
+      },
+      {
+        "tier": 2,
+        "score": "700"
+      },
+      {
+        "tier": 3,
+        "score": "1050"
+      },
+      {
+        "tier": 4,
+        "score": "1750"
+      },
+      {
+        "tier": 5,
+        "score": "1750"
+      },
+      {
+        "tier": 6,
+        "score": "2450"
+      },
+      {
+        "tier": 7,
+        "score": "2800"
+      },
+      {
+        "tier": 8,
+        "score": "3850"
+      },
+      {
+        "tier": 9,
+        "score": "3850"
+      },
+      {
+        "tier": 10,
+        "score": "4550"
+      },
+      {
+        "tier": 11,
+        "score": "5250"
+      },
+      {
+        "tier": 12,
+        "score": "5250"
+      },
+      {
+        "tier": 13,
+        "score": "7000"
+      }
+    ],
+    "unlock_source_id": "12005"
+  },
+  {
+    "id": "universe.world.05.difficulty.02",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 5 — Difficulty 2",
+    "name_zh_cn": "第五世界·难度2",
+    "summary_en": "Difficulty 2 recommends level 67 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度2建议等级67，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.14"
+    ],
+    "source_ids": [
+      "151"
+    ],
+    "note": "",
+    "world_id": "universe.world.05",
+    "difficulty": 2,
+    "recommended_level": 67,
+    "recommended_elements": [
+      "Wind",
+      "Imaginary",
+      "Physical"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "2004011",
+        "enemy_variant_id": "enemy.stellaron-hunter-kafka-complete.littleboss.variant.01",
+        "level": 72
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "2023010",
+        "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "8003020",
+        "enemy_variant_id": "enemy.blaze-out-of-space.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "8003030",
+        "enemy_variant_id": "enemy.guardian-shadow.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "8013010",
+        "enemy_variant_id": "enemy.voidranger-trampler.elite.variant.01",
+        "level": 66
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-151",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "425"
+      },
+      {
+        "tier": 2,
+        "score": "850"
+      },
+      {
+        "tier": 3,
+        "score": "1275"
+      },
+      {
+        "tier": 4,
+        "score": "2125"
+      },
+      {
+        "tier": 5,
+        "score": "2125"
+      },
+      {
+        "tier": 6,
+        "score": "2975"
+      },
+      {
+        "tier": 7,
+        "score": "3400"
+      },
+      {
+        "tier": 8,
+        "score": "4675"
+      },
+      {
+        "tier": 9,
+        "score": "4675"
+      },
+      {
+        "tier": 10,
+        "score": "5525"
+      },
+      {
+        "tier": 11,
+        "score": "6375"
+      },
+      {
+        "tier": 12,
+        "score": "6375"
+      },
+      {
+        "tier": 13,
+        "score": "8500"
+      }
+    ],
+    "unlock_source_id": "12015"
+  },
+  {
+    "id": "universe.world.05.difficulty.03",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 5 — Difficulty 3",
+    "name_zh_cn": "第五世界·难度3",
+    "summary_en": "Difficulty 3 recommends level 76 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度3建议等级76，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.15"
+    ],
+    "source_ids": [
+      "152"
+    ],
+    "note": "",
+    "world_id": "universe.world.05",
+    "difficulty": 3,
+    "recommended_level": 76,
+    "recommended_elements": [
+      "Wind",
+      "Imaginary",
+      "Physical"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "2004011",
+        "enemy_variant_id": "enemy.stellaron-hunter-kafka-complete.littleboss.variant.01",
+        "level": 81
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "2023010",
+        "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "8003020",
+        "enemy_variant_id": "enemy.blaze-out-of-space.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "8003030",
+        "enemy_variant_id": "enemy.guardian-shadow.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "8013010",
+        "enemy_variant_id": "enemy.voidranger-trampler.elite.variant.01",
+        "level": 75
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-152",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "450"
+      },
+      {
+        "tier": 2,
+        "score": "900"
+      },
+      {
+        "tier": 3,
+        "score": "1350"
+      },
+      {
+        "tier": 4,
+        "score": "2250"
+      },
+      {
+        "tier": 5,
+        "score": "2250"
+      },
+      {
+        "tier": 6,
+        "score": "3150"
+      },
+      {
+        "tier": 7,
+        "score": "3600"
+      },
+      {
+        "tier": 8,
+        "score": "4950"
+      },
+      {
+        "tier": 9,
+        "score": "4950"
+      },
+      {
+        "tier": 10,
+        "score": "5850"
+      },
+      {
+        "tier": 11,
+        "score": "6750"
+      },
+      {
+        "tier": 12,
+        "score": "6750"
+      },
+      {
+        "tier": 13,
+        "score": "9000"
+      }
+    ],
+    "unlock_source_id": "12016"
+  },
+  {
+    "id": "universe.world.05.difficulty.04",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 5 — Difficulty 4",
+    "name_zh_cn": "第五世界·难度4",
+    "summary_en": "Difficulty 4 recommends level 80 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度4建议等级80，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.16"
+    ],
+    "source_ids": [
+      "153"
+    ],
+    "note": "",
+    "world_id": "universe.world.05",
+    "difficulty": 4,
+    "recommended_level": 80,
+    "recommended_elements": [
+      "Wind",
+      "Imaginary",
+      "Physical"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "2004011",
+        "enemy_variant_id": "enemy.stellaron-hunter-kafka-complete.littleboss.variant.01",
+        "level": 90
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "2023010",
+        "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "8003020",
+        "enemy_variant_id": "enemy.blaze-out-of-space.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "8003030",
+        "enemy_variant_id": "enemy.guardian-shadow.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "8013010",
+        "enemy_variant_id": "enemy.voidranger-trampler.elite.variant.01",
+        "level": 84
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-153",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "600"
+      },
+      {
+        "tier": 2,
+        "score": "1200"
+      },
+      {
+        "tier": 3,
+        "score": "1800"
+      },
+      {
+        "tier": 4,
+        "score": "3000"
+      },
+      {
+        "tier": 5,
+        "score": "3000"
+      },
+      {
+        "tier": 6,
+        "score": "4200"
+      },
+      {
+        "tier": 7,
+        "score": "4800"
+      },
+      {
+        "tier": 8,
+        "score": "6600"
+      },
+      {
+        "tier": 9,
+        "score": "6600"
+      },
+      {
+        "tier": 10,
+        "score": "7800"
+      },
+      {
+        "tier": 11,
+        "score": "9000"
+      },
+      {
+        "tier": 12,
+        "score": "9000"
+      },
+      {
+        "tier": 13,
+        "score": "12000"
+      }
+    ],
+    "unlock_source_id": "12017"
+  },
+  {
+    "id": "universe.world.06.difficulty.01",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 6 — Difficulty 1",
+    "name_zh_cn": "第六世界·难度1",
+    "summary_en": "Difficulty 1 recommends level 50 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度1建议等级50，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.17"
+    ],
+    "source_ids": [
+      "160"
+    ],
+    "note": "",
+    "world_id": "universe.world.06",
+    "difficulty": 1,
+    "recommended_level": 50,
+    "recommended_elements": [
+      "Fire",
+      "Quantum",
+      "Thunder"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1004011",
+        "enemy_variant_id": "enemy.cocolia-complete.littleboss.variant.01",
+        "level": 55
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1023020",
+        "enemy_variant_id": "enemy.frigid-prowler.elite.variant.01",
+        "level": 49
+      },
+      {
+        "source_monster_id": "2013010",
+        "enemy_variant_id": "enemy.aurumaton-gatekeeper.elite.variant.01",
+        "level": 49
+      },
+      {
+        "source_monster_id": "8003010",
+        "enemy_variant_id": "enemy.ice-out-of-space.elite.variant.01",
+        "level": 49
+      },
+      {
+        "source_monster_id": "8003040",
+        "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+        "level": 49
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-160",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "400"
+      },
+      {
+        "tier": 2,
+        "score": "800"
+      },
+      {
+        "tier": 3,
+        "score": "1200"
+      },
+      {
+        "tier": 4,
+        "score": "2000"
+      },
+      {
+        "tier": 5,
+        "score": "2000"
+      },
+      {
+        "tier": 6,
+        "score": "2800"
+      },
+      {
+        "tier": 7,
+        "score": "3200"
+      },
+      {
+        "tier": 8,
+        "score": "4400"
+      },
+      {
+        "tier": 9,
+        "score": "4400"
+      },
+      {
+        "tier": 10,
+        "score": "5200"
+      },
+      {
+        "tier": 11,
+        "score": "6000"
+      },
+      {
+        "tier": 12,
+        "score": "6000"
+      },
+      {
+        "tier": 13,
+        "score": "8000"
+      }
+    ],
+    "unlock_source_id": "12006"
+  },
+  {
+    "id": "universe.world.06.difficulty.02",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 6 — Difficulty 2",
+    "name_zh_cn": "第六世界·难度2",
+    "summary_en": "Difficulty 2 recommends level 67 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度2建议等级67，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.18"
+    ],
+    "source_ids": [
+      "161"
+    ],
+    "note": "",
+    "world_id": "universe.world.06",
+    "difficulty": 2,
+    "recommended_level": 67,
+    "recommended_elements": [
+      "Fire",
+      "Quantum",
+      "Thunder"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1004011",
+        "enemy_variant_id": "enemy.cocolia-complete.littleboss.variant.01",
+        "level": 72
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1023020",
+        "enemy_variant_id": "enemy.frigid-prowler.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "2013010",
+        "enemy_variant_id": "enemy.aurumaton-gatekeeper.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "8003010",
+        "enemy_variant_id": "enemy.ice-out-of-space.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "8003040",
+        "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+        "level": 66
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-161",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "425"
+      },
+      {
+        "tier": 2,
+        "score": "850"
+      },
+      {
+        "tier": 3,
+        "score": "1275"
+      },
+      {
+        "tier": 4,
+        "score": "2125"
+      },
+      {
+        "tier": 5,
+        "score": "2125"
+      },
+      {
+        "tier": 6,
+        "score": "2975"
+      },
+      {
+        "tier": 7,
+        "score": "3400"
+      },
+      {
+        "tier": 8,
+        "score": "4675"
+      },
+      {
+        "tier": 9,
+        "score": "4675"
+      },
+      {
+        "tier": 10,
+        "score": "5525"
+      },
+      {
+        "tier": 11,
+        "score": "6375"
+      },
+      {
+        "tier": 12,
+        "score": "6375"
+      },
+      {
+        "tier": 13,
+        "score": "8500"
+      }
+    ],
+    "unlock_source_id": "12018"
+  },
+  {
+    "id": "universe.world.06.difficulty.03",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 6 — Difficulty 3",
+    "name_zh_cn": "第六世界·难度3",
+    "summary_en": "Difficulty 3 recommends level 76 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度3建议等级76，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.19"
+    ],
+    "source_ids": [
+      "162"
+    ],
+    "note": "",
+    "world_id": "universe.world.06",
+    "difficulty": 3,
+    "recommended_level": 76,
+    "recommended_elements": [
+      "Fire",
+      "Quantum",
+      "Thunder"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1004011",
+        "enemy_variant_id": "enemy.cocolia-complete.littleboss.variant.01",
+        "level": 81
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1023020",
+        "enemy_variant_id": "enemy.frigid-prowler.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "2013010",
+        "enemy_variant_id": "enemy.aurumaton-gatekeeper.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "8003010",
+        "enemy_variant_id": "enemy.ice-out-of-space.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "8003040",
+        "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+        "level": 75
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-162",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "450"
+      },
+      {
+        "tier": 2,
+        "score": "900"
+      },
+      {
+        "tier": 3,
+        "score": "1350"
+      },
+      {
+        "tier": 4,
+        "score": "2250"
+      },
+      {
+        "tier": 5,
+        "score": "2250"
+      },
+      {
+        "tier": 6,
+        "score": "3150"
+      },
+      {
+        "tier": 7,
+        "score": "3600"
+      },
+      {
+        "tier": 8,
+        "score": "4950"
+      },
+      {
+        "tier": 9,
+        "score": "4950"
+      },
+      {
+        "tier": 10,
+        "score": "5850"
+      },
+      {
+        "tier": 11,
+        "score": "6750"
+      },
+      {
+        "tier": 12,
+        "score": "6750"
+      },
+      {
+        "tier": 13,
+        "score": "9000"
+      }
+    ],
+    "unlock_source_id": "12019"
+  },
+  {
+    "id": "universe.world.06.difficulty.04",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 6 — Difficulty 4",
+    "name_zh_cn": "第六世界·难度4",
+    "summary_en": "Difficulty 4 recommends level 80 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度4建议等级80，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.20"
+    ],
+    "source_ids": [
+      "163"
+    ],
+    "note": "",
+    "world_id": "universe.world.06",
+    "difficulty": 4,
+    "recommended_level": 80,
+    "recommended_elements": [
+      "Fire",
+      "Quantum",
+      "Thunder"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "1004011",
+        "enemy_variant_id": "enemy.cocolia-complete.littleboss.variant.01",
+        "level": 90
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1023020",
+        "enemy_variant_id": "enemy.frigid-prowler.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "2013010",
+        "enemy_variant_id": "enemy.aurumaton-gatekeeper.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "8003010",
+        "enemy_variant_id": "enemy.ice-out-of-space.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "8003040",
+        "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+        "level": 84
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-163",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "600"
+      },
+      {
+        "tier": 2,
+        "score": "1200"
+      },
+      {
+        "tier": 3,
+        "score": "1800"
+      },
+      {
+        "tier": 4,
+        "score": "3000"
+      },
+      {
+        "tier": 5,
+        "score": "3000"
+      },
+      {
+        "tier": 6,
+        "score": "4200"
+      },
+      {
+        "tier": 7,
+        "score": "4800"
+      },
+      {
+        "tier": 8,
+        "score": "6600"
+      },
+      {
+        "tier": 9,
+        "score": "6600"
+      },
+      {
+        "tier": 10,
+        "score": "7800"
+      },
+      {
+        "tier": 11,
+        "score": "9000"
+      },
+      {
+        "tier": 12,
+        "score": "9000"
+      },
+      {
+        "tier": 13,
+        "score": "12000"
+      }
+    ],
+    "unlock_source_id": "12020"
+  },
+  {
+    "id": "universe.world.07.difficulty.01",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 7 — Difficulty 1",
+    "name_zh_cn": "第七世界·难度1",
+    "summary_en": "Difficulty 1 recommends level 51 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度1建议等级51，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.21"
+    ],
+    "source_ids": [
+      "170"
+    ],
+    "note": "",
+    "world_id": "universe.world.07",
+    "difficulty": 1,
+    "recommended_level": 51,
+    "recommended_elements": [
+      "Fire",
+      "Ice",
+      "Quantum"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "2024011",
+        "enemy_variant_id": "enemy.abundant-ebon-deer-complete.littleboss.variant.01",
+        "level": 56
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1003011",
+        "enemy_variant_id": "enemy.silvermane-lieutenant-bug.elite.variant.01",
+        "level": 53
+      },
+      {
+        "source_monster_id": "2013011",
+        "enemy_variant_id": "enemy.aurumaton-gatekeeper-bug.elite.variant.01",
+        "level": 53
+      },
+      {
+        "source_monster_id": "2023011",
+        "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-shape-shifter-bug.elite.variant.01",
+        "level": 53
+      },
+      {
+        "source_monster_id": "2023020",
+        "enemy_variant_id": "enemy.abundance-sprite-malefic-ape.elite.variant.01",
+        "level": 50
+      },
+      {
+        "source_monster_id": "2023030",
+        "enemy_variant_id": "enemy.the-ascended.elite.variant.01",
+        "level": 50
+      },
+      {
+        "source_monster_id": "8003020",
+        "enemy_variant_id": "enemy.blaze-out-of-space.elite.variant.01",
+        "level": 50
+      },
+      {
+        "source_monster_id": "8003050",
+        "enemy_variant_id": "enemy.stormbringer.elite.variant.01",
+        "level": 50
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-170",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "400"
+      },
+      {
+        "tier": 2,
+        "score": "800"
+      },
+      {
+        "tier": 3,
+        "score": "1200"
+      },
+      {
+        "tier": 4,
+        "score": "2000"
+      },
+      {
+        "tier": 5,
+        "score": "2000"
+      },
+      {
+        "tier": 6,
+        "score": "2800"
+      },
+      {
+        "tier": 7,
+        "score": "3200"
+      },
+      {
+        "tier": 8,
+        "score": "4400"
+      },
+      {
+        "tier": 9,
+        "score": "4400"
+      },
+      {
+        "tier": 10,
+        "score": "5200"
+      },
+      {
+        "tier": 11,
+        "score": "6000"
+      },
+      {
+        "tier": 12,
+        "score": "6000"
+      },
+      {
+        "tier": 13,
+        "score": "8000"
+      }
+    ],
+    "unlock_source_id": "12021"
+  },
+  {
+    "id": "universe.world.07.difficulty.02",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 7 — Difficulty 2",
+    "name_zh_cn": "第七世界·难度2",
+    "summary_en": "Difficulty 2 recommends level 67 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度2建议等级67，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.22"
+    ],
+    "source_ids": [
+      "171"
+    ],
+    "note": "",
+    "world_id": "universe.world.07",
+    "difficulty": 2,
+    "recommended_level": 67,
+    "recommended_elements": [
+      "Fire",
+      "Ice",
+      "Quantum"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "2024011",
+        "enemy_variant_id": "enemy.abundant-ebon-deer-complete.littleboss.variant.01",
+        "level": 72
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1003011",
+        "enemy_variant_id": "enemy.silvermane-lieutenant-bug.elite.variant.01",
+        "level": 69
+      },
+      {
+        "source_monster_id": "2013011",
+        "enemy_variant_id": "enemy.aurumaton-gatekeeper-bug.elite.variant.01",
+        "level": 69
+      },
+      {
+        "source_monster_id": "2023011",
+        "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-shape-shifter-bug.elite.variant.01",
+        "level": 69
+      },
+      {
+        "source_monster_id": "2023020",
+        "enemy_variant_id": "enemy.abundance-sprite-malefic-ape.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "2023030",
+        "enemy_variant_id": "enemy.the-ascended.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "8003020",
+        "enemy_variant_id": "enemy.blaze-out-of-space.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "8003050",
+        "enemy_variant_id": "enemy.stormbringer.elite.variant.01",
+        "level": 66
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-171",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "425"
+      },
+      {
+        "tier": 2,
+        "score": "850"
+      },
+      {
+        "tier": 3,
+        "score": "1275"
+      },
+      {
+        "tier": 4,
+        "score": "2125"
+      },
+      {
+        "tier": 5,
+        "score": "2125"
+      },
+      {
+        "tier": 6,
+        "score": "2975"
+      },
+      {
+        "tier": 7,
+        "score": "3400"
+      },
+      {
+        "tier": 8,
+        "score": "4675"
+      },
+      {
+        "tier": 9,
+        "score": "4675"
+      },
+      {
+        "tier": 10,
+        "score": "5525"
+      },
+      {
+        "tier": 11,
+        "score": "6375"
+      },
+      {
+        "tier": 12,
+        "score": "6375"
+      },
+      {
+        "tier": 13,
+        "score": "8500"
+      }
+    ],
+    "unlock_source_id": "12022"
+  },
+  {
+    "id": "universe.world.07.difficulty.03",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 7 — Difficulty 3",
+    "name_zh_cn": "第七世界·难度3",
+    "summary_en": "Difficulty 3 recommends level 76 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度3建议等级76，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.23"
+    ],
+    "source_ids": [
+      "172"
+    ],
+    "note": "",
+    "world_id": "universe.world.07",
+    "difficulty": 3,
+    "recommended_level": 76,
+    "recommended_elements": [
+      "Fire",
+      "Ice",
+      "Quantum"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "2024011",
+        "enemy_variant_id": "enemy.abundant-ebon-deer-complete.littleboss.variant.01",
+        "level": 81
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1003011",
+        "enemy_variant_id": "enemy.silvermane-lieutenant-bug.elite.variant.01",
+        "level": 78
+      },
+      {
+        "source_monster_id": "2013011",
+        "enemy_variant_id": "enemy.aurumaton-gatekeeper-bug.elite.variant.01",
+        "level": 78
+      },
+      {
+        "source_monster_id": "2023011",
+        "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-shape-shifter-bug.elite.variant.01",
+        "level": 78
+      },
+      {
+        "source_monster_id": "2023020",
+        "enemy_variant_id": "enemy.abundance-sprite-malefic-ape.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "2023030",
+        "enemy_variant_id": "enemy.the-ascended.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "8003020",
+        "enemy_variant_id": "enemy.blaze-out-of-space.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "8003050",
+        "enemy_variant_id": "enemy.stormbringer.elite.variant.01",
+        "level": 75
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-172",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "450"
+      },
+      {
+        "tier": 2,
+        "score": "900"
+      },
+      {
+        "tier": 3,
+        "score": "1350"
+      },
+      {
+        "tier": 4,
+        "score": "2250"
+      },
+      {
+        "tier": 5,
+        "score": "2250"
+      },
+      {
+        "tier": 6,
+        "score": "3150"
+      },
+      {
+        "tier": 7,
+        "score": "3600"
+      },
+      {
+        "tier": 8,
+        "score": "4950"
+      },
+      {
+        "tier": 9,
+        "score": "4950"
+      },
+      {
+        "tier": 10,
+        "score": "5850"
+      },
+      {
+        "tier": 11,
+        "score": "6750"
+      },
+      {
+        "tier": 12,
+        "score": "6750"
+      },
+      {
+        "tier": 13,
+        "score": "9000"
+      }
+    ],
+    "unlock_source_id": "12023"
+  },
+  {
+    "id": "universe.world.07.difficulty.04",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 7 — Difficulty 4",
+    "name_zh_cn": "第七世界·难度4",
+    "summary_en": "Difficulty 4 recommends level 80 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度4建议等级80，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.24"
+    ],
+    "source_ids": [
+      "173"
+    ],
+    "note": "",
+    "world_id": "universe.world.07",
+    "difficulty": 4,
+    "recommended_level": 80,
+    "recommended_elements": [
+      "Fire",
+      "Ice",
+      "Quantum"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "2024011",
+        "enemy_variant_id": "enemy.abundant-ebon-deer-complete.littleboss.variant.01",
+        "level": 90
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "1003011",
+        "enemy_variant_id": "enemy.silvermane-lieutenant-bug.elite.variant.01",
+        "level": 87
+      },
+      {
+        "source_monster_id": "2013011",
+        "enemy_variant_id": "enemy.aurumaton-gatekeeper-bug.elite.variant.01",
+        "level": 87
+      },
+      {
+        "source_monster_id": "2023011",
+        "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-shape-shifter-bug.elite.variant.01",
+        "level": 87
+      },
+      {
+        "source_monster_id": "2023020",
+        "enemy_variant_id": "enemy.abundance-sprite-malefic-ape.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "2023030",
+        "enemy_variant_id": "enemy.the-ascended.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "8003020",
+        "enemy_variant_id": "enemy.blaze-out-of-space.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "8003050",
+        "enemy_variant_id": "enemy.stormbringer.elite.variant.01",
+        "level": 84
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-173",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "600"
+      },
+      {
+        "tier": 2,
+        "score": "1200"
+      },
+      {
+        "tier": 3,
+        "score": "1800"
+      },
+      {
+        "tier": 4,
+        "score": "3000"
+      },
+      {
+        "tier": 5,
+        "score": "3000"
+      },
+      {
+        "tier": 6,
+        "score": "4200"
+      },
+      {
+        "tier": 7,
+        "score": "4800"
+      },
+      {
+        "tier": 8,
+        "score": "6600"
+      },
+      {
+        "tier": 9,
+        "score": "6600"
+      },
+      {
+        "tier": 10,
+        "score": "7800"
+      },
+      {
+        "tier": 11,
+        "score": "9000"
+      },
+      {
+        "tier": 12,
+        "score": "9000"
+      },
+      {
+        "tier": 13,
+        "score": "12000"
+      }
+    ],
+    "unlock_source_id": "12024"
+  },
+  {
+    "id": "universe.world.08.difficulty.01",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 8 — Difficulty 1",
+    "name_zh_cn": "第八世界·难度1",
+    "summary_en": "Difficulty 1 recommends level 51 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度1建议等级51，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.25"
+    ],
+    "source_ids": [
+      "180"
+    ],
+    "note": "",
+    "world_id": "universe.world.08",
+    "difficulty": 1,
+    "recommended_level": 51,
+    "recommended_elements": [
+      "Thunder",
+      "Wind",
+      "Imaginary"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "2004021",
+        "enemy_variant_id": "enemy.cloud-knight-lieutenant-yanqing-complete.littleboss.variant.01",
+        "level": 56
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "2013010",
+        "enemy_variant_id": "enemy.aurumaton-gatekeeper.elite.variant.01",
+        "level": 50
+      },
+      {
+        "source_monster_id": "2013020",
+        "enemy_variant_id": "enemy.aurumaton-spectral-envoy.elite.variant.01",
+        "level": 50
+      },
+      {
+        "source_monster_id": "8003040",
+        "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+        "level": 50
+      },
+      {
+        "source_monster_id": "8013011",
+        "enemy_variant_id": "enemy.voidranger-trampler-bug.elite.variant.01",
+        "level": 53
+      },
+      {
+        "source_monster_id": "8033010",
+        "enemy_variant_id": "enemy.senior-staff-team-leader.elite.variant.01",
+        "level": 50
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-180",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "400"
+      },
+      {
+        "tier": 2,
+        "score": "800"
+      },
+      {
+        "tier": 3,
+        "score": "1200"
+      },
+      {
+        "tier": 4,
+        "score": "2000"
+      },
+      {
+        "tier": 5,
+        "score": "2000"
+      },
+      {
+        "tier": 6,
+        "score": "2800"
+      },
+      {
+        "tier": 7,
+        "score": "3200"
+      },
+      {
+        "tier": 8,
+        "score": "4400"
+      },
+      {
+        "tier": 9,
+        "score": "4400"
+      },
+      {
+        "tier": 10,
+        "score": "5200"
+      },
+      {
+        "tier": 11,
+        "score": "6000"
+      },
+      {
+        "tier": 12,
+        "score": "6000"
+      },
+      {
+        "tier": 13,
+        "score": "8000"
+      }
+    ],
+    "unlock_source_id": "12025"
+  },
+  {
+    "id": "universe.world.08.difficulty.02",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 8 — Difficulty 2",
+    "name_zh_cn": "第八世界·难度2",
+    "summary_en": "Difficulty 2 recommends level 67 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度2建议等级67，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.26"
+    ],
+    "source_ids": [
+      "181"
+    ],
+    "note": "",
+    "world_id": "universe.world.08",
+    "difficulty": 2,
+    "recommended_level": 67,
+    "recommended_elements": [
+      "Thunder",
+      "Wind",
+      "Imaginary"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "2004021",
+        "enemy_variant_id": "enemy.cloud-knight-lieutenant-yanqing-complete.littleboss.variant.01",
+        "level": 72
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "2013010",
+        "enemy_variant_id": "enemy.aurumaton-gatekeeper.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "2013020",
+        "enemy_variant_id": "enemy.aurumaton-spectral-envoy.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "8003040",
+        "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "8013011",
+        "enemy_variant_id": "enemy.voidranger-trampler-bug.elite.variant.01",
+        "level": 69
+      },
+      {
+        "source_monster_id": "8033010",
+        "enemy_variant_id": "enemy.senior-staff-team-leader.elite.variant.01",
+        "level": 66
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-181",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "425"
+      },
+      {
+        "tier": 2,
+        "score": "850"
+      },
+      {
+        "tier": 3,
+        "score": "1275"
+      },
+      {
+        "tier": 4,
+        "score": "2125"
+      },
+      {
+        "tier": 5,
+        "score": "2125"
+      },
+      {
+        "tier": 6,
+        "score": "2975"
+      },
+      {
+        "tier": 7,
+        "score": "3400"
+      },
+      {
+        "tier": 8,
+        "score": "4675"
+      },
+      {
+        "tier": 9,
+        "score": "4675"
+      },
+      {
+        "tier": 10,
+        "score": "5525"
+      },
+      {
+        "tier": 11,
+        "score": "6375"
+      },
+      {
+        "tier": 12,
+        "score": "6375"
+      },
+      {
+        "tier": 13,
+        "score": "8500"
+      }
+    ],
+    "unlock_source_id": "12026"
+  },
+  {
+    "id": "universe.world.08.difficulty.03",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 8 — Difficulty 3",
+    "name_zh_cn": "第八世界·难度3",
+    "summary_en": "Difficulty 3 recommends level 76 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度3建议等级76，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.27"
+    ],
+    "source_ids": [
+      "182"
+    ],
+    "note": "",
+    "world_id": "universe.world.08",
+    "difficulty": 3,
+    "recommended_level": 76,
+    "recommended_elements": [
+      "Thunder",
+      "Wind",
+      "Imaginary"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "2004021",
+        "enemy_variant_id": "enemy.cloud-knight-lieutenant-yanqing-complete.littleboss.variant.01",
+        "level": 81
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "2013010",
+        "enemy_variant_id": "enemy.aurumaton-gatekeeper.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "2013020",
+        "enemy_variant_id": "enemy.aurumaton-spectral-envoy.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "8003040",
+        "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "8013011",
+        "enemy_variant_id": "enemy.voidranger-trampler-bug.elite.variant.01",
+        "level": 78
+      },
+      {
+        "source_monster_id": "8033010",
+        "enemy_variant_id": "enemy.senior-staff-team-leader.elite.variant.01",
+        "level": 75
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-182",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "450"
+      },
+      {
+        "tier": 2,
+        "score": "900"
+      },
+      {
+        "tier": 3,
+        "score": "1350"
+      },
+      {
+        "tier": 4,
+        "score": "2250"
+      },
+      {
+        "tier": 5,
+        "score": "2250"
+      },
+      {
+        "tier": 6,
+        "score": "3150"
+      },
+      {
+        "tier": 7,
+        "score": "3600"
+      },
+      {
+        "tier": 8,
+        "score": "4950"
+      },
+      {
+        "tier": 9,
+        "score": "4950"
+      },
+      {
+        "tier": 10,
+        "score": "5850"
+      },
+      {
+        "tier": 11,
+        "score": "6750"
+      },
+      {
+        "tier": 12,
+        "score": "6750"
+      },
+      {
+        "tier": 13,
+        "score": "9000"
+      }
+    ],
+    "unlock_source_id": "12027"
+  },
+  {
+    "id": "universe.world.08.difficulty.04",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 8 — Difficulty 4",
+    "name_zh_cn": "第八世界·难度4",
+    "summary_en": "Difficulty 4 recommends level 80 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度4建议等级80，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.28"
+    ],
+    "source_ids": [
+      "183"
+    ],
+    "note": "",
+    "world_id": "universe.world.08",
+    "difficulty": 4,
+    "recommended_level": 80,
+    "recommended_elements": [
+      "Thunder",
+      "Wind",
+      "Imaginary"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "2004021",
+        "enemy_variant_id": "enemy.cloud-knight-lieutenant-yanqing-complete.littleboss.variant.01",
+        "level": 90
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "2013010",
+        "enemy_variant_id": "enemy.aurumaton-gatekeeper.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "2013020",
+        "enemy_variant_id": "enemy.aurumaton-spectral-envoy.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "8003040",
+        "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "8013011",
+        "enemy_variant_id": "enemy.voidranger-trampler-bug.elite.variant.01",
+        "level": 87
+      },
+      {
+        "source_monster_id": "8033010",
+        "enemy_variant_id": "enemy.senior-staff-team-leader.elite.variant.01",
+        "level": 84
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-183",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "600"
+      },
+      {
+        "tier": 2,
+        "score": "1200"
+      },
+      {
+        "tier": 3,
+        "score": "1800"
+      },
+      {
+        "tier": 4,
+        "score": "3000"
+      },
+      {
+        "tier": 5,
+        "score": "3000"
+      },
+      {
+        "tier": 6,
+        "score": "4200"
+      },
+      {
+        "tier": 7,
+        "score": "4800"
+      },
+      {
+        "tier": 8,
+        "score": "6600"
+      },
+      {
+        "tier": 9,
+        "score": "6600"
+      },
+      {
+        "tier": 10,
+        "score": "7800"
+      },
+      {
+        "tier": 11,
+        "score": "9000"
+      },
+      {
+        "tier": 12,
+        "score": "9000"
+      },
+      {
+        "tier": 13,
+        "score": "12000"
+      }
+    ],
+    "unlock_source_id": "12028"
+  },
+  {
+    "id": "universe.world.09.difficulty.01",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 9 — Difficulty 1",
+    "name_zh_cn": "第九世界·难度1",
+    "summary_en": "Difficulty 1 recommends level 51 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度1建议等级51，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.29"
+    ],
+    "source_ids": [
+      "190"
+    ],
+    "note": "",
+    "world_id": "universe.world.09",
+    "difficulty": 1,
+    "recommended_level": 51,
+    "recommended_elements": [
+      "Fire",
+      "Wind",
+      "Imaginary"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "3014022",
+        "enemy_variant_id": "enemy.memory-zone-meme-something-unto-death-complete.littleboss.variant.01",
+        "level": 56
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "2023021",
+        "enemy_variant_id": "enemy.abundance-sprite-malefic-ape-bug.elite.variant.01",
+        "level": 53
+      },
+      {
+        "source_monster_id": "3003010",
+        "enemy_variant_id": "enemy.dreamjolt-troupes-beyond-overcooked.elite.variant.01",
+        "level": 50
+      },
+      {
+        "source_monster_id": "3003020",
+        "enemy_variant_id": "enemy.dreamjolt-troupes-sweet-gorilla.elite.variant.01",
+        "level": 50
+      },
+      {
+        "source_monster_id": "3013010",
+        "enemy_variant_id": "enemy.memory-zone-meme-shell-of-faded-rage.elite.variant.01",
+        "level": 50
+      },
+      {
+        "source_monster_id": "8003010",
+        "enemy_variant_id": "enemy.ice-out-of-space.elite.variant.01",
+        "level": 50
+      },
+      {
+        "source_monster_id": "8033011",
+        "enemy_variant_id": "enemy.senior-staff-team-leader-bug.elite.variant.01",
+        "level": 53
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-190",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "400"
+      },
+      {
+        "tier": 2,
+        "score": "800"
+      },
+      {
+        "tier": 3,
+        "score": "1200"
+      },
+      {
+        "tier": 4,
+        "score": "2000"
+      },
+      {
+        "tier": 5,
+        "score": "2000"
+      },
+      {
+        "tier": 6,
+        "score": "2800"
+      },
+      {
+        "tier": 7,
+        "score": "3200"
+      },
+      {
+        "tier": 8,
+        "score": "4400"
+      },
+      {
+        "tier": 9,
+        "score": "4400"
+      },
+      {
+        "tier": 10,
+        "score": "5200"
+      },
+      {
+        "tier": 11,
+        "score": "6000"
+      },
+      {
+        "tier": 12,
+        "score": "6000"
+      },
+      {
+        "tier": 13,
+        "score": "8000"
+      }
+    ],
+    "unlock_source_id": "12029"
+  },
+  {
+    "id": "universe.world.09.difficulty.02",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 9 — Difficulty 2",
+    "name_zh_cn": "第九世界·难度2",
+    "summary_en": "Difficulty 2 recommends level 67 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度2建议等级67，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.30"
+    ],
+    "source_ids": [
+      "191"
+    ],
+    "note": "",
+    "world_id": "universe.world.09",
+    "difficulty": 2,
+    "recommended_level": 67,
+    "recommended_elements": [
+      "Fire",
+      "Wind",
+      "Imaginary"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "3014022",
+        "enemy_variant_id": "enemy.memory-zone-meme-something-unto-death-complete.littleboss.variant.01",
+        "level": 72
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "2023021",
+        "enemy_variant_id": "enemy.abundance-sprite-malefic-ape-bug.elite.variant.01",
+        "level": 69
+      },
+      {
+        "source_monster_id": "3003010",
+        "enemy_variant_id": "enemy.dreamjolt-troupes-beyond-overcooked.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "3003020",
+        "enemy_variant_id": "enemy.dreamjolt-troupes-sweet-gorilla.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "3013010",
+        "enemy_variant_id": "enemy.memory-zone-meme-shell-of-faded-rage.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "8003010",
+        "enemy_variant_id": "enemy.ice-out-of-space.elite.variant.01",
+        "level": 66
+      },
+      {
+        "source_monster_id": "8033011",
+        "enemy_variant_id": "enemy.senior-staff-team-leader-bug.elite.variant.01",
+        "level": 69
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-191",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "425"
+      },
+      {
+        "tier": 2,
+        "score": "850"
+      },
+      {
+        "tier": 3,
+        "score": "1275"
+      },
+      {
+        "tier": 4,
+        "score": "2125"
+      },
+      {
+        "tier": 5,
+        "score": "2125"
+      },
+      {
+        "tier": 6,
+        "score": "2975"
+      },
+      {
+        "tier": 7,
+        "score": "3400"
+      },
+      {
+        "tier": 8,
+        "score": "4675"
+      },
+      {
+        "tier": 9,
+        "score": "4675"
+      },
+      {
+        "tier": 10,
+        "score": "5525"
+      },
+      {
+        "tier": 11,
+        "score": "6375"
+      },
+      {
+        "tier": 12,
+        "score": "6375"
+      },
+      {
+        "tier": 13,
+        "score": "8500"
+      }
+    ],
+    "unlock_source_id": "12030"
+  },
+  {
+    "id": "universe.world.09.difficulty.03",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 9 — Difficulty 3",
+    "name_zh_cn": "第九世界·难度3",
+    "summary_en": "Difficulty 3 recommends level 76 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度3建议等级76，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.31"
+    ],
+    "source_ids": [
+      "192"
+    ],
+    "note": "",
+    "world_id": "universe.world.09",
+    "difficulty": 3,
+    "recommended_level": 76,
+    "recommended_elements": [
+      "Fire",
+      "Wind",
+      "Imaginary"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "3014022",
+        "enemy_variant_id": "enemy.memory-zone-meme-something-unto-death-complete.littleboss.variant.01",
+        "level": 81
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "2023021",
+        "enemy_variant_id": "enemy.abundance-sprite-malefic-ape-bug.elite.variant.01",
+        "level": 78
+      },
+      {
+        "source_monster_id": "3003010",
+        "enemy_variant_id": "enemy.dreamjolt-troupes-beyond-overcooked.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "3003020",
+        "enemy_variant_id": "enemy.dreamjolt-troupes-sweet-gorilla.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "3013010",
+        "enemy_variant_id": "enemy.memory-zone-meme-shell-of-faded-rage.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "8003010",
+        "enemy_variant_id": "enemy.ice-out-of-space.elite.variant.01",
+        "level": 75
+      },
+      {
+        "source_monster_id": "8033011",
+        "enemy_variant_id": "enemy.senior-staff-team-leader-bug.elite.variant.01",
+        "level": 78
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-192",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "450"
+      },
+      {
+        "tier": 2,
+        "score": "900"
+      },
+      {
+        "tier": 3,
+        "score": "1350"
+      },
+      {
+        "tier": 4,
+        "score": "2250"
+      },
+      {
+        "tier": 5,
+        "score": "2250"
+      },
+      {
+        "tier": 6,
+        "score": "3150"
+      },
+      {
+        "tier": 7,
+        "score": "3600"
+      },
+      {
+        "tier": 8,
+        "score": "4950"
+      },
+      {
+        "tier": 9,
+        "score": "4950"
+      },
+      {
+        "tier": 10,
+        "score": "5850"
+      },
+      {
+        "tier": 11,
+        "score": "6750"
+      },
+      {
+        "tier": 12,
+        "score": "6750"
+      },
+      {
+        "tier": 13,
+        "score": "9000"
+      }
+    ],
+    "unlock_source_id": "12031"
+  },
+  {
+    "id": "universe.world.09.difficulty.04",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "World 9 — Difficulty 4",
+    "name_zh_cn": "第九世界·难度4",
+    "summary_en": "Difficulty 4 recommends level 80 and preserves its boss, elite and score references.",
+    "summary_zh_cn": "难度4建议等级80，保留首领、精英与积分曲线引用。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueareaconfig-json.32"
+    ],
+    "source_ids": [
+      "193"
+    ],
+    "note": "",
+    "world_id": "universe.world.09",
+    "difficulty": 4,
+    "recommended_level": 80,
+    "recommended_elements": [
+      "Fire",
+      "Wind",
+      "Imaginary"
+    ],
+    "boss_variant_ids": [
+      {
+        "source_monster_id": "3014022",
+        "enemy_variant_id": "enemy.memory-zone-meme-something-unto-death-complete.littleboss.variant.01",
+        "level": 90
+      }
+    ],
+    "elite_variant_ids": [
+      {
+        "source_monster_id": "2023021",
+        "enemy_variant_id": "enemy.abundance-sprite-malefic-ape-bug.elite.variant.01",
+        "level": 87
+      },
+      {
+        "source_monster_id": "3003010",
+        "enemy_variant_id": "enemy.dreamjolt-troupes-beyond-overcooked.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "3003020",
+        "enemy_variant_id": "enemy.dreamjolt-troupes-sweet-gorilla.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "3013010",
+        "enemy_variant_id": "enemy.memory-zone-meme-shell-of-faded-rage.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "8003010",
+        "enemy_variant_id": "enemy.ice-out-of-space.elite.variant.01",
+        "level": 84
+      },
+      {
+        "source_monster_id": "8033011",
+        "enemy_variant_id": "enemy.senior-staff-team-leader-bug.elite.variant.01",
+        "level": 87
+      }
+    ],
+    "score_curve_id": "universe.score-curve.area-193",
+    "score_curve": [
+      {
+        "tier": 1,
+        "score": "600"
+      },
+      {
+        "tier": 2,
+        "score": "1200"
+      },
+      {
+        "tier": 3,
+        "score": "1800"
+      },
+      {
+        "tier": 4,
+        "score": "3000"
+      },
+      {
+        "tier": 5,
+        "score": "3000"
+      },
+      {
+        "tier": 6,
+        "score": "4200"
+      },
+      {
+        "tier": 7,
+        "score": "4800"
+      },
+      {
+        "tier": 8,
+        "score": "6600"
+      },
+      {
+        "tier": 9,
+        "score": "6600"
+      },
+      {
+        "tier": 10,
+        "score": "7800"
+      },
+      {
+        "tier": 11,
+        "score": "9000"
+      },
+      {
+        "tier": 12,
+        "score": "9000"
+      },
+      {
+        "tier": 13,
+        "score": "12000"
+      }
+    ],
+    "unlock_source_id": "12032"
+  }
+]

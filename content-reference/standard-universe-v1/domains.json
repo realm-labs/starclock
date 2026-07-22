@@ -1,0 +1,227 @@
+[
+  {
+    "id": "universe.domain.combat-primary",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Domain — Combat",
+    "name_zh_cn": "区域 - 战斗",
+    "summary_en": "Standard run domain kind combat-primary; room content determines its concrete decision or battle.",
+    "summary_zh_cn": "标准运行区域类型“combat-primary”，具体决策或战斗由房间内容决定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroomtype-json.0"
+    ],
+    "source_ids": [
+      "1"
+    ],
+    "note": "",
+    "kind": "combat-primary",
+    "decision_policy": "BattleHandoff",
+    "battle_kind": "combat-primary",
+    "service_id": "",
+    "terminal": false
+  },
+  {
+    "id": "universe.domain.combat-secondary",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Domain — Combat",
+    "name_zh_cn": "区域 - 战斗",
+    "summary_en": "Standard run domain kind combat-secondary; room content determines its concrete decision or battle.",
+    "summary_zh_cn": "标准运行区域类型“combat-secondary”，具体决策或战斗由房间内容决定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroomtype-json.1"
+    ],
+    "source_ids": [
+      "2"
+    ],
+    "note": "",
+    "kind": "combat-secondary",
+    "decision_policy": "BattleHandoff",
+    "battle_kind": "combat-secondary",
+    "service_id": "",
+    "terminal": false
+  },
+  {
+    "id": "universe.domain.occurrence",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Domain — Occurrence",
+    "name_zh_cn": "区域 - 事件",
+    "summary_en": "Standard run domain kind occurrence; room content determines its concrete decision or battle.",
+    "summary_zh_cn": "标准运行区域类型“occurrence”，具体决策或战斗由房间内容决定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroomtype-json.2"
+    ],
+    "source_ids": [
+      "3"
+    ],
+    "note": "",
+    "kind": "occurrence",
+    "decision_policy": "ExternalCommand",
+    "battle_kind": "",
+    "service_id": "",
+    "terminal": false
+  },
+  {
+    "id": "universe.domain.encounter",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Domain — Encounter",
+    "name_zh_cn": "区域 - 遭遇",
+    "summary_en": "Standard run domain kind encounter; room content determines its concrete decision or battle.",
+    "summary_zh_cn": "标准运行区域类型“encounter”，具体决策或战斗由房间内容决定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroomtype-json.3"
+    ],
+    "source_ids": [
+      "4"
+    ],
+    "note": "",
+    "kind": "encounter",
+    "decision_policy": "ExternalCommand",
+    "battle_kind": "encounter",
+    "service_id": "",
+    "terminal": false
+  },
+  {
+    "id": "universe.domain.respite",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Domain — Respite",
+    "name_zh_cn": "区域 - 休整",
+    "summary_en": "Standard run domain kind respite; room content determines its concrete decision or battle.",
+    "summary_zh_cn": "标准运行区域类型“respite”，具体决策或战斗由房间内容决定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroomtype-json.4"
+    ],
+    "source_ids": [
+      "5"
+    ],
+    "note": "",
+    "kind": "respite",
+    "decision_policy": "ExternalCommand",
+    "battle_kind": "",
+    "service_id": "universe.service.respite",
+    "terminal": false
+  },
+  {
+    "id": "universe.domain.elite",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Domain — Elite",
+    "name_zh_cn": "区域 - 精英",
+    "summary_en": "Standard run domain kind elite; room content determines its concrete decision or battle.",
+    "summary_zh_cn": "标准运行区域类型“elite”，具体决策或战斗由房间内容决定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroomtype-json.5"
+    ],
+    "source_ids": [
+      "6"
+    ],
+    "note": "",
+    "kind": "elite",
+    "decision_policy": "BattleHandoff",
+    "battle_kind": "elite",
+    "service_id": "",
+    "terminal": false
+  },
+  {
+    "id": "universe.domain.boss",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Domain — Boss",
+    "name_zh_cn": "区域 - 首领",
+    "summary_en": "Standard run domain kind boss; room content determines its concrete decision or battle.",
+    "summary_zh_cn": "标准运行区域类型“boss”，具体决策或战斗由房间内容决定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroomtype-json.6"
+    ],
+    "source_ids": [
+      "7"
+    ],
+    "note": "",
+    "kind": "boss",
+    "decision_policy": "BattleHandoff",
+    "battle_kind": "boss",
+    "service_id": "",
+    "terminal": true
+  },
+  {
+    "id": "universe.domain.transaction",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Domain — Transaction",
+    "name_zh_cn": "区域 - 交易",
+    "summary_en": "Standard run domain kind transaction; room content determines its concrete decision or battle.",
+    "summary_zh_cn": "标准运行区域类型“transaction”，具体决策或战斗由房间内容决定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroomtype-json.7"
+    ],
+    "source_ids": [
+      "8"
+    ],
+    "note": "",
+    "kind": "transaction",
+    "decision_policy": "ExternalCommand",
+    "battle_kind": "",
+    "service_id": "universe.service.transaction",
+    "terminal": false
+  },
+  {
+    "id": "universe.domain.adventure",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Domain — Adventure",
+    "name_zh_cn": "区域 - 冒险",
+    "summary_en": "Standard run domain kind adventure; room content determines its concrete decision or battle.",
+    "summary_zh_cn": "标准运行区域类型“adventure”，具体决策或战斗由房间内容决定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroomtype-json.8"
+    ],
+    "source_ids": [
+      "9"
+    ],
+    "note": "",
+    "kind": "adventure",
+    "decision_policy": "ExternalCommand",
+    "battle_kind": "",
+    "service_id": "",
+    "terminal": false
+  }
+]
