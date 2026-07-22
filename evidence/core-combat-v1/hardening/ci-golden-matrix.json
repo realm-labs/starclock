@@ -1,13 +1,24 @@
 {
-  "schema_revision": "starclock.goal01.ci-golden-matrix.v1",
-  "policy_sha256": "92919525a4815fdcdf130802377f0c62f661084927ad87c3731c66d546c02820",
-  "golden_suite_contract_sha256": "b61b3482f6dc41b2347ed4a749b6fd1f092c1f063907ccba1ce76ce98e38737e",
+  "schema_revision": "starclock.ci-golden-matrix.v2",
+  "policy_sha256": "82fd80e74dfe22feca811c28de2f689e60bd5997c53354eb52832411e2c961c6",
+  "golden_suite_contract_sha256": "48d3a8826413aab1b54f016da040dc4cd475d7fd9f3a06ee7e40522308e53208",
   "production_contract": {
     "data_revision": "core-combat-v1-phase7-l11",
     "numeric_policy_revision": "fixed-i64-6dp-v1",
     "rng_algorithm_revision": "chacha8-rand-0.10.2-intmap-v1",
     "replay_format_version": "replay-v1",
     "bundle_sha256": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440"
+  },
+  "agent_contract": {
+    "schema_revision": "agent-api-v1",
+    "schema_bundle_sha256": "1746004f3f73ebbe6fb4cce4b850dd6813a1dc3a8584c3d191903328c0206725",
+    "transport_trace_path": "evidence/agent-control-mcp-v1/protocol/basic-transport-trace.json",
+    "transport_trace_sha256": "b6a4a112d9ec801f97ddb0ab5a95e62ebe682d83f33bc4ac5a0adef5ecf0083f",
+    "state_hashes": 9,
+    "external_actions": 8,
+    "replay_commands": 9,
+    "replay_bytes": 987,
+    "replay_sha256": "499101908771d04285f90b488a7888d020132ea4f60ed07d3cf14d24a429a142"
   },
   "suites": [
     {
@@ -105,6 +116,50 @@
           "normalized_sha256": "e4d5e6ba5b5b6e5c2c1cad18dc28d6e960e12c39be4c8955d3a4abc0cfefe298"
         }
       ]
+    },
+    {
+      "id": "agent-schema",
+      "claim": "The exact agent-api-v1 schema/golden bundle bytes and canonical JSON values execute without platform drift.",
+      "targets": [
+        {
+          "path": "crates/starclock-agent-api/tests/schema_property_contract.rs",
+          "normalized_sha256": "3d3c3ae445f70b119a0b968467772febbadfc6d667db3585d0734c467aa068a7"
+        },
+        {
+          "path": "schemas/agent-api-v1/action.schema.json",
+          "normalized_sha256": "27c68abb35578916cba1d1dacfbf347fd176731518f53f34f23a64f3bd077163"
+        },
+        {
+          "path": "schemas/agent-api-v1/observation.schema.json",
+          "normalized_sha256": "a8c833d0b78a8b7edcf409e2a0877f9f0eb307751c292a615f7a5b0ccd83917d"
+        },
+        {
+          "path": "schemas/agent-api-v1/error.schema.json",
+          "normalized_sha256": "c849b4a2c0083114444cc4587c652f2cda5a5ed971630f86b97ff3413b8092b9"
+        }
+      ]
+    },
+    {
+      "id": "agent-trace",
+      "claim": "In-process, stdio and authorized real-TCP HTTP execute the exact command/event/state-hash sequence and canonical replay bytes.",
+      "targets": [
+        {
+          "path": "crates/starclock-agent-api/tests/standard_session_loop.rs",
+          "normalized_sha256": "b7694433d029dd442c33dd7a98319f88a399f487081f6f017396505b50ac179a"
+        },
+        {
+          "path": "crates/starclock-cli/tests/mcp_stdio.rs",
+          "normalized_sha256": "ebc13df8e4c6059fe826db4b7194db938a42b3dccd538d2700ea706d5e98c652"
+        },
+        {
+          "path": "crates/starclock-mcp/tests/http_conformance.rs",
+          "normalized_sha256": "6e136956fe5e160aecd4a3375226b87740a54848d6cc22906580ffe76e451f89"
+        },
+        {
+          "path": "evidence/agent-control-mcp-v1/protocol/basic-transport-trace.json",
+          "normalized_sha256": "b6a4a112d9ec801f97ddb0ab5a95e62ebe682d83f33bc4ac5a0adef5ecf0083f"
+        }
+      ]
     }
   ],
   "profiles": [
@@ -121,7 +176,9 @@
         "codec": "executed",
         "battle": "executed",
         "build": "executed",
-        "replay": "executed"
+        "replay": "executed",
+        "agent-schema": "executed",
+        "agent-trace": "executed"
       }
     },
     {
@@ -137,7 +194,9 @@
         "codec": "executed",
         "battle": "executed",
         "build": "executed",
-        "replay": "executed"
+        "replay": "executed",
+        "agent-schema": "executed",
+        "agent-trace": "executed"
       }
     },
     {
@@ -153,7 +212,9 @@
         "codec": "executed",
         "battle": "executed",
         "build": "executed",
-        "replay": "executed"
+        "replay": "executed",
+        "agent-schema": "executed",
+        "agent-trace": "executed"
       }
     },
     {
@@ -169,7 +230,9 @@
         "codec": "compiled-not-executed",
         "battle": "compiled-not-executed",
         "build": "compiled-not-executed",
-        "replay": "compiled-not-executed"
+        "replay": "compiled-not-executed",
+        "agent-schema": "compiled-not-executed",
+        "agent-trace": "compiled-not-executed"
       }
     },
     {
@@ -185,7 +248,9 @@
         "codec": "compiled-not-executed",
         "battle": "compiled-not-executed",
         "build": "compiled-not-executed",
-        "replay": "compiled-not-executed"
+        "replay": "compiled-not-executed",
+        "agent-schema": "compiled-not-executed",
+        "agent-trace": "compiled-not-executed"
       }
     },
     {
@@ -201,7 +266,9 @@
         "codec": "compiled-not-executed",
         "battle": "compiled-not-executed",
         "build": "compiled-not-executed",
-        "replay": "compiled-not-executed"
+        "replay": "compiled-not-executed",
+        "agent-schema": "compiled-not-executed",
+        "agent-trace": "compiled-not-executed"
       }
     }
   ],
@@ -210,6 +277,6 @@
     "compile_only_profiles": 3,
     "hosted_records_require_non_null_workflow_run_id": true,
     "compile_only_runtime_claims": 0,
-    "note": "This committed file freezes the matrix contract. Per-run hosted evidence is retained by CI artifacts and only native records may claim executed vectors."
+    "note": "This committed file freezes the matrix contract. Per-run hosted evidence is retained by CI artifacts; only native records may claim eight executed suites, while alternate targets are compiled-not-executed."
   }
 }

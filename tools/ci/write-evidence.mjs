@@ -57,7 +57,8 @@ const evidence = {
   golden_suites: policy.golden_suites.map((suite) => ({
     id: suite.id,
     disposition: profile.execution_mode === "native" ? "executed" : "compiled-not-executed"
-  }))
+  })),
+  goal02_native_gate: profile.execution_mode === "native" ? policy.goal02_native_gate : null
 };
 
 if (profile.execution_mode === "native") {

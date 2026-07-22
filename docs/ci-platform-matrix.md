@@ -20,9 +20,11 @@ Clippy, native workspace tests and the broad release benchmark smoke ceiling.
 A successful evidence record therefore sets
 `execution_mode` to `native` and `tests_executed` to `true`.
 
-Each record also lists the six executed golden suites: numeric, RNG, codec,
-battle, build and replay. The committed matrix evidence binds those claims to
-the exact normalized test-source hashes; the per-run record binds them to the
+Each record also lists eight executed golden suites: numeric, RNG, codec,
+battle, build, replay, agent schema and agent trace. After the repository gate,
+native jobs explicitly rerun the Goal 02 schema bundle plus in-process, stdio
+and real-TCP HTTP trace tests. The committed matrix evidence binds those claims
+to exact normalized test/artifact hashes; the per-run record binds them to the
 hosted image, workflow run and checked commit.
 
 ## Compile-only coverage
@@ -36,7 +38,8 @@ hosted image, workflow run and checked commit.
 These profiles install the target standard library and run `cargo check`.
 They never run target binaries or tests, do not install Sora for the target,
 and always record `execution_mode: compile-only` and `tests_executed: false`.
-Compile success is not runtime, numeric-golden or compatibility evidence.
+Compile success is not runtime, numeric-golden, schema-byte or trace
+compatibility evidence.
 Its evidence lists every suite as `compiled-not-executed`, never `executed`.
 The Linux ARM64 profile installs `gcc-aarch64-linux-gnu` because the workspace's
 compression dependency compiles native target code during `cargo check`.
@@ -55,7 +58,8 @@ pack digest is stable on Windows hosted checkouts. Probe generation uses only
 committed fixture rows; when the ignored raw source cache is present it is
 hash-checked, but its absence never blocks a clean-checkout golden run.
 
-This batch commits the workflows and locally verifies their static contract. It
-does not claim those hosted jobs have run. Goal batch `G01-P8-B2` owns retained
-cross-platform numeric, RNG, codec, battle, build and replay evidence from this
-matrix.
+The committed report freezes the workflow contract and exact suite inputs; it
+does not fabricate a hosted run. Successful hosted jobs retain the per-run
+native or compile-only record for the checked commit. Goal 01 owns the original
+numeric/RNG/codec/battle/build/replay matrix, while Goal 02 adds the schema and
+transport-trace suites under the same evidence boundary.

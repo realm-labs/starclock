@@ -321,6 +321,9 @@ alongside it; every rejected or losing case must preserve state, replay and RNG.
 - replay verification detects command, policy, catalog and hash divergence;
 - load reports separate combat, projection, serialization and registry costs;
 - domain crates acquire no MCP, HTTP or model-provider dependency.
+- native Windows, Linux and macOS CI execute the frozen schema and
+  in-process/stdio/HTTP trace suites; alternate CPU targets are compile-only
+  and make no runtime claim.
 
 ## Excluded scope
 
