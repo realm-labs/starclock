@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 4 — Review and freeze |
 | Active batch | None |
-| Next unblocked batch | `G03-P4-B2` |
+| Next unblocked batch | `G03-P4-B3` |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -53,7 +53,7 @@
 | `G03-P3-B5` | `Complete` | This row's containing commit | Completed all remaining sheets: 94 services/12 parameters, 42 Ability Tree nodes with 55 edges, 42 costs, 50 typed effects and 43 source parameters; 786 mechanic-rule bindings; 23 deterministic candidate indexes/1,651 entries; 2,645 source records; 2,201 content-audit rows; 18 coverage rows; 78 mechanic fixtures; and 24 pack-file digests. Pool entries close against audited content, every service pool resolves, every rule source is audited and provenance references are valid. All 49 sheets now contain their final 13,793 normalized rows and export through Sora. |
 | `G03-P3-B6` | `Complete` | This row's containing commit | Published the three production `openpyxl` workbooks and regenerated the authoritative Sora bundle/debug output. Two clean authoring/export runs reproduce byte-identical workbooks and bundle (`4e639d25…9700c`); the workbook verifier closes 13,793 rows, 49 sheets and 86 Goal 01 enemy stable keys with semantic digest `d54c6c1b…9390`. Automated QA enforces metadata, ordering, widths, wrapping, filters, frozen panes and formula/error exclusion. Excel exported all 49 sheets to PDF and the rendered PNG review found no clipping, overlap or rendering defects. Generated Rust readers load all production Universe tables. |
 | `G03-P4-B1` | `Complete` | This row's containing commit | Added a release-level audit across all 2,201 content rows, 786 rules, 78 fixtures and 2,645 provenance rows. It enforces enabled Standard/Shared ownership, `DataReady`, bilingual fields, valid quality/approximation evidence, source use without orphans, aggregate/category coverage, complete cross-family and Goal 01 enemy references, promoted manifest evidence, and explicit Standard boundaries for room, Curio-effect and Occurrence-variant IDs. Inventory, 1,935-row manifest, normalized bootstrap, pack/index, workbook/debug export and source-policy checks pass. |
-| `G03-P4-B2` | `Pending` | — | — |
+| `G03-P4-B2` | `Complete` | This row's containing commit | Added an executable semantic-fixture verifier. It resolves every fixture input to its normalized content/rule record, enforces the declared mechanism-quality floor, evaluates the closed `equals`/`contains` fact language over scalar, collection and nested-object paths, and rejects duplicate/empty families. All 78 facts across 78 distinct mechanic families pass. The same verifier proves that Sora exported every fixture with byte-equivalent canonical initial state, commands and expected facts. All three `ProjectPolicy` cases carry an explicit `StableUniformOrderedCandidates` replacement policy and evidence note. |
 | `G03-P4-B3` | `Pending` | — | — |
 | `G03-P4-B4` | `Pending` | — | — |
 
