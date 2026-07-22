@@ -8,6 +8,10 @@ pub enum UniverseCatalogLoadErrorKind {
     UniverseRevision,
     CoreCompatibility,
     Coverage,
+    InvalidDefinition,
+    InvalidReference,
+    InvalidGraph,
+    InvalidEmbeddedData,
 }
 
 /// Catalog loading error without generated Sora row types.

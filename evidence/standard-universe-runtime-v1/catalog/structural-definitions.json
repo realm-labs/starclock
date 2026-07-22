@@ -1,0 +1,47 @@
+{
+  "schema_revision": "starclock.goal04-structural-catalog-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P1-B2",
+  "result": "structural-domain-catalog-lowered",
+  "definitions_digest": "f9b87efb14e0a376cea18379de7f87ed939acea417a7334e7ea93c7e33b0b430",
+  "counts": {
+    "profiles": 1,
+    "worlds": 9,
+    "difficulties": 33,
+    "domains": 9,
+    "topologies": 37,
+    "topology_nodes": 579,
+    "topology_edges": 707,
+    "rooms": 163,
+    "activity_bindings": 1,
+    "activity_domain_bindings": 9
+  },
+  "contracts": {
+    "activity": "activity.standard-simulated-universe.v1",
+    "battle_handoff": "activity.battle-handoff.rule-bundle.v1",
+    "external_outcome": "activity.external-outcome.command.v1",
+    "world_entry": "universe.rule.run-entry.standard",
+    "world_terminal": "universe.rule.run-terminal.standard"
+  },
+  "boundaries": {
+    "generated_rows_public": false,
+    "spatial_coordinates_authoritative": false,
+    "external_json_or_xlsx_loader": false,
+    "embedded_score_curve_typed_and_bounded": true,
+    "graph_references_reachable_acyclic_and_terminal": true,
+    "activity_domain_coverage_complete": true
+  },
+  "dependencies": {
+    "local": [
+      "starclock-data"
+    ],
+    "external": [
+      "serde",
+      "serde_json",
+      "sha2",
+      "zstd"
+    ],
+    "new_registry_packages": 0
+  },
+  "focused_tests": 5
+}

@@ -114,6 +114,10 @@
       "command": ["node", "tools/goal04/verify-catalog-bootstrap.mjs", "."]
     },
     {
+      "name": "Goal 04 structural catalog",
+      "command": ["node", "tools/goal04/verify-structural-catalog.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

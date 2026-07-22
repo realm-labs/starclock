@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Universe bundle and domain catalog |
 | Active batch | None |
-| Next unblocked batch | `G04-P1-B2` |
+| Next unblocked batch | `G04-P1-B3` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -41,7 +41,7 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P0-B3` | `Complete` | This row's containing commit | Assigned all 2,201 content rows, 786 rules and 78 fixtures to exact runtime mechanisms and stable M01–M15 membership. Counts are 698 Activity-IR, 427 native-handler, 984 metadata and 92 explicit-policy content rows; all remain `Planned` with zero executable claims. Partition manifest SHA-256: `9eebeb5ad82b30b2ddb789e36dcf2cbb38d7c02426c9d99696d43280ce5f5aaa`. |
 | `G04-P0-B4` | `Complete` | This row's containing commit | Frozen representative World 1/Preservation slice, six server workloads and allocation/copy metrics, 3 native + 3 compile-only CI profiles, 147-package reviewed lock baseline and a 7-phase/50-batch release scaffold. No complete-World or performance claim is made. Evidence SHA-256: `033222084a4e6e95d2c1e91389c2ead797ac9de50015bcf3c751678fd9829a0e`. |
 | `G04-P1-B1` | `Complete` | This row's containing commit | Added the 12th workspace crate with a private 49-table Sora reader, strict frozen core/Universe/profile compatibility checks and a generated-row-free catalog identity. Three tests load the exact bundles and reject wrong, tampered and revision-mismatched inputs. Composed configuration digest: `7926226540a97faa416ececd38fd865b5f3ef1d77efc8c1107dc5f8697204fcd`. |
-| `G04-P1-B2` | `Pending` | — | — |
+| `G04-P1-B2` | `Complete` | This row's containing commit | Lowered one profile, 9 Worlds, 33 difficulties, 9 abstract domains, 37 acyclic/reachable topologies with 579 nodes/707 edges, 163 rooms and the complete 9-domain Activity binding into generated-row-free immutable definitions. Coordinates are excluded, embedded score curves are typed/bounded, every structural reference is validated and the canonical definition digest is `f9b87efb14e0a376cea18379de7f87ed939acea417a7334e7ea93c7e33b0b430`. Evidence: `evidence/standard-universe-runtime-v1/catalog/structural-definitions.json`. |
 | `G04-P1-B3` | `Pending` | — | — |
 | `G04-P1-B4` | `Pending` | — | — |
 | `G04-P1-B5` | `Pending` | — | — |
@@ -97,11 +97,11 @@ machine-generated runtime-disposition manifest without changing these counts.
 | DataReady content records | 2,201 | 2,201 assigned | 0 |
 | Mechanic-rule bindings | 786 | 786 assigned | 0 |
 | Mechanic-family fixtures | 78 | 78 assigned | 0 |
-| Sora Universe tables | 49 | 49 privately loaded | 0 domain-lowered |
+| Sora Universe tables | 49 | 49 privately loaded | 9 structural tables domain-lowered |
 | Workbook rows | 13,793 | staging only | 0 runtime-lowered |
-| Worlds | 9 | 9 assigned | 0 |
+| Worlds | 9 | 9 assigned | 9 catalog-verified |
 | Paths | 9 | 9 assigned | 0 |
-| Difficulties | 33 | 33 assigned | 0 |
+| Difficulties | 33 | 33 assigned | 33 catalog-verified |
 | Blessings / levels | 162 / 324 | 162 / 324 assigned | 0 / 0 |
 | Resonances/Formations | 36 | 36 assigned | 0 |
 | Curios / states | 61 / 67 | 61 / 67 assigned | 0 / 0 |

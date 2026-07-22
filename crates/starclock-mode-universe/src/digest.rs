@@ -34,6 +34,10 @@ digest_type!(
     ActivityConfigurationDigest,
     "Composed combat/build/Universe/profile Activity configuration identity."
 );
+digest_type!(
+    UniverseDefinitionsDigest,
+    "Canonical identity of lowered Standard Universe structural definitions."
+);
 
 pub(crate) fn bundle_digest(bytes: &[u8]) -> UniverseBundleDigest {
     UniverseBundleDigest::new(Sha256::digest(bytes).into())
@@ -54,6 +58,24 @@ impl Encoder {
 
     pub(crate) fn u32(&mut self, value: u32) {
         self.0.update(value.to_le_bytes());
+    }
+
+    pub(crate) fn u8(&mut self, value: u8) {
+        self.0.update([value]);
+    }
+
+    pub(crate) fn bool(&mut self, value: bool) {
+        self.u8(u8::from(value));
+    }
+
+    pub(crate) fn optional_text(&mut self, value: Option<&str>) {
+        match value {
+            Some(value) => {
+                self.bool(true);
+                self.text(value);
+            }
+            None => self.bool(false),
+        }
     }
 
     pub(crate) fn digest(&mut self, value: [u8; 32]) {

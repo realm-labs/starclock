@@ -48,6 +48,7 @@ const expectedExternal = new Map([
   ]],
   ["starclock-mode-universe", [
     { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
+    { name: "serde_json", requirement: "=1.0.151", features: ["std"] },
     { name: "sha2", requirement: "=0.11.0", features: [] },
     { name: "zstd", requirement: "=0.13.3", features: [] },
   ]],
@@ -116,7 +117,7 @@ assert(combat.dependencies.every((dependency) => dependency.kind === "dev" ? dep
 const data = packages.find((entry) => entry.name === "starclock-data");
 assert(data.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => ["serde", "sha2", "zstd"].includes(dependency.name)), "starclock-data may use only generated-reader transport dependencies plus the reviewed private SHA-256 backend");
 const universe = packages.find((entry) => entry.name === "starclock-mode-universe");
-assert(universe.dependencies.every((dependency) => ["starclock-data", "serde", "sha2", "zstd"].includes(dependency.name)), "starclock-mode-universe may use only the stable data catalog plus generated-reader transport/hash dependencies");
+assert(universe.dependencies.every((dependency) => ["starclock-data", "serde", "serde_json", "sha2", "zstd"].includes(dependency.name)), "starclock-mode-universe may use only the stable data catalog plus generated-reader transport/hash dependencies");
 const replay = packages.find((entry) => entry.name === "starclock-replay");
 assert(replay.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => dependency.kind === "dev" ? dependency.name === "proptest" : dependency.name === "sha2"), "starclock-replay may use only the reviewed private SHA-256 backend plus the property dev-dependency");
 const cli = packages.find((entry) => entry.name === "starclock-cli");

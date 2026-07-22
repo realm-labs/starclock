@@ -2,12 +2,18 @@
 
 use std::sync::Arc;
 
+use crate::definition::{
+    DifficultyDefinition, DomainDefinition, RoomDefinition, TopologyDefinition,
+    UniverseActivityBindingDefinition, UniverseDefinitions, UniverseProfileDefinition,
+    WorldDefinition,
+};
 use crate::digest::{
-    ActivityConfigurationDigest, Encoder, UniverseBundleDigest, UniverseProfileDigest,
-    bundle_digest,
+    ActivityConfigurationDigest, Encoder, UniverseBundleDigest, UniverseDefinitionsDigest,
+    UniverseProfileDigest, bundle_digest,
 };
 use crate::error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind};
 use crate::generated::{SoraConfig, runtime::SoraBundle};
+use crate::id::{DifficultyId, DomainId, RoomId, TopologyId, WorldId};
 
 pub const UNIVERSE_CATALOG_REVISION: &str = "standard-universe-v4.4-runtime-v1";
 pub const STANDARD_UNIVERSE_PROFILE_REVISION: &str = "standard-universe-main-world-v1";
@@ -47,6 +53,7 @@ pub struct UniverseCatalogIdentity {
     build_catalog: [u8; 32],
     universe_bundle: UniverseBundleDigest,
     profile: UniverseProfileDigest,
+    definitions: UniverseDefinitionsDigest,
     configuration: ActivityConfigurationDigest,
 }
 
@@ -88,6 +95,10 @@ impl UniverseCatalogIdentity {
         self.profile
     }
     #[must_use]
+    pub const fn definitions_digest(&self) -> UniverseDefinitionsDigest {
+        self.definitions
+    }
+    #[must_use]
     pub const fn configuration_digest(&self) -> ActivityConfigurationDigest {
         self.configuration
     }
@@ -110,6 +121,7 @@ pub struct UniverseCatalogSummary {
 pub struct UniverseCatalog {
     identity: UniverseCatalogIdentity,
     summary: UniverseCatalogSummary,
+    definitions: UniverseDefinitions,
     transport: SoraConfig,
     core: Arc<starclock_data::catalog::SimulationCatalog>,
 }
@@ -132,6 +144,7 @@ impl UniverseCatalog {
         let profile = only_profile(&transport)?;
         validate_profile(profile)?;
         let summary = validate_counts(&transport, profile)?;
+        let definitions = crate::lowering::lower(&transport)?;
         let profile_digest = profile_digest(profile);
         let build_digest = core.build_catalog().digest().bytes();
         let configuration = compose_configuration(
@@ -152,11 +165,13 @@ impl UniverseCatalog {
             build_catalog: build_digest,
             universe_bundle: actual_digest,
             profile: profile_digest,
+            definitions: definitions.digest,
             configuration,
         };
         Ok(Arc::new(Self {
             identity,
             summary,
+            definitions,
             transport,
             core,
         }))
@@ -177,11 +192,78 @@ impl UniverseCatalog {
         &self.core
     }
 
+    #[must_use]
+    pub const fn profile(&self) -> &UniverseProfileDefinition {
+        &self.definitions.profile
+    }
+
+    #[must_use]
+    pub fn worlds(&self) -> &[WorldDefinition] {
+        &self.definitions.worlds
+    }
+
+    #[must_use]
+    pub fn world(&self, id: WorldId) -> Option<&WorldDefinition> {
+        lookup(&self.definitions.worlds, id, WorldDefinition::id)
+    }
+
+    #[must_use]
+    pub fn difficulties(&self) -> &[DifficultyDefinition] {
+        &self.definitions.difficulties
+    }
+
+    #[must_use]
+    pub fn difficulty(&self, id: DifficultyId) -> Option<&DifficultyDefinition> {
+        lookup(&self.definitions.difficulties, id, DifficultyDefinition::id)
+    }
+
+    #[must_use]
+    pub fn domains(&self) -> &[DomainDefinition] {
+        &self.definitions.domains
+    }
+
+    #[must_use]
+    pub fn domain(&self, id: DomainId) -> Option<&DomainDefinition> {
+        lookup(&self.definitions.domains, id, DomainDefinition::id)
+    }
+
+    #[must_use]
+    pub fn topologies(&self) -> &[TopologyDefinition] {
+        &self.definitions.topologies
+    }
+
+    #[must_use]
+    pub fn topology(&self, id: TopologyId) -> Option<&TopologyDefinition> {
+        lookup(&self.definitions.topologies, id, TopologyDefinition::id)
+    }
+
+    #[must_use]
+    pub fn rooms(&self) -> &[RoomDefinition] {
+        &self.definitions.rooms
+    }
+
+    #[must_use]
+    pub fn room(&self, id: RoomId) -> Option<&RoomDefinition> {
+        lookup(&self.definitions.rooms, id, RoomDefinition::id)
+    }
+
+    #[must_use]
+    pub const fn activity_binding(&self) -> &UniverseActivityBindingDefinition {
+        &self.definitions.activity
+    }
+
     /// Returns the number of privately loaded Sora tables without exposing them.
     #[must_use]
     pub fn transport_table_count(&self) -> usize {
         self.transport.tables().count()
     }
+}
+
+fn lookup<T, I: Ord + Copy>(values: &[T], id: I, key: impl Fn(&T) -> I) -> Option<&T> {
+    values
+        .binary_search_by_key(&id, key)
+        .ok()
+        .map(|index| &values[index])
 }
 
 fn decode(bytes: &[u8]) -> Result<SoraConfig, UniverseCatalogLoadError> {
@@ -412,6 +494,49 @@ mod tests {
             }
         );
         assert_eq!(catalog.transport_table_count(), 49);
+        assert_eq!(catalog.worlds().len(), 9);
+        assert_eq!(catalog.difficulties().len(), 33);
+        assert_eq!(catalog.domains().len(), 9);
+        assert_eq!(catalog.topologies().len(), 37);
+        assert_eq!(catalog.rooms().len(), 163);
+        assert_eq!(
+            catalog
+                .topologies()
+                .iter()
+                .map(|topology| topology.nodes().len())
+                .sum::<usize>(),
+            579
+        );
+        assert_eq!(
+            catalog
+                .topologies()
+                .iter()
+                .flat_map(|topology| topology.nodes())
+                .map(|node| node.outgoing().len())
+                .sum::<usize>(),
+            707
+        );
+        for world in catalog.worlds() {
+            assert_eq!(world.profile(), catalog.profile().id());
+            for difficulty in world.difficulties() {
+                assert_eq!(
+                    catalog.difficulty(*difficulty).expect("difficulty").world(),
+                    world.id()
+                );
+            }
+        }
+        for room in catalog.rooms() {
+            assert!(catalog.domain(room.domain()).is_some());
+        }
+        assert_eq!(catalog.activity_binding().domains().len(), 9);
+        assert_eq!(
+            catalog.identity().definitions_digest().bytes(),
+            [
+                0xf9, 0xb8, 0x7e, 0xfb, 0x14, 0xe0, 0xa3, 0x76, 0xce, 0xa1, 0x83, 0x79, 0xde, 0x7f,
+                0x87, 0xed, 0x93, 0x9a, 0xce, 0xa4, 0x17, 0xa7, 0x33, 0x4e, 0x7e, 0xa9, 0x3c, 0x7e,
+                0x33, 0xb0, 0xb4, 0x30,
+            ]
+        );
         assert_eq!(
             catalog.identity().configuration_digest().bytes(),
             [

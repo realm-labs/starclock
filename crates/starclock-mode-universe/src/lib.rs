@@ -9,5 +9,9 @@
 mod generated;
 
 pub mod catalog;
+pub mod definition;
 pub mod digest;
 pub mod error;
+pub mod id;
+
+mod lowering;
