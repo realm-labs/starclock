@@ -109,3 +109,7 @@ Validation is deterministic and fail-fast:
 The workbook stores the same domain fields in normalized tables. `openpyxl`
 only creates and inspects workbooks; Sora 0.3.0 remains the validation,
 code-generation and export authority.
+
+Sora's released `source.sheet` support is used to keep the universe table
+family in one readable `Universe.xlsx` workbook. Authoring-only integer keys
+are private cross-reference handles; stable keys remain the domain identity.

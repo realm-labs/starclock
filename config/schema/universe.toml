@@ -1,0 +1,479 @@
+[[enums]]
+name = "UniverseDifficultyKind"
+values = ["Tutorial", "Standard"]
+
+[[enums]]
+name = "UniverseDomainKind"
+values = ["CombatPrimary", "CombatSecondary", "Occurrence", "Encounter", "Respite", "Elite", "Boss", "Transaction", "Adventure"]
+
+[[enums]]
+name = "UniverseDecisionPolicy"
+values = ["BattleHandoff", "ExternalCommand"]
+
+[[enums]]
+name = "UniverseEnemyRole"
+values = ["Boss", "Elite"]
+
+[[enums]]
+name = "UniverseRoomContentKind"
+values = ["EncounterGroup", "FixedContent", "ExternalDecision"]
+
+[[tables]]
+name = "UniverseProfile"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseProfile"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "game_version"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "snapshot_date"
+type = "string"
+length = [10, 10]
+[[tables.fields]]
+name = "content_manifest_sha256"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "pack_sha256"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "world_count"
+type = "i32"
+range = [9, 9]
+[[tables.fields]]
+name = "path_count"
+type = "i32"
+range = [9, 9]
+[[tables.fields]]
+name = "runtime_loading"
+type = "string"
+length = [1, 80]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseWorld"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseWorld"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<UniverseProfile.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "world_number"
+type = "i32"
+range = [1, 9]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "entry_rule_stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "terminal_rule_stable_key"
+type = "string"
+length = [1, 160]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_world_number"
+fields = ["profile_id", "world_number"]
+unique = true
+
+[[tables]]
+name = "UniverseDifficulty"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseDifficulty"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "world_id"
+type = "ref<UniverseWorld.id>"
+[[tables.fields]]
+name = "source_area_id"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "difficulty"
+type = "i32"
+range = [1, 10]
+[[tables.fields]]
+name = "kind"
+type = "enum<UniverseDifficultyKind>"
+[[tables.fields]]
+name = "recommended_level"
+type = "i32"
+range = [1, 200]
+[[tables.fields]]
+name = "recommended_elements"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 7]
+[[tables.fields]]
+name = "score_curve_json"
+type = "string"
+length = [2, 4000]
+[[tables.fields]]
+name = "unlock_source_id"
+type = "optional<string>"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_source_area"
+fields = ["source_area_id"]
+unique = true
+
+[[tables]]
+name = "UniverseDifficultyEnemy"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseDifficultyEnemy"
+[[tables.fields]]
+name = "difficulty_id"
+type = "ref<UniverseDifficulty.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+[[tables.fields]]
+name = "role"
+type = "enum<UniverseEnemyRole>"
+[[tables.fields]]
+name = "source_monster_id"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "enemy_variant_id"
+type = "ref<EnemyVariant.id>"
+[[tables.fields]]
+name = "level"
+type = "i32"
+range = [1, 200]
+[[tables.indexes]]
+name = "by_difficulty_sequence"
+fields = ["difficulty_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseDomain"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseDomain"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "source_type"
+type = "i32"
+range = [1, 9]
+[[tables.fields]]
+name = "kind"
+type = "enum<UniverseDomainKind>"
+[[tables.fields]]
+name = "decision_policy"
+type = "enum<UniverseDecisionPolicy>"
+[[tables.fields]]
+name = "terminal"
+type = "bool"
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_source_type"
+fields = ["source_type"]
+unique = true
+
+[[tables]]
+name = "UniverseMapNode"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseMapNode"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "source_map_id"
+type = "i32"
+range = [1, 9999]
+[[tables.fields]]
+name = "source_node_id"
+type = "i32"
+range = [1, 10000]
+[[tables.fields]]
+name = "is_start"
+type = "bool"
+[[tables.fields]]
+name = "position_x"
+type = "i32"
+range = [-100000, 100000]
+[[tables.fields]]
+name = "position_y"
+type = "i32"
+range = [-100000, 100000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_source_node"
+fields = ["source_map_id", "source_node_id"]
+unique = true
+
+[[tables]]
+name = "UniverseMapEdge"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseMapEdge"
+[[tables.fields]]
+name = "source_node_id"
+type = "ref<UniverseMapNode.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+[[tables.fields]]
+name = "target_node_id"
+type = "ref<UniverseMapNode.id>"
+[[tables.indexes]]
+name = "by_source_sequence"
+fields = ["source_node_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseRoom"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseRoom"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "domain_id"
+type = "ref<UniverseDomain.id>"
+[[tables.fields]]
+name = "source_room_id"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "map_entrance"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "source_group_id"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "section_ids"
+type = "list<i32>"
+parser = { kind = "split", separator = "|" }
+length = [1, 32]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_source_room"
+fields = ["source_room_id"]
+unique = true
+
+[[tables]]
+name = "UniverseRoomContent"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniverseRoomContent"
+[[tables.fields]]
+name = "room_id"
+type = "ref<UniverseRoom.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+[[tables.fields]]
+name = "condition_key"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "source_content_id"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "kind"
+type = "enum<UniverseRoomContentKind>"
+[[tables.indexes]]
+name = "by_room_sequence"
+fields = ["room_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniversePath"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniversePath"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "buff_type"
+type = "string"
+length = [1, 80]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "unlock_policy_stable_key"
+type = "string"
+length = [1, 160]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_buff_type"
+fields = ["buff_type"]
+unique = true
+
+[[tables]]
+name = "UniversePathBlessing"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "Universe.xlsx"
+sheet = "UniversePathBlessing"
+[[tables.fields]]
+name = "path_id"
+type = "ref<UniversePath.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 18]
+[[tables.fields]]
+name = "blessing_stable_key"
+type = "string"
+length = [1, 160]
+[[tables.indexes]]
+name = "by_path_sequence"
+fields = ["path_id", "sequence"]
+unique = true
