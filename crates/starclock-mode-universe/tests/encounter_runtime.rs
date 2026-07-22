@@ -275,8 +275,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            175, 191, 197, 146, 73, 58, 153, 194, 42, 169, 77, 38, 237, 108, 184, 85, 107, 71, 40,
-            90, 48, 160, 70, 22, 90, 206, 174, 25, 148, 240, 32, 154,
+            251, 25, 235, 6, 66, 184, 45, 226, 243, 242, 163, 243, 1, 80, 188, 57, 150, 2, 253,
+            157, 203, 165, 96, 108, 222, 211, 141, 108, 212, 161, 143, 175,
         ]
     );
     let reward = activity.view();
@@ -328,13 +328,37 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
             && !entry.level().rule_key().is_empty()
             && !entry.level().source_binding_key().is_empty()
     }));
+    let path_contributions = activity
+        .path_contributions()
+        .expect("selected Path contribution set");
+    assert_eq!(
+        path_contributions.passive().path(),
+        compiled.path_options()[0]
+    );
+    assert_eq!(
+        path_contributions.selected_path_blessings(),
+        u8::from(contributions.entries()[0].path() == compiled.path_options()[0])
+    );
     assert_eq!(
         contributions.digest(),
         [
-            55, 3, 85, 232, 213, 21, 145, 21, 219, 254, 237, 65, 158, 40, 189, 22, 98, 18, 73, 3,
-            15, 150, 198, 177, 166, 250, 89, 17, 27, 119, 46, 20,
+            140, 160, 241, 67, 153, 15, 108, 79, 135, 80, 56, 241, 197, 186, 210, 143, 214, 232,
+            49, 6, 120, 172, 20, 3, 125, 59, 109, 231, 181, 9, 33, 77,
         ]
     );
+    let formation = activity.view();
+    assert_eq!(
+        formation.decision().expect("Formation gate").kind(),
+        starclock_activity::ActivityDecisionKind::Choice
+    );
+    assert_eq!(formation.decision().unwrap().options().len(), 1);
+    activity
+        .choose_option(
+            formation.state_hash(),
+            formation.decision().unwrap().id(),
+            formation.decision().unwrap().options()[0].id(),
+        )
+        .unwrap();
     assert_eq!(
         activity
             .view()

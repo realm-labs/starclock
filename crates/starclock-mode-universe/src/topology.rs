@@ -19,9 +19,10 @@ use crate::{
     encounter::RoomContentKind,
     id::{EncounterGroupId, EncounterMemberId, RoomId, TopologyId, TopologyNodeId},
     path::ExactParameter,
+    path_runtime::{FormationSelectionBindings, PathRuntimeCatalog},
 };
 
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v2";
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v3";
 
 const PATH_NODE: u32 = 1;
 const TOPOLOGY_SELECTOR_NODE: u32 = 2;
@@ -33,6 +34,7 @@ const CONTENT_NODE_OFFSET: u32 = 20_000;
 const MEMBER_NODE_OFFSET: u32 = 30_000;
 const BATTLE_NODE_OFFSET: u32 = 40_000;
 const REWARD_NODE_OFFSET: u32 = 50_000;
+const FORMATION_NODE_OFFSET: u32 = 55_000;
 const ROUTE_NODE_OFFSET: u32 = 60_000;
 const PATH_PROGRAM: u32 = 1;
 const TOPOLOGY_PROGRAM: u32 = 2;
@@ -41,6 +43,7 @@ const CONTENT_PROGRAM_OFFSET: u32 = 20_000;
 const MEMBER_PROGRAM_OFFSET: u32 = 30_000;
 const BATTLE_PROGRAM_OFFSET: u32 = 40_000;
 const REWARD_PROGRAM_OFFSET: u32 = 50_000;
+const FORMATION_PROGRAM_OFFSET: u32 = 55_000;
 const ROUTE_PROGRAM_OFFSET: u32 = 60_000;
 const PATH_OPTION_OFFSET: u64 = 1_000_000;
 const TOPOLOGY_OPTION_OFFSET: u64 = 2_000_000;
@@ -49,6 +52,8 @@ const CONTENT_OPTION_OFFSET: u64 = 2_000_000_000_000;
 const MEMBER_OPTION_OFFSET: u64 = 3_000_000_000_000;
 const ENGAGE_OPTION_OFFSET: u64 = 4_000_000_000_000;
 const REWARD_OPTION_OFFSET: u64 = 5_000_000_000_000;
+const FORMATION_OPTION_OFFSET: u64 = 5_500_000_000_000;
+const FORMATION_SKIP_OPTION_OFFSET: u64 = 5_900_000_000_000;
 const ROUTE_OPTION_OFFSET: u64 = 6_000_000_000_000;
 const EXIT_OPTION_OFFSET: u64 = 7_000_000_000_000;
 const TOPOLOGY_DRAW_PURPOSE: u16 = 1;
@@ -111,6 +116,7 @@ pub struct DomainHubDefinition {
     member_node: NodeId,
     battle_node: NodeId,
     reward_node: NodeId,
+    formation_node: NodeId,
     route_node: NodeId,
     eligible_rooms: Box<[RoomId]>,
     rooms: Box<[ResolvedRoomContent]>,
@@ -149,6 +155,10 @@ impl DomainHubDefinition {
     #[must_use]
     pub const fn reward_node(&self) -> NodeId {
         self.reward_node
+    }
+    #[must_use]
+    pub const fn formation_node(&self) -> NodeId {
+        self.formation_node
     }
     #[must_use]
     pub const fn route_node(&self) -> NodeId {
@@ -197,6 +207,7 @@ pub(crate) struct CompiledUniverseTopology {
 pub(crate) fn compile(
     catalog: &UniverseCatalog,
     blessing_runtime: &BlessingRuntimeCatalog,
+    path_runtime: &PathRuntimeCatalog,
     identity: starclock_activity::ActivityDefinitionIdentity,
     state: ActivityStateDefinition,
     participants: Arc<ParticipantLock>,
@@ -207,6 +218,8 @@ pub(crate) fn compile(
     member_slot: ActivitySlotId,
     blessing_inventory: ActivityInventoryId,
     blessing_reroll_slot: ActivitySlotId,
+    path_blessing_count_slot: ActivitySlotId,
+    formation_inventory: ActivityInventoryId,
 ) -> Result<CompiledUniverseTopology, UniverseTopologyCompileError> {
     let mut nodes = terminal_nodes()?;
     nodes.push(activity_node(PATH_NODE, 1, ActivityNodeKind::Choice)?);
@@ -232,6 +245,7 @@ pub(crate) fn compile(
                 (member_node(source.id()), ActivityNodeKind::Checkpoint),
                 (battle_node(source.id()), ActivityNodeKind::Battle),
                 (reward_node(source.id()), ActivityNodeKind::Reward),
+                (formation_node(source.id()), ActivityNodeKind::Choice),
                 (route_node(source.id()), ActivityNodeKind::Choice),
             ] {
                 nodes.push(activity_node(node_id.get(), section_id, kind)?);
@@ -284,6 +298,7 @@ pub(crate) fn compile(
                 member_node: member_node(source.id()),
                 battle_node: battle_node(source.id()),
                 reward_node: reward_node(source.id()),
+                formation_node: formation_node(source.id()),
                 route_node: route_node(source.id()),
                 eligible_rooms,
                 rooms,
@@ -296,7 +311,7 @@ pub(crate) fn compile(
         node(PATH_NODE),
         nodes,
         edges,
-        u32::try_from(hubs.len().saturating_mul(6).saturating_add(5))
+        u32::try_from(hubs.len().saturating_mul(7).saturating_add(5))
             .map_err(|_| UniverseTopologyCompileError::InvalidGraph)?,
     )
     .map_err(|_| UniverseTopologyCompileError::InvalidGraph)?;
@@ -313,8 +328,11 @@ pub(crate) fn compile(
         room_slot,
         member_slot,
         blessing_runtime,
+        path_runtime,
         blessing_inventory,
         blessing_reroll_slot,
+        path_blessing_count_slot,
+        formation_inventory,
         path_edge,
         &topology_entry_edges,
         &topology_edges,
@@ -379,7 +397,8 @@ struct HubEdges {
     content_member: ActivityEdgeId,
     content_reward: ActivityEdgeId,
     member_battle: ActivityEdgeId,
-    reward_route: ActivityEdgeId,
+    reward_formation: ActivityEdgeId,
+    formation_route: ActivityEdgeId,
 }
 
 struct CompiledPrograms {
@@ -398,8 +417,11 @@ fn compile_programs(
     room_slot: ActivitySlotId,
     member_slot: ActivitySlotId,
     blessing_runtime: &BlessingRuntimeCatalog,
+    path_runtime: &PathRuntimeCatalog,
     blessing_inventory: ActivityInventoryId,
     blessing_reroll_slot: ActivitySlotId,
+    path_blessing_count_slot: ActivitySlotId,
+    formation_inventory: ActivityInventoryId,
     path_edge: ActivityEdgeId,
     topology_entry_edges: &[(TopologyId, ActivityEdgeId)],
     topology_edges: &[(TopologyNodeId, TopologyNodeId, ActivityEdgeId)],
@@ -582,11 +604,16 @@ fn compile_programs(
             let id = blessing_option(source, blessing.blessing());
             let settlement = vec![
                 ActivityOperation::AddCounter {
+                    slot: path_blessing_count_slot,
+                    key: u64::from(blessing.path().get()),
+                    delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
+                },
+                ActivityOperation::AddCounter {
                     slot: hub_clear_slot,
                     key: source,
                     delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
                 },
-                ActivityOperation::Traverse(edges.reward_route),
+                ActivityOperation::Traverse(edges.reward_formation),
             ];
             reward_options.push(
                 blessing_runtime
@@ -617,6 +644,22 @@ fn compile_programs(
             REWARD_PROGRAM_OFFSET + hub.source_node.get(),
             ActivityDecisionKind::Reward,
             reward_options,
+        )?);
+        let formation_options = path_runtime.formation_selection_options(
+            FormationSelectionBindings {
+                selected_path_slot: path_slot,
+                path_blessing_count_slot,
+                formation_inventory,
+            },
+            formation_skip_option(source),
+            |formation| formation_option(source, formation),
+            &[ActivityOperation::Traverse(edges.formation_route)],
+        );
+        programs.push(node_program_id(
+            hub.formation_node,
+            FORMATION_PROGRAM_OFFSET + hub.source_node.get(),
+            ActivityDecisionKind::Choice,
+            formation_options,
         )?);
         programs.push(compile_route_program(
             hub,
@@ -718,13 +761,15 @@ fn build_hub_edges(
         node(FAULTED_NODE),
         ActivityEdgeCondition::BattleOutcome(TerminalOutcome::Faulted),
     )?;
-    let reward_route = push_edge(edges, reward_node(source), route_node(source))?;
+    let reward_formation = push_edge(edges, reward_node(source), formation_node(source))?;
+    let formation_route = push_edge(edges, formation_node(source), route_node(source))?;
     Ok(HubEdges {
         resolution_content,
         content_member,
         content_reward,
         member_battle,
-        reward_route,
+        reward_formation,
+        formation_route,
     })
 }
 
@@ -876,6 +921,9 @@ const fn battle_node(source: TopologyNodeId) -> NodeId {
 const fn reward_node(source: TopologyNodeId) -> NodeId {
     node(REWARD_NODE_OFFSET + source.get())
 }
+const fn formation_node(source: TopologyNodeId) -> NodeId {
+    node(FORMATION_NODE_OFFSET + source.get())
+}
 const fn route_node(source: TopologyNodeId) -> NodeId {
     node(ROUTE_NODE_OFFSET + source.get())
 }
@@ -904,6 +952,12 @@ fn engage_option(source: u64, room: RoomId, member: EncounterMemberId) -> Activi
 }
 fn blessing_option(source: u64, blessing: crate::id::BlessingId) -> ActivityOptionId {
     option(REWARD_OPTION_OFFSET + source * 1_000_000 + u64::from(blessing.get()))
+}
+fn formation_option(source: u64, formation: crate::id::ResonanceId) -> ActivityOptionId {
+    option(FORMATION_OPTION_OFFSET + source * 1_000_000 + u64::from(formation.get()))
+}
+fn formation_skip_option(source: u64) -> ActivityOptionId {
+    option(FORMATION_SKIP_OPTION_OFFSET + source)
 }
 
 fn room_is_eligible(section_ids: &[u32], source_node: u32) -> bool {

@@ -80,7 +80,11 @@ a reward decision before route handles. The large validated graph/program set
 is shared across profile compilations, while identity, initial state and roster
 remain isolated. P3-B4 adds the Activity-owned Blessing inventory, three-option
 Reward-stream offers, one bounded reroll per reward, base/enhanced stacks and
-typed rule/source/parameter contributions. Exact Path-specific battle-effect
+typed rule/source/parameter contributions. P3-B5 adds the seventh hub node: a
+generic Formation gate backed by selected-Path Blessing counts and a bounded
+Formation inventory. The 3/6/10/14 thresholds now expose typed Path passive,
+Resonance and Formation contributions plus checked six-decimal Resonance energy
+and action availability. Exact Path-specific battle-effect
 execution and the complete enemy combat overlay are still deferred to the P4
 partitions, so this is not yet a complete World claim.
 

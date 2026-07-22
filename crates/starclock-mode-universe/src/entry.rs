@@ -18,6 +18,7 @@ use crate::{
     catalog::UniverseCatalog,
     digest::Encoder,
     id::{AbilityTreeNodeId, DifficultyId, PathId, WorldId},
+    path_runtime::PathRuntimeCatalog,
 };
 
 pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v1";
@@ -31,7 +32,9 @@ const HUB_CLEAR_SLOT: u32 = 6;
 const ROOM_SLOT: u32 = 7;
 const ENCOUNTER_MEMBER_SLOT: u32 = 8;
 const BLESSING_REROLL_SLOT: u32 = 9;
+const PATH_BLESSING_COUNT_SLOT: u32 = 10;
 const BLESSING_INVENTORY: u32 = 1;
+const FORMATION_INVENTORY: u32 = 2;
 const WORLD_SOURCE: u64 = 0x5355_0001;
 const DIFFICULTY_SOURCE: u64 = 0x5355_0002;
 const PATH_SOURCE: u64 = 0x5355_0003;
@@ -41,7 +44,9 @@ const HUB_CLEAR_SOURCE: u64 = 0x5355_0006;
 const ROOM_SOURCE: u64 = 0x5355_0007;
 const ENCOUNTER_MEMBER_SOURCE: u64 = 0x5355_0008;
 const BLESSING_REROLL_SOURCE: u64 = 0x5355_0009;
+const PATH_BLESSING_COUNT_SOURCE: u64 = 0x5355_000A;
 const BLESSING_INVENTORY_SOURCE: u64 = 0x5355_1001;
+const FORMATION_INVENTORY_SOURCE: u64 = 0x5355_1002;
 
 /// Validated caller-owned inputs for one Standard Universe run.
 ///
@@ -155,6 +160,10 @@ impl StandardUniverseProfile {
             BlessingRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidBlessingRuntime)?,
         );
+        let path_runtime = Arc::new(
+            PathRuntimeCatalog::compile(&self.catalog)
+                .map_err(|_| StandardUniverseCompileError::InvalidPathRuntime)?,
+        );
         let path_options = self
             .catalog
             .paths()
@@ -184,6 +193,7 @@ impl StandardUniverseProfile {
             let compiled = crate::topology::compile(
                 &self.catalog,
                 blessing_runtime.as_ref(),
+                path_runtime.as_ref(),
                 identity,
                 state.clone(),
                 Arc::clone(&participants),
@@ -194,6 +204,8 @@ impl StandardUniverseProfile {
                 slot(ENCOUNTER_MEMBER_SLOT),
                 inventory(BLESSING_INVENTORY),
                 slot(BLESSING_REROLL_SLOT),
+                slot(PATH_BLESSING_COUNT_SLOT),
+                inventory(FORMATION_INVENTORY),
             )
             .map_err(StandardUniverseCompileError::Topology)?;
             let _ = self.topology_template.set(compiled.clone());
@@ -215,6 +227,7 @@ impl StandardUniverseProfile {
             encounter_options: topology.encounter_options,
             encounter_overlay: entry.encounter_overlay,
             blessing_runtime,
+            path_runtime,
         })
     }
 }
@@ -239,6 +252,7 @@ pub struct CompiledActivity {
     encounter_options: Arc<[crate::topology::EncounterOptionBinding]>,
     encounter_overlay: Option<Arc<UniverseEncounterOverlay>>,
     blessing_runtime: Arc<BlessingRuntimeCatalog>,
+    path_runtime: Arc<PathRuntimeCatalog>,
 }
 
 impl CompiledActivity {
@@ -313,6 +327,11 @@ impl CompiledActivity {
         &self.blessing_runtime
     }
 
+    #[must_use]
+    pub const fn path_runtime(&self) -> &Arc<PathRuntimeCatalog> {
+        &self.path_runtime
+    }
+
     pub fn start(
         &self,
         instance: ActivityInstanceId,
@@ -331,11 +350,18 @@ impl CompiledActivity {
     > {
         crate::runtime::start(
             GraphActivity::start(Arc::clone(&self.runtime), instance, master_seed),
-            Arc::clone(&self.participants),
-            Arc::clone(&self.encounter_options),
-            self.encounter_overlay.clone(),
-            Arc::clone(&self.blessing_runtime),
-            self.blessing_inventory(),
+            self.encounter_overlay.as_ref().map(|overlay| {
+                crate::runtime::StandardUniverseRuntimeContext {
+                    participants: Arc::clone(&self.participants),
+                    encounter_options: Arc::clone(&self.encounter_options),
+                    overlay: Arc::clone(overlay),
+                    blessing_runtime: Arc::clone(&self.blessing_runtime),
+                    path_runtime: Arc::clone(&self.path_runtime),
+                    blessing_inventory: self.blessing_inventory(),
+                    formation_inventory: self.formation_inventory(),
+                    selected_path_slot: self.selected_path_slot(),
+                }
+            }),
         )
     }
 
@@ -385,8 +411,18 @@ impl CompiledActivity {
     }
 
     #[must_use]
+    pub const fn path_blessing_count_slot(&self) -> ActivitySlotId {
+        slot(PATH_BLESSING_COUNT_SLOT)
+    }
+
+    #[must_use]
     pub const fn blessing_inventory(&self) -> ActivityInventoryId {
         inventory(BLESSING_INVENTORY)
+    }
+
+    #[must_use]
+    pub const fn formation_inventory(&self) -> ActivityInventoryId {
+        inventory(FORMATION_INVENTORY)
     }
 }
 
@@ -511,6 +547,14 @@ fn compile_state(
             BLESSING_REROLL_SOURCE,
             ActivityStateVisibility::Private,
         )?,
+        counter_slot(
+            PATH_BLESSING_COUNT_SLOT,
+            9,
+            0,
+            18,
+            PATH_BLESSING_COUNT_SOURCE,
+            ActivityStateVisibility::Player,
+        )?,
     ];
     let inventories = vec![
         ActivityInventoryDefinition::new(
@@ -521,6 +565,17 @@ fn compile_state(
             SlotCarryPolicy::CarryExact,
             ActivityStateVisibility::Player,
             ActivityStateSource::new(BLESSING_INVENTORY_SOURCE)
+                .expect("static inventory source is non-zero"),
+        )
+        .map_err(|_| StandardUniverseCompileError::InvalidActivityState)?,
+        ActivityInventoryDefinition::new(
+            inventory(FORMATION_INVENTORY),
+            ActivityScope::Activity,
+            27,
+            1,
+            SlotCarryPolicy::CarryExact,
+            ActivityStateVisibility::Player,
+            ActivityStateSource::new(FORMATION_INVENTORY_SOURCE)
                 .expect("static inventory source is non-zero"),
         )
         .map_err(|_| StandardUniverseCompileError::InvalidActivityState)?,
@@ -551,6 +606,28 @@ fn activity_slot(
     .map_err(|_| StandardUniverseCompileError::InvalidActivityState)
 }
 
+fn counter_slot(
+    id: u32,
+    maximum_entries: u32,
+    minimum: i64,
+    maximum: i64,
+    source: u64,
+    visibility: ActivityStateVisibility,
+) -> Result<ActivitySlotDefinition, StandardUniverseCompileError> {
+    ActivitySlotDefinition::new_with_policy(
+        slot(id),
+        ActivityScope::Activity,
+        ActivityValue::BoundedCounterMap(Box::new([])),
+        Some((minimum, maximum)),
+        Some(maximum_entries),
+        vec![SlotResetPoint::ActivityStart],
+        SlotCarryPolicy::CarryExact,
+        visibility,
+        ActivityStateSource::new(source).expect("static state source is non-zero"),
+    )
+    .map_err(|_| StandardUniverseCompileError::InvalidActivityState)
+}
+
 fn compile_identity(
     catalog: &UniverseCatalog,
     world: WorldId,
@@ -564,6 +641,7 @@ fn compile_identity(
     let mut encoder = Encoder::new(b"starclock-standard-universe-entry-definition-v1");
     encoder.text(STANDARD_UNIVERSE_ENTRY_REVISION);
     encoder.text(crate::blessing_runtime::BLESSING_RUNTIME_REVISION);
+    encoder.text(crate::path_runtime::PATH_RUNTIME_REVISION);
     encoder.digest(catalog_identity.configuration_digest().bytes());
     encoder.digest(catalog_identity.definitions_digest().bytes());
     encoder.digest(catalog_identity.path_definitions_digest().bytes());
@@ -628,6 +706,7 @@ pub enum StandardUniverseCompileError {
     InvalidActivityState,
     InvalidCatalogIdentity,
     InvalidBlessingRuntime,
+    InvalidPathRuntime,
     EncounterOverlayParticipantMismatch,
     Topology(crate::topology::UniverseTopologyCompileError),
 }

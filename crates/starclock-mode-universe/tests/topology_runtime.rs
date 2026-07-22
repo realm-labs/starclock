@@ -85,19 +85,19 @@ fn all_topologies_compile_to_bounded_spatial_free_hubs() {
     let runtime = compiled.runtime_definition();
     assert_eq!(compiled.topology_candidates().len(), 37);
     assert_eq!(compiled.domain_hubs().len(), 579);
-    assert_eq!(runtime.graph().nodes().len(), 3_479);
-    assert_eq!(runtime.graph().edges().len(), 5_414);
-    assert_eq!(runtime.graph().maximum_total_visits(), 3_479);
+    assert_eq!(runtime.graph().nodes().len(), 4_058);
+    assert_eq!(runtime.graph().edges().len(), 5_993);
+    assert_eq!(runtime.graph().maximum_total_visits(), 4_058);
     assert_eq!(
         runtime.graph().digest().bytes(),
         [
-            106, 235, 111, 49, 213, 241, 90, 197, 2, 246, 34, 39, 226, 187, 115, 66, 203, 25, 176,
-            181, 211, 225, 196, 222, 17, 234, 196, 160, 16, 155, 188, 233,
+            96, 21, 91, 6, 105, 23, 51, 207, 2, 243, 46, 212, 163, 101, 9, 200, 156, 70, 75, 2,
+            194, 194, 82, 70, 139, 159, 186, 92, 203, 137, 174, 88,
         ]
     );
     assert_eq!(
         STANDARD_UNIVERSE_TOPOLOGY_REVISION,
-        "standard-universe-topology-v2"
+        "standard-universe-topology-v3"
     );
 
     for hub in compiled.domain_hubs() {
@@ -127,8 +127,8 @@ fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state(
     assert_eq!(
         view.state_hash().bytes(),
         [
-            114, 211, 29, 64, 94, 86, 153, 171, 95, 60, 34, 3, 109, 249, 118, 0, 124, 145, 35, 146,
-            156, 52, 4, 238, 154, 54, 79, 195, 24, 185, 65, 166,
+            231, 54, 109, 108, 166, 173, 98, 76, 180, 107, 45, 92, 141, 140, 99, 154, 50, 49, 92,
+            162, 226, 111, 175, 93, 247, 159, 206, 177, 145, 180, 174, 40,
         ]
     );
     let decision = view.decision().expect("Path choice");
@@ -199,6 +199,7 @@ fn room_content_and_reward_nodes_gate_routes_without_spatial_state() {
                     after.decision().expect("reward").options()[0].id(),
                 )
                 .expect("claim post-content reward");
+            choose_first(&mut activity);
             let routes = activity.player_view();
             assert_eq!(routes.current_node(), hub.route_node());
             assert_eq!(

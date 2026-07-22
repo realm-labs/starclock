@@ -5,15 +5,17 @@ use std::sync::Arc;
 use starclock_activity::{
     ActivityBattleHandoff, ActivityDecisionId, ActivityInventoryId, ActivityOptionId,
     ActivityPlayerView, ActivityPreparationBoundary, ActivityPreparationView, ActivityRosterLock,
-    ActivityScopePath, ActivityStateHash, AttemptId, BattleResult, BattleSequence, GraphActivity,
-    GraphActivityBattleError, GraphActivityBattleResolution, GraphActivityCommandError,
-    GraphActivityEncounterError, GraphActivityPreparationResolution, GraphActivityResolution,
-    GraphActivityStartError, ParticipantLock,
+    ActivityScopePath, ActivitySlotId, ActivityStateHash, ActivityValue, AttemptId, BattleResult,
+    BattleSequence, GraphActivity, GraphActivityBattleError, GraphActivityBattleResolution,
+    GraphActivityCommandError, GraphActivityEncounterError, GraphActivityPreparationResolution,
+    GraphActivityResolution, GraphActivityStartError, ParticipantLock,
 };
 
 use crate::{
     battle_overlay::UniverseEncounterOverlay,
     blessing_runtime::{BlessingContributionSet, BlessingRuntimeCatalog, BlessingRuntimeError},
+    id::{PathId, ResonanceId},
+    path_runtime::{PathContributionSet, PathRuntimeCatalog, PathRuntimeError},
     topology::EncounterOptionBinding,
 };
 
@@ -23,25 +25,35 @@ pub struct StandardUniverseActivity {
     encounter_options: Arc<[EncounterOptionBinding]>,
     overlay: Arc<UniverseEncounterOverlay>,
     blessing_runtime: Arc<BlessingRuntimeCatalog>,
+    path_runtime: Arc<PathRuntimeCatalog>,
     blessing_inventory: ActivityInventoryId,
+    formation_inventory: ActivityInventoryId,
+    selected_path_slot: ActivitySlotId,
+}
+
+pub(crate) struct StandardUniverseRuntimeContext {
+    pub(crate) participants: Arc<ParticipantLock>,
+    pub(crate) encounter_options: Arc<[EncounterOptionBinding]>,
+    pub(crate) overlay: Arc<UniverseEncounterOverlay>,
+    pub(crate) blessing_runtime: Arc<BlessingRuntimeCatalog>,
+    pub(crate) path_runtime: Arc<PathRuntimeCatalog>,
+    pub(crate) blessing_inventory: ActivityInventoryId,
+    pub(crate) formation_inventory: ActivityInventoryId,
+    pub(crate) selected_path_slot: ActivitySlotId,
 }
 
 impl StandardUniverseActivity {
-    pub(crate) fn new(
-        graph: GraphActivity,
-        participants: Arc<ParticipantLock>,
-        encounter_options: Arc<[EncounterOptionBinding]>,
-        overlay: Arc<UniverseEncounterOverlay>,
-        blessing_runtime: Arc<BlessingRuntimeCatalog>,
-        blessing_inventory: ActivityInventoryId,
-    ) -> Self {
+    pub(crate) fn new(graph: GraphActivity, context: StandardUniverseRuntimeContext) -> Self {
         Self {
             graph,
-            participants,
-            encounter_options,
-            overlay,
-            blessing_runtime,
-            blessing_inventory,
+            participants: context.participants,
+            encounter_options: context.encounter_options,
+            overlay: context.overlay,
+            blessing_runtime: context.blessing_runtime,
+            path_runtime: context.path_runtime,
+            blessing_inventory: context.blessing_inventory,
+            formation_inventory: context.formation_inventory,
+            selected_path_slot: context.selected_path_slot,
         }
     }
 
@@ -66,6 +78,51 @@ impl StandardUniverseActivity {
             .find(|inventory| inventory.id() == self.blessing_inventory)
             .expect("compiled Standard Universe state contains Blessing inventory");
         self.blessing_runtime.contributions(inventory)
+    }
+
+    pub fn path_contributions(
+        &self,
+    ) -> Result<PathContributionSet, StandardUniversePathContributionError> {
+        let view = self.graph.player_view();
+        let selected = view
+            .slots()
+            .iter()
+            .find(|slot| slot.id() == self.selected_path_slot)
+            .and_then(|slot| match slot.value() {
+                ActivityValue::OptionalId(Some(raw)) => u32::try_from(*raw).ok(),
+                _ => None,
+            })
+            .and_then(PathId::new)
+            .ok_or(StandardUniversePathContributionError::PathNotSelected)?;
+        let blessing_inventory = view
+            .inventories()
+            .iter()
+            .find(|inventory| inventory.id() == self.blessing_inventory)
+            .ok_or(StandardUniversePathContributionError::MissingInventory)?;
+        let formation_inventory = view
+            .inventories()
+            .iter()
+            .find(|inventory| inventory.id() == self.formation_inventory)
+            .ok_or(StandardUniversePathContributionError::MissingInventory)?;
+        let blessings = self
+            .blessing_runtime
+            .contributions(blessing_inventory)
+            .map_err(StandardUniversePathContributionError::Blessing)?;
+        let formations = formation_inventory
+            .entries()
+            .iter()
+            .map(|(raw, stacks)| {
+                let raw = u32::try_from(*raw)
+                    .map_err(|_| StandardUniversePathContributionError::UnknownFormation(*raw))?;
+                let id = ResonanceId::new(raw).ok_or(
+                    StandardUniversePathContributionError::UnknownFormation(u64::from(raw)),
+                )?;
+                Ok((id, *stacks))
+            })
+            .collect::<Result<Vec<_>, StandardUniversePathContributionError>>()?;
+        self.path_runtime
+            .contributions(selected, &blessings, &formations)
+            .map_err(StandardUniversePathContributionError::Path)
     }
 
     pub fn reroll_blessing_offer(
@@ -190,21 +247,10 @@ pub struct StandardUniverseStartResolution {
 impl StandardUniverseStartResolution {
     pub(crate) fn new(
         resolution: GraphActivityResolution,
-        participants: Arc<ParticipantLock>,
-        encounter_options: Arc<[EncounterOptionBinding]>,
-        overlay: Arc<UniverseEncounterOverlay>,
-        blessing_runtime: Arc<BlessingRuntimeCatalog>,
-        blessing_inventory: ActivityInventoryId,
+        context: StandardUniverseRuntimeContext,
     ) -> Self {
         let events = resolution.events().to_vec().into_boxed_slice();
-        let activity = StandardUniverseActivity::new(
-            resolution.into_activity(),
-            participants,
-            encounter_options,
-            overlay,
-            blessing_runtime,
-            blessing_inventory,
-        );
+        let activity = StandardUniverseActivity::new(resolution.into_activity(), context);
         Self { activity, events }
     }
     #[must_use]
@@ -242,22 +288,20 @@ pub enum StandardUniverseBattleStartError {
     Activity(starclock_activity::ActivityBattleSettlementError),
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum StandardUniversePathContributionError {
+    PathNotSelected,
+    MissingInventory,
+    UnknownFormation(u64),
+    Blessing(BlessingRuntimeError),
+    Path(PathRuntimeError),
+}
+
 pub(crate) fn start(
     resolution: Result<GraphActivityResolution, GraphActivityStartError>,
-    participants: Arc<ParticipantLock>,
-    encounter_options: Arc<[EncounterOptionBinding]>,
-    overlay: Option<Arc<UniverseEncounterOverlay>>,
-    blessing_runtime: Arc<BlessingRuntimeCatalog>,
-    blessing_inventory: ActivityInventoryId,
+    context: Option<StandardUniverseRuntimeContext>,
 ) -> Result<StandardUniverseStartResolution, StandardUniverseStartError> {
-    let overlay = overlay.ok_or(StandardUniverseStartError::MissingEncounterOverlay)?;
+    let context = context.ok_or(StandardUniverseStartError::MissingEncounterOverlay)?;
     let resolution = resolution.map_err(StandardUniverseStartError::Activity)?;
-    Ok(StandardUniverseStartResolution::new(
-        resolution,
-        participants,
-        encounter_options,
-        overlay,
-        blessing_runtime,
-        blessing_inventory,
-    ))
+    Ok(StandardUniverseStartResolution::new(resolution, context))
 }

@@ -310,8 +310,26 @@ impl BlessingRuntimeCatalog {
         &self,
         inventory: &ActivityInventoryView,
     ) -> Result<BlessingContributionSet, BlessingRuntimeError> {
-        let mut entries = Vec::with_capacity(inventory.entries().len());
-        for (raw, stacks) in inventory.entries() {
+        self.contributions_from_raw(inventory.entries())
+    }
+
+    pub fn contributions_from_owned(
+        &self,
+        entries: &[(BlessingId, u32)],
+    ) -> Result<BlessingContributionSet, BlessingRuntimeError> {
+        let raw = entries
+            .iter()
+            .map(|(id, stacks)| (u64::from(id.get()), *stacks))
+            .collect::<Vec<_>>();
+        self.contributions_from_raw(&raw)
+    }
+
+    fn contributions_from_raw(
+        &self,
+        inventory: &[(u64, u32)],
+    ) -> Result<BlessingContributionSet, BlessingRuntimeError> {
+        let mut entries = Vec::with_capacity(inventory.len());
+        for (raw, stacks) in inventory {
             let raw = u32::try_from(*raw)
                 .map_err(|_| BlessingRuntimeError::UnknownInventoryEntry(*raw))?;
             let id = BlessingId::new(raw)

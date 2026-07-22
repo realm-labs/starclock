@@ -184,7 +184,7 @@ approximation and must be replaced by a new policy revision if authoritative
 weights become available.
 
 Each source topology node compiles to a spatial-free domain micrograph with
-room-resolution, content, encounter-member, battle, reward and route nodes. A room is
+room-resolution, content, encounter-member, battle, reward, Formation-gate and route nodes. A room is
 eligible when its section list is empty, contains `0`, or contains the source
 node's section index. Room selection is stable-uniform because the released
 snapshot contains no authoritative room weights. The room's exact primary
@@ -223,6 +223,25 @@ land, no document or coverage report may claim that all Blessing effects run in
 battle. Ordinary reward candidates currently use the explicit stable-uniform
 policy because exact released rarity/Path-biased probabilities are not proven;
 P4-M01 owns replacement of that policy when evidence is available.
+
+The selected Path contributes its stable Path identity, buff classification and
+unlock policy as a typed passive source. A bounded counter map tracks unique
+owned Blessings per Path. Three selected-Path Blessings expose the active
+Resonance contribution; six, ten and fourteen expose one Formation choice each.
+Every reward crosses a generic Formation-gate node. When no threshold is due it
+offers one deterministic continue command; when due it offers only the unowned
+Formations for the selected Path. The accepted choice writes a one-stack entry
+to the Activity-owned 27-entry Formation inventory.
+
+The active Resonance contribution retains its rule key, released stage-ability
+binding, mechanic tags, exact parameter vector, initial energy and maximum
+energy. Its engine-independent resource state uses checked signed 64-bit values
+at six decimal places, clamps gains to the authored maximum, becomes actionable
+only at the maximum and consumes exactly that maximum on activation. P4-M02–M10
+compile the nine Path-specific effects, and P4-M01 attaches the resulting
+generic rule/action contributions to each immutable `BattleSpec`; until then,
+availability and contribution compilation must not be described as effect
+execution.
 
 The activity terminates with a typed completion, defeat, abandonment or fault.
 Account rewards, weekly points, achievements and inventory payout remain

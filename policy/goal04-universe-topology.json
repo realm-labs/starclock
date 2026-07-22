@@ -2,13 +2,13 @@
   "schema_revision": "starclock.goal04-universe-topology.v1",
   "goal_id": "standard-universe-runtime-v1",
   "batch": "G04-P3-B2",
-  "topology_revision": "standard-universe-topology-v2",
+  "topology_revision": "standard-universe-topology-v3",
   "counts": {
     "topology_candidates": 37,
     "source_nodes": 579,
     "source_edges": 707,
-    "activity_nodes": 3479,
-    "activity_edges": 5414,
+    "activity_nodes": 4058,
+    "activity_edges": 5993,
     "domain_hubs": 579,
     "path_options": 9
   },
@@ -16,21 +16,21 @@
     "topology_selection": "StableUniformOrderedCandidates",
     "topology_rng_stream": "Graph",
     "room_eligibility": "EmptyOrZeroOrExactSourceSection",
-    "micrograph_nodes_per_hub": 6,
+    "micrograph_nodes_per_hub": 7,
     "interaction_consumption": "PostContentRewardBoundedCounterMap0To1",
     "exit_gate": "PostContentRewardClaimed",
     "spatial_coordinates_authoritative": false
   },
   "goldens": {
-    "graph_sha256": "6aeb6f31d5f15ac502f62227e2bb7342cb19b0b5d3e1c4de11eac4a0109bbce9",
-    "seed7_initial_state_sha256": "72d31d405e5699ab5f3c22036df976007c9123929c3404ee9a364fc318b941a6"
+    "graph_sha256": "60155b06691733cf02f32ed4a36509c89c464b02c2c252468b9fba5ccb89ae58",
+    "seed7_initial_state_sha256": "e7366d6ca6ad624cb46b2d5c8d8c639a32315ca2e26faf5df79fceb191b4ae28"
   },
   "focused_tests": 5,
   "scope": {
     "room_draw_resolved": true,
     "encounter_slots_resolved": true,
     "complete_world_claim": false,
-    "owner": "G04-P3-B4-landed"
+    "owner": "G04-P3-B5-landed"
   },
   "new_registry_packages": []
 }

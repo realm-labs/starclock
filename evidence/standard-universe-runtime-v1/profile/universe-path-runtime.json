@@ -1,0 +1,71 @@
+{
+  "schema_revision": "starclock.goal04-universe-path-runtime-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P3-B5",
+  "result": "path-passive-resonance-energy-action-and-formation-selection-runtime-is-deterministic",
+  "counts": {
+    "paths": 9,
+    "resonances": 9,
+    "formations": 27,
+    "formation_thresholds": 3,
+    "reward_gates": 579,
+    "formation_inventory_entries": 27
+  },
+  "policies": {
+    "path_passive": "TypedSelectedPathBuffAndUnlockContribution",
+    "resonance_unlock": "ThreeOwnedSelectedPathBlessings",
+    "formation_selection_thresholds": [
+      6,
+      10,
+      14
+    ],
+    "formation_selection": "GenericActivityChoiceAndInventory",
+    "energy_numeric": "CheckedSigned64SixDecimal",
+    "energy_gain": "CheckedClampToMaximum",
+    "action_availability": "EnergyAtMaximum",
+    "action_cost": "ExactMaximumEnergy",
+    "battle_projection": "TypedRuleKeySourceBindingExactParameters"
+  },
+  "goldens": {
+    "runtime_catalog_sha256": "95bde336de4d1e57fc5d5f54366babb5a94c48d4b8d4d80fce0954e311b3fdd8",
+    "representative_complete_contribution_sha256": "3c17e1952b3f6bb7666221a033d1da4e09c675ad24c60d8084914bab8d7a5fb5",
+    "entry_definition_sha256": "2e56abe6efe7bdb2fafc4a91c69cc43f5cdf2178374784e378475dff7f2ef84b",
+    "activity_graph_sha256": "60155b06691733cf02f32ed4a36509c89c464b02c2c252468b9fba5ccb89ae58"
+  },
+  "deferred_scope": {
+    "all_path_effects_executable": false,
+    "effect_partition_owners": [
+      "G04-P4-M02",
+      "G04-P4-M03",
+      "G04-P4-M04",
+      "G04-P4-M05",
+      "G04-P4-M06",
+      "G04-P4-M07",
+      "G04-P4-M08",
+      "G04-P4-M09",
+      "G04-P4-M10"
+    ],
+    "battle_spec_contribution_materialization": false,
+    "battle_materialization_owner": "G04-P4-M01",
+    "complete_world_claim": false
+  },
+  "compatibility": {
+    "generated_rows_public": false,
+    "mutable_mode_engine_added": false,
+    "formation_selection_uses_activity_apply": true,
+    "authoritative_float": false,
+    "scattered_path_id_branching": false
+  },
+  "source_sha256": {
+    "crates/starclock-mode-universe/src/path_runtime.rs": "518b203a4dbd6d099e8b4573fb30f021ee6bc8ef0e7f8584796eea59840d2c9a",
+    "crates/starclock-mode-universe/src/topology.rs": "75e93dcb5507d8161fd63b97b8fefb4a6180b2c7f29ee7bd51dda8a4e3ac5994",
+    "crates/starclock-mode-universe/src/entry.rs": "e3f990627747f107c206434f75299aa5ce98ee5c26cded53ac55fb5219f6e85e",
+    "crates/starclock-mode-universe/src/runtime.rs": "9d32d541baa3cf3d62218dafaf7484a1481db052b53bae9ef5f5e69b841dffb2",
+    "crates/starclock-mode-universe/tests/path_runtime.rs": "f30adc07ae40c8ad43aab88e1d506c661243d62c68368f0b0079621da687bc56",
+    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "4f30165b22061ab389c564cb636ac32f91b479faa0478a17238a476cd04a7c50",
+    "crates/starclock-mode-universe/tests/entry_compilation.rs": "3d57ca727ee9c7ab395eee67d9992c77854de50ade1f2260e58efd8ddd036748",
+    "crates/starclock-mode-universe/tests/topology_runtime.rs": "d7d7c6cbb3b652def6bf906b5e23311ad5d970eeb8e08f3bbd3de8898b39532b"
+  },
+  "focused_tests": 3,
+  "new_registry_packages": []
+}

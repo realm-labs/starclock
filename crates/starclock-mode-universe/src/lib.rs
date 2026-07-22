@@ -21,6 +21,7 @@ pub mod error;
 pub mod id;
 pub mod occurrence;
 pub mod path;
+pub mod path_runtime;
 pub mod progression;
 pub mod rule;
 pub mod runtime;

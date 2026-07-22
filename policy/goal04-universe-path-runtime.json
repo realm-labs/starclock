@@ -1,0 +1,39 @@
+{
+  "schema_revision": "starclock.goal04-universe-path-runtime.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P3-B5",
+  "counts": {
+    "paths": 9,
+    "resonances": 9,
+    "formations": 27,
+    "formation_thresholds": 3,
+    "reward_gates": 579,
+    "formation_inventory_entries": 27
+  },
+  "policies": {
+    "path_passive": "TypedSelectedPathBuffAndUnlockContribution",
+    "resonance_unlock": "ThreeOwnedSelectedPathBlessings",
+    "formation_selection_thresholds": [6, 10, 14],
+    "formation_selection": "GenericActivityChoiceAndInventory",
+    "energy_numeric": "CheckedSigned64SixDecimal",
+    "energy_gain": "CheckedClampToMaximum",
+    "action_availability": "EnergyAtMaximum",
+    "action_cost": "ExactMaximumEnergy",
+    "battle_projection": "TypedRuleKeySourceBindingExactParameters"
+  },
+  "goldens": {
+    "runtime_catalog_sha256": "95bde336de4d1e57fc5d5f54366babb5a94c48d4b8d4d80fce0954e311b3fdd8",
+    "representative_complete_contribution_sha256": "3c17e1952b3f6bb7666221a033d1da4e09c675ad24c60d8084914bab8d7a5fb5",
+    "entry_definition_sha256": "2e56abe6efe7bdb2fafc4a91c69cc43f5cdf2178374784e378475dff7f2ef84b",
+    "activity_graph_sha256": "60155b06691733cf02f32ed4a36509c89c464b02c2c252468b9fba5ccb89ae58"
+  },
+  "scope": {
+    "all_path_effects_executable": false,
+    "effect_partition_owners": ["G04-P4-M02", "G04-P4-M03", "G04-P4-M04", "G04-P4-M05", "G04-P4-M06", "G04-P4-M07", "G04-P4-M08", "G04-P4-M09", "G04-P4-M10"],
+    "battle_spec_contribution_materialization": false,
+    "battle_materialization_owner": "G04-P4-M01",
+    "complete_world_claim": false
+  },
+  "focused_tests": 3,
+  "new_registry_packages": []
+}
