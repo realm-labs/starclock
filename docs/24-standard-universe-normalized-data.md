@@ -19,7 +19,8 @@ Definitions are separate from mutable variants:
   states;
 - one Occurrence owns base-mode variants and a choice graph;
 - one encounter pool references weighted groups, while groups reference
-  concrete enemy variants and waves;
+  released stages with concrete Goal 01 enemy variants and waves; elite/boss
+  room entries may defer composition to the selected World-difficulty binding;
 - Path Resonance and each Resonance Formation are independent rule sources.
 
 Ability Tree rows reverse released successor edges into explicit

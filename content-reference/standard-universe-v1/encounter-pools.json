@@ -1,0 +1,3897 @@
+[
+  {
+    "id": "universe.encounter-pool.room.100",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 100",
+    "name_zh_cn": "房间100遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.0"
+    ],
+    "source_ids": [
+      "100",
+      "8000101"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.100",
+    "map_entrance": "8000101",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "3",
+        "group_id": "universe.encounter-group.1001",
+        "weight": "1"
+      },
+      {
+        "condition_key": "4",
+        "group_id": "universe.encounter-group.1002",
+        "weight": "1"
+      },
+      {
+        "condition_key": "5",
+        "group_id": "universe.encounter-group.1003",
+        "weight": "1"
+      },
+      {
+        "condition_key": "11",
+        "group_id": "universe.encounter-group.1004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "12",
+        "group_id": "universe.encounter-group.1005",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "10",
+        "source_content_id": "1006"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "10"
+  },
+  {
+    "id": "universe.encounter-pool.room.201",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 201",
+    "name_zh_cn": "房间201遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.1"
+    ],
+    "source_ids": [
+      "201",
+      "8000102"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.201",
+    "map_entrance": "8000102",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "3",
+        "group_id": "universe.encounter-group.2001",
+        "weight": "1"
+      },
+      {
+        "condition_key": "4",
+        "group_id": "universe.encounter-group.2002",
+        "weight": "1"
+      },
+      {
+        "condition_key": "19",
+        "group_id": "universe.encounter-group.2003",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "19"
+  },
+  {
+    "id": "universe.encounter-pool.room.202",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 202",
+    "name_zh_cn": "房间202遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.2"
+    ],
+    "source_ids": [
+      "202",
+      "8000102"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.202",
+    "map_entrance": "8000102",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "6",
+        "group_id": "universe.encounter-group.2004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "7",
+        "group_id": "universe.encounter-group.2005",
+        "weight": "1"
+      },
+      {
+        "condition_key": "18",
+        "group_id": "universe.encounter-group.2006",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "18"
+  },
+  {
+    "id": "universe.encounter-pool.room.203",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 203",
+    "name_zh_cn": "房间203遭遇池",
+    "summary_en": "Room-scoped boss encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级boss遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.3"
+    ],
+    "source_ids": [
+      "203",
+      "8000102"
+    ],
+    "note": "",
+    "domain_kind": "boss",
+    "room_id": "universe.room.203",
+    "map_entrance": "8000102",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [],
+    "fixed_content_entries": [
+      {
+        "condition_key": "29",
+        "source_content_id": "2007"
+      }
+    ],
+    "selection_policy": "ResolveWorldDifficultyBossEliteBinding",
+    "source_primary_condition_key": "29"
+  },
+  {
+    "id": "universe.encounter-pool.room.301",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 301",
+    "name_zh_cn": "房间301遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.4"
+    ],
+    "source_ids": [
+      "301",
+      "8000102"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.301",
+    "map_entrance": "8000102",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "31",
+        "group_id": "universe.encounter-group.3004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "32",
+        "group_id": "universe.encounter-group.3001",
+        "weight": "1"
+      },
+      {
+        "condition_key": "33",
+        "group_id": "universe.encounter-group.3002",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "31"
+  },
+  {
+    "id": "universe.encounter-pool.room.302",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 302",
+    "name_zh_cn": "房间302遭遇池",
+    "summary_en": "Room-scoped elite encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级elite遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.5"
+    ],
+    "source_ids": [
+      "302",
+      "8000102"
+    ],
+    "note": "",
+    "domain_kind": "elite",
+    "room_id": "universe.room.302",
+    "map_entrance": "8000102",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "35",
+        "group_id": "universe.encounter-group.11001",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "35"
+  },
+  {
+    "id": "universe.encounter-pool.room.304",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 304",
+    "name_zh_cn": "房间304遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.7"
+    ],
+    "source_ids": [
+      "304",
+      "8000103"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.304",
+    "map_entrance": "8000103",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "18",
+        "group_id": "universe.encounter-group.3023",
+        "weight": "1"
+      },
+      {
+        "condition_key": "19",
+        "group_id": "universe.encounter-group.3021",
+        "weight": "1"
+      },
+      {
+        "condition_key": "20",
+        "group_id": "universe.encounter-group.3022",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "18"
+  },
+  {
+    "id": "universe.encounter-pool.room.307",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 307",
+    "name_zh_cn": "房间307遭遇池",
+    "summary_en": "Room-scoped boss encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级boss遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.10"
+    ],
+    "source_ids": [
+      "307",
+      "8000103"
+    ],
+    "note": "",
+    "domain_kind": "boss",
+    "room_id": "universe.room.307",
+    "map_entrance": "8000103",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "23",
+        "group_id": "universe.encounter-group.11901",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "23"
+  },
+  {
+    "id": "universe.encounter-pool.room.501",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 501",
+    "name_zh_cn": "房间501遭遇池",
+    "summary_en": "Room-scoped elite encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级elite遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.11"
+    ],
+    "source_ids": [
+      "501",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "elite",
+    "room_id": "universe.room.501",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "99",
+        "group_id": "universe.encounter-group.13001",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "99"
+  },
+  {
+    "id": "universe.encounter-pool.room.200111",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200111",
+    "name_zh_cn": "房间200111遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.12"
+    ],
+    "source_ids": [
+      "200111",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.200111",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "57",
+        "group_id": "universe.encounter-group.3004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "58",
+        "group_id": "universe.encounter-group.3002",
+        "weight": "1"
+      },
+      {
+        "condition_key": "59",
+        "group_id": "universe.encounter-group.3001",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "57"
+  },
+  {
+    "id": "universe.encounter-pool.room.200112",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200112",
+    "name_zh_cn": "房间200112遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.25"
+    ],
+    "source_ids": [
+      "200112",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.200112",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "57",
+        "group_id": "universe.encounter-group.3010",
+        "weight": "1"
+      },
+      {
+        "condition_key": "58",
+        "group_id": "universe.encounter-group.3008",
+        "weight": "1"
+      },
+      {
+        "condition_key": "59",
+        "group_id": "universe.encounter-group.3007",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "57"
+  },
+  {
+    "id": "universe.encounter-pool.room.200121",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200121",
+    "name_zh_cn": "房间200121遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.13"
+    ],
+    "source_ids": [
+      "200121",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.200121",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "61",
+        "group_id": "universe.encounter-group.3004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "62",
+        "group_id": "universe.encounter-group.3002",
+        "weight": "1"
+      },
+      {
+        "condition_key": "63",
+        "group_id": "universe.encounter-group.3001",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "61"
+  },
+  {
+    "id": "universe.encounter-pool.room.200122",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200122",
+    "name_zh_cn": "房间200122遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.26"
+    ],
+    "source_ids": [
+      "200122",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.200122",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "61",
+        "group_id": "universe.encounter-group.3010",
+        "weight": "1"
+      },
+      {
+        "condition_key": "62",
+        "group_id": "universe.encounter-group.3008",
+        "weight": "1"
+      },
+      {
+        "condition_key": "63",
+        "group_id": "universe.encounter-group.3007",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "61"
+  },
+  {
+    "id": "universe.encounter-pool.room.200131",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200131",
+    "name_zh_cn": "房间200131遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.14"
+    ],
+    "source_ids": [
+      "200131",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.200131",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "65",
+        "group_id": "universe.encounter-group.3004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "66",
+        "group_id": "universe.encounter-group.3001",
+        "weight": "1"
+      },
+      {
+        "condition_key": "67",
+        "group_id": "universe.encounter-group.3002",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "65"
+  },
+  {
+    "id": "universe.encounter-pool.room.200132",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200132",
+    "name_zh_cn": "房间200132遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.27"
+    ],
+    "source_ids": [
+      "200132",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.200132",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "65",
+        "group_id": "universe.encounter-group.3010",
+        "weight": "1"
+      },
+      {
+        "condition_key": "66",
+        "group_id": "universe.encounter-group.3007",
+        "weight": "1"
+      },
+      {
+        "condition_key": "67",
+        "group_id": "universe.encounter-group.3008",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "65"
+  },
+  {
+    "id": "universe.encounter-pool.room.200141",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200141",
+    "name_zh_cn": "房间200141遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.15"
+    ],
+    "source_ids": [
+      "200141",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.200141",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "85",
+        "group_id": "universe.encounter-group.3004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "86",
+        "group_id": "universe.encounter-group.3001",
+        "weight": "1"
+      },
+      {
+        "condition_key": "87",
+        "group_id": "universe.encounter-group.3002",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "85"
+  },
+  {
+    "id": "universe.encounter-pool.room.200142",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200142",
+    "name_zh_cn": "房间200142遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.28"
+    ],
+    "source_ids": [
+      "200142",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.200142",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "85",
+        "group_id": "universe.encounter-group.3010",
+        "weight": "1"
+      },
+      {
+        "condition_key": "86",
+        "group_id": "universe.encounter-group.3007",
+        "weight": "1"
+      },
+      {
+        "condition_key": "87",
+        "group_id": "universe.encounter-group.3008",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "85"
+  },
+  {
+    "id": "universe.encounter-pool.room.200152",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200152",
+    "name_zh_cn": "房间200152遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.29"
+    ],
+    "source_ids": [
+      "200152",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.200152",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "94",
+        "group_id": "universe.encounter-group.3010",
+        "weight": "1"
+      },
+      {
+        "condition_key": "95",
+        "group_id": "universe.encounter-group.3008",
+        "weight": "1"
+      },
+      {
+        "condition_key": "96",
+        "group_id": "universe.encounter-group.3007",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "98",
+        "source_content_id": "3"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "94"
+  },
+  {
+    "id": "universe.encounter-pool.room.200211",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200211",
+    "name_zh_cn": "房间200211遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.16"
+    ],
+    "source_ids": [
+      "200211",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.200211",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "68",
+        "group_id": "universe.encounter-group.3005",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "68"
+  },
+  {
+    "id": "universe.encounter-pool.room.200212",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200212",
+    "name_zh_cn": "房间200212遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.30"
+    ],
+    "source_ids": [
+      "200212",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.200212",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "68",
+        "group_id": "universe.encounter-group.3011",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "68"
+  },
+  {
+    "id": "universe.encounter-pool.room.200213",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200213",
+    "name_zh_cn": "房间200213遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.42"
+    ],
+    "source_ids": [
+      "200213",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.200213",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "68",
+        "group_id": "universe.encounter-group.3014",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "68"
+  },
+  {
+    "id": "universe.encounter-pool.room.200221",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200221",
+    "name_zh_cn": "房间200221遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.17"
+    ],
+    "source_ids": [
+      "200221",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.200221",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "69",
+        "group_id": "universe.encounter-group.3005",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "69"
+  },
+  {
+    "id": "universe.encounter-pool.room.200222",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200222",
+    "name_zh_cn": "房间200222遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.31"
+    ],
+    "source_ids": [
+      "200222",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.200222",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "69",
+        "group_id": "universe.encounter-group.3011",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "69"
+  },
+  {
+    "id": "universe.encounter-pool.room.200223",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200223",
+    "name_zh_cn": "房间200223遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.43"
+    ],
+    "source_ids": [
+      "200223",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.200223",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "69",
+        "group_id": "universe.encounter-group.3014",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "69"
+  },
+  {
+    "id": "universe.encounter-pool.room.200231",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200231",
+    "name_zh_cn": "房间200231遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.18"
+    ],
+    "source_ids": [
+      "200231",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.200231",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "88",
+        "group_id": "universe.encounter-group.3006",
+        "weight": "1"
+      },
+      {
+        "condition_key": "89",
+        "group_id": "universe.encounter-group.3003",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "88"
+  },
+  {
+    "id": "universe.encounter-pool.room.200232",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200232",
+    "name_zh_cn": "房间200232遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.32"
+    ],
+    "source_ids": [
+      "200232",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.200232",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "88",
+        "group_id": "universe.encounter-group.3012",
+        "weight": "1"
+      },
+      {
+        "condition_key": "89",
+        "group_id": "universe.encounter-group.3009",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "88"
+  },
+  {
+    "id": "universe.encounter-pool.room.200233",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200233",
+    "name_zh_cn": "房间200233遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.44"
+    ],
+    "source_ids": [
+      "200233",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.200233",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "88",
+        "group_id": "universe.encounter-group.3015",
+        "weight": "1"
+      },
+      {
+        "condition_key": "89",
+        "group_id": "universe.encounter-group.3013",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "88"
+  },
+  {
+    "id": "universe.encounter-pool.room.200241",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200241",
+    "name_zh_cn": "房间200241遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.19"
+    ],
+    "source_ids": [
+      "200241",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.200241",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "90",
+        "group_id": "universe.encounter-group.3006",
+        "weight": "1"
+      },
+      {
+        "condition_key": "91",
+        "group_id": "universe.encounter-group.3003",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "90"
+  },
+  {
+    "id": "universe.encounter-pool.room.200242",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200242",
+    "name_zh_cn": "房间200242遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.33"
+    ],
+    "source_ids": [
+      "200242",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.200242",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "90",
+        "group_id": "universe.encounter-group.3012",
+        "weight": "1"
+      },
+      {
+        "condition_key": "91",
+        "group_id": "universe.encounter-group.3009",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "90"
+  },
+  {
+    "id": "universe.encounter-pool.room.200243",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200243",
+    "name_zh_cn": "房间200243遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.45"
+    ],
+    "source_ids": [
+      "200243",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.200243",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "90",
+        "group_id": "universe.encounter-group.3015",
+        "weight": "1"
+      },
+      {
+        "condition_key": "91",
+        "group_id": "universe.encounter-group.3013",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "90"
+  },
+  {
+    "id": "universe.encounter-pool.room.200611",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200611",
+    "name_zh_cn": "房间200611遭遇池",
+    "summary_en": "Room-scoped elite encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级elite遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.24"
+    ],
+    "source_ids": [
+      "200611",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "elite",
+    "room_id": "universe.room.200611",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "80",
+        "group_id": "universe.encounter-group.13001",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "80"
+  },
+  {
+    "id": "universe.encounter-pool.room.200612",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200612",
+    "name_zh_cn": "房间200612遭遇池",
+    "summary_en": "Room-scoped elite encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级elite遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.41"
+    ],
+    "source_ids": [
+      "200612",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "elite",
+    "room_id": "universe.room.200612",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "80",
+        "group_id": "universe.encounter-group.13001",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "80"
+  },
+  {
+    "id": "universe.encounter-pool.room.200713",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 200713",
+    "name_zh_cn": "房间200713遭遇池",
+    "summary_en": "Room-scoped boss encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级boss遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.56"
+    ],
+    "source_ids": [
+      "200713",
+      "8100201"
+    ],
+    "note": "",
+    "domain_kind": "boss",
+    "room_id": "universe.room.200713",
+    "map_entrance": "8100201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "93",
+        "group_id": "universe.encounter-group.13901",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "93"
+  },
+  {
+    "id": "universe.encounter-pool.room.300111",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300111",
+    "name_zh_cn": "房间300111遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.57"
+    ],
+    "source_ids": [
+      "300111",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.300111",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "64",
+        "group_id": "universe.encounter-group.3004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "65",
+        "group_id": "universe.encounter-group.3002",
+        "weight": "1"
+      },
+      {
+        "condition_key": "66",
+        "group_id": "universe.encounter-group.3001",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "64"
+  },
+  {
+    "id": "universe.encounter-pool.room.300112",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300112",
+    "name_zh_cn": "房间300112遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.70"
+    ],
+    "source_ids": [
+      "300112",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.300112",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "64",
+        "group_id": "universe.encounter-group.3010",
+        "weight": "1"
+      },
+      {
+        "condition_key": "65",
+        "group_id": "universe.encounter-group.3008",
+        "weight": "1"
+      },
+      {
+        "condition_key": "66",
+        "group_id": "universe.encounter-group.3007",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "64"
+  },
+  {
+    "id": "universe.encounter-pool.room.300121",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300121",
+    "name_zh_cn": "房间300121遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.58"
+    ],
+    "source_ids": [
+      "300121",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.300121",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "67",
+        "group_id": "universe.encounter-group.3004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "68",
+        "group_id": "universe.encounter-group.3002",
+        "weight": "1"
+      },
+      {
+        "condition_key": "69",
+        "group_id": "universe.encounter-group.3001",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "67"
+  },
+  {
+    "id": "universe.encounter-pool.room.300122",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300122",
+    "name_zh_cn": "房间300122遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.71"
+    ],
+    "source_ids": [
+      "300122",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.300122",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "67",
+        "group_id": "universe.encounter-group.3010",
+        "weight": "1"
+      },
+      {
+        "condition_key": "68",
+        "group_id": "universe.encounter-group.3008",
+        "weight": "1"
+      },
+      {
+        "condition_key": "69",
+        "group_id": "universe.encounter-group.3007",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "67"
+  },
+  {
+    "id": "universe.encounter-pool.room.300131",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300131",
+    "name_zh_cn": "房间300131遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.59"
+    ],
+    "source_ids": [
+      "300131",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.300131",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "70",
+        "group_id": "universe.encounter-group.3004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "71",
+        "group_id": "universe.encounter-group.3001",
+        "weight": "1"
+      },
+      {
+        "condition_key": "72",
+        "group_id": "universe.encounter-group.3002",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "70"
+  },
+  {
+    "id": "universe.encounter-pool.room.300132",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300132",
+    "name_zh_cn": "房间300132遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.72"
+    ],
+    "source_ids": [
+      "300132",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.300132",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "70",
+        "group_id": "universe.encounter-group.3010",
+        "weight": "1"
+      },
+      {
+        "condition_key": "71",
+        "group_id": "universe.encounter-group.3007",
+        "weight": "1"
+      },
+      {
+        "condition_key": "72",
+        "group_id": "universe.encounter-group.3008",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "70"
+  },
+  {
+    "id": "universe.encounter-pool.room.300141",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300141",
+    "name_zh_cn": "房间300141遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.60"
+    ],
+    "source_ids": [
+      "300141",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.300141",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "85",
+        "group_id": "universe.encounter-group.3004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "86",
+        "group_id": "universe.encounter-group.3001",
+        "weight": "1"
+      },
+      {
+        "condition_key": "87",
+        "group_id": "universe.encounter-group.3002",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "85"
+  },
+  {
+    "id": "universe.encounter-pool.room.300142",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300142",
+    "name_zh_cn": "房间300142遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.73"
+    ],
+    "source_ids": [
+      "300142",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.300142",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "85",
+        "group_id": "universe.encounter-group.3010",
+        "weight": "1"
+      },
+      {
+        "condition_key": "86",
+        "group_id": "universe.encounter-group.3007",
+        "weight": "1"
+      },
+      {
+        "condition_key": "87",
+        "group_id": "universe.encounter-group.3008",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "85"
+  },
+  {
+    "id": "universe.encounter-pool.room.300152",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300152",
+    "name_zh_cn": "房间300152遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.74"
+    ],
+    "source_ids": [
+      "300152",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.300152",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "95",
+        "group_id": "universe.encounter-group.3010",
+        "weight": "1"
+      },
+      {
+        "condition_key": "96",
+        "group_id": "universe.encounter-group.3008",
+        "weight": "1"
+      },
+      {
+        "condition_key": "97",
+        "group_id": "universe.encounter-group.3007",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "99",
+        "source_content_id": "3"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "95"
+  },
+  {
+    "id": "universe.encounter-pool.room.300211",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300211",
+    "name_zh_cn": "房间300211遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.61"
+    ],
+    "source_ids": [
+      "300211",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.300211",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "73",
+        "group_id": "universe.encounter-group.3005",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "73"
+  },
+  {
+    "id": "universe.encounter-pool.room.300212",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300212",
+    "name_zh_cn": "房间300212遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.75"
+    ],
+    "source_ids": [
+      "300212",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.300212",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "73",
+        "group_id": "universe.encounter-group.3011",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "73"
+  },
+  {
+    "id": "universe.encounter-pool.room.300213",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300213",
+    "name_zh_cn": "房间300213遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.87"
+    ],
+    "source_ids": [
+      "300213",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.300213",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "73",
+        "group_id": "universe.encounter-group.3014",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "73"
+  },
+  {
+    "id": "universe.encounter-pool.room.300221",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300221",
+    "name_zh_cn": "房间300221遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.62"
+    ],
+    "source_ids": [
+      "300221",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.300221",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "74",
+        "group_id": "universe.encounter-group.3005",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "74"
+  },
+  {
+    "id": "universe.encounter-pool.room.300222",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300222",
+    "name_zh_cn": "房间300222遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.76"
+    ],
+    "source_ids": [
+      "300222",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.300222",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "74",
+        "group_id": "universe.encounter-group.3011",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "74"
+  },
+  {
+    "id": "universe.encounter-pool.room.300223",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300223",
+    "name_zh_cn": "房间300223遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.88"
+    ],
+    "source_ids": [
+      "300223",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.300223",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "74",
+        "group_id": "universe.encounter-group.3014",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "74"
+  },
+  {
+    "id": "universe.encounter-pool.room.300231",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300231",
+    "name_zh_cn": "房间300231遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.63"
+    ],
+    "source_ids": [
+      "300231",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.300231",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "88",
+        "group_id": "universe.encounter-group.3006",
+        "weight": "1"
+      },
+      {
+        "condition_key": "89",
+        "group_id": "universe.encounter-group.3003",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "88"
+  },
+  {
+    "id": "universe.encounter-pool.room.300232",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300232",
+    "name_zh_cn": "房间300232遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.77"
+    ],
+    "source_ids": [
+      "300232",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.300232",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "88",
+        "group_id": "universe.encounter-group.3012",
+        "weight": "1"
+      },
+      {
+        "condition_key": "89",
+        "group_id": "universe.encounter-group.3009",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "88"
+  },
+  {
+    "id": "universe.encounter-pool.room.300233",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300233",
+    "name_zh_cn": "房间300233遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.89"
+    ],
+    "source_ids": [
+      "300233",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.300233",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "88",
+        "group_id": "universe.encounter-group.3015",
+        "weight": "1"
+      },
+      {
+        "condition_key": "89",
+        "group_id": "universe.encounter-group.3013",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "88"
+  },
+  {
+    "id": "universe.encounter-pool.room.300241",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300241",
+    "name_zh_cn": "房间300241遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.64"
+    ],
+    "source_ids": [
+      "300241",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.300241",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "90",
+        "group_id": "universe.encounter-group.3006",
+        "weight": "1"
+      },
+      {
+        "condition_key": "91",
+        "group_id": "universe.encounter-group.3003",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "90"
+  },
+  {
+    "id": "universe.encounter-pool.room.300242",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300242",
+    "name_zh_cn": "房间300242遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.78"
+    ],
+    "source_ids": [
+      "300242",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.300242",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "90",
+        "group_id": "universe.encounter-group.3012",
+        "weight": "1"
+      },
+      {
+        "condition_key": "91",
+        "group_id": "universe.encounter-group.3009",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "90"
+  },
+  {
+    "id": "universe.encounter-pool.room.300243",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300243",
+    "name_zh_cn": "房间300243遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.90"
+    ],
+    "source_ids": [
+      "300243",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.300243",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "90",
+        "group_id": "universe.encounter-group.3015",
+        "weight": "1"
+      },
+      {
+        "condition_key": "91",
+        "group_id": "universe.encounter-group.3013",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "90"
+  },
+  {
+    "id": "universe.encounter-pool.room.300611",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300611",
+    "name_zh_cn": "房间300611遭遇池",
+    "summary_en": "Room-scoped elite encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级elite遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.69"
+    ],
+    "source_ids": [
+      "300611",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "elite",
+    "room_id": "universe.room.300611",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "94",
+        "group_id": "universe.encounter-group.13001",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "94"
+  },
+  {
+    "id": "universe.encounter-pool.room.300612",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300612",
+    "name_zh_cn": "房间300612遭遇池",
+    "summary_en": "Room-scoped elite encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级elite遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.86"
+    ],
+    "source_ids": [
+      "300612",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "elite",
+    "room_id": "universe.room.300612",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "94",
+        "group_id": "universe.encounter-group.13001",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "94"
+  },
+  {
+    "id": "universe.encounter-pool.room.300713",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 300713",
+    "name_zh_cn": "房间300713遭遇池",
+    "summary_en": "Room-scoped boss encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级boss遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.101"
+    ],
+    "source_ids": [
+      "300713",
+      "8100301"
+    ],
+    "note": "",
+    "domain_kind": "boss",
+    "room_id": "universe.room.300713",
+    "map_entrance": "8100301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "92",
+        "group_id": "universe.encounter-group.13901",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "92"
+  },
+  {
+    "id": "universe.encounter-pool.room.400111",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400111",
+    "name_zh_cn": "房间400111遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.525"
+    ],
+    "source_ids": [
+      "400111",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.400111",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "76",
+        "group_id": "universe.encounter-group.9004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "77",
+        "group_id": "universe.encounter-group.9001",
+        "weight": "1"
+      },
+      {
+        "condition_key": "78",
+        "group_id": "universe.encounter-group.9002",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "74",
+        "source_content_id": "33"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "74"
+  },
+  {
+    "id": "universe.encounter-pool.room.400112",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400112",
+    "name_zh_cn": "房间400112遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.536"
+    ],
+    "source_ids": [
+      "400112",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.400112",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "76",
+        "group_id": "universe.encounter-group.9010",
+        "weight": "1"
+      },
+      {
+        "condition_key": "77",
+        "group_id": "universe.encounter-group.9007",
+        "weight": "1"
+      },
+      {
+        "condition_key": "78",
+        "group_id": "universe.encounter-group.9008",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "74",
+        "source_content_id": "31"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "74"
+  },
+  {
+    "id": "universe.encounter-pool.room.400121",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400121",
+    "name_zh_cn": "房间400121遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.526"
+    ],
+    "source_ids": [
+      "400121",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.400121",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "82",
+        "group_id": "universe.encounter-group.9004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "83",
+        "group_id": "universe.encounter-group.9001",
+        "weight": "1"
+      },
+      {
+        "condition_key": "84",
+        "group_id": "universe.encounter-group.9002",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "80",
+        "source_content_id": "33"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "80"
+  },
+  {
+    "id": "universe.encounter-pool.room.400122",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400122",
+    "name_zh_cn": "房间400122遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.537"
+    ],
+    "source_ids": [
+      "400122",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.400122",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "82",
+        "group_id": "universe.encounter-group.9010",
+        "weight": "1"
+      },
+      {
+        "condition_key": "83",
+        "group_id": "universe.encounter-group.9007",
+        "weight": "1"
+      },
+      {
+        "condition_key": "84",
+        "group_id": "universe.encounter-group.9008",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "80",
+        "source_content_id": "31"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "80"
+  },
+  {
+    "id": "universe.encounter-pool.room.400131",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400131",
+    "name_zh_cn": "房间400131遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.527"
+    ],
+    "source_ids": [
+      "400131",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.400131",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "88",
+        "group_id": "universe.encounter-group.9004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "89",
+        "group_id": "universe.encounter-group.9001",
+        "weight": "1"
+      },
+      {
+        "condition_key": "90",
+        "group_id": "universe.encounter-group.9002",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "86",
+        "source_content_id": "33"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "86"
+  },
+  {
+    "id": "universe.encounter-pool.room.400132",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400132",
+    "name_zh_cn": "房间400132遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.538"
+    ],
+    "source_ids": [
+      "400132",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.400132",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "88",
+        "group_id": "universe.encounter-group.9010",
+        "weight": "1"
+      },
+      {
+        "condition_key": "89",
+        "group_id": "universe.encounter-group.9007",
+        "weight": "1"
+      },
+      {
+        "condition_key": "90",
+        "group_id": "universe.encounter-group.9008",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "86",
+        "source_content_id": "31"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "86"
+  },
+  {
+    "id": "universe.encounter-pool.room.400142",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400142",
+    "name_zh_cn": "房间400142遭遇池",
+    "summary_en": "Room-scoped combat-primary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-primary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.539"
+    ],
+    "source_ids": [
+      "400142",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "combat-primary",
+    "room_id": "universe.room.400142",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "88",
+        "group_id": "universe.encounter-group.9010",
+        "weight": "1"
+      },
+      {
+        "condition_key": "89",
+        "group_id": "universe.encounter-group.9007",
+        "weight": "1"
+      },
+      {
+        "condition_key": "90",
+        "group_id": "universe.encounter-group.9008",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "86",
+        "source_content_id": "31"
+      },
+      {
+        "condition_key": "87",
+        "source_content_id": "3"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "86"
+  },
+  {
+    "id": "universe.encounter-pool.room.400211",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400211",
+    "name_zh_cn": "房间400211遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.528"
+    ],
+    "source_ids": [
+      "400211",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.400211",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "19",
+        "group_id": "universe.encounter-group.9003",
+        "weight": "1"
+      },
+      {
+        "condition_key": "66",
+        "group_id": "universe.encounter-group.9006",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "15",
+        "source_content_id": "32"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "15"
+  },
+  {
+    "id": "universe.encounter-pool.room.400212",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400212",
+    "name_zh_cn": "房间400212遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.540"
+    ],
+    "source_ids": [
+      "400212",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.400212",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "27",
+        "group_id": "universe.encounter-group.9009",
+        "weight": "1"
+      },
+      {
+        "condition_key": "65",
+        "group_id": "universe.encounter-group.9012",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "23",
+        "source_content_id": "32"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "23"
+  },
+  {
+    "id": "universe.encounter-pool.room.400221",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400221",
+    "name_zh_cn": "房间400221遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.529"
+    ],
+    "source_ids": [
+      "400221",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.400221",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "17",
+        "group_id": "universe.encounter-group.9005",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "15",
+        "source_content_id": "32"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "15"
+  },
+  {
+    "id": "universe.encounter-pool.room.400222",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400222",
+    "name_zh_cn": "房间400222遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.541"
+    ],
+    "source_ids": [
+      "400222",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.400222",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "33",
+        "group_id": "universe.encounter-group.9011",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "31",
+        "source_content_id": "32"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "31"
+  },
+  {
+    "id": "universe.encounter-pool.room.400231",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400231",
+    "name_zh_cn": "房间400231遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.530"
+    ],
+    "source_ids": [
+      "400231",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.400231",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "25",
+        "group_id": "universe.encounter-group.9003",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "23",
+        "source_content_id": "32"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "23"
+  },
+  {
+    "id": "universe.encounter-pool.room.400232",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400232",
+    "name_zh_cn": "房间400232遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.542"
+    ],
+    "source_ids": [
+      "400232",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.400232",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "41",
+        "group_id": "universe.encounter-group.9011",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "39",
+        "source_content_id": "32"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "39"
+  },
+  {
+    "id": "universe.encounter-pool.room.400611",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400611",
+    "name_zh_cn": "房间400611遭遇池",
+    "summary_en": "Room-scoped elite encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级elite遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.535"
+    ],
+    "source_ids": [
+      "400611",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "elite",
+    "room_id": "universe.room.400611",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "8",
+        "group_id": "universe.encounter-group.19001",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "7"
+  },
+  {
+    "id": "universe.encounter-pool.room.400612",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 400612",
+    "name_zh_cn": "房间400612遭遇池",
+    "summary_en": "Room-scoped elite encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级elite遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.550"
+    ],
+    "source_ids": [
+      "400612",
+      "8100401"
+    ],
+    "note": "",
+    "domain_kind": "elite",
+    "room_id": "universe.room.400612",
+    "map_entrance": "8100401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "8",
+        "group_id": "universe.encounter-group.19002",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "7"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000001",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000001",
+    "name_zh_cn": "房间1000001遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.669"
+    ],
+    "source_ids": [
+      "1000001",
+      "8030101"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.1000001",
+    "map_entrance": "8030101",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "43",
+        "group_id": "universe.encounter-group.101001",
+        "weight": "1"
+      },
+      {
+        "condition_key": "44",
+        "group_id": "universe.encounter-group.101002",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "42",
+        "source_content_id": "101401"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "42"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000002",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000002",
+    "name_zh_cn": "房间1000002遭遇池",
+    "summary_en": "Room-scoped boss encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级boss遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.670"
+    ],
+    "source_ids": [
+      "1000002",
+      "8030101"
+    ],
+    "note": "",
+    "domain_kind": "boss",
+    "room_id": "universe.room.1000002",
+    "map_entrance": "8030101",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "32",
+        "group_id": "universe.encounter-group.101102",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "30"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000003",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000003",
+    "name_zh_cn": "房间1000003遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.671"
+    ],
+    "source_ids": [
+      "1000003",
+      "8030101"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.1000003",
+    "map_entrance": "8030101",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "89",
+        "group_id": "universe.encounter-group.101003",
+        "weight": "1"
+      },
+      {
+        "condition_key": "90",
+        "group_id": "universe.encounter-group.101004",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "87",
+        "source_content_id": "101402"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "87"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000004",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000004",
+    "name_zh_cn": "房间1000004遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.672"
+    ],
+    "source_ids": [
+      "1000004",
+      "8030101"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.1000004",
+    "map_entrance": "8030101",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "47",
+        "group_id": "universe.encounter-group.101005",
+        "weight": "1"
+      },
+      {
+        "condition_key": "48",
+        "group_id": "universe.encounter-group.101006",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "46",
+        "source_content_id": "101402"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "46"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000005",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000005",
+    "name_zh_cn": "房间1000005遭遇池",
+    "summary_en": "Room-scoped elite encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级elite遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.673"
+    ],
+    "source_ids": [
+      "1000005",
+      "8030101"
+    ],
+    "note": "",
+    "domain_kind": "elite",
+    "room_id": "universe.room.1000005",
+    "map_entrance": "8030101",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "56",
+        "group_id": "universe.encounter-group.101101",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "54",
+        "source_content_id": "101402"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "54"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000014",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000014",
+    "name_zh_cn": "房间1000014遭遇池",
+    "summary_en": "Room-scoped boss encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级boss遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.682"
+    ],
+    "source_ids": [
+      "1000014",
+      "8030301"
+    ],
+    "note": "",
+    "domain_kind": "boss",
+    "room_id": "universe.room.1000014",
+    "map_entrance": "8030301",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "66",
+        "group_id": "universe.encounter-group.102102",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "65"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000015",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000015",
+    "name_zh_cn": "房间1000015遭遇池",
+    "summary_en": "Room-scoped boss encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级boss遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.683"
+    ],
+    "source_ids": [
+      "1000015",
+      "8030501"
+    ],
+    "note": "",
+    "domain_kind": "boss",
+    "room_id": "universe.room.1000015",
+    "map_entrance": "8030501",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "79",
+        "group_id": "universe.encounter-group.103102",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "78"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000017",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000017",
+    "name_zh_cn": "房间1000017遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.685"
+    ],
+    "source_ids": [
+      "1000017",
+      "8030501"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.1000017",
+    "map_entrance": "8030501",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "85",
+        "group_id": "universe.encounter-group.103001",
+        "weight": "1"
+      },
+      {
+        "condition_key": "86",
+        "group_id": "universe.encounter-group.103002",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "84",
+        "source_content_id": "12"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "84"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000018",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000018",
+    "name_zh_cn": "房间1000018遭遇池",
+    "summary_en": "Room-scoped elite encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级elite遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.686"
+    ],
+    "source_ids": [
+      "1000018",
+      "8030501"
+    ],
+    "note": "",
+    "domain_kind": "elite",
+    "room_id": "universe.room.1000018",
+    "map_entrance": "8030501",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "89",
+        "group_id": "universe.encounter-group.103101",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "88",
+        "source_content_id": "12"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "88"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000019",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000019",
+    "name_zh_cn": "房间1000019遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.687"
+    ],
+    "source_ids": [
+      "1000019",
+      "8030501"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.1000019",
+    "map_entrance": "8030501",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "92",
+        "group_id": "universe.encounter-group.103003",
+        "weight": "1"
+      },
+      {
+        "condition_key": "93",
+        "group_id": "universe.encounter-group.103004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "94",
+        "group_id": "universe.encounter-group.103005",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "91",
+        "source_content_id": "12"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "91"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000020",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000020",
+    "name_zh_cn": "房间1000020遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.688"
+    ],
+    "source_ids": [
+      "1000020",
+      "8030501"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.1000020",
+    "map_entrance": "8030501",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "97",
+        "group_id": "universe.encounter-group.103006",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "96",
+        "source_content_id": "12"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "96"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000022",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000022",
+    "name_zh_cn": "房间1000022遭遇池",
+    "summary_en": "Room-scoped boss encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级boss遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.690"
+    ],
+    "source_ids": [
+      "1000022",
+      "8030201"
+    ],
+    "note": "",
+    "domain_kind": "boss",
+    "room_id": "universe.room.1000022",
+    "map_entrance": "8030201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "69",
+        "group_id": "universe.encounter-group.104102",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [],
+    "selection_policy": "SelectExactConditionKeyThenWeightedStableOrder",
+    "source_primary_condition_key": "68"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000024",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000024",
+    "name_zh_cn": "房间1000024遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.692"
+    ],
+    "source_ids": [
+      "1000024",
+      "8030201"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.1000024",
+    "map_entrance": "8030201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "75",
+        "group_id": "universe.encounter-group.104003",
+        "weight": "1"
+      },
+      {
+        "condition_key": "76",
+        "group_id": "universe.encounter-group.104004",
+        "weight": "1"
+      },
+      {
+        "condition_key": "77",
+        "group_id": "universe.encounter-group.104005",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "74",
+        "source_content_id": "104401"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "74"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000025",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000025",
+    "name_zh_cn": "房间1000025遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.693"
+    ],
+    "source_ids": [
+      "1000025",
+      "8030201"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.1000025",
+    "map_entrance": "8030201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "80",
+        "group_id": "universe.encounter-group.104001",
+        "weight": "1"
+      },
+      {
+        "condition_key": "81",
+        "group_id": "universe.encounter-group.104002",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "79",
+        "source_content_id": "104401"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "79"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000026",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000026",
+    "name_zh_cn": "房间1000026遭遇池",
+    "summary_en": "Room-scoped elite encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级elite遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.694"
+    ],
+    "source_ids": [
+      "1000026",
+      "8030201"
+    ],
+    "note": "",
+    "domain_kind": "elite",
+    "room_id": "universe.room.1000026",
+    "map_entrance": "8030201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [],
+    "fixed_content_entries": [
+      {
+        "condition_key": "86",
+        "source_content_id": "104401"
+      },
+      {
+        "condition_key": "87",
+        "source_content_id": "104103"
+      }
+    ],
+    "selection_policy": "ResolveWorldDifficultyBossEliteBinding",
+    "source_primary_condition_key": "86"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000027",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000027",
+    "name_zh_cn": "房间1000027遭遇池",
+    "summary_en": "Room-scoped elite encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级elite遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.695"
+    ],
+    "source_ids": [
+      "1000027",
+      "8030201"
+    ],
+    "note": "",
+    "domain_kind": "elite",
+    "room_id": "universe.room.1000027",
+    "map_entrance": "8030201",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "90",
+        "group_id": "universe.encounter-group.104101",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "89",
+        "source_content_id": "104401"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "89"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000029",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000029",
+    "name_zh_cn": "房间1000029遭遇池",
+    "summary_en": "Room-scoped boss encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级boss遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.697"
+    ],
+    "source_ids": [
+      "1000029",
+      "8030401"
+    ],
+    "note": "",
+    "domain_kind": "boss",
+    "room_id": "universe.room.1000029",
+    "map_entrance": "8030401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [],
+    "fixed_content_entries": [
+      {
+        "condition_key": "96",
+        "source_content_id": "105102"
+      }
+    ],
+    "selection_policy": "ResolveWorldDifficultyBossEliteBinding",
+    "source_primary_condition_key": "95"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000031",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000031",
+    "name_zh_cn": "房间1000031遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.699"
+    ],
+    "source_ids": [
+      "1000031",
+      "8030401"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.1000031",
+    "map_entrance": "8030401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "102",
+        "group_id": "universe.encounter-group.105001",
+        "weight": "1"
+      },
+      {
+        "condition_key": "104",
+        "group_id": "universe.encounter-group.105002",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "101",
+        "source_content_id": "12"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "101"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000032",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000032",
+    "name_zh_cn": "房间1000032遭遇池",
+    "summary_en": "Room-scoped elite encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级elite遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.700"
+    ],
+    "source_ids": [
+      "1000032",
+      "8030401"
+    ],
+    "note": "",
+    "domain_kind": "elite",
+    "room_id": "universe.room.1000032",
+    "map_entrance": "8030401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [],
+    "fixed_content_entries": [
+      {
+        "condition_key": "106",
+        "source_content_id": "12"
+      },
+      {
+        "condition_key": "107",
+        "source_content_id": "105101"
+      }
+    ],
+    "selection_policy": "ResolveWorldDifficultyBossEliteBinding",
+    "source_primary_condition_key": "106"
+  },
+  {
+    "id": "universe.encounter-pool.room.1000033",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Encounter Pool for Room 1000033",
+    "name_zh_cn": "房间1000033遭遇池",
+    "summary_en": "Room-scoped combat-secondary encounter selection retaining exact source condition keys.",
+    "summary_zh_cn": "房间级combat-secondary遭遇选择，保留精确的源条件键。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueroom-json.701"
+    ],
+    "source_ids": [
+      "1000033",
+      "8030401"
+    ],
+    "note": "",
+    "domain_kind": "combat-secondary",
+    "room_id": "universe.room.1000033",
+    "map_entrance": "8030401",
+    "world_ids": [],
+    "difficulty_ids": [],
+    "weighted_group_ids": [
+      {
+        "condition_key": "110",
+        "group_id": "universe.encounter-group.105004",
+        "weight": "1"
+      }
+    ],
+    "fixed_content_entries": [
+      {
+        "condition_key": "109",
+        "source_content_id": "12"
+      }
+    ],
+    "selection_policy": "SelectConditionKeyThenResolveGroupOrDifficultyBinding",
+    "source_primary_condition_key": "109"
+  }
+]

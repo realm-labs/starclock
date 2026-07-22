@@ -90,7 +90,7 @@ export async function topology(ctx) {
       }),
       kind,
       decision_policy: [3, 4, 5, 8, 9].includes(entry.row.RogueRoomType) ? "ExternalCommand" : "BattleHandoff",
-      battle_kind: [1, 2, 4, 6, 7].includes(entry.row.RogueRoomType) ? kind : "",
+      battle_kind: [1, 2, 6, 7].includes(entry.row.RogueRoomType) ? kind : "",
       service_id: entry.row.RogueRoomType === 5 ? "universe.service.respite" : entry.row.RogueRoomType === 8 ? "universe.service.transaction" : "",
       terminal: entry.row.RogueRoomType === 7,
     };

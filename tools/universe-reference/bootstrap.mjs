@@ -8,6 +8,7 @@ import { curios } from "./lib/curios.mjs";
 import { occurrences } from "./lib/occurrences.mjs";
 import { services } from "./lib/services.mjs";
 import { abilityTree } from "./lib/ability-tree.mjs";
+import { encounters } from "./lib/encounters.mjs";
 
 const args = process.argv.slice(2);
 const check = args.includes("--check");
@@ -20,6 +21,7 @@ for (const [name, value] of await curios(ctx)) outputs.set(name, value);
 for (const [name, value] of await occurrences(ctx)) outputs.set(name, value);
 for (const [name, value] of await services(ctx)) outputs.set(name, value);
 for (const [name, value] of await abilityTree(ctx)) outputs.set(name, value);
+for (const [name, value] of await encounters(ctx)) outputs.set(name, value);
 outputs.set("sources.json", [...ctx.evidence.values()].sort((left, right) => left.id.localeCompare(right.id)));
 await writeOrCheck(ctx, outputs, check);
 console.log(`Standard universe reference pack ${check ? "verified" : "generated"}: ${outputs.size} files, ${[...outputs.values()].reduce((sum, records) => sum + records.length, 0)} rows.`);

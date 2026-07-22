@@ -106,7 +106,7 @@ const baseNpcIds = new Set(
 );
 const npcById = new Map(npcs.map((entry) => [entry.row.RogueNPCID, entry]));
 
-const combatRoomTypes = new Set([1, 2, 4, 6, 7]);
+const combatRoomTypes = new Set([1, 2, 6, 7]);
 const monsterGroupById = new Map(monsterGroups.map((entry) => [entry.row.RogueMonsterGroupID, entry]));
 const reachableMonsterGroupIds = new Set(
   standardRooms
@@ -204,7 +204,7 @@ const categories = [
   ),
   category(
     "encounter_groups",
-    "RogueMonsterGroup rows directly referenced by the content map of base combat, encounter, elite or boss rooms.",
+    "RogueMonsterGroup rows directly referenced by the content map of Standard combat, elite or boss rooms; Occurrence/Encounter rooms remain external decisions.",
     [...reachableMonsterGroupIds].map((id) => item(monsterGroupById.get(id), id)),
   ),
   category(
