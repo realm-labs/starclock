@@ -196,6 +196,75 @@ pub mod trace_node_kind;
 pub mod trace_patch;
 pub mod trigger_phase;
 pub mod unit_event_point;
+pub mod universe_ability_effect_class;
+pub mod universe_ability_operation;
+pub mod universe_ability_tree_cost;
+pub mod universe_ability_tree_edge;
+pub mod universe_ability_tree_effect;
+pub mod universe_ability_tree_node;
+pub mod universe_ability_tree_parameter;
+pub mod universe_ability_value_unit;
+pub mod universe_activity_binding;
+pub mod universe_activity_decision;
+pub mod universe_activity_domain_binding;
+pub mod universe_blessing;
+pub mod universe_blessing_level;
+pub mod universe_blessing_parameter;
+pub mod universe_blessing_prerequisite;
+pub mod universe_boss_phase_policy;
+pub mod universe_content_audit;
+pub mod universe_content_pool;
+pub mod universe_content_pool_entry;
+pub mod universe_coverage;
+pub mod universe_coverage_state;
+pub mod universe_curio;
+pub mod universe_curio_parameter;
+pub mod universe_curio_state;
+pub mod universe_curio_state_kind;
+pub mod universe_data_quality;
+pub mod universe_decision_policy;
+pub mod universe_difficulty;
+pub mod universe_difficulty_enemy;
+pub mod universe_difficulty_kind;
+pub mod universe_domain;
+pub mod universe_domain_kind;
+pub mod universe_encounter_group;
+pub mod universe_encounter_member;
+pub mod universe_encounter_pool;
+pub mod universe_encounter_pool_fixed;
+pub mod universe_encounter_pool_group;
+pub mod universe_encounter_wave;
+pub mod universe_encounter_wave_enemy;
+pub mod universe_enemy_role;
+pub mod universe_map_edge;
+pub mod universe_map_node;
+pub mod universe_mechanic_rule;
+pub mod universe_mechanic_rule_kind;
+pub mod universe_mode_owner;
+pub mod universe_occurrence;
+pub mod universe_occurrence_choice;
+pub mod universe_occurrence_cost;
+pub mod universe_occurrence_outcome;
+pub mod universe_occurrence_variant;
+pub mod universe_pack_file;
+pub mod universe_path;
+pub mod universe_path_blessing;
+pub mod universe_pool_kind;
+pub mod universe_profile;
+pub mod universe_resonance;
+pub mod universe_resonance_kind;
+pub mod universe_resonance_parameter;
+pub mod universe_review_fixture;
+pub mod universe_room;
+pub mod universe_room_content;
+pub mod universe_room_content_kind;
+pub mod universe_selection_policy;
+pub mod universe_service;
+pub mod universe_service_kind;
+pub mod universe_service_parameter;
+pub mod universe_source_record;
+pub mod universe_wave_policy;
+pub mod universe_world;
 pub mod value_binary_operator;
 pub mod value_expression;
 pub mod value_expression_node;
@@ -206,7 +275,7 @@ pub mod wave_slot;
 pub mod wave_transition_policy;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "87a51f96716c32a8";
+pub const SCHEMA_FINGERPRINT: &str = "992cf65682ca0968";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -292,7 +361,7 @@ impl SoraConfig {
             )));
         }
         let mut tables: SoraMap<&'static str, Box<dyn ErasedSoraTable>> =
-            sora_map_with_capacity(82);
+            sora_map_with_capacity(131);
         tables.insert(
             source_record::SourceRecordTable::NAME,
             Box::new(source_record::SourceRecordTable::from_rows(
@@ -934,6 +1003,438 @@ impl SoraConfig {
                 )?,
             )?),
         );
+        tables.insert(
+            universe_profile::UniverseProfileTable::NAME,
+            Box::new(universe_profile::UniverseProfileTable::from_rows(
+                source.decode_table::<universe_profile::UniverseProfile>(
+                    universe_profile::UniverseProfileTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_world::UniverseWorldTable::NAME,
+            Box::new(universe_world::UniverseWorldTable::from_rows(
+                source.decode_table::<universe_world::UniverseWorld>(
+                    universe_world::UniverseWorldTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_difficulty::UniverseDifficultyTable::NAME,
+            Box::new(universe_difficulty::UniverseDifficultyTable::from_rows(
+                source.decode_table::<universe_difficulty::UniverseDifficulty>(
+                    universe_difficulty::UniverseDifficultyTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_difficulty_enemy::UniverseDifficultyEnemyTable::NAME,
+            Box::new(
+                universe_difficulty_enemy::UniverseDifficultyEnemyTable::from_rows(
+                    source.decode_table::<universe_difficulty_enemy::UniverseDifficultyEnemy>(
+                        universe_difficulty_enemy::UniverseDifficultyEnemyTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_domain::UniverseDomainTable::NAME,
+            Box::new(universe_domain::UniverseDomainTable::from_rows(
+                source.decode_table::<universe_domain::UniverseDomain>(
+                    universe_domain::UniverseDomainTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_map_node::UniverseMapNodeTable::NAME,
+            Box::new(universe_map_node::UniverseMapNodeTable::from_rows(
+                source.decode_table::<universe_map_node::UniverseMapNode>(
+                    universe_map_node::UniverseMapNodeTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_map_edge::UniverseMapEdgeTable::NAME,
+            Box::new(universe_map_edge::UniverseMapEdgeTable::from_rows(
+                source.decode_table::<universe_map_edge::UniverseMapEdge>(
+                    universe_map_edge::UniverseMapEdgeTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_room::UniverseRoomTable::NAME,
+            Box::new(universe_room::UniverseRoomTable::from_rows(
+                source.decode_table::<universe_room::UniverseRoom>(
+                    universe_room::UniverseRoomTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_room_content::UniverseRoomContentTable::NAME,
+            Box::new(universe_room_content::UniverseRoomContentTable::from_rows(
+                source.decode_table::<universe_room_content::UniverseRoomContent>(
+                    universe_room_content::UniverseRoomContentTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_path::UniversePathTable::NAME,
+            Box::new(universe_path::UniversePathTable::from_rows(
+                source.decode_table::<universe_path::UniversePath>(
+                    universe_path::UniversePathTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_path_blessing::UniversePathBlessingTable::NAME,
+            Box::new(
+                universe_path_blessing::UniversePathBlessingTable::from_rows(
+                    source.decode_table::<universe_path_blessing::UniversePathBlessing>(
+                        universe_path_blessing::UniversePathBlessingTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_resonance::UniverseResonanceTable::NAME,
+            Box::new(universe_resonance::UniverseResonanceTable::from_rows(
+                source.decode_table::<universe_resonance::UniverseResonance>(
+                    universe_resonance::UniverseResonanceTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_resonance_parameter::UniverseResonanceParameterTable::NAME,
+            Box::new(
+                universe_resonance_parameter::UniverseResonanceParameterTable::from_rows(
+                    source
+                        .decode_table::<universe_resonance_parameter::UniverseResonanceParameter>(
+                            universe_resonance_parameter::UniverseResonanceParameterTable::NAME,
+                        )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_blessing::UniverseBlessingTable::NAME,
+            Box::new(universe_blessing::UniverseBlessingTable::from_rows(
+                source.decode_table::<universe_blessing::UniverseBlessing>(
+                    universe_blessing::UniverseBlessingTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(universe_blessing_prerequisite::UniverseBlessingPrerequisiteTable::NAME, Box::new(universe_blessing_prerequisite::UniverseBlessingPrerequisiteTable::from_rows(source.decode_table::<universe_blessing_prerequisite::UniverseBlessingPrerequisite>(universe_blessing_prerequisite::UniverseBlessingPrerequisiteTable::NAME)?)?));
+        tables.insert(
+            universe_blessing_level::UniverseBlessingLevelTable::NAME,
+            Box::new(
+                universe_blessing_level::UniverseBlessingLevelTable::from_rows(
+                    source.decode_table::<universe_blessing_level::UniverseBlessingLevel>(
+                        universe_blessing_level::UniverseBlessingLevelTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_blessing_parameter::UniverseBlessingParameterTable::NAME,
+            Box::new(
+                universe_blessing_parameter::UniverseBlessingParameterTable::from_rows(
+                    source.decode_table::<universe_blessing_parameter::UniverseBlessingParameter>(
+                        universe_blessing_parameter::UniverseBlessingParameterTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_curio::UniverseCurioTable::NAME,
+            Box::new(universe_curio::UniverseCurioTable::from_rows(
+                source.decode_table::<universe_curio::UniverseCurio>(
+                    universe_curio::UniverseCurioTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_curio_state::UniverseCurioStateTable::NAME,
+            Box::new(universe_curio_state::UniverseCurioStateTable::from_rows(
+                source.decode_table::<universe_curio_state::UniverseCurioState>(
+                    universe_curio_state::UniverseCurioStateTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_curio_parameter::UniverseCurioParameterTable::NAME,
+            Box::new(
+                universe_curio_parameter::UniverseCurioParameterTable::from_rows(
+                    source.decode_table::<universe_curio_parameter::UniverseCurioParameter>(
+                        universe_curio_parameter::UniverseCurioParameterTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_occurrence::UniverseOccurrenceTable::NAME,
+            Box::new(universe_occurrence::UniverseOccurrenceTable::from_rows(
+                source.decode_table::<universe_occurrence::UniverseOccurrence>(
+                    universe_occurrence::UniverseOccurrenceTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_occurrence_variant::UniverseOccurrenceVariantTable::NAME,
+            Box::new(
+                universe_occurrence_variant::UniverseOccurrenceVariantTable::from_rows(
+                    source.decode_table::<universe_occurrence_variant::UniverseOccurrenceVariant>(
+                        universe_occurrence_variant::UniverseOccurrenceVariantTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_occurrence_choice::UniverseOccurrenceChoiceTable::NAME,
+            Box::new(
+                universe_occurrence_choice::UniverseOccurrenceChoiceTable::from_rows(
+                    source.decode_table::<universe_occurrence_choice::UniverseOccurrenceChoice>(
+                        universe_occurrence_choice::UniverseOccurrenceChoiceTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_occurrence_cost::UniverseOccurrenceCostTable::NAME,
+            Box::new(
+                universe_occurrence_cost::UniverseOccurrenceCostTable::from_rows(
+                    source.decode_table::<universe_occurrence_cost::UniverseOccurrenceCost>(
+                        universe_occurrence_cost::UniverseOccurrenceCostTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_occurrence_outcome::UniverseOccurrenceOutcomeTable::NAME,
+            Box::new(
+                universe_occurrence_outcome::UniverseOccurrenceOutcomeTable::from_rows(
+                    source.decode_table::<universe_occurrence_outcome::UniverseOccurrenceOutcome>(
+                        universe_occurrence_outcome::UniverseOccurrenceOutcomeTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_service::UniverseServiceTable::NAME,
+            Box::new(universe_service::UniverseServiceTable::from_rows(
+                source.decode_table::<universe_service::UniverseService>(
+                    universe_service::UniverseServiceTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_service_parameter::UniverseServiceParameterTable::NAME,
+            Box::new(
+                universe_service_parameter::UniverseServiceParameterTable::from_rows(
+                    source.decode_table::<universe_service_parameter::UniverseServiceParameter>(
+                        universe_service_parameter::UniverseServiceParameterTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_ability_tree_node::UniverseAbilityTreeNodeTable::NAME,
+            Box::new(
+                universe_ability_tree_node::UniverseAbilityTreeNodeTable::from_rows(
+                    source.decode_table::<universe_ability_tree_node::UniverseAbilityTreeNode>(
+                        universe_ability_tree_node::UniverseAbilityTreeNodeTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_ability_tree_edge::UniverseAbilityTreeEdgeTable::NAME,
+            Box::new(
+                universe_ability_tree_edge::UniverseAbilityTreeEdgeTable::from_rows(
+                    source.decode_table::<universe_ability_tree_edge::UniverseAbilityTreeEdge>(
+                        universe_ability_tree_edge::UniverseAbilityTreeEdgeTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_ability_tree_cost::UniverseAbilityTreeCostTable::NAME,
+            Box::new(
+                universe_ability_tree_cost::UniverseAbilityTreeCostTable::from_rows(
+                    source.decode_table::<universe_ability_tree_cost::UniverseAbilityTreeCost>(
+                        universe_ability_tree_cost::UniverseAbilityTreeCostTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_ability_tree_effect::UniverseAbilityTreeEffectTable::NAME,
+            Box::new(
+                universe_ability_tree_effect::UniverseAbilityTreeEffectTable::from_rows(
+                    source
+                        .decode_table::<universe_ability_tree_effect::UniverseAbilityTreeEffect>(
+                            universe_ability_tree_effect::UniverseAbilityTreeEffectTable::NAME,
+                        )?,
+                )?,
+            ),
+        );
+        tables.insert(universe_ability_tree_parameter::UniverseAbilityTreeParameterTable::NAME, Box::new(universe_ability_tree_parameter::UniverseAbilityTreeParameterTable::from_rows(source.decode_table::<universe_ability_tree_parameter::UniverseAbilityTreeParameter>(universe_ability_tree_parameter::UniverseAbilityTreeParameterTable::NAME)?)?));
+        tables.insert(
+            universe_content_pool::UniverseContentPoolTable::NAME,
+            Box::new(universe_content_pool::UniverseContentPoolTable::from_rows(
+                source.decode_table::<universe_content_pool::UniverseContentPool>(
+                    universe_content_pool::UniverseContentPoolTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_content_pool_entry::UniverseContentPoolEntryTable::NAME,
+            Box::new(
+                universe_content_pool_entry::UniverseContentPoolEntryTable::from_rows(
+                    source.decode_table::<universe_content_pool_entry::UniverseContentPoolEntry>(
+                        universe_content_pool_entry::UniverseContentPoolEntryTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_encounter_group::UniverseEncounterGroupTable::NAME,
+            Box::new(
+                universe_encounter_group::UniverseEncounterGroupTable::from_rows(
+                    source.decode_table::<universe_encounter_group::UniverseEncounterGroup>(
+                        universe_encounter_group::UniverseEncounterGroupTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_encounter_member::UniverseEncounterMemberTable::NAME,
+            Box::new(
+                universe_encounter_member::UniverseEncounterMemberTable::from_rows(
+                    source.decode_table::<universe_encounter_member::UniverseEncounterMember>(
+                        universe_encounter_member::UniverseEncounterMemberTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_encounter_wave::UniverseEncounterWaveTable::NAME,
+            Box::new(
+                universe_encounter_wave::UniverseEncounterWaveTable::from_rows(
+                    source.decode_table::<universe_encounter_wave::UniverseEncounterWave>(
+                        universe_encounter_wave::UniverseEncounterWaveTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_encounter_wave_enemy::UniverseEncounterWaveEnemyTable::NAME,
+            Box::new(
+                universe_encounter_wave_enemy::UniverseEncounterWaveEnemyTable::from_rows(
+                    source
+                        .decode_table::<universe_encounter_wave_enemy::UniverseEncounterWaveEnemy>(
+                            universe_encounter_wave_enemy::UniverseEncounterWaveEnemyTable::NAME,
+                        )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_encounter_pool::UniverseEncounterPoolTable::NAME,
+            Box::new(
+                universe_encounter_pool::UniverseEncounterPoolTable::from_rows(
+                    source.decode_table::<universe_encounter_pool::UniverseEncounterPool>(
+                        universe_encounter_pool::UniverseEncounterPoolTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_encounter_pool_group::UniverseEncounterPoolGroupTable::NAME,
+            Box::new(
+                universe_encounter_pool_group::UniverseEncounterPoolGroupTable::from_rows(
+                    source
+                        .decode_table::<universe_encounter_pool_group::UniverseEncounterPoolGroup>(
+                            universe_encounter_pool_group::UniverseEncounterPoolGroupTable::NAME,
+                        )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_encounter_pool_fixed::UniverseEncounterPoolFixedTable::NAME,
+            Box::new(
+                universe_encounter_pool_fixed::UniverseEncounterPoolFixedTable::from_rows(
+                    source
+                        .decode_table::<universe_encounter_pool_fixed::UniverseEncounterPoolFixed>(
+                            universe_encounter_pool_fixed::UniverseEncounterPoolFixedTable::NAME,
+                        )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_mechanic_rule::UniverseMechanicRuleTable::NAME,
+            Box::new(
+                universe_mechanic_rule::UniverseMechanicRuleTable::from_rows(
+                    source.decode_table::<universe_mechanic_rule::UniverseMechanicRule>(
+                        universe_mechanic_rule::UniverseMechanicRuleTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_activity_binding::UniverseActivityBindingTable::NAME,
+            Box::new(
+                universe_activity_binding::UniverseActivityBindingTable::from_rows(
+                    source.decode_table::<universe_activity_binding::UniverseActivityBinding>(
+                        universe_activity_binding::UniverseActivityBindingTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(universe_activity_domain_binding::UniverseActivityDomainBindingTable::NAME, Box::new(universe_activity_domain_binding::UniverseActivityDomainBindingTable::from_rows(source.decode_table::<universe_activity_domain_binding::UniverseActivityDomainBinding>(universe_activity_domain_binding::UniverseActivityDomainBindingTable::NAME)?)?));
+        tables.insert(
+            universe_source_record::UniverseSourceRecordTable::NAME,
+            Box::new(
+                universe_source_record::UniverseSourceRecordTable::from_rows(
+                    source.decode_table::<universe_source_record::UniverseSourceRecord>(
+                        universe_source_record::UniverseSourceRecordTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_content_audit::UniverseContentAuditTable::NAME,
+            Box::new(
+                universe_content_audit::UniverseContentAuditTable::from_rows(
+                    source.decode_table::<universe_content_audit::UniverseContentAudit>(
+                        universe_content_audit::UniverseContentAuditTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_coverage::UniverseCoverageTable::NAME,
+            Box::new(universe_coverage::UniverseCoverageTable::from_rows(
+                source.decode_table::<universe_coverage::UniverseCoverage>(
+                    universe_coverage::UniverseCoverageTable::NAME,
+                )?,
+            )?),
+        );
+        tables.insert(
+            universe_review_fixture::UniverseReviewFixtureTable::NAME,
+            Box::new(
+                universe_review_fixture::UniverseReviewFixtureTable::from_rows(
+                    source.decode_table::<universe_review_fixture::UniverseReviewFixture>(
+                        universe_review_fixture::UniverseReviewFixtureTable::NAME,
+                    )?,
+                )?,
+            ),
+        );
+        tables.insert(
+            universe_pack_file::UniversePackFileTable::NAME,
+            Box::new(universe_pack_file::UniversePackFileTable::from_rows(
+                source.decode_table::<universe_pack_file::UniversePackFile>(
+                    universe_pack_file::UniversePackFileTable::NAME,
+                )?,
+            )?),
+        );
         Ok(Self { tables })
     }
 
@@ -1296,6 +1797,248 @@ impl SoraConfig {
 
     pub fn standard_scenario(&self) -> &standard_scenario::StandardScenarioTable {
         self.table(standard_scenario::StandardScenarioTable::NAME)
+    }
+
+    pub fn universe_profile(&self) -> &universe_profile::UniverseProfileTable {
+        self.table(universe_profile::UniverseProfileTable::NAME)
+    }
+
+    pub fn universe_world(&self) -> &universe_world::UniverseWorldTable {
+        self.table(universe_world::UniverseWorldTable::NAME)
+    }
+
+    pub fn universe_difficulty(&self) -> &universe_difficulty::UniverseDifficultyTable {
+        self.table(universe_difficulty::UniverseDifficultyTable::NAME)
+    }
+
+    pub fn universe_difficulty_enemy(
+        &self,
+    ) -> &universe_difficulty_enemy::UniverseDifficultyEnemyTable {
+        self.table(universe_difficulty_enemy::UniverseDifficultyEnemyTable::NAME)
+    }
+
+    pub fn universe_domain(&self) -> &universe_domain::UniverseDomainTable {
+        self.table(universe_domain::UniverseDomainTable::NAME)
+    }
+
+    pub fn universe_map_node(&self) -> &universe_map_node::UniverseMapNodeTable {
+        self.table(universe_map_node::UniverseMapNodeTable::NAME)
+    }
+
+    pub fn universe_map_edge(&self) -> &universe_map_edge::UniverseMapEdgeTable {
+        self.table(universe_map_edge::UniverseMapEdgeTable::NAME)
+    }
+
+    pub fn universe_room(&self) -> &universe_room::UniverseRoomTable {
+        self.table(universe_room::UniverseRoomTable::NAME)
+    }
+
+    pub fn universe_room_content(&self) -> &universe_room_content::UniverseRoomContentTable {
+        self.table(universe_room_content::UniverseRoomContentTable::NAME)
+    }
+
+    pub fn universe_path(&self) -> &universe_path::UniversePathTable {
+        self.table(universe_path::UniversePathTable::NAME)
+    }
+
+    pub fn universe_path_blessing(&self) -> &universe_path_blessing::UniversePathBlessingTable {
+        self.table(universe_path_blessing::UniversePathBlessingTable::NAME)
+    }
+
+    pub fn universe_resonance(&self) -> &universe_resonance::UniverseResonanceTable {
+        self.table(universe_resonance::UniverseResonanceTable::NAME)
+    }
+
+    pub fn universe_resonance_parameter(
+        &self,
+    ) -> &universe_resonance_parameter::UniverseResonanceParameterTable {
+        self.table(universe_resonance_parameter::UniverseResonanceParameterTable::NAME)
+    }
+
+    pub fn universe_blessing(&self) -> &universe_blessing::UniverseBlessingTable {
+        self.table(universe_blessing::UniverseBlessingTable::NAME)
+    }
+
+    pub fn universe_blessing_prerequisite(
+        &self,
+    ) -> &universe_blessing_prerequisite::UniverseBlessingPrerequisiteTable {
+        self.table(universe_blessing_prerequisite::UniverseBlessingPrerequisiteTable::NAME)
+    }
+
+    pub fn universe_blessing_level(&self) -> &universe_blessing_level::UniverseBlessingLevelTable {
+        self.table(universe_blessing_level::UniverseBlessingLevelTable::NAME)
+    }
+
+    pub fn universe_blessing_parameter(
+        &self,
+    ) -> &universe_blessing_parameter::UniverseBlessingParameterTable {
+        self.table(universe_blessing_parameter::UniverseBlessingParameterTable::NAME)
+    }
+
+    pub fn universe_curio(&self) -> &universe_curio::UniverseCurioTable {
+        self.table(universe_curio::UniverseCurioTable::NAME)
+    }
+
+    pub fn universe_curio_state(&self) -> &universe_curio_state::UniverseCurioStateTable {
+        self.table(universe_curio_state::UniverseCurioStateTable::NAME)
+    }
+
+    pub fn universe_curio_parameter(
+        &self,
+    ) -> &universe_curio_parameter::UniverseCurioParameterTable {
+        self.table(universe_curio_parameter::UniverseCurioParameterTable::NAME)
+    }
+
+    pub fn universe_occurrence(&self) -> &universe_occurrence::UniverseOccurrenceTable {
+        self.table(universe_occurrence::UniverseOccurrenceTable::NAME)
+    }
+
+    pub fn universe_occurrence_variant(
+        &self,
+    ) -> &universe_occurrence_variant::UniverseOccurrenceVariantTable {
+        self.table(universe_occurrence_variant::UniverseOccurrenceVariantTable::NAME)
+    }
+
+    pub fn universe_occurrence_choice(
+        &self,
+    ) -> &universe_occurrence_choice::UniverseOccurrenceChoiceTable {
+        self.table(universe_occurrence_choice::UniverseOccurrenceChoiceTable::NAME)
+    }
+
+    pub fn universe_occurrence_cost(
+        &self,
+    ) -> &universe_occurrence_cost::UniverseOccurrenceCostTable {
+        self.table(universe_occurrence_cost::UniverseOccurrenceCostTable::NAME)
+    }
+
+    pub fn universe_occurrence_outcome(
+        &self,
+    ) -> &universe_occurrence_outcome::UniverseOccurrenceOutcomeTable {
+        self.table(universe_occurrence_outcome::UniverseOccurrenceOutcomeTable::NAME)
+    }
+
+    pub fn universe_service(&self) -> &universe_service::UniverseServiceTable {
+        self.table(universe_service::UniverseServiceTable::NAME)
+    }
+
+    pub fn universe_service_parameter(
+        &self,
+    ) -> &universe_service_parameter::UniverseServiceParameterTable {
+        self.table(universe_service_parameter::UniverseServiceParameterTable::NAME)
+    }
+
+    pub fn universe_ability_tree_node(
+        &self,
+    ) -> &universe_ability_tree_node::UniverseAbilityTreeNodeTable {
+        self.table(universe_ability_tree_node::UniverseAbilityTreeNodeTable::NAME)
+    }
+
+    pub fn universe_ability_tree_edge(
+        &self,
+    ) -> &universe_ability_tree_edge::UniverseAbilityTreeEdgeTable {
+        self.table(universe_ability_tree_edge::UniverseAbilityTreeEdgeTable::NAME)
+    }
+
+    pub fn universe_ability_tree_cost(
+        &self,
+    ) -> &universe_ability_tree_cost::UniverseAbilityTreeCostTable {
+        self.table(universe_ability_tree_cost::UniverseAbilityTreeCostTable::NAME)
+    }
+
+    pub fn universe_ability_tree_effect(
+        &self,
+    ) -> &universe_ability_tree_effect::UniverseAbilityTreeEffectTable {
+        self.table(universe_ability_tree_effect::UniverseAbilityTreeEffectTable::NAME)
+    }
+
+    pub fn universe_ability_tree_parameter(
+        &self,
+    ) -> &universe_ability_tree_parameter::UniverseAbilityTreeParameterTable {
+        self.table(universe_ability_tree_parameter::UniverseAbilityTreeParameterTable::NAME)
+    }
+
+    pub fn universe_content_pool(&self) -> &universe_content_pool::UniverseContentPoolTable {
+        self.table(universe_content_pool::UniverseContentPoolTable::NAME)
+    }
+
+    pub fn universe_content_pool_entry(
+        &self,
+    ) -> &universe_content_pool_entry::UniverseContentPoolEntryTable {
+        self.table(universe_content_pool_entry::UniverseContentPoolEntryTable::NAME)
+    }
+
+    pub fn universe_encounter_group(
+        &self,
+    ) -> &universe_encounter_group::UniverseEncounterGroupTable {
+        self.table(universe_encounter_group::UniverseEncounterGroupTable::NAME)
+    }
+
+    pub fn universe_encounter_member(
+        &self,
+    ) -> &universe_encounter_member::UniverseEncounterMemberTable {
+        self.table(universe_encounter_member::UniverseEncounterMemberTable::NAME)
+    }
+
+    pub fn universe_encounter_wave(&self) -> &universe_encounter_wave::UniverseEncounterWaveTable {
+        self.table(universe_encounter_wave::UniverseEncounterWaveTable::NAME)
+    }
+
+    pub fn universe_encounter_wave_enemy(
+        &self,
+    ) -> &universe_encounter_wave_enemy::UniverseEncounterWaveEnemyTable {
+        self.table(universe_encounter_wave_enemy::UniverseEncounterWaveEnemyTable::NAME)
+    }
+
+    pub fn universe_encounter_pool(&self) -> &universe_encounter_pool::UniverseEncounterPoolTable {
+        self.table(universe_encounter_pool::UniverseEncounterPoolTable::NAME)
+    }
+
+    pub fn universe_encounter_pool_group(
+        &self,
+    ) -> &universe_encounter_pool_group::UniverseEncounterPoolGroupTable {
+        self.table(universe_encounter_pool_group::UniverseEncounterPoolGroupTable::NAME)
+    }
+
+    pub fn universe_encounter_pool_fixed(
+        &self,
+    ) -> &universe_encounter_pool_fixed::UniverseEncounterPoolFixedTable {
+        self.table(universe_encounter_pool_fixed::UniverseEncounterPoolFixedTable::NAME)
+    }
+
+    pub fn universe_mechanic_rule(&self) -> &universe_mechanic_rule::UniverseMechanicRuleTable {
+        self.table(universe_mechanic_rule::UniverseMechanicRuleTable::NAME)
+    }
+
+    pub fn universe_activity_binding(
+        &self,
+    ) -> &universe_activity_binding::UniverseActivityBindingTable {
+        self.table(universe_activity_binding::UniverseActivityBindingTable::NAME)
+    }
+
+    pub fn universe_activity_domain_binding(
+        &self,
+    ) -> &universe_activity_domain_binding::UniverseActivityDomainBindingTable {
+        self.table(universe_activity_domain_binding::UniverseActivityDomainBindingTable::NAME)
+    }
+
+    pub fn universe_source_record(&self) -> &universe_source_record::UniverseSourceRecordTable {
+        self.table(universe_source_record::UniverseSourceRecordTable::NAME)
+    }
+
+    pub fn universe_content_audit(&self) -> &universe_content_audit::UniverseContentAuditTable {
+        self.table(universe_content_audit::UniverseContentAuditTable::NAME)
+    }
+
+    pub fn universe_coverage(&self) -> &universe_coverage::UniverseCoverageTable {
+        self.table(universe_coverage::UniverseCoverageTable::NAME)
+    }
+
+    pub fn universe_review_fixture(&self) -> &universe_review_fixture::UniverseReviewFixtureTable {
+        self.table(universe_review_fixture::UniverseReviewFixtureTable::NAME)
+    }
+
+    pub fn universe_pack_file(&self) -> &universe_pack_file::UniversePackFileTable {
+        self.table(universe_pack_file::UniversePackFileTable::NAME)
     }
 }
 

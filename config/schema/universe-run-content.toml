@@ -7,7 +7,7 @@ name = "UniverseAbilityEffectClass"
 values = ["Run", "Battle", "RunAndBattle"]
 
 [[enums]]
-name = "UniverseAbilityOperationKind"
+name = "UniverseAbilityOperation"
 values = ["Unlock", "AddStat", "UnlockFormationSlot", "Set", "AddLimit", "Enable", "AddCurrency", "AddChoice", "AddResource", "SetRatio"]
 
 [[enums]]
@@ -464,7 +464,7 @@ type = "i32"
 range = [1, 32]
 [[tables.fields]]
 name = "kind"
-type = "enum<UniverseAbilityOperationKind>"
+type = "enum<UniverseAbilityOperation>"
 [[tables.fields]]
 name = "target"
 type = "string"

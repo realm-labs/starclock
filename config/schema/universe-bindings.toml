@@ -19,7 +19,7 @@ name = "UniverseMechanicRuleKind"
 values = ["PathResonance", "BlessingDefinition", "BlessingLevel", "CurioDefinition", "CurioState", "RunService", "AbilityTreeContribution"]
 
 [[enums]]
-name = "UniverseActivityDecisionKind"
+name = "UniverseActivityDecision"
 values = ["BattleCommand", "RunCommand", "ExternalOutcome"]
 
 [[tables]]
@@ -489,7 +489,7 @@ name = "domain_id"
 type = "ref<UniverseDomain.id>"
 [[tables.fields]]
 name = "decision_kind"
-type = "enum<UniverseActivityDecisionKind>"
+type = "enum<UniverseActivityDecision>"
 [[tables.indexes]]
 name = "by_binding_sequence"
 fields = ["activity_binding_id", "sequence"]

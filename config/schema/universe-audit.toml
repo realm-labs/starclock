@@ -1,0 +1,252 @@
+[[enums]]
+name = "UniverseModeOwner"
+values = ["Standard", "Shared", "EvidenceOnly"]
+
+[[enums]]
+name = "UniverseDataQuality"
+values = ["ExactStructured", "ExactPublicText", "Observed", "ApproximateFromReleasedText", "ProjectPolicy"]
+
+[[enums]]
+name = "UniverseCoverageState"
+values = ["Cataloged", "Researched", "DataReady", "GoldenVerified", "Blocked"]
+
+[[tables]]
+name = "UniverseSourceRecord"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UniverseEvidence.xlsx"
+sheet = "UniverseSourceRecord"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "source_kind"
+type = "string"
+length = [1, 80]
+[[tables.fields]]
+name = "repository_or_url"
+type = "string"
+length = [1, 2048]
+[[tables.fields]]
+name = "revision_or_access_date"
+type = "string"
+length = [1, 80]
+[[tables.fields]]
+name = "game_version"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "relative_path_or_page"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "row_locator"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "evidence_sha256"
+type = "string"
+length = [64, 64]
+[[tables.fields]]
+name = "quality"
+type = "enum<UniverseDataQuality>"
+[[tables.fields]]
+name = "license_note"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "note"
+type = "string"
+length = [1, 1000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseContentAudit"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UniverseEvidence.xlsx"
+sheet = "UniverseContentAudit"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "content_stable_key"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "source_file"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "enabled"
+type = "bool"
+[[tables.fields]]
+name = "mode_owner"
+type = "enum<UniverseModeOwner>"
+[[tables.fields]]
+name = "quality"
+type = "enum<UniverseDataQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<UniverseDataQuality>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<UniverseCoverageState>"
+[[tables.fields]]
+name = "provenance_ids"
+type = "list<ref<UniverseSourceRecord.id>>"
+parser = { kind = "split", separator = "|" }
+length = [1, 64]
+[[tables.fields]]
+name = "source_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 64]
+[[tables.fields]]
+name = "note"
+type = "optional<string>"
+[[tables.indexes]]
+name = "by_content_stable_key"
+fields = ["content_stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseCoverage"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UniverseEvidence.xlsx"
+sheet = "UniverseCoverage"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "category"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "source_file"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "required"
+type = "i32"
+range = [0, 1000000]
+[[tables.fields]]
+name = "accounted"
+type = "i32"
+range = [0, 1000000]
+[[tables.fields]]
+name = "data_ready"
+type = "i32"
+range = [0, 1000000]
+[[tables.fields]]
+name = "coverage_percent_decimal"
+type = "string"
+length = [1, 32]
+[[tables.indexes]]
+name = "by_category"
+fields = ["category"]
+unique = true
+
+[[tables]]
+name = "UniverseReviewFixture"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UniverseEvidence.xlsx"
+sheet = "UniverseReviewFixture"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "mechanic_family"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "input_stable_keys"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 64]
+[[tables.fields]]
+name = "initial_state_json"
+type = "string"
+length = [2, 16000]
+[[tables.fields]]
+name = "commands_json"
+type = "string"
+length = [2, 16000]
+[[tables.fields]]
+name = "expected_facts_json"
+type = "string"
+length = [2, 16000]
+[[tables.fields]]
+name = "quality_floor"
+type = "enum<UniverseDataQuality>"
+[[tables.fields]]
+name = "provenance_ids"
+type = "list<ref<UniverseSourceRecord.id>>"
+parser = { kind = "split", separator = "|" }
+length = [1, 64]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_mechanic_family"
+fields = ["mechanic_family"]
+unique = true
+
+[[tables]]
+name = "UniversePackFile"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UniverseEvidence.xlsx"
+sheet = "UniversePackFile"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "relative_path"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "bytes"
+type = "i64"
+range = [0, 9223372036854775807]
+[[tables.fields]]
+name = "rows"
+type = "i32"
+range = [0, 1000000]
+[[tables.fields]]
+name = "sha256"
+type = "string"
+length = [64, 64]
+[[tables.indexes]]
+name = "by_relative_path"
+fields = ["relative_path"]
+unique = true
