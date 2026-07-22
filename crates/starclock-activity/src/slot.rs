@@ -311,6 +311,34 @@ impl ActivitySlotDefinition {
         self.source
     }
 
+    pub(crate) fn accepts(&self, value: &ActivityValue) -> bool {
+        if value.kind() != self.kind() || !value.structurally_valid() {
+            return false;
+        }
+        match value {
+            ActivityValue::BoundedInteger(value) | ActivityValue::FixedScalar(value) => self
+                .minimum
+                .zip(self.maximum)
+                .is_none_or(|(minimum, maximum)| *value >= minimum && *value <= maximum),
+            ActivityValue::OrderedIdSet(values) => self
+                .maximum_entries
+                .is_some_and(|maximum| values.len() <= maximum as usize),
+            ActivityValue::BoundedCounterMap(values) => {
+                self.maximum_entries
+                    .is_some_and(|maximum| values.len() <= maximum as usize)
+                    && self
+                        .minimum
+                        .zip(self.maximum)
+                        .is_some_and(|(minimum, maximum)| {
+                            values
+                                .iter()
+                                .all(|(_, value)| *value >= minimum && *value <= maximum)
+                        })
+            }
+            _ => true,
+        }
+    }
+
     pub(crate) fn encode(&self, writer: &mut CanonicalWriter) {
         writer.u32(self.id.get());
         writer.byte(self.owner as u8);

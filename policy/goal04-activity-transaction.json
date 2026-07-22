@@ -1,0 +1,26 @@
+{
+  "schema_revision": "starclock.goal04-activity-transaction.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P2-B3",
+  "bounds": {
+    "maximum_operations": 4096,
+    "maximum_program_depth": 16,
+    "maximum_options": 256
+  },
+  "shape": {
+    "expression_kinds": 7,
+    "condition_kinds": 6,
+    "operation_kinds": 11,
+    "decision_kinds": 12,
+    "event_kinds": 8,
+    "ordered_options": true,
+    "definition_reference_validation": true,
+    "working_copy_commit": true,
+    "rejection_preserves_state": true,
+    "fault_discards_partial_work": true,
+    "fault_commits_explicit_terminal": true,
+    "node_edge_total_visit_limits_enforced": true
+  },
+  "focused_tests": 5,
+  "new_registry_packages": 0
+}

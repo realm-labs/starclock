@@ -97,3 +97,21 @@ id_type!(
     NonZeroU32,
     "Stable battle-result projection ID."
 );
+id_type!(
+    ActivityDecisionId,
+    u64,
+    NonZeroU64,
+    "Stable identity of one offered Activity decision."
+);
+id_type!(
+    ActivityOptionId,
+    u64,
+    NonZeroU64,
+    "Stable identity of one canonically offered Activity option."
+);
+id_type!(
+    ActivityProgramId,
+    u32,
+    NonZeroU32,
+    "Stable authored Activity program identity."
+);

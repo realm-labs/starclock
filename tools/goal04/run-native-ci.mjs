@@ -18,6 +18,7 @@ for (const [command, args] of [
   ["node", ["tools/goal04/verify-encounter-catalog.mjs", "."]],
   ["node", ["tools/goal04/verify-activity-graph.mjs", "."]],
   ["node", ["tools/goal04/verify-activity-state.mjs", "."]],
+  ["node", ["tools/goal04/verify-activity-transaction.mjs", "."]],
   ["cargo", ["test", "-p", "starclock-activity", "--all-targets", "--all-features"]],
   ["cargo", ["test", "-p", "starclock-mode-universe", "--all-targets", "--all-features"]],
   ["node", ["tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]]

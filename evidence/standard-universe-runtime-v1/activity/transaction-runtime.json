@@ -1,0 +1,39 @@
+{
+  "schema_revision": "starclock.goal04-activity-transaction-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P2-B3",
+  "result": "typed-program-and-transaction-runtime-implemented",
+  "bounds": {
+    "maximum_operations": 4096,
+    "maximum_program_depth": 16,
+    "maximum_options": 256
+  },
+  "shape": {
+    "expression_kinds": 7,
+    "condition_kinds": 6,
+    "operation_kinds": 11,
+    "decision_kinds": 12,
+    "event_kinds": 8,
+    "ordered_options": true,
+    "definition_reference_validation": true,
+    "working_copy_commit": true,
+    "rejection_preserves_state": true,
+    "fault_discards_partial_work": true,
+    "fault_commits_explicit_terminal": true,
+    "node_edge_total_visit_limits_enforced": true
+  },
+  "compatibility": {
+    "goal01_state_hash_goldens_unchanged": true,
+    "graph_state_hash_and_rng_deferred": "G04-P2-B4",
+    "battle_handoff_deferred": "G04-P2-B5",
+    "generated_rows_public": false,
+    "authoritative_float": false
+  },
+  "source_sha256": {
+    "program": "766071285a496d6df26accc983b2e0b12c975ec37fc92b33637c5f116e814073",
+    "transaction": "6f5248d84f1bcc73acad7a4ebcd062e1089bb484ad0fc2d4dc0b54a543ddf09f",
+    "tests": "b8bf71a46d8a9a263110b1ba5fb3987ffa775e4a212830720fc9fb1c6dd7b21a"
+  },
+  "focused_tests": 5,
+  "new_registry_packages": 0
+}

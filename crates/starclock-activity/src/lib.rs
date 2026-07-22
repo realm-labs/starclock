@@ -11,11 +11,13 @@ mod codec;
 mod graph;
 mod id;
 mod participant;
+mod program;
 mod projection;
 mod scope;
 mod slot;
 mod spec;
 mod state_definition;
+mod transaction;
 
 pub use aggregate::{
     Activity, ActivityCommand, ActivityCommandError, ActivityCommandErrorKind, ActivityDecision,
@@ -32,13 +34,19 @@ pub use graph::{
     MAX_EDGE_TRAVERSALS, MAX_NODE_VISITS,
 };
 pub use id::{
-    ActivityDefinitionId, ActivityEdgeId, ActivityInstanceId, ActivityInventoryId,
-    ActivityModifierId, ActivitySlotId, AttemptId, BattleSequence, NodeId, ParticipantId,
-    ProjectionId, SectionId,
+    ActivityDecisionId, ActivityDefinitionId, ActivityEdgeId, ActivityInstanceId,
+    ActivityInventoryId, ActivityModifierId, ActivityOptionId, ActivityProgramId, ActivitySlotId,
+    AttemptId, BattleSequence, NodeId, ParticipantId, ProjectionId, SectionId,
 };
 pub use participant::{
     LoadoutLockScope, OpaqueParticipantBuild, ParticipantLock, ParticipantLockEntry,
     ParticipantLockError, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
+};
+pub use program::{
+    ActivityCondition, ActivityDecisionKind, ActivityExpression, ActivityOperation,
+    ActivityOptionDefinition, ActivityProgramBindingError, ActivityProgramDefinition,
+    ActivityProgramDefinitionError, ActivityValueType, MAX_ACTIVITY_OPTIONS,
+    MAX_ACTIVITY_PROGRAM_DEPTH, MAX_ACTIVITY_PROGRAM_OPERATIONS,
 };
 pub use projection::{
     BattleOutcome, BattleResult, BattleResultConfiguration, BattleResultIdentity,
@@ -60,4 +68,8 @@ pub use state_definition::{
     ActivitySnapshotBoundary, ActivityStateDefinition, ActivityStateDefinitionError,
     ActivityStateSource, ActivityStateVisibility, MAX_ACTIVITY_INVENTORIES, MAX_ACTIVITY_MODIFIERS,
     MAX_ACTIVITY_STATE_SLOTS, MAX_INVENTORY_ENTRIES, MAX_INVENTORY_STACK, SlotCarryPolicy,
+};
+pub use transaction::{
+    ActivityCause, ActivityFault, ActivityTransactionEvent, ActivityTransactionEventKind,
+    ActivityTransactionOutcome, ActivityTransactionRejection, ActivityTransactionState,
 };
