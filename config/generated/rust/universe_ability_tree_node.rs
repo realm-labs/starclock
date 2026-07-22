@@ -17,7 +17,7 @@ pub struct UniverseAbilityTreeNode {
     #[serde(rename = "effect_tag_zh_cn")]
     pub effect_tag_zh_cn: String,
     #[serde(rename = "external_unlock_ids")]
-    pub external_unlock_ids: Vec<String>,
+    pub external_unlock_ids: Option<Vec<String>>,
     #[serde(rename = "rule_stable_key")]
     pub rule_stable_key: String,
     #[serde(rename = "name_en")]
@@ -43,7 +43,9 @@ impl super::runtime::SoraDecode for UniverseAbilityTreeNode {
             )?,
             effect_tag_en: <String as super::runtime::SoraDecode>::decode(reader)?,
             effect_tag_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,
-            external_unlock_ids: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            external_unlock_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(
+                reader,
+            )?,
             rule_stable_key: <String as super::runtime::SoraDecode>::decode(reader)?,
             name_en: <String as super::runtime::SoraDecode>::decode(reader)?,
             name_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,

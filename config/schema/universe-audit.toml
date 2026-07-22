@@ -112,7 +112,7 @@ parser = { kind = "split", separator = "|" }
 length = [1, 64]
 [[tables.fields]]
 name = "source_ids"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 64]
 [[tables.fields]]

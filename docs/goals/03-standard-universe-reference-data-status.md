@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 3 — Complete Excel authoring |
 | Active batch | None |
-| Next unblocked batch | `G03-P3-B3` |
+| Next unblocked batch | `G03-P3-B4` |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -48,7 +48,7 @@
 | `G03-P2-B5` | `Complete` | This row's containing commit | Added a disposable no-overwrite `openpyxl` fixture writer and automated proof for empty and representative workbook sets layered over production combat data. Pinned Sora exports binary/debug output, duplicate representative generation is byte-identical, and `starclock-data` parses all 131 tables through generated readers while asserting representative Universe/Profile/Activity/evidence rows. This proves the schema contract before full authoring. |
 | `G03-P3-B1` | `Complete` | This row's containing commit | Pinned `openpyxl 3.1.5` with an MIT license/tool-authority record and added a deterministic, no-overwrite workbook authoring foundation. It preserves Sora metadata and sheet order, writes only known schema fields from row 8, applies common headers/banding/wrapping/widths/frozen panes/filters, fixes document timestamps, rejects formulas and Excel errors after reload, and emits a semantic SHA-256 digest. Empty-set generation and refusal to overwrite an existing target are verified. |
 | `G03-P3-B2` | `Complete` | This row's containing commit | Authored the profile, nine Worlds, 33 difficulties/182 boss-or-elite bindings, nine domains, 579 nodes/707 edges, 163 rooms/380 content bindings, 74 encounter groups, 173 members/waves, 538 enemy slots, 92 room pools and the Activity/domain seam. The integration pass corrected enemy transport from premature `EnemyVariant.id` foreign keys to stable keys closed against all 2,591 Goal 01 reference variants; this avoids fabricating unimplemented combat rows. Sora binary/debug export and a 49-sheet/3,333-row workbook verifier pass. |
-| `G03-P3-B3` | `Pending` | — | — |
+| `G03-P3-B3` | `Complete` | This row's containing commit | Authored nine Paths with 162 ordered membership rows, 36 Resonances/Formations with 238 exact parameters, 162 Blessings, 72 released unlock prerequisites, 324 level rows and 638 exact level parameters. Real-data validation corrected prerequisite transport from a false Blessing foreign key to an unlock-condition stable key and made zero-length Sora lists optional rather than inventing sentinel values. The resulting 4,974-row workbook set exports through Sora and matches normalized builder counts exactly. |
 | `G03-P3-B4` | `Pending` | — | — |
 | `G03-P3-B5` | `Pending` | — | — |
 | `G03-P3-B6` | `Pending` | — | — |

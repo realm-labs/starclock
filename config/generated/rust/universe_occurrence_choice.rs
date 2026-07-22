@@ -10,7 +10,7 @@ pub struct UniverseOccurrenceChoice {
     #[serde(rename = "variant_id")]
     pub variant_id: i32,
     #[serde(rename = "condition_ids")]
-    pub condition_ids: Vec<String>,
+    pub condition_ids: Option<Vec<String>>,
     #[serde(rename = "next_node_id")]
     pub next_node_id: Option<String>,
     #[serde(rename = "parameter_vectors_json")]
@@ -41,7 +41,7 @@ impl super::runtime::SoraDecode for UniverseOccurrenceChoice {
             id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             stable_key: <String as super::runtime::SoraDecode>::decode(reader)?,
             variant_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
-            condition_ids: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            condition_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             next_node_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             parameter_vectors_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             choice_label_sha256_en: <String as super::runtime::SoraDecode>::decode(reader)?,

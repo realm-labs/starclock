@@ -9,7 +9,7 @@ pub struct UniverseOccurrenceCost {
     #[serde(rename = "kind")]
     pub kind: String,
     #[serde(rename = "targets")]
-    pub targets: Vec<String>,
+    pub targets: Option<Vec<String>>,
 }
 
 impl super::runtime::SoraDecode for UniverseOccurrenceCost {
@@ -20,7 +20,7 @@ impl super::runtime::SoraDecode for UniverseOccurrenceCost {
             choice_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             sequence: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             kind: <String as super::runtime::SoraDecode>::decode(reader)?,
-            targets: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            targets: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

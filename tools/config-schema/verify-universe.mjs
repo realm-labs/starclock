@@ -55,6 +55,7 @@ function assertString(table, field) {
 }
 assertString("UniverseDifficultyEnemy", "enemy_variant_stable_key");
 assertString("UniverseEncounterWaveEnemy", "enemy_variant_stable_key");
+assertString("UniverseBlessingPrerequisite", "prerequisite_stable_key");
 
 const temporary = fs.mkdtempSync(path.join(os.tmpdir(), "starclock-universe-schema-"));
 try {

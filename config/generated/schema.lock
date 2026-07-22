@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "198552c1b21c7872",
+  "fingerprint": "c21ec59869116d6c",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -21908,7 +21908,9 @@
           {
             "name": "mechanic_tags",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -22238,7 +22240,9 @@
           {
             "name": "pool_tags",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -22264,7 +22268,9 @@
           {
             "name": "mechanic_tags",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -22411,13 +22417,8 @@
             "derived_from": null
           },
           {
-            "name": "prerequisite_blessing_id",
-            "ty": {
-              "Ref": {
-                "table": "UniverseBlessing",
-                "field": "id"
-              }
-            },
+            "name": "prerequisite_stable_key",
+            "ty": "String",
             "scope": {
               "values": [
                 "all"
@@ -22427,7 +22428,10 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": null,
+            "length": [
+              1,
+              180
+            ],
             "parser": null,
             "derived_from": null
           }
@@ -22925,7 +22929,9 @@
           {
             "name": "tags",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -22951,7 +22957,9 @@
           {
             "name": "pool_tags",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -23472,7 +23480,9 @@
           {
             "name": "pool_tags",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -23694,7 +23704,9 @@
           {
             "name": "condition_ids",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -23900,7 +23912,9 @@
           {
             "name": "condition_ids",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -24200,7 +24214,9 @@
           {
             "name": "targets",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -24319,7 +24335,9 @@
           {
             "name": "targets",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -24345,7 +24363,9 @@
           {
             "name": "numeric_literals",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -24371,7 +24391,9 @@
           {
             "name": "parameter_refs",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -24397,7 +24419,9 @@
           {
             "name": "chance_percentages",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -24914,7 +24938,9 @@
           {
             "name": "external_unlock_ids",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -27019,7 +27045,9 @@
           {
             "name": "mechanic_tags",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -27890,7 +27918,9 @@
           {
             "name": "source_ids",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [

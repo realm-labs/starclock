@@ -58,7 +58,7 @@ type = "string"
 length = [1, 1000]
 [[tables.fields]]
 name = "mechanic_tags"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 32]
 [[tables.fields]]
@@ -138,12 +138,12 @@ type = "string"
 length = [1, 1000]
 [[tables.fields]]
 name = "pool_tags"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 32]
 [[tables.fields]]
 name = "mechanic_tags"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 32]
 [[tables.fields]]
@@ -178,8 +178,9 @@ name = "sequence"
 type = "i32"
 range = [1, 32]
 [[tables.fields]]
-name = "prerequisite_blessing_id"
-type = "ref<UniverseBlessing.id>"
+name = "prerequisite_stable_key"
+type = "string"
+length = [1, 180]
 [[tables.indexes]]
 name = "by_blessing_sequence"
 fields = ["blessing_id", "sequence"]
@@ -306,12 +307,12 @@ type = "string"
 length = [1, 1000]
 [[tables.fields]]
 name = "tags"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 32]
 [[tables.fields]]
 name = "pool_tags"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 32]
 [[tables.fields]]

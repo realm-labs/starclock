@@ -36,7 +36,7 @@ type = "string"
 length = [1, 180]
 [[tables.fields]]
 name = "pool_tags"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 32]
 [[tables.fields]]
@@ -88,7 +88,7 @@ type = "string"
 length = [1, 64]
 [[tables.fields]]
 name = "condition_ids"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 64]
 [[tables.fields]]
@@ -137,7 +137,7 @@ name = "variant_id"
 type = "ref<UniverseOccurrenceVariant.id>"
 [[tables.fields]]
 name = "condition_ids"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 64]
 [[tables.fields]]
@@ -204,7 +204,7 @@ type = "string"
 length = [1, 80]
 [[tables.fields]]
 name = "targets"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 32]
 [[tables.indexes]]
@@ -233,22 +233,22 @@ parser = { kind = "split", separator = "|" }
 length = [1, 32]
 [[tables.fields]]
 name = "targets"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 32]
 [[tables.fields]]
 name = "numeric_literals"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 64]
 [[tables.fields]]
 name = "parameter_refs"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 64]
 [[tables.fields]]
 name = "chance_percentages"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 32]
 [[tables.fields]]
@@ -371,7 +371,7 @@ type = "string"
 length = [1, 200]
 [[tables.fields]]
 name = "external_unlock_ids"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 32]
 [[tables.fields]]

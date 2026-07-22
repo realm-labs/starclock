@@ -10,7 +10,7 @@ pub struct UniverseOccurrence {
     #[serde(rename = "choice_graph_stable_key")]
     pub choice_graph_stable_key: String,
     #[serde(rename = "pool_tags")]
-    pub pool_tags: Vec<String>,
+    pub pool_tags: Option<Vec<String>>,
     #[serde(rename = "index_only")]
     pub index_only: bool,
     #[serde(rename = "name_en")]
@@ -31,7 +31,7 @@ impl super::runtime::SoraDecode for UniverseOccurrence {
             id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             stable_key: <String as super::runtime::SoraDecode>::decode(reader)?,
             choice_graph_stable_key: <String as super::runtime::SoraDecode>::decode(reader)?,
-            pool_tags: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            pool_tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             index_only: <bool as super::runtime::SoraDecode>::decode(reader)?,
             name_en: <String as super::runtime::SoraDecode>::decode(reader)?,
             name_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,

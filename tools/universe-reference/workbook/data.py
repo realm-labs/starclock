@@ -19,6 +19,10 @@ def joined(values: list[object]) -> str:
     return "|".join(str(value) for value in values)
 
 
+def optional_joined(values: list[object]) -> str | None:
+    return joined(values) or None
+
+
 def stable_ids(records: list[dict]) -> dict[str, int]:
     keys = sorted(record["id"] for record in records)
     if len(keys) != len(set(keys)):
@@ -28,4 +32,3 @@ def stable_ids(records: list[dict]) -> dict[str, int]:
 
 def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
-

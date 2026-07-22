@@ -25,7 +25,7 @@ pub struct UniverseContentAudit {
     #[serde(rename = "provenance_ids")]
     pub provenance_ids: Vec<i32>,
     #[serde(rename = "source_ids")]
-    pub source_ids: Vec<String>,
+    pub source_ids: Option<Vec<String>>,
     #[serde(rename = "note")]
     pub note: Option<String>,
 }
@@ -44,7 +44,7 @@ impl super::runtime::SoraDecode for UniverseContentAudit {
             mechanism_quality: <UniverseDataQuality as super::runtime::SoraDecode>::decode(reader)?,
             coverage_state: <UniverseCoverageState as super::runtime::SoraDecode>::decode(reader)?,
             provenance_ids: <Vec<i32> as super::runtime::SoraDecode>::decode(reader)?,
-            source_ids: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            source_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             note: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }

@@ -20,9 +20,9 @@ pub struct UniverseCurio {
     #[serde(rename = "summary_zh_cn")]
     pub summary_zh_cn: String,
     #[serde(rename = "tags")]
-    pub tags: Vec<String>,
+    pub tags: Option<Vec<String>>,
     #[serde(rename = "pool_tags")]
-    pub pool_tags: Vec<String>,
+    pub pool_tags: Option<Vec<String>>,
     #[serde(rename = "rule_stable_key")]
     pub rule_stable_key: String,
 }
@@ -40,8 +40,8 @@ impl super::runtime::SoraDecode for UniverseCurio {
             name_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,
             summary_en: <String as super::runtime::SoraDecode>::decode(reader)?,
             summary_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,
-            tags: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
-            pool_tags: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
+            pool_tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             rule_stable_key: <String as super::runtime::SoraDecode>::decode(reader)?,
         })
     }

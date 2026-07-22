@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from workbook.data import canonical_json, joined, load_json, sha256_file, stable_ids
+from workbook.data import canonical_json, joined, load_json, optional_joined, sha256_file, stable_ids
 
 
 DOMAIN_KINDS = {
@@ -187,7 +187,7 @@ def _encounter_rows(root: Path, records: dict[str, list[dict]], ids: dict[str, d
                 "weight_decimal": member["weight"],
                 "stage_level": member["stage_level"],
                 "hard_level_group": member["hard_level_group"],
-                "stage_ability_ids": joined(member["stage_ability_ids"]) or None,
+                "stage_ability_ids": optional_joined(member["stage_ability_ids"]),
                 "drop_type": member["drop_type"] or None,
             })
             for wave_sequence, wave in enumerate(member["waves"], start=1):

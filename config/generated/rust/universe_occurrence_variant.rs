@@ -12,7 +12,7 @@ pub struct UniverseOccurrenceVariant {
     #[serde(rename = "entry_node_id")]
     pub entry_node_id: String,
     #[serde(rename = "condition_ids")]
-    pub condition_ids: Vec<String>,
+    pub condition_ids: Option<Vec<String>>,
     #[serde(rename = "source_dialogue_type")]
     pub source_dialogue_type: String,
     #[serde(rename = "name_en")]
@@ -34,7 +34,7 @@ impl super::runtime::SoraDecode for UniverseOccurrenceVariant {
             stable_key: <String as super::runtime::SoraDecode>::decode(reader)?,
             occurrence_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             entry_node_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            condition_ids: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            condition_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             source_dialogue_type: <String as super::runtime::SoraDecode>::decode(reader)?,
             name_en: <String as super::runtime::SoraDecode>::decode(reader)?,
             name_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,

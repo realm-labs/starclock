@@ -20,9 +20,9 @@ pub struct UniverseBlessing {
     #[serde(rename = "summary_zh_cn")]
     pub summary_zh_cn: String,
     #[serde(rename = "pool_tags")]
-    pub pool_tags: Vec<String>,
+    pub pool_tags: Option<Vec<String>>,
     #[serde(rename = "mechanic_tags")]
-    pub mechanic_tags: Vec<String>,
+    pub mechanic_tags: Option<Vec<String>>,
     #[serde(rename = "rule_stable_key")]
     pub rule_stable_key: String,
     #[serde(rename = "source_description_sha256_en")]
@@ -44,8 +44,8 @@ impl super::runtime::SoraDecode for UniverseBlessing {
             name_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,
             summary_en: <String as super::runtime::SoraDecode>::decode(reader)?,
             summary_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,
-            pool_tags: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
-            mechanic_tags: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            pool_tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
+            mechanic_tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             rule_stable_key: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_description_sha256_en: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_description_sha256_zh_cn: <String as super::runtime::SoraDecode>::decode(

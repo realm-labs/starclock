@@ -6,8 +6,8 @@ pub struct UniverseBlessingPrerequisite {
     pub blessing_id: i32,
     #[serde(rename = "sequence")]
     pub sequence: i32,
-    #[serde(rename = "prerequisite_blessing_id")]
-    pub prerequisite_blessing_id: i32,
+    #[serde(rename = "prerequisite_stable_key")]
+    pub prerequisite_stable_key: String,
 }
 
 impl super::runtime::SoraDecode for UniverseBlessingPrerequisite {
@@ -17,7 +17,7 @@ impl super::runtime::SoraDecode for UniverseBlessingPrerequisite {
         Ok(Self {
             blessing_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             sequence: <i32 as super::runtime::SoraDecode>::decode(reader)?,
-            prerequisite_blessing_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+            prerequisite_stable_key: <String as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

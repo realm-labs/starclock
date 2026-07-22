@@ -9,13 +9,13 @@ pub struct UniverseOccurrenceOutcome {
     #[serde(rename = "kinds")]
     pub kinds: Vec<String>,
     #[serde(rename = "targets")]
-    pub targets: Vec<String>,
+    pub targets: Option<Vec<String>>,
     #[serde(rename = "numeric_literals")]
-    pub numeric_literals: Vec<String>,
+    pub numeric_literals: Option<Vec<String>>,
     #[serde(rename = "parameter_refs")]
-    pub parameter_refs: Vec<String>,
+    pub parameter_refs: Option<Vec<String>>,
     #[serde(rename = "chance_percentages")]
-    pub chance_percentages: Vec<String>,
+    pub chance_percentages: Option<Vec<String>>,
     #[serde(rename = "unspecified_random_policy")]
     pub unspecified_random_policy: Option<String>,
 }
@@ -28,10 +28,12 @@ impl super::runtime::SoraDecode for UniverseOccurrenceOutcome {
             choice_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             sequence: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             kinds: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
-            targets: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
-            numeric_literals: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
-            parameter_refs: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
-            chance_percentages: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            targets: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
+            numeric_literals: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
+            parameter_refs: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
+            chance_percentages: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(
+                reader,
+            )?,
             unspecified_random_policy: <Option<String> as super::runtime::SoraDecode>::decode(
                 reader,
             )?,

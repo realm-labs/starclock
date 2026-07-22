@@ -27,7 +27,7 @@ pub struct UniverseResonance {
     #[serde(rename = "summary_zh_cn")]
     pub summary_zh_cn: String,
     #[serde(rename = "mechanic_tags")]
-    pub mechanic_tags: Vec<String>,
+    pub mechanic_tags: Option<Vec<String>>,
     #[serde(rename = "source_binding_key")]
     pub source_binding_key: String,
     #[serde(rename = "rule_stable_key")]
@@ -50,7 +50,7 @@ impl super::runtime::SoraDecode for UniverseResonance {
             name_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,
             summary_en: <String as super::runtime::SoraDecode>::decode(reader)?,
             summary_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,
-            mechanic_tags: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            mechanic_tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             source_binding_key: <String as super::runtime::SoraDecode>::decode(reader)?,
             rule_stable_key: <String as super::runtime::SoraDecode>::decode(reader)?,
         })

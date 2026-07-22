@@ -40,6 +40,11 @@ current production combat workbooks contain only the already-implemented
 enemy partition, and manufacturing placeholder runtime rows here would couple
 run-data preparation to enemy AI/stat implementation.
 
+Blessing prerequisite rows carry released unlock-condition stable keys, not
+Blessing foreign keys. Empty normalized lists are represented as absent Excel
+cells and optional Sora lists; this preserves the JSON empty-list meaning
+without inserting sentinel text that would become a false list member.
+
 ## Common record envelope
 
 All authored records contain:

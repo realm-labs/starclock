@@ -21,7 +21,7 @@ pub struct UniverseMechanicRule {
     #[serde(rename = "parameter_values_json")]
     pub parameter_values_json: String,
     #[serde(rename = "mechanic_tags")]
-    pub mechanic_tags: Vec<String>,
+    pub mechanic_tags: Option<Vec<String>>,
     #[serde(rename = "approximation_replacement_condition")]
     pub approximation_replacement_condition: Option<String>,
     #[serde(rename = "name_en")]
@@ -49,7 +49,7 @@ impl super::runtime::SoraDecode for UniverseMechanicRule {
             )?,
             source_binding_key: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             parameter_values_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            mechanic_tags: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            mechanic_tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             approximation_replacement_condition:
                 <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             name_en: <String as super::runtime::SoraDecode>::decode(reader)?,
