@@ -46,6 +46,10 @@ digest_type!(
     UniverseCurioDefinitionsDigest,
     "Canonical identity of lowered Curio and lifecycle-state definitions."
 );
+digest_type!(
+    UniverseRunDefinitionsDigest,
+    "Canonical identity of lowered Occurrence, service and Ability Tree definitions."
+);
 
 pub(crate) fn bundle_digest(bytes: &[u8]) -> UniverseBundleDigest {
     UniverseBundleDigest::new(Sha256::digest(bytes).into())

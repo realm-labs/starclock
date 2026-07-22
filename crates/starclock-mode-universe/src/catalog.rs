@@ -10,17 +10,23 @@ use crate::definition::{
 };
 use crate::digest::{
     ActivityConfigurationDigest, Encoder, UniverseBundleDigest, UniverseCurioDefinitionsDigest,
-    UniverseDefinitionsDigest, UniversePathDefinitionsDigest, UniverseProfileDigest, bundle_digest,
+    UniverseDefinitionsDigest, UniversePathDefinitionsDigest, UniverseProfileDigest,
+    UniverseRunDefinitionsDigest, bundle_digest,
 };
 use crate::error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind};
 use crate::generated::{SoraConfig, runtime::SoraBundle};
 use crate::id::{
-    BlessingId, BlessingLevelId, CurioId, CurioStateId, DifficultyId, DomainId, PathId,
-    ResonanceId, RoomId, TopologyId, WorldId,
+    AbilityTreeNodeId, BlessingId, BlessingLevelId, CurioId, CurioStateId, DifficultyId, DomainId,
+    OccurrenceChoiceId, OccurrenceId, OccurrenceVariantId, PathId, ResonanceId, RoomId, ServiceId,
+    TopologyId, WorldId,
+};
+use crate::occurrence::{
+    OccurrenceChoiceDefinition, OccurrenceDefinition, OccurrenceVariantDefinition,
 };
 use crate::path::{
     BlessingDefinition, BlessingLevelDefinition, PathDefinition, ResonanceDefinition,
 };
+use crate::progression::{AbilityTreeNodeDefinition, ServiceDefinition};
 
 pub const UNIVERSE_CATALOG_REVISION: &str = "standard-universe-v4.4-runtime-v1";
 pub const STANDARD_UNIVERSE_PROFILE_REVISION: &str = "standard-universe-main-world-v1";
@@ -63,6 +69,7 @@ pub struct UniverseCatalogIdentity {
     definitions: UniverseDefinitionsDigest,
     path_definitions: UniversePathDefinitionsDigest,
     curio_definitions: UniverseCurioDefinitionsDigest,
+    run_definitions: UniverseRunDefinitionsDigest,
     configuration: ActivityConfigurationDigest,
 }
 
@@ -114,6 +121,10 @@ impl UniverseCatalogIdentity {
     #[must_use]
     pub const fn curio_definitions_digest(&self) -> UniverseCurioDefinitionsDigest {
         self.curio_definitions
+    }
+    #[must_use]
+    pub const fn run_definitions_digest(&self) -> UniverseRunDefinitionsDigest {
+        self.run_definitions
     }
     #[must_use]
     pub const fn configuration_digest(&self) -> ActivityConfigurationDigest {
@@ -185,6 +196,7 @@ impl UniverseCatalog {
             definitions: definitions.digest,
             path_definitions: definitions.path_digest,
             curio_definitions: definitions.curio_digest,
+            run_definitions: definitions.run_digest,
             configuration,
         };
         Ok(Arc::new(Self {
@@ -333,6 +345,62 @@ impl UniverseCatalog {
     #[must_use]
     pub fn curio_state(&self, id: CurioStateId) -> Option<&CurioStateDefinition> {
         lookup(&self.definitions.curio_states, id, CurioStateDefinition::id)
+    }
+
+    #[must_use]
+    pub fn occurrences(&self) -> &[OccurrenceDefinition] {
+        &self.definitions.occurrences
+    }
+    #[must_use]
+    pub fn occurrence(&self, id: OccurrenceId) -> Option<&OccurrenceDefinition> {
+        lookup(&self.definitions.occurrences, id, OccurrenceDefinition::id)
+    }
+    #[must_use]
+    pub fn occurrence_variants(&self) -> &[OccurrenceVariantDefinition] {
+        &self.definitions.occurrence_variants
+    }
+    #[must_use]
+    pub fn occurrence_variant(
+        &self,
+        id: OccurrenceVariantId,
+    ) -> Option<&OccurrenceVariantDefinition> {
+        lookup(
+            &self.definitions.occurrence_variants,
+            id,
+            OccurrenceVariantDefinition::id,
+        )
+    }
+    #[must_use]
+    pub fn occurrence_choices(&self) -> &[OccurrenceChoiceDefinition] {
+        &self.definitions.occurrence_choices
+    }
+    #[must_use]
+    pub fn occurrence_choice(&self, id: OccurrenceChoiceId) -> Option<&OccurrenceChoiceDefinition> {
+        lookup(
+            &self.definitions.occurrence_choices,
+            id,
+            OccurrenceChoiceDefinition::id,
+        )
+    }
+    #[must_use]
+    pub fn services(&self) -> &[ServiceDefinition] {
+        &self.definitions.services
+    }
+    #[must_use]
+    pub fn service(&self, id: ServiceId) -> Option<&ServiceDefinition> {
+        lookup(&self.definitions.services, id, ServiceDefinition::id)
+    }
+    #[must_use]
+    pub fn ability_tree_nodes(&self) -> &[AbilityTreeNodeDefinition] {
+        &self.definitions.ability_tree_nodes
+    }
+    #[must_use]
+    pub fn ability_tree_node(&self, id: AbilityTreeNodeId) -> Option<&AbilityTreeNodeDefinition> {
+        lookup(
+            &self.definitions.ability_tree_nodes,
+            id,
+            AbilityTreeNodeDefinition::id,
+        )
     }
 
     /// Returns the number of privately loaded Sora tables without exposing them.
@@ -641,6 +709,68 @@ mod tests {
             assert_eq!(initial.curio(), curio.id());
             assert!(!curio.states().is_empty());
         }
+        assert_eq!(catalog.occurrences().len(), 59);
+        assert_eq!(catalog.occurrence_variants().len(), 67);
+        assert_eq!(catalog.occurrence_choices().len(), 321);
+        assert_eq!(
+            catalog
+                .occurrence_choices()
+                .iter()
+                .map(|value| value.costs().len())
+                .sum::<usize>(),
+            70
+        );
+        assert_eq!(
+            catalog
+                .occurrence_choices()
+                .iter()
+                .map(|value| value.outcomes().len())
+                .sum::<usize>(),
+            321
+        );
+        assert_eq!(
+            catalog
+                .occurrence_choices()
+                .iter()
+                .flat_map(|value| value.outcomes())
+                .filter(|value| value.random_policy().is_some())
+                .count(),
+            52
+        );
+        assert_eq!(catalog.services().len(), 94);
+        assert_eq!(
+            catalog
+                .services()
+                .iter()
+                .map(|value| value.parameters().len())
+                .sum::<usize>(),
+            12
+        );
+        assert_eq!(catalog.ability_tree_nodes().len(), 42);
+        assert_eq!(
+            catalog
+                .ability_tree_nodes()
+                .iter()
+                .map(|value| value.prerequisites().len())
+                .sum::<usize>(),
+            55
+        );
+        assert_eq!(
+            catalog
+                .ability_tree_nodes()
+                .iter()
+                .map(|value| value.effects().len())
+                .sum::<usize>(),
+            50
+        );
+        assert_eq!(
+            catalog
+                .ability_tree_nodes()
+                .iter()
+                .map(|value| value.parameters().len())
+                .sum::<usize>(),
+            43
+        );
         assert_eq!(
             catalog
                 .blessing_levels()
@@ -691,6 +821,14 @@ mod tests {
                 0xb6, 0x2e, 0x2a, 0xd9, 0xc0, 0x12, 0xa6, 0x36, 0xb4, 0x5b, 0xbf, 0x0c, 0xbd, 0xff,
                 0x53, 0x73, 0x50, 0x0c, 0x06, 0x9c, 0x00, 0x0c, 0xc4, 0x70, 0xb4, 0xc9, 0x52, 0x7c,
                 0x70, 0xa7, 0xa0, 0x27,
+            ]
+        );
+        assert_eq!(
+            catalog.identity().run_definitions_digest().bytes(),
+            [
+                0x90, 0x1a, 0x6d, 0xa7, 0xea, 0x7a, 0xfe, 0x8a, 0x77, 0x3d, 0x81, 0x12, 0xdf, 0x1a,
+                0x6f, 0x75, 0x54, 0x56, 0x18, 0x93, 0x1d, 0x01, 0x8a, 0x78, 0xf0, 0xff, 0x3d, 0xff,
+                0x2b, 0x23, 0xaa, 0xeb,
             ]
         );
         assert_eq!(

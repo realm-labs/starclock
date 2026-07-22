@@ -14,8 +14,13 @@ pub mod definition;
 pub mod digest;
 pub mod error;
 pub mod id;
+pub mod occurrence;
 pub mod path;
+pub mod progression;
 
 mod curio_lowering;
 mod lowering;
+mod occurrence_lowering;
 mod path_lowering;
+mod progression_lowering;
+mod run_digest;

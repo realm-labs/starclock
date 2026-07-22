@@ -2,6 +2,7 @@
 
 use crate::digest::{
     UniverseCurioDefinitionsDigest, UniverseDefinitionsDigest, UniversePathDefinitionsDigest,
+    UniverseRunDefinitionsDigest,
 };
 use crate::id::{
     ActivityBindingId, DifficultyId, DomainId, RoomId, TopologyId, TopologyNodeId,
@@ -638,6 +639,7 @@ pub(crate) struct UniverseDefinitions {
     pub(crate) digest: UniverseDefinitionsDigest,
     pub(crate) path_digest: UniversePathDefinitionsDigest,
     pub(crate) curio_digest: UniverseCurioDefinitionsDigest,
+    pub(crate) run_digest: UniverseRunDefinitionsDigest,
     pub(crate) profile: UniverseProfileDefinition,
     pub(crate) worlds: Box<[WorldDefinition]>,
     pub(crate) difficulties: Box<[DifficultyDefinition]>,
@@ -651,4 +653,9 @@ pub(crate) struct UniverseDefinitions {
     pub(crate) resonances: Box<[ResonanceDefinition]>,
     pub(crate) curios: Box<[crate::curio::CurioDefinition]>,
     pub(crate) curio_states: Box<[crate::curio::CurioStateDefinition]>,
+    pub(crate) occurrences: Box<[crate::occurrence::OccurrenceDefinition]>,
+    pub(crate) occurrence_variants: Box<[crate::occurrence::OccurrenceVariantDefinition]>,
+    pub(crate) occurrence_choices: Box<[crate::occurrence::OccurrenceChoiceDefinition]>,
+    pub(crate) services: Box<[crate::progression::ServiceDefinition]>,
+    pub(crate) ability_tree_nodes: Box<[crate::progression::AbilityTreeNodeDefinition]>,
 }

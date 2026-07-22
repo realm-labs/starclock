@@ -1,0 +1,50 @@
+{
+  "schema_revision": "starclock.goal04-run-catalog-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P1-B5",
+  "result": "occurrence-service-ability-tree-catalog-lowered",
+  "definitions_digest": "901a6da7ea7afe8a773d8112df1a6f75545618931d018a78f0ff3dff2b23aaeb",
+  "counts": {
+    "occurrences": 59,
+    "occurrence_variants": 67,
+    "occurrence_choices": 321,
+    "occurrence_costs": 70,
+    "occurrence_outcomes": 321,
+    "random_policy_outcomes": 52,
+    "parameter_vectors": 0,
+    "services": 94,
+    "service_parameters": 12,
+    "currency_services": 1,
+    "blessing_shops": 5,
+    "curio_shops": 4,
+    "trailblaze_bonus_services": 79,
+    "ability_tree_nodes": 42,
+    "ability_tree_edges": 55,
+    "ability_tree_costs": 42,
+    "ability_tree_effects": 50,
+    "ability_tree_parameters": 43,
+    "ability_tree_external_unlocks": 41
+  },
+  "shape": {
+    "occurrence_operations": 9,
+    "occurrence_targets": 5,
+    "random_policies": 1,
+    "service_kinds": 9,
+    "ability_operations": 10,
+    "ability_units": 4,
+    "ability_effect_classes": 3,
+    "coordinates_loaded": false,
+    "external_outcomes_are_commands": true
+  },
+  "boundaries": {
+    "generated_rows_public": false,
+    "authoritative_float": false,
+    "occurrence_choice_order_and_parent_references_validated": true,
+    "unknown_random_weights_not_fabricated": true,
+    "service_currency_rule_and_policy_references_validated": true,
+    "ability_tree_is_acyclic_and_operation_units_are_typed": true,
+    "runtime_logic_implemented": false
+  },
+  "new_registry_packages": 0,
+  "focused_tests": 5
+}

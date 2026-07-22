@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
 | Active phase | Phase 1 — Universe bundle and domain catalog |
-| Active batch | `G04-P1-B5` |
-| Next unblocked batch | `G04-P1-B5` |
+| Active batch | `G04-P1-B6` |
+| Next unblocked batch | `G04-P1-B6` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -44,7 +44,7 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P1-B2` | `Complete` | This row's containing commit | Lowered one profile, 9 Worlds, 33 difficulties, 9 abstract domains, 37 acyclic/reachable topologies with 579 nodes/707 edges, 163 rooms and the complete 9-domain Activity binding into generated-row-free immutable definitions. Coordinates are excluded, embedded score curves are typed/bounded, every structural reference is validated and the canonical definition digest is `f9b87efb14e0a376cea18379de7f87ed939acea417a7334e7ea93c7e33b0b430`. Evidence: `evidence/standard-universe-runtime-v1/catalog/structural-definitions.json`. |
 | `G04-P1-B3` | `Complete` | This row's containing commit | Lowered 9 Paths, 162 Blessings, 324 base/enhanced levels, 72 prerequisite policies, 638 Blessing parameters, 9 Resonances, 27 Formations and 238 Resonance parameters. Parent/order/rule references close exactly. Author decimals retain coefficient+scale up to 10 places and defer explicit rounding to six-place combat compilation. Canonical digest: `491d76e6bdbb0a932d2040a652c084c82b48860fd84fcfdea9d21404f9fb4bb5`. |
 | `G04-P1-B4` | `Complete` | This row's containing commit | Lowered 61 Curios, 67 lifecycle states and 89 exact parameters. Initial-state ownership, 55 active/6 repairing/6 fixed states, 9 charge counters, 3 one-based parameter bindings, 6 repair transitions, mechanic rules and the currently empty replacement relation validate without exposing Sora rows. Canonical digest: `b62e2ad9c012a636b45bbf0cbdff5373500c069c000cc470b4c9527c70a7a027`. |
-| `G04-P1-B5` | `Pending` | — | — |
+| `G04-P1-B5` | `Complete` | This row's containing commit | Lowered 59 Occurrences, 67 variants, 321 ordered choices, 70 costs and 321 typed outcomes; 52 outcomes retain the explicit stable-uniform project policy instead of fabricated weights. Lowered 94 currency/service/shop entries with 12 parameters and the 42-node/55-edge acyclic Ability Tree with 42 costs, 50 typed effects, 43 exact parameters and 41 external unlocks. Canonical run-definition digest: `901a6da7ea7afe8a773d8112df1a6f75545618931d018a78f0ff3dff2b23aaeb`. |
 | `G04-P1-B6` | `Pending` | — | — |
 | `G04-P2-B1` | `Pending` | — | — |
 | `G04-P2-B2` | `Pending` | — | — |
@@ -105,7 +105,9 @@ machine-generated runtime-disposition manifest without changing these counts.
 | Blessings / levels | 162 / 324 | 162 / 324 assigned | 162 / 324 catalog-verified |
 | Resonances/Formations | 36 | 36 assigned | 36 catalog-verified |
 | Curios / states | 61 / 67 | 61 / 67 assigned | 61 / 67 catalog-verified |
-| Occurrences / choices | 59 / 321 | 59 / 321 assigned | 0 / 0 |
+| Occurrences / choices | 59 / 321 | 59 / 321 assigned | 59 / 321 catalog-verified |
+| Services / parameters | 94 / 12 | 94 / 12 assigned | 94 / 12 catalog-verified |
+| Ability Tree nodes / effects | 42 / 50 | 42 / 50 assigned | 42 / 50 catalog-verified |
 | Encounter groups / enemy slots | 74 / 538 | 74 / 538 assigned | 0 / 0 |
 
 `Runtime disposition` is not synonymous with custom code. A row may lower to

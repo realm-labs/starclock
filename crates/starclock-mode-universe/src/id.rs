@@ -45,3 +45,11 @@ id_type!(
 );
 id_type!(CurioId, "Stable authored Curio ID.");
 id_type!(CurioStateId, "Stable authored Curio lifecycle-state ID.");
+id_type!(OccurrenceId, "Stable authored Occurrence ID.");
+id_type!(
+    OccurrenceVariantId,
+    "Stable authored Occurrence variant ID."
+);
+id_type!(OccurrenceChoiceId, "Stable authored Occurrence choice ID.");
+id_type!(ServiceId, "Stable authored Universe service or shop ID.");
+id_type!(AbilityTreeNodeId, "Stable authored Ability Tree node ID.");
