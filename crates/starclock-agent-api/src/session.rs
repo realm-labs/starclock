@@ -3,7 +3,7 @@
 //! Sessions compose deterministic Goal 01 libraries while operational identity,
 //! time, ownership, expiry, quotas and idempotency remain outside domain state.
 
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, VecDeque};
 
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
@@ -19,7 +19,10 @@ use starclock_replay::battle::BattleTraceEntry;
 use crate::{
     action::{ActionBindingError, OfferedAction, OfferedActionSet},
     error::{AgentError, AgentErrorCode},
-    observation::{AgentBattleStatus, AgentObservation, VisibilityPolicy, project_player_visible},
+    observation::{
+        AgentBattleStatus, AgentEventPage, AgentEventSummary, AgentObservation, VisibilityPolicy,
+        project_event_summary, project_player_visible,
+    },
     schema::{
         ActionToken, AgentHash, AgentSchemaRevision, AgentUInt, EventCursor, IdempotencyKey,
         ScenarioId, SessionId,
@@ -31,6 +34,7 @@ pub const RESPONSIBILITY: &str = "ephemeral authoritative sessions and registry"
 pub const MAX_ACCEPTED_COMMANDS_PER_SETTLEMENT: usize = 4_096;
 pub const MAX_IDEMPOTENCY_ENTRIES: usize = 1_024;
 pub const MAX_CACHED_RESPONSE_BYTES: usize = 512 * 1_024;
+pub const MAX_RETAINED_EVENT_SUMMARIES: usize = 8_192;
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
@@ -168,6 +172,66 @@ struct CachedActionResponse {
 struct AgentReplayRecorder {
     trace: Vec<BattleTraceEntry>,
     controllers: Vec<AcceptedCommandRecord>,
+    events: VecDeque<AgentEventSummary>,
+}
+
+impl AgentReplayRecorder {
+    fn retain_event(&mut self, event: AgentEventSummary) {
+        if self.events.len() == MAX_RETAINED_EVENT_SUMMARIES {
+            self.events.pop_front();
+        }
+        self.events.push_back(event);
+    }
+
+    fn latest_cursor(&self) -> EventCursor {
+        let id = self
+            .events
+            .back()
+            .map_or(0, |event| event.event_id.to_u64());
+        EventCursor::parse(&format!("event_{id}"))
+            .expect("event IDs always form a valid opaque cursor")
+    }
+
+    fn page_after(&self, cursor: &EventCursor) -> Result<AgentEventPage, AgentError> {
+        let requested = cursor_id(cursor)?;
+        let latest = self
+            .events
+            .back()
+            .map_or(0, |event| event.event_id.to_u64());
+        if requested > latest {
+            return Err(agent_error(
+                AgentErrorCode::InvalidRequest,
+                "The event cursor is ahead of the retained battle history.",
+            ));
+        }
+        if let Some(oldest) = self.events.front().map(|event| event.event_id.to_u64())
+            && requested.saturating_add(1) < oldest
+        {
+            return Err(agent_error(
+                AgentErrorCode::EventCursorExpired,
+                "The event cursor precedes the retained summary window.",
+            ));
+        }
+        let mut visible = self
+            .events
+            .iter()
+            .filter(|event| event.event_id.to_u64() > requested);
+        let events = visible
+            .by_ref()
+            .take(crate::observation::MAX_EVENTS_PER_PAGE)
+            .cloned()
+            .collect::<Vec<_>>();
+        let truncated = visible.next().is_some();
+        let next = events
+            .last()
+            .map_or(requested, |event| event.event_id.to_u64());
+        Ok(AgentEventPage {
+            events: events.into_boxed_slice(),
+            next_cursor: EventCursor::parse(&format!("event_{next}"))
+                .expect("event IDs always form a valid opaque cursor"),
+            truncated,
+        })
+    }
 }
 
 /// One isolated authoritative battle and its complete incremental replay facts.
@@ -300,6 +364,7 @@ impl AgentSession {
             ));
         }
 
+        let event_cursor = self.replay.latest_cursor();
         let settlement = self.play_token(&request.action_token)?;
         let response = AgentActionResponse {
             schema_revision: AgentSchemaRevision::V1,
@@ -312,7 +377,7 @@ impl AgentSession {
                 emitted_events: settlement.emitted_events,
                 resolver_operations: settlement.resolver_operations,
             },
-            observation: self.observation()?,
+            observation: self.observation_after(&event_cursor)?,
         };
         let canonical_json = serde_json::to_vec(&response).map_err(|_| {
             committed_error(
@@ -367,8 +432,13 @@ impl AgentSession {
         })
     }
 
-    fn observation(&self) -> Result<AgentObservation, AgentError> {
+    pub fn observe(&self, after: &EventCursor) -> Result<AgentObservation, AgentError> {
+        self.observation_after(after)
+    }
+
+    fn observation_after(&self, after: &EventCursor) -> Result<AgentObservation, AgentError> {
         let view = self.battle.view();
+        let page = self.replay.page_after(after)?;
         let status = match view.phase() {
             BattlePhase::AwaitingCommand => AgentBattleStatus::AwaitingPlayer,
             BattlePhase::Won => AgentBattleStatus::Won,
@@ -388,8 +458,7 @@ impl AgentSession {
             catalog_digest: AgentHash::from_bytes(view.identity().catalog_digest().bytes()),
             decision_id: self.offered.as_ref().map(OfferedActionSet::decision_id),
             state_hash: self.state_hash(),
-            event_cursor: EventCursor::parse("event_0")
-                .expect("static initial event cursor is valid"),
+            event_cursor: page.next_cursor,
             visibility_policy: self.visibility,
             status,
             battle: project_player_visible(view).map_err(|_| {
@@ -402,8 +471,8 @@ impl AgentSession {
                 || Vec::new().into_boxed_slice(),
                 |offered| offered.actions().to_vec().into_boxed_slice(),
             ),
-            events: Box::new([]),
-            events_truncated: false,
+            events: page.events,
+            events_truncated: page.truncated,
         })
     }
 
@@ -516,6 +585,9 @@ impl AgentSession {
         let state_hash = resolution.state_hash();
         let event_count = u64::try_from(resolution.events().len())
             .expect("resolution event collection length fits u64");
+        for event in resolution.events() {
+            self.replay.retain_event(project_event_summary(event));
+        }
         self.replay
             .trace
             .push(BattleTraceEntry::new(command, state_hash));
@@ -538,6 +610,24 @@ fn command_actor(command: &Command) -> Option<starclock_combat::UnitId> {
         | Command::PassInterruptWindow { .. }
         | Command::Concede { .. } => None,
     }
+}
+
+fn cursor_id(cursor: &EventCursor) -> Result<u64, AgentError> {
+    let value = cursor.as_str().strip_prefix("event_").ok_or_else(|| {
+        agent_error(
+            AgentErrorCode::InvalidRequest,
+            "The event cursor has an invalid opaque representation.",
+        )
+    })?;
+    AgentUInt::parse(value).map_or_else(
+        |_| {
+            Err(agent_error(
+                AgentErrorCode::InvalidRequest,
+                "The event cursor has an invalid opaque representation.",
+            ))
+        },
+        |value| Ok(value.to_u64()),
+    )
 }
 
 fn system_command(decision: &starclock_combat::DecisionPoint) -> Result<Command, AgentError> {
@@ -843,5 +933,96 @@ mod tests {
             ),
             after_commit
         );
+    }
+
+    #[test]
+    fn retained_events_page_exclusively_and_reject_expired_or_future_cursors() {
+        let factory = AgentSessionFactory::load_production().unwrap();
+        let mut session = factory
+            .create(request(SCENARIOS[0].0, AgentSeedPolicy::ScenarioDefault))
+            .unwrap();
+        session.replay.events.clear();
+        for id in 1..=u64::try_from(MAX_RETAINED_EVENT_SUMMARIES + 1).unwrap() {
+            session.replay.retain_event(AgentEventSummary {
+                event_id: AgentUInt::from_u64(id),
+                kind: "test".into(),
+                summary: "Retained test event.".into(),
+                root_command_id: AgentUInt::from_u64(1),
+            });
+        }
+        let expired = EventCursor::parse("event_0").unwrap();
+        assert_eq!(
+            session.observe(&expired).unwrap_err().code,
+            AgentErrorCode::EventCursorExpired
+        );
+        let first_retained = session
+            .observe(&EventCursor::parse("event_1").unwrap())
+            .unwrap();
+        assert_eq!(
+            first_retained.events.len(),
+            crate::observation::MAX_EVENTS_PER_PAGE
+        );
+        assert_eq!(first_retained.events[0].event_id.as_str(), "2");
+        assert!(first_retained.events_truncated);
+        assert_eq!(first_retained.event_cursor.as_str(), "event_257");
+        assert_eq!(
+            session.replay.trace.len(),
+            1,
+            "summary eviction cannot erase replay facts"
+        );
+        assert_eq!(
+            session
+                .observe(&EventCursor::parse("event_999999").unwrap())
+                .unwrap_err()
+                .code,
+            AgentErrorCode::InvalidRequest
+        );
+        assert_eq!(
+            session
+                .observe(&EventCursor::parse("cursor_wrong_family").unwrap())
+                .unwrap_err()
+                .code,
+            AgentErrorCode::InvalidRequest
+        );
+    }
+
+    #[test]
+    fn terminal_action_returns_terminal_observation_and_complete_trace() {
+        let factory = AgentSessionFactory::load_production().unwrap();
+        let mut session = factory
+            .create(request(SCENARIOS[0].0, AgentSeedPolicy::ScenarioDefault))
+            .unwrap();
+        let mut preparation = 0;
+        while !session
+            .offered_actions()
+            .iter()
+            .any(|action| action.kind == crate::action::AgentActionKind::Concede)
+        {
+            let token = session.offered_actions()[0].token.clone();
+            let request = play_request(&session, token, &format!("prepare_{preparation}"));
+            session.apply_action(request).unwrap();
+            preparation += 1;
+            assert!(preparation < 8);
+        }
+        let concede = session
+            .offered_actions()
+            .iter()
+            .find(|action| action.kind == crate::action::AgentActionKind::Concede)
+            .unwrap()
+            .token
+            .clone();
+        let trace_before = session.replay.trace.len();
+        let request = play_request(&session, concede, "terminal_concede");
+        let response = session.apply_action(request).unwrap();
+        assert_eq!(response.observation.status, AgentBattleStatus::Lost);
+        assert_eq!(response.observation.decision_id, None);
+        assert!(response.observation.legal_actions.is_empty());
+        assert!(!response.observation.events.is_empty());
+        assert_eq!(
+            response.observation.event_cursor.as_str(),
+            session.replay.latest_cursor().as_str()
+        );
+        assert_eq!(session.replay.trace.len(), trace_before + 1);
+        assert_eq!(session.replay.controllers.len(), session.replay.trace.len());
     }
 }

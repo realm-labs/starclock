@@ -359,15 +359,7 @@ pub fn project_event_page(events: &[BattleEvent]) -> Result<AgentEventPage, Proj
     let visible = &events[..events.len().min(MAX_EVENTS_PER_PAGE)];
     let summaries = visible
         .iter()
-        .map(|event| {
-            let (kind, summary) = event_label(event.kind());
-            AgentEventSummary {
-                event_id: AgentUInt::from_u64(event.id().get()),
-                kind: kind.into(),
-                summary: summary.into(),
-                root_command_id: AgentUInt::from_u64(event.cause().root_command().get()),
-            }
-        })
+        .map(project_event_summary)
         .collect::<Vec<_>>();
     let cursor_id = visible.last().map_or(0, |event| event.id().get());
     let next_cursor = EventCursor::parse(&format!("event_{cursor_id}"))
@@ -377,6 +369,16 @@ pub fn project_event_page(events: &[BattleEvent]) -> Result<AgentEventPage, Proj
         next_cursor,
         truncated,
     })
+}
+
+pub(crate) fn project_event_summary(event: &BattleEvent) -> AgentEventSummary {
+    let (kind, summary) = event_label(event.kind());
+    AgentEventSummary {
+        event_id: AgentUInt::from_u64(event.id().get()),
+        kind: kind.into(),
+        summary: summary.into(),
+        root_command_id: AgentUInt::from_u64(event.cause().root_command().get()),
+    }
 }
 
 fn team(view: BattleView<'_>, requested: TeamSide) -> AgentTeamView {
