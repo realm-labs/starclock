@@ -7,6 +7,7 @@ pub enum UniversePoolKind {
     Occurrence,
     Encounter,
     Shop,
+    TrailblazeBonus,
 }
 
 impl super::runtime::SoraDecode for UniversePoolKind {
@@ -19,6 +20,7 @@ impl super::runtime::SoraDecode for UniversePoolKind {
             2 => Ok(Self::Occurrence),
             3 => Ok(Self::Encounter),
             4 => Ok(Self::Shop),
+            5 => Ok(Self::TrailblazeBonus),
             value => Err(super::runtime::SoraReadError::new(format!(
                 "invalid enum ordinal {} for UniversePoolKind",
                 value

@@ -45,6 +45,14 @@ Blessing foreign keys. Empty normalized lists are represented as absent Excel
 cells and optional Sora lists; this preserves the JSON empty-list meaning
 without inserting sentinel text that would become a false list member.
 
+Generic workbook pools are deterministic indexes over audited content. Path
+pools retain their released 18-Blessing membership; Standard category pools
+index all in-scope Blessings, Curios, Occurrences, encounters and Trailblaze
+bonuses. Each released shop ID gets a category-appropriate candidate index
+whose entries carry `runtime.shop_eligibility`; the runtime must apply its
+authored unlock, rarity and offer rules before selection and must not treat the
+index as proof that every candidate is legal at every shop visit.
+
 ## Common record envelope
 
 All authored records contain:

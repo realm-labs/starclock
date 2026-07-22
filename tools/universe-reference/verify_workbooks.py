@@ -52,6 +52,24 @@ def main() -> None:
     missing = sorted(used_enemy_keys - enemy_keys)
     if missing:
         raise ValueError(f"workbooks reference unknown Goal 01 enemy variants: {missing}")
+    content_keys = {row["content_stable_key"] for row in expected_rows["UniverseContentAudit"]}
+    source_ids = {row["id"] for row in expected_rows["UniverseSourceRecord"]}
+    pool_keys = {row["stable_key"] for row in expected_rows["UniverseContentPool"]}
+    for row in expected_rows["UniverseContentAudit"]:
+        provenance = {int(value) for value in row["provenance_ids"].split("|")}
+        if not provenance or not provenance <= source_ids:
+            raise ValueError(f"{row['content_stable_key']} has invalid workbook provenance")
+    for row in expected_rows["UniverseContentPoolEntry"]:
+        if row["content_stable_key"] not in content_keys:
+            raise ValueError(f"pool entry references unaudited content {row['content_stable_key']}")
+    for row in expected_rows["UniverseService"]:
+        offer_pool = row["offer_pool_stable_key"]
+        if offer_pool and offer_pool not in pool_keys:
+            raise ValueError(f"service references missing pool {offer_pool}")
+    if sum(row["required"] for row in expected_rows["UniverseCoverage"]) != len(content_keys):
+        raise ValueError("coverage denominator differs from audited content")
+    if {row["source_record_stable_key"] for row in expected_rows["UniverseMechanicRule"]} - content_keys:
+        raise ValueError("mechanic rule references unaudited content")
     print(
         f"Verified {sum(expected.values())} authored rows across {len(expected)} Universe sheets; "
         f"{len(used_enemy_keys)} enemy stable keys close; semantic digest {semantic_digest(data_root)}."

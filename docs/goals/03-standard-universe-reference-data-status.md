@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 3 — Complete Excel authoring |
 | Active batch | None |
-| Next unblocked batch | `G03-P3-B5` |
+| Next unblocked batch | `G03-P3-B6` |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -50,7 +50,7 @@
 | `G03-P3-B2` | `Complete` | This row's containing commit | Authored the profile, nine Worlds, 33 difficulties/182 boss-or-elite bindings, nine domains, 579 nodes/707 edges, 163 rooms/380 content bindings, 74 encounter groups, 173 members/waves, 538 enemy slots, 92 room pools and the Activity/domain seam. The integration pass corrected enemy transport from premature `EnemyVariant.id` foreign keys to stable keys closed against all 2,591 Goal 01 reference variants; this avoids fabricating unimplemented combat rows. Sora binary/debug export and a 49-sheet/3,333-row workbook verifier pass. |
 | `G03-P3-B3` | `Complete` | This row's containing commit | Authored nine Paths with 162 ordered membership rows, 36 Resonances/Formations with 238 exact parameters, 162 Blessings, 72 released unlock prerequisites, 324 level rows and 638 exact level parameters. Real-data validation corrected prerequisite transport from a false Blessing foreign key to an unlock-condition stable key and made zero-length Sora lists optional rather than inventing sentinel values. The resulting 4,974-row workbook set exports through Sora and matches normalized builder counts exactly. |
 | `G03-P3-B4` | `Complete` | This row's containing commit | Authored 61 Curios, 67 explicit lifecycle states and 89 exact state parameters, including charge parameter indices and typed next/repair/replacement links. Authored 59 Occurrences, 67 base-mode variants, 321 choices, 70 costs and 321 classified outcomes; conditions, text digests, parameter vectors, numeric literals, chance fields and the 52 policy-bound random outcomes remain explicit. Sora export and normalized row-count verification pass for the resulting 6,029-row workbook set. |
-| `G03-P3-B5` | `Pending` | — | — |
+| `G03-P3-B5` | `Complete` | This row's containing commit | Completed all remaining sheets: 94 services/12 parameters, 42 Ability Tree nodes with 55 edges, 42 costs, 50 typed effects and 43 source parameters; 786 mechanic-rule bindings; 23 deterministic candidate indexes/1,651 entries; 2,645 source records; 2,201 content-audit rows; 18 coverage rows; 78 mechanic fixtures; and 24 pack-file digests. Pool entries close against audited content, every service pool resolves, every rule source is audited and provenance references are valid. All 49 sheets now contain their final 13,793 normalized rows and export through Sora. |
 | `G03-P3-B6` | `Pending` | — | — |
 | `G03-P4-B1` | `Pending` | — | — |
 | `G03-P4-B2` | `Pending` | — | — |
