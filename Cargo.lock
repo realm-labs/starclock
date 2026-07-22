@@ -798,6 +798,7 @@ name = "starclock-cli"
 version = "0.1.0"
 dependencies = [
  "allocation-counter",
+ "serde_json",
  "starclock-activity",
  "starclock-ai",
  "starclock-build",

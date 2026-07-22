@@ -58,6 +58,7 @@ const expectedExternal = new Map([
   ]],
   ["starclock-cli", [
     { name: "allocation-counter", requirement: "=0.8.1", features: [], kind: "dev" },
+    { name: "serde_json", requirement: "=1.0.151", features: ["std"], kind: "dev" },
   ]],
 ]);
 

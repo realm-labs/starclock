@@ -1,0 +1,39 @@
+{
+  "schema_revision": "starclock.mcp-stdio-conformance-evidence.v1",
+  "recorded_on": "2026-07-22",
+  "platform": "x86_64-pc-windows-msvc",
+  "mcp_revision": "2025-11-25",
+  "server": {
+    "name": "starclock-mcp",
+    "transport": "stdio",
+    "command": "starclock mcp serve --transport stdio"
+  },
+  "scripted_client": {
+    "source": "crates/starclock-cli/tests/mcp_stdio.rs",
+    "test": "independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and_shutdown",
+    "command": "cargo test -p starclock-cli --test mcp_stdio --all-features",
+    "response_frames": 24
+  },
+  "inspector_fixture": "tools/agent-control/mcp-inspector-config.json",
+  "coverage": [
+    "initialize and frozen protocol/server identity",
+    "seven typed tools plus static resources, templates and usage prompt discovery",
+    "bounded inert catalog and scenario resource reads",
+    "six-scenario tool discovery and basic Standard battle creation",
+    "stale action rejection with unchanged authoritative state",
+    "malformed tool argument rejection and server continuity",
+    "advisory cancellation notification and server continuity",
+    "eight-action public-value play to the frozen won hash",
+    "nine-command replay export, close and fresh replay verification",
+    "protocol-only stdout, empty stderr and clean EOF shutdown"
+  ],
+  "battle": {
+    "scenario_id": "scenario.standard-v1.basic-single-wave",
+    "external_actions": 8,
+    "replay_commands": 9,
+    "terminal_phase": "won",
+    "final_state_hash": "5021cdd6019e0a100ad35e36ffb69fdb4860600db472c77fb8b33a9571b507ec",
+    "verified_after_close": true
+  },
+  "result": "pass"
+}

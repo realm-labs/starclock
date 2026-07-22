@@ -11,9 +11,9 @@ implementation batch.
 | Goal ID | `agent-control-mcp-v1` |
 | State | `InProgress` |
 | Prerequisite | Goal 01 `Complete` at or after `b23f900` |
-| Active phase | Phase 3 — Local MCP adapter |
-| Next unblocked batch | `G02-P3-B5` |
-| Last completed batch | `G02-P3-B4` |
+| Active phase | Phase 4 — Remote Streamable HTTP |
+| Next unblocked batch | `G02-P4-B1` |
+| Last completed batch | `G02-P3-B5` |
 | Last completed commit | This row's containing commit |
 | MCP specification baseline | Frozen `2025-11-25` |
 | Agent schema revision | Frozen `agent-api-v1` / `1746004f…6725` |
@@ -32,7 +32,7 @@ external evidence or decision required. Phase completion is not goal completion.
 | Phase 0 — Protocol/capability/threat model | `Complete` | Surface audit; MCP/SDK capability lock; `agent-api-v1` schema/budgets; 19-case threat model and fail-closed startup policy |
 | Phase 1 — Types and observation | `Complete` | Protocol-neutral responsibility split; exact owned values; bounded player projection/events; private exact-command token table; separately gated marked debug mode; embedded frozen schemas/goldens and seeded property contracts |
 | Phase 2 — Authoritative sessions | `Complete` | All six production scenarios finish from public observations/tokens at exact seeded hashes; every replay verifies; bounded owner registry race/expiry/close/quota proofs; strict projection/step/registry/memory baseline |
-| Phase 3 — Local MCP | `Pending` | Pending |
+| Phase 3 — Local MCP | `Complete` | Independent raw JSON-RPC child client discovers seven typed tools/resources/templates/prompt, completes the frozen basic battle in eight external actions, rejects stale/malformed calls inertly, survives advisory cancellation, exports nine-command replay, closes, verifies the same `5021cdd6…1b507ec` hash and shuts down with protocol-only stdout/empty stderr; Inspector fixture and 10-case evidence retained |
 | Phase 4 — Remote HTTP | `Pending` | Pending |
 | Phase 5 — Hardening/freeze | `Pending` | Pending |
 
@@ -65,7 +65,7 @@ evidence summary.
 | `G02-P3-B2` | `Complete` | This row's containing commit | `node tools/agent-control/verify-mcp-sdk-lock.mjs`; `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo test -p starclock-mcp --all-targets --all-features`; `cargo clippy -p starclock-agent-api -p starclock-mcp --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Exposed exactly seven discoverable tools with concrete nested input/output schemas and structured success/error content. All operations delegate to the owned registry or production factory; no command-construction path was added. Listing returns the six exact scenario identities/default seeds, replay export uses lowercase hex with a 64 MiB decoded import cap, and fresh verification succeeds after the originating session is closed. |
 | `G02-P3-B3` | `Complete` | This row's containing commit | `node tools/agent-control/verify-mcp-sdk-lock.mjs`; `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-data -p starclock-agent-api -p starclock-mcp --all-targets --all-features`; `cargo clippy -p starclock-data -p starclock-agent-api -p starclock-mcp --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Added two static resources, two exact templates and one fixed argument-free usage prompt. Catalog, scenario and 88-character lookups cross only generated-row-free data/application summaries; every JSON resource is marked inert and capped at 16 KiB, URI input is capped at 256 bytes, pagination cursors fail closed, and tests exclude workbook/Sora/generated/cache/private-command/reasoning markers. No subscription or list-changed capability is advertised. |
 | `G02-P3-B4` | `Complete` | This row's containing commit | `node tools/agent-control/verify-mcp-sdk-lock.mjs`; `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-mcp --all-targets --all-features`; `cargo test -p starclock-cli --all-targets --all-features`; `cargo clippy -p starclock-mcp -p starclock-cli --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Added only `starclock mcp serve --transport stdio`: one local owner, validated shared factory, bounded registry, injected monotonic clock and process/start/ordinal session IDs. A 16 KiB newline-frame reader rejects before JSON decode; child tests prove frozen initialization/tool discovery produces only JSON-RPC stdout with empty stderr, while oversized input yields zero stdout and generic stderr without echo. No listener or ambient remote identity exists. |
-| `G02-P3-B5` | `Pending` | — | — | — |
+| `G02-P3-B5` | `Complete` | This row's containing commit | `node tools/agent-control/verify-mcp-stdio-conformance.mjs`; `node tools/agent-control/verify-mcp-sdk-lock.mjs`; `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-cli --test mcp_stdio --all-features`; `cargo test -p starclock-mcp -p starclock-cli --all-targets --all-features`; `cargo clippy -p starclock-mcp -p starclock-cli --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `cargo fmt --all -- --check`; `git diff --check` | Added an independent interactive stdio JSON-RPC client plus Inspector launch and reviewed 10-case evidence fixtures. It freezes discovery schemas/context, completes the basic scenario using only public legal values, proves stale and malformed calls leave the accepted hash unchanged, survives advisory cancellation, exports and verifies the exact replay after close, and requires clean EOF with 24 protocol-only responses and empty stderr. Phase 3 complete. |
 | `G02-P4-B1` | `Pending` | — | — | — |
 | `G02-P4-B2` | `Pending` | — | — | — |
 | `G02-P4-B3` | `Pending` | — | — | — |
@@ -93,6 +93,7 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | Settlement limits | 4,096 commands; 65,536 events; 262,144 operations | [`agent-api-v1.json`](../../policy/agent-api-v1.json) |
 | Session/registry limits | 1,024 global / 64 tenant / 16 principal; idle 1,800 s / max 14,400 s | [`agent-control-threat-model.json`](../../policy/agent-control-threat-model.json) |
 | Performance workload | `g02-agent-session-baseline-v1` / `e99df5c0…9a09` | [`phase2-baseline-windows-x64.json`](../../evidence/agent-control-mcp-v1/performance/phase2-baseline-windows-x64.json); remote/MCP extension remains `G02-P4-B5` |
+| MCP stdio conformance | `starclock.mcp-stdio-conformance-evidence.v1`; 10 cases; `5021cdd6…1b507ec` | [`mcp-stdio-conformance.json`](../../evidence/agent-control-mcp-v1/protocol/mcp-stdio-conformance.json) |
 
 ## Decision record
 
@@ -122,6 +123,7 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | 2026-07-22 | Local MCP replay artifacts use bounded lowercase hexadecimal and standalone verification requires the frozen scenario plus seed policy. | Avoids a new codec dependency, makes the accepted wire alphabet exact and allows verification after session closure; the decoded replay import remains capped at 64 MiB and canonical replay bytes are unchanged. |
 | 2026-07-22 | MCP catalog context is a small generated-row-free summary surface and its sole prompt is fixed and authority-neutral. | Static manifest/rules resources plus exact scenario/character templates stay below 16 KiB, mark text as inert and expose no workbook, generated/cache record, long proprietary text or hidden runtime state. The prompt accepts no arguments and cannot grant authorization or alter rules. |
 | 2026-07-22 | Local stdio uses a 16 KiB complete JSON-RPC frame bound and owns its runtime/operational identity inside `starclock-mcp`. | Bounds allocation before decode and keeps CLI stdout protocol-only. The tighter transport limit composes with the 64 MiB application replay ceiling; stdio replay calls must satisfy both. Local IDs are uniqueness handles rather than credentials or deterministic inputs. |
+| 2026-07-22 | Phase 3 acceptance uses an independent raw JSON-RPC child client; MCP Inspector remains a manual interoperability surface. | The automated proof crosses the production CLI/SDK/stdin/stdout boundary without adapter internals, fixes exact hashes/counts and clean shutdown, and stays deterministic without making a floating Inspector package version part of the conformance authority. |
 
 Add architectural decisions here before implementing a deviation from the goal
 or normative design. A decision cannot silently weaken a terminal gate.
@@ -160,8 +162,8 @@ a case does not block it.
 ### MCP and remote service
 
 - [x] MCP protocol and official Rust SDK capability lock are committed.
-- [ ] All seven tools and bounded resources have schema/conformance evidence.
-- [ ] Stdio end-to-end play passes with protocol-only stdout.
+- [x] All seven tools and bounded resources have schema/conformance evidence.
+- [x] Stdio end-to-end play passes with protocol-only stdout.
 - [ ] Streamable HTTP end-to-end play matches in-process traces.
 - [ ] Non-loopback startup, authorization, scopes, origins, tenant ownership,
       limits and rate policies fail closed and pass adversarial tests.

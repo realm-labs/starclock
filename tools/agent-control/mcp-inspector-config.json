@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "starclock": {
+      "command": "cargo",
+      "args": [
+        "run",
+        "--quiet",
+        "-p",
+        "starclock-cli",
+        "--",
+        "mcp",
+        "serve",
+        "--transport",
+        "stdio"
+      ]
+    }
+  }
+}
