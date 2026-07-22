@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `standard-universe-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 0 — Freeze scope and evidence |
+| Active phase | Phase 1 — Normalized reference pack |
 | Active batch | None |
-| Next unblocked batch | `G03-P0-B4` |
+| Next unblocked batch | `G03-P1-B1` |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -18,8 +18,8 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope/evidence | `InProgress` | Snapshot/scope frozen. The ignored cache now reproducibly hashes 2,646 Rogue table, ability, NPC and dialogue-graph files; the concrete 2,838-row main-world manifest is frozen. Schema/quality/fixture contracts remain B4. |
-| Phase 1 — Reference pack | `Pending` | — |
+| Phase 0 — Scope/evidence | `Complete` | Snapshot/scope, 2,646-file evidence inventory, 2,838-row main-world manifest, stable normalized record families, provenance/quality labels, canonical JSON rules and semantic fixture contract are frozen and machine-verified. |
+| Phase 1 — Reference pack | `InProgress` | Ready for deterministic normalized import by table family. |
 | Phase 2 — Sora schema | `Pending` | — |
 | Phase 3 — Excel authoring | `Pending` | — |
 | Phase 4 — Review/freeze | `Pending` | — |
@@ -31,7 +31,7 @@
 | `G03-P0-B1` | `Complete` | This row's containing commit | Frozen Version 4.4 / 2026-07-22 main-world scope, nine-World/nine-Path public boundary, pinned source revisions, required/excluded categories, evidence/quality policy, normalized pack and Excel/Sora promotion contracts. Added the 28-batch plan, persistent ledger and launch prompt; both prior release contracts and source-policy checks pass. |
 | `G03-P0-B2` | `Complete` | This row's containing commit | Expanded the pinned sparse cache with every Rogue Excel table and Rogue battle/level ability file. Deterministic inventory `4c45418e…8972` hashes 372 files: 35 Standard candidates, 17 shared/reachability-review tables, 165 other-mode tables, 17 presentation/account tables and 138 mechanic-evidence files. The generator's `--check` mode rejects drift; classification is table-level only and does not pre-approve shared rows. |
 | `G03-P0-B3` | `Complete` | This row's containing commit | Expanded mechanic evidence to 2,646 pinned files (`1d5c7b03…99e7d`) and froze a reproducible 2,838-row content manifest (`5ac3d484…7f7ae`). Membership resolves the current 33 World difficulties, nine Paths, 36 Resonance/Formation rows, 162 Blessings with 324 levels, 61 Curios with 182 states, 59 Occurrences with 55 base variants, nine domains, 42 Ability Tree nodes, 108 service/bonus rows and the reachable 154-group/347-member encounter set. DLC-prefixed variants, Resonance Interplays and activity map families are explicitly excluded. Both generators support drift-rejecting `--check`. |
-| `G03-P0-B4` | `Pending` | — | — |
+| `G03-P0-B4` | `Complete` | This row's containing commit | Frozen the machine-readable normalized schema for 25 pack files, stable common/provenance envelopes, explicit definition/level/state/variant separation, five evidence-quality labels, canonical decimal/JSON rules and semantic review-fixture shape. Added a deterministic contract verifier covering category counts, ID uniqueness, row evidence/locators and the 9/9/162/324/36 denominators; documentation now records validation order and the JSON-to-Excel/Sora-only promotion boundary. |
 | `G03-P1-B1` | `Pending` | — | — |
 | `G03-P1-B2` | `Pending` | — | — |
 | `G03-P1-B3` | `Pending` | — | — |
@@ -95,7 +95,7 @@ Populate only from generated manifests in `G03-P0-B3`.
 
 ## Terminal checklist
 
-- [ ] Concrete category manifests and counts are frozen.
+- [x] Concrete category manifests and counts are frozen.
 - [ ] Complete normalized pack and evidence index regenerate deterministically.
 - [ ] All required rows have bilingual summaries and provenance.
 - [ ] All required mechanics are exact or explicitly approximate/policy-bound.

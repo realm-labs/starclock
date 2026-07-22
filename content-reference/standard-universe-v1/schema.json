@@ -1,0 +1,114 @@
+{
+  "schema": "starclock.standard-universe-normalized-schema.v1",
+  "canonical_encoding": {
+    "encoding": "UTF-8",
+    "newline": "LF",
+    "indent_spaces": 2,
+    "terminal_newline": true,
+    "object_keys": "lexicographic when hashed",
+    "set_arrays": "stable-id ascending",
+    "sequence_arrays": "source semantic order",
+    "decimal_pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]{1,6})?$",
+    "integer_transport": "JSON integer only within safe range; otherwise canonical decimal string"
+  },
+  "enums": {
+    "quality": [
+      "ExactStructured",
+      "ExactPublicText",
+      "Observed",
+      "ApproximateFromReleasedText",
+      "ProjectPolicy"
+    ],
+    "coverage_state": ["Cataloged", "Researched", "DataReady", "GoldenVerified", "Blocked"],
+    "mode_owner": ["Standard", "Shared", "EvidenceOnly"],
+    "ordering": ["SetById", "SourceSequence"]
+  },
+  "common_record": {
+    "required": [
+      "id",
+      "enabled",
+      "mode_owner",
+      "name_en",
+      "name_zh_cn",
+      "summary_en",
+      "summary_zh_cn",
+      "quality",
+      "mechanism_quality",
+      "coverage_state",
+      "provenance_ids",
+      "source_ids",
+      "note"
+    ],
+    "rules": {
+      "id": "stable Starclock ID; source IDs are forbidden as implicit runtime identity",
+      "enabled": "true only for Standard/Shared rows admitted by the manifest",
+      "bilingual": "all four localized fields are non-empty for DataReady rows",
+      "quality": "field-level overrides are stored in quality_overrides",
+      "references": "all references use stable IDs and resolve within the pack",
+      "note": "required for ApproximateFromReleasedText and ProjectPolicy"
+    }
+  },
+  "provenance_record": {
+    "required": [
+      "id",
+      "source_kind",
+      "repository_or_url",
+      "revision_or_access_date",
+      "game_version",
+      "relative_path_or_page",
+      "row_locator",
+      "evidence_sha256",
+      "quality",
+      "license_note",
+      "note"
+    ]
+  },
+  "families": {
+    "worlds": ["world_id", "difficulty_ids", "entry_rule_id", "terminal_rule_id"],
+    "world_difficulties": ["world_id", "difficulty", "recommended_level", "recommended_elements", "boss_variant_ids", "elite_variant_ids", "score_curve_id"],
+    "domains": ["kind", "decision_policy", "battle_kind", "service_id", "terminal"],
+    "maps": ["map_id", "node_id", "domain_id", "next_node_ids", "start", "ordering"],
+    "rooms": ["domain_id", "map_entrance", "content_pool_id", "section_ids"],
+    "paths": ["buff_type", "resonance_id", "formation_ids", "blessing_ids", "unlock_policy_id"],
+    "resonances": ["path_id", "kind", "threshold", "energy_max", "initial_energy", "rule_ids"],
+    "blessings": ["path_id", "rarity", "level_ids", "prerequisite_ids", "pool_tags", "rule_ids"],
+    "blessing_levels": ["blessing_id", "level", "parameter_values", "rule_ids"],
+    "curios": ["state_ids", "initial_state_id", "tags", "pool_tags", "rule_ids"],
+    "curio_states": ["curio_id", "state_kind", "charges", "next_state_id", "repair_state_id", "rule_ids"],
+    "occurrences": ["variant_ids", "choice_graph_id", "pool_tags", "index_only"],
+    "occurrence_variants": ["occurrence_id", "entry_node_id", "condition_ids", "choice_ids"],
+    "occurrence_choices": ["variant_id", "condition_ids", "costs", "outcomes", "next_node_id"],
+    "services": ["kind", "currency_id", "price_formula_id", "offer_pool_id", "rule_ids"],
+    "ability_tree": ["prerequisite_ids", "cost", "effect_class", "rule_ids"],
+    "encounter_pools": ["domain_kind", "world_ids", "difficulty_ids", "weighted_group_ids"],
+    "encounter_groups": ["weighted_member_ids", "wave_policy", "boss_phase_policy"],
+    "mechanic_rules": ["state_slots", "triggers", "native_handler_id", "approximation_replacement_condition"],
+    "review_fixtures": ["mechanic_family", "input_ids", "initial_state", "commands", "expected_facts", "quality_floor"]
+  },
+  "files": [
+    "manifest.json",
+    "coverage.json",
+    "pack-index.json",
+    "sources.json",
+    "worlds.json",
+    "world-difficulties.json",
+    "domains.json",
+    "maps.json",
+    "rooms.json",
+    "paths.json",
+    "resonances.json",
+    "blessings.json",
+    "blessing-levels.json",
+    "curios.json",
+    "curio-states.json",
+    "occurrences.json",
+    "occurrence-variants.json",
+    "occurrence-choices.json",
+    "services.json",
+    "ability-tree.json",
+    "encounter-pools.json",
+    "encounter-groups.json",
+    "mechanic-rules.json",
+    "review-fixtures.json"
+  ]
+}

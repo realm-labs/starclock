@@ -112,6 +112,11 @@ mechanic-rules.json
 review-fixtures.json
 ```
 
+The exact record envelope, per-family fields, canonical scalar grammar and
+fixture shape are normative in
+[Standard Simulated Universe normalized-data design](24-standard-universe-normalized-data.md)
+and its machine-readable `schema.json`.
+
 Source-project IDs remain provenance locators and are never runtime identities.
 All authoritative decimals are canonical strings. Arrays whose order is not
 semantic are sorted by stable ID before hashing.
