@@ -3,20 +3,24 @@
 use std::sync::Arc;
 
 use starclock_activity::{
-    ActivityBattleHandoff, ActivityDecisionId, ActivityInventoryId, ActivityOptionId,
-    ActivityPlayerView, ActivityPreparationBoundary, ActivityPreparationView, ActivityRosterLock,
-    ActivityScopePath, ActivitySlotId, ActivityStateHash, ActivityValue, AttemptId, BattleResult,
-    BattleSequence, GraphActivity, GraphActivityBattleError, GraphActivityBattleResolution,
-    GraphActivityCommandError, GraphActivityEncounterError, GraphActivityPreparationResolution,
-    GraphActivityResolution, GraphActivityStartError, ParticipantLock,
+    ActivityBattleHandoff, ActivityDecisionId, ActivityExternalOutcomeId, ActivityInventoryId,
+    ActivityOptionId, ActivityPlayerView, ActivityPreparationBoundary, ActivityPreparationView,
+    ActivityRosterLock, ActivityScopePath, ActivitySlotId, ActivityStateHash, ActivityValue,
+    AttemptId, BattleResult, BattleSequence, GraphActivity, GraphActivityBattleError,
+    GraphActivityBattleResolution, GraphActivityCommandError, GraphActivityEncounterError,
+    GraphActivityPreparationResolution, GraphActivityResolution, GraphActivityStartError,
+    ParticipantLock,
 };
 
 use crate::{
     battle_overlay::UniverseEncounterOverlay,
     blessing_runtime::{BlessingContributionSet, BlessingRuntimeCatalog, BlessingRuntimeError},
     curio_runtime::{CurioContributionSet, CurioRuntimeCatalog, CurioRuntimeError},
-    id::{PathId, ResonanceId},
+    id::{AbilityTreeNodeId, PathId, ResonanceId},
     path_runtime::{PathContributionSet, PathRuntimeCatalog, PathRuntimeError},
+    run_runtime::{
+        AbilityTreeContributionSet, CosmicFragments, RunRuntimeCatalog, RunRuntimeError,
+    },
     topology::EncounterOptionBinding,
 };
 
@@ -28,11 +32,14 @@ pub struct StandardUniverseActivity {
     blessing_runtime: Arc<BlessingRuntimeCatalog>,
     path_runtime: Arc<PathRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
+    run_runtime: Arc<RunRuntimeCatalog>,
+    ability_tree: Box<[AbilityTreeNodeId]>,
     blessing_inventory: ActivityInventoryId,
     formation_inventory: ActivityInventoryId,
     curio_inventory: ActivityInventoryId,
     curio_state_slot: ActivitySlotId,
     curio_charge_slot: ActivitySlotId,
+    cosmic_fragments_slot: ActivitySlotId,
     selected_path_slot: ActivitySlotId,
 }
 
@@ -43,11 +50,14 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) blessing_runtime: Arc<BlessingRuntimeCatalog>,
     pub(crate) path_runtime: Arc<PathRuntimeCatalog>,
     pub(crate) curio_runtime: Arc<CurioRuntimeCatalog>,
+    pub(crate) run_runtime: Arc<RunRuntimeCatalog>,
+    pub(crate) ability_tree: Box<[AbilityTreeNodeId]>,
     pub(crate) blessing_inventory: ActivityInventoryId,
     pub(crate) formation_inventory: ActivityInventoryId,
     pub(crate) curio_inventory: ActivityInventoryId,
     pub(crate) curio_state_slot: ActivitySlotId,
     pub(crate) curio_charge_slot: ActivitySlotId,
+    pub(crate) cosmic_fragments_slot: ActivitySlotId,
     pub(crate) selected_path_slot: ActivitySlotId,
 }
 
@@ -61,11 +71,14 @@ impl StandardUniverseActivity {
             blessing_runtime: context.blessing_runtime,
             path_runtime: context.path_runtime,
             curio_runtime: context.curio_runtime,
+            run_runtime: context.run_runtime,
+            ability_tree: context.ability_tree,
             blessing_inventory: context.blessing_inventory,
             formation_inventory: context.formation_inventory,
             curio_inventory: context.curio_inventory,
             curio_state_slot: context.curio_state_slot,
             curio_charge_slot: context.curio_charge_slot,
+            cosmic_fragments_slot: context.cosmic_fragments_slot,
             selected_path_slot: context.selected_path_slot,
         }
     }
@@ -158,6 +171,26 @@ impl StandardUniverseActivity {
         self.curio_runtime.contributions(inventory, state, charges)
     }
 
+    pub fn ability_tree_contributions(
+        &self,
+    ) -> Result<AbilityTreeContributionSet, RunRuntimeError> {
+        self.run_runtime.ability_contributions(&self.ability_tree)
+    }
+
+    pub fn cosmic_fragments(&self) -> Result<CosmicFragments, RunRuntimeError> {
+        let view = self.graph.player_view();
+        let value = view
+            .slots()
+            .iter()
+            .find(|slot| slot.id() == self.cosmic_fragments_slot)
+            .and_then(|slot| match slot.value() {
+                ActivityValue::BoundedInteger(value) => Some(*value),
+                _ => None,
+            })
+            .ok_or(RunRuntimeError::InvalidFragmentAmount)?;
+        CosmicFragments::new(value)
+    }
+
     pub fn reroll_blessing_offer(
         &mut self,
         expected_state_hash: ActivityStateHash,
@@ -177,6 +210,17 @@ impl StandardUniverseActivity {
     {
         self.graph
             .choose_option(expected_state_hash, decision, option)
+    }
+
+    pub fn submit_external_outcome(
+        &mut self,
+        expected_state_hash: ActivityStateHash,
+        decision: ActivityDecisionId,
+        outcome: ActivityExternalOutcomeId,
+    ) -> Result<Box<[starclock_activity::ActivityTransactionEvent]>, GraphActivityCommandError>
+    {
+        self.graph
+            .submit_external_outcome(expected_state_hash, decision, outcome)
     }
 
     pub fn engage_encounter(

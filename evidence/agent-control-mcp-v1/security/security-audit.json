@@ -3,8 +3,8 @@
   "result": "pass",
   "policy": {
     "agent_control_audit_sha256": "c2ea79e81a0377b38d3365bea94717c112f88c68c7e4dd00b5f9f0be889f7e93",
-    "repository_checks_sha256": "be0ad4d929580c8de9203545fa2924935afaa002e1cc3eab4b74e34e9299cd5a",
-    "dependency_policy_sha256": "0f8aa733c8c4918683542c64778b0937865172c714c264fa1510373a5d38d632",
+    "repository_checks_sha256": "375ca4a2848519e8b8adec8cffee7789c85390bdafdbecf477c15a8ef2811e31",
+    "dependency_policy_sha256": "a8044cfdd658d855c7ecd8641942173cc1229d53454b3856a4d509ebe054b47a",
     "mcp_sdk_lock_sha256": "75e6caaac63befbd746c8d8db1988cbc1804abb9e4bb45a56ef565837e2b5187",
     "mcp_http_boundary_sha256": "fa31d03b9fec8069d1d2260a4f53532b99295e9f77f373170629382abd53e03d",
     "mcp_authorization_sha256": "41f5e3b8079fc359db8d9b8a6ed8b51b8cf6ced5a021f08f0923af98d5696e35"
@@ -109,7 +109,7 @@
     "forbidden_public_api_leaks": 0
   },
   "dependencies_and_licenses": {
-    "workspace_crates": 11,
+    "workspace_crates": 12,
     "graph": [
       {
         "crate": "starclock-activity",
@@ -117,6 +117,8 @@
           "starclock-combat"
         ],
         "registry_dependencies": [
+          "allocation-counter",
+          "rand",
           "sha2"
         ]
       },
@@ -218,6 +220,20 @@
           "starclock-combat"
         ],
         "registry_dependencies": []
+      },
+      {
+        "crate": "starclock-mode-universe",
+        "local_dependencies": [
+          "starclock-activity",
+          "starclock-combat",
+          "starclock-data"
+        ],
+        "registry_dependencies": [
+          "serde",
+          "serde_json",
+          "sha2",
+          "zstd"
+        ]
       },
       {
         "crate": "starclock-replay",

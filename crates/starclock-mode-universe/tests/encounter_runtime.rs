@@ -218,6 +218,7 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
                 break (view.state_hash(), decision.id(), decision.options()[0].id());
             }
             starclock_activity::ActivityDecisionKind::Choice
+            | starclock_activity::ActivityDecisionKind::ExternalOutcome
             | starclock_activity::ActivityDecisionKind::Reward
             | starclock_activity::ActivityDecisionKind::Route => {
                 activity
@@ -282,8 +283,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            205, 96, 15, 237, 215, 211, 105, 14, 144, 16, 100, 82, 30, 163, 65, 191, 31, 251, 173,
-            95, 123, 190, 231, 153, 118, 206, 87, 219, 211, 202, 8, 202,
+            143, 22, 224, 58, 107, 184, 39, 32, 230, 172, 96, 185, 124, 37, 76, 104, 39, 156, 1,
+            196, 46, 115, 141, 122, 154, 52, 39, 47, 96, 145, 177, 170,
         ]
     );
     let reward = activity.view();
@@ -349,8 +350,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            40, 116, 163, 132, 69, 182, 75, 18, 53, 152, 115, 218, 77, 70, 219, 215, 58, 134, 45,
-            30, 53, 78, 35, 13, 209, 226, 83, 5, 10, 38, 225, 197,
+            208, 119, 58, 70, 23, 129, 40, 48, 197, 222, 61, 52, 96, 88, 208, 6, 37, 186, 190, 246,
+            22, 150, 159, 215, 160, 165, 231, 178, 158, 122, 115, 240,
         ]
     );
     let formation = activity.view();

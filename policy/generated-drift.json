@@ -186,6 +186,10 @@
       "command": ["node", "tools/goal04/verify-universe-curio-runtime.mjs", "."]
     },
     {
+      "name": "Goal 04 Universe run runtime",
+      "command": ["node", "tools/goal04/verify-universe-run-runtime.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

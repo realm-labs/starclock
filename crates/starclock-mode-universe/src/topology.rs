@@ -4,13 +4,13 @@ use std::sync::Arc;
 
 use starclock_activity::{
     ActivityBootstrapSelection, ActivityCondition, ActivityDecisionKind, ActivityEdgeCondition,
-    ActivityEdgeDefinition, ActivityEdgeId, ActivityExpression, ActivityGraphDefinition,
-    ActivityInventoryId, ActivityNodeDefinition, ActivityNodeKind, ActivityOperation,
-    ActivityOptionDefinition, ActivityOptionId, ActivityProgramDefinition, ActivityProgramId,
-    ActivityRandomCheckpoint, ActivityRandomOffer, ActivityRandomPolicies, ActivityRngLabel,
-    ActivitySlotId, ActivityStateDefinition, ActivityTerminalOutcome, ActivityValue,
-    GraphActivityDefinition, GraphActivityDefinitionError, GraphActivityNodeProgram, NodeId,
-    ParticipantLock, SectionId, TerminalOutcome,
+    ActivityEdgeDefinition, ActivityEdgeId, ActivityExpression, ActivityExternalOutcomeId,
+    ActivityGraphDefinition, ActivityInventoryId, ActivityNodeDefinition, ActivityNodeKind,
+    ActivityOperation, ActivityOptionDefinition, ActivityOptionId, ActivityProgramDefinition,
+    ActivityProgramId, ActivityRandomCheckpoint, ActivityRandomOffer, ActivityRandomPolicies,
+    ActivityRngLabel, ActivitySlotId, ActivityStateDefinition, ActivityTerminalOutcome,
+    ActivityValue, GraphActivityDefinition, GraphActivityDefinitionError, GraphActivityNodeProgram,
+    NodeId, ParticipantLock, SectionId, TerminalOutcome,
 };
 
 use crate::{
@@ -22,7 +22,7 @@ use crate::{
     path_runtime::{FormationSelectionBindings, PathRuntimeCatalog},
 };
 
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v3";
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v4";
 
 const PATH_NODE: u32 = 1;
 const TOPOLOGY_SELECTOR_NODE: u32 = 2;
@@ -51,6 +51,7 @@ const ROOM_OPTION_OFFSET: u64 = 1_000_000_000_000;
 const CONTENT_OPTION_OFFSET: u64 = 2_000_000_000_000;
 const MEMBER_OPTION_OFFSET: u64 = 3_000_000_000_000;
 const ENGAGE_OPTION_OFFSET: u64 = 4_000_000_000_000;
+const INTERACTION_OPTION_OFFSET: u64 = 4_500_000_000_000;
 const REWARD_OPTION_OFFSET: u64 = 5_000_000_000_000;
 const FORMATION_OPTION_OFFSET: u64 = 5_500_000_000_000;
 const FORMATION_SKIP_OPTION_OFFSET: u64 = 5_900_000_000_000;
@@ -195,12 +196,40 @@ impl EncounterOptionBinding {
     }
 }
 
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AbstractInteractionBinding {
+    outcome: ActivityExternalOutcomeId,
+    room: RoomId,
+    kind: RoomContentKind,
+    source_content_id: Box<str>,
+}
+
+impl AbstractInteractionBinding {
+    #[must_use]
+    pub const fn outcome(&self) -> ActivityExternalOutcomeId {
+        self.outcome
+    }
+    #[must_use]
+    pub const fn room(&self) -> RoomId {
+        self.room
+    }
+    #[must_use]
+    pub const fn kind(&self) -> RoomContentKind {
+        self.kind
+    }
+    #[must_use]
+    pub fn source_content_id(&self) -> &str {
+        &self.source_content_id
+    }
+}
+
 #[derive(Clone, Debug)]
 pub(crate) struct CompiledUniverseTopology {
     pub(crate) runtime: Arc<GraphActivityDefinition>,
     pub(crate) hubs: Arc<[DomainHubDefinition]>,
     pub(crate) candidates: Arc<[TopologyId]>,
     pub(crate) encounter_options: Arc<[EncounterOptionBinding]>,
+    pub(crate) interactions: Arc<[AbstractInteractionBinding]>,
 }
 
 #[allow(clippy::too_many_arguments)]
@@ -220,6 +249,7 @@ pub(crate) fn compile(
     blessing_reroll_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
+    external_outcome_slot: ActivitySlotId,
 ) -> Result<CompiledUniverseTopology, UniverseTopologyCompileError> {
     let mut nodes = terminal_nodes()?;
     nodes.push(activity_node(PATH_NODE, 1, ActivityNodeKind::Choice)?);
@@ -241,7 +271,7 @@ pub(crate) fn compile(
         for source in topology.nodes() {
             for (node_id, kind) in [
                 (resolution_node(source.id()), ActivityNodeKind::Checkpoint),
-                (content_node(source.id()), ActivityNodeKind::Choice),
+                (content_node(source.id()), ActivityNodeKind::ExternalOutcome),
                 (member_node(source.id()), ActivityNodeKind::Checkpoint),
                 (battle_node(source.id()), ActivityNodeKind::Battle),
                 (reward_node(source.id()), ActivityNodeKind::Reward),
@@ -320,6 +350,7 @@ pub(crate) fn compile(
         random_checkpoints,
         random_offers,
         encounter_options,
+        interactions,
     } = compile_programs(
         catalog,
         path_slot,
@@ -333,6 +364,7 @@ pub(crate) fn compile(
         blessing_reroll_slot,
         path_blessing_count_slot,
         formation_inventory,
+        external_outcome_slot,
         path_edge,
         &topology_entry_edges,
         &topology_edges,
@@ -370,6 +402,7 @@ pub(crate) fn compile(
         hubs: hubs.into(),
         candidates: candidates.into(),
         encounter_options: encounter_options.into(),
+        interactions: interactions.into(),
     })
 }
 
@@ -388,6 +421,7 @@ pub(crate) fn rebind(
         hubs: Arc::clone(&template.hubs),
         candidates: Arc::clone(&template.candidates),
         encounter_options: Arc::clone(&template.encounter_options),
+        interactions: Arc::clone(&template.interactions),
     })
 }
 
@@ -395,7 +429,7 @@ pub(crate) fn rebind(
 struct HubEdges {
     resolution_content: ActivityEdgeId,
     content_member: ActivityEdgeId,
-    content_reward: ActivityEdgeId,
+    content_formation: ActivityEdgeId,
     member_battle: ActivityEdgeId,
     reward_formation: ActivityEdgeId,
     formation_route: ActivityEdgeId,
@@ -406,6 +440,7 @@ struct CompiledPrograms {
     random_checkpoints: Vec<ActivityRandomCheckpoint>,
     random_offers: Vec<ActivityRandomOffer>,
     encounter_options: Vec<EncounterOptionBinding>,
+    interactions: Vec<AbstractInteractionBinding>,
 }
 
 #[allow(clippy::too_many_arguments)]
@@ -422,6 +457,7 @@ fn compile_programs(
     blessing_reroll_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
+    external_outcome_slot: ActivitySlotId,
     path_edge: ActivityEdgeId,
     topology_entry_edges: &[(TopologyId, ActivityEdgeId)],
     topology_edges: &[(TopologyNodeId, TopologyNodeId, ActivityEdgeId)],
@@ -474,6 +510,7 @@ fn compile_programs(
     let mut random_checkpoints = Vec::new();
     let mut random_offers = Vec::new();
     let mut encounter_options = Vec::new();
+    let mut interactions = Vec::new();
     let blessing_eligibility = BlessingOfferEligibility::fully_unlocked(vec![1, 2, 3])
         .map_err(|_| UniverseTopologyCompileError::InvalidBlessingRuntime)?;
     let eligible_blessings = blessing_runtime
@@ -526,7 +563,7 @@ fn compile_programs(
         let mut battle_options = Vec::new();
         for (room_priority, room) in hub.rooms.iter().enumerate() {
             let room_condition = optional_equals(room_slot, u64::from(room.room.get()));
-            let target = if let Some(group_id) = room.encounter_group {
+            if let Some(group_id) = room.encounter_group {
                 let group = catalog.encounter_group(group_id).ok_or(
                     UniverseTopologyCompileError::MissingEncounterGroup(group_id),
                 )?;
@@ -560,21 +597,45 @@ fn compile_programs(
                         member: member.id(),
                     });
                 }
-                edges.content_member
+                content_options.push(ActivityOptionDefinition::new(
+                    content_option(source, room.room),
+                    room_priority as i32,
+                    room_condition,
+                    vec![ActivityOperation::Traverse(edges.content_member)],
+                ));
             } else {
-                edges.content_reward
-            };
-            content_options.push(ActivityOptionDefinition::new(
-                content_option(source, room.room),
-                room_priority as i32,
-                room_condition,
-                vec![ActivityOperation::Traverse(target)],
-            ));
+                let id = interaction_option(source, room.room);
+                content_options.push(ActivityOptionDefinition::new(
+                    id,
+                    room_priority as i32,
+                    room_condition.clone(),
+                    vec![
+                        ActivityOperation::AddCounter {
+                            slot: hub_clear_slot,
+                            key: source,
+                            delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
+                        },
+                        ActivityOperation::AddCounter {
+                            slot: external_outcome_slot,
+                            key: source,
+                            delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
+                        },
+                        ActivityOperation::Traverse(edges.content_formation),
+                    ],
+                ));
+                interactions.push(AbstractInteractionBinding {
+                    outcome: ActivityExternalOutcomeId::new(id.get())
+                        .expect("derived interaction option is non-zero"),
+                    room: room.room,
+                    kind: room.kind,
+                    source_content_id: room.source_content_id.clone(),
+                });
+            }
         }
         programs.push(node_program_id(
             hub.content_node,
             CONTENT_PROGRAM_OFFSET + hub.source_node.get(),
-            ActivityDecisionKind::Choice,
+            ActivityDecisionKind::ExternalOutcome,
             content_options,
         )?);
         random_checkpoints.push(
@@ -674,6 +735,7 @@ fn compile_programs(
         random_checkpoints,
         random_offers,
         encounter_options,
+        interactions,
     })
 }
 
@@ -741,7 +803,7 @@ fn build_hub_edges(
 ) -> Result<HubEdges, UniverseTopologyCompileError> {
     let resolution_content = push_edge(edges, resolution_node(source), content_node(source))?;
     let content_member = push_edge(edges, content_node(source), member_node(source))?;
-    let content_reward = push_edge(edges, content_node(source), reward_node(source))?;
+    let content_formation = push_edge(edges, content_node(source), formation_node(source))?;
     let member_battle = push_edge(edges, member_node(source), battle_node(source))?;
     push_condition_edge(
         edges,
@@ -766,7 +828,7 @@ fn build_hub_edges(
     Ok(HubEdges {
         resolution_content,
         content_member,
-        content_reward,
+        content_formation,
         member_battle,
         reward_formation,
         formation_route,
@@ -949,6 +1011,9 @@ fn engage_option(source: u64, room: RoomId, member: EncounterMemberId) -> Activi
             + u64::from(room.get()) * 1_000
             + u64::from(member.get()),
     )
+}
+fn interaction_option(source: u64, room: RoomId) -> ActivityOptionId {
+    option(INTERACTION_OPTION_OFFSET + source * 10_000_000 + u64::from(room.get()))
 }
 fn blessing_option(source: u64, blessing: crate::id::BlessingId) -> ActivityOptionId {
     option(REWARD_OPTION_OFFSET + source * 1_000_000 + u64::from(blessing.get()))

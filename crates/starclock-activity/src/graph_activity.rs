@@ -4,15 +4,15 @@ use crate::{
     ActivityBattleHandoff, ActivityBattlePreparationRequest, ActivityBattleResultContract,
     ActivityBattleResultSubmission, ActivityBattleSettlement, ActivityBattleSettlementError,
     ActivityBattleStartRequest, ActivityCause, ActivityDebugView, ActivityDecisionId,
-    ActivityDecisionKind, ActivityDefinitionIdentity, ActivityExpression, ActivityFault,
-    ActivityGraphDefinition, ActivityInstanceId, ActivityMasterSeed, ActivityOperation,
-    ActivityOptionDefinition, ActivityOptionId, ActivityPendingBattleView, ActivityPlayerView,
-    ActivityPreparationBoundary, ActivityPreparationError, ActivityPreparationView,
-    ActivityProgramDefinition, ActivityRngContext, ActivityRngError, ActivityRngLabel,
-    ActivityRngStreams, ActivitySlotId, ActivityStateDefinition, ActivityStateHash,
-    ActivityTransactionEvent, ActivityTransactionOutcome, ActivityTransactionRejection,
-    ActivityTransactionState, ActivityValue, BattleResult, NodeId, ParticipantLock,
-    PendingBattleSpec, SlotValueKind,
+    ActivityDecisionKind, ActivityDefinitionIdentity, ActivityExpression,
+    ActivityExternalOutcomeId, ActivityFault, ActivityGraphDefinition, ActivityInstanceId,
+    ActivityMasterSeed, ActivityOperation, ActivityOptionDefinition, ActivityOptionId,
+    ActivityPendingBattleView, ActivityPlayerView, ActivityPreparationBoundary,
+    ActivityPreparationError, ActivityPreparationView, ActivityProgramDefinition,
+    ActivityRngContext, ActivityRngError, ActivityRngLabel, ActivityRngStreams, ActivitySlotId,
+    ActivityStateDefinition, ActivityStateHash, ActivityTransactionEvent,
+    ActivityTransactionOutcome, ActivityTransactionRejection, ActivityTransactionState,
+    ActivityValue, BattleResult, NodeId, ParticipantLock, PendingBattleSpec, SlotValueKind,
 };
 
 /// Deterministic weighted settlement policy for one internal checkpoint.
@@ -617,6 +617,36 @@ impl GraphActivity {
         )?;
         events.extend(self.pump().map_err(GraphActivityCommandError::Runtime)?);
         Ok(events.into_boxed_slice())
+    }
+
+    /// Accepts an externally resolved, non-spatial interaction outcome through
+    /// the same checked option transaction used by ordinary decisions.
+    pub fn submit_external_outcome(
+        &mut self,
+        expected_state_hash: ActivityStateHash,
+        decision: ActivityDecisionId,
+        outcome: ActivityExternalOutcomeId,
+    ) -> Result<Box<[ActivityTransactionEvent]>, GraphActivityCommandError> {
+        if expected_state_hash != self.state_hash() {
+            return Err(GraphActivityCommandError::StaleStateHash);
+        }
+        let view = self.player_view();
+        let offered = view
+            .decision()
+            .filter(|offered| {
+                offered.id() == decision && offered.kind() == ActivityDecisionKind::ExternalOutcome
+            })
+            .ok_or(GraphActivityCommandError::DecisionNotOffered)?;
+        let option = ActivityOptionId::new(outcome.get())
+            .expect("external outcome and option IDs share the same non-zero width");
+        if !offered
+            .options()
+            .iter()
+            .any(|candidate| candidate.id() == option)
+        {
+            return Err(GraphActivityCommandError::DecisionNotOffered);
+        }
+        self.choose_option(expected_state_hash, decision, option)
     }
 
     pub fn reroll_random_offer(

@@ -20,6 +20,7 @@ use crate::{
     digest::Encoder,
     id::{AbilityTreeNodeId, DifficultyId, PathId, WorldId},
     path_runtime::PathRuntimeCatalog,
+    run_runtime::RunRuntimeCatalog,
 };
 
 pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v1";
@@ -36,6 +37,8 @@ const BLESSING_REROLL_SLOT: u32 = 9;
 const PATH_BLESSING_COUNT_SLOT: u32 = 10;
 const CURIO_STATE_SLOT: u32 = 11;
 const CURIO_CHARGE_SLOT: u32 = 12;
+const COSMIC_FRAGMENTS_SLOT: u32 = 13;
+const EXTERNAL_OUTCOME_SLOT: u32 = 14;
 const BLESSING_INVENTORY: u32 = 1;
 const FORMATION_INVENTORY: u32 = 2;
 const CURIO_INVENTORY: u32 = 3;
@@ -51,6 +54,8 @@ const BLESSING_REROLL_SOURCE: u64 = 0x5355_0009;
 const PATH_BLESSING_COUNT_SOURCE: u64 = 0x5355_000A;
 const CURIO_STATE_SOURCE: u64 = 0x5355_000B;
 const CURIO_CHARGE_SOURCE: u64 = 0x5355_000C;
+const COSMIC_FRAGMENTS_SOURCE: u64 = 0x5355_000D;
+const EXTERNAL_OUTCOME_SOURCE: u64 = 0x5355_000E;
 const BLESSING_INVENTORY_SOURCE: u64 = 0x5355_1001;
 const FORMATION_INVENTORY_SOURCE: u64 = 0x5355_1002;
 const CURIO_INVENTORY_SOURCE: u64 = 0x5355_1003;
@@ -175,6 +180,10 @@ impl StandardUniverseProfile {
             CurioRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidCurioRuntime)?,
         );
+        let run_runtime = Arc::new(
+            RunRuntimeCatalog::compile(&self.catalog)
+                .map_err(|_| StandardUniverseCompileError::InvalidRunRuntime)?,
+        );
         let path_options = self
             .catalog
             .paths()
@@ -217,6 +226,7 @@ impl StandardUniverseProfile {
                 slot(BLESSING_REROLL_SLOT),
                 slot(PATH_BLESSING_COUNT_SLOT),
                 inventory(FORMATION_INVENTORY),
+                slot(EXTERNAL_OUTCOME_SLOT),
             )
             .map_err(StandardUniverseCompileError::Topology)?;
             let _ = self.topology_template.set(compiled.clone());
@@ -236,10 +246,12 @@ impl StandardUniverseProfile {
             hubs: topology.hubs,
             topology_candidates: topology.candidates,
             encounter_options: topology.encounter_options,
+            interactions: topology.interactions,
             encounter_overlay: entry.encounter_overlay,
             blessing_runtime,
             path_runtime,
             curio_runtime,
+            run_runtime,
         })
     }
 }
@@ -262,10 +274,12 @@ pub struct CompiledActivity {
     hubs: Arc<[crate::topology::DomainHubDefinition]>,
     topology_candidates: Arc<[crate::id::TopologyId]>,
     encounter_options: Arc<[crate::topology::EncounterOptionBinding]>,
+    interactions: Arc<[crate::topology::AbstractInteractionBinding]>,
     encounter_overlay: Option<Arc<UniverseEncounterOverlay>>,
     blessing_runtime: Arc<BlessingRuntimeCatalog>,
     path_runtime: Arc<PathRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
+    run_runtime: Arc<RunRuntimeCatalog>,
 }
 
 impl CompiledActivity {
@@ -331,6 +345,11 @@ impl CompiledActivity {
     }
 
     #[must_use]
+    pub fn abstract_interactions(&self) -> &[crate::topology::AbstractInteractionBinding] {
+        &self.interactions
+    }
+
+    #[must_use]
     pub const fn encounter_overlay(&self) -> Option<&Arc<UniverseEncounterOverlay>> {
         self.encounter_overlay.as_ref()
     }
@@ -348,6 +367,11 @@ impl CompiledActivity {
     #[must_use]
     pub const fn curio_runtime(&self) -> &Arc<CurioRuntimeCatalog> {
         &self.curio_runtime
+    }
+
+    #[must_use]
+    pub const fn run_runtime(&self) -> &Arc<RunRuntimeCatalog> {
+        &self.run_runtime
     }
 
     pub fn start(
@@ -376,11 +400,14 @@ impl CompiledActivity {
                     blessing_runtime: Arc::clone(&self.blessing_runtime),
                     path_runtime: Arc::clone(&self.path_runtime),
                     curio_runtime: Arc::clone(&self.curio_runtime),
+                    run_runtime: Arc::clone(&self.run_runtime),
+                    ability_tree: self.ability_tree.clone(),
                     blessing_inventory: self.blessing_inventory(),
                     formation_inventory: self.formation_inventory(),
                     curio_inventory: self.curio_inventory(),
                     curio_state_slot: self.curio_state_slot(),
                     curio_charge_slot: self.curio_charge_slot(),
+                    cosmic_fragments_slot: self.cosmic_fragments_slot(),
                     selected_path_slot: self.selected_path_slot(),
                 }
             }),
@@ -445,6 +472,16 @@ impl CompiledActivity {
     #[must_use]
     pub const fn curio_charge_slot(&self) -> ActivitySlotId {
         slot(CURIO_CHARGE_SLOT)
+    }
+
+    #[must_use]
+    pub const fn cosmic_fragments_slot(&self) -> ActivitySlotId {
+        slot(COSMIC_FRAGMENTS_SLOT)
+    }
+
+    #[must_use]
+    pub const fn external_outcome_slot(&self) -> ActivitySlotId {
+        slot(EXTERNAL_OUTCOME_SLOT)
     }
 
     #[must_use]
@@ -608,6 +645,22 @@ fn compile_state(
             CURIO_CHARGE_SOURCE,
             ActivityStateVisibility::Player,
         )?,
+        integer_slot(
+            COSMIC_FRAGMENTS_SLOT,
+            0,
+            0,
+            crate::run_runtime::MAX_COSMIC_FRAGMENTS,
+            COSMIC_FRAGMENTS_SOURCE,
+            ActivityStateVisibility::Player,
+        )?,
+        counter_slot(
+            EXTERNAL_OUTCOME_SLOT,
+            579,
+            0,
+            1,
+            EXTERNAL_OUTCOME_SOURCE,
+            ActivityStateVisibility::Player,
+        )?,
     ];
     let inventories = vec![
         ActivityInventoryDefinition::new(
@@ -692,6 +745,28 @@ fn counter_slot(
     .map_err(|_| StandardUniverseCompileError::InvalidActivityState)
 }
 
+fn integer_slot(
+    id: u32,
+    initial: i64,
+    minimum: i64,
+    maximum: i64,
+    source: u64,
+    visibility: ActivityStateVisibility,
+) -> Result<ActivitySlotDefinition, StandardUniverseCompileError> {
+    ActivitySlotDefinition::new_with_policy(
+        slot(id),
+        ActivityScope::Activity,
+        ActivityValue::BoundedInteger(initial),
+        Some((minimum, maximum)),
+        None,
+        vec![SlotResetPoint::ActivityStart],
+        SlotCarryPolicy::CarryExact,
+        visibility,
+        ActivityStateSource::new(source).expect("static state source is non-zero"),
+    )
+    .map_err(|_| StandardUniverseCompileError::InvalidActivityState)
+}
+
 fn compile_identity(
     catalog: &UniverseCatalog,
     world: WorldId,
@@ -707,6 +782,7 @@ fn compile_identity(
     encoder.text(crate::blessing_runtime::BLESSING_RUNTIME_REVISION);
     encoder.text(crate::path_runtime::PATH_RUNTIME_REVISION);
     encoder.text(crate::curio_runtime::CURIO_RUNTIME_REVISION);
+    encoder.text(crate::run_runtime::RUN_RUNTIME_REVISION);
     encoder.digest(catalog_identity.configuration_digest().bytes());
     encoder.digest(catalog_identity.definitions_digest().bytes());
     encoder.digest(catalog_identity.path_definitions_digest().bytes());
@@ -773,6 +849,7 @@ pub enum StandardUniverseCompileError {
     InvalidBlessingRuntime,
     InvalidPathRuntime,
     InvalidCurioRuntime,
+    InvalidRunRuntime,
     EncounterOverlayParticipantMismatch,
     Topology(crate::topology::UniverseTopologyCompileError),
 }

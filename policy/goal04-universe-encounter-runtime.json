@@ -27,12 +27,12 @@
     "slot_grouping": ["Sequential", "OneOf"],
     "preparation": "ValidatedNormalOrTechniqueThenImmutableBattleSpec",
     "result_return": "VerifiedProjectionThenRewardDecision",
-    "exit_gate": "PostContentRewardClaimed",
+    "exit_gate": "BattleRewardOrExternalOutcomeConsumed",
     "spatial_state": false
   },
   "goldens": {
     "resolved_overlay_sha256": "a098a2294e872e98fe7933e5ed504daa12881f5f0c89046d61a19bc86e288f0c",
-    "won_reward_state_sha256": "cd600fedd7d3690e901064521ea341bf1ffbad5f7bbee79976ce57dbd3ca08ca"
+    "won_reward_state_sha256": "8f16e03a6bb82720e6ac60b97c254c68279c01c42e738d7a9a34272f6091b1aa"
   },
   "focused_tests": 2,
   "scope": {

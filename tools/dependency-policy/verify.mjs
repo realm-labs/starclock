@@ -77,12 +77,24 @@ const universeHashUsers = walk(path.join(root, "crates", "starclock-mode-univers
 assert(JSON.stringify(universeHashUsers) === JSON.stringify(["crates/starclock-mode-universe/src/digest.rs"]), `sha2 escaped the private Universe digest owner: ${universeHashUsers.join(", ")}`);
 const universeJsonUsers = walk(path.join(root, "crates", "starclock-mode-universe", "src"))
   .filter((file) => file.endsWith(".rs") && /\bserde_json::/.test(fs.readFileSync(file, "utf8")))
-  .map((file) => path.relative(root, file).replaceAll("\\", "/"));
-assert(JSON.stringify(universeJsonUsers) === JSON.stringify(["crates/starclock-mode-universe/src/lowering.rs"]), `serde_json escaped the private Universe embedded-field lowering owner: ${universeJsonUsers.join(", ")}`);
+  .map((file) => path.relative(root, file).replaceAll("\\", "/"))
+  .sort();
+assert(JSON.stringify(universeJsonUsers) === JSON.stringify([
+  "crates/starclock-mode-universe/src/lowering.rs",
+  "crates/starclock-mode-universe/src/occurrence_lowering.rs",
+  "crates/starclock-mode-universe/src/rule_lowering.rs"
+]), `serde_json escaped the private Universe embedded-field lowering owners: ${universeJsonUsers.join(", ")}`);
 const activityHashUsers = walk(path.join(root, "crates", "starclock-activity", "src"))
   .filter((file) => file.endsWith(".rs") && /\bsha2::/.test(fs.readFileSync(file, "utf8")))
-  .map((file) => path.relative(root, file).replaceAll("\\", "/"));
-assert(JSON.stringify(activityHashUsers) === JSON.stringify(["crates/starclock-activity/src/codec.rs"]), `sha2 escaped the private activity codec: ${activityHashUsers.join(", ")}`);
+  .map((file) => path.relative(root, file).replaceAll("\\", "/"))
+  .sort();
+assert(JSON.stringify(activityHashUsers) === JSON.stringify([
+  "crates/starclock-activity/src/activity_rng.rs",
+  "crates/starclock-activity/src/battle_preparation.rs",
+  "crates/starclock-activity/src/battle_settlement.rs",
+  "crates/starclock-activity/src/codec.rs",
+  "crates/starclock-activity/src/transaction.rs"
+]), `sha2 escaped the private activity RNG/codec/contract owners: ${activityHashUsers.join(", ")}`);
 assert(combatManifest.includes("[dev-dependencies]") && combatManifest.includes("proptest.workspace = true"), "combat property dev-dependency differs");
 assert(replayManifest.includes("[dev-dependencies]") && replayManifest.includes("proptest.workspace = true"), "replay property dev-dependency differs");
 const cliManifest = fs.readFileSync(path.join(root, "crates", "starclock-cli", "Cargo.toml"), "utf8");

@@ -133,7 +133,7 @@
     {
       "name": "authoritative RNG and SHA-256",
       "relationship": "rand and sha2 are direct starclock-combat dependencies; sha2 is also a direct starclock-build, starclock-activity, starclock-data, starclock-mode-universe and starclock-replay dependency; all other entries are transitive through those packages",
-      "owner": "starclock-combat private ChaCha8/stream-derivation implementation, starclock-build private canonical definition/build encoder, starclock-activity private participant/result/state encoder, starclock-data and starclock-mode-universe private exact bundle/catalog identity encoders, and starclock-replay private canonical SHA-256 sink",
+      "owner": "starclock-combat private ChaCha8/stream-derivation implementation, starclock-build private canonical definition/build encoder, starclock-activity private RNG/participant/result/state/transaction encoders, starclock-data and starclock-mode-universe private exact bundle/catalog identity encoders, and starclock-replay private canonical SHA-256 sink",
       "features": ["rand:chacha,std", "sha2:none"],
       "default_features": false,
       "source_url": "https://crates.io/",
@@ -194,13 +194,13 @@
     },
     {
       "name": "production Sora generated reader",
-      "relationship": "serde and zstd are direct starclock-data and starclock-mode-universe dependencies; serde_json is a direct starclock-mode-universe dependency for one bounded embedded score-curve field; all other entries are transitive through those packages",
-      "owner": "starclock-data and starclock-mode-universe private generated transport readers plus starclock-mode-universe private embedded-field lowering",
+      "relationship": "serde and zstd are direct starclock-data and starclock-mode-universe dependencies; serde_json is a direct starclock-mode-universe dependency for bounded embedded score-curve, Occurrence-vector and rule-parameter fields; all other entries are transitive through those packages",
+      "owner": "starclock-data and starclock-mode-universe private generated transport readers plus three starclock-mode-universe private embedded-field lowering modules",
       "features": ["serde:derive,rc,std", "serde_json:std"],
       "default_features": false,
       "source_url": "https://crates.io/",
-      "purpose": "Compile and execute pinned Sora 0.3.0 generated readers for the core and isolated Standard Universe production bundles, then parse the schema-authored bounded score-curve cell into typed domain values.",
-      "deterministic_impact": "Transport and one deny-unknown-fields embedded value decode only; exact versions remain locked and generated/JSON transport values are converted before crossing a Starclock domain API.",
+      "purpose": "Compile and execute pinned Sora 0.3.0 generated readers for the core and isolated Standard Universe production bundles, then parse schema-authored bounded score-curve, Occurrence-vector and rule-parameter cells into typed domain values.",
+      "deterministic_impact": "Transport and three deny-unknown-fields embedded value decoders only; exact versions remain locked and generated/JSON transport values are converted before crossing a Starclock domain API.",
       "compile_cost": "The prior fresh starclock-data check measured 18,782 ms; G04-P1-B1 reuses the identical locked Serde/Zstd graph in a second private generated reader and adds no registry package.",
       "rejected_alternatives": [
         "Patching generated code to remove serde/zstd would fork pinned Sora output.",

@@ -34,12 +34,12 @@
     ],
     "preparation": "ValidatedNormalOrTechniqueThenImmutableBattleSpec",
     "result_return": "VerifiedProjectionThenRewardDecision",
-    "exit_gate": "PostContentRewardClaimed",
+    "exit_gate": "BattleRewardOrExternalOutcomeConsumed",
     "spatial_state": false
   },
   "goldens": {
     "resolved_overlay_sha256": "a098a2294e872e98fe7933e5ed504daa12881f5f0c89046d61a19bc86e288f0c",
-    "won_reward_state_sha256": "cd600fedd7d3690e901064521ea341bf1ffbad5f7bbee79976ce57dbd3ca08ca"
+    "won_reward_state_sha256": "8f16e03a6bb82720e6ac60b97c254c68279c01c42e738d7a9a34272f6091b1aa"
   },
   "deferred_scope": {
     "all_universe_enemy_variants_compiled": false,
@@ -66,12 +66,12 @@
     "complete_catalog_cloned_per_run": false
   },
   "source_sha256": {
-    "crates/starclock-mode-universe/src/topology.rs": "75e93dcb5507d8161fd63b97b8fefb4a6180b2c7f29ee7bd51dda8a4e3ac5994",
+    "crates/starclock-mode-universe/src/topology.rs": "fddf2634c6e1c8e50edb0ef7eab551f059adc68a0a0529c1225c74aa3b75b8da",
     "crates/starclock-mode-universe/src/encounter_slot.rs": "68c22e67f4eb8db7d248a4973e11284ef6c26146e01e210120b75ee7b82e66d2",
     "crates/starclock-mode-universe/src/battle_overlay.rs": "199de0266a7bf434e6bd24947787eb83e0fa408dc945e2088335c43b89968170",
-    "crates/starclock-mode-universe/src/runtime.rs": "6a7feee12daad3b64ce64fe5883be0f2acb1fdc5340ffe36ccb1b103ba0c5e7f",
-    "crates/starclock-activity/src/graph_activity.rs": "3fa0c5a0849cfb5e557d4e65fe98ecce64f315f6c8b484b22358eac2973370b2",
-    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "f684b826a97d0bc526c52b9133b6a4f96cdda8e2c45a65ecaee377856889c997"
+    "crates/starclock-mode-universe/src/runtime.rs": "40521df946e1fc81549c3dfb8ecaacb46cc29e6a967192944c04e8143ecdab17",
+    "crates/starclock-activity/src/graph_activity.rs": "fe6f3e7b40cebff93f35dafa24743e3e87aa1792bed508d05f21aefe2d9e8e92",
+    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "5d803d763961f66d1c03b358153ce0b6b221e98b868d479ae17c91934d07b1cc"
   },
   "focused_tests": 2,
   "new_registry_packages": []

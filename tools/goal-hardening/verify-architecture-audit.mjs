@@ -40,13 +40,13 @@ const sourceRows = handwritten.map((relative) => {
   }
   return { path: relative, lines, limit, utilization_percent: Math.floor((lines * 100) / limit), facade };
 });
-assert(publicReexports === 31, "public re-export declaration count changed without review");
+assert(publicReexports === 41, `public re-export declaration count changed without review: ${publicReexports}`);
 for (const entry of rules.allowed_public_reexports) assert(reexportFiles.has(entry.path), `${entry.path}: stale re-export allowance`);
 
 const metadata = JSON.parse(execFileSync("cargo", ["metadata", "--format-version", "1", "--no-deps"], { cwd: root, encoding: "utf8" }));
 const memberIds = new Set(metadata.workspace_members);
 const packages = metadata.packages.filter((entry) => memberIds.has(entry.id)).sort((left, right) => left.name.localeCompare(right.name));
-assert(packages.length === 11, "workspace crate count changed without review");
+assert(packages.length === 12, "workspace crate count changed without review");
 const crateNames = new Set(packages.map((entry) => entry.name));
 const graph = packages.map((pkg) => ({
   crate: pkg.name,

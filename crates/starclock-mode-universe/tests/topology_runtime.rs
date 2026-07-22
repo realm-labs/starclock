@@ -85,19 +85,20 @@ fn all_topologies_compile_to_bounded_spatial_free_hubs() {
     let runtime = compiled.runtime_definition();
     assert_eq!(compiled.topology_candidates().len(), 37);
     assert_eq!(compiled.domain_hubs().len(), 579);
+    assert_eq!(compiled.abstract_interactions().len(), 8_445);
     assert_eq!(runtime.graph().nodes().len(), 4_058);
     assert_eq!(runtime.graph().edges().len(), 5_993);
     assert_eq!(runtime.graph().maximum_total_visits(), 4_058);
     assert_eq!(
         runtime.graph().digest().bytes(),
         [
-            96, 21, 91, 6, 105, 23, 51, 207, 2, 243, 46, 212, 163, 101, 9, 200, 156, 70, 75, 2,
-            194, 194, 82, 70, 139, 159, 186, 92, 203, 137, 174, 88,
+            22, 164, 10, 14, 40, 127, 89, 137, 20, 25, 170, 12, 102, 143, 84, 10, 176, 36, 19, 5,
+            162, 123, 169, 127, 168, 89, 190, 72, 211, 59, 15, 187,
         ]
     );
     assert_eq!(
         STANDARD_UNIVERSE_TOPOLOGY_REVISION,
-        "standard-universe-topology-v3"
+        "standard-universe-topology-v4"
     );
 
     for hub in compiled.domain_hubs() {
@@ -127,8 +128,8 @@ fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state(
     assert_eq!(
         view.state_hash().bytes(),
         [
-            140, 170, 196, 191, 210, 47, 206, 95, 243, 42, 172, 80, 165, 218, 209, 178, 128, 81,
-            23, 65, 196, 86, 129, 4, 76, 191, 119, 47, 122, 215, 46, 171,
+            180, 99, 189, 28, 153, 5, 38, 248, 224, 136, 16, 138, 126, 141, 36, 103, 252, 130, 145,
+            251, 119, 56, 54, 3, 176, 90, 225, 96, 21, 46, 88, 191,
         ]
     );
     let decision = view.decision().expect("Path choice");
@@ -177,7 +178,7 @@ fn room_content_and_reward_nodes_gate_routes_without_spatial_state() {
         .find(|hub| hub.content_node() == content.current_node())
         .expect("resolved room content hub");
     let decision = content.decision().expect("content interaction");
-    assert_eq!(decision.kind(), ActivityDecisionKind::Choice);
+    assert_eq!(decision.kind(), ActivityDecisionKind::ExternalOutcome);
     assert_eq!(decision.options().len(), 1);
     activity
         .choose_option(
@@ -190,6 +191,16 @@ fn room_content_and_reward_nodes_gate_routes_without_spatial_state() {
     assert_ne!(after.current_node(), hub.route_node());
     match after.decision().expect("battle or reward").kind() {
         ActivityDecisionKind::Encounter => assert_eq!(after.current_node(), hub.battle_node()),
+        ActivityDecisionKind::Choice => {
+            assert_eq!(after.current_node(), hub.formation_node());
+            choose_first(&mut activity);
+            let routes = activity.player_view();
+            assert_eq!(routes.current_node(), hub.route_node());
+            assert_eq!(
+                routes.decision().expect("routes").options().len(),
+                hub.routes().len()
+            );
+        }
         ActivityDecisionKind::Reward => {
             assert_eq!(after.current_node(), hub.reward_node());
             activity

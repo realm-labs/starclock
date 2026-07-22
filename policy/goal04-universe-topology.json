@@ -2,7 +2,7 @@
   "schema_revision": "starclock.goal04-universe-topology.v1",
   "goal_id": "standard-universe-runtime-v1",
   "batch": "G04-P3-B2",
-  "topology_revision": "standard-universe-topology-v3",
+  "topology_revision": "standard-universe-topology-v4",
   "counts": {
     "topology_candidates": 37,
     "source_nodes": 579,
@@ -10,27 +10,29 @@
     "activity_nodes": 4058,
     "activity_edges": 5993,
     "domain_hubs": 579,
-    "path_options": 9
+    "path_options": 9,
+    "abstract_interaction_bindings": 8445
   },
   "policies": {
     "topology_selection": "StableUniformOrderedCandidates",
     "topology_rng_stream": "Graph",
     "room_eligibility": "EmptyOrZeroOrExactSourceSection",
     "micrograph_nodes_per_hub": 7,
-    "interaction_consumption": "PostContentRewardBoundedCounterMap0To1",
-    "exit_gate": "PostContentRewardClaimed",
+    "interaction_consumption": "ExternalOutcomeBoundedCounterMap0To1",
+    "nonbattle_progression": "ExternalOutcomeThenFormationWithoutBattleReward",
+    "exit_gate": "BattleRewardOrExternalOutcomeConsumed",
     "spatial_coordinates_authoritative": false
   },
   "goldens": {
-    "graph_sha256": "60155b06691733cf02f32ed4a36509c89c464b02c2c252468b9fba5ccb89ae58",
-    "seed7_initial_state_sha256": "8caac4bfd22fce5ff32aac50a5dad1b280511741c45681044cbf772f7ad72eab"
+    "graph_sha256": "16a40a0e287f59891419aa0c668f540ab0241305a27ba97fa859be48d33b0fbb",
+    "seed7_initial_state_sha256": "b463bd1c990526f8e088108a7e8d2467fc8291fb77383603b05ae160152e58bf"
   },
   "focused_tests": 5,
   "scope": {
     "room_draw_resolved": true,
     "encounter_slots_resolved": true,
     "complete_world_claim": false,
-    "owner": "G04-P3-B6-landed"
+    "owner": "G04-P3-B7-landed"
   },
   "new_registry_packages": []
 }

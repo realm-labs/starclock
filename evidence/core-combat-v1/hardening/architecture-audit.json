@@ -1,11 +1,11 @@
 {
   "schema_revision": "starclock.goal01.architecture-audit.v1",
   "policy": {
-    "repository_checks_sha256": "be0ad4d929580c8de9203545fa2924935afaa002e1cc3eab4b74e34e9299cd5a",
-    "dependency_policy_sha256": "0f8aa733c8c4918683542c64778b0937865172c714c264fa1510373a5d38d632"
+    "repository_checks_sha256": "375ca4a2848519e8b8adec8cffee7789c85390bdafdbecf477c15a8ef2811e31",
+    "dependency_policy_sha256": "a8044cfdd658d855c7ecd8641942173cc1229d53454b3856a4d509ebe054b47a"
   },
   "source_size_audit": {
-    "handwritten_files": 259,
+    "handwritten_files": 316,
     "generated_vendor_exclusions": [
       {
         "path": "config/sora-golden/expected/reader/generated",
@@ -27,6 +27,8 @@
     "facade_limit": 200,
     "line_limit_exceptions": [],
     "near_limit_files": [
+      "crates/starclock-activity/src/graph_activity.rs",
+      "crates/starclock-activity/src/transaction.rs",
       "crates/starclock-combat/src/catalog/builder.rs",
       "crates/starclock-combat/src/catalog/mod.rs",
       "crates/starclock-combat/src/resolver/operation.rs",
@@ -36,7 +38,8 @@
       "crates/starclock-data/src/catalog.rs",
       "crates/starclock-data/src/catalog_tests.rs",
       "crates/starclock-data/src/domain_catalog.rs",
-      "crates/starclock-mcp/src/http.rs"
+      "crates/starclock-mcp/src/http.rs",
+      "crates/starclock-replay/src/activity.rs"
     ],
     "near_limit_policy": "These files remain within the enforced limit and receive no exception; any growth beyond the limit requires a module split, not an implicit allowance.",
     "largest_files": [
@@ -76,6 +79,20 @@
         "facade": false
       },
       {
+        "path": "crates/starclock-activity/src/graph_activity.rs",
+        "lines": 1183,
+        "limit": 1200,
+        "utilization_percent": 98,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-activity/src/transaction.rs",
+        "lines": 1176,
+        "limit": 1200,
+        "utilization_percent": 98,
+        "facade": false
+      },
+      {
         "path": "crates/starclock-combat/src/catalog/mod.rs",
         "lines": 197,
         "limit": 200,
@@ -104,6 +121,13 @@
         "facade": false
       },
       {
+        "path": "crates/starclock-replay/src/activity.rs",
+        "lines": 1154,
+        "limit": 1200,
+        "utilization_percent": 96,
+        "facade": false
+      },
+      {
         "path": "crates/starclock-mcp/src/http.rs",
         "lines": 1153,
         "limit": 1200,
@@ -118,10 +142,10 @@
         "facade": false
       },
       {
-        "path": "crates/starclock-replay/src/activity.rs",
-        "lines": 1087,
+        "path": "crates/starclock-mode-universe/src/topology.rs",
+        "lines": 1058,
         "limit": 1200,
-        "utilization_percent": 90,
+        "utilization_percent": 88,
         "facade": false
       },
       {
@@ -139,6 +163,13 @@
         "facade": false
       },
       {
+        "path": "crates/starclock-mode-universe/src/catalog.rs",
+        "lines": 1020,
+        "limit": 1200,
+        "utilization_percent": 85,
+        "facade": false
+      },
+      {
         "path": "crates/starclock-combat/tests/damage_lifecycle.rs",
         "lines": 1017,
         "limit": 1200,
@@ -151,42 +182,14 @@
         "limit": 1200,
         "utilization_percent": 82,
         "facade": false
-      },
-      {
-        "path": "crates/starclock-combat/src/resolver/program.rs",
-        "lines": 985,
-        "limit": 1200,
-        "utilization_percent": 82,
-        "facade": false
-      },
-      {
-        "path": "crates/starclock-mcp/src/tools.rs",
-        "lines": 970,
-        "limit": 1200,
-        "utilization_percent": 80,
-        "facade": false
-      },
-      {
-        "path": "crates/starclock-build/src/catalog.rs",
-        "lines": 932,
-        "limit": 1200,
-        "utilization_percent": 77,
-        "facade": false
-      },
-      {
-        "path": "crates/starclock-data/src/encounter_lower.rs",
-        "lines": 900,
-        "limit": 1200,
-        "utilization_percent": 75,
-        "facade": false
       }
     ]
   },
   "public_api_audit": {
-    "public_declarations": 2043,
-    "public_reexports": 31,
+    "public_declarations": 3208,
+    "public_reexports": 41,
     "reexport_files": {
-      "crates/starclock-activity/src/lib.rs": 8,
+      "crates/starclock-activity/src/lib.rs": 18,
       "crates/starclock-agent-api/src/session.rs": 1,
       "crates/starclock-combat/src/lib.rs": 20,
       "crates/starclock-data/src/lib.rs": 1,
@@ -205,7 +208,7 @@
     "wildcard_reexports": 0
   },
   "dependency_audit": {
-    "workspace_crates": 11,
+    "workspace_crates": 12,
     "graph": [
       {
         "crate": "starclock-activity",
@@ -213,6 +216,16 @@
           "starclock-combat"
         ],
         "registry_dependencies": [
+          {
+            "name": "allocation-counter",
+            "kind": "dev",
+            "requirement": "=0.8.1"
+          },
+          {
+            "name": "rand",
+            "kind": "production",
+            "requirement": "=0.10.2"
+          },
           {
             "name": "sha2",
             "kind": "production",
@@ -410,6 +423,36 @@
           "starclock-combat"
         ],
         "registry_dependencies": []
+      },
+      {
+        "crate": "starclock-mode-universe",
+        "local_dependencies": [
+          "starclock-activity",
+          "starclock-combat",
+          "starclock-data"
+        ],
+        "registry_dependencies": [
+          {
+            "name": "serde",
+            "kind": "production",
+            "requirement": "=1.0.228"
+          },
+          {
+            "name": "serde_json",
+            "kind": "production",
+            "requirement": "=1.0.151"
+          },
+          {
+            "name": "sha2",
+            "kind": "production",
+            "requirement": "=0.11.0"
+          },
+          {
+            "name": "zstd",
+            "kind": "production",
+            "requirement": "=0.13.3"
+          }
+        ]
       },
       {
         "crate": "starclock-replay",

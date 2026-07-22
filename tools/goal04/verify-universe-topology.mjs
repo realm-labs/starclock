@@ -13,6 +13,7 @@ const runtime = text("crates/starclock-activity/src/graph_activity.rs");
 const program = text("crates/starclock-activity/src/program.rs");
 const transaction = text("crates/starclock-activity/src/transaction.rs");
 const tests = text("crates/starclock-mode-universe/tests/topology_runtime.rs");
+assert(topology.includes(`pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "${policy.topology_revision}";`), "topology revision differs");
 
 for (const marker of [
   "pub struct DomainHubDefinition", "pub struct DomainRouteDefinition",
@@ -38,7 +39,7 @@ for (const marker of [
   "topology_draw_is_reproducible_for_the_same_seed_and_identity"
 ]) assert(tests.includes(marker), `topology tests omit ${marker}`);
 const numericTests = tests.replace(/(?<=\d)_(?=\d)/g, "");
-for (const [needle, expected] of [["runtime.graph().nodes().len(),", policy.counts.activity_nodes], ["runtime.graph().edges().len(),", policy.counts.activity_edges], ["compiled.domain_hubs().len(),", policy.counts.domain_hubs]])
+for (const [needle, expected] of [["runtime.graph().nodes().len(),", policy.counts.activity_nodes], ["runtime.graph().edges().len(),", policy.counts.activity_edges], ["compiled.domain_hubs().len(),", policy.counts.domain_hubs], ["compiled.abstract_interactions().len(),", policy.counts.abstract_interaction_bindings]])
   assert(numericTests.includes(`${needle} ${expected}`), `topology count assertion differs for ${needle}`);
 const graphGolden = arrayGolden(tests, /runtime\.graph\(\)\.digest\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
 const stateGolden = arrayGolden(tests, /view\.state_hash\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);

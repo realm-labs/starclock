@@ -10,26 +10,28 @@
     "activity_nodes": 4058,
     "activity_edges": 5993,
     "domain_hubs": 579,
-    "path_options": 9
+    "path_options": 9,
+    "abstract_interaction_bindings": 8445
   },
   "policies": {
     "topology_selection": "StableUniformOrderedCandidates",
     "topology_rng_stream": "Graph",
     "room_eligibility": "EmptyOrZeroOrExactSourceSection",
     "micrograph_nodes_per_hub": 7,
-    "interaction_consumption": "PostContentRewardBoundedCounterMap0To1",
-    "exit_gate": "PostContentRewardClaimed",
+    "interaction_consumption": "ExternalOutcomeBoundedCounterMap0To1",
+    "nonbattle_progression": "ExternalOutcomeThenFormationWithoutBattleReward",
+    "exit_gate": "BattleRewardOrExternalOutcomeConsumed",
     "spatial_coordinates_authoritative": false
   },
   "goldens": {
-    "graph_sha256": "60155b06691733cf02f32ed4a36509c89c464b02c2c252468b9fba5ccb89ae58",
-    "seed7_initial_state_sha256": "8caac4bfd22fce5ff32aac50a5dad1b280511741c45681044cbf772f7ad72eab"
+    "graph_sha256": "16a40a0e287f59891419aa0c668f540ab0241305a27ba97fa859be48d33b0fbb",
+    "seed7_initial_state_sha256": "b463bd1c990526f8e088108a7e8d2467fc8291fb77383603b05ae160152e58bf"
   },
   "deferred_scope": {
     "room_draw_resolved": true,
     "encounter_slots_resolved": true,
     "complete_world_claim": false,
-    "owner": "G04-P3-B6-landed"
+    "owner": "G04-P3-B7-landed"
   },
   "compatibility": {
     "generated_rows_public": false,
@@ -38,12 +40,12 @@
     "invalid_command_mutates_state_or_rng": false
   },
   "source_sha256": {
-    "topology": "75e93dcb5507d8161fd63b97b8fefb4a6180b2c7f29ee7bd51dda8a4e3ac5994",
-    "entry": "472089ab2338600a8577ca8579a736d795de41a78b02fb8256e0a7c149572ff4",
-    "graph_activity": "3fa0c5a0849cfb5e557d4e65fe98ecce64f315f6c8b484b22358eac2973370b2",
+    "topology": "fddf2634c6e1c8e50edb0ef7eab551f059adc68a0a0529c1225c74aa3b75b8da",
+    "entry": "9ce9eacd03d21d52b624d0ca715b75bcb1b32a590714df33d43565ffb179ea4c",
+    "graph_activity": "fe6f3e7b40cebff93f35dafa24743e3e87aa1792bed508d05f21aefe2d9e8e92",
     "program": "3a28b3a1a322b4a9d40ad1da400a620c0bf06fb2447203acff91d58a9aef505c",
     "transaction": "97ab45660e30885e606321d86ac98d6c751d88d54cb96e8d0696ded813166c99",
-    "tests": "30cd971145fde780640833692904fb8f438c5e984b94419ce106a478a01fa3f5"
+    "tests": "25d257f70e82704a43051e351e34be60359e05c5d95548bdc36b1344adddb785"
   },
   "focused_tests": 5,
   "new_registry_packages": []

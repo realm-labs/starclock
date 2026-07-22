@@ -184,8 +184,9 @@ approximation and must be replaced by a new policy revision if authoritative
 weights become available.
 
 Each source topology node compiles to a spatial-free domain micrograph with
-room-resolution, content, encounter-member, battle, reward, Formation-gate and route nodes. A room is
-eligible when its section list is empty, contains `0`, or contains the source
+room-resolution, content, encounter-member, battle, reward, Formation-gate and
+route nodes. A room is eligible when its section list is empty, contains `0`,
+or contains the source
 node's section index. Room selection is stable-uniform because the released
 snapshot contains no authoritative room weights. The room's exact primary
 condition resolves its content; encounter groups then select one authored
@@ -198,7 +199,10 @@ roster-specific immutable overlay. That overlay contains only validated
 digest is included in the compiled Activity identity. A Won result returns to a
 reward node, and claiming that reward records the bounded hub-clear counter
 before route handles become legal. Fixed content and external-decision rooms
-use the same content/reward seam and are specialized by later profile batches.
+instead offer an `ExternalOutcome` and then cross the Formation gate directly.
+They never receive an implicit battle Blessing reward. The exact service,
+occurrence or fixed-content effect behind that outcome is specialized by
+P4-M13–M15.
 Mandatory, optional, sequential and one-of encounter-slot policies are explicit
 domain types. Coordinates, collision and traversal timing never enter this
 contract.
@@ -262,6 +266,32 @@ Fixed state; the frozen source currently defines no cross-Curio replacement
 edge, while the generic atomic replacement operation remains available for
 later occurrence/service rules. P4-M11/M12 execute individual Curio effects and
 P4-M01 materializes the typed contributions into each `BattleSpec`.
+
+Cosmic Fragments are a player-visible Activity-scoped bounded integer in the
+inclusive range `0..=4_294_967_295`. Generic credit and spend programs use
+checked Activity operations; a failed affordability requirement rolls back the
+entire command. Combat cannot write this slot directly.
+
+The run runtime compiles all 321 Occurrence choices into typed definitions that
+preserve variant identity, stable order, conditions, next-node keys, exact
+parameter vectors, costs and outcomes. It similarly compiles all 94 services
+with kind, currency, price formula, offer pool, rule key and parameters. These
+definitions are immutable catalog input, not executable strings. P4-M13 owns
+the per-choice Occurrence operation lowering and the versioned policy for the
+52 outcomes whose released weights are unknown. P4-M14 owns service-specific
+shop, enhancement, respite, revival, downloader and roster operations.
+
+Selected Ability Tree nodes compile to a canonical typed contribution set with
+effect class, rule key, external unlocks, exact effects and parameters. P4-M01
+materializes battle-visible contributions into `BattleSpec`; run-only effects
+remain Activity operations. This split prevents Ability Tree or service
+vocabulary from entering the combat resolver.
+
+Non-spatial interactions are identified by public opaque external-outcome IDs.
+Submission succeeds only when both the decision and outcome are currently
+offered; stale and unoffered submissions preserve state and RNG. An accepted
+outcome records a bounded consumed marker and advances through the ordinary
+graph transaction. Physics, timing and navigation never authorize an outcome.
 
 The activity terminates with a typed completion, defeat, abandonment or fault.
 Account rewards, weekly points, achievements and inventory payout remain
