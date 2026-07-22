@@ -1,0 +1,46 @@
+{
+  "schema_revision": "starclock.goal04-universe-encounter-runtime.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P3-B3",
+  "counts": {
+    "rooms": 163,
+    "primary_room_bindings": 163,
+    "encounter_group_rooms": 55,
+    "fixed_content_rooms": 37,
+    "external_decision_rooms": 71,
+    "encounter_groups": 74,
+    "encounter_members": 173,
+    "encounter_waves": 173,
+    "enemy_slots": 538,
+    "domain_hubs": 579,
+    "activity_nodes": 3479,
+    "activity_edges": 5414,
+    "resolved_overlay_bindings_in_fixture": 173
+  },
+  "policies": {
+    "room_selection": "StableUniformEligibleRooms",
+    "room_rng_stream": "Encounter",
+    "member_selection": "AuthoredWeightStableOrder",
+    "member_rng_stream": "Encounter",
+    "wave_execution": "AuthoredSequentialWaves",
+    "slot_requirements": ["Mandatory", "Optional"],
+    "slot_grouping": ["Sequential", "OneOf"],
+    "preparation": "ValidatedNormalOrTechniqueThenImmutableBattleSpec",
+    "result_return": "VerifiedProjectionThenRewardDecision",
+    "exit_gate": "PostContentRewardClaimed",
+    "spatial_state": false
+  },
+  "goldens": {
+    "resolved_overlay_sha256": "a098a2294e872e98fe7933e5ed504daa12881f5f0c89046d61a19bc86e288f0c",
+    "won_reward_state_sha256": "bfee5c6482ffef4443205f20ee48fdc86a6c90cbb686056cce06674028b8bf8c"
+  },
+  "focused_tests": 2,
+  "scope": {
+    "all_universe_enemy_variants_compiled": false,
+    "enemy_overlay_owner": "G04-P4-M15",
+    "blessing_reward_effects_applied": false,
+    "reward_effect_owner": "G04-P3-B4",
+    "complete_world_claim": false
+  },
+  "new_registry_packages": []
+}

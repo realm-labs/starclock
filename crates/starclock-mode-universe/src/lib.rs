@@ -8,11 +8,13 @@
 #[path = "../../../config/generated/rust/universe_reference/mod.rs"]
 mod generated;
 
+pub mod battle_overlay;
 pub mod catalog;
 pub mod curio;
 pub mod definition;
 pub mod digest;
 pub mod encounter;
+pub mod encounter_slot;
 pub mod entry;
 pub mod error;
 pub mod id;
@@ -20,6 +22,7 @@ pub mod occurrence;
 pub mod path;
 pub mod progression;
 pub mod rule;
+pub mod runtime;
 pub mod topology;
 
 mod curio_lowering;

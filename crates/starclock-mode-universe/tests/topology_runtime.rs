@@ -85,19 +85,19 @@ fn all_topologies_compile_to_bounded_spatial_free_hubs() {
     let runtime = compiled.runtime_definition();
     assert_eq!(compiled.topology_candidates().len(), 37);
     assert_eq!(compiled.domain_hubs().len(), 579);
-    assert_eq!(runtime.graph().nodes().len(), 582);
-    assert_eq!(runtime.graph().edges().len(), 782);
-    assert_eq!(runtime.graph().maximum_total_visits(), 582);
+    assert_eq!(runtime.graph().nodes().len(), 3_479);
+    assert_eq!(runtime.graph().edges().len(), 5_414);
+    assert_eq!(runtime.graph().maximum_total_visits(), 3_479);
     assert_eq!(
         runtime.graph().digest().bytes(),
         [
-            194, 55, 50, 132, 78, 86, 75, 151, 183, 165, 95, 85, 118, 192, 211, 224, 80, 141, 209,
-            135, 134, 27, 102, 229, 27, 87, 58, 19, 210, 221, 81, 164,
+            106, 235, 111, 49, 213, 241, 90, 197, 2, 246, 34, 39, 226, 187, 115, 66, 203, 25, 176,
+            181, 211, 225, 196, 222, 17, 234, 196, 160, 16, 155, 188, 233,
         ]
     );
     assert_eq!(
         STANDARD_UNIVERSE_TOPOLOGY_REVISION,
-        "standard-universe-topology-v1"
+        "standard-universe-topology-v2"
     );
 
     for hub in compiled.domain_hubs() {
@@ -127,8 +127,8 @@ fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state(
     assert_eq!(
         view.state_hash().bytes(),
         [
-            243, 200, 165, 224, 161, 11, 61, 227, 227, 28, 22, 204, 142, 61, 14, 132, 240, 198,
-            114, 230, 53, 119, 121, 131, 101, 65, 201, 74, 225, 60, 142, 144,
+            241, 245, 19, 248, 223, 66, 121, 49, 102, 184, 199, 214, 196, 87, 28, 176, 207, 78,
+            252, 65, 199, 226, 251, 90, 61, 73, 249, 213, 186, 38, 24, 71,
         ]
     );
     let decision = view.decision().expect("Path choice");
@@ -159,7 +159,7 @@ fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state(
 }
 
 #[test]
-fn mandatory_interaction_consumption_gates_routes_and_a_seeded_graph_terminates() {
+fn room_content_and_reward_nodes_gate_routes_without_spatial_state() {
     let (_, compiled) = compiled();
     let mut activity = compiled
         .start(
@@ -170,44 +170,44 @@ fn mandatory_interaction_consumption_gates_routes_and_a_seeded_graph_terminates(
         .into_activity();
     choose_first(&mut activity);
 
-    for _ in 0..128 {
-        let view = activity.player_view();
-        if view.terminal().is_some() {
-            assert_eq!(
-                view.terminal(),
-                Some(starclock_activity::ActivityTerminalOutcome::Completed)
-            );
-            return;
-        }
-        let hub = compiled
-            .domain_hubs()
-            .iter()
-            .find(|hub| hub.node() == view.current_node())
-            .expect("current domain hub");
-        let decision = view.decision().expect("hub decision");
-        assert_eq!(decision.kind(), ActivityDecisionKind::Route);
-        if decision
-            .options()
-            .iter()
-            .any(|item| item.id() == hub.interaction())
-        {
-            assert_eq!(decision.options().len(), 1);
+    let content = activity.player_view();
+    let hub = compiled
+        .domain_hubs()
+        .iter()
+        .find(|hub| hub.content_node() == content.current_node())
+        .expect("resolved room content hub");
+    let decision = content.decision().expect("content interaction");
+    assert_eq!(decision.kind(), ActivityDecisionKind::Choice);
+    assert_eq!(decision.options().len(), 1);
+    activity
+        .choose_option(
+            content.state_hash(),
+            decision.id(),
+            decision.options()[0].id(),
+        )
+        .expect("consume room content");
+    let after = activity.player_view();
+    assert_ne!(after.current_node(), hub.route_node());
+    match after.decision().expect("battle or reward").kind() {
+        ActivityDecisionKind::Encounter => assert_eq!(after.current_node(), hub.battle_node()),
+        ActivityDecisionKind::Reward => {
+            assert_eq!(after.current_node(), hub.reward_node());
             activity
-                .choose_option(view.state_hash(), decision.id(), hub.interaction())
-                .expect("mandatory interaction");
-            let after = activity.player_view();
-            assert_eq!(after.current_node(), hub.node());
+                .choose_option(
+                    after.state_hash(),
+                    after.decision().expect("reward").id(),
+                    after.decision().expect("reward").options()[0].id(),
+                )
+                .expect("claim post-content reward");
+            let routes = activity.player_view();
+            assert_eq!(routes.current_node(), hub.route_node());
             assert_eq!(
-                after.decision().expect("routes").options().len(),
+                routes.decision().expect("routes").options().len(),
                 hub.routes().len()
             );
-        } else {
-            activity
-                .choose_option(view.state_hash(), decision.id(), decision.options()[0].id())
-                .expect("route");
         }
+        other => panic!("unexpected post-content decision: {other:?}"),
     }
-    panic!("seeded topology did not terminate within its bound");
 }
 
 #[test]

@@ -1,0 +1,67 @@
+{
+  "schema_revision": "starclock.goal04-universe-encounter-runtime-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P3-B3",
+  "result": "room-member-preparation-battle-result-reward-chain-is-deterministic-and-spatial-free",
+  "counts": {
+    "rooms": 163,
+    "primary_room_bindings": 163,
+    "encounter_group_rooms": 55,
+    "fixed_content_rooms": 37,
+    "external_decision_rooms": 71,
+    "encounter_groups": 74,
+    "encounter_members": 173,
+    "encounter_waves": 173,
+    "enemy_slots": 538,
+    "domain_hubs": 579,
+    "activity_nodes": 3479,
+    "activity_edges": 5414,
+    "resolved_overlay_bindings_in_fixture": 173
+  },
+  "policies": {
+    "room_selection": "StableUniformEligibleRooms",
+    "room_rng_stream": "Encounter",
+    "member_selection": "AuthoredWeightStableOrder",
+    "member_rng_stream": "Encounter",
+    "wave_execution": "AuthoredSequentialWaves",
+    "slot_requirements": [
+      "Mandatory",
+      "Optional"
+    ],
+    "slot_grouping": [
+      "Sequential",
+      "OneOf"
+    ],
+    "preparation": "ValidatedNormalOrTechniqueThenImmutableBattleSpec",
+    "result_return": "VerifiedProjectionThenRewardDecision",
+    "exit_gate": "PostContentRewardClaimed",
+    "spatial_state": false
+  },
+  "goldens": {
+    "resolved_overlay_sha256": "a098a2294e872e98fe7933e5ed504daa12881f5f0c89046d61a19bc86e288f0c",
+    "won_reward_state_sha256": "bfee5c6482ffef4443205f20ee48fdc86a6c90cbb686056cce06674028b8bf8c"
+  },
+  "deferred_scope": {
+    "all_universe_enemy_variants_compiled": false,
+    "enemy_overlay_owner": "G04-P4-M15",
+    "blessing_reward_effects_applied": false,
+    "reward_effect_owner": "G04-P3-B4",
+    "complete_world_claim": false
+  },
+  "compatibility": {
+    "generated_rows_public": false,
+    "mutable_mode_engine_added": false,
+    "invalid_command_mutates_state_or_rng": false,
+    "complete_catalog_cloned_per_run": false
+  },
+  "source_sha256": {
+    "crates/starclock-mode-universe/src/topology.rs": "f30b89a675b67f27fc09dabb1f140ed083deb6f80d8c4606e0f36563dde2730a",
+    "crates/starclock-mode-universe/src/encounter_slot.rs": "68c22e67f4eb8db7d248a4973e11284ef6c26146e01e210120b75ee7b82e66d2",
+    "crates/starclock-mode-universe/src/battle_overlay.rs": "199de0266a7bf434e6bd24947787eb83e0fa408dc945e2088335c43b89968170",
+    "crates/starclock-mode-universe/src/runtime.rs": "abdceb732cd0e65b068c42dae7eba6c223269c7d5de1d233bd319bd99b99c640",
+    "crates/starclock-activity/src/graph_activity.rs": "e18faa6a22324cc788fc2faf046bf81cc541b144670ca9600cac8a267e5e8bc7",
+    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "0a3e02b5b97cb890335c220383dfae3cf5802a5fe2890c9312b8cf648279c33c"
+  },
+  "focused_tests": 2,
+  "new_registry_packages": []
+}

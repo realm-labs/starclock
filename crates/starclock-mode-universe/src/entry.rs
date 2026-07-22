@@ -1,6 +1,6 @@
 //! Standard Universe entry validation and generic Activity-state compilation.
 
-use std::sync::Arc;
+use std::sync::{Arc, OnceLock};
 
 use starclock_activity::{
     ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
@@ -12,6 +12,7 @@ use starclock_activity::{
 };
 
 use crate::{
+    battle_overlay::UniverseEncounterOverlay,
     catalog::UniverseCatalog,
     digest::Encoder,
     id::{AbilityTreeNodeId, DifficultyId, PathId, WorldId},
@@ -25,12 +26,16 @@ const PATH_SLOT: u32 = 3;
 const ABILITY_TREE_SLOT: u32 = 4;
 const TOPOLOGY_SLOT: u32 = 5;
 const HUB_CLEAR_SLOT: u32 = 6;
+const ROOM_SLOT: u32 = 7;
+const ENCOUNTER_MEMBER_SLOT: u32 = 8;
 const WORLD_SOURCE: u64 = 0x5355_0001;
 const DIFFICULTY_SOURCE: u64 = 0x5355_0002;
 const PATH_SOURCE: u64 = 0x5355_0003;
 const ABILITY_TREE_SOURCE: u64 = 0x5355_0004;
 const TOPOLOGY_SOURCE: u64 = 0x5355_0005;
 const HUB_CLEAR_SOURCE: u64 = 0x5355_0006;
+const ROOM_SOURCE: u64 = 0x5355_0007;
+const ENCOUNTER_MEMBER_SOURCE: u64 = 0x5355_0008;
 
 /// Validated caller-owned inputs for one Standard Universe run.
 ///
@@ -42,6 +47,7 @@ pub struct StandardUniverseEntry {
     difficulty: DifficultyId,
     participants: ParticipantLock,
     ability_tree: Box<[AbilityTreeNodeId]>,
+    encounter_overlay: Option<Arc<UniverseEncounterOverlay>>,
 }
 
 impl StandardUniverseEntry {
@@ -57,6 +63,7 @@ impl StandardUniverseEntry {
             difficulty,
             participants,
             ability_tree: ability_tree.into_boxed_slice(),
+            encounter_overlay: None,
         }
     }
 
@@ -79,18 +86,33 @@ impl StandardUniverseEntry {
     pub fn ability_tree(&self) -> &[AbilityTreeNodeId] {
         &self.ability_tree
     }
+
+    #[must_use]
+    pub fn with_encounter_overlay(mut self, overlay: UniverseEncounterOverlay) -> Self {
+        self.encounter_overlay = Some(Arc::new(overlay));
+        self
+    }
+
+    #[must_use]
+    pub const fn encounter_overlay(&self) -> Option<&Arc<UniverseEncounterOverlay>> {
+        self.encounter_overlay.as_ref()
+    }
 }
 
 /// Immutable compiler facade over one validated shared Universe catalog.
 #[derive(Clone, Debug)]
 pub struct StandardUniverseProfile {
     catalog: Arc<UniverseCatalog>,
+    topology_template: Arc<OnceLock<crate::topology::CompiledUniverseTopology>>,
 }
 
 impl StandardUniverseProfile {
     #[must_use]
-    pub const fn new(catalog: Arc<UniverseCatalog>) -> Self {
-        Self { catalog }
+    pub fn new(catalog: Arc<UniverseCatalog>) -> Self {
+        Self {
+            catalog,
+            topology_template: Arc::new(OnceLock::new()),
+        }
     }
 
     #[must_use]
@@ -116,6 +138,11 @@ impl StandardUniverseProfile {
             });
         }
         validate_participants(entry.participants.policy())?;
+        if entry.encounter_overlay.as_ref().is_some_and(|overlay| {
+            overlay.participant_lock_digest() != Some(entry.participants.digest())
+        }) {
+            return Err(StandardUniverseCompileError::EncounterOverlayParticipantMismatch);
+        }
 
         let ability_tree = canonical_ability_tree(&self.catalog, &entry.ability_tree)?;
         let path_options = self
@@ -137,18 +164,28 @@ impl StandardUniverseProfile {
             participant_digest.bytes(),
             &ability_tree,
             &path_options,
+            entry.encounter_overlay.as_deref(),
         )?;
         let participants = Arc::new(entry.participants);
-        let topology = crate::topology::compile(
-            &self.catalog,
-            identity,
-            state.clone(),
-            Arc::clone(&participants),
-            slot(PATH_SLOT),
-            slot(TOPOLOGY_SLOT),
-            slot(HUB_CLEAR_SLOT),
-        )
-        .map_err(StandardUniverseCompileError::Topology)?;
+        let topology = if let Some(template) = self.topology_template.get() {
+            crate::topology::rebind(template, identity, state.clone(), Arc::clone(&participants))
+                .map_err(StandardUniverseCompileError::Topology)?
+        } else {
+            let compiled = crate::topology::compile(
+                &self.catalog,
+                identity,
+                state.clone(),
+                Arc::clone(&participants),
+                slot(PATH_SLOT),
+                slot(TOPOLOGY_SLOT),
+                slot(HUB_CLEAR_SLOT),
+                slot(ROOM_SLOT),
+                slot(ENCOUNTER_MEMBER_SLOT),
+            )
+            .map_err(StandardUniverseCompileError::Topology)?;
+            let _ = self.topology_template.set(compiled.clone());
+            compiled
+        };
 
         Ok(CompiledActivity {
             catalog: Arc::clone(&self.catalog),
@@ -162,6 +199,8 @@ impl StandardUniverseProfile {
             runtime: topology.runtime,
             hubs: topology.hubs,
             topology_candidates: topology.candidates,
+            encounter_options: topology.encounter_options,
+            encounter_overlay: entry.encounter_overlay,
         })
     }
 }
@@ -181,8 +220,10 @@ pub struct CompiledActivity {
     path_options: Box<[PathId]>,
     state: ActivityStateDefinition,
     runtime: Arc<GraphActivityDefinition>,
-    hubs: Box<[crate::topology::DomainHubDefinition]>,
-    topology_candidates: Box<[crate::id::TopologyId]>,
+    hubs: Arc<[crate::topology::DomainHubDefinition]>,
+    topology_candidates: Arc<[crate::id::TopologyId]>,
+    encounter_options: Arc<[crate::topology::EncounterOptionBinding]>,
+    encounter_overlay: Option<Arc<UniverseEncounterOverlay>>,
 }
 
 impl CompiledActivity {
@@ -242,12 +283,38 @@ impl CompiledActivity {
         &self.topology_candidates
     }
 
+    #[must_use]
+    pub fn encounter_options(&self) -> &[crate::topology::EncounterOptionBinding] {
+        &self.encounter_options
+    }
+
+    #[must_use]
+    pub const fn encounter_overlay(&self) -> Option<&Arc<UniverseEncounterOverlay>> {
+        self.encounter_overlay.as_ref()
+    }
+
     pub fn start(
         &self,
         instance: ActivityInstanceId,
         master_seed: ActivityMasterSeed,
     ) -> Result<GraphActivityResolution, GraphActivityStartError> {
         GraphActivity::start(Arc::clone(&self.runtime), instance, master_seed)
+    }
+
+    pub fn start_standard(
+        &self,
+        instance: ActivityInstanceId,
+        master_seed: ActivityMasterSeed,
+    ) -> Result<
+        crate::runtime::StandardUniverseStartResolution,
+        crate::runtime::StandardUniverseStartError,
+    > {
+        crate::runtime::start(
+            GraphActivity::start(Arc::clone(&self.runtime), instance, master_seed),
+            Arc::clone(&self.participants),
+            Arc::clone(&self.encounter_options),
+            self.encounter_overlay.clone(),
+        )
     }
 
     #[must_use]
@@ -278,6 +345,16 @@ impl CompiledActivity {
     #[must_use]
     pub const fn hub_clear_slot(&self) -> ActivitySlotId {
         slot(HUB_CLEAR_SLOT)
+    }
+
+    #[must_use]
+    pub const fn selected_room_slot(&self) -> ActivitySlotId {
+        slot(ROOM_SLOT)
+    }
+
+    #[must_use]
+    pub const fn selected_encounter_member_slot(&self) -> ActivitySlotId {
+        slot(ENCOUNTER_MEMBER_SLOT)
     }
 }
 
@@ -381,6 +458,20 @@ fn compile_state(
             HUB_CLEAR_SOURCE,
             ActivityStateVisibility::Private,
         )?,
+        activity_slot(
+            ROOM_SLOT,
+            ActivityValue::OptionalId(None),
+            None,
+            ROOM_SOURCE,
+            ActivityStateVisibility::Private,
+        )?,
+        activity_slot(
+            ENCOUNTER_MEMBER_SLOT,
+            ActivityValue::OptionalId(None),
+            None,
+            ENCOUNTER_MEMBER_SOURCE,
+            ActivityStateVisibility::Private,
+        )?,
     ];
     ActivityStateDefinition::new(slots, vec![], vec![])
         .map_err(|_| StandardUniverseCompileError::InvalidActivityState)
@@ -415,6 +506,7 @@ fn compile_identity(
     participant_digest: [u8; 32],
     ability_tree: &[AbilityTreeNodeId],
     path_options: &[PathId],
+    encounter_overlay: Option<&UniverseEncounterOverlay>,
 ) -> Result<ActivityDefinitionIdentity, StandardUniverseCompileError> {
     let catalog_identity = catalog.identity();
     let mut encoder = Encoder::new(b"starclock-standard-universe-entry-definition-v1");
@@ -433,6 +525,9 @@ fn compile_identity(
     encoder.u32(path_options.len() as u32);
     for path in path_options {
         encoder.u32(path.get());
+    }
+    if let Some(overlay) = encounter_overlay {
+        encoder.digest(overlay.digest().bytes());
     }
     let definition_digest = ActivityDefinitionDigest::new(encoder.finish())
         .ok_or(StandardUniverseCompileError::InvalidCatalogIdentity)?;
@@ -472,6 +567,7 @@ pub enum StandardUniverseCompileError {
     NoAvailablePaths,
     InvalidActivityState,
     InvalidCatalogIdentity,
+    EncounterOverlayParticipantMismatch,
     Topology(crate::topology::UniverseTopologyCompileError),
 }
 

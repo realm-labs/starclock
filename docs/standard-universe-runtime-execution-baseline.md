@@ -64,15 +64,22 @@ optimization candidate rather than a hidden performance assumption.
 
 The Standard Universe profile now validates the selected World and difficulty,
 an Activity-scoped 1–4 member participant lock, and prerequisite-closed Ability
-Tree input. It emits four generic Activity-scope slots for World, difficulty,
-selected Path and Ability Tree nodes. The Path slot begins absent and the nine
+Tree input. It emits four player-visible Activity-scope slots for World,
+difficulty, selected Path and Ability Tree nodes, plus private topology, hub,
+room and encounter-member state. The Path slot begins absent and the nine
 catalog Paths are stable ordered candidates for the first Activity decision.
 
-P3-B2 now attaches the bounded topology and exposes `CompiledActivity::start`.
+P3-B2 attaches the bounded topology and exposes `CompiledActivity::start`.
 Start draws one of 37 stable-ordered topology templates from the independent
-Graph stream, offers the nine Path choices, and enters spatial-free hubs whose
-mandatory interaction gates route handles. Concrete rooms, encounters and
-rewards are still deferred, so this is not yet a complete World claim.
+Graph stream and offers the nine Path choices. P3-B3 refines every one of the
+579 hubs into room-resolution, content, member-resolution, battle, reward and
+route nodes. Eligible rooms and weighted encounter members draw only from the
+Encounter stream. Roster-specific immutable overlays bind selected members to
+validated preparation variants and result contracts; successful return exposes
+a reward decision before route handles. The large validated graph/program set
+is shared across profile compilations, while identity, initial state and roster
+remain isolated. Blessing reward effects and the complete enemy combat overlay
+are still deferred, so this is not yet a complete World claim.
 
 ## CI matrix
 

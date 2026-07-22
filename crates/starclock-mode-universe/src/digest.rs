@@ -54,6 +54,10 @@ digest_type!(
     UniverseEncounterDefinitionsDigest,
     "Canonical identity of lowered encounter, pool and mechanic-rule definitions."
 );
+digest_type!(
+    UniverseEncounterOverlayDigest,
+    "Canonical identity of resolved roster-specific encounter battle bindings."
+);
 
 pub(crate) fn bundle_digest(bytes: &[u8]) -> UniverseBundleDigest {
     UniverseBundleDigest::new(Sha256::digest(bytes).into())

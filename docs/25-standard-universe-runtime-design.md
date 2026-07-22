@@ -183,12 +183,24 @@ RNG stream, with templates ordered by stable topology ID. This is a declared
 approximation and must be replaced by a new policy revision if authoritative
 weights become available.
 
-Each source topology node compiles to a spatial-free domain hub. A room is
+Each source topology node compiles to a spatial-free domain micrograph with
+room-resolution, content, encounter-member, battle, reward and route nodes. A room is
 eligible when its section list is empty, contains `0`, or contains the source
-node's section index. The hub exposes one mandatory, once-consumed interaction;
-route handles become legal only after that interaction is recorded in a bounded
-counter map. P3-B3 resolves the eligible-room draw and concrete encounter or
-service content. Coordinates, collision and traversal timing never enter this
+node's section index. Room selection is stable-uniform because the released
+snapshot contains no authoritative room weights. The room's exact primary
+condition resolves its content; encounter groups then select one authored
+member using exact weights and stable option order. Member waves remain an
+ordered sequence rather than simulated monster objects.
+
+The selected encounter becomes a preparation decision backed by a
+roster-specific immutable overlay. That overlay contains only validated
+`EncounterPreparationDefinition`, `BattleSpec` and result-contract values; its
+digest is included in the compiled Activity identity. A Won result returns to a
+reward node, and claiming that reward records the bounded hub-clear counter
+before route handles become legal. Fixed content and external-decision rooms
+use the same content/reward seam and are specialized by later profile batches.
+Mandatory, optional, sequential and one-of encounter-slot policies are explicit
+domain types. Coordinates, collision and traversal timing never enter this
 contract.
 
 The activity terminates with a typed completion, defeat, abandonment or fault.

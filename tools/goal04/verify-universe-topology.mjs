@@ -33,12 +33,13 @@ assert((tests.match(/^#\[test\]$/gm) ?? []).length === policy.focused_tests, "to
 for (const marker of [
   "all_topologies_compile_to_bounded_spatial_free_hubs",
   "start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state",
-  "mandatory_interaction_consumption_gates_routes_and_a_seeded_graph_terminates",
+  "room_content_and_reward_nodes_gate_routes_without_spatial_state",
   "stale_and_unoffered_hub_commands_preserve_exact_state_and_rng",
   "topology_draw_is_reproducible_for_the_same_seed_and_identity"
 ]) assert(tests.includes(marker), `topology tests omit ${marker}`);
+const numericTests = tests.replace(/(?<=\d)_(?=\d)/g, "");
 for (const [needle, expected] of [["runtime.graph().nodes().len(),", policy.counts.activity_nodes], ["runtime.graph().edges().len(),", policy.counts.activity_edges], ["compiled.domain_hubs().len(),", policy.counts.domain_hubs]])
-  assert(tests.includes(`${needle} ${expected}`), `topology count assertion differs for ${needle}`);
+  assert(numericTests.includes(`${needle} ${expected}`), `topology count assertion differs for ${needle}`);
 const graphGolden = arrayGolden(tests, /runtime\.graph\(\)\.digest\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
 const stateGolden = arrayGolden(tests, /view\.state_hash\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
 assert(graphGolden === policy.goldens.graph_sha256, "topology graph golden differs");
