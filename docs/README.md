@@ -85,6 +85,10 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 59. [Activity replay and controller diagnostics](activity-replay-and-controller-diagnostics.md) — versioned Activity command/result payloads, exact nested battle boundaries, controller score diagnostics and first-divergence verification.
 60. [Headless CLI contract](headless-cli-contract.md) — production Sora bundle validation, frozen Goal 01 coverage, baseline synthetic battle runs, replay verification, JSON schemas and exit classes.
 61. [Goal 01 release contract](goal-01-release-contract.md) — frozen CLI/library surfaces, coverage identity, hardening reports and clean-checkout acceptance.
+62. [Agent control and MCP integration](22-agent-control-and-mcp.md) — protocol-neutral deterministic sessions plus stdio and authorized Streamable HTTP adapters.
+63. [Agent integration contract](starclock-agent-integration-contract.md) — runnable in-process, stdio and authorized HTTP embedding examples, frozen public surfaces and MCP suitability guidance.
+64. [Agent security and architecture audit](starclock-agent-security-audit.md) — dependency/API direction, unsafe/source/license review, secret/log safety and remote control limits.
+65. [Agent cross-platform contract](starclock-agent-cross-platform.md) — native schema/trace execution and explicitly compile-only alternate targets.
 
 ## Execution goals
 
@@ -97,6 +101,10 @@ Treat the date, not an assumed game version number, as the baseline. Character k
   active batch, manifests, evidence and terminal gates.
 - [Goal 01 launch prompt](goals/01-core-combat-and-content-prompt.md) starts or
   resumes the commit-by-commit execution loop until the goal is complete.
+- [Goal 02 — Agent Control API and MCP Adapter](goals/02-agent-control-and-mcp.md)
+  implements deterministic protocol-neutral sessions and the MCP adapters.
+- [Goal 02 status ledger](goals/02-agent-control-and-mcp-status.md) records its
+  frozen schema, conformance, security, performance and completion evidence.
 
 ## Delivery boundary
 

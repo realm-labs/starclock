@@ -1,0 +1,101 @@
+{
+  "schema_revision": "starclock.agent-control-contract.v1",
+  "goal_id": "agent-control-mcp-v1",
+  "frozen_on": "2026-07-22",
+  "library": {
+    "crate": "starclock-agent-api",
+    "schema_revision": "agent-api-v1",
+    "schema_bundle_sha256": "1746004f3f73ebbe6fb4cce4b850dd6813a1dc3a8584c3d191903328c0206725",
+    "responsibility_modules": ["action", "error", "observation", "schema", "session"],
+    "session_operations": ["list_scenarios", "create", "observe", "apply_action", "export_replay", "verify_replay", "close"],
+    "requires_async_runtime": false,
+    "requires_transport": false
+  },
+  "mcp": {
+    "revision": "2025-11-25",
+    "server_name": "starclock-mcp",
+    "tools": [
+      "starclock_close_battle",
+      "starclock_create_battle",
+      "starclock_export_replay",
+      "starclock_list_scenarios",
+      "starclock_observe_battle",
+      "starclock_play_action",
+      "starclock_verify_replay"
+    ],
+    "resources": ["starclock://catalog/manifest", "starclock://rules/core-combat"],
+    "resource_templates": ["starclock://character/{form_id}", "starclock://scenario/{scenario_id}"],
+    "prompts": ["starclock_battle_loop"],
+    "transports": ["stdio", "streamable-http"],
+    "structured_content_authoritative": true,
+    "non_loopback_startup": false
+  },
+  "cli": {
+    "commands": [
+      "starclock mcp serve --transport stdio",
+      "starclock mcp serve --transport streamable-http --development-loopback --bind IP:PORT --allow-origin ORIGIN"
+    ],
+    "mcp_failure_exit_code": 8,
+    "stdio_stdout": "protocol-only",
+    "http_profile": "explicit_loopback_development"
+  },
+  "examples": [
+    {
+      "kind": "in-process",
+      "path": "crates/starclock-agent-api/examples/g02_in_process.rs",
+      "command": "cargo run -p starclock-agent-api --example g02_in_process"
+    },
+    {
+      "kind": "stdio",
+      "path": "examples/agent-control/stdio-discovery.mjs",
+      "command": "node examples/agent-control/stdio-discovery.mjs PATH_TO_STARCLOCK_BINARY"
+    },
+    {
+      "kind": "authorized-http",
+      "path": "crates/starclock-mcp/examples/g02_authorized_http.rs",
+      "command": "cargo run -p starclock-mcp --example g02_authorized_http"
+    }
+  ],
+  "guidance": {
+    "document": "docs/starclock-agent-integration-contract.md",
+    "use_mcp_for": ["interoperable tool hosts", "human-scale external agent decisions", "stdio or reviewed HTTP integration"],
+    "do_not_use_mcp_for": ["one call per hit/event/trigger", "bulk replay verification", "high-throughput training", "model inference or chain-of-thought storage", "arbitrary catalog/spec upload", "unreviewed Internet exposure"]
+  },
+  "contract_files": [
+    "crates/starclock-agent-api/Cargo.toml",
+    "crates/starclock-agent-api/src/lib.rs",
+    "crates/starclock-agent-api/src/action.rs",
+    "crates/starclock-agent-api/src/error.rs",
+    "crates/starclock-agent-api/src/observation.rs",
+    "crates/starclock-agent-api/src/schema.rs",
+    "crates/starclock-agent-api/src/session.rs",
+    "crates/starclock-agent-api/src/session/registry.rs",
+    "schemas/agent-api-v1/observation.schema.json",
+    "schemas/agent-api-v1/action.schema.json",
+    "schemas/agent-api-v1/error.schema.json",
+    "crates/starclock-mcp/Cargo.toml",
+    "crates/starclock-mcp/src/lib.rs",
+    "crates/starclock-mcp/src/authorization.rs",
+    "crates/starclock-mcp/src/error.rs",
+    "crates/starclock-mcp/src/http.rs",
+    "crates/starclock-mcp/src/metadata.rs",
+    "crates/starclock-mcp/src/rate_limit.rs",
+    "crates/starclock-mcp/src/resources.rs",
+    "crates/starclock-mcp/src/server.rs",
+    "crates/starclock-mcp/src/stdio.rs",
+    "crates/starclock-mcp/src/tools.rs",
+    "crates/starclock-cli/Cargo.toml",
+    "crates/starclock-cli/src/main.rs",
+    "docs/starclock-agent-integration-contract.md",
+    "crates/starclock-agent-api/examples/g02_in_process.rs",
+    "crates/starclock-mcp/examples/g02_authorized_http.rs",
+    "examples/agent-control/stdio-discovery.mjs"
+  ],
+  "verification": [
+    "node tools/agent-control/verify-agent-contract-freeze.mjs",
+    "cargo run -p starclock-agent-api --example g02_in_process",
+    "cargo run -p starclock-mcp --example g02_authorized_http",
+    "cargo build -p starclock-cli",
+    "node examples/agent-control/stdio-discovery.mjs target/debug/starclock"
+  ]
+}

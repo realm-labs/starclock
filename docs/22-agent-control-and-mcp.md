@@ -22,6 +22,9 @@ MCP is a supported AI adapter, not Starclock's only service protocol.
 High-throughput verification or training may use the Rust facade or a separate
 batch/RPC adapter without translating every decision through MCP.
 
+The frozen consumer surface and runnable examples are published in the
+[agent integration contract](starclock-agent-integration-contract.md).
+
 The protocol baseline is MCP revision `2025-11-25`. MCP uses JSON-RPC, exposes
 tools/resources/prompts, and supports stdio and Streamable HTTP; see the
 official [architecture overview](https://modelcontextprotocol.io/docs/learn/architecture)
