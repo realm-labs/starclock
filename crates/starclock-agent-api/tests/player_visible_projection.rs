@@ -2,7 +2,8 @@ use std::sync::Arc;
 
 use serde_json::Value;
 use starclock_agent_api::observation::{
-    AgentBattlePhase, AgentTeamSide, MAX_EVENTS_PER_PAGE, ProjectionError, project_event_page,
+    AgentBattlePhase, AgentTeamSide, MAX_EVENTS_PER_PAGE, OmniscientDebugCapability,
+    ProjectionError, VisibilityPolicy, project_event_page, project_omniscient_debug,
     project_player_visible,
 };
 use starclock_combat::{
@@ -202,4 +203,28 @@ fn event_pages_are_payload_free_bounded_and_cursor_marked() {
             .collect::<Vec<_>>();
         assert_eq!(keys, ["event_id", "kind", "root_command_id", "summary"]);
     }
+}
+
+#[test]
+fn omniscient_debug_is_explicit_separately_typed_and_visibly_marked() {
+    let mut battle = fixture_battle();
+    let start = battle.view().decision().unwrap().legal_commands()[0].clone();
+    battle.apply(start).unwrap();
+
+    assert_eq!(
+        project_omniscient_debug(battle.view(), None),
+        Err(ProjectionError::UnauthorizedDebug)
+    );
+    let capability = OmniscientDebugCapability::acknowledge_trusted_debug_access();
+    let debug = project_omniscient_debug(battle.view(), Some(&capability)).unwrap();
+    assert_eq!(debug.visibility_policy(), VisibilityPolicy::OmniscientDebug);
+    assert!(debug.debug_authorized());
+    assert_eq!(debug.battle().committed_revision.as_str(), "1");
+
+    let debug_json = serde_json::to_value(&debug).unwrap();
+    assert_eq!(debug_json["visibility_policy"], "omniscient_debug");
+    assert_eq!(debug_json["debug_authorized"], true);
+    let player_json = serde_json::to_value(project_player_visible(battle.view()).unwrap()).unwrap();
+    assert!(player_json.get("debug_authorized").is_none());
+    assert!(player_json.get("visibility_policy").is_none());
 }

@@ -139,6 +139,52 @@ pub struct AgentBattleView {
     pub timeline: Box<[AgentTimelineView]>,
 }
 
+/// Explicit in-process acknowledgement required before requesting debug mode.
+///
+/// This is a capability boundary, not a remote authorization credential. MCP
+/// adapters must grant it only after their independent debug-scope check.
+pub struct OmniscientDebugCapability {
+    private: (),
+}
+
+impl OmniscientDebugCapability {
+    #[must_use]
+    pub const fn acknowledge_trusted_debug_access() -> Self {
+        Self { private: () }
+    }
+}
+
+impl fmt::Debug for OmniscientDebugCapability {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter.write_str("OmniscientDebugCapability([explicit])")
+    }
+}
+
+/// Separately typed and visibly marked debug-mode projection.
+#[derive(Clone, Debug, Eq, PartialEq, Serialize)]
+pub struct AgentDebugProjection {
+    visibility_policy: VisibilityPolicy,
+    debug_authorized: bool,
+    battle: AgentBattleView,
+}
+
+impl AgentDebugProjection {
+    #[must_use]
+    pub const fn visibility_policy(&self) -> VisibilityPolicy {
+        self.visibility_policy
+    }
+
+    #[must_use]
+    pub const fn debug_authorized(&self) -> bool {
+        self.debug_authorized
+    }
+
+    #[must_use]
+    pub const fn battle(&self) -> &AgentBattleView {
+        &self.battle
+    }
+}
+
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentEventSummary {
     pub event_id: AgentUInt,
@@ -163,6 +209,7 @@ pub enum ProjectionError {
     TooManyTimelineEntries,
     InvalidHealth,
     InvalidCursor,
+    UnauthorizedDebug,
 }
 
 impl fmt::Display for ProjectionError {
@@ -262,6 +309,24 @@ pub fn project_player_visible(view: BattleView<'_>) -> Result<AgentBattleView, P
         units: units.into_boxed_slice(),
         effects: effects.into_boxed_slice(),
         timeline: timeline.into_boxed_slice(),
+    })
+}
+
+/// Projects the frozen debug mode only after an explicit capability grant.
+///
+/// Version one intentionally adds no hidden payload fields beyond the frozen
+/// battle schema; the separate type and required markers prevent accidental
+/// default-path exposure and leave future expansion revisioned.
+pub fn project_omniscient_debug(
+    view: BattleView<'_>,
+    capability: Option<&OmniscientDebugCapability>,
+) -> Result<AgentDebugProjection, ProjectionError> {
+    let capability = capability.ok_or(ProjectionError::UnauthorizedDebug)?;
+    let () = capability.private;
+    Ok(AgentDebugProjection {
+        visibility_policy: VisibilityPolicy::OmniscientDebug,
+        debug_authorized: true,
+        battle: project_player_visible(view)?,
     })
 }
 

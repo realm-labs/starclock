@@ -12,8 +12,8 @@ implementation batch.
 | State | `InProgress` |
 | Prerequisite | Goal 01 `Complete` at or after `b23f900` |
 | Active phase | Phase 1 — Protocol-neutral types and observation |
-| Next unblocked batch | `G02-P1-B5` |
-| Last completed batch | `G02-P1-B4` |
+| Next unblocked batch | `G02-P1-B6` |
+| Last completed batch | `G02-P1-B5` |
 | Last completed commit | This row's containing commit |
 | MCP specification baseline | Frozen `2025-11-25` |
 | Agent schema revision | Frozen `agent-api-v1` / `1746004f…6725` |
@@ -52,7 +52,7 @@ evidence summary.
 | `G02-P1-B2` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Implemented checked revision/scenario/opaque IDs, canonical string integer/fixed-point/hash values, owned battle/team/unit/effect/timeline/status DTOs, 23 stable errors and deterministic serde/debug conversion with secret redaction and ordered context. |
 | `G02-P1-B3` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Added an allowlisted stable-boundary projection with canonical team/unit/effect/timeline order, checked exact health conversion, hard collection/event bounds and payload-free cursor pages; negative tests prove default JSON omits enemy AI, automatic ability, rules/modifiers, effect internals, commands and unpublished intent. Existing Goal 01 views were sufficient, so no core query was added. |
 | `G02-P1-B4` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Implemented frozen action DTOs and a 256-entry private exact-command table with replay-canonical order, deterministic bounded summaries and SHA-256 opaque tokens scoped by session, decision and ordinal. Tests prove stale, forged, cross-session, mixed-decision, noncanonical and internal-start inputs fail before command selection, while selected-command debug stays redacted. |
-| `G02-P1-B5` | `Pending` | — | — | — |
+| `G02-P1-B5` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Added a separately typed debug projection requiring an explicit in-process capability acknowledgement and always emitting `omniscient_debug` plus `debug_authorized:true`; missing capability fails before projection and negative JSON tests prove the default battle value cannot contain either debug marker. The frozen v1 schema adds no hidden payload, so richer debug facts remain revision-gated. |
 | `G02-P1-B6` | `Pending` | — | — | — |
 | `G02-P2-B1` | `Pending` | — | — | — |
 | `G02-P2-B2` | `Pending` | — | — | — |
@@ -112,6 +112,7 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | 2026-07-22 | Expiry/cancellation are checked outside an atomic domain commit. | Operational time and cancellation cannot create platform-dependent partial battle state; idempotent retry resolves delivery ambiguity. |
 | 2026-07-22 | Version-one public intent remains absent until explicitly authored as visibility-safe content. | The player projection never infers future intent from enemy AI state, candidates, automatic abilities or retained commands; transformed presence normalizes to public `present`. |
 | 2026-07-22 | Offered-action token digests are deterministic identity bindings, not authorization credentials. | Tokens bind session, decision and canonical ordinal to a private exact-command table; independent session ownership/auth checks remain mandatory, and successful commit replaces the whole decision table. |
+| 2026-07-22 | Frozen v1 debug mode is a separately gated and marked envelope over the bounded battle schema, without extra hidden fields. | The schema defines the policy/authorization markers but no debug payload. AI/rule/command/seed/RNG internals therefore stay absent; adding them requires a new reviewed schema revision rather than an unversioned extension. |
 
 Add architectural decisions here before implementing a deviation from the goal
 or normative design. A decision cannot silently weaken a terminal gate.
