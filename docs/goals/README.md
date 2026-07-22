@@ -13,7 +13,7 @@ commit-sized implementation work. Each goal package contains:
 |---|---|---|---|---|---|
 | Goal 01 — Complete Core Combat and Released Character Content | Core battle, Standard encounters, all released character forms/Traces/Techniques/Eidolons and Light Cones; no universe or challenge modes | Complete | [Plan](01-core-combat-and-content.md) | [Ledger](01-core-combat-and-content-status.md) | [Prompt](01-core-combat-and-content-prompt.md) |
 | Goal 02 — Agent Control API and MCP Adapter | Protocol-neutral battle sessions, exact observations/offered actions, replayable external control, local stdio MCP and authorized remote Streamable HTTP | Complete | [Plan](02-agent-control-and-mcp.md) | [Ledger](02-agent-control-and-mcp-status.md) | [Prompt](02-agent-control-and-mcp-prompt.md) |
-| Goal 03 — Complete Standard Simulated Universe Reference Data | Version 4.4 main-world manifests, normalized mechanics/provenance, Excel/Sora schemas and complete authoring workbooks; no universe runtime | In progress | [Plan](03-standard-universe-reference-data.md) | [Ledger](03-standard-universe-reference-data-status.md) | [Prompt](03-standard-universe-reference-data-prompt.md) |
+| Goal 03 — Complete Standard Simulated Universe Reference Data | Version 4.4 main-world manifests, normalized mechanics/provenance, Excel/Sora schemas and complete authoring workbooks; no universe runtime | Complete | [Plan](03-standard-universe-reference-data.md) | [Ledger](03-standard-universe-reference-data-status.md) | [Prompt](03-standard-universe-reference-data-prompt.md) |
 
 The plan defines what completion means. The ledger is the resumable source of
 truth. The prompt must not override either document; it instructs the executor

@@ -86,6 +86,10 @@
       "command": ["node", "tools/universe-reference/verify_production_workbooks.mjs", "."]
     },
     {
+      "name": "Standard Universe release contract",
+      "command": ["node", "tools/universe-reference/verify-release.mjs", "."]
+    },
+    {
       "name": "production Excel and Sora configuration golden",
       "command": ["node", "tools/config-production/verify.mjs"]
     },

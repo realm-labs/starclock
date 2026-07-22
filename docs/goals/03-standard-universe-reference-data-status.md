@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `standard-universe-reference-v1` |
-| State | `InProgress` |
-| Active phase | Phase 4 — Review and freeze |
+| State | `Complete` |
+| Active phase | None |
 | Active batch | None |
-| Next unblocked batch | `G03-P4-B4` |
+| Next unblocked batch | None |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -22,7 +22,7 @@
 | Phase 1 — Reference pack | `Complete` | Twenty-four contract files contain 2,201 DataReady content records, 786 rule bindings and 78 mechanic-family fixtures; pack/index regeneration and reference closure are machine-verified. |
 | Phase 2 — Sora schema | `Complete` | All 49 Universe tables, templates and readers validate; openpyxl-generated empty and representative workbook sets export deterministically and load through generated Rust readers. |
 | Phase 3 — Excel authoring | `Complete` | The pinned `openpyxl` adapter authors 13,793 rows across all 49 sheets in three production workbooks. Byte-identical double generation, Sora binary/debug export, generated-reader loading, semantic workbook QA and a 49-page rendered visual review all pass. |
-| Phase 4 — Review/freeze | `InProgress` | Release audit closes every normalized content, rule, fixture, provenance and cross-family reference; semantic fixture execution and final clean-checkout acceptance remain. |
+| Phase 4 — Review/freeze | `Complete` | Release audit, 78 executable mechanic fixtures, isolated-bundle hardening, full source-cache repository acceptance, release evidence and clean-worktree verification are complete. |
 
 ## Batch ledger
 
@@ -55,7 +55,7 @@
 | `G03-P4-B1` | `Complete` | This row's containing commit | Added a release-level audit across all 2,201 content rows, 786 rules, 78 fixtures and 2,645 provenance rows. It enforces enabled Standard/Shared ownership, `DataReady`, bilingual fields, valid quality/approximation evidence, source use without orphans, aggregate/category coverage, complete cross-family and Goal 01 enemy references, promoted manifest evidence, and explicit Standard boundaries for room, Curio-effect and Occurrence-variant IDs. Inventory, 1,935-row manifest, normalized bootstrap, pack/index, workbook/debug export and source-policy checks pass. |
 | `G03-P4-B2` | `Complete` | This row's containing commit | Added an executable semantic-fixture verifier. It resolves every fixture input to its normalized content/rule record, enforces the declared mechanism-quality floor, evaluates the closed `equals`/`contains` fact language over scalar, collection and nested-object paths, and rejects duplicate/empty families. All 78 facts across 78 distinct mechanic families pass. The same verifier proves that Sora exported every fixture with byte-equivalent canonical initial state, commands and expected facts. All three `ProjectPolicy` cases carry an explicit `StableUniformOrderedCandidates` replacement policy and evidence note. |
 | `G03-P4-B3` | `Complete` | This row's containing commit | Hardened the release pipeline with 27 generated-artifact checks, including source inventory/manifest/pack regeneration, release audit, executable fixtures, isolated schema/readers, representative exports, dependency review and full production workbook double generation. The integration audit separated the 49-table Universe staging project and bundle (`0d94d25b…3b04`) from the 82-table Goal 01 runtime bundle, restoring its compatibility hash `abd84f70…0440`; non-lowered Universe rows can no longer enter `starclock-data`. The isolated reader tool pins and audits 19 serde/zstd packages. The complete source-cache repository gate, clippy, workspace tests and Goal 01/02 release contracts pass in 296 seconds. |
-| `G03-P4-B4` | `Pending` | — | — |
+| `G03-P4-B4` | `Complete` | This row's containing commit | Froze the public boundary, completion ledger and machine-verifiable release evidence. The release contract binds the Version 4.4/2026-07-22 snapshot, 1,935-row manifest, 2,201 DataReady content rows, 786 rules, 78 fixtures, 2,645 provenance rows, all 49 Sora tables/13,793 workbook rows, three workbook hashes and isolated bundle `0d94d25b…3b04`. It also proves that the Goal 01 runtime bundle remains `abd84f70…0440`, executes both prior release contracts, and requires a clean worktree after this commit. |
 
 ## Frozen counters
 
@@ -107,5 +107,18 @@ Populate only from generated manifests in `G03-P0-B3`.
 - [x] Sora production/debug exports regenerate without drift.
 - [x] Coverage reports 100% `DataReady` and no blocking research row.
 - [x] Semantic review fixtures cover every distinct mechanic family.
-- [ ] Clean checkout and prior Goal 01/02 release contracts pass.
-- [ ] `G03-P4-B4` completion commit is recorded and worktree is clean.
+- [x] Clean checkout and prior Goal 01/02 release contracts pass.
+- [x] `G03-P4-B4` completion commit is recorded and worktree is clean.
+
+## Completion record
+
+| Field | Value |
+|---|---|
+| Final state | `Complete` |
+| Completion commit | This row's containing commit (`G03-P4-B4`) |
+| Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
+| Preserved core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
+| Workbook semantic digest | `d54c6c1bea0fef51dc844aadfe77270976d288358b36c77b391b16ffba383390` |
+| Coverage | 2,201/2,201 `DataReady`; 786 rules; 78/78 executable mechanic-family fixtures |
+| Release evidence | [Goal 03 release evidence](../../evidence/standard-universe-reference-v1/release/release-evidence.json) |
+| Remaining required work | None within Goal 03; Universe runtime lowering, controllers and complete runs belong to a future execution goal. |

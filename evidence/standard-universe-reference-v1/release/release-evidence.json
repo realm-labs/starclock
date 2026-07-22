@@ -1,0 +1,60 @@
+{
+  "schema_revision": "starclock.standard-universe-reference-release.v1",
+  "goal_id": "standard-universe-reference-v1",
+  "result": "complete",
+  "snapshot": {
+    "game_version": "4.4",
+    "access_date": "2026-07-22",
+    "profile": "standard-main-world"
+  },
+  "commits": {
+    "workbooks": "4937812e79ee3d90d489a36481a7c9c5cb4f8f53",
+    "release_audit": "18e7fbc194db192d14b582907549b5950e76f794",
+    "semantic_fixtures": "0e6f365026ab8f62eadd814a242e5e2e6cfea920",
+    "pipeline_hardening": "6a2797640b61ce9d0c8c4a5a000c809e0364c977"
+  },
+  "content": {
+    "manifest_rows": 1935,
+    "data_ready": 2201,
+    "rules": 786,
+    "fixtures": 78,
+    "fixture_facts": 78,
+    "provenance_rows": 2645,
+    "pack_files": 24
+  },
+  "authoring": {
+    "adapter": "openpyxl==3.1.5",
+    "schema_export_authority": "sora-cli==0.3.0",
+    "tables": 49,
+    "workbook_rows": 13793,
+    "workbook_semantic_sha256": "d54c6c1bea0fef51dc844aadfe77270976d288358b36c77b391b16ffba383390",
+    "workbooks": {
+      "Universe.xlsx": "c5121bc5cdb49739e78cd0e709994764bc411c9acd62e9e3996ef744c64358b0",
+      "UniverseBindings.xlsx": "5780e99c7c08d0ed8659ddfd56b37f77e88972ec413940d82f956a56e84c1e4a",
+      "UniverseEvidence.xlsx": "be3ab26158150dda1261f6d58f5520704341b3e09a469202f7a9e651ade95065"
+    }
+  },
+  "digests": {
+    "source_manifest_sha256": "1dac0f8102a8c2a77717a37d206e2288f38fda8d428e490cdd91177190bce216",
+    "normalized_pack_sha256": "8a6ea40d777be0c007290dc4af82080c6bc8abd56d5b3e133309dea66e9eb5dd",
+    "pack_index_file_sha256": "851c13797b9e16169cd0b569c37c147f2cea0c661baa92ba7013189f36520f15",
+    "coverage_file_sha256": "b413e122ea0aeb7acb54f2c3f855f65d768517b92a822295f865dd3afeb5d66a",
+    "universe_staging_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+    "preserved_core_runtime_bundle_sha256": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440"
+  },
+  "runtime_boundary": {
+    "universe_bundle_role": "StagingAndReviewOnly",
+    "universe_runtime_lowering": false,
+    "json_runtime_path": false,
+    "core_bundle_unchanged": true
+  },
+  "acceptance": {
+    "repository_command": "node tools/repository-check/run.mjs --with-source-cache",
+    "elapsed_seconds": 296,
+    "generated_artifact_checks": 28,
+    "goal01_release_contract": "pass",
+    "goal02_release_contract": "pass",
+    "visual_review_pages": 49,
+    "clean_verification_command": "node tools/universe-reference/verify-release.mjs . --require-clean"
+  }
+}
