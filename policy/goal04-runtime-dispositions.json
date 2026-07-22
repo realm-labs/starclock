@@ -1,0 +1,107 @@
+{
+  "schema_revision": "starclock.goal04-runtime-disposition-policy.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "snapshot": {
+    "game_version": "4.4",
+    "access_date": "2026-07-22"
+  },
+  "expected": {
+    "content_records": 2201,
+    "rule_bindings": 786,
+    "semantic_fixtures": 78,
+    "partitions": 15,
+    "content_dispositions": {
+      "GenericActivityIr": 698,
+      "BattleRuleIr": 0,
+      "StaticNativeHandler": 427,
+      "DataOnlyMetadata": 984,
+      "ExplicitPolicy": 92
+    },
+    "rule_dispositions": {
+      "GenericActivityIr": 359,
+      "BattleRuleIr": 0,
+      "StaticNativeHandler": 427,
+      "DataOnlyMetadata": 0,
+      "ExplicitPolicy": 0
+    },
+    "partition_membership": {
+      "G04-P4-M01": [42, 42, 10],
+      "G04-P4-M02": [59, 58, 7],
+      "G04-P4-M03": [59, 58, 5],
+      "G04-P4-M04": [59, 58, 2],
+      "G04-P4-M05": [59, 58, 3],
+      "G04-P4-M06": [59, 58, 2],
+      "G04-P4-M07": [59, 58, 1],
+      "G04-P4-M08": [59, 58, 2],
+      "G04-P4-M09": [59, 58, 3],
+      "G04-P4-M10": [59, 58, 2],
+      "G04-P4-M11": [86, 86, 12],
+      "G04-P4-M12": [42, 42, 7],
+      "G04-P4-M13": [447, 0, 9],
+      "G04-P4-M14": [94, 94, 9],
+      "G04-P4-M15": [959, 0, 4]
+    }
+  },
+  "allowed_dispositions": [
+    "GenericActivityIr",
+    "BattleRuleIr",
+    "StaticNativeHandler",
+    "DataOnlyMetadata",
+    "ExplicitPolicy"
+  ],
+  "path_partitions": {
+    "universe.path.preservation": "G04-P4-M02",
+    "universe.path.remembrance": "G04-P4-M03",
+    "universe.path.nihility": "G04-P4-M04",
+    "universe.path.abundance": "G04-P4-M05",
+    "universe.path.hunt": "G04-P4-M06",
+    "universe.path.destruction": "G04-P4-M07",
+    "universe.path.elation": "G04-P4-M08",
+    "universe.path.propagation": "G04-P4-M09",
+    "universe.path.erudition": "G04-P4-M10"
+  },
+  "category_dispositions": {
+    "ability-tree": "GenericActivityIr",
+    "blessing-levels": "StaticNativeHandler",
+    "blessings": "GenericActivityIr",
+    "curio-states": "StaticNativeHandler",
+    "curios": "GenericActivityIr",
+    "domains": "GenericActivityIr",
+    "encounter-groups": "DataOnlyMetadata",
+    "encounter-pools": "ExplicitPolicy",
+    "maps": "DataOnlyMetadata",
+    "occurrence-choices": "GenericActivityIr",
+    "occurrence-variants": "DataOnlyMetadata",
+    "occurrences": "DataOnlyMetadata",
+    "paths": "GenericActivityIr",
+    "resonances": "StaticNativeHandler",
+    "rooms": "DataOnlyMetadata",
+    "services": "GenericActivityIr",
+    "world-difficulties": "DataOnlyMetadata",
+    "worlds": "DataOnlyMetadata"
+  },
+  "partitions": [
+    {"batch": "G04-P4-M01", "family": "shared-activity-and-ability-tree"},
+    {"batch": "G04-P4-M02", "family": "path-preservation"},
+    {"batch": "G04-P4-M03", "family": "path-remembrance"},
+    {"batch": "G04-P4-M04", "family": "path-nihility"},
+    {"batch": "G04-P4-M05", "family": "path-abundance"},
+    {"batch": "G04-P4-M06", "family": "path-hunt"},
+    {"batch": "G04-P4-M07", "family": "path-destruction"},
+    {"batch": "G04-P4-M08", "family": "path-elation"},
+    {"batch": "G04-P4-M09", "family": "path-propagation"},
+    {"batch": "G04-P4-M10", "family": "path-erudition"},
+    {"batch": "G04-P4-M11", "family": "curio-positive-neutral-special"},
+    {"batch": "G04-P4-M12", "family": "curio-negative-error-repair-replacement"},
+    {"batch": "G04-P4-M13", "family": "occurrences"},
+    {"batch": "G04-P4-M14", "family": "services-roster-interactables"},
+    {"batch": "G04-P4-M15", "family": "encounters-worlds-difficulty-carry"}
+  ],
+  "curio_exception_tags": ["negative", "repair", "replacement"],
+  "curio_exception_state_kinds": ["Repairing", "Fixed"],
+  "native_handler_ids": [
+    "universe.native.released-stage-ability-binding",
+    "universe.native.released-curio-effect-binding"
+  ],
+  "implementation_state": "Planned"
+}

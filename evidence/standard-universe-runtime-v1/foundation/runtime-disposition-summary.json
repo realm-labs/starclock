@@ -1,0 +1,114 @@
+{
+  "schema_revision": "starclock.goal04-runtime-disposition-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "result": "assigned-not-implemented",
+  "totals": {
+    "content_records": 2201,
+    "rule_bindings": 786,
+    "semantic_fixtures": 78,
+    "partitions": 15
+  },
+  "disposition_counts": {
+    "content": {
+      "GenericActivityIr": 698,
+      "BattleRuleIr": 0,
+      "StaticNativeHandler": 427,
+      "DataOnlyMetadata": 984,
+      "ExplicitPolicy": 92
+    },
+    "rules": {
+      "GenericActivityIr": 359,
+      "BattleRuleIr": 0,
+      "StaticNativeHandler": 427,
+      "DataOnlyMetadata": 0,
+      "ExplicitPolicy": 0
+    }
+  },
+  "partition_counts": {
+    "G04-P4-M01": {
+      "content": 42,
+      "rules": 42,
+      "fixtures": 10
+    },
+    "G04-P4-M02": {
+      "content": 59,
+      "rules": 58,
+      "fixtures": 7
+    },
+    "G04-P4-M03": {
+      "content": 59,
+      "rules": 58,
+      "fixtures": 5
+    },
+    "G04-P4-M04": {
+      "content": 59,
+      "rules": 58,
+      "fixtures": 2
+    },
+    "G04-P4-M05": {
+      "content": 59,
+      "rules": 58,
+      "fixtures": 3
+    },
+    "G04-P4-M06": {
+      "content": 59,
+      "rules": 58,
+      "fixtures": 2
+    },
+    "G04-P4-M07": {
+      "content": 59,
+      "rules": 58,
+      "fixtures": 1
+    },
+    "G04-P4-M08": {
+      "content": 59,
+      "rules": 58,
+      "fixtures": 2
+    },
+    "G04-P4-M09": {
+      "content": 59,
+      "rules": 58,
+      "fixtures": 3
+    },
+    "G04-P4-M10": {
+      "content": 59,
+      "rules": 58,
+      "fixtures": 2
+    },
+    "G04-P4-M11": {
+      "content": 86,
+      "rules": 86,
+      "fixtures": 12
+    },
+    "G04-P4-M12": {
+      "content": 42,
+      "rules": 42,
+      "fixtures": 7
+    },
+    "G04-P4-M13": {
+      "content": 447,
+      "rules": 0,
+      "fixtures": 9
+    },
+    "G04-P4-M14": {
+      "content": 94,
+      "rules": 94,
+      "fixtures": 9
+    },
+    "G04-P4-M15": {
+      "content": 959,
+      "rules": 0,
+      "fixtures": 4
+    }
+  },
+  "digests": {
+    "policy_sha256": "644b6614c3cc0d9f0b063c3560817680758ca27b11220733f262257635b5620d",
+    "runtime_dispositions_sha256": "258ccffe808a78f6c9c6bcd21c196de6d9c702f258f6ef675be72b85606b4f6a",
+    "partition_manifest_sha256": "9eebeb5ad82b30b2ddb789e36dcf2cbb38d7c02426c9d99696d43280ce5f5aaa",
+    "source_coverage_sha256": "b413e122ea0aeb7acb54f2c3f855f65d768517b92a822295f865dd3afeb5d66a",
+    "source_rules_sha256": "6cad0258ac8ce7869fe2dc27ed41302070830acb6dfbab906d9e6b717867f6ce",
+    "source_fixtures_sha256": "68e761423205fa5ae43e547f019672250217bbf81d66e228bec98eb782d3abb0"
+  },
+  "implementation_state": "Planned",
+  "executable_count": 0
+}
