@@ -7,6 +7,14 @@ publish.workspace = true
 [lints]
 workspace = true
 
+[[example]]
+name = "g02_agent_benchmark"
+path = "examples/g02_agent_benchmark.rs"
+required-features = ["benchmark-harness"]
+
+[features]
+benchmark-harness = []
+
 [dependencies]
 serde.workspace = true
 serde_json.workspace = true
@@ -17,4 +25,5 @@ starclock-data = { path = "../starclock-data" }
 starclock-replay = { path = "../starclock-replay" }
 
 [dev-dependencies]
+allocation-counter.workspace = true
 proptest.workspace = true

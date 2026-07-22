@@ -1,0 +1,77 @@
+{
+  "schema_revision": "starclock.agent-benchmark-report.v1",
+  "workload_revision": "g02-agent-session-baseline-v1",
+  "master_seed": 7,
+  "rows": [
+    {
+      "id": "projection-1000-v1",
+      "operations": 1000,
+      "elapsed_ns": 14607700,
+      "operations_per_second": 68457,
+      "allocation_count": 110000,
+      "allocation_bytes": 4800000,
+      "peak_live_bytes": 2851,
+      "retained_bytes": 0,
+      "payload_bytes": 2777,
+      "final_hash": "a8f49123438237cd5dfbe66a065474bcbaf33973377d6f3744e816b62dfa19ec",
+      "elapsed_ns_min": 14457900,
+      "elapsed_ns_max": 14794000
+    },
+    {
+      "id": "agent-step-100-v1",
+      "operations": 100,
+      "elapsed_ns": 6819400,
+      "operations_per_second": 14664,
+      "allocation_count": 42300,
+      "allocation_bytes": 4660324,
+      "peak_live_bytes": 942179,
+      "retained_bytes": 930840,
+      "payload_bytes": 4301,
+      "final_hash": "5ea2879eadf235955dd9548c1456bc6770b18365fe09192c59e26145f6e27d52",
+      "elapsed_ns_min": 6432400,
+      "elapsed_ns_max": 8657400
+    },
+    {
+      "id": "registry-observe-1000-v1",
+      "operations": 1000,
+      "elapsed_ns": 14893500,
+      "operations_per_second": 67143,
+      "allocation_count": 110000,
+      "allocation_bytes": 4809000,
+      "peak_live_bytes": 2860,
+      "retained_bytes": 0,
+      "payload_bytes": 2786,
+      "final_hash": "a8f49123438237cd5dfbe66a065474bcbaf33973377d6f3744e816b62dfa19ec",
+      "elapsed_ns_min": 14534300,
+      "elapsed_ns_max": 21783100
+    },
+    {
+      "id": "resident-sessions-16-v1",
+      "operations": 16,
+      "elapsed_ns": 348200,
+      "operations_per_second": 45950,
+      "allocation_count": 1296,
+      "allocation_bytes": 259408,
+      "peak_live_bytes": 125015,
+      "retained_bytes": 124496,
+      "payload_bytes": 0,
+      "final_hash": "a8f49123438237cd5dfbe66a065474bcbaf33973377d6f3744e816b62dfa19ec",
+      "elapsed_ns_min": 342000,
+      "elapsed_ns_max": 370100
+    }
+  ],
+  "measurement": {
+    "profile": "stable-runner-strict",
+    "samples": 5,
+    "runner": {
+      "platform": "win32",
+      "architecture": "x64",
+      "os_release": "10.0.19045",
+      "cpu_model": "Intel(R) Core(TM) i7-10700F CPU @ 2.90GHz",
+      "logical_processors": 16,
+      "total_memory_bytes": 68625661952,
+      "rust_host": "x86_64-pc-windows-msvc",
+      "rustc": "1.97.0"
+    }
+  }
+}

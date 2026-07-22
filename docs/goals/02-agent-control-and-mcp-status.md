@@ -11,9 +11,9 @@ implementation batch.
 | Goal ID | `agent-control-mcp-v1` |
 | State | `InProgress` |
 | Prerequisite | Goal 01 `Complete` at or after `b23f900` |
-| Active phase | Phase 2 — Authoritative ephemeral sessions |
-| Next unblocked batch | `G02-P2-B7` |
-| Last completed batch | `G02-P2-B6` |
+| Active phase | Phase 3 — Local MCP adapter |
+| Next unblocked batch | `G02-P3-B1` |
+| Last completed batch | `G02-P2-B7` |
 | Last completed commit | This row's containing commit |
 | MCP specification baseline | Frozen `2025-11-25` |
 | Agent schema revision | Frozen `agent-api-v1` / `1746004f…6725` |
@@ -31,7 +31,7 @@ external evidence or decision required. Phase completion is not goal completion.
 |---|---|---|
 | Phase 0 — Protocol/capability/threat model | `Complete` | Surface audit; MCP/SDK capability lock; `agent-api-v1` schema/budgets; 19-case threat model and fail-closed startup policy |
 | Phase 1 — Types and observation | `Complete` | Protocol-neutral responsibility split; exact owned values; bounded player projection/events; private exact-command token table; separately gated marked debug mode; embedded frozen schemas/goldens and seeded property contracts |
-| Phase 2 — Authoritative sessions | `Pending` | Pending |
+| Phase 2 — Authoritative sessions | `Complete` | All six production scenarios finish from public observations/tokens at exact seeded hashes; every replay verifies; bounded owner registry race/expiry/close/quota proofs; strict projection/step/registry/memory baseline |
 | Phase 3 — Local MCP | `Pending` | Pending |
 | Phase 4 — Remote HTTP | `Pending` | Pending |
 | Phase 5 — Hardening/freeze | `Pending` | Pending |
@@ -60,7 +60,7 @@ evidence summary.
 | `G02-P2-B4` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Retains the newest 8,192 payload-free summaries independently of the complete accepted command/hash trace. Observations page at most 256 events strictly after canonical opaque cursors, visibly truncate, reject future/wrong-family cursors and distinguish evicted cursors. Cached action responses include their settlement page; terminal observations have exact status with no decision/actions, and concession tests preserve ordered events plus complete replay/controller facts. |
 | `G02-P2-B5` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Exports the unchanged Goal 01 battle envelope with frozen Standard/controller identities and SHA-256 while keeping external/enemy/system attribution in a nonauthoritative sidecar. Verification reconstructs a fresh production battle and checks every accepted command/hash without touching the live session; round-trip, corruption, sidecar-inertness and operational-ID-independence tests pass. |
 | `G02-P2-B6` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Added a bounded in-memory owner registry with injected monotonic clock/opaque ID source, serialized per-session lanes, deferred ID allocation, frozen global/tenant/principal quotas, idle/absolute expiry, bounded terminal tombstones and close capacity release. Concurrent same-session races yield one commit plus one stale loser; cross-owner scheduler reordering preserves isolated hashes/replays, and invalid/quota rejection consumes no ID. Session tests were mechanically split below 1,200 LOC. |
-| `G02-P2-B7` | `Pending` | — | — | — |
+| `G02-P2-B7` | `Complete` | This row's containing commit | `cargo test -p starclock-agent-api --test standard_session_loop`; `node tools/agent-control/verify-agent-benchmark.mjs`; `$env:STARCLOCK_BENCH_RUNNER_ID='starclock-bench-win10-i7-10700f-v1'; node tools/agent-control/verify-agent-benchmark.mjs --strict --samples 5`; `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | A public-value scripted controller completes all six frozen Standard scenarios in 62 external steps/68 replay commands, matching every Goal 01 terminal hash and fresh replay verification. Added separated release workloads for 1,000 projections, 100 isolated ability steps, 1,000 owned registry projections and 16 resident sessions; the designated Windows x64 five-sample baseline passes reviewed timing/allocation/peak/retained budgets. Phase 2 complete. |
 | `G02-P3-B1` | `Pending` | — | — | — |
 | `G02-P3-B2` | `Pending` | — | — | — |
 | `G02-P3-B3` | `Pending` | — | — | — |
@@ -92,7 +92,7 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | Observation/event limits | 256 KiB observation; 256 events/page; 8,192 retained summaries | [`agent-api-v1.json`](../../policy/agent-api-v1.json) |
 | Settlement limits | 4,096 commands; 65,536 events; 262,144 operations | [`agent-api-v1.json`](../../policy/agent-api-v1.json) |
 | Session/registry limits | 1,024 global / 64 tenant / 16 principal; idle 1,800 s / max 14,400 s | [`agent-control-threat-model.json`](../../policy/agent-control-threat-model.json) |
-| Performance workload | Pending | `G02-P2-B7` / `G02-P4-B5` |
+| Performance workload | `g02-agent-session-baseline-v1` / `e99df5c0…9a09` | [`phase2-baseline-windows-x64.json`](../../evidence/agent-control-mcp-v1/performance/phase2-baseline-windows-x64.json); remote/MCP extension remains `G02-P4-B5` |
 
 ## Decision record
 
@@ -117,6 +117,7 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | 2026-07-22 | Controller attribution is an export sidecar, not a new canonical replay record. | Goal 01's battle envelope remains the authority for accepted commands and resulting hashes; diagnostics can be discarded or changed without altering replay bytes, identity or verification. |
 | 2026-07-22 | Registry creation and each session use separate serialization lanes. | A short creation lane makes quota checks and deferred ID allocation atomic; a per-session lane rechecks action preconditions without blocking unrelated battles. Expiry time is sampled before lane entry and never during a domain commit. |
 | 2026-07-22 | Closed and expired sessions retain only a bounded terminal tombstone. | Close/expiry releases active quotas and drops battle state immediately while preserving stable terminal errors for the newest 1,024 identities; older markers may become `unknown_session` rather than creating an unbounded operational store. |
+| 2026-07-22 | Agent performance rows separate projection, stepping, registry access and resident memory. | The release-only harness uses the existing pinned allocation counter as a dev dependency; JSON/MCP serialization and transport overhead remain separate later workloads rather than being attributed to the protocol-neutral API. |
 
 Add architectural decisions here before implementing a deviation from the goal
 or normative design. A decision cannot silently weaken a terminal gate.
@@ -145,12 +146,12 @@ a case does not block it.
 
 ### Session and replay
 
-- [ ] Creation accepts validated production identities rather than arbitrary
+- [x] Creation accepts validated production identities rather than arbitrary
       untrusted specs/programs.
-- [ ] Player actions settle through bounded enemy/automatic decisions.
-- [ ] Idempotency, response-loss, race, expiry and close tests pass.
-- [ ] All frozen Standard scenarios finish through the agent session loop.
-- [ ] Exported replays verify every accepted external/automatic command/hash.
+- [x] Player actions settle through bounded enemy/automatic decisions.
+- [x] Idempotency, response-loss, race, expiry and close tests pass.
+- [x] All frozen Standard scenarios finish through the agent session loop.
+- [x] Exported replays verify every accepted external/automatic command/hash.
 
 ### MCP and remote service
 
