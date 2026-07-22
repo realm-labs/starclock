@@ -5,6 +5,8 @@
 
 #![forbid(unsafe_code)]
 
+/// Frozen OAuth resource-server claims and operation scope policy.
+pub mod authorization;
 /// Stable agent failure to MCP tool/protocol conversion.
 pub mod error;
 /// Bounded loopback-only Streamable HTTP development service.

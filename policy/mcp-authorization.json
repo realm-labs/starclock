@@ -1,0 +1,62 @@
+{
+  "schema_revision": "starclock.mcp-authorization.v1",
+  "goal_id": "agent-control-mcp-v1",
+  "reviewed_on": "2026-07-22",
+  "mcp_revision": "2025-11-25",
+  "standards": {
+    "authorization": "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization",
+    "protected_resource_metadata": "RFC 9728",
+    "resource_indicators": "RFC 8707",
+    "bearer_errors": "RFC 6750"
+  },
+  "resource_server": {
+    "credential_transport": "Authorization: Bearer on every protected HTTP request",
+    "signature_verification": "injected trusted local verifier; raw bearer is never forwarded",
+    "issuer": "exact configured HTTPS URI",
+    "audience": "exact canonical MCP resource URI",
+    "expiry": "exp must be strictly greater than injected current time",
+    "not_before": "nbf, when present, must be less than or equal to injected current time",
+    "identity": "bounded canonical tenant and principal claims",
+    "maximum_bearer_bytes": 8192
+  },
+  "protected_resource_metadata": {
+    "path": "/.well-known/oauth-protected-resource/mcp",
+    "fields": ["resource", "authorization_servers", "scopes_supported", "bearer_methods_supported"],
+    "public": true
+  },
+  "scopes": [
+    "starclock:scenario:read",
+    "starclock:battle:create",
+    "starclock:battle:read",
+    "starclock:battle:act",
+    "starclock:battle:replay",
+    "starclock:battle:close",
+    "starclock:replay:verify",
+    "starclock:debug:omniscient"
+  ],
+  "operation_scope_matrix": {
+    "resources/* and prompts/*": "starclock:scenario:read",
+    "starclock_list_scenarios": "starclock:scenario:read",
+    "starclock_create_battle": "starclock:battle:create",
+    "starclock_observe_battle": "starclock:battle:read",
+    "starclock_play_action": "starclock:battle:act",
+    "starclock_export_replay": "starclock:battle:replay",
+    "starclock_close_battle": "starclock:battle:close",
+    "starclock_verify_replay": "starclock:replay:verify",
+    "omniscient_debug": "reserved and required; no MCP debug operation exists in the seven-tool v1 surface"
+  },
+  "errors": {
+    "missing_invalid_expired_wrong_issuer_or_audience": 401,
+    "insufficient_scope": 403,
+    "challenge": "WWW-Authenticate Bearer with resource_metadata; insufficient scope also names the exact required scope"
+  },
+  "startup": {
+    "authorized_loopback_embedding": true,
+    "anonymous_non_loopback": false,
+    "authorized_non_loopback": "disabled until G02-P4-B3/P4-B4 supply tenant quotas, rates, trusted proxy policy, audit and drain controls"
+  },
+  "verification": [
+    "node tools/agent-control/verify-mcp-authorization.mjs",
+    "cargo test -p starclock-mcp --all-targets --all-features"
+  ]
+}

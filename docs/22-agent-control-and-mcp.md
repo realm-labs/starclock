@@ -230,14 +230,16 @@ The adapter follows the frozen official
 rather than inventing authentication inside combat. Operating an OAuth server,
 TLS termination, accounts and distributed storage remain deployment concerns.
 
-Recommended scopes are:
+The frozen resource-server scopes are:
 
 ```text
-starclock:catalog:read
+starclock:scenario:read
 starclock:battle:create
-starclock:battle:observe
+starclock:battle:read
 starclock:battle:act
 starclock:battle:replay
+starclock:battle:close
+starclock:replay:verify
 starclock:debug:omniscient
 ```
 
