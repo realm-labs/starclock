@@ -1,0 +1,29 @@
+{
+  "schema_revision": "starclock.goal04-activity-state.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P2-B2",
+  "bounds": {
+    "maximum_slots": 4096,
+    "maximum_inventories": 256,
+    "maximum_modifiers": 4096,
+    "maximum_slot_collection_entries": 4096,
+    "maximum_inventory_entries": 4096,
+    "maximum_stack": 1000000
+  },
+  "shape": {
+    "scope_levels": 4,
+    "slot_value_kinds": 7,
+    "carry_policies": 8,
+    "snapshot_boundaries": 4,
+    "accumulation_policies": 4,
+    "visibility_classes": 3,
+    "partial_scope_paths": true,
+    "canonical_definition_order": true,
+    "counter_maps_sorted_and_bounded": true,
+    "modifier_inventory_references_closed": true,
+    "legacy_constructor_retained": true,
+    "legacy_state_codec_unchanged": true
+  },
+  "focused_tests": 4,
+  "new_registry_packages": 0
+}

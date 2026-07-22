@@ -1,4 +1,10 @@
-use crate::{ActivityScope, ActivitySlotId, codec::CanonicalWriter};
+use crate::{
+    ActivityScope, ActivitySlotId, ActivityStateDefinitionError, ActivityStateSource,
+    ActivityStateVisibility, SlotCarryPolicy, codec::CanonicalWriter,
+    state_definition::validate_policy,
+};
+
+pub const MAX_SLOT_COLLECTION_ENTRIES: u32 = 4_096;
 
 /// Closed value domains accepted by Goal 01 activity slots.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -10,6 +16,7 @@ pub enum SlotValueKind {
     StableId = 3,
     OptionalId = 4,
     OrderedIdSet = 5,
+    BoundedCounterMap = 6,
 }
 
 /// Typed activity-owned value. Fixed scalars use signed millionths.
@@ -21,6 +28,8 @@ pub enum ActivityValue {
     StableId(u64),
     OptionalId(Option<u64>),
     OrderedIdSet(Box<[u64]>),
+    /// Canonically sorted stable-ID keys with definition-bounded integer values.
+    BoundedCounterMap(Box<[(u64, i64)]>),
 }
 
 impl ActivityValue {
@@ -33,6 +42,7 @@ impl ActivityValue {
             Self::StableId(_) => SlotValueKind::StableId,
             Self::OptionalId(_) => SlotValueKind::OptionalId,
             Self::OrderedIdSet(_) => SlotValueKind::OrderedIdSet,
+            Self::BoundedCounterMap(_) => SlotValueKind::BoundedCounterMap,
         }
     }
 
@@ -43,6 +53,10 @@ impl ActivityValue {
             Self::OrderedIdSet(values) => {
                 values.iter().all(|value| *value != 0)
                     && values.windows(2).all(|pair| pair[0] < pair[1])
+            }
+            Self::BoundedCounterMap(values) => {
+                values.iter().all(|(key, _)| *key != 0)
+                    && values.windows(2).all(|pair| pair[0].0 < pair[1].0)
             }
             _ => true,
         }
@@ -64,6 +78,13 @@ impl ActivityValue {
                 writer.u64(values.len() as u64);
                 for value in values {
                     writer.u64(*value);
+                }
+            }
+            Self::BoundedCounterMap(values) => {
+                writer.u64(values.len() as u64);
+                for (key, value) in values {
+                    writer.u64(*key);
+                    writer.i64(*value);
                 }
             }
         }
@@ -103,6 +124,10 @@ pub struct ActivitySlotDefinition {
     minimum: Option<i64>,
     maximum: Option<i64>,
     resets: Box<[SlotResetPoint]>,
+    maximum_entries: Option<u32>,
+    carry: SlotCarryPolicy,
+    visibility: ActivityStateVisibility,
+    source: Option<ActivityStateSource>,
 }
 
 impl ActivitySlotDefinition {
@@ -113,33 +138,97 @@ impl ActivitySlotDefinition {
         bounds: Option<(i64, i64)>,
         resets: Vec<SlotResetPoint>,
     ) -> Result<Self, SlotDefinitionError> {
+        let maximum_entries = match &initial {
+            ActivityValue::OrderedIdSet(_) | ActivityValue::BoundedCounterMap(_) => {
+                Some(MAX_SLOT_COLLECTION_ENTRIES)
+            }
+            _ => None,
+        };
+        Self::new_internal(
+            id,
+            owner,
+            initial,
+            bounds,
+            maximum_entries,
+            resets,
+            SlotCarryPolicy::Reset,
+            ActivityStateVisibility::Private,
+            None,
+        )
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    pub fn new_with_policy(
+        id: ActivitySlotId,
+        owner: ActivityScope,
+        initial: ActivityValue,
+        bounds: Option<(i64, i64)>,
+        maximum_entries: Option<u32>,
+        resets: Vec<SlotResetPoint>,
+        carry: SlotCarryPolicy,
+        visibility: ActivityStateVisibility,
+        source: ActivityStateSource,
+    ) -> Result<Self, SlotDefinitionError> {
+        Self::new_internal(
+            id,
+            owner,
+            initial,
+            bounds,
+            maximum_entries,
+            resets,
+            carry,
+            visibility,
+            Some(source),
+        )
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    fn new_internal(
+        id: ActivitySlotId,
+        owner: ActivityScope,
+        initial: ActivityValue,
+        bounds: Option<(i64, i64)>,
+        maximum_entries: Option<u32>,
+        resets: Vec<SlotResetPoint>,
+        carry: SlotCarryPolicy,
+        visibility: ActivityStateVisibility,
+        source: Option<ActivityStateSource>,
+    ) -> Result<Self, SlotDefinitionError> {
         if !initial.structurally_valid() {
             return Err(SlotDefinitionError::InvalidInitialValue);
         }
         let (minimum, maximum) = match bounds {
             Some((minimum, maximum)) => {
                 if !matches!(
-                    initial,
-                    ActivityValue::BoundedInteger(_) | ActivityValue::FixedScalar(_)
+                    &initial,
+                    ActivityValue::BoundedInteger(_)
+                        | ActivityValue::FixedScalar(_)
+                        | ActivityValue::BoundedCounterMap(_)
                 ) {
                     return Err(SlotDefinitionError::BoundsForUnboundedKind);
                 }
                 if minimum > maximum {
                     return Err(SlotDefinitionError::InvalidBounds);
                 }
-                let value = match initial {
+                let outside = match &initial {
                     ActivityValue::BoundedInteger(value) | ActivityValue::FixedScalar(value) => {
-                        value
+                        *value < minimum || *value > maximum
                     }
+                    ActivityValue::BoundedCounterMap(values) => values
+                        .iter()
+                        .any(|(_, value)| *value < minimum || *value > maximum),
                     _ => unreachable!("kind checked above"),
                 };
-                if value < minimum || value > maximum {
+                if outside {
                     return Err(SlotDefinitionError::InitialOutsideBounds);
                 }
                 (Some(minimum), Some(maximum))
             }
             None => {
-                if matches!(initial, ActivityValue::BoundedInteger(_)) {
+                if matches!(
+                    &initial,
+                    ActivityValue::BoundedInteger(_) | ActivityValue::BoundedCounterMap(_)
+                ) {
                     return Err(SlotDefinitionError::MissingIntegerBounds);
                 }
                 (None, None)
@@ -151,6 +240,26 @@ impl ActivitySlotDefinition {
         if resets.iter().any(|point| point.scope() < owner) {
             return Err(SlotDefinitionError::ResetBeforeOwnerLifetime);
         }
+        let collection_length = match &initial {
+            ActivityValue::OrderedIdSet(values) => Some(values.len()),
+            ActivityValue::BoundedCounterMap(values) => Some(values.len()),
+            _ => None,
+        };
+        match (collection_length, maximum_entries) {
+            (Some(length), Some(limit))
+                if limit > 0
+                    && limit <= MAX_SLOT_COLLECTION_ENTRIES
+                    && length <= limit as usize => {}
+            (Some(_), _) => return Err(SlotDefinitionError::InvalidCollectionLimit),
+            (None, Some(_)) => return Err(SlotDefinitionError::CollectionLimitForScalar),
+            (None, None) => {}
+        }
+        validate_policy(owner, carry).map_err(|error| match error {
+            ActivityStateDefinitionError::SnapshotBeforeOwnerExit => {
+                SlotDefinitionError::SnapshotBeforeOwnerExit
+            }
+            _ => unreachable!("slot policy validation returns one local error"),
+        })?;
         Ok(Self {
             id,
             owner,
@@ -158,6 +267,10 @@ impl ActivitySlotDefinition {
             minimum,
             maximum,
             resets: resets.into_boxed_slice(),
+            maximum_entries,
+            carry,
+            visibility,
+            source,
         })
     }
 
@@ -180,6 +293,22 @@ impl ActivitySlotDefinition {
     #[must_use]
     pub fn resets(&self) -> &[SlotResetPoint] {
         &self.resets
+    }
+    #[must_use]
+    pub const fn maximum_entries(&self) -> Option<u32> {
+        self.maximum_entries
+    }
+    #[must_use]
+    pub const fn carry(&self) -> SlotCarryPolicy {
+        self.carry
+    }
+    #[must_use]
+    pub const fn visibility(&self) -> ActivityStateVisibility {
+        self.visibility
+    }
+    #[must_use]
+    pub const fn source(&self) -> Option<ActivityStateSource> {
+        self.source
     }
 
     pub(crate) fn encode(&self, writer: &mut CanonicalWriter) {
@@ -209,6 +338,9 @@ pub enum SlotDefinitionError {
     InitialOutsideBounds,
     NonCanonicalResets,
     ResetBeforeOwnerLifetime,
+    InvalidCollectionLimit,
+    CollectionLimitForScalar,
+    SnapshotBeforeOwnerExit,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

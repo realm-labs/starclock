@@ -2,9 +2,9 @@ use starclock_combat::{BattleSeed, BattleSpec};
 
 use crate::{
     ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId, ActivityGraphDefinition,
-    ActivitySlotDefinition, BattleResultConfiguration, BattleResultIdentity,
-    BattleResultProjection, BattleSequence, OneBattleFlow, ParticipantLock, ParticipantLockDigest,
-    ScopeIdentity, codec::CanonicalWriter,
+    ActivitySlotDefinition, ActivityStateDefinition, ActivityStateDefinitionError,
+    BattleResultConfiguration, BattleResultIdentity, BattleResultProjection, BattleSequence,
+    OneBattleFlow, ParticipantLock, ParticipantLockDigest, ScopeIdentity, codec::CanonicalWriter,
 };
 
 /// Immutable definition/configuration identity carried through every battle result.
@@ -153,7 +153,7 @@ pub struct ActivitySpec {
     identity: ActivityDefinitionIdentity,
     flow: OneBattleFlow,
     graph: ActivityGraphDefinition,
-    slots: Box<[ActivitySlotDefinition]>,
+    state: ActivityStateDefinition,
     participants: ParticipantLock,
     projection: BattleResultProjection,
     binding: BattleBinding,
@@ -163,15 +163,17 @@ impl ActivitySpec {
     pub fn new(
         identity: ActivityDefinitionIdentity,
         flow: OneBattleFlow,
-        mut slots: Vec<ActivitySlotDefinition>,
+        slots: Vec<ActivitySlotDefinition>,
         participants: ParticipantLock,
         projection: BattleResultProjection,
         binding: BattleBinding,
     ) -> Result<Self, ActivitySpecError> {
-        slots.sort_by_key(ActivitySlotDefinition::id);
-        if slots.windows(2).any(|pair| pair[0].id() == pair[1].id()) {
-            return Err(ActivitySpecError::DuplicateSlot);
-        }
+        let state =
+            ActivityStateDefinition::new(slots, vec![], vec![]).map_err(|error| match error {
+                ActivityStateDefinitionError::DuplicateSlot(_) => ActivitySpecError::DuplicateSlot,
+                ActivityStateDefinitionError::TooManySlots => ActivitySpecError::TooManySlots,
+                _ => unreachable!("empty inventory/modifier collections have no other errors"),
+            })?;
         if participants.digest() != binding.participant_lock_digest() {
             return Err(ActivitySpecError::ParticipantLockMismatch);
         }
@@ -180,7 +182,7 @@ impl ActivitySpec {
             identity,
             flow,
             graph,
-            slots: slots.into_boxed_slice(),
+            state,
             participants,
             projection,
             binding,
@@ -202,7 +204,11 @@ impl ActivitySpec {
     }
     #[must_use]
     pub fn slots(&self) -> &[ActivitySlotDefinition] {
-        &self.slots
+        self.state.slots()
+    }
+    #[must_use]
+    pub const fn state_definition(&self) -> &ActivityStateDefinition {
+        &self.state
     }
     #[must_use]
     pub const fn participants(&self) -> &ParticipantLock {
@@ -241,8 +247,8 @@ impl ActivitySpec {
         writer.digest(self.identity.definition_digest().bytes());
         writer.digest(self.identity.config_digest().bytes());
         self.flow.encode(writer);
-        writer.u64(self.slots.len() as u64);
-        for slot in &self.slots {
+        writer.u64(self.state.slots().len() as u64);
+        for slot in self.state.slots() {
             slot.encode(writer);
         }
         self.participants.encode(writer);
@@ -264,5 +270,6 @@ pub enum BattleBindingError {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ActivitySpecError {
     DuplicateSlot,
+    TooManySlots,
     ParticipantLockMismatch,
 }

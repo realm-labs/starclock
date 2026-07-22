@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Generic Activity runtime |
-| Active batch | `G04-P2-B2` |
-| Next unblocked batch | `G04-P2-B2` |
+| Active batch | `G04-P2-B3` |
+| Next unblocked batch | `G04-P2-B3` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -47,7 +47,7 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P1-B5` | `Complete` | This row's containing commit | Lowered 59 Occurrences, 67 variants, 321 ordered choices, 70 costs and 321 typed outcomes; 52 outcomes retain the explicit stable-uniform project policy instead of fabricated weights. Lowered 94 currency/service/shop entries with 12 parameters and the 42-node/55-edge acyclic Ability Tree with 42 costs, 50 typed effects, 43 exact parameters and 41 external unlocks. Canonical run-definition digest: `901a6da7ea7afe8a773d8112df1a6f75545618931d018a78f0ff3dff2b23aaeb`. |
 | `G04-P1-B6` | `Complete` | This row's containing commit | Lowered 74 encounter groups, 173 members/waves, 538 enemy slots, 182 fixed difficulty enemies, 92 room encounter pools, 380 room-content bindings, 23 generic pools/1,651 entries and all 786 mechanic contributions/1,020 parameters. All 2,201 provenance relations and 86 public enemy keys close; only 13 enemy variants overlap Goal 01's representative catalog, so the remaining 73 executable enemy definitions are explicitly owned by `G04-P4-M15`. Canonical digest: `4a6ed5d8dcc2282e9ba7503d38faa3e270ca9bedd454ff3f73bd2d6218d9aa42`. |
 | `G04-P2-B1` | `Complete` | This row's containing commit | Added nine generic node kinds, four typed terminal settlements and four edge conditions with stable node/edge IDs. Graphs canonicalize authored order, validate entry/reference/terminal reachability, require explicit node/edge/total visit budgets and emit a little-endian `SCAG` identity digest. The Goal 01 one-battle profile now compiles to and traverses this graph while its three state-hash goldens remain unchanged. Representative graph digest: `0dc5cc21019c61feb44254b4be981ea39a352480e1c25b009c3305baf66f6af7`. |
-| `G04-P2-B2` | `Pending` | — | — |
+| `G04-P2-B2` | `Complete` | This row's containing commit | Added hierarchy-safe partial Activity/Section/Node/Attempt paths and canonical scope identities. State definitions cap 4,096 slots, 256 inventories and 4,096 modifiers; counter maps and inventories are ordered/bounded, modifier inventory owners are reference-closed, and reset plus eight carry/project/accumulate/replace/snapshot/discard policies are explicit. Modern definitions require stable source/visibility metadata while the Goal 01 constructor and three legacy state hashes remain unchanged. |
 | `G04-P2-B3` | `Pending` | — | — |
 | `G04-P2-B4` | `Pending` | — | — |
 | `G04-P2-B5` | `Pending` | — | — |

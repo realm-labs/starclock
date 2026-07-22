@@ -15,6 +15,7 @@ mod projection;
 mod scope;
 mod slot;
 mod spec;
+mod state_definition;
 
 pub use aggregate::{
     Activity, ActivityCommand, ActivityCommandError, ActivityCommandErrorKind, ActivityDecision,
@@ -31,8 +32,9 @@ pub use graph::{
     MAX_EDGE_TRAVERSALS, MAX_NODE_VISITS,
 };
 pub use id::{
-    ActivityDefinitionId, ActivityEdgeId, ActivityInstanceId, ActivitySlotId, AttemptId,
-    BattleSequence, NodeId, ParticipantId, ProjectionId, SectionId,
+    ActivityDefinitionId, ActivityEdgeId, ActivityInstanceId, ActivityInventoryId,
+    ActivityModifierId, ActivitySlotId, AttemptId, BattleSequence, NodeId, ParticipantId,
+    ProjectionId, SectionId,
 };
 pub use participant::{
     LoadoutLockScope, OpaqueParticipantBuild, ParticipantLock, ParticipantLockEntry,
@@ -45,9 +47,17 @@ pub use projection::{
 };
 pub use scope::{ActivityScope, OneBattleFlow, OneBattleFlowError, ScopeIdentity, TerminalOutcome};
 pub use slot::{
-    ActivitySlotDefinition, ActivityValue, SlotDefinitionError, SlotResetPoint, SlotValueKind,
+    ActivitySlotDefinition, ActivityValue, MAX_SLOT_COLLECTION_ENTRIES, SlotDefinitionError,
+    SlotResetPoint, SlotValueKind,
 };
 pub use spec::{
     ActivityDefinitionIdentity, ActivityMasterSeed, ActivitySpec, ActivitySpecError, BattleBinding,
     BattleBindingError,
+};
+pub use state_definition::{
+    ActivityAccumulationPolicy, ActivityInventoryDefinition, ActivityModifierDefinition,
+    ActivityModifierOwner, ActivityScopeIdentity, ActivityScopePath, ActivityScopePathError,
+    ActivitySnapshotBoundary, ActivityStateDefinition, ActivityStateDefinitionError,
+    ActivityStateSource, ActivityStateVisibility, MAX_ACTIVITY_INVENTORIES, MAX_ACTIVITY_MODIFIERS,
+    MAX_ACTIVITY_STATE_SLOTS, MAX_INVENTORY_ENTRIES, MAX_INVENTORY_STACK, SlotCarryPolicy,
 };

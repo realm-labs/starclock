@@ -89,7 +89,7 @@ if (bless) {
 }
 console.log(`Goal 04 Activity graph verified (${policy.bounds.maximum_nodes} nodes, ${policy.bounds.maximum_edges} edges; ${policy.representative_graph_digest.slice(0, 12)}).`);
 
-function numberLiteral(value) { return String(value).replace(/(?=(\d{3})+$)/g, "_"); }
+function numberLiteral(value) { return String(value).replace(/\B(?=(\d{3})+(?!\d))/g, "_"); }
 function decimalGolden(source) {
   const match = source.match(/left\.digest\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
   assert(match, "representative graph decimal golden is absent");

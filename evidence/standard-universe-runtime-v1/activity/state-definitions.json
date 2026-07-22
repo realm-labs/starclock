@@ -1,0 +1,42 @@
+{
+  "schema_revision": "starclock.goal04-activity-state-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P2-B2",
+  "result": "typed-scoped-state-contracts-implemented",
+  "bounds": {
+    "maximum_slots": 4096,
+    "maximum_inventories": 256,
+    "maximum_modifiers": 4096,
+    "maximum_slot_collection_entries": 4096,
+    "maximum_inventory_entries": 4096,
+    "maximum_stack": 1000000
+  },
+  "shape": {
+    "scope_levels": 4,
+    "slot_value_kinds": 7,
+    "carry_policies": 8,
+    "snapshot_boundaries": 4,
+    "accumulation_policies": 4,
+    "visibility_classes": 3,
+    "partial_scope_paths": true,
+    "canonical_definition_order": true,
+    "counter_maps_sorted_and_bounded": true,
+    "modifier_inventory_references_closed": true,
+    "legacy_constructor_retained": true,
+    "legacy_state_codec_unchanged": true
+  },
+  "compatibility": {
+    "goal01_slot_constructor_retained": true,
+    "goal01_state_hash_goldens_unchanged": true,
+    "mutable_command_transaction_store_deferred": "G04-P2-B3",
+    "generated_rows_public": false,
+    "authoritative_float": false
+  },
+  "source_sha256": {
+    "state_definition": "ff3a47d05d9c4ee9a7e3c6fc643571269a6c7931c6427b28bbe9c8db4a4a41b3",
+    "slot": "b55140654f15c31447e7ea4acb2a543903ebd2bb834d536b13f9be7d155ed681",
+    "tests": "5c8819671ec5377be5e0ca59f07dde40d4eb4561920ea412aaa793619c055e8a"
+  },
+  "focused_tests": 4,
+  "new_registry_packages": 0
+}

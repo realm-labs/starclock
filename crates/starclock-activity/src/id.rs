@@ -74,6 +74,18 @@ id_type!(
     "Stable typed activity-slot ID."
 );
 id_type!(
+    ActivityInventoryId,
+    u32,
+    NonZeroU32,
+    "Stable typed Activity inventory identity."
+);
+id_type!(
+    ActivityModifierId,
+    u32,
+    NonZeroU32,
+    "Stable Activity modifier-definition identity."
+);
+id_type!(
     ParticipantId,
     u32,
     NonZeroU32,

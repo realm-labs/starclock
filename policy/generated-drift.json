@@ -138,6 +138,10 @@
       "command": ["node", "tools/goal04/verify-activity-graph.mjs", "."]
     },
     {
+      "name": "Goal 04 Activity state",
+      "command": ["node", "tools/goal04/verify-activity-state.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },
