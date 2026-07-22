@@ -1,0 +1,605 @@
+[
+  {
+    "id": "universe.path.preservation",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Preservation",
+    "name_zh_cn": "存护",
+    "summary_en": "Selectable Preservation path with one active Resonance, three Formations and 18 main-world Blessings.",
+    "summary_zh_cn": "可选存护命途，包含一个主动命途回响、三个回响构音与18个主世界祝福。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.0",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.0"
+    ],
+    "source_ids": [
+      "1",
+      "120"
+    ],
+    "note": "",
+    "buff_type": 120,
+    "aeon_name_en": "Qlipoth",
+    "aeon_name_zh_cn": "克里珀",
+    "resonance_id": "universe.resonance.612020",
+    "formation_ids": [
+      "universe.resonance.612021",
+      "universe.resonance.612022",
+      "universe.resonance.612023"
+    ],
+    "blessing_ids": [
+      "universe.blessing.612030",
+      "universe.blessing.612031",
+      "universe.blessing.612032",
+      "universe.blessing.612040",
+      "universe.blessing.612041",
+      "universe.blessing.612042",
+      "universe.blessing.612043",
+      "universe.blessing.612044",
+      "universe.blessing.612045",
+      "universe.blessing.612046",
+      "universe.blessing.612050",
+      "universe.blessing.612051",
+      "universe.blessing.612052",
+      "universe.blessing.612053",
+      "universe.blessing.612054",
+      "universe.blessing.612055",
+      "universe.blessing.612056",
+      "universe.blessing.612057"
+    ],
+    "unlock_policy_id": "universe.unlock.default",
+    "formation_selection_thresholds": [
+      6,
+      10,
+      14
+    ],
+    "resonance_energy_default": "0",
+    "resonance_energy_max": "100",
+    "source_battle_event_groups": [
+      "12004",
+      "12005"
+    ],
+    "source_effect_digests": [
+      "c93ea19d82cfbfbb71a4d1669c8d09b2bc6be75452f587b626e7c40bb2117cec",
+      "db5a9a0a01ae5a8732287452529198240fc9e96f16c1544c60a755e0bb99cbd2"
+    ]
+  },
+  {
+    "id": "universe.path.remembrance",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Remembrance",
+    "name_zh_cn": "记忆",
+    "summary_en": "Selectable Remembrance path with one active Resonance, three Formations and 18 main-world Blessings.",
+    "summary_zh_cn": "可选记忆命途，包含一个主动命途回响、三个回响构音与18个主世界祝福。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.1",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.1"
+    ],
+    "source_ids": [
+      "2",
+      "121"
+    ],
+    "note": "",
+    "buff_type": 121,
+    "aeon_name_en": "Fuli",
+    "aeon_name_zh_cn": "浮黎",
+    "resonance_id": "universe.resonance.612120",
+    "formation_ids": [
+      "universe.resonance.612121",
+      "universe.resonance.612122",
+      "universe.resonance.612123"
+    ],
+    "blessing_ids": [
+      "universe.blessing.612130",
+      "universe.blessing.612131",
+      "universe.blessing.612132",
+      "universe.blessing.612140",
+      "universe.blessing.612141",
+      "universe.blessing.612142",
+      "universe.blessing.612143",
+      "universe.blessing.612144",
+      "universe.blessing.612145",
+      "universe.blessing.612146",
+      "universe.blessing.612150",
+      "universe.blessing.612151",
+      "universe.blessing.612152",
+      "universe.blessing.612153",
+      "universe.blessing.612154",
+      "universe.blessing.612155",
+      "universe.blessing.612156",
+      "universe.blessing.612157"
+    ],
+    "unlock_policy_id": "universe.unlock.default",
+    "formation_selection_thresholds": [
+      6,
+      10,
+      14
+    ],
+    "resonance_energy_default": "0",
+    "resonance_energy_max": "100",
+    "source_battle_event_groups": [
+      "12104",
+      "12105"
+    ],
+    "source_effect_digests": [
+      "c4f6cf3f9dedf51fefb3249f82907a335cb4fb071ace589eb4b65fc85fd9a670",
+      "5c45f7c2f6a93e103dbd0e313038ae9a7af2b9a70f3913b6a6627735982b5d9e"
+    ]
+  },
+  {
+    "id": "universe.path.elation",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Elation",
+    "name_zh_cn": "欢愉",
+    "summary_en": "Selectable Elation path with one active Resonance, three Formations and 18 main-world Blessings.",
+    "summary_zh_cn": "可选欢愉命途，包含一个主动命途回响、三个回响构音与18个主世界祝福。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.6",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.6"
+    ],
+    "source_ids": [
+      "7",
+      "126"
+    ],
+    "note": "",
+    "buff_type": 126,
+    "aeon_name_en": "Aha",
+    "aeon_name_zh_cn": "阿哈",
+    "resonance_id": "universe.resonance.612620",
+    "formation_ids": [
+      "universe.resonance.612621",
+      "universe.resonance.612622",
+      "universe.resonance.612623"
+    ],
+    "blessing_ids": [
+      "universe.blessing.612630",
+      "universe.blessing.612631",
+      "universe.blessing.612632",
+      "universe.blessing.612640",
+      "universe.blessing.612641",
+      "universe.blessing.612642",
+      "universe.blessing.612643",
+      "universe.blessing.612644",
+      "universe.blessing.612645",
+      "universe.blessing.612646",
+      "universe.blessing.612650",
+      "universe.blessing.612651",
+      "universe.blessing.612652",
+      "universe.blessing.612653",
+      "universe.blessing.612654",
+      "universe.blessing.612655",
+      "universe.blessing.612656",
+      "universe.blessing.612657"
+    ],
+    "unlock_policy_id": "universe.unlock.default",
+    "formation_selection_thresholds": [
+      6,
+      10,
+      14
+    ],
+    "resonance_energy_default": "0",
+    "resonance_energy_max": "100",
+    "source_battle_event_groups": [
+      "12604",
+      "12605"
+    ],
+    "source_effect_digests": [
+      "710cda5ffc567ff705d70314bcd25d341c2ba7c742daac1462642ba300814884",
+      "c5a751a58b0c50de2b946e166c32d1a73d911afc93127902e8d9cd38ac65181a"
+    ]
+  },
+  {
+    "id": "universe.path.hunt",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "The Hunt",
+    "name_zh_cn": "巡猎",
+    "summary_en": "Selectable The Hunt path with one active Resonance, three Formations and 18 main-world Blessings.",
+    "summary_zh_cn": "可选巡猎命途，包含一个主动命途回响、三个回响构音与18个主世界祝福。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.4",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.4"
+    ],
+    "source_ids": [
+      "5",
+      "124"
+    ],
+    "note": "",
+    "buff_type": 124,
+    "aeon_name_en": "Lan",
+    "aeon_name_zh_cn": "岚",
+    "resonance_id": "universe.resonance.612420",
+    "formation_ids": [
+      "universe.resonance.612421",
+      "universe.resonance.612422",
+      "universe.resonance.612423"
+    ],
+    "blessing_ids": [
+      "universe.blessing.612430",
+      "universe.blessing.612431",
+      "universe.blessing.612432",
+      "universe.blessing.612440",
+      "universe.blessing.612441",
+      "universe.blessing.612442",
+      "universe.blessing.612443",
+      "universe.blessing.612444",
+      "universe.blessing.612445",
+      "universe.blessing.612446",
+      "universe.blessing.612450",
+      "universe.blessing.612451",
+      "universe.blessing.612452",
+      "universe.blessing.612453",
+      "universe.blessing.612454",
+      "universe.blessing.612455",
+      "universe.blessing.612456",
+      "universe.blessing.612457"
+    ],
+    "unlock_policy_id": "universe.unlock.source-22",
+    "formation_selection_thresholds": [
+      6,
+      10,
+      14
+    ],
+    "resonance_energy_default": "0",
+    "resonance_energy_max": "100",
+    "source_battle_event_groups": [
+      "12404",
+      "12405"
+    ],
+    "source_effect_digests": [
+      "4075f77b35da735ece53de168606713b6f1c317a963022ce543a8a401e5510c4",
+      "995175eabb9630025934fc9ba25fd2f4a0a8ce500811887e8196618777933631"
+    ]
+  },
+  {
+    "id": "universe.path.destruction",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Destruction",
+    "name_zh_cn": "毁灭",
+    "summary_en": "Selectable Destruction path with one active Resonance, three Formations and 18 main-world Blessings.",
+    "summary_zh_cn": "可选毁灭命途，包含一个主动命途回响、三个回响构音与18个主世界祝福。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.5",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.5"
+    ],
+    "source_ids": [
+      "6",
+      "125"
+    ],
+    "note": "",
+    "buff_type": 125,
+    "aeon_name_en": "Nanook",
+    "aeon_name_zh_cn": "纳努克",
+    "resonance_id": "universe.resonance.612520",
+    "formation_ids": [
+      "universe.resonance.612521",
+      "universe.resonance.612522",
+      "universe.resonance.612523"
+    ],
+    "blessing_ids": [
+      "universe.blessing.612530",
+      "universe.blessing.612531",
+      "universe.blessing.612532",
+      "universe.blessing.612540",
+      "universe.blessing.612541",
+      "universe.blessing.612542",
+      "universe.blessing.612543",
+      "universe.blessing.612544",
+      "universe.blessing.612545",
+      "universe.blessing.612546",
+      "universe.blessing.612550",
+      "universe.blessing.612551",
+      "universe.blessing.612552",
+      "universe.blessing.612553",
+      "universe.blessing.612554",
+      "universe.blessing.612555",
+      "universe.blessing.612556",
+      "universe.blessing.612557"
+    ],
+    "unlock_policy_id": "universe.unlock.source-23",
+    "formation_selection_thresholds": [
+      6,
+      10,
+      14
+    ],
+    "resonance_energy_default": "0",
+    "resonance_energy_max": "100",
+    "source_battle_event_groups": [
+      "12504",
+      "12505"
+    ],
+    "source_effect_digests": [
+      "bf051d57b6197be74fd341a7222dfaadc8c57abbbb4ac387d83e29d6141fab5e",
+      "8d3dadf24bc867dbb04ff07e8139389aee7edf2724a74bc245b2135bc6291bac"
+    ]
+  },
+  {
+    "id": "universe.path.nihility",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Nihility",
+    "name_zh_cn": "虚无",
+    "summary_en": "Selectable Nihility path with one active Resonance, three Formations and 18 main-world Blessings.",
+    "summary_zh_cn": "可选虚无命途，包含一个主动命途回响、三个回响构音与18个主世界祝福。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.2",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.2"
+    ],
+    "source_ids": [
+      "3",
+      "122"
+    ],
+    "note": "",
+    "buff_type": 122,
+    "aeon_name_en": "IX",
+    "aeon_name_zh_cn": "Ⅸ",
+    "resonance_id": "universe.resonance.612220",
+    "formation_ids": [
+      "universe.resonance.612221",
+      "universe.resonance.612222",
+      "universe.resonance.612223"
+    ],
+    "blessing_ids": [
+      "universe.blessing.612230",
+      "universe.blessing.612231",
+      "universe.blessing.612232",
+      "universe.blessing.612240",
+      "universe.blessing.612241",
+      "universe.blessing.612242",
+      "universe.blessing.612243",
+      "universe.blessing.612244",
+      "universe.blessing.612245",
+      "universe.blessing.612246",
+      "universe.blessing.612250",
+      "universe.blessing.612251",
+      "universe.blessing.612252",
+      "universe.blessing.612253",
+      "universe.blessing.612254",
+      "universe.blessing.612255",
+      "universe.blessing.612256",
+      "universe.blessing.612257"
+    ],
+    "unlock_policy_id": "universe.unlock.source-24",
+    "formation_selection_thresholds": [
+      6,
+      10,
+      14
+    ],
+    "resonance_energy_default": "0",
+    "resonance_energy_max": "100",
+    "source_battle_event_groups": [
+      "12204",
+      "12205"
+    ],
+    "source_effect_digests": [
+      "5c9c277cbb790c3d59812c30a5e6ee62d7376d126fbc2387a8602756119321a9",
+      "adf15c148c0505746184f4401cea877aedd2fc9920be22e41bd3f7347c595941"
+    ]
+  },
+  {
+    "id": "universe.path.abundance",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Abundance",
+    "name_zh_cn": "丰饶",
+    "summary_en": "Selectable Abundance path with one active Resonance, three Formations and 18 main-world Blessings.",
+    "summary_zh_cn": "可选丰饶命途，包含一个主动命途回响、三个回响构音与18个主世界祝福。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.3",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.3"
+    ],
+    "source_ids": [
+      "4",
+      "123"
+    ],
+    "note": "",
+    "buff_type": 123,
+    "aeon_name_en": "Yaoshi",
+    "aeon_name_zh_cn": "药师",
+    "resonance_id": "universe.resonance.612320",
+    "formation_ids": [
+      "universe.resonance.612321",
+      "universe.resonance.612322",
+      "universe.resonance.612323"
+    ],
+    "blessing_ids": [
+      "universe.blessing.612330",
+      "universe.blessing.612331",
+      "universe.blessing.612332",
+      "universe.blessing.612340",
+      "universe.blessing.612341",
+      "universe.blessing.612342",
+      "universe.blessing.612343",
+      "universe.blessing.612344",
+      "universe.blessing.612345",
+      "universe.blessing.612346",
+      "universe.blessing.612350",
+      "universe.blessing.612351",
+      "universe.blessing.612352",
+      "universe.blessing.612353",
+      "universe.blessing.612354",
+      "universe.blessing.612355",
+      "universe.blessing.612356",
+      "universe.blessing.612357"
+    ],
+    "unlock_policy_id": "universe.unlock.source-25",
+    "formation_selection_thresholds": [
+      6,
+      10,
+      14
+    ],
+    "resonance_energy_default": "0",
+    "resonance_energy_max": "100",
+    "source_battle_event_groups": [
+      "12304",
+      "12305"
+    ],
+    "source_effect_digests": [
+      "2852e6049c357050da3d4d017e6950b8dd9d0b0c50b4a8e903263cfc5824f012",
+      "a219ab6e26c9835f118a4a6ab375254dc0f09d8664e3384d8e7c2718caddb487"
+    ]
+  },
+  {
+    "id": "universe.path.propagation",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Propagation",
+    "name_zh_cn": "繁育",
+    "summary_en": "Selectable Propagation path with one active Resonance, three Formations and 18 main-world Blessings.",
+    "summary_zh_cn": "可选繁育命途，包含一个主动命途回响、三个回响构音与18个主世界祝福。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.7",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.7"
+    ],
+    "source_ids": [
+      "8",
+      "127"
+    ],
+    "note": "",
+    "buff_type": 127,
+    "aeon_name_en": "Tayzzyronth",
+    "aeon_name_zh_cn": "塔伊兹育罗斯",
+    "resonance_id": "universe.resonance.612720",
+    "formation_ids": [
+      "universe.resonance.612721",
+      "universe.resonance.612722",
+      "universe.resonance.612723"
+    ],
+    "blessing_ids": [
+      "universe.blessing.612730",
+      "universe.blessing.612731",
+      "universe.blessing.612732",
+      "universe.blessing.612740",
+      "universe.blessing.612741",
+      "universe.blessing.612742",
+      "universe.blessing.612743",
+      "universe.blessing.612744",
+      "universe.blessing.612745",
+      "universe.blessing.612746",
+      "universe.blessing.612750",
+      "universe.blessing.612751",
+      "universe.blessing.612752",
+      "universe.blessing.612753",
+      "universe.blessing.612754",
+      "universe.blessing.612755",
+      "universe.blessing.612756",
+      "universe.blessing.612757"
+    ],
+    "unlock_policy_id": "universe.unlock.source-27",
+    "formation_selection_thresholds": [
+      6,
+      10,
+      14
+    ],
+    "resonance_energy_default": "0",
+    "resonance_energy_max": "100",
+    "source_battle_event_groups": [
+      "12704",
+      "12705"
+    ],
+    "source_effect_digests": [
+      "50293cc9f21398ec4ec93887e04a916c24f9b67a07a91d2acaad40dfa71850d2",
+      "94beb23e9cce14ad835d6397e5d6da74ddd75728f1184f2bc1fd0268ad578718"
+    ]
+  },
+  {
+    "id": "universe.path.erudition",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Erudition",
+    "name_zh_cn": "智识",
+    "summary_en": "Selectable Erudition path with one active Resonance, three Formations and 18 main-world Blessings.",
+    "summary_zh_cn": "可选智识命途，包含一个主动命途回响、三个回响构音与18个主世界祝福。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueaeon-json.8",
+      "source.standard-su.exceloutput-rogueaeondisplay-json.8"
+    ],
+    "source_ids": [
+      "9",
+      "128"
+    ],
+    "note": "",
+    "buff_type": 128,
+    "aeon_name_en": "Nous",
+    "aeon_name_zh_cn": "博识尊",
+    "resonance_id": "universe.resonance.612820",
+    "formation_ids": [
+      "universe.resonance.612821",
+      "universe.resonance.612822",
+      "universe.resonance.612823"
+    ],
+    "blessing_ids": [
+      "universe.blessing.612830",
+      "universe.blessing.612831",
+      "universe.blessing.612832",
+      "universe.blessing.612840",
+      "universe.blessing.612841",
+      "universe.blessing.612842",
+      "universe.blessing.612843",
+      "universe.blessing.612844",
+      "universe.blessing.612845",
+      "universe.blessing.612846",
+      "universe.blessing.612850",
+      "universe.blessing.612851",
+      "universe.blessing.612852",
+      "universe.blessing.612853",
+      "universe.blessing.612854",
+      "universe.blessing.612855",
+      "universe.blessing.612856",
+      "universe.blessing.612857"
+    ],
+    "unlock_policy_id": "universe.unlock.source-28",
+    "formation_selection_thresholds": [
+      6,
+      10,
+      14
+    ],
+    "resonance_energy_default": "0",
+    "resonance_energy_max": "100",
+    "source_battle_event_groups": [
+      "12804",
+      "12805"
+    ],
+    "source_effect_digests": [
+      "e2775de851e122159df641b7870efe9e2ff1a6ea6ec51002eb7f39c985b73d7a",
+      "56ae929dadc90e117f317720c918b6879eb1b3d0529cf3ac0537014df3731430"
+    ]
+  }
+]

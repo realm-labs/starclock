@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Normalized reference pack |
 | Active batch | None |
-| Next unblocked batch | `G03-P1-B2` |
+| Next unblocked batch | `G03-P1-B3` |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -33,7 +33,7 @@
 | `G03-P0-B3` | `Complete` | This row's containing commit | Expanded mechanic evidence to 2,646 pinned files (`1d5c7b03…99e7d`) and froze a reproducible 2,838-row content manifest (`5ac3d484…7f7ae`). Membership resolves the current 33 World difficulties, nine Paths, 36 Resonance/Formation rows, 162 Blessings with 324 levels, 61 Curios with 182 states, 59 Occurrences with 55 base variants, nine domains, 42 Ability Tree nodes, 108 service/bonus rows and the reachable 154-group/347-member encounter set. DLC-prefixed variants, Resonance Interplays and activity map families are explicitly excluded. Both generators support drift-rejecting `--check`. |
 | `G03-P0-B4` | `Complete` | This row's containing commit | Frozen the machine-readable normalized schema for 25 pack files, stable common/provenance envelopes, explicit definition/level/state/variant separation, five evidence-quality labels, canonical decimal/JSON rules and semantic review-fixture shape. Added a deterministic contract verifier covering category counts, ID uniqueness, row evidence/locators and the 9/9/162/324/36 denominators; documentation now records validation order and the JSON-to-Excel/Sora-only promotion boundary. |
 | `G03-P1-B1` | `Complete` | This row's containing commit | Added deterministic normalized-pack bootstrap modules and generated 9 Worlds, 33 difficulty profiles, 9 domain kinds, 579 map nodes and 669 rooms. Records carry stable Starclock IDs, bilingual names/summaries, exact source IDs, row-level provenance and evidence digests. Difficulty rows retain recommended levels/elements, score curves and Goal 01 enemy-variant bindings; topology retains source-semantic edge order and exact room content/section maps. Regeneration and `--check` are byte-identical. |
-| `G03-P1-B2` | `Pending` | — | — |
+| `G03-P1-B2` | `Complete` | This row's containing commit | Normalized all nine selectable Paths and 36 Path Resonance/Resonance Formation definitions. Paths retain exact Aeon/display identity, source buff type/groups, unlock reference, three formation-selection thresholds, energy defaults and the exact 18-Blessing membership. Resonances retain kind, threshold, energy policy, released modifier/binding keys, ordered exact parameter vectors, description digests and mechanic tags without redistributing source prose. Bilingual and provenance checks plus deterministic regeneration pass. |
 | `G03-P1-B3` | `Pending` | — | — |
 | `G03-P1-B4` | `Pending` | — | — |
 | `G03-P1-B5` | `Pending` | — | — |
@@ -65,8 +65,8 @@ Populate only from generated manifests in `G03-P0-B3`.
 |---|---:|---:|---:|---|
 | Worlds | 9 | 9 | 9 | Latest permanent manager; Worlds 1-3 use legacy area-ID ordinal derivation. |
 | Difficulties/topology | 33 difficulties / 1,248 map-room rows | 33 / 1,248 | 33 / 1,248 | 579 map nodes and 669 non-Adventure rooms. |
-| Paths | 9 | 9 | 0 | Main-world selectable Paths. |
-| Resonances/Formations | 36 | 36 | 0 | Four per Path; Interplays are excluded. |
+| Paths | 9 | 9 | 9 | Main-world selectable Paths. |
+| Resonances/Formations | 36 | 36 | 36 | Four per Path; Interplays are excluded. |
 | Blessings/upgrades | 162 / 324 levels | 162 / 324 | 0 | Exactly 18 Blessings and two levels per Path. |
 | Curios/states | 61 / 182 states | 61 / 182 | 0 | CosmosRogue handbook type 100. |
 | Occurrences/choices | 59 / 55 base variants | 59 / 55 | 0 | Four index records lack a base-mode NPC variant and remain normalized as index-only. |

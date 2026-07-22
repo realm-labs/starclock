@@ -1,0 +1,2390 @@
+[
+  {
+    "id": "universe.resonance.612020",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path Resonance: Preservation",
+    "name_zh_cn": "命途回响：「存护」",
+    "summary_en": "Resonance for the preservation Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "preservation命途的命途回响，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.252",
+      "source.standard-su.exceloutput-roguebuff-json.10"
+    ],
+    "source_ids": [
+      "612020"
+    ],
+    "note": "",
+    "path_id": "universe.path.preservation",
+    "kind": "Resonance",
+    "threshold": 3,
+    "energy_max": "100",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612020"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "2.5"
+      },
+      {
+        "index": 2,
+        "value": "0.5"
+      },
+      {
+        "index": 3,
+        "value": "0"
+      },
+      {
+        "index": 4,
+        "value": "0.15"
+      },
+      {
+        "index": 5,
+        "value": "0.4"
+      },
+      {
+        "index": 6,
+        "value": "0.03"
+      },
+      {
+        "index": 7,
+        "value": "2"
+      },
+      {
+        "index": 8,
+        "value": "0.01"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "shield",
+      "damage"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612020",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612020",
+    "source_description_sha256_en": "b9521d808b84f55b45af3cc78fe50938ba44a59b7bb6d8fb591378b74cc639ad",
+    "source_description_sha256_zh_cn": "97fb8ba627a9b7fb143a87e09b1046bead0917acd6415cb98028e53d13323f50"
+  },
+  {
+    "id": "universe.resonance.612021",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Zero-Dimensional Reinforcement",
+    "name_zh_cn": "回响构音：零维强化",
+    "summary_en": "Formation for the preservation Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "preservation命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.253",
+      "source.standard-su.exceloutput-roguebuff-json.11"
+    ],
+    "source_ids": [
+      "612021"
+    ],
+    "note": "",
+    "path_id": "universe.path.preservation",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612021"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "2.5"
+      },
+      {
+        "index": 2,
+        "value": "0.5"
+      },
+      {
+        "index": 3,
+        "value": "0"
+      },
+      {
+        "index": 4,
+        "value": "0.15"
+      },
+      {
+        "index": 5,
+        "value": "0.4"
+      },
+      {
+        "index": 6,
+        "value": "0.03"
+      },
+      {
+        "index": 7,
+        "value": "2"
+      },
+      {
+        "index": 8,
+        "value": "0.01"
+      }
+    ],
+    "mechanic_tags": [
+      "shield",
+      "critical",
+      "damage"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612021",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612021",
+    "source_description_sha256_en": "28a2abe791e3e051d757fa93055d37343244b300dd21ca484832efe0790ba5a0",
+    "source_description_sha256_zh_cn": "c53248bd8f8da7c256f13d3f1a45e4de007718207d78ef450016e3e241782db8"
+  },
+  {
+    "id": "universe.resonance.612022",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Eutectic Reaction",
+    "name_zh_cn": "回响构音：共晶反应",
+    "summary_en": "Formation for the preservation Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "preservation命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.254",
+      "source.standard-su.exceloutput-roguebuff-json.12"
+    ],
+    "source_ids": [
+      "612022"
+    ],
+    "note": "",
+    "path_id": "universe.path.preservation",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612022"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "2.5"
+      },
+      {
+        "index": 2,
+        "value": "0.5"
+      },
+      {
+        "index": 3,
+        "value": "0"
+      },
+      {
+        "index": 4,
+        "value": "0.15"
+      },
+      {
+        "index": 5,
+        "value": "0.4"
+      },
+      {
+        "index": 6,
+        "value": "0.03"
+      },
+      {
+        "index": 7,
+        "value": "2"
+      },
+      {
+        "index": 8,
+        "value": "0.01"
+      }
+    ],
+    "mechanic_tags": [
+      "shield",
+      "damage"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612022",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612022",
+    "source_description_sha256_en": "dd672a6d645d1b9d94e5dcf0b88cf2c1e502e658abc27e4ada8bc9e7c1f1e75b",
+    "source_description_sha256_zh_cn": "873a62802db94dea2cf7f7131e41b8ba37365bb81f284e57cf1f81e40be99bf3"
+  },
+  {
+    "id": "universe.resonance.612023",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Isomorphous Reaction",
+    "name_zh_cn": "回响构音：均晶转变",
+    "summary_en": "Formation for the preservation Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "preservation命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.255",
+      "source.standard-su.exceloutput-roguebuff-json.13"
+    ],
+    "source_ids": [
+      "612023"
+    ],
+    "note": "",
+    "path_id": "universe.path.preservation",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612023"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "2.5"
+      },
+      {
+        "index": 2,
+        "value": "0.5"
+      },
+      {
+        "index": 3,
+        "value": "0"
+      },
+      {
+        "index": 4,
+        "value": "0.15"
+      },
+      {
+        "index": 5,
+        "value": "0.4"
+      },
+      {
+        "index": 6,
+        "value": "0.03"
+      },
+      {
+        "index": 7,
+        "value": "2"
+      },
+      {
+        "index": 8,
+        "value": "0.01"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "shield"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612023",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612023",
+    "source_description_sha256_en": "b93942db63a1fda2b0863ded6e5daeb3cf732aca459c25332a1b48e092b56022",
+    "source_description_sha256_zh_cn": "13b62b661c61841fbd6c3bfa10ba6802126830f3e68930f54a0955f2cab07771"
+  },
+  {
+    "id": "universe.resonance.612120",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path Resonance: Remembrance",
+    "name_zh_cn": "命途回响：「记忆」",
+    "summary_en": "Resonance for the remembrance Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "remembrance命途的命途回响，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.272",
+      "source.standard-su.exceloutput-roguebuff-json.18"
+    ],
+    "source_ids": [
+      "612120"
+    ],
+    "note": "",
+    "path_id": "universe.path.remembrance",
+    "kind": "Resonance",
+    "threshold": 3,
+    "energy_max": "100",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612120"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.6"
+      },
+      {
+        "index": 2,
+        "value": "1.2"
+      },
+      {
+        "index": 3,
+        "value": "1"
+      },
+      {
+        "index": 4,
+        "value": "1"
+      },
+      {
+        "index": 5,
+        "value": "0.4"
+      },
+      {
+        "index": 6,
+        "value": "0.05"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "damage",
+      "effect-application"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612120",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612120",
+    "source_description_sha256_en": "2ea1022493fa0941cdeb817d9fb32340e78eb4a699c3915ce195a1fa290e8623",
+    "source_description_sha256_zh_cn": "6543376fa8a38daa011f663fd4c85954516899c2ed3ff48fcd45dbd06bb54ca0"
+  },
+  {
+    "id": "universe.resonance.612121",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Total Recall",
+    "name_zh_cn": "回响构音：全面回忆",
+    "summary_en": "Formation for the remembrance Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "remembrance命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.273",
+      "source.standard-su.exceloutput-roguebuff-json.19"
+    ],
+    "source_ids": [
+      "612121"
+    ],
+    "note": "",
+    "path_id": "universe.path.remembrance",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612121"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.6"
+      },
+      {
+        "index": 2,
+        "value": "1.2"
+      },
+      {
+        "index": 3,
+        "value": "1"
+      },
+      {
+        "index": 4,
+        "value": "1"
+      },
+      {
+        "index": 5,
+        "value": "0.4"
+      },
+      {
+        "index": 6,
+        "value": "0.05"
+      }
+    ],
+    "mechanic_tags": [
+      "effect-application"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612121",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612121",
+    "source_description_sha256_en": "1d1be32f295551d23d2f9a3b92b7c907d52773e28ae35caa9ad42da050a3d03b",
+    "source_description_sha256_zh_cn": "79c942a31a8beb2a71a3a6ad0a00aca82e04a0be845163d47d9060eae25ebed2"
+  },
+  {
+    "id": "universe.resonance.612122",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Rich Experience",
+    "name_zh_cn": "回响构音：体验的富翁",
+    "summary_en": "Formation for the remembrance Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "remembrance命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.274",
+      "source.standard-su.exceloutput-roguebuff-json.20"
+    ],
+    "source_ids": [
+      "612122"
+    ],
+    "note": "",
+    "path_id": "universe.path.remembrance",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612122"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.6"
+      },
+      {
+        "index": 2,
+        "value": "1.2"
+      },
+      {
+        "index": 3,
+        "value": "1"
+      },
+      {
+        "index": 4,
+        "value": "1"
+      },
+      {
+        "index": 5,
+        "value": "0.4"
+      },
+      {
+        "index": 6,
+        "value": "0.05"
+      }
+    ],
+    "mechanic_tags": [
+      "effect-application"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612122",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612122",
+    "source_description_sha256_en": "d5b1ed0c16304ce5ee066e904a0b615a8b7b682c3f9d287abbafed6dbcaeb28e",
+    "source_description_sha256_zh_cn": "ddc9cd0c179e1e6ffb1a003a98812478f6b8709b0d8dec17bc48c619f936d165"
+  },
+  {
+    "id": "universe.resonance.612123",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: First Love Once More",
+    "name_zh_cn": "回响构音：第二次初恋",
+    "summary_en": "Formation for the remembrance Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "remembrance命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.275",
+      "source.standard-su.exceloutput-roguebuff-json.21"
+    ],
+    "source_ids": [
+      "612123"
+    ],
+    "note": "",
+    "path_id": "universe.path.remembrance",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612123"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.6"
+      },
+      {
+        "index": 2,
+        "value": "1.2"
+      },
+      {
+        "index": 3,
+        "value": "1"
+      },
+      {
+        "index": 4,
+        "value": "1"
+      },
+      {
+        "index": 5,
+        "value": "0.4"
+      },
+      {
+        "index": 6,
+        "value": "0.05"
+      }
+    ],
+    "mechanic_tags": [
+      "energy"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612123",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612123",
+    "source_description_sha256_en": "1c18b9b05798b98ed748a9b43f865e631c9ac6036f00982a2b9bab0139f0c2d4",
+    "source_description_sha256_zh_cn": "d5e2eab66bbda966748b3c1c68697cfa311305297627e5d55908e4739730465c"
+  },
+  {
+    "id": "universe.resonance.612220",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path Resonance: Nihility",
+    "name_zh_cn": "命途回响：「虚无」",
+    "summary_en": "Resonance for the nihility Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "nihility命途的命途回响，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.256",
+      "source.standard-su.exceloutput-roguebuff-json.26"
+    ],
+    "source_ids": [
+      "612220"
+    ],
+    "note": "",
+    "path_id": "universe.path.nihility",
+    "kind": "Resonance",
+    "threshold": 3,
+    "energy_max": "100",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612220"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.8"
+      },
+      {
+        "index": 2,
+        "value": "0.1"
+      },
+      {
+        "index": 3,
+        "value": "0.05"
+      },
+      {
+        "index": 4,
+        "value": "2"
+      },
+      {
+        "index": 5,
+        "value": "2"
+      },
+      {
+        "index": 6,
+        "value": "0.3"
+      },
+      {
+        "index": 7,
+        "value": "0.1"
+      },
+      {
+        "index": 8,
+        "value": "0.4"
+      },
+      {
+        "index": 9,
+        "value": "0.02"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "effect-application"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612220",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612220",
+    "source_description_sha256_en": "484258de81e049366d9e277884840712e59d1138b41f19b1f0f0b7b80014c2b9",
+    "source_description_sha256_zh_cn": "af8564692fea772a4888727d16f6b33193c6c3fe2294be4682f11402575ba512"
+  },
+  {
+    "id": "universe.resonance.612221",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: The Doubtful Fourfold Root",
+    "name_zh_cn": "回响构音：怀疑的四重根",
+    "summary_en": "Formation for the nihility Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "nihility命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.257",
+      "source.standard-su.exceloutput-roguebuff-json.27"
+    ],
+    "source_ids": [
+      "612221"
+    ],
+    "note": "",
+    "path_id": "universe.path.nihility",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612221"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.8"
+      },
+      {
+        "index": 2,
+        "value": "0.1"
+      },
+      {
+        "index": 3,
+        "value": "0.05"
+      },
+      {
+        "index": 4,
+        "value": "2"
+      },
+      {
+        "index": 5,
+        "value": "2"
+      },
+      {
+        "index": 6,
+        "value": "0.3"
+      },
+      {
+        "index": 7,
+        "value": "0.1"
+      },
+      {
+        "index": 8,
+        "value": "0.4"
+      },
+      {
+        "index": 9,
+        "value": "0.02"
+      }
+    ],
+    "mechanic_tags": [
+      "effect-application"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612221",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612221",
+    "source_description_sha256_en": "61072767915b11319b4b6d49c16174d7338bb53992a8aac211ad983ee0a4e1f7",
+    "source_description_sha256_zh_cn": "1ae1ad2950374dd226318b3fe2aa44c8ad822e0c1d83d94fa7e3af464bc8f5e2"
+  },
+  {
+    "id": "universe.resonance.612222",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Suffering and Sunshine",
+    "name_zh_cn": "回响构音：苦难与阳光",
+    "summary_en": "Formation for the nihility Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "nihility命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.258",
+      "source.standard-su.exceloutput-roguebuff-json.28"
+    ],
+    "source_ids": [
+      "612222"
+    ],
+    "note": "",
+    "path_id": "universe.path.nihility",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612222"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.8"
+      },
+      {
+        "index": 2,
+        "value": "0.1"
+      },
+      {
+        "index": 3,
+        "value": "0.05"
+      },
+      {
+        "index": 4,
+        "value": "2"
+      },
+      {
+        "index": 5,
+        "value": "2"
+      },
+      {
+        "index": 6,
+        "value": "0.3"
+      },
+      {
+        "index": 7,
+        "value": "0.1"
+      },
+      {
+        "index": 8,
+        "value": "0.4"
+      },
+      {
+        "index": 9,
+        "value": "0.02"
+      }
+    ],
+    "mechanic_tags": [
+      "effect-application"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612222",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612222",
+    "source_description_sha256_en": "8b24f35d151119ba9115825bb0bb444fb71fa77a2c860a301377d7c9178fe863",
+    "source_description_sha256_zh_cn": "1b3d97b9d813a41d1e5a73dae9dc35e6ae6153f93ef9c02d93dc1055095a2175"
+  },
+  {
+    "id": "universe.resonance.612223",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Outsider",
+    "name_zh_cn": "回响构音：局外人",
+    "summary_en": "Formation for the nihility Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "nihility命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.259",
+      "source.standard-su.exceloutput-roguebuff-json.29"
+    ],
+    "source_ids": [
+      "612223"
+    ],
+    "note": "",
+    "path_id": "universe.path.nihility",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612223"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.8"
+      },
+      {
+        "index": 2,
+        "value": "0.1"
+      },
+      {
+        "index": 3,
+        "value": "0.05"
+      },
+      {
+        "index": 4,
+        "value": "2"
+      },
+      {
+        "index": 5,
+        "value": "2"
+      },
+      {
+        "index": 6,
+        "value": "0.3"
+      },
+      {
+        "index": 7,
+        "value": "0.1"
+      },
+      {
+        "index": 8,
+        "value": "0.4"
+      },
+      {
+        "index": 9,
+        "value": "0.02"
+      }
+    ],
+    "mechanic_tags": [
+      "energy"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612223",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612223",
+    "source_description_sha256_en": "a506c3c9719cebf6a2857c94f4b624d799f8812b99abad2754e104768fdcf815",
+    "source_description_sha256_zh_cn": "c85a898a61429f2e6f9ae0cafca71fe3db149f7392b72ef6b669d973e5e3ed66"
+  },
+  {
+    "id": "universe.resonance.612320",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path Resonance: Abundance",
+    "name_zh_cn": "命途回响：「丰饶」",
+    "summary_en": "Resonance for the abundance Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "abundance命途的命途回响，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.260",
+      "source.standard-su.exceloutput-roguebuff-json.34"
+    ],
+    "source_ids": [
+      "612320"
+    ],
+    "note": "",
+    "path_id": "universe.path.abundance",
+    "kind": "Resonance",
+    "threshold": 3,
+    "energy_max": "100",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612320"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.5"
+      },
+      {
+        "index": 2,
+        "value": "0.15"
+      },
+      {
+        "index": 3,
+        "value": "2"
+      },
+      {
+        "index": 4,
+        "value": "1"
+      },
+      {
+        "index": 5,
+        "value": "1"
+      },
+      {
+        "index": 6,
+        "value": "0.1"
+      },
+      {
+        "index": 7,
+        "value": "5"
+      },
+      {
+        "index": 8,
+        "value": "0.3"
+      },
+      {
+        "index": 9,
+        "value": "1"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "healing"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612320",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612320",
+    "source_description_sha256_en": "8e64bf1f19e4aa2ee8ae151e2e6b0f1f9bf32c354325e25cdc74252e4854d739",
+    "source_description_sha256_zh_cn": "76f3c834fe9abff893a541a0976940cf148789506d22ad2bc2aab8f09b07e011"
+  },
+  {
+    "id": "universe.resonance.612321",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Terminal Nirvana",
+    "name_zh_cn": "回响构音：无余涅槃",
+    "summary_en": "Formation for the abundance Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "abundance命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.261",
+      "source.standard-su.exceloutput-roguebuff-json.35"
+    ],
+    "source_ids": [
+      "612321"
+    ],
+    "note": "",
+    "path_id": "universe.path.abundance",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612321"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.5"
+      },
+      {
+        "index": 2,
+        "value": "0.15"
+      },
+      {
+        "index": 3,
+        "value": "2"
+      },
+      {
+        "index": 4,
+        "value": "1"
+      },
+      {
+        "index": 5,
+        "value": "1"
+      },
+      {
+        "index": 6,
+        "value": "0.1"
+      },
+      {
+        "index": 7,
+        "value": "5"
+      },
+      {
+        "index": 8,
+        "value": "0.3"
+      },
+      {
+        "index": 9,
+        "value": "1"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "damage",
+      "defeat",
+      "once-scope"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612321",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612321",
+    "source_description_sha256_en": "9a91fa3f55a78c8e91853ac523d80a9932ceca0ec41e1b2e252be580e9249022",
+    "source_description_sha256_zh_cn": "de9e32af510af772e628c3a1e6d013228106c5a7e4e050926edfc3baea97b1f5"
+  },
+  {
+    "id": "universe.resonance.612322",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Anicca",
+    "name_zh_cn": "回响构音：诸行无常",
+    "summary_en": "Formation for the abundance Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "abundance命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.262",
+      "source.standard-su.exceloutput-roguebuff-json.36"
+    ],
+    "source_ids": [
+      "612322"
+    ],
+    "note": "",
+    "path_id": "universe.path.abundance",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612322"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.5"
+      },
+      {
+        "index": 2,
+        "value": "0.15"
+      },
+      {
+        "index": 3,
+        "value": "2"
+      },
+      {
+        "index": 4,
+        "value": "1"
+      },
+      {
+        "index": 5,
+        "value": "1"
+      },
+      {
+        "index": 6,
+        "value": "0.1"
+      },
+      {
+        "index": 7,
+        "value": "5"
+      },
+      {
+        "index": 8,
+        "value": "0.3"
+      },
+      {
+        "index": 9,
+        "value": "1"
+      }
+    ],
+    "mechanic_tags": [],
+    "source_modifier_name": "ADV_StageAbility_612322",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612322",
+    "source_description_sha256_en": "a399c154e10f7c0614e3dc11acc9b7d06663dc3c41df6eddf2c77c4ab1b029e8",
+    "source_description_sha256_zh_cn": "45ff9476b265a122205f66fbae49e10712baba7350fe729ec845f1625ffa041a"
+  },
+  {
+    "id": "universe.resonance.612323",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Anatta",
+    "name_zh_cn": "回响构音：诸法无我",
+    "summary_en": "Formation for the abundance Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "abundance命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.263",
+      "source.standard-su.exceloutput-roguebuff-json.37"
+    ],
+    "source_ids": [
+      "612323"
+    ],
+    "note": "",
+    "path_id": "universe.path.abundance",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612323"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.5"
+      },
+      {
+        "index": 2,
+        "value": "0.15"
+      },
+      {
+        "index": 3,
+        "value": "2"
+      },
+      {
+        "index": 4,
+        "value": "1"
+      },
+      {
+        "index": 5,
+        "value": "1"
+      },
+      {
+        "index": 6,
+        "value": "0.1"
+      },
+      {
+        "index": 7,
+        "value": "5"
+      },
+      {
+        "index": 8,
+        "value": "0.3"
+      },
+      {
+        "index": 9,
+        "value": "1"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "healing",
+      "action-advance",
+      "once-scope"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612323",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612323",
+    "source_description_sha256_en": "c96e0c20d9b50d5f29ecf2f3379eb7cd3bb23edf84330ffc1a3330b1f4b99dcf",
+    "source_description_sha256_zh_cn": "abaac42969ee6d96c6acd7e5d24842c2544f600eb2dc1a80ff6c4d12fa988e35"
+  },
+  {
+    "id": "universe.resonance.612420",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path Resonance: The Hunt",
+    "name_zh_cn": "命途回响：「巡猎」",
+    "summary_en": "Resonance for the hunt Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "hunt命途的命途回响，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.264",
+      "source.standard-su.exceloutput-roguebuff-json.42"
+    ],
+    "source_ids": [
+      "612420"
+    ],
+    "note": "",
+    "path_id": "universe.path.hunt",
+    "kind": "Resonance",
+    "threshold": 3,
+    "energy_max": "100",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612420"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.5"
+      },
+      {
+        "index": 2,
+        "value": "5.5"
+      },
+      {
+        "index": 3,
+        "value": "0.5"
+      },
+      {
+        "index": 4,
+        "value": "0.8"
+      },
+      {
+        "index": 5,
+        "value": "0.5"
+      },
+      {
+        "index": 6,
+        "value": "0.5"
+      },
+      {
+        "index": 7,
+        "value": "0.03"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "damage"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612420",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612420",
+    "source_description_sha256_en": "4cd45f4e85c8b3add4b0857b629b2eebef73661a44534710c6b8f7b7e59b419f",
+    "source_description_sha256_zh_cn": "bedc093b171f00c78ac28859682f2869bd7e65fa1849ee069f21031b24429d39"
+  },
+  {
+    "id": "universe.resonance.612421",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Star Hunter",
+    "name_zh_cn": "回响构音：狩星巡日",
+    "summary_en": "Formation for the hunt Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "hunt命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.265",
+      "source.standard-su.exceloutput-roguebuff-json.43"
+    ],
+    "source_ids": [
+      "612421"
+    ],
+    "note": "",
+    "path_id": "universe.path.hunt",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612421"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.5"
+      },
+      {
+        "index": 2,
+        "value": "5.5"
+      },
+      {
+        "index": 3,
+        "value": "0.5"
+      },
+      {
+        "index": 4,
+        "value": "0.8"
+      },
+      {
+        "index": 5,
+        "value": "0.5"
+      },
+      {
+        "index": 6,
+        "value": "0.5"
+      },
+      {
+        "index": 7,
+        "value": "0.03"
+      }
+    ],
+    "mechanic_tags": [],
+    "source_modifier_name": "ADV_StageAbility_612421",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612421",
+    "source_description_sha256_en": "ae408f3a1826c21f2d5faabf910a0d41ff5febd641056ccbe6bb0a7fd16e9a08",
+    "source_description_sha256_zh_cn": "8e0a0ec946beede90142e5b51a61241b948d54c318012b546bc2a19fcd6e3b9f"
+  },
+  {
+    "id": "universe.resonance.612422",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Bow and Arrow",
+    "name_zh_cn": "回响构音：柘弓危矢",
+    "summary_en": "Formation for the hunt Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "hunt命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.266",
+      "source.standard-su.exceloutput-roguebuff-json.44"
+    ],
+    "source_ids": [
+      "612422"
+    ],
+    "note": "",
+    "path_id": "universe.path.hunt",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612422"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.5"
+      },
+      {
+        "index": 2,
+        "value": "5.5"
+      },
+      {
+        "index": 3,
+        "value": "0.5"
+      },
+      {
+        "index": 4,
+        "value": "0.8"
+      },
+      {
+        "index": 5,
+        "value": "0.5"
+      },
+      {
+        "index": 6,
+        "value": "0.5"
+      },
+      {
+        "index": 7,
+        "value": "0.03"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "critical",
+      "damage",
+      "defeat"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612422",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612422",
+    "source_description_sha256_en": "c4e968b29998bb9d9ed8822a68b236e9b9ea30e0057726814b73a9acca2f6f0f",
+    "source_description_sha256_zh_cn": "1ba2a0c58753cccda0830425ecf65931708977298aff1b2ce96fa6a31f50ca04"
+  },
+  {
+    "id": "universe.resonance.612423",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Perfect Aim",
+    "name_zh_cn": "回响构音：射不主皮",
+    "summary_en": "Formation for the hunt Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "hunt命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.267",
+      "source.standard-su.exceloutput-roguebuff-json.45"
+    ],
+    "source_ids": [
+      "612423"
+    ],
+    "note": "",
+    "path_id": "universe.path.hunt",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612423"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.5"
+      },
+      {
+        "index": 2,
+        "value": "5.5"
+      },
+      {
+        "index": 3,
+        "value": "0.5"
+      },
+      {
+        "index": 4,
+        "value": "0.8"
+      },
+      {
+        "index": 5,
+        "value": "0.5"
+      },
+      {
+        "index": 6,
+        "value": "0.5"
+      },
+      {
+        "index": 7,
+        "value": "0.03"
+      }
+    ],
+    "mechanic_tags": [
+      "energy"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612423",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612423",
+    "source_description_sha256_en": "6db51a1cabe95ca0c148ba1f88b5825f652024959d219f36907ddffa97d11550",
+    "source_description_sha256_zh_cn": "ca1dc7d61670629d50a02f3508ef4e6509d63369a9c2c9d9bf00f07f8cbe66bd"
+  },
+  {
+    "id": "universe.resonance.612520",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path Resonance: Destruction",
+    "name_zh_cn": "命途回响：「毁灭」",
+    "summary_en": "Resonance for the destruction Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "destruction命途的命途回响，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.268",
+      "source.standard-su.exceloutput-roguebuff-json.50"
+    ],
+    "source_ids": [
+      "612520"
+    ],
+    "note": "",
+    "path_id": "universe.path.destruction",
+    "kind": "Resonance",
+    "threshold": 3,
+    "energy_max": "100",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612520"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "2.5"
+      },
+      {
+        "index": 2,
+        "value": "0.8"
+      },
+      {
+        "index": 3,
+        "value": "0.4"
+      },
+      {
+        "index": 4,
+        "value": "0.2"
+      },
+      {
+        "index": 5,
+        "value": "2"
+      },
+      {
+        "index": 6,
+        "value": "2"
+      },
+      {
+        "index": 7,
+        "value": "0.2"
+      },
+      {
+        "index": 8,
+        "value": "1.25"
+      },
+      {
+        "index": 9,
+        "value": "0.35"
+      },
+      {
+        "index": 10,
+        "value": "2"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "damage"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612520",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612520",
+    "source_description_sha256_en": "de6eb2556304f637a68268d0c52aad7a9ec60f872a924735e31fd00af143e46f",
+    "source_description_sha256_zh_cn": "999dabd39b02a6c49b802dea072fb86d6f1bcf5b9ac92b9dc6d5003214587b84"
+  },
+  {
+    "id": "universe.resonance.612521",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Cataclysmic Variable",
+    "name_zh_cn": "回响构音：激变变星",
+    "summary_en": "Formation for the destruction Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "destruction命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.269",
+      "source.standard-su.exceloutput-roguebuff-json.51"
+    ],
+    "source_ids": [
+      "612521"
+    ],
+    "note": "",
+    "path_id": "universe.path.destruction",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612521"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "2.5"
+      },
+      {
+        "index": 2,
+        "value": "0.8"
+      },
+      {
+        "index": 3,
+        "value": "0.4"
+      },
+      {
+        "index": 4,
+        "value": "0.2"
+      },
+      {
+        "index": 5,
+        "value": "2"
+      },
+      {
+        "index": 6,
+        "value": "2"
+      },
+      {
+        "index": 7,
+        "value": "0.2"
+      },
+      {
+        "index": 8,
+        "value": "1.25"
+      },
+      {
+        "index": 9,
+        "value": "0.35"
+      },
+      {
+        "index": 10,
+        "value": "2"
+      }
+    ],
+    "mechanic_tags": [
+      "shield",
+      "damage"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612521",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612521",
+    "source_description_sha256_en": "7647e8df234a5b2d790ab063e48059857b6781cf6d3b0dbabc05f6646155a327",
+    "source_description_sha256_zh_cn": "9d4dc12618850790b20ed5b0141f6dbdfb0dc5df127786099e3f1bfde2c6b69d"
+  },
+  {
+    "id": "universe.resonance.612522",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Extreme Helium Flash",
+    "name_zh_cn": "回响构音：极端氦闪",
+    "summary_en": "Formation for the destruction Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "destruction命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.270",
+      "source.standard-su.exceloutput-roguebuff-json.52"
+    ],
+    "source_ids": [
+      "612522"
+    ],
+    "note": "",
+    "path_id": "universe.path.destruction",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612522"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "2.5"
+      },
+      {
+        "index": 2,
+        "value": "0.8"
+      },
+      {
+        "index": 3,
+        "value": "0.4"
+      },
+      {
+        "index": 4,
+        "value": "0.2"
+      },
+      {
+        "index": 5,
+        "value": "2"
+      },
+      {
+        "index": 6,
+        "value": "2"
+      },
+      {
+        "index": 7,
+        "value": "0.2"
+      },
+      {
+        "index": 8,
+        "value": "1.25"
+      },
+      {
+        "index": 9,
+        "value": "0.35"
+      },
+      {
+        "index": 10,
+        "value": "2"
+      }
+    ],
+    "mechanic_tags": [
+      "effect-application"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612522",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612522",
+    "source_description_sha256_en": "421bc263ffd01dfa1d4cf8e1887e72d380d25e1b8a5260889348e5507cb5f652",
+    "source_description_sha256_zh_cn": "a9ebd7a75781dc2079ab95bba67575422b2502afa566598fc660bff65ad16a1f"
+  },
+  {
+    "id": "universe.resonance.612523",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Event Horizon",
+    "name_zh_cn": "回响构音：事件视界",
+    "summary_en": "Formation for the destruction Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "destruction命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.271",
+      "source.standard-su.exceloutput-roguebuff-json.53"
+    ],
+    "source_ids": [
+      "612523"
+    ],
+    "note": "",
+    "path_id": "universe.path.destruction",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612523"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "2.5"
+      },
+      {
+        "index": 2,
+        "value": "0.8"
+      },
+      {
+        "index": 3,
+        "value": "0.4"
+      },
+      {
+        "index": 4,
+        "value": "0.2"
+      },
+      {
+        "index": 5,
+        "value": "2"
+      },
+      {
+        "index": 6,
+        "value": "2"
+      },
+      {
+        "index": 7,
+        "value": "0.2"
+      },
+      {
+        "index": 8,
+        "value": "1.25"
+      },
+      {
+        "index": 9,
+        "value": "0.35"
+      },
+      {
+        "index": 10,
+        "value": "2"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "once-scope"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612523",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612523",
+    "source_description_sha256_en": "63445a9892828d68f5a5862648084925a9d7e9aaabb91dba151905a7e53b2bbe",
+    "source_description_sha256_zh_cn": "926cf975b9b3668080bcf77d3567a76418701768665aae34f6977c912b7caad9"
+  },
+  {
+    "id": "universe.resonance.612620",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path Resonance: Elation",
+    "name_zh_cn": "命途回响：「欢愉」",
+    "summary_en": "Resonance for the elation Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "elation命途的命途回响，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.276",
+      "source.standard-su.exceloutput-roguebuff-json.58"
+    ],
+    "source_ids": [
+      "612620"
+    ],
+    "note": "",
+    "path_id": "universe.path.elation",
+    "kind": "Resonance",
+    "threshold": 3,
+    "energy_max": "100",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612620"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.25"
+      },
+      {
+        "index": 2,
+        "value": "3"
+      },
+      {
+        "index": 3,
+        "value": "5"
+      },
+      {
+        "index": 4,
+        "value": "0.08"
+      },
+      {
+        "index": 5,
+        "value": "0.2"
+      },
+      {
+        "index": 6,
+        "value": "0.4"
+      },
+      {
+        "index": 7,
+        "value": "0.05"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "damage",
+      "follow-up"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612620",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612620",
+    "source_description_sha256_en": "6aaa09fa65784d3ab78897075ed0cdc06024f010427a8e0eda4fd615ebdd742f",
+    "source_description_sha256_zh_cn": "8c3d2f1761cd4454bffd351ee0ba3c32d310a9c94c3b1e1d86ec1898595555c7"
+  },
+  {
+    "id": "universe.resonance.612621",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Doomsday Carnival",
+    "name_zh_cn": "回响构音：末日狂欢",
+    "summary_en": "Formation for the elation Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "elation命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.277",
+      "source.standard-su.exceloutput-roguebuff-json.59"
+    ],
+    "source_ids": [
+      "612621"
+    ],
+    "note": "",
+    "path_id": "universe.path.elation",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612621"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.25"
+      },
+      {
+        "index": 2,
+        "value": "3"
+      },
+      {
+        "index": 3,
+        "value": "5"
+      },
+      {
+        "index": 4,
+        "value": "0.08"
+      },
+      {
+        "index": 5,
+        "value": "0.2"
+      },
+      {
+        "index": 6,
+        "value": "0.4"
+      },
+      {
+        "index": 7,
+        "value": "0.05"
+      }
+    ],
+    "mechanic_tags": [
+      "damage",
+      "effect-application"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612621",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612621",
+    "source_description_sha256_en": "d70c4b75337401dd3382ee528a622621f6b4cdd42c8a477d648d4863627f35c2",
+    "source_description_sha256_zh_cn": "a65b277f86ec2508bed82fedc148cf9ff6be0c00c4313a53e20a3ba03497e85b"
+  },
+  {
+    "id": "universe.resonance.612622",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Dance of Growth",
+    "name_zh_cn": "回响构音：树苗长高舞",
+    "summary_en": "Formation for the elation Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "elation命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.278",
+      "source.standard-su.exceloutput-roguebuff-json.60"
+    ],
+    "source_ids": [
+      "612622"
+    ],
+    "note": "",
+    "path_id": "universe.path.elation",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612622"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.25"
+      },
+      {
+        "index": 2,
+        "value": "3"
+      },
+      {
+        "index": 3,
+        "value": "5"
+      },
+      {
+        "index": 4,
+        "value": "0.08"
+      },
+      {
+        "index": 5,
+        "value": "0.2"
+      },
+      {
+        "index": 6,
+        "value": "0.4"
+      },
+      {
+        "index": 7,
+        "value": "0.05"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "damage"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612622",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612622",
+    "source_description_sha256_en": "8cd2e06df26bd70f622bb95bf089f3ac54f312240ce30c708370ef51db1a132e",
+    "source_description_sha256_zh_cn": "1a4dd511055b4aa7c0320e6561c44371a80802f7a72d5c99b7993c1cca273cb2"
+  },
+  {
+    "id": "universe.resonance.612623",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Instant Win",
+    "name_zh_cn": "回响构音：开盖有奖",
+    "summary_en": "Formation for the elation Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "elation命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.279",
+      "source.standard-su.exceloutput-roguebuff-json.61"
+    ],
+    "source_ids": [
+      "612623"
+    ],
+    "note": "",
+    "path_id": "universe.path.elation",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612623"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.25"
+      },
+      {
+        "index": 2,
+        "value": "3"
+      },
+      {
+        "index": 3,
+        "value": "5"
+      },
+      {
+        "index": 4,
+        "value": "0.08"
+      },
+      {
+        "index": 5,
+        "value": "0.2"
+      },
+      {
+        "index": 6,
+        "value": "0.4"
+      },
+      {
+        "index": 7,
+        "value": "0.05"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "follow-up"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612623",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612623",
+    "source_description_sha256_en": "63e4280e3270e21b51c544cddd22b15e6770011071b46b2002728e4b3bfef6a6",
+    "source_description_sha256_zh_cn": "0ce0a2e2e0a93673b35a72a6853b7d042920a7704c35e499e763031417d27ef7"
+  },
+  {
+    "id": "universe.resonance.612720",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path Resonance: Propagation",
+    "name_zh_cn": "命途回响：「繁育」",
+    "summary_en": "Resonance for the propagation Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "propagation命途的命途回响，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.280",
+      "source.standard-su.exceloutput-roguebuff-json.66"
+    ],
+    "source_ids": [
+      "612720"
+    ],
+    "note": "",
+    "path_id": "universe.path.propagation",
+    "kind": "Resonance",
+    "threshold": 3,
+    "energy_max": "100",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612720"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "2"
+      },
+      {
+        "index": 2,
+        "value": "0.1"
+      },
+      {
+        "index": 3,
+        "value": "2"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "action-advance",
+      "skill-points"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612720",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612720",
+    "source_description_sha256_en": "586774368046bcaa172ff22f5b50b6d22e3d15782b69ce49d2f975ef78835932",
+    "source_description_sha256_zh_cn": "a66609753a394e5521b727deb45a73c769a27c4740eaadd10cef64774835fef3"
+  },
+  {
+    "id": "universe.resonance.612721",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Proboscis",
+    "name_zh_cn": "回响构音：刺吸口器",
+    "summary_en": "Formation for the propagation Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "propagation命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.281",
+      "source.standard-su.exceloutput-roguebuff-json.67"
+    ],
+    "source_ids": [
+      "612721"
+    ],
+    "note": "",
+    "path_id": "universe.path.propagation",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612721"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.2"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "defeat"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612721",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612721",
+    "source_description_sha256_en": "952d9e9650836602be20e9aac461d700c3da7601b0367d560349758ecd39bc6c",
+    "source_description_sha256_zh_cn": "f30e717093767c103d6a64e373ed263227df44eb16a8207421a05b666e416d2d"
+  },
+  {
+    "id": "universe.resonance.612722",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Phenol Compounds",
+    "name_zh_cn": "回响构音：酚类物质",
+    "summary_en": "Formation for the propagation Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "propagation命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.282",
+      "source.standard-su.exceloutput-roguebuff-json.68"
+    ],
+    "source_ids": [
+      "612722"
+    ],
+    "note": "",
+    "path_id": "universe.path.propagation",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612722"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.01"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "skill-points"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612722",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612722",
+    "source_description_sha256_en": "abbf2a883c2fdc3f65ba69c33af209d8a1565f342f06058b8a061c6fd2a6b3af",
+    "source_description_sha256_zh_cn": "ae22ea2c548a75a6ed410582d8fc0c0112a8bc27e2b1ef9f47f5054a40ef06f8"
+  },
+  {
+    "id": "universe.resonance.612723",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Crystal Pincers",
+    "name_zh_cn": "回响构音：结晶螯刺",
+    "summary_en": "Formation for the propagation Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "propagation命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.283",
+      "source.standard-su.exceloutput-roguebuff-json.69"
+    ],
+    "source_ids": [
+      "612723"
+    ],
+    "note": "",
+    "path_id": "universe.path.propagation",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612723"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.4"
+      },
+      {
+        "index": 2,
+        "value": "0.8"
+      },
+      {
+        "index": 3,
+        "value": "3"
+      }
+    ],
+    "mechanic_tags": [
+      "damage",
+      "once-scope"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612723",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612723",
+    "source_description_sha256_en": "ee0d57900cf85c84281e896d56cb5fbf2899167c6294f8a2d00dfb5da080895e",
+    "source_description_sha256_zh_cn": "8f469fde2aca7dd29686fb1db812e1e16ff378af2ac836337a1beb9bec07d751"
+  },
+  {
+    "id": "universe.resonance.612820",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path Resonance: \"Erudition\"",
+    "name_zh_cn": "命途回响：「智识」",
+    "summary_en": "Resonance for the erudition Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "erudition命途的命途回响，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.340",
+      "source.standard-su.exceloutput-roguebuff-json.74"
+    ],
+    "source_ids": [
+      "612820"
+    ],
+    "note": "",
+    "path_id": "universe.path.erudition",
+    "kind": "Resonance",
+    "threshold": 3,
+    "energy_max": "100",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612820"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.3"
+      },
+      {
+        "index": 2,
+        "value": "0.7"
+      },
+      {
+        "index": 3,
+        "value": "15"
+      }
+    ],
+    "mechanic_tags": [
+      "energy",
+      "damage",
+      "effect-application"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612820",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612820",
+    "source_description_sha256_en": "c9427660b55816dea3e4c8012cc49ed3b12e39726ed9822d25c2cb58f849ccbb",
+    "source_description_sha256_zh_cn": "3ae133a0b0dfb77a79dcb4ab6d2f9a97c7244717dfbffdd938a1dd9ac6504c79"
+  },
+  {
+    "id": "universe.resonance.612821",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Melt Core",
+    "name_zh_cn": "回响构音：核心熔毁",
+    "summary_en": "Formation for the erudition Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "erudition命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.341",
+      "source.standard-su.exceloutput-roguebuff-json.75"
+    ],
+    "source_ids": [
+      "612821"
+    ],
+    "note": "",
+    "path_id": "universe.path.erudition",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612821"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.5"
+      }
+    ],
+    "mechanic_tags": [
+      "damage",
+      "ultimate"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612821",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612821",
+    "source_description_sha256_en": "8b8844ee237588197fa4f3e194a52543347cc4717c6d572487e390a57a47fc28",
+    "source_description_sha256_zh_cn": "ed4493dcb89866d50b50377ddc1bf52186efa0db7ef899de6c873069a07d2e56"
+  },
+  {
+    "id": "universe.resonance.612822",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Chain Contagion",
+    "name_zh_cn": "回响构音：连带传染",
+    "summary_en": "Formation for the erudition Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "erudition命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.342",
+      "source.standard-su.exceloutput-roguebuff-json.76"
+    ],
+    "source_ids": [
+      "612822"
+    ],
+    "note": "",
+    "path_id": "universe.path.erudition",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612822"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "2"
+      }
+    ],
+    "mechanic_tags": [
+      "defeat"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612822",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612822",
+    "source_description_sha256_en": "3ab2336aa3337ca511157b28fd4b62f0aaf18042838906bf1621f14be3dfaf02",
+    "source_description_sha256_zh_cn": "90509ca97f0de7aec527f5a74bb4de46ef05054f0826c8bec9a4103b1e9c51b4"
+  },
+  {
+    "id": "universe.resonance.612823",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Resonance Formation: Memetic Inversion",
+    "name_zh_cn": "回响构音：模因逆推",
+    "summary_en": "Formation for the erudition Path; exact parameters and the released modifier binding are preserved for rule authoring.",
+    "summary_zh_cn": "erudition命途的回响构音，保留精确参数与已发布修改器绑定以供规则配置。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguemazebuff-json.343",
+      "source.standard-su.exceloutput-roguebuff-json.77"
+    ],
+    "source_ids": [
+      "612823"
+    ],
+    "note": "",
+    "path_id": "universe.path.erudition",
+    "kind": "Formation",
+    "threshold": 0,
+    "energy_max": "0",
+    "initial_energy": "0",
+    "rule_ids": [
+      "universe.rule.resonance.612823"
+    ],
+    "parameter_values": [
+      {
+        "index": 1,
+        "value": "0.05"
+      }
+    ],
+    "mechanic_tags": [
+      "energy"
+    ],
+    "source_modifier_name": "ADV_StageAbility_612823",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612823",
+    "source_description_sha256_en": "faf997e28edb96e57df3128e9872c29f06419a848f1fcee47462526ef587c3a4",
+    "source_description_sha256_zh_cn": "a5bd55329bf1d33b56bb4d952b833582e6c84b473d2ab354ec1bd05372ee1e3c"
+  }
+]
