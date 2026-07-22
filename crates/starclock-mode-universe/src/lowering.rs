@@ -39,8 +39,10 @@ pub(crate) fn lower(config: &SoraConfig) -> Result<UniverseDefinitions, Universe
     let topologies = lower_topologies(config)?;
     let rooms = lower_rooms(config, &domains)?;
     let activity = lower_activity(config, profile.id(), &domains)?;
+    let path_definitions = crate::path_lowering::lower(config)?;
     let mut definitions = UniverseDefinitions {
         digest: UniverseDefinitionsDigest::new([0; 32]),
+        path_digest: path_definitions.digest,
         profile,
         worlds,
         difficulties,
@@ -48,6 +50,10 @@ pub(crate) fn lower(config: &SoraConfig) -> Result<UniverseDefinitions, Universe
         topologies,
         rooms,
         activity,
+        paths: path_definitions.paths,
+        blessings: path_definitions.blessings,
+        blessing_levels: path_definitions.levels,
+        resonances: path_definitions.resonances,
     };
     definitions.digest = digest(&definitions);
     Ok(definitions)
@@ -671,7 +677,7 @@ fn encode_text(encoder: &mut Encoder, value: &LocalizedText) {
     encoder.text(value.summary_zh_cn());
 }
 
-fn localized(
+pub(crate) fn localized(
     name_en: &str,
     name_zh_cn: &str,
     summary_en: &str,
@@ -693,7 +699,10 @@ fn localized(
     ))
 }
 
-fn checked_key<'a>(value: &'a str, label: &str) -> Result<&'a str, UniverseCatalogLoadError> {
+pub(crate) fn checked_key<'a>(
+    value: &'a str,
+    label: &str,
+) -> Result<&'a str, UniverseCatalogLoadError> {
     if !value.is_empty()
         && value.len() <= 200
         && value
@@ -714,7 +723,10 @@ fn checked_token<'a>(value: &'a str, label: &str) -> Result<&'a str, UniverseCat
     }
 }
 
-fn checked_source<'a>(value: &'a str, label: &str) -> Result<&'a str, UniverseCatalogLoadError> {
+pub(crate) fn checked_source<'a>(
+    value: &'a str,
+    label: &str,
+) -> Result<&'a str, UniverseCatalogLoadError> {
     if !value.is_empty() && value.len() <= 120 && value.bytes().all(|byte| byte.is_ascii_graphic())
     {
         Ok(value)
@@ -723,7 +735,7 @@ fn checked_source<'a>(value: &'a str, label: &str) -> Result<&'a str, UniverseCa
     }
 }
 
-fn parse_digest(value: &str, label: &str) -> Result<[u8; 32], UniverseCatalogLoadError> {
+pub(crate) fn parse_digest(value: &str, label: &str) -> Result<[u8; 32], UniverseCatalogLoadError> {
     if value.len() != 64 {
         return Err(invalid(format!("{label} is not SHA-256")));
     }
@@ -747,7 +759,7 @@ fn positive_u32(value: i32, label: &str) -> Result<u32, UniverseCatalogLoadError
         .ok_or_else(|| invalid(format!("{label} must be positive")))
 }
 
-fn positive_u8(value: i32, label: &str) -> Result<u8, UniverseCatalogLoadError> {
+pub(crate) fn positive_u8(value: i32, label: &str) -> Result<u8, UniverseCatalogLoadError> {
     u8::try_from(value)
         .ok()
         .filter(|value| *value != 0)
@@ -774,10 +786,10 @@ fn id<T: TransportId>(value: i32, label: &str) -> Result<T, UniverseCatalogLoadE
     T::from_transport(value).ok_or_else(|| invalid(format!("{label} ID must be a positive u32")))
 }
 
-fn invalid(message: impl Into<Box<str>>) -> UniverseCatalogLoadError {
+pub(crate) fn invalid(message: impl Into<Box<str>>) -> UniverseCatalogLoadError {
     UniverseCatalogLoadError::new(UniverseCatalogLoadErrorKind::InvalidDefinition, message)
 }
-fn reference(message: impl Into<Box<str>>) -> UniverseCatalogLoadError {
+pub(crate) fn reference(message: impl Into<Box<str>>) -> UniverseCatalogLoadError {
     UniverseCatalogLoadError::new(UniverseCatalogLoadErrorKind::InvalidReference, message)
 }
 fn graph(message: impl Into<Box<str>>) -> UniverseCatalogLoadError {

@@ -36,3 +36,10 @@ id_type!(
 );
 id_type!(RoomId, "Stable authored abstract room ID.");
 id_type!(ActivityBindingId, "Stable Universe-to-Activity binding ID.");
+id_type!(PathId, "Stable authored Standard Universe Path ID.");
+id_type!(BlessingId, "Stable authored Blessing ID.");
+id_type!(BlessingLevelId, "Stable authored Blessing level ID.");
+id_type!(
+    ResonanceId,
+    "Stable authored Path Resonance or Formation ID."
+);

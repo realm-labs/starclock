@@ -13,5 +13,7 @@ pub mod definition;
 pub mod digest;
 pub mod error;
 pub mod id;
+pub mod path;
 
 mod lowering;
+mod path_lowering;

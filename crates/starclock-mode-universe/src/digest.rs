@@ -38,6 +38,10 @@ digest_type!(
     UniverseDefinitionsDigest,
     "Canonical identity of lowered Standard Universe structural definitions."
 );
+digest_type!(
+    UniversePathDefinitionsDigest,
+    "Canonical identity of lowered Path, Blessing and Resonance definitions."
+);
 
 pub(crate) fn bundle_digest(bytes: &[u8]) -> UniverseBundleDigest {
     UniverseBundleDigest::new(Sha256::digest(bytes).into())
@@ -57,6 +61,10 @@ impl Encoder {
     }
 
     pub(crate) fn u32(&mut self, value: u32) {
+        self.0.update(value.to_le_bytes());
+    }
+
+    pub(crate) fn i64(&mut self, value: i64) {
         self.0.update(value.to_le_bytes());
     }
 

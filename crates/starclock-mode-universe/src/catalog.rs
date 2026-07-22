@@ -9,11 +9,17 @@ use crate::definition::{
 };
 use crate::digest::{
     ActivityConfigurationDigest, Encoder, UniverseBundleDigest, UniverseDefinitionsDigest,
-    UniverseProfileDigest, bundle_digest,
+    UniversePathDefinitionsDigest, UniverseProfileDigest, bundle_digest,
 };
 use crate::error::{UniverseCatalogLoadError, UniverseCatalogLoadErrorKind};
 use crate::generated::{SoraConfig, runtime::SoraBundle};
-use crate::id::{DifficultyId, DomainId, RoomId, TopologyId, WorldId};
+use crate::id::{
+    BlessingId, BlessingLevelId, DifficultyId, DomainId, PathId, ResonanceId, RoomId, TopologyId,
+    WorldId,
+};
+use crate::path::{
+    BlessingDefinition, BlessingLevelDefinition, PathDefinition, ResonanceDefinition,
+};
 
 pub const UNIVERSE_CATALOG_REVISION: &str = "standard-universe-v4.4-runtime-v1";
 pub const STANDARD_UNIVERSE_PROFILE_REVISION: &str = "standard-universe-main-world-v1";
@@ -54,6 +60,7 @@ pub struct UniverseCatalogIdentity {
     universe_bundle: UniverseBundleDigest,
     profile: UniverseProfileDigest,
     definitions: UniverseDefinitionsDigest,
+    path_definitions: UniversePathDefinitionsDigest,
     configuration: ActivityConfigurationDigest,
 }
 
@@ -97,6 +104,10 @@ impl UniverseCatalogIdentity {
     #[must_use]
     pub const fn definitions_digest(&self) -> UniverseDefinitionsDigest {
         self.definitions
+    }
+    #[must_use]
+    pub const fn path_definitions_digest(&self) -> UniversePathDefinitionsDigest {
+        self.path_definitions
     }
     #[must_use]
     pub const fn configuration_digest(&self) -> ActivityConfigurationDigest {
@@ -166,6 +177,7 @@ impl UniverseCatalog {
             universe_bundle: actual_digest,
             profile: profile_digest,
             definitions: definitions.digest,
+            path_definitions: definitions.path_digest,
             configuration,
         };
         Ok(Arc::new(Self {
@@ -250,6 +262,50 @@ impl UniverseCatalog {
     #[must_use]
     pub const fn activity_binding(&self) -> &UniverseActivityBindingDefinition {
         &self.definitions.activity
+    }
+
+    #[must_use]
+    pub fn paths(&self) -> &[PathDefinition] {
+        &self.definitions.paths
+    }
+
+    #[must_use]
+    pub fn path(&self, id: PathId) -> Option<&PathDefinition> {
+        lookup(&self.definitions.paths, id, PathDefinition::id)
+    }
+
+    #[must_use]
+    pub fn blessings(&self) -> &[BlessingDefinition] {
+        &self.definitions.blessings
+    }
+
+    #[must_use]
+    pub fn blessing(&self, id: BlessingId) -> Option<&BlessingDefinition> {
+        lookup(&self.definitions.blessings, id, BlessingDefinition::id)
+    }
+
+    #[must_use]
+    pub fn blessing_levels(&self) -> &[BlessingLevelDefinition] {
+        &self.definitions.blessing_levels
+    }
+
+    #[must_use]
+    pub fn blessing_level(&self, id: BlessingLevelId) -> Option<&BlessingLevelDefinition> {
+        lookup(
+            &self.definitions.blessing_levels,
+            id,
+            BlessingLevelDefinition::id,
+        )
+    }
+
+    #[must_use]
+    pub fn resonances(&self) -> &[ResonanceDefinition] {
+        &self.definitions.resonances
+    }
+
+    #[must_use]
+    pub fn resonance(&self, id: ResonanceId) -> Option<&ResonanceDefinition> {
+        lookup(&self.definitions.resonances, id, ResonanceDefinition::id)
     }
 
     /// Returns the number of privately loaded Sora tables without exposing them.
@@ -529,6 +585,54 @@ mod tests {
             assert!(catalog.domain(room.domain()).is_some());
         }
         assert_eq!(catalog.activity_binding().domains().len(), 9);
+        assert_eq!(catalog.paths().len(), 9);
+        assert_eq!(catalog.blessings().len(), 162);
+        assert_eq!(catalog.blessing_levels().len(), 324);
+        assert_eq!(catalog.resonances().len(), 36);
+        assert_eq!(
+            catalog
+                .blessing_levels()
+                .iter()
+                .map(|value| value.parameters().len())
+                .sum::<usize>(),
+            638
+        );
+        assert_eq!(
+            catalog
+                .resonances()
+                .iter()
+                .map(|value| value.parameters().len())
+                .sum::<usize>(),
+            238
+        );
+        assert_eq!(
+            catalog
+                .blessings()
+                .iter()
+                .map(|value| value.prerequisite_keys().len())
+                .sum::<usize>(),
+            72
+        );
+        assert!(
+            catalog
+                .blessing_levels()
+                .iter()
+                .flat_map(|value| value.parameters())
+                .any(|value| value.scale() == 10)
+        );
+        for path in catalog.paths() {
+            assert_eq!(path.blessings().len(), 18);
+            assert_eq!(path.formations().len(), 3);
+            assert!(catalog.resonance(path.resonance()).is_some());
+        }
+        assert_eq!(
+            catalog.identity().path_definitions_digest().bytes(),
+            [
+                0x49, 0x1d, 0x76, 0xe6, 0xbd, 0xbb, 0x0a, 0x93, 0x2d, 0x20, 0x40, 0xa6, 0x52, 0xc0,
+                0x84, 0xc8, 0x2b, 0x48, 0x86, 0x0f, 0xd8, 0x4f, 0xcf, 0xde, 0xa9, 0xd2, 0x14, 0x04,
+                0xf9, 0xfb, 0x4b, 0xb5,
+            ]
+        );
         assert_eq!(
             catalog.identity().definitions_digest().bytes(),
             [
