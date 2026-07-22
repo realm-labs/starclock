@@ -1,0 +1,2255 @@
+{
+  "schema": "starclock.standard-universe-source-inventory.v1",
+  "source": {
+    "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+    "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+  },
+  "classification_policy": {
+    "standard_candidate": "base table required to derive the main-world denominator",
+    "shared_requires_reachability": "shared Rogue row/table requiring main-world pool proof",
+    "other_mode": "table owned by a DLC, tournament, event or another universe family",
+    "presentation_or_account": "dialogue, guide, handbook, score/reward or other excluded presentation/account data",
+    "mechanic_evidence": "ability program used only to review exact battle-visible mechanics"
+  },
+  "counts": {
+    "mechanic_evidence": 138,
+    "other_mode": 165,
+    "presentation_or_account": 17,
+    "shared_requires_reachability": 17,
+    "standard_candidate": 35
+  },
+  "records": [
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent120_Ability.json",
+      "sha256": "7a618ced9f2816ee96952c74ee624e66b69ac8f391a545c1201f31f5ae22029a",
+      "bytes": 76959,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent120_Ability.layout.json",
+      "sha256": "866749816fee3fca36d531d16b6d8a8d29879c493680bd75079b7f24b64f90ec",
+      "bytes": 645,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent121_Ability.json",
+      "sha256": "6a1ab4ae9ae0f423ee078c212ee6c81a224ba00cb9d533005dffe159fafa6a69",
+      "bytes": 80014,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent121_Ability.layout.json",
+      "sha256": "584cdeec839ca79bc34bedf9d5ca58769118af1c8175e96da6b606938e7702e2",
+      "bytes": 786,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent122_Ability.json",
+      "sha256": "92fe48b955dcabd78e4f573aa99c8e3f49ce4a9fccc28ec8c448bdeeabc43f79",
+      "bytes": 136433,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent122_Ability.layout.json",
+      "sha256": "a06bed048f5a926416e360c00276f13a4747f3013fd4354917c6776accfae397",
+      "bytes": 789,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent123_Ability.json",
+      "sha256": "f4784d67805d92d3a5212461a666d8f8efe09beab5123c141243e000475f7fed",
+      "bytes": 103185,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent123_Ability.layout.json",
+      "sha256": "98642ce7ade5e16056eacfc4bcb3c51802eece0bef5085034601bdc6014fba8b",
+      "bytes": 1548,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent124_Ability.json",
+      "sha256": "10314841555645806835d5b5d403fa891c01424acc002c1efabb33d9221b5dbb",
+      "bytes": 68403,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent124_Ability.layout.json",
+      "sha256": "b5db49418c1b0a225368681e3e50c3deee9a1c488230902c9ea8888f0f5b1cb9",
+      "bytes": 789,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent125_Ability.json",
+      "sha256": "5a804d45e6cc92464643ba0170ae3680f9bf3ed23a9598f53cb1be4dd8e9e0a9",
+      "bytes": 79572,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent125_Ability.layout.json",
+      "sha256": "d33c5e2fe72aef961e2d9dca5f3fd3fbd81960995c2370329991b8889ed92a4a",
+      "bytes": 950,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent126_Ability.json",
+      "sha256": "f26791bd1e76069d9b979ed9036a905c95a14570ed4dfe73d24a5eff19f22aa1",
+      "bytes": 89388,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent126_Ability.layout.json",
+      "sha256": "f451180bb3c1fbaafdb818bcd4563b0d1d6f5ed305cb3a94b1794a314f709183",
+      "bytes": 786,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent127_Ability.json",
+      "sha256": "9ebcc38f6a24ff51d470b13f20549f37defc871089b4c730220e3e044998ad42",
+      "bytes": 84236,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent127_Ability.layout.json",
+      "sha256": "2042e41be8cecad36c1dd123556d8fe3b397a91ea93e196ed85b4c20665de626",
+      "bytes": 1209,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent128_Ability.json",
+      "sha256": "77603d33b5040f3143e63c90d0b2732f82df3ce9c0f3cdf0aae6bc18ae08ed86",
+      "bytes": 89816,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent128_Ability.layout.json",
+      "sha256": "c28dfc6a4947d4fcdfeaa18a9a29c69ac9330123b71d1fd985f7008c82429da2",
+      "bytes": 989,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Abundance_S1_Ability.json",
+      "sha256": "c41d32e2c1e547f812f118c8222182e7d26c6166f02a9f487d0354f229099375",
+      "bytes": 18980,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Abundance_S1_Ability.layout.json",
+      "sha256": "bbaafab5b023bb7f673540570f4c34e7cd131522f59ace524e0c8b2098bf0499",
+      "bytes": 685,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Breeding_S1_Ability.json",
+      "sha256": "6b1819b382080ea269b4a57bd9658eab2caa14a4bc134248bdb85299baef238c",
+      "bytes": 36742,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Breeding_S1_Ability.layout.json",
+      "sha256": "3e1982d65ab529fae0dd814e2a7e37abca3ac112ce3678b86e5e7ae56bbface4",
+      "bytes": 1290,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Elation_S1_Ability.json",
+      "sha256": "698a0590562128fa65866003bcea863e95eba52fcbf9239d70c1a9f2d95b3d81",
+      "bytes": 31013,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Elation_S1_Ability.layout.json",
+      "sha256": "ce0565094995020e815262a5724bea9ba3a08f15a53912543184fc8a84bac408",
+      "bytes": 677,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Elation_S7_Ability.json",
+      "sha256": "7a1eecf8e58ee10608567a3c0f16e57f68fbd813d0bfb086e199d49f3165b39b",
+      "bytes": 27282,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Elation_S7_Ability.layout.json",
+      "sha256": "564f5bf862fc5d071308f9cf6d92d6b7a0cfb90bb78a3619950542bcb65df5a9",
+      "bytes": 677,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Erudition_S1_Ability.json",
+      "sha256": "67c588536cbdc3097f7ebcf0684b18b7ec37874f562d3f84cdd85bb7e5a18d86",
+      "bytes": 35439,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Erudition_S1_Ability.layout.json",
+      "sha256": "4cca6547186246e6049ea5c9883b063b10721505f2ff5093a5c926dfd2d5b62d",
+      "bytes": 630,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Harmony_S4_Ability.json",
+      "sha256": "48bae1013a96980427889f9e9e7f69680a89981713742f03c5ff8a81e643544c",
+      "bytes": 30469,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Harmony_S4_Ability.layout.json",
+      "sha256": "299fe25ae2250f8f3f97fcde8793b2fbc096f2e99955f70824e849dffab9c314",
+      "bytes": 657,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Hunting_S1_Ability.json",
+      "sha256": "318466a208bbb1bb3c84bd61f4369acb919f12b62f54632aa5e1e4121837543d",
+      "bytes": 19146,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Hunting_S1_Ability.layout.json",
+      "sha256": "6ef243d08c60174e9796d0f9454f820439e430639f9cf90fceb760abf7081c91",
+      "bytes": 677,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Remembrance_S1_Ability.json",
+      "sha256": "b5541c974ecb858730ab1334c6a305f6cf06acdecc5b50d83b119d1c1a54b69b",
+      "bytes": 17661,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Remembrance_S1_Ability.layout.json",
+      "sha256": "df399782aafee29c233b13544a31c3c18c4e3f28e2400b33cff1947fda126e76",
+      "bytes": 693,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Remembrance_S4_Ability.json",
+      "sha256": "451c72933f1d736388da93ace061fdc79d3fc48cf5e9d44e8dc9c8337a919284",
+      "bytes": 35928,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Remembrance_S4_Ability.layout.json",
+      "sha256": "6c68fad2a2f26dc6e270f76ee48ae0882f11428c50245ab7feb4868360a4ba2a",
+      "bytes": 693,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Ruin_S1_Ability.json",
+      "sha256": "effb3f2113c6ba03956af511b4490b472e2da9e848493b5645426d3b55631921",
+      "bytes": 21657,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Ruin_S1_Ability.layout.json",
+      "sha256": "a190e3968383576ef07fc7c78192c872dcd603748fcac155dcb57f127f1f28d4",
+      "bytes": 665,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Ruin_S4_Ability.json",
+      "sha256": "9dfc7c8135b9e6207932b136a68190732ea5feb943f1274122ca6cb0495e7c43",
+      "bytes": 21601,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Ruin_S4_Ability.layout.json",
+      "sha256": "fe01b778ff97256a0234c686fb7359b5d36d77d08abd7ea0ca82ce7f8ccb528f",
+      "bytes": 866,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Sandworm_S1_Ability.json",
+      "sha256": "0df00e4f0eec7a6cc74c8f59f57076873aecc5d7a3b7f69c5748ebdb788704f3",
+      "bytes": 92948,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Sandworm_S1_Ability.layout.json",
+      "sha256": "10a7536349fc6374ee002fb615b14a6e0bb976c11f3f5f4d56c84d03eb066c7c",
+      "bytes": 681,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Shield_S1_Ability.json",
+      "sha256": "873481a245babc9772bf26e9c2fd90be05ab90d312bd5cc98b2350454588e295",
+      "bytes": 30667,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueBattleevent_Shield_S1_Ability.layout.json",
+      "sha256": "854d6e9d2ad99595afe7bde48fcef8eadf8c853a1b2f611a5a88bd9f53887a04",
+      "bytes": 673,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueTestBattleevent2_Ability.json",
+      "sha256": "c8e68b3888b2be181ac08a1724b29449e8a36113f9d4ae8f5d8b017f71ad3a2c",
+      "bytes": 21311,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueTestBattleevent2_Ability.layout.json",
+      "sha256": "b6750e8d1c27a5543700622ae2716e87a5e5c8c69af55b832a3d130493c59585",
+      "bytes": 653,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueTestBattleevent_Ability.json",
+      "sha256": "cbc11da576e9f0936295f9b42dfb143c437a3edd8f95feaf723745b8f94ded8c",
+      "bytes": 65311,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Avatar_RogueTestBattleevent_Ability.layout.json",
+      "sha256": "aa6385abe373f4dbfd0e41c7ff1369f23dbdcacdb42a27cbd8211613049e7597",
+      "bytes": 786,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Level_DesignBackup_RogueBattleEventTest_Ability.json",
+      "sha256": "ab8b1b91f4d7d36eba9bd8bf058806b8da9651651888e4800a449a4114ffc176",
+      "bytes": 2278,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Level_DesignBackup_RogueBattleEventTest_Ability.layout.json",
+      "sha256": "06773022d79b9d51f9ad7ba1002c813db7689c59b3bbf77870f1a42a7c01ad6c",
+      "bytes": 345,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Level_RogueBattleEvent_Ability.json",
+      "sha256": "cbe901ddc225b37802d578bc8784de5ff002a057a54eefd06b24b4544819fd4e",
+      "bytes": 101045,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/BattleEvent/Level_RogueBattleEvent_Ability.layout.json",
+      "sha256": "592fc37946b9c47a6e9ac95a1359b2b2f826b951835c61b037fc6b00e01e63c4",
+      "bytes": 978,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_MazeBuff_Ability_RogueV2.json",
+      "sha256": "c4d26e53edf5d54d23803f3d2dd58f9db700ff9354adfe91406728e8c266292b",
+      "bytes": 204797,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_MazeBuff_Ability_RogueV2.layout.json",
+      "sha256": "c6cf3fab8ff7edad2c215f1c1047f55295fe3005425c6f988cd13eac25684259",
+      "bytes": 8365,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability.json",
+      "sha256": "170c8fe1be038406267ecfe63ce4edb4763ba43757898638a0efb54e17392c58",
+      "bytes": 199988,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability.layout.json",
+      "sha256": "14c973a5482320efe1187d074740f19407b58fadc9de34a1964fe6461e00f1d5",
+      "bytes": 8222,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_2.json",
+      "sha256": "a421a21180a2e7ff6c95ebfe68256966fb4695ea121ea495ebf28c5b808e0b40",
+      "bytes": 154341,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_2.layout.json",
+      "sha256": "36c86cf8d659a053007a6cd10365b6e5171145725f92cc6b726df669729aa533",
+      "bytes": 4368,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_3.json",
+      "sha256": "93e9f73e676b586ad59c92e771a6299394c5929bd668767dfbb6c6fafda15372",
+      "bytes": 230470,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_3.layout.json",
+      "sha256": "e0af333697108abf62dee0bcd4318fa12a800d0c5c3084d594fa6d77fcc590ba",
+      "bytes": 10156,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_4.json",
+      "sha256": "dfa0a8ceb4bda5e6f0850148f5e50a2c8ecc08d8027b25fad0d0db9bdf0662e2",
+      "bytes": 585542,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_4.layout.json",
+      "sha256": "c3c61977a3c250d796b873ad2d8b0f3fa782415cc31c4f79fbaf61addae004e6",
+      "bytes": 8123,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_5.json",
+      "sha256": "298d96efbd10dd615b258e49dbd5ceab0b4522fb0b4b5070f1902c06ae64d7ce",
+      "bytes": 25,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_5.layout.json",
+      "sha256": "cb985b3c9e5ef7215e6de26f66481fac1000faae122d68f79096a23fe6c4b793",
+      "bytes": 29,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_6.json",
+      "sha256": "1abb86d1c36731c84e5c8c704a447dab3526fe62b79597f7cdeea73b0523f01a",
+      "bytes": 754015,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_6.layout.json",
+      "sha256": "3b1ee66d02ebfd73efab066f820c3d1ad804db8510e8eaf2907f84a3a61102d9",
+      "bytes": 9536,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_7.json",
+      "sha256": "af079088b266d269f1fe71e93050294a75b11a02cf9a59ad697b4ed479b2be54",
+      "bytes": 316487,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_7.layout.json",
+      "sha256": "921a9086cf9154c2cf27863db23adb2f33897aaa61554a6f7d88b760749a932a",
+      "bytes": 5148,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Ability_S3.json",
+      "sha256": "c07fcef2f72dbf66ecc6fe48f2d651439c48def4023504c152191f3625d43a47",
+      "bytes": 6363,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Ability_S3.layout.json",
+      "sha256": "e3b2e01f10a82e90b2a0517022251564a1f972f58a7e48a659e7dbae9fc54730",
+      "bytes": 160,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Abundance_S1.json",
+      "sha256": "8bc262438c0eceb7ff650c90a59b3978f1e0abc055d918ef8798767a46784aef",
+      "bytes": 142530,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Abundance_S1.layout.json",
+      "sha256": "5fb4c7e7cf3460505575342504e4f8b86c934e67dacd0f0ae4d702cb08ff7435",
+      "bytes": 2820,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Breeding_S1.json",
+      "sha256": "68ffba707cbeb822218f1bf85fea95af5434bffa568803142345e910665f9f38",
+      "bytes": 208413,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Breeding_S1.layout.json",
+      "sha256": "1f495d33797c84576137a0d92d7ba354023057f1d215d7b32b56c8145862df33",
+      "bytes": 3090,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_DLC1.json",
+      "sha256": "d278459ea9e19d594fa189cba40a3b385e6282065d19eeb4e27420a20c02b28c",
+      "bytes": 287703,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_DLC1.layout.json",
+      "sha256": "dccb7d9eafc6c7224613b7ccafe94b5eafd2291404db07b80a42e7f6c4394558",
+      "bytes": 4534,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_DLC1_Other.json",
+      "sha256": "c6b9e38bc6d0a12aa9ab92c0dfd064b98b122cbb869724d091829921f4ae1b0a",
+      "bytes": 361848,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_DLC1_Other.layout.json",
+      "sha256": "f2ab3a27b25c65043fc5e94a9eae00ef0d69d20c336821e594a486e623dc5b38",
+      "bytes": 11881,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Elation_S1.json",
+      "sha256": "e837b543255ed61865fe1b54ebf45f442d97394b1f35cc7d4be6573b5c8932c4",
+      "bytes": 208090,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Elation_S1.layout.json",
+      "sha256": "802517d030726445aa1cc978da1a0483dbaa16534dbaa85ffd176804cd00458b",
+      "bytes": 2772,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Endless.json",
+      "sha256": "73310b581c1c61da7a96beb549811402b2b54b9bf31a249c1e252c0173cfca12",
+      "bytes": 90691,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Endless.layout.json",
+      "sha256": "8eb97dc599a005125593768959ac5931277ab3b6aa8b84b4d0b76645fe4a2fcc",
+      "bytes": 1479,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Erudition.json",
+      "sha256": "9ebb4c07539752d323cbb0d9961576c1dd3a92f5bf00792031c913b17a89e313",
+      "bytes": 183200,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Erudition.layout.json",
+      "sha256": "3272c54d3a166037659ca6ee8181c80db0763a1b18db2342233c94f4af8d7781",
+      "bytes": 4578,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Erudition_S1.json",
+      "sha256": "f0bfcfb432986a46541dc15105558007ca3b4bcb0ca36bfc5fbc32e0a5ee6d79",
+      "bytes": 156874,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Erudition_S1.layout.json",
+      "sha256": "7668b1b0219ab03574bfc12412962628b9db3ffec18696e9136fb8084a0e98f7",
+      "bytes": 3653,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S1.json",
+      "sha256": "1071c4d1f8822e058eb8931f0ac0695b5a64cfdfc35fd79f06f098806cc84945",
+      "bytes": 341668,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S1.layout.json",
+      "sha256": "4c9db142d9db54bdcd920f02e33133d900fb6853a7705caaaa76a514c2ef4182",
+      "bytes": 4355,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S3.json",
+      "sha256": "d0de343090d425d5f7b94e15cea4dc7b5067f80293195a6fb3c58556cfdacd3d",
+      "bytes": 37438,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S3.layout.json",
+      "sha256": "ce8736c805e1702789c0be48e909fc5417df5f97149a4282e580a68cf017395f",
+      "bytes": 525,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Hunting_S1.json",
+      "sha256": "580eff06c79f9a592841f3070145c8e408ebf1085a8167ed9fb67c86da61b108",
+      "bytes": 151832,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Hunting_S1.layout.json",
+      "sha256": "373d0a4af890659658c98c4c1880b26b44c8d2c926ddf0641d2e10533fb3f3ee",
+      "bytes": 2836,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Level_S1.json",
+      "sha256": "658675a079039587770f0c0df9a9c6fdf1a62fea8ccf0b82facb84529b90a522",
+      "bytes": 60888,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Level_S1.layout.json",
+      "sha256": "5123b4640f3831a9b10e1b653461a505fb9767c8f2d4f7ca305a06e288538160",
+      "bytes": 726,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Miracle_S1.json",
+      "sha256": "0134f28a8165640ea119dfbb265b852b9de0531aef9669155be8b4d44c1fcb01",
+      "bytes": 217028,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Miracle_S1.layout.json",
+      "sha256": "a58e4199729c9a8ba862b8c322de07f83cf5f61349cc7d141f607fd8da263c16",
+      "bytes": 6731,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Miracle_S3.json",
+      "sha256": "b9cdb84cca083bf8a82c15cee95f86335dcf3e8dea9532dd6299611b4baef966",
+      "bytes": 13422,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Miracle_S3.layout.json",
+      "sha256": "4385072a9ccb011e7484abc25c58233d6d37891fe5823b1429f28caaf01e981b",
+      "bytes": 420,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Nous.json",
+      "sha256": "31f5f13d6fc90e90a54eab835ef6884ab26720c6a542295ee2a2f220ed727a3f",
+      "bytes": 354133,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Nous.layout.json",
+      "sha256": "f865df826ba0c7ae8b44cbe8f8ddfae95761da2832b47fe9c128e1285e515e18",
+      "bytes": 10787,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Recipe_S1.json",
+      "sha256": "6b092d076066c7d7f0409d296f713037129bc97ec764ae96ecd14bdcec63cda7",
+      "bytes": 902467,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Recipe_S1.layout.json",
+      "sha256": "fc98b46b056bb31d666dd72b4aca5c3ede765a390dcc44326ae0578936183436",
+      "bytes": 11286,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Recipe_S2.json",
+      "sha256": "f0e2424e027a4209a239c300908a0adc9d543186dcec2e1ec184ac1a97210453",
+      "bytes": 383424,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Recipe_S2.layout.json",
+      "sha256": "ae499db4fd3b1d8bb23744ea96724737479f6a8fb028d85b1bdff3000a8176b6",
+      "bytes": 5633,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Recipe_S3.json",
+      "sha256": "35473f787168386b7c7d4f63d1899cce913bad7fc730e1f80d26c9ca8466be5b",
+      "bytes": 423850,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Recipe_S3.layout.json",
+      "sha256": "08c4fc0ba25987e64707b8797991fe9f157eb8a9ea74a49f1001e1bba7d71c1d",
+      "bytes": 4117,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Remembrance_S1.json",
+      "sha256": "c3880889cf6a2b7ba8972c7336d2e3f810768d4194559af9919850b5ba55e95e",
+      "bytes": 135943,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Remembrance_S1.layout.json",
+      "sha256": "152f718ebfec6fd5b3c665c3854ab81fe9fb1f668d47e599e82c8da3466854da",
+      "bytes": 3419,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Ruin_S1.json",
+      "sha256": "edb4822d9dde3b0af6049ad614bdb10860105d084108a62b7175ec81243481cf",
+      "bytes": 224269,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Ruin_S1.layout.json",
+      "sha256": "f57d5c444696b9bfbfe94f3fac0fd89e1f903541ca44d84f7dc3df70fe5d9f53",
+      "bytes": 2984,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Sandworm_S1.json",
+      "sha256": "867db70936a7b4997977ae6a659c65b43c28f8f9cabe537dbdec2109295f0849",
+      "bytes": 119822,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Sandworm_S1.layout.json",
+      "sha256": "787f82a3926dcbf842ac428ed185e85d8c7945ea6c01563e8840472f73b24518",
+      "bytes": 2735,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Shield_S1.json",
+      "sha256": "6c7f99ba198607fd5807426ccb2b77a73001ec57c93c47f11c377f6b098095ec",
+      "bytes": 142125,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Shield_S1.layout.json",
+      "sha256": "a0b2890f24ee4992716a57f3b0d0b94eed83555bab9b9405f92ada817fa075bb",
+      "bytes": 2941,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Test.json",
+      "sha256": "502eca52f93dfad2dd98a5c6b367db0c9901cd956f46e592dffc68fd6bbe9eb4",
+      "bytes": 9649,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Test.layout.json",
+      "sha256": "26a67b2515d7dde6fa31bb8a912a01e2de398c650dc20852f40b30e93d70ed3b",
+      "bytes": 160,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Tourn1.json",
+      "sha256": "cd226a3d5710380ab18fbe377c27040221a91b5b5c9e34d1c3d4f8d385f14b21",
+      "bytes": 276683,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Tourn1.layout.json",
+      "sha256": "da9d308e9ec346e573a40b27aae3fa7fbc50a065b9ac8424e8d1de5728c25187",
+      "bytes": 6727,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueChallengeMode_Ability.json",
+      "sha256": "69137db7998c83b2dfc48aaa9c002fe0238c8974b8d9787dde03faa35eebc14c",
+      "bytes": 117057,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueChallengeMode_Ability.layout.json",
+      "sha256": "4b148e3c8b3544ef7e7631753ad53f1ade7caf95f68fbd1fb64737e15b526a8a",
+      "bytes": 1121,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueDLC_Ability.json",
+      "sha256": "03bbca17b885975eb16cbafaaa99ec1c6123aaa65f01bd06b96ea53107a1388e",
+      "bytes": 79725,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueDLC_Ability.layout.json",
+      "sha256": "25c42bd7cf512430ea5a2293cbeb9b8aa29bc8ac80a77d9b9ab3c22e9e4a3086",
+      "bytes": 2619,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic.json",
+      "sha256": "f0b39ed9ce85147725b53fcdd8dad48dfa80ff73d9b81d8a0b6793ceeec47f2c",
+      "bytes": 123450,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic.layout.json",
+      "sha256": "5af63db2d4ccb888486cbc0255e68e5ccd426fd1aae42d8f5bd92efefbc5bb32",
+      "bytes": 3871,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic_DarkTeam.json",
+      "sha256": "46b2c04cb7dbca4b77e0c7a99a306bbdb5aa07abff61af36fce0a1573b22c68b",
+      "bytes": 51,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic_DarkTeam.layout.json",
+      "sha256": "cb985b3c9e5ef7215e6de26f66481fac1000faae122d68f79096a23fe6c4b793",
+      "bytes": 29,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic_LightTeam.json",
+      "sha256": "f501a440e6440ba912710a1d3e2f95971c526a6d65aa42fc9424b8718ee565ab",
+      "bytes": 77,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic_LightTeam.layout.json",
+      "sha256": "cb985b3c9e5ef7215e6de26f66481fac1000faae122d68f79096a23fe6c4b793",
+      "bytes": 29,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Module.json",
+      "sha256": "d6efcc9d0223712b3fcb7708b6a8d847fbf9ba8c74bcc08e262bcca9d1c36df8",
+      "bytes": 792792,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Module.layout.json",
+      "sha256": "9c96b38e0b71ab89a774397fbacfb5a8421a9464a97719375857fc82ecf6c823",
+      "bytes": 15479,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_NewMagic_DarkTeam.json",
+      "sha256": "8df58a03b9ca6587eb56fe2979289d69347b1d42336a88ebcaa0cb4d68f35e7b",
+      "bytes": 837052,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_NewMagic_DarkTeam.layout.json",
+      "sha256": "229cf4d51d3a5f4295820b2607f01f1e834881c6d3fd23bb14f6ca6eb8e3d1a6",
+      "bytes": 9898,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Rune.json",
+      "sha256": "c79f7d4e9e40779388510355138bde4fa271d47206139dc6ca3365ab32dac0de",
+      "bytes": 283376,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Rune.layout.json",
+      "sha256": "2942f598211b2515eec096d57187d7956e87445ec1ee88ba5e2e08298d4eb21a",
+      "bytes": 15437,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Staff.json",
+      "sha256": "5cb1ebf91a4377572a680d6bdb794cd790b8cd59cefce947be965b00e4964401",
+      "bytes": 209827,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Staff.layout.json",
+      "sha256": "3cb1d17dde4716d31d07f08c7774eca4a52a93cddf62f2bb20ff2bced4a031ed",
+      "bytes": 15562,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Stage.json",
+      "sha256": "f225ec2cdc2acfc7670cc273357159787ad208351f56ea64b670bead9f0ad158",
+      "bytes": 206143,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Stage.layout.json",
+      "sha256": "3ea62827c7384e796cb08211c0e6a169ef9ed5b32ff35c81c5077d6f9e8dac91",
+      "bytes": 7056,
+      "family": "mechanic_evidence"
+    },
+    {
+      "path": "ExcelOutput/ActivityRogueAreaConfig.json",
+      "sha256": "87240dc5c8d305e6caab7469f8bf993a4b6dd6e1e804403068fe6166c4e4b620",
+      "bytes": 6448,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/ActivityRogueAreaOverride.json",
+      "sha256": "214206b109f681e6ee8cca2567dd61f51ca0fae3a09209432cbba86515f4b8d7",
+      "bytes": 9183,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/ActivityRogueGuideBanner.json",
+      "sha256": "770238f3386b10d06dcb1926f1cc709faee9325e9c916482bd6a355ded56075e",
+      "bytes": 343,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/ConstValueRogue.json",
+      "sha256": "5153172934b1cbd1457392556351f03ff9088121cdf24b8faf2dc57f5b8ca09f",
+      "bytes": 7893,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/FinishWayRogue.json",
+      "sha256": "661b4cffcc70eb961a81499af5c825e2ab8df5ba5d3720b453c8deac1fb6f1e9",
+      "bytes": 48890,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/GuideRogueData.json",
+      "sha256": "0a6bec81c872a9c2de361a1ea219a59b0225f12fca2f43e404465b2d385415e3",
+      "bytes": 2125,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/GuideRogueTab.json",
+      "sha256": "1bd988d1a524805fb1d19f875e2d5803511ebc556ec85b2d9e23d92d4bbce138",
+      "bytes": 640,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueActivityResidentConfig.json",
+      "sha256": "f33cf5bfd12fc5d3982c7d82409bf6e33597e566e43b247f7caa93cb5711f43c",
+      "bytes": 5339,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueAdventureRoom.json",
+      "sha256": "f8c0967bb9c5f200e161090f274cc75f983f7e4108ab307da9061075362857e5",
+      "bytes": 321,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueAeon.json",
+      "sha256": "2ae8a72ab46541a1554fddd32b90220e91b389de2e0f77052ee755386e7b962f",
+      "bytes": 3383,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueAeonDisplay.json",
+      "sha256": "32c8b4deb4c65237c05f9e292ae878cd4cfd1d5688d23b988610e5df158e635f",
+      "bytes": 7688,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueAeonLevelConfig.json",
+      "sha256": "72a01daec0aac43b3d5799daef0dbc5ecac02b8d5230f23bfc8ef51e1618c02f",
+      "bytes": 8398,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueAeonListConfig.json",
+      "sha256": "da9d63a543664e998f1147805878b32a46226dab0273225bb8a8c735a12896f9",
+      "bytes": 1236,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueAeonStoryConfig.json",
+      "sha256": "61f0e51494679848f9d29f0212ea62d42003eced9b0f442a478315cdf910fe2a",
+      "bytes": 5695,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueArcade.json",
+      "sha256": "ca2fe0548a8d7b7797cb9671f71ae1c550c05fd0240f414d88137aa8721cba45",
+      "bytes": 1289,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueArcadeType.json",
+      "sha256": "63ab7e959c4f1d8dad238c085a200f4d4bfb0ac72a6909804e93ada3a3f5c5a1",
+      "bytes": 2658,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueAreaConfig.json",
+      "sha256": "81b9ca3604cd8d2d2d57efb067e8ccbb7734fc050c21c6f4ccd860c6f7ec900c",
+      "bytes": 56719,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueBonus.json",
+      "sha256": "12b2c15a10c646dd0487ef45751c033659587ad5111f6a2a00f6d0a0d8023f0f",
+      "bytes": 26319,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueBuff.json",
+      "sha256": "7b5eb88a3935b00188ead4202e16ef337de654069ab5ed87ee43846e86893753",
+      "bytes": 182963,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueBuffGroup.json",
+      "sha256": "025881ff1112389f118b3065cba1e08f62fffe5d0de62f2097046ba9f563e1de",
+      "bytes": 60123,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueBuffHint.json",
+      "sha256": "7b9efcc69591a289552da0508db6d3240d9f89d41299d37c8ada34d6b9d4e038",
+      "bytes": 12231,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueBuffType.json",
+      "sha256": "62a284f66748a9d3ded88d37378740357a2e0f068e00bfbf12ba55b12584b431",
+      "bytes": 5206,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueCandyCrash.json",
+      "sha256": "09c3f4af184013ced2913959a2cf313a30f2cb2af36105ac299c28beafb867b6",
+      "bytes": 329,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueCaptureMonster.json",
+      "sha256": "057564dbd56f358a2b1e78ec6624ab307a6046b3f2c0a46c1dbae67d23a16974",
+      "bytes": 505,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueCommonDialogue.json",
+      "sha256": "9302fb3b6b43f57ef76d374b6462d6e59f2108f9705ee25bb0182ca594443d07",
+      "bytes": 892,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueCommonModeTitle.json",
+      "sha256": "a7bec62397de6a42ad9c3930e54692ea5c1afc306cdc910da96fe43e650caaa8",
+      "bytes": 894,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+      "sha256": "5b6374fe67a4a17074980590a1be39ec44c046772f2bbf014ea58a5f2cb3543b",
+      "bytes": 834,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCAeon.json",
+      "sha256": "fac6462498dcdd0096993607abf97ac20d0d47ea13d2b1dd2a50b58e8f8810fb",
+      "bytes": 6835,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+      "sha256": "ff1c3ed5c9902bc6190c4d301ed83847e8ec587bde33e84314ddec9a9ca199c7",
+      "bytes": 20356,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCAeonCross.json",
+      "sha256": "ded75a618ce6b1e32ad1b7af236aba785daf9ad21dc5e9b6e6e1ba781274ac2b",
+      "bytes": 1971,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCAeonDice.json",
+      "sha256": "c50798a6f1e48b1cfceb1826cc9c6e86b8627cd3ca9ba12864780a1dee21312a",
+      "bytes": 6364,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+      "sha256": "e821822e50560725924353816743ac4f857e324bfad646df58592013ba341825",
+      "bytes": 24924,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCAeonDimension.json",
+      "sha256": "a56e473bf065c383640c7639a73ab63267094389d0676abf8488f6d598eae26d",
+      "bytes": 2179,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCAeonTalent.json",
+      "sha256": "d5981e1be468259714436cabb91da775c444978380d9bd02f1a2e55c26535a29",
+      "bytes": 27250,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCArea.json",
+      "sha256": "e149637009e4d26783350589155d1d67c6d9dd3de367fa87f6a29f8c808739a6",
+      "bytes": 13328,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCBlockIntro.json",
+      "sha256": "2febf410b15eb569f281230106a2b190f57594a96edc023fa4ec2d3db8308c09",
+      "bytes": 7450,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCBlockType.json",
+      "sha256": "f3ce7457303122d51b0cbf764bc5071b150647bd215496524ca2c0006de9db7f",
+      "bytes": 5193,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCBossDecay.json",
+      "sha256": "2bc1a60ea6d725522aaa92e7795b0dc03d2b66ee7039f86d78dcff644c37e1e5",
+      "bytes": 19310,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCChessBoard.json",
+      "sha256": "c744e3fc4de7c94a1d45e4080ba8528d91c0b26281cf6eac3f8c551583d3224c",
+      "bytes": 43316,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCChessBoardAnimation.json",
+      "sha256": "72a3a9eaca2c9cfc4cb82bb27cb4e62b65f56287c0d8b2e24e73107ab26ca10e",
+      "bytes": 10337,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCChessBoardEvent.json",
+      "sha256": "5d0bba3dcd216aebcddc23afb27e6f35cffde6213c7c141daf9c86534383f26b",
+      "bytes": 28303,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCConstValueClient.json",
+      "sha256": "d2fe9f274cceec713b0d572ab11c549ec85e6a612b4c437d25d411dd3cb4ccc8",
+      "bytes": 2499,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+      "sha256": "da55f6dc267e8cc8578aefc8438c18faf5df9ac5bd9b5cfb937750c1b278cf47",
+      "bytes": 2447,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCDiceSurfaceRarity.json",
+      "sha256": "064b39dd3ae4a3800263c798363989d4e9c2027d9457e9509afb3c4ae67f3e3d",
+      "bytes": 526,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCDifficulty.json",
+      "sha256": "42f8b8b04ff060f9ced57dbb74ed8b4a7e8266db82664fd9f9f90f299fa3c308",
+      "bytes": 5784,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCEndGameReward.json",
+      "sha256": "e3553fe51758c6212310102811969e05053bb6f360bcfea1ea98023df4f91e1d",
+      "bytes": 785,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCEntrance.json",
+      "sha256": "4a513568fffabcb5294e20f19062ac55805abc5210113833e646bf926ebbd9a1",
+      "bytes": 1438,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCFinishWay.json",
+      "sha256": "278a1b0d154f1e527a0bc5a4991fa507657e3adff278540839ffdb3a80562864",
+      "bytes": 23566,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCJoyHelp.json",
+      "sha256": "aa072d846bdf8025432e7fc21c082c9074e09601516ed0a51f17ef42cb624c4c",
+      "bytes": 1783,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCLayer.json",
+      "sha256": "ab91d08e8d1c8e719bf2e0ae3d1e4f24d03aee02ab194607332cbf34742a3bc2",
+      "bytes": 4988,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCMainStory.json",
+      "sha256": "7d7e1d232cdd34b417a9aeffa21dc4333dc7356aab84f341e347661f45abede5",
+      "bytes": 4698,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+      "sha256": "b63d2accfe2f57fba8447c57a4ef14f08b8fcb521853f970983a1f0d4b480752",
+      "bytes": 2595,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCMainStoryReward.json",
+      "sha256": "a264da6295a1966865b7239f3f8021ddba754dcef2ced2ec735ea5c5574c862f",
+      "bytes": 1431,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCMarkType.json",
+      "sha256": "3ec96eab78451bd72727adfcb5d4a29437a972e16225fdea1131656103cb6436",
+      "bytes": 1504,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCRoom.json",
+      "sha256": "b2d92b90d6acc0f9c6b2d6b41d1bb37a098a693d9b5823a6f5a752fc751e8add",
+      "bytes": 102923,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCSubStory.json",
+      "sha256": "2591c4aedc9350d9826049155f94b3a152f9fa7bf0849c6ee7124cec5bfb9169",
+      "bytes": 16287,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCSubStoryGroup.json",
+      "sha256": "bdafdfb71b62ff84319f2285a378e99b3481ad3c54350bcc44d40f3b21baa42f",
+      "bytes": 2917,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDLCUnlock.json",
+      "sha256": "490e246d317441e236b65fb38f4bdf16dd2493f722cd0e0defdd2a987d6bab1e",
+      "bytes": 10867,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueDestroyProp.json",
+      "sha256": "1fdb8be3b0e977dd456a718606d31346e4d446c256b97042ffa1ff857d35b0ef",
+      "bytes": 1426,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueDialogueDynamicDisplay.json",
+      "sha256": "df3bb5602c0ff4c05cbdb30a6665817cc475a16bca4113ceec90b15df02b6f85",
+      "bytes": 986,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueDialogueOption.json",
+      "sha256": "dd748a9a32ef4109ed57cc45473163bf185e889eaa62556103e76822115cdb62",
+      "bytes": 127031,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+      "sha256": "9ee09f3ebe7eee291626c0ab74a11d50b637e6c7227bbc584e61b4b80d5d4cc8",
+      "bytes": 376430,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueEndlessConstValue.json",
+      "sha256": "60c387389085d8bb11fd8290e8ce64aacf7dfcb311fe8f3145ed2602c0810bf2",
+      "bytes": 6650,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueEndlessMegaBuffDesc.json",
+      "sha256": "bfe875019a67f52749821d7f4f34231ba0e9bfaacd5b46c0b7ca60a8d683233e",
+      "bytes": 1485,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueEscapeLaser.json",
+      "sha256": "582792f454eea7e191d8ca9c7ab789e37a87cb6e0d93f310531632d102743c24",
+      "bytes": 583,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueEventSpecialOption.json",
+      "sha256": "45943f8e6b07865c1735c9c27c922021549e78969de67802512d47aa61be607f",
+      "bytes": 2746,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueGuideActivityPanelData.json",
+      "sha256": "11bb0610b740d784fdc23c3aafdbddd7691f3743f93fddf7f09c24d4fa22b653",
+      "bytes": 314,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueHandBookEvent.json",
+      "sha256": "707cbf8bd7187a0e0ce242a05c66a12d0f3d457db4597b6a475dd510e6cf5029",
+      "bytes": 56047,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueHandBookEventType.json",
+      "sha256": "f0f174bc22d2d55aa7f8e8ab1e964b4a021ce15c4e655d090e0ed82fc79b585f",
+      "bytes": 1019,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueHandbookMiracle.json",
+      "sha256": "2607cb502b1cf60b6d3395ba972100fe32ef3fd885bd8c152abbf1b13fd73df0",
+      "bytes": 24072,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueHandbookMiracleType.json",
+      "sha256": "a93d94a1a52c7c08089e4990826c5ab76b060b5b3dd2ab78dc2c2e60c3a44657",
+      "bytes": 1038,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueHandbookType.json",
+      "sha256": "1b13b18a7c08a99890524489b47aa010c15085212d078cba35ec794cde308297",
+      "bytes": 1002,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueHint.json",
+      "sha256": "3b698cf2b9ebca5fba4a6c12bf4aa688af1c01a2ba7144bfb3c04a80d9f732dd",
+      "bytes": 12416,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueImage.json",
+      "sha256": "b97366479491b09c3b842ecddf3f4a0cfa1bf9f4bd21d254b8a8642693adc139",
+      "bytes": 27116,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueImmerseLevel.json",
+      "sha256": "78865f60ac8e6c6856c9156f8bdbc58a0e13f7a19892216ccf1d51e4695fcb3f",
+      "bytes": 105,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicAdventureRoom.json",
+      "sha256": "7730008ae12b37fd917fcc6d827158dd3c3ff9ea9c9599275c3661cd50bc2e4d",
+      "bytes": 919,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicArea.json",
+      "sha256": "04ff3d337b4c50334a989bbdb2b4b8febd24d2389e1d17b51571d54898779ec7",
+      "bytes": 16188,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicConstClient.json",
+      "sha256": "757ea976e2e061157dcc4fb540e1d753d1f8e8c5c049d056325108fa403f1b26",
+      "bytes": 2808,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicConstCommon.json",
+      "sha256": "36940fdaafe8cee3e02aebb3b918a5b8732ae8476416c5b37d1a768c0cea0446",
+      "bytes": 3206,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicContentDisplay.json",
+      "sha256": "6df39fef6c546eb06eccb67b51f1acc711f2cc6f5052f989a3efb7a8ff013179",
+      "bytes": 2809,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicDifficultyComp.json",
+      "sha256": "4d31a5d335fddb2de1eb95a1c89889ef4ecf0e869c2b3d5b4bafdf32fd8facb6",
+      "bytes": 1648,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicDifficultyDrop.json",
+      "sha256": "c9f9338bb775ad8bd6b441a25b88c4ab177317389eae5574aba40e848eebce61",
+      "bytes": 7725,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicFinishway.json",
+      "sha256": "055e9ca7e342551b3a0e70b9289710ef892117dc4a448bad24e0369a9c36ff2a",
+      "bytes": 30778,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicGambleGroup.json",
+      "sha256": "33c77c4b66ed484a8f3c9d2671681dbeffb1d3a101ead4dad42de967bce9a88e",
+      "bytes": 1726,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicGambleUnit.json",
+      "sha256": "b236e1a603c03184989f2e84856984952ce996701c2bf5be58a735b3539884e2",
+      "bytes": 1137,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicLayer.json",
+      "sha256": "cd2804e27cefe13e0b8fc62ae37cfb7a97e60908c4c7bc3442e1a764db215649",
+      "bytes": 1789,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicLayerEffect.json",
+      "sha256": "1be16c66da761bf3da16fd6107f8c59bc3f1ad95e13b765df06c117bfa901aea",
+      "bytes": 291,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicLayerRoom.json",
+      "sha256": "d67343d71dafd5a7ee1c6b61c1137d8b31179b9310f915baf0c02628bba37d6b",
+      "bytes": 9297,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicMazeBuff.json",
+      "sha256": "b085bf28ddf25c7d799144dda8c1dc2199b3d5d13aeeae80097f32768598d66f",
+      "bytes": 264730,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicMiracle.json",
+      "sha256": "3db8adbecd0f0dd2d957734f6c9ed744bb078229ffdf383ed8c69fe07d4d9799",
+      "bytes": 11041,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicMiracleDisplay.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicMiracleGroup.json",
+      "sha256": "4b934ab587d5f397b5321c597e741ee9680fbf8af9fc368c74a1f39ae845d785",
+      "bytes": 16013,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+      "sha256": "292ddb99a99d7c4490642b7ae44ad6804f9a34fb6045779191ce8efa3117a5ab",
+      "bytes": 715,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicNPC.json",
+      "sha256": "99a6c7e9c1c220f2899dc44f9acfbaa174be4ffe4287e4f721938be71344bf6a",
+      "bytes": 6658,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicRoom.json",
+      "sha256": "7fdd5d1d8b2dd16e36962ffaff81c5ac1e600d9f786ce879320eac5fd3ca8c6d",
+      "bytes": 105135,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicRoomMark.json",
+      "sha256": "d68d900ff3124d4c1272c2ebafdcab0d8de48536dc68a6e58b8e960166886e08",
+      "bytes": 7290,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicScepter.json",
+      "sha256": "4fd534ed2bbcb87578d1aba80f114c8e62c2c169876e6da635b6426502efa09c",
+      "bytes": 36000,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicScepterDisplay.json",
+      "sha256": "f19b25b8a6bafc6d3fb85244ecdfe1bdb04a54fdb13e632fde7d9a4b383290b9",
+      "bytes": 11364,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicScore.json",
+      "sha256": "781eddd32c2e0a4bf3e7120c5b4878612cd990cf2f922907e76dfa3434b3998c",
+      "bytes": 12511,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicStory.json",
+      "sha256": "99c1fb3c9c4ec9383eb504994bd45cd14b987e0c4068fdf9c0154f0dc2acf92d",
+      "bytes": 13630,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicStyleTypeSelect.json",
+      "sha256": "ba9056250f5066e2b97c782b8f7f749c489603073183242e930d7e8edb74b690",
+      "bytes": 870,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicTalent.json",
+      "sha256": "f7ed7de647f7faa47b1a82eeccd3351145b2586838435e7bcfc49fee8a31dbcf",
+      "bytes": 11814,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicUnit.json",
+      "sha256": "559bfca030fb8dfa774c4bcbe7e987e2a0abcb97bec157f1cb952abefd27fb30",
+      "bytes": 144067,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicUnitDisplay.json",
+      "sha256": "7c1ed03db0d57abf3c0e8eec13f85302ca934690465e6b546485d244a3ebfa96",
+      "bytes": 18858,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicUnlock.json",
+      "sha256": "21caf343cfbc36e692fb536d89f8ba0154c2ba76cc496c14dc87c279f513a8e5",
+      "bytes": 2936,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicWorkbench.json",
+      "sha256": "2d8abcfb4699fb02b01e4f1dfeadde9f33af7f8162895382e6bb587f583ebf24",
+      "bytes": 371,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+      "sha256": "863c4c944746c75c708fe3db0f13a101c1462f3977beca99ac6a8d1896079a52",
+      "bytes": 1429,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueManager.json",
+      "sha256": "1f29c3643e6b16eaa6b241d1f06076947878dc5b8acf66a4988627c55ffbbe84",
+      "bytes": 37947,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueMap.json",
+      "sha256": "8a34155c4562052cebfa06724261b45c99c66cbfd0fd20db9d345e4fffe2f9d1",
+      "bytes": 83687,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueMazeBuff.json",
+      "sha256": "d7038295fa1889992f736ace890ef0ea1a638ebdfda4c17d11a8c0d6086ebae9",
+      "bytes": 1301709,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueMiracle.json",
+      "sha256": "db1a991d075d8bc560c7d44c06439f9693a3ea82c5babc81bc88cd2e539427be",
+      "bytes": 31293,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueMiracleDisplay.json",
+      "sha256": "f0ea9294496650d8a3bbc606f99ec8db1e2e400fdb22656aa73408fb2049f1c3",
+      "bytes": 90379,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueMiracleDisplayTest.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueMiracleEffect.json",
+      "sha256": "278aa9e90b6fd728bede544f699c2da3ee29f6a82355dc2c6c2d99040783af2c",
+      "bytes": 204711,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueMiracleEffectDisplay.json",
+      "sha256": "41a45b3739670356ee35d5f9a6ed4d8dfba161eeccaa84f6e7cd3eb0690c98f6",
+      "bytes": 180948,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueMiracleEffectTest.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueMiracleGroup.json",
+      "sha256": "f0558172dc1d8cfff04e242c9819f5b8ac7cdee42543e66d5391f1cf80a266e2",
+      "bytes": 24920,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueMonster.json",
+      "sha256": "d6c63039c45acebe94ade6b6cbc6277d2b56bf39e456e14ff8c4c92e3f779a60",
+      "bytes": 209657,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueMonsterEliteDropItem.json",
+      "sha256": "afde3b50177e6b4fd723dcf7e82bfa38a8a21bb4b8489c2c95c7970606decd1d",
+      "bytes": 3567,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueMonsterGroup.json",
+      "sha256": "4c1abc89dbd5c10ae850de9f6a6c563a0fb0d2055e70d7d2e0d651593e2c215a",
+      "bytes": 132195,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueNPC.json",
+      "sha256": "099c77e66690c8a10f8a7654e8f0ae5f138736be4577af72db4dec69140a081e",
+      "bytes": 27679,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueNousAeon.json",
+      "sha256": "277f6f4b3b82e31289e7b90594920da76217417f8f5eae2a798ef799d54f199d",
+      "bytes": 2852,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousAeonCross.json",
+      "sha256": "0ca1ce1c98304235eab659eda9e8f1592b8cee4a9e1d787f2f8f9d4233a49b90",
+      "bytes": 2217,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousConstValueClient.json",
+      "sha256": "3250ddfbf14089923133dc6b1553594dac88e5f43351a9ec35a03428573f43b2",
+      "bytes": 4313,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousConstValueCommon.json",
+      "sha256": "66f65f8e97d29d3a875f90af28191e7c4e9676cc707472d22169899be887dfcc",
+      "bytes": 4076,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousDiceBranch.json",
+      "sha256": "7c7ffa1963b20e4bfbb6f9629eb85b010829f451f3e2c1356f9d35ffa1a9ae26",
+      "bytes": 26047,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousDiceBranchTag.json",
+      "sha256": "5986cae16a238176acb57f9e0441afe38f82ffc789379d1e02c749f85b4bd8bf",
+      "bytes": 753,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+      "sha256": "2295158c7ad98bab02cbb621b30d8417e7e101b68054ec911b7957c7629d61da",
+      "bytes": 24677,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousDiceSlot.json",
+      "sha256": "1a018640f628de6c844e19559ed2f623fabdced40d4cdfd3c287b2ad8f9bebb3",
+      "bytes": 1170,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousDiceSurface.json",
+      "sha256": "64c0537bb41fc4e726f11d948b5f5d0bdd880b644900ccd87253d0b81608c9c3",
+      "bytes": 58642,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+      "sha256": "842e9bcd98a99eff2c3af614c9d3891f0f3f275376c7129eaabf9d8365923c06",
+      "bytes": 2666,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousEndGameReward.json",
+      "sha256": "a3bd17b5ef16ac5b413cb6e9fa0bc1467bc861d58c95a8340cc7bde6004d9a50",
+      "bytes": 757,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousMainStory.json",
+      "sha256": "8d58c3bf11d098d611e824219b1d3d6eb530755aafb73a1836105bd073c18d88",
+      "bytes": 2536,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousMiscDisplay.json",
+      "sha256": "500d728aaf7674d44ac5b3595794d038da721a6624e8f975746a3656daa551a8",
+      "bytes": 2033,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousMissionReward.json",
+      "sha256": "5d42d998191f3326e11cfc1cc4888e976157a80f20f6e31c5a766f57f31ce048",
+      "bytes": 970,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousRoom.json",
+      "sha256": "d78d84871fd40a00e2c49512c0b7e1f501b6270f3d0c0e25ffeaa29eca573d23",
+      "bytes": 151206,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousStoryDisplay.json",
+      "sha256": "6074ec1109c934dec6e335b35b74328220e1f7a4ad5c4f012fea7223ca7e4abd",
+      "bytes": 1450,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousStoryReward.json",
+      "sha256": "7ec4a6971be35f9ed8247d793df881b58c13c387259273627af378e7a8cf03a4",
+      "bytes": 1847,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousSubStory.json",
+      "sha256": "daeae4cb75c1a047d6d41618d7a48a2c1392fd051b27a6c03b300deeb7644be4",
+      "bytes": 8304,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousSurfaceTag.json",
+      "sha256": "bfa376cdc3559f685413d92f765ae71af549220d5dc9e56fe1cc665d229dd8c6",
+      "bytes": 1051,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousTalent.json",
+      "sha256": "76019d4007573b0bccaa4750fb723f59d06015527e85cb6421c4bcaf11569f40",
+      "bytes": 21172,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+      "sha256": "6ce3e4140cda8ed034fec966546eeb03820c9a6ffbac9fc35371e39c1eed1316",
+      "bytes": 1056,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RoguePersonaConstClient.json",
+      "sha256": "0bd514e63ed02849e877630dcffcabb5e195569c641e2ba9e4f2e8ebc9c77c32",
+      "bytes": 182,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RoguePersonaConstCommon.json",
+      "sha256": "be9206cb2668dba3d8916043d048801c919097ce534429443182e13b0f426294",
+      "bytes": 1355,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RoguePersonaLayerRoom.json",
+      "sha256": "c67e4e671d7a8472484a9d507c4da109ea2ac3491af143ecab94da707b09e78a",
+      "bytes": 4079,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RoguePersonaRoomAttribute.json",
+      "sha256": "7b25e390af30807128a2d6add656e328bd1ebc6db0753a6090259a28e30feadf",
+      "bytes": 19750,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RoguePersonaRoomCompType.json",
+      "sha256": "639a5d209dc79f3c07780360a5ae24b7ad3b44fb926a13a3f570d28fa5d83241",
+      "bytes": 8113,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RoguePersonaRoomComposition.json",
+      "sha256": "66e79be582c19a7b2059da9e319449e2797f15c06d4ac6559af203a24beb04fe",
+      "bytes": 3040,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RoguePersonaRoomPreset.json",
+      "sha256": "12d796282a3514ec55d687ef4da86fa6e9e375bf9bfc8b1f110da886fa67e1a7",
+      "bytes": 3613,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RoguePersonaStyle.json",
+      "sha256": "fe0d6a024f5d5594ae961882ee6445e170224346d37498b96926ea517f621f32",
+      "bytes": 10396,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RoguePersonaStyleGift.json",
+      "sha256": "3119ef380fa5332c11bb099f1ff08360cbeb3e622c8c205eb8c29ed261bd8e44",
+      "bytes": 122951,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RoguePersonaTalent.json",
+      "sha256": "78c7c77c503dbd3ff2c100e81ad79df87e38a51ee59c9836d9b2db729d3c9f80",
+      "bytes": 11319,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RoguePersonaTalentGroup.json",
+      "sha256": "b0ff2736b2ca0464f87ed347b146debe4fd09563d38455afe39d97a5efca249b",
+      "bytes": 1205,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueRoom.json",
+      "sha256": "3635ab4f5a58cee69c7920fa22a1c0aae6a0a057ead9ef6e5c2486b85194148b",
+      "bytes": 165057,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueRoomType.json",
+      "sha256": "fc16efbf93a271d76285c750a32f251ebbee26af8aebe2ce46351f0e42c25b31",
+      "bytes": 4024,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueScoreReward.json",
+      "sha256": "ed39f638f8232dab0b84961d653b65e8dbc33779f6121871abc07651a4b09d91",
+      "bytes": 6870,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueShop.json",
+      "sha256": "c016b060fd29943610038cdecfa6cf37f3bfb9a6e5966dfabe65f0656260bb17",
+      "bytes": 1805,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueTalent.json",
+      "sha256": "d3c0073879bb1c66268453a7c8ae5c54f373a91d723379f4cf0c80110fa2f309",
+      "bytes": 23006,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueTalkNameColor.json",
+      "sha256": "d21cafe1b960e54c4eb9cdfa1cc93e9067f3077a69f386873a1168ec49a32973",
+      "bytes": 7469,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueTalkNameConfig.json",
+      "sha256": "17b80d5a5c1cf3f0999601502dadb26e225d1062bee1365b56d56a3b0acc3298",
+      "bytes": 101301,
+      "family": "presentation_or_account"
+    },
+    {
+      "path": "ExcelOutput/RogueTournAdventureRoom.json",
+      "sha256": "f23625cbf36fb0e17a5ab44aa8fe09279a8bcf730280b3eafb2805ab0a0b8545",
+      "bytes": 3338,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournArea.json",
+      "sha256": "5b16a10e5c07c6c8cb1b5e5174322e17e54505653d9c3b13a435ba6abb783659",
+      "bytes": 135739,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournAreaGroup.json",
+      "sha256": "72e9fe5cb1d47fe269aec0b89771c1ca6bc9e9ff87ae601e6ba56eb221265f68",
+      "bytes": 352,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournAreaGroupByTourn.json",
+      "sha256": "7fc0963b5efc0de7ff1b99cd00884896d099cf6bcbe12b61c1c72279f4eb4c19",
+      "bytes": 572,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournAvatar.json",
+      "sha256": "c27aebdc45d481e1cce25a7be40d8dabc4310baa4469bff7f8a1c1cd3aa321a8",
+      "bytes": 5217,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournBuff.json",
+      "sha256": "3330d38cce0036a976f44f3bb15bdbbaa80bed148af0b7b65cf32e9cbfbc4d38",
+      "bytes": 222025,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournBuffGroup.json",
+      "sha256": "bd55d2c51a20588e299ad9557bd7ee58de57be6bdd035356b22e8bcc7ebee01b",
+      "bytes": 77398,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournBuffType.json",
+      "sha256": "c287e206f648375f4467eda13aa8e4e8505bc37707ebce85b0e28c427c677254",
+      "bytes": 5906,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournBuildRefAvatar.json",
+      "sha256": "048fe008bf3b74d9e8c15d5e965f337bb5217a83bade7484e807a036b0a1a238",
+      "bytes": 4875,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournCocoonConfig.json",
+      "sha256": "6b7797dcc5d772e5b0b1ec6c2e8158d85976fb55de8b92c32ce5bfdbd48abeb3",
+      "bytes": 78196,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournCollection.json",
+      "sha256": "e4f5f14a8a50ef1a8e269191a94b2313bf84ca214fdde8e1be7a0e6f032ecf57",
+      "bytes": 13173,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournCollectionConfig.json",
+      "sha256": "b7f2b346deed4c1993ebf7707461e447ddfe53ad61c61cc61b283fe73891bb82",
+      "bytes": 435,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournConstClient.json",
+      "sha256": "cbdce4c61646570bf2e8281c7c9974425f805ca0890e6996ef2bd35d9eb3e566",
+      "bytes": 3562,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournConstCommon.json",
+      "sha256": "74c3fa673f7dffb3672c2c0239f8bad0e8f5100e30d72ee55ffb770da0fb4b6d",
+      "bytes": 5836,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournContentDisplay.json",
+      "sha256": "ec924027e31dc9a2a4f02fcfa61c09979e48db529c811f3f28f2a7bfc0bbc7de",
+      "bytes": 3068,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournCurseChest.json",
+      "sha256": "20117e96adbc0960fa4cc9f6b39d863bd1be64ec2ce4d53aa4f815f3239621ac",
+      "bytes": 10797,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournDifficulty.json",
+      "sha256": "126e0bf03752b49b7975b78aece6147ea17e500d728ca7483c8731ea3f357a63",
+      "bytes": 5800,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournDifficultyComp.json",
+      "sha256": "a8e7a199169937a8aed2358f928bf2ce28c0208ea0aeee0d9b3813af5a2be43a",
+      "bytes": 723,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournDivision.json",
+      "sha256": "b460cc9132d6e138eab1faa8b85edab3b51b2dc5c282f904711d5529adb51e50",
+      "bytes": 4414,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournDivisionEffect.json",
+      "sha256": "791ac4cbcc9749762f8b81bccd3fe40b1007004042ff6021b6945178fb4bb09e",
+      "bytes": 2222,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournExhibition.json",
+      "sha256": "482f7191d6f52e40195f60289674c5dac42abbd529446e9940f53eaca96cb47e",
+      "bytes": 24942,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournExhibitionConfig.json",
+      "sha256": "c64f265cf85e488ec784927c93d882690855f9642bc0adbbb4bb9ce17add8267",
+      "bytes": 954,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournExpReward.json",
+      "sha256": "dfcccfb52a7d00130db89da6ea910ff14858032382ba64478fb7d695bee8efd9",
+      "bytes": 26559,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournExpScore.json",
+      "sha256": "001d5595053a8e6d51cb8316f64b08c8312d992004c337cf25f89d2019fb7cf7",
+      "bytes": 10505,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournExpScore_Index_ScoreExpID.json",
+      "sha256": "6969efe773e09539c4dddbf07cad66aeddee4b2ab9f8d456032cbddf9dc48337",
+      "bytes": 6537,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournFinishway.json",
+      "sha256": "ecfa2a075df143ec7eb11bba7f720be68186cae278a1d8ce9c85bc244abe8b27",
+      "bytes": 25653,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournFormula.json",
+      "sha256": "42ad3e08128deef97e8985dc99b1071786c2aeac7c20cd0eb1e1866e9161af08",
+      "bytes": 95598,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournFormulaAeonIcon.json",
+      "sha256": "da558050e7ebabf61ec8f7596c2dc1c04f4155b463f55e498357f02e82be483c",
+      "bytes": 3945,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournFormulaDisplay.json",
+      "sha256": "f2eb495a97daeb906eb3adad1d847fbe2e8d002d608105461418277c94e8e39f",
+      "bytes": 57213,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournFormulaRandom.json",
+      "sha256": "db3ee97e8a36e67047543b1339e7eafd9ee527869240962ed8fae0d5172753d9",
+      "bytes": 4597,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournGambleGroup.json",
+      "sha256": "56485dbbb93cf5c7e957eb2d95e0a6e60cfa774fee34b82d311a5f61ec058186",
+      "bytes": 26067,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournGambleUnit.json",
+      "sha256": "7309bc2f7538960f892a4f5343d6b3368745ff0868f16a8c45298809dd0fae67",
+      "bytes": 17458,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournHandBookEvent.json",
+      "sha256": "607ab86844e974339383b106c67aa45399d27309edd506e078feb2bb18fa28f0",
+      "bytes": 49574,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournHandbookMiracle.json",
+      "sha256": "cd8e2407b618e56a2894fb8907115d92d7827b4ef8379c279d7edaed3da0c16a",
+      "bytes": 71579,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournHex.json",
+      "sha256": "ed2d60a4f61aa2a66eff241597ff305646e30668444e26cf701006075f89266a",
+      "bytes": 3724,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournHexAvatarBaseType.json",
+      "sha256": "0600e314e36ce0088575f2c99b672561cdb9fb7bc6daf5e2c93e5466b6b34204",
+      "bytes": 6612,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournHexDisplay.json",
+      "sha256": "b02da0e77cafbf2e492d2efffa1e17e96bd3eb1175d904f7184d1c238a1fca98",
+      "bytes": 9801,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournKeyword.json",
+      "sha256": "74ea72cb96a23ed59562a6d99df0a6f3db4797290c565c558e170ce09aff2869",
+      "bytes": 13801,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournKeywordParam.json",
+      "sha256": "91458406cfe0b6847b95c395585cd01c4751dd1e12caf4d8bb6fb3d6c856aa75",
+      "bytes": 1748,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournLayer.json",
+      "sha256": "109748f6a2ce1273ad39fd43d4ae899c52587d1cd11a92bd93c48addfcfa06ef",
+      "bytes": 1903,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournLayerRoom.json",
+      "sha256": "bbfa391c37ef1d2447fcbdc2e10d872bbd63b08092a50a6b6535c39583310967",
+      "bytes": 19117,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournMiracle.json",
+      "sha256": "4f6297b144cf135be1555caec65217eefcc502f3d27b483226287856388550d2",
+      "bytes": 122664,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournMiracleDisplay.json",
+      "sha256": "6af22fa37858157360cd671ceda9d939194dc561cac36ee564473a0496ea2760",
+      "bytes": 51025,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournMiracleGroup.json",
+      "sha256": "dd0d9ab78623d3476f82a0ae13b8a50d51a53fc04c8819c8b43cccef4be69a7b",
+      "bytes": 12873,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournMiracleGroupTest.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournMiracleTest.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournMiscDisplay.json",
+      "sha256": "295f59bdab28cd52d5f77e9de578e283d45a99b7ed110f327b9eac79b6499b7d",
+      "bytes": 1728,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournModule.json",
+      "sha256": "b7c2ddc6f0723f054a0cb99b96945efad5b128e788ab7d2f1e3541164cd2eee4",
+      "bytes": 715,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournNPC.json",
+      "sha256": "5b9a71e8a119a5c17f6752f8b015aa96cd11fa38c487308cecfbb5cec9a0bbc5",
+      "bytes": 37093,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournPermanentTalent.json",
+      "sha256": "c543e09deb57842c54441379dd4df3ca0a2a379c61f748f318380a2452fdcfe1",
+      "bytes": 19836,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournRecordShowcase.json",
+      "sha256": "45218c8c719217f2e8086120423852550f2c9119cf2f42eca209e6d3267d253f",
+      "bytes": 4008,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournRole.json",
+      "sha256": "418ef5007a8b00802f9b523c7df5b9850020eabcd5a24010da3473d62555dc16",
+      "bytes": 5323,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournRoom.json",
+      "sha256": "aba2539f17bb7387d2b28b329d548a30d6d41cea44733ed3c92f8bc29c77caf0",
+      "bytes": 161858,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournRoomGroup.json",
+      "sha256": "1a02e607a62365f7d3179ee993a36359c68664136dd37bedc3904e0a2aa9ed6f",
+      "bytes": 2480,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournRoomMark.json",
+      "sha256": "683f13558d8234490d4d21b78b90d9d93b5ea7b41852988aeb693c7d81d96e99",
+      "bytes": 9742,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournTitanBless.json",
+      "sha256": "0a25a303257eace562bc367df3c833208db959c3a4cf0efbdd0503beb3dcb8bf",
+      "bytes": 17133,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournTitanTalent.json",
+      "sha256": "999154e09347ff7f3e53fca7df50e585980eadb3f7ca189bbdf7010a25d87446",
+      "bytes": 21568,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournTitanType.json",
+      "sha256": "39f186bef83595d2bd6957341d63eca6c96506b17cc389293665d851d6e91ac5",
+      "bytes": 9419,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournUnlock.json",
+      "sha256": "38b06c05da391d17484a30660b25645814342d5712f4194132f489c6a30c2e5d",
+      "bytes": 9608,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournUseBuffType.json",
+      "sha256": "d659ca1e24be104d2bcc9eb6a9cd237633dad5215278bf14e40a3cf080dfb649",
+      "bytes": 476,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournWeeklyChallenge.json",
+      "sha256": "e9bd88b46a3808e848132b7ef9583b5c8dc731aa9d7c0e37eacc1fb5ab651ddb",
+      "bytes": 54217,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+      "sha256": "d23c5579e9bc7310e841d6a4d3037b4446123fbbb69a39be2c8843a826526273",
+      "bytes": 70793,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournWorkbench.json",
+      "sha256": "cf1cfedf69e0b46eee2dfe4faeb82afa3c03f26ec236425ea5900607ab74ccc8",
+      "bytes": 925,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+      "sha256": "58138d3585feccdd4b0d8281b69719fc8f3555c4d9620fb497f7e038eee46be2",
+      "bytes": 1123,
+      "family": "other_mode"
+    },
+    {
+      "path": "ExcelOutput/RogueTurntable.json",
+      "sha256": "1bfde31ec8c0f6787b9d68a3873956e10c9a9da73f8423ddd70de9833e2e3253",
+      "bytes": 717,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueUnlockConfig.json",
+      "sha256": "5560954d0052d343bc7793349676cc4a6ed28dfa256617c138d881e2cb93b66e",
+      "bytes": 27089,
+      "family": "standard_candidate"
+    },
+    {
+      "path": "ExcelOutput/RogueUpgradeAvatar.json",
+      "sha256": "c586bf44ae9404e27f572132fba8386277fc0f62838dd2dab396c1069f128afd",
+      "bytes": 2479,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueUpgradeAvatarConst.json",
+      "sha256": "256450c7e53725a0e154f858e022281094613b46676d44dc42559cff3e9d993d",
+      "bytes": 337,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueUpgradeAvatarEquipment.json",
+      "sha256": "2fb51346ff2b888725d306370d7a55240ee21b2c749514a1a19e902e383fb35b",
+      "bytes": 562,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueUpgradeAvatarSubRelic.json",
+      "sha256": "97424ca2cac808986263db71d0bfb5c78bac011eb25be90f84ca055d6448e79d",
+      "bytes": 197604,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueUpgradeAvatarSubType.json",
+      "sha256": "d4bd339a3d44c81f988cd75023f017c7750adff5f0819e90cb602d4f5519999b",
+      "bytes": 135,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueUpgradeAvatarSubValue.json",
+      "sha256": "7c666473bd8f4cabb6404d0877f2155b325d575d02e6178c2f6a324513532c80",
+      "bytes": 91611,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/RogueWolfGunMiracleTarget.json",
+      "sha256": "97bd7a6da1921dc3581bdda71f84d9fea1c5937314a0b32c24fee0778a7b9b10",
+      "bytes": 70787,
+      "family": "shared_requires_reachability"
+    },
+    {
+      "path": "ExcelOutput/ScheduleDataRogue.json",
+      "sha256": "6aa9efd6f0b5c057376bf26ecadb3e9b455a278cd6b419dbbf4ea53324af614c",
+      "bytes": 8505,
+      "family": "standard_candidate"
+    }
+  ]
+}

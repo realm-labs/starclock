@@ -58,12 +58,20 @@ $turnPatterns = @(
     "/ExcelOutput/MonsterSkillConfig.json",
     "/ExcelOutput/MonsterStatusConfig.json",
     "/ExcelOutput/StageConfig.json",
+    "/ExcelOutput/ActivityRogue*.json",
+    "/ExcelOutput/ConstValueRogue.json",
+    "/ExcelOutput/FinishWayRogue.json",
+    "/ExcelOutput/GuideRogue*.json",
+    "/ExcelOutput/Rogue*.json",
+    "/ExcelOutput/ScheduleDataRogue.json",
     "/TextMap/TextMapEN.json",
     "/TextMap/TextMapCHS.json",
     "/Config/ConfigCharacter/Avatar/",
     "/Config/ConfigCharacter/Monster/",
     "/Config/ConfigAbility/Avatar/",
     "/Config/ConfigAbility/Monster/",
+    "/Config/ConfigAbility/BattleEvent/*Rogue*.json",
+    "/Config/ConfigAbility/Level/Level_*Rogue*.json",
     "/Config/ConfigAI/"
 )
 

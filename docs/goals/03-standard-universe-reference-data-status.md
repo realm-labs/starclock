@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Freeze scope and evidence |
 | Active batch | None |
-| Next unblocked batch | `G03-P0-B2` |
+| Next unblocked batch | `G03-P0-B3` |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -18,7 +18,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope/evidence | `InProgress` | Snapshot, scope, source priority and 28-batch execution contract frozen by `G03-P0-B1`. |
+| Phase 0 — Scope/evidence | `InProgress` | Snapshot/scope frozen; ignored source cache reproducibly includes and hashes all 372 Rogue table/ability files. Concrete row manifests remain B3. |
 | Phase 1 — Reference pack | `Pending` | — |
 | Phase 2 — Sora schema | `Pending` | — |
 | Phase 3 — Excel authoring | `Pending` | — |
@@ -29,7 +29,7 @@
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
 | `G03-P0-B1` | `Complete` | This row's containing commit | Frozen Version 4.4 / 2026-07-22 main-world scope, nine-World/nine-Path public boundary, pinned source revisions, required/excluded categories, evidence/quality policy, normalized pack and Excel/Sora promotion contracts. Added the 28-batch plan, persistent ledger and launch prompt; both prior release contracts and source-policy checks pass. |
-| `G03-P0-B2` | `Pending` | — | — |
+| `G03-P0-B2` | `Complete` | This row's containing commit | Expanded the pinned sparse cache with every Rogue Excel table and Rogue battle/level ability file. Deterministic inventory `4c45418e…8972` hashes 372 files: 35 Standard candidates, 17 shared/reachability-review tables, 165 other-mode tables, 17 presentation/account tables and 138 mechanic-evidence files. The generator's `--check` mode rejects drift; classification is table-level only and does not pre-approve shared rows. |
 | `G03-P0-B3` | `Pending` | — | — |
 | `G03-P0-B4` | `Pending` | — | — |
 | `G03-P1-B1` | `Pending` | — | — |
