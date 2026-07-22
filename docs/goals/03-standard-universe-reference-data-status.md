@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 2 — Sora schema and authoring contract |
 | Active batch | None |
-| Next unblocked batch | `G03-P2-B3` |
+| Next unblocked batch | `G03-P2-B4` |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -20,7 +20,7 @@
 |---|---|---|
 | Phase 0 — Scope/evidence | `Complete` | Snapshot/scope, 2,646-file evidence inventory, corrected 1,935-row main-world manifest, stable normalized record families, provenance/quality labels, canonical JSON rules and semantic fixture contract are frozen and machine-verified. |
 | Phase 1 — Reference pack | `Complete` | Twenty-four contract files contain 2,201 DataReady content records, 786 rule bindings and 78 mechanic-family fixtures; pack/index regeneration and reference closure are machine-verified. |
-| Phase 2 — Sora schema | `InProgress` | Identity/topology plus all content-mechanic families validate under pinned Sora 0.3.0; pool/Activity/Rule bindings remain. |
+| Phase 2 — Sora schema | `InProgress` | Identity, content, pool, encounter, Activity seam and Rule contribution families validate under pinned Sora 0.3.0; evidence/coverage gates remain. |
 | Phase 3 — Excel authoring | `Pending` | — |
 | Phase 4 — Review/freeze | `Pending` | — |
 
@@ -43,7 +43,7 @@
 | `G03-P1-B9` | `Complete` | This row's containing commit | Completed the 24-file normalized contract with manifest, coverage, mechanic-rule bindings, semantic fixtures and a self-excluding canonical pack index. The verifier proves stable-ID uniqueness, common envelopes, bilingual/provenance closure, all cross-family references, all 538 Goal 01 enemy references, 100% coverage and byte/digest identity. Fixed the tutorial profile's formerly colliding difficulty ID. The result contains 2,201 DataReady content records, 786 rule bindings and 78 distinct review fixtures; pack digest is `8a6ea40d…eb5dd`. |
 | `G03-P2-B1` | `Complete` | This row's containing commit | Added the first multi-sheet `Universe.xlsx` Sora family: profile, nine Worlds, difficulties and boss/elite bindings, domains, map nodes/edges, rooms/content and Paths/Blessing membership. Local numeric keys remain private authoring identities while stable keys preserve domain identity. Cross-table references are typed, Goal 01 enemy bindings target `EnemyVariant.id`, and Sora 0.3.0 schema validation passes without changing frozen combat tables. |
 | `G03-P2-B2` | `Complete` | This row's containing commit | Added normalized Sora tables for Resonances/parameters, Blessings/prerequisites/levels/parameters, Curios/states/parameters, Occurrences/variants/choices/costs/outcomes, services/parameters and Ability Tree nodes/edges/costs/effects/parameters. Complex mechanics are child rows rather than cell-local DSLs; exact decimal values use canonical string fields. All tables share explicit sheets in `Universe.xlsx`, stay below the source-size limit and pass Sora 0.3.0 schema validation. |
-| `G03-P2-B3` | `Pending` | — | — |
+| `G03-P2-B3` | `Complete` | This row's containing commit | Added `UniverseBindings.xlsx` schemas for generic content pools, encounter groups/members/waves/enemy slots, room encounter pools and fixed difficulty bindings, mechanic-rule contributions, and the Activity/domain seam. Enemy slots are typed Goal 01 `EnemyVariant` references; internal encounter references are typed. Activity bindings explicitly reserve participant-digest locking, scoped slots and fork/join without duplicating generic Activity semantics. Sora 0.3.0 validation passes. |
 | `G03-P2-B4` | `Pending` | — | — |
 | `G03-P2-B5` | `Pending` | — | — |
 | `G03-P3-B1` | `Pending` | — | — |

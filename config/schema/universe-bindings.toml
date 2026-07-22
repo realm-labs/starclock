@@ -1,0 +1,496 @@
+[[enums]]
+name = "UniversePoolKind"
+values = ["Blessing", "Curio", "Occurrence", "Encounter", "Shop"]
+
+[[enums]]
+name = "UniverseSelectionPolicy"
+values = ["SelectExactConditionKeyThenWeightedStableOrder", "ResolveWorldDifficultyBossEliteBinding", "SelectConditionKeyThenResolveGroupOrDifficultyBinding"]
+
+[[enums]]
+name = "UniverseWavePolicy"
+values = ["SingleWave", "AuthoredSequentialWaves"]
+
+[[enums]]
+name = "UniverseBossPhasePolicy"
+values = ["EnemyAuthoredLifecycle"]
+
+[[enums]]
+name = "UniverseMechanicRuleKind"
+values = ["PathResonance", "BlessingDefinition", "BlessingLevel", "CurioDefinition", "CurioState", "RunService", "AbilityTreeContribution"]
+
+[[enums]]
+name = "UniverseActivityDecisionKind"
+values = ["BattleCommand", "RunCommand", "ExternalOutcome"]
+
+[[tables]]
+name = "UniverseContentPool"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UniverseBindings.xlsx"
+sheet = "UniverseContentPool"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "kind"
+type = "enum<UniversePoolKind>"
+[[tables.fields]]
+name = "ordering"
+type = "string"
+length = [1, 80]
+[[tables.fields]]
+name = "replacement"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseContentPoolEntry"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "UniverseBindings.xlsx"
+sheet = "UniverseContentPoolEntry"
+[[tables.fields]]
+name = "pool_id"
+type = "ref<UniverseContentPool.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 10000]
+[[tables.fields]]
+name = "content_stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "weight_decimal"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "condition"
+type = "optional<string>"
+[[tables.indexes]]
+name = "by_pool_sequence"
+fields = ["pool_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseEncounterGroup"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UniverseBindings.xlsx"
+sheet = "UniverseEncounterGroup"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 180]
+[[tables.fields]]
+name = "source_group_id"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "wave_policy"
+type = "enum<UniverseWavePolicy>"
+[[tables.fields]]
+name = "boss_phase_policy"
+type = "enum<UniverseBossPhasePolicy>"
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_source_group"
+fields = ["source_group_id"]
+unique = true
+
+[[tables]]
+name = "UniverseEncounterMember"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UniverseBindings.xlsx"
+sheet = "UniverseEncounterMember"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "group_id"
+type = "ref<UniverseEncounterGroup.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 1000]
+[[tables.fields]]
+name = "source_rogue_monster_id"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "source_primary_monster_id"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "source_stage_id"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "weight_decimal"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "stage_level"
+type = "i32"
+range = [1, 200]
+[[tables.fields]]
+name = "hard_level_group"
+type = "i32"
+range = [0, 100]
+[[tables.fields]]
+name = "stage_ability_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 64]
+[[tables.fields]]
+name = "drop_type"
+type = "optional<string>"
+[[tables.indexes]]
+name = "by_group_sequence"
+fields = ["group_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseEncounterWave"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UniverseBindings.xlsx"
+sheet = "UniverseEncounterWave"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "member_id"
+type = "ref<UniverseEncounterMember.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+[[tables.indexes]]
+name = "by_member_sequence"
+fields = ["member_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseEncounterWaveEnemy"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "UniverseBindings.xlsx"
+sheet = "UniverseEncounterWaveEnemy"
+[[tables.fields]]
+name = "wave_id"
+type = "ref<UniverseEncounterWave.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 32]
+[[tables.fields]]
+name = "slot"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "source_monster_id"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "enemy_variant_id"
+type = "ref<EnemyVariant.id>"
+[[tables.indexes]]
+name = "by_wave_sequence"
+fields = ["wave_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseEncounterPool"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UniverseBindings.xlsx"
+sheet = "UniverseEncounterPool"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "room_id"
+type = "ref<UniverseRoom.id>"
+[[tables.fields]]
+name = "domain_kind"
+type = "enum<UniverseDomainKind>"
+[[tables.fields]]
+name = "map_entrance"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "selection_policy"
+type = "enum<UniverseSelectionPolicy>"
+[[tables.fields]]
+name = "source_primary_condition_key"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_room"
+fields = ["room_id"]
+unique = true
+
+[[tables]]
+name = "UniverseEncounterPoolGroup"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "UniverseBindings.xlsx"
+sheet = "UniverseEncounterPoolGroup"
+[[tables.fields]]
+name = "pool_id"
+type = "ref<UniverseEncounterPool.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+[[tables.fields]]
+name = "condition_key"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "group_id"
+type = "ref<UniverseEncounterGroup.id>"
+[[tables.fields]]
+name = "weight_decimal"
+type = "string"
+length = [1, 32]
+[[tables.indexes]]
+name = "by_pool_sequence"
+fields = ["pool_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseEncounterPoolFixed"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "UniverseBindings.xlsx"
+sheet = "UniverseEncounterPoolFixed"
+[[tables.fields]]
+name = "pool_id"
+type = "ref<UniverseEncounterPool.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 100]
+[[tables.fields]]
+name = "condition_key"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "source_content_id"
+type = "string"
+length = [1, 32]
+[[tables.indexes]]
+name = "by_pool_sequence"
+fields = ["pool_id", "sequence"]
+unique = true
+
+[[tables]]
+name = "UniverseMechanicRule"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UniverseBindings.xlsx"
+sheet = "UniverseMechanicRule"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "source_record_stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "source_file"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "rule_kind"
+type = "enum<UniverseMechanicRuleKind>"
+[[tables.fields]]
+name = "native_handler_stable_key"
+type = "optional<string>"
+[[tables.fields]]
+name = "source_binding_key"
+type = "optional<string>"
+[[tables.fields]]
+name = "parameter_values_json"
+type = "string"
+length = [2, 16000]
+[[tables.fields]]
+name = "mechanic_tags"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 64]
+[[tables.fields]]
+name = "approximation_replacement_condition"
+type = "optional<string>"
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 280]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 280]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseActivityBinding"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UniverseBindings.xlsx"
+sheet = "UniverseActivityBinding"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<UniverseProfile.id>"
+[[tables.fields]]
+name = "activity_stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "participant_digest_locked"
+type = "bool"
+[[tables.fields]]
+name = "scoped_slots_supported"
+type = "bool"
+[[tables.fields]]
+name = "fork_join_reserved"
+type = "bool"
+[[tables.fields]]
+name = "battle_handoff_contract"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "external_outcome_contract"
+type = "string"
+length = [1, 160]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UniverseActivityDomainBinding"
+mode = "list"
+[tables.source]
+format = "xlsx"
+file = "UniverseBindings.xlsx"
+sheet = "UniverseActivityDomainBinding"
+[[tables.fields]]
+name = "activity_binding_id"
+type = "ref<UniverseActivityBinding.id>"
+[[tables.fields]]
+name = "sequence"
+type = "i32"
+range = [1, 32]
+[[tables.fields]]
+name = "domain_id"
+type = "ref<UniverseDomain.id>"
+[[tables.fields]]
+name = "decision_kind"
+type = "enum<UniverseActivityDecisionKind>"
+[[tables.indexes]]
+name = "by_binding_sequence"
+fields = ["activity_binding_id", "sequence"]
+unique = true

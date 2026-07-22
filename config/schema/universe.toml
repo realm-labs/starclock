@@ -401,6 +401,9 @@ length = [1, 32]
 [[tables.fields]]
 name = "kind"
 type = "enum<UniverseRoomContentKind>"
+[[tables.fields]]
+name = "encounter_group_id"
+type = "optional<ref<UniverseEncounterGroup.id>>"
 [[tables.indexes]]
 name = "by_room_sequence"
 fields = ["room_id", "sequence"]
