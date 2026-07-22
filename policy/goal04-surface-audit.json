@@ -1,0 +1,83 @@
+{
+  "schema_revision": "starclock.goal04-surface-audit.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "baseline_commit": "285f14f",
+  "snapshot": {
+    "game_version": "4.4",
+    "access_date": "2026-07-22"
+  },
+  "prerequisites": {
+    "core_bundle_sha256": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440",
+    "universe_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+    "core_tables": 82,
+    "universe_tables": 49,
+    "data_ready_records": 2201,
+    "rule_bindings": 786,
+    "semantic_fixtures": 78
+  },
+  "baseline_surface": {
+    "workspace_crates": [
+      "starclock-activity",
+      "starclock-agent-api",
+      "starclock-ai",
+      "starclock-build",
+      "starclock-cli",
+      "starclock-combat",
+      "starclock-data",
+      "starclock-mcp",
+      "starclock-mode-standard",
+      "starclock-replay",
+      "starclock-rules"
+    ],
+    "universe_mode_crate_present": false,
+    "activity_command_variants": ["StartBattle", "SubmitBattleResult"],
+    "activity_decision_variants": ["StartBattle", "SubmitBattleResult", "Terminal"],
+    "activity_scopes": ["Activity", "Section", "Node", "Attempt"],
+    "nested_battle_boundaries": ["Start", "End"],
+    "cli_route_families": ["config", "catalog", "battle", "replay", "mcp"],
+    "mcp_tool_names": [
+      "starclock_list_scenarios",
+      "starclock_create_battle",
+      "starclock_observe_battle",
+      "starclock_play_action",
+      "starclock_export_replay",
+      "starclock_close_battle",
+      "starclock_verify_replay"
+    ]
+  },
+  "retained_invariants": [
+    "activity_is_only_run_mutation_boundary",
+    "battle_is_only_combat_mutation_boundary",
+    "rejected_commands_preserve_authoritative_state",
+    "battle_handoff_and_result_are_identity_checked",
+    "generated_sora_rows_remain_private",
+    "runtime_never_reads_json_or_xlsx",
+    "combat_has_no_universe_mode_dependency",
+    "clients_consume_ordered_offered_commands"
+  ],
+  "gaps": [
+    {"id": "universe_catalog_lowering", "owner": "G04-P1-B1..B6"},
+    {"id": "generic_activity_graph", "owner": "G04-P2-B1"},
+    {"id": "run_state_and_inventories", "owner": "G04-P2-B2"},
+    {"id": "activity_operations_and_transactions", "owner": "G04-P2-B3"},
+    {"id": "activity_rng_and_canonical_hash", "owner": "G04-P2-B4"},
+    {"id": "multi_battle_handoff_and_carry", "owner": "G04-P2-B5..B6"},
+    {"id": "full_run_replay", "owner": "G04-P2-B7,G04-P5-B2"},
+    {"id": "standard_universe_profile", "owner": "G04-P3-B1..B7"},
+    {"id": "runtime_content_mechanics", "owner": "G04-P4-M01..M15"},
+    {"id": "activity_controller", "owner": "G04-P5-B1"},
+    {"id": "universe_cli", "owner": "G04-P5-B3"},
+    {"id": "activity_agent_api", "owner": "G04-P5-B4"},
+    {"id": "activity_mcp_tools", "owner": "G04-P5-B5"}
+  ],
+  "forbidden_shortcuts": [
+    "universe_specific_apply",
+    "universe_specific_rng_or_replay",
+    "runtime_json_or_xlsx_loading",
+    "generated_row_types_in_public_apis",
+    "coordinates_or_pathfinding",
+    "content_id_branches_in_combat",
+    "catalog_clone_per_session",
+    "replay_prefix_reexecution_per_command"
+  ]
+}

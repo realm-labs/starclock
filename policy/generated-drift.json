@@ -90,6 +90,10 @@
       "command": ["node", "tools/universe-reference/verify-release.mjs", "."]
     },
     {
+      "name": "Goal 04 runtime surface audit",
+      "command": ["node", "tools/goal04/verify-surface-audit.mjs", "."]
+    },
+    {
       "name": "production Excel and Sora configuration golden",
       "command": ["node", "tools/config-production/verify.mjs"]
     },

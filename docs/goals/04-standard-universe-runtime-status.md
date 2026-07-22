@@ -5,24 +5,23 @@
 | Field | Value |
 |---|---|
 | Goal ID | `standard-universe-runtime-v1` |
-| State | `NotStarted` |
-| Active phase | None |
+| State | `InProgress` |
+| Active phase | Phase 0 — Contract, audit and vertical-slice plan |
 | Active batch | None |
-| Next unblocked batch | `G04-P0-B1` |
+| Next unblocked batch | `G04-P0-B2` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
 | Blocking condition | None |
 
-`NotStarted` means the execution package is prepared but no persistent Goal 04
-implementation run has begun. Starting the goal changes only the earliest
-unblocked batch to `InProgress`.
+The persistent Goal 04 execution loop is active. Only the batch named above may
+be `InProgress`; completion evidence and its commit are recorded atomically.
 
 ## Phase ledger
 
 | Phase | State | Exit evidence |
 |---|---|---|
-| Phase 0 — Contract/audit | `Pending` | Frozen APIs/revisions, runtime dispositions/partitions, vertical slice and benchmark/release scaffolds. |
+| Phase 0 — Contract/audit | `InProgress` | Frozen APIs/revisions, runtime dispositions/partitions, vertical slice and benchmark/release scaffolds. |
 | Phase 1 — Catalog | `Pending` | Exact isolated bundle lowers privately; all universe definitions and references validate. |
 | Phase 2 — Activity core | `Pending` | Generic graph/state/transactions/RNG/hash/battle handoff replace the one-battle-only limitation. |
 | Phase 3 — Standard profile | `Pending` | Spatial-free domains and every shared Standard Universe subsystem execute generically. |
@@ -37,7 +36,7 @@ tests and relevant hashes/counts rather than only naming files.
 
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
-| `G04-P0-B1` | `Pending` | — | — |
+| `G04-P0-B1` | `Complete` | This row's containing commit | Baseline `285f14f` is reproducibly audited: 11 crates, two Activity commands, three decisions, four scopes, one nested battle pair, five CLI route families and seven battle-v1 MCP tools. Frozen bundle/table/content denominators pass; 13 missing runtime seams have explicit batch owners. Evidence: `evidence/standard-universe-runtime-v1/foundation/surface-audit.json`. |
 | `G04-P0-B2` | `Pending` | — | — |
 | `G04-P0-B3` | `Pending` | — | — |
 | `G04-P0-B4` | `Pending` | — | — |
