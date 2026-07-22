@@ -11,13 +11,20 @@ sys.path.insert(0, str(SCRIPT_ROOT))
 
 from workbook.common import author, semantic_digest  # noqa: E402
 from workbook.blessings import build_rows as build_blessing_rows  # noqa: E402
+from workbook.curios import build_rows as build_curio_rows  # noqa: E402
+from workbook.occurrences import build_rows as build_occurrence_rows  # noqa: E402
 from workbook.topology import build_rows as build_topology_rows  # noqa: E402
 
 
 def build_rows(root: Path, empty: bool) -> dict[str, list[dict]]:
     if empty:
         return {}
-    row_sets = (build_topology_rows(root), build_blessing_rows(root))
+    row_sets = (
+        build_topology_rows(root),
+        build_blessing_rows(root),
+        build_curio_rows(root),
+        build_occurrence_rows(root),
+    )
     combined: dict[str, list[dict]] = {}
     for rows in row_sets:
         overlap = sorted(set(combined) & set(rows))

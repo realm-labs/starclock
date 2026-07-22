@@ -14,6 +14,8 @@ pub struct UniverseCurioState {
     pub state_kind: UniverseCurioStateKind,
     #[serde(rename = "charges_decimal")]
     pub charges_decimal: Option<String>,
+    #[serde(rename = "charge_parameter_index")]
+    pub charge_parameter_index: i32,
     #[serde(rename = "next_state_id")]
     pub next_state_id: Option<i32>,
     #[serde(rename = "repair_state_id")]
@@ -44,6 +46,7 @@ impl super::runtime::SoraDecode for UniverseCurioState {
             curio_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             state_kind: <UniverseCurioStateKind as super::runtime::SoraDecode>::decode(reader)?,
             charges_decimal: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            charge_parameter_index: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             next_state_id: <Option<i32> as super::runtime::SoraDecode>::decode(reader)?,
             repair_state_id: <Option<i32> as super::runtime::SoraDecode>::decode(reader)?,
             replacement_curio_id: <Option<i32> as super::runtime::SoraDecode>::decode(reader)?,

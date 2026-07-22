@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "c21ec59869116d6c",
+  "fingerprint": "8f9f02a852de6016",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -23122,6 +23122,25 @@
               1,
               32
             ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "charge_parameter_index",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              0,
+              128
+            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
