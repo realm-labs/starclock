@@ -57,11 +57,23 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
             catalog_coverage(rest)
         }
         [group, command, rest @ ..] if group == "battle" && command == "run" => battle_run(rest),
+        [group, command, rest @ ..] if group == "mcp" && command == "serve" => mcp_serve(rest),
         [group, command, file, rest @ ..] if group == "replay" && command == "verify" => {
             replay_verify(file, rest)
         }
         _ => Err(CliError::Usage(
-            "starclock config validate [--bundle PATH] [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | replay verify FILE [--json]",
+            "starclock config validate [--bundle PATH] [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio",
+        )),
+    }
+}
+
+fn mcp_serve(args: &[String]) -> Result<(), CliError> {
+    match args {
+        [flag, transport] if flag == "--transport" && transport == "stdio" => {
+            starclock_mcp::stdio::serve().map_err(CliError::Mcp)
+        }
+        _ => Err(CliError::Usage(
+            "mcp serve requires exactly --transport stdio",
         )),
     }
 }
@@ -620,6 +632,7 @@ enum CliError {
     Simulation(&'static str),
     Io(std::io::Error),
     Replay(BattleReplayError),
+    Mcp(starclock_mcp::stdio::StdioServeError),
 }
 
 impl CliError {
@@ -631,6 +644,7 @@ impl CliError {
             Self::UnknownScenario => 5,
             Self::Simulation(_) => 6,
             Self::Io(_) => 7,
+            Self::Mcp(_) => 8,
         }
     }
 }
@@ -663,6 +677,7 @@ impl fmt::Display for CliError {
             Self::Simulation(message) => write!(formatter, "simulation error: {message}"),
             Self::Io(error) => write!(formatter, "I/O error: {error}"),
             Self::Replay(error) => error.fmt(formatter),
+            Self::Mcp(error) => write!(formatter, "MCP service error: {error}"),
         }
     }
 }

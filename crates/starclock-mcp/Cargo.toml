@@ -13,6 +13,4 @@ schemars.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 starclock-agent-api = { path = "../starclock-agent-api" }
-
-[dev-dependencies]
 tokio.workspace = true

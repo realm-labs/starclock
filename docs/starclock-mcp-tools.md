@@ -24,9 +24,10 @@ numbers remain canonical decimal strings, as required by `agent-api-v1`.
 `schema_revision` is exactly `agent-api-v1`. Optional creation/verification seed
 values are exact unsigned decimal strings; omission selects the scenario's
 authored default. Replay import accepts only even-length lowercase hexadecimal
-and is capped at 64 MiB after decoding. A verifier constructs a fresh frozen
-Standard scenario from the supplied identity and seed, so exported bytes remain
-verifiable after their original session is closed.
+and is capped at 64 MiB after decoding. Transports may impose a tighter complete
+request bound; local stdio accepts at most a 16 KiB JSON-RPC frame. A verifier
+constructs a fresh frozen Standard scenario from the supplied identity and seed,
+so exported bytes remain verifiable after their original session is closed.
 
 Application failures are MCP tool errors with `isError:true` and the exact
 bounded `AgentError` in `structuredContent`. JSON-RPC errors are reserved for

@@ -12,5 +12,7 @@ pub mod metadata;
 mod resources;
 /// MCP server handler boundary.
 pub mod server;
+/// Bounded local MCP stdio service entry point.
+pub mod stdio;
 // Seven frozen tool schemas and handlers stay behind the server boundary.
 mod tools;

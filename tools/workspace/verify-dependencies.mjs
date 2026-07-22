@@ -18,7 +18,7 @@ const expected = new Map([
   ["starclock-mode-standard", ["starclock-activity", "starclock-combat"]],
   ["starclock-mcp", ["starclock-agent-api"]],
   ["starclock-data", ["starclock-activity", "starclock-build", "starclock-combat", "starclock-mode-standard", "starclock-rules"]],
-  ["starclock-cli", ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mode-standard", "starclock-replay", "starclock-rules"]],
+  ["starclock-cli", ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mcp", "starclock-mode-standard", "starclock-replay", "starclock-rules"]],
 ]);
 const expectedExternal = new Map([
   ["starclock-agent-api", [
@@ -54,7 +54,7 @@ const expectedExternal = new Map([
     { name: "schemars", requirement: "=1.2.1", features: ["derive", "std"] },
     { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
     { name: "serde_json", requirement: "=1.0.151", features: ["std"] },
-    { name: "tokio", requirement: "=1.53.1", features: ["io-util", "macros", "rt-multi-thread", "time"], kind: "dev" },
+    { name: "tokio", requirement: "=1.53.1", features: ["io-util", "macros", "rt-multi-thread", "time"] },
   ]],
   ["starclock-cli", [
     { name: "allocation-counter", requirement: "=0.8.1", features: [], kind: "dev" },
