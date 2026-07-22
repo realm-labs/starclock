@@ -243,6 +243,26 @@ generic rule/action contributions to each immutable `BattleSpec`; until then,
 availability and contribution compilation must not be described as effect
 execution.
 
+Curios use a separate one-stack Activity inventory, so ownership is unique and
+never inferred from an effect list. Two player-visible bounded counter maps,
+keyed by `CurioId`, hold the current `CurioStateId` and remaining charge count.
+Acquisition writes ownership, initial state and initial charges in one checked
+transaction. Charge consumption uses an expected remaining value; the last
+charge performs the authored state transition in that same transaction.
+Repair, replacement and teardown likewise update ownership, state and charge
+together. A removed Curio may leave canonical zero-valued counter tombstones,
+but contributes no rule and cannot be observed as owned.
+
+Each owned Curio projects only its current state as an immutable contribution:
+Curio/state identity, positive or negative pool tags, Curio and state rule keys,
+source effect, exact parameter vector, and current/maximum charges. Orphaned,
+duplicated, cross-Curio or out-of-range state is rejected. The six released
+Error Codes begin in a three-charge Repairing state and transition to their
+Fixed state; the frozen source currently defines no cross-Curio replacement
+edge, while the generic atomic replacement operation remains available for
+later occurrence/service rules. P4-M11/M12 execute individual Curio effects and
+P4-M01 materializes the typed contributions into each `BattleSpec`.
+
 The activity terminates with a typed completion, defeat, abandonment or fault.
 Account rewards, weekly points, achievements and inventory payout remain
 outside the result.

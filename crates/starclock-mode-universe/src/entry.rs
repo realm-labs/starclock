@@ -16,6 +16,7 @@ use crate::{
     battle_overlay::UniverseEncounterOverlay,
     blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
+    curio_runtime::CurioRuntimeCatalog,
     digest::Encoder,
     id::{AbilityTreeNodeId, DifficultyId, PathId, WorldId},
     path_runtime::PathRuntimeCatalog,
@@ -33,8 +34,11 @@ const ROOM_SLOT: u32 = 7;
 const ENCOUNTER_MEMBER_SLOT: u32 = 8;
 const BLESSING_REROLL_SLOT: u32 = 9;
 const PATH_BLESSING_COUNT_SLOT: u32 = 10;
+const CURIO_STATE_SLOT: u32 = 11;
+const CURIO_CHARGE_SLOT: u32 = 12;
 const BLESSING_INVENTORY: u32 = 1;
 const FORMATION_INVENTORY: u32 = 2;
+const CURIO_INVENTORY: u32 = 3;
 const WORLD_SOURCE: u64 = 0x5355_0001;
 const DIFFICULTY_SOURCE: u64 = 0x5355_0002;
 const PATH_SOURCE: u64 = 0x5355_0003;
@@ -45,8 +49,11 @@ const ROOM_SOURCE: u64 = 0x5355_0007;
 const ENCOUNTER_MEMBER_SOURCE: u64 = 0x5355_0008;
 const BLESSING_REROLL_SOURCE: u64 = 0x5355_0009;
 const PATH_BLESSING_COUNT_SOURCE: u64 = 0x5355_000A;
+const CURIO_STATE_SOURCE: u64 = 0x5355_000B;
+const CURIO_CHARGE_SOURCE: u64 = 0x5355_000C;
 const BLESSING_INVENTORY_SOURCE: u64 = 0x5355_1001;
 const FORMATION_INVENTORY_SOURCE: u64 = 0x5355_1002;
+const CURIO_INVENTORY_SOURCE: u64 = 0x5355_1003;
 
 /// Validated caller-owned inputs for one Standard Universe run.
 ///
@@ -164,6 +171,10 @@ impl StandardUniverseProfile {
             PathRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidPathRuntime)?,
         );
+        let curio_runtime = Arc::new(
+            CurioRuntimeCatalog::compile(&self.catalog)
+                .map_err(|_| StandardUniverseCompileError::InvalidCurioRuntime)?,
+        );
         let path_options = self
             .catalog
             .paths()
@@ -228,6 +239,7 @@ impl StandardUniverseProfile {
             encounter_overlay: entry.encounter_overlay,
             blessing_runtime,
             path_runtime,
+            curio_runtime,
         })
     }
 }
@@ -253,6 +265,7 @@ pub struct CompiledActivity {
     encounter_overlay: Option<Arc<UniverseEncounterOverlay>>,
     blessing_runtime: Arc<BlessingRuntimeCatalog>,
     path_runtime: Arc<PathRuntimeCatalog>,
+    curio_runtime: Arc<CurioRuntimeCatalog>,
 }
 
 impl CompiledActivity {
@@ -332,6 +345,11 @@ impl CompiledActivity {
         &self.path_runtime
     }
 
+    #[must_use]
+    pub const fn curio_runtime(&self) -> &Arc<CurioRuntimeCatalog> {
+        &self.curio_runtime
+    }
+
     pub fn start(
         &self,
         instance: ActivityInstanceId,
@@ -357,8 +375,12 @@ impl CompiledActivity {
                     overlay: Arc::clone(overlay),
                     blessing_runtime: Arc::clone(&self.blessing_runtime),
                     path_runtime: Arc::clone(&self.path_runtime),
+                    curio_runtime: Arc::clone(&self.curio_runtime),
                     blessing_inventory: self.blessing_inventory(),
                     formation_inventory: self.formation_inventory(),
+                    curio_inventory: self.curio_inventory(),
+                    curio_state_slot: self.curio_state_slot(),
+                    curio_charge_slot: self.curio_charge_slot(),
                     selected_path_slot: self.selected_path_slot(),
                 }
             }),
@@ -416,6 +438,16 @@ impl CompiledActivity {
     }
 
     #[must_use]
+    pub const fn curio_state_slot(&self) -> ActivitySlotId {
+        slot(CURIO_STATE_SLOT)
+    }
+
+    #[must_use]
+    pub const fn curio_charge_slot(&self) -> ActivitySlotId {
+        slot(CURIO_CHARGE_SLOT)
+    }
+
+    #[must_use]
     pub const fn blessing_inventory(&self) -> ActivityInventoryId {
         inventory(BLESSING_INVENTORY)
     }
@@ -423,6 +455,11 @@ impl CompiledActivity {
     #[must_use]
     pub const fn formation_inventory(&self) -> ActivityInventoryId {
         inventory(FORMATION_INVENTORY)
+    }
+
+    #[must_use]
+    pub const fn curio_inventory(&self) -> ActivityInventoryId {
+        inventory(CURIO_INVENTORY)
     }
 }
 
@@ -555,6 +592,22 @@ fn compile_state(
             PATH_BLESSING_COUNT_SOURCE,
             ActivityStateVisibility::Player,
         )?,
+        counter_slot(
+            CURIO_STATE_SLOT,
+            61,
+            0,
+            i64::from(u32::MAX),
+            CURIO_STATE_SOURCE,
+            ActivityStateVisibility::Player,
+        )?,
+        counter_slot(
+            CURIO_CHARGE_SLOT,
+            61,
+            0,
+            3,
+            CURIO_CHARGE_SOURCE,
+            ActivityStateVisibility::Player,
+        )?,
     ];
     let inventories = vec![
         ActivityInventoryDefinition::new(
@@ -576,6 +629,17 @@ fn compile_state(
             SlotCarryPolicy::CarryExact,
             ActivityStateVisibility::Player,
             ActivityStateSource::new(FORMATION_INVENTORY_SOURCE)
+                .expect("static inventory source is non-zero"),
+        )
+        .map_err(|_| StandardUniverseCompileError::InvalidActivityState)?,
+        ActivityInventoryDefinition::new(
+            inventory(CURIO_INVENTORY),
+            ActivityScope::Activity,
+            61,
+            1,
+            SlotCarryPolicy::CarryExact,
+            ActivityStateVisibility::Player,
+            ActivityStateSource::new(CURIO_INVENTORY_SOURCE)
                 .expect("static inventory source is non-zero"),
         )
         .map_err(|_| StandardUniverseCompileError::InvalidActivityState)?,
@@ -642,6 +706,7 @@ fn compile_identity(
     encoder.text(STANDARD_UNIVERSE_ENTRY_REVISION);
     encoder.text(crate::blessing_runtime::BLESSING_RUNTIME_REVISION);
     encoder.text(crate::path_runtime::PATH_RUNTIME_REVISION);
+    encoder.text(crate::curio_runtime::CURIO_RUNTIME_REVISION);
     encoder.digest(catalog_identity.configuration_digest().bytes());
     encoder.digest(catalog_identity.definitions_digest().bytes());
     encoder.digest(catalog_identity.path_definitions_digest().bytes());
@@ -707,6 +772,7 @@ pub enum StandardUniverseCompileError {
     InvalidCatalogIdentity,
     InvalidBlessingRuntime,
     InvalidPathRuntime,
+    InvalidCurioRuntime,
     EncounterOverlayParticipantMismatch,
     Topology(crate::topology::UniverseTopologyCompileError),
 }

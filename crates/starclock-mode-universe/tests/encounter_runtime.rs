@@ -201,6 +201,13 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
         )
         .unwrap()
         .into_activity();
+    assert!(
+        activity
+            .curio_contributions()
+            .expect("empty initial Curio contributions")
+            .entries()
+            .is_empty()
+    );
     choose_first(&mut activity);
 
     let encounter = loop {
@@ -275,8 +282,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            251, 25, 235, 6, 66, 184, 45, 226, 243, 242, 163, 243, 1, 80, 188, 57, 150, 2, 253,
-            157, 203, 165, 96, 108, 222, 211, 141, 108, 212, 161, 143, 175,
+            205, 96, 15, 237, 215, 211, 105, 14, 144, 16, 100, 82, 30, 163, 65, 191, 31, 251, 173,
+            95, 123, 190, 231, 153, 118, 206, 87, 219, 211, 202, 8, 202,
         ]
     );
     let reward = activity.view();
@@ -342,8 +349,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            140, 160, 241, 67, 153, 15, 108, 79, 135, 80, 56, 241, 197, 186, 210, 143, 214, 232,
-            49, 6, 120, 172, 20, 3, 125, 59, 109, 231, 181, 9, 33, 77,
+            40, 116, 163, 132, 69, 182, 75, 18, 53, 152, 115, 218, 77, 70, 219, 215, 58, 134, 45,
+            30, 53, 78, 35, 13, 209, 226, 83, 5, 10, 38, 225, 197,
         ]
     );
     let formation = activity.view();

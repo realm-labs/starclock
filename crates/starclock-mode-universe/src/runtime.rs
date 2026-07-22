@@ -14,6 +14,7 @@ use starclock_activity::{
 use crate::{
     battle_overlay::UniverseEncounterOverlay,
     blessing_runtime::{BlessingContributionSet, BlessingRuntimeCatalog, BlessingRuntimeError},
+    curio_runtime::{CurioContributionSet, CurioRuntimeCatalog, CurioRuntimeError},
     id::{PathId, ResonanceId},
     path_runtime::{PathContributionSet, PathRuntimeCatalog, PathRuntimeError},
     topology::EncounterOptionBinding,
@@ -26,8 +27,12 @@ pub struct StandardUniverseActivity {
     overlay: Arc<UniverseEncounterOverlay>,
     blessing_runtime: Arc<BlessingRuntimeCatalog>,
     path_runtime: Arc<PathRuntimeCatalog>,
+    curio_runtime: Arc<CurioRuntimeCatalog>,
     blessing_inventory: ActivityInventoryId,
     formation_inventory: ActivityInventoryId,
+    curio_inventory: ActivityInventoryId,
+    curio_state_slot: ActivitySlotId,
+    curio_charge_slot: ActivitySlotId,
     selected_path_slot: ActivitySlotId,
 }
 
@@ -37,8 +42,12 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) overlay: Arc<UniverseEncounterOverlay>,
     pub(crate) blessing_runtime: Arc<BlessingRuntimeCatalog>,
     pub(crate) path_runtime: Arc<PathRuntimeCatalog>,
+    pub(crate) curio_runtime: Arc<CurioRuntimeCatalog>,
     pub(crate) blessing_inventory: ActivityInventoryId,
     pub(crate) formation_inventory: ActivityInventoryId,
+    pub(crate) curio_inventory: ActivityInventoryId,
+    pub(crate) curio_state_slot: ActivitySlotId,
+    pub(crate) curio_charge_slot: ActivitySlotId,
     pub(crate) selected_path_slot: ActivitySlotId,
 }
 
@@ -51,8 +60,12 @@ impl StandardUniverseActivity {
             overlay: context.overlay,
             blessing_runtime: context.blessing_runtime,
             path_runtime: context.path_runtime,
+            curio_runtime: context.curio_runtime,
             blessing_inventory: context.blessing_inventory,
             formation_inventory: context.formation_inventory,
+            curio_inventory: context.curio_inventory,
+            curio_state_slot: context.curio_state_slot,
+            curio_charge_slot: context.curio_charge_slot,
             selected_path_slot: context.selected_path_slot,
         }
     }
@@ -123,6 +136,26 @@ impl StandardUniverseActivity {
         self.path_runtime
             .contributions(selected, &blessings, &formations)
             .map_err(StandardUniversePathContributionError::Path)
+    }
+
+    pub fn curio_contributions(&self) -> Result<CurioContributionSet, CurioRuntimeError> {
+        let view = self.graph.player_view();
+        let inventory = view
+            .inventories()
+            .iter()
+            .find(|inventory| inventory.id() == self.curio_inventory)
+            .ok_or(CurioRuntimeError::MissingInventory)?;
+        let state = view
+            .slots()
+            .iter()
+            .find(|slot| slot.id() == self.curio_state_slot)
+            .ok_or(CurioRuntimeError::InvalidStateSlot)?;
+        let charges = view
+            .slots()
+            .iter()
+            .find(|slot| slot.id() == self.curio_charge_slot)
+            .ok_or(CurioRuntimeError::InvalidChargeSlot)?;
+        self.curio_runtime.contributions(inventory, state, charges)
     }
 
     pub fn reroll_blessing_offer(

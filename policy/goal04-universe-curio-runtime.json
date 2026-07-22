@@ -1,0 +1,47 @@
+{
+  "schema_revision": "starclock.goal04-universe-curio-runtime.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P3-B6",
+  "counts": {
+    "curios": 61,
+    "states": 67,
+    "active_states": 55,
+    "repairing_states": 6,
+    "fixed_states": 6,
+    "charged_states": 9,
+    "negative_curios": 15,
+    "authored_replacement_edges": 0,
+    "inventory_entry_limit": 61,
+    "inventory_stack_limit": 1,
+    "maximum_charges": 3
+  },
+  "policies": {
+    "ownership": "ActivityInventory",
+    "uniqueness": "SingleOwnedInstance",
+    "current_state": "ActivityBoundedCounterMapByCurio",
+    "charges": "ActivityBoundedCounterMapZeroToThree",
+    "charge_use": "ExpectedRemainingCheckedAtomicDecrement",
+    "error_code_transition": "RepairingToFixedAtZeroCharges",
+    "immediate_repair": "CheckedAtomicRepairStateTransition",
+    "replacement": "AtomicTeardownThenAcquire",
+    "teardown": "ClearOwnershipStateAndCharges",
+    "contribution_scope": "OwnedCurrentStateOnly",
+    "battle_projection": "TypedRuleSourceEffectExactParametersAndCharges"
+  },
+  "goldens": {
+    "runtime_catalog_sha256": "0bf411da0827166aebe61e2fc1f39044e7eb679948142a7b5c94cf417c005278",
+    "representative_repairing_contribution_sha256": "4c4dc9d8dc0e67a2b97fa010d8bed96ddbbc4d1ff7e824c606bb903e7d943d3e",
+    "entry_definition_sha256": "e1edf64dcbe1839651d664d808e6dbac4c5a45c235ffd304ad387671bccade4a"
+  },
+  "scope": {
+    "all_curio_effects_executable": false,
+    "ordinary_effect_owner": "G04-P4-M11",
+    "negative_and_error_effect_owner": "G04-P4-M12",
+    "battle_spec_contribution_materialization": false,
+    "battle_materialization_owner": "G04-P4-M01",
+    "source_replacement_relation_is_empty": true,
+    "complete_world_claim": false
+  },
+  "focused_tests": 3,
+  "new_registry_packages": []
+}

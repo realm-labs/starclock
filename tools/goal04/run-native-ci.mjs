@@ -28,6 +28,7 @@ for (const [command, args] of [
   ["node", ["tools/goal04/verify-universe-encounter-runtime.mjs", "."]],
   ["node", ["tools/goal04/verify-universe-blessing-runtime.mjs", "."]],
   ["node", ["tools/goal04/verify-universe-path-runtime.mjs", "."]],
+  ["node", ["tools/goal04/verify-universe-curio-runtime.mjs", "."]],
   ["cargo", ["test", "-p", "starclock-activity", "--all-targets", "--all-features"]],
   ["cargo", ["test", "-p", "starclock-mode-universe", "--all-targets", "--all-features"]],
   ["node", ["tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]]
