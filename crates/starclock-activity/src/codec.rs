@@ -90,6 +90,16 @@ digest_type!(
     "Opaque digest of the battle contributions compiled for one technique sequence.",
     true
 );
+digest_type!(
+    BattleProjectionDigest,
+    "Digest of one declared battle-result projection and its exact ordered fields.",
+    true
+);
+digest_type!(
+    BattleSettlementContractDigest,
+    "Digest of one battle-result projection plus its carry and metric settlement policy.",
+    true
+);
 
 pub(crate) struct CanonicalWriter(Sha256);
 

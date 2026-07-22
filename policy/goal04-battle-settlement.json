@@ -1,0 +1,35 @@
+{
+  "schema_revision": "starclock.goal04-battle-settlement.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P2-B6",
+  "bounds": {
+    "maximum_completed_battles": 4096,
+    "maximum_projection_fields": 100,
+    "maximum_locked_participants": 64
+  },
+  "shape": {
+    "result_identity_verified": true,
+    "claimed_digest_verified": true,
+    "declared_projection_exact": true,
+    "participant_projection_replay_encoded": true,
+    "fault_outcome_consistent": true,
+    "participant_maxima_match_spec": true,
+    "hp_energy_life_presence_policies_explicit": true,
+    "carry_policy_combinations_validated": true,
+    "metric_slots_typed_and_bounded": true,
+    "battle_seed_uses_independent_stream_without_draw": true,
+    "carry_visible_without_mutable_state": true,
+    "outcome_transition_unique": true,
+    "rejection_preserves_bytes_and_rng": true,
+    "settled_attempt_reenterable": true,
+    "combat_reverse_dependency": false
+  },
+  "goldens": {
+    "settlement_contract_sha256": "6f4739492f6f0978c89c8db3fb84735aaa442ba4584db0378ea28af5249e70f4",
+    "first_battle_seed_sha256": "797918f87e5c542cfabf7e726c530fe254a57dba2f929db1131ea950f8965022",
+    "settled_activity_state_sha256": "76c79f401251a353de7efea19d0e46ff1a37dd48c270716ba3bd1d87e206c679",
+    "pending_activity_state_sha256": "d02021a43081079186b09b7a3968b98199fa46b0587b08caa6c74a02a0bbfc3a"
+  },
+  "focused_tests": 5,
+  "new_registry_packages": 0
+}

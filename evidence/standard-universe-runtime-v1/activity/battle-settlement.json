@@ -1,0 +1,51 @@
+{
+  "schema_revision": "starclock.goal04-battle-settlement-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P2-B6",
+  "result": "verified-battle-results-project-typed-metrics-and-participant-carry-atomically",
+  "bounds": {
+    "maximum_completed_battles": 4096,
+    "maximum_projection_fields": 100,
+    "maximum_locked_participants": 64
+  },
+  "shape": {
+    "result_identity_verified": true,
+    "claimed_digest_verified": true,
+    "declared_projection_exact": true,
+    "participant_projection_replay_encoded": true,
+    "fault_outcome_consistent": true,
+    "participant_maxima_match_spec": true,
+    "hp_energy_life_presence_policies_explicit": true,
+    "carry_policy_combinations_validated": true,
+    "metric_slots_typed_and_bounded": true,
+    "battle_seed_uses_independent_stream_without_draw": true,
+    "carry_visible_without_mutable_state": true,
+    "outcome_transition_unique": true,
+    "rejection_preserves_bytes_and_rng": true,
+    "settled_attempt_reenterable": true,
+    "combat_reverse_dependency": false
+  },
+  "goldens": {
+    "settlement_contract_sha256": "6f4739492f6f0978c89c8db3fb84735aaa442ba4584db0378ea28af5249e70f4",
+    "first_battle_seed_sha256": "797918f87e5c542cfabf7e726c530fe254a57dba2f929db1131ea950f8965022",
+    "settled_activity_state_sha256": "76c79f401251a353de7efea19d0e46ff1a37dd48c270716ba3bd1d87e206c679",
+    "pending_activity_state_sha256": "d02021a43081079186b09b7a3968b98199fa46b0587b08caa6c74a02a0bbfc3a"
+  },
+  "compatibility": {
+    "goal01_one_battle_hash_goldens_unchanged": true,
+    "generated_rows_public": false,
+    "authoritative_float": false,
+    "activity_constructs_combat_internals": false
+  },
+  "source_sha256": {
+    "settlement": "7855115ad84c7c56a7ee8273d547b5080631224ddc8dc4fe77779b8ab11b4c1a",
+    "projection": "ece0d8138a7cb5a98f6a30d12dbe2489a533a24d2d2f1bc9febd3e5ea06c86d8",
+    "preparation": "31c423b7119df4733413134c525ded6888e6c2f2cac52da548920ba49f612546",
+    "transaction": "3c41766e43aab47196fb52bb923cdec9f47d0f0fb450b9029f5022f1ec3c79d4",
+    "view": "3bda63a28a3619c361f22170e9c005315a08dcce149b80b2b42506a245749e5c",
+    "replay": "41f0a5fbc13dc6d3cf1d17d96aefc89038dcbc7e835c5cc2b46ce8fe43420aa0",
+    "tests": "899e2546b818f3fbcbd241323f26fb1a869baef780352bcf31d7c7225acbd27b"
+  },
+  "focused_tests": 5,
+  "new_registry_packages": 0
+}

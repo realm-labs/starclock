@@ -1,9 +1,12 @@
-use starclock_combat::{BattleFault, BattleSeed, BattleSpecDigest, BattleStateHash};
+use starclock_combat::{
+    BattleFault, BattleSeed, BattleSpecDigest, BattleStateHash, Energy, Hp, LifeState,
+    PresenceState,
+};
 
 use crate::{
-    ActivityConfigDigest, ActivityDefinitionDigest, ActivityInstanceId, BattleResultDigest,
-    BattleSequence, EventDigest, ParticipantLockDigest, ProjectionId, ScopeIdentity,
-    TerminalOutcome, codec::CanonicalWriter,
+    ActivityConfigDigest, ActivityDefinitionDigest, ActivityInstanceId, BattleProjectionDigest,
+    BattleResultDigest, BattleSequence, EventDigest, ParticipantId, ParticipantLockDigest,
+    ProjectionId, ScopeIdentity, TerminalOutcome, codec::CanonicalWriter,
 };
 
 /// Terminal battle outcome returned across the orchestration seam.
@@ -75,6 +78,7 @@ pub enum ProjectionField {
     FinalStateHash,
     EventDigest,
     TerminalFault,
+    ParticipantState(ParticipantId),
     Metric {
         key: Box<str>,
         kind: MetricValueKind,
@@ -115,6 +119,13 @@ impl BattleResultProjection {
                     return Err(BattleResultProjectionError::DuplicateMetricKey);
                 }
             }
+            if let ProjectionField::ParticipantState(participant) = field
+                && fields[..index]
+                    .iter()
+                    .any(|prior| prior == &ProjectionField::ParticipantState(*participant))
+            {
+                return Err(BattleResultProjectionError::DuplicateParticipant);
+            }
         }
         Ok(Self {
             id,
@@ -129,6 +140,13 @@ impl BattleResultProjection {
     #[must_use]
     pub fn fields(&self) -> &[ProjectionField] {
         &self.fields
+    }
+
+    #[must_use]
+    pub fn digest(&self) -> BattleProjectionDigest {
+        let mut writer = CanonicalWriter::new(b"starclock-battle-projection-v1");
+        self.encode(&mut writer);
+        BattleProjectionDigest::new(writer.finish()).expect("SHA-256 output is non-zero")
     }
 
     pub(crate) fn matches(&self, values: &[ProjectedValue]) -> bool {
@@ -254,6 +272,7 @@ pub enum ProjectedValue {
     FinalStateHash(BattleStateHash),
     EventDigest(EventDigest),
     TerminalFault(Option<BattleFault>),
+    ParticipantState(ParticipantBattleState),
     Metric { key: Box<str>, value: MetricValue },
 }
 
@@ -264,6 +283,9 @@ impl ProjectedValue {
             | (ProjectionField::FinalStateHash, Self::FinalStateHash(_))
             | (ProjectionField::EventDigest, Self::EventDigest(_))
             | (ProjectionField::TerminalFault, Self::TerminalFault(_)) => true,
+            (ProjectionField::ParticipantState(participant), Self::ParticipantState(state)) => {
+                *participant == state.participant
+            }
             (
                 ProjectionField::Metric { key, kind },
                 Self::Metric {
@@ -308,6 +330,10 @@ impl ProjectedValue {
                 writer.text(key);
                 writer.byte(value.kind() as u8);
                 writer.i64(value.raw());
+            }
+            Self::ParticipantState(value) => {
+                writer.byte(5);
+                value.encode(writer);
             }
         }
     }
@@ -385,6 +411,100 @@ impl BattleResult {
             _ => None,
         })
     }
+
+    pub(crate) fn participant_states(&self) -> impl Iterator<Item = ParticipantBattleState> + '_ {
+        self.values.iter().filter_map(|value| match value {
+            ProjectedValue::ParticipantState(state) => Some(*state),
+            _ => None,
+        })
+    }
+
+    pub(crate) fn metrics(&self) -> impl Iterator<Item = (&str, MetricValue)> + '_ {
+        self.values.iter().filter_map(|value| match value {
+            ProjectedValue::Metric { key, value } => Some((key.as_ref(), *value)),
+            _ => None,
+        })
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ParticipantBattleState {
+    participant: ParticipantId,
+    current_hp: Hp,
+    maximum_hp: Hp,
+    current_energy: Energy,
+    maximum_energy: Energy,
+    life: LifeState,
+    presence: PresenceState,
+}
+
+impl ParticipantBattleState {
+    #[must_use]
+    pub fn new(
+        participant: ParticipantId,
+        current_hp: Hp,
+        maximum_hp: Hp,
+        current_energy: Energy,
+        maximum_energy: Energy,
+        life: LifeState,
+        presence: PresenceState,
+    ) -> Option<Self> {
+        if current_hp.get() > maximum_hp.get()
+            || current_energy.scaled() > maximum_energy.scaled()
+            || (matches!(life, LifeState::Alive) && current_hp.get() == 0)
+            || (matches!(life, LifeState::Downed | LifeState::Defeated) && current_hp.get() != 0)
+        {
+            None
+        } else {
+            Some(Self {
+                participant,
+                current_hp,
+                maximum_hp,
+                current_energy,
+                maximum_energy,
+                life,
+                presence,
+            })
+        }
+    }
+    #[must_use]
+    pub const fn participant(self) -> ParticipantId {
+        self.participant
+    }
+    #[must_use]
+    pub const fn current_hp(self) -> Hp {
+        self.current_hp
+    }
+    #[must_use]
+    pub const fn maximum_hp(self) -> Hp {
+        self.maximum_hp
+    }
+    #[must_use]
+    pub const fn current_energy(self) -> Energy {
+        self.current_energy
+    }
+    #[must_use]
+    pub const fn maximum_energy(self) -> Energy {
+        self.maximum_energy
+    }
+    #[must_use]
+    pub const fn life(self) -> LifeState {
+        self.life
+    }
+    #[must_use]
+    pub const fn presence(self) -> PresenceState {
+        self.presence
+    }
+
+    fn encode(self, writer: &mut CanonicalWriter) {
+        writer.u32(self.participant.get());
+        writer.i64(self.current_hp.get());
+        writer.i64(self.maximum_hp.get());
+        writer.i64(self.current_energy.scaled());
+        writer.i64(self.maximum_energy.scaled());
+        writer.byte(self.life as u8);
+        writer.byte(self.presence as u8);
+    }
 }
 
 fn valid_key(key: &str) -> bool {
@@ -401,6 +521,10 @@ fn encode_field(field: &ProjectionField, writer: &mut CanonicalWriter) {
         ProjectionField::FinalStateHash => writer.byte(1),
         ProjectionField::EventDigest => writer.byte(2),
         ProjectionField::TerminalFault => writer.byte(3),
+        ProjectionField::ParticipantState(participant) => {
+            writer.byte(5);
+            writer.u32(participant.get());
+        }
         ProjectionField::Metric { key, kind } => {
             writer.byte(4);
             writer.text(key);
@@ -415,4 +539,5 @@ pub enum BattleResultProjectionError {
     MissingOrDuplicateCoreField,
     InvalidMetricKey,
     DuplicateMetricKey,
+    DuplicateParticipant,
 }

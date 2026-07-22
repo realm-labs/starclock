@@ -9,6 +9,7 @@
 mod activity_rng;
 mod aggregate;
 mod battle_preparation;
+mod battle_settlement;
 mod codec;
 mod graph;
 mod id;
@@ -38,11 +39,19 @@ pub use battle_preparation::{
     MAX_PREPARATION_TECHNIQUES, MAX_PREPARED_BATTLE_VARIANTS, PendingBattleSpec,
     PreparedBattleVariant, TechniqueEngagement, TechniqueOptionDefinition,
 };
+pub use battle_settlement::{
+    ActivityBattleHandoff, ActivityBattleResultContract, ActivityBattleResultContractError,
+    ActivityBattleResultSubmission, ActivityBattleSettlement, ActivityBattleSettlementError,
+    ActivityBattleStartRequest, ActivityMetricProjectionBinding,
+    ActivityParticipantCarryDefinition, ActivityParticipantCarryState, EnergyCarryPolicy,
+    HpCarryPolicy, LifeCarryPolicy, MAX_COMPLETED_ACTIVITY_BATTLES, MetricSettlementPolicy,
+    PresenceCarryPolicy,
+};
 pub use codec::{
     ACTIVITY_STATE_CODEC_REVISION, ACTIVITY_STATE_HASH_REVISION, ActivityConfigDigest,
-    ActivityDefinitionDigest, ActivityGraphDigest, ActivityStateHash, BattleResultDigest,
-    BuildDigest, EncounterPreparationDigest, EventDigest, ParticipantLockDigest,
-    TechniqueContributionDigest,
+    ActivityDefinitionDigest, ActivityGraphDigest, ActivityStateHash, BattleProjectionDigest,
+    BattleResultDigest, BattleSettlementContractDigest, BuildDigest, EncounterPreparationDigest,
+    EventDigest, ParticipantLockDigest, TechniqueContributionDigest,
 };
 pub use graph::{
     ActivityEdgeCondition, ActivityEdgeDefinition, ActivityGraphDefinition,
@@ -68,7 +77,7 @@ pub use program::{
 pub use projection::{
     BattleOutcome, BattleResult, BattleResultConfiguration, BattleResultIdentity,
     BattleResultProjection, BattleResultProjectionError, MetricValue, MetricValueKind,
-    ProjectedValue, ProjectionField,
+    ParticipantBattleState, ProjectedValue, ProjectionField,
 };
 pub use scope::{ActivityScope, OneBattleFlow, OneBattleFlowError, ScopeIdentity, TerminalOutcome};
 pub use slot::{

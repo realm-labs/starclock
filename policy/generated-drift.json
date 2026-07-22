@@ -154,6 +154,10 @@
       "command": ["node", "tools/goal04/verify-battle-preparation.mjs", "."]
     },
     {
+      "name": "Goal 04 battle settlement",
+      "command": ["node", "tools/goal04/verify-battle-settlement.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

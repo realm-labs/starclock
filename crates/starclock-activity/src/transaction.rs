@@ -11,6 +11,7 @@ use crate::{
     ActivityStateDefinition, ActivityStateHash, ActivityStateVisibility, ActivityTerminalOutcome,
     ActivityValue, NodeId,
     battle_preparation::ActivityAttemptState,
+    battle_settlement::{ActivityAwaitingBattle, ActivityCarryLedger, MetricSettlementPolicy},
     codec::ActivityStateEncoder,
     view::{
         ActivityDebugView, ActivityDecisionView, ActivityInventoryView, ActivityOptionView,
@@ -153,6 +154,9 @@ pub struct ActivityTransactionState {
     edge_traversals: BTreeMap<ActivityEdgeId, u32>,
     total_visits: u32,
     pub(crate) attempt: Option<ActivityAttemptState>,
+    pub(crate) awaiting_battle: Option<ActivityAwaitingBattle>,
+    pub(crate) carry: ActivityCarryLedger,
+    pub(crate) completed_battles: Vec<crate::BattleResultDigest>,
     pending: Option<PendingDecision>,
     terminal: Option<ActivityTerminalOutcome>,
 }
@@ -186,6 +190,9 @@ impl ActivityTransactionState {
             edge_traversals: BTreeMap::new(),
             total_visits: 1,
             attempt: None,
+            awaiting_battle: None,
+            carry: ActivityCarryLedger::default(),
+            completed_battles: Vec::new(),
             pending: None,
             terminal: None,
         }
@@ -243,6 +250,11 @@ impl ActivityTransactionState {
         writer.bool(self.attempt.is_some());
         if let Some(attempt) = &self.attempt {
             attempt.encode(&mut writer);
+            writer.bool(self.awaiting_battle.is_some());
+            if let Some(awaiting) = &self.awaiting_battle {
+                awaiting.encode(&mut writer);
+            }
+            self.carry.encode(&mut writer);
         }
         writer.u32(self.total_visits);
         writer.u32(self.node_visits.len() as u32);
@@ -296,7 +308,10 @@ impl ActivityTransactionState {
             writer.u64(snapshot.draw_count());
         }
         writer.u32(0); // checkpoints
-        writer.u32(0); // completed nested battle digests
+        writer.u32(self.completed_battles.len() as u32);
+        for digest in &self.completed_battles {
+            writer.digest(digest.bytes());
+        }
         writer.finish()
     }
 
@@ -348,6 +363,7 @@ impl ActivityTransactionState {
             decision: self.pending.as_ref().map(decision_view),
             preparation: self.preparation_view(),
             pending_battle: self.pending_battle_view(),
+            participant_carry: self.carry.view(),
             terminal: self.terminal,
             state_hash: self.state_hash(identity, graph, instance, rng),
         }
@@ -513,7 +529,7 @@ impl ActivityTransactionState {
     /// The authoritative state intentionally does not implement `Clone`: callers
     /// cannot fork a run by accidentally duplicating it outside the transaction
     /// boundary.
-    fn transaction_copy(&self) -> Self {
+    pub(crate) fn transaction_copy(&self) -> Self {
         Self {
             definition: self.definition.clone(),
             slots: self.slots.clone(),
@@ -525,6 +541,9 @@ impl ActivityTransactionState {
             edge_traversals: self.edge_traversals.clone(),
             total_visits: self.total_visits,
             attempt: self.attempt.clone(),
+            awaiting_battle: self.awaiting_battle.clone(),
+            carry: self.carry.clone(),
+            completed_battles: self.completed_battles.clone(),
             pending: self.pending.clone(),
             terminal: self.terminal,
         }
@@ -598,45 +617,7 @@ impl ActivityTransactionState {
                 self.change_modifier(*modifier, i64::MIN, cause, events)?
             }
             Op::Traverse(edge) => {
-                let edge_def = graph
-                    .edges()
-                    .iter()
-                    .find(|item| item.id() == *edge)
-                    .ok_or(ActivityFault::InvalidGraphEdge(*edge))?;
-                if edge_def.from() != self.current_node {
-                    return Err(ActivityFault::InvalidGraphEdge(*edge).into());
-                }
-                let next_edge_count = self
-                    .edge_traversals
-                    .get(edge)
-                    .copied()
-                    .unwrap_or(0)
-                    .checked_add(1)
-                    .ok_or(ActivityFault::VisitLimitExceeded)?;
-                let next_node = graph
-                    .node(edge_def.to())
-                    .ok_or(ActivityFault::InvalidGraphEdge(*edge))?;
-                let next_node_count = self
-                    .node_visits
-                    .get(&edge_def.to())
-                    .copied()
-                    .unwrap_or(0)
-                    .checked_add(1)
-                    .ok_or(ActivityFault::VisitLimitExceeded)?;
-                let next_total = self
-                    .total_visits
-                    .checked_add(1)
-                    .ok_or(ActivityFault::VisitLimitExceeded)?;
-                if next_edge_count > edge_def.maximum_traversals()
-                    || next_node_count > next_node.maximum_visits()
-                    || next_total > graph.maximum_total_visits()
-                {
-                    return Err(ActivityFault::VisitLimitExceeded.into());
-                }
-                self.edge_traversals.insert(*edge, next_edge_count);
-                self.node_visits.insert(edge_def.to(), next_node_count);
-                self.total_visits = next_total;
-                self.current_node = edge_def.to();
+                self.traverse_edge(*edge, graph)?;
                 push(
                     events,
                     cause,
@@ -764,6 +745,80 @@ impl ActivityTransactionState {
         }
         self.slots.insert(id, value);
         Ok(())
+    }
+
+    pub(crate) fn settle_metric(
+        &mut self,
+        id: ActivitySlotId,
+        value: ActivityValue,
+        policy: MetricSettlementPolicy,
+    ) -> Result<(), ActivityFault> {
+        let next = match (self.slots.get(&id), value, policy) {
+            (_, value, MetricSettlementPolicy::Replace) => value,
+            (
+                Some(ActivityValue::BoundedInteger(current)),
+                ActivityValue::BoundedInteger(value),
+                policy,
+            ) => ActivityValue::BoundedInteger(settle_integer(*current, value, policy)?),
+            (
+                Some(ActivityValue::FixedScalar(current)),
+                ActivityValue::FixedScalar(value),
+                policy,
+            ) => ActivityValue::FixedScalar(settle_integer(*current, value, policy)?),
+            _ => return Err(ActivityFault::TypeMismatch),
+        };
+        self.set_slot(id, next)
+    }
+
+    pub(crate) fn traverse_edge(
+        &mut self,
+        edge: ActivityEdgeId,
+        graph: &ActivityGraphDefinition,
+    ) -> Result<NodeId, ActivityFault> {
+        let edge_def = graph
+            .edges()
+            .iter()
+            .find(|item| item.id() == edge)
+            .ok_or(ActivityFault::InvalidGraphEdge(edge))?;
+        if edge_def.from() != self.current_node {
+            return Err(ActivityFault::InvalidGraphEdge(edge));
+        }
+        let next_edge_count = self
+            .edge_traversals
+            .get(&edge)
+            .copied()
+            .unwrap_or(0)
+            .checked_add(1)
+            .ok_or(ActivityFault::VisitLimitExceeded)?;
+        let next_node = graph
+            .node(edge_def.to())
+            .ok_or(ActivityFault::InvalidGraphEdge(edge))?;
+        let next_node_count = self
+            .node_visits
+            .get(&edge_def.to())
+            .copied()
+            .unwrap_or(0)
+            .checked_add(1)
+            .ok_or(ActivityFault::VisitLimitExceeded)?;
+        let next_total = self
+            .total_visits
+            .checked_add(1)
+            .ok_or(ActivityFault::VisitLimitExceeded)?;
+        if next_edge_count > edge_def.maximum_traversals()
+            || next_node_count > next_node.maximum_visits()
+            || next_total > graph.maximum_total_visits()
+        {
+            return Err(ActivityFault::VisitLimitExceeded);
+        }
+        self.edge_traversals.insert(edge, next_edge_count);
+        self.node_visits.insert(edge_def.to(), next_node_count);
+        self.total_visits = next_total;
+        self.current_node = edge_def.to();
+        Ok(edge_def.to())
+    }
+
+    pub(crate) fn settle_terminal(&mut self, outcome: ActivityTerminalOutcome) {
+        self.terminal = Some(outcome);
     }
 
     fn add_counter(
@@ -951,6 +1006,21 @@ fn integer(value: &ActivityValue) -> Result<i64, ActivityFault> {
     match value {
         ActivityValue::BoundedInteger(value) => Ok(*value),
         _ => Err(ActivityFault::TypeMismatch),
+    }
+}
+
+fn settle_integer(
+    current: i64,
+    value: i64,
+    policy: MetricSettlementPolicy,
+) -> Result<i64, ActivityFault> {
+    match policy {
+        MetricSettlementPolicy::Replace => Ok(value),
+        MetricSettlementPolicy::Sum => current
+            .checked_add(value)
+            .ok_or(ActivityFault::ArithmeticOverflow),
+        MetricSettlementPolicy::Minimum => Ok(current.min(value)),
+        MetricSettlementPolicy::Maximum => Ok(current.max(value)),
     }
 }
 fn numeric_binary(

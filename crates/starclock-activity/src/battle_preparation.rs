@@ -496,6 +496,7 @@ pub(crate) struct ActivityAttemptState {
     selected: Vec<ActivityOptionId>,
     definition: Arc<EncounterPreparationDefinition>,
     pending: Option<PendingBattleSpec>,
+    settled: bool,
 }
 
 impl ActivityAttemptState {
@@ -538,6 +539,7 @@ impl ActivityAttemptState {
             selected: Vec::new(),
             definition,
             pending: None,
+            settled: false,
         };
         if state.definition.initiative == EncounterInitiativePolicy::EnemyPreemptive {
             state.prepare_pending()?;
@@ -551,7 +553,7 @@ impl ActivityAttemptState {
         &mut self,
         option: ActivityOptionId,
     ) -> Result<ActivityPreparationBoundary, ActivityPreparationError> {
-        if self.pending.is_some() {
+        if self.pending.is_some() || self.settled {
             return Err(ActivityPreparationError::BattleAlreadyPending);
         }
         if option == self.definition.normal_engagement {
@@ -629,6 +631,41 @@ impl ActivityAttemptState {
             writer.digest(pending.contribution.bytes());
             writer.byte(pending.initiative as u8);
         }
+        writer.bool(self.settled);
+    }
+
+    pub(crate) fn participant_specs(
+        &self,
+    ) -> Vec<(ParticipantId, &starclock_combat::ParticipantSpec)> {
+        let Some(pending) = self.pending.as_ref() else {
+            return Vec::new();
+        };
+        self.roster
+            .participants
+            .entries()
+            .iter()
+            .filter(|entry| entry.team_index() == self.definition.team_index)
+            .filter_map(|entry| {
+                pending
+                    .battle_spec()
+                    .participants()
+                    .iter()
+                    .find(|spec| {
+                        spec.side() == TeamSide::Player
+                            && spec.formation().get() == entry.formation_index()
+                    })
+                    .map(|spec| (entry.participant(), spec))
+            })
+            .collect()
+    }
+
+    pub(crate) fn mark_settled(&mut self) {
+        self.pending = None;
+        self.settled = true;
+    }
+
+    pub(crate) const fn is_settled(&self) -> bool {
+        self.settled
     }
 
     fn offered_options(&self) -> Box<[ActivityPreparationOptionView]> {
@@ -685,7 +722,12 @@ impl ActivityTransactionState {
         graph: &ActivityGraphDefinition,
         request: ActivityBattlePreparationRequest,
     ) -> Result<ActivityPreparationBoundary, ActivityPreparationError> {
-        if self.attempt.is_some() {
+        if self
+            .attempt
+            .as_ref()
+            .is_some_and(|attempt| !attempt.is_settled())
+            || self.awaiting_battle.is_some()
+        {
             return Err(ActivityPreparationError::AttemptAlreadyActive);
         }
         if self.terminal().is_some() {

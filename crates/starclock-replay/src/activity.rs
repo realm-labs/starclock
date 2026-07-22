@@ -6,12 +6,12 @@ use starclock_activity::{
     Activity, ActivityCommand, ActivityCommandErrorKind, ActivityConfigDigest, ActivityDecision,
     ActivityDefinitionDigest, ActivityInstanceId, ActivityPhase, ActivityStateHash, AttemptId,
     BattleOutcome, BattleResult, BattleResultConfiguration, BattleResultDigest,
-    BattleResultIdentity, BattleSequence, EventDigest, MetricValue, NodeId, ProjectedValue,
-    ScopeIdentity, SectionId,
+    BattleResultIdentity, BattleSequence, EventDigest, MetricValue, NodeId, ParticipantBattleState,
+    ParticipantId, ProjectedValue, ScopeIdentity, SectionId,
 };
 use starclock_combat::{
-    BattleFault, BattleSeed, BattleSpecDigest, BattleStateHash, FaultBoundary, FaultKind,
-    FaultPolicy,
+    BattleFault, BattleSeed, BattleSpecDigest, BattleStateHash, Energy, FaultBoundary, FaultKind,
+    FaultPolicy, Hp, LifeState, PresenceState,
 };
 
 use crate::{
@@ -679,6 +679,16 @@ fn encode_projected(
             encoder.string(key)?;
             encode_metric(*value, encoder);
         }
+        ProjectedValue::ParticipantState(state) => {
+            encoder.u8(5);
+            encoder.u32(state.participant().get());
+            encoder.i64(state.current_hp().get());
+            encoder.i64(state.maximum_hp().get());
+            encoder.i64(state.current_energy().scaled());
+            encoder.i64(state.maximum_energy().scaled());
+            encoder.u8(state.life() as u8);
+            encoder.u8(state.presence() as u8);
+        }
     }
     Ok(())
 }
@@ -714,6 +724,44 @@ fn decode_projected(
                 key,
                 value: decode_metric(decoder)?,
             })
+        }
+        5 => {
+            let participant =
+                ParticipantId::new(decoder.u32()?).ok_or(ActivityCommandPayloadError::InvalidId)?;
+            let current_hp = Hp::new(decoder.i64()?)
+                .map_err(|_| ActivityCommandPayloadError::InvalidProjection)?;
+            let maximum_hp = Hp::new(decoder.i64()?)
+                .map_err(|_| ActivityCommandPayloadError::InvalidProjection)?;
+            let current_energy = Energy::from_scaled(decoder.i64()?)
+                .map_err(|_| ActivityCommandPayloadError::InvalidProjection)?;
+            let maximum_energy = Energy::from_scaled(decoder.i64()?)
+                .map_err(|_| ActivityCommandPayloadError::InvalidProjection)?;
+            let life = match decoder.u8()? {
+                0 => LifeState::Alive,
+                1 => LifeState::Downed,
+                2 => LifeState::Defeated,
+                other => return Err(ActivityCommandPayloadError::UnknownLifeState(other)),
+            };
+            let presence = match decoder.u8()? {
+                0 => PresenceState::Present,
+                1 => PresenceState::Reserved,
+                2 => PresenceState::Departed,
+                3 => PresenceState::Untargetable,
+                4 => PresenceState::Linked,
+                5 => PresenceState::Transformed,
+                other => return Err(ActivityCommandPayloadError::UnknownPresenceState(other)),
+            };
+            let state = ParticipantBattleState::new(
+                participant,
+                current_hp,
+                maximum_hp,
+                current_energy,
+                maximum_energy,
+                life,
+                presence,
+            )
+            .ok_or(ActivityCommandPayloadError::InvalidProjection)?;
+            Ok(ProjectedValue::ParticipantState(state))
         }
         other => Err(ActivityCommandPayloadError::UnknownProjection(other)),
     }
@@ -914,6 +962,8 @@ pub enum ActivityCommandPayloadError {
     UnknownOutcome(u8),
     UnknownProjection(u8),
     UnknownMetric(u8),
+    UnknownLifeState(u8),
+    UnknownPresenceState(u8),
     UnknownFaultKind(u8),
     UnknownFaultBoundary(u8),
     UnknownFaultPolicy(u8),
@@ -1032,6 +1082,18 @@ mod tests {
                 ProjectedValue::FinalStateHash(BattleStateHash::from_bytes([0x21; 32])),
                 ProjectedValue::EventDigest(EventDigest::new([0x22; 32]).unwrap()),
                 ProjectedValue::TerminalFault(Some(fault)),
+                ProjectedValue::ParticipantState(
+                    ParticipantBattleState::new(
+                        ParticipantId::new(9).unwrap(),
+                        Hp::new(0).unwrap(),
+                        Hp::new(1_000).unwrap(),
+                        Energy::from_scaled(25_000_000).unwrap(),
+                        Energy::from_scaled(100_000_000).unwrap(),
+                        LifeState::Defeated,
+                        PresenceState::Departed,
+                    )
+                    .unwrap(),
+                ),
                 metric("bounded", MetricValue::BoundedInteger(-1)),
                 metric("fixed", MetricValue::FixedScalar(2)),
                 metric("ratio", MetricValue::Ratio(3)),
