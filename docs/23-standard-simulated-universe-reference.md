@@ -140,9 +140,10 @@ Keeping the bundles separate preserves the Goal 01/02 catalog digest and makes
 it impossible for non-empty Universe rows to enter `starclock-data` before a
 reviewed domain lowering exists. The standalone
 `tools/universe-bundle-loader` compiles the isolated generated readers and
-proves binary decoding without exposing those rows to a runtime crate. A future
-Universe runtime goal must deliberately introduce the domain conversion and
-compatibility migration before merging or consuming this staging bundle.
+proves binary decoding without exposing those rows to a runtime crate.
+[Goal 04](goals/04-standard-universe-runtime.md) must deliberately introduce
+the domain conversion and compatibility migration before consuming this
+staging bundle.
 
 Workbook rows retain stable IDs, bilingual summaries, coverage state and exact
 evidence references. Editable categories use data validation. Headers are
