@@ -39,13 +39,24 @@
   },
   "goldens": {
     "resolved_overlay_sha256": "a098a2294e872e98fe7933e5ed504daa12881f5f0c89046d61a19bc86e288f0c",
-    "won_reward_state_sha256": "bfee5c6482ffef4443205f20ee48fdc86a6c90cbb686056cce06674028b8bf8c"
+    "won_reward_state_sha256": "afbfc592493a99c22aa94d26ed6cb8556b47285a30a046165aceae1994f0209a"
   },
   "deferred_scope": {
     "all_universe_enemy_variants_compiled": false,
     "enemy_overlay_owner": "G04-P4-M15",
-    "blessing_reward_effects_applied": false,
-    "reward_effect_owner": "G04-P3-B4",
+    "blessing_reward_acquisition_applied": true,
+    "blessing_battle_effects_applied": false,
+    "reward_effect_owners": [
+      "G04-P4-M02",
+      "G04-P4-M03",
+      "G04-P4-M04",
+      "G04-P4-M05",
+      "G04-P4-M06",
+      "G04-P4-M07",
+      "G04-P4-M08",
+      "G04-P4-M09",
+      "G04-P4-M10"
+    ],
     "complete_world_claim": false
   },
   "compatibility": {
@@ -55,12 +66,12 @@
     "complete_catalog_cloned_per_run": false
   },
   "source_sha256": {
-    "crates/starclock-mode-universe/src/topology.rs": "f30b89a675b67f27fc09dabb1f140ed083deb6f80d8c4606e0f36563dde2730a",
+    "crates/starclock-mode-universe/src/topology.rs": "9ea7b4115c5ecbe8c1830727c69d4f31ccb1312cac2bd0aad1f62dbb4db0e4d9",
     "crates/starclock-mode-universe/src/encounter_slot.rs": "68c22e67f4eb8db7d248a4973e11284ef6c26146e01e210120b75ee7b82e66d2",
     "crates/starclock-mode-universe/src/battle_overlay.rs": "199de0266a7bf434e6bd24947787eb83e0fa408dc945e2088335c43b89968170",
-    "crates/starclock-mode-universe/src/runtime.rs": "abdceb732cd0e65b068c42dae7eba6c223269c7d5de1d233bd319bd99b99c640",
-    "crates/starclock-activity/src/graph_activity.rs": "e18faa6a22324cc788fc2faf046bf81cc541b144670ca9600cac8a267e5e8bc7",
-    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "0a3e02b5b97cb890335c220383dfae3cf5802a5fe2890c9312b8cf648279c33c"
+    "crates/starclock-mode-universe/src/runtime.rs": "8faf3f218a128c0ed48ef60f918b22ce5044d20bf8c5751e8f995b3c0bf32bdd",
+    "crates/starclock-activity/src/graph_activity.rs": "3fa0c5a0849cfb5e557d4e65fe98ecce64f315f6c8b484b22358eac2973370b2",
+    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "bdedf56ddfecdef30ee48621b3e7721797289cfa3db6a5307ce1aa93eca42eb2"
   },
   "focused_tests": 2,
   "new_registry_packages": []

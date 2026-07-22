@@ -62,10 +62,11 @@ pub use graph::{
     MAX_EDGE_TRAVERSALS, MAX_NODE_VISITS,
 };
 pub use graph_activity::{
-    ActivityBootstrapSelection, ActivityRandomCheckpoint, GraphActivity, GraphActivityBattleError,
-    GraphActivityBattleResolution, GraphActivityCommandError, GraphActivityDefinition,
-    GraphActivityDefinitionError, GraphActivityEncounterError, GraphActivityNodeProgram,
-    GraphActivityPreparationResolution, GraphActivityResolution, GraphActivityRuntimeError,
+    ActivityBootstrapSelection, ActivityRandomCheckpoint, ActivityRandomOffer,
+    ActivityRandomPolicies, GraphActivity, GraphActivityBattleError, GraphActivityBattleResolution,
+    GraphActivityCommandError, GraphActivityDefinition, GraphActivityDefinitionError,
+    GraphActivityEncounterError, GraphActivityNodeProgram, GraphActivityPreparationResolution,
+    GraphActivityRandomOfferError, GraphActivityResolution, GraphActivityRuntimeError,
     GraphActivityStartError,
 };
 pub use graph_command::{

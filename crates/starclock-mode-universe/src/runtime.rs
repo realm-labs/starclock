@@ -3,21 +3,27 @@
 use std::sync::Arc;
 
 use starclock_activity::{
-    ActivityBattleHandoff, ActivityDecisionId, ActivityOptionId, ActivityPlayerView,
-    ActivityPreparationBoundary, ActivityPreparationView, ActivityRosterLock, ActivityScopePath,
-    ActivityStateHash, AttemptId, BattleResult, BattleSequence, GraphActivity,
+    ActivityBattleHandoff, ActivityDecisionId, ActivityInventoryId, ActivityOptionId,
+    ActivityPlayerView, ActivityPreparationBoundary, ActivityPreparationView, ActivityRosterLock,
+    ActivityScopePath, ActivityStateHash, AttemptId, BattleResult, BattleSequence, GraphActivity,
     GraphActivityBattleError, GraphActivityBattleResolution, GraphActivityCommandError,
     GraphActivityEncounterError, GraphActivityPreparationResolution, GraphActivityResolution,
     GraphActivityStartError, ParticipantLock,
 };
 
-use crate::{battle_overlay::UniverseEncounterOverlay, topology::EncounterOptionBinding};
+use crate::{
+    battle_overlay::UniverseEncounterOverlay,
+    blessing_runtime::{BlessingContributionSet, BlessingRuntimeCatalog, BlessingRuntimeError},
+    topology::EncounterOptionBinding,
+};
 
 pub struct StandardUniverseActivity {
     graph: GraphActivity,
     participants: Arc<ParticipantLock>,
     encounter_options: Arc<[EncounterOptionBinding]>,
     overlay: Arc<UniverseEncounterOverlay>,
+    blessing_runtime: Arc<BlessingRuntimeCatalog>,
+    blessing_inventory: ActivityInventoryId,
 }
 
 impl StandardUniverseActivity {
@@ -26,12 +32,16 @@ impl StandardUniverseActivity {
         participants: Arc<ParticipantLock>,
         encounter_options: Arc<[EncounterOptionBinding]>,
         overlay: Arc<UniverseEncounterOverlay>,
+        blessing_runtime: Arc<BlessingRuntimeCatalog>,
+        blessing_inventory: ActivityInventoryId,
     ) -> Self {
         Self {
             graph,
             participants,
             encounter_options,
             overlay,
+            blessing_runtime,
+            blessing_inventory,
         }
     }
 
@@ -46,6 +56,26 @@ impl StandardUniverseActivity {
     #[must_use]
     pub fn preparation_view(&self) -> Option<ActivityPreparationView> {
         self.graph.preparation_view()
+    }
+
+    pub fn blessing_contributions(&self) -> Result<BlessingContributionSet, BlessingRuntimeError> {
+        let view = self.graph.player_view();
+        let inventory = view
+            .inventories()
+            .iter()
+            .find(|inventory| inventory.id() == self.blessing_inventory)
+            .expect("compiled Standard Universe state contains Blessing inventory");
+        self.blessing_runtime.contributions(inventory)
+    }
+
+    pub fn reroll_blessing_offer(
+        &mut self,
+        expected_state_hash: ActivityStateHash,
+    ) -> Result<
+        Box<[starclock_activity::ActivityTransactionEvent]>,
+        starclock_activity::GraphActivityRandomOfferError,
+    > {
+        self.graph.reroll_random_offer(expected_state_hash)
     }
 
     pub fn choose_option(
@@ -163,6 +193,8 @@ impl StandardUniverseStartResolution {
         participants: Arc<ParticipantLock>,
         encounter_options: Arc<[EncounterOptionBinding]>,
         overlay: Arc<UniverseEncounterOverlay>,
+        blessing_runtime: Arc<BlessingRuntimeCatalog>,
+        blessing_inventory: ActivityInventoryId,
     ) -> Self {
         let events = resolution.events().to_vec().into_boxed_slice();
         let activity = StandardUniverseActivity::new(
@@ -170,6 +202,8 @@ impl StandardUniverseStartResolution {
             participants,
             encounter_options,
             overlay,
+            blessing_runtime,
+            blessing_inventory,
         );
         Self { activity, events }
     }
@@ -213,6 +247,8 @@ pub(crate) fn start(
     participants: Arc<ParticipantLock>,
     encounter_options: Arc<[EncounterOptionBinding]>,
     overlay: Option<Arc<UniverseEncounterOverlay>>,
+    blessing_runtime: Arc<BlessingRuntimeCatalog>,
+    blessing_inventory: ActivityInventoryId,
 ) -> Result<StandardUniverseStartResolution, StandardUniverseStartError> {
     let overlay = overlay.ok_or(StandardUniverseStartError::MissingEncounterOverlay)?;
     let resolution = resolution.map_err(StandardUniverseStartError::Activity)?;
@@ -221,5 +257,7 @@ pub(crate) fn start(
         participants,
         encounter_options,
         overlay,
+        blessing_runtime,
+        blessing_inventory,
     ))
 }

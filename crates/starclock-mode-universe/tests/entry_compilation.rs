@@ -80,7 +80,9 @@ fn every_world_and_difficulty_compiles_the_same_generic_entry_contract() {
             assert_eq!(activity.world(), world.id());
             assert_eq!(activity.difficulty(), *difficulty);
             assert_eq!(activity.path_options().len(), 9);
-            assert_eq!(activity.state_definition().slots().len(), 8);
+            assert_eq!(activity.state_definition().slots().len(), 9);
+            assert_eq!(activity.state_definition().inventories().len(), 1);
+            assert_eq!(activity.blessing_runtime().definitions().len(), 162);
             assert_eq!(
                 activity
                     .state_definition()
@@ -245,8 +247,8 @@ fn world_difficulty_roster_and_ability_input_are_definition_identity() {
     assert_eq!(
         base.identity().definition_digest().bytes(),
         [
-            180, 103, 70, 228, 59, 51, 216, 206, 49, 1, 248, 169, 157, 200, 227, 184, 108, 25, 232,
-            215, 71, 179, 192, 23, 159, 18, 224, 156, 169, 30, 198, 91,
+            3, 233, 199, 33, 240, 18, 184, 113, 250, 95, 82, 162, 114, 52, 161, 46, 108, 77, 128,
+            139, 152, 193, 32, 65, 229, 187, 117, 98, 143, 64, 243, 221,
         ]
     );
     assert_eq!(

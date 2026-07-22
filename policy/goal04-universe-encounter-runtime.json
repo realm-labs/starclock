@@ -32,14 +32,15 @@
   },
   "goldens": {
     "resolved_overlay_sha256": "a098a2294e872e98fe7933e5ed504daa12881f5f0c89046d61a19bc86e288f0c",
-    "won_reward_state_sha256": "bfee5c6482ffef4443205f20ee48fdc86a6c90cbb686056cce06674028b8bf8c"
+    "won_reward_state_sha256": "afbfc592493a99c22aa94d26ed6cb8556b47285a30a046165aceae1994f0209a"
   },
   "focused_tests": 2,
   "scope": {
     "all_universe_enemy_variants_compiled": false,
     "enemy_overlay_owner": "G04-P4-M15",
-    "blessing_reward_effects_applied": false,
-    "reward_effect_owner": "G04-P3-B4",
+    "blessing_reward_acquisition_applied": true,
+    "blessing_battle_effects_applied": false,
+    "reward_effect_owners": ["G04-P4-M02", "G04-P4-M03", "G04-P4-M04", "G04-P4-M05", "G04-P4-M06", "G04-P4-M07", "G04-P4-M08", "G04-P4-M09", "G04-P4-M10"],
     "complete_world_claim": false
   },
   "new_registry_packages": []

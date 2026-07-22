@@ -1,0 +1,45 @@
+{
+  "schema_revision": "starclock.goal04-universe-blessing-runtime.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P3-B4",
+  "counts": {
+    "blessings": 162,
+    "blessing_levels": 324,
+    "prerequisite_bindings": 72,
+    "exact_parameters": 638,
+    "reward_hubs": 579,
+    "maximum_offer_options": 3,
+    "maximum_rerolls_per_reward": 1,
+    "inventory_entry_limit": 162,
+    "inventory_stack_limit": 2
+  },
+  "policies": {
+    "ownership": "ActivityInventory",
+    "level_encoding": "StackOneBaseStackTwoEnhanced",
+    "offer_selection": "StableUniformEligibleWithoutReplacementV1",
+    "offer_rng_stream": "Reward",
+    "released_profile_unlocks": "FullyUnlocked",
+    "explicit_prerequisite_filter_supported": true,
+    "rarity_filter_supported": true,
+    "reroll_counter_scope": "ActivityPerRewardNode",
+    "replacement": "AtomicRemoveCompleteLevelThenAcquireBase",
+    "battle_projection": "TypedRuleKeySourceBindingExactParameters"
+  },
+  "goldens": {
+    "runtime_catalog_sha256": "e670d6419dffbc441a18aa946516466bca62f28505921bbf96233f65833d3691",
+    "seed7_initial_state_sha256": "72d31d405e5699ab5f3c22036df976007c9123929c3404ee9a364fc318b941a6",
+    "won_reward_offer_state_sha256": "afbfc592493a99c22aa94d26ed6cb8556b47285a30a046165aceae1994f0209a",
+    "selected_contribution_set_sha256": "370355e8d5159115dbfeed419e28bd16621249030f96c6b1a6fa59111b772e14"
+  },
+  "scope": {
+    "all_blessing_effects_executable": false,
+    "effect_partition_owners": ["G04-P4-M02", "G04-P4-M03", "G04-P4-M04", "G04-P4-M05", "G04-P4-M06", "G04-P4-M07", "G04-P4-M08", "G04-P4-M09", "G04-P4-M10"],
+    "exact_source_drop_probabilities_verified": false,
+    "source_policy_owner": "G04-P4-M01",
+    "battle_spec_contribution_materialization": false,
+    "battle_materialization_owner": "G04-P4-M01",
+    "complete_world_claim": false
+  },
+  "focused_tests": 4,
+  "new_registry_packages": []
+}

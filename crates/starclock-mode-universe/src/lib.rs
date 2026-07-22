@@ -9,6 +9,7 @@
 mod generated;
 
 pub mod battle_overlay;
+pub mod blessing_runtime;
 pub mod catalog;
 pub mod curio;
 pub mod definition;

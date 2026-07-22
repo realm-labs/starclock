@@ -24,7 +24,14 @@ pub enum ActivityValueType {
 pub enum ActivityExpression {
     Literal(ActivityValue),
     Slot(ActivitySlotId),
-    CounterValue { slot: ActivitySlotId, key: u64 },
+    CounterValue {
+        slot: ActivitySlotId,
+        key: u64,
+    },
+    InventoryCount {
+        inventory: ActivityInventoryId,
+        content: u64,
+    },
     Add(Box<ActivityExpression>, Box<ActivityExpression>),
     Subtract(Box<ActivityExpression>, Box<ActivityExpression>),
     Minimum(Box<ActivityExpression>, Box<ActivityExpression>),
@@ -299,6 +306,17 @@ fn expression_type(
             }
             Ok(ActivityValueType::Integer)
         }
+        ActivityExpression::InventoryCount { inventory, content } => {
+            if *content == 0
+                || !state
+                    .inventories()
+                    .iter()
+                    .any(|definition| definition.id() == *inventory)
+            {
+                return Err(ActivityProgramBindingError::MissingInventory(*inventory));
+            }
+            Ok(ActivityValueType::Integer)
+        }
         ActivityExpression::Add(left, right)
         | ActivityExpression::Subtract(left, right)
         | ActivityExpression::Minimum(left, right)
@@ -449,6 +467,11 @@ fn validate_expression(
         ActivityExpression::Literal(_) | ActivityExpression::Slot(_) => {}
         ActivityExpression::CounterValue { key, .. } => {
             if *key == 0 {
+                return Err(ActivityProgramDefinitionError::CollectionLiteralNotScalar);
+            }
+        }
+        ActivityExpression::InventoryCount { content, .. } => {
+            if *content == 0 {
                 return Err(ActivityProgramDefinitionError::CollectionLiteralNotScalar);
             }
         }

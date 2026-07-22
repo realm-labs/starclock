@@ -4,14 +4,15 @@ use crate::{
     ActivityBattleHandoff, ActivityBattlePreparationRequest, ActivityBattleResultContract,
     ActivityBattleResultSubmission, ActivityBattleSettlement, ActivityBattleSettlementError,
     ActivityBattleStartRequest, ActivityCause, ActivityDebugView, ActivityDecisionId,
-    ActivityDecisionKind, ActivityDefinitionIdentity, ActivityFault, ActivityGraphDefinition,
-    ActivityInstanceId, ActivityMasterSeed, ActivityOptionDefinition, ActivityOptionId,
-    ActivityPendingBattleView, ActivityPlayerView, ActivityPreparationBoundary,
-    ActivityPreparationError, ActivityPreparationView, ActivityProgramDefinition,
-    ActivityRngContext, ActivityRngError, ActivityRngLabel, ActivityRngStreams, ActivitySlotId,
-    ActivityStateDefinition, ActivityStateHash, ActivityTransactionEvent,
-    ActivityTransactionOutcome, ActivityTransactionRejection, ActivityTransactionState,
-    ActivityValue, BattleResult, NodeId, ParticipantLock, PendingBattleSpec, SlotValueKind,
+    ActivityDecisionKind, ActivityDefinitionIdentity, ActivityExpression, ActivityFault,
+    ActivityGraphDefinition, ActivityInstanceId, ActivityMasterSeed, ActivityOperation,
+    ActivityOptionDefinition, ActivityOptionId, ActivityPendingBattleView, ActivityPlayerView,
+    ActivityPreparationBoundary, ActivityPreparationError, ActivityPreparationView,
+    ActivityProgramDefinition, ActivityRngContext, ActivityRngError, ActivityRngLabel,
+    ActivityRngStreams, ActivitySlotId, ActivityStateDefinition, ActivityStateHash,
+    ActivityTransactionEvent, ActivityTransactionOutcome, ActivityTransactionRejection,
+    ActivityTransactionState, ActivityValue, BattleResult, NodeId, ParticipantLock,
+    PendingBattleSpec, SlotValueKind,
 };
 
 /// Deterministic weighted settlement policy for one internal checkpoint.
@@ -21,6 +22,94 @@ pub struct ActivityRandomCheckpoint {
     label: ActivityRngLabel,
     purpose: u16,
     weights: Box<[(ActivityOptionId, u64)]>,
+}
+
+/// Deterministic weighted, without-replacement candidate policy for one
+/// player-visible decision. The complete authored option set remains in the
+/// node program; this policy only narrows the currently offered subset.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ActivityRandomOffer {
+    node: NodeId,
+    label: ActivityRngLabel,
+    purpose: u16,
+    maximum_options: u16,
+    weights: Box<[(ActivityOptionId, u64)]>,
+    reroll_counter: Option<(ActivitySlotId, u32)>,
+}
+
+impl ActivityRandomOffer {
+    pub fn new(
+        node: NodeId,
+        label: ActivityRngLabel,
+        purpose: u16,
+        maximum_options: u16,
+        mut weights: Vec<(ActivityOptionId, u64)>,
+        reroll_counter: Option<(ActivitySlotId, u32)>,
+    ) -> Result<Self, GraphActivityDefinitionError> {
+        weights.sort_by_key(|item| item.0);
+        if purpose == 0
+            || maximum_options == 0
+            || usize::from(maximum_options) > weights.len()
+            || weights.is_empty()
+            || weights.len() > 256
+            || weights.iter().any(|item| item.1 == 0)
+            || weights.windows(2).any(|pair| pair[0].0 == pair[1].0)
+            || reroll_counter.is_some_and(|(_, maximum)| maximum == 0)
+        {
+            return Err(GraphActivityDefinitionError::InvalidRandomOffer);
+        }
+        Ok(Self {
+            node,
+            label,
+            purpose,
+            maximum_options,
+            weights: weights.into_boxed_slice(),
+            reroll_counter,
+        })
+    }
+    #[must_use]
+    pub const fn node(&self) -> NodeId {
+        self.node
+    }
+    #[must_use]
+    pub const fn label(&self) -> ActivityRngLabel {
+        self.label
+    }
+    #[must_use]
+    pub const fn purpose(&self) -> u16 {
+        self.purpose
+    }
+    #[must_use]
+    pub const fn maximum_options(&self) -> u16 {
+        self.maximum_options
+    }
+    #[must_use]
+    pub fn weights(&self) -> &[(ActivityOptionId, u64)] {
+        &self.weights
+    }
+    #[must_use]
+    pub const fn reroll_counter(&self) -> Option<(ActivitySlotId, u32)> {
+        self.reroll_counter
+    }
+}
+
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct ActivityRandomPolicies {
+    checkpoints: Vec<ActivityRandomCheckpoint>,
+    offers: Vec<ActivityRandomOffer>,
+}
+
+impl ActivityRandomPolicies {
+    #[must_use]
+    pub fn new(
+        checkpoints: Vec<ActivityRandomCheckpoint>,
+        offers: Vec<ActivityRandomOffer>,
+    ) -> Self {
+        Self {
+            checkpoints,
+            offers,
+        }
+    }
 }
 
 impl ActivityRandomCheckpoint {
@@ -146,6 +235,7 @@ pub struct GraphActivityDefinition {
     programs: Arc<[GraphActivityNodeProgram]>,
     bootstrap: Option<ActivityBootstrapSelection>,
     random_checkpoints: Arc<[ActivityRandomCheckpoint]>,
+    random_offers: Arc<[ActivityRandomOffer]>,
 }
 
 impl GraphActivityDefinition {
@@ -156,8 +246,12 @@ impl GraphActivityDefinition {
         participants: Arc<ParticipantLock>,
         mut programs: Vec<GraphActivityNodeProgram>,
         bootstrap: Option<ActivityBootstrapSelection>,
-        mut random_checkpoints: Vec<ActivityRandomCheckpoint>,
+        random_policies: ActivityRandomPolicies,
     ) -> Result<Self, GraphActivityDefinitionError> {
+        let ActivityRandomPolicies {
+            mut checkpoints,
+            mut offers,
+        } = random_policies;
         programs.sort_by_key(GraphActivityNodeProgram::node);
         if programs.windows(2).any(|pair| pair[0].node == pair[1].node) {
             return Err(GraphActivityDefinitionError::DuplicateNodeProgram);
@@ -194,14 +288,14 @@ impl GraphActivityDefinition {
                 return Err(GraphActivityDefinitionError::InvalidBootstrapSlot);
             }
         }
-        random_checkpoints.sort_by_key(ActivityRandomCheckpoint::node);
-        if random_checkpoints
+        checkpoints.sort_by_key(ActivityRandomCheckpoint::node);
+        if checkpoints
             .windows(2)
             .any(|pair| pair[0].node == pair[1].node)
         {
             return Err(GraphActivityDefinitionError::DuplicateRandomCheckpoint);
         }
-        for checkpoint in &random_checkpoints {
+        for checkpoint in &checkpoints {
             let binding = programs
                 .binary_search_by_key(&checkpoint.node, GraphActivityNodeProgram::node)
                 .ok()
@@ -217,6 +311,37 @@ impl GraphActivityDefinition {
                 return Err(GraphActivityDefinitionError::InvalidRandomCheckpoint);
             }
         }
+        offers.sort_by_key(ActivityRandomOffer::node);
+        if offers.windows(2).any(|pair| pair[0].node == pair[1].node) {
+            return Err(GraphActivityDefinitionError::DuplicateRandomOffer);
+        }
+        for offer in &offers {
+            let binding = programs
+                .binary_search_by_key(&offer.node, GraphActivityNodeProgram::node)
+                .ok()
+                .map(|index| &programs[index])
+                .ok_or(GraphActivityDefinitionError::InvalidRandomOffer)?;
+            let offered = player_offer_options(binding.program.operations())
+                .ok_or(GraphActivityDefinitionError::InvalidRandomOffer)?;
+            if offered.len() != offer.weights.len()
+                || offered.iter().any(|option| {
+                    offer
+                        .weights
+                        .binary_search_by_key(option, |item| item.0)
+                        .is_err()
+                })
+            {
+                return Err(GraphActivityDefinitionError::InvalidRandomOffer);
+            }
+            if let Some((slot, _)) = offer.reroll_counter {
+                let valid = state.slots().iter().any(|definition| {
+                    definition.id() == slot && definition.kind() == SlotValueKind::BoundedCounterMap
+                });
+                if !valid {
+                    return Err(GraphActivityDefinitionError::InvalidRandomOffer);
+                }
+            }
+        }
         Ok(Self {
             identity,
             graph: Arc::new(graph),
@@ -224,7 +349,8 @@ impl GraphActivityDefinition {
             participants,
             programs: programs.into(),
             bootstrap,
-            random_checkpoints: random_checkpoints.into(),
+            random_checkpoints: checkpoints.into(),
+            random_offers: offers.into(),
         })
     }
 
@@ -245,6 +371,7 @@ impl GraphActivityDefinition {
             programs: Arc::clone(&self.programs),
             bootstrap: self.bootstrap.clone(),
             random_checkpoints: Arc::clone(&self.random_checkpoints),
+            random_offers: Arc::clone(&self.random_offers),
         })
     }
 
@@ -278,6 +405,11 @@ impl GraphActivityDefinition {
         &self.random_checkpoints
     }
 
+    #[must_use]
+    pub fn random_offers(&self) -> &[ActivityRandomOffer] {
+        &self.random_offers
+    }
+
     fn program(&self, node: NodeId) -> Option<&ActivityProgramDefinition> {
         self.programs
             .binary_search_by_key(&node, GraphActivityNodeProgram::node)
@@ -290,6 +422,13 @@ impl GraphActivityDefinition {
             .binary_search_by_key(&node, ActivityRandomCheckpoint::node)
             .ok()
             .map(|index| &self.random_checkpoints[index])
+    }
+
+    fn random_offer(&self, node: NodeId) -> Option<&ActivityRandomOffer> {
+        self.random_offers
+            .binary_search_by_key(&node, ActivityRandomOffer::node)
+            .ok()
+            .map(|index| &self.random_offers[index])
     }
 }
 
@@ -478,6 +617,72 @@ impl GraphActivity {
         )?;
         events.extend(self.pump().map_err(GraphActivityCommandError::Runtime)?);
         Ok(events.into_boxed_slice())
+    }
+
+    pub fn reroll_random_offer(
+        &mut self,
+        expected_state_hash: ActivityStateHash,
+    ) -> Result<Box<[ActivityTransactionEvent]>, GraphActivityRandomOfferError> {
+        if expected_state_hash != self.state_hash() {
+            return Err(GraphActivityRandomOfferError::StaleStateHash);
+        }
+        let node = self.state.current_node();
+        let policy = self
+            .definition
+            .random_offer(node)
+            .ok_or(GraphActivityRandomOfferError::NotOffered)?;
+        if self.state.pending_option_ids().is_none() {
+            return Err(GraphActivityRandomOfferError::NotOffered);
+        }
+        let (counter, maximum) = policy
+            .reroll_counter
+            .ok_or(GraphActivityRandomOfferError::RerollDisabled)?;
+        let current = self
+            .state
+            .counter_value(counter, u64::from(node.get()))
+            .ok_or(GraphActivityRandomOfferError::InvalidCounter)?;
+        if current >= i64::from(maximum) {
+            return Err(GraphActivityRandomOfferError::RerollLimitReached);
+        }
+        let source = self
+            .definition
+            .program(node)
+            .ok_or(GraphActivityRandomOfferError::NotOffered)?;
+        let mut operations = Vec::with_capacity(source.operations().len() + 1);
+        operations.push(ActivityOperation::AddCounter {
+            slot: counter,
+            key: u64::from(node.get()),
+            delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
+        });
+        operations.extend_from_slice(source.operations());
+        let program = ActivityProgramDefinition::new(source.id(), operations)
+            .map_err(|_| GraphActivityRandomOfferError::InvalidProgram)?;
+        let cause = ActivityCause::new(
+            self.state.command_sequence().saturating_add(1),
+            program.id(),
+            node,
+        )
+        .ok_or(GraphActivityRandomOfferError::InvalidProgram)?;
+        let mut working_state = self.state.transaction_copy();
+        let mut working_rng = self.rng.transaction_copy();
+        let events = match working_state.replace_pending_with_program(
+            &program,
+            cause,
+            &self.definition.graph,
+        ) {
+            ActivityTransactionOutcome::Committed(events) => events,
+            ActivityTransactionOutcome::Rejected(error) => {
+                return Err(GraphActivityRandomOfferError::Rejected(error));
+            }
+            ActivityTransactionOutcome::Faulted(_, fault) => {
+                return Err(GraphActivityRandomOfferError::Faulted(fault));
+            }
+        };
+        restrict_random_offer(&mut working_state, &mut working_rng, policy)
+            .map_err(GraphActivityRandomOfferError::Runtime)?;
+        self.state = working_state;
+        self.rng = working_rng;
+        Ok(events)
     }
 
     pub fn engage_encounter(
@@ -676,11 +881,31 @@ impl GraphActivity {
                 node,
             )
             .ok_or(GraphActivityRuntimeError::InvalidCause)?;
-            events.extend(committed_runtime(self.state.apply_program(
-                &program,
-                cause,
-                &self.definition.graph,
-            ))?);
+            if let Some(policy) = self.definition.random_offer(node).cloned() {
+                let mut working_state = self.state.transaction_copy();
+                let mut working_rng = self.rng.transaction_copy();
+                match working_state.apply_program(&program, cause, &self.definition.graph) {
+                    ActivityTransactionOutcome::Committed(committed_events) => {
+                        restrict_random_offer(&mut working_state, &mut working_rng, &policy)?;
+                        self.state = working_state;
+                        self.rng = working_rng;
+                        events.extend(committed_events);
+                    }
+                    ActivityTransactionOutcome::Faulted(fault_events, _) => {
+                        self.state = working_state;
+                        events.extend(fault_events);
+                    }
+                    ActivityTransactionOutcome::Rejected(error) => {
+                        return Err(GraphActivityRuntimeError::Rejected(error));
+                    }
+                }
+            } else {
+                events.extend(committed_runtime(self.state.apply_program(
+                    &program,
+                    cause,
+                    &self.definition.graph,
+                ))?);
+            }
         }
         Err(GraphActivityRuntimeError::AutomaticStepLimit)
     }
@@ -695,6 +920,53 @@ fn checkpoint_options(operations: &[crate::ActivityOperation]) -> Option<Vec<Act
         }
         _ => None,
     })
+}
+
+fn player_offer_options(operations: &[ActivityOperation]) -> Option<Vec<ActivityOptionId>> {
+    if operations.len() != 1 {
+        return None;
+    }
+    match &operations[0] {
+        ActivityOperation::Offer { kind, options } if *kind != ActivityDecisionKind::Checkpoint => {
+            Some(options.iter().map(ActivityOptionDefinition::id).collect())
+        }
+        _ => None,
+    }
+}
+
+fn restrict_random_offer(
+    state: &mut ActivityTransactionState,
+    rng: &mut ActivityRngStreams,
+    policy: &ActivityRandomOffer,
+) -> Result<(), GraphActivityRuntimeError> {
+    let offered = state
+        .pending_option_ids()
+        .ok_or(GraphActivityRuntimeError::InvalidRandomOffer)?;
+    let mut weights = Vec::with_capacity(offered.len());
+    for option in &offered {
+        let weight = policy
+            .weights
+            .binary_search_by_key(option, |item| item.0)
+            .ok()
+            .map(|index| policy.weights[index].1)
+            .ok_or(GraphActivityRuntimeError::InvalidRandomOffer)?;
+        weights.push(weight);
+    }
+    let selected = rng
+        .choose_weighted_without_replacement(
+            policy.label,
+            policy.purpose,
+            &weights,
+            policy.maximum_options,
+        )
+        .map_err(GraphActivityRuntimeError::Rng)?;
+    let ids = selected
+        .iter()
+        .map(|index| offered[*index as usize])
+        .collect::<Vec<_>>();
+    state
+        .restrict_pending_options(ids)
+        .map_err(|_| GraphActivityRuntimeError::InvalidRandomOffer)
 }
 
 pub struct GraphActivityResolution {
@@ -820,6 +1092,8 @@ pub enum GraphActivityDefinitionError {
     InvalidProgramBinding(NodeId),
     InvalidRandomCheckpoint,
     DuplicateRandomCheckpoint,
+    InvalidRandomOffer,
+    DuplicateRandomOffer,
     IncompatibleStateShape,
 }
 
@@ -837,7 +1111,21 @@ pub enum GraphActivityRuntimeError {
     Rejected(ActivityTransactionRejection),
     AutomaticStepLimit,
     InvalidRandomCheckpoint,
+    InvalidRandomOffer,
     Rng(ActivityRngError),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum GraphActivityRandomOfferError {
+    StaleStateHash,
+    NotOffered,
+    RerollDisabled,
+    RerollLimitReached,
+    InvalidCounter,
+    InvalidProgram,
+    Rejected(ActivityTransactionRejection),
+    Faulted(ActivityFault),
+    Runtime(GraphActivityRuntimeError),
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -1,0 +1,75 @@
+{
+  "schema_revision": "starclock.goal04-universe-blessing-runtime-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P3-B4",
+  "result": "blessing-offer-reroll-inventory-level-and-typed-contribution-runtime-is-deterministic",
+  "counts": {
+    "blessings": 162,
+    "blessing_levels": 324,
+    "prerequisite_bindings": 72,
+    "exact_parameters": 638,
+    "reward_hubs": 579,
+    "maximum_offer_options": 3,
+    "maximum_rerolls_per_reward": 1,
+    "inventory_entry_limit": 162,
+    "inventory_stack_limit": 2
+  },
+  "policies": {
+    "ownership": "ActivityInventory",
+    "level_encoding": "StackOneBaseStackTwoEnhanced",
+    "offer_selection": "StableUniformEligibleWithoutReplacementV1",
+    "offer_rng_stream": "Reward",
+    "released_profile_unlocks": "FullyUnlocked",
+    "explicit_prerequisite_filter_supported": true,
+    "rarity_filter_supported": true,
+    "reroll_counter_scope": "ActivityPerRewardNode",
+    "replacement": "AtomicRemoveCompleteLevelThenAcquireBase",
+    "battle_projection": "TypedRuleKeySourceBindingExactParameters"
+  },
+  "goldens": {
+    "runtime_catalog_sha256": "e670d6419dffbc441a18aa946516466bca62f28505921bbf96233f65833d3691",
+    "seed7_initial_state_sha256": "72d31d405e5699ab5f3c22036df976007c9123929c3404ee9a364fc318b941a6",
+    "won_reward_offer_state_sha256": "afbfc592493a99c22aa94d26ed6cb8556b47285a30a046165aceae1994f0209a",
+    "selected_contribution_set_sha256": "370355e8d5159115dbfeed419e28bd16621249030f96c6b1a6fa59111b772e14"
+  },
+  "deferred_scope": {
+    "all_blessing_effects_executable": false,
+    "effect_partition_owners": [
+      "G04-P4-M02",
+      "G04-P4-M03",
+      "G04-P4-M04",
+      "G04-P4-M05",
+      "G04-P4-M06",
+      "G04-P4-M07",
+      "G04-P4-M08",
+      "G04-P4-M09",
+      "G04-P4-M10"
+    ],
+    "exact_source_drop_probabilities_verified": false,
+    "source_policy_owner": "G04-P4-M01",
+    "battle_spec_contribution_materialization": false,
+    "battle_materialization_owner": "G04-P4-M01",
+    "complete_world_claim": false
+  },
+  "compatibility": {
+    "generated_rows_public": false,
+    "mutable_mode_engine_added": false,
+    "invalid_reroll_mutates_state_or_rng": false,
+    "authoritative_float": false,
+    "complete_catalog_cloned_per_run": false
+  },
+  "source_sha256": {
+    "crates/starclock-activity/src/activity_rng.rs": "20228e92df219ec484ade933f02763660e022998ac1eb01cd84793f7df673efc",
+    "crates/starclock-activity/src/program.rs": "3a28b3a1a322b4a9d40ad1da400a620c0bf06fb2447203acff91d58a9aef505c",
+    "crates/starclock-activity/src/transaction.rs": "97ab45660e30885e606321d86ac98d6c751d88d54cb96e8d0696ded813166c99",
+    "crates/starclock-activity/src/transaction/decision.rs": "e22d200190ffe5477e5d3ce5fb24942e86399afb6061308496dca16fcaef69ec",
+    "crates/starclock-activity/src/graph_activity.rs": "3fa0c5a0849cfb5e557d4e65fe98ecce64f315f6c8b484b22358eac2973370b2",
+    "crates/starclock-mode-universe/src/blessing_runtime.rs": "4d378eb94320066a7f074be933e2dfa0dba3e211b3e81d97fee80516262ab3d2",
+    "crates/starclock-mode-universe/src/topology.rs": "9ea7b4115c5ecbe8c1830727c69d4f31ccb1312cac2bd0aad1f62dbb4db0e4d9",
+    "crates/starclock-mode-universe/src/runtime.rs": "8faf3f218a128c0ed48ef60f918b22ce5044d20bf8c5751e8f995b3c0bf32bdd",
+    "crates/starclock-mode-universe/tests/blessing_runtime.rs": "dfd85f89a479c5051be655c05bbf223a1e93c9dc03d5439e5a05da77b394717e",
+    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "bdedf56ddfecdef30ee48621b3e7721797289cfa3db6a5307ce1aa93eca42eb2"
+  },
+  "focused_tests": 4,
+  "new_registry_packages": []
+}

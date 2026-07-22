@@ -62,6 +62,41 @@ fn labeled_rng_streams_are_golden_reproducible_and_perturbation_isolated() {
 }
 
 #[test]
+fn weighted_without_replacement_is_unique_bounded_and_draw_exact() {
+    let mut left = rng();
+    let mut right = rng();
+    let selected = left
+        .choose_weighted_without_replacement(ActivityRngLabel::Reward, 9, &[1, 2, 3, 4], 3)
+        .unwrap();
+    assert_eq!(
+        selected,
+        right
+            .choose_weighted_without_replacement(ActivityRngLabel::Reward, 9, &[1, 2, 3, 4], 3,)
+            .unwrap()
+    );
+    assert_eq!(selected.len(), 3);
+    let mut unique = selected.to_vec();
+    unique.sort_unstable();
+    unique.dedup();
+    assert_eq!(unique.len(), 3);
+    let reward = left
+        .snapshots()
+        .iter()
+        .find(|stream| stream.label() == ActivityRngLabel::Reward)
+        .copied()
+        .unwrap();
+    assert_eq!(reward.draw_count(), 3);
+
+    let before = left.snapshots();
+    assert!(
+        left.choose_weighted_without_replacement(ActivityRngLabel::Reward, 9, &[0, 0], 2)
+            .unwrap()
+            .is_empty()
+    );
+    assert_eq!(left.snapshots(), before);
+}
+
+#[test]
 fn canonical_v2_state_bytes_and_hash_cover_commands_values_options_and_rng() {
     let graph = graph();
     let identity = identity();

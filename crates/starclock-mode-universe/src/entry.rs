@@ -4,15 +4,17 @@ use std::sync::{Arc, OnceLock};
 
 use starclock_activity::{
     ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
-    ActivityDefinitionIdentity, ActivityInstanceId, ActivityMasterSeed, ActivityScope,
-    ActivitySlotDefinition, ActivitySlotId, ActivityStateDefinition, ActivityStateSource,
-    ActivityStateVisibility, ActivityValue, GraphActivity, GraphActivityDefinition,
-    GraphActivityResolution, GraphActivityStartError, LoadoutLockScope, ParticipantLock,
-    ParticipantPolicy, ParticipantUniquenessScope, SlotCarryPolicy, SlotResetPoint,
+    ActivityDefinitionIdentity, ActivityInstanceId, ActivityInventoryDefinition,
+    ActivityInventoryId, ActivityMasterSeed, ActivityScope, ActivitySlotDefinition, ActivitySlotId,
+    ActivityStateDefinition, ActivityStateSource, ActivityStateVisibility, ActivityValue,
+    GraphActivity, GraphActivityDefinition, GraphActivityResolution, GraphActivityStartError,
+    LoadoutLockScope, ParticipantLock, ParticipantPolicy, ParticipantUniquenessScope,
+    SlotCarryPolicy, SlotResetPoint,
 };
 
 use crate::{
     battle_overlay::UniverseEncounterOverlay,
+    blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
     digest::Encoder,
     id::{AbilityTreeNodeId, DifficultyId, PathId, WorldId},
@@ -28,6 +30,8 @@ const TOPOLOGY_SLOT: u32 = 5;
 const HUB_CLEAR_SLOT: u32 = 6;
 const ROOM_SLOT: u32 = 7;
 const ENCOUNTER_MEMBER_SLOT: u32 = 8;
+const BLESSING_REROLL_SLOT: u32 = 9;
+const BLESSING_INVENTORY: u32 = 1;
 const WORLD_SOURCE: u64 = 0x5355_0001;
 const DIFFICULTY_SOURCE: u64 = 0x5355_0002;
 const PATH_SOURCE: u64 = 0x5355_0003;
@@ -36,6 +40,8 @@ const TOPOLOGY_SOURCE: u64 = 0x5355_0005;
 const HUB_CLEAR_SOURCE: u64 = 0x5355_0006;
 const ROOM_SOURCE: u64 = 0x5355_0007;
 const ENCOUNTER_MEMBER_SOURCE: u64 = 0x5355_0008;
+const BLESSING_REROLL_SOURCE: u64 = 0x5355_0009;
+const BLESSING_INVENTORY_SOURCE: u64 = 0x5355_1001;
 
 /// Validated caller-owned inputs for one Standard Universe run.
 ///
@@ -145,6 +151,10 @@ impl StandardUniverseProfile {
         }
 
         let ability_tree = canonical_ability_tree(&self.catalog, &entry.ability_tree)?;
+        let blessing_runtime = Arc::new(
+            BlessingRuntimeCatalog::compile(&self.catalog)
+                .map_err(|_| StandardUniverseCompileError::InvalidBlessingRuntime)?,
+        );
         let path_options = self
             .catalog
             .paths()
@@ -173,6 +183,7 @@ impl StandardUniverseProfile {
         } else {
             let compiled = crate::topology::compile(
                 &self.catalog,
+                blessing_runtime.as_ref(),
                 identity,
                 state.clone(),
                 Arc::clone(&participants),
@@ -181,6 +192,8 @@ impl StandardUniverseProfile {
                 slot(HUB_CLEAR_SLOT),
                 slot(ROOM_SLOT),
                 slot(ENCOUNTER_MEMBER_SLOT),
+                inventory(BLESSING_INVENTORY),
+                slot(BLESSING_REROLL_SLOT),
             )
             .map_err(StandardUniverseCompileError::Topology)?;
             let _ = self.topology_template.set(compiled.clone());
@@ -201,6 +214,7 @@ impl StandardUniverseProfile {
             topology_candidates: topology.candidates,
             encounter_options: topology.encounter_options,
             encounter_overlay: entry.encounter_overlay,
+            blessing_runtime,
         })
     }
 }
@@ -224,6 +238,7 @@ pub struct CompiledActivity {
     topology_candidates: Arc<[crate::id::TopologyId]>,
     encounter_options: Arc<[crate::topology::EncounterOptionBinding]>,
     encounter_overlay: Option<Arc<UniverseEncounterOverlay>>,
+    blessing_runtime: Arc<BlessingRuntimeCatalog>,
 }
 
 impl CompiledActivity {
@@ -293,6 +308,11 @@ impl CompiledActivity {
         self.encounter_overlay.as_ref()
     }
 
+    #[must_use]
+    pub const fn blessing_runtime(&self) -> &Arc<BlessingRuntimeCatalog> {
+        &self.blessing_runtime
+    }
+
     pub fn start(
         &self,
         instance: ActivityInstanceId,
@@ -314,6 +334,8 @@ impl CompiledActivity {
             Arc::clone(&self.participants),
             Arc::clone(&self.encounter_options),
             self.encounter_overlay.clone(),
+            Arc::clone(&self.blessing_runtime),
+            self.blessing_inventory(),
         )
     }
 
@@ -355,6 +377,16 @@ impl CompiledActivity {
     #[must_use]
     pub const fn selected_encounter_member_slot(&self) -> ActivitySlotId {
         slot(ENCOUNTER_MEMBER_SLOT)
+    }
+
+    #[must_use]
+    pub const fn blessing_reroll_slot(&self) -> ActivitySlotId {
+        slot(BLESSING_REROLL_SLOT)
+    }
+
+    #[must_use]
+    pub const fn blessing_inventory(&self) -> ActivityInventoryId {
+        inventory(BLESSING_INVENTORY)
     }
 }
 
@@ -472,8 +504,28 @@ fn compile_state(
             ENCOUNTER_MEMBER_SOURCE,
             ActivityStateVisibility::Private,
         )?,
+        activity_slot(
+            BLESSING_REROLL_SLOT,
+            ActivityValue::BoundedCounterMap(Box::new([])),
+            Some(4_096),
+            BLESSING_REROLL_SOURCE,
+            ActivityStateVisibility::Private,
+        )?,
     ];
-    ActivityStateDefinition::new(slots, vec![], vec![])
+    let inventories = vec![
+        ActivityInventoryDefinition::new(
+            inventory(BLESSING_INVENTORY),
+            ActivityScope::Activity,
+            162,
+            2,
+            SlotCarryPolicy::CarryExact,
+            ActivityStateVisibility::Player,
+            ActivityStateSource::new(BLESSING_INVENTORY_SOURCE)
+                .expect("static inventory source is non-zero"),
+        )
+        .map_err(|_| StandardUniverseCompileError::InvalidActivityState)?,
+    ];
+    ActivityStateDefinition::new(slots, inventories, vec![])
         .map_err(|_| StandardUniverseCompileError::InvalidActivityState)
 }
 
@@ -511,6 +563,7 @@ fn compile_identity(
     let catalog_identity = catalog.identity();
     let mut encoder = Encoder::new(b"starclock-standard-universe-entry-definition-v1");
     encoder.text(STANDARD_UNIVERSE_ENTRY_REVISION);
+    encoder.text(crate::blessing_runtime::BLESSING_RUNTIME_REVISION);
     encoder.digest(catalog_identity.configuration_digest().bytes());
     encoder.digest(catalog_identity.definitions_digest().bytes());
     encoder.digest(catalog_identity.path_definitions_digest().bytes());
@@ -549,6 +602,13 @@ const fn slot(raw: u32) -> ActivitySlotId {
     }
 }
 
+const fn inventory(raw: u32) -> ActivityInventoryId {
+    match ActivityInventoryId::new(raw) {
+        Some(value) => value,
+        None => panic!("static Activity inventory ID must be non-zero"),
+    }
+}
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum StandardUniverseCompileError {
     UnknownWorld(WorldId),
@@ -567,6 +627,7 @@ pub enum StandardUniverseCompileError {
     NoAvailablePaths,
     InvalidActivityState,
     InvalidCatalogIdentity,
+    InvalidBlessingRuntime,
     EncounterOverlayParticipantMismatch,
     Topology(crate::topology::UniverseTopologyCompileError),
 }

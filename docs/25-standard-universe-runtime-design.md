@@ -203,6 +203,27 @@ Mandatory, optional, sequential and one-of encounter-slot policies are explicit
 domain types. Coordinates, collision and traversal timing never enter this
 contract.
 
+The Blessing reward seam is concrete. One Activity-scope inventory stores
+`BlessingId -> level`, where stack `1` is the base level and stack `2` is the
+enhanced level. A reward node filters already-owned entries plus explicit rarity
+and prerequisite eligibility, then samples at most three options without
+replacement from the independent Reward stream. The released profile is
+compiled as fully unlocked; callers that model earlier progression use the
+explicit prerequisite-token set. One reroll per reward node is recorded in a
+private bounded counter map. Stale and exhausted rerolls change neither state
+nor RNG.
+
+Acquisition, enhancement and replacement are ordinary checked Activity
+programs. Replacement removes the complete old level before adding the new
+base level in the same transaction. Each owned entry projects to an immutable
+typed contribution carrying Path, rarity, mechanic tags, the selected level's
+rule key, source binding and exact decimal parameters. P4-M02–M10 compile those
+typed values into executable Path-specific combat rules; until those partitions
+land, no document or coverage report may claim that all Blessing effects run in
+battle. Ordinary reward candidates currently use the explicit stable-uniform
+policy because exact released rarity/Path-biased probabilities are not proven;
+P4-M01 owns replacement of that policy when evidence is available.
+
 The activity terminates with a typed completion, defeat, abandonment or fault.
 Account rewards, weekly points, achievements and inventory payout remain
 outside the result.

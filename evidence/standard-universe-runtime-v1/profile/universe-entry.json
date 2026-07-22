@@ -10,7 +10,8 @@
     "ability_tree_nodes": 42
   },
   "activity_state": {
-    "slots": 8,
+    "slots": 9,
+    "inventories": 1,
     "selected_path_initially_absent": true,
     "owner_scope": "Activity",
     "visibility": "Player",
@@ -23,12 +24,12 @@
     "uniqueness": "Activity",
     "loadout_lock": "Activity"
   },
-  "definition_golden_sha256": "b46746e43b33d8ce3101f8a99dc8e3b86c19e8d747b3c0179f12e09ca91ec65b",
+  "definition_golden_sha256": "03e9c721f012b871fa5f52a27234a12e6c4d808b98c12041e5bb75628f40f3dd",
   "deferred_scope": {
     "topology_graph_attached": true,
     "runtime_start_available": true,
     "complete_world_claim": false,
-    "owner": "G04-P3-B3-landed"
+    "owner": "G04-P3-B4-landed"
   },
   "compatibility": {
     "generated_rows_public": false,
@@ -37,8 +38,8 @@
     "catalog_cloned_per_run": false
   },
   "source_sha256": {
-    "compiler": "011e45d2d9cc784c4a1152fbc4f6e8bc4fe57204c61c7d59fdfa7ffead5b5a26",
-    "tests": "c2703aa5ac0c2b2bb7cb061c21b90d7f13137ac285376e24c5dbd4000e48ed2a"
+    "compiler": "f7e5725869b03e58045bbbd0ee120cf14b20d9115e345e3856218d3609d75e87",
+    "tests": "ea0a2a28bfa99a26cab2820f245b349cdc67d997e0d3576d917c25653668fdb7"
   },
   "focused_tests": 4,
   "new_registry_packages": []

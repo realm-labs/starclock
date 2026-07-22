@@ -78,8 +78,11 @@ Encounter stream. Roster-specific immutable overlays bind selected members to
 validated preparation variants and result contracts; successful return exposes
 a reward decision before route handles. The large validated graph/program set
 is shared across profile compilations, while identity, initial state and roster
-remain isolated. Blessing reward effects and the complete enemy combat overlay
-are still deferred, so this is not yet a complete World claim.
+remain isolated. P3-B4 adds the Activity-owned Blessing inventory, three-option
+Reward-stream offers, one bounded reroll per reward, base/enhanced stacks and
+typed rule/source/parameter contributions. Exact Path-specific battle-effect
+execution and the complete enemy combat overlay are still deferred to the P4
+partitions, so this is not yet a complete World claim.
 
 ## CI matrix
 

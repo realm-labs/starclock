@@ -197,6 +197,29 @@ impl ActivityRngStreams {
         Err(ActivityRngError::MappingInvariant)
     }
 
+    pub fn choose_weighted_without_replacement(
+        &mut self,
+        label: ActivityRngLabel,
+        purpose: u16,
+        weights: &[u64],
+        maximum: u16,
+    ) -> Result<Box<[u32]>, ActivityRngError> {
+        if purpose == 0 {
+            return Err(ActivityRngError::InvalidPurpose);
+        }
+        let _ = u32::try_from(weights.len()).map_err(|_| ActivityRngError::TooManyCandidates)?;
+        let mut remaining = weights.to_vec();
+        let mut selected = Vec::with_capacity(usize::from(maximum).min(weights.len()));
+        while selected.len() < usize::from(maximum) {
+            let Some((index, _)) = self.choose_weighted(label, purpose, &remaining)? else {
+                break;
+            };
+            remaining[index as usize] = 0;
+            selected.push(index);
+        }
+        Ok(selected.into_boxed_slice())
+    }
+
     #[must_use]
     pub fn snapshots(&self) -> Box<[ActivityRngStreamSnapshot]> {
         self.streams
@@ -208,6 +231,27 @@ impl ActivityRngStreams {
             })
             .collect::<Vec<_>>()
             .into_boxed_slice()
+    }
+
+    pub(crate) fn transaction_copy(&self) -> Self {
+        Self {
+            streams: self
+                .streams
+                .iter()
+                .map(|(label, stream)| {
+                    let mut inner = ChaCha8Rng::from_seed(stream.seed);
+                    inner.set_word_pos(stream.inner.get_word_pos());
+                    (
+                        *label,
+                        ActivityRngStream {
+                            seed: stream.seed,
+                            draws: stream.draws,
+                            inner,
+                        },
+                    )
+                })
+                .collect(),
+        }
     }
 
     fn sample_below(

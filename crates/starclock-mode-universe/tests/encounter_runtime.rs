@@ -275,22 +275,66 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            191, 238, 92, 100, 130, 255, 239, 68, 67, 32, 95, 32, 238, 72, 253, 200, 106, 108, 144,
-            203, 182, 134, 5, 108, 206, 6, 103, 64, 40, 184, 191, 140,
+            175, 191, 197, 146, 73, 58, 153, 194, 42, 169, 77, 38, 237, 108, 184, 85, 107, 71, 40,
+            90, 48, 160, 70, 22, 90, 206, 174, 25, 148, 240, 32, 154,
         ]
     );
     let reward = activity.view();
+    let reward_decision = reward.decision().expect("post-battle reward");
     assert_eq!(
-        reward.decision().expect("post-battle reward").kind(),
+        reward_decision.kind(),
         starclock_activity::ActivityDecisionKind::Reward
     );
+    assert_eq!(reward_decision.options().len(), 3);
+    let before_stale_reroll = activity.graph().canonical_state_bytes();
+    assert!(
+        activity
+            .reroll_blessing_offer(starclock_activity::ActivityStateHash::new([0; 32]).unwrap())
+            .is_err()
+    );
+    assert_eq!(
+        activity.graph().canonical_state_bytes(),
+        before_stale_reroll
+    );
+    activity
+        .reroll_blessing_offer(reward.state_hash())
+        .expect("one deterministic Blessing reset");
+    let before_exhausted_reroll = activity.graph().canonical_state_bytes();
+    assert!(
+        activity
+            .reroll_blessing_offer(activity.view().state_hash())
+            .is_err()
+    );
+    assert_eq!(
+        activity.graph().canonical_state_bytes(),
+        before_exhausted_reroll
+    );
+    let reward = activity.view();
+    let reward_decision = reward.decision().expect("rerolled reward");
+    assert_eq!(reward_decision.options().len(), 3);
     activity
         .choose_option(
             reward.state_hash(),
-            reward.decision().unwrap().id(),
-            reward.decision().unwrap().options()[0].id(),
+            reward_decision.id(),
+            reward_decision.options()[0].id(),
         )
         .unwrap();
+    let contributions = activity
+        .blessing_contributions()
+        .expect("typed Blessing contribution set");
+    assert!(!contributions.entries().is_empty());
+    assert!(contributions.entries().iter().all(|entry| {
+        entry.level().level() == 1
+            && !entry.level().rule_key().is_empty()
+            && !entry.level().source_binding_key().is_empty()
+    }));
+    assert_eq!(
+        contributions.digest(),
+        [
+            55, 3, 85, 232, 213, 21, 145, 21, 219, 254, 237, 65, 158, 40, 189, 22, 98, 18, 73, 3,
+            15, 150, 198, 177, 166, 250, 89, 17, 27, 119, 46, 20,
+        ]
+    );
     assert_eq!(
         activity
             .view()

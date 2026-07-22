@@ -2,6 +2,8 @@ use std::collections::BTreeMap;
 
 use sha2::{Digest, Sha256};
 
+mod decision;
+
 use crate::{
     ACTIVITY_RNG_REVISION, ACTIVITY_STATE_CODEC_REVISION, ACTIVITY_STATE_HASH_REVISION,
     ActivityCondition, ActivityDecisionId, ActivityDecisionKind, ActivityDefinitionIdentity,
@@ -220,6 +222,58 @@ impl ActivityTransactionState {
     #[must_use]
     pub fn slot(&self, id: ActivitySlotId) -> Option<&ActivityValue> {
         self.slots.get(&id)
+    }
+    #[must_use]
+    pub(crate) fn counter_value(&self, id: ActivitySlotId, key: u64) -> Option<i64> {
+        match self.slots.get(&id)? {
+            ActivityValue::BoundedCounterMap(values) => Some(
+                values
+                    .binary_search_by_key(&key, |item| item.0)
+                    .ok()
+                    .map(|index| values[index].1)
+                    .unwrap_or(0),
+            ),
+            _ => None,
+        }
+    }
+    #[must_use]
+    pub(crate) fn pending_option_ids(&self) -> Option<Box<[ActivityOptionId]>> {
+        self.pending.as_ref().map(|pending| {
+            pending
+                .options
+                .iter()
+                .map(ActivityOptionDefinition::id)
+                .collect::<Vec<_>>()
+                .into_boxed_slice()
+        })
+    }
+    pub(crate) fn restrict_pending_options(
+        &mut self,
+        mut selected: Vec<ActivityOptionId>,
+    ) -> Result<(), ActivityFault> {
+        selected.sort_unstable();
+        selected.dedup();
+        if selected.is_empty() {
+            return Err(ActivityFault::InvalidProgramBoundary);
+        }
+        let pending = self
+            .pending
+            .as_mut()
+            .ok_or(ActivityFault::InvalidProgramBoundary)?;
+        if selected
+            .iter()
+            .any(|id| !pending.options.iter().any(|option| option.id() == *id))
+        {
+            return Err(ActivityFault::InvalidProgramBoundary);
+        }
+        pending.options = pending
+            .options
+            .iter()
+            .filter(|option| selected.binary_search(&option.id()).is_ok())
+            .cloned()
+            .collect::<Vec<_>>()
+            .into_boxed_slice();
+        Ok(())
     }
     #[must_use]
     pub const fn current_node(&self) -> NodeId {
@@ -479,6 +533,15 @@ impl ActivityTransactionState {
         }
     }
 
+    pub(crate) fn replace_pending_with_program(
+        &mut self,
+        program: &ActivityProgramDefinition,
+        cause: ActivityCause,
+        graph: &crate::ActivityGraphDefinition,
+    ) -> ActivityTransactionOutcome {
+        decision::replace_pending_with_program(self, program, cause, graph)
+    }
+
     pub fn apply_option(
         &mut self,
         option: ActivityOptionId,
@@ -712,6 +775,18 @@ impl ActivityTransactionState {
                     )),
                     _ => Err(ActivityFault::TypeMismatch),
                 }
+            }
+            ActivityExpression::InventoryCount { inventory, content } => {
+                if *content == 0 {
+                    return Err(ActivityFault::TypeMismatch);
+                }
+                let values = self
+                    .inventories
+                    .get(inventory)
+                    .ok_or(ActivityFault::MissingInventory(*inventory))?;
+                Ok(ActivityValue::BoundedInteger(i64::from(
+                    *values.get(content).unwrap_or(&0),
+                )))
             }
             ActivityExpression::Add(a, b) => {
                 numeric_binary(self.evaluate(a)?, self.evaluate(b)?, i64::checked_add)

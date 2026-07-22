@@ -5,14 +5,16 @@ use std::sync::Arc;
 use starclock_activity::{
     ActivityBootstrapSelection, ActivityCondition, ActivityDecisionKind, ActivityEdgeCondition,
     ActivityEdgeDefinition, ActivityEdgeId, ActivityExpression, ActivityGraphDefinition,
-    ActivityNodeDefinition, ActivityNodeKind, ActivityOperation, ActivityOptionDefinition,
-    ActivityOptionId, ActivityProgramDefinition, ActivityProgramId, ActivityRandomCheckpoint,
-    ActivityRngLabel, ActivitySlotId, ActivityStateDefinition, ActivityTerminalOutcome,
-    ActivityValue, GraphActivityDefinition, GraphActivityDefinitionError, GraphActivityNodeProgram,
-    NodeId, ParticipantLock, SectionId, TerminalOutcome,
+    ActivityInventoryId, ActivityNodeDefinition, ActivityNodeKind, ActivityOperation,
+    ActivityOptionDefinition, ActivityOptionId, ActivityProgramDefinition, ActivityProgramId,
+    ActivityRandomCheckpoint, ActivityRandomOffer, ActivityRandomPolicies, ActivityRngLabel,
+    ActivitySlotId, ActivityStateDefinition, ActivityTerminalOutcome, ActivityValue,
+    GraphActivityDefinition, GraphActivityDefinitionError, GraphActivityNodeProgram, NodeId,
+    ParticipantLock, SectionId, TerminalOutcome,
 };
 
 use crate::{
+    blessing_runtime::{BlessingOfferEligibility, BlessingRuntimeCatalog},
     catalog::UniverseCatalog,
     encounter::RoomContentKind,
     id::{EncounterGroupId, EncounterMemberId, RoomId, TopologyId, TopologyNodeId},
@@ -52,6 +54,7 @@ const EXIT_OPTION_OFFSET: u64 = 7_000_000_000_000;
 const TOPOLOGY_DRAW_PURPOSE: u16 = 1;
 const ROOM_DRAW_PURPOSE: u16 = 2;
 const MEMBER_DRAW_PURPOSE: u16 = 3;
+const BLESSING_DRAW_PURPOSE: u16 = 4;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DomainRouteDefinition {
@@ -193,6 +196,7 @@ pub(crate) struct CompiledUniverseTopology {
 #[allow(clippy::too_many_arguments)]
 pub(crate) fn compile(
     catalog: &UniverseCatalog,
+    blessing_runtime: &BlessingRuntimeCatalog,
     identity: starclock_activity::ActivityDefinitionIdentity,
     state: ActivityStateDefinition,
     participants: Arc<ParticipantLock>,
@@ -201,6 +205,8 @@ pub(crate) fn compile(
     hub_clear_slot: ActivitySlotId,
     room_slot: ActivitySlotId,
     member_slot: ActivitySlotId,
+    blessing_inventory: ActivityInventoryId,
+    blessing_reroll_slot: ActivitySlotId,
 ) -> Result<CompiledUniverseTopology, UniverseTopologyCompileError> {
     let mut nodes = terminal_nodes()?;
     nodes.push(activity_node(PATH_NODE, 1, ActivityNodeKind::Choice)?);
@@ -297,6 +303,7 @@ pub(crate) fn compile(
     let CompiledPrograms {
         programs,
         random_checkpoints,
+        random_offers,
         encounter_options,
     } = compile_programs(
         catalog,
@@ -305,6 +312,9 @@ pub(crate) fn compile(
         hub_clear_slot,
         room_slot,
         member_slot,
+        blessing_runtime,
+        blessing_inventory,
+        blessing_reroll_slot,
         path_edge,
         &topology_entry_edges,
         &topology_edges,
@@ -334,7 +344,7 @@ pub(crate) fn compile(
         participants,
         programs,
         Some(bootstrap),
-        random_checkpoints,
+        ActivityRandomPolicies::new(random_checkpoints, random_offers),
     )
     .map_err(UniverseTopologyCompileError::RuntimeDefinition)?;
     Ok(CompiledUniverseTopology {
@@ -375,6 +385,7 @@ struct HubEdges {
 struct CompiledPrograms {
     programs: Vec<GraphActivityNodeProgram>,
     random_checkpoints: Vec<ActivityRandomCheckpoint>,
+    random_offers: Vec<ActivityRandomOffer>,
     encounter_options: Vec<EncounterOptionBinding>,
 }
 
@@ -386,6 +397,9 @@ fn compile_programs(
     hub_clear_slot: ActivitySlotId,
     room_slot: ActivitySlotId,
     member_slot: ActivitySlotId,
+    blessing_runtime: &BlessingRuntimeCatalog,
+    blessing_inventory: ActivityInventoryId,
+    blessing_reroll_slot: ActivitySlotId,
     path_edge: ActivityEdgeId,
     topology_entry_edges: &[(TopologyId, ActivityEdgeId)],
     topology_edges: &[(TopologyNodeId, TopologyNodeId, ActivityEdgeId)],
@@ -436,7 +450,13 @@ fn compile_programs(
         )?,
     ];
     let mut random_checkpoints = Vec::new();
+    let mut random_offers = Vec::new();
     let mut encounter_options = Vec::new();
+    let blessing_eligibility = BlessingOfferEligibility::fully_unlocked(vec![1, 2, 3])
+        .map_err(|_| UniverseTopologyCompileError::InvalidBlessingRuntime)?;
+    let eligible_blessings = blessing_runtime
+        .eligible(&blessing_eligibility)
+        .collect::<Vec<_>>();
 
     for (index, hub) in hubs.iter().enumerate() {
         let edges = hub_edges[index];
@@ -556,23 +576,47 @@ fn compile_programs(
             ActivityDecisionKind::Encounter,
             battle_options,
         )?);
+        let mut reward_options = Vec::with_capacity(eligible_blessings.len());
+        let mut reward_weights = Vec::with_capacity(eligible_blessings.len());
+        for (priority, blessing) in eligible_blessings.iter().enumerate() {
+            let id = blessing_option(source, blessing.blessing());
+            let settlement = vec![
+                ActivityOperation::AddCounter {
+                    slot: hub_clear_slot,
+                    key: source,
+                    delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
+                },
+                ActivityOperation::Traverse(edges.reward_route),
+            ];
+            reward_options.push(
+                blessing_runtime
+                    .acquisition_option(
+                        blessing.blessing(),
+                        id,
+                        priority as i32,
+                        blessing_inventory,
+                        settlement,
+                    )
+                    .ok_or(UniverseTopologyCompileError::InvalidBlessingRuntime)?,
+            );
+            reward_weights.push((id, 1));
+        }
+        random_offers.push(
+            ActivityRandomOffer::new(
+                hub.reward_node,
+                ActivityRngLabel::Reward,
+                BLESSING_DRAW_PURPOSE,
+                3,
+                reward_weights,
+                Some((blessing_reroll_slot, 1)),
+            )
+            .map_err(UniverseTopologyCompileError::RuntimeDefinition)?,
+        );
         programs.push(node_program_id(
             hub.reward_node,
             REWARD_PROGRAM_OFFSET + hub.source_node.get(),
             ActivityDecisionKind::Reward,
-            vec![ActivityOptionDefinition::new(
-                option(REWARD_OPTION_OFFSET + source),
-                0,
-                always(),
-                vec![
-                    ActivityOperation::AddCounter {
-                        slot: hub_clear_slot,
-                        key: source,
-                        delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
-                    },
-                    ActivityOperation::Traverse(edges.reward_route),
-                ],
-            )],
+            reward_options,
         )?);
         programs.push(compile_route_program(
             hub,
@@ -585,6 +629,7 @@ fn compile_programs(
     Ok(CompiledPrograms {
         programs,
         random_checkpoints,
+        random_offers,
         encounter_options,
     })
 }
@@ -857,6 +902,9 @@ fn engage_option(source: u64, room: RoomId, member: EncounterMemberId) -> Activi
             + u64::from(member.get()),
     )
 }
+fn blessing_option(source: u64, blessing: crate::id::BlessingId) -> ActivityOptionId {
+    option(REWARD_OPTION_OFFSET + source * 1_000_000 + u64::from(blessing.get()))
+}
 
 fn room_is_eligible(section_ids: &[u32], source_node: u32) -> bool {
     section_ids.is_empty() || section_ids.contains(&0) || section_ids.contains(&source_node)
@@ -882,6 +930,7 @@ pub enum UniverseTopologyCompileError {
     InvalidGraph,
     InvalidProgram,
     InvalidEncounterWeight,
+    InvalidBlessingRuntime,
     NoEligibleRoom(TopologyNodeId),
     MissingPrimaryRoomContent(RoomId),
     AmbiguousPrimaryRoomContent(RoomId),
