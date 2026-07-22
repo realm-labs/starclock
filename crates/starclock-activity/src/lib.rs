@@ -12,6 +12,7 @@ mod battle_preparation;
 mod battle_settlement;
 mod codec;
 mod graph;
+mod graph_command;
 mod id;
 mod participant;
 mod program;
@@ -59,10 +60,14 @@ pub use graph::{
     ActivityTerminalOutcome, MAX_ACTIVITY_EDGES, MAX_ACTIVITY_NODES, MAX_ACTIVITY_TOTAL_VISITS,
     MAX_EDGE_TRAVERSALS, MAX_NODE_VISITS,
 };
+pub use graph_command::{
+    GRAPH_ACTIVITY_API_REVISION, GraphActivityCommand, GraphActivityCommandKind,
+};
 pub use id::{
-    ActivityDecisionId, ActivityDefinitionId, ActivityEdgeId, ActivityInstanceId,
-    ActivityInventoryId, ActivityModifierId, ActivityOptionId, ActivityProgramId, ActivitySlotId,
-    AttemptId, BattleSequence, NodeId, ParticipantId, ProjectionId, SectionId,
+    ActivityBattleHandoffId, ActivityDecisionId, ActivityDefinitionId, ActivityEdgeId,
+    ActivityExternalOutcomeId, ActivityInstanceId, ActivityInventoryId, ActivityModifierId,
+    ActivityOptionId, ActivityProgramId, ActivitySlotId, AttemptId, BattleSequence, NodeId,
+    ParticipantId, ProjectionId, SectionId,
 };
 pub use participant::{
     LoadoutLockScope, OpaqueParticipantBuild, ParticipantLock, ParticipantLockEntry,

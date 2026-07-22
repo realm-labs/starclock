@@ -1,5 +1,8 @@
 //! Activity command/result payloads, nested boundaries and one-shot verification.
 
+#[path = "activity_v2.rs"]
+pub mod v2;
+
 use core::fmt;
 
 use starclock_activity::{
@@ -580,7 +583,7 @@ fn decode_command(bytes: &[u8]) -> Result<ActivityCommand, ActivityCommandPayloa
     Ok(command)
 }
 
-fn encode_result(
+pub(super) fn encode_result(
     result: &BattleResult,
     encoder: &mut Encoder<Vec<u8>>,
 ) -> Result<(), ActivityCommandPayloadError> {
@@ -593,7 +596,9 @@ fn encode_result(
     Ok(())
 }
 
-fn decode_result(decoder: &mut Decoder<'_>) -> Result<BattleResult, ActivityCommandPayloadError> {
+pub(super) fn decode_result(
+    decoder: &mut Decoder<'_>,
+) -> Result<BattleResult, ActivityCommandPayloadError> {
     let identity = decode_identity(decoder)?;
     let count = decoder.u32()?;
     if count == 0 || count > 100 {
@@ -949,7 +954,7 @@ fn decode_diagnostic(bytes: &[u8]) -> Result<ControllerDiagnostic, ActivityComma
         .map_err(ActivityCommandPayloadError::InvalidDiagnostic)
 }
 
-fn fixed_digest(decoder: &mut Decoder<'_>) -> Result<[u8; 32], CodecError> {
+pub(super) fn fixed_digest(decoder: &mut Decoder<'_>) -> Result<[u8; 32], CodecError> {
     Ok(decoder.take(32)?.try_into().expect("fixed length"))
 }
 

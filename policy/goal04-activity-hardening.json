@@ -1,0 +1,49 @@
+{
+  "schema_revision": "starclock.goal04-activity-hardening.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P2-B7",
+  "revisions": {
+    "activity_api": "starclock-activity-api-v2",
+    "command_payload": 2,
+    "workload": "g04-activity-core-provisional-v1",
+    "budget_stage": "phase2-provisional"
+  },
+  "corpora": {
+    "invalid_commands": 4096,
+    "malformed_payloads": 4096,
+    "rng_streams": 8,
+    "perturbation_draws_per_stream": 257
+  },
+  "performance": {
+    "implemented_rows": [
+      {"id": "activity-state-hash-4096-v1", "operations": 4096, "final_hash": "f453273e74752addeafd0622c295832ce56f85f5613e2ba69a1d0dde125ab13e"},
+      {"id": "invalid-command-4096-v1", "operations": 4096, "final_hash": "f453273e74752addeafd0622c295832ce56f85f5613e2ba69a1d0dde125ab13e"},
+      {"id": "rng-mapping-4096-v1", "operations": 4096, "final_hash": "cc99e723547eaed34e9a02d339952df6b0dcedf38525b1b6336489aac0a09f76"}
+    ],
+    "deferred_frozen_rows": [
+      "catalog-load-10-v1",
+      "incremental-session-1024-v1",
+      "world01-complete-32-v1",
+      "activity-replay-verify-32-v1",
+      "concurrent-shared-catalog-64-v1"
+    ],
+    "broad_ci": {
+      "maximum_total_elapsed_ns": 60000000000,
+      "minimum_operations_per_second": 10,
+      "maximum_allocation_bytes_per_row": 4294967296,
+      "maximum_peak_live_bytes_per_row": 536870912
+    }
+  },
+  "claims": {
+    "five_command_kinds_codec_complete": true,
+    "full_activity_replay_complete": false,
+    "complete_world01_runtime": false,
+    "invalid_commands_byte_and_rng_inert": true,
+    "all_rng_streams_pairwise_isolated": true,
+    "catalog_clone_count": 0,
+    "replayed_prefix_count": 0,
+    "strict_stable_runner_budget_deferred": "G04-P6-B3"
+  },
+  "focused_tests": 4,
+  "new_registry_packages": 0
+}

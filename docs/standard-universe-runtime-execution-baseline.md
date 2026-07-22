@@ -43,6 +43,23 @@ provisional budgets. `G04-P6-B3` freezes strict stable-runner budgets. Per-sessi
 catalog clones and incremental replay-prefix reconstruction are already fixed at
 zero; changing those is an architecture change, not a tuning adjustment.
 
+### Phase 2 provisional measurement
+
+`G04-P2-B7` records only the generic Activity-core slice that exists before the
+Standard profile compiler. Its release-mode rows cover 4,096 canonical state
+hashes, 4,096 alternating stale/not-offered battle commands and 4,096 stable
+integer RNG mappings. All retain zero catalog clones, zero reconstructed replay
+prefixes and deterministic final hashes. The first Windows x64 measurement is
+stored in `evidence/standard-universe-runtime-v1/activity/activity-hardening.json`.
+
+This baseline intentionally does not claim catalog-load, complete World 1,
+full-run replay or concurrent shared-catalog rows. Those frozen workloads become
+executable as P3 and P5 land. Broad CI ceilings are enforced now; strict
+stable-runner regression ratios remain owned by `G04-P6-B3`. The baseline also
+shows that current state hashing builds canonical scratch bytes (nine allocations
+per sample in the recorded fixture), making streaming state hashing an explicit
+optimization candidate rather than a hidden performance assumption.
+
 ## CI matrix
 
 Goal 04 inherits three native jobs—Windows x64, Linux x64 and macOS ARM64—and

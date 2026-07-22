@@ -158,6 +158,10 @@
       "command": ["node", "tools/goal04/verify-battle-settlement.mjs", "."]
     },
     {
+      "name": "Goal 04 Activity hardening",
+      "command": ["node", "tools/goal04/verify-activity-hardening.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

@@ -1,0 +1,85 @@
+{
+  "schema_revision": "starclock.goal04-activity-hardening-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P2-B7",
+  "result": "v2-command-codec-properties-rng-isolation-and-provisional-core-baseline",
+  "claims": {
+    "five_command_kinds_codec_complete": true,
+    "full_activity_replay_complete": false,
+    "complete_world01_runtime": false,
+    "invalid_commands_byte_and_rng_inert": true,
+    "all_rng_streams_pairwise_isolated": true,
+    "catalog_clone_count": 0,
+    "replayed_prefix_count": 0,
+    "strict_stable_runner_budget_deferred": "G04-P6-B3"
+  },
+  "corpora": {
+    "invalid_commands": 4096,
+    "malformed_payloads": 4096,
+    "rng_streams": 8,
+    "perturbation_draws_per_stream": 257
+  },
+  "runner": {
+    "platform": "win32",
+    "architecture": "x64",
+    "os_release": "10.0.19045",
+    "cpu_model": "Intel(R) Core(TM) i7-10700F CPU @ 2.90GHz",
+    "logical_processors": 16,
+    "rustc": "rustc 1.97.0 (2d8144b78 2026-07-07)",
+    "recorded_on": "2026-07-23"
+  },
+  "report": {
+    "schema_revision": "starclock.goal04-activity-benchmark.v1",
+    "workload_revision": "g04-activity-core-provisional-v1",
+    "budget_stage": "phase2-provisional",
+    "rows": [
+      {
+        "id": "activity-state-hash-4096-v1",
+        "operations": 4096,
+        "elapsed_ns": 13145200,
+        "operations_per_second": 311596,
+        "allocation_count": 36864,
+        "allocation_bytes": 9003008,
+        "peak_live_bytes": 1589,
+        "retained_bytes": 0,
+        "catalog_clone_count": 0,
+        "replayed_prefix_count": 0,
+        "final_hash": "f453273e74752addeafd0622c295832ce56f85f5613e2ba69a1d0dde125ab13e"
+      },
+      {
+        "id": "invalid-command-4096-v1",
+        "operations": 4096,
+        "elapsed_ns": 14887500,
+        "operations_per_second": 275130,
+        "allocation_count": 36864,
+        "allocation_bytes": 9003008,
+        "peak_live_bytes": 1589,
+        "retained_bytes": 0,
+        "catalog_clone_count": 0,
+        "replayed_prefix_count": 0,
+        "final_hash": "f453273e74752addeafd0622c295832ce56f85f5613e2ba69a1d0dde125ab13e"
+      },
+      {
+        "id": "rng-mapping-4096-v1",
+        "operations": 4096,
+        "elapsed_ns": 115300,
+        "operations_per_second": 35524718,
+        "allocation_count": 0,
+        "allocation_bytes": 0,
+        "peak_live_bytes": 0,
+        "retained_bytes": 0,
+        "catalog_clone_count": 0,
+        "replayed_prefix_count": 0,
+        "final_hash": "cc99e723547eaed34e9a02d339952df6b0dcedf38525b1b6336489aac0a09f76"
+      }
+    ]
+  },
+  "source_sha256": {
+    "command": "bd9b982e05b0e99252e4e51e1e229fea9953dcf1fea42d69c0c6829cefee0199",
+    "replay": "cfa7bf2d9a246d4da82c97a5765a33402a77c630a8fcba0da6da809162109e13",
+    "hardening_tests": "dd42eaa13b9b236e82b4d7be8161b15934efb3863d456a31d9232ecdc95a123e",
+    "benchmark": "3b69a68e3b336b9bc3c774262dd6f9f1326651853ad54b71046e9279fee05ed7"
+  },
+  "focused_tests": 4,
+  "new_registry_packages": 0
+}

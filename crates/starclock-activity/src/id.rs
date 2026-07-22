@@ -115,3 +115,15 @@ id_type!(
     NonZeroU32,
     "Stable authored Activity program identity."
 );
+id_type!(
+    ActivityBattleHandoffId,
+    u64,
+    NonZeroU64,
+    "Stable identity of one offered graph-Activity battle handoff."
+);
+id_type!(
+    ActivityExternalOutcomeId,
+    u64,
+    NonZeroU64,
+    "Stable authored external-outcome option accepted by a graph Activity."
+);
