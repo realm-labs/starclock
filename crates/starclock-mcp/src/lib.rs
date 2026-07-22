@@ -13,6 +13,8 @@ pub mod error;
 pub mod http;
 /// Frozen protocol and server implementation metadata.
 pub mod metadata;
+/// Frozen bounded per-authority operational HTTP rate limits.
+pub mod rate_limit;
 mod resources;
 /// MCP server handler boundary.
 pub mod server;

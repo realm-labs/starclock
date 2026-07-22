@@ -356,8 +356,12 @@ impl StarclockMcp {
     async fn create_battle(
         &self,
         Parameters(input): Parameters<CreateBattleInput>,
+        context: rmcp::service::RequestContext<rmcp::RoleServer>,
     ) -> Result<CallToolResult, McpError> {
-        structured_result(self.create_battle_output(input))
+        structured_result(
+            self.owner_for_context(&context)
+                .and_then(|owner| self.create_battle_output(&owner, input)),
+        )
     }
 
     #[tool(
@@ -368,8 +372,12 @@ impl StarclockMcp {
     async fn observe_battle(
         &self,
         Parameters(input): Parameters<ObserveBattleInput>,
+        context: rmcp::service::RequestContext<rmcp::RoleServer>,
     ) -> Result<CallToolResult, McpError> {
-        structured_result(self.observe_battle_output(input))
+        structured_result(
+            self.owner_for_context(&context)
+                .and_then(|owner| self.observe_battle_output(&owner, input)),
+        )
     }
 
     #[tool(
@@ -380,8 +388,12 @@ impl StarclockMcp {
     async fn play_action(
         &self,
         Parameters(input): Parameters<PlayActionInput>,
+        context: rmcp::service::RequestContext<rmcp::RoleServer>,
     ) -> Result<CallToolResult, McpError> {
-        structured_result(self.play_action_output(input))
+        structured_result(
+            self.owner_for_context(&context)
+                .and_then(|owner| self.play_action_output(&owner, input)),
+        )
     }
 
     #[tool(
@@ -392,8 +404,12 @@ impl StarclockMcp {
     async fn export_replay(
         &self,
         Parameters(input): Parameters<SessionInput>,
+        context: rmcp::service::RequestContext<rmcp::RoleServer>,
     ) -> Result<CallToolResult, McpError> {
-        structured_result(self.export_replay_output(input))
+        structured_result(
+            self.owner_for_context(&context)
+                .and_then(|owner| self.export_replay_output(&owner, input)),
+        )
     }
 
     #[tool(
@@ -404,8 +420,12 @@ impl StarclockMcp {
     async fn close_battle(
         &self,
         Parameters(input): Parameters<SessionInput>,
+        context: rmcp::service::RequestContext<rmcp::RoleServer>,
     ) -> Result<CallToolResult, McpError> {
-        structured_result(self.close_battle_output(input))
+        structured_result(
+            self.owner_for_context(&context)
+                .and_then(|owner| self.close_battle_output(&owner, input)),
+        )
     }
 
     #[tool(
@@ -440,11 +460,12 @@ impl StarclockMcp {
 
     fn create_battle_output(
         &self,
+        owner: &starclock_agent_api::session::AgentSessionOwner,
         input: CreateBattleInput,
     ) -> Result<ObservationOutput, AgentError> {
         parse_revision(&input.schema_revision)?;
         let observation = self.registry.create(
-            &self.owner,
+            owner,
             RegistryCreateSessionRequest {
                 scenario_id: parse_scenario(&input.scenario_id)?,
                 seed: parse_seed(input.seed.as_deref())?,
@@ -456,20 +477,25 @@ impl StarclockMcp {
 
     fn observe_battle_output(
         &self,
+        owner: &starclock_agent_api::session::AgentSessionOwner,
         input: ObserveBattleInput,
     ) -> Result<ObservationOutput, AgentError> {
         parse_revision(&input.schema_revision)?;
         let session_id = parse_session(&input.session_id)?;
         let cursor = EventCursor::parse(input.event_cursor.as_deref().unwrap_or("event_0"))
             .map_err(|_| invalid_request("The event cursor is invalid."))?;
-        let observation = self.registry.observe(&self.owner, &session_id, &cursor)?;
+        let observation = self.registry.observe(owner, &session_id, &cursor)?;
         json_output(observation).map(|observation| ObservationOutput { observation })
     }
 
-    fn play_action_output(&self, input: PlayActionInput) -> Result<ActionOutput, AgentError> {
+    fn play_action_output(
+        &self,
+        owner: &starclock_agent_api::session::AgentSessionOwner,
+        input: PlayActionInput,
+    ) -> Result<ActionOutput, AgentError> {
         let revision = parse_revision(&input.schema_revision)?;
         let response = self.registry.apply_action(
-            &self.owner,
+            owner,
             PlayActionRequest {
                 schema_revision: revision,
                 session_id: parse_session(&input.session_id)?,
@@ -486,10 +512,14 @@ impl StarclockMcp {
         json_output(response).map(|response| ActionOutput { response })
     }
 
-    fn export_replay_output(&self, input: SessionInput) -> Result<ReplayExportOutput, AgentError> {
+    fn export_replay_output(
+        &self,
+        owner: &starclock_agent_api::session::AgentSessionOwner,
+        input: SessionInput,
+    ) -> Result<ReplayExportOutput, AgentError> {
         parse_revision(&input.schema_revision)?;
         let session_id = parse_session(&input.session_id)?;
-        let export = self.registry.export_replay(&self.owner, &session_id)?;
+        let export = self.registry.export_replay(owner, &session_id)?;
         Ok(ReplayExportOutput {
             schema_revision: schema_revision(),
             session_id: session_id.as_str().into(),
@@ -501,10 +531,14 @@ impl StarclockMcp {
         })
     }
 
-    fn close_battle_output(&self, input: SessionInput) -> Result<CloseBattleOutput, AgentError> {
+    fn close_battle_output(
+        &self,
+        owner: &starclock_agent_api::session::AgentSessionOwner,
+        input: SessionInput,
+    ) -> Result<CloseBattleOutput, AgentError> {
         parse_revision(&input.schema_revision)?;
         let session_id = parse_session(&input.session_id)?;
-        self.registry.close(&self.owner, &session_id)?;
+        self.registry.close(owner, &session_id)?;
         Ok(CloseBattleOutput {
             schema_revision: schema_revision(),
             session_id: session_id.as_str().into(),

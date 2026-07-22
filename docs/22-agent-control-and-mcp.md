@@ -247,6 +247,13 @@ Remote sessions are tenant-bound, use opaque IDs, have injected expiry and
 enforce quotas. Expiry is never read during `Battle::apply`; it only determines
 whether the adapter accepts the next request.
 
+Every authenticated HTTP request reconstructs its owner from validated tenant
+and principal claims; an MCP transport session never grants battle authority.
+The frozen active-session quotas are 1,024 global, 64 per tenant and 16 per
+principal. One-minute admission windows allow 30 creates per principal, 600
+mutations per tenant and 1,200 reads per tenant, using an injected monotonic
+clock and bounded generic retry metadata.
+
 ## Replay and diagnostics
 
 Replay records every player, enemy and automatic accepted command and every

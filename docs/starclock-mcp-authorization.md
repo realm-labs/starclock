@@ -38,11 +38,13 @@ The exact scope matrix is:
 
 Scope and credential checks occur in the bounded HTTP middleware before the
 SDK performs MCP transport-session or Starclock battle-session lookup. The
-validated grant is inserted as request-local context for tenant/owner binding
-in `G02-P4-B3`; it contains no bearer bytes.
+validated grant is inserted as request-local context and converted to an owner
+binding independently for every battle operation; it contains no bearer bytes.
+Changing credentials on an existing MCP transport session changes the request
+authority and cannot expose another authority's battle or idempotency cache.
 
 `authorized_loopback_router` makes this boundary executable for embedding and
 tests. The CLI still exposes only explicit loopback development. Non-loopback
-startup remains impossible until tenant quotas/rates, trusted-proxy policy,
-security audit and bounded draining are implemented in the subsequent batches;
-authentication alone is not treated as a complete remote security profile.
+startup remains impossible until trusted-proxy policy, security audit and
+bounded draining are implemented in the subsequent batches. Authentication,
+tenant quotas and rates are not treated as a complete remote security profile.

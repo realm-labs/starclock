@@ -14,7 +14,7 @@ const dependencyPolicy = JSON.parse(dependencyBytes);
 const rules = repositoryPolicy.rust_source;
 assert(rules.line_limit_exceptions.length === 0, "Goal 01 closes with no handwritten line-limit exception");
 assert(rules.excluded_roots.length === 3, "generated/vendor exclusion inventory changed without review");
-assert(rules.allowed_public_reexports.length === 4, "public re-export file allowlist changed without review");
+assert(rules.allowed_public_reexports.length === 5, "public re-export file allowlist changed without review");
 
 const exclusions = rules.excluded_roots.map((entry) => entry.path.replaceAll("\\", "/"));
 const tracked = execFileSync("git", ["ls-files", "--cached", "--others", "--exclude-standard", "--", "*.rs"], { cwd: root, encoding: "utf8" })
@@ -40,13 +40,13 @@ const sourceRows = handwritten.map((relative) => {
   }
   return { path: relative, lines, limit, utilization_percent: Math.floor((lines * 100) / limit), facade };
 });
-assert(publicReexports === 30, "public re-export declaration count changed without review");
+assert(publicReexports === 31, "public re-export declaration count changed without review");
 for (const entry of rules.allowed_public_reexports) assert(reexportFiles.has(entry.path), `${entry.path}: stale re-export allowance`);
 
 const metadata = JSON.parse(execFileSync("cargo", ["metadata", "--format-version", "1", "--no-deps"], { cwd: root, encoding: "utf8" }));
 const memberIds = new Set(metadata.workspace_members);
 const packages = metadata.packages.filter((entry) => memberIds.has(entry.id)).sort((left, right) => left.name.localeCompare(right.name));
-assert(packages.length === 9, "workspace crate count changed without review");
+assert(packages.length === 11, "workspace crate count changed without review");
 const crateNames = new Set(packages.map((entry) => entry.name));
 const graph = packages.map((pkg) => ({
   crate: pkg.name,
@@ -57,7 +57,7 @@ const reviewedPackages = [
   ...dependencyPolicy.packages,
   ...dependencyPolicy.package_groups.flatMap((group) => group.packages),
 ];
-assert(reviewedPackages.length === 50, "reviewed registry package inventory changed without review");
+assert(reviewedPackages.length === 134, "reviewed registry package inventory changed without review");
 assert(new Set(reviewedPackages.map((entry) => `${entry.name}@${entry.version}`)).size === reviewedPackages.length, "reviewed package inventory contains duplicates");
 
 const largest = [...sourceRows].sort((left, right) => right.utilization_percent - left.utilization_percent || right.lines - left.lines || left.path.localeCompare(right.path)).slice(0, 20);

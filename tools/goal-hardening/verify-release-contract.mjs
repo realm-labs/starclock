@@ -51,10 +51,10 @@ for (const token of ["starclock-cli-v1", "283", "abd84f70461675337092d12377db53f
 const libraryFacades = policy.library_contract_files.filter((entry) => entry.path.endsWith("/src/lib.rs"));
 assert(libraryFacades.length === 8, "library facade count differs");
 const metadata = JSON.parse(execFileSync("cargo", ["metadata", "--format-version", "1", "--no-deps"], { cwd: root, encoding: "utf8" }));
-assert(metadata.workspace_members.length === 9, "workspace member count differs");
+assert(metadata.workspace_members.length === 11, "workspace member count differs");
 const architecture = readJson("evidence/core-combat-v1/hardening/architecture-audit.json");
-assert(architecture.public_api_audit.public_reexports === 30, "public re-export count differs");
-assert(architecture.public_api_audit.public_declarations === 1788, "public declaration count differs");
+assert(architecture.public_api_audit.public_reexports === 31, "public re-export count differs");
+assert(architecture.public_api_audit.public_declarations === 2039, "public declaration count differs");
 assert(architecture.public_api_audit.leaked_tokens === 0, "public API leaks implementation tokens");
 
 let localLinks = 0;

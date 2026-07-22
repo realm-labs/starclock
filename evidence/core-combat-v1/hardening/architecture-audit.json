@@ -1,11 +1,11 @@
 {
   "schema_revision": "starclock.goal01.architecture-audit.v1",
   "policy": {
-    "repository_checks_sha256": "28d176cc32622cc7af9bee2f942f5c309bd1ee9198e44c017e07a2b7f14b0d5b",
-    "dependency_policy_sha256": "ed73d3bbf93a1c85b495b907a31a85a83ad9c1f6ce8fc05063c22ab5694e9519"
+    "repository_checks_sha256": "be0ad4d929580c8de9203545fa2924935afaa002e1cc3eab4b74e34e9299cd5a",
+    "dependency_policy_sha256": "9b9739b74f8f098993c1771fad852dd1af0f19234295bf933117adcadd404ba3"
   },
   "source_size_audit": {
-    "handwritten_files": 220,
+    "handwritten_files": 250,
     "generated_vendor_exclusions": [
       {
         "path": "config/sora-golden/expected/reader/generated",
@@ -35,7 +35,8 @@
       "crates/starclock-combat/src/rule/model.rs",
       "crates/starclock-data/src/catalog.rs",
       "crates/starclock-data/src/catalog_tests.rs",
-      "crates/starclock-data/src/domain_catalog.rs"
+      "crates/starclock-data/src/domain_catalog.rs",
+      "crates/starclock-mcp/src/http.rs"
     ],
     "near_limit_policy": "These files remain within the enforced limit and receive no exception; any growth beyond the limit requires a module split, not an implicit allowance.",
     "largest_files": [
@@ -103,6 +104,13 @@
         "facade": false
       },
       {
+        "path": "crates/starclock-mcp/src/http.rs",
+        "lines": 1150,
+        "limit": 1200,
+        "utilization_percent": 95,
+        "facade": false
+      },
+      {
         "path": "crates/starclock-combat/src/catalog/action.rs",
         "lines": 1118,
         "limit": 1200,
@@ -114,6 +122,13 @@
         "lines": 1087,
         "limit": 1200,
         "utilization_percent": 90,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-agent-api/src/session.rs",
+        "lines": 1043,
+        "limit": 1200,
+        "utilization_percent": 86,
         "facade": false
       },
       {
@@ -145,6 +160,13 @@
         "facade": false
       },
       {
+        "path": "crates/starclock-mcp/src/tools.rs",
+        "lines": 970,
+        "limit": 1200,
+        "utilization_percent": 80,
+        "facade": false
+      },
+      {
         "path": "crates/starclock-build/src/catalog.rs",
         "lines": 932,
         "limit": 1200,
@@ -157,35 +179,15 @@
         "limit": 1200,
         "utilization_percent": 75,
         "facade": false
-      },
-      {
-        "path": "crates/starclock-combat/src/battle/view.rs",
-        "lines": 873,
-        "limit": 1200,
-        "utilization_percent": 72,
-        "facade": false
-      },
-      {
-        "path": "crates/starclock-data/src/rule_lower.rs",
-        "lines": 836,
-        "limit": 1200,
-        "utilization_percent": 69,
-        "facade": false
-      },
-      {
-        "path": "crates/starclock-combat/src/resolver/action.rs",
-        "lines": 821,
-        "limit": 1200,
-        "utilization_percent": 68,
-        "facade": false
       }
     ]
   },
   "public_api_audit": {
-    "public_declarations": 1788,
-    "public_reexports": 30,
+    "public_declarations": 2039,
+    "public_reexports": 31,
     "reexport_files": {
       "crates/starclock-activity/src/lib.rs": 8,
+      "crates/starclock-agent-api/src/session.rs": 1,
       "crates/starclock-combat/src/lib.rs": 20,
       "crates/starclock-data/src/lib.rs": 1,
       "crates/starclock-mode-standard/src/lib.rs": 1
@@ -203,7 +205,7 @@
     "wildcard_reexports": 0
   },
   "dependency_audit": {
-    "workspace_crates": 9,
+    "workspace_crates": 11,
     "graph": [
       {
         "crate": "starclock-activity",
@@ -211,6 +213,42 @@
           "starclock-combat"
         ],
         "registry_dependencies": [
+          {
+            "name": "sha2",
+            "kind": "production",
+            "requirement": "=0.11.0"
+          }
+        ]
+      },
+      {
+        "crate": "starclock-agent-api",
+        "local_dependencies": [
+          "starclock-ai",
+          "starclock-combat",
+          "starclock-data",
+          "starclock-replay"
+        ],
+        "registry_dependencies": [
+          {
+            "name": "allocation-counter",
+            "kind": "dev",
+            "requirement": "=0.8.1"
+          },
+          {
+            "name": "proptest",
+            "kind": "dev",
+            "requirement": "=1.11.0"
+          },
+          {
+            "name": "serde",
+            "kind": "production",
+            "requirement": "=1.0.228"
+          },
+          {
+            "name": "serde_json",
+            "kind": "production",
+            "requirement": "=1.0.151"
+          },
           {
             "name": "sha2",
             "kind": "production",
@@ -246,6 +284,7 @@
           "starclock-build",
           "starclock-combat",
           "starclock-data",
+          "starclock-mcp",
           "starclock-mode-standard",
           "starclock-replay",
           "starclock-rules"
@@ -255,6 +294,11 @@
             "name": "allocation-counter",
             "kind": "dev",
             "requirement": "=0.8.1"
+          },
+          {
+            "name": "serde_json",
+            "kind": "dev",
+            "requirement": "=1.0.151"
           }
         ]
       },
@@ -312,6 +356,49 @@
         ]
       },
       {
+        "crate": "starclock-mcp",
+        "local_dependencies": [
+          "starclock-agent-api"
+        ],
+        "registry_dependencies": [
+          {
+            "name": "axum",
+            "kind": "production",
+            "requirement": "=0.8.9"
+          },
+          {
+            "name": "rmcp",
+            "kind": "production",
+            "requirement": "=2.2.0"
+          },
+          {
+            "name": "schemars",
+            "kind": "production",
+            "requirement": "=1.2.1"
+          },
+          {
+            "name": "serde",
+            "kind": "production",
+            "requirement": "=1.0.228"
+          },
+          {
+            "name": "serde_json",
+            "kind": "production",
+            "requirement": "=1.0.151"
+          },
+          {
+            "name": "tokio",
+            "kind": "production",
+            "requirement": "=1.53.1"
+          },
+          {
+            "name": "tower",
+            "kind": "dev",
+            "requirement": "=0.5.3"
+          }
+        ]
+      },
+      {
         "crate": "starclock-mode-standard",
         "local_dependencies": [
           "starclock-activity",
@@ -347,7 +434,7 @@
         "registry_dependencies": []
       }
     ],
-    "reviewed_registry_packages": 50,
+    "reviewed_registry_packages": 134,
     "pinned_tools": 6,
     "unreviewed_packages": 0
   }

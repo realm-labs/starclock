@@ -6,10 +6,10 @@
   "cli_commands": ["config validate", "catalog coverage", "battle run", "replay verify"],
   "cli_exit_codes": [0, 2, 3, 4, 5, 6, 7],
   "cli_contract_files": [
-    { "path": "crates/starclock-cli/Cargo.toml", "sha256": "8d6c9c769e17aa39a00e57c38976241d9239fabeddad2432b0b838a0bdd33e7b" },
-    { "path": "crates/starclock-cli/src/main.rs", "sha256": "aa907003a9fb79b1afdf87ebec647c428816a12847571470b4914387b6244cc3" },
-    { "path": "crates/starclock-cli/src/standard_v1.rs", "sha256": "3d23c0210043547e2d2622b9705f74a1b621824aa8da9bc4262cc078895a4c26" },
-    { "path": "crates/starclock-cli/tests/cli_contract.rs", "sha256": "29ad4ae323a375cddeb7534767e24b7e7ee342e1ab1e1f3eebd0f2e023bf8e7a" },
+    { "path": "crates/starclock-cli/Cargo.toml", "sha256": "3557b4f9c24baccb512fa99f51bc32a410cad30266f4974e5214cf17fc56a21e" },
+    { "path": "crates/starclock-cli/src/main.rs", "sha256": "28cfd8762238df83daed0feffe50501ba945e643dc6ab6695c538ee4c13b6816" },
+    { "path": "crates/starclock-cli/src/standard_v1.rs", "sha256": "fb6666ef820b33b7592bc7329db95572e7e77e9077539d909a2398643bf4a0e4" },
+    { "path": "crates/starclock-cli/tests/cli_contract.rs", "sha256": "df12feb90b446623436dd37b50cdf3c5b0316d38e1f521ebf1bb12387d514951" },
     { "path": "crates/starclock-cli/tests/standard_replay_smoke.rs", "sha256": "e4d5e6ba5b5b6e5c2c1cad18dc28d6e960e12c39be4c8955d3a4abc0cfefe298" }
   ],
   "library_contract_files": [
@@ -22,7 +22,7 @@
     { "path": "crates/starclock-combat/Cargo.toml", "sha256": "b451e31e6f84579b99f2a2762f9e316765171989280bb74bf20c04780afa5c51" },
     { "path": "crates/starclock-combat/src/lib.rs", "sha256": "2a13285aa9a51f2cdde795ff4ab3552c91087a99f70874a7732b4cf101c15a91" },
     { "path": "crates/starclock-data/Cargo.toml", "sha256": "30540b9ddb8747b61921d221deaabbe759fc5570ff69f189bbcd162831a56e28" },
-    { "path": "crates/starclock-data/src/lib.rs", "sha256": "23d054fe75a6aefe754598a0eb72c44ae8aca3da3f13f964f074828a19b6cab4" },
+    { "path": "crates/starclock-data/src/lib.rs", "sha256": "2bdeb8bdb14a0dcacb2e4c6dc9c3c7aea82692b8ba7b29a7cbde985504436b1d" },
     { "path": "crates/starclock-mode-standard/Cargo.toml", "sha256": "da6ca4893c2d5735f19c02cd01216f0f9c713a31b52f4e08082b62149102c47e" },
     { "path": "crates/starclock-mode-standard/src/lib.rs", "sha256": "3a190ecfa900cc42069825cf5fffa19d5b5d37f4351981097ff8169d5f09482a" },
     { "path": "crates/starclock-replay/Cargo.toml", "sha256": "103df826cb29b3454204e6ce79de79f3476e8ce3c5de870ae15e6606706a704b" },
@@ -61,7 +61,7 @@
     { "path": "evidence/core-combat-v1/hardening/content-audit.json", "sha256": "008136fb8082d066c4f7afd99ce39dda8d57189d93316e8a97c60894e9bf534a" },
     { "path": "evidence/core-combat-v1/hardening/ci-golden-matrix.json", "sha256": "3f2361fdd12ed912bec198c8dac8a7ef072141342a537ff8d8de4052115fdc1c" },
     { "path": "evidence/core-combat-v1/hardening/property-hardening.json", "sha256": "11d8f2efc51436a90bbf2dc40e94e711ee1b9960e4b11b60ccf0f48e5dead6ca" },
-    { "path": "evidence/core-combat-v1/hardening/architecture-audit.json", "sha256": "248f4a2f264489e046494300b65f50f6be9fe9a41736e50aa09e9e09e63ab7b5" },
+    { "path": "evidence/core-combat-v1/hardening/architecture-audit.json", "sha256": "641e6f1003178ea2daae95325286eceaa66b44d623290356d494c68a4fb0c7e2" },
     { "path": "evidence/core-combat-v1/performance/phase8-final-review.json", "sha256": "9f942f44f6827f71213544e8ecb90b4c46499f8b6fd4b34bb882cfc0d5ce0c67" }
   ],
   "clean_checkout_command": "node tools/release/run-clean-checkout.mjs"

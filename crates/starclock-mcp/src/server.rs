@@ -11,15 +11,24 @@ use rmcp::{
     service::RequestContext,
     tool_handler,
 };
-use starclock_agent_api::session::{AgentSessionFactory, AgentSessionOwner, AgentSessionRegistry};
+use starclock_agent_api::{
+    error::{AgentError, AgentErrorCode},
+    session::{AgentSessionFactory, AgentSessionOwner, AgentSessionRegistry},
+};
 
-use crate::{metadata, resources};
+use crate::{authorization::AuthorizationGrant, metadata, resources};
+
+#[derive(Clone)]
+pub(crate) enum AuthorityBinding {
+    Fixed(AgentSessionOwner),
+    RequestGrant,
+}
 
 #[derive(Clone)]
 pub struct StarclockMcp {
     pub(crate) registry: AgentSessionRegistry,
     pub(crate) factory: AgentSessionFactory,
-    pub(crate) owner: AgentSessionOwner,
+    pub(crate) authority: AuthorityBinding,
     pub(crate) tool_router: ToolRouter<Self>,
 }
 
@@ -33,10 +42,48 @@ impl StarclockMcp {
         Self {
             registry,
             factory,
-            owner,
+            authority: AuthorityBinding::Fixed(owner),
             tool_router: Self::registered_tool_router(),
         }
     }
+
+    #[must_use]
+    pub fn new_authorized(registry: AgentSessionRegistry, factory: AgentSessionFactory) -> Self {
+        Self {
+            registry,
+            factory,
+            authority: AuthorityBinding::RequestGrant,
+            tool_router: Self::registered_tool_router(),
+        }
+    }
+
+    pub(crate) fn owner_for_context(
+        &self,
+        context: &RequestContext<RoleServer>,
+    ) -> Result<AgentSessionOwner, AgentError> {
+        match &self.authority {
+            AuthorityBinding::Fixed(owner) => Ok(owner.clone()),
+            AuthorityBinding::RequestGrant => {
+                let grant = context
+                    .extensions
+                    .get::<axum::http::request::Parts>()
+                    .and_then(|parts| parts.extensions.get::<AuthorizationGrant>())
+                    .ok_or_else(authority_error)?;
+                AgentSessionOwner::new(grant.tenant_id(), grant.principal_id())
+                    .map_err(|_| authority_error())
+            }
+        }
+    }
+}
+
+fn authority_error() -> AgentError {
+    AgentError::new(
+        AgentErrorCode::UnauthorizedPolicy,
+        "Validated request authority is required.",
+        false,
+        false,
+    )
+    .expect("static authority error is bounded")
 }
 
 #[tool_handler(router = self.tool_router)]

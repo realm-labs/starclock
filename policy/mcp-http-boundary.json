@@ -30,7 +30,7 @@
     "origin_bytes": 256
   },
   "application_limit_composition": "The transport byte caps are intentionally tighter than the 64 MiB decoded replay verifier cap; every request and response must satisfy both layers.",
-  "authorization": "An injected OAuth resource-server profile is available for loopback embedding. The CLI remains explicit local development, and non-loopback startup stays impossible until tenant/rate/audit/drain controls are complete.",
+  "authorization": "An injected OAuth resource-server profile with request-local tenant ownership and rates is available for loopback embedding. The CLI remains explicit local development, and non-loopback startup stays impossible until trusted-proxy/audit/drain controls are complete.",
   "verification": [
     "node tools/agent-control/verify-mcp-http-boundary.mjs",
     "cargo test -p starclock-mcp --all-targets --all-features",

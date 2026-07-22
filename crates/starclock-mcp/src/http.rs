@@ -16,6 +16,7 @@ use crate::{
         AuthorizationFailure, AuthorizationPolicy, SUPPORTED_SCOPES, required_scope_for_json_rpc,
     },
     metadata::MCP_PROTOCOL_REVISION,
+    rate_limit::{McpRateLimiter, RateClass, RateLimitClock, RateLimitExceeded},
     server::StarclockMcp,
 };
 use axum::{
@@ -161,15 +162,26 @@ fn build_loopback_router(
     authorization: Option<AuthorizationPolicy>,
 ) -> Result<Router, HttpServeError> {
     let factory = AgentSessionFactory::load_production().map_err(|_| HttpServeError::Startup)?;
+    let operational_clock = Arc::new(HttpClock::new());
     let registry = AgentSessionRegistry::new(
         factory.clone(),
-        Arc::new(HttpClock::new()),
+        operational_clock.clone(),
         Arc::new(HttpBattleSessionIds::new()),
     );
+    let rate_limiter = authorization
+        .as_ref()
+        .map(|_| McpRateLimiter::new(operational_clock));
+    let request_authority = authorization.is_some();
     let owner_ids = Arc::new(AtomicU64::new(1));
     let service: StreamableHttpService<StarclockMcp, LocalSessionManager> =
         StreamableHttpService::new(
             move || {
+                if request_authority {
+                    return Ok(StarclockMcp::new_authorized(
+                        registry.clone(),
+                        factory.clone(),
+                    ));
+                }
                 let ordinal = owner_ids.fetch_add(1, Ordering::Relaxed);
                 let owner = AgentSessionOwner::new(
                     "loopback-development",
@@ -186,7 +198,7 @@ fn build_loopback_router(
                 .with_allowed_hosts([config.authority()])
                 .with_allowed_origins(config.allowed_origins().iter().cloned()),
         );
-    let guard = HttpGuard::new(config, authorization.clone());
+    let guard = HttpGuard::new(config, authorization.clone(), rate_limiter);
     let router = Router::new()
         .nest_service(MCP_HTTP_PATH, service)
         .layer(middleware::from_fn_with_state(guard.clone(), guard_request));
@@ -211,15 +223,21 @@ struct HttpGuard {
     allowed_origins: Arc<[String]>,
     workers: Arc<Semaphore>,
     authorization: Option<AuthorizationPolicy>,
+    rate_limiter: Option<McpRateLimiter>,
 }
 
 impl HttpGuard {
-    fn new(config: &LoopbackHttpConfig, authorization: Option<AuthorizationPolicy>) -> Self {
+    fn new(
+        config: &LoopbackHttpConfig,
+        authorization: Option<AuthorizationPolicy>,
+        rate_limiter: Option<McpRateLimiter>,
+    ) -> Self {
         Self {
             authority: config.authority().into(),
             allowed_origins: config.allowed_origins.clone().into(),
             workers: Arc::new(Semaphore::new(MAX_HTTP_WORKERS)),
             authorization,
+            rate_limiter,
         }
     }
 
@@ -237,10 +255,14 @@ async fn guard_request(
         return error;
     }
     if request.method() == Method::GET {
-        if let Some(policy) = &guard.authorization
-            && let Err(failure) = policy.authenticate(request.headers())
-        {
-            return authorization_failure_response(policy, failure);
+        if let Some(policy) = &guard.authorization {
+            let grant = match policy.authenticate(request.headers()) {
+                Ok(grant) => grant,
+                Err(failure) => return authorization_failure_response(policy, failure),
+            };
+            if let Some(failure) = rate_failure(&guard, &grant, RateClass::Read) {
+                return failure;
+            }
         }
         return method_not_allowed();
     }
@@ -277,9 +299,49 @@ async fn guard_request(
         if let Err(failure) = policy.authorize_scope(&grant, required_scope_for_json_rpc(&bytes)) {
             return authorization_failure_response(policy, failure);
         }
+        let class = rate_class_for_request(request.method(), &bytes);
+        if let Some(failure) = rate_failure(&guard, &grant, class) {
+            return failure;
+        }
         request.extensions_mut().insert(grant);
     }
     cap_response(next.run(request).await).await
+}
+
+fn rate_class_for_request(method: &Method, body: &[u8]) -> RateClass {
+    if method == Method::DELETE {
+        return RateClass::Mutation;
+    }
+    let value = serde_json::from_slice::<serde_json::Value>(body).ok();
+    match value
+        .as_ref()
+        .and_then(|value| value.get("method"))
+        .and_then(serde_json::Value::as_str)
+    {
+        Some("tools/call") => match value
+            .as_ref()
+            .and_then(|value| value.get("params"))
+            .and_then(|params| params.get("name"))
+            .and_then(serde_json::Value::as_str)
+        {
+            Some("starclock_create_battle") => RateClass::Create,
+            Some("starclock_play_action" | "starclock_close_battle") => RateClass::Mutation,
+            _ => RateClass::Read,
+        },
+        _ => RateClass::Read,
+    }
+}
+
+fn rate_failure(
+    guard: &HttpGuard,
+    grant: &crate::authorization::AuthorizationGrant,
+    class: RateClass,
+) -> Option<Response<Body>> {
+    guard
+        .rate_limiter
+        .as_ref()
+        .and_then(|limiter| limiter.admit(grant, class).err())
+        .map(rate_limit_response)
 }
 
 fn network_header_error(guard: &HttpGuard, headers: &HeaderMap) -> Option<Response<Body>> {
@@ -401,6 +463,15 @@ fn response_with_retry() -> Response<Body> {
     response
 }
 
+fn rate_limit_response(failure: RateLimitExceeded) -> Response<Body> {
+    let mut response = response(StatusCode::TOO_MANY_REQUESTS, "Request rate limit reached");
+    let retry_after = failure.retry_after_seconds().clamp(1, 60).to_string();
+    if let Ok(value) = HeaderValue::from_str(&retry_after) {
+        response.headers_mut().insert(RETRY_AFTER, value);
+    }
+    response
+}
+
 fn method_not_allowed() -> Response<Body> {
     let mut response = response(
         StatusCode::METHOD_NOT_ALLOWED,
@@ -465,6 +536,12 @@ impl OperationalClock for HttpClock {
     }
 }
 
+impl RateLimitClock for HttpClock {
+    fn now_seconds(&self) -> u64 {
+        self.started.elapsed().as_secs()
+    }
+}
+
 struct HttpBattleSessionIds {
     process: u32,
     started_nanos: u128,
@@ -513,7 +590,7 @@ mod tests {
 
     use super::*;
     use crate::authorization::{
-        AccessTokenSignatureVerifier, AuthorizationClock, SCOPE_SCENARIO_READ,
+        AccessTokenSignatureVerifier, AuthorizationClock, SCOPE_SCENARIO_READ, SUPPORTED_SCOPES,
         SignatureVerificationError, SignedTokenClaims,
     };
 
@@ -541,6 +618,36 @@ mod tests {
     impl AuthorizationClock for FixedClock {
         fn now_seconds(&self) -> u64 {
             1_000
+        }
+    }
+
+    impl RateLimitClock for FixedClock {
+        fn now_seconds(&self) -> u64 {
+            1_000
+        }
+    }
+
+    #[derive(Clone, Copy)]
+    struct AuthorityVerifier;
+
+    impl AccessTokenSignatureVerifier for AuthorityVerifier {
+        fn verify_signature_and_decode(
+            &self,
+            bearer_token: &str,
+        ) -> Result<SignedTokenClaims, SignatureVerificationError> {
+            let (tenant, principal) = bearer_token
+                .split_once(':')
+                .ok_or(SignatureVerificationError::Invalid)?;
+            SignedTokenClaims::new(
+                "https://auth.example".into(),
+                vec![format!("http://{AUTHORITY}{MCP_HTTP_PATH}")],
+                2_000,
+                Some(900),
+                tenant.into(),
+                principal.into(),
+                SUPPORTED_SCOPES.iter().map(ToString::to_string).collect(),
+            )
+            .map_err(|_| SignatureVerificationError::Invalid)
         }
     }
 
@@ -598,12 +705,53 @@ mod tests {
         .unwrap()
     }
 
+    fn authority_policy() -> AuthorizationPolicy {
+        AuthorizationPolicy::new(
+            "https://auth.example".into(),
+            format!("http://{AUTHORITY}{MCP_HTTP_PATH}"),
+            format!("http://{AUTHORITY}{PROTECTED_RESOURCE_METADATA_PATH}"),
+            Arc::new(AuthorityVerifier),
+            Arc::new(FixedClock),
+        )
+        .unwrap()
+    }
+
     fn with_bearer(mut request: Request<Body>, token: &'static str) -> Request<Body> {
         request.headers_mut().insert(
             "authorization",
             HeaderValue::from_str(&format!("Bearer {token}")).unwrap(),
         );
         request
+    }
+
+    fn session_request(
+        body: serde_json::Value,
+        session: &HeaderValue,
+        token: &'static str,
+    ) -> Request<Body> {
+        let mut request = with_bearer(request(Method::POST, Body::from(body.to_string())), token);
+        request
+            .headers_mut()
+            .insert("mcp-session-id", session.clone());
+        request
+    }
+
+    async fn response_json(response: Response<Body>) -> serde_json::Value {
+        let status = response.status();
+        let bytes = to_bytes(response.into_body(), MAX_HTTP_RESPONSE_BYTES)
+            .await
+            .unwrap();
+        if let Ok(value) = serde_json::from_slice(&bytes) {
+            return value;
+        }
+        let text = String::from_utf8_lossy(&bytes);
+        let data = text
+            .lines()
+            .filter_map(|line| line.strip_prefix("data: "))
+            .find(|line| line.starts_with('{'))
+            .unwrap_or_else(|| panic!("expected JSON response, got {status} and {text:?}"));
+        serde_json::from_str(data)
+            .unwrap_or_else(|error| panic!("invalid SSE JSON from {status}: {error}"))
     }
 
     #[test]
@@ -621,6 +769,54 @@ mod tests {
             );
         }
         assert_eq!(config().bind().to_string(), AUTHORITY);
+    }
+
+    #[test]
+    fn rate_classes_and_bounded_http_retry_are_frozen() {
+        let create = json!({
+            "method":"tools/call",
+            "params":{"name":"starclock_create_battle"}
+        });
+        let act = json!({
+            "method":"tools/call",
+            "params":{"name":"starclock_play_action"}
+        });
+        let observe = json!({
+            "method":"tools/call",
+            "params":{"name":"starclock_observe_battle"}
+        });
+        assert_eq!(
+            rate_class_for_request(&Method::POST, create.to_string().as_bytes()),
+            RateClass::Create
+        );
+        assert_eq!(
+            rate_class_for_request(&Method::POST, act.to_string().as_bytes()),
+            RateClass::Mutation
+        );
+        assert_eq!(
+            rate_class_for_request(&Method::DELETE, &[]),
+            RateClass::Mutation
+        );
+        assert_eq!(
+            rate_class_for_request(&Method::POST, observe.to_string().as_bytes()),
+            RateClass::Read
+        );
+
+        let policy = authority_policy();
+        let mut headers = HeaderMap::new();
+        headers.insert(
+            "authorization",
+            HeaderValue::from_static("Bearer tenant-r:principal-r"),
+        );
+        let grant = policy.authenticate(&headers).unwrap();
+        let limiter = McpRateLimiter::new(Arc::new(FixedClock));
+        let guard = HttpGuard::new(&config(), Some(policy), Some(limiter.clone()));
+        for _ in 0..crate::rate_limit::READ_REQUESTS_PER_TENANT_PER_MINUTE {
+            limiter.admit(&grant, RateClass::Read).unwrap();
+        }
+        let denied = rate_failure(&guard, &grant, RateClass::Read).unwrap();
+        assert_eq!(denied.status(), StatusCode::TOO_MANY_REQUESTS);
+        assert_eq!(denied.headers()[RETRY_AFTER], "20");
     }
 
     #[tokio::test]
@@ -729,7 +925,7 @@ mod tests {
             StatusCode::INTERNAL_SERVER_ERROR
         );
 
-        let guard = HttpGuard::new(&config(), None);
+        let guard = HttpGuard::new(&config(), None, None);
         let permits = (0..MAX_HTTP_WORKERS)
             .map(|_| guard.acquire_worker().unwrap())
             .collect::<Vec<_>>();
@@ -835,4 +1031,120 @@ mod tests {
         assert!(challenge.contains("insufficient_scope"));
         assert!(challenge.contains("starclock:battle:create"));
     }
+
+    #[tokio::test]
+    async fn request_authority_binds_sessions_and_idempotency_without_cross_tenant_leakage() {
+        let app = authorized_loopback_router(&config(), authority_policy()).unwrap();
+        let initialized = app
+            .clone()
+            .oneshot(with_bearer(
+                request(Method::POST, initialize_body()),
+                "tenant-a:principal-a",
+            ))
+            .await
+            .unwrap();
+        assert_eq!(initialized.status(), StatusCode::OK);
+        let transport_session = initialized.headers()["mcp-session-id"].clone();
+
+        let create = json!({
+            "jsonrpc":"2.0", "id":2, "method":"tools/call",
+            "params":{"name":"starclock_create_battle","arguments":{
+                "schema_revision":"agent-api-v1",
+                "scenario_id":"scenario.standard-v1.basic-single-wave"
+            }}
+        });
+        let created = app
+            .clone()
+            .oneshot(session_request(
+                create,
+                &transport_session,
+                "tenant-a:principal-a",
+            ))
+            .await
+            .unwrap();
+        assert_eq!(created.status(), StatusCode::OK);
+        let created = response_json(created).await;
+        let observation = &created["result"]["structuredContent"]["observation"];
+        let battle_session = observation["session_id"].as_str().unwrap().to_owned();
+        let action = observation["legal_actions"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|action| action["kind"] != "concede")
+            .unwrap();
+        let play = json!({
+            "jsonrpc":"2.0", "id":3, "method":"tools/call",
+            "params":{"name":"starclock_play_action","arguments":{
+                "schema_revision":"agent-api-v1",
+                "session_id":battle_session,
+                "decision_id":observation["decision_id"],
+                "expected_state_hash":observation["state_hash"],
+                "action_token":action["token"],
+                "idempotency_key":"shared_authority_key"
+            }}
+        });
+
+        let denied = app
+            .clone()
+            .oneshot(session_request(
+                play.clone(),
+                &transport_session,
+                "tenant-b:principal-b",
+            ))
+            .await
+            .unwrap();
+        assert_eq!(denied.status(), StatusCode::OK);
+        let denied = response_json(denied).await;
+        let denied_text = denied.to_string();
+        assert!(denied_text.contains("session_not_owned"));
+        assert!(!denied_text.contains(&battle_session));
+        assert!(!denied_text.contains("state_hash"));
+
+        let committed = response_json(
+            app.clone()
+                .oneshot(session_request(
+                    play.clone(),
+                    &transport_session,
+                    "tenant-a:principal-a",
+                ))
+                .await
+                .unwrap(),
+        )
+        .await;
+        assert_eq!(
+            committed["result"]["structuredContent"]["response"]["idempotent_replay"],
+            false
+        );
+        let replayed = response_json(
+            app.clone()
+                .oneshot(session_request(
+                    play.clone(),
+                    &transport_session,
+                    "tenant-a:principal-a",
+                ))
+                .await
+                .unwrap(),
+        )
+        .await;
+        assert_eq!(
+            replayed["result"]["structuredContent"],
+            committed["result"]["structuredContent"]
+        );
+
+        let denied_after_commit = response_json(
+            app.oneshot(session_request(
+                play,
+                &transport_session,
+                "tenant-b:principal-b",
+            ))
+            .await
+            .unwrap(),
+        )
+        .await;
+        let denied_after_commit = denied_after_commit.to_string();
+        assert!(denied_after_commit.contains("session_not_owned"));
+        assert!(!denied_after_commit.contains("idempotent_replay"));
+    }
+
+    include!("http_quota_test.rs");
 }

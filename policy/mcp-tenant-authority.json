@@ -1,0 +1,46 @@
+{
+  "schema_revision": "starclock.mcp-tenant-authority.v1",
+  "goal_id": "agent-control-mcp-v1",
+  "reviewed_on": "2026-07-22",
+  "request_authority": {
+    "source": "tenant_id and principal_id from the independently validated AuthorizationGrant on every HTTP request",
+    "binding": "AgentSessionOwner is reconstructed before every create, observe, act, replay export or close operation",
+    "transport_session": "MCP-Session-Id is transport state only and never grants or fixes battle authority",
+    "missing_context": "unauthorized_policy structured tool error",
+    "cross_authority": "session_not_owned before session result, state or idempotency disclosure"
+  },
+  "session_quotas": {
+    "global": 1024,
+    "per_tenant": 64,
+    "per_principal": 16
+  },
+  "rate_limits": {
+    "window_seconds": 60,
+    "clock": "injected monotonic operational clock; regression fails closed",
+    "create_per_principal": 30,
+    "mutation_per_tenant": 600,
+    "read_per_tenant": 1200,
+    "maximum_tracked_tenants": 4096,
+    "maximum_tracked_principals": 4096,
+    "exhaustion": {
+      "status": 429,
+      "retry_after_seconds": "1..60",
+      "body": "generic; contains no tenant, principal, session, token or state data"
+    }
+  },
+  "rate_classification": {
+    "create": ["starclock_create_battle"],
+    "mutation": ["starclock_play_action", "starclock_close_battle", "MCP DELETE"],
+    "read": ["all other authenticated MCP requests"]
+  },
+  "idempotency": {
+    "storage": "inside one owner-bound battle session",
+    "retry": "same authority and canonical request returns the exact committed response",
+    "cross_authority": "ownership rejection occurs before idempotency lookup"
+  },
+  "non_loopback_startup": false,
+  "verification": [
+    "node tools/agent-control/verify-mcp-tenant-authority.mjs",
+    "cargo test -p starclock-mcp --all-targets --all-features"
+  ]
+}

@@ -48,6 +48,10 @@
       {
         "path": "crates/starclock-data/src/lib.rs",
         "reason": "Deliberate generated-row-free data facade exposing the retained character definition returned by public catalog lookup."
+      },
+      {
+        "path": "crates/starclock-agent-api/src/session.rs",
+        "reason": "Deliberate protocol-neutral session facade exposing the private registry's bounded owner, quota, clock and identity contracts to adapters."
       }
     ],
     "forbidden_public_api_tokens": ["fixnum::", "FixedPoint", "rand::", "sha2::", "ChaCha8Rng", "sora::"]
