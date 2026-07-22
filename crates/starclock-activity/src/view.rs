@@ -2,6 +2,7 @@ use crate::{
     ActivityDecisionId, ActivityDecisionKind, ActivityEdgeId, ActivityInventoryId,
     ActivityModifierId, ActivityOptionId, ActivityRngStreamSnapshot, ActivitySlotId,
     ActivityStateHash, ActivityTerminalOutcome, ActivityValue, NodeId,
+    battle_preparation::{ActivityPendingBattleView, ActivityPreparationView},
 };
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -80,6 +81,8 @@ pub struct ActivityPlayerView {
     pub(crate) slots: Box<[ActivitySlotView]>,
     pub(crate) inventories: Box<[ActivityInventoryView]>,
     pub(crate) decision: Option<ActivityDecisionView>,
+    pub(crate) preparation: Option<ActivityPreparationView>,
+    pub(crate) pending_battle: Option<ActivityPendingBattleView>,
     pub(crate) terminal: Option<ActivityTerminalOutcome>,
     pub(crate) state_hash: ActivityStateHash,
 }
@@ -103,6 +106,14 @@ impl ActivityPlayerView {
     #[must_use]
     pub const fn decision(&self) -> Option<&ActivityDecisionView> {
         self.decision.as_ref()
+    }
+    #[must_use]
+    pub const fn preparation(&self) -> Option<&ActivityPreparationView> {
+        self.preparation.as_ref()
+    }
+    #[must_use]
+    pub const fn pending_battle(&self) -> Option<&ActivityPendingBattleView> {
+        self.pending_battle.as_ref()
     }
     #[must_use]
     pub const fn terminal(&self) -> Option<ActivityTerminalOutcome> {

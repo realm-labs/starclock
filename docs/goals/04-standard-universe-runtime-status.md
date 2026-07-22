@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Generic Activity runtime |
-| Active batch | `G04-P2-B5` |
-| Next unblocked batch | `G04-P2-B5` |
+| Active batch | `G04-P2-B6` |
+| Next unblocked batch | `G04-P2-B6` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -50,7 +50,7 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P2-B2` | `Complete` | This row's containing commit | Added hierarchy-safe partial Activity/Section/Node/Attempt paths and canonical scope identities. State definitions cap 4,096 slots, 256 inventories and 4,096 modifiers; counter maps and inventories are ordered/bounded, modifier inventory owners are reference-closed, and reset plus eight carry/project/accumulate/replace/snapshot/discard policies are explicit. Modern definitions require stable source/visibility metadata while the Goal 01 constructor and three legacy state hashes remain unchanged. |
 | `G04-P2-B3` | `Complete` | This row's containing commit | Added seven expression, six condition, eleven operation and twelve decision kinds with 4,096-operation/16-depth/256-option hard bounds. Programs validate typed slot/inventory/modifier/edge references before runtime and options are canonical by `(priority, id)`. Working-copy transactions emit cause-bound forward events, commit successful option programs, preserve byte-equivalent state on rejection, discard all partial work on faults, enforce node/edge/total visit budgets and commit only explicit `Faulted` settlement. Five focused tests cover commit, selection, rejection, rollback, binding and loop limits. |
 | `G04-P2-B4` | `Complete` | This row's containing commit | Added eight independently SHA-256-derived ChaCha8 activity streams with purpose-tagged integer rejection mapping and authored-order weighted selection; empty selections consume no draw. Canonical `SCAS` v2 little-endian bytes bind definition/config/graph identity, command position, scoped values, decisions and RNG seeds/counters into `sha256-v4`; rejection preserves those bytes. Player views filter private state while explicit bounded debug views expose diagnostics. Authoritative state/RNG are not cloneable. Goldens: first graph draw `8809253053890565554`, initial state hash `594e6c84d80c39e07ef2bdd42c77fc85a2c7f8bb8953e0575107ab6df0d0caeb`. |
-| `G04-P2-B5` | `Pending` | — | — |
+| `G04-P2-B5` | `Complete` | This row's containing commit | Added scope-bound opaque participant/roster locks and encoded domain-attempt state. Prefix-closed preparation variants support up to 8 techniques/512 exact immutable BattleSpecs: non-attacking techniques consume points and accumulate, attacking techniques engage immediately, normal engagement uses the exact accumulated variant, and authored enemy-preemptive policy skips the player decision. Every candidate matches locked team formation, form and resolved-spec digest; Activity neither reads build fields nor constructs combat internals. Rejections preserve state. Goldens: preparation `0388fc342a852d6910dab5461b30425c9188c1b397808616ebeda5b58d8b8553`, pending state `9fb0f4000695e61473c07b13d56c3d00c085fecbc05ea571c66841b539121014`. |
 | `G04-P2-B6` | `Pending` | — | — |
 | `G04-P2-B7` | `Pending` | — | — |
 | `G04-P3-B1` | `Pending` | — | — |
@@ -141,7 +141,7 @@ without new retained evidence.
 | `G04-R02` | `Open` | Freeze exact domain-hub/encounter-slot lowering for every room content pattern and identify any topology row requiring an explicit deterministic policy. | P0-B3/P3-B2 |
 | `G04-R03` | `Open` | Replace each `universe.native.released-curio-effect-binding` only after an equivalent typed program or audited static handler reproduces its fixtures. | P4-M11/M12 |
 | `G04-R04` | `Open` | Retain `StableUniformOrderedCandidates` for the 52 hidden-weight outcomes until released evidence supplies exact weights. | P4-M13 |
-| `G04-R05` | `Open` | Freeze encounter-preparation technique carry and enemy-initiative policies against the existing combat technique boundary. | P0-B2/P2-B5 |
+| `G04-R05` | `Resolved` | Techniques are validated opaque contributions compiled into prefix-closed immutable BattleSpec variants. Non-attacking techniques accumulate within the Attempt, attacking techniques engage, and `EnemyPreemptive` bypasses preparation; combat receives only the selected spec. | P0-B2/P2-B5 |
 
 ## Terminal checklist
 

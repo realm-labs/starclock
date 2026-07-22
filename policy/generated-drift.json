@@ -150,6 +150,10 @@
       "command": ["node", "tools/goal04/verify-activity-rng-state.mjs", "."]
     },
     {
+      "name": "Goal 04 battle preparation",
+      "command": ["node", "tools/goal04/verify-battle-preparation.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

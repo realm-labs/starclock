@@ -121,6 +121,23 @@ impl OpaqueParticipantBuild {
             source,
         })
     }
+
+    #[must_use]
+    pub const fn resolved_spec_digest(&self) -> CombatantSpecDigest {
+        self.resolved_spec
+    }
+    #[must_use]
+    pub const fn build_digest(&self) -> BuildDigest {
+        self.build
+    }
+    #[must_use]
+    pub fn build_catalog_revision(&self) -> &str {
+        &self.build_catalog_revision
+    }
+    #[must_use]
+    pub const fn source(&self) -> ParticipantSourceKind {
+        self.source
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -150,6 +167,27 @@ impl ParticipantLockEntry {
             character,
             build,
         })
+    }
+
+    #[must_use]
+    pub const fn participant(&self) -> ParticipantId {
+        self.participant
+    }
+    #[must_use]
+    pub const fn team_index(&self) -> u8 {
+        self.team_index
+    }
+    #[must_use]
+    pub const fn formation_index(&self) -> u8 {
+        self.formation_index
+    }
+    #[must_use]
+    pub const fn character(&self) -> UnitDefinitionId {
+        self.character
+    }
+    #[must_use]
+    pub const fn build(&self) -> &OpaqueParticipantBuild {
+        &self.build
     }
 
     pub(crate) fn encode(&self, writer: &mut CanonicalWriter) {

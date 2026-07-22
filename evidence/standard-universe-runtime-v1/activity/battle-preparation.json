@@ -1,0 +1,46 @@
+{
+  "schema_revision": "starclock.goal04-battle-preparation-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P2-B5",
+  "result": "roster-locked-attempt-preparation-and-pending-battle-implemented",
+  "bounds": {
+    "maximum_techniques": 8,
+    "maximum_variants": 512,
+    "maximum_locked_participants": 64
+  },
+  "shape": {
+    "initiative_policies": 2,
+    "technique_engagement_policies": 2,
+    "roster_lock_boundary_explicit": true,
+    "attempt_scope_required": true,
+    "variant_sequences_prefix_closed": true,
+    "attacking_technique_ends_preparation": true,
+    "non_attacking_technique_accumulates": true,
+    "enemy_preemptive_skips_player_decision": true,
+    "participant_form_formation_and_resolved_digest_verified": true,
+    "peripheral_build_fields_interpreted": false,
+    "pending_battle_immutable": true,
+    "rejected_preparation_preserves_state": true,
+    "canonical_attempt_state_included": true
+  },
+  "goldens": {
+    "preparation_definition_sha256": "0388fc342a852d6910dab5461b30425c9188c1b397808616ebeda5b58d8b8553",
+    "pending_activity_state_sha256": "9fb0f4000695e61473c07b13d56c3d00c085fecbc05ea571c66841b539121014"
+  },
+  "compatibility": {
+    "goal01_one_battle_hash_goldens_unchanged": true,
+    "battle_result_projection_deferred": "G04-P2-B6",
+    "build_fields_public_or_interpreted": false,
+    "generated_rows_public": false,
+    "authoritative_float": false
+  },
+  "source_sha256": {
+    "preparation": "d0b8d8a0e18ad58346ae3e36306c32fc188e421caee0793c7eda616db67da572",
+    "participant": "b80525b705a00398afdc8ebbd52b9126ed48d5198ce48425bdd87a4b261bc258",
+    "transaction": "32f55c345535c7be1e2a3ac60ca16b40b02fc1ce81f0ba819fc7373ee682bd5a",
+    "view": "8154b61c0009bd69bfc90a970a78fe9c93b711149f003442b8dec393be1a8fd7",
+    "tests": "6d270c0e42677eb68a0f01b8de93f93f7b1cc26891a9788ab5b6b3c16827d42c"
+  },
+  "focused_tests": 5,
+  "new_registry_packages": 0
+}

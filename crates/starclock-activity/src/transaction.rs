@@ -10,6 +10,7 @@ use crate::{
     ActivityProgramDefinition, ActivityProgramId, ActivityRngStreams, ActivitySlotId,
     ActivityStateDefinition, ActivityStateHash, ActivityStateVisibility, ActivityTerminalOutcome,
     ActivityValue, NodeId,
+    battle_preparation::ActivityAttemptState,
     codec::ActivityStateEncoder,
     view::{
         ActivityDebugView, ActivityDecisionView, ActivityInventoryView, ActivityOptionView,
@@ -151,6 +152,7 @@ pub struct ActivityTransactionState {
     node_visits: BTreeMap<NodeId, u32>,
     edge_traversals: BTreeMap<ActivityEdgeId, u32>,
     total_visits: u32,
+    pub(crate) attempt: Option<ActivityAttemptState>,
     pending: Option<PendingDecision>,
     terminal: Option<ActivityTerminalOutcome>,
 }
@@ -183,6 +185,7 @@ impl ActivityTransactionState {
             node_visits: BTreeMap::from([(current_node, 1)]),
             edge_traversals: BTreeMap::new(),
             total_visits: 1,
+            attempt: None,
             pending: None,
             terminal: None,
         }
@@ -237,7 +240,10 @@ impl ActivityTransactionState {
         if let Some(section) = section {
             writer.u32(section.get());
         }
-        writer.bool(false); // attempt identity is not entered before P2-B5
+        writer.bool(self.attempt.is_some());
+        if let Some(attempt) = &self.attempt {
+            attempt.encode(&mut writer);
+        }
         writer.u32(self.total_visits);
         writer.u32(self.node_visits.len() as u32);
         for (node, count) in &self.node_visits {
@@ -340,6 +346,8 @@ impl ActivityTransactionState {
             slots,
             inventories,
             decision: self.pending.as_ref().map(decision_view),
+            preparation: self.preparation_view(),
+            pending_battle: self.pending_battle_view(),
             terminal: self.terminal,
             state_hash: self.state_hash(identity, graph, instance, rng),
         }
@@ -516,6 +524,7 @@ impl ActivityTransactionState {
             node_visits: self.node_visits.clone(),
             edge_traversals: self.edge_traversals.clone(),
             total_visits: self.total_visits,
+            attempt: self.attempt.clone(),
             pending: self.pending.clone(),
             terminal: self.terminal,
         }

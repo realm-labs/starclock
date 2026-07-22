@@ -8,6 +8,7 @@
 
 mod activity_rng;
 mod aggregate;
+mod battle_preparation;
 mod codec;
 mod graph;
 mod id;
@@ -29,10 +30,19 @@ pub use aggregate::{
     Activity, ActivityCommand, ActivityCommandError, ActivityCommandErrorKind, ActivityDecision,
     ActivityEvent, ActivityPhase, ActivityResolution, BattleHandoff, ResultIdentityField,
 };
+pub use battle_preparation::{
+    ActivityBattlePreparationRequest, ActivityPendingBattleView, ActivityPreparationBoundary,
+    ActivityPreparationError, ActivityPreparationOptionKind, ActivityPreparationOptionView,
+    ActivityPreparationView, ActivityRosterLock, ActivityRosterLockError,
+    EncounterInitiativePolicy, EncounterPreparationDefinition, EncounterPreparationDefinitionError,
+    MAX_PREPARATION_TECHNIQUES, MAX_PREPARED_BATTLE_VARIANTS, PendingBattleSpec,
+    PreparedBattleVariant, TechniqueEngagement, TechniqueOptionDefinition,
+};
 pub use codec::{
     ACTIVITY_STATE_CODEC_REVISION, ACTIVITY_STATE_HASH_REVISION, ActivityConfigDigest,
     ActivityDefinitionDigest, ActivityGraphDigest, ActivityStateHash, BattleResultDigest,
-    BuildDigest, EventDigest, ParticipantLockDigest,
+    BuildDigest, EncounterPreparationDigest, EventDigest, ParticipantLockDigest,
+    TechniqueContributionDigest,
 };
 pub use graph::{
     ActivityEdgeCondition, ActivityEdgeDefinition, ActivityGraphDefinition,

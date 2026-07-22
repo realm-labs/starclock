@@ -80,6 +80,16 @@ digest_type!(
     "SHA-256 digest of canonical activity state at a command boundary.",
     false
 );
+digest_type!(
+    EncounterPreparationDigest,
+    "Digest of one validated immutable encounter-preparation definition.",
+    true
+);
+digest_type!(
+    TechniqueContributionDigest,
+    "Opaque digest of the battle contributions compiled for one technique sequence.",
+    true
+);
 
 pub(crate) struct CanonicalWriter(Sha256);
 
