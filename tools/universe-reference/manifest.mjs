@@ -72,6 +72,7 @@ const maps = await table("RogueMap");
 const rooms = await table("RogueRoom");
 const monsterGroups = await table("RogueMonsterGroup");
 const monsters = await table("RogueMonster");
+const standardRooms = rooms.filter(({ row }) => row.MapEntrance < 8110000);
 
 const currentManager = managers
   .filter(({ row }) => row.RogueVersion === 1 && row.RogueAreaIDList.length > 0)
@@ -108,7 +109,7 @@ const npcById = new Map(npcs.map((entry) => [entry.row.RogueNPCID, entry]));
 const combatRoomTypes = new Set([1, 2, 4, 6, 7]);
 const monsterGroupById = new Map(monsterGroups.map((entry) => [entry.row.RogueMonsterGroupID, entry]));
 const reachableMonsterGroupIds = new Set(
-  rooms
+  standardRooms
     .filter(({ row }) => combatRoomTypes.has(row.RogueRoomType))
     .flatMap(({ row }) => Object.values(row.GroupWithContent ?? {}))
     .filter((id) => id && monsterGroupById.has(id)),
@@ -188,8 +189,8 @@ const categories = [
   ),
   category(
     "shops",
-    "All base RogueShop definitions; DLC-owned shop tables are excluded.",
-    shops.map((entry) => item(entry, entry.row.RogueShopID)),
+    "Base RogueShop definitions below the 200000 DLC-owned ID boundary.",
+    shops.filter(({ row }) => row.RogueShopID < 200000).map((entry) => item(entry, entry.row.RogueShopID)),
   ),
   category(
     "map_nodes",
@@ -198,8 +199,8 @@ const categories = [
   ),
   category(
     "rooms",
-    "All base RogueRoom rows except the 1000000+ Adventure minigame room family, which is outside the first run-policy slice.",
-    rooms.filter(({ row }) => row.RogueRoomID < 1000000).map((entry) => item(entry, entry.row.RogueRoomID, { domain_type: entry.row.RogueRoomType })),
+    "Base RogueRoom rows whose map entrance is in the 800/803/810 Standard family; 811/812/813 DLC room families are excluded, while Standard Adventure rooms remain external-command nodes.",
+    standardRooms.map((entry) => item(entry, entry.row.RogueRoomID, { domain_type: entry.row.RogueRoomType })),
   ),
   category(
     "encounter_groups",
@@ -238,6 +239,9 @@ if (payload.categories.blessings.count !== 162) throw new Error("expected 18 Ble
 if (payload.categories.blessing_levels.count !== 324) throw new Error("expected two levels for every Blessing");
 if (payload.categories.resonances_and_formations.count !== 36) throw new Error("expected four resonance rows for every Path");
 if (payload.categories.curios.count !== 61 || payload.categories.curio_states.count !== 61) throw new Error("expected 61 Standard Curios and base-mode effect states");
+if (payload.categories.rooms.count !== 163) throw new Error("expected 163 Standard room rows");
+if (payload.categories.shops.count !== 9) throw new Error("expected nine Standard shop rows");
+if (payload.categories.encounter_groups.count !== 74 || payload.categories.encounter_members.count !== 171) throw new Error("Standard encounter reachability drifted");
 
 const encoded = `${JSON.stringify(payload, null, 2)}\n`;
 if (check) {

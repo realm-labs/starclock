@@ -115,7 +115,7 @@ export async function topology(ctx) {
     position_hint: { x: entry.row.PosX, y: entry.row.PosY },
   }));
 
-  const normalizedRooms = rooms.filter(({ row }) => row.RogueRoomID < 1000000).sort((left, right) => left.row.RogueRoomID - right.row.RogueRoomID).map((entry) => {
+  const normalizedRooms = rooms.filter(({ row }) => row.MapEntrance < 8110000).sort((left, right) => left.row.RogueRoomID - right.row.RogueRoomID).map((entry) => {
     const domain = DOMAIN_IDS.get(entry.row.RogueRoomType);
     return {
       ...ctx.envelope({

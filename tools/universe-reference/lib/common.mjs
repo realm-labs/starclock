@@ -91,6 +91,26 @@ export async function createContext(root) {
     return id;
   }
 
+  function publicProvenance({ id, url, page, fact, quality = "ExactPublicText", note = "Public mechanics cross-check." }) {
+    const stableId = `source.public.${slug(id)}`;
+    if (!evidence.has(stableId)) {
+      evidence.set(stableId, {
+        id: stableId,
+        source_kind: "PublicCrossCheck",
+        repository_or_url: url,
+        revision_or_access_date: ACCESS_DATE,
+        game_version: GAME_VERSION,
+        relative_path_or_page: page,
+        row_locator: page,
+        evidence_sha256: sha256(fact),
+        quality,
+        license_note: "Mechanic fact cross-check only; page prose is not redistributed.",
+        note,
+      });
+    }
+    return stableId;
+  }
+
   function envelope({ id, nameEn, nameZh, summaryEn, summaryZh, entry, quality = "ExactStructured", mechanismQuality = quality, coverageState = "DataReady", modeOwner = "Standard", note = "", sourceIds = [] }) {
     return {
       id,
@@ -115,7 +135,7 @@ export async function createContext(root) {
     await writeFile(path.join(outputRoot, name), `${JSON.stringify(value, null, 2)}\n`, "utf8");
   }
 
-  return { root, sourceRoot, outputRoot, table, text, provenance, envelope, evidence, writeJson, readSource };
+  return { root, sourceRoot, outputRoot, table, text, provenance, publicProvenance, envelope, evidence, writeJson, readSource };
 }
 
 export async function writeOrCheck(ctx, outputs, check) {

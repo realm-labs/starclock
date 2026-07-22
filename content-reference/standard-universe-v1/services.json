@@ -1,0 +1,3239 @@
+[
+  {
+    "id": "universe.currency.cosmic-fragments",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Cosmic Fragments",
+    "name_zh_cn": "宇宙碎片",
+    "summary_en": "Run-scoped Standard Simulated Universe currency used by choices, shops, resets, enhancement and revival.",
+    "summary_zh_cn": "标准模拟宇宙的局内货币，用于事件选择、商店、刷新、强化与复活。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-constvaluerogue-json.41"
+    ],
+    "source_ids": [
+      "31"
+    ],
+    "note": "",
+    "kind": "Currency",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "",
+    "offer_pool_id": "",
+    "rule_ids": [
+      "universe.rule.currency.cosmic-fragments"
+    ],
+    "parameters": [
+      {
+        "key": "initial_amount",
+        "value": "50"
+      }
+    ]
+  },
+  {
+    "id": "universe.service.reset-blessing-choice",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Reset Blessing Choice",
+    "name_zh_cn": "重置祝福选择",
+    "summary_en": "Consumes Cosmic Fragments to regenerate the ordered Blessing candidates after battle.",
+    "summary_zh_cn": "消耗宇宙碎片，重新生成战斗后的有序祝福候选项。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-constvaluerogue-json.1"
+    ],
+    "source_ids": [
+      "Roll_Buff_Cost"
+    ],
+    "note": "",
+    "kind": "ResetBlessing",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.reset-blessing",
+    "offer_pool_id": "universe.pool.blessings.standard",
+    "rule_ids": [
+      "universe.rule.service.reset-blessing"
+    ],
+    "parameters": [
+      {
+        "key": "source_cost_schedule",
+        "value": "[31:30],[31:50],[31:100]"
+      }
+    ]
+  },
+  {
+    "id": "universe.service.reviver",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Reviver",
+    "name_zh_cn": "复活装置",
+    "summary_en": "Revives one downed character for 80 Cosmic Fragments and restores that character to full HP.",
+    "summary_zh_cn": "消耗80宇宙碎片复活一名倒下角色，并恢复至满生命值。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-constvaluerogue-json.7",
+      "source.standard-su.exceloutput-constvaluerogue-json.5"
+    ],
+    "source_ids": [
+      "Rogue_Recover_ItemCost",
+      "Rogue_Recover_Percent"
+    ],
+    "note": "",
+    "kind": "Reviver",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.reviver",
+    "offer_pool_id": "",
+    "rule_ids": [
+      "universe.rule.service.reviver"
+    ],
+    "parameters": [
+      {
+        "key": "cost",
+        "value": "80"
+      },
+      {
+        "key": "restored_hp_percent",
+        "value": "100"
+      }
+    ]
+  },
+  {
+    "id": "universe.service.downloader",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Downloader",
+    "name_zh_cn": "下载装置",
+    "summary_en": "Adds one selected reserve character to the current run without a currency cost.",
+    "summary_zh_cn": "不消耗货币，将一名选定的后备角色加入当前运行。",
+    "quality": "ExactPublicText",
+    "mechanism_quality": "ExactPublicText",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.public.universe-service-downloader"
+    ],
+    "source_ids": [],
+    "note": "",
+    "kind": "Downloader",
+    "currency_id": "",
+    "price_formula_id": "universe.service.downloader.price",
+    "offer_pool_id": "",
+    "rule_ids": [
+      "universe.rule.service.downloader"
+    ],
+    "parameters": [
+      {
+        "key": "characters_per_device",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "id": "universe.service.respite-offers",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Respite Offers",
+    "name_zh_cn": "休整区交易",
+    "summary_en": "The first two Respite domains offer a 1-star Blessing for 80, a Curio for 120, or two random Blessing enhancements for 180 Cosmic Fragments.",
+    "summary_zh_cn": "前两个休整区可用80购买1星祝福、120购买奇物，或180强化两个随机祝福。",
+    "quality": "ExactPublicText",
+    "mechanism_quality": "ExactPublicText",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.public.universe-service-respite-offers"
+    ],
+    "source_ids": [],
+    "note": "",
+    "kind": "RespiteOffers",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.service.respite-offers.price",
+    "offer_pool_id": "",
+    "rule_ids": [
+      "universe.rule.service.respite-offers"
+    ],
+    "parameters": [
+      {
+        "key": "one_star_blessing_cost",
+        "value": "80"
+      },
+      {
+        "key": "curio_cost",
+        "value": "120"
+      },
+      {
+        "key": "two_random_enhancements_cost",
+        "value": "180"
+      }
+    ]
+  },
+  {
+    "id": "universe.service.enhance-blessing",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Enhance Blessing",
+    "name_zh_cn": "强化祝福",
+    "summary_en": "Enhances a selected Blessing once; prices are 100, 130 and 160 Cosmic Fragments for 1-, 2- and 3-star Blessings.",
+    "summary_zh_cn": "每个祝福最多强化一次；1星、2星、3星费用分别为100、130、160宇宙碎片。",
+    "quality": "ExactPublicText",
+    "mechanism_quality": "ExactPublicText",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.public.universe-service-enhance-blessing"
+    ],
+    "source_ids": [],
+    "note": "",
+    "kind": "EnhanceBlessing",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.service.enhance-blessing.price",
+    "offer_pool_id": "",
+    "rule_ids": [
+      "universe.rule.service.enhance-blessing"
+    ],
+    "parameters": [
+      {
+        "key": "max_enhancements",
+        "value": "1"
+      },
+      {
+        "key": "rarity_1_cost",
+        "value": "100"
+      },
+      {
+        "key": "rarity_2_cost",
+        "value": "130"
+      },
+      {
+        "key": "rarity_3_cost",
+        "value": "160"
+      }
+    ]
+  },
+  {
+    "id": "universe.service.shop.100011",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Blessing Shop 100011",
+    "name_zh_cn": "祝福商店100011",
+    "summary_en": "Standard source shop definition of kind BlessingShop; offer rows are selected by the authored shop stage/pool.",
+    "summary_zh_cn": "标准源商店，类型为BlessingShop；商品由已配置的商店阶段与池选择。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueshop-json.0"
+    ],
+    "source_ids": [
+      "100011"
+    ],
+    "note": "",
+    "kind": "BlessingShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.100011",
+    "offer_pool_id": "universe.pool.shop.100011",
+    "rule_ids": [
+      "universe.rule.service.shop.100011"
+    ],
+    "parameters": []
+  },
+  {
+    "id": "universe.service.shop.100021",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Curio Shop 100021",
+    "name_zh_cn": "奇物商店100021",
+    "summary_en": "Standard source shop definition of kind CurioShop; offer rows are selected by the authored shop stage/pool.",
+    "summary_zh_cn": "标准源商店，类型为CurioShop；商品由已配置的商店阶段与池选择。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueshop-json.1"
+    ],
+    "source_ids": [
+      "100021"
+    ],
+    "note": "",
+    "kind": "CurioShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.100021",
+    "offer_pool_id": "universe.pool.shop.100021",
+    "rule_ids": [
+      "universe.rule.service.shop.100021"
+    ],
+    "parameters": []
+  },
+  {
+    "id": "universe.service.shop.101010",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Blessing Shop 101010",
+    "name_zh_cn": "祝福商店101010",
+    "summary_en": "Standard source shop definition of kind BlessingShop; offer rows are selected by the authored shop stage/pool.",
+    "summary_zh_cn": "标准源商店，类型为BlessingShop；商品由已配置的商店阶段与池选择。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueshop-json.2"
+    ],
+    "source_ids": [
+      "101010"
+    ],
+    "note": "",
+    "kind": "BlessingShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.101010",
+    "offer_pool_id": "universe.pool.shop.101010",
+    "rule_ids": [
+      "universe.rule.service.shop.101010"
+    ],
+    "parameters": []
+  },
+  {
+    "id": "universe.service.shop.101011",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Blessing Shop 101011",
+    "name_zh_cn": "祝福商店101011",
+    "summary_en": "Standard source shop definition of kind BlessingShop; offer rows are selected by the authored shop stage/pool.",
+    "summary_zh_cn": "标准源商店，类型为BlessingShop；商品由已配置的商店阶段与池选择。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueshop-json.3"
+    ],
+    "source_ids": [
+      "101011"
+    ],
+    "note": "",
+    "kind": "BlessingShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.101011",
+    "offer_pool_id": "universe.pool.shop.101011",
+    "rule_ids": [
+      "universe.rule.service.shop.101011"
+    ],
+    "parameters": []
+  },
+  {
+    "id": "universe.service.shop.101012",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Blessing Shop 101012",
+    "name_zh_cn": "祝福商店101012",
+    "summary_en": "Standard source shop definition of kind BlessingShop; offer rows are selected by the authored shop stage/pool.",
+    "summary_zh_cn": "标准源商店，类型为BlessingShop；商品由已配置的商店阶段与池选择。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueshop-json.4"
+    ],
+    "source_ids": [
+      "101012"
+    ],
+    "note": "",
+    "kind": "BlessingShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.101012",
+    "offer_pool_id": "universe.pool.shop.101012",
+    "rule_ids": [
+      "universe.rule.service.shop.101012"
+    ],
+    "parameters": []
+  },
+  {
+    "id": "universe.service.shop.101020",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Curio Shop 101020",
+    "name_zh_cn": "奇物商店101020",
+    "summary_en": "Standard source shop definition of kind CurioShop; offer rows are selected by the authored shop stage/pool.",
+    "summary_zh_cn": "标准源商店，类型为CurioShop；商品由已配置的商店阶段与池选择。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueshop-json.5"
+    ],
+    "source_ids": [
+      "101020"
+    ],
+    "note": "",
+    "kind": "CurioShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.101020",
+    "offer_pool_id": "universe.pool.shop.101020",
+    "rule_ids": [
+      "universe.rule.service.shop.101020"
+    ],
+    "parameters": []
+  },
+  {
+    "id": "universe.service.shop.101021",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Curio Shop 101021",
+    "name_zh_cn": "奇物商店101021",
+    "summary_en": "Standard source shop definition of kind CurioShop; offer rows are selected by the authored shop stage/pool.",
+    "summary_zh_cn": "标准源商店，类型为CurioShop；商品由已配置的商店阶段与池选择。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueshop-json.6"
+    ],
+    "source_ids": [
+      "101021"
+    ],
+    "note": "",
+    "kind": "CurioShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.101021",
+    "offer_pool_id": "universe.pool.shop.101021",
+    "rule_ids": [
+      "universe.rule.service.shop.101021"
+    ],
+    "parameters": []
+  },
+  {
+    "id": "universe.service.shop.102011",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Blessing Shop 102011",
+    "name_zh_cn": "祝福商店102011",
+    "summary_en": "Standard source shop definition of kind BlessingShop; offer rows are selected by the authored shop stage/pool.",
+    "summary_zh_cn": "标准源商店，类型为BlessingShop；商品由已配置的商店阶段与池选择。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueshop-json.7"
+    ],
+    "source_ids": [
+      "102011"
+    ],
+    "note": "",
+    "kind": "BlessingShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.102011",
+    "offer_pool_id": "universe.pool.shop.102011",
+    "rule_ids": [
+      "universe.rule.service.shop.102011"
+    ],
+    "parameters": []
+  },
+  {
+    "id": "universe.service.shop.102021",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Curio Shop 102021",
+    "name_zh_cn": "奇物商店102021",
+    "summary_en": "Standard source shop definition of kind CurioShop; offer rows are selected by the authored shop stage/pool.",
+    "summary_zh_cn": "标准源商店，类型为CurioShop；商品由已配置的商店阶段与池选择。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-rogueshop-json.8"
+    ],
+    "source_ids": [
+      "102021"
+    ],
+    "note": "",
+    "kind": "CurioShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.102021",
+    "offer_pool_id": "universe.pool.shop.102021",
+    "rule_ids": [
+      "universe.rule.service.shop.102021"
+    ],
+    "parameters": []
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.1",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Fragmented Universe",
+    "name_zh_cn": "破碎宇宙",
+    "summary_en": "Run-entry bonus with fragments effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.0"
+    ],
+    "source_ids": [
+      "1",
+      "100001"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.1"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "fragments"
+    ],
+    "source_event_id": "100001",
+    "source_description_sha256_en": "5ee20f496ab5ba3a9510bee43c3274f3190bba88d854cc4d36596cacb720e5b1",
+    "source_description_sha256_zh_cn": "ccb16022ade82e6c2fa64106f574cf3f14760c2c6c372297f50e45f0deec346f"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.2",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Blessing Universe",
+    "name_zh_cn": "祝福宇宙",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.1"
+    ],
+    "source_ids": [
+      "2",
+      "100002"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.2"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "100002",
+    "source_description_sha256_en": "dbce2d9be49a570c1b0aaf93dd6fa1c2a592324387e1acfa9440e1c9548f15d9",
+    "source_description_sha256_zh_cn": "b1f8ec6d5fd2814be1b9a9ae2e521ff0abb622a6066c24717e7be333ad6a9a5f"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.3",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Miracle Universe",
+    "name_zh_cn": "神奇宇宙",
+    "summary_en": "Run-entry bonus with fragments, curio effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.2"
+    ],
+    "source_ids": [
+      "3",
+      "100003"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.3"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "fragments",
+      "curio"
+    ],
+    "source_event_id": "100003",
+    "source_description_sha256_en": "76a63b13defd60e5acc514ae723fa09a8f68ab5dc2a3423726e55abf78e60780",
+    "source_description_sha256_zh_cn": "cc987513b7808973bd527f1f2264ce900dd86b71b339bc1f5805408370894fed"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.4",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Fragmented Universe",
+    "name_zh_cn": "破碎宇宙",
+    "summary_en": "Run-entry bonus with fragments effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.3"
+    ],
+    "source_ids": [
+      "4",
+      "110001"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.4"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "fragments"
+    ],
+    "source_event_id": "110001",
+    "source_description_sha256_en": "b8293f58f66669edfaa943ce9cf52370c1696118adf5b4bd0fd7789ab7129b2a",
+    "source_description_sha256_zh_cn": "33a64233de6f9e158f8e1c80fc707f860486489b88bec02c0b658976ac2b4177"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.5",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Blessing Universe",
+    "name_zh_cn": "祝福宇宙",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.4"
+    ],
+    "source_ids": [
+      "5",
+      "110002"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.5"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "110002",
+    "source_description_sha256_en": "8f3041e1faf038132d25ae517d8a5307862f48294364458b42dbca453878e1cf",
+    "source_description_sha256_zh_cn": "1c474525db613a182f6ed5356fb88e82c8e5e671b45c7d01e89138744ed28400"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.6",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Miracle Universe",
+    "name_zh_cn": "神奇宇宙",
+    "summary_en": "Run-entry bonus with curio effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.5"
+    ],
+    "source_ids": [
+      "6",
+      "110003"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.6"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "curio"
+    ],
+    "source_event_id": "110003",
+    "source_description_sha256_en": "22cd86c4bf18282c21aaee6a4e28884ca7c44797787927ef0b2f9e4334061f35",
+    "source_description_sha256_zh_cn": "68d112bf1e466230bf8b5d632e6be6b815a14122ad35802fbc272bbc048fd530"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.101",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Fragmented Universe",
+    "name_zh_cn": "破碎宇宙",
+    "summary_en": "Run-entry bonus with fragments effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.6"
+    ],
+    "source_ids": [
+      "101",
+      "1010"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.101"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "fragments"
+    ],
+    "source_event_id": "1010",
+    "source_description_sha256_en": "b8293f58f66669edfaa943ce9cf52370c1696118adf5b4bd0fd7789ab7129b2a",
+    "source_description_sha256_zh_cn": "33a64233de6f9e158f8e1c80fc707f860486489b88bec02c0b658976ac2b4177"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.102",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Blessing Universe",
+    "name_zh_cn": "祝福宇宙",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.7"
+    ],
+    "source_ids": [
+      "102",
+      "1020"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.102"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "1020",
+    "source_description_sha256_en": "8f3041e1faf038132d25ae517d8a5307862f48294364458b42dbca453878e1cf",
+    "source_description_sha256_zh_cn": "1c474525db613a182f6ed5356fb88e82c8e5e671b45c7d01e89138744ed28400"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.103",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Miracle Universe",
+    "name_zh_cn": "神奇宇宙",
+    "summary_en": "Run-entry bonus with curio effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.8"
+    ],
+    "source_ids": [
+      "103",
+      "1030"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.103"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "curio"
+    ],
+    "source_event_id": "1030",
+    "source_description_sha256_en": "22cd86c4bf18282c21aaee6a4e28884ca7c44797787927ef0b2f9e4334061f35",
+    "source_description_sha256_zh_cn": "68d112bf1e466230bf8b5d632e6be6b815a14122ad35802fbc272bbc048fd530"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.104",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Orderly Universe",
+    "name_zh_cn": "有序宇宙",
+    "summary_en": "Run-entry bonus with fragments, curio effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.9"
+    ],
+    "source_ids": [
+      "104",
+      "1040"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.104"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "fragments",
+      "curio"
+    ],
+    "source_event_id": "1040",
+    "source_description_sha256_en": "60184464a89ef4f5cab315a90f44a0962747bee506c6eb59f9607cd2f2097cec",
+    "source_description_sha256_zh_cn": "d1de4711c7bded188b43aa2889cc189efa6f67b46526f79b000632f67c89e79f"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.105",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Hungry Universe",
+    "name_zh_cn": "巨胃宇宙",
+    "summary_en": "Run-entry bonus with curio effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.10"
+    ],
+    "source_ids": [
+      "105",
+      "1050"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.105"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "curio"
+    ],
+    "source_event_id": "1050",
+    "source_description_sha256_en": "57a8c414ff87d863d1efba0cf4abb5d346cf1f94cea861bb12c43968737f0181",
+    "source_description_sha256_zh_cn": "2db00348b60e27fb39ceaa87f645ee0ccffcba5f2352eb807246ee753e1cb7b1"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.106",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Bloodthirsty Universe",
+    "name_zh_cn": "嗜血宇宙",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.11"
+    ],
+    "source_ids": [
+      "106",
+      "1060"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.106"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "1060",
+    "source_description_sha256_en": "48bcaf0ddb74a6d667ac165959cae6d8d4528a3f65867d9ec78a27d42de8100c",
+    "source_description_sha256_zh_cn": "8913811e433c3010fe76fc46630c26d79646731a4cf9fac06f115340627f24ec"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.201",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Fragmented Universe",
+    "name_zh_cn": "破碎宇宙",
+    "summary_en": "Run-entry bonus with fragments effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.12"
+    ],
+    "source_ids": [
+      "201",
+      "3010"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.201"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "fragments"
+    ],
+    "source_event_id": "3010",
+    "source_description_sha256_en": "96187135ff857856646a689970f1edeb5855f4cb9ffc1436d677a3624833204f",
+    "source_description_sha256_zh_cn": "33a64233de6f9e158f8e1c80fc707f860486489b88bec02c0b658976ac2b4177"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.202",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Blessing Universe",
+    "name_zh_cn": "祝福宇宙",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.13"
+    ],
+    "source_ids": [
+      "202",
+      "3020"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.202"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "3020",
+    "source_description_sha256_en": "8f3041e1faf038132d25ae517d8a5307862f48294364458b42dbca453878e1cf",
+    "source_description_sha256_zh_cn": "1c474525db613a182f6ed5356fb88e82c8e5e671b45c7d01e89138744ed28400"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.203",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Miracle Universe",
+    "name_zh_cn": "神奇宇宙",
+    "summary_en": "Run-entry bonus with curio effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.14"
+    ],
+    "source_ids": [
+      "203",
+      "3030"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.203"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "curio"
+    ],
+    "source_event_id": "3030",
+    "source_description_sha256_en": "22cd86c4bf18282c21aaee6a4e28884ca7c44797787927ef0b2f9e4334061f35",
+    "source_description_sha256_zh_cn": "68d112bf1e466230bf8b5d632e6be6b815a14122ad35802fbc272bbc048fd530"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.204",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Inorganic Universe",
+    "name_zh_cn": "无机宇宙",
+    "summary_en": "Run-entry bonus with special effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.15"
+    ],
+    "source_ids": [
+      "204",
+      "3040"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.204"
+    ],
+    "parameters": [],
+    "mechanic_tags": [],
+    "source_event_id": "3040",
+    "source_description_sha256_en": "04615b2378840dc25e259ca1ed201cc822b5c54663ac9ca885d8f3cb9dd4a684",
+    "source_description_sha256_zh_cn": "dc146023eb17e9b815eafdf10706cabcea87d2568f773aaa3b4c7dad49c30885"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.205",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Equilibrium Universe",
+    "name_zh_cn": "均衡宇宙",
+    "summary_en": "Run-entry bonus with curio effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.16"
+    ],
+    "source_ids": [
+      "205",
+      "3050"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.205"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "curio"
+    ],
+    "source_event_id": "3050",
+    "source_description_sha256_en": "d8452130be849c1b5358aa5301e1954ebaf1cb64c16ef5f4b63af01ac0c25ddc",
+    "source_description_sha256_zh_cn": "ae7632f105f97af4ca84bb34aa19bffe6379e159a2567591edf7f3d8be015113"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.401",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Mechanic",
+    "name_zh_cn": "机修工",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.17"
+    ],
+    "source_ids": [
+      "401",
+      "4010"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.401"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4010",
+    "source_description_sha256_en": "e7b399714b91fbb85faae4f77e4e339323dce2f8cf8b28c8d79753df7a88fdb2",
+    "source_description_sha256_zh_cn": "0f952cd7be71b50400600a39bd359890784fd92402aaa4f8c60f33cbd605cf35"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.402",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Surveyor",
+    "name_zh_cn": "测绘师",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.18"
+    ],
+    "source_ids": [
+      "402",
+      "4020"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.402"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4020",
+    "source_description_sha256_en": "b3146952c2d652cd51ef0ef70db94624a880261735af0cff3b9a5dc9c10b3f2f",
+    "source_description_sha256_zh_cn": "fa75a2e7fb9a1ed300250c6489c1fea01b021e14f8c93415e29c8d1a7a193ea7"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.403",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Adventurer",
+    "name_zh_cn": "冒险家",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.19"
+    ],
+    "source_ids": [
+      "403",
+      "4030"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.403"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4030",
+    "source_description_sha256_en": "7f3a3df4a6f650fdab6265ac9a31b0f316119b6ebfc3ed9d4781f5ec5fbd84c8",
+    "source_description_sha256_zh_cn": "3ef9b8a891621919952a326f78d7293ad7db1ee5e6716dffb7e3e9e56ecef49d"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.404",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path of Abundance",
+    "name_zh_cn": "丰饶之路",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.20"
+    ],
+    "source_ids": [
+      "404",
+      "4040"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.404"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4040",
+    "source_description_sha256_en": "71417557d63673b1086b1ce3673c63346277fa2aa53701c62c46eb0bf930714b",
+    "source_description_sha256_zh_cn": "91c5512992416cff1e3115520bc4f3e1eee8351d5747381fb9386f5ff4a75b98"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.405",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path of The Hunt",
+    "name_zh_cn": "巡猎之路",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.21"
+    ],
+    "source_ids": [
+      "405",
+      "4050"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.405"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4050",
+    "source_description_sha256_en": "87b2b242cd2b03cd979a781ec8875da2c013c987113fa07026928213cc3d5c20",
+    "source_description_sha256_zh_cn": "62581e9d7f5ebcb4ac6f75f77e5b7bc828123c581f41014ba82d5b929eb40056"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.406",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path of Destruction",
+    "name_zh_cn": "毁灭之路",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.22"
+    ],
+    "source_ids": [
+      "406",
+      "4060"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.406"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4060",
+    "source_description_sha256_en": "afe755a6c7e07d24f5c88b220c208cb565d0ef580baefbdb84fb7b6808dfa1af",
+    "source_description_sha256_zh_cn": "42fbd22ed4bffc4369943e61d0afa3468015fe3227255aa1526f37d06c79c091"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.407",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path of Elation",
+    "name_zh_cn": "欢愉之路",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.23"
+    ],
+    "source_ids": [
+      "407",
+      "4070"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.407"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4070",
+    "source_description_sha256_en": "051d381d2a54219d405433632506af3324a7860e69b07f94a184ff04d0a424df",
+    "source_description_sha256_zh_cn": "af2cbf35f8e87a468c3b1754ccd92e8de8efd1c33a9d723d847b49ce0c32eb23"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.408",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path of Propagation",
+    "name_zh_cn": "繁育之路",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.24"
+    ],
+    "source_ids": [
+      "408",
+      "4080"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.408"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4080",
+    "source_description_sha256_en": "537510651db5d921447236ef2b88303d5b4f6fb7fceddb132f9cfe91503361ff",
+    "source_description_sha256_zh_cn": "6021032cf1d118a8d56c260e4cc433e8ff6fabb9e5d472ee00958b5df1acc9da"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.409",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Path of Erudition",
+    "name_zh_cn": "智识之路",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.25"
+    ],
+    "source_ids": [
+      "409",
+      "4090"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.409"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4090",
+    "source_description_sha256_en": "9518150cc0ce776713381110ef37f39e6f86441a271cce097061e17a34c4b108",
+    "source_description_sha256_zh_cn": "fc913f2b85c96efe86a39a6566053c2a2873b92cde0304da280611967d682bc4"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.410",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Coronal Sea",
+    "name_zh_cn": "日冕海",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.26"
+    ],
+    "source_ids": [
+      "410",
+      "4100"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.410"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4100",
+    "source_description_sha256_en": "d3be725fd34db6af9a97866564512bf1311a94343517e72fcec33a98c0cd28ca",
+    "source_description_sha256_zh_cn": "d5411a175d5ca6c53ef105d2cd35620a0892f566871c6fa592778245a590fda1"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.411",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Skycruiser",
+    "name_zh_cn": "巡天舰",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.27"
+    ],
+    "source_ids": [
+      "411",
+      "4110"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.411"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4110",
+    "source_description_sha256_en": "4dca7f842740e2023bdf89701722767a08e9e4bc2b640b0704dd3dffb102a4a5",
+    "source_description_sha256_zh_cn": "35cabc8460884414cec5ea60fc73e472f1fcfaf275660dd996817e83c63e8428"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.412",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Diamond Precipitation",
+    "name_zh_cn": "钻石雨",
+    "summary_en": "Run-entry bonus with special effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.28"
+    ],
+    "source_ids": [
+      "412",
+      "4120"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.412"
+    ],
+    "parameters": [],
+    "mechanic_tags": [],
+    "source_event_id": "4120",
+    "source_description_sha256_en": "9e2a94072f7090a9559c023a54101539e72d4da4904d02f25a82284e89837eaf",
+    "source_description_sha256_zh_cn": "a403a7f705ad2c245d8ab391f0cc75bfd7f7add165bb09d395b9628bcfc27867"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.413",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Ivory Tower",
+    "name_zh_cn": "象牙塔",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.29"
+    ],
+    "source_ids": [
+      "413",
+      "4130"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.413"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4130",
+    "source_description_sha256_en": "a203adba1b3ae1b2aa24cedea315a40a91f2f3cf5c4da3f3bd36cf5cc81284f7",
+    "source_description_sha256_zh_cn": "7d7b6d349caf9bb7cc3db3c4fe086c62e0b01c13f127eddc92f69a9eb4dcc071"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.414",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Fool's Play",
+    "name_zh_cn": "愚人戏",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.30"
+    ],
+    "source_ids": [
+      "414",
+      "4140"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.414"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4140",
+    "source_description_sha256_en": "c2a7458bfd38a07fed21aff98a1f5ba1b7ccf0c15c48a76520cc238280e2a855",
+    "source_description_sha256_zh_cn": "de7783d04cb4fb473d6b67480399801ddf37857137c465d3afb686a5c1df6308"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.415",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Fountain of Youth",
+    "name_zh_cn": "不老泉",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.31"
+    ],
+    "source_ids": [
+      "415",
+      "4150"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.415"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4150",
+    "source_description_sha256_en": "9876e2b6bb87212e73ef69f08a7cf4af5b1570dbeb574769c1c191af7abea823",
+    "source_description_sha256_zh_cn": "9f5b39527e201cee88d124f871a3141e22c26b88eba89fda816c98674871220e"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.416",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Reimbursement Form",
+    "name_zh_cn": "报销单",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.32"
+    ],
+    "source_ids": [
+      "416",
+      "4160"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.416"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4160",
+    "source_description_sha256_en": "78eda228805f7f921e3a3d31d93adf402a314cbad49e9bf447477c2fc6970c1e",
+    "source_description_sha256_zh_cn": "daceb0f20617ebf4625466fa1f6785b18bedec1d057898f35166e3d24d0ece6c"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.417",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Sea of Forgetfulness",
+    "name_zh_cn": "遗忘海",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.33"
+    ],
+    "source_ids": [
+      "417",
+      "4170"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.417"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4170",
+    "source_description_sha256_en": "4a25773c3b44d6befff15cd149b502e12ee711d3fd205549929ecff6b682eb1b",
+    "source_description_sha256_zh_cn": "3ea587e99e1363ed6ea0cdd754e8581ae64e849dd630966e4c114d1767421d08"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.418",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Phenomenal Field",
+    "name_zh_cn": "现象场",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.34"
+    ],
+    "source_ids": [
+      "418",
+      "4180"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.418"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4180",
+    "source_description_sha256_en": "38b421edc9d45fb57fc41a0bb7bc23e037999817ef648cc4c9d1670ea2979e0a",
+    "source_description_sha256_zh_cn": "9dbfc71f90bad74c93d0e0db6b631bc410e2a0c1e79fd93212941ca80863ff33"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.419",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Lying Cap",
+    "name_zh_cn": "说谎帽",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.35"
+    ],
+    "source_ids": [
+      "419",
+      "4190"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.419"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4190",
+    "source_description_sha256_en": "612c3d71f11419bf1551c722cc6e685dc2fa12c91db531c13480511f13ae0684",
+    "source_description_sha256_zh_cn": "eb7e309d77a581d63ad63ea6bb94c2bcdfce37e44ffe70a955c19a19969da72d"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.420",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Case Folder",
+    "name_zh_cn": "案件簿",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.36"
+    ],
+    "source_ids": [
+      "420",
+      "4200"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.420"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4200",
+    "source_description_sha256_en": "612c3d71f11419bf1551c722cc6e685dc2fa12c91db531c13480511f13ae0684",
+    "source_description_sha256_zh_cn": "eb7e309d77a581d63ad63ea6bb94c2bcdfce37e44ffe70a955c19a19969da72d"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.421",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Bloodguilt Tome",
+    "name_zh_cn": "血罪书",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.37"
+    ],
+    "source_ids": [
+      "421",
+      "4210"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.421"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4210",
+    "source_description_sha256_en": "5c9472598ecd6e5e7a69706510cad88a28bce7ab501d594e59eae73578ed1183",
+    "source_description_sha256_zh_cn": "ff2f70aeb5ac8d93d3de17629d8493648d756245fe22b902b1fba5c9f2ed961d"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.422",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Shuttle Boat",
+    "name_zh_cn": "梭子船",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.38"
+    ],
+    "source_ids": [
+      "422",
+      "4220"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.422"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4220",
+    "source_description_sha256_en": "4dca7f842740e2023bdf89701722767a08e9e4bc2b640b0704dd3dffb102a4a5",
+    "source_description_sha256_zh_cn": "35cabc8460884414cec5ea60fc73e472f1fcfaf275660dd996817e83c63e8428"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.423",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Consciousness Cluster",
+    "name_zh_cn": "意识群",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.39"
+    ],
+    "source_ids": [
+      "423",
+      "4230"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.423"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4230",
+    "source_description_sha256_en": "35d051433d2e728ae9439198c69832484188e6b6fd8665b5c49f76e912e44243",
+    "source_description_sha256_zh_cn": "27f34e2e85d523663051f6ba96abac8cad2a212b7a5c60a98a80d739f04edd62"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.424",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Oscillating Stars",
+    "name_zh_cn": "振荡星",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.40"
+    ],
+    "source_ids": [
+      "424",
+      "4240"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.424"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4240",
+    "source_description_sha256_en": "f591936902bf80893ac00f94bf59358186782146f3af9dd43a94cd583241880f",
+    "source_description_sha256_zh_cn": "673d934a54ae7557f6d6ce9fa65e4d4a0ac8a547dcbeb928bcf0d251defecbd4"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.425",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Boundless Sea",
+    "name_zh_cn": "无涯海",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.41"
+    ],
+    "source_ids": [
+      "425",
+      "4250"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.425"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4250",
+    "source_description_sha256_en": "35d051433d2e728ae9439198c69832484188e6b6fd8665b5c49f76e912e44243",
+    "source_description_sha256_zh_cn": "27f34e2e85d523663051f6ba96abac8cad2a212b7a5c60a98a80d739f04edd62"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.426",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Aether Well",
+    "name_zh_cn": "以太井",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.42"
+    ],
+    "source_ids": [
+      "426",
+      "4260"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.426"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4260",
+    "source_description_sha256_en": "9d65a6789dda15b3d70d3cc75e7266c36e6936bfa121253b26a4876c745f1e09",
+    "source_description_sha256_zh_cn": "aac6eaa94735bf818a761de99039846742dbaf2a6c3574548b7b0f7a14418a15"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.427",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Silent Orifice",
+    "name_zh_cn": "静默孔",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.43"
+    ],
+    "source_ids": [
+      "427",
+      "4270"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.427"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4270",
+    "source_description_sha256_en": "38b421edc9d45fb57fc41a0bb7bc23e037999817ef648cc4c9d1670ea2979e0a",
+    "source_description_sha256_zh_cn": "9dbfc71f90bad74c93d0e0db6b631bc410e2a0c1e79fd93212941ca80863ff33"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.428",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Water-Mirrored Moon",
+    "name_zh_cn": "水中月",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.44"
+    ],
+    "source_ids": [
+      "428",
+      "4280"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.428"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4280",
+    "source_description_sha256_en": "35d051433d2e728ae9439198c69832484188e6b6fd8665b5c49f76e912e44243",
+    "source_description_sha256_zh_cn": "27f34e2e85d523663051f6ba96abac8cad2a212b7a5c60a98a80d739f04edd62"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.429",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Stardust",
+    "name_zh_cn": "星之尘",
+    "summary_en": "Run-entry bonus with blessing, curio effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.45"
+    ],
+    "source_ids": [
+      "429",
+      "4290"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.429"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing",
+      "curio"
+    ],
+    "source_event_id": "4290",
+    "source_description_sha256_en": "3516ef7ab6736418f1de7ac32459afa627dbe44d957a5911db62a391a3837d4e",
+    "source_description_sha256_zh_cn": "226667140df3fc4df35ad8de05b7062ef1a853513ea8edfb636fc05f40986427"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.430",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Praisesong",
+    "name_zh_cn": "赞美诗",
+    "summary_en": "Run-entry bonus with blessing, curio effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.46"
+    ],
+    "source_ids": [
+      "430",
+      "4300"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.430"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing",
+      "curio"
+    ],
+    "source_event_id": "4300",
+    "source_description_sha256_en": "efde292295b0da32401f5bee4c4c02b62e56b0337787e1a4b850bcc8ade54616",
+    "source_description_sha256_zh_cn": "81c18505be6bb6a5be576110a9d129d92559af2ae9a06181d7100d2ecfa92014"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.431",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Data Hole",
+    "name_zh_cn": "数据孔",
+    "summary_en": "Run-entry bonus with blessing, curio effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.47"
+    ],
+    "source_ids": [
+      "431",
+      "4310"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.431"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing",
+      "curio"
+    ],
+    "source_event_id": "4310",
+    "source_description_sha256_en": "e8d3b2c96a5f1bc8c2fdd5f5bb81f0e03ca2959b97fe2b2b34ec8a2f3e764159",
+    "source_description_sha256_zh_cn": "6c751fa3d6ef9046471574f1d253594301512f28fad483e56ae51312be01f43a"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.432",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Butterfly Adores Flower",
+    "name_zh_cn": "蝶恋花",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.48"
+    ],
+    "source_ids": [
+      "432",
+      "4320"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.432"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "4320",
+    "source_description_sha256_en": "4dca7f842740e2023bdf89701722767a08e9e4bc2b640b0704dd3dffb102a4a5",
+    "source_description_sha256_zh_cn": "35cabc8460884414cec5ea60fc73e472f1fcfaf275660dd996817e83c63e8428"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.501",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Guard",
+    "name_zh_cn": "守卫",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.49"
+    ],
+    "source_ids": [
+      "501",
+      "5010"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.501"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5010",
+    "source_description_sha256_en": "e7b399714b91fbb85faae4f77e4e339323dce2f8cf8b28c8d79753df7a88fdb2",
+    "source_description_sha256_zh_cn": "0f952cd7be71b50400600a39bd359890784fd92402aaa4f8c60f33cbd605cf35"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.502",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Teacher",
+    "name_zh_cn": "导师",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.50"
+    ],
+    "source_ids": [
+      "502",
+      "5020"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.502"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5020",
+    "source_description_sha256_en": "b3146952c2d652cd51ef0ef70db94624a880261735af0cff3b9a5dc9c10b3f2f",
+    "source_description_sha256_zh_cn": "fa75a2e7fb9a1ed300250c6489c1fea01b021e14f8c93415e29c8d1a7a193ea7"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.503",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Messenger",
+    "name_zh_cn": "信使",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.51"
+    ],
+    "source_ids": [
+      "503",
+      "5030"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.503"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5030",
+    "source_description_sha256_en": "7f3a3df4a6f650fdab6265ac9a31b0f316119b6ebfc3ed9d4781f5ec5fbd84c8",
+    "source_description_sha256_zh_cn": "3ef9b8a891621919952a326f78d7293ad7db1ee5e6716dffb7e3e9e56ecef49d"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.504",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Dream Oracles",
+    "name_zh_cn": "梦的谕示",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.52"
+    ],
+    "source_ids": [
+      "504",
+      "5040"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.504"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5040",
+    "source_description_sha256_en": "35d051433d2e728ae9439198c69832484188e6b6fd8665b5c49f76e912e44243",
+    "source_description_sha256_zh_cn": "27f34e2e85d523663051f6ba96abac8cad2a212b7a5c60a98a80d739f04edd62"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.505",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Lightning Residues",
+    "name_zh_cn": "雷的残骸",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.53"
+    ],
+    "source_ids": [
+      "505",
+      "5050"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.505"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5050",
+    "source_description_sha256_en": "de45f1c0a44c4845e8c4e4a99df14b5b6c214da212daa2fce17b340e3a2dc0ba",
+    "source_description_sha256_zh_cn": "03484e40594b3afec89898a35137c5ab0c5fa8009d00ada765cbd9f6e324f346"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.506",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Sword Fragments",
+    "name_zh_cn": "剑的碎片",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.54"
+    ],
+    "source_ids": [
+      "506",
+      "5060"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.506"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5060",
+    "source_description_sha256_en": "8fa4c5cb4ea7284f8b5ffa47245f2d8e314f89c0e3ee4b9dd83e75b21f53eec7",
+    "source_description_sha256_zh_cn": "3b131a677a2b355d4ce3ffa16e4c8114b033762a4e9fc73b96c751645d1f56c5"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.507",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Heart Embers",
+    "name_zh_cn": "心的余火",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.55"
+    ],
+    "source_ids": [
+      "507",
+      "5070"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.507"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5070",
+    "source_description_sha256_en": "947decedd18ab91569cdce8b7f922723039b9b85231694995d2b7ef82d8d1144",
+    "source_description_sha256_zh_cn": "3bb331633f99092ea0bd52b4ad8ba8c94e9c1d57810f52ca997a7cc65d82c2d1"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.508",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Sweet Dreams of Flowers",
+    "name_zh_cn": "花的美梦",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.56"
+    ],
+    "source_ids": [
+      "508",
+      "5080"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.508"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5080",
+    "source_description_sha256_en": "5c9472598ecd6e5e7a69706510cad88a28bce7ab501d594e59eae73578ed1183",
+    "source_description_sha256_zh_cn": "ff2f70aeb5ac8d93d3de17629d8493648d756245fe22b902b1fba5c9f2ed961d"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.509",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Endless Verse of the Night",
+    "name_zh_cn": "夜的长诗",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.57"
+    ],
+    "source_ids": [
+      "509",
+      "5090"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.509"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5090",
+    "source_description_sha256_en": "5c9472598ecd6e5e7a69706510cad88a28bce7ab501d594e59eae73578ed1183",
+    "source_description_sha256_zh_cn": "ff2f70aeb5ac8d93d3de17629d8493648d756245fe22b902b1fba5c9f2ed961d"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.510",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Budding of Knowledge",
+    "name_zh_cn": "知的萌芽",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.58"
+    ],
+    "source_ids": [
+      "510",
+      "5100"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.510"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5100",
+    "source_description_sha256_en": "35d051433d2e728ae9439198c69832484188e6b6fd8665b5c49f76e912e44243",
+    "source_description_sha256_zh_cn": "27f34e2e85d523663051f6ba96abac8cad2a212b7a5c60a98a80d739f04edd62"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.511",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Lingering Whispers of Love",
+    "name_zh_cn": "爱的残语",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.59"
+    ],
+    "source_ids": [
+      "511",
+      "5110"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.511"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5110",
+    "source_description_sha256_en": "aa80d19d1fae510dd66f5db29cb3f69069dbd1d74cc5b0c944d958e88af4df1c",
+    "source_description_sha256_zh_cn": "e3a1662f92ffbf5adc54225f3eefbf60b13c65d21aa519494a255bb9c3441f3e"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.512",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Scattered Poems",
+    "name_zh_cn": "零落诗篇",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.60"
+    ],
+    "source_ids": [
+      "512",
+      "5120"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.512"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5120",
+    "source_description_sha256_en": "5c9472598ecd6e5e7a69706510cad88a28bce7ab501d594e59eae73578ed1183",
+    "source_description_sha256_zh_cn": "ff2f70aeb5ac8d93d3de17629d8493648d756245fe22b902b1fba5c9f2ed961d"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.513",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Rusted Gold Coin",
+    "name_zh_cn": "锈蚀金币",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.61"
+    ],
+    "source_ids": [
+      "513",
+      "5130"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.513"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5130",
+    "source_description_sha256_en": "612c3d71f11419bf1551c722cc6e685dc2fa12c91db531c13480511f13ae0684",
+    "source_description_sha256_zh_cn": "eb7e309d77a581d63ad63ea6bb94c2bcdfce37e44ffe70a955c19a19969da72d"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.514",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Golden Short Sword",
+    "name_zh_cn": "黄金短剑",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.62"
+    ],
+    "source_ids": [
+      "514",
+      "5140"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.514"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5140",
+    "source_description_sha256_en": "4dca7f842740e2023bdf89701722767a08e9e4bc2b640b0704dd3dffb102a4a5",
+    "source_description_sha256_zh_cn": "35cabc8460884414cec5ea60fc73e472f1fcfaf275660dd996817e83c63e8428"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.515",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Mirage In The Water",
+    "name_zh_cn": "水中影",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.63"
+    ],
+    "source_ids": [
+      "515",
+      "5150"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.515"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5150",
+    "source_description_sha256_en": "38b421edc9d45fb57fc41a0bb7bc23e037999817ef648cc4c9d1670ea2979e0a",
+    "source_description_sha256_zh_cn": "9dbfc71f90bad74c93d0e0db6b631bc410e2a0c1e79fd93212941ca80863ff33"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.516",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Gift of Creation",
+    "name_zh_cn": "创生之赐",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.64"
+    ],
+    "source_ids": [
+      "516",
+      "5160"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.516"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5160",
+    "source_description_sha256_en": "aa80d19d1fae510dd66f5db29cb3f69069dbd1d74cc5b0c944d958e88af4df1c",
+    "source_description_sha256_zh_cn": "e3a1662f92ffbf5adc54225f3eefbf60b13c65d21aa519494a255bb9c3441f3e"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.517",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Final Spear",
+    "name_zh_cn": "最后的枪",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.65"
+    ],
+    "source_ids": [
+      "517",
+      "5170"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.517"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5170",
+    "source_description_sha256_en": "8fa4c5cb4ea7284f8b5ffa47245f2d8e314f89c0e3ee4b9dd83e75b21f53eec7",
+    "source_description_sha256_zh_cn": "3b131a677a2b355d4ce3ffa16e4c8114b033762a4e9fc73b96c751645d1f56c5"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.518",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Poem of the Stars",
+    "name_zh_cn": "星的诗篇",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.66"
+    ],
+    "source_ids": [
+      "518",
+      "5180"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.518"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5180",
+    "source_description_sha256_en": "35d051433d2e728ae9439198c69832484188e6b6fd8665b5c49f76e912e44243",
+    "source_description_sha256_zh_cn": "27f34e2e85d523663051f6ba96abac8cad2a212b7a5c60a98a80d739f04edd62"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.519",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Data Collection",
+    "name_zh_cn": "集群数据",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.67"
+    ],
+    "source_ids": [
+      "519",
+      "5190"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.519"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5190",
+    "source_description_sha256_en": "35d051433d2e728ae9439198c69832484188e6b6fd8665b5c49f76e912e44243",
+    "source_description_sha256_zh_cn": "27f34e2e85d523663051f6ba96abac8cad2a212b7a5c60a98a80d739f04edd62"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.520",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Recursion",
+    "name_zh_cn": "递归",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.68"
+    ],
+    "source_ids": [
+      "520",
+      "5200"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.520"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5200",
+    "source_description_sha256_en": "38b421edc9d45fb57fc41a0bb7bc23e037999817ef648cc4c9d1670ea2979e0a",
+    "source_description_sha256_zh_cn": "9dbfc71f90bad74c93d0e0db6b631bc410e2a0c1e79fd93212941ca80863ff33"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.521",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Dream of Flowers",
+    "name_zh_cn": "花之梦",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.69"
+    ],
+    "source_ids": [
+      "521",
+      "5210"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.521"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5210",
+    "source_description_sha256_en": "aa80d19d1fae510dd66f5db29cb3f69069dbd1d74cc5b0c944d958e88af4df1c",
+    "source_description_sha256_zh_cn": "e3a1662f92ffbf5adc54225f3eefbf60b13c65d21aa519494a255bb9c3441f3e"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.522",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Bedtime Story",
+    "name_zh_cn": "睡前故事",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.70"
+    ],
+    "source_ids": [
+      "522",
+      "5220"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.522"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5220",
+    "source_description_sha256_en": "5c9472598ecd6e5e7a69706510cad88a28bce7ab501d594e59eae73578ed1183",
+    "source_description_sha256_zh_cn": "ff2f70aeb5ac8d93d3de17629d8493648d756245fe22b902b1fba5c9f2ed961d"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.523",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Happy Heart",
+    "name_zh_cn": "快乐的心",
+    "summary_en": "Run-entry bonus with blessing, curio effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.71"
+    ],
+    "source_ids": [
+      "523",
+      "5230"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.523"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing",
+      "curio"
+    ],
+    "source_event_id": "5230",
+    "source_description_sha256_en": "98aea60093528db411079224dcfcc5af0ed23b255cfb4ce577949fb50b8dcf99",
+    "source_description_sha256_zh_cn": "593d7eba57beea48361893b7584b44f728780b7cbded73ed48a4d0e1df92ce25"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.524",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Enkindled Dreams",
+    "name_zh_cn": "焚烧的梦",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.72"
+    ],
+    "source_ids": [
+      "524",
+      "5240"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.524"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5240",
+    "source_description_sha256_en": "8fa4c5cb4ea7284f8b5ffa47245f2d8e314f89c0e3ee4b9dd83e75b21f53eec7",
+    "source_description_sha256_zh_cn": "3b131a677a2b355d4ce3ffa16e4c8114b033762a4e9fc73b96c751645d1f56c5"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.525",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "A New Beginning",
+    "name_zh_cn": "新的开始",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.73"
+    ],
+    "source_ids": [
+      "525",
+      "5250"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.525"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5250",
+    "source_description_sha256_en": "5c9472598ecd6e5e7a69706510cad88a28bce7ab501d594e59eae73578ed1183",
+    "source_description_sha256_zh_cn": "ff2f70aeb5ac8d93d3de17629d8493648d756245fe22b902b1fba5c9f2ed961d"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.526",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Melodious Strings",
+    "name_zh_cn": "袅袅弦音",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.74"
+    ],
+    "source_ids": [
+      "526",
+      "5260"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.526"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5260",
+    "source_description_sha256_en": "2e2483a092b6eacd93fe69e712226476ce30ad3e9c6000dbd8bf9ddd1266e39c",
+    "source_description_sha256_zh_cn": "690fdf25d9318a45b93d41037592ba6c86ac04a6b339f989cf884e51fa00061b"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.527",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Rousing War Song",
+    "name_zh_cn": "昂扬战歌",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.75"
+    ],
+    "source_ids": [
+      "527",
+      "5270"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.527"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5270",
+    "source_description_sha256_en": "2e2483a092b6eacd93fe69e712226476ce30ad3e9c6000dbd8bf9ddd1266e39c",
+    "source_description_sha256_zh_cn": "690fdf25d9318a45b93d41037592ba6c86ac04a6b339f989cf884e51fa00061b"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.528",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Condensed Heart",
+    "name_zh_cn": "凝结的心",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.76"
+    ],
+    "source_ids": [
+      "528",
+      "5280"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.528"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5280",
+    "source_description_sha256_en": "5c9472598ecd6e5e7a69706510cad88a28bce7ab501d594e59eae73578ed1183",
+    "source_description_sha256_zh_cn": "ff2f70aeb5ac8d93d3de17629d8493648d756245fe22b902b1fba5c9f2ed961d"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.529",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Spore Ball",
+    "name_zh_cn": "孢子团",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.77"
+    ],
+    "source_ids": [
+      "529",
+      "5290"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.529"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5290",
+    "source_description_sha256_en": "aa80d19d1fae510dd66f5db29cb3f69069dbd1d74cc5b0c944d958e88af4df1c",
+    "source_description_sha256_zh_cn": "e3a1662f92ffbf5adc54225f3eefbf60b13c65d21aa519494a255bb9c3441f3e"
+  },
+  {
+    "id": "universe.service.trailblaze-bonus.530",
+    "enabled": true,
+    "mode_owner": "Standard",
+    "name_en": "Mini Meme",
+    "name_zh_cn": "迷你模因",
+    "summary_en": "Run-entry bonus with blessing effects; exact event binding is retained.",
+    "summary_zh_cn": "运行入口增益，包含特殊效果并保留精确事件绑定。",
+    "quality": "ExactStructured",
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "coverage_state": "DataReady",
+    "provenance_ids": [
+      "source.standard-su.exceloutput-roguebonus-json.78"
+    ],
+    "source_ids": [
+      "530",
+      "5300"
+    ],
+    "note": "",
+    "kind": "TrailblazeBonus",
+    "currency_id": "",
+    "price_formula_id": "",
+    "offer_pool_id": "universe.pool.trailblaze-bonuses",
+    "rule_ids": [
+      "universe.rule.service.trailblaze-bonus.530"
+    ],
+    "parameters": [],
+    "mechanic_tags": [
+      "blessing"
+    ],
+    "source_event_id": "5300",
+    "source_description_sha256_en": "aa80d19d1fae510dd66f5db29cb3f69069dbd1d74cc5b0c944d958e88af4df1c",
+    "source_description_sha256_zh_cn": "e3a1662f92ffbf5adc54225f3eefbf60b13c65d21aa519494a255bb9c3441f3e"
+  }
+]
