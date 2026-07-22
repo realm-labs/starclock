@@ -23,6 +23,7 @@ const expectedExternal = new Map([
   ["starclock-agent-api", [
     { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
     { name: "serde_json", requirement: "=1.0.151", features: ["std"], kind: "dev" },
+    { name: "sha2", requirement: "=0.11.0", features: [] },
   ]],
   ["starclock-combat", [
     { name: "fixnum", requirement: "=0.9.5", features: ["i64", "std"] },
@@ -100,7 +101,7 @@ const cli = packages.find((entry) => entry.name === "starclock-cli");
 const cliBinaries = cli.targets.filter((target) => target.kind.includes("bin")).map((target) => target.name);
 assert(JSON.stringify(cliBinaries) === JSON.stringify(["starclock"]), "starclock-cli must own only the starclock binary");
 const agentApi = packages.find((entry) => entry.name === "starclock-agent-api");
-assert(agentApi.dependencies.every((dependency) => dependency.name === "starclock-combat" || dependency.name === "serde" || (dependency.kind === "dev" && dependency.name === "serde_json")), "starclock-agent-api may use only the combat view boundary and reviewed deterministic serialization dependencies at the projection stage");
+assert(agentApi.dependencies.every((dependency) => dependency.name === "starclock-combat" || dependency.name === "serde" || dependency.name === "sha2" || (dependency.kind === "dev" && dependency.name === "serde_json")), "starclock-agent-api may use only the combat boundary and reviewed deterministic serialization and token-digest dependencies");
 
 console.log("Workspace dependency boundaries verified (10 crates; protocol-neutral agent scaffold plus production boundaries and reviewed property dev-dependencies).");
 
