@@ -1,0 +1,170 @@
+{
+  "schema_revision": "starclock.goal02-clean-acceptance-evidence.v1",
+  "goal_id": "agent-control-mcp-v1",
+  "result": "pass",
+  "recorded_on": "2026-07-22T09:35:15.317Z",
+  "source_commit": "635998595982d6c129c1a248f63afd7fbd0f6a7d",
+  "staged_tree": "f71f36cc8126877c4e73d1074abf4743a46b6da2",
+  "snapshot": "staged-git-tree",
+  "inherited_build_cache": false,
+  "inherited_repository_source_cache": false,
+  "build_target": "temporary-checkout/target",
+  "tool_bootstrap": "checksum-bound Sora 0.3.0",
+  "runner": {
+    "id": "starclock-bench-win10-i7-10700f-v1",
+    "platform": "win32",
+    "architecture": "x64",
+    "os_release": "10.0.19045",
+    "cpu_model": "Intel(R) Core(TM) i7-10700F CPU @ 2.90GHz",
+    "logical_processors": 16,
+    "total_memory_bytes": 68625661952,
+    "rust_host": "x86_64-pc-windows-msvc",
+    "rustc": "1.97.0",
+    "node": "v24.15.0"
+  },
+  "elapsed_seconds": 782,
+  "commands": [
+    [
+      "node",
+      "tools/repository-check/run.mjs"
+    ],
+    [
+      "cargo",
+      "test",
+      "--manifest-path",
+      "tools/mcp-sdk-capability/Cargo.toml",
+      "--locked"
+    ],
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-agent-api",
+      "--test",
+      "schema_property_contract",
+      "--test",
+      "standard_session_loop",
+      "--all-features"
+    ],
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-cli",
+      "--test",
+      "mcp_stdio",
+      "--all-features"
+    ],
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-mcp",
+      "--test",
+      "http_conformance",
+      "--all-features"
+    ],
+    [
+      "node",
+      "tools/agent-control/verify-agent-benchmark.mjs",
+      "--strict",
+      "--samples",
+      "5"
+    ],
+    [
+      "node",
+      "tools/agent-control/verify-mcp-http-benchmark.mjs",
+      "--strict",
+      "--samples",
+      "5"
+    ],
+    [
+      "cargo",
+      "run",
+      "--locked",
+      "-p",
+      "starclock-agent-api",
+      "--example",
+      "g02_in_process"
+    ],
+    [
+      "cargo",
+      "run",
+      "--locked",
+      "-p",
+      "starclock-mcp",
+      "--example",
+      "g02_authorized_http"
+    ],
+    [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "starclock-cli"
+    ],
+    [
+      "node",
+      "examples/agent-control/stdio-discovery.mjs",
+      "target/debug/starclock.exe"
+    ]
+  ],
+  "expected": {
+    "standard_scenarios": 6,
+    "external_actions": 62,
+    "replay_commands": 68,
+    "transport_state_hashes": 9,
+    "transport_replay_bytes": 987,
+    "stdio_cases": 10,
+    "http_concurrent_sessions": 8,
+    "native_profiles": 3,
+    "compile_only_profiles": 3,
+    "benchmark_samples": 5
+  },
+  "retained_evidence": [
+    {
+      "path": "evidence/agent-control-mcp-v1/schema/agent-api-v1.json",
+      "sha256": "f8d729a26cdaa3817dd5771594145c931ab16c90a85addfffe371e20a7ad3337"
+    },
+    {
+      "path": "evidence/agent-control-mcp-v1/protocol/mcp-sdk-capabilities.json",
+      "sha256": "f5a9fbf6424d4a1ab0a1a0aa1aeae5d276920f6ea4b4bafa0fede27b3081f1f4"
+    },
+    {
+      "path": "evidence/agent-control-mcp-v1/protocol/mcp-stdio-conformance.json",
+      "sha256": "35990d389cf977388b8cf4bebd8482184f78018d1468761a636eff613ba0d737"
+    },
+    {
+      "path": "evidence/agent-control-mcp-v1/protocol/basic-transport-trace.json",
+      "sha256": "b6a4a112d9ec801f97ddb0ab5a95e62ebe682d83f33bc4ac5a0adef5ecf0083f"
+    },
+    {
+      "path": "evidence/agent-control-mcp-v1/protocol/mcp-http-conformance.json",
+      "sha256": "b6380e39761379d8b80f58dcaf8e8fb4c02295eaa69a936e8dded21a329948b2"
+    },
+    {
+      "path": "evidence/agent-control-mcp-v1/performance/phase2-baseline-windows-x64.json",
+      "sha256": "e99df5c0fac9cf617903d36be802bd40bc59cca26b91667a8b9cc1f55c5e9a09"
+    },
+    {
+      "path": "evidence/agent-control-mcp-v1/performance/phase4-http-baseline-windows-x64.json",
+      "sha256": "6d7fedcccd539edbf74c7384d84e245f216858400778992f352c1900224e7e9e"
+    },
+    {
+      "path": "evidence/agent-control-mcp-v1/security/hardening-corpus.json",
+      "sha256": "c27fccbf4a82ef20b353f03cb130b31a209d3355993abf260a10b18b55445b2d"
+    },
+    {
+      "path": "evidence/agent-control-mcp-v1/security/security-audit.json",
+      "sha256": "ae218d3e529dcc47cac8b7c10d839b4d84b16cd119e9c7ec4b0c5984517cf235"
+    },
+    {
+      "path": "evidence/agent-control-mcp-v1/contracts/contract-freeze.json",
+      "sha256": "b2446e77351ce4a5f79c89e4f9eae78f223db2aa7346ec21310e063b8cf1f60d"
+    },
+    {
+      "path": "evidence/core-combat-v1/hardening/ci-golden-matrix.json",
+      "sha256": "8964b0a8f52cdd694a7dbb47821f9970812443e670f46ab6ff5b4fa1d0e65dfa"
+    }
+  ]
+}

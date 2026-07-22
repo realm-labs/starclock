@@ -89,6 +89,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 63. [Agent integration contract](starclock-agent-integration-contract.md) — runnable in-process, stdio and authorized HTTP embedding examples, frozen public surfaces and MCP suitability guidance.
 64. [Agent security and architecture audit](starclock-agent-security-audit.md) — dependency/API direction, unsafe/source/license review, secret/log safety and remote control limits.
 65. [Agent cross-platform contract](starclock-agent-cross-platform.md) — native schema/trace execution and explicitly compile-only alternate targets.
+66. [Agent clean-checkout acceptance](starclock-agent-clean-acceptance.md) — isolated staged-tree gate, strict runner identity and retained capability/conformance/performance digests.
 
 ## Execution goals
 

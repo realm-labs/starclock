@@ -1,0 +1,46 @@
+{
+  "schema_revision": "starclock.goal02-clean-acceptance-policy.v1",
+  "goal_id": "agent-control-mcp-v1",
+  "stable_runner_id": "starclock-bench-win10-i7-10700f-v1",
+  "snapshot": "staged-git-tree",
+  "inherited_build_cache": false,
+  "inherited_repository_source_cache": false,
+  "commands": [
+    ["node", "tools/repository-check/run.mjs"],
+    ["cargo", "test", "--manifest-path", "tools/mcp-sdk-capability/Cargo.toml", "--locked"],
+    ["cargo", "test", "-p", "starclock-agent-api", "--test", "schema_property_contract", "--test", "standard_session_loop", "--all-features"],
+    ["cargo", "test", "-p", "starclock-cli", "--test", "mcp_stdio", "--all-features"],
+    ["cargo", "test", "-p", "starclock-mcp", "--test", "http_conformance", "--all-features"],
+    ["node", "tools/agent-control/verify-agent-benchmark.mjs", "--strict", "--samples", "5"],
+    ["node", "tools/agent-control/verify-mcp-http-benchmark.mjs", "--strict", "--samples", "5"],
+    ["cargo", "run", "--locked", "-p", "starclock-agent-api", "--example", "g02_in_process"],
+    ["cargo", "run", "--locked", "-p", "starclock-mcp", "--example", "g02_authorized_http"],
+    ["cargo", "build", "--locked", "-p", "starclock-cli"],
+    ["node", "examples/agent-control/stdio-discovery.mjs", "{starclock_binary}"]
+  ],
+  "retained_evidence": [
+    "evidence/agent-control-mcp-v1/schema/agent-api-v1.json",
+    "evidence/agent-control-mcp-v1/protocol/mcp-sdk-capabilities.json",
+    "evidence/agent-control-mcp-v1/protocol/mcp-stdio-conformance.json",
+    "evidence/agent-control-mcp-v1/protocol/basic-transport-trace.json",
+    "evidence/agent-control-mcp-v1/protocol/mcp-http-conformance.json",
+    "evidence/agent-control-mcp-v1/performance/phase2-baseline-windows-x64.json",
+    "evidence/agent-control-mcp-v1/performance/phase4-http-baseline-windows-x64.json",
+    "evidence/agent-control-mcp-v1/security/hardening-corpus.json",
+    "evidence/agent-control-mcp-v1/security/security-audit.json",
+    "evidence/agent-control-mcp-v1/contracts/contract-freeze.json",
+    "evidence/core-combat-v1/hardening/ci-golden-matrix.json"
+  ],
+  "expected": {
+    "standard_scenarios": 6,
+    "external_actions": 62,
+    "replay_commands": 68,
+    "transport_state_hashes": 9,
+    "transport_replay_bytes": 987,
+    "stdio_cases": 10,
+    "http_concurrent_sessions": 8,
+    "native_profiles": 3,
+    "compile_only_profiles": 3,
+    "benchmark_samples": 5
+  }
+}
