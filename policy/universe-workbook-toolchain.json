@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "goal": "standard-universe-reference-v1",
+  "authoring": {
+    "runtime": "Python 3",
+    "package": "openpyxl",
+    "version": "3.1.5",
+    "license": "MIT",
+    "source": "https://pypi.org/project/openpyxl/3.1.5/",
+    "role": "Create and inspect new Universe Excel workbooks without patching existing files."
+  },
+  "authority": {
+    "schema_validation": "sora-cli 0.3.0",
+    "production_format": ".sora",
+    "debug_format": "JSON",
+    "note": "openpyxl is an authoring adapter and does not replace Sora validation or export."
+  },
+  "determinism": {
+    "fixed_document_timestamp": "2000-01-01T00:00:00Z",
+    "semantic_digest": "SHA-256 over ordered workbook, sheet, cell, pane, filter and width values",
+    "overwrite_policy": "Refuse when any target Universe workbook already exists."
+  },
+  "verification": [
+    "python -m pip install -r tools/universe-reference/requirements.txt",
+    "python tools/universe-reference/author_workbooks.py --root . --output <new-directory> --empty"
+  ]
+}
