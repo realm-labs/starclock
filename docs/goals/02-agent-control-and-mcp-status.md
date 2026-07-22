@@ -9,16 +9,16 @@ implementation batch.
 | Field | Value |
 |---|---|
 | Goal ID | `agent-control-mcp-v1` |
-| State | `ReadyToStart` |
+| State | `InProgress` |
 | Prerequisite | Goal 01 `Complete` at or after `b23f900` |
 | Active phase | Phase 0 — Freeze protocol, capability and threat model |
-| Next unblocked batch | `G02-P0-B1` |
-| Last completed batch | None |
-| Last completed commit | None |
+| Next unblocked batch | `G02-P0-B2` |
+| Last completed batch | `G02-P0-B1` |
+| Last completed commit | This row's containing commit |
 | MCP specification baseline | Proposed `2025-11-25`; freeze in `G02-P0-B2` |
 | Agent schema revision | Proposed `agent-api-v1`; freeze in `G02-P0-B3` |
 | SDK lock | Pending `G02-P0-B2` capability proof |
-| Standard scenario denominator | Pending audit; expected six frozen Goal 01 scenarios |
+| Standard scenario denominator | Six frozen `scenario.standard-v1.*` production scenarios |
 | Blocking condition | None |
 
 Allowed states are `ReadyToStart`, `InProgress`, `Blocked` and `Complete`.
@@ -29,7 +29,7 @@ external evidence or decision required. Phase completion is not goal completion.
 
 | Phase | State | Exit evidence |
 |---|---|---|
-| Phase 0 — Protocol/capability/threat model | `Pending` | Pending |
+| Phase 0 — Protocol/capability/threat model | `InProgress` | Surface audit complete; capability/schema/threat freezes pending |
 | Phase 1 — Types and observation | `Pending` | Pending |
 | Phase 2 — Authoritative sessions | `Pending` | Pending |
 | Phase 3 — Local MCP | `Pending` | Pending |
@@ -44,7 +44,7 @@ evidence summary.
 
 | Batch | State | Commit | Validation/evidence | Result |
 |---|---|---|---|---|
-| `G02-P0-B1` | `Pending` | — | — | — |
+| `G02-P0-B1` | `Complete` | This row's containing commit | `node tools/agent-control/verify-surface-audit.mjs`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Frozen seven use cases, six production Standard scenarios, dependency layers, decision ownership, three narrow application seams and forbidden core changes; policy is bound to the Goal 01 production bundle. |
 | `G02-P0-B2` | `Pending` | — | — | — |
 | `G02-P0-B3` | `Pending` | — | — | — |
 | `G02-P0-B4` | `Pending` | — | — | — |
@@ -88,7 +88,7 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | MCP Rust SDK/toolchain | Pending | `G02-P0-B2` |
 | Agent schema | Pending | `G02-P0-B3` |
 | Threat model | Pending | `G02-P0-B4` |
-| Standard scenario denominator | Pending | `G02-P0-B1` |
+| Standard scenario denominator | 6 scenarios / Goal 01 bundle `abd84f70…0440` | [`agent-control-surfaces.json`](../../policy/agent-control-surfaces.json) |
 | Observation/event limits | Pending | `G02-P0-B3` |
 | Settlement limits | Pending | `G02-P0-B3` |
 | Session/registry limits | Pending | `G02-P0-B4` / `G02-P2-B6` |
@@ -103,6 +103,8 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | 2026-07-22 | Default sessions expose player decisions and settle authored enemy/automatic decisions internally. | Keeps tool calls at meaningful turn boundaries and preserves authored enemy behavior. |
 | 2026-07-22 | Remote non-loopback service fails closed without authorization and origin policy. | Avoids accidentally publishing an unauthenticated state-mutating MCP server. |
 | 2026-07-22 | No model provider or private chain-of-thought is part of Goal 02. | The server is interoperable infrastructure, and replay depends only on accepted commands. |
+| 2026-07-22 | Only player-owned decisions are external; system and enemy decisions settle inside the session. | Reuses exact offered commands while keeping authored automation deterministic and replay-visible. |
+| 2026-07-22 | Goal 02 may add only narrow application/data composition seams over Goal 01. | Scenario lookup/construction and controller coordination do not authorize combat-rule, lifecycle, RNG, hash or replay redesign. |
 
 Add architectural decisions here before implementing a deviation from the goal
 or normative design. A decision cannot silently weaken a terminal gate.
@@ -112,8 +114,8 @@ or normative design. A decision cannot silently weaken a terminal gate.
 | ID | State | Question/blocker | Owner batch | Resolution/evidence |
 |---|---|---|---|---|
 | `G02-R01` | `Open` | Which exact official Rust MCP SDK revision and features satisfy the frozen stdio/HTTP/schema/cancellation contract? | `G02-P0-B2` | Pending capability lock. |
-| `G02-R02` | `Open` | Which existing Goal 01 view methods are sufficient for player-visible projection, and which narrow queries are missing? | `G02-P0-B1` / `G02-P1-B3` | Pending public-surface audit. |
-| `G02-R03` | `Open` | Which current decisions are external player decisions versus authored enemy or automatic orchestration boundaries? | `G02-P0-B1` / `G02-P2-B2` | Pending decision-owner matrix. |
+| `G02-R02` | `PartiallyResolved` | Which existing Goal 01 view methods are sufficient for player-visible projection, and which narrow queries are missing? | `G02-P0-B1` / `G02-P1-B3` | Public views cover battle/unit/effect/timeline/status projection; P1-B3 must prove whether any visibility-safe query is still missing before adding one. |
+| `G02-R03` | `Resolved` | Which current decisions are external player decisions versus authored enemy or automatic orchestration boundaries? | `G02-P0-B1` / `G02-P2-B2` | `Team(Player)` is external; `System` and `Team(Enemy)` settle internally from exact offered commands; automatic timeline work drains in `Battle::apply`. |
 
 Research does not authorize speculative production behavior. Record primary
 sources, executed fixtures and exact limitations. Continue independent work when

@@ -1,0 +1,58 @@
+{
+  "schema_revision": "starclock.agent-control.surface-audit.v1",
+  "goal_id": "agent-control-mcp-v1",
+  "audited_on": "2026-07-22",
+  "goal_01_prerequisite_commit": "b23f900",
+  "production_bundle_sha256": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440",
+  "use_cases": [
+    "create one validated ephemeral Standard battle from production identities and an explicit seed",
+    "observe a bounded player-visible decision boundary without hidden authored state",
+    "select one opaque offered action and settle through enemy and automatic decisions",
+    "retry a state-changing request without committing or consuming RNG twice",
+    "page retained events and export a complete canonical replay",
+    "close or expire an isolated session",
+    "run the same control contract in-process, over local stdio MCP, or over authorized Streamable HTTP MCP"
+  ],
+  "standard_scenarios": [
+    { "stable_id": "scenario.standard-v1.basic-single-wave", "scenario_definition_id": 278, "encounter_stable_id": "encounter.cocoon.0001", "encounter_definition_id": 89, "default_seed": 104729 },
+    { "stable_id": "scenario.standard-v1.multi-wave-dot-revival", "scenario_definition_id": 282, "encounter_stable_id": "encounter.mainline.0541", "encounter_definition_id": 92, "default_seed": 209759 },
+    { "stable_id": "scenario.standard-v1.elite-control-counter", "scenario_definition_id": 280, "encounter_stable_id": "encounter.farmelement.0008", "encounter_definition_id": 90, "default_seed": 314159 },
+    { "stable_id": "scenario.standard-v1.cocolia-phase-change", "scenario_definition_id": 279, "encounter_stable_id": "encounter.mainline.0276", "encounter_definition_id": 91, "default_seed": 419431 },
+    { "stable_id": "scenario.standard-v1.layered-toughness", "scenario_definition_id": 281, "encounter_stable_id": "encounter.mainline.0755", "encounter_definition_id": 93, "default_seed": 524287 },
+    { "stable_id": "scenario.standard-v1.target-invalidation-and-return", "scenario_definition_id": 283, "encounter_stable_id": "encounter.mainline.1253", "encounter_definition_id": 94, "default_seed": 629137 }
+  ],
+  "dependency_layers_low_to_high": [
+    ["starclock-combat", "starclock-rules"],
+    ["starclock-ai", "starclock-activity", "starclock-build", "starclock-mode-standard", "starclock-replay"],
+    ["starclock-data"],
+    ["starclock-agent-api"],
+    ["starclock-mcp", "starclock-cli"]
+  ],
+  "public_surface_inventory": [
+    { "crate": "starclock-combat", "uses": ["Battle::create", "Battle::apply", "Battle::decision", "Battle::state_hash", "Battle::view", "BattleView", "DecisionPoint", "Command", "Resolution"] },
+    { "crate": "starclock-ai", "uses": ["BaselineController", "EnemyController", "EnemyDecision"] },
+    { "crate": "starclock-activity", "uses": ["Activity", "ActivityCommand", "ActivityResolution", "ActivityView"] },
+    { "crate": "starclock-build", "uses": ["BuildCatalog", "BuildCompiler", "BuildSpec", "CompiledBuild"] },
+    { "crate": "starclock-mode-standard", "uses": ["StandardProfile", "StandardScenario", "StandardScenarioId", "StandardBindingId"] },
+    { "crate": "starclock-data", "uses": ["load", "SimulationCatalog", "StandardScenarioDefinition"] },
+    { "crate": "starclock-replay", "uses": ["BattleReplay", "ActivityReplay", "ReplayHeader", "verify_activity_replay"] }
+  ],
+  "decision_owner_matrix": [
+    { "owner": "System", "external": false, "settlement": "session applies the exact offered lifecycle command" },
+    { "owner": "Team(Player)", "external": true, "settlement": "return opaque offered actions to the caller" },
+    { "owner": "Team(Enemy)", "external": false, "settlement": "session uses authored enemy data and an exact offered command" }
+  ],
+  "narrow_application_seams": [
+    "enumerate and resolve production Standard scenario identities without depending on private CLI code",
+    "construct the frozen production battle/activity input from validated scenario and build identities",
+    "coordinate authored enemy and automatic decisions while recording controller diagnostics"
+  ],
+  "forbidden_core_changes": [
+    "no MCP, JSON-RPC, HTTP, authentication, session, operational clock, or idempotency concepts in starclock-combat, starclock-rules, or starclock-activity",
+    "no mutation path other than Battle::apply and Activity::apply",
+    "no bypass of exact offered Command values or DecisionPoint ownership",
+    "no protocol-derived values in canonical state hashes, replay facts, RNG seeds, or deterministic ordering",
+    "no public untrusted construction of Rule IR, BattleSpec, or arbitrary catalog definitions",
+    "no challenge-mode, universe-mode, durable persistence, model-provider, prompt, or private reasoning surface"
+  ]
+}
