@@ -72,6 +72,8 @@ $turnPatterns = @(
     "/Config/ConfigAbility/Monster/",
     "/Config/ConfigAbility/BattleEvent/*Rogue*.json",
     "/Config/ConfigAbility/Level/Level_*Rogue*.json",
+    "/Config/Level/Rogue/",
+    "/Config/Level/RogueDialogue/",
     "/Config/ConfigAI/"
 )
 

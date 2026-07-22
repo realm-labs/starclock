@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Freeze scope and evidence |
 | Active batch | None |
-| Next unblocked batch | `G03-P0-B3` |
+| Next unblocked batch | `G03-P0-B4` |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -18,7 +18,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope/evidence | `InProgress` | Snapshot/scope frozen; ignored source cache reproducibly includes and hashes all 372 Rogue table/ability files. Concrete row manifests remain B3. |
+| Phase 0 — Scope/evidence | `InProgress` | Snapshot/scope frozen. The ignored cache now reproducibly hashes 2,646 Rogue table, ability, NPC and dialogue-graph files; the concrete 2,838-row main-world manifest is frozen. Schema/quality/fixture contracts remain B4. |
 | Phase 1 — Reference pack | `Pending` | — |
 | Phase 2 — Sora schema | `Pending` | — |
 | Phase 3 — Excel authoring | `Pending` | — |
@@ -30,7 +30,7 @@
 |---|---|---|---|
 | `G03-P0-B1` | `Complete` | This row's containing commit | Frozen Version 4.4 / 2026-07-22 main-world scope, nine-World/nine-Path public boundary, pinned source revisions, required/excluded categories, evidence/quality policy, normalized pack and Excel/Sora promotion contracts. Added the 28-batch plan, persistent ledger and launch prompt; both prior release contracts and source-policy checks pass. |
 | `G03-P0-B2` | `Complete` | This row's containing commit | Expanded the pinned sparse cache with every Rogue Excel table and Rogue battle/level ability file. Deterministic inventory `4c45418e…8972` hashes 372 files: 35 Standard candidates, 17 shared/reachability-review tables, 165 other-mode tables, 17 presentation/account tables and 138 mechanic-evidence files. The generator's `--check` mode rejects drift; classification is table-level only and does not pre-approve shared rows. |
-| `G03-P0-B3` | `Pending` | — | — |
+| `G03-P0-B3` | `Complete` | This row's containing commit | Expanded mechanic evidence to 2,646 pinned files (`1d5c7b03…99e7d`) and froze a reproducible 2,838-row content manifest (`5ac3d484…7f7ae`). Membership resolves the current 33 World difficulties, nine Paths, 36 Resonance/Formation rows, 162 Blessings with 324 levels, 61 Curios with 182 states, 59 Occurrences with 55 base variants, nine domains, 42 Ability Tree nodes, 108 service/bonus rows and the reachable 154-group/347-member encounter set. DLC-prefixed variants, Resonance Interplays and activity map families are explicitly excluded. Both generators support drift-rejecting `--check`. |
 | `G03-P0-B4` | `Pending` | — | — |
 | `G03-P1-B1` | `Pending` | — | — |
 | `G03-P1-B2` | `Pending` | — | — |
@@ -63,16 +63,16 @@ Populate only from generated manifests in `G03-P0-B3`.
 
 | Category | Required | Accounted | DataReady | Notes |
 |---|---:|---:|---:|---|
-| Worlds | 9 | 0 | 0 | Public topology fixed; exact IDs pending source inventory. |
-| Difficulties/topology | Pending | 0 | 0 | — |
-| Paths | 9 | 0 | 0 | Main-world selectable Paths. |
-| Resonances/Formations | Pending | 0 | 0 | — |
-| Blessings/upgrades | Pending | 0 | 0 | — |
-| Curios/states | Pending | 0 | 0 | — |
-| Occurrences/choices | Pending | 0 | 0 | — |
-| Services/currency rules | Pending | 0 | 0 | — |
-| Ability Tree | Pending | 0 | 0 | Battle-affecting only. |
-| Encounter pools | Pending | 0 | 0 | — |
+| Worlds | 9 | 9 | 0 | Latest permanent manager; Worlds 1-3 use legacy area-ID ordinal derivation. |
+| Difficulties/topology | 33 difficulties / 1,248 map-room rows | 33 / 1,248 | 0 | 579 map nodes and 669 non-Adventure rooms. |
+| Paths | 9 | 9 | 0 | Main-world selectable Paths. |
+| Resonances/Formations | 36 | 36 | 0 | Four per Path; Interplays are excluded. |
+| Blessings/upgrades | 162 / 324 levels | 162 / 324 | 0 | Exactly 18 Blessings and two levels per Path. |
+| Curios/states | 61 / 182 states | 61 / 182 | 0 | CosmosRogue handbook type 100. |
+| Occurrences/choices | 59 / 55 base variants | 59 / 55 | 0 | Four index records lack a base-mode NPC variant and remain normalized as index-only. |
+| Services/currency rules | 108 | 108 | 0 | 79 run bonuses plus 29 base shops; currency constants are normalized in P1. |
+| Ability Tree | 42 | 42 | 0 | Battle/run/reward classification occurs in P1-B7. |
+| Encounter pools | 154 groups / 347 members | 154 / 347 | 0 | Directly reachable from base combat/encounter/elite/boss room content maps. |
 | Mechanic fixtures | Pending | 0 | 0 | Distinct shared families. |
 
 ## Decisions
@@ -88,7 +88,7 @@ Populate only from generated manifests in `G03-P0-B3`.
 
 | ID | State | Question | Owner |
 |---|---|---|---|
-| `G03-R01` | `Open` | Which base/shared Rogue rows are reachable in main Worlds at the frozen snapshot? | P0-B2/P0-B3 |
+| `G03-R01` | `Resolved` | Concrete membership is frozen by source schedule, CosmosRogue type, canonical ID family, base NPC prefix and room-content reachability rules in `content-manifest.json`. | P0-B3 |
 | `G03-R02` | `Open` | Which hidden occurrence conditions/outcomes are not proven by structured rows? | P1-B5 |
 | `G03-R03` | `Open` | Which Curio effects require battle ability-program inspection or explicit policy? | P1-B4 |
 | `G03-R04` | `Open` | Which Ability Tree nodes affect battle/run state versus account rewards only? | P1-B7 |

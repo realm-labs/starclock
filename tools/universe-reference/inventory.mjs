@@ -35,7 +35,8 @@ function isRogueEvidence(relativePath) {
   }
   return (
     /^Config\/ConfigAbility\/BattleEvent\/.*Rogue.*\.json$/u.test(relativePath) ||
-    /^Config\/ConfigAbility\/Level\/Level_.*Rogue.*\.json$/u.test(relativePath)
+    /^Config\/ConfigAbility\/Level\/Level_.*Rogue.*\.json$/u.test(relativePath) ||
+    /^Config\/Level\/Rogue(?:\/|Dialogue\/).*\.json$/u.test(relativePath)
   );
 }
 
@@ -99,7 +100,10 @@ const presentationTables = new Set([
 ]);
 
 function classify(relativePath) {
-  if (relativePath.startsWith("Config/ConfigAbility/")) {
+  if (
+    relativePath.startsWith("Config/ConfigAbility/") ||
+    relativePath.startsWith("Config/Level/Rogue")
+  ) {
     return "mechanic_evidence";
   }
   const name = path.posix.basename(relativePath);
