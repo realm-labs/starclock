@@ -113,6 +113,15 @@ impl StandardV1Catalog {
             master_seed,
         })
     }
+
+    /// Looks up one immutable authored enemy graph retained by this catalog.
+    #[must_use]
+    pub fn ai_graph(
+        &self,
+        id: starclock_combat::AiGraphId,
+    ) -> Option<&starclock_combat::catalog::encounter::AiGraphDefinition> {
+        self.data.ai_graph(id)
+    }
 }
 
 impl StandardV1Battle {

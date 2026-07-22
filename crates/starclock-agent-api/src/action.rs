@@ -66,9 +66,8 @@ impl SelectedAction {
         AgentUInt::from_u64(self.command.decision().get())
     }
 
-    #[cfg(test)]
-    fn command(&self) -> &Command {
-        &self.command
+    pub(crate) fn into_command(self) -> Command {
+        self.command
     }
 }
 
@@ -332,8 +331,9 @@ mod tests {
             ActionBindingError::InvalidActionToken
         );
         let selected = first.select(&AgentUInt::from_u64(7), &token).unwrap();
-        assert_eq!(selected.command(), &commands(decision)[0]);
+        assert_eq!(selected.decision_id().as_str(), "7");
         assert_eq!(format!("{selected:?}"), "SelectedAction([private command])");
+        assert_eq!(selected.into_command(), commands(decision)[0]);
     }
 
     #[test]
