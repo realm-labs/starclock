@@ -1,0 +1,28 @@
+[package]
+name = "starclock-mcp-sdk-capability"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[dependencies]
+anyhow = "1"
+axum = "0.8"
+reqwest = { version = "0.13", default-features = false, features = ["json"] }
+rmcp = { version = "=2.2.0", default-features = false, features = [
+  "client",
+  "macros",
+  "server",
+  "transport-io",
+  "transport-streamable-http-server",
+] }
+schemars = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["io-util", "macros", "net", "process", "rt-multi-thread", "time"] }
+tokio-util = "0.7"
+
+[[bin]]
+name = "capability-server"
+path = "src/bin/capability_server.rs"

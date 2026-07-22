@@ -1,0 +1,16 @@
+{
+  "schema_revision": "starclock.mcp-sdk-capability-evidence.v1",
+  "recorded_on": "2026-07-22",
+  "platform": "x86_64-pc-windows-msvc",
+  "rustc": "1.97.0 (2d8144b78 2026-07-07)",
+  "cargo": "1.97.0 (c980f4866 2026-06-30)",
+  "mcp_revision": "2025-11-25",
+  "rmcp_version": "2.2.0",
+  "command": "cargo test --manifest-path tools/mcp-sdk-capability/Cargo.toml --locked",
+  "tests": [
+    "stdio_child_emits_only_mcp_and_serves_discovery",
+    "async_transport_proves_tools_structured_resources_templates_cancellation_and_errors",
+    "streamable_http_negotiates_frozen_revision_and_rejects_mismatch"
+  ],
+  "result": "pass"
+}

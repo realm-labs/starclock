@@ -12,12 +12,12 @@ implementation batch.
 | State | `InProgress` |
 | Prerequisite | Goal 01 `Complete` at or after `b23f900` |
 | Active phase | Phase 0 — Freeze protocol, capability and threat model |
-| Next unblocked batch | `G02-P0-B2` |
-| Last completed batch | `G02-P0-B1` |
+| Next unblocked batch | `G02-P0-B3` |
+| Last completed batch | `G02-P0-B2` |
 | Last completed commit | This row's containing commit |
-| MCP specification baseline | Proposed `2025-11-25`; freeze in `G02-P0-B2` |
+| MCP specification baseline | Frozen `2025-11-25` |
 | Agent schema revision | Proposed `agent-api-v1`; freeze in `G02-P0-B3` |
-| SDK lock | Pending `G02-P0-B2` capability proof |
+| SDK lock | Official `rmcp 2.2.0` / tag `rmcp-v2.2.0` / Apache-2.0 |
 | Standard scenario denominator | Six frozen `scenario.standard-v1.*` production scenarios |
 | Blocking condition | None |
 
@@ -45,7 +45,7 @@ evidence summary.
 | Batch | State | Commit | Validation/evidence | Result |
 |---|---|---|---|---|
 | `G02-P0-B1` | `Complete` | This row's containing commit | `node tools/agent-control/verify-surface-audit.mjs`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Frozen seven use cases, six production Standard scenarios, dependency layers, decision ownership, three narrow application seams and forbidden core changes; policy is bound to the Goal 01 production bundle. |
-| `G02-P0-B2` | `Pending` | — | — | — |
+| `G02-P0-B2` | `Complete` | This row's containing commit | `node tools/agent-control/verify-mcp-sdk-lock.mjs`; `cargo test --manifest-path tools/mcp-sdk-capability/Cargo.toml --locked`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Frozen MCP `2025-11-25` and official `rmcp 2.2.0` with exact tag/checksums/features/Apache-2.0 licenses; executable goldens prove stdio, Streamable HTTP, tools/schema/structured output, resources/templates, cancellation and errors, with unsupported assumptions explicit. |
 | `G02-P0-B3` | `Pending` | — | — | — |
 | `G02-P0-B4` | `Pending` | — | — | — |
 | `G02-P1-B1` | `Pending` | — | — | — |
@@ -84,8 +84,8 @@ Populate these rows only from committed capability/schema/baseline evidence.
 
 | Identity | Revision/digest | Evidence |
 |---|---|---|
-| MCP specification | Pending | `G02-P0-B2` |
-| MCP Rust SDK/toolchain | Pending | `G02-P0-B2` |
+| MCP specification | `2025-11-25` | [`mcp-sdk-lock.json`](../../policy/mcp-sdk-lock.json) |
+| MCP Rust SDK/toolchain | `rmcp 2.2.0`; Rust `1.97.0`; Apache-2.0 | [`mcp-sdk-capabilities.json`](../../evidence/agent-control-mcp-v1/protocol/mcp-sdk-capabilities.json) |
 | Agent schema | Pending | `G02-P0-B3` |
 | Threat model | Pending | `G02-P0-B4` |
 | Standard scenario denominator | 6 scenarios / Goal 01 bundle `abd84f70…0440` | [`agent-control-surfaces.json`](../../policy/agent-control-surfaces.json) |
@@ -105,6 +105,7 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | 2026-07-22 | No model provider or private chain-of-thought is part of Goal 02. | The server is interoperable infrastructure, and replay depends only on accepted commands. |
 | 2026-07-22 | Only player-owned decisions are external; system and enemy decisions settle inside the session. | Reuses exact offered commands while keeping authored automation deterministic and replay-visible. |
 | 2026-07-22 | Goal 02 may add only narrow application/data composition seams over Goal 01. | Scenario lookup/construction and controller coordination do not authorize combat-rule, lifecycle, RNG, hash or replay redesign. |
+| 2026-07-22 | MCP revision `2025-11-25` and official Rust SDK `rmcp 2.2.0` are frozen. | The locked executable fixture proves the used surface; newer SDK capabilities and protocol revisions remain opt-in future work. |
 
 Add architectural decisions here before implementing a deviation from the goal
 or normative design. A decision cannot silently weaken a terminal gate.
@@ -113,7 +114,7 @@ or normative design. A decision cannot silently weaken a terminal gate.
 
 | ID | State | Question/blocker | Owner batch | Resolution/evidence |
 |---|---|---|---|---|
-| `G02-R01` | `Open` | Which exact official Rust MCP SDK revision and features satisfy the frozen stdio/HTTP/schema/cancellation contract? | `G02-P0-B2` | Pending capability lock. |
+| `G02-R01` | `Resolved` | Which exact official Rust MCP SDK revision and features satisfy the frozen stdio/HTTP/schema/cancellation contract? | `G02-P0-B2` | Official `rmcp 2.2.0`, default-off features `client`, `macros`, `server`, `transport-io`, `transport-streamable-http-server`; exact checksums, licenses and passing fixture are committed. |
 | `G02-R02` | `PartiallyResolved` | Which existing Goal 01 view methods are sufficient for player-visible projection, and which narrow queries are missing? | `G02-P0-B1` / `G02-P1-B3` | Public views cover battle/unit/effect/timeline/status projection; P1-B3 must prove whether any visibility-safe query is still missing before adding one. |
 | `G02-R03` | `Resolved` | Which current decisions are external player decisions versus authored enemy or automatic orchestration boundaries? | `G02-P0-B1` / `G02-P2-B2` | `Team(Player)` is external; `System` and `Team(Enemy)` settle internally from exact offered commands; automatic timeline work drains in `Battle::apply`. |
 

@@ -1,0 +1,50 @@
+{
+  "schema_revision": "starclock.mcp-sdk-lock.v1",
+  "goal_id": "agent-control-mcp-v1",
+  "reviewed_on": "2026-07-22",
+  "mcp_specification": {
+    "revision": "2025-11-25",
+    "root": "https://modelcontextprotocol.io/specification/2025-11-25",
+    "transports": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+    "cancellation": "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/cancellation",
+    "tools": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+    "resources": "https://modelcontextprotocol.io/specification/2025-11-25/server/resources"
+  },
+  "official_rust_sdk": {
+    "repository": "https://github.com/modelcontextprotocol/rust-sdk",
+    "tag": "rmcp-v2.2.0",
+    "tag_commit": "519577601db3823616dbd7c4eb84ed569d8e17d4",
+    "crates": [
+      { "name": "rmcp", "version": "2.2.0", "checksum": "14db48ee17a9ba61810ab1a9c1beb7d06d8136ae39ac25a1137f10d357af01af", "license": "Apache-2.0" },
+      { "name": "rmcp-macros", "version": "2.2.0", "checksum": "783d787bf21813b285f13019adc49e11af501c658890c1e519f31f937c68b7e3", "license": "Apache-2.0" }
+    ],
+    "default_features": false,
+    "requested_features": ["client", "macros", "server", "transport-io", "transport-streamable-http-server"],
+    "resolved_features": ["client", "macros", "server", "server-side-http", "tower", "transport-async-rw", "transport-io", "transport-streamable-http-server", "transport-streamable-http-server-session", "transport-worker", "uuid"]
+  },
+  "fixture": {
+    "manifest": "tools/mcp-sdk-capability/Cargo.toml",
+    "lock": "tools/mcp-sdk-capability/Cargo.lock",
+    "command": "cargo test --manifest-path tools/mcp-sdk-capability/Cargo.toml --locked",
+    "proved": [
+      "real child-process stdio initialization and tool discovery",
+      "tool input and output JSON Schema generation",
+      "structured tool output",
+      "static resource listing and reading",
+      "RFC 6570 resource-template listing",
+      "cancellation notification delivery",
+      "typed missing-tool error propagation",
+      "Streamable HTTP initialization at 2025-11-25",
+      "Streamable HTTP protocol header/body mismatch rejection"
+    ]
+  },
+  "unsupported_assumptions": [
+    "SDK support for newer protocol revisions does not authorize negotiating newer than 2025-11-25",
+    "SDK transport sessions are not Starclock AgentSession identity, ownership, expiry, idempotency, quota, authorization, or tenancy",
+    "cancellation is advisory and must not interrupt or roll back an authoritative commit after mutation begins",
+    "Streamable HTTP construction does not by itself satisfy Starclock origin, authorization, scope, tenant, TLS, rate-limit, or audit policy",
+    "tasks, prompts, completions, sampling, elicitation, logging, subscriptions, and resource list-changed notifications are outside the Goal 02 public surface unless a later revision explicitly freezes them",
+    "MCP content text is convenience output; structuredContent and the protocol-neutral schema remain authoritative",
+    "the SDK does not replace application-level payload, event, settlement, replay, or session bounds"
+  ]
+}
