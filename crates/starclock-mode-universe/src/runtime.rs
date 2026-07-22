@@ -21,7 +21,11 @@ use crate::{
     blessing_runtime::{BlessingContributionSet, BlessingRuntimeCatalog, BlessingRuntimeError},
     curio_runtime::{CurioContributionSet, CurioRuntimeCatalog, CurioRuntimeError},
     id::{AbilityTreeNodeId, PathId, ResonanceId},
+    path_effect_runtime::{
+        AppliedPathEffect, PathBattleEvent, PathEffectFacts, PathEffectRuntimeError,
+    },
     path_runtime::{PathContributionSet, PathRuntimeCatalog, PathRuntimeError},
+    preservation_runtime::PreservationRuntimeCatalog,
     run_runtime::{
         AbilityTreeContributionSet, CosmicFragments, RunRuntimeCatalog, RunRuntimeError,
     },
@@ -35,6 +39,7 @@ pub struct StandardUniverseActivity {
     overlay: Arc<UniverseEncounterOverlay>,
     blessing_runtime: Arc<BlessingRuntimeCatalog>,
     path_runtime: Arc<PathRuntimeCatalog>,
+    preservation_runtime: Arc<PreservationRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -54,6 +59,7 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) overlay: Arc<UniverseEncounterOverlay>,
     pub(crate) blessing_runtime: Arc<BlessingRuntimeCatalog>,
     pub(crate) path_runtime: Arc<PathRuntimeCatalog>,
+    pub(crate) preservation_runtime: Arc<PreservationRuntimeCatalog>,
     pub(crate) curio_runtime: Arc<CurioRuntimeCatalog>,
     pub(crate) run_runtime: Arc<RunRuntimeCatalog>,
     pub(crate) ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -76,6 +82,7 @@ impl StandardUniverseActivity {
             overlay: context.overlay,
             blessing_runtime: context.blessing_runtime,
             path_runtime: context.path_runtime,
+            preservation_runtime: context.preservation_runtime,
             curio_runtime: context.curio_runtime,
             run_runtime: context.run_runtime,
             ability_runtime: context.ability_runtime,
@@ -156,6 +163,65 @@ impl StandardUniverseActivity {
         self.path_runtime
             .contributions(selected, &blessings, &formations)
             .map_err(StandardUniversePathContributionError::Path)
+    }
+
+    /// Executes every owned Preservation Blessing plus the currently available
+    /// Preservation Resonance/Formations for one battle observation.
+    pub fn preservation_effects(
+        &self,
+        event: PathBattleEvent,
+        facts: PathEffectFacts,
+    ) -> Result<Box<[AppliedPathEffect]>, StandardUniversePreservationError> {
+        let view = self.graph.player_view();
+        let blessing_inventory = view
+            .inventories()
+            .iter()
+            .find(|inventory| inventory.id() == self.blessing_inventory)
+            .ok_or(StandardUniversePreservationError::MissingInventory)?;
+        let mut effects = Vec::new();
+        for (raw, level) in blessing_inventory.entries() {
+            let Ok(raw) = u32::try_from(*raw) else {
+                continue;
+            };
+            let Some(id) = crate::id::BlessingId::new(raw) else {
+                continue;
+            };
+            if !self
+                .preservation_runtime
+                .blessing_ids()
+                .any(|candidate| candidate == id)
+            {
+                continue;
+            }
+            let level = u8::try_from(*level)
+                .map_err(|_| StandardUniversePreservationError::InvalidLevel)?;
+            effects.extend(
+                self.preservation_runtime
+                    .execute_blessing(id, level, event, facts)
+                    .map_err(StandardUniversePreservationError::Effect)?,
+            );
+        }
+
+        let path = self
+            .path_contributions()
+            .map_err(StandardUniversePreservationError::Path)?;
+        if path.passive().path() == self.preservation_runtime.path() {
+            if let Some(resonance) = path.resonance() {
+                effects.extend(
+                    self.preservation_runtime
+                        .execute_resonance(resonance.id(), event, facts)
+                        .map_err(StandardUniversePreservationError::Effect)?,
+                );
+            }
+            for formation in path.formations() {
+                effects.extend(
+                    self.preservation_runtime
+                        .execute_resonance(formation.id(), event, facts)
+                        .map_err(StandardUniversePreservationError::Effect)?,
+                );
+            }
+        }
+        Ok(effects.into_boxed_slice())
     }
 
     pub fn curio_contributions(&self) -> Result<CurioContributionSet, CurioRuntimeError> {
@@ -386,6 +452,14 @@ pub enum StandardUniversePathContributionError {
     UnknownFormation(u64),
     Blessing(BlessingRuntimeError),
     Path(PathRuntimeError),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum StandardUniversePreservationError {
+    MissingInventory,
+    InvalidLevel,
+    Path(StandardUniversePathContributionError),
+    Effect(PathEffectRuntimeError),
 }
 
 pub(crate) fn start(

@@ -21,6 +21,7 @@ use crate::{
     digest::Encoder,
     id::{AbilityTreeNodeId, DifficultyId, PathId, WorldId},
     path_runtime::PathRuntimeCatalog,
+    preservation_runtime::PreservationRuntimeCatalog,
     run_runtime::RunRuntimeCatalog,
 };
 
@@ -191,6 +192,10 @@ impl StandardUniverseProfile {
             PathRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidPathRuntime)?,
         );
+        let preservation_runtime = Arc::new(
+            PreservationRuntimeCatalog::compile(&self.catalog)
+                .map_err(|_| StandardUniverseCompileError::InvalidPathRuntime)?,
+        );
         let curio_runtime = Arc::new(
             CurioRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidCurioRuntime)?,
@@ -270,6 +275,7 @@ impl StandardUniverseProfile {
             encounter_overlay: entry.encounter_overlay,
             blessing_runtime,
             path_runtime,
+            preservation_runtime,
             curio_runtime,
             run_runtime,
             ability_runtime,
@@ -299,6 +305,7 @@ pub struct CompiledActivity {
     encounter_overlay: Option<Arc<UniverseEncounterOverlay>>,
     blessing_runtime: Arc<BlessingRuntimeCatalog>,
     path_runtime: Arc<PathRuntimeCatalog>,
+    preservation_runtime: Arc<PreservationRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -387,6 +394,11 @@ impl CompiledActivity {
     }
 
     #[must_use]
+    pub const fn preservation_runtime(&self) -> &Arc<PreservationRuntimeCatalog> {
+        &self.preservation_runtime
+    }
+
+    #[must_use]
     pub const fn curio_runtime(&self) -> &Arc<CurioRuntimeCatalog> {
         &self.curio_runtime
     }
@@ -426,6 +438,7 @@ impl CompiledActivity {
                     overlay: Arc::clone(overlay),
                     blessing_runtime: Arc::clone(&self.blessing_runtime),
                     path_runtime: Arc::clone(&self.path_runtime),
+                    preservation_runtime: Arc::clone(&self.preservation_runtime),
                     curio_runtime: Arc::clone(&self.curio_runtime),
                     run_runtime: Arc::clone(&self.run_runtime),
                     ability_runtime: Arc::clone(&self.ability_runtime),
@@ -810,6 +823,7 @@ fn compile_identity(
     encoder.text(STANDARD_UNIVERSE_ENTRY_REVISION);
     encoder.text(crate::blessing_runtime::BLESSING_RUNTIME_REVISION);
     encoder.text(crate::path_runtime::PATH_RUNTIME_REVISION);
+    encoder.text(crate::preservation_runtime::PRESERVATION_RUNTIME_REVISION);
     encoder.text(crate::curio_runtime::CURIO_RUNTIME_REVISION);
     encoder.text(crate::run_runtime::RUN_RUNTIME_REVISION);
     encoder.text(crate::ability_runtime::ABILITY_RUNTIME_REVISION);

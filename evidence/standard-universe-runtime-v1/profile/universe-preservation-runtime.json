@@ -1,0 +1,66 @@
+{
+  "schema_revision": "starclock.goal04-universe-preservation-runtime-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P4-M02",
+  "result": "complete-preservation-partition-lowers-to-source-attributed-typed-battle-proposals",
+  "counts": {
+    "content_records": 59,
+    "rule_bindings": 58,
+    "blessings": 18,
+    "blessing_levels": 36,
+    "resonances": 1,
+    "formations": 3,
+    "compiled_programs": 40,
+    "mechanic_templates": 22,
+    "battle_event_points": 11,
+    "effect_variants": 8,
+    "semantic_fixtures": 7
+  },
+  "policies": {
+    "numeric": "CheckedSignedI64SixDecimalNoFloatWithI128IntermediateAndTruncationTowardZero",
+    "dispatch": "OneAuditedStaticRegistryByReleasedSourceBindingKey",
+    "execution": "ReadOnlyBattleFactsToOrdinarySourceAttributedTypedProposals",
+    "integration": "OwnedBlessingsAndAvailableResonanceFormationsExecuteFromStandardUniverseActivity",
+    "chance": "FixedAndBaseChanceRemainTypedUntilBattleRngResolution",
+    "cause": "EveryProposalRetainsBlessingLevelOrResonanceStableSourceKey",
+    "resolver_branching": "NoBlessingOrPathIdBranchInCombatResolver"
+  },
+  "mechanics": [
+    "QuakeFromCurrentOrPreHitShield",
+    "QuakeSplashBleedAndDefenseScaling",
+    "EntryReactiveAndCyclicSpecialShields",
+    "ShieldCapacityAttackDefenseCriticalAndMitigationModifiers",
+    "WeaknessBreakShieldAndShieldGainDispel",
+    "ResonancePhysicalDamageCriticalFormationShieldAmberAndEnergy"
+  ],
+  "goldens": {
+    "preservation_runtime_catalog_sha256": "ac5561e4c1805232dd438e699387f45880c284a7447773a0343fd1f579f54cb4",
+    "entry_definition_sha256": "016c4702db7f2342e622da062e7f910a140ba463053a8168d6b18bcd76b0d51b",
+    "enhanced_resonance_transfer_damage_six_decimal": 1100000000,
+    "nine_blessing_enhanced_defense_ratio_six_decimal": 720000,
+    "four_thousand_shield_resonance_damage_six_decimal": 10000000000,
+    "three_shielded_allies_formation_critical_damage_six_decimal": 450000
+  },
+  "runtime_coverage": {
+    "content_records_executable": 101,
+    "rule_bindings_executable": 100,
+    "semantic_fixtures_executable": 17
+  },
+  "compatibility": {
+    "generated_rows_public": false,
+    "authoritative_float": false,
+    "free_form_runtime_target": false,
+    "free_form_runtime_event": false,
+    "content_id_branch_in_resolver": false,
+    "activity_mutated_from_combat": false
+  },
+  "source_sha256": {
+    "crates/starclock-mode-universe/src/path_effect_runtime.rs": "1760f05833ed56acb407a48ea6f75e8a5f732a290cd3a908ab4e828ddab460a2",
+    "crates/starclock-mode-universe/src/preservation_runtime.rs": "a112c77164ec59a125e8cd36c57ea90b58acb077477867e1c39126f6fa50f84a",
+    "crates/starclock-mode-universe/src/entry.rs": "3f5b4faee967fb639ea16cf2091a002f5028b25c35694b221bef510613844e7e",
+    "crates/starclock-mode-universe/src/runtime.rs": "4855f2c6a8550410196d57eabe48bee027e80aa80a8a1b3d558b8d10f403a8c0",
+    "crates/starclock-mode-universe/tests/preservation_runtime.rs": "a9018c4fdf3f08a2def8ba25f2af6df1dee410a5e1b2e9eee7dbccd7f776fd1f"
+  },
+  "focused_tests": 5,
+  "new_registry_packages": []
+}
