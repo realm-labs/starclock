@@ -11,6 +11,11 @@ const PATH_IDS = new Map([
   [127, "propagation"],
   [128, "erudition"],
 ]);
+const PATH_ZH = new Map([
+  ["preservation", "存护"], ["remembrance", "记忆"], ["nihility", "虚无"],
+  ["abundance", "丰饶"], ["hunt", "巡猎"], ["destruction", "毁灭"],
+  ["elation", "欢愉"], ["propagation", "繁育"], ["erudition", "智识"],
+]);
 
 function parameters(row) {
   return (row.ParamList ?? []).map((value, index) => ({ index: index + 1, value: decimal(value) }));
@@ -98,7 +103,7 @@ export async function paths(ctx) {
           nameEn,
           nameZh,
           summaryEn: `${kind} for the ${path} Path; exact parameters and the released modifier binding are preserved for rule authoring.`,
-          summaryZh: `${path}命途的${kind === "Resonance" ? "命途回响" : "回响构音"}，保留精确参数与已发布修改器绑定以供规则配置。`,
+          summaryZh: `${PATH_ZH.get(path)}命途的${kind === "Resonance" ? "命途回响" : "回响构音"}，保留精确参数与已发布修改器绑定以供规则配置。`,
           entry: detail,
           sourceIds: [row.MazeBuffID],
         }),

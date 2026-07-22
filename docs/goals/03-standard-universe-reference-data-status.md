@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Normalized reference pack |
 | Active batch | None |
-| Next unblocked batch | `G03-P1-B3` |
+| Next unblocked batch | `G03-P1-B4` |
 | Snapshot | Version 4.4 / accessed 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -34,7 +34,7 @@
 | `G03-P0-B4` | `Complete` | This row's containing commit | Frozen the machine-readable normalized schema for 25 pack files, stable common/provenance envelopes, explicit definition/level/state/variant separation, five evidence-quality labels, canonical decimal/JSON rules and semantic review-fixture shape. Added a deterministic contract verifier covering category counts, ID uniqueness, row evidence/locators and the 9/9/162/324/36 denominators; documentation now records validation order and the JSON-to-Excel/Sora-only promotion boundary. |
 | `G03-P1-B1` | `Complete` | This row's containing commit | Added deterministic normalized-pack bootstrap modules and generated 9 Worlds, 33 difficulty profiles, 9 domain kinds, 579 map nodes and 669 rooms. Records carry stable Starclock IDs, bilingual names/summaries, exact source IDs, row-level provenance and evidence digests. Difficulty rows retain recommended levels/elements, score curves and Goal 01 enemy-variant bindings; topology retains source-semantic edge order and exact room content/section maps. Regeneration and `--check` are byte-identical. |
 | `G03-P1-B2` | `Complete` | This row's containing commit | Normalized all nine selectable Paths and 36 Path Resonance/Resonance Formation definitions. Paths retain exact Aeon/display identity, source buff type/groups, unlock reference, three formation-selection thresholds, energy defaults and the exact 18-Blessing membership. Resonances retain kind, threshold, energy policy, released modifier/binding keys, ordered exact parameter vectors, description digests and mechanic tags without redistributing source prose. Bilingual and provenance checks plus deterministic regeneration pass. |
-| `G03-P1-B3` | `Pending` | — | — |
+| `G03-P1-B3` | `Complete` | This row's containing commit | Normalized the exact 18-Blessing pool for each of nine Paths (162 definitions) and both authored levels for every Blessing (324 level rows). Definitions retain rarity, prerequisites, pool/source tags, extra effects, rule IDs and content-specific mechanic tags. Level rows retain ordered canonical-string parameters, modifier/binding keys and bilingual source-description digests; no source prose or binary float enters the pack. Count, uniqueness, parameter transport and byte-regeneration checks pass. |
 | `G03-P1-B4` | `Pending` | — | — |
 | `G03-P1-B5` | `Pending` | — | — |
 | `G03-P1-B6` | `Pending` | — | — |
@@ -67,7 +67,7 @@ Populate only from generated manifests in `G03-P0-B3`.
 | Difficulties/topology | 33 difficulties / 1,248 map-room rows | 33 / 1,248 | 33 / 1,248 | 579 map nodes and 669 non-Adventure rooms. |
 | Paths | 9 | 9 | 9 | Main-world selectable Paths. |
 | Resonances/Formations | 36 | 36 | 36 | Four per Path; Interplays are excluded. |
-| Blessings/upgrades | 162 / 324 levels | 162 / 324 | 0 | Exactly 18 Blessings and two levels per Path. |
+| Blessings/upgrades | 162 / 324 levels | 162 / 324 | 162 / 324 | Exactly 18 Blessings and two levels per Path. |
 | Curios/states | 61 / 182 states | 61 / 182 | 0 | CosmosRogue handbook type 100. |
 | Occurrences/choices | 59 / 55 base variants | 59 / 55 | 0 | Four index records lack a base-mode NPC variant and remain normalized as index-only. |
 | Services/currency rules | 108 | 108 | 0 | 79 run bonuses plus 29 base shops; currency constants are normalized in P1. |
