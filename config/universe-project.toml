@@ -1,0 +1,30 @@
+package = "starclock_universe_reference_config"
+includes = [
+  "schema/universe.toml",
+  "schema/universe-mechanics.toml",
+  "schema/universe-run-content.toml",
+  "schema/universe-bindings.toml",
+  "schema/universe-audit.toml",
+]
+
+[build]
+default_source_format = "xlsx"
+data_root = "data"
+schema_lock = "universe-generated/schema.lock"
+excel_templates = "universe-generated/templates"
+
+[[build.codegen]]
+target = "rust"
+out = "generated/rust/universe_reference"
+format = "never"
+
+[[build.exports]]
+format = "binary"
+out = "universe-generated/config.sora"
+
+[[build.exports]]
+format = "json-debug"
+out = "universe-generated/debug-json"
+
+[codegen.rust]
+runtime_format = "sora"

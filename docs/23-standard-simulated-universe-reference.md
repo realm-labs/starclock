@@ -133,6 +133,17 @@ authority. Runtime code must never load the normalized JSON pack or `.xlsx`
 directly. Goal 03 prepares generated readers and validates bundle rows, but does
 not implement universe runtime lowering.
 
+The prepared Universe tables use the isolated `config/universe-project.toml`
+project and `config/universe-generated/` output root. Its `config.sora` is an
+authoring/review artifact, not the runtime `config/generated/config.sora`.
+Keeping the bundles separate preserves the Goal 01/02 catalog digest and makes
+it impossible for non-empty Universe rows to enter `starclock-data` before a
+reviewed domain lowering exists. The standalone
+`tools/universe-bundle-loader` compiles the isolated generated readers and
+proves binary decoding without exposing those rows to a runtime crate. A future
+Universe runtime goal must deliberately introduce the domain conversion and
+compatibility migration before merging or consuming this staging bundle.
+
 Workbook rows retain stable IDs, bilingual summaries, coverage state and exact
 evidence references. Editable categories use data validation. Headers are
 frozen, tables have filters/frozen panes, exact numeric text remains text, and

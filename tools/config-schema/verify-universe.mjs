@@ -6,6 +6,9 @@ import { spawnSync } from "node:child_process";
 
 const root = path.resolve(process.argv[2] ?? ".");
 const project = path.join(root, "config");
+const projectFile = "./universe-project.toml";
+const generated = path.join(project, "universe-generated");
+const generatedRust = path.join(project, "generated", "rust", "universe_reference");
 const policy = JSON.parse(fs.readFileSync(path.join(root, "policy", "sora-toolchain.json"), "utf8"));
 const sora = path.join(root, policy.install_root, "bin", process.platform === "win32" ? "sora.exe" : "sora");
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
@@ -17,9 +20,9 @@ const run = (args) => {
 
 assert(fs.existsSync(sora), `Sora ${policy.version} is not installed`);
 assert(run(["--version"]) === `sora ${policy.version}`, "Sora version differs from policy");
-run(["--serial", "check", "--project", "./project.toml"]);
+run(["--serial", "check", "--project", projectFile]);
 
-const lock = JSON.parse(fs.readFileSync(path.join(project, "generated", "schema.lock"), "utf8"));
+const lock = JSON.parse(fs.readFileSync(path.join(generated, "schema.lock"), "utf8"));
 const universeTables = lock.schema.tables.filter((table) => table.name.startsWith("Universe"));
 const tableByName = new Map(universeTables.map((table) => [table.name, table]));
 assert(universeTables.length === 49, `expected 49 Universe tables, got ${universeTables.length}`);
@@ -62,20 +65,20 @@ try {
   const directLock = path.join(temporary, "schema.lock");
   const directTemplates = path.join(temporary, "templates");
   const directRust = path.join(temporary, "rust");
-  run(["--serial", "schema-lock", "--project", "./project.toml", "--out", directLock]);
-  run(["--serial", "excel-template", "--project", "./project.toml", "--out", directTemplates]);
-  run(["--serial", "gen", "--target", "rust", "--project", "./project.toml", "--out", directRust, "--format-code", "never"]);
+  run(["--serial", "schema-lock", "--project", projectFile, "--out", directLock]);
+  run(["--serial", "excel-template", "--project", projectFile, "--out", directTemplates]);
+  run(["--serial", "gen", "--target", "rust", "--project", projectFile, "--out", directRust, "--format-code", "never"]);
   const rustFiles = fs.readdirSync(directRust).filter((file) => file.endsWith(".rs")).map((file) => path.join(directRust, file));
   const formatted = spawnSync("rustfmt", ["--edition", "2024", ...rustFiles], { cwd: root, encoding: "utf8" });
   assert(formatted.status === 0, `rustfmt failed for direct readers: ${formatted.stderr}`);
-  assert(fs.readFileSync(directLock).equals(fs.readFileSync(path.join(project, "generated", "schema.lock"))), "committed schema lock drifted");
+  assert(fs.readFileSync(directLock).equals(fs.readFileSync(path.join(generated, "schema.lock"))), "committed schema lock drifted");
   for (const workbook of ["Universe.xlsx", "UniverseBindings.xlsx", "UniverseEvidence.xlsx"]) {
     assert(fs.statSync(path.join(directTemplates, workbook)).size > 1000, `${workbook} direct template is missing`);
-    assert(fs.statSync(path.join(project, "generated", "templates", workbook)).size > 1000, `${workbook} committed template is missing`);
+    assert(fs.statSync(path.join(generated, "templates", workbook)).size > 1000, `${workbook} committed template is missing`);
   }
   for (const table of universeTables) {
     const file = `${table.name.replace(/([a-z0-9])([A-Z])/gu, "$1_$2").toLowerCase()}.rs`;
-    assert(fs.readFileSync(path.join(directRust, file)).equals(fs.readFileSync(path.join(project, "generated", "rust", file))), `${file} reader drifted`);
+    assert(fs.readFileSync(path.join(directRust, file)).equals(fs.readFileSync(path.join(generatedRust, file))), `${file} reader drifted`);
   }
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });

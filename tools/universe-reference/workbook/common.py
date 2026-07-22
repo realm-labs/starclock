@@ -25,7 +25,7 @@ THIN_BORDER = Border(bottom=Side(style="thin", color="B7C9E2"))
 
 
 def schema_tables(root: Path) -> dict[str, dict]:
-    lock = json.loads((root / "config" / "generated" / "schema.lock").read_text(encoding="utf-8"))
+    lock = json.loads((root / "config" / "universe-generated" / "schema.lock").read_text(encoding="utf-8"))
     return {
         table["name"]: table
         for table in lock["schema"]["tables"]
@@ -126,7 +126,7 @@ def author(root: Path, output: Path, rows: dict[str, list[dict]]) -> dict[str, i
     tables = schema_tables(root)
     counts: dict[str, int] = {}
     for target in targets:
-        counts.update(prepare_workbook(root / "config" / "generated" / "templates" / target.name, target, tables, rows))
+        counts.update(prepare_workbook(root / "config" / "universe-generated" / "templates" / target.name, target, tables, rows))
     verify(root, output, counts)
     return counts
 

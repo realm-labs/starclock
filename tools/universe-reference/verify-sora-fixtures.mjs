@@ -7,12 +7,15 @@ import { spawnSync } from "node:child_process";
 const root = path.resolve(process.argv[2] ?? ".");
 const policy = JSON.parse(fs.readFileSync(path.join(root, "policy", "sora-toolchain.json"), "utf8"));
 const sora = path.join(root, policy.install_root, "bin", process.platform === "win32" ? "sora.exe" : "sora");
-const project = path.join(root, "config", "project.toml");
+const project = path.join(root, "config", "universe-project.toml");
 const temporary = fs.mkdtempSync(path.join(os.tmpdir(), "starclock-universe-fixture-"));
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
 
 function run(command, args, environment = process.env) {
-  const result = spawnSync(command, args, { cwd: root, encoding: "utf8", env: environment });
+  const env = command === "cargo"
+    ? { ...environment, CARGO_TARGET_DIR: path.join(root, ".cache", "universe-bundle-loader-target") }
+    : environment;
+  const result = spawnSync(command, args, { cwd: root, encoding: "utf8", env });
   if (result.status !== 0) throw new Error(`${command} ${args.join(" ")} failed\n${result.stdout}\n${result.stderr}`);
 }
 
@@ -40,13 +43,8 @@ try {
   assert(rowCount(first.debug, "UniverseProfile") === 1, "representative profile row is missing");
   assert(rowCount(first.debug, "UniverseActivityBinding") === 1, "representative Activity binding is missing");
   assert(rowCount(first.debug, "UniverseSourceRecord") === 1, "representative evidence row is missing");
-  for (const [bundle, expected] of [[empty.bundle, "0"], [first.bundle, "1"]]) {
-    run("cargo", ["test", "-p", "starclock-data", "goal03_fixture_bundle_loads_all_universe_tables"], {
-      ...process.env,
-      STARCLOCK_G03_FIXTURE_BUNDLE: bundle,
-      STARCLOCK_G03_EXPECTED_PROFILES: expected,
-    });
-  }
+  run("cargo", ["run", "--manifest-path", "tools/universe-bundle-loader/Cargo.toml", "--locked", "--quiet", "--", empty.bundle, "0", "0", "0", "0"]);
+  run("cargo", ["run", "--manifest-path", "tools/universe-bundle-loader/Cargo.toml", "--locked", "--quiet", "--", first.bundle, "1", "1", "1", "1"]);
   console.log("Universe Sora fixtures verified: empty and representative exports load; representative double generation is identical.");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });

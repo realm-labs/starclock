@@ -1,0 +1,161 @@
+{
+  "schema_revision": "starclock.universe-bundle-loader-dependencies.v1",
+  "reviewed_on": "2026-07-22",
+  "scope": "Standalone generated-reader acceptance tool; no dependency or Universe row enters a runtime workspace crate.",
+  "lockfile_sha256": "53315846d61dbea15e9f189228bdf2b2825348c9f6920d7b7a26234411eac457",
+  "direct_packages": [
+    {
+      "name": "serde",
+      "version": "1.0.228",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "zstd",
+      "version": "0.13.3",
+      "license": "MIT"
+    }
+  ],
+  "source_url_template": "https://crates.io/crates/{name}/{version}",
+  "purpose": "Compile the isolated Sora-generated Universe readers and prove that staged binary bundles decode every table.",
+  "deterministic_impact": "Tooling only. It reads and counts immutable bundle rows; it does not lower data or participate in simulation.",
+  "compile_cost": "Shares the already-reviewed serde/zstd reader stack; compilation is acceptance-only and has no runtime budget.",
+  "rejected_alternatives": [
+    "Loading the staged Universe bundle through starclock-data would violate the no-runtime-lowering boundary.",
+    "Treating Sora debug JSON as a reader proof would bypass the binary format under review."
+  ],
+  "packages": [
+    {
+      "name": "cc",
+      "version": "1.3.0",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "c89588d05638b5b4594a3348a2d6c20277e43a7f5c5202b05cc56888475a47b8"
+    },
+    {
+      "name": "cfg-if",
+      "version": "1.0.4",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "9330f8b2ff13f34540b44e946ef35111825727b38d33286ef986142615121801"
+    },
+    {
+      "name": "find-msvc-tools",
+      "version": "0.1.9",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "5baebc0774151f905a1a2cc41989300b1e6fbb29aff0ceffa1064fdd3088d582"
+    },
+    {
+      "name": "getrandom",
+      "version": "0.4.3",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "300e883d756b2e4ec94e02791f39b04b522276138852cfc41d9fb7e904106099"
+    },
+    {
+      "name": "jobserver",
+      "version": "0.1.35",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "1c00acbd29eabad4a2392fa0e921c874934dbbf4194312ad20f04a0ed67a3cb3"
+    },
+    {
+      "name": "libc",
+      "version": "0.2.189",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "3eaf3ede3fee6db1a4c2ee091bf8a8b4dccdc6d17f656fb07896ee72867612f2"
+    },
+    {
+      "name": "pkg-config",
+      "version": "0.3.33",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "19f132c84eca552bf34cab8ec81f1c1dcc229b811638f9d283dceabe58c5569e"
+    },
+    {
+      "name": "proc-macro2",
+      "version": "1.0.107",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "985e7ec9bb745e6ce6535b544d84d6cd6f7ad8bd711c398938ae983b91a766d9"
+    },
+    {
+      "name": "quote",
+      "version": "1.0.47",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "1fbf4db142a473a8d80c26bbf18454ed458bf8d26c8219c331daecfdbd079001"
+    },
+    {
+      "name": "r-efi",
+      "version": "6.0.0",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later",
+      "checksum": "f8dcc9c7d52a811697d2151c701e0d08956f92b0e24136cf4cf27b57a6a0d9bf"
+    },
+    {
+      "name": "serde",
+      "version": "1.0.228",
+      "relationship": "Direct",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "9a8e94ea7f378bd32cbbd37198a4a91436180c5bb472411e48b5ec2e2124ae9e"
+    },
+    {
+      "name": "serde_core",
+      "version": "1.0.228",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "41d385c7d4ca58e59fc732af25c3983b67ac852c1a25000afe1175de458b67ad"
+    },
+    {
+      "name": "serde_derive",
+      "version": "1.0.228",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "d540f220d3187173da220f885ab66608367b6574e925011a9353e4badda91d79"
+    },
+    {
+      "name": "shlex",
+      "version": "2.0.1",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "f8fadd59c855ef2080decdef8ff161eb6661b86933c9d82e5ba29dc602a55aba"
+    },
+    {
+      "name": "syn",
+      "version": "2.0.119",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "872831b642d1a07999a962a351ed35b955ea2cfc8f3862091e2a240a84f17297"
+    },
+    {
+      "name": "unicode-ident",
+      "version": "1.0.24",
+      "relationship": "Transitive",
+      "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+      "checksum": "e6e4313cd5fcd3dad5cafa179702e2b244f760991f45397d14d4ebf38247da75"
+    },
+    {
+      "name": "zstd",
+      "version": "0.13.3",
+      "relationship": "Direct",
+      "license": "MIT",
+      "checksum": "e91ee311a569c327171651566e07972200e76fcfe2242a4fa446149a3881c08a"
+    },
+    {
+      "name": "zstd-safe",
+      "version": "7.2.4",
+      "relationship": "Transitive",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "8f49c4d5f0abb602a93fb8736af2a4f4dd9512e36f7f570d66e65ff867ed3b9d"
+    },
+    {
+      "name": "zstd-sys",
+      "version": "2.0.16+zstd.1.5.7",
+      "relationship": "Transitive",
+      "license": "MIT/Apache-2.0",
+      "checksum": "91e19ebc2adc8f83e43039e79776e3fda8ca919132d68a1fed6a5faca2683748"
+    }
+  ]
+}

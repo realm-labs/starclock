@@ -114,7 +114,7 @@ The normative data boundary is
   reference and visual clipping checks;
 - Sora check/build/codegen/export/load has no drift;
 - no universe data enters the Goal 01 combat runtime or creates a JSON runtime
-  path;
+  path; the isolated Universe Sora bundle is staging/review evidence only;
 - public docs distinguish prepared data from unimplemented runtime behavior;
 - repository, dependency, source-size and both prior release contracts pass.
 

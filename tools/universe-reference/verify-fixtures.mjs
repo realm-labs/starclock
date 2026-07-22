@@ -85,7 +85,7 @@ for (const fixture of fixtures) {
 }
 
 const debug = JSON.parse(
-  await readFile(path.join(root, "config", "generated", "debug-json", "UniverseReviewFixture.json"), "utf8"),
+  await readFile(path.join(root, "config", "universe-generated", "debug-json", "UniverseReviewFixture.json"), "utf8"),
 );
 const debugByKey = new Map(debug.table.rows.map(({ values }) => [unwrap(values.stable_key), values]));
 assert(debugByKey.size === fixtures.length, "Sora fixture row count drifted");

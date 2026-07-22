@@ -123,6 +123,13 @@ crates/
 
 Keep `config/data` and `config/generated/templates` separate. Template generation must never overwrite live balance data.
 
+Pre-runtime content preparation may use an explicitly isolated Sora project and
+generated root when its domain lowering is not implemented yet. Such a bundle is
+review evidence, never a runtime or replay input. Standard Simulated Universe
+uses `config/universe-project.toml` and `config/universe-generated/`; the core
+runtime bundle and its compatibility digest remain unchanged until a later goal
+adds reviewed Universe lowering.
+
 ## Project manifest
 
 Start from a Sora manifest equivalent to:

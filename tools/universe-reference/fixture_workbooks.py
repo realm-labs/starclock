@@ -5,7 +5,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import shutil
 from pathlib import Path
 
 from openpyxl import load_workbook
@@ -28,10 +27,10 @@ def sha256(path: Path) -> str:
 def populate(root: Path, output: Path, mode: str) -> None:
     if output.exists():
         raise FileExistsError(f"refusing to overwrite {output}")
-    shutil.copytree(root / "config" / "data", output)
-    templates = root / "config" / "generated" / "templates"
+    output.mkdir(parents=True)
+    templates = root / "config" / "universe-generated" / "templates"
     for name in ("Universe.xlsx", "UniverseBindings.xlsx", "UniverseEvidence.xlsx"):
-        shutil.copy2(templates / name, output / name)
+        (output / name).write_bytes((templates / name).read_bytes())
     if mode == "empty":
         return
 

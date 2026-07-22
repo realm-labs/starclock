@@ -139,7 +139,9 @@ function verifyBootstrapOutput(debug) {
 function verifyTemplateList(directory) {
   const templates = fs.readdirSync(directory, { withFileTypes: true }).filter((entry) => entry.isFile()).map((entry) => entry.name).sort();
   assert(templates.length === 82 && templates.every((name) => name.endsWith(".xlsx")), "production template file list differs");
-  const data = fs.readdirSync(path.join(root, "config/data"), { withFileTypes: true }).filter((entry) => entry.isFile()).map((entry) => entry.name).sort();
+  const data = fs.readdirSync(path.join(root, "config/data"), { withFileTypes: true })
+    .filter((entry) => entry.isFile() && !entry.name.startsWith("Universe"))
+    .map((entry) => entry.name).sort();
   assert(JSON.stringify(data) === JSON.stringify(templates), "designer workbook layout differs from schema template layout");
 }
 
@@ -155,7 +157,7 @@ function copyGenerated(source, destination) {
   fs.cpSync(path.join(source, "templates"), templateDestination, { recursive: true });
 }
 function artifactMap(directory) { return Object.fromEntries(stableFiles(directory).map((relative) => [relative, sha256(path.join(directory, relative))])); }
-function stableFiles(directory) { return walk(directory).map((file) => path.relative(directory, file).replaceAll("\\", "/")).filter((relative) => !relative.startsWith("templates/")).sort(); }
+function stableFiles(directory) { return walk(directory).map((file) => path.relative(directory, file).replaceAll("\\", "/")).filter((relative) => !relative.startsWith("templates/") && !relative.startsWith("rust/universe_reference/")).sort(); }
 function rows(directory, name) { return readJson(path.join(directory, `${name}.json`)).table.rows; }
 function value(row, name) { const encoded = row.values[name]; if ("Integer" in encoded) return encoded.Integer; if ("String" in encoded) return encoded.String; if ("Bool" in encoded) return encoded.Bool; throw new Error(`unsupported diagnostic value ${JSON.stringify(encoded)}`); }
 function formatRust(directory) { run("rustfmt", ["--edition", "2024", ...walk(directory).filter((file) => file.endsWith(".rs"))], root); }

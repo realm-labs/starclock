@@ -8,13 +8,15 @@ import { spawnSync } from "node:child_process";
 const root = path.resolve(process.argv[2] ?? ".");
 const policy = JSON.parse(fs.readFileSync(path.join(root, "policy", "sora-toolchain.json"), "utf8"));
 const sora = path.join(root, policy.install_root, "bin", process.platform === "win32" ? "sora.exe" : "sora");
-const project = path.join(root, "config", "project.toml");
+const project = path.join(root, "config", "universe-project.toml");
 const temporary = fs.mkdtempSync(path.join(os.tmpdir(), "starclock-universe-production-"));
 const universeFiles = new Set(["Universe.xlsx", "UniverseBindings.xlsx", "UniverseEvidence.xlsx"]);
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
 
 function run(command, args) {
-  const result = spawnSync(command, args, { cwd: root, encoding: "utf8", env: { ...process.env, PYTHONDONTWRITEBYTECODE: "1" } });
+  const environment = { ...process.env, PYTHONDONTWRITEBYTECODE: "1" };
+  if (command === "cargo") environment.CARGO_TARGET_DIR = path.join(root, ".cache", "universe-bundle-loader-target");
+  const result = spawnSync(command, args, { cwd: root, encoding: "utf8", env: environment });
   if (result.status !== 0) throw new Error(`${command} ${args.join(" ")} failed\n${result.stdout}\n${result.stderr}`);
   return result.stdout;
 }
@@ -35,15 +37,11 @@ function build(label) {
   const debug = path.join(temporary, `${label}-debug`);
   const bundle = path.join(temporary, `${label}.sora`);
   fs.mkdirSync(data);
-  for (const entry of fs.readdirSync(path.join(root, "config", "data"), { withFileTypes: true })) {
-    if (entry.isFile() && !universeFiles.has(entry.name)) {
-      fs.copyFileSync(path.join(root, "config", "data", entry.name), path.join(data, entry.name));
-    }
-  }
   run("python", ["tools/universe-reference/author_workbooks.py", "--root", root, "--output", data]);
   run(sora, ["--serial", "export", "--format", "binary", "--project", project, "--data-root", data, "--out", bundle]);
   run(sora, ["--serial", "export", "--format", "json-debug", "--project", project, "--data-root", data, "--out", debug]);
   run("python", ["tools/universe-reference/verify_workbooks.py", "--root", root, "--data-root", data, "--debug-root", debug]);
+  run("cargo", ["run", "--manifest-path", "tools/universe-bundle-loader/Cargo.toml", "--locked", "--quiet", "--", bundle, "1", "9", "9", "2645"]);
   return { data, debug, bundle };
 }
 
@@ -55,7 +53,7 @@ try {
   assert(JSON.stringify(firstWorkbooks) === JSON.stringify(secondWorkbooks), "double-generated workbook bytes differ");
   assert(fs.readFileSync(first.bundle).equals(fs.readFileSync(second.bundle)), "double-generated Sora bundles differ");
   assert(JSON.stringify(hashTree(first.debug)) === JSON.stringify(hashTree(second.debug)), "double-generated debug tables differ");
-  assert(fs.readFileSync(first.bundle).equals(fs.readFileSync(path.join(root, "config", "generated", "config.sora"))), "committed Sora bundle differs from regeneration");
+  assert(fs.readFileSync(first.bundle).equals(fs.readFileSync(path.join(root, "config", "universe-generated", "config.sora"))), "committed Universe Sora bundle differs from regeneration");
   console.log(`Production Universe workbooks verified: ${JSON.stringify(firstWorkbooks)}; bundle ${sha256(first.bundle)}.`);
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });

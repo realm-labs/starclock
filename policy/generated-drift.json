@@ -54,6 +54,38 @@
       "command": ["node", "tools/config-schema/verify-standard-encounter.mjs"]
     },
     {
+      "name": "Standard Universe normalized contract",
+      "command": ["node", "tools/universe-reference/verify-contract.mjs", "."]
+    },
+    {
+      "name": "Standard Universe pack integrity",
+      "command": ["node", "tools/universe-reference/verify-pack.mjs", "."]
+    },
+    {
+      "name": "Standard Universe release audit",
+      "command": ["node", "tools/universe-reference/audit-release.mjs", "."]
+    },
+    {
+      "name": "Standard Universe semantic fixtures",
+      "command": ["node", "tools/universe-reference/verify-fixtures.mjs", "."]
+    },
+    {
+      "name": "Standard Universe Sora schema golden",
+      "command": ["node", "tools/config-schema/verify-universe.mjs", "."]
+    },
+    {
+      "name": "Standard Universe representative Sora exports",
+      "command": ["node", "tools/universe-reference/verify-sora-fixtures.mjs", "."]
+    },
+    {
+      "name": "Standard Universe bundle-loader dependency policy",
+      "command": ["node", "tools/universe-bundle-loader/generate-policy.mjs"]
+    },
+    {
+      "name": "Standard Universe production workbooks",
+      "command": ["node", "tools/universe-reference/verify_production_workbooks.mjs", "."]
+    },
+    {
       "name": "production Excel and Sora configuration golden",
       "command": ["node", "tools/config-production/verify.mjs"]
     },
@@ -64,6 +96,21 @@
     {
       "name": "cached source and prepared-pack regeneration",
       "command": ["node", "tools/goal-provenance/generate.mjs", "--check"],
+      "requires": "source-cache"
+    },
+    {
+      "name": "Standard Universe source inventory drift",
+      "command": ["node", "tools/universe-reference/inventory.mjs", ".", "--check"],
+      "requires": "source-cache"
+    },
+    {
+      "name": "Standard Universe content manifest drift",
+      "command": ["node", "tools/universe-reference/manifest.mjs", ".", "--check"],
+      "requires": "source-cache"
+    },
+    {
+      "name": "Standard Universe normalized pack drift",
+      "command": ["node", "tools/universe-reference/bootstrap.mjs", ".", "--check"],
       "requires": "source-cache"
     }
   ]
