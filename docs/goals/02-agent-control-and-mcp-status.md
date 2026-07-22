@@ -9,11 +9,11 @@ implementation batch.
 | Field | Value |
 |---|---|
 | Goal ID | `agent-control-mcp-v1` |
-| State | `InProgress` |
+| State | `Complete` |
 | Prerequisite | Goal 01 `Complete` at or after `b23f900` |
-| Active phase | Phase 5 — Hardening and documentation freeze |
-| Next unblocked batch | `G02-P5-B6` |
-| Last completed batch | `G02-P5-B5` |
+| Active phase | Phase 5 — Hardening and documentation freeze (`Complete`) |
+| Next unblocked batch | None |
+| Last completed batch | `G02-P5-B6` |
 | Last completed commit | This row's containing commit |
 | MCP specification baseline | Frozen `2025-11-25` |
 | Agent schema revision | Frozen `agent-api-v1` / `1746004f…6725` |
@@ -34,7 +34,7 @@ external evidence or decision required. Phase completion is not goal completion.
 | Phase 2 — Authoritative sessions | `Complete` | All six production scenarios finish from public observations/tokens at exact seeded hashes; every replay verifies; bounded owner registry race/expiry/close/quota proofs; strict projection/step/registry/memory baseline |
 | Phase 3 — Local MCP | `Complete` | Independent raw JSON-RPC child client discovers seven typed tools/resources/templates/prompt, completes the frozen basic battle in eight external actions, rejects stale/malformed calls inertly, survives advisory cancellation, exports nine-command replay, closes, verifies the same `5021cdd6…1b507ec` hash and shuts down with protocol-only stdout/empty stderr; Inspector fixture and 10-case evidence retained |
 | Phase 4 — Remote HTTP | `Complete` | Authorized loopback Streamable HTTP with exact headers/origins/limits/scopes, request-local tenant ownership, quotas/rates, health/readiness/metrics and ten-second drain; real-TCP client plus eight concurrent sessions reproduce the in-process/stdio nine-hash and exact replay trace; stable HTTP adapter baseline retained |
-| Phase 5 — Hardening/freeze | `InProgress` | All implementation, hardening, cross-platform, security, contract and isolated acceptance gates complete; final completion record remains |
+| Phase 5 — Hardening/freeze | `Complete` | Reproducible hardening corpus; native/compile-only CI contract; security/architecture and consumer locks; isolated fresh-target acceptance; final release contract |
 
 ## Batch ledger
 
@@ -76,7 +76,7 @@ evidence summary.
 | `G02-P5-B3` | `Complete` | This row's containing commit | `node tools/agent-control/verify-agent-security-audit.mjs`; `node tools/dependency-policy/verify.mjs`; `node tools/workspace/verify-dependencies.mjs`; `node tools/repository-check/verify-source-policy.mjs`; `node tools/agent-control/verify-mcp-sdk-lock.mjs`; `node tools/agent-control/verify-mcp-http-boundary.mjs`; `node tools/agent-control/verify-mcp-authorization.mjs`; `node tools/agent-control/verify-mcp-http-operations.mjs`; `cargo test -p starclock-agent-api -p starclock-mcp -p starclock-cli --all-targets --all-features`; `cargo clippy -p starclock-agent-api -p starclock-mcp -p starclock-cli --all-targets --all-features -- -D warnings`; `node tools/repository-check/run.mjs`; `git diff --check` | Retained a reproducible permanent audit over 24 Goal 02 production Rust files, 11 workspace crates and all 136 reviewed registry packages. It proves zero line exceptions, unsafe syntax, provider packages, domain reverse edges, public implementation-type leaks and agent/MCP logging macros; binds protocol-only stdio and redacted bearer/opaque debug behavior; and rechecks exact `rmcp` Apache-2.0 checksums, eight scopes, origins plus every HTTP/session/settlement/event/replay bound. `http.rs` remains reviewed at 1,153/1,200 lines and must split before exceeding the limit. |
 | `G02-P5-B4` | `Complete` | This row's containing commit | `node tools/agent-control/verify-agent-contract-freeze.mjs`; `cargo run -p starclock-agent-api --example g02_in_process`; `cargo run -p starclock-mcp --example g02_authorized_http`; `cargo build -p starclock-cli`; `node examples/agent-control/stdio-discovery.mjs target/debug/starclock.exe`; `cargo test -p starclock-agent-api -p starclock-mcp -p starclock-cli --all-targets --all-features`; `cargo clippy -p starclock-agent-api -p starclock-mcp -p starclock-cli --all-targets --all-features -- -D warnings`; `node tools/repository-check/run.mjs`; `git diff --check` | Froze 28 library/MCP/CLI/example files under one semantic and byte lock: `agent-api-v1`, five responsibility modules, the incremental session/replay operations, MCP `2025-11-25`, exactly seven tools/two resources/two templates/one prompt and the two CLI transport entry points. The in-process example completed the basic scenario in eight external steps and freshly verified nine replay commands at `5021cdd6…1b507ec`; the independent Node stdio client negotiated the frozen revision and discovered all seven tools. The HTTP example constructs the injected authorization seam deny-all, invents no token claims and cannot open non-loopback. Published guidance routes bulk/training/replay workloads away from MCP. |
 | `G02-P5-B5` | `Complete` | This row's containing commit | `node tools/release/run-goal02-clean-checkout.mjs --record`; `node tools/agent-control/verify-goal02-clean-acceptance.mjs`; `node tools/repository-check/run.mjs`; `git diff --check` | Archived staged tree `f71f36cc…6da2` into an isolated temporary Git checkout, imported commit objects only for prior-release identity verification, bootstrapped checksum-bound Sora 0.3.0 and used a fresh Cargo target. Eleven commands passed in 782 seconds: the universal gate, locked SDK fixture, exact schema/six-scenario loop, independent stdio, real-TCP HTTP, both strict five-sample performance suites, two Rust examples and the Node stdio client. The record binds 11 capability/conformance/performance/security/contract/CI artifacts at exact digests on `starclock-bench-win10-i7-10700f-v1`, including six scenarios / 62 external actions / 68 replay commands and the nine-hash / 987-byte transport trace. |
-| `G02-P5-B6` | `Pending` | — | — | — |
+| `G02-P5-B6` | `Complete` | This row's containing commit | `node tools/agent-control/verify-goal02-release-contract.mjs`; `node tools/agent-control/verify-goal02-clean-acceptance.mjs`; `node tools/agent-control/verify-agent-contract-freeze.mjs`; `node tools/agent-control/verify-agent-security-audit.mjs`; `node tools/repository-check/run.mjs`; `git diff --check`; `git log -1 --format=%s`; `git status --short` | Bound nine policy files, twelve retained evidence files and five public documents into `starclock.goal02-release-contract.v1`; independently revalidated all 33 batches, six phases and terminal checklist. The completion record freezes `agent-api-v1` / `1746004f…6725`, MCP `2025-11-25` / official `rmcp 2.2.0` Apache-2.0, six won Standard scenarios / 62 external actions / 68 replay commands, exact stdio/HTTP nine-hash and 987-byte replay equivalence, 3 native / 3 compile-only profiles, both strict five-sample baselines and the 11-command fresh-target clean checkout. |
 
 ## Frozen identities and budgets
 
@@ -105,6 +105,7 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | Security/architecture audit | `starclock.agent-control-security-audit.v1` / `ae218d3e…cf235`; 24 sources / 136 packages / 8 scopes / zero unsafe-provider-core-log leaks | [`security-audit.json`](../../evidence/agent-control-mcp-v1/security/security-audit.json) |
 | Library/MCP/CLI contract | `starclock.agent-control-contract-freeze.v1` / `b2446e77…1f60d`; 28 byte-bound files / 7 tools / 3 examples | [`contract-freeze.json`](../../evidence/agent-control-mcp-v1/contracts/contract-freeze.json) |
 | Clean-checkout acceptance | `starclock.goal02-clean-acceptance-evidence.v1` / `f17de5bf…da8c`; tree `f71f36cc…6da2` / 11 commands / 782 s | [`clean-checkout-acceptance.json`](../../evidence/agent-control-mcp-v1/release/clean-checkout-acceptance.json) |
+| Goal 02 release contract | `starclock.goal02-release-evidence.v1` / `aefd3cb8…7177`; 9 policies / 12 evidence files / 5 documents | [`release-evidence.json`](../../evidence/agent-control-mcp-v1/release/release-evidence.json) |
 
 ## Decision record
 
@@ -197,16 +198,16 @@ a case does not block it.
 - [x] Performance budgets cover projection, stepping, serialization and memory.
 - [x] Dependency, license, public API, file-size and secret/log audits pass.
 - [x] Clean-checkout acceptance and generated-drift checks pass.
-- [ ] Contracts/examples are frozen and `G02-P5-B6` is committed cleanly.
+- [x] Contracts/examples are frozen and `G02-P5-B6` is committed cleanly.
 
 ## Completion record
 
 | Field | Value |
 |---|---|
-| Completion commit | Pending |
-| Agent schema digest | Pending |
-| MCP capability/conformance evidence | Pending |
-| Standard scenario result | Pending |
-| Cross-platform evidence | Pending |
-| Performance evidence | Pending |
-| Clean-checkout evidence | Pending |
+| Completion commit | This row's containing commit (`G02-P5-B6`) |
+| Agent schema digest | `1746004f3f73ebbe6fb4cce4b850dd6813a1dc3a8584c3d191903328c0206725` (`agent-api-v1`) |
+| MCP capability/conformance evidence | MCP `2025-11-25`; official `rmcp 2.2.0` Apache-2.0; stdio `35990d38…d737`; HTTP `b6380e39…48b2`; trace `b6a4a112…083f` |
+| Standard scenario result | 6 won / 62 external actions / 68 replay commands; all fresh verifications pass |
+| Cross-platform evidence | 3 native execution profiles / 3 compile-only alternate targets |
+| Performance evidence | Agent `e99df5c0…9a09`; HTTP `6d7fedcc…e9e`; five samples on `starclock-bench-win10-i7-10700f-v1` |
+| Clean-checkout evidence | `f17de5bf…da8c`; staged tree `f71f36cc…6da2`; 11 commands / 782 s / no inherited build or repository source cache |

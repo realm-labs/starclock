@@ -1,0 +1,83 @@
+{
+  "schema_revision": "starclock.goal02-release-contract.v1",
+  "goal_id": "agent-control-mcp-v1",
+  "released_on": "2026-07-22",
+  "agent_schema_revision": "agent-api-v1",
+  "agent_schema_bundle_sha256": "1746004f3f73ebbe6fb4cce4b850dd6813a1dc3a8584c3d191903328c0206725",
+  "mcp_revision": "2025-11-25",
+  "mcp_sdk": {
+    "crate": "rmcp",
+    "version": "2.2.0",
+    "tag": "rmcp-v2.2.0",
+    "license": "Apache-2.0"
+  },
+  "standard": {
+    "scenarios": 6,
+    "external_actions": 62,
+    "replay_commands": 68,
+    "final_hashes": [
+      "5021cdd6019e0a100ad35e36ffb69fdb4860600db472c77fb8b33a9571b507ec",
+      "87d2523332871b19cf4773373d031c6473bac29a48d17e796e0584cda296b344",
+      "c6c1a62d408e6c31f45624440802e64d79cbc359faf9ffb58b62b25be3879603",
+      "d3459759678910e92a719341a837a2ceca24a05bc1f5abbfa2190556e21e9c06",
+      "c89ee783c91ce046d6b3b07ee0b29376417dc34ccc2f6935510bab180254a588",
+      "413356b9d452876c51b269e62703072eef916ef866fd1420cfd7164e7383356b"
+    ]
+  },
+  "transport": {
+    "tools": 7,
+    "state_hashes": 9,
+    "replay_bytes": 987,
+    "stdio_cases": 10,
+    "http_concurrent_sessions": 8
+  },
+  "cross_platform": {
+    "suites": 8,
+    "native_profiles": 3,
+    "compile_only_profiles": 3
+  },
+  "performance": {
+    "stable_runner_id": "starclock-bench-win10-i7-10700f-v1",
+    "samples": 5,
+    "agent_workload": "g02-agent-session-baseline-v1",
+    "http_workload": "g02-mcp-http-adapter-v1"
+  },
+  "policy_files": [
+    { "path": "policy/agent-api-v1.json", "sha256": "0bace8a6a4584a649037d812c4478550a2f14fe4ff4071f1a0e389f0d935fccf" },
+    { "path": "policy/mcp-sdk-lock.json", "sha256": "75e6caaac63befbd746c8d8db1988cbc1804abb9e4bb45a56ef565837e2b5187" },
+    { "path": "policy/agent-control-threat-model.json", "sha256": "4080b72e1a434ec7bc1dbc0c4c4b095bed2008da18a92a3aa365f08fa1e9c45a" },
+    { "path": "policy/mcp-authorization.json", "sha256": "41f5e3b8079fc359db8d9b8a6ed8b51b8cf6ced5a021f08f0923af98d5696e35" },
+    { "path": "policy/mcp-http-boundary.json", "sha256": "fa31d03b9fec8069d1d2260a4f53532b99295e9f77f373170629382abd53e03d" },
+    { "path": "policy/mcp-tenant-authority.json", "sha256": "22f0e0d661b40491159b355733da57942dfb58b4d90300fb565ac0545eb301bc" },
+    { "path": "policy/agent-control-contract.json", "sha256": "1b8cdaf36ddeb461e4e33c928db541b8d7bd5147c18074aef874f239d25ef20a" },
+    { "path": "policy/agent-control-audit.json", "sha256": "c2ea79e81a0377b38d3365bea94717c112f88c68c7e4dd00b5f9f0be889f7e93" },
+    { "path": "policy/goal02-clean-acceptance.json", "sha256": "fbc8eead738513d66742a561ecebbfda5535d36b89aca88083dd5bda25dd7a93" }
+  ],
+  "evidence_files": [
+    { "path": "evidence/agent-control-mcp-v1/schema/agent-api-v1.json", "sha256": "f8d729a26cdaa3817dd5771594145c931ab16c90a85addfffe371e20a7ad3337" },
+    { "path": "evidence/agent-control-mcp-v1/protocol/mcp-sdk-capabilities.json", "sha256": "f5a9fbf6424d4a1ab0a1a0aa1aeae5d276920f6ea4b4bafa0fede27b3081f1f4" },
+    { "path": "evidence/agent-control-mcp-v1/protocol/mcp-stdio-conformance.json", "sha256": "35990d389cf977388b8cf4bebd8482184f78018d1468761a636eff613ba0d737" },
+    { "path": "evidence/agent-control-mcp-v1/protocol/basic-transport-trace.json", "sha256": "b6a4a112d9ec801f97ddb0ab5a95e62ebe682d83f33bc4ac5a0adef5ecf0083f" },
+    { "path": "evidence/agent-control-mcp-v1/protocol/mcp-http-conformance.json", "sha256": "b6380e39761379d8b80f58dcaf8e8fb4c02295eaa69a936e8dded21a329948b2" },
+    { "path": "evidence/agent-control-mcp-v1/performance/phase2-baseline-windows-x64.json", "sha256": "e99df5c0fac9cf617903d36be802bd40bc59cca26b91667a8b9cc1f55c5e9a09" },
+    { "path": "evidence/agent-control-mcp-v1/performance/phase4-http-baseline-windows-x64.json", "sha256": "6d7fedcccd539edbf74c7384d84e245f216858400778992f352c1900224e7e9e" },
+    { "path": "evidence/agent-control-mcp-v1/security/hardening-corpus.json", "sha256": "c27fccbf4a82ef20b353f03cb130b31a209d3355993abf260a10b18b55445b2d" },
+    { "path": "evidence/agent-control-mcp-v1/security/security-audit.json", "sha256": "ae218d3e529dcc47cac8b7c10d839b4d84b16cd119e9c7ec4b0c5984517cf235" },
+    { "path": "evidence/agent-control-mcp-v1/contracts/contract-freeze.json", "sha256": "b2446e77351ce4a5f79c89e4f9eae78f223db2aa7346ec21310e063b8cf1f60d" },
+    { "path": "evidence/agent-control-mcp-v1/release/clean-checkout-acceptance.json", "sha256": "f17de5bf9cbe45c682dc467cf496454f3ad7b96f3d2b871756d099577170da8c" },
+    { "path": "evidence/core-combat-v1/hardening/ci-golden-matrix.json", "sha256": "8964b0a8f52cdd694a7dbb47821f9970812443e670f46ab6ff5b4fa1d0e65dfa" }
+  ],
+  "documentation_files": [
+    { "path": "docs/22-agent-control-and-mcp.md", "sha256": "a3afc065b37ee17362a8060a9ff52a38a321c67e0d30ad4b3b3bbdd638565c17" },
+    { "path": "docs/starclock-agent-integration-contract.md", "sha256": "44ee4d4c16b20025c7560a6f933471802d3fd7c83a9a842fb5364c95de0b1483" },
+    { "path": "docs/starclock-agent-security-audit.md", "sha256": "9ba6f3bfee4e939905f90473ba83682569d018913aad88e9f3287f8468d7c112" },
+    { "path": "docs/starclock-agent-cross-platform.md", "sha256": "b9c69b2efda6207d912edf3dd107c0ee3e5e025151324e2ac8d79d67c4893337" },
+    { "path": "docs/starclock-agent-clean-acceptance.md", "sha256": "c050001427aef0c085c64dfce29e38ebb62a96f782e70132888df87e8d9c7d64" }
+  ],
+  "completion": {
+    "batch": "G02-P5-B6",
+    "batch_count": 33,
+    "phase_count": 6,
+    "commit_reference": "This row's containing commit"
+  }
+}

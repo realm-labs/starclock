@@ -16,6 +16,7 @@ const commands = [
   ["node", "tools/agent-control/verify-agent-security-audit.mjs"],
   ["node", "tools/agent-control/verify-agent-contract-freeze.mjs"],
   ["node", "tools/agent-control/verify-goal02-clean-acceptance.mjs"],
+  ["node", "tools/agent-control/verify-goal02-release-contract.mjs"],
   ["node", "tools/repository-check/verify-source-policy.mjs"],
   ["node", "tools/repository-check/verify-native-handlers.mjs"],
   ["node", "tools/goal-hardening/verify-content-audits.mjs"],

@@ -1,0 +1,76 @@
+{
+  "schema_revision": "starclock.goal02-release-evidence.v1",
+  "goal_id": "agent-control-mcp-v1",
+  "released_on": "2026-07-22",
+  "result": "complete",
+  "policy_sha256": "ef628a49362f1ecfc5854c9c9792da1ec2db455986b3fa081fa241b65bfba7e5",
+  "completion": {
+    "batch": "G02-P5-B6",
+    "batch_count": 33,
+    "phase_count": 6,
+    "commit_reference": "This row's containing commit"
+  },
+  "agent_schema": {
+    "revision": "agent-api-v1",
+    "bundle_sha256": "1746004f3f73ebbe6fb4cce4b850dd6813a1dc3a8584c3d191903328c0206725"
+  },
+  "mcp": {
+    "revision": "2025-11-25",
+    "sdk": {
+      "crate": "rmcp",
+      "version": "2.2.0",
+      "tag": "rmcp-v2.2.0",
+      "license": "Apache-2.0"
+    },
+    "tools": 7,
+    "stdio_cases": 10,
+    "http_concurrent_sessions": 8
+  },
+  "standard": {
+    "scenarios": 6,
+    "external_actions": 62,
+    "replay_commands": 68,
+    "final_hashes": [
+      "5021cdd6019e0a100ad35e36ffb69fdb4860600db472c77fb8b33a9571b507ec",
+      "87d2523332871b19cf4773373d031c6473bac29a48d17e796e0584cda296b344",
+      "c6c1a62d408e6c31f45624440802e64d79cbc359faf9ffb58b62b25be3879603",
+      "d3459759678910e92a719341a837a2ceca24a05bc1f5abbfa2190556e21e9c06",
+      "c89ee783c91ce046d6b3b07ee0b29376417dc34ccc2f6935510bab180254a588",
+      "413356b9d452876c51b269e62703072eef916ef866fd1420cfd7164e7383356b"
+    ]
+  },
+  "transport_trace": {
+    "state_hashes": 9,
+    "replay_bytes": 987,
+    "sha256": "b6a4a112d9ec801f97ddb0ab5a95e62ebe682d83f33bc4ac5a0adef5ecf0083f"
+  },
+  "cross_platform": {
+    "suites": 8,
+    "native_profiles": 3,
+    "compile_only_profiles": 3
+  },
+  "performance": {
+    "stable_runner_id": "starclock-bench-win10-i7-10700f-v1",
+    "samples": 5,
+    "agent_workload": "g02-agent-session-baseline-v1",
+    "http_workload": "g02-mcp-http-adapter-v1",
+    "agent_baseline_sha256": "e99df5c0fac9cf617903d36be802bd40bc59cca26b91667a8b9cc1f55c5e9a09",
+    "http_baseline_sha256": "6d7fedcccd539edbf74c7384d84e245f216858400778992f352c1900224e7e9e"
+  },
+  "clean_checkout": {
+    "evidence_sha256": "f17de5bf9cbe45c682dc467cf496454f3ad7b96f3d2b871756d099577170da8c",
+    "staged_tree": "f71f36cc8126877c4e73d1074abf4743a46b6da2",
+    "commands": 11,
+    "elapsed_seconds": 782,
+    "inherited_build_cache": false,
+    "inherited_repository_source_cache": false
+  },
+  "inventories": {
+    "policies": 9,
+    "evidence": 12,
+    "documentation": 5,
+    "phases": 6,
+    "batches": 33
+  },
+  "conclusion": "Goal 02 is complete: the protocol-neutral deterministic session API, local stdio MCP and authorized loopback Streamable HTTP adapter satisfy every frozen schema, replay, transport, security, cross-platform, performance and isolated acceptance gate."
+}
