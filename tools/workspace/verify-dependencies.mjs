@@ -16,6 +16,7 @@ const expected = new Map([
   ["starclock-replay", ["starclock-activity", "starclock-combat"]],
   ["starclock-ai", ["starclock-combat"]],
   ["starclock-mode-standard", ["starclock-activity", "starclock-combat"]],
+  ["starclock-mcp", ["starclock-agent-api"]],
   ["starclock-data", ["starclock-activity", "starclock-build", "starclock-combat", "starclock-mode-standard", "starclock-rules"]],
   ["starclock-cli", ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mode-standard", "starclock-replay", "starclock-rules"]],
 ]);
@@ -47,6 +48,10 @@ const expectedExternal = new Map([
   ["starclock-replay", [
     { name: "proptest", requirement: "=1.11.0", features: ["std"], kind: "dev" },
     { name: "sha2", requirement: "=0.11.0", features: [] },
+  ]],
+  ["starclock-mcp", [
+    { name: "rmcp", requirement: "=2.2.0", features: ["client", "macros", "server", "transport-io", "transport-streamable-http-server"] },
+    { name: "serde_json", requirement: "=1.0.151", features: ["std"] },
   ]],
   ["starclock-cli", [
     { name: "allocation-counter", requirement: "=0.8.1", features: [], kind: "dev" },
@@ -105,7 +110,10 @@ assert(JSON.stringify(cliBinaries) === JSON.stringify(["starclock"]), "starclock
 const agentApi = packages.find((entry) => entry.name === "starclock-agent-api");
 assert(agentApi.dependencies.every((dependency) => ["starclock-ai", "starclock-combat", "starclock-data", "starclock-replay", "serde", "serde_json", "sha2"].includes(dependency.name) || (dependency.kind === "dev" && ["allocation-counter", "proptest"].includes(dependency.name))), "starclock-agent-api may use only reviewed Goal 01 controller/composition/replay boundaries, deterministic serialization/token-digest dependencies and property/benchmark tooling");
 
-console.log("Workspace dependency boundaries verified (10 crates; protocol-neutral agent scaffold plus production boundaries and reviewed property/benchmark dev-dependencies).");
+const mcp = packages.find((entry) => entry.name === "starclock-mcp");
+assert(mcp.dependencies.every((dependency) => ["starclock-agent-api", "rmcp", "serde_json"].includes(dependency.name)), "starclock-mcp may depend only on the protocol-neutral agent API, frozen official MCP SDK and deterministic JSON conversion");
+
+console.log("Workspace dependency boundaries verified (11 crates; protocol-neutral agent boundary and one-way frozen MCP adapter dependency).");
 
 function normalize(value) { return path.resolve(value).replaceAll("\\", "/").toLowerCase(); }
 function read(file) { return fs.readFileSync(file, "utf8"); }

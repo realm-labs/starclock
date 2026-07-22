@@ -4,6 +4,9 @@ const policy = JSON.parse(await readFile("policy/mcp-sdk-lock.json", "utf8"));
 const evidence = JSON.parse(await readFile("evidence/agent-control-mcp-v1/protocol/mcp-sdk-capabilities.json", "utf8"));
 const manifest = await readFile(policy.fixture.manifest, "utf8");
 const lock = await readFile(policy.fixture.lock, "utf8");
+const workspaceManifest = await readFile("Cargo.toml", "utf8");
+const productionManifest = await readFile("crates/starclock-mcp/Cargo.toml", "utf8");
+const workspaceLock = await readFile("Cargo.lock", "utf8");
 const fail = (message) => { throw new Error(`MCP SDK lock: ${message}`); };
 
 if (policy.mcp_specification.revision !== "2025-11-25") fail("specification drift");
@@ -16,12 +19,18 @@ for (const crate of policy.official_rust_sdk.crates) {
   const escaped = crate.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const block = new RegExp(`name = "${escaped}"\\nversion = "${crate.version}"[\\s\\S]*?checksum = "${crate.checksum}"`);
   if (!block.test(lock)) fail(`${crate.name} version/checksum not present in lock`);
+  if (!block.test(workspaceLock)) fail(`${crate.name} version/checksum not present in workspace lock`);
 }
 if (!manifest.includes('version = "=2.2.0"') || !manifest.includes("default-features = false")) {
   fail("rmcp is not exact/default-off in the fixture manifest");
 }
 for (const feature of policy.official_rust_sdk.requested_features) {
   if (!manifest.includes(`"${feature}"`)) fail(`missing requested feature ${feature}`);
+  if (!workspaceManifest.includes(`"${feature}"`)) fail(`production dependency is missing feature ${feature}`);
 }
+if (!workspaceManifest.includes('rmcp = { version = "=2.2.0", default-features = false')) fail("production rmcp is not exact/default-off");
+if (!productionManifest.includes("rmcp.workspace = true")) fail("starclock-mcp does not inherit the frozen SDK dependency");
+if (!productionManifest.includes('starclock-agent-api = { path = "../starclock-agent-api" }')) fail("starclock-mcp does not depend on the protocol-neutral agent boundary");
+if (/starclock-(?:combat|data|replay|ai)/.test(productionManifest)) fail("starclock-mcp bypasses the agent boundary");
 
-console.log("MCP 2025-11-25 / rmcp 2.2.0 lock verified");
+console.log("MCP 2025-11-25 / rmcp 2.2.0 fixture and production lock verified");
