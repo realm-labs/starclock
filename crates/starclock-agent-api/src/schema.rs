@@ -84,6 +84,13 @@ impl AgentUInt {
     pub fn as_str(&self) -> &str {
         &self.0
     }
+
+    #[must_use]
+    pub fn to_u64(&self) -> u64 {
+        self.0
+            .parse()
+            .expect("AgentUInt construction validates the complete u64 range")
+    }
 }
 
 impl fmt::Debug for AgentUInt {

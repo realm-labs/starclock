@@ -29,5 +29,6 @@ mod probe_tests;
 mod rule_lower;
 mod selector_lower;
 mod standard_lower;
+pub mod standard_v1;
 
 pub use build_lower::CharacterDataDefinition;

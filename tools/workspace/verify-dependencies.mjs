@@ -8,7 +8,7 @@ assert(/\[workspace\.lints\.rust\][\s\S]*?unsafe_code\s*=\s*"forbid"/.test(works
 assert(/\[workspace\.lints\.rust\][\s\S]*?unexpected_cfgs\s*=\s*"deny"/.test(workspaceManifest), "workspace must deny unexpected cfg values");
 assert(/\[workspace\.lints\.rust\][\s\S]*?unused_must_use\s*=\s*"deny"/.test(workspaceManifest), "workspace must deny unused must-use results");
 const expected = new Map([
-  ["starclock-agent-api", ["starclock-combat"]],
+  ["starclock-agent-api", ["starclock-combat", "starclock-data", "starclock-replay"]],
   ["starclock-combat", []],
   ["starclock-build", ["starclock-combat"]],
   ["starclock-activity", ["starclock-combat"]],
@@ -102,7 +102,7 @@ const cli = packages.find((entry) => entry.name === "starclock-cli");
 const cliBinaries = cli.targets.filter((target) => target.kind.includes("bin")).map((target) => target.name);
 assert(JSON.stringify(cliBinaries) === JSON.stringify(["starclock"]), "starclock-cli must own only the starclock binary");
 const agentApi = packages.find((entry) => entry.name === "starclock-agent-api");
-assert(agentApi.dependencies.every((dependency) => dependency.name === "starclock-combat" || dependency.name === "serde" || dependency.name === "sha2" || (dependency.kind === "dev" && ["proptest", "serde_json"].includes(dependency.name))), "starclock-agent-api may use only the combat boundary, reviewed deterministic serialization/token-digest dependencies and property-test tooling");
+assert(agentApi.dependencies.every((dependency) => ["starclock-combat", "starclock-data", "starclock-replay", "serde", "sha2"].includes(dependency.name) || (dependency.kind === "dev" && ["proptest", "serde_json"].includes(dependency.name))), "starclock-agent-api may use only reviewed Goal 01 production composition/replay boundaries, deterministic serialization/token-digest dependencies and property-test tooling");
 
 console.log("Workspace dependency boundaries verified (10 crates; protocol-neutral agent scaffold plus production boundaries and reviewed property dev-dependencies).");
 

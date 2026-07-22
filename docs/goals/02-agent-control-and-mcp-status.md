@@ -12,8 +12,8 @@ implementation batch.
 | State | `InProgress` |
 | Prerequisite | Goal 01 `Complete` at or after `b23f900` |
 | Active phase | Phase 2 — Authoritative ephemeral sessions |
-| Next unblocked batch | `G02-P2-B1` |
-| Last completed batch | `G02-P1-B6` |
+| Next unblocked batch | `G02-P2-B2` |
+| Last completed batch | `G02-P2-B1` |
 | Last completed commit | This row's containing commit |
 | MCP specification baseline | Frozen `2025-11-25` |
 | Agent schema revision | Frozen `agent-api-v1` / `1746004f…6725` |
@@ -54,7 +54,7 @@ evidence summary.
 | `G02-P1-B4` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Implemented frozen action DTOs and a 256-entry private exact-command table with replay-canonical order, deterministic bounded summaries and SHA-256 opaque tokens scoped by session, decision and ordinal. Tests prove stale, forged, cross-session, mixed-decision, noncanonical and internal-start inputs fail before command selection, while selected-command debug stays redacted. |
 | `G02-P1-B5` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Added a separately typed debug projection requiring an explicit in-process capability acknowledgement and always emitting `omniscient_debug` plus `debug_authorized:true`; missing capability fails before projection and negative JSON tests prove the default battle value cannot contain either debug marker. The frozen v1 schema adds no hidden payload, so richer debug facts remain revision-gated. |
 | `G02-P1-B6` | `Complete` | This row's containing commit | `node tools/agent-control/verify-agent-api-v1.mjs`; `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Embedded and published the exact schema/golden bundle at `1746004f…6725`; added an exact `schema_revision` error field and bounded ordered detail builder; 512-case seeded properties prove all `u64`/`i64` JSON round trips, unknown-revision rejection and insertion-order-independent canonical details, while tests bind implementation limits and stable error output to policy/goldens. Phase 1 complete. |
-| `G02-P2-B1` | `Pending` | — | — | — |
+| `G02-P2-B1` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-data --all-targets --all-features`; `cargo test -p starclock-cli --all-targets --all-features`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-data -p starclock-cli -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Promoted the frozen Standard-v1 factory from private CLI code to a shared validated `starclock-data` seam and made the CLI delegate to it. `AgentSessionFactory` shares immutable production catalogs and accepts only checked session/scenario IDs, authored-or-exact seed policy and player visibility; each isolated session privately owns one battle, replay identities and empty incremental trace. All six identities/default seeds, explicit-seed reproducibility, session-ID hash inertness and unknown/debug rejection are tested. |
 | `G02-P2-B2` | `Pending` | — | — | — |
 | `G02-P2-B3` | `Pending` | — | — | — |
 | `G02-P2-B4` | `Pending` | — | — | — |
