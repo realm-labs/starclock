@@ -1,0 +1,22 @@
+{
+  "schema_revision": "starclock.goal04-release-contract-scaffold.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "state": "Scaffold",
+  "planned_batches": 50,
+  "planned_phases": 7,
+  "required_prior_contracts": ["core-combat-v1", "agent-control-mcp-v1", "standard-universe-reference-v1"],
+  "required_commands": ["starclock universe run", "starclock replay verify", "starclock catalog coverage"],
+  "terminal_denominators": {
+    "content_records": 2201,
+    "rule_bindings": 786,
+    "semantic_fixtures": 78,
+    "worlds": 9,
+    "paths": 9,
+    "difficulties": 33,
+    "mechanic_partitions": 15
+  },
+  "required_evidence_families": ["catalog", "activity", "mechanics", "golden-runs", "replay", "interfaces", "performance", "cross-platform", "audits", "release"],
+  "release_batch": "G04-P6-B4",
+  "release_evidence": "evidence/standard-universe-runtime-v1/release/release-evidence.json",
+  "clean_checkout_command": "node tools/goal04/verify-release-contract.mjs . --release --require-clean"
+}

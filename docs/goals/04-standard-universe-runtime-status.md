@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
-| Active phase | Phase 0 — Contract, audit and vertical-slice plan |
+| Active phase | Phase 1 — Universe bundle and domain catalog |
 | Active batch | None |
-| Next unblocked batch | `G04-P0-B4` |
+| Next unblocked batch | `G04-P1-B1` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -21,7 +21,7 @@ be `InProgress`; completion evidence and its commit are recorded atomically.
 
 | Phase | State | Exit evidence |
 |---|---|---|
-| Phase 0 — Contract/audit | `InProgress` | Frozen APIs/revisions, runtime dispositions/partitions, vertical slice and benchmark/release scaffolds. |
+| Phase 0 — Contract/audit | `Complete` | APIs/revisions, 2,201/786/78 dispositions, fifteen partitions, World 1 slice, six workloads, 3+3 CI matrix, dependency baseline and release scaffold are mechanically frozen. |
 | Phase 1 — Catalog | `Pending` | Exact isolated bundle lowers privately; all universe definitions and references validate. |
 | Phase 2 — Activity core | `Pending` | Generic graph/state/transactions/RNG/hash/battle handoff replace the one-battle-only limitation. |
 | Phase 3 — Standard profile | `Pending` | Spatial-free domains and every shared Standard Universe subsystem execute generically. |
@@ -39,7 +39,7 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P0-B1` | `Complete` | This row's containing commit | Baseline `285f14f` is reproducibly audited: 11 crates, two Activity commands, three decisions, four scopes, one nested battle pair, five CLI route families and seven battle-v1 MCP tools. Frozen bundle/table/content denominators pass; 13 missing runtime seams have explicit batch owners. Evidence: `evidence/standard-universe-runtime-v1/foundation/surface-audit.json`. |
 | `G04-P0-B2` | `Complete` | This row's containing commit | Frozen API v2 has five command kinds, three exclusive resolution boundaries, twelve decision kinds, eight event families and stable rejection/fault separation. Full graph Activity uses state codec v2, Activity replay hash `sha256-v4`, Activity RNG v2 and replay payload schema 2 while legacy battle/one-battle v1/v3 bytes remain readable. Evidence: `evidence/standard-universe-runtime-v1/foundation/interface-contract.json`. |
 | `G04-P0-B3` | `Complete` | This row's containing commit | Assigned all 2,201 content rows, 786 rules and 78 fixtures to exact runtime mechanisms and stable M01–M15 membership. Counts are 698 Activity-IR, 427 native-handler, 984 metadata and 92 explicit-policy content rows; all remain `Planned` with zero executable claims. Partition manifest SHA-256: `9eebeb5ad82b30b2ddb789e36dcf2cbb38d7c02426c9d99696d43280ce5f5aaa`. |
-| `G04-P0-B4` | `Pending` | — | — |
+| `G04-P0-B4` | `Complete` | This row's containing commit | Frozen representative World 1/Preservation slice, six server workloads and allocation/copy metrics, 3 native + 3 compile-only CI profiles, 147-package reviewed lock baseline and a 7-phase/50-batch release scaffold. No complete-World or performance claim is made. Evidence SHA-256: `033222084a4e6e95d2c1e91389c2ead797ac9de50015bcf3c751678fd9829a0e`. |
 | `G04-P1-B1` | `Pending` | — | — |
 | `G04-P1-B2` | `Pending` | — | — |
 | `G04-P1-B3` | `Pending` | — | — |
@@ -124,6 +124,8 @@ runtime coverage generator proves the assigned behavior and tests.
 | 2026-07-22 | Model an accepted Activity result as exactly one `Decision`, `Battle` or `Terminal` boundary. | Prevents adapters from interpreting contradictory optional next-state fields and keeps automatic settlement internal. |
 | 2026-07-22 | Emit graph Activities with state codec v2 / `sha256-v4` and Activity RNG v2 while retaining legacy one-battle and nested battle v3 compatibility. | The old Activity writer is big-endian and incomplete for graph state; byte relabeling would invalidate deterministic replay evidence. |
 | 2026-07-22 | Treat metadata-only rows as executable obligations owned by a generic compiler, never as ignored data. | Structural maps, rooms, pools and difficulties affect deterministic graph/battle construction without requiring one custom operation per row. |
+| 2026-07-22 | Use World 1 standard difficulty / Preservation / room 100 / group 1001 as the first representative slice without claiming a complete World. | It exercises bundle composition, domain decisions, nested battle, reward and service boundaries with exact frozen IDs before full topology/mechanics land. |
+| 2026-07-22 | Inherit the existing 3-native/3-compile-only CI matrix and add a Goal 04 native gate. | Runtime/hash claims stay on native Windows/Linux/macOS; alternate CPU jobs provide compile evidence only. |
 
 ## Research and policy register
 

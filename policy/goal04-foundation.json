@@ -1,0 +1,76 @@
+{
+  "schema_revision": "starclock.goal04-foundation.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "vertical_slice": {
+    "id": "goal04.standard-universe.world01.vertical-slice-v1",
+    "claim": "representative-world01-slice-not-complete-world",
+    "master_seed": 7,
+    "world_id": "universe.world.01",
+    "difficulty_id": "universe.world.01.difficulty.01",
+    "path_id": "universe.path.preservation",
+    "participant_fixture": ["character.asta", "character.clara", "character.kafka", "character.firefly"],
+    "room_id": "universe.room.100",
+    "domain_id": "universe.domain.combat-primary",
+    "encounter_pool_id": "universe.encounter-pool.room.100",
+    "encounter_condition_key": "3",
+    "encounter_group_id": "universe.encounter-group.1001",
+    "enemy_variant_ids": ["enemy.antibaryon.minion.variant.01", "enemy.baryon.minion.variant.01"],
+    "reward_blessing_id": "universe.blessing.612030",
+    "reward_blessing_level_id": "universe.blessing.612030.level.1",
+    "service_id": "universe.service.enhance-blessing",
+    "enhanced_blessing_level_id": "universe.blessing.612030.level.2",
+    "required_boundaries": ["PathSelection", "DomainHub", "EncounterPreparation", "Battle", "Reward", "Service", "Terminal"],
+    "required_rng_streams": ["graph", "encounter", "reward", "battle"],
+    "complete_world_claim": false
+  },
+  "performance": {
+    "workload_revision": "g04-standard-universe-service-v1",
+    "budget_stage": "shape-only-until-G04-P2-B7",
+    "allocation_counter": {
+      "crate": "allocation-counter",
+      "version": "0.8.1",
+      "feature": "benchmark-harness",
+      "authoritative_effect": false
+    },
+    "workloads": [
+      {"id": "catalog-load-10-v1", "operation": "load and validate both frozen bundles ten times", "operations": 10},
+      {"id": "incremental-session-1024-v1", "operation": "apply 1,024 accepted Activity commands without replaying prior prefixes", "operations": 1024},
+      {"id": "invalid-command-4096-v1", "operation": "reject stale/not-offered commands and prove byte/RNG identity", "operations": 4096},
+      {"id": "world01-complete-32-v1", "operation": "complete 32 seeded World 1 activities with one shared catalog", "operations": 32},
+      {"id": "activity-replay-verify-32-v1", "operation": "linearly verify 32 complete activity replays", "operations": 32},
+      {"id": "concurrent-shared-catalog-64-v1", "operation": "run 64 isolated sessions sharing immutable catalogs", "operations": 64}
+    ],
+    "required_metrics": ["elapsed_ns", "operations_per_second", "allocation_count", "allocation_bytes", "peak_live_bytes", "retained_bytes", "catalog_clone_count", "replayed_prefix_count", "final_hash"],
+    "shape_invariants": {
+      "catalog_clone_count_per_session": 0,
+      "replayed_prefix_count_per_incremental_command": 0,
+      "authoritative_float_operations": 0,
+      "allocation_measurement_is_non_authoritative": true
+    },
+    "shared_ci_smoke_ceiling": {
+      "maximum_total_elapsed_ns": 60000000000,
+      "minimum_operations_per_second": 10,
+      "maximum_allocation_bytes_per_row": 4294967296,
+      "maximum_peak_live_bytes_per_job": 536870912
+    }
+  },
+  "ci": {
+    "inherited_policy_sha256": "82fd80e74dfe22feca811c28de2f689e60bd5997c53354eb52832411e2c961c6",
+    "native_profiles": ["windows-x64-native", "linux-x64-native", "macos-arm64-native"],
+    "compile_only_profiles": ["windows-arm64-compile", "linux-arm64-compile", "macos-x64-compile"],
+    "native_gate": "node tools/goal04/run-native-ci.mjs --foundation",
+    "workflow": ".github/workflows/ci.yml",
+    "golden_expansion_owner": "G04-P6-B2"
+  },
+  "dependency_baseline": {
+    "baseline_commit": "e3f8ec8",
+    "cargo_lock_sha256": "4bac443a721c030b311d7782f68ed804c0ad870336021b721419b696b8aa6377",
+    "cargo_packages": 147,
+    "reviewed_policy_sha256": "0f8aa733c8c4918683542c64778b0937865172c714c264fa1510373a5d38d632",
+    "new_runtime_dependencies": [],
+    "permitted_existing_workspace_dependencies": ["fixnum", "rand", "serde", "sha2", "zstd"],
+    "authoring_tools": ["openpyxl==3.1.5", "sora-cli==0.3.0"],
+    "rule": "Any version, feature or package addition requires an exact pin, license review and deterministic-impact note in its introducing batch."
+  },
+  "release_scaffold_sha256": "da7a8b54c685c4390a89955bc8b1b2c4da40e35e90c0fb121a8fc8f057571bb4"
+}

@@ -106,6 +106,14 @@
       "command": ["node", "tools/goal04/verify-runtime-dispositions.mjs", "."]
     },
     {
+      "name": "Goal 04 execution foundation",
+      "command": ["node", "tools/goal04/verify-foundation.mjs", "."]
+    },
+    {
+      "name": "Goal 04 release scaffold",
+      "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
+    },
+    {
       "name": "production Excel and Sora configuration golden",
       "command": ["node", "tools/config-production/verify.mjs"]
     },

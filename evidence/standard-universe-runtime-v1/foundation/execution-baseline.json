@@ -1,0 +1,69 @@
+{
+  "schema_revision": "starclock.goal04-foundation-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "result": "frozen",
+  "vertical_slice": {
+    "id": "goal04.standard-universe.world01.vertical-slice-v1",
+    "world": "universe.world.01",
+    "difficulty": "universe.world.01.difficulty.01",
+    "path": "universe.path.preservation",
+    "room": "universe.room.100",
+    "encounter_group": "universe.encounter-group.1001",
+    "enemies": [
+      "enemy.antibaryon.minion.variant.01",
+      "enemy.baryon.minion.variant.01"
+    ],
+    "reward": "universe.blessing.612030",
+    "service": "universe.service.enhance-blessing",
+    "complete_world_claim": false
+  },
+  "performance": {
+    "revision": "g04-standard-universe-service-v1",
+    "workloads": [
+      "catalog-load-10-v1",
+      "incremental-session-1024-v1",
+      "invalid-command-4096-v1",
+      "world01-complete-32-v1",
+      "activity-replay-verify-32-v1",
+      "concurrent-shared-catalog-64-v1"
+    ],
+    "required_metrics": [
+      "elapsed_ns",
+      "operations_per_second",
+      "allocation_count",
+      "allocation_bytes",
+      "peak_live_bytes",
+      "retained_bytes",
+      "catalog_clone_count",
+      "replayed_prefix_count",
+      "final_hash"
+    ],
+    "shape_invariants": {
+      "catalog_clone_count_per_session": 0,
+      "replayed_prefix_count_per_incremental_command": 0,
+      "authoritative_float_operations": 0,
+      "allocation_measurement_is_non_authoritative": true
+    }
+  },
+  "ci": {
+    "native_profiles": [
+      "windows-x64-native",
+      "linux-x64-native",
+      "macos-arm64-native"
+    ],
+    "compile_only_profiles": [
+      "windows-arm64-compile",
+      "linux-arm64-compile",
+      "macos-x64-compile"
+    ],
+    "native_gate": "node tools/goal04/run-native-ci.mjs --foundation"
+  },
+  "dependencies": {
+    "baseline_commit": "e3f8ec84c9061ad34a90f8c616349cbe856c04db",
+    "cargo_packages": 147,
+    "cargo_lock_sha256": "4bac443a721c030b311d7782f68ed804c0ad870336021b721419b696b8aa6377",
+    "reviewed_policy_sha256": "0f8aa733c8c4918683542c64778b0937865172c714c264fa1510373a5d38d632",
+    "new_runtime_dependencies": 0
+  },
+  "release_scaffold_sha256": "da7a8b54c685c4390a89955bc8b1b2c4da40e35e90c0fb121a8fc8f057571bb4"
+}
