@@ -9,6 +9,7 @@ workspace = true
 
 [dependencies]
 serde.workspace = true
+starclock-combat = { path = "../starclock-combat" }
 
 [dev-dependencies]
 serde_json.workspace = true

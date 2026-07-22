@@ -12,8 +12,8 @@ implementation batch.
 | State | `InProgress` |
 | Prerequisite | Goal 01 `Complete` at or after `b23f900` |
 | Active phase | Phase 1 — Protocol-neutral types and observation |
-| Next unblocked batch | `G02-P1-B3` |
-| Last completed batch | `G02-P1-B2` |
+| Next unblocked batch | `G02-P1-B4` |
+| Last completed batch | `G02-P1-B3` |
 | Last completed commit | This row's containing commit |
 | MCP specification baseline | Frozen `2025-11-25` |
 | Agent schema revision | Frozen `agent-api-v1` / `1746004f…6725` |
@@ -50,7 +50,7 @@ evidence summary.
 | `G02-P0-B4` | `Complete` | This row's containing commit | `node tools/agent-control/verify-threat-model.mjs`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Frozen 19 threats and controls for ownership, forgery/staleness, payload/replay abuse, prompt/data separation, response loss, races, origins, auth/scopes/tenancy, rate/quota/expiry/cancellation, redaction, stdio, drift, visibility and adapter isolation; three startup profiles include fail-closed non-loopback requirements. |
 | `G02-P1-B1` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Added dependency-free, protocol-neutral `starclock-agent-api` with public `schema`, `observation`, `action`, `session` and `error` responsibilities; workspace guard forbids unreviewed dependencies and reverse/protocol coupling. |
 | `G02-P1-B2` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Implemented checked revision/scenario/opaque IDs, canonical string integer/fixed-point/hash values, owned battle/team/unit/effect/timeline/status DTOs, 23 stable errors and deterministic serde/debug conversion with secret redaction and ordered context. |
-| `G02-P1-B3` | `Pending` | — | — | — |
+| `G02-P1-B3` | `Complete` | This row's containing commit | `node tools/workspace/verify-dependencies.mjs`; `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo clippy -p starclock-agent-api --all-targets --all-features -- -D warnings`; `cargo test --workspace --all-targets --all-features`; `git diff --check` | Added an allowlisted stable-boundary projection with canonical team/unit/effect/timeline order, checked exact health conversion, hard collection/event bounds and payload-free cursor pages; negative tests prove default JSON omits enemy AI, automatic ability, rules/modifiers, effect internals, commands and unpublished intent. Existing Goal 01 views were sufficient, so no core query was added. |
 | `G02-P1-B4` | `Pending` | — | — | — |
 | `G02-P1-B5` | `Pending` | — | — | — |
 | `G02-P1-B6` | `Pending` | — | — | — |
@@ -110,6 +110,7 @@ Populate these rows only from committed capability/schema/baseline evidence.
 | 2026-07-22 | Event summaries are bounded/cursor-paged while complete facts remain replay-owned. | Keeps observations finite without weakening authoritative audit or silently truncating settlement. |
 | 2026-07-22 | Non-loopback HTTP startup requires the complete remote security prerequisite set. | Missing TLS/proxy attestation, token validation, exact origins, identity/scopes, proxy trust, quotas/rates/limits or audit sink is a startup error. |
 | 2026-07-22 | Expiry/cancellation are checked outside an atomic domain commit. | Operational time and cancellation cannot create platform-dependent partial battle state; idempotent retry resolves delivery ambiguity. |
+| 2026-07-22 | Version-one public intent remains absent until explicitly authored as visibility-safe content. | The player projection never infers future intent from enemy AI state, candidates, automatic abilities or retained commands; transformed presence normalizes to public `present`. |
 
 Add architectural decisions here before implementing a deviation from the goal
 or normative design. A decision cannot silently weaken a terminal gate.
@@ -119,7 +120,7 @@ or normative design. A decision cannot silently weaken a terminal gate.
 | ID | State | Question/blocker | Owner batch | Resolution/evidence |
 |---|---|---|---|---|
 | `G02-R01` | `Resolved` | Which exact official Rust MCP SDK revision and features satisfy the frozen stdio/HTTP/schema/cancellation contract? | `G02-P0-B2` | Official `rmcp 2.2.0`, default-off features `client`, `macros`, `server`, `transport-io`, `transport-streamable-http-server`; exact checksums, licenses and passing fixture are committed. |
-| `G02-R02` | `PartiallyResolved` | Which existing Goal 01 view methods are sufficient for player-visible projection, and which narrow queries are missing? | `G02-P0-B1` / `G02-P1-B3` | Public views cover battle/unit/effect/timeline/status projection; P1-B3 must prove whether any visibility-safe query is still missing before adding one. |
+| `G02-R02` | `Resolved` | Which existing Goal 01 view methods are sufficient for player-visible projection, and which narrow queries are missing? | `G02-P0-B1` / `G02-P1-B3` | Existing immutable battle, unit, effect, team and timeline views provide the complete frozen player-visible allowlist. Integration tests prove canonical projection and hidden-state absence; no combat query was added. |
 | `G02-R03` | `Resolved` | Which current decisions are external player decisions versus authored enemy or automatic orchestration boundaries? | `G02-P0-B1` / `G02-P2-B2` | `Team(Player)` is external; `System` and `Team(Enemy)` settle internally from exact offered commands; automatic timeline work drains in `Battle::apply`. |
 
 Research does not authorize speculative production behavior. Record primary

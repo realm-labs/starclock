@@ -1,11 +1,21 @@
 //! Owned, bounded and visibility-controlled battle observations.
 
-use serde::{Deserialize, Serialize};
+use core::fmt;
 
-use crate::schema::{AgentSInt, AgentUInt};
+use serde::{Deserialize, Serialize};
+use starclock_combat::{
+    BattleEvent, BattleEventKind, BattlePhase, BattleView, EffectCategory, LifeState,
+    PresenceState, TeamSide,
+};
+
+use crate::schema::{AgentSInt, AgentUInt, EventCursor};
 
 /// Human-readable responsibility marker used by architecture tests.
 pub const RESPONSIBILITY: &str = "owned visibility-controlled projections";
+pub const MAX_UNITS: usize = 128;
+pub const MAX_EFFECTS: usize = 2_048;
+pub const MAX_TIMELINE_ENTRIES: usize = 256;
+pub const MAX_EVENTS_PER_PAGE: usize = 256;
 
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
@@ -127,4 +137,212 @@ pub struct AgentBattleView {
     pub units: Box<[AgentUnitView]>,
     pub effects: Box<[AgentEffectView]>,
     pub timeline: Box<[AgentTimelineView]>,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentEventSummary {
+    pub event_id: AgentUInt,
+    pub kind: Box<str>,
+    pub summary: Box<str>,
+    pub root_command_id: AgentUInt,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentEventPage {
+    pub events: Box<[AgentEventSummary]>,
+    pub next_cursor: EventCursor,
+    pub truncated: bool,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ProjectionError {
+    UnstableBoundary,
+    DownedUnit,
+    TooManyUnits,
+    TooManyEffects,
+    TooManyTimelineEntries,
+    InvalidHealth,
+    InvalidCursor,
+}
+
+impl fmt::Display for ProjectionError {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(formatter, "agent projection failed: {self:?}")
+    }
+}
+
+impl std::error::Error for ProjectionError {}
+
+/// Projects only fields approved by the frozen player-visible allowlist.
+pub fn project_player_visible(view: BattleView<'_>) -> Result<AgentBattleView, ProjectionError> {
+    let phase = match view.phase() {
+        BattlePhase::AwaitingCommand => AgentBattlePhase::AwaitingCommand,
+        BattlePhase::Won => AgentBattlePhase::Won,
+        BattlePhase::Lost => AgentBattlePhase::Lost,
+        BattlePhase::Faulted => AgentBattlePhase::Faulted,
+        BattlePhase::Initializing | BattlePhase::Resolving => {
+            return Err(ProjectionError::UnstableBoundary);
+        }
+    };
+    let mut units = Vec::new();
+    for unit in view.units_by_id() {
+        if units.len() == MAX_UNITS {
+            return Err(ProjectionError::TooManyUnits);
+        }
+        let life = match unit.life() {
+            LifeState::Alive => AgentLifeState::Alive,
+            LifeState::Defeated => AgentLifeState::Defeated,
+            LifeState::Downed => return Err(ProjectionError::DownedUnit),
+        };
+        let presence = match unit.presence() {
+            PresenceState::Present | PresenceState::Transformed => AgentPresenceState::Present,
+            PresenceState::Untargetable => AgentPresenceState::Untargetable,
+            PresenceState::Linked => AgentPresenceState::Linked,
+            PresenceState::Reserved => AgentPresenceState::Reserved,
+            PresenceState::Departed => AgentPresenceState::Departed,
+        };
+        units.push(AgentUnitView {
+            unit_id: AgentUInt::from_u64(unit.id().get()),
+            side: side(unit.side()),
+            formation: AgentUInt::from_u64(u64::from(unit.formation().get())),
+            life,
+            presence,
+            current_hp: AgentUInt::from_u64(
+                u64::try_from(unit.current_hp().get())
+                    .map_err(|_| ProjectionError::InvalidHealth)?,
+            ),
+            maximum_hp: AgentUInt::from_u64(
+                u64::try_from(unit.maximum_hp().get())
+                    .map_err(|_| ProjectionError::InvalidHealth)?,
+            ),
+            current_energy_scaled: AgentSInt::from_i64(unit.current_energy().scaled()),
+            maximum_energy_scaled: AgentSInt::from_i64(unit.maximum_energy().scaled()),
+            weakness_broken: unit.weakness_broken(),
+            public_intent: None,
+        });
+    }
+    let mut effects = Vec::new();
+    for effect in view.effects_by_id() {
+        if effects.len() == MAX_EFFECTS {
+            return Err(ProjectionError::TooManyEffects);
+        }
+        effects.push(AgentEffectView {
+            effect_id: AgentUInt::from_u64(effect.id().get()),
+            target_unit_id: AgentUInt::from_u64(effect.target().get()),
+            category: effect_category(effect.category()),
+            stacks: AgentUInt::from_u64(u64::from(effect.stacks())),
+            remaining: effect
+                .remaining()
+                .map(|value| AgentUInt::from_u64(u64::from(value))),
+        });
+    }
+    let mut timeline = Vec::new();
+    for actor in view.timeline_actors() {
+        if timeline.len() == MAX_TIMELINE_ENTRIES {
+            return Err(ProjectionError::TooManyTimelineEntries);
+        }
+        timeline.push(AgentTimelineView {
+            actor_id: AgentUInt::from_u64(actor.id().get()),
+            owner_unit_id: AgentUInt::from_u64(actor.owner().get()),
+            active: actor.is_active(),
+            action_gauge_scaled: AgentSInt::from_i64(actor.action_gauge().scaled()),
+            speed_scaled: AgentSInt::from_i64(actor.speed().scaled()),
+        });
+    }
+    let encounter = view.encounter();
+    Ok(AgentBattleView {
+        phase,
+        committed_revision: AgentUInt::from_u64(view.committed_revision()),
+        rng_draw_count: AgentUInt::from_u64(view.rng_draw_count()),
+        wave: AgentWaveView {
+            number: AgentUInt::from_u64(u64::from(encounter.number())),
+            total: AgentUInt::from_u64(u64::from(encounter.total_waves())),
+        },
+        teams: [team(view, TeamSide::Player), team(view, TeamSide::Enemy)].into(),
+        units: units.into_boxed_slice(),
+        effects: effects.into_boxed_slice(),
+        timeline: timeline.into_boxed_slice(),
+    })
+}
+
+/// Summarizes a committed event slice without serializing private typed payloads.
+pub fn project_event_page(events: &[BattleEvent]) -> Result<AgentEventPage, ProjectionError> {
+    let truncated = events.len() > MAX_EVENTS_PER_PAGE;
+    let visible = &events[..events.len().min(MAX_EVENTS_PER_PAGE)];
+    let summaries = visible
+        .iter()
+        .map(|event| {
+            let (kind, summary) = event_label(event.kind());
+            AgentEventSummary {
+                event_id: AgentUInt::from_u64(event.id().get()),
+                kind: kind.into(),
+                summary: summary.into(),
+                root_command_id: AgentUInt::from_u64(event.cause().root_command().get()),
+            }
+        })
+        .collect::<Vec<_>>();
+    let cursor_id = visible.last().map_or(0, |event| event.id().get());
+    let next_cursor = EventCursor::parse(&format!("event_{cursor_id}"))
+        .map_err(|_| ProjectionError::InvalidCursor)?;
+    Ok(AgentEventPage {
+        events: summaries.into_boxed_slice(),
+        next_cursor,
+        truncated,
+    })
+}
+
+fn team(view: BattleView<'_>, requested: TeamSide) -> AgentTeamView {
+    let team = view.team(requested);
+    AgentTeamView {
+        side: side(requested),
+        skill_points: AgentUInt::from_u64(u64::from(team.skill_points())),
+        maximum_skill_points: AgentUInt::from_u64(u64::from(team.maximum_skill_points())),
+    }
+}
+
+const fn side(value: TeamSide) -> AgentTeamSide {
+    match value {
+        TeamSide::Player => AgentTeamSide::Player,
+        TeamSide::Enemy => AgentTeamSide::Enemy,
+    }
+}
+
+const fn effect_category(value: EffectCategory) -> AgentEffectCategory {
+    match value {
+        EffectCategory::Buff => AgentEffectCategory::Buff,
+        EffectCategory::Debuff => AgentEffectCategory::Debuff,
+        EffectCategory::Control => AgentEffectCategory::Control,
+        EffectCategory::Dot => AgentEffectCategory::Dot,
+        EffectCategory::Mark => AgentEffectCategory::Mark,
+        EffectCategory::Field => AgentEffectCategory::Field,
+        EffectCategory::Shield => AgentEffectCategory::Shield,
+        EffectCategory::NeutralState => AgentEffectCategory::NeutralState,
+    }
+}
+
+fn event_label(kind: &BattleEventKind) -> (&'static str, &'static str) {
+    match kind {
+        BattleEventKind::Battle(_) => ("battle", "Battle lifecycle changed."),
+        BattleEventKind::Decision(_) => ("decision", "A decision boundary changed."),
+        BattleEventKind::Turn(_) => ("turn", "A timeline turn boundary changed."),
+        BattleEventKind::Action(_) => ("action", "An action boundary changed."),
+        BattleEventKind::Phase(_) => ("phase", "An action phase changed."),
+        BattleEventKind::Hit(_) => ("hit", "A hit boundary changed."),
+        BattleEventKind::Damage(_) => ("damage", "Damage changed public HP."),
+        BattleEventKind::Heal(_) => ("heal", "Healing changed public HP."),
+        BattleEventKind::HpConsumption(_) => ("hp_consumption", "HP was consumed."),
+        BattleEventKind::Shield(_) => ("shield", "A shield changed."),
+        BattleEventKind::Toughness(_) => ("toughness", "Toughness state changed."),
+        BattleEventKind::BreakDamage(_) => ("break_damage", "Break damage changed public HP."),
+        BattleEventKind::Unit(_) => ("unit", "A unit lifecycle changed."),
+        BattleEventKind::Wave(_) => ("wave", "The encounter wave changed."),
+        BattleEventKind::EnemyPhase(_) => ("enemy_phase", "A public enemy phase changed."),
+        BattleEventKind::Resource(_) => ("resource", "A public resource changed."),
+        BattleEventKind::Effect(_) => ("effect", "A public effect changed."),
+        BattleEventKind::RuleState(_) | BattleEventKind::RuleSignal(_) => {
+            ("rule", "A public rule fact occurred.")
+        }
+        BattleEventKind::Fault(_) => ("fault", "Battle resolution faulted."),
+        _ => ("event", "A battle fact occurred."),
+    }
 }
