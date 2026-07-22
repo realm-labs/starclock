@@ -29,6 +29,7 @@ const completionCommit = goalStatus.match(/\| Completion commit \| `([0-9a-f]{40
 assert(completionCommit !== null, "Goal 01 completion commit is missing or malformed");
 execFileSync("git", ["cat-file", "-e", `${completionCommit[1]}^{commit}`], { cwd: root, stdio: "ignore" });
 const additiveFacadePaths = new Set(["crates/starclock-activity/src/lib.rs"]);
+const additiveManifestPaths = new Set(["crates/starclock-activity/Cargo.toml"]);
 
 for (const group of [policy.cli_contract_files, policy.library_contract_files, policy.documentation_files, policy.hardening_evidence]) validateReferences(group);
 assert(policy.cli_contract_files.length === 5, "CLI contract inventory differs");
@@ -163,6 +164,14 @@ function validateReference(reference) {
     const currentSymbols = publicFacadeSymbols(readText(reference.path));
     for (const symbol of releasedSymbols)
       assert(currentSymbols.has(symbol), `${reference.path} removed Goal 01 public symbol ${symbol}`);
+    return;
+  }
+  if (additiveManifestPaths.has(reference.path)) {
+    const released = execFileSync("git", ["show", `${completionCommit[1]}:${reference.path}`], { cwd: root, encoding: "utf8" });
+    assert(sha(Buffer.from(released.replaceAll("\r\n", "\n"))) === reference.sha256, `${reference.path} released digest differs`);
+    const currentLines = new Set(readText(reference.path).replaceAll("\r\n", "\n").split("\n").map((line) => line.trim()).filter(Boolean));
+    for (const line of released.replaceAll("\r\n", "\n").split("\n").map((value) => value.trim()).filter(Boolean))
+      assert(currentLines.has(line), `${reference.path} removed or changed Goal 01 manifest line: ${line}`);
     return;
   }
   assert(normalizedDigest(reference.path) === reference.sha256, `${reference.path} digest differs`);

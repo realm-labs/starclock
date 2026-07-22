@@ -1,10 +1,20 @@
 use std::collections::BTreeMap;
 
+use sha2::{Digest, Sha256};
+
 use crate::{
-    ActivityCondition, ActivityDecisionId, ActivityDecisionKind, ActivityEdgeId,
-    ActivityExpression, ActivityInventoryId, ActivityModifierId, ActivityOptionDefinition,
-    ActivityOptionId, ActivityProgramDefinition, ActivityProgramId, ActivitySlotId,
-    ActivityStateDefinition, ActivityTerminalOutcome, ActivityValue, NodeId,
+    ACTIVITY_RNG_REVISION, ACTIVITY_STATE_CODEC_REVISION, ACTIVITY_STATE_HASH_REVISION,
+    ActivityCondition, ActivityDecisionId, ActivityDecisionKind, ActivityDefinitionIdentity,
+    ActivityEdgeId, ActivityExpression, ActivityGraphDefinition, ActivityInstanceId,
+    ActivityInventoryId, ActivityModifierId, ActivityOptionDefinition, ActivityOptionId,
+    ActivityProgramDefinition, ActivityProgramId, ActivityRngStreams, ActivitySlotId,
+    ActivityStateDefinition, ActivityStateHash, ActivityStateVisibility, ActivityTerminalOutcome,
+    ActivityValue, NodeId,
+    codec::ActivityStateEncoder,
+    view::{
+        ActivityDebugView, ActivityDecisionView, ActivityInventoryView, ActivityOptionView,
+        ActivityPlayerView, ActivitySlotView,
+    },
 };
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -130,13 +140,14 @@ struct PendingDecision {
 }
 
 /// Mutable transaction substrate; adapters never receive mutable access to it.
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct ActivityTransactionState {
     definition: ActivityStateDefinition,
     slots: BTreeMap<ActivitySlotId, ActivityValue>,
     inventories: BTreeMap<ActivityInventoryId, BTreeMap<u64, u32>>,
     modifiers: BTreeMap<ActivityModifierId, u32>,
     current_node: NodeId,
+    command_sequence: u64,
     node_visits: BTreeMap<NodeId, u32>,
     edge_traversals: BTreeMap<ActivityEdgeId, u32>,
     total_visits: u32,
@@ -168,6 +179,7 @@ impl ActivityTransactionState {
             inventories,
             modifiers,
             current_node,
+            command_sequence: 0,
             node_visits: BTreeMap::from([(current_node, 1)]),
             edge_traversals: BTreeMap::new(),
             total_visits: 1,
@@ -185,6 +197,10 @@ impl ActivityTransactionState {
         self.current_node
     }
     #[must_use]
+    pub const fn command_sequence(&self) -> u64 {
+        self.command_sequence
+    }
+    #[must_use]
     pub const fn terminal(&self) -> Option<ActivityTerminalOutcome> {
         self.terminal
     }
@@ -195,6 +211,186 @@ impl ActivityTransactionState {
     #[must_use]
     pub fn edge_traversals(&self, edge: ActivityEdgeId) -> u32 {
         self.edge_traversals.get(&edge).copied().unwrap_or(0)
+    }
+
+    #[must_use]
+    pub fn canonical_state_bytes(
+        &self,
+        identity: ActivityDefinitionIdentity,
+        graph: &ActivityGraphDefinition,
+        instance: ActivityInstanceId,
+        rng: &ActivityRngStreams,
+    ) -> Box<[u8]> {
+        let mut writer = ActivityStateEncoder::new();
+        writer.text(ACTIVITY_STATE_CODEC_REVISION);
+        writer.text(ACTIVITY_STATE_HASH_REVISION);
+        writer.text(ACTIVITY_RNG_REVISION);
+        writer.u32(identity.id().get());
+        writer.digest(identity.definition_digest().bytes());
+        writer.digest(identity.config_digest().bytes());
+        writer.digest(graph.digest().bytes());
+        writer.u64(instance.get());
+        writer.u64(self.command_sequence);
+        writer.u32(self.current_node.get());
+        let section = graph.node(self.current_node).map(|node| node.section());
+        writer.bool(section.is_some());
+        if let Some(section) = section {
+            writer.u32(section.get());
+        }
+        writer.bool(false); // attempt identity is not entered before P2-B5
+        writer.u32(self.total_visits);
+        writer.u32(self.node_visits.len() as u32);
+        for (node, count) in &self.node_visits {
+            writer.u32(node.get());
+            writer.u32(*count);
+        }
+        writer.u32(self.edge_traversals.len() as u32);
+        for (edge, count) in &self.edge_traversals {
+            writer.u32(edge.get());
+            writer.u32(*count);
+        }
+        writer.u32(self.slots.len() as u32);
+        for (slot, value) in &self.slots {
+            writer.u32(slot.get());
+            encode_value(&mut writer, value);
+        }
+        writer.u32(self.inventories.len() as u32);
+        for (inventory, entries) in &self.inventories {
+            writer.u32(inventory.get());
+            writer.u32(entries.len() as u32);
+            for (content, count) in entries {
+                writer.u64(*content);
+                writer.u32(*count);
+            }
+        }
+        writer.u32(self.modifiers.len() as u32);
+        for (modifier, stacks) in &self.modifiers {
+            writer.u32(modifier.get());
+            writer.u32(*stacks);
+        }
+        writer.bool(self.pending.is_some());
+        if let Some(pending) = &self.pending {
+            writer.u64(pending.id.get());
+            writer.byte(pending.kind as u8);
+            writer.u32(pending.options.len() as u32);
+            for option in pending.options.iter() {
+                writer.u64(option.id().get());
+                writer.i32(option.priority());
+            }
+        }
+        writer.bool(self.terminal.is_some());
+        if let Some(terminal) = self.terminal {
+            writer.byte(terminal as u8);
+        }
+        let snapshots = rng.snapshots();
+        writer.u32(snapshots.len() as u32);
+        for snapshot in snapshots.iter() {
+            writer.byte(snapshot.label() as u8);
+            writer.digest(snapshot.seed());
+            writer.u64(snapshot.draw_count());
+        }
+        writer.u32(0); // checkpoints
+        writer.u32(0); // completed nested battle digests
+        writer.finish()
+    }
+
+    #[must_use]
+    pub fn state_hash(
+        &self,
+        identity: ActivityDefinitionIdentity,
+        graph: &ActivityGraphDefinition,
+        instance: ActivityInstanceId,
+        rng: &ActivityRngStreams,
+    ) -> ActivityStateHash {
+        let bytes = self.canonical_state_bytes(identity, graph, instance, rng);
+        ActivityStateHash::new(Sha256::digest(bytes).into())
+            .expect("Activity state hash accepts zero")
+    }
+
+    #[must_use]
+    pub fn player_view(
+        &self,
+        identity: ActivityDefinitionIdentity,
+        graph: &ActivityGraphDefinition,
+        instance: ActivityInstanceId,
+        rng: &ActivityRngStreams,
+    ) -> ActivityPlayerView {
+        let slots = self
+            .definition
+            .slots()
+            .iter()
+            .filter(|item| item.visibility() == ActivityStateVisibility::Player)
+            .map(|item| ActivitySlotView {
+                id: item.id(),
+                value: self.slots[&item.id()].clone(),
+            })
+            .collect::<Vec<_>>()
+            .into_boxed_slice();
+        let inventories = self
+            .definition
+            .inventories()
+            .iter()
+            .filter(|item| item.visibility() == ActivityStateVisibility::Player)
+            .map(|item| inventory_view(item.id(), &self.inventories[&item.id()]))
+            .collect::<Vec<_>>()
+            .into_boxed_slice();
+        ActivityPlayerView {
+            current_node: self.current_node,
+            command_sequence: self.command_sequence,
+            slots,
+            inventories,
+            decision: self.pending.as_ref().map(decision_view),
+            terminal: self.terminal,
+            state_hash: self.state_hash(identity, graph, instance, rng),
+        }
+    }
+
+    #[must_use]
+    pub fn debug_view(
+        &self,
+        identity: ActivityDefinitionIdentity,
+        graph: &ActivityGraphDefinition,
+        instance: ActivityInstanceId,
+        rng: &ActivityRngStreams,
+    ) -> ActivityDebugView {
+        let player = self.player_view(identity, graph, instance, rng);
+        ActivityDebugView {
+            player,
+            all_slots: self
+                .slots
+                .iter()
+                .map(|(id, value)| ActivitySlotView {
+                    id: *id,
+                    value: value.clone(),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            all_inventories: self
+                .inventories
+                .iter()
+                .map(|(id, entries)| inventory_view(*id, entries))
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            modifiers: self
+                .modifiers
+                .iter()
+                .map(|(id, stacks)| (*id, *stacks))
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            node_visits: self
+                .node_visits
+                .iter()
+                .map(|(id, count)| (*id, *count))
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            edge_traversals: self
+                .edge_traversals
+                .iter()
+                .map(|(id, count)| (*id, *count))
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            rng: rng.snapshots(),
+        }
     }
 
     pub fn apply_program(
@@ -208,21 +404,26 @@ impl ActivityTransactionState {
                 ActivityTransactionRejection::StateAlreadyAtBoundary,
             );
         }
-        if cause.program != program.id() || cause.node != self.current_node {
+        if cause.program != program.id()
+            || cause.node != self.current_node
+            || cause.command_sequence != self.command_sequence.saturating_add(1)
+        {
             return ActivityTransactionOutcome::Rejected(
                 ActivityTransactionRejection::CauseMismatch,
             );
         }
-        let mut working = self.clone();
+        let mut working = self.transaction_copy();
         let mut events = Vec::new();
         match working.execute(program.operations(), cause, graph, &mut events) {
             Ok(()) => {
+                working.command_sequence = cause.command_sequence;
                 *self = working;
                 ActivityTransactionOutcome::Committed(events.into_boxed_slice())
             }
             Err(ExecutionFailure::Rejected(error)) => ActivityTransactionOutcome::Rejected(error),
             Err(ExecutionFailure::Fault(fault)) => {
-                let mut faulted = self.clone();
+                let mut faulted = self.transaction_copy();
+                faulted.command_sequence = cause.command_sequence;
                 faulted.terminal = Some(ActivityTerminalOutcome::Faulted);
                 events.clear();
                 events.push(ActivityTransactionEvent {
@@ -246,7 +447,9 @@ impl ActivityTransactionState {
                 ActivityTransactionRejection::DecisionNotOffered,
             );
         };
-        if cause.node != self.current_node {
+        if cause.node != self.current_node
+            || cause.command_sequence != self.command_sequence.saturating_add(1)
+        {
             return ActivityTransactionOutcome::Rejected(
                 ActivityTransactionRejection::CauseMismatch,
             );
@@ -258,17 +461,19 @@ impl ActivityTransactionState {
         };
         let operations = selected.operations().to_vec();
         let cause = cause.with_option(option);
-        let mut working = self.clone();
+        let mut working = self.transaction_copy();
         working.pending = None;
         let mut events = Vec::new();
         match working.execute(&operations, cause, graph, &mut events) {
             Ok(()) => {
+                working.command_sequence = cause.command_sequence;
                 *self = working;
                 ActivityTransactionOutcome::Committed(events.into_boxed_slice())
             }
             Err(ExecutionFailure::Rejected(error)) => ActivityTransactionOutcome::Rejected(error),
             Err(ExecutionFailure::Fault(fault)) => {
-                let mut faulted = self.clone();
+                let mut faulted = self.transaction_copy();
+                faulted.command_sequence = cause.command_sequence;
                 faulted.pending = None;
                 faulted.terminal = Some(ActivityTerminalOutcome::Faulted);
                 events.clear();
@@ -293,6 +498,27 @@ impl ActivityTransactionState {
             self.execute_one(operation, cause, graph, events)?;
         }
         Ok(())
+    }
+
+    /// Creates the private working copy used by the mutation transaction.
+    ///
+    /// The authoritative state intentionally does not implement `Clone`: callers
+    /// cannot fork a run by accidentally duplicating it outside the transaction
+    /// boundary.
+    fn transaction_copy(&self) -> Self {
+        Self {
+            definition: self.definition.clone(),
+            slots: self.slots.clone(),
+            inventories: self.inventories.clone(),
+            modifiers: self.modifiers.clone(),
+            current_node: self.current_node,
+            command_sequence: self.command_sequence,
+            node_visits: self.node_visits.clone(),
+            edge_traversals: self.edge_traversals.clone(),
+            total_visits: self.total_visits,
+            pending: self.pending.clone(),
+            terminal: self.terminal,
+        }
     }
 
     fn execute_one(
@@ -652,6 +878,63 @@ impl ActivityTransactionState {
             ActivityTransactionEventKind::ModifierChanged(id),
         );
         Ok(())
+    }
+}
+
+fn encode_value(writer: &mut ActivityStateEncoder, value: &ActivityValue) {
+    writer.byte(value.kind() as u8);
+    match value {
+        ActivityValue::BoundedInteger(value) | ActivityValue::FixedScalar(value) => {
+            writer.i64(*value)
+        }
+        ActivityValue::Boolean(value) => writer.bool(*value),
+        ActivityValue::StableId(value) => writer.u64(*value),
+        ActivityValue::OptionalId(value) => {
+            writer.bool(value.is_some());
+            if let Some(value) = value {
+                writer.u64(*value);
+            }
+        }
+        ActivityValue::OrderedIdSet(values) => {
+            writer.u32(values.len() as u32);
+            for value in values.iter() {
+                writer.u64(*value);
+            }
+        }
+        ActivityValue::BoundedCounterMap(values) => {
+            writer.u32(values.len() as u32);
+            for (key, value) in values.iter() {
+                writer.u64(*key);
+                writer.i64(*value);
+            }
+        }
+    }
+}
+
+fn inventory_view(id: ActivityInventoryId, entries: &BTreeMap<u64, u32>) -> ActivityInventoryView {
+    ActivityInventoryView {
+        id,
+        entries: entries
+            .iter()
+            .map(|(content, count)| (*content, *count))
+            .collect::<Vec<_>>()
+            .into_boxed_slice(),
+    }
+}
+
+fn decision_view(pending: &PendingDecision) -> ActivityDecisionView {
+    ActivityDecisionView {
+        id: pending.id,
+        kind: pending.kind,
+        options: pending
+            .options
+            .iter()
+            .map(|option| ActivityOptionView {
+                id: option.id(),
+                priority: option.priority(),
+            })
+            .collect::<Vec<_>>()
+            .into_boxed_slice(),
     }
 }
 

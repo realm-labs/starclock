@@ -42,6 +42,9 @@ digest_type!(
     "Digest of the immutable activity definition.",
     true
 );
+
+pub const ACTIVITY_STATE_CODEC_REVISION: &str = "starclock-activity-state-v2";
+pub const ACTIVITY_STATE_HASH_REVISION: &str = "sha256-v4";
 digest_type!(
     ActivityGraphDigest,
     "Digest of one validated immutable Activity graph.",
@@ -153,5 +156,44 @@ impl ActivityV2Writer {
 
     pub(crate) fn finish(self) -> [u8; 32] {
         self.0.finalize().into()
+    }
+}
+
+pub(crate) struct ActivityStateEncoder(Vec<u8>);
+
+impl ActivityStateEncoder {
+    pub(crate) fn new() -> Self {
+        let mut bytes = Vec::new();
+        bytes.extend_from_slice(b"SCAS");
+        bytes.extend_from_slice(&2_u32.to_le_bytes());
+        Self(bytes)
+    }
+    pub(crate) fn byte(&mut self, value: u8) {
+        self.0.push(value);
+    }
+    pub(crate) fn bool(&mut self, value: bool) {
+        self.byte(u8::from(value));
+    }
+    pub(crate) fn u32(&mut self, value: u32) {
+        self.0.extend_from_slice(&value.to_le_bytes());
+    }
+    pub(crate) fn u64(&mut self, value: u64) {
+        self.0.extend_from_slice(&value.to_le_bytes());
+    }
+    pub(crate) fn i32(&mut self, value: i32) {
+        self.0.extend_from_slice(&value.to_le_bytes());
+    }
+    pub(crate) fn i64(&mut self, value: i64) {
+        self.0.extend_from_slice(&value.to_le_bytes());
+    }
+    pub(crate) fn digest(&mut self, value: [u8; 32]) {
+        self.0.extend_from_slice(&value);
+    }
+    pub(crate) fn text(&mut self, value: &str) {
+        self.u32(value.len() as u32);
+        self.0.extend_from_slice(value.as_bytes());
+    }
+    pub(crate) fn finish(self) -> Box<[u8]> {
+        self.0.into_boxed_slice()
     }
 }

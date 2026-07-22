@@ -39,6 +39,7 @@ const expectedExternal = new Map([
     { name: "sha2", requirement: "=0.11.0", features: [] },
   ]],
   ["starclock-activity", [
+    { name: "rand", requirement: "=0.10.2", features: ["chacha", "std"] },
     { name: "sha2", requirement: "=0.11.0", features: [] },
   ]],
   ["starclock-data", [
@@ -114,6 +115,8 @@ for (const pkg of packages) {
 
 const combat = packages.find((entry) => entry.name === "starclock-combat");
 assert(combat.dependencies.every((dependency) => dependency.kind === "dev" ? dependency.name === "proptest" : ["fixnum", "rand", "sha2"].includes(dependency.name)), "starclock-combat may depend only on the reviewed private numeric/RNG/hash backends plus the property dev-dependency");
+const activity = packages.find((entry) => entry.name === "starclock-activity");
+assert(activity.dependencies.every((dependency) => ["rand", "sha2", "starclock-combat"].includes(dependency.name)), "starclock-activity may depend only on combat domain types plus the reviewed private RNG/hash backends");
 const data = packages.find((entry) => entry.name === "starclock-data");
 assert(data.dependencies.filter((dependency) => dependency.source !== null).every((dependency) => ["serde", "sha2", "zstd"].includes(dependency.name)), "starclock-data may use only generated-reader transport dependencies plus the reviewed private SHA-256 backend");
 const universe = packages.find((entry) => entry.name === "starclock-mode-universe");

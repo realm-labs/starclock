@@ -63,9 +63,15 @@ fn ordered_program_commits_slots_inventory_modifiers_graph_and_decision_atomical
 #[test]
 fn failed_requirement_rejects_without_changing_any_state() {
     let mut state = runtime();
-    let before = state.clone();
+    let before = (
+        state.slot(slot(1)).cloned(),
+        state.current_node(),
+        state.command_sequence(),
+        state.node_visits(node(1)),
+        state.terminal(),
+    );
     let program = ActivityProgramDefinition::new(
-        program_id(2),
+        program_id(1),
         vec![
             ActivityOperation::Require(boolean(false)),
             ActivityOperation::SetSlot {
@@ -76,17 +82,26 @@ fn failed_requirement_rejects_without_changing_any_state() {
     )
     .unwrap();
     assert_eq!(
-        state.apply_program(&program, cause(2), &graph()),
+        state.apply_program(&program, cause(1), &graph()),
         ActivityTransactionOutcome::Rejected(ActivityTransactionRejection::ConditionNotSatisfied)
     );
-    assert_eq!(state, before);
+    assert_eq!(
+        (
+            state.slot(slot(1)).cloned(),
+            state.current_node(),
+            state.command_sequence(),
+            state.node_visits(node(1)),
+            state.terminal(),
+        ),
+        before
+    );
 }
 
 #[test]
 fn internal_fault_discards_partial_work_and_commits_only_faulted_settlement() {
     let mut state = runtime();
     let program = ActivityProgramDefinition::new(
-        program_id(3),
+        program_id(1),
         vec![
             ActivityOperation::SetSlot {
                 slot: slot(1),
@@ -99,7 +114,7 @@ fn internal_fault_discards_partial_work_and_commits_only_faulted_settlement() {
         ],
     )
     .unwrap();
-    let outcome = state.apply_program(&program, cause(3), &graph());
+    let outcome = state.apply_program(&program, cause(1), &graph());
     assert!(matches!(outcome, ActivityTransactionOutcome::Faulted(events, _) if events.len() == 1));
     assert_eq!(state.slot(slot(1)), Some(&ActivityValue::BoundedInteger(0)));
     assert_eq!(state.terminal(), Some(ActivityTerminalOutcome::Faulted));
@@ -155,7 +170,7 @@ fn program_validation_rejects_unsorted_options_and_operations_after_boundary() {
 fn graph_visit_and_edge_budgets_are_authoritative_transaction_limits() {
     let graph = cycle_graph();
     let mut state = runtime();
-    for (sequence, from, edge) in [(6, 1, 1), (7, 2, 2)] {
+    for (sequence, from, edge) in [(1, 1, 1), (2, 2, 2)] {
         let program = ActivityProgramDefinition::new(
             program_id(sequence),
             vec![ActivityOperation::Traverse(edge_id(edge))],
@@ -172,7 +187,7 @@ fn graph_visit_and_edge_budgets_are_authoritative_transaction_limits() {
 
     let before_slot = state.slot(slot(1)).cloned();
     let program = ActivityProgramDefinition::new(
-        program_id(8),
+        program_id(3),
         vec![
             ActivityOperation::SetSlot {
                 slot: slot(1),
@@ -183,7 +198,7 @@ fn graph_visit_and_edge_budgets_are_authoritative_transaction_limits() {
     )
     .unwrap();
     assert!(matches!(
-        state.apply_program(&program, cause_at(8, node(1)), &graph),
+        state.apply_program(&program, cause_at(3, node(1)), &graph),
         ActivityTransactionOutcome::Faulted(
             _,
             starclock_activity::ActivityFault::VisitLimitExceeded

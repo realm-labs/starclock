@@ -6,6 +6,7 @@
 
 #![forbid(unsafe_code)]
 
+mod activity_rng;
 mod aggregate;
 mod codec;
 mod graph;
@@ -18,14 +19,20 @@ mod slot;
 mod spec;
 mod state_definition;
 mod transaction;
+mod view;
 
+pub use activity_rng::{
+    ACTIVITY_RNG_REVISION, ActivityRngContext, ActivityRngDraw, ActivityRngError, ActivityRngLabel,
+    ActivityRngStreamSnapshot, ActivityRngStreams,
+};
 pub use aggregate::{
     Activity, ActivityCommand, ActivityCommandError, ActivityCommandErrorKind, ActivityDecision,
     ActivityEvent, ActivityPhase, ActivityResolution, BattleHandoff, ResultIdentityField,
 };
 pub use codec::{
-    ActivityConfigDigest, ActivityDefinitionDigest, ActivityGraphDigest, ActivityStateHash,
-    BattleResultDigest, BuildDigest, EventDigest, ParticipantLockDigest,
+    ACTIVITY_STATE_CODEC_REVISION, ACTIVITY_STATE_HASH_REVISION, ActivityConfigDigest,
+    ActivityDefinitionDigest, ActivityGraphDigest, ActivityStateHash, BattleResultDigest,
+    BuildDigest, EventDigest, ParticipantLockDigest,
 };
 pub use graph::{
     ActivityEdgeCondition, ActivityEdgeDefinition, ActivityGraphDefinition,
@@ -72,4 +79,8 @@ pub use state_definition::{
 pub use transaction::{
     ActivityCause, ActivityFault, ActivityTransactionEvent, ActivityTransactionEventKind,
     ActivityTransactionOutcome, ActivityTransactionRejection, ActivityTransactionState,
+};
+pub use view::{
+    ActivityDebugView, ActivityDecisionView, ActivityInventoryView, ActivityOptionView,
+    ActivityPlayerView, ActivitySlotView,
 };

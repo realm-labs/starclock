@@ -1,0 +1,34 @@
+{
+  "schema_revision": "starclock.goal04-activity-rng-state.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P2-B4",
+  "revisions": {
+    "rng": "starclock-activity-rng-v2",
+    "state_codec": "starclock-activity-state-v2",
+    "state_hash": "sha256-v4"
+  },
+  "bounds": {
+    "labeled_streams": 8,
+    "maximum_rejections": 1000000
+  },
+  "shape": {
+    "purpose_required": true,
+    "empty_selection_consumes_no_draw": true,
+    "integer_rejection_mapping": true,
+    "weighted_candidates_use_authored_order": true,
+    "independent_sha256_derived_streams": true,
+    "canonical_fixed_width_little_endian": true,
+    "canonical_ordered_collections": true,
+    "rejection_preserves_canonical_bytes": true,
+    "authoritative_state_cloneable": false,
+    "authoritative_rng_cloneable": false,
+    "player_view_visibility_filtered": true,
+    "debug_view_explicit_and_bounded": true
+  },
+  "goldens": {
+    "first_graph_raw": "8809253053890565554",
+    "initial_state_sha256": "594e6c84d80c39e07ef2bdd42c77fc85a2c7f8bb8953e0575107ab6df0d0caeb"
+  },
+  "focused_tests": 3,
+  "new_registry_packages": 0
+}

@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Generic Activity runtime |
-| Active batch | `G04-P2-B4` |
-| Next unblocked batch | `G04-P2-B4` |
+| Active batch | `G04-P2-B5` |
+| Next unblocked batch | `G04-P2-B5` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -49,7 +49,7 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P2-B1` | `Complete` | This row's containing commit | Added nine generic node kinds, four typed terminal settlements and four edge conditions with stable node/edge IDs. Graphs canonicalize authored order, validate entry/reference/terminal reachability, require explicit node/edge/total visit budgets and emit a little-endian `SCAG` identity digest. The Goal 01 one-battle profile now compiles to and traverses this graph while its three state-hash goldens remain unchanged. Representative graph digest: `0dc5cc21019c61feb44254b4be981ea39a352480e1c25b009c3305baf66f6af7`. |
 | `G04-P2-B2` | `Complete` | This row's containing commit | Added hierarchy-safe partial Activity/Section/Node/Attempt paths and canonical scope identities. State definitions cap 4,096 slots, 256 inventories and 4,096 modifiers; counter maps and inventories are ordered/bounded, modifier inventory owners are reference-closed, and reset plus eight carry/project/accumulate/replace/snapshot/discard policies are explicit. Modern definitions require stable source/visibility metadata while the Goal 01 constructor and three legacy state hashes remain unchanged. |
 | `G04-P2-B3` | `Complete` | This row's containing commit | Added seven expression, six condition, eleven operation and twelve decision kinds with 4,096-operation/16-depth/256-option hard bounds. Programs validate typed slot/inventory/modifier/edge references before runtime and options are canonical by `(priority, id)`. Working-copy transactions emit cause-bound forward events, commit successful option programs, preserve byte-equivalent state on rejection, discard all partial work on faults, enforce node/edge/total visit budgets and commit only explicit `Faulted` settlement. Five focused tests cover commit, selection, rejection, rollback, binding and loop limits. |
-| `G04-P2-B4` | `Pending` | — | — |
+| `G04-P2-B4` | `Complete` | This row's containing commit | Added eight independently SHA-256-derived ChaCha8 activity streams with purpose-tagged integer rejection mapping and authored-order weighted selection; empty selections consume no draw. Canonical `SCAS` v2 little-endian bytes bind definition/config/graph identity, command position, scoped values, decisions and RNG seeds/counters into `sha256-v4`; rejection preserves those bytes. Player views filter private state while explicit bounded debug views expose diagnostics. Authoritative state/RNG are not cloneable. Goldens: first graph draw `8809253053890565554`, initial state hash `594e6c84d80c39e07ef2bdd42c77fc85a2c7f8bb8953e0575107ab6df0d0caeb`. |
 | `G04-P2-B5` | `Pending` | — | — |
 | `G04-P2-B6` | `Pending` | — | — |
 | `G04-P2-B7` | `Pending` | — | — |

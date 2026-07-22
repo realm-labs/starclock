@@ -146,6 +146,10 @@
       "command": ["node", "tools/goal04/verify-activity-transaction.mjs", "."]
     },
     {
+      "name": "Goal 04 Activity RNG and canonical state",
+      "command": ["node", "tools/goal04/verify-activity-rng-state.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

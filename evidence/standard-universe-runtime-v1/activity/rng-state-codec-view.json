@@ -1,0 +1,49 @@
+{
+  "schema_revision": "starclock.goal04-activity-rng-state-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P2-B4",
+  "result": "labeled-rng-canonical-state-and-bounded-views-implemented",
+  "revisions": {
+    "rng": "starclock-activity-rng-v2",
+    "state_codec": "starclock-activity-state-v2",
+    "state_hash": "sha256-v4"
+  },
+  "bounds": {
+    "labeled_streams": 8,
+    "maximum_rejections": 1000000
+  },
+  "shape": {
+    "purpose_required": true,
+    "empty_selection_consumes_no_draw": true,
+    "integer_rejection_mapping": true,
+    "weighted_candidates_use_authored_order": true,
+    "independent_sha256_derived_streams": true,
+    "canonical_fixed_width_little_endian": true,
+    "canonical_ordered_collections": true,
+    "rejection_preserves_canonical_bytes": true,
+    "authoritative_state_cloneable": false,
+    "authoritative_rng_cloneable": false,
+    "player_view_visibility_filtered": true,
+    "debug_view_explicit_and_bounded": true
+  },
+  "goldens": {
+    "first_graph_raw": "8809253053890565554",
+    "initial_state_sha256": "594e6c84d80c39e07ef2bdd42c77fc85a2c7f8bb8953e0575107ab6df0d0caeb"
+  },
+  "compatibility": {
+    "goal01_state_hash_goldens_unchanged": true,
+    "goal01_manifest_members_preserved": true,
+    "battle_checkpoint_fields_reserved_until": "G04-P2-B6",
+    "authoritative_float": false,
+    "generated_rows_public": false
+  },
+  "source_sha256": {
+    "rng": "8988a7684c6c0356f5b5e497e50a1aef55c0a9bb485b8024b48e09395e117c0f",
+    "codec": "b8a22cef7253798efcbe285576de28297fd863cea663a22af279a7178c584e11",
+    "transaction": "593142d97773e976069839a946051a42e756df81106640a59637961b99ea378e",
+    "view": "7e34819d595e5363c2bf0b873080595d830c6b10cc8408010c99773c473b1d6a",
+    "tests": "6c470674b2a0be8d4b4e5a0d1c1366c1ec32d83430720a28a9aee10ebddb4092"
+  },
+  "focused_tests": 3,
+  "new_registry_packages": 0
+}

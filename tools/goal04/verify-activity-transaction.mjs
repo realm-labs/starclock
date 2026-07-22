@@ -20,7 +20,7 @@ for (const marker of [
 for (const marker of [
   "pub struct ActivityCause", "pub enum ActivityTransactionEventKind",
   "pub enum ActivityFault", "pub enum ActivityTransactionOutcome",
-  "let mut working = self.clone()", "faulted.terminal = Some(ActivityTerminalOutcome::Faulted)",
+  "let mut working = self.transaction_copy()", "faulted.terminal = Some(ActivityTerminalOutcome::Faulted)",
   "edge_traversals", "node_visits", "maximum_total_visits"
 ]) assert(transaction.includes(marker), `Activity transaction executor omits ${marker}`);
 for (const [constant, value] of [
