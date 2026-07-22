@@ -10,8 +10,8 @@ pub struct UniverseEncounterWaveEnemy {
     pub slot: String,
     #[serde(rename = "source_monster_id")]
     pub source_monster_id: String,
-    #[serde(rename = "enemy_variant_id")]
-    pub enemy_variant_id: i32,
+    #[serde(rename = "enemy_variant_stable_key")]
+    pub enemy_variant_stable_key: String,
 }
 
 impl super::runtime::SoraDecode for UniverseEncounterWaveEnemy {
@@ -23,7 +23,7 @@ impl super::runtime::SoraDecode for UniverseEncounterWaveEnemy {
             sequence: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             slot: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_monster_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            enemy_variant_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+            enemy_variant_stable_key: <String as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

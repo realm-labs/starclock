@@ -49,6 +49,13 @@ assertRef("UniverseEncounterWave", "member_id", "UniverseEncounterMember");
 assertRef("UniverseEncounterPool", "room_id", "UniverseRoom");
 assertRef("UniverseActivityBinding", "profile_id", "UniverseProfile");
 
+function assertString(table, field) {
+  const value = tableByName.get(table)?.fields.find((candidate) => candidate.name === field)?.ty;
+  assert(value === "String", `${table}.${field} is not a stable string binding`);
+}
+assertString("UniverseDifficultyEnemy", "enemy_variant_stable_key");
+assertString("UniverseEncounterWaveEnemy", "enemy_variant_stable_key");
+
 const temporary = fs.mkdtempSync(path.join(os.tmpdir(), "starclock-universe-schema-"));
 try {
   const directLock = path.join(temporary, "schema.lock");

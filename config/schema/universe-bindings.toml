@@ -179,7 +179,7 @@ type = "i32"
 range = [0, 100]
 [[tables.fields]]
 name = "stage_ability_ids"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 length = [0, 64]
 [[tables.fields]]
@@ -237,8 +237,9 @@ name = "source_monster_id"
 type = "string"
 length = [1, 32]
 [[tables.fields]]
-name = "enemy_variant_id"
-type = "ref<EnemyVariant.id>"
+name = "enemy_variant_stable_key"
+type = "string"
+length = [1, 200]
 [[tables.indexes]]
 name = "by_wave_sequence"
 fields = ["wave_id", "sequence"]

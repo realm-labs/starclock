@@ -22,7 +22,7 @@ pub struct UniverseEncounterMember {
     #[serde(rename = "hard_level_group")]
     pub hard_level_group: i32,
     #[serde(rename = "stage_ability_ids")]
-    pub stage_ability_ids: Vec<String>,
+    pub stage_ability_ids: Option<Vec<String>>,
     #[serde(rename = "drop_type")]
     pub drop_type: Option<String>,
 }
@@ -41,7 +41,7 @@ impl super::runtime::SoraDecode for UniverseEncounterMember {
             weight_decimal: <String as super::runtime::SoraDecode>::decode(reader)?,
             stage_level: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             hard_level_group: <i32 as super::runtime::SoraDecode>::decode(reader)?,
-            stage_ability_ids: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            stage_ability_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             drop_type: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }

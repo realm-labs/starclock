@@ -11,8 +11,8 @@ pub struct UniverseDifficultyEnemy {
     pub role: UniverseEnemyRole,
     #[serde(rename = "source_monster_id")]
     pub source_monster_id: String,
-    #[serde(rename = "enemy_variant_id")]
-    pub enemy_variant_id: i32,
+    #[serde(rename = "enemy_variant_stable_key")]
+    pub enemy_variant_stable_key: String,
     #[serde(rename = "level")]
     pub level: i32,
 }
@@ -26,7 +26,7 @@ impl super::runtime::SoraDecode for UniverseDifficultyEnemy {
             sequence: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             role: <UniverseEnemyRole as super::runtime::SoraDecode>::decode(reader)?,
             source_monster_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            enemy_variant_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+            enemy_variant_stable_key: <String as super::runtime::SoraDecode>::decode(reader)?,
             level: <i32 as super::runtime::SoraDecode>::decode(reader)?,
         })
     }

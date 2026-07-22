@@ -10,12 +10,13 @@ SCRIPT_ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPT_ROOT))
 
 from workbook.common import author, semantic_digest  # noqa: E402
+from workbook.topology import build_rows as build_topology_rows  # noqa: E402
 
 
 def build_rows(root: Path, empty: bool) -> dict[str, list[dict]]:
     if empty:
         return {}
-    raise RuntimeError("full workbook row builders are introduced by G03-P3-B2 through B5")
+    return build_topology_rows(root)
 
 
 def main() -> None:

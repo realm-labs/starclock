@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "992cf65682ca0968",
+  "fingerprint": "198552c1b21c7872",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -20569,13 +20569,8 @@
             "derived_from": null
           },
           {
-            "name": "enemy_variant_id",
-            "ty": {
-              "Ref": {
-                "table": "EnemyVariant",
-                "field": "id"
-              }
-            },
+            "name": "enemy_variant_stable_key",
+            "ty": "String",
             "scope": {
               "values": [
                 "all"
@@ -20585,7 +20580,10 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": null,
+            "length": [
+              1,
+              200
+            ],
             "parser": null,
             "derived_from": null
           },
@@ -26116,7 +26114,9 @@
           {
             "name": "stage_ability_ids",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -26349,13 +26349,8 @@
             "derived_from": null
           },
           {
-            "name": "enemy_variant_id",
-            "ty": {
-              "Ref": {
-                "table": "EnemyVariant",
-                "field": "id"
-              }
-            },
+            "name": "enemy_variant_stable_key",
+            "ty": "String",
             "scope": {
               "values": [
                 "all"
@@ -26365,7 +26360,10 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": null,
+            "length": [
+              1,
+              200
+            ],
             "parser": null,
             "derived_from": null
           }

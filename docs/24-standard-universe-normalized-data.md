@@ -32,6 +32,14 @@ runtime identity.
 This prevents an extracted state row or historical schedule row from inflating
 logical coverage.
 
+Enemy references cross the Goal 01 boundary by stable key. They are verified
+against the complete Version 4.4 `enemy-variants.json` reference set during
+authoring, then resolved to executable `EnemyVariant` rows when that combat
+content is promoted. They deliberately are not Sora foreign keys yet: the
+current production combat workbooks contain only the already-implemented
+enemy partition, and manufacturing placeholder runtime rows here would couple
+run-data preparation to enemy AI/stat implementation.
+
 ## Common record envelope
 
 All authored records contain:
