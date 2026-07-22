@@ -50,6 +50,7 @@ const expectedExternal = new Map([
     { name: "sha2", requirement: "=0.11.0", features: [] },
   ]],
   ["starclock-mcp", [
+    { name: "allocation-counter", requirement: "=0.8.1", features: [], kind: "dev" },
     { name: "axum", requirement: "=0.8.9", features: ["http1", "tokio"] },
     { name: "rmcp", requirement: "=2.2.0", features: ["client", "macros", "server", "transport-io", "transport-streamable-http-server"] },
     { name: "schemars", requirement: "=1.2.1", features: ["derive", "std"] },
@@ -117,7 +118,7 @@ const agentApi = packages.find((entry) => entry.name === "starclock-agent-api");
 assert(agentApi.dependencies.every((dependency) => ["starclock-ai", "starclock-combat", "starclock-data", "starclock-replay", "serde", "serde_json", "sha2"].includes(dependency.name) || (dependency.kind === "dev" && ["allocation-counter", "proptest"].includes(dependency.name))), "starclock-agent-api may use only reviewed Goal 01 controller/composition/replay boundaries, deterministic serialization/token-digest dependencies and property/benchmark tooling");
 
 const mcp = packages.find((entry) => entry.name === "starclock-mcp");
-assert(mcp.dependencies.every((dependency) => ["starclock-agent-api", "axum", "rmcp", "schemars", "serde", "serde_json", "tokio", "tower"].includes(dependency.name)), "starclock-mcp may depend only on the protocol-neutral agent API, frozen official MCP SDK, reviewed HTTP service boundary, schema/JSON conversion and async runtime");
+assert(mcp.dependencies.every((dependency) => ["starclock-agent-api", "allocation-counter", "axum", "rmcp", "schemars", "serde", "serde_json", "tokio", "tower"].includes(dependency.name)), "starclock-mcp may depend only on the protocol-neutral agent API, frozen official MCP SDK, reviewed HTTP service boundary, schema/JSON conversion, async runtime and benchmark-only allocator counter");
 
 console.log("Workspace dependency boundaries verified (11 crates; protocol-neutral agent boundary and one-way frozen MCP adapter dependency).");
 

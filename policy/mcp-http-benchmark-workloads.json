@@ -1,0 +1,39 @@
+{
+  "schema_revision": "starclock.mcp-http-benchmark-policy.v1",
+  "workload_revision": "g02-mcp-http-adapter-v1",
+  "reviewed_on": "2026-07-22",
+  "measurement_scope": "In-process Axum middleware, authorization, rate classification, MCP SDK dispatch and JSON/SSE serialization on a current-thread runtime; excludes TCP and combat-only attribution.",
+  "baseline": {
+    "path": "evidence/agent-control-mcp-v1/performance/phase4-http-baseline-windows-x64.json",
+    "sha256": "6d7fedcccd539edbf74c7384d84e245f216858400778992f352c1900224e7e9e"
+  },
+  "shared_ci_smoke_ceiling": {
+    "maximum_total_elapsed_ns": 5000000000,
+    "maximum_row_elapsed_ns": 2000000000,
+    "minimum_operations_per_second": 100,
+    "maximum_allocation_bytes_per_row": 268435456,
+    "maximum_peak_live_bytes": 67108864,
+    "maximum_retained_bytes": 67108864
+  },
+  "stable_runner": {
+    "id": "starclock-bench-win10-i7-10700f-v1",
+    "platform": "win32",
+    "architecture": "x64",
+    "os_release": "10.0.19045",
+    "cpu_model": "Intel(R) Core(TM) i7-10700F CPU @ 2.90GHz",
+    "logical_processors": 16,
+    "minimum_total_memory_bytes": 64000000000,
+    "rust_host": "x86_64-pc-windows-msvc",
+    "rustc": "1.97.0"
+  },
+  "strict_budgets": {
+    "http-observe-256-v1": { "maximum_elapsed_ns": 150000000, "minimum_operations_per_second": 1500, "maximum_allocation_bytes": 50000000, "maximum_peak_live_bytes": 1250000, "maximum_retained_bytes": 1150000 },
+    "http-action-16-v1": { "maximum_elapsed_ns": 15000000, "minimum_operations_per_second": 1000, "maximum_allocation_bytes": 5000000, "maximum_peak_live_bytes": 500000, "maximum_retained_bytes": 400000 },
+    "http-resident-sessions-16-v1": { "maximum_elapsed_ns": 15000000, "minimum_operations_per_second": 1000, "maximum_allocation_bytes": 4000000, "maximum_peak_live_bytes": 400000, "maximum_retained_bytes": 350000 }
+  },
+  "expected_rows": [
+    { "id": "http-observe-256-v1", "operations": 256, "sessions": 1, "allocation_count": 379041, "allocation_bytes": 45292420, "peak_live_bytes": 1108389, "retained_bytes": 1065856, "peak_live_bytes_per_session": 1108389, "retained_bytes_per_session": 1065856, "payload_bytes": 1593024, "final_hash": "b9d33065f40e044f3326921cd7b3dca7e3341d004dcad8818c4b7265d0440292" },
+    { "id": "http-action-16-v1", "operations": 16, "sessions": 16, "allocation_count": 31506, "allocation_bytes": 4044278, "peak_live_bytes": 347817, "retained_bytes": 290561, "peak_live_bytes_per_session": 21739, "retained_bytes_per_session": 18161, "payload_bytes": 131924, "final_hash": "956e35db53515806c3e5c2a96da078880462b190144094c73e6f313cffa8103a" },
+    { "id": "http-resident-sessions-16-v1", "operations": 16, "sessions": 16, "allocation_count": 25203, "allocation_bytes": 3162914, "peak_live_bytes": 294515, "retained_bytes": 251977, "peak_live_bytes_per_session": 18408, "retained_bytes_per_session": 15749, "payload_bytes": 99510, "final_hash": "b9d33065f40e044f3326921cd7b3dca7e3341d004dcad8818c4b7265d0440292" }
+  ]
+}

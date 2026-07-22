@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import crypto from "node:crypto";
 
 const evidencePath = "evidence/agent-control-mcp-v1/protocol/mcp-stdio-conformance.json";
 const inspectorPath = "tools/agent-control/mcp-inspector-config.json";
@@ -6,6 +7,8 @@ const testPath = "crates/starclock-cli/tests/mcp_stdio.rs";
 const evidence = JSON.parse(await readFile(evidencePath, "utf8"));
 const inspector = JSON.parse(await readFile(inspectorPath, "utf8"));
 const test = await readFile(testPath, "utf8");
+const traceBytes = await readFile(evidence.shared_trace.path);
+const trace = JSON.parse(traceBytes);
 const fail = (message) => { throw new Error(`MCP stdio conformance: ${message}`); };
 
 const expectedTools = [
@@ -30,6 +33,8 @@ if (evidence.battle.scenario_id !== "scenario.standard-v1.basic-single-wave") fa
 if (evidence.battle.external_actions !== 8 || evidence.battle.replay_commands !== 9) fail("trace count drift");
 if (evidence.battle.final_state_hash !== "5021cdd6019e0a100ad35e36ffb69fdb4860600db472c77fb8b33a9571b507ec") fail("terminal hash drift");
 if (!evidence.battle.verified_after_close) fail("post-close verification is not recorded");
+if (crypto.createHash("sha256").update(traceBytes).digest("hex") !== evidence.shared_trace.sha256) fail("shared trace digest drift");
+if (trace.state_hashes.length !== evidence.shared_trace.exact_state_hashes || trace.replay_bytes !== evidence.shared_trace.exact_replay_bytes) fail("shared trace count drift");
 
 const server = inspector.mcpServers?.starclock;
 if (!server || server.command !== "cargo") fail("Inspector command drift");
@@ -46,6 +51,7 @@ for (const marker of [
   "stdio_stale_action",
   "missing field",
   "BASIC_FINAL_HASH",
+  "basic-transport-trace.json",
   "trailing_stdout.is_empty()",
   "stderr.is_empty()",
 ]) {

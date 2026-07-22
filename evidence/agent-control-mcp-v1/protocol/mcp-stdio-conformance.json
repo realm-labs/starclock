@@ -15,6 +15,12 @@
     "response_frames": 24
   },
   "inspector_fixture": "tools/agent-control/mcp-inspector-config.json",
+  "shared_trace": {
+    "path": "evidence/agent-control-mcp-v1/protocol/basic-transport-trace.json",
+    "sha256": "b6a4a112d9ec801f97ddb0ab5a95e62ebe682d83f33bc4ac5a0adef5ecf0083f",
+    "exact_state_hashes": 9,
+    "exact_replay_bytes": 987
+  },
   "coverage": [
     "initialize and frozen protocol/server identity",
     "seven typed tools plus static resources, templates and usage prompt discovery",

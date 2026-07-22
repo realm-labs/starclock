@@ -1,0 +1,43 @@
+{
+  "schema_revision": "starclock.mcp-http-conformance-evidence.v1",
+  "recorded_on": "2026-07-22",
+  "platform": "x86_64-pc-windows-msvc",
+  "mcp_revision": "2025-11-25",
+  "server": {
+    "name": "starclock-mcp",
+    "transport": "streamable-http",
+    "profile": "authorized_loopback",
+    "real_tcp_listener": true
+  },
+  "scripted_client": {
+    "source": "crates/starclock-mcp/tests/http_conformance.rs",
+    "test": "authorized_tcp_client_proves_conformance_trace_and_multi_session_load",
+    "command": "cargo test -p starclock-mcp --test http_conformance --all-features"
+  },
+  "trace": {
+    "path": "evidence/agent-control-mcp-v1/protocol/basic-transport-trace.json",
+    "sha256": "b6a4a112d9ec801f97ddb0ab5a95e62ebe682d83f33bc4ac5a0adef5ecf0083f",
+    "state_hashes": 9,
+    "replay_bytes": 987,
+    "replay_sha256": "499101908771d04285f90b488a7888d020132ea4f60ed07d3cf14d24a429a142"
+  },
+  "load": {
+    "concurrent_clients": 8,
+    "independent_mcp_transport_sessions": true,
+    "completed_battles": 8,
+    "identical_traces": true,
+    "identical_replays": true
+  },
+  "coverage": [
+    "real HTTP/1.1 TCP requests and response framing",
+    "public health, readiness and nonauthoritative metrics",
+    "authorized MCP 2025-11-25 initialization and initialized notification",
+    "seven-tool discovery",
+    "eight-action basic Standard completion using only public legal actions",
+    "exact nine-boundary state-hash trace equivalence",
+    "exact 987-byte replay equivalence and fresh verification",
+    "close after replay export",
+    "eight concurrent independent MCP sessions complete identical traces"
+  ],
+  "result": "pass"
+}

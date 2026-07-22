@@ -283,6 +283,12 @@ commands without rerunning the external model.
   gives already-admitted requests at most ten seconds to drain.
 - Operational lifecycle, counters, signals and probes never enter battle
   state, replay facts, RNG or canonical hashes.
+- The retained real-TCP client runs eight independent authorized transport
+  sessions and binds in-process, stdio and HTTP to the same nine state hashes
+  and exact 987-byte replay.
+- HTTP adapter benchmarks isolate middleware/SDK/serialization from TCP and
+  combat, and report per-operation latency/throughput, allocations, aggregate
+  peak live bytes and simultaneous resident bytes per session.
 
 ## Failure model
 

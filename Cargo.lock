@@ -1002,6 +1002,7 @@ dependencies = [
 name = "starclock-mcp"
 version = "0.1.0"
 dependencies = [
+ "allocation-counter",
  "axum",
  "rmcp",
  "schemars",

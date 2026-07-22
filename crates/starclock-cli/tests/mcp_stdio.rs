@@ -226,6 +226,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
         json!({"schema_revision": "agent-api-v1", "scenario_id": BASIC_SCENARIO}),
     );
     let mut observation = created["observation"].clone();
+    let mut transport_hashes = vec![observation["state_hash"].clone()];
     let session_id = observation["session_id"].as_str().unwrap().to_owned();
     let stale_decision = observation["decision_id"].clone();
     let stale_hash = observation["state_hash"].clone();
@@ -244,6 +245,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
         }),
     );
     observation = observation_from_action(&first_result);
+    transport_hashes.push(observation["state_hash"].clone());
     let post_first_hash = observation["state_hash"].clone();
 
     let stale = client.result(
@@ -308,17 +310,24 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
             }),
         );
         observation = observation_from_action(&played);
+        transport_hashes.push(observation["state_hash"].clone());
         step += 1;
     }
     assert_eq!(step, 8);
     assert_eq!(observation["status"], "won");
     assert_eq!(observation["state_hash"], BASIC_FINAL_HASH);
+    let frozen_trace: Value = serde_json::from_str(include_str!(
+        "../../../evidence/agent-control-mcp-v1/protocol/basic-transport-trace.json"
+    ))
+    .unwrap();
+    assert_eq!(Value::Array(transport_hashes), frozen_trace["state_hashes"]);
 
     let exported = client.tool(
         "starclock_export_replay",
         json!({"schema_revision": "agent-api-v1", "session_id": session_id}),
     );
     assert_eq!(exported["command_count"], "9");
+    assert_eq!(exported["replay_hex"], frozen_trace["replay_hex"]);
     let replay_hex = exported["replay_hex"].clone();
     let closed = client.tool(
         "starclock_close_battle",

@@ -1,3 +1,4 @@
+use serde_json::Value;
 use starclock_agent_api::{
     action::AgentActionKind,
     observation::{AgentBattlePhase, AgentBattleStatus, VisibilityPolicy},
@@ -33,6 +34,7 @@ fn every_frozen_standard_scenario_finishes_through_agent_values_only() {
         let mut observation = session
             .observe(&EventCursor::parse("event_0").unwrap())
             .unwrap();
+        let mut state_hashes = vec![observation.state_hash.as_str().to_owned()];
         let mut external_steps = 0u64;
         while observation.status == AgentBattleStatus::AwaitingPlayer {
             assert!(external_steps < 512, "{scenario} exceeded the script bound");
@@ -62,6 +64,7 @@ fn every_frozen_standard_scenario_finishes_through_agent_values_only() {
                 .unwrap();
             assert!(response.committed);
             observation = response.observation;
+            state_hashes.push(observation.state_hash.as_str().to_owned());
             external_steps += 1;
         }
 
@@ -73,6 +76,17 @@ fn every_frozen_standard_scenario_finishes_through_agent_values_only() {
         );
         assert_eq!(external_steps, EXPECTED_EXTERNAL_STEPS[index], "{scenario}");
         let export = session.export_replay().unwrap();
+        if index == 0 {
+            let frozen: Value = serde_json::from_str(include_str!(
+                "../../../evidence/agent-control-mcp-v1/protocol/basic-transport-trace.json"
+            ))
+            .unwrap();
+            assert_eq!(
+                serde_json::to_value(&state_hashes).unwrap(),
+                frozen["state_hashes"]
+            );
+            assert_eq!(hex(export.bytes()), frozen["replay_hex"].as_str().unwrap());
+        }
         assert_eq!(
             export.diagnostics().len(),
             EXPECTED_REPLAY_COMMANDS[index],
@@ -87,4 +101,14 @@ fn every_frozen_standard_scenario_finishes_through_agent_values_only() {
             AgentUInt::from_u64(u64::try_from(export.diagnostics().len()).unwrap())
         );
     }
+}
+
+fn hex(bytes: &[u8]) -> String {
+    const DIGITS: &[u8; 16] = b"0123456789abcdef";
+    let mut encoded = String::with_capacity(bytes.len() * 2);
+    for &byte in bytes {
+        encoded.push(char::from(DIGITS[usize::from(byte >> 4)]));
+        encoded.push(char::from(DIGITS[usize::from(byte & 0x0f)]));
+    }
+    encoded
 }

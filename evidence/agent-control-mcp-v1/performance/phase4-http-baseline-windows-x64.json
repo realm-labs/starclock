@@ -1,0 +1,74 @@
+{
+  "schema_revision": "starclock.mcp-http-benchmark-report.v1",
+  "workload_revision": "g02-mcp-http-adapter-v1",
+  "rows": [
+    {
+      "id": "http-observe-256-v1",
+      "operations": 256,
+      "sessions": 1,
+      "elapsed_ns": 56597400,
+      "latency_ns_per_operation": 221083,
+      "operations_per_second": 4523,
+      "allocation_count": 379041,
+      "allocation_bytes": 45292420,
+      "peak_live_bytes": 1108389,
+      "retained_bytes": 1065856,
+      "peak_live_bytes_per_session": 1108389,
+      "retained_bytes_per_session": 1065856,
+      "payload_bytes": 1593024,
+      "final_hash": "b9d33065f40e044f3326921cd7b3dca7e3341d004dcad8818c4b7265d0440292",
+      "elapsed_ns_min": 56194600,
+      "elapsed_ns_max": 57452900
+    },
+    {
+      "id": "http-action-16-v1",
+      "operations": 16,
+      "sessions": 16,
+      "elapsed_ns": 5148400,
+      "latency_ns_per_operation": 321775,
+      "operations_per_second": 3107,
+      "allocation_count": 31506,
+      "allocation_bytes": 4044278,
+      "peak_live_bytes": 347817,
+      "retained_bytes": 290561,
+      "peak_live_bytes_per_session": 21739,
+      "retained_bytes_per_session": 18161,
+      "payload_bytes": 131924,
+      "final_hash": "956e35db53515806c3e5c2a96da078880462b190144094c73e6f313cffa8103a",
+      "elapsed_ns_min": 5090200,
+      "elapsed_ns_max": 6320200
+    },
+    {
+      "id": "http-resident-sessions-16-v1",
+      "operations": 16,
+      "sessions": 16,
+      "elapsed_ns": 4231300,
+      "latency_ns_per_operation": 264456,
+      "operations_per_second": 3781,
+      "allocation_count": 25203,
+      "allocation_bytes": 3162914,
+      "peak_live_bytes": 294515,
+      "retained_bytes": 251977,
+      "peak_live_bytes_per_session": 18408,
+      "retained_bytes_per_session": 15749,
+      "payload_bytes": 99510,
+      "final_hash": "b9d33065f40e044f3326921cd7b3dca7e3341d004dcad8818c4b7265d0440292",
+      "elapsed_ns_min": 4107900,
+      "elapsed_ns_max": 5033600
+    }
+  ],
+  "measurement": {
+    "profile": "stable-runner-strict",
+    "samples": 5,
+    "runner": {
+      "platform": "win32",
+      "architecture": "x64",
+      "os_release": "10.0.19045",
+      "cpu_model": "Intel(R) Core(TM) i7-10700F CPU @ 2.90GHz",
+      "logical_processors": 16,
+      "total_memory_bytes": 68625661952,
+      "rust_host": "x86_64-pc-windows-msvc",
+      "rustc": "1.97.0"
+    }
+  }
+}

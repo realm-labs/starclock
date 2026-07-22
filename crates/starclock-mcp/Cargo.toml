@@ -7,6 +7,14 @@ publish.workspace = true
 [lints]
 workspace = true
 
+[[example]]
+name = "g02_http_benchmark"
+path = "examples/g02_http_benchmark.rs"
+required-features = ["benchmark-harness"]
+
+[features]
+benchmark-harness = []
+
 [dependencies]
 axum.workspace = true
 rmcp.workspace = true
@@ -16,4 +24,5 @@ serde_json.workspace = true
 starclock-agent-api = { path = "../starclock-agent-api" }
 tokio.workspace = true
 [dev-dependencies]
+allocation-counter.workspace = true
 tower.workspace = true

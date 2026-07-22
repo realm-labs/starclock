@@ -2,10 +2,10 @@
   "schema_revision": "starclock.goal01.architecture-audit.v1",
   "policy": {
     "repository_checks_sha256": "be0ad4d929580c8de9203545fa2924935afaa002e1cc3eab4b74e34e9299cd5a",
-    "dependency_policy_sha256": "75243d5f04636507610bd09bd051f7ff63739e2fb60277def4c52ad6bf3052d2"
+    "dependency_policy_sha256": "0f8aa733c8c4918683542c64778b0937865172c714c264fa1510373a5d38d632"
   },
   "source_size_audit": {
-    "handwritten_files": 253,
+    "handwritten_files": 255,
     "generated_vendor_exclusions": [
       {
         "path": "config/sora-golden/expected/reader/generated",
@@ -361,6 +361,11 @@
           "starclock-agent-api"
         ],
         "registry_dependencies": [
+          {
+            "name": "allocation-counter",
+            "kind": "dev",
+            "requirement": "=0.8.1"
+          },
           {
             "name": "axum",
             "kind": "production",

@@ -230,9 +230,9 @@
     },
     {
       "name": "frozen MCP adapter and bounded HTTP transport",
-      "relationship": "rmcp, schemars, serde_json, tokio and axum are direct starclock-mcp dependencies; tower is test-only; all other entries are transitive or target-specific through the exact locked adapter graph",
+      "relationship": "rmcp, schemars, serde_json, tokio and axum are direct starclock-mcp dependencies; tower and allocation-counter are test/benchmark-only; all other entries are transitive or target-specific through the exact locked adapter graph",
       "owner": "starclock-mcp frozen 2025-11-25 stdio and Streamable HTTP adapter",
-      "features": ["rmcp:client,macros,server,transport-io,transport-streamable-http-server", "axum:http1,tokio", "tokio:io-std,io-util,macros,net,rt,rt-multi-thread,signal,sync,time"],
+      "features": ["rmcp:client,macros,server,transport-io,transport-streamable-http-server", "axum:http1,tokio", "tokio:io-std,io-util,macros,net,rt,rt-multi-thread,signal,sync,time", "allocation-counter:benchmark-harness-dev-only"],
       "default_features": false,
       "source_url": "https://github.com/modelcontextprotocol/rust-sdk/tree/rmcp-v2.2.0",
       "purpose": "Provide the frozen official MCP protocol implementation, generated JSON Schemas and bounded Axum/Tokio Streamable HTTP integration while Starclock retains authorization, ownership, quotas, rates and domain semantics.",
