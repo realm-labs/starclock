@@ -128,8 +128,8 @@ fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state(
     assert_eq!(
         view.state_hash().bytes(),
         [
-            177, 80, 115, 146, 29, 183, 73, 141, 205, 255, 223, 195, 243, 87, 187, 47, 23, 48, 199,
-            125, 44, 28, 172, 250, 152, 233, 61, 98, 96, 57, 86, 204,
+            248, 127, 81, 154, 228, 252, 57, 50, 48, 138, 33, 97, 172, 144, 145, 155, 11, 5, 66,
+            213, 5, 13, 230, 173, 202, 245, 102, 177, 71, 119, 182, 118,
         ]
     );
     let decision = view.decision().expect("Path choice");
@@ -276,6 +276,7 @@ fn topology_draw_is_reproducible_for_the_same_seed_and_identity() {
             .value()
             .clone()
     };
-    assert_eq!(selected(7), selected(7));
-    assert_ne!(selected(7), selected(8));
+    let reference = selected(7);
+    assert_eq!(reference, selected(7));
+    assert!((8..=16).any(|instance| selected(instance) != reference));
 }

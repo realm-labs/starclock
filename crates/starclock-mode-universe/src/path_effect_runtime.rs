@@ -93,6 +93,12 @@ pub enum PathBattleEvent {
     HpLost = 31,
     FollowUpDamageDealt = 32,
     AftertasteDamageDealt = 33,
+    SkillPointConsumed = 34,
+    SkillPointRecovered = 35,
+    BasicAttackUsed = 36,
+    BasicAttackDamageDealt = 37,
+    NonAttackSkillUsed = 38,
+    SporeBurst = 39,
 }
 
 /// Cause-relative target retained until the combat adapter resolves unit IDs.
@@ -115,6 +121,7 @@ pub enum PathEffectTarget {
     OtherAllies = 13,
     HealerAndHealed = 14,
     HighestAttackAlly = 15,
+    LowestHpAlly = 16,
 }
 
 /// Generic stat families used by Path conditional modifiers.
@@ -213,6 +220,12 @@ pub struct PathEffectFacts {
     pub grit_stacks: u32,
     pub aftertaste_element_count: u32,
     pub follow_up_targets_hit: u32,
+    pub skill_points_consumed: u32,
+    pub skill_points_recovered: u32,
+    pub skill_points_available: u32,
+    pub enemy_spore_count: u32,
+    pub all_enemy_spore_count: u32,
+    pub spores_burst: u32,
     pub actor_is_shielded: bool,
     pub enemy_is_frozen: bool,
     pub enemy_is_dissociated: bool,
@@ -674,6 +687,86 @@ pub enum PathEffect {
     ConfigureResonanceEnergyGain {
         battle_start_maximum_ratio: PathEffectValue,
         follow_up_attack_maximum_ratio: PathEffectValue,
+    },
+    ApplySpores {
+        target: PathEffectTarget,
+        stacks_per_skill_point: u8,
+        random_target_count: u8,
+        maximum_stacks: Option<u8>,
+    },
+    ConfigureNextSkillPointAccounting {
+        after_ultimate: bool,
+        includes_recovery: bool,
+        extra_points: u8,
+        critical_damage_ratio_per_point: PathEffectValue,
+        maximum_stacks: u8,
+        expires_after_attack: bool,
+    },
+    ConfigureSporePropagation {
+        spread_count: u8,
+        may_return_to_original: bool,
+    },
+    ModifySporeBurst {
+        damage_bonus_ratio: PathEffectValue,
+        spread_on_defeat: PathEffectTarget,
+    },
+    HealPerSporeBurst {
+        target: PathEffectTarget,
+        maximum_hp_ratio_per_spore: PathEffectValue,
+        spore_count: u8,
+    },
+    AddPartyDamageReductionPerSpore {
+        value_per_spore: PathEffectValue,
+        spore_count: u32,
+    },
+    ConditionalBasicAttackSkillPoint {
+        required_available_points: u8,
+        guaranteed_amount: u8,
+        extra_amount: u8,
+        extra_fixed_chance: PathEffectValue,
+    },
+    BasicAttackSplash {
+        target: PathEffectTarget,
+        original_damage_ratio: PathEffectValue,
+    },
+    ApplySkillPointConsumedStat {
+        stat: PathEffectStat,
+        value_per_point: PathEffectValue,
+        points: u8,
+        duration_turns: u8,
+        maximum_stacks: u8,
+    },
+    ApplyNonAttackSkillTeamDamage {
+        value_per_stack: PathEffectValue,
+        duration_turns: u8,
+        maximum_stacks: u8,
+    },
+    AddBasicAttackModifier {
+        stat: PathEffectStat,
+        value: PathEffectValue,
+    },
+    ConfigureEntrySkillPointRecovery {
+        amount_after_ally_turn: u8,
+        maximum_triggers_per_battle: u8,
+    },
+    ApplyMetamorphosis {
+        target: PathEffectTarget,
+        action_advance_ratio: PathEffectValue,
+        skill_points: u8,
+        duration_turns: u8,
+    },
+    ConfigureMetamorphosis {
+        duration_bonus_turns: u8,
+        defeated_enemy_energy_ratio: PathEffectValue,
+    },
+    ConfigureSkillPointResonanceEnergy {
+        maximum: PathEffectValue,
+        energy_ratio_per_consumed_or_recovered_point: PathEffectValue,
+    },
+    ConfigureMetamorphosisSporeBurst {
+        damage_ratio: PathEffectValue,
+        basic_attack_ratio_per_spore: PathEffectValue,
+        maximum_triggers_per_target: u8,
     },
 }
 

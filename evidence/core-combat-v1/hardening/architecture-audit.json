@@ -5,7 +5,7 @@
     "dependency_policy_sha256": "a8044cfdd658d855c7ecd8641942173cc1229d53454b3856a4d509ebe054b47a"
   },
   "source_size_audit": {
-    "handwritten_files": 333,
+    "handwritten_files": 335,
     "generated_vendor_exclusions": [
       {
         "path": "config/sora-golden/expected/reader/generated",
@@ -177,16 +177,16 @@
         "facade": false
       },
       {
-        "path": "crates/starclock-combat/src/resolver/lifecycle.rs",
-        "lines": 995,
+        "path": "crates/starclock-mode-universe/src/entry.rs",
+        "lines": 1006,
         "limit": 1200,
-        "utilization_percent": 82,
+        "utilization_percent": 83,
         "facade": false
       }
     ]
   },
   "public_api_audit": {
-    "public_declarations": 3361,
+    "public_declarations": 3375,
     "public_reexports": 41,
     "reexport_files": {
       "crates/starclock-activity/src/lib.rs": 18,

@@ -31,6 +31,7 @@ use crate::{
     },
     path_runtime::{PathContributionSet, PathRuntimeCatalog, PathRuntimeError},
     preservation_runtime::PreservationRuntimeCatalog,
+    propagation_runtime::PropagationRuntimeCatalog,
     remembrance_runtime::RemembranceRuntimeCatalog,
     run_runtime::{
         AbilityTreeContributionSet, CosmicFragments, RunRuntimeCatalog, RunRuntimeError,
@@ -52,6 +53,7 @@ pub struct StandardUniverseActivity {
     hunt_runtime: Arc<HuntRuntimeCatalog>,
     destruction_runtime: Arc<DestructionRuntimeCatalog>,
     elation_runtime: Arc<ElationRuntimeCatalog>,
+    propagation_runtime: Arc<PropagationRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -78,6 +80,7 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) hunt_runtime: Arc<HuntRuntimeCatalog>,
     pub(crate) destruction_runtime: Arc<DestructionRuntimeCatalog>,
     pub(crate) elation_runtime: Arc<ElationRuntimeCatalog>,
+    pub(crate) propagation_runtime: Arc<PropagationRuntimeCatalog>,
     pub(crate) curio_runtime: Arc<CurioRuntimeCatalog>,
     pub(crate) run_runtime: Arc<RunRuntimeCatalog>,
     pub(crate) ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -107,6 +110,7 @@ impl StandardUniverseActivity {
             hunt_runtime: context.hunt_runtime,
             destruction_runtime: context.destruction_runtime,
             elation_runtime: context.elation_runtime,
+            propagation_runtime: context.propagation_runtime,
             curio_runtime: context.curio_runtime,
             run_runtime: context.run_runtime,
             ability_runtime: context.ability_runtime,
@@ -591,6 +595,62 @@ impl StandardUniverseActivity {
         Ok(effects.into_boxed_slice())
     }
 
+    pub fn propagation_effects(
+        &self,
+        event: PathBattleEvent,
+        facts: PathEffectFacts,
+    ) -> Result<Box<[AppliedPathEffect]>, StandardUniversePropagationError> {
+        let view = self.graph.player_view();
+        let inventory = view
+            .inventories()
+            .iter()
+            .find(|inventory| inventory.id() == self.blessing_inventory)
+            .ok_or(StandardUniversePropagationError::MissingInventory)?;
+        let mut effects = Vec::new();
+        for (raw, level) in inventory.entries() {
+            let Ok(raw) = u32::try_from(*raw) else {
+                continue;
+            };
+            let Some(id) = crate::id::BlessingId::new(raw) else {
+                continue;
+            };
+            if !self
+                .propagation_runtime
+                .blessing_ids()
+                .any(|candidate| candidate == id)
+            {
+                continue;
+            }
+            let level =
+                u8::try_from(*level).map_err(|_| StandardUniversePropagationError::InvalidLevel)?;
+            effects.extend(
+                self.propagation_runtime
+                    .execute_blessing(id, level, event, facts)
+                    .map_err(StandardUniversePropagationError::Effect)?,
+            );
+        }
+        let path = self
+            .path_contributions()
+            .map_err(StandardUniversePropagationError::Path)?;
+        if path.passive().path() == self.propagation_runtime.path() {
+            if let Some(resonance) = path.resonance() {
+                effects.extend(
+                    self.propagation_runtime
+                        .execute_resonance(resonance.id(), event, facts)
+                        .map_err(StandardUniversePropagationError::Effect)?,
+                );
+            }
+            for formation in path.formations() {
+                effects.extend(
+                    self.propagation_runtime
+                        .execute_resonance(formation.id(), event, facts)
+                        .map_err(StandardUniversePropagationError::Effect)?,
+                );
+            }
+        }
+        Ok(effects.into_boxed_slice())
+    }
+
     pub fn curio_contributions(&self) -> Result<CurioContributionSet, CurioRuntimeError> {
         let view = self.graph.player_view();
         let inventory = view
@@ -871,6 +931,14 @@ pub enum StandardUniverseDestructionError {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum StandardUniverseElationError {
+    MissingInventory,
+    InvalidLevel,
+    Path(StandardUniversePathContributionError),
+    Effect(PathEffectRuntimeError),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum StandardUniversePropagationError {
     MissingInventory,
     InvalidLevel,
     Path(StandardUniversePathContributionError),
