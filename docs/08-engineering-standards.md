@@ -181,15 +181,46 @@ Unsafe Rust is forbidden unless a measured requirement cannot be satisfied safel
 
 Test code follows the same responsibility rules. Generated fixtures may be large, but large handwritten fixtures should move to data files or builders.
 
-## Formatting and lint gates
+## Formatting and validation gates
 
-The minimum local and CI gate is:
+Daily iteration uses the pinned change-aware gate:
 
 ```powershell
-cargo fmt --all -- --check
-cargo clippy --workspace --all-targets --all-features -- -D warnings
-cargo test --workspace --all-targets --all-features
+node tools/repository-check/run.mjs
 ```
+
+It has a 180-second warm-cache budget. It always checks formatting and static
+repository policies, runs Clippy plus library/integration tests for directly
+changed crates, and compiles their reverse dependants. It reuses the workspace
+Cargo target, incremental compilation and an ignored source/toolchain-bound
+pass receipt. Generated-data, release, strict-performance and cross-platform
+claims are reported as deferred rather than being silently treated as checked.
+
+Before merge, and whenever the quick gate reports deferred inputs, run:
+
+```powershell
+node tools/repository-check/run.mjs --full
+```
+
+The full profile executes generated-artifact drift, all-target/all-feature
+Clippy and all workspace tests. It compiles test harnesses once, executes
+independent harness binaries with bounded process-level parallelism, and runs
+doctests separately. Artifact/evidence validators must not recursively execute
+Rust tests in this profile: the workspace runner owns that coverage exactly
+once. Standalone goal validators may still run their focused Rust tests when
+invoked directly. The current baseline contains 95 test harness processes,
+including 75 integration-test binaries, so harness scheduling is a material
+part of acceptance performance even when compilation is warm. The workspace
+uses `[profile.test] opt-level = 1`: simulation and replay hot loops must not
+pay `opt-level = 0` runtime costs, while daily builds avoid release-profile
+compile time. Expensive deterministic workbook regeneration may reuse an
+ignored content-addressed receipt only when every workbook input, schema,
+generated output, authoring/verification tool, Sora binary, loader, Python and
+openpyxl identity matches; `STARCLOCK_NO_ARTIFACT_CACHE=1` forces regeneration.
+CI and isolated release checkouts normally begin without that receipt. CI
+selects the full profile automatically. Isolated release acceptance remains a
+separate fresh-target proof with incremental compilation disabled; it must not
+be used as the daily development loop.
 
 Once the workspace is created, configure shared lints at the workspace root. At minimum:
 
@@ -200,19 +231,11 @@ Once the workspace is created, configure shared lints at the workspace root. At 
 
 A CI file-size check must fail when a handwritten `.rs` file exceeds 1,200 physical lines. It must exclude only explicit generated/vendor paths, not arbitrary filename patterns.
 
-The pinned local entry point is:
-
-```text
-node tools/repository-check/run.mjs
-```
-
-It runs the minimum Rust gate together with the reviewed dependency direction,
-visibility/facade, source-size and generated-artifact checks. Generated or
-vendored source exclusions and handwritten exceptions are valid only when their
-exact paths and review reasons appear in `policy/repository-checks.json`. The
-ignored Phase 0 evidence caches can be included with `--with-source-cache`; they
-are not required clean-checkout inputs. CI invokes this same entry point rather
-than maintaining a second command list.
+Generated or vendored source exclusions and handwritten exceptions are valid
+only when their exact paths and review reasons appear in
+`policy/repository-checks.json`. Ignored Phase 0 evidence caches can be included
+in the full profile with `--with-source-cache`; they are not required
+clean-checkout inputs.
 
 ## Review checklist
 

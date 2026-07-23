@@ -30,3 +30,10 @@ unused_must_use = "deny"
 [workspace.lints.clippy]
 dbg_macro = "deny"
 todo = "deny"
+
+# Simulation-heavy integration tests spend far more time executing deterministic
+# battle/run loops than compiling. Level 1 removes debug-build hot-loop overhead
+# without imposing release-profile compile costs on daily development.
+[profile.test]
+opt-level = 1
+debug = 1

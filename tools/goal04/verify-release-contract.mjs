@@ -11,6 +11,7 @@ const scaffold = args.includes("--scaffold");
 const release = args.includes("--release");
 const bless = args.includes("--bless");
 const requireClean = args.includes("--require-clean");
+const artifactOnly = process.env.STARCLOCK_ARTIFACT_CHECK_ONLY === "1";
 assert(scaffold !== release, "select exactly one of --scaffold or --release");
 assert(args.every((arg) => ["--scaffold", "--release", "--bless", "--require-clean"].includes(arg)), "unknown release verifier argument");
 assert(!bless || release, "--bless is release-only");
@@ -42,9 +43,11 @@ assert(dispositions.rules.length === policy.terminal_denominators.rule_bindings,
 assert(dispositions.fixtures.length === policy.terminal_denominators.semantic_fixtures, "fixture denominator differs");
 assert(partitions.partitions.length === policy.terminal_denominators.mechanic_partitions, "partition denominator differs");
 
-run("node", ["tools/goal-hardening/verify-release-contract.mjs"]);
-run("node", ["tools/agent-control/verify-goal02-release-contract.mjs"]);
-run("node", ["tools/universe-reference/verify-release.mjs", "."]);
+if (!artifactOnly) {
+  run("node", ["tools/goal-hardening/verify-release-contract.mjs"]);
+  run("node", ["tools/agent-control/verify-goal02-release-contract.mjs"]);
+  run("node", ["tools/universe-reference/verify-release.mjs", "."]);
+}
 
 if (scaffold) {
   if (policy.state === "Scaffold") {
@@ -69,12 +72,14 @@ for (const collection of [policy.evidence_files, policy.documentation_files]) {
   for (const file of collection) assert(fileExists(file), `release reference is missing ${file}`);
 }
 
-run("node", ["tools/goal04/verify-mechanic-fixtures.mjs", "."]);
-run("node", ["tools/goal04/verify-runtime-completeness.mjs", "."]);
-run("node", ["tools/goal04/verify-seeded-matrix.mjs", "."]);
-run("node", ["tools/goal04/verify-determinism-hardening.mjs", "."]);
-run("node", ["tools/goal04/verify-universe-performance.mjs", "."]);
-run("node", ["tools/goal04/verify-universe-audits.mjs", "."]);
+if (!artifactOnly) {
+  run("node", ["tools/goal04/verify-mechanic-fixtures.mjs", "."]);
+  run("node", ["tools/goal04/verify-runtime-completeness.mjs", "."]);
+  run("node", ["tools/goal04/verify-seeded-matrix.mjs", "."]);
+  run("node", ["tools/goal04/verify-determinism-hardening.mjs", "."]);
+  run("node", ["tools/goal04/verify-universe-performance.mjs", "."]);
+  run("node", ["tools/goal04/verify-universe-audits.mjs", "."]);
+}
 
 const seeded = json("evidence/standard-universe-runtime-v1/hardening/seeded-matrix.json");
 const performance = json("evidence/standard-universe-runtime-v1/performance/stable-runner.json");

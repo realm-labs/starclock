@@ -6,6 +6,7 @@ import { execFileSync } from "node:child_process";
 
 const root = path.resolve(process.argv[2] && !process.argv[2].startsWith("--") ? process.argv[2] : ".");
 const bless = process.argv.includes("--bless");
+const artifactOnly = process.env.STARCLOCK_ARTIFACT_CHECK_ONLY === "1";
 const policy = json("policy/goal04-baseline-controller.json");
 assert(policy.schema_revision === "starclock.goal04-baseline-controller.v1", "unexpected baseline policy revision");
 const controller = text("crates/starclock-mode-universe/src/baseline_controller.rs");
@@ -33,8 +34,10 @@ for (const marker of [
   "ActivityTerminalOutcome::Completed"
 ]) assert(goldenTest.includes(marker), `baseline golden test omits ${marker}`);
 
-execFileSync("cargo", ["test", "-p", "starclock-mode-universe", "--lib", "baseline_controller::tests"], { cwd: root, stdio: "inherit" });
-execFileSync("cargo", ["test", "-p", "starclock-mode-universe", "--test", "encounter_runtime", "baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal"], { cwd: root, stdio: "inherit" });
+if (!artifactOnly) {
+  execFileSync("cargo", ["test", "-p", "starclock-mode-universe", "--lib", "baseline_controller::tests"], { cwd: root, stdio: "inherit" });
+  execFileSync("cargo", ["test", "-p", "starclock-mode-universe", "--test", "encounter_runtime", "baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal"], { cwd: root, stdio: "inherit" });
+}
 
 const sources = [
   "crates/starclock-activity/src/battle_preparation.rs",

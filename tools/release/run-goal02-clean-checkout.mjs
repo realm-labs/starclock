@@ -52,6 +52,7 @@ const environment = {
   ...process.env,
   CARGO_TARGET_DIR: path.join(checkout, "target"),
   CARGO_INCREMENTAL: "0",
+  STARCLOCK_REPOSITORY_PROFILE: "full",
   STARCLOCK_BENCH_RUNNER_ID: policy.stable_runner_id,
 };
 run("node", ["tools/sora/install.mjs"], checkout, environment);

@@ -6,6 +6,7 @@ import { execFileSync } from "node:child_process";
 
 const root = path.resolve(process.argv[2] && !process.argv[2].startsWith("--") ? process.argv[2] : ".");
 const bless = process.argv.includes("--bless");
+const artifactOnly = process.env.STARCLOCK_ARTIFACT_CHECK_ONLY === "1";
 const policy = json("policy/goal04-activity-agent-api.json");
 assert(policy.schema_revision === "starclock.goal04-activity-agent-api.v1", "unexpected Activity agent API policy revision");
 const facade = text("crates/starclock-agent-api/src/lib.rs");
@@ -49,9 +50,11 @@ for (const marker of [
   `assert_eq!(replay.bytes().len(), ${policy.golden.encoded_bytes.toLocaleString("en-US").replaceAll(",", "_")})`
 ]) assert(tests.includes(marker), `Activity agent golden omits ${marker}`);
 
-execFileSync("cargo", ["test", "-p", "starclock-agent-api", "--lib"], { cwd: root, stdio: "inherit" });
-execFileSync("cargo", ["test", "-p", "starclock-agent-api", "--test", "standard_session_loop"], { cwd: root, stdio: "inherit" });
-execFileSync("cargo", ["test", "-p", "starclock-agent-api", "--test", "activity_session_loop"], { cwd: root, stdio: "inherit" });
+if (!artifactOnly) {
+  execFileSync("cargo", ["test", "-p", "starclock-agent-api", "--lib"], { cwd: root, stdio: "inherit" });
+  execFileSync("cargo", ["test", "-p", "starclock-agent-api", "--test", "standard_session_loop"], { cwd: root, stdio: "inherit" });
+  execFileSync("cargo", ["test", "-p", "starclock-agent-api", "--test", "activity_session_loop"], { cwd: root, stdio: "inherit" });
+}
 
 const sources = [
   "crates/starclock-agent-api/Cargo.toml",

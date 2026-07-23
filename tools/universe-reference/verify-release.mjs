@@ -10,6 +10,7 @@ const options = process.argv.slice(hasRoot ? 3 : 2);
 assert(options.every((option) => ["--bless", "--require-clean"].includes(option)), "usage: verify-release.mjs [root] [--bless] [--require-clean]");
 const bless = options.includes("--bless");
 const requireClean = options.includes("--require-clean");
+const artifactOnly = process.env.STARCLOCK_ARTIFACT_CHECK_ONLY === "1";
 
 const status = text("docs/goals/03-standard-universe-reference-data-status.md");
 assert(status.includes("| State | `Complete` |"), "Goal 03 state is not Complete");
@@ -24,10 +25,12 @@ const normalizedBoundary = boundary.replace(/\s+/g, " ");
 for (const marker of ["config/universe-project.toml", "config/universe-generated/", "not the runtime `config/generated/config.sora`", "[Goal 04](goals/04-standard-universe-runtime.md) now provides that deliberate domain conversion"])
   assert(normalizedBoundary.includes(marker), `public boundary omits ${marker}`);
 
-run("node", ["tools/universe-reference/audit-release.mjs", "."]);
-run("node", ["tools/universe-reference/verify-fixtures.mjs", "."]);
-run("node", ["tools/goal-hardening/verify-release-contract.mjs"]);
-run("node", ["tools/agent-control/verify-goal02-release-contract.mjs"]);
+if (!artifactOnly) {
+  run("node", ["tools/universe-reference/audit-release.mjs", "."]);
+  run("node", ["tools/universe-reference/verify-fixtures.mjs", "."]);
+  run("node", ["tools/goal-hardening/verify-release-contract.mjs"]);
+  run("node", ["tools/agent-control/verify-goal02-release-contract.mjs"]);
+}
 
 const manifest = json("content-manifests/standard-universe-v1/content-manifest.json");
 const coverage = json("content-reference/standard-universe-v1/coverage.json");

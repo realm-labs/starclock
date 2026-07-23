@@ -6,6 +6,7 @@ import { spawnSync } from "node:child_process";
 
 const root = path.resolve(process.argv[2] && !process.argv[2].startsWith("--") ? process.argv[2] : ".");
 const bless = process.argv.includes("--bless");
+const artifactOnly = process.env.STARCLOCK_ARTIFACT_CHECK_ONLY === "1";
 const policy = json("policy/goal04-mechanic-fixture-audit.json");
 assert(policy.schema_revision === "starclock.goal04-mechanic-fixture-audit.v1", "unexpected fixture-audit policy revision");
 assert(policy.partitions.length === policy.expected.partitions, "fixture partition denominator differs");
@@ -44,7 +45,7 @@ assert(seen.size === reference.length, "not every fixture is assigned to one tes
 
 const cargoArgs = ["test", "-p", "starclock-mode-universe"];
 for (const target of testTargets) cargoArgs.push("--test", target);
-run("cargo", cargoArgs);
+if (!artifactOnly) run("cargo", cargoArgs);
 
 const evidence = {
   schema_revision: "starclock.goal04-mechanic-fixture-audit-evidence.v1",

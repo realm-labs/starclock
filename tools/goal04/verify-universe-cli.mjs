@@ -6,6 +6,7 @@ import { execFileSync } from "node:child_process";
 
 const root = path.resolve(process.argv[2] && !process.argv[2].startsWith("--") ? process.argv[2] : ".");
 const bless = process.argv.includes("--bless");
+const artifactOnly = process.env.STARCLOCK_ARTIFACT_CHECK_ONLY === "1";
 const policy = json("policy/goal04-universe-cli.json");
 assert(policy.schema_revision === "starclock.goal04-universe-cli.v1", "unexpected Universe CLI policy revision");
 const main = text("crates/starclock-cli/src/main.rs");
@@ -35,7 +36,8 @@ for (const marker of [
 ]) assert(tests.includes(marker), `Universe CLI integration test omits ${marker}`);
 assert(manifest.includes('starclock-mode-universe = { path = "../starclock-mode-universe" }'), "CLI does not depend on the Universe adapter crate");
 
-execFileSync("cargo", ["test", "-p", "starclock-cli", "--test", "universe_cli", "--all-features"], { cwd: root, stdio: "inherit" });
+if (!artifactOnly)
+  execFileSync("cargo", ["test", "-p", "starclock-cli", "--test", "universe_cli", "--all-features"], { cwd: root, stdio: "inherit" });
 
 const sources = [
   "crates/starclock-cli/Cargo.toml",

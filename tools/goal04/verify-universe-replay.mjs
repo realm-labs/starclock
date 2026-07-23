@@ -6,6 +6,7 @@ import { execFileSync } from "node:child_process";
 
 const root = path.resolve(process.argv[2] && !process.argv[2].startsWith("--") ? process.argv[2] : ".");
 const bless = process.argv.includes("--bless");
+const artifactOnly = process.env.STARCLOCK_ARTIFACT_CHECK_ONLY === "1";
 const policy = json("policy/goal04-universe-replay.json");
 assert(policy.schema_revision === "starclock.goal04-universe-replay.v1", "unexpected Universe replay policy revision");
 const replay = text("crates/starclock-mode-universe/src/universe_replay.rs");
@@ -41,8 +42,10 @@ for (const marker of [
   `verified.nested_battle_count(), ${policy.golden.nested_battles}`
 ]) assert(tests.includes(marker), `Universe replay golden test omits ${marker}`);
 
-execFileSync("cargo", ["test", "-p", "starclock-replay", "--lib"], { cwd: root, stdio: "inherit" });
-execFileSync("cargo", ["test", "-p", "starclock-mode-universe", "--test", "encounter_runtime", "complete_run_replay_verifies_and_reports_the_first_divergence"], { cwd: root, stdio: "inherit" });
+if (!artifactOnly) {
+  execFileSync("cargo", ["test", "-p", "starclock-replay", "--lib"], { cwd: root, stdio: "inherit" });
+  execFileSync("cargo", ["test", "-p", "starclock-mode-universe", "--test", "encounter_runtime", "complete_run_replay_verifies_and_reports_the_first_divergence"], { cwd: root, stdio: "inherit" });
+}
 
 const sources = [
   "crates/starclock-replay/src/activity.rs",
