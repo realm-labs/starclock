@@ -22,6 +22,7 @@ use crate::{
     destruction_runtime::DestructionRuntimeCatalog,
     digest::Encoder,
     elation_runtime::ElationRuntimeCatalog,
+    erudition_runtime::EruditionRuntimeCatalog,
     hunt_runtime::HuntRuntimeCatalog,
     id::{AbilityTreeNodeId, DifficultyId, PathId, WorldId},
     nihility_runtime::NihilityRuntimeCatalog,
@@ -231,6 +232,10 @@ impl StandardUniverseProfile {
             PropagationRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidPathRuntime)?,
         );
+        let erudition_runtime = Arc::new(
+            EruditionRuntimeCatalog::compile(&self.catalog)
+                .map_err(|_| StandardUniverseCompileError::InvalidPathRuntime)?,
+        );
         let curio_runtime = Arc::new(
             CurioRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidCurioRuntime)?,
@@ -318,6 +323,7 @@ impl StandardUniverseProfile {
             destruction_runtime,
             elation_runtime,
             propagation_runtime,
+            erudition_runtime,
             curio_runtime,
             run_runtime,
             ability_runtime,
@@ -355,6 +361,7 @@ pub struct CompiledActivity {
     destruction_runtime: Arc<DestructionRuntimeCatalog>,
     elation_runtime: Arc<ElationRuntimeCatalog>,
     propagation_runtime: Arc<PropagationRuntimeCatalog>,
+    erudition_runtime: Arc<EruditionRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -483,6 +490,11 @@ impl CompiledActivity {
     }
 
     #[must_use]
+    pub const fn erudition_runtime(&self) -> &Arc<EruditionRuntimeCatalog> {
+        &self.erudition_runtime
+    }
+
+    #[must_use]
     pub const fn curio_runtime(&self) -> &Arc<CurioRuntimeCatalog> {
         &self.curio_runtime
     }
@@ -530,6 +542,7 @@ impl CompiledActivity {
                     destruction_runtime: Arc::clone(&self.destruction_runtime),
                     elation_runtime: Arc::clone(&self.elation_runtime),
                     propagation_runtime: Arc::clone(&self.propagation_runtime),
+                    erudition_runtime: Arc::clone(&self.erudition_runtime),
                     curio_runtime: Arc::clone(&self.curio_runtime),
                     run_runtime: Arc::clone(&self.run_runtime),
                     ability_runtime: Arc::clone(&self.ability_runtime),
@@ -922,6 +935,7 @@ fn compile_identity(
     encoder.text(crate::destruction_runtime::DESTRUCTION_RUNTIME_REVISION);
     encoder.text(crate::elation_runtime::ELATION_RUNTIME_REVISION);
     encoder.text(crate::propagation_runtime::PROPAGATION_RUNTIME_REVISION);
+    encoder.text(crate::erudition_runtime::ERUDITION_RUNTIME_REVISION);
     encoder.text(crate::curio_runtime::CURIO_RUNTIME_REVISION);
     encoder.text(crate::run_runtime::RUN_RUNTIME_REVISION);
     encoder.text(crate::ability_runtime::ABILITY_RUNTIME_REVISION);

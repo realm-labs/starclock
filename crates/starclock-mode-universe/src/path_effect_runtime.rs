@@ -99,6 +99,10 @@ pub enum PathBattleEvent {
     BasicAttackDamageDealt = 37,
     NonAttackSkillUsed = 38,
     SporeBurst = 39,
+    EnemyAppeared = 40,
+    EnergyOverflowed = 41,
+    UltimateViaBrainInVatUsed = 42,
+    AoeAttackUsed = 43,
 }
 
 /// Cause-relative target retained until the combat adapter resolves unit IDs.
@@ -151,6 +155,7 @@ pub enum PathEffectStat {
     SpeedRatio = 20,
     AttackRatio = 21,
     EnergyRegenerationRateRatio = 22,
+    AllTypeResistancePenetrationRatio = 23,
 }
 
 /// Mode damage family retained until lowering into the combat damage class.
@@ -208,6 +213,8 @@ pub struct PathEffectFacts {
     pub party_hp_lost: PathEffectValue,
     pub aftertaste_damage: PathEffectValue,
     pub resonance_energy_consumed: PathEffectValue,
+    pub actor_maximum_energy: PathEffectValue,
+    pub excess_energy: PathEffectValue,
     pub enemy_current_hp_ratio: PathEffectValue,
     pub path_blessing_count: u32,
     pub shielded_allies: u32,
@@ -226,6 +233,10 @@ pub struct PathEffectFacts {
     pub enemy_spore_count: u32,
     pub all_enemy_spore_count: u32,
     pub spores_burst: u32,
+    pub ultimate_targets_hit: u32,
+    pub maximum_ultimate_targets_hit: u32,
+    pub attacked_enemy_count: u32,
+    pub defeated_enemy_count: u32,
     pub actor_is_shielded: bool,
     pub enemy_is_frozen: bool,
     pub enemy_is_dissociated: bool,
@@ -266,6 +277,8 @@ impl PathEffectFacts {
             self.party_hp_lost,
             self.aftertaste_damage,
             self.resonance_energy_consumed,
+            self.actor_maximum_energy,
+            self.excess_energy,
             self.enemy_current_hp_ratio,
         ];
         if values.iter().any(|value| value.raw_six_decimal() < 0)
@@ -767,6 +780,58 @@ pub enum PathEffect {
         damage_ratio: PathEffectValue,
         basic_attack_ratio_per_spore: PathEffectValue,
         maximum_triggers_per_target: u8,
+    },
+    ChargeBrainInVat {
+        ratio: PathEffectValue,
+        once_per_enemy_per_attack: bool,
+    },
+    ConfigureBrainInVat {
+        entry_charge_ratio: PathEffectValue,
+        weakness_break_charge_ratio: PathEffectValue,
+        weakness_broken_attack_charge_ratio: PathEffectValue,
+    },
+    ApplyBrainFullSpeed {
+        speed_ratio: PathEffectValue,
+        duration_turns: u8,
+    },
+    AddUltimateModifier {
+        stat: PathEffectStat,
+        value: PathEffectValue,
+        until_next_ultimate: bool,
+    },
+    AdditionalDamagePerAttackedEnemy {
+        target: PathEffectTarget,
+        attack_ratio_per_enemy: PathEffectValue,
+        enemy_count: u8,
+        include_defeated_enemies_up_to: u8,
+    },
+    RegenerateMaximumEnergyRatio {
+        target: PathEffectTarget,
+        ratio: PathEffectValue,
+    },
+    AoeSingleTargetRepeatDamage {
+        target: PathEffectTarget,
+        original_damage_ratio: PathEffectValue,
+    },
+    UltimateWeaknessBrokenDelay {
+        target: PathEffectTarget,
+        action_delay_ratio: PathEffectValue,
+        maximum_triggers_per_break: u8,
+    },
+    PreventDefeatConsumeEnergyHeal {
+        target: PathEffectTarget,
+        healing_per_energy_ratio: PathEffectValue,
+        maximum_team_triggers_per_battle: u8,
+    },
+    ApplySynapseResonance {
+        target: PathEffectTarget,
+        damage_ratio_to_linked_targets: PathEffectValue,
+        maximum_triggers: u8,
+    },
+    ConfigureSynapseResonance {
+        ultimate_attack_ratio: PathEffectValue,
+        extra_triggers_on_defeat: u8,
+        enemy_appearance_energy_maximum_ratio: PathEffectValue,
     },
 }
 

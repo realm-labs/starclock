@@ -16,7 +16,7 @@
   "mechanics": ["GritGainDecayVirtualStacksAndMitigation", "HpConsumptionRetaliationDamageSharingAndMissingHpStats", "ConditionalHealingShieldsEnergyAndDefeatPrevention", "FireResonanceCataclysmicVariableEntropicRetributionAndEventHorizon"],
   "goldens": {
     "destruction_runtime_catalog_sha256": "c0d2fe01b05cef049ddd428f213d587855e9d6c4afc7b8a3e5404d1ba6cd7d33",
-    "entry_definition_sha256": "4f18c95ed0f7a08e5c88253367bd3ee926cc91f408703563e3216d862d3133b4",
+    "entry_definition_sha256": "d5df8a47f4672fd19f0c5ebb4f0f863bf4b9ea89961e8bc65eb428257c946d8a",
     "four_grit_enhanced_retaliation_six_decimal": 216000000,
     "seventy_percent_missing_hp_attack_ratio_six_decimal": 560000,
     "party_missing_hp_resonance_damage_six_decimal": 3000000000,
@@ -25,10 +25,10 @@
   "runtime_coverage": { "content_records_executable": 455, "rule_bindings_executable": 448, "semantic_fixtures_executable": 32 },
   "compatibility": { "generated_rows_public": false, "authoritative_float": false, "free_form_runtime_target": false, "free_form_runtime_event": false, "content_id_branch_in_resolver": false, "activity_mutated_from_combat": false },
   "source_sha256": {
-    "crates/starclock-mode-universe/src/path_effect_runtime.rs": "4e3ab59e0f010657283dc392935c8f225c81a85020b451ea5b87ba7be4a62f17",
+    "crates/starclock-mode-universe/src/path_effect_runtime.rs": "2548d2e3fb38954ae17a82b4ad0940e8b27790f542ecc4eea8c258053c3f1d31",
     "crates/starclock-mode-universe/src/destruction_runtime.rs": "ed4c3a17cd74adb95835ada15c2fea4ce5035688fe6c03a6890e27675029e84b",
-    "crates/starclock-mode-universe/src/entry.rs": "43b421bec01800a53395c617a04c5f623572e6b9824dc5085dd7e1b60c057520",
-    "crates/starclock-mode-universe/src/runtime.rs": "ec1a8b765fb439abf69037d2654bb5432cfff2bee07026ee05bde284ca0dce15",
+    "crates/starclock-mode-universe/src/entry.rs": "d3219f57bcc2a873a77f0511ff25603005cb84ba511c314664750517e8832f3b",
+    "crates/starclock-mode-universe/src/runtime.rs": "ffc6e6299026760476ee8b1fe394b8504fbd590d90416de8d330791694617689",
     "crates/starclock-mode-universe/tests/destruction_runtime.rs": "bdc96d84a92ac099b4a2669769b01bf97a2d742f27c177b9c9e7fc336c86c5ea"
   },
   "focused_tests": 6,

@@ -1,0 +1,37 @@
+{
+  "schema_revision": "starclock.goal04-universe-erudition-runtime-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P4-M10",
+  "result": "complete-erudition-partition-lowers-to-source-attributed-typed-battle-proposals",
+  "counts": { "content_records": 59, "rule_bindings": 58, "blessings": 18, "blessing_levels": 36, "resonances": 1, "formations": 3, "compiled_programs": 40, "mechanic_templates": 22, "battle_event_points": 12, "semantic_fixtures": 2 },
+  "policies": {
+    "numeric": "CheckedSignedI64SixDecimalNoFloat",
+    "dispatch": "OneAuditedStaticRegistryByReleasedSourceBindingKey",
+    "execution": "ReadOnlyBattleFactsToOrdinarySourceAttributedTypedProposals",
+    "brain_in_a_vat": "ChargeReasonsAndVatUltimateObservationRemainDistinct",
+    "ultimate": "UltimateAndAoeModifiersRetainDamageFamilyAndTargetCounts",
+    "synapse": "LinkedTargetTriggersAndFormationPoliciesRemainTyped",
+    "cause": "EveryProposalRetainsBlessingLevelOrResonanceStableSourceKey",
+    "resolver_branching": "NoBlessingOrPathIdBranchInCombatResolver"
+  },
+  "mechanics": ["BrainInVatChargeOverflowUltimateShieldAndSpeed", "UltimateResistancePenetrationCriticalDamageAndEntryEnergy", "AoeTargetCountDamageDelayStatsHealingAndDefeatPrevention", "SynapseResonanceMeltCoreChainContagionAndMemeticInversion"],
+  "goldens": {
+    "erudition_runtime_catalog_sha256": "bec737a950dc3ff8a0d877b7a9f4d4a5f758d1727292aefb758a47ec331302db",
+    "entry_definition_sha256": "d5df8a47f4672fd19f0c5ebb4f0f863bf4b9ea89961e8bc65eb428257c946d8a",
+    "enhanced_entry_brain_charge_ratio_six_decimal": 1000000,
+    "enhanced_vat_shield_ratio_six_decimal": 450000,
+    "nine_blessing_ultimate_damage_ratio_six_decimal": 900000,
+    "synapse_maximum_triggers": 15
+  },
+  "runtime_coverage": { "content_records_executable": 573, "rule_bindings_executable": 564, "semantic_fixtures_executable": 37 },
+  "compatibility": { "generated_rows_public": false, "authoritative_float": false, "free_form_runtime_target": false, "free_form_runtime_event": false, "content_id_branch_in_resolver": false, "activity_mutated_from_combat": false },
+  "source_sha256": {
+    "crates/starclock-mode-universe/src/path_effect_runtime.rs": "2548d2e3fb38954ae17a82b4ad0940e8b27790f542ecc4eea8c258053c3f1d31",
+    "crates/starclock-mode-universe/src/erudition_runtime.rs": "4d20c6ffcb0d02181cba8ca7627f7b781cec4451ada5cc3a14876ef564ff7af1",
+    "crates/starclock-mode-universe/src/entry.rs": "d3219f57bcc2a873a77f0511ff25603005cb84ba511c314664750517e8832f3b",
+    "crates/starclock-mode-universe/src/runtime.rs": "ffc6e6299026760476ee8b1fe394b8504fbd590d90416de8d330791694617689",
+    "crates/starclock-mode-universe/tests/erudition_runtime.rs": "ea89b673b2387ff1784c22eaf876f7e93909f6c7f8746d7c85b1514ab886d57d"
+  },
+  "focused_tests": 6,
+  "new_registry_packages": []
+}
