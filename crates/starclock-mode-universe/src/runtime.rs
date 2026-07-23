@@ -22,6 +22,7 @@ use crate::{
     blessing_runtime::{BlessingContributionSet, BlessingRuntimeCatalog, BlessingRuntimeError},
     curio_runtime::{CurioContributionSet, CurioRuntimeCatalog, CurioRuntimeError},
     destruction_runtime::DestructionRuntimeCatalog,
+    elation_runtime::ElationRuntimeCatalog,
     hunt_runtime::HuntRuntimeCatalog,
     id::{AbilityTreeNodeId, PathId, ResonanceId},
     nihility_runtime::NihilityRuntimeCatalog,
@@ -50,6 +51,7 @@ pub struct StandardUniverseActivity {
     abundance_runtime: Arc<AbundanceRuntimeCatalog>,
     hunt_runtime: Arc<HuntRuntimeCatalog>,
     destruction_runtime: Arc<DestructionRuntimeCatalog>,
+    elation_runtime: Arc<ElationRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -75,6 +77,7 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) abundance_runtime: Arc<AbundanceRuntimeCatalog>,
     pub(crate) hunt_runtime: Arc<HuntRuntimeCatalog>,
     pub(crate) destruction_runtime: Arc<DestructionRuntimeCatalog>,
+    pub(crate) elation_runtime: Arc<ElationRuntimeCatalog>,
     pub(crate) curio_runtime: Arc<CurioRuntimeCatalog>,
     pub(crate) run_runtime: Arc<RunRuntimeCatalog>,
     pub(crate) ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -103,6 +106,7 @@ impl StandardUniverseActivity {
             abundance_runtime: context.abundance_runtime,
             hunt_runtime: context.hunt_runtime,
             destruction_runtime: context.destruction_runtime,
+            elation_runtime: context.elation_runtime,
             curio_runtime: context.curio_runtime,
             run_runtime: context.run_runtime,
             ability_runtime: context.ability_runtime,
@@ -531,6 +535,62 @@ impl StandardUniverseActivity {
         Ok(effects.into_boxed_slice())
     }
 
+    pub fn elation_effects(
+        &self,
+        event: PathBattleEvent,
+        facts: PathEffectFacts,
+    ) -> Result<Box<[AppliedPathEffect]>, StandardUniverseElationError> {
+        let view = self.graph.player_view();
+        let inventory = view
+            .inventories()
+            .iter()
+            .find(|inventory| inventory.id() == self.blessing_inventory)
+            .ok_or(StandardUniverseElationError::MissingInventory)?;
+        let mut effects = Vec::new();
+        for (raw, level) in inventory.entries() {
+            let Ok(raw) = u32::try_from(*raw) else {
+                continue;
+            };
+            let Some(id) = crate::id::BlessingId::new(raw) else {
+                continue;
+            };
+            if !self
+                .elation_runtime
+                .blessing_ids()
+                .any(|candidate| candidate == id)
+            {
+                continue;
+            }
+            let level =
+                u8::try_from(*level).map_err(|_| StandardUniverseElationError::InvalidLevel)?;
+            effects.extend(
+                self.elation_runtime
+                    .execute_blessing(id, level, event, facts)
+                    .map_err(StandardUniverseElationError::Effect)?,
+            );
+        }
+        let path = self
+            .path_contributions()
+            .map_err(StandardUniverseElationError::Path)?;
+        if path.passive().path() == self.elation_runtime.path() {
+            if let Some(resonance) = path.resonance() {
+                effects.extend(
+                    self.elation_runtime
+                        .execute_resonance(resonance.id(), event, facts)
+                        .map_err(StandardUniverseElationError::Effect)?,
+                );
+            }
+            for formation in path.formations() {
+                effects.extend(
+                    self.elation_runtime
+                        .execute_resonance(formation.id(), event, facts)
+                        .map_err(StandardUniverseElationError::Effect)?,
+                );
+            }
+        }
+        Ok(effects.into_boxed_slice())
+    }
+
     pub fn curio_contributions(&self) -> Result<CurioContributionSet, CurioRuntimeError> {
         let view = self.graph.player_view();
         let inventory = view
@@ -803,6 +863,14 @@ pub enum StandardUniverseHuntError {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum StandardUniverseDestructionError {
+    MissingInventory,
+    InvalidLevel,
+    Path(StandardUniversePathContributionError),
+    Effect(PathEffectRuntimeError),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum StandardUniverseElationError {
     MissingInventory,
     InvalidLevel,
     Path(StandardUniversePathContributionError),

@@ -91,6 +91,8 @@ pub enum PathBattleEvent {
     ConsecutiveActionStarted = 29,
     AttackStarted = 30,
     HpLost = 31,
+    FollowUpDamageDealt = 32,
+    AftertasteDamageDealt = 33,
 }
 
 /// Cause-relative target retained until the combat adapter resolves unit IDs.
@@ -141,6 +143,7 @@ pub enum PathEffectStat {
     HealingReceivedRatio = 19,
     SpeedRatio = 20,
     AttackRatio = 21,
+    EnergyRegenerationRateRatio = 22,
 }
 
 /// Mode damage family retained until lowering into the combat damage class.
@@ -196,6 +199,8 @@ pub struct PathEffectFacts {
     pub actor_current_hp_ratio: PathEffectValue,
     pub actor_hp_lost_ratio: PathEffectValue,
     pub party_hp_lost: PathEffectValue,
+    pub aftertaste_damage: PathEffectValue,
+    pub resonance_energy_consumed: PathEffectValue,
     pub enemy_current_hp_ratio: PathEffectValue,
     pub path_blessing_count: u32,
     pub shielded_allies: u32,
@@ -206,6 +211,8 @@ pub struct PathEffectFacts {
     pub consecutive_action_count: u32,
     pub allied_turn_count: u32,
     pub grit_stacks: u32,
+    pub aftertaste_element_count: u32,
+    pub follow_up_targets_hit: u32,
     pub actor_is_shielded: bool,
     pub enemy_is_frozen: bool,
     pub enemy_is_dissociated: bool,
@@ -244,6 +251,8 @@ impl PathEffectFacts {
             self.actor_current_hp_ratio,
             self.actor_hp_lost_ratio,
             self.party_hp_lost,
+            self.aftertaste_damage,
+            self.resonance_energy_consumed,
             self.enemy_current_hp_ratio,
         ];
         if values.iter().any(|value| value.raw_six_decimal() < 0)
@@ -606,6 +615,65 @@ pub enum PathEffect {
         maximum_triggers_per_battle: u8,
         cannot_repeat_for_same_attack: bool,
         consume_energy: bool,
+    },
+    DealAftertaste {
+        target: PathEffectTarget,
+        minimum_hits: u8,
+        maximum_hits: u8,
+        amount_per_hit: PathEffectValue,
+        damage_bonus_ratio: PathEffectValue,
+        random_element_each_hit: bool,
+    },
+    TreatUltimateDamageAsFollowUp {
+        follow_up_damage_ratio: PathEffectValue,
+    },
+    ExtraAftertasteFromOriginal {
+        target: PathEffectTarget,
+        hits: u8,
+        original_damage_ratio: PathEffectValue,
+        different_element: bool,
+    },
+    ApplyAftertasteTypeModifier {
+        target: PathEffectTarget,
+        stat: PathEffectStat,
+        value_per_element: PathEffectValue,
+        element_count: u8,
+        until_end_of_next_action: bool,
+    },
+    AddFollowUpModifier {
+        stat: PathEffectStat,
+        value: PathEffectValue,
+    },
+    IncreaseFollowUpDamageWithinAttack {
+        ratio_per_damage_instance: PathEffectValue,
+    },
+    ApplyImprisonment {
+        target: PathEffectTarget,
+        base_chance: PathEffectValue,
+        duration_turns: u8,
+        speed_reduction_ratio: PathEffectValue,
+        action_delay_ratio: PathEffectValue,
+    },
+    RandomElementFollowUpDamage {
+        target: PathEffectTarget,
+        amount_per_hit: PathEffectValue,
+        minimum_hits: u8,
+        maximum_hits: u8,
+    },
+    ApplySensoryPursuit {
+        target: PathEffectTarget,
+        base_chance: PathEffectValue,
+        duration_turns: u8,
+        follow_up_damage_taken_ratio: PathEffectValue,
+    },
+    ConfigureVariableResonanceEnergy {
+        maximum: PathEffectValue,
+        consume_all_energy: bool,
+        excess_energy_ratio_per_extra_hit: PathEffectValue,
+    },
+    ConfigureResonanceEnergyGain {
+        battle_start_maximum_ratio: PathEffectValue,
+        follow_up_attack_maximum_ratio: PathEffectValue,
     },
 }
 

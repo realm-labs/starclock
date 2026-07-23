@@ -18,6 +18,7 @@ pub mod curio_runtime;
 pub mod definition;
 pub mod destruction_runtime;
 pub mod digest;
+pub mod elation_runtime;
 pub mod encounter;
 pub mod encounter_slot;
 pub mod entry;

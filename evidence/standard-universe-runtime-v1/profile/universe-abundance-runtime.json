@@ -36,7 +36,7 @@
   ],
   "goldens": {
     "abundance_runtime_catalog_sha256": "67edc77b15b0202386f0ef0d1d9fb753ab2dd8ec182f779a60c88a9c700a8dd1",
-    "entry_definition_sha256": "389b60017ee45ca3f453c9bbdfd367f5e91ca1cceaa089420643d1dd1f0fd543",
+    "entry_definition_sha256": "bdcaca4714edd1a74abcd4ef3ed25eae2994997fce1d561ebb6ea94d1ec09bb0",
     "one_thousand_maximum_hp_enhanced_turn_dewdrop_six_decimal": 700000000,
     "enhanced_dewdrop_minimum_rupture_heal_six_decimal": 120000000,
     "nine_blessing_maximum_hp_ratio_six_decimal": 630000,
@@ -44,9 +44,9 @@
     "enhanced_skill_point_fixed_chance_six_decimal": 450000
   },
   "runtime_coverage": {
-    "content_records_executable": 396,
-    "rule_bindings_executable": 390,
-    "semantic_fixtures_executable": 30
+    "content_records_executable": 455,
+    "rule_bindings_executable": 448,
+    "semantic_fixtures_executable": 32
   },
   "compatibility": {
     "generated_rows_public": false,
@@ -57,10 +57,10 @@
     "activity_mutated_from_combat": false
   },
   "source_sha256": {
-    "crates/starclock-mode-universe/src/path_effect_runtime.rs": "24a9b39440c54b3af4901ea3ee2e05e8cc8649fc2feab58f71fef8f8b86b0bd3",
+    "crates/starclock-mode-universe/src/path_effect_runtime.rs": "092a6f92db8f474312537a3c1dbd7d816a63ff46a0187919e092dccb3e481441",
     "crates/starclock-mode-universe/src/abundance_runtime.rs": "d91db72b08e15072095b236c8d6ae24f71ebe01ec0ce1f5382b44167a8fc46bf",
-    "crates/starclock-mode-universe/src/entry.rs": "89fbc00feb367c6749e908b19e2be5ac0c85aa83deb94491e1005278bfd3fffb",
-    "crates/starclock-mode-universe/src/runtime.rs": "a1e9ef007647f4094d0be13949e68c5b7ce51cfee65e8ec97a520361070355f5",
+    "crates/starclock-mode-universe/src/entry.rs": "10d627a50b6adc2b1d0d6699c4014f0466b38b87d21a410422433fc6ff9f4ffe",
+    "crates/starclock-mode-universe/src/runtime.rs": "988d190abd842881e54e76e655af9d8814d649064d156f7c7ca62f911ed9aefc",
     "crates/starclock-mode-universe/tests/abundance_runtime.rs": "0b088c180ef0dca597c43b8cf3a34dc979a5310191ec95518d909cb86760a077"
   },
   "focused_tests": 6,
