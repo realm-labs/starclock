@@ -404,6 +404,10 @@ semantic-copy and throughput regressions become policy-gated before release.
   runtime disposition;
 - all 78 mechanic-family fixtures execute against runtime domain values;
 - all nine Worlds, nine Paths and 33 difficulties construct valid profiles;
+- the hardening matrix runs one exact seed for every constructible
+  World/difficulty entry and rotates the nine offered Path options by canonical
+  matrix ordinal; this is a 33-run coverage matrix, not a redundant 297-run
+  Cartesian product;
 - frozen seeded runs complete deterministically with nested battle verification;
 - invalid commands/results preserve hashes and RNG isolation perturbations do
   not change unrelated streams;

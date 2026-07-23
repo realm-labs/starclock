@@ -1,0 +1,27 @@
+{
+  "schema_revision": "starclock.goal04-seeded-matrix.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P6-B1",
+  "matrix_revision": "standard-universe-seed-matrix-v1",
+  "first_seed": 100000,
+  "coverage": {
+    "worlds": 9,
+    "difficulties": 33,
+    "path_options": 9,
+    "complete_runs": 33,
+    "failure_cases": 3
+  },
+  "failure_cases": ["unknown_world", "difficulty_out_of_range", "seed_overflow"],
+  "contracts": {
+    "one_run_per_constructible_difficulty": true,
+    "path_options_rotate_by_canonical_matrix_ordinal": true,
+    "each_seed_is_exact_and_unique": true,
+    "every_run_reaches_completed": true,
+    "every_replay_verifies_from_a_fresh_activity": true,
+    "zero_battle_complete_routes_are_retained_without_fabrication": true,
+    "decision_and_action_families_are_retained": true,
+    "invalid_entries_fail_before_session_creation": true,
+    "battle_executor": "verified-reference-projection-v1",
+    "battle_executor_is_not_claimed_as_production_combat": true
+  }
+}

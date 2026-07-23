@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
 | Active phase | Phase 6 — Golden runs and release hardening |
-| Active batch | `G04-P6-B1` |
-| Next unblocked batch | `G04-P6-B1` |
+| Active batch | `G04-P6-B2` |
+| Next unblocked batch | `G04-P6-B2` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -82,8 +82,8 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P5-B3` | `Complete` | This row's containing commit | Added `starclock universe config validate`, `universe coverage` and deterministic `universe run` in human/JSON modes over the exact production bundles. The run command records a canonical full-Activity replay bound to the composed core-plus-Universe configuration identity, and the existing `replay verify` route reconstructs the encoded World/difficulty profile and detects corruption. Seed 10 completes World 1 difficulty index 0 in 56 actions and four nested handoffs with state hash `6bb5ae714d8b89c56f596fe7714832c46bcc0877a044e96771b1be40391fbca3`; the 9,930-byte replay hashes to `14505dfbc8d178fa024022d6f5ff742edfbecfb019742ebf9610263c608d2d1d`. The CLI labels its current nested executor `verified-reference-projection-v1`: it proves orchestration and settlement without claiming the 73 extension enemy definitions are production combat implementations. Evidence: `evidence/standard-universe-runtime-v1/interfaces/universe-cli.json`. |
 | `G04-P5-B4` | `Complete` | This row's containing commit | Added the additive `agent-activity-v1` boundary without changing Battle v1: owned player-visible slots, inventories, participant carry and terminal state; state/boundary-bound opaque action tokens; stale/forged/idempotent request handling; automatic nested-battle settlement; and canonical replay export/verification under the truthful `agent-activity-session-v1` controller identity. A public-only policy completes World 1 difficulty index 0 at seed 10 through 61 external actions and seven nested battles. Its 68-action, 13,225-byte replay hashes to `e8efd9ae17b597e44379bfe2fd3d83c09a1d06901def434730c6c83bf8e8da04` and ends at `57cafc16f9aa91f6a97d4acd3363b7aa640e8df11c914255231dc428d6a022b3`. The encounter executor remains explicitly labeled `verified-reference-projection-v1`; no production enemy-provider claim is made. All prior agent-api Battle v1 suites pass. Evidence: `evidence/standard-universe-runtime-v1/interfaces/activity-agent-api.json`. |
 | `G04-P5-B5` | `Complete` | This row's containing commit | Added six additive Standard Universe Activity MCP tools and two bounded inert resources while preserving all seven frozen Battle v1 tools. A separate owned Activity registry enforces 1,024 global/64 tenant/16 principal quotas, monotonic 30-minute idle/four-hour lifetime leases, quota-before-ID allocation and one serialized lane per session. Exact Activity create/read/act/replay/close scopes extend the OAuth matrix to 13 scopes; stdio and real authorized HTTP conformance cover discovery, opaque action play, idempotent retry, observe, replay export and close. Evidence: `evidence/standard-universe-runtime-v1/interfaces/activity-mcp.json`. |
-| `G04-P6-B1` | `InProgress` | — | — |
-| `G04-P6-B2` | `Pending` | — | — |
+| `G04-P6-B1` | `Complete` | This row's containing commit | Added a release-mode seeded matrix with exactly one complete run for each of 33 constructible World/difficulty entries and canonical Path-option rotation covering all nine Paths. Seeds `100000..100032` produce 1,626 external actions, 1,770 replay actions, 144 verified nested battles and 324,513 replay bytes; every replay verifies from a fresh Activity and all 33 terminal hashes/replay SHA-256 values plus decision/action families are retained. Three inert failure fixtures reject unknown World, out-of-range difficulty and overflowing seed. World 9 difficulty index 3 is retained as an authored four-action zero-battle complete route rather than fabricating an encounter. Evidence: `evidence/standard-universe-runtime-v1/hardening/seeded-matrix.json`. |
+| `G04-P6-B2` | `InProgress` | — | — |
 | `G04-P6-B3` | `Pending` | — | — |
 | `G04-P6-B4` | `Pending` | — | — |
 
@@ -155,10 +155,10 @@ without new retained evidence.
 - [x] 2,201/2,201 content and 786/786 rule bindings have valid runtime dispositions.
 - [x] All 78 mechanic-family fixtures execute against runtime values.
 - [x] All nine Worlds, nine Paths and 33 difficulties construct valid profiles.
-- [ ] Spatial-free encounter/domain behavior covers mandatory, optional,
+- [x] Spatial-free encounter/domain behavior covers mandatory, optional,
   sequential, grouped and entry-triggered encounters.
-- [ ] Complete seeded activities execute through verified nested battles.
-- [ ] Full-run replay, CLI, baseline AI, agent API and MCP conformance pass.
+- [x] Complete seeded activities execute through verified nested battles.
+- [x] Full-run replay, CLI, baseline AI, agent API and MCP conformance pass.
 - [ ] Cross-platform command/event/hash goldens and RNG isolation pass.
 - [ ] Stable-runner performance/allocation and concurrent server workloads pass.
 - [ ] Goals 01–03 release contracts and full generated drift pass.

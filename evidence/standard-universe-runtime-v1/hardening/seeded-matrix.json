@@ -1,0 +1,1007 @@
+{
+  "schema_revision": "starclock.goal04-seeded-matrix-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P6-B1",
+  "result": "all-constructible-difficulties-complete-with-nine-path-options-covered",
+  "matrix": {
+    "schema_revision": "standard-universe-seed-matrix-v1",
+    "result": "all-constructible-difficulties-complete-with-nine-path-options-covered",
+    "executor_revision": "verified-reference-projection-v1",
+    "coverage": {
+      "worlds": 9,
+      "difficulties": 33,
+      "distinct_path_options": 9,
+      "complete_runs": 33,
+      "first_seed": 100000,
+      "seed_rule": "seed = 100000 + canonical world/difficulty ordinal"
+    },
+    "runs": [
+      {
+        "ordinal": 0,
+        "world": 1,
+        "world_key": "universe.world.01",
+        "difficulty_index": 0,
+        "path_option_id": "1000001",
+        "seed": 100000,
+        "external_actions": 67,
+        "replay_actions": "76",
+        "nested_battles": "9",
+        "encoded_bytes": 15429,
+        "final_state_hash": "3e6f37a0df5937f7e5bd344d237c9485a65174f34ab71b369c66886f024d54f5",
+        "replay_sha256": "fa2ee2e91c7d37c0817eb9120f35a9bdd635e6ca3fe679af8a49db522c738f80",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 1,
+        "world": 1,
+        "world_key": "universe.world.01",
+        "difficulty_index": 1,
+        "path_option_id": "1000002",
+        "seed": 100001,
+        "external_actions": 49,
+        "replay_actions": "52",
+        "nested_battles": "3",
+        "encoded_bytes": 8817,
+        "final_state_hash": "66110afc0805c7fc68d99f55ad4f212fbbf0cf3d68dfe699f3feab86383e7a0d",
+        "replay_sha256": "7d3ba2c3f8d86922924f134b31d2cbc4f1b02a5a8869520f1113d27461a88772",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 2,
+        "world": 2,
+        "world_key": "universe.world.02",
+        "difficulty_index": 0,
+        "path_option_id": "1000003",
+        "seed": 100002,
+        "external_actions": 55,
+        "replay_actions": "60",
+        "nested_battles": "5",
+        "encoded_bytes": 11021,
+        "final_state_hash": "4f34ed84ad2c5ff7a0d734a8aa77e6ed7aa279d86c574edffc7961fa09ce3be8",
+        "replay_sha256": "16161d83f1156f2a8b26dd11770039d973cf4cf899057f0b8cca384a556b614b",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 3,
+        "world": 3,
+        "world_key": "universe.world.03",
+        "difficulty_index": 0,
+        "path_option_id": "1000004",
+        "seed": 100003,
+        "external_actions": 28,
+        "replay_actions": "30",
+        "nested_battles": "2",
+        "encoded_bytes": 5417,
+        "final_state_hash": "17952a97d66a2c02054f886a3700f0a69eef353af900d76a323fe270ee347801",
+        "replay_sha256": "4b29e25f9ce058bee82a2a1821d943e1529911c3e29cdab7b16004179ad3a438",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 4,
+        "world": 3,
+        "world_key": "universe.world.03",
+        "difficulty_index": 1,
+        "path_option_id": "1000005",
+        "seed": 100004,
+        "external_actions": 52,
+        "replay_actions": "56",
+        "nested_battles": "4",
+        "encoded_bytes": 9919,
+        "final_state_hash": "844ca9e0bb600b8f394926737861477ef8da1dc88ffbc6b7ed06700a60da3def",
+        "replay_sha256": "4e47371e0cfef2061d9c0c09fd9f62122d1632cad7d0d41381f71c1361351bd6",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 5,
+        "world": 3,
+        "world_key": "universe.world.03",
+        "difficulty_index": 2,
+        "path_option_id": "1000006",
+        "seed": 100005,
+        "external_actions": 34,
+        "replay_actions": "38",
+        "nested_battles": "4",
+        "encoded_bytes": 7621,
+        "final_state_hash": "b418382449e668d85ae52e7f587ecbbaf0bfe65861a184596a76d8312d273113",
+        "replay_sha256": "a7cfd978457b81bb73531ae7342a74322b9fa1b3a4601f5b2f470e811af6497b",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 6,
+        "world": 3,
+        "world_key": "universe.world.03",
+        "difficulty_index": 3,
+        "path_option_id": "1000007",
+        "seed": 100006,
+        "external_actions": 46,
+        "replay_actions": "48",
+        "nested_battles": "2",
+        "encoded_bytes": 7715,
+        "final_state_hash": "c776e688ebd246c929a030254e042ea4fbfb4dceffa61cebaa4dc52f87f8f426",
+        "replay_sha256": "4778f63c1d251e40df27170474d7f03199e7d4dc8343e8b35790307f6c23c91a",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 7,
+        "world": 3,
+        "world_key": "universe.world.03",
+        "difficulty_index": 4,
+        "path_option_id": "1000008",
+        "seed": 100007,
+        "external_actions": 58,
+        "replay_actions": "64",
+        "nested_battles": "6",
+        "encoded_bytes": 12123,
+        "final_state_hash": "12718898ed55714105b228ea2959d1e25897a2e37c537a13bf81b0c4e5fce6f2",
+        "replay_sha256": "b707beefafa62ddb3630808b606a76bfdc8fc97f1d80875f3cda119c12833dc9",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 8,
+        "world": 4,
+        "world_key": "universe.world.04",
+        "difficulty_index": 0,
+        "path_option_id": "1000009",
+        "seed": 100008,
+        "external_actions": 28,
+        "replay_actions": "30",
+        "nested_battles": "2",
+        "encoded_bytes": 5417,
+        "final_state_hash": "44b6fd83b37703fd543a9d1613a7c938d9b548a408f86bed4effc1f5a2fd5f78",
+        "replay_sha256": "42e6b85162b5a26ec7eccf74f70936e069f407d1a259ffa81721f92acc020490",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 9,
+        "world": 4,
+        "world_key": "universe.world.04",
+        "difficulty_index": 1,
+        "path_option_id": "1000001",
+        "seed": 100009,
+        "external_actions": 55,
+        "replay_actions": "60",
+        "nested_battles": "5",
+        "encoded_bytes": 11021,
+        "final_state_hash": "fa3d03a66f2c9c51e0f38a6b4f47f5a20f22f64f999fb994e5a57849a312d404",
+        "replay_sha256": "c9b03aa36cd1e3f0b3ada101d946695e29eae209e75a114589de830f43613a49",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 10,
+        "world": 4,
+        "world_key": "universe.world.04",
+        "difficulty_index": 2,
+        "path_option_id": "1000002",
+        "seed": 100010,
+        "external_actions": 52,
+        "replay_actions": "56",
+        "nested_battles": "4",
+        "encoded_bytes": 9919,
+        "final_state_hash": "2163d04ac58abadbe3e3c8711fa5565ee1da1641de8dffe81435584d22f048a5",
+        "replay_sha256": "176c1828b383a4280fc9d0ec9d8e42b69e90f816079a81cd5da722984f7be7bb",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 11,
+        "world": 4,
+        "world_key": "universe.world.04",
+        "difficulty_index": 3,
+        "path_option_id": "1000003",
+        "seed": 100011,
+        "external_actions": 58,
+        "replay_actions": "64",
+        "nested_battles": "6",
+        "encoded_bytes": 12123,
+        "final_state_hash": "7f4fa206410288faf8a64f9664cf1b4575e7ca3535b81dbc45d450fc03bd989c",
+        "replay_sha256": "940593aaf5a1ecf5c3003e1ecd1cae4a127e3e6dcaf4106a9e4c8fec53a052af",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 12,
+        "world": 4,
+        "world_key": "universe.world.04",
+        "difficulty_index": 4,
+        "path_option_id": "1000004",
+        "seed": 100012,
+        "external_actions": 28,
+        "replay_actions": "30",
+        "nested_battles": "2",
+        "encoded_bytes": 5417,
+        "final_state_hash": "dcb18f39e78b59aa92342a68da8845a7b3fb191dc2448a5dcc87f9bfcfb7f413",
+        "replay_sha256": "6c3a49b7a4ca810aaf52ec583df144011439ff8cf02f81252df9ba6db39cd6e1",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 13,
+        "world": 5,
+        "world_key": "universe.world.05",
+        "difficulty_index": 0,
+        "path_option_id": "1000005",
+        "seed": 100013,
+        "external_actions": 55,
+        "replay_actions": "60",
+        "nested_battles": "5",
+        "encoded_bytes": 11021,
+        "final_state_hash": "62e4510fb7cf66b5959780ddecc8e743a32012aa13aa32b3fdf4e9a6c4558eb3",
+        "replay_sha256": "abc594784f2b267ac894ba096b6db1191cd7756840324008d550608b7d3bfa5a",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 14,
+        "world": 5,
+        "world_key": "universe.world.05",
+        "difficulty_index": 1,
+        "path_option_id": "1000006",
+        "seed": 100014,
+        "external_actions": 52,
+        "replay_actions": "56",
+        "nested_battles": "4",
+        "encoded_bytes": 9919,
+        "final_state_hash": "e35ee9461ca60f019f8b3523fa072b7661b7bbab0123b2f5ca982251c708185b",
+        "replay_sha256": "285186cc356ebc7a8af15d5419411bcae742ac8d175405104d349368b63084fc",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 15,
+        "world": 5,
+        "world_key": "universe.world.05",
+        "difficulty_index": 2,
+        "path_option_id": "1000007",
+        "seed": 100015,
+        "external_actions": 58,
+        "replay_actions": "64",
+        "nested_battles": "6",
+        "encoded_bytes": 12123,
+        "final_state_hash": "3aec318b831225c8a10446070eee468843d547adc5d49995039fafb182209128",
+        "replay_sha256": "21657fb9931a9b7ffe43d7b0f18c44a87aff91685065a3d0df4bc0b7e9727ae9",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 16,
+        "world": 5,
+        "world_key": "universe.world.05",
+        "difficulty_index": 3,
+        "path_option_id": "1000008",
+        "seed": 100016,
+        "external_actions": 49,
+        "replay_actions": "52",
+        "nested_battles": "3",
+        "encoded_bytes": 8817,
+        "final_state_hash": "6e6cac32c6553c8311bead73a27513a156e5dbe8491f9733d4c5ea672a728001",
+        "replay_sha256": "494153267ad921049474765b72cc99314f8b81e5babacaaea3d1a2c06d90a71a",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 17,
+        "world": 6,
+        "world_key": "universe.world.06",
+        "difficulty_index": 0,
+        "path_option_id": "1000009",
+        "seed": 100017,
+        "external_actions": 49,
+        "replay_actions": "52",
+        "nested_battles": "3",
+        "encoded_bytes": 8817,
+        "final_state_hash": "133ef2cbb4df5538d49dc54e1c0dc8050b8d6f89d4c71e75860c3924f742732c",
+        "replay_sha256": "60c922956c03619921719f512c48533a83aef47de438f4311ab1b0306efe33e5",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 18,
+        "world": 6,
+        "world_key": "universe.world.06",
+        "difficulty_index": 1,
+        "path_option_id": "1000001",
+        "seed": 100018,
+        "external_actions": 58,
+        "replay_actions": "64",
+        "nested_battles": "6",
+        "encoded_bytes": 12123,
+        "final_state_hash": "b4a70dd8a43bf759dc7371bfbacc11142970155d8fb5d8cf301db5d01e5cb10a",
+        "replay_sha256": "c3a94270f329cb3a13c1d47468d5f143e11d17b9b833ae7d03075c826c19a9ac",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 19,
+        "world": 6,
+        "world_key": "universe.world.06",
+        "difficulty_index": 2,
+        "path_option_id": "1000002",
+        "seed": 100019,
+        "external_actions": 49,
+        "replay_actions": "52",
+        "nested_battles": "3",
+        "encoded_bytes": 8817,
+        "final_state_hash": "e8f598cba586132da352547f73fe741c357b089c567bdff86b2cc1b9e4a59ee3",
+        "replay_sha256": "eb8306d6bec25824eb59c1a6d404579c80d867566fb3aa1ffa7ea5d049709cda",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 20,
+        "world": 6,
+        "world_key": "universe.world.06",
+        "difficulty_index": 3,
+        "path_option_id": "1000003",
+        "seed": 100020,
+        "external_actions": 52,
+        "replay_actions": "56",
+        "nested_battles": "4",
+        "encoded_bytes": 9919,
+        "final_state_hash": "5a12232b72ef31a2077ad2862882f4c4219f1d82ef3a946e5728ccd2cd0e9890",
+        "replay_sha256": "522b5f1fa90152a5a37885cd84da293ea721cefd6c644be487ba51a05f75c8ac",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 21,
+        "world": 7,
+        "world_key": "universe.world.07",
+        "difficulty_index": 0,
+        "path_option_id": "1000004",
+        "seed": 100021,
+        "external_actions": 64,
+        "replay_actions": "72",
+        "nested_battles": "8",
+        "encoded_bytes": 14327,
+        "final_state_hash": "5dbedc4805857fa551e76aef4e2bf6879a4a5a94c2ecaab7c8baa6ec0e8b0d5c",
+        "replay_sha256": "0312e4ff0ab61b5f3e276a554238916b7ab1aa667b6c0b205e76c357e24b14a8",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 22,
+        "world": 7,
+        "world_key": "universe.world.07",
+        "difficulty_index": 1,
+        "path_option_id": "1000005",
+        "seed": 100022,
+        "external_actions": 64,
+        "replay_actions": "72",
+        "nested_battles": "8",
+        "encoded_bytes": 14327,
+        "final_state_hash": "310bf7083b3046546131457794abec66fe0223419dc67be5e542eb9c8b6184f9",
+        "replay_sha256": "bcdca1462bbe88116d3704a304bb77a1ff9b2e4b3eb0fe3f340d5b882800c156",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 23,
+        "world": 7,
+        "world_key": "universe.world.07",
+        "difficulty_index": 2,
+        "path_option_id": "1000006",
+        "seed": 100023,
+        "external_actions": 55,
+        "replay_actions": "60",
+        "nested_battles": "5",
+        "encoded_bytes": 11021,
+        "final_state_hash": "cc6bfb97db8fd85157bd688a427def790984f92beb756458345d67ac94cfc294",
+        "replay_sha256": "9a4729856771c6b4515bec8b094aebd3f807544a7bc18007b2cefa068c65c2f6",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 24,
+        "world": 7,
+        "world_key": "universe.world.07",
+        "difficulty_index": 3,
+        "path_option_id": "1000007",
+        "seed": 100024,
+        "external_actions": 49,
+        "replay_actions": "52",
+        "nested_battles": "3",
+        "encoded_bytes": 8817,
+        "final_state_hash": "0ebbd2ce05bfa87d1600a2d973289b2cbbda88687ab741129cf65a99fa138d1b",
+        "replay_sha256": "ea2522f62262b1239e351897b6215521886e1447a07429177f3a399ae7b07dc7",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 25,
+        "world": 8,
+        "world_key": "universe.world.08",
+        "difficulty_index": 0,
+        "path_option_id": "1000008",
+        "seed": 100025,
+        "external_actions": 31,
+        "replay_actions": "34",
+        "nested_battles": "3",
+        "encoded_bytes": 6519,
+        "final_state_hash": "752a5ed2805fed90e45dac7500001358d85cd44848f24ad3ddba0f0bb740e8c7",
+        "replay_sha256": "e1e1cf2d0bc3b29601c3b91b2ef78236bcdef898a1e0547fbc28dfe680d37d23",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 26,
+        "world": 8,
+        "world_key": "universe.world.08",
+        "difficulty_index": 1,
+        "path_option_id": "1000009",
+        "seed": 100026,
+        "external_actions": 43,
+        "replay_actions": "44",
+        "nested_battles": "1",
+        "encoded_bytes": 6613,
+        "final_state_hash": "45da879b8f9efaf19c1cfb2001a2f38cecb15e96d845c6f05ac74f39a3da34a1",
+        "replay_sha256": "96c1c40f64a35e7ccaa367cfe2f843d19454850e6c7bd372de42924ce8c1e965",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 27,
+        "world": 8,
+        "world_key": "universe.world.08",
+        "difficulty_index": 2,
+        "path_option_id": "1000001",
+        "seed": 100027,
+        "external_actions": 52,
+        "replay_actions": "56",
+        "nested_battles": "4",
+        "encoded_bytes": 9919,
+        "final_state_hash": "525c4e2837a9185ed2d7a6e1734b8c53760001e53f70af782710c7130a6305c7",
+        "replay_sha256": "0a471a231c060136a121187e1ac1fbbff44571a816f8d5f5762efca974d16507",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 28,
+        "world": 8,
+        "world_key": "universe.world.08",
+        "difficulty_index": 3,
+        "path_option_id": "1000002",
+        "seed": 100028,
+        "external_actions": 58,
+        "replay_actions": "64",
+        "nested_battles": "6",
+        "encoded_bytes": 12123,
+        "final_state_hash": "9ea0d8afdc6fcae15bf63ad0eadcf9dc10a877881f076b8d47704f9814096fc3",
+        "replay_sha256": "828a9a24f92824db820b232b4cf754030eb0a2be586d4abf1a2b85dd774d9cb1",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 29,
+        "world": 9,
+        "world_key": "universe.world.09",
+        "difficulty_index": 0,
+        "path_option_id": "1000003",
+        "seed": 100029,
+        "external_actions": 52,
+        "replay_actions": "56",
+        "nested_battles": "4",
+        "encoded_bytes": 9919,
+        "final_state_hash": "051c176508359ca22efbba39d1963d1e53ddfc332c829546bb796b280d591374",
+        "replay_sha256": "37f9990e29276dd236c0c1c4e50b2b598d252b6af5a61ce12567b04956670267",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 30,
+        "world": 9,
+        "world_key": "universe.world.09",
+        "difficulty_index": 1,
+        "path_option_id": "1000004",
+        "seed": 100030,
+        "external_actions": 58,
+        "replay_actions": "64",
+        "nested_battles": "6",
+        "encoded_bytes": 12123,
+        "final_state_hash": "4408e3ad948262652b3324dcd2bb734bebcdefed7502116cffa27d9114feab97",
+        "replay_sha256": "c410acc91f9c88ac5e23533f5b811a2c8cccd12f4221b0f3b0cc8b1e1d4c5510",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 31,
+        "world": 9,
+        "world_key": "universe.world.09",
+        "difficulty_index": 2,
+        "path_option_id": "1000005",
+        "seed": 100031,
+        "external_actions": 64,
+        "replay_actions": "72",
+        "nested_battles": "8",
+        "encoded_bytes": 14327,
+        "final_state_hash": "82e709c39c4a4d4c0240c656423823544b98cf93b349e24ae89275fb6e959dff",
+        "replay_sha256": "ace97bcb98f308581426150f8ea66c76e500bca64c77715531c841876002aea4",
+        "decision_kinds": [
+          "choice",
+          "encounter",
+          "external_outcome",
+          "preparation",
+          "reward",
+          "route"
+        ],
+        "action_kinds": [
+          "engage_battle",
+          "engage_encounter",
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      },
+      {
+        "ordinal": 32,
+        "world": 9,
+        "world_key": "universe.world.09",
+        "difficulty_index": 3,
+        "path_option_id": "1000006",
+        "seed": 100032,
+        "external_actions": 4,
+        "replay_actions": "4",
+        "nested_battles": "0",
+        "encoded_bytes": 963,
+        "final_state_hash": "76a0f0b00be61a2cd893b1d6563153adea0c91c0c0a2368f9eb662ad06a7485e",
+        "replay_sha256": "f6309f4c6450e98d42e77d373c6906a1542551a1adae978416212bd37530124a",
+        "decision_kinds": [
+          "choice",
+          "external_outcome",
+          "route"
+        ],
+        "action_kinds": [
+          "select_option",
+          "submit_external_outcome"
+        ],
+        "terminal": "completed"
+      }
+    ],
+    "failures": [
+      {
+        "case": "unknown_world",
+        "code": "invalid_request",
+        "committed": false
+      },
+      {
+        "case": "difficulty_out_of_range",
+        "code": "invalid_request",
+        "committed": false
+      },
+      {
+        "case": "seed_overflow",
+        "code": "invalid_request",
+        "committed": false
+      }
+    ]
+  },
+  "contracts": {
+    "one_run_per_constructible_difficulty": true,
+    "path_options_rotate_by_canonical_matrix_ordinal": true,
+    "each_seed_is_exact_and_unique": true,
+    "every_run_reaches_completed": true,
+    "every_replay_verifies_from_a_fresh_activity": true,
+    "zero_battle_complete_routes_are_retained_without_fabrication": true,
+    "decision_and_action_families_are_retained": true,
+    "invalid_entries_fail_before_session_creation": true,
+    "battle_executor": "verified-reference-projection-v1",
+    "battle_executor_is_not_claimed_as_production_combat": true
+  },
+  "source_sha256": {
+    "crates/starclock-agent-api/examples/g04_universe_seed_matrix.rs": "ec089f07ed9fe9df3662738f8c0e93bf589d767b4ec0c45a984cf95b51c36caf"
+  },
+  "policy_sha256": "878b0243c91eb727228a496f0b093406bf5da7b26312c4bca9d491207c565ba3",
+  "new_registry_packages": []
+}
