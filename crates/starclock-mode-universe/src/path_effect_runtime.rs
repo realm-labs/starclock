@@ -87,6 +87,8 @@ pub enum PathBattleEvent {
     DewdropRuptured = 25,
     AttackCompleted = 26,
     LethalDamageReceived = 27,
+    FollowUpAttackUsed = 28,
+    ConsecutiveActionStarted = 29,
 }
 
 /// Cause-relative target retained until the combat adapter resolves unit IDs.
@@ -108,6 +110,7 @@ pub enum PathEffectTarget {
     RandomAlly = 12,
     OtherAllies = 13,
     HealerAndHealed = 14,
+    HighestAttackAlly = 15,
 }
 
 /// Generic stat families used by Path conditional modifiers.
@@ -185,12 +188,18 @@ pub struct PathEffectFacts {
     pub damage_dealt: PathEffectValue,
     pub healing_amount: PathEffectValue,
     pub dewdrop_charge: PathEffectValue,
+    pub actor_critical_rate_ratio: PathEffectValue,
+    pub highest_ally_attack: PathEffectValue,
+    pub last_acting_ally_attack: PathEffectValue,
     pub enemy_current_hp_ratio: PathEffectValue,
     pub path_blessing_count: u32,
     pub shielded_allies: u32,
     pub enemy_attack_count: u32,
     pub suspicion_stacks: u32,
     pub dot_count: u32,
+    pub critical_boost_stacks: u32,
+    pub consecutive_action_count: u32,
+    pub allied_turn_count: u32,
     pub actor_is_shielded: bool,
     pub enemy_is_frozen: bool,
     pub enemy_is_dissociated: bool,
@@ -202,6 +211,7 @@ pub struct PathEffectFacts {
     pub dot_was_refreshed: bool,
     pub actor_is_full_hp: bool,
     pub healing_was_from_ally: bool,
+    pub weakness_broken_enemy_is_elite: bool,
 }
 
 impl PathEffectFacts {
@@ -222,6 +232,9 @@ impl PathEffectFacts {
             self.damage_dealt,
             self.healing_amount,
             self.dewdrop_charge,
+            self.actor_critical_rate_ratio,
+            self.highest_ally_attack,
+            self.last_acting_ally_attack,
             self.enemy_current_hp_ratio,
         ];
         if values.iter().any(|value| value.raw_six_decimal() < 0)
@@ -442,6 +455,75 @@ pub enum PathEffect {
     InstallResonanceAction {
         healing_reduction_ratio: PathEffectValue,
         activate_after_first_manual_use: bool,
+    },
+    ApplyCriticalBoost {
+        target: PathEffectTarget,
+        stacks: u8,
+        maximum_stacks: u8,
+        critical_rate_ratio_per_stack: PathEffectValue,
+        critical_damage_ratio_per_stack: PathEffectValue,
+        at_next_turn_start: bool,
+    },
+    ActionAdvance {
+        target: PathEffectTarget,
+        ratio: PathEffectValue,
+        cannot_repeat_for_same_actor: bool,
+    },
+    IncreaseNextAttackDamage {
+        target: PathEffectTarget,
+        ratio: PathEffectValue,
+    },
+    CriticalDamageFromExcessRate {
+        target: PathEffectTarget,
+        excess_rate_multiplier: PathEffectValue,
+        per_critical_boost_stack: PathEffectValue,
+        cap: PathEffectValue,
+    },
+    InheritCriticalBoost {
+        target: PathEffectTarget,
+        extra_stacks: u8,
+        maximum_stacks: u8,
+    },
+    GainEnergyMaximumRatio {
+        target: PathEffectTarget,
+        ratio: PathEffectValue,
+    },
+    DelayAction {
+        target: PathEffectTarget,
+        ratio: PathEffectValue,
+    },
+    ApplyUntilAttackedStat {
+        target: PathEffectTarget,
+        stat: PathEffectStat,
+        value: PathEffectValue,
+    },
+    ScaleAttackFromLastAlly {
+        target: PathEffectTarget,
+        source_attack: PathEffectValue,
+        ratio: PathEffectValue,
+        until_next_turn_start: bool,
+    },
+    ApplyLightHuntingCelestialArrow {
+        target: PathEffectTarget,
+        critical_damage_from_critical_rate_ratio: PathEffectValue,
+        extra_turn_after_defeat: bool,
+        cannot_repeat: bool,
+        expires_after_ability: bool,
+    },
+    ModifyResonanceCritical {
+        guaranteed_critical_below_hp_ratio: PathEffectValue,
+        critical_damage_ratio: PathEffectValue,
+        defeated_energy_maximum_ratio: PathEffectValue,
+    },
+    ConfigureResonanceEnergy {
+        maximum: PathEffectValue,
+        gain_on_ally_turn_ratio: PathEffectValue,
+    },
+    ConfigureTurnAdvanceCounter {
+        target: PathEffectTarget,
+        turn_interval: u8,
+        initial_turns: u8,
+        cannot_repeat_for_same_actor: bool,
     },
 }
 

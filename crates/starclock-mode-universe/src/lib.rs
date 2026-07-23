@@ -21,6 +21,7 @@ pub mod encounter;
 pub mod encounter_slot;
 pub mod entry;
 pub mod error;
+pub mod hunt_runtime;
 pub mod id;
 pub mod nihility_runtime;
 pub mod occurrence;

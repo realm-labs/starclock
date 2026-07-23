@@ -35,16 +35,16 @@
   ],
   "goldens": {
     "remembrance_runtime_catalog_sha256": "d84808cf1856883ddcb9687e69875ea0aa678b64cdb7874fdbb873a8d0d171a4",
-    "entry_definition_sha256": "496db317ed5aa5f34eb4414f1841fd4b04be97f2e69191c36b8cf4a9aaf16705",
+    "entry_definition_sha256": "744356747326d7fd94349e41f36dacf9acef5ee9cc2ccaa9182113873a73cc92",
     "enhanced_fuli_removal_bonus_ratio_six_decimal": 200000,
     "nine_blessing_freeze_resistance_reduction_six_decimal": 720000,
     "five_hundred_ice_damage_splash_six_decimal": 120000000,
     "one_thousand_base_resonance_damage_six_decimal": 600000000
   },
   "runtime_coverage": {
-    "content_records_executable": 278,
-    "rule_bindings_executable": 274,
-    "semantic_fixtures_executable": 27
+    "content_records_executable": 337,
+    "rule_bindings_executable": 332,
+    "semantic_fixtures_executable": 29
   },
   "compatibility": {
     "generated_rows_public": false,
@@ -55,10 +55,10 @@
     "activity_mutated_from_combat": false
   },
   "source_sha256": {
-    "crates/starclock-mode-universe/src/path_effect_runtime.rs": "cb73e8976f507638f2bab5db0065887226332771be5d581b82e50c877308a379",
+    "crates/starclock-mode-universe/src/path_effect_runtime.rs": "4131689dfb780aa0622d3262368a3d7ef8cf2d09d7529c2eb2115408bbf8d747",
     "crates/starclock-mode-universe/src/remembrance_runtime.rs": "8c387745c61725c03195d4dffa4b94d64c49b15f0878aef42515cd758f695ec3",
-    "crates/starclock-mode-universe/src/entry.rs": "e0d318e190a36d77dcd798a544f22a2e6e3ad7f1f9114afb436c5630e98241a3",
-    "crates/starclock-mode-universe/src/runtime.rs": "3f0268b80c687ad4cc6dc252a275bb2d67f935577213c6cf293ac3b0eb47fce7",
+    "crates/starclock-mode-universe/src/entry.rs": "a0c4118b3d27228f4946f7fc84bbeb402f92b9307cac9bd7b3f7966049499220",
+    "crates/starclock-mode-universe/src/runtime.rs": "ade1e9b6a164c08d53a00381a6325f074d16f0f0b9b66bf27c830c8c06093656",
     "crates/starclock-mode-universe/tests/remembrance_runtime.rs": "2395079218d9a46bf59b82dbe8705ce544d239496694ffad608c9e5c11b661ee"
   },
   "focused_tests": 6,

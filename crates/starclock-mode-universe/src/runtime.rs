@@ -21,6 +21,7 @@ use crate::{
     battle_overlay::UniverseEncounterOverlay,
     blessing_runtime::{BlessingContributionSet, BlessingRuntimeCatalog, BlessingRuntimeError},
     curio_runtime::{CurioContributionSet, CurioRuntimeCatalog, CurioRuntimeError},
+    hunt_runtime::HuntRuntimeCatalog,
     id::{AbilityTreeNodeId, PathId, ResonanceId},
     nihility_runtime::NihilityRuntimeCatalog,
     path_effect_runtime::{
@@ -46,6 +47,7 @@ pub struct StandardUniverseActivity {
     remembrance_runtime: Arc<RemembranceRuntimeCatalog>,
     nihility_runtime: Arc<NihilityRuntimeCatalog>,
     abundance_runtime: Arc<AbundanceRuntimeCatalog>,
+    hunt_runtime: Arc<HuntRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -69,6 +71,7 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) remembrance_runtime: Arc<RemembranceRuntimeCatalog>,
     pub(crate) nihility_runtime: Arc<NihilityRuntimeCatalog>,
     pub(crate) abundance_runtime: Arc<AbundanceRuntimeCatalog>,
+    pub(crate) hunt_runtime: Arc<HuntRuntimeCatalog>,
     pub(crate) curio_runtime: Arc<CurioRuntimeCatalog>,
     pub(crate) run_runtime: Arc<RunRuntimeCatalog>,
     pub(crate) ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -95,6 +98,7 @@ impl StandardUniverseActivity {
             remembrance_runtime: context.remembrance_runtime,
             nihility_runtime: context.nihility_runtime,
             abundance_runtime: context.abundance_runtime,
+            hunt_runtime: context.hunt_runtime,
             curio_runtime: context.curio_runtime,
             run_runtime: context.run_runtime,
             ability_runtime: context.ability_runtime,
@@ -411,6 +415,62 @@ impl StandardUniverseActivity {
         Ok(effects.into_boxed_slice())
     }
 
+    pub fn hunt_effects(
+        &self,
+        event: PathBattleEvent,
+        facts: PathEffectFacts,
+    ) -> Result<Box<[AppliedPathEffect]>, StandardUniverseHuntError> {
+        let view = self.graph.player_view();
+        let inventory = view
+            .inventories()
+            .iter()
+            .find(|inventory| inventory.id() == self.blessing_inventory)
+            .ok_or(StandardUniverseHuntError::MissingInventory)?;
+        let mut effects = Vec::new();
+        for (raw, level) in inventory.entries() {
+            let Ok(raw) = u32::try_from(*raw) else {
+                continue;
+            };
+            let Some(id) = crate::id::BlessingId::new(raw) else {
+                continue;
+            };
+            if !self
+                .hunt_runtime
+                .blessing_ids()
+                .any(|candidate| candidate == id)
+            {
+                continue;
+            }
+            let level =
+                u8::try_from(*level).map_err(|_| StandardUniverseHuntError::InvalidLevel)?;
+            effects.extend(
+                self.hunt_runtime
+                    .execute_blessing(id, level, event, facts)
+                    .map_err(StandardUniverseHuntError::Effect)?,
+            );
+        }
+        let path = self
+            .path_contributions()
+            .map_err(StandardUniverseHuntError::Path)?;
+        if path.passive().path() == self.hunt_runtime.path() {
+            if let Some(resonance) = path.resonance() {
+                effects.extend(
+                    self.hunt_runtime
+                        .execute_resonance(resonance.id(), event, facts)
+                        .map_err(StandardUniverseHuntError::Effect)?,
+                );
+            }
+            for formation in path.formations() {
+                effects.extend(
+                    self.hunt_runtime
+                        .execute_resonance(formation.id(), event, facts)
+                        .map_err(StandardUniverseHuntError::Effect)?,
+                );
+            }
+        }
+        Ok(effects.into_boxed_slice())
+    }
+
     pub fn curio_contributions(&self) -> Result<CurioContributionSet, CurioRuntimeError> {
         let view = self.graph.player_view();
         let inventory = view
@@ -667,6 +727,14 @@ pub enum StandardUniverseNihilityError {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum StandardUniverseAbundanceError {
+    MissingInventory,
+    InvalidLevel,
+    Path(StandardUniversePathContributionError),
+    Effect(PathEffectRuntimeError),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum StandardUniverseHuntError {
     MissingInventory,
     InvalidLevel,
     Path(StandardUniversePathContributionError),
