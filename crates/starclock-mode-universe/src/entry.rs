@@ -14,6 +14,7 @@ use starclock_activity::{
 
 use crate::{
     ability_runtime::{AbilityExecutionContext, AbilityRuntimeCatalog, AbilityTarget},
+    abundance_runtime::AbundanceRuntimeCatalog,
     battle_overlay::UniverseEncounterOverlay,
     blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
@@ -206,6 +207,10 @@ impl StandardUniverseProfile {
             NihilityRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidPathRuntime)?,
         );
+        let abundance_runtime = Arc::new(
+            AbundanceRuntimeCatalog::compile(&self.catalog)
+                .map_err(|_| StandardUniverseCompileError::InvalidPathRuntime)?,
+        );
         let curio_runtime = Arc::new(
             CurioRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidCurioRuntime)?,
@@ -288,6 +293,7 @@ impl StandardUniverseProfile {
             preservation_runtime,
             remembrance_runtime,
             nihility_runtime,
+            abundance_runtime,
             curio_runtime,
             run_runtime,
             ability_runtime,
@@ -320,6 +326,7 @@ pub struct CompiledActivity {
     preservation_runtime: Arc<PreservationRuntimeCatalog>,
     remembrance_runtime: Arc<RemembranceRuntimeCatalog>,
     nihility_runtime: Arc<NihilityRuntimeCatalog>,
+    abundance_runtime: Arc<AbundanceRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -423,6 +430,11 @@ impl CompiledActivity {
     }
 
     #[must_use]
+    pub const fn abundance_runtime(&self) -> &Arc<AbundanceRuntimeCatalog> {
+        &self.abundance_runtime
+    }
+
+    #[must_use]
     pub const fn curio_runtime(&self) -> &Arc<CurioRuntimeCatalog> {
         &self.curio_runtime
     }
@@ -465,6 +477,7 @@ impl CompiledActivity {
                     preservation_runtime: Arc::clone(&self.preservation_runtime),
                     remembrance_runtime: Arc::clone(&self.remembrance_runtime),
                     nihility_runtime: Arc::clone(&self.nihility_runtime),
+                    abundance_runtime: Arc::clone(&self.abundance_runtime),
                     curio_runtime: Arc::clone(&self.curio_runtime),
                     run_runtime: Arc::clone(&self.run_runtime),
                     ability_runtime: Arc::clone(&self.ability_runtime),
@@ -852,6 +865,7 @@ fn compile_identity(
     encoder.text(crate::preservation_runtime::PRESERVATION_RUNTIME_REVISION);
     encoder.text(crate::remembrance_runtime::REMEMBRANCE_RUNTIME_REVISION);
     encoder.text(crate::nihility_runtime::NIHILITY_RUNTIME_REVISION);
+    encoder.text(crate::abundance_runtime::ABUNDANCE_RUNTIME_REVISION);
     encoder.text(crate::curio_runtime::CURIO_RUNTIME_REVISION);
     encoder.text(crate::run_runtime::RUN_RUNTIME_REVISION);
     encoder.text(crate::ability_runtime::ABILITY_RUNTIME_REVISION);

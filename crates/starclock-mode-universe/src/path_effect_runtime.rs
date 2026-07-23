@@ -81,6 +81,12 @@ pub enum PathBattleEvent {
     EnemyTurnStarted = 19,
     EnemyDefeated = 20,
     SuspicionApplying = 21,
+    HealingReceived = 22,
+    TurnStarted = 23,
+    HealingProvided = 24,
+    DewdropRuptured = 25,
+    AttackCompleted = 26,
+    LethalDamageReceived = 27,
 }
 
 /// Cause-relative target retained until the combat adapter resolves unit IDs.
@@ -100,6 +106,8 @@ pub enum PathEffectTarget {
     RandomEnemyWithoutIceWeakness = 10,
     RandomOtherEnemies = 11,
     RandomAlly = 12,
+    OtherAllies = 13,
+    HealerAndHealed = 14,
 }
 
 /// Generic stat families used by Path conditional modifiers.
@@ -123,6 +131,11 @@ pub enum PathEffectStat {
     BreakEffectRatio = 14,
     DotDamageRatio = 15,
     DotDamageTakenRatio = 16,
+    MaximumHpRatio = 17,
+    EffectResistanceRatio = 18,
+    HealingReceivedRatio = 19,
+    SpeedRatio = 20,
+    AttackRatio = 21,
 }
 
 /// Mode damage family retained until lowering into the combat damage class.
@@ -162,6 +175,7 @@ pub struct PathEffectFacts {
     pub teammate_shield_total: PathEffectValue,
     pub party_shield_total: PathEffectValue,
     pub actor_maximum_hp: PathEffectValue,
+    pub actor_current_hp: PathEffectValue,
     pub actor_defense: PathEffectValue,
     pub actor_base_attack: PathEffectValue,
     pub hp_lost: PathEffectValue,
@@ -169,6 +183,8 @@ pub struct PathEffectFacts {
     pub path_damage: PathEffectValue,
     pub path_base_damage: PathEffectValue,
     pub damage_dealt: PathEffectValue,
+    pub healing_amount: PathEffectValue,
+    pub dewdrop_charge: PathEffectValue,
     pub enemy_current_hp_ratio: PathEffectValue,
     pub path_blessing_count: u32,
     pub shielded_allies: u32,
@@ -184,6 +200,8 @@ pub struct PathEffectFacts {
     pub enemy_is_weakness_broken: bool,
     pub enemy_has_dot: bool,
     pub dot_was_refreshed: bool,
+    pub actor_is_full_hp: bool,
+    pub healing_was_from_ally: bool,
 }
 
 impl PathEffectFacts {
@@ -194,6 +212,7 @@ impl PathEffectFacts {
             self.teammate_shield_total,
             self.party_shield_total,
             self.actor_maximum_hp,
+            self.actor_current_hp,
             self.actor_defense,
             self.actor_base_attack,
             self.hp_lost,
@@ -201,6 +220,8 @@ impl PathEffectFacts {
             self.path_damage,
             self.path_base_damage,
             self.damage_dealt,
+            self.healing_amount,
+            self.dewdrop_charge,
             self.enemy_current_hp_ratio,
         ];
         if values.iter().any(|value| value.raw_six_decimal() < 0)
@@ -370,6 +391,57 @@ pub enum PathEffect {
         devoid_stacks: u8,
         toughness_recovery_reduction_per_stack: PathEffectValue,
         duration_turns: u8,
+    },
+    ChargeDewdrop {
+        target: PathEffectTarget,
+        amount: PathEffectValue,
+        maximum_hp_cap_ratio: PathEffectValue,
+        damage_bonus_ratio: PathEffectValue,
+        ruptures_after_attack: bool,
+    },
+    ModifyDewdropChargeEfficiency {
+        target: PathEffectTarget,
+        value: PathEffectValue,
+    },
+    HealAmount {
+        target: PathEffectTarget,
+        amount: PathEffectValue,
+        once_per_action: bool,
+    },
+    ApplyTimedStat {
+        target: PathEffectTarget,
+        stat: PathEffectStat,
+        value: PathEffectValue,
+        duration_turns: u8,
+        maximum_stacks: u8,
+    },
+    ScaleAttackFromHealing {
+        target: PathEffectTarget,
+        healing_ratio: PathEffectValue,
+        base_attack_cap_ratio: PathEffectValue,
+        until_next_turn_end: bool,
+    },
+    GainSkillPoint {
+        fixed_chance: PathEffectValue,
+        amount: u8,
+        once_per_action: bool,
+    },
+    PreventDefeatAndActivateResonance {
+        target: PathEffectTarget,
+        maximum_triggers_per_battle: u8,
+        consume_all_energy: bool,
+    },
+    ApplySubduingEvils {
+        target: PathEffectTarget,
+        stacks: u8,
+        maximum_stacks: u8,
+        duration_turns: u8,
+        blocked_debuffs_per_stack: u8,
+        heal_maximum_hp_ratio_on_block: PathEffectValue,
+    },
+    InstallResonanceAction {
+        healing_reduction_ratio: PathEffectValue,
+        activate_after_first_manual_use: bool,
     },
 }
 

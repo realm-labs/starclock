@@ -9,6 +9,7 @@
 mod generated;
 
 pub mod ability_runtime;
+pub mod abundance_runtime;
 pub mod battle_overlay;
 pub mod blessing_runtime;
 pub mod catalog;
