@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
 | Active phase | Phase 5 — Replay, controllers and external interfaces |
-| Active batch | `G04-P5-B2` |
-| Next unblocked batch | `G04-P5-B2` |
+| Active batch | `G04-P5-B3` |
+| Next unblocked batch | `G04-P5-B3` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -78,7 +78,7 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P4-B1` | `Complete` | This row's containing commit | Added one fail-closed aggregate audit over all 78 distinct mechanic-family fixtures and 78 expected semantic facts. It re-executes the normalized reference expectations, byte-compares all 78 Sora fixture rows, proves exact-once assignment across M01–M15, rejects any non-`Executable` disposition, and runs all 15 partition runtime test suites in one focused Cargo invocation. Evidence: `evidence/standard-universe-runtime-v1/profile/mechanic-fixture-audit.json`. |
 | `G04-P4-B2` | `Complete` | This row's containing commit | Added a fail-closed runtime completeness audit over all 2,201 content records, 786 rules and 78 fixtures. It classifies 1,125 rows as runtime-reachable, 984 as intentional metadata and 92 as explicit encounter policies; all 19 target families have reviewed owner modules. The source scan freezes the only 25 allowed `universe.*` literals (profile/schema identities, nine Path identities and the closed Sealing Wax mapping) and rejects any newly scattered content-ID branch. Zero enabled obligations remain unimplemented. Evidence: `evidence/standard-universe-runtime-v1/profile/runtime-completeness-audit.json`. |
 | `G04-P5-B1` | `Complete` | This row's containing commit | Added generic `baseline-activity-controller-v1` scoring over only the offered Activity options, with bounded integer progress/survival/resource/synergy/risk hints, authored priority, canonical diagnostics and stable option-ID ties. `standard-universe-baseline-runner-v1` translates decisions through the checked facade, handles external outcomes and preparation, and automatically executes and verifies nested battle handoffs. The seeded World 1 fixture reaches `Completed` in 30 accepted steps and two Won battles with final hash `e0c04c8696e39f7fad6b0841ccbded3d6cad4302b231461d1709ec4ae562fbd7`. It also fixed the generic lifecycle invariant that settled preparation attempts are not player-visible. Evidence: `evidence/standard-universe-runtime-v1/interfaces/baseline-controller.json`. |
-| `G04-P5-B2` | `Pending` | — | — |
+| `G04-P5-B2` | `Complete` | This row's containing commit | Added versioned full-run Standard Universe replay over the shared canonical envelope. Accepted decision, preparation and automatic nested-battle actions retain expected state after every boundary; decision diagnostics retain all ordered scores; nested records retain the full handoff identity, complete verified result and result digest. Verification starts from a fresh Activity, binds profile/definition/config/controller/state-hash revisions, enforces a 100,000-action/1,000,000-record/16 MiB-record ceiling and reports the first decision, nested-start, nested-end or state divergence. The seed-10 golden completes with 60 actions, 50 diagnostics, five battles and 180 records; its 11,011 bytes hash to `f4ca5a3e84df8f123dc01b313cb0aeaa703370e07295fc4870cda28ac3da0b31`. Evidence: `evidence/standard-universe-runtime-v1/interfaces/universe-replay.json`. |
 | `G04-P5-B3` | `Pending` | — | — |
 | `G04-P5-B4` | `Pending` | — | — |
 | `G04-P5-B5` | `Pending` | — | — |

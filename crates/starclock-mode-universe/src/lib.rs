@@ -46,6 +46,7 @@ pub mod run_runtime;
 pub mod runtime;
 pub mod service_effect_runtime;
 pub mod topology;
+pub mod universe_replay;
 
 mod curio_lowering;
 mod encounter_digest;

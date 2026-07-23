@@ -1,5 +1,7 @@
 use std::sync::{Arc, OnceLock};
 
+use sha2::Digest;
+
 use starclock_activity::{
     ActivityBattleResultContract, ActivityInstanceId, ActivityMasterSeed,
     ActivityParticipantCarryDefinition, ActivityPreparationBoundary, BattleBinding, BattleOutcome,
@@ -24,6 +26,10 @@ use starclock_mode_universe::{
     catalog::UniverseCatalog,
     encounter_content_runtime::EncounterContentRuntimeCatalog,
     entry::{StandardUniverseEntry, StandardUniverseProfile},
+    universe_replay::{
+        StandardUniverseReplayError, encode_standard_universe_trace, record_baseline_run,
+        replay_entry_for, verify_standard_universe_replay,
+    },
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
@@ -430,7 +436,7 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
     assert_eq!(report.final_state_hash(), activity.view().state_hash());
     assert!(report.steps().iter().any(|step| matches!(
         step,
-        StandardUniverseBaselineStep::Decision(decision)
+        StandardUniverseBaselineStep::Decision { decision, .. }
             if decision.kind() == starclock_activity::ActivityDecisionKind::Encounter
     )));
     assert!(report.steps().iter().any(|step| matches!(
@@ -448,6 +454,145 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
             .count(),
         2
     );
+}
+
+#[test]
+fn complete_run_replay_verifies_and_reports_the_first_divergence() {
+    let catalog = catalog();
+    let lock = participants();
+    let overlay = overlay(&catalog, &lock);
+    let world = &catalog.worlds()[0];
+    let compiled = StandardUniverseProfile::new(Arc::clone(&catalog))
+        .compile(
+            StandardUniverseEntry::new(world.id(), world.difficulties()[0], lock, vec![])
+                .with_encounter_overlay(overlay),
+        )
+        .unwrap();
+    let instance = ActivityInstanceId::new(89).unwrap();
+    let seed = ActivityMasterSeed::from_u64(10);
+    let mut activity = compiled
+        .start_standard(instance, seed)
+        .unwrap()
+        .into_activity();
+    let header = starclock_replay::format::ReplayHeader::new(
+        starclock_replay::format::ReplayIdentity::new(
+            "4.4",
+            "standard-universe-rules-v1",
+            "standard-universe-data-v4.4",
+            starclock_replay::digest::ConfigBundleDigest::new([0x41; 32]),
+            "fixed-i64-6dp-v1",
+            "chacha8-rand-0.10.2-intmap-v1",
+            starclock_activity::ACTIVITY_STATE_HASH_REVISION,
+        )
+        .unwrap(),
+        starclock_replay::format::ControllerIdentity::new(
+            StandardUniverseBaselineRunner::REVISION,
+            starclock_replay::digest::ControllerDigest::new([0x42; 32]),
+        )
+        .unwrap(),
+        10,
+        replay_entry_for(&activity, "standard-universe-v1"),
+        0,
+    )
+    .unwrap();
+    let mut executor =
+        |handoff: &starclock_activity::ActivityBattleHandoff| won_result(handoff.identity());
+    let recorded = record_baseline_run(
+        &mut activity,
+        &StandardUniverseBaselinePolicy::default(),
+        &mut executor,
+    )
+    .unwrap();
+    let bytes = encode_standard_universe_trace(&header, recorded.trace()).unwrap();
+    assert_eq!(bytes.len(), 11_011);
+    // SHA-256: f4ca5a3e84df8f123dc01b313cb0aeaa703370e07295fc4870cda28ac3da0b31
+    assert_eq!(
+        sha2::Sha256::digest(&bytes).as_slice(),
+        [
+            244, 202, 90, 62, 132, 223, 143, 18, 61, 192, 27, 49, 60, 176, 174, 170, 112, 51, 112,
+            224, 114, 149, 252, 72, 112, 205, 162, 138, 195, 218, 11, 49,
+        ]
+    );
+    let fresh = compiled
+        .start_standard(instance, seed)
+        .unwrap()
+        .into_activity();
+    let verified = verify_standard_universe_replay(&bytes, fresh, "standard-universe-v1").unwrap();
+    assert_eq!(verified.action_count(), 60);
+    assert_eq!(verified.nested_battle_count(), 5);
+    assert_eq!(verified.diagnostic_count(), 50);
+    assert_eq!(verified.terminal(), recorded.report().terminal());
+    assert_eq!(
+        verified.final_state_hash().bytes(),
+        recorded.report().final_state_hash().bytes()
+    );
+
+    let mut state_corrupt = bytes.clone();
+    let state_offset = replay_payload_offset(
+        &state_corrupt,
+        starclock_replay::record::RecordKind::ExpectedActivityState,
+        0,
+    );
+    state_corrupt[state_offset] ^= 0x80;
+    let fresh = compiled
+        .start_standard(instance, seed)
+        .unwrap()
+        .into_activity();
+    assert!(matches!(
+        verify_standard_universe_replay(&state_corrupt, fresh, "standard-universe-v1"),
+        Err(StandardUniverseReplayError::StateDivergence {
+            action_index: 0,
+            ..
+        })
+    ));
+
+    let mut nested_corrupt = bytes.clone();
+    let nested_offset = replay_payload_offset(
+        &nested_corrupt,
+        starclock_replay::record::RecordKind::NestedBattleStart,
+        0,
+    );
+    nested_corrupt[nested_offset + 2] ^= 1;
+    let fresh = compiled
+        .start_standard(instance, seed)
+        .unwrap()
+        .into_activity();
+    assert!(matches!(
+        verify_standard_universe_replay(&nested_corrupt, fresh, "standard-universe-v1"),
+        Err(StandardUniverseReplayError::NestedStartDivergence { .. })
+    ));
+
+    let mut action_corrupt = bytes.clone();
+    let action_offset = replay_payload_offset(
+        &action_corrupt,
+        starclock_replay::record::RecordKind::AcceptedActivityCommand,
+        0,
+    );
+    action_corrupt[action_offset + 12] ^= 0x40;
+    let fresh = compiled
+        .start_standard(instance, seed)
+        .unwrap()
+        .into_activity();
+    assert!(matches!(
+        verify_standard_universe_replay(&action_corrupt, fresh, "standard-universe-v1"),
+        Err(StandardUniverseReplayError::DecisionDivergence { action_index: 0 })
+    ));
+}
+
+fn replay_payload_offset(
+    bytes: &[u8],
+    kind: starclock_replay::record::RecordKind,
+    ordinal: usize,
+) -> usize {
+    let decoded = starclock_replay::format::decode_replay(bytes).unwrap();
+    let payload = decoded
+        .records()
+        .iter()
+        .filter(|record| record.kind() == kind)
+        .nth(ordinal)
+        .unwrap()
+        .payload();
+    payload.as_ptr() as usize - bytes.as_ptr() as usize
 }
 
 fn choose_first(activity: &mut starclock_mode_universe::runtime::StandardUniverseActivity) {

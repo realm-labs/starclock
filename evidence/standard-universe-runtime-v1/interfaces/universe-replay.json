@@ -1,0 +1,41 @@
+{
+  "schema_revision": "starclock.goal04-universe-replay-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P5-B2",
+  "result": "complete-baseline-run-round-trips-with-controller-and-nested-battle-first-divergence-evidence",
+  "action_payload_version": 1,
+  "limits": {
+    "max_actions": 100000,
+    "max_records": 1000000,
+    "max_record_payload_bytes": 16777216
+  },
+  "golden": {
+    "activity_instance": 89,
+    "seed": 10,
+    "actions": 60,
+    "controller_diagnostics": 50,
+    "nested_battles": 5,
+    "records": 180,
+    "encoded_bytes": 11011,
+    "replay_sha256": "f4ca5a3e84df8f123dc01b313cb0aeaa703370e07295fc4870cda28ac3da0b31"
+  },
+  "contracts": {
+    "expected_state_after_every_action": true,
+    "controller_diagnostics_non_authoritative": true,
+    "nested_start_identity_recorded": true,
+    "nested_result_digest_recorded": true,
+    "complete_battle_result_recorded": true,
+    "first_action_divergence_reported": true,
+    "unknown_record_rejected": true,
+    "fresh_activity_required": true
+  },
+  "source_sha256": {
+    "crates/starclock-replay/src/activity.rs": "b0d5d2fed6bbd95aafd6315f6add300b01357ff3e1b5451372aaac857b6585ff",
+    "crates/starclock-mode-universe/src/baseline_controller.rs": "eef9513c8158d7957d4fdddbb1ecd6f4ee13e6260643c25b5a75e89c80a13bf7",
+    "crates/starclock-mode-universe/src/baseline_runner.rs": "ec6376f488644166a0d3aabd219f1e7d42430597272144ae2dc21a5222f3f2e7",
+    "crates/starclock-mode-universe/src/universe_replay.rs": "a5bc484015fd619ed2ed91ca8179a81e83be13ffbed8c3376568c2bdbaee5c2c",
+    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "ee9822f5d9b147c86243b6dc6a564c1130c82c0161f2f28d2fc3660a7ce601e9"
+  },
+  "policy_sha256": "25172e6ab5422d06f8934eff9a5ed6584c67b097e2dcc02f901b5e7f13f71989",
+  "new_registry_packages": []
+}

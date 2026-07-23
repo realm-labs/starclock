@@ -22,7 +22,7 @@
     "world_entry": "universe.rule.run-entry.standard",
     "world_terminal": "universe.rule.run-terminal.standard"
   },
-  "local_dependencies": ["starclock-activity", "starclock-data"],
+  "local_dependencies": ["starclock-activity", "starclock-data", "starclock-replay"],
   "external_dependencies": ["serde", "serde_json", "sha2", "zstd"],
   "new_registry_packages": 0,
   "focused_tests": 5

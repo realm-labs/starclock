@@ -27,6 +27,7 @@ use crate::{
 pub const ACTIVITY_COMMAND_PAYLOAD_VERSION: u16 = 1;
 pub const NESTED_BATTLE_PAYLOAD_VERSION: u16 = 1;
 pub const CONTROLLER_DIAGNOSTIC_PAYLOAD_VERSION: u16 = 1;
+pub const BATTLE_RESULT_PAYLOAD_VERSION: u16 = 1;
 pub const MAX_CONTROLLER_OPTIONS: u32 = 4_096;
 
 /// Generic controller family retained only as replay diagnostics.
@@ -243,7 +244,7 @@ pub fn encode_activity_trace(
         if let Some(diagnostic) = &entry.diagnostic {
             payloads.push((
                 RecordKind::ControllerDiagnostic,
-                encode_diagnostic(diagnostic)?,
+                encode_controller_diagnostic_payload(diagnostic)?,
             ));
         }
         match entry.nested {
@@ -256,10 +257,16 @@ pub fn encode_activity_trace(
                     RecordKind::ExpectedActivityState,
                     entry.state_hash.bytes().to_vec(),
                 ));
-                payloads.push((RecordKind::NestedBattleStart, encode_nested_start(identity)));
+                payloads.push((
+                    RecordKind::NestedBattleStart,
+                    encode_nested_battle_start_payload(identity),
+                ));
             }
             NestedBattleBoundary::End(digest) => {
-                payloads.push((RecordKind::NestedBattleEnd, encode_nested_end(digest)));
+                payloads.push((
+                    RecordKind::NestedBattleEnd,
+                    encode_nested_battle_end_payload(digest),
+                ));
                 payloads.push((
                     RecordKind::AcceptedActivityCommand,
                     encode_command(&entry.command)?,
@@ -324,7 +331,7 @@ pub fn verify_activity_replay(
     let mut final_hash = StateDigest::new(activity.state_hash().bytes());
     while record_index < records.len() {
         if records[record_index].kind() == RecordKind::ControllerDiagnostic {
-            let _ = decode_diagnostic(records[record_index].payload())?;
+            let _ = decode_controller_diagnostic_payload(records[record_index].payload())?;
             diagnostic_count += 1;
             record_index += 1;
         }
@@ -361,7 +368,7 @@ pub fn verify_activity_replay(
                         record_index: record_index as u32,
                     });
                 }
-                let actual = decode_nested_start(nested.payload())?;
+                let actual = decode_nested_battle_start_payload(nested.payload())?;
                 let expected = resolution
                     .battle_handoff()
                     .ok_or(ActivityReplayError::MissingBattleHandoff)?
@@ -376,7 +383,7 @@ pub fn verify_activity_replay(
                 record_index += 1;
             }
             RecordKind::NestedBattleEnd => {
-                let boundary = decode_nested_end(record.payload())?;
+                let boundary = decode_nested_battle_end_payload(record.payload())?;
                 record_index += 1;
                 let command_record =
                     records
@@ -611,6 +618,28 @@ pub(super) fn decode_result(
     let claimed = BattleResultDigest::new(fixed_digest(decoder)?)
         .ok_or(ActivityCommandPayloadError::InvalidDigest)?;
     Ok(BattleResult::new(identity, values, claimed))
+}
+
+pub fn encode_battle_result_payload(
+    result: &BattleResult,
+) -> Result<Vec<u8>, ActivityCommandPayloadError> {
+    let mut encoder = Encoder::new(Vec::new());
+    encoder.u16(BATTLE_RESULT_PAYLOAD_VERSION);
+    encode_result(result, &mut encoder)?;
+    Ok(encoder.into_inner())
+}
+
+pub fn decode_battle_result_payload(
+    bytes: &[u8],
+) -> Result<BattleResult, ActivityCommandPayloadError> {
+    let mut decoder = Decoder::new(bytes);
+    let version = decoder.u16()?;
+    if version != BATTLE_RESULT_PAYLOAD_VERSION {
+        return Err(ActivityCommandPayloadError::UnsupportedVersion(version));
+    }
+    let result = decode_result(&mut decoder)?;
+    decoder.finish()?;
+    Ok(result)
 }
 
 fn encode_identity(identity: BattleResultIdentity, encoder: &mut Encoder<Vec<u8>>) {
@@ -851,14 +880,17 @@ fn decode_fault(decoder: &mut Decoder<'_>) -> Result<BattleFault, ActivityComman
     ))
 }
 
-fn encode_nested_start(identity: BattleResultIdentity) -> Vec<u8> {
+#[must_use]
+pub fn encode_nested_battle_start_payload(identity: BattleResultIdentity) -> Vec<u8> {
     let mut encoder = Encoder::new(Vec::new());
     encoder.u16(NESTED_BATTLE_PAYLOAD_VERSION);
     encode_identity(identity, &mut encoder);
     encoder.into_inner()
 }
 
-fn decode_nested_start(bytes: &[u8]) -> Result<BattleResultIdentity, ActivityCommandPayloadError> {
+pub fn decode_nested_battle_start_payload(
+    bytes: &[u8],
+) -> Result<BattleResultIdentity, ActivityCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
     let version = decoder.u16()?;
     if version != NESTED_BATTLE_PAYLOAD_VERSION {
@@ -871,14 +903,17 @@ fn decode_nested_start(bytes: &[u8]) -> Result<BattleResultIdentity, ActivityCom
     Ok(identity)
 }
 
-fn encode_nested_end(digest: BattleResultDigest) -> Vec<u8> {
+#[must_use]
+pub fn encode_nested_battle_end_payload(digest: BattleResultDigest) -> Vec<u8> {
     let mut encoder = Encoder::new(Vec::new());
     encoder.u16(NESTED_BATTLE_PAYLOAD_VERSION);
     encoder.raw(&digest.bytes());
     encoder.into_inner()
 }
 
-fn decode_nested_end(bytes: &[u8]) -> Result<BattleResultDigest, ActivityCommandPayloadError> {
+pub fn decode_nested_battle_end_payload(
+    bytes: &[u8],
+) -> Result<BattleResultDigest, ActivityCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
     let version = decoder.u16()?;
     if version != NESTED_BATTLE_PAYLOAD_VERSION {
@@ -892,7 +927,10 @@ fn decode_nested_end(bytes: &[u8]) -> Result<BattleResultDigest, ActivityCommand
     Ok(digest)
 }
 
-fn encode_diagnostic(value: &ControllerDiagnostic) -> Result<Vec<u8>, ActivityCommandPayloadError> {
+/// Encodes one bounded non-authoritative controller diagnostic payload.
+pub fn encode_controller_diagnostic_payload(
+    value: &ControllerDiagnostic,
+) -> Result<Vec<u8>, ActivityCommandPayloadError> {
     let mut encoder = Encoder::new(Vec::new());
     encoder.u16(CONTROLLER_DIAGNOSTIC_PAYLOAD_VERSION);
     encoder.u8(value.kind as u8);
@@ -910,7 +948,10 @@ fn encode_diagnostic(value: &ControllerDiagnostic) -> Result<Vec<u8>, ActivityCo
     Ok(encoder.into_inner())
 }
 
-fn decode_diagnostic(bytes: &[u8]) -> Result<ControllerDiagnostic, ActivityCommandPayloadError> {
+/// Decodes one bounded non-authoritative controller diagnostic payload.
+pub fn decode_controller_diagnostic_payload(
+    bytes: &[u8],
+) -> Result<ControllerDiagnostic, ActivityCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
     let version = decoder.u16()?;
     if version != CONTROLLER_DIAGNOSTIC_PAYLOAD_VERSION {
@@ -1129,8 +1170,11 @@ mod tests {
         )
         .expect("lowest canonical ordinal wins equal scores");
         assert_eq!(diagnostic.selected_ordinal(), 2);
-        let encoded = encode_diagnostic(&diagnostic).unwrap();
-        assert_eq!(decode_diagnostic(&encoded), Ok(diagnostic));
+        let encoded = encode_controller_diagnostic_payload(&diagnostic).unwrap();
+        assert_eq!(
+            decode_controller_diagnostic_payload(&encoded),
+            Ok(diagnostic)
+        );
 
         let mut noncanonical = encoded;
         let first: [u8; 12] = noncanonical[20..32].try_into().unwrap();
@@ -1138,7 +1182,7 @@ mod tests {
         noncanonical[20..32].copy_from_slice(&second);
         noncanonical[32..44].copy_from_slice(&first);
         assert_eq!(
-            decode_diagnostic(&noncanonical),
+            decode_controller_diagnostic_payload(&noncanonical),
             Err(ActivityCommandPayloadError::InvalidDiagnostic(
                 ControllerDiagnosticError::NonCanonicalOrdinals,
             ))

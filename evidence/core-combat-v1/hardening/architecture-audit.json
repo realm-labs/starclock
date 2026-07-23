@@ -5,7 +5,7 @@
     "dependency_policy_sha256": "a8044cfdd658d855c7ecd8641942173cc1229d53454b3856a4d509ebe054b47a"
   },
   "source_size_audit": {
-    "handwritten_files": 349,
+    "handwritten_files": 350,
     "generated_vendor_exclusions": [
       {
         "path": "config/sora-golden/expected/reader/generated",
@@ -52,6 +52,13 @@
       },
       {
         "path": "crates/starclock-data/src/catalog.rs",
+        "lines": 1198,
+        "limit": 1200,
+        "utilization_percent": 99,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-replay/src/activity.rs",
         "lines": 1198,
         "limit": 1200,
         "utilization_percent": 99,
@@ -121,13 +128,6 @@
         "facade": false
       },
       {
-        "path": "crates/starclock-replay/src/activity.rs",
-        "lines": 1154,
-        "limit": 1200,
-        "utilization_percent": 96,
-        "facade": false
-      },
-      {
         "path": "crates/starclock-mcp/src/http.rs",
         "lines": 1153,
         "limit": 1200,
@@ -186,7 +186,7 @@
     ]
   },
   "public_api_audit": {
-    "public_declarations": 3531,
+    "public_declarations": 3563,
     "public_reexports": 41,
     "reexport_files": {
       "crates/starclock-activity/src/lib.rs": 18,
@@ -429,7 +429,8 @@
         "local_dependencies": [
           "starclock-activity",
           "starclock-combat",
-          "starclock-data"
+          "starclock-data",
+          "starclock-replay"
         ],
         "registry_dependencies": [
           {

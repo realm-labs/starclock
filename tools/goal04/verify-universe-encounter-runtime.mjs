@@ -26,10 +26,11 @@ for (const marker of ["UniverseEncounterOverlay", "DuplicateBattleSpec", "partic
 for (const marker of ["engage_encounter", "choose_preparation_option", "start_pending_battle", "submit_pending_battle_result"])
   assert(runtime.includes(marker) && activity.includes(marker), `Activity battle chain omits ${marker}`);
 assert(!/position_[xy]|f32|f64|HashMap/.test(topology + slots + overlay + runtime), "encounter runtime contains spatial coordinates, floats or unordered state");
-assert((tests.match(/^#\[test\]$/gm) ?? []).length === 2, "encounter integration test count differs");
+assert((tests.match(/^#\[test\]$/gm) ?? []).length === 3, "encounter integration test count differs");
 assert((slots.match(/^    #\[test\]$/gm) ?? []).length === 1, "encounter-slot unit test count differs");
 assert(tests.includes("encounter_resolution_preparation_handoff_and_reward_return_are_one_deterministic_chain"), "encounter end-to-end test is missing");
 assert(tests.includes("baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal"), "baseline complete-run encounter test is missing");
+assert(tests.includes("complete_run_replay_verifies_and_reports_the_first_divergence"), "full-run replay encounter test is missing");
 assert(tests.includes("overlay.bindings().len(), 173"), "all 173 encounter members are not represented by the overlay fixture");
 const overlayGolden = arrayGolden(tests, /overlay\.digest\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
 const rewardGolden = arrayGolden(tests, /settled\.state_hash\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);

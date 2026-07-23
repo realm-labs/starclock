@@ -1,0 +1,32 @@
+{
+  "schema_revision": "starclock.goal04-universe-replay.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P5-B2",
+  "action_payload_version": 1,
+  "controller_revision": "standard-universe-baseline-runner-v1",
+  "limits": {
+    "max_actions": 100000,
+    "max_records": 1000000,
+    "max_record_payload_bytes": 16777216
+  },
+  "golden": {
+    "activity_instance": 89,
+    "seed": 10,
+    "actions": 60,
+    "controller_diagnostics": 50,
+    "nested_battles": 5,
+    "records": 180,
+    "encoded_bytes": 11011,
+    "replay_sha256": "f4ca5a3e84df8f123dc01b313cb0aeaa703370e07295fc4870cda28ac3da0b31"
+  },
+  "contracts": {
+    "expected_state_after_every_action": true,
+    "controller_diagnostics_non_authoritative": true,
+    "nested_start_identity_recorded": true,
+    "nested_result_digest_recorded": true,
+    "complete_battle_result_recorded": true,
+    "first_action_divergence_reported": true,
+    "unknown_record_rejected": true,
+    "fresh_activity_required": true
+  }
+}

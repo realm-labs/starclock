@@ -83,14 +83,19 @@ impl Default for StandardUniverseBaselinePolicy {
 /// One accepted automatic command boundary and its controller diagnostics.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum StandardUniverseBaselineStep {
-    Decision(ActivityBaselineDecision),
+    Decision {
+        decision: ActivityBaselineDecision,
+        state_hash: ActivityStateHash,
+    },
     Preparation {
         option: ActivityOptionId,
+        state_hash: ActivityStateHash,
     },
     Battle {
         identity: BattleResultIdentity,
         result_digest: BattleResultDigest,
         outcome: BattleOutcome,
+        state_hash: ActivityStateHash,
     },
 }
 
@@ -152,6 +157,7 @@ impl StandardUniverseBaselineRunner {
                 identity,
                 result_digest,
                 outcome: settled.settlement().outcome(),
+                state_hash: settled.state_hash(),
             });
         }
         if let Some(preparation) = view.preparation() {
@@ -162,7 +168,10 @@ impl StandardUniverseBaselineRunner {
             activity
                 .choose_preparation_option(view.state_hash(), option)
                 .map_err(StandardUniverseBaselineError::Preparation)?;
-            return Ok(StandardUniverseBaselineStep::Preparation { option });
+            return Ok(StandardUniverseBaselineStep::Preparation {
+                option,
+                state_hash: activity.view().state_hash(),
+            });
         }
         let decision_view = view
             .decision()
@@ -177,7 +186,10 @@ impl StandardUniverseBaselineRunner {
             &selected,
             policy.technique_points(),
         )?;
-        Ok(StandardUniverseBaselineStep::Decision(selected))
+        Ok(StandardUniverseBaselineStep::Decision {
+            decision: selected,
+            state_hash: activity.view().state_hash(),
+        })
     }
 
     pub fn run_to_terminal<E: NestedBattleExecutor>(

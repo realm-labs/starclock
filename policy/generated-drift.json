@@ -202,6 +202,10 @@
       "command": ["node", "tools/goal04/verify-baseline-controller.mjs", "."]
     },
     {
+      "name": "Goal 04 full-run Universe replay",
+      "command": ["node", "tools/goal04/verify-universe-replay.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },
