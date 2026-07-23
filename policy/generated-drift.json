@@ -194,6 +194,10 @@
       "command": ["node", "tools/goal04/verify-mechanic-fixtures.mjs", "."]
     },
     {
+      "name": "Goal 04 runtime completeness audit",
+      "command": ["node", "tools/goal04/verify-runtime-completeness.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

@@ -1,0 +1,159 @@
+{
+  "schema_revision": "starclock.goal04-runtime-completeness-audit-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P4-B2",
+  "result": "every-enabled-content-rule-and-fixture-is-executable-and-every-target-has-one-reviewed-runtime-or-metadata-owner",
+  "counts": {
+    "content_records": 2201,
+    "rule_bindings": 786,
+    "semantic_fixtures": 78,
+    "runtime_reachable_content": 1125,
+    "intentional_metadata_content": 984,
+    "explicit_policy_content": 92,
+    "runtime_targets": 19,
+    "reviewed_stable_id_literals": 25,
+    "target_owner_files": 23
+  },
+  "contracts": {
+    "unimplemented_enabled_records": 0,
+    "unimplemented_enabled_rules": 0,
+    "unimplemented_enabled_fixtures": 0,
+    "unowned_runtime_targets": 0,
+    "unreviewed_stable_id_literals": 0,
+    "generated_rows_public": false,
+    "runtime_json_or_excel_reads": false
+  },
+  "classifications": {
+    "RuntimeReachable": 1125,
+    "IntentionalMetadata": 984,
+    "ExplicitPolicy": 92
+  },
+  "target_counts": {
+    "activity.graph.domain": [
+      9,
+      0,
+      "RuntimeReachable"
+    ],
+    "activity.inventory.blessing": [
+      162,
+      162,
+      "RuntimeReachable"
+    ],
+    "activity.inventory.curio": [
+      61,
+      61,
+      "RuntimeReachable"
+    ],
+    "activity.inventory.path": [
+      9,
+      0,
+      "RuntimeReachable"
+    ],
+    "activity.policy.ResolveWorldDifficultyBossEliteBinding": [
+      4,
+      0,
+      "ExplicitPolicy"
+    ],
+    "activity.policy.SelectConditionKeyThenResolveGroupOrDifficultyBinding": [
+      29,
+      0,
+      "ExplicitPolicy"
+    ],
+    "activity.policy.SelectExactConditionKeyThenWeightedStableOrder": [
+      59,
+      0,
+      "ExplicitPolicy"
+    ],
+    "activity.program.ability-tree": [
+      42,
+      42,
+      "RuntimeReachable"
+    ],
+    "activity.program.occurrence-choice": [
+      321,
+      0,
+      "RuntimeReachable"
+    ],
+    "activity.program.service": [
+      94,
+      94,
+      "RuntimeReachable"
+    ],
+    "catalog.encounter-groups": [
+      74,
+      0,
+      "IntentionalMetadata"
+    ],
+    "catalog.maps": [
+      579,
+      0,
+      "IntentionalMetadata"
+    ],
+    "catalog.occurrence-variants": [
+      67,
+      0,
+      "IntentionalMetadata"
+    ],
+    "catalog.occurrences": [
+      59,
+      0,
+      "IntentionalMetadata"
+    ],
+    "catalog.rooms": [
+      163,
+      0,
+      "IntentionalMetadata"
+    ],
+    "catalog.world-difficulties": [
+      33,
+      0,
+      "IntentionalMetadata"
+    ],
+    "catalog.worlds": [
+      9,
+      0,
+      "IntentionalMetadata"
+    ],
+    "universe.native.released-curio-effect-binding": [
+      67,
+      67,
+      "RuntimeReachable"
+    ],
+    "universe.native.released-stage-ability-binding": [
+      360,
+      360,
+      "RuntimeReachable"
+    ]
+  },
+  "digests": {
+    "runtime_dispositions_sha256": "4c6f141fdeb99c501ed61bc8614c0fd58046b5e3a5458a4f4ad3c85fef8000d6",
+    "fixture_audit_sha256": "f4764fad3f9915a219893b17e87ba61b8da1e6878463525102921700476cf8f9",
+    "policy_sha256": "3330a948a320bc1914c93c33526070b3c4c4238260928de39b1cff23748ffe08"
+  },
+  "source_sha256": {
+    "crates/starclock-mode-universe/src/ability_runtime.rs": "b191b118a0af33b19792cb3d9fb4eaa17fd228f843df38c40e7333574bee698e",
+    "crates/starclock-mode-universe/src/abundance_runtime.rs": "d91db72b08e15072095b236c8d6ae24f71ebe01ec0ce1f5382b44167a8fc46bf",
+    "crates/starclock-mode-universe/src/blessing_runtime.rs": "b3c4ae79636f914bee6571a106e2a010944c7e08737c1b30bf82d310080d5306",
+    "crates/starclock-mode-universe/src/curio_effect_runtime.rs": "981f11cc983b919e8f153554ff7b4fe576b05c1fea0340b3a57e78b939ce4d42",
+    "crates/starclock-mode-universe/src/curio_runtime.rs": "6629cca333782f0701e560b9fe823cac4ed3cf6f33bb465aa38fcce5e2ea9204",
+    "crates/starclock-mode-universe/src/destruction_runtime.rs": "ed4c3a17cd74adb95835ada15c2fea4ce5035688fe6c03a6890e27675029e84b",
+    "crates/starclock-mode-universe/src/elation_runtime.rs": "f3d6425397610cee5889fb932027a1d487a3663761b1f7d374c04544f638e6e0",
+    "crates/starclock-mode-universe/src/encounter_content_runtime.rs": "ac3303cd173dc8bc5ac10272d7988fcd644c5e068655a0e56bf825c5dd56852e",
+    "crates/starclock-mode-universe/src/encounter_lowering.rs": "f9d49e79db6764c561d502d0441bdbe6eba58905a176585693b008aca4172f4c",
+    "crates/starclock-mode-universe/src/entry.rs": "8883b91bf05ca1a9d20a6b763db999801d907cd79bd2c2ce9dd3d828c2d7c3f0",
+    "crates/starclock-mode-universe/src/erudition_runtime.rs": "4d20c6ffcb0d02181cba8ca7627f7b781cec4451ada5cc3a14876ef564ff7af1",
+    "crates/starclock-mode-universe/src/hunt_runtime.rs": "a1c5aa6999f77e2a944319167fad1f375792136d2524c286f7a7e0af6f823979",
+    "crates/starclock-mode-universe/src/lowering.rs": "0128801754d5dd6aef5591a3859f7f4eba020c9896a1e541b6073cbc76d939bc",
+    "crates/starclock-mode-universe/src/negative_curio_runtime.rs": "c747ec2e07090d5d167bf688fdae7dac7bd1e38e05739052fd05fa981f5c5556",
+    "crates/starclock-mode-universe/src/nihility_runtime.rs": "3c2f6bdeb8a5ec7347862f46a5795897b461ec8ba0970cc4704e55cd68ab727e",
+    "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs": "ac933a68df26cfedfb8462ada2222d8eb8f2b91eb503fdbce30d283c44c8a060",
+    "crates/starclock-mode-universe/src/occurrence_lowering.rs": "b4bf97ec2483cfcf094e09bb01ef6da834a788385744327788c436ef023d8352",
+    "crates/starclock-mode-universe/src/path_runtime.rs": "518b203a4dbd6d099e8b4573fb30f021ee6bc8ef0e7f8584796eea59840d2c9a",
+    "crates/starclock-mode-universe/src/preservation_runtime.rs": "d144d576747a356eeaf620b4d6077deb31af507019aae82363dc41b7e82b72b3",
+    "crates/starclock-mode-universe/src/propagation_runtime.rs": "f33b443c61e0e3658c5db9617ef1854a2bdbdf9b0ee372f96b06528ae0f311b2",
+    "crates/starclock-mode-universe/src/remembrance_runtime.rs": "8c387745c61725c03195d4dffa4b94d64c49b15f0878aef42515cd758f695ec3",
+    "crates/starclock-mode-universe/src/service_effect_runtime.rs": "fdaaddd092dd463ed90c8a69ad04ec00fcf0b8c9b576ac3bfd0c204b952150e5",
+    "crates/starclock-mode-universe/src/topology.rs": "fddf2634c6e1c8e50edb0ef7eab551f059adc68a0a0529c1225c74aa3b75b8da"
+  },
+  "new_registry_packages": []
+}
