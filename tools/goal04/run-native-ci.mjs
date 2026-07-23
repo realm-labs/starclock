@@ -1,8 +1,26 @@
 import process from "node:process";
 import { execFileSync } from "node:child_process";
 
-if (process.argv.length !== 3 || process.argv[2] !== "--foundation")
-  throw new Error("usage: run-native-ci.mjs --foundation");
+if (process.argv.length !== 3 || !["--foundation", "--hardening"].includes(process.argv[2]))
+  throw new Error("usage: run-native-ci.mjs --foundation|--hardening");
+
+const hardening = [
+  ["node", ["tools/goal04/verify-seeded-matrix.mjs", "."]],
+  ["cargo", ["test", "-p", "starclock-activity", "--test", "activity_hardening", "--all-features"]],
+  ["cargo", ["test", "-p", "starclock-replay", "--test", "property_contract", "--test", "battle_property_contract", "--test", "activity_replay", "--all-features"]],
+  ["cargo", ["test", "-p", "starclock-agent-api", "--test", "activity_session_loop", "--all-features"]],
+  ["node", ["tools/repository-check/verify-generated-drift.mjs"]],
+  ["node", ["tools/goal-hardening/verify-release-contract.mjs"]],
+  ["node", ["tools/agent-control/verify-goal02-release-contract.mjs"]],
+  ["node", ["tools/universe-reference/verify-release.mjs", "."]],
+  ["node", ["tools/goal04/verify-determinism-hardening.mjs", "."]]
+];
+
+if (process.argv[2] === "--hardening") {
+  for (const [command, args] of hardening) execFileSync(command, args, { stdio: "inherit" });
+  console.log("Goal 04 native determinism hardening gate passed.");
+  process.exit(0);
+}
 
 for (const [command, args] of [
   ["node", ["tools/goal04/verify-surface-audit.mjs", "."]],

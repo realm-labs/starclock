@@ -1,0 +1,45 @@
+{
+  "schema_revision": "starclock.goal04-determinism-hardening.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P6-B2",
+  "native_gate": "node tools/goal04/run-native-ci.mjs --hardening",
+  "native_profiles": ["windows-x64-native", "linux-x64-native", "macos-arm64-native"],
+  "compile_only_profiles": ["windows-arm64-compile", "linux-arm64-compile", "macos-x64-compile"],
+  "suites": [
+    {
+      "id": "universe-seeded-matrix",
+      "targets": ["crates/starclock-agent-api/examples/g04_universe_seed_matrix.rs", "evidence/standard-universe-runtime-v1/hardening/seeded-matrix.json"],
+      "expected_evidence_sha256": "a5d2003a1144de6d29392b486384f6f06737e66251bf069719b734e527a3b7e5"
+    },
+    {
+      "id": "activity-rng-isolation",
+      "targets": ["crates/starclock-activity/tests/activity_hardening.rs"],
+      "streams": 8,
+      "draws_per_perturbation": 257,
+      "invalid_commands": 4096
+    },
+    {
+      "id": "replay-property-corpora",
+      "targets": ["crates/starclock-replay/tests/property_contract.rs", "crates/starclock-replay/tests/battle_property_contract.rs", "crates/starclock-replay/tests/activity_replay.rs", "crates/starclock-agent-api/tests/activity_session_loop.rs"],
+      "proptest_cases_per_property": 256,
+      "full_activity_corruption_cases": 3
+    },
+    {
+      "id": "clean-generated-drift",
+      "targets": ["policy/generated-drift.json"],
+      "cache_independent_checks": 59,
+      "cache_dependent_checks": 4
+    },
+    {
+      "id": "prior-release-compatibility",
+      "targets": ["policy/release-contract.json", "policy/goal02-release-contract.json", "evidence/standard-universe-reference-v1/release/release-evidence.json"],
+      "goals": ["core-combat-v1", "agent-control-mcp-v1", "standard-universe-reference-v1"]
+    }
+  ],
+  "evidence_boundary": {
+    "committed_report_is_contract_not_hosted-run-proof": true,
+    "hosted_native_execution_is_retained_as_ci_artifact": true,
+    "compile_only_runtime_claims": 0,
+    "source_cache_is_optional_for_clean_regeneration": true
+  }
+}

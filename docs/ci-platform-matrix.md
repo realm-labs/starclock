@@ -27,6 +27,15 @@ and real-TCP HTTP trace tests. The committed matrix evidence binds those claims
 to exact normalized test/artifact hashes; the per-run record binds them to the
 hosted image, workflow run and checked commit.
 
+Goal 04 adds a separate native-only hardening gate after its frozen foundation
+gate. Every successful native profile replays the complete 33-run Standard
+Universe matrix, perturbs all eight Activity RNG streams, executes the fixed
+property and malformed-replay corpora, checks generated-artifact drift, and
+re-verifies the Goals 01–03 release contracts. Its committed evidence freezes
+the expected vectors and required profiles; the per-run CI artifact records
+which host actually executed them. Compile-only profiles make no Goal 04
+runtime claim.
+
 ## Compile-only coverage
 
 | Profile | Execution host | Checked target |

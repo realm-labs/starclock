@@ -58,6 +58,17 @@ fn request(session: &ActivityAgentSession, sequence: u64) -> PlayActivityActionR
     }
 }
 
+fn drive_to_terminal(session: &mut ActivityAgentSession) -> u64 {
+    let mut external_steps = 0_u64;
+    while session.terminal().is_none() {
+        assert!(external_steps < 1_000);
+        let next = request(session, external_steps);
+        session.apply_action(next).unwrap();
+        external_steps += 1;
+    }
+    external_steps
+}
+
 #[test]
 fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay() {
     let factory = ActivityAgentSessionFactory::load_production().unwrap();
@@ -152,4 +163,38 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
         session.observe().unwrap().status,
         AgentActivityStatus::Closed
     );
+}
+
+#[test]
+fn activity_replay_corruption_corpus_is_total_and_live_session_is_inert() {
+    const CORPUS_CASES: usize = 3;
+
+    let factory = ActivityAgentSessionFactory::load_production().unwrap();
+    let mut session = create(&factory, "session_activity_replay_corpus");
+    assert_eq!(drive_to_terminal(&mut session), 61);
+    let replay = session.export_replay().unwrap();
+    let original_hash = session.state_hash();
+    let original_actions = session.replay_action_count();
+
+    for case in 0..CORPUS_CASES {
+        let mut malformed = replay.bytes().to_vec();
+        match case % 3 {
+            0 => malformed.truncate(case * malformed.len() / CORPUS_CASES),
+            1 => malformed.push(u8::try_from(case).unwrap()),
+            _ => {
+                let last = malformed.len() - 1;
+                let final_state_byte = last - ((case / 3) % 32);
+                malformed[final_state_byte] ^= 1_u8 << (case % 8);
+            }
+        }
+        assert!(
+            session.verify_replay(&factory, &malformed).is_err(),
+            "malformed replay case {case} unexpectedly verified"
+        );
+        assert_eq!(session.state_hash(), original_hash);
+        assert_eq!(session.replay_action_count(), original_actions);
+    }
+
+    let verified = session.verify_replay(&factory, replay.bytes()).unwrap();
+    assert_eq!(verified.final_state_hash, original_hash);
 }

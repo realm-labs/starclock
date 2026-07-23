@@ -222,6 +222,10 @@
       "command": ["node", "tools/goal04/verify-seeded-matrix.mjs", "."]
     },
     {
+      "name": "Goal 04 determinism hardening",
+      "command": ["node", "tools/goal04/verify-determinism-hardening.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

@@ -53,6 +53,8 @@ jobs:
         run: cargo test -p starclock-agent-api --test schema_property_contract --test standard_session_loop --all-features && cargo test -p starclock-cli --test mcp_stdio --all-features && cargo test -p starclock-mcp --test http_conformance --all-features
       - name: Execute Goal 04 foundation contracts natively
         run: node tools/goal04/run-native-ci.mjs --foundation
+      - name: Execute Goal 04 determinism hardening natively
+        run: node tools/goal04/run-native-ci.mjs --hardening
       - name: Record native execution evidence
         run: node tools/ci/write-evidence.mjs --profile "${{ matrix.profile }}" --output ".ci-evidence/${{ matrix.profile }}.json"
       - name: Retain native evidence

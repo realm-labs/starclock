@@ -1,0 +1,164 @@
+{
+  "schema_revision": "starclock.goal04-determinism-hardening-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P6-B2",
+  "result": "cross-platform-native-contract-and-local-hardening-vectors-frozen",
+  "native_gate": "node tools/goal04/run-native-ci.mjs --hardening",
+  "matrix": {
+    "worlds": 9,
+    "paths": 9,
+    "difficulties": 33,
+    "runs": 33,
+    "replay_sha256": "a5d2003a1144de6d29392b486384f6f06737e66251bf069719b734e527a3b7e5"
+  },
+  "corpora": {
+    "invalid_commands": 4096,
+    "rng_streams": 8,
+    "perturbation_draws_per_stream": 257,
+    "proptest_cases_per_property": 256,
+    "full_activity_corruption_cases": 3
+  },
+  "regeneration": {
+    "cache_independent_checks": 59,
+    "cache_dependent_checks": 4,
+    "source_cache_optional_in_clean_checkout": true
+  },
+  "prior_release_contracts": [
+    "core-combat-v1",
+    "agent-control-mcp-v1",
+    "standard-universe-reference-v1"
+  ],
+  "suites": [
+    {
+      "id": "universe-seeded-matrix",
+      "targets": [
+        {
+          "path": "crates/starclock-agent-api/examples/g04_universe_seed_matrix.rs",
+          "sha256": "ec089f07ed9fe9df3662738f8c0e93bf589d767b4ec0c45a984cf95b51c36caf"
+        },
+        {
+          "path": "evidence/standard-universe-runtime-v1/hardening/seeded-matrix.json",
+          "sha256": "a5d2003a1144de6d29392b486384f6f06737e66251bf069719b734e527a3b7e5"
+        }
+      ]
+    },
+    {
+      "id": "activity-rng-isolation",
+      "targets": [
+        {
+          "path": "crates/starclock-activity/tests/activity_hardening.rs",
+          "sha256": "dd42eaa13b9b236e82b4d7be8161b15934efb3863d456a31d9232ecdc95a123e"
+        }
+      ]
+    },
+    {
+      "id": "replay-property-corpora",
+      "targets": [
+        {
+          "path": "crates/starclock-replay/tests/property_contract.rs",
+          "sha256": "57b7855cdb03feb8648ee05ba6cf94447bd639c0cfa86c8e9fb4ddbedf457f88"
+        },
+        {
+          "path": "crates/starclock-replay/tests/battle_property_contract.rs",
+          "sha256": "0e32efd02bea5aa22a49747c76f1fbf25d604f8070cf46422047801601d91b99"
+        },
+        {
+          "path": "crates/starclock-replay/tests/activity_replay.rs",
+          "sha256": "157d262233b7638e6be8e2f9022dc58de4e06d80ad531624d79bb28b57be61d3"
+        },
+        {
+          "path": "crates/starclock-agent-api/tests/activity_session_loop.rs",
+          "sha256": "b7482e99b454354fec2629883475055082d121e01ff833bddcf4e6c527c65621"
+        }
+      ]
+    },
+    {
+      "id": "clean-generated-drift",
+      "targets": [
+        {
+          "path": "policy/generated-drift.json",
+          "sha256": "e38d3e968e29d38d907a278e22c7027e551f9faefc4183c65f2e2f3e22d9daf9"
+        }
+      ]
+    },
+    {
+      "id": "prior-release-compatibility",
+      "targets": [
+        {
+          "path": "policy/release-contract.json",
+          "sha256": "3da66cce4b196613ad6a91e1e45a4aff0fc757f15d9abc91f2f5d139287d3c53"
+        },
+        {
+          "path": "policy/goal02-release-contract.json",
+          "sha256": "320ba1eeb6ac5ca58488dd038332c9d83b27cfc130b693abb42c3601f168f7a3"
+        },
+        {
+          "path": "evidence/standard-universe-reference-v1/release/release-evidence.json",
+          "sha256": "e72c8037afeb261b8b598ceaba97dd7c3e6588c253bcae8333162175e2b1ba75"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "windows-x64-native",
+      "execution": "required-native-on-success",
+      "suites": [
+        "universe-seeded-matrix",
+        "activity-rng-isolation",
+        "replay-property-corpora",
+        "clean-generated-drift",
+        "prior-release-compatibility"
+      ]
+    },
+    {
+      "id": "linux-x64-native",
+      "execution": "required-native-on-success",
+      "suites": [
+        "universe-seeded-matrix",
+        "activity-rng-isolation",
+        "replay-property-corpora",
+        "clean-generated-drift",
+        "prior-release-compatibility"
+      ]
+    },
+    {
+      "id": "macos-arm64-native",
+      "execution": "required-native-on-success",
+      "suites": [
+        "universe-seeded-matrix",
+        "activity-rng-isolation",
+        "replay-property-corpora",
+        "clean-generated-drift",
+        "prior-release-compatibility"
+      ]
+    },
+    {
+      "id": "windows-arm64-compile",
+      "execution": "compiled-not-executed",
+      "suites": []
+    },
+    {
+      "id": "linux-arm64-compile",
+      "execution": "compiled-not-executed",
+      "suites": []
+    },
+    {
+      "id": "macos-x64-compile",
+      "execution": "compiled-not-executed",
+      "suites": []
+    }
+  ],
+  "evidence_boundary": {
+    "committed_report_is_contract_not_hosted-run-proof": true,
+    "hosted_native_execution_is_retained_as_ci_artifact": true,
+    "compile_only_runtime_claims": 0,
+    "source_cache_is_optional_for_clean_regeneration": true
+  },
+  "contract_sha256": {
+    "policy": "46da5cfdf785183c01751c503ebd9dd6e707094e7ef64ce7478d832d7b2cf7fe",
+    "workflow": "2ffa2f9bc986c5ab6077b2435ba52a5a9e24066bb0597857e8b5951f8337e6b3",
+    "native_runner": "8c9d3f741c636826660800a1f791e99b5aac9a2adb34ae769e1f9fdd4408c804"
+  },
+  "new_registry_packages": []
+}

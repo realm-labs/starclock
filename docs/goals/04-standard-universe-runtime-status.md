@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
 | Active phase | Phase 6 — Golden runs and release hardening |
-| Active batch | `G04-P6-B2` |
-| Next unblocked batch | `G04-P6-B2` |
+| Active batch | `G04-P6-B3` |
+| Next unblocked batch | `G04-P6-B3` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -83,8 +83,8 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P5-B4` | `Complete` | This row's containing commit | Added the additive `agent-activity-v1` boundary without changing Battle v1: owned player-visible slots, inventories, participant carry and terminal state; state/boundary-bound opaque action tokens; stale/forged/idempotent request handling; automatic nested-battle settlement; and canonical replay export/verification under the truthful `agent-activity-session-v1` controller identity. A public-only policy completes World 1 difficulty index 0 at seed 10 through 61 external actions and seven nested battles. Its 68-action, 13,225-byte replay hashes to `e8efd9ae17b597e44379bfe2fd3d83c09a1d06901def434730c6c83bf8e8da04` and ends at `57cafc16f9aa91f6a97d4acd3363b7aa640e8df11c914255231dc428d6a022b3`. The encounter executor remains explicitly labeled `verified-reference-projection-v1`; no production enemy-provider claim is made. All prior agent-api Battle v1 suites pass. Evidence: `evidence/standard-universe-runtime-v1/interfaces/activity-agent-api.json`. |
 | `G04-P5-B5` | `Complete` | This row's containing commit | Added six additive Standard Universe Activity MCP tools and two bounded inert resources while preserving all seven frozen Battle v1 tools. A separate owned Activity registry enforces 1,024 global/64 tenant/16 principal quotas, monotonic 30-minute idle/four-hour lifetime leases, quota-before-ID allocation and one serialized lane per session. Exact Activity create/read/act/replay/close scopes extend the OAuth matrix to 13 scopes; stdio and real authorized HTTP conformance cover discovery, opaque action play, idempotent retry, observe, replay export and close. Evidence: `evidence/standard-universe-runtime-v1/interfaces/activity-mcp.json`. |
 | `G04-P6-B1` | `Complete` | This row's containing commit | Added a release-mode seeded matrix with exactly one complete run for each of 33 constructible World/difficulty entries and canonical Path-option rotation covering all nine Paths. Seeds `100000..100032` produce 1,626 external actions, 1,770 replay actions, 144 verified nested battles and 324,513 replay bytes; every replay verifies from a fresh Activity and all 33 terminal hashes/replay SHA-256 values plus decision/action families are retained. Three inert failure fixtures reject unknown World, out-of-range difficulty and overflowing seed. World 9 difficulty index 3 is retained as an authored four-action zero-battle complete route rather than fabricating an encounter. Evidence: `evidence/standard-universe-runtime-v1/hardening/seeded-matrix.json`. |
-| `G04-P6-B2` | `InProgress` | — | — |
-| `G04-P6-B3` | `Pending` | — | — |
+| `G04-P6-B2` | `Complete` | This row's containing commit | Added a separate native-only Goal 04 gate to all three hosted execution profiles without changing the three compile-only claims. Every successful native job must reproduce the exact 33-run/9-Path/33-difficulty matrix, perturb all eight RNG streams by 257 draws, execute the fixed 4,096-command and 256-case replay property corpora plus three complete-Activity corruption classes, regenerate 59 clean-checkout checks and re-verify Goals 01–03. The committed report freezes required vectors rather than fabricating hosted results; each Actions run retains its actual host record. Evidence: `evidence/standard-universe-runtime-v1/hardening/determinism-hardening.json`. |
+| `G04-P6-B3` | `InProgress` | — | — |
 | `G04-P6-B4` | `Pending` | — | — |
 
 ## Frozen starting denominators
@@ -159,9 +159,9 @@ without new retained evidence.
   sequential, grouped and entry-triggered encounters.
 - [x] Complete seeded activities execute through verified nested battles.
 - [x] Full-run replay, CLI, baseline AI, agent API and MCP conformance pass.
-- [ ] Cross-platform command/event/hash goldens and RNG isolation pass.
+- [x] Cross-platform command/event/hash goldens and RNG isolation pass.
 - [ ] Stable-runner performance/allocation and concurrent server workloads pass.
-- [ ] Goals 01–03 release contracts and full generated drift pass.
+- [x] Goals 01–03 release contracts and clean generated drift pass.
 - [ ] Documentation, dependency, architecture and security audits pass.
 - [ ] `G04-P6-B4` is committed and the clean-worktree release verifier passes.
 
