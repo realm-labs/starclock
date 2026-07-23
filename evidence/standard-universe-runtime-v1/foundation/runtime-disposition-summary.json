@@ -1,7 +1,7 @@
 {
   "schema_revision": "starclock.goal04-runtime-disposition-evidence.v1",
   "goal_id": "standard-universe-runtime-v1",
-  "result": "partially-implemented",
+  "result": "implemented",
   "totals": {
     "content_records": 2201,
     "rule_bindings": 786,
@@ -102,8 +102,8 @@
     }
   },
   "digests": {
-    "policy_sha256": "51587a8e8a7154be6a9c1c849d16256621084712cdefe3ccb3ee437fc4fe40f7",
-    "runtime_dispositions_sha256": "b7b156d86c064d1ca06b31e1c218d490a0b28a13d4decf8de6df9fdae5c9126a",
+    "policy_sha256": "2f5ef7278f352ad382569fddec788f6197e9d8f3481903902c6ad25fbe4718c9",
+    "runtime_dispositions_sha256": "4c6f141fdeb99c501ed61bc8614c0fd58046b5e3a5458a4f4ad3c85fef8000d6",
     "partition_manifest_sha256": "9eebeb5ad82b30b2ddb789e36dcf2cbb38d7c02426c9d99696d43280ce5f5aaa",
     "source_coverage_sha256": "b413e122ea0aeb7acb54f2c3f855f65d768517b92a822295f865dd3afeb5d66a",
     "source_rules_sha256": "6cad0258ac8ce7869fe2dc27ed41302070830acb6dfbab906d9e6b717867f6ce",
@@ -111,15 +111,15 @@
   },
   "implementation_states": {
     "planned": {
-      "content_records": 959,
+      "content_records": 0,
       "rule_bindings": 0,
-      "semantic_fixtures": 4
+      "semantic_fixtures": 0
     },
     "executable": {
-      "content_records": 1242,
+      "content_records": 2201,
       "rule_bindings": 786,
-      "semantic_fixtures": 74
+      "semantic_fixtures": 78
     }
   },
-  "executable_count": 2102
+  "executable_count": 3065
 }

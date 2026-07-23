@@ -18,6 +18,7 @@ use starclock_combat::{
 use starclock_mode_universe::{
     battle_overlay::{UniverseEncounterBattleBinding, UniverseEncounterOverlay},
     catalog::UniverseCatalog,
+    encounter_content_runtime::EncounterContentRuntimeCatalog,
     entry::{StandardUniverseEntry, StandardUniverseProfile},
 };
 
@@ -179,6 +180,10 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     let catalog = catalog();
     let lock = participants();
     let overlay = overlay(&catalog, &lock);
+    EncounterContentRuntimeCatalog::compile(&catalog)
+        .unwrap()
+        .validate_overlay(&overlay)
+        .unwrap();
     assert_eq!(overlay.bindings().len(), 173);
     assert_eq!(
         overlay.digest().bytes(),
@@ -283,8 +288,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            100, 36, 201, 192, 99, 132, 32, 132, 66, 43, 52, 28, 191, 132, 152, 177, 172, 8, 231,
-            190, 254, 224, 51, 211, 185, 15, 30, 5, 72, 115, 232, 101,
+            124, 3, 202, 129, 216, 105, 174, 104, 113, 27, 25, 17, 23, 186, 57, 162, 152, 158, 209,
+            204, 87, 90, 109, 174, 248, 161, 29, 121, 138, 245, 162, 77,
         ]
     );
     let reward = activity.view();
@@ -350,8 +355,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            105, 168, 204, 174, 205, 51, 11, 250, 221, 26, 31, 179, 178, 5, 154, 218, 51, 204, 40,
-            239, 119, 240, 107, 248, 98, 96, 136, 218, 216, 201, 171, 232,
+            36, 90, 72, 16, 218, 20, 219, 10, 135, 178, 227, 132, 177, 131, 41, 72, 207, 10, 162,
+            27, 45, 139, 29, 112, 133, 32, 243, 154, 29, 106, 40, 207,
         ]
     );
     let formation = activity.view();

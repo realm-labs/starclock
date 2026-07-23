@@ -23,6 +23,7 @@ use crate::{
     destruction_runtime::DestructionRuntimeCatalog,
     digest::Encoder,
     elation_runtime::ElationRuntimeCatalog,
+    encounter_content_runtime::EncounterContentRuntimeCatalog,
     erudition_runtime::EruditionRuntimeCatalog,
     hunt_runtime::HuntRuntimeCatalog,
     id::{AbilityTreeNodeId, DifficultyId, PathId, WorldId},
@@ -264,6 +265,15 @@ impl StandardUniverseProfile {
             ServiceEffectRuntimeCatalog::compile(&run_runtime)
                 .map_err(|_| StandardUniverseCompileError::InvalidRunRuntime)?,
         );
+        let encounter_content_runtime = Arc::new(
+            EncounterContentRuntimeCatalog::compile(&self.catalog)
+                .map_err(|_| StandardUniverseCompileError::InvalidEncounterContentRuntime)?,
+        );
+        if let Some(overlay) = entry.encounter_overlay.as_deref() {
+            encounter_content_runtime
+                .validate_overlay(overlay)
+                .map_err(|_| StandardUniverseCompileError::InvalidEncounterContentRuntime)?;
+        }
         let path_options = self
             .catalog
             .paths()
@@ -350,6 +360,7 @@ impl StandardUniverseProfile {
             run_runtime,
             occurrence_effect_runtime,
             service_effect_runtime,
+            encounter_content_runtime,
             ability_runtime,
         })
     }
@@ -392,6 +403,7 @@ pub struct CompiledActivity {
     run_runtime: Arc<RunRuntimeCatalog>,
     occurrence_effect_runtime: Arc<OccurrenceEffectRuntimeCatalog>,
     service_effect_runtime: Arc<ServiceEffectRuntimeCatalog>,
+    encounter_content_runtime: Arc<EncounterContentRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
 }
 
@@ -550,6 +562,11 @@ impl CompiledActivity {
     #[must_use]
     pub const fn service_effect_runtime(&self) -> &Arc<ServiceEffectRuntimeCatalog> {
         &self.service_effect_runtime
+    }
+
+    #[must_use]
+    pub const fn encounter_content_runtime(&self) -> &Arc<EncounterContentRuntimeCatalog> {
+        &self.encounter_content_runtime
     }
 
     #[must_use]
@@ -993,6 +1010,7 @@ fn compile_identity(
     encoder.text(crate::negative_curio_runtime::NEGATIVE_CURIO_RUNTIME_REVISION);
     encoder.text(crate::occurrence_effect_runtime::OCCURRENCE_EFFECT_RUNTIME_REVISION);
     encoder.text(crate::service_effect_runtime::SERVICE_EFFECT_RUNTIME_REVISION);
+    encoder.text(crate::encounter_content_runtime::ENCOUNTER_CONTENT_RUNTIME_REVISION);
     encoder.text(crate::run_runtime::RUN_RUNTIME_REVISION);
     encoder.text(crate::ability_runtime::ABILITY_RUNTIME_REVISION);
     encoder.digest(catalog_identity.configuration_digest().bytes());
@@ -1063,6 +1081,7 @@ pub enum StandardUniverseCompileError {
     InvalidCurioRuntime,
     InvalidRunRuntime,
     InvalidAbilityRuntime,
+    InvalidEncounterContentRuntime,
     EncounterOverlayParticipantMismatch,
     Topology(crate::topology::UniverseTopologyCompileError),
 }

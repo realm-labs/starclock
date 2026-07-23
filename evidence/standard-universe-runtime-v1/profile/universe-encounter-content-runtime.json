@@ -1,0 +1,65 @@
+{
+  "schema_revision": "starclock.goal04-universe-encounter-content-runtime-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P4-M15",
+  "result": "all-encounter-world-room-difficulty-and-carry-records-compile-to-closed-selection-and-overlay-contracts",
+  "counts": {
+    "content_records": 959,
+    "rule_bindings": 0,
+    "semantic_fixtures": 4,
+    "domains": 9,
+    "encounter_groups": 74,
+    "encounter_pools": 92,
+    "topology_nodes": 579,
+    "rooms": 163,
+    "worlds": 9,
+    "difficulties": 33,
+    "encounter_members": 173,
+    "encounter_waves": 173,
+    "enemy_slots": 538,
+    "difficulty_enemy_bindings": 182,
+    "room_content_bindings": 380,
+    "content_pools": 23,
+    "content_pool_entries": 1651,
+    "unique_enemy_variant_keys": 86,
+    "bundled_enemy_definitions": 13,
+    "extension_enemy_definitions_required": 73,
+    "validated_member_overlay_bindings": 173
+  },
+  "policies": {
+    "weighted_selection": "ExactConditionThenAuthoredWeightStableOrder",
+    "fixed_selection": "PreserveOpaqueSourceContentForAuthorizedProviderResolution",
+    "difficulty_selection": "ExactWorldDifficultyBossOrEliteBinding",
+    "wave_execution": "AuthoredSingleOrSequentialWaves",
+    "overlay": "CallerSuppliedImmutableBattleSpecsMustCoverEveryStructuredMemberExactlyOnce",
+    "carry": "DeclaredBattleResultProjectionOnly",
+    "combat_boundary": "ActivityDoesNotReadBuildFieldsOrConstructCombatInternals"
+  },
+  "goldens": {
+    "encounter_content_runtime_catalog_sha256": "20c48b9a73c9a668acad5f5eeb905c4b148dc5d087751cd1f9209bb0fa5b4103",
+    "entry_definition_sha256": "70c8a01a4707531b8fae6c1045766d36a54ba7d7bf3e965d2aa6d90219d45d95",
+    "topology_seed_7_sha256": "b1ac77ceb8008ddc724c0ed3b97da71c5c394761098950d6880fe524128f260d",
+    "won_reward_state_sha256": "7c03ca81d869ae68711b191117ba39a2989ed1cc575a6daef8a11d798af5a24d",
+    "selected_contribution_sha256": "245a4810da14db0a87b2e384b1832948cf0aa21b2d8b1d708520f39a1d6a28cf"
+  },
+  "runtime_coverage": {
+    "content_records_executable": 2201,
+    "rule_bindings_executable": 786,
+    "semantic_fixtures_executable": 78
+  },
+  "compatibility": {
+    "generated_rows_public": false,
+    "authoritative_float": false,
+    "content_id_branch_in_combat_resolver": false,
+    "activity_constructs_battle_specs": false,
+    "external_enemy_definitions_misreported_as_core_bundle": false
+  },
+  "source_sha256": {
+    "crates/starclock-mode-universe/src/encounter_content_runtime.rs": "ac3303cd173dc8bc5ac10272d7988fcd644c5e068655a0e56bf825c5dd56852e",
+    "crates/starclock-mode-universe/src/entry.rs": "8883b91bf05ca1a9d20a6b763db999801d907cd79bd2c2ce9dd3d828c2d7c3f0",
+    "crates/starclock-mode-universe/tests/encounter_content_runtime.rs": "e28ecba9c0df754c23b701cea654ea05b925662d59f75c196cf5141654a929ca",
+    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "25aad00209728a4abe6109e1cc3c9021bf1ead38fd0f1daeeb87ceb1560ee644"
+  },
+  "focused_tests": 6,
+  "new_registry_packages": []
+}

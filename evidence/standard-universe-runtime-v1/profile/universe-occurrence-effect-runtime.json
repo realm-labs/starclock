@@ -25,10 +25,10 @@
   },
   "goldens": {
     "occurrence_effect_runtime_catalog_sha256": "0e826dc00d3c227cf1307be1a0a68f2083fa873a4c546c56e9698faffc9dc058",
-    "entry_definition_sha256": "ea3b906db05cfc2e1079b12541311ec02eea01433ba140f089e0c8c26c22745b",
-    "topology_seed_7_sha256": "44bcfe3b3337976a6f53271c5de808713fe3f3488f7d0293f738cd2561224529",
-    "won_reward_state_sha256": "6424c9c063842084422b341cbf8498b1ac08e7befee033d3b90f1e054873e865",
-    "selected_contribution_sha256": "69a8ccaecd330bfadd1a1fb3b2059ada33cc28ef77f06bf8626088dad8c9abe8"
+    "entry_definition_sha256": "70c8a01a4707531b8fae6c1045766d36a54ba7d7bf3e965d2aa6d90219d45d95",
+    "topology_seed_7_sha256": "b1ac77ceb8008ddc724c0ed3b97da71c5c394761098950d6880fe524128f260d",
+    "won_reward_state_sha256": "7c03ca81d869ae68711b191117ba39a2989ed1cc575a6daef8a11d798af5a24d",
+    "selected_contribution_sha256": "245a4810da14db0a87b2e384b1832948cf0aa21b2d8b1d708520f39a1d6a28cf"
   },
   "runtime_coverage": {
     "content_records_executable": 1148,
@@ -46,12 +46,12 @@
   "source_sha256": {
     "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs": "ac933a68df26cfedfb8462ada2222d8eb8f2b91eb503fdbce30d283c44c8a060",
     "crates/starclock-mode-universe/src/run_runtime.rs": "388fa07cbe4545451934dfd746a8a30a1a35a2c6eb105115bf69b79452749b51",
-    "crates/starclock-mode-universe/src/entry.rs": "c93267c825338908fba82e9423b281dc0d5afab6fa096bf38a286f4ea5560a66",
+    "crates/starclock-mode-universe/src/entry.rs": "8883b91bf05ca1a9d20a6b763db999801d907cd79bd2c2ce9dd3d828c2d7c3f0",
     "crates/starclock-mode-universe/src/runtime.rs": "d7d9e9e4c2d81c9fdc34f170b6daef6ba646d9dd7dfcf95d8fc9ffb92a310308",
     "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs": "411fd5d51d6756ded10437ce8480dc837b584ca70901e75c5ec45c515a39a744",
-    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "03bfc1f058b277568fed6a1a46896956b094f3758cd2a35d26d36b98afd18309",
-    "crates/starclock-mode-universe/tests/entry_compilation.rs": "6478173df983755f8a996551f1f691436629e263cd4544ca8a507e4b4dd7e0af",
-    "crates/starclock-mode-universe/tests/topology_runtime.rs": "9d1a2249968496afab8ce9a71d188b13110bc6b1a2d260865b29335b7405765c"
+    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "25aad00209728a4abe6109e1cc3c9021bf1ead38fd0f1daeeb87ceb1560ee644",
+    "crates/starclock-mode-universe/tests/entry_compilation.rs": "630267fcc3eb1f78af3aade7ffbcd925f88deae324056ebb361a6363fcfab64b",
+    "crates/starclock-mode-universe/tests/topology_runtime.rs": "1a3c5365ba3e6908553922896110aa9f880614a7c4914fd8297867575455c6fd"
   },
   "focused_tests": 6,
   "new_registry_packages": []
