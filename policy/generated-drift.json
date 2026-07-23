@@ -190,6 +190,10 @@
       "command": ["node", "tools/goal04/verify-universe-run-runtime.mjs", "."]
     },
     {
+      "name": "Goal 04 mechanic fixture audit",
+      "command": ["node", "tools/goal04/verify-mechanic-fixtures.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

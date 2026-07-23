@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Complete mechanic partitions |
-| Active batch | `G04-P4-B1` |
-| Next unblocked batch | `G04-P4-B1` |
+| Active batch | `G04-P4-B2` |
+| Next unblocked batch | `G04-P4-B2` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -25,7 +25,7 @@ be `InProgress`; completion evidence and its commit are recorded atomically.
 | Phase 1 — Catalog | `Complete` | All 49 isolated Sora tables lower privately; structural, content, rule, provenance and public enemy-reference catalogs close with independent canonical digests. |
 | Phase 2 — Activity core | `Complete` | Generic graph/state/transactions/RNG/hash, immutable battle preparation, verified result carry, v2 command codec and provisional service baseline are executable. |
 | Phase 3 — Standard profile | `Complete` | Spatial-free domains, encounters, rewards, Path/Curio lifecycle, run resources and offered external interactions execute generically; content-specific effects retain explicit Phase 4 owners. |
-| Phase 4 — Mechanics | `InProgress` | M01–M15 close all 2,201 content records, 786 rule bindings and 78 fixtures; aggregate semantic and completeness audits remain. |
+| Phase 4 — Mechanics | `InProgress` | M01–M15 close all 2,201 content records, 786 rule bindings and 78 fixtures; the aggregate 78-fixture semantic audit passes and the final reachability/completeness audit remains. |
 | Phase 5 — Interfaces | `Pending` | Baseline AI, full-run replay, CLI, agent API and MCP use the same offered commands. |
 | Phase 6 — Hardening | `Pending` | Full seeded matrix, cross-platform determinism, performance/audits and clean release evidence pass. |
 
@@ -75,7 +75,7 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P4-M13` | `Complete` | This row's containing commit | Compiled all 59 Occurrences, 67 variants and 321 ordered choices into immutable source-attributed typed effect plans. Costs and results remain separate; conditions, next-node keys, typed targets/operations, exact scalar/percent units, parameter references and released chance percentages survive lowering. All 52 unspecified-weight random outcomes retain `StableUniformOrderedCandidates`; `Special` remains an explicit operation and battle outcomes remain Activity handoffs. All 447 content records and nine frozen operation fixtures execute. Runtime golden: `0e826dc00d3c227cf1307be1a0a68f2083fa873a4c546c56e9698faffc9dc058`. |
 | `G04-P4-M14` | `Complete` | This row's containing commit | Compiled all 94 services and 94 rule bindings into nine source-attributed typed action families. Exact actions cover the 50-fragment currency initialization, 30/50/100 Blessing reroll schedule, 80-fragment full-HP revival, one-character downloader, 80/120/180 Respite offers, 100/130/160 Blessing enhancement, five Blessing shops, four Curio shops and 79 released Trailblaze Bonus rule/pool bindings. Currency and roster changes remain authorized Activity transactions; service vocabulary never enters combat. All nine frozen service fixtures execute. Runtime golden: `4e526fefa11dbc7acaeb1077d92b7491a58bfb934e4e17ecd611875cd82688ab`. |
 | `G04-P4-M15` | `Complete` | This row's containing commit | Compiled all 959 structural encounter/World/difficulty/carry records into one immutable selection and overlay contract. Exact denominators cover 9 domains, 74 groups, 92 pools, 579 topology nodes, 163 rooms, 9 Worlds, 33 difficulties, 173 members/waves, 538 enemy slots, 182 difficulty bindings, 380 room-content bindings and 23 pools/1,651 entries. The runtime resolves authored weighted groups and exact boss/elite difficulty bindings while retaining opaque fixed source content without inventing references. A caller-owned immutable overlay must cover all 173 structured members exactly once. All 86 enemy keys close against public references; 13 are in the representative core bundle and 73 remain explicit extension-provider requirements. Runtime golden: `20c48b9a73c9a668acad5f5eeb905c4b148dc5d087751cd1f9209bb0fa5b4103`. |
-| `G04-P4-B1` | `Pending` | — | — |
+| `G04-P4-B1` | `Complete` | This row's containing commit | Added one fail-closed aggregate audit over all 78 distinct mechanic-family fixtures and 78 expected semantic facts. It re-executes the normalized reference expectations, byte-compares all 78 Sora fixture rows, proves exact-once assignment across M01–M15, rejects any non-`Executable` disposition, and runs all 15 partition runtime test suites in one focused Cargo invocation. Evidence: `evidence/standard-universe-runtime-v1/profile/mechanic-fixture-audit.json`. |
 | `G04-P4-B2` | `Pending` | — | — |
 | `G04-P5-B1` | `Pending` | — | — |
 | `G04-P5-B2` | `Pending` | — | — |

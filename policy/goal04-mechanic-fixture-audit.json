@@ -1,0 +1,28 @@
+{
+  "schema_revision": "starclock.goal04-mechanic-fixture-audit.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P4-B1",
+  "expected": {
+    "fixtures": 78,
+    "semantic_facts": 78,
+    "partitions": 15,
+    "sora_fixture_rows": 78
+  },
+  "partitions": [
+    { "batch": "G04-P4-M01", "fixtures": 10, "test_target": "ability_runtime", "markers": ["all_ten_frozen_operation_fixtures_execute_the_expected_operation"] },
+    { "batch": "G04-P4-M02", "fixtures": 7, "test_target": "preservation_runtime", "markers": ["seven_frozen_semantic_families_are_runtime_backed"] },
+    { "batch": "G04-P4-M03", "fixtures": 5, "test_target": "remembrance_runtime", "markers": ["five_frozen_semantic_fixtures_are_runtime_backed"] },
+    { "batch": "G04-P4-M04", "fixtures": 2, "test_target": "nihility_runtime", "markers": ["two_frozen_semantic_fixtures_are_runtime_backed"] },
+    { "batch": "G04-P4-M05", "fixtures": 3, "test_target": "abundance_runtime", "markers": ["three_frozen_semantic_fixtures_are_runtime_backed"] },
+    { "batch": "G04-P4-M06", "fixtures": 2, "test_target": "hunt_runtime", "markers": ["two_frozen_semantic_fixtures_are_runtime_backed"] },
+    { "batch": "G04-P4-M07", "fixtures": 1, "test_target": "destruction_runtime", "markers": ["frozen_destruction_path_fixture_is_runtime_backed"] },
+    { "batch": "G04-P4-M08", "fixtures": 2, "test_target": "elation_runtime", "markers": ["two_frozen_elation_fixtures_are_runtime_backed"] },
+    { "batch": "G04-P4-M09", "fixtures": 3, "test_target": "propagation_runtime", "markers": ["three_frozen_propagation_fixtures_are_runtime_backed"] },
+    { "batch": "G04-P4-M10", "fixtures": 2, "test_target": "erudition_runtime", "markers": ["two_frozen_erudition_fixtures_are_runtime_backed"] },
+    { "batch": "G04-P4-M11", "fixtures": 12, "test_target": "curio_effect_runtime", "markers": ["twelve_frozen_curio_fixtures_are_runtime_backed"] },
+    { "batch": "G04-P4-M12", "fixtures": 7, "test_target": "negative_curio_runtime", "markers": ["seven_frozen_negative_curio_fixtures_are_runtime_backed"] },
+    { "batch": "G04-P4-M13", "fixtures": 9, "test_target": "occurrence_effect_runtime", "markers": ["nine_frozen_occurrence_operation_fixtures_are_runtime_backed"] },
+    { "batch": "G04-P4-M14", "fixtures": 9, "test_target": "service_effect_runtime", "markers": ["nine_frozen_service_kind_fixtures_are_runtime_backed"] },
+    { "batch": "G04-P4-M15", "fixtures": 4, "test_target": "encounter_content_runtime", "markers": ["exact_condition_policy_returns_authored_weighted_group", "condition_then_group_policy_preserves_fixed_source_content", "world_difficulty_policy_resolves_exact_boss_binding", "single_wave_fixture_and_all_compositions_are_runtime_backed"] }
+  ]
+}

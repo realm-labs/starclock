@@ -1,0 +1,60 @@
+{
+  "schema_revision": "starclock.goal04-mechanic-fixture-audit-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P4-B1",
+  "result": "all-sora-reference-semantic-expectations-match-and-all-partition-runtime-fixture-suites-pass",
+  "counts": {
+    "fixtures": 78,
+    "semantic_facts": 78,
+    "partitions": 15,
+    "sora_fixture_rows": 78,
+    "runtime_test_targets": 15
+  },
+  "partition_fixtures": {
+    "G04-P4-M01": 10,
+    "G04-P4-M02": 7,
+    "G04-P4-M03": 5,
+    "G04-P4-M04": 2,
+    "G04-P4-M05": 3,
+    "G04-P4-M06": 2,
+    "G04-P4-M07": 1,
+    "G04-P4-M08": 2,
+    "G04-P4-M09": 3,
+    "G04-P4-M10": 2,
+    "G04-P4-M11": 12,
+    "G04-P4-M12": 7,
+    "G04-P4-M13": 9,
+    "G04-P4-M14": 9,
+    "G04-P4-M15": 4
+  },
+  "contracts": {
+    "reference_expected_facts_executed": true,
+    "sora_rows_byte_semantics_compared": true,
+    "runtime_dispositions_executable": true,
+    "runtime_partition_tests_executed": true,
+    "fixture_assignment_exact_once": true
+  },
+  "digests": {
+    "reference_fixtures_sha256": "68e761423205fa5ae43e547f019672250217bbf81d66e228bec98eb782d3abb0",
+    "runtime_dispositions_sha256": "4c6f141fdeb99c501ed61bc8614c0fd58046b5e3a5458a4f4ad3c85fef8000d6",
+    "policy_sha256": "cb4a97b3cc5458c2d3724a1ba051981f07b5748b6922d4579854b9c863207f3c"
+  },
+  "source_sha256": {
+    "crates/starclock-mode-universe/tests/ability_runtime.rs": "e1375635bf8396a11c80b481e70bb482d4ecd6e114cc1834f66fae63b9b48876",
+    "crates/starclock-mode-universe/tests/preservation_runtime.rs": "0c4e26673a9cc5c9a516e005f146be7c834f605d0aed2c4977aa798c76ff7f8d",
+    "crates/starclock-mode-universe/tests/remembrance_runtime.rs": "2395079218d9a46bf59b82dbe8705ce544d239496694ffad608c9e5c11b661ee",
+    "crates/starclock-mode-universe/tests/nihility_runtime.rs": "3f1d4db0403c2c7edeb3bd2f8115f0c1a842ab960b841c255bba8e459fb2e066",
+    "crates/starclock-mode-universe/tests/abundance_runtime.rs": "0b088c180ef0dca597c43b8cf3a34dc979a5310191ec95518d909cb86760a077",
+    "crates/starclock-mode-universe/tests/hunt_runtime.rs": "dd4973e1b77bbaa9cb3855d998f36d6794dda20b1a070e9d266c6849c072ad6f",
+    "crates/starclock-mode-universe/tests/destruction_runtime.rs": "bdc96d84a92ac099b4a2669769b01bf97a2d742f27c177b9c9e7fc336c86c5ea",
+    "crates/starclock-mode-universe/tests/elation_runtime.rs": "414b74c6068f65672414056cfdc61283424fa6435056527d7f1f4711151d4ba4",
+    "crates/starclock-mode-universe/tests/propagation_runtime.rs": "5919a25588d6f28bd8b893d8de62ba20e0c9fb70142d7b489b4de45922b54b67",
+    "crates/starclock-mode-universe/tests/erudition_runtime.rs": "ea89b673b2387ff1784c22eaf876f7e93909f6c7f8746d7c85b1514ab886d57d",
+    "crates/starclock-mode-universe/tests/curio_effect_runtime.rs": "dffa9833abb7a83eb8a285787b3db919cd9b4ed6a3e291cc4f6790592115a9a3",
+    "crates/starclock-mode-universe/tests/negative_curio_runtime.rs": "eea69c790a4c0d758665088ecc64017f09e61006437c20c85f791ccc733f6319",
+    "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs": "411fd5d51d6756ded10437ce8480dc837b584ca70901e75c5ec45c515a39a744",
+    "crates/starclock-mode-universe/tests/service_effect_runtime.rs": "2f5636b915b1857b211e9435e2ff49e381759b732016256a29ea3a650f577508",
+    "crates/starclock-mode-universe/tests/encounter_content_runtime.rs": "e28ecba9c0df754c23b701cea654ea05b925662d59f75c196cf5141654a929ca"
+  },
+  "new_registry_packages": []
+}
