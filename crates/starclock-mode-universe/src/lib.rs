@@ -41,6 +41,7 @@ pub mod remembrance_runtime;
 pub mod rule;
 pub mod run_runtime;
 pub mod runtime;
+pub mod service_effect_runtime;
 pub mod topology;
 
 mod curio_lowering;

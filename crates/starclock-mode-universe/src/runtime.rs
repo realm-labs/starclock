@@ -29,7 +29,7 @@ use crate::{
     elation_runtime::ElationRuntimeCatalog,
     erudition_runtime::EruditionRuntimeCatalog,
     hunt_runtime::HuntRuntimeCatalog,
-    id::{AbilityTreeNodeId, OccurrenceChoiceId, PathId, ResonanceId},
+    id::{AbilityTreeNodeId, OccurrenceChoiceId, PathId, ResonanceId, ServiceId},
     negative_curio_runtime::{
         NegativeCurioEvent, NegativeCurioRuntimeCatalog, NegativeCurioRuntimeError,
     },
@@ -46,6 +46,9 @@ use crate::{
     remembrance_runtime::RemembranceRuntimeCatalog,
     run_runtime::{
         AbilityTreeContributionSet, CosmicFragments, RunRuntimeCatalog, RunRuntimeError,
+    },
+    service_effect_runtime::{
+        AppliedServiceEffect, ServiceEffectRuntimeCatalog, ServiceEffectRuntimeError,
     },
     topology::EncounterOptionBinding,
 };
@@ -71,6 +74,7 @@ pub struct StandardUniverseActivity {
     negative_curio_runtime: Arc<NegativeCurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     occurrence_effect_runtime: Arc<OccurrenceEffectRuntimeCatalog>,
+    service_effect_runtime: Arc<ServiceEffectRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
     ability_tree: Box<[AbilityTreeNodeId]>,
     blessing_inventory: ActivityInventoryId,
@@ -102,6 +106,7 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) negative_curio_runtime: Arc<NegativeCurioRuntimeCatalog>,
     pub(crate) run_runtime: Arc<RunRuntimeCatalog>,
     pub(crate) occurrence_effect_runtime: Arc<OccurrenceEffectRuntimeCatalog>,
+    pub(crate) service_effect_runtime: Arc<ServiceEffectRuntimeCatalog>,
     pub(crate) ability_runtime: Arc<AbilityRuntimeCatalog>,
     pub(crate) ability_tree: Box<[AbilityTreeNodeId]>,
     pub(crate) blessing_inventory: ActivityInventoryId,
@@ -136,6 +141,7 @@ impl StandardUniverseActivity {
             negative_curio_runtime: context.negative_curio_runtime,
             run_runtime: context.run_runtime,
             occurrence_effect_runtime: context.occurrence_effect_runtime,
+            service_effect_runtime: context.service_effect_runtime,
             ability_runtime: context.ability_runtime,
             ability_tree: context.ability_tree,
             blessing_inventory: context.blessing_inventory,
@@ -811,6 +817,13 @@ impl StandardUniverseActivity {
         choice: OccurrenceChoiceId,
     ) -> Result<AppliedOccurrenceEffect, OccurrenceEffectRuntimeError> {
         self.occurrence_effect_runtime.execute(choice)
+    }
+
+    pub fn service_effect(
+        &self,
+        service: ServiceId,
+    ) -> Result<AppliedServiceEffect, ServiceEffectRuntimeError> {
+        self.service_effect_runtime.execute(service)
     }
 
     pub fn ability_tree_projection(
