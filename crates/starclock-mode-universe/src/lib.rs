@@ -10,6 +10,8 @@ mod generated;
 
 pub mod ability_runtime;
 pub mod abundance_runtime;
+pub mod baseline_controller;
+pub mod baseline_runner;
 pub mod battle_overlay;
 pub mod blessing_runtime;
 pub mod catalog;

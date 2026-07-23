@@ -16,6 +16,10 @@ use starclock_combat::{
     TeamResourceSpec, TeamSide, UnitDefinitionId, UnitLevel,
 };
 use starclock_mode_universe::{
+    baseline_runner::{
+        StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner,
+        StandardUniverseBaselineStep,
+    },
     battle_overlay::{UniverseEncounterBattleBinding, UniverseEncounterOverlay},
     catalog::UniverseCatalog,
     encounter_content_runtime::EncounterContentRuntimeCatalog,
@@ -379,6 +383,70 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
             .expect("routes after reward")
             .kind(),
         starclock_activity::ActivityDecisionKind::Route
+    );
+}
+
+#[test]
+fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal() {
+    let catalog = catalog();
+    let lock = participants();
+    let overlay = overlay(&catalog, &lock);
+    let world = &catalog.worlds()[0];
+    let compiled = StandardUniverseProfile::new(Arc::clone(&catalog))
+        .compile(
+            StandardUniverseEntry::new(world.id(), world.difficulties()[0], lock, vec![])
+                .with_encounter_overlay(overlay),
+        )
+        .unwrap();
+    let mut activity = compiled
+        .start_standard(
+            ActivityInstanceId::new(88).unwrap(),
+            ActivityMasterSeed::from_u64(9),
+        )
+        .unwrap()
+        .into_activity();
+    let runner = StandardUniverseBaselineRunner::default();
+    let mut executor =
+        |handoff: &starclock_activity::ActivityBattleHandoff| won_result(handoff.identity());
+    let report = runner
+        .run_to_terminal(
+            &mut activity,
+            &StandardUniverseBaselinePolicy::default(),
+            &mut executor,
+        )
+        .unwrap();
+    assert_eq!(
+        report.terminal(),
+        starclock_activity::ActivityTerminalOutcome::Completed
+    );
+    assert_eq!(report.steps().len(), 30);
+    assert_eq!(
+        report.final_state_hash().bytes(),
+        [
+            224, 192, 76, 134, 150, 227, 159, 127, 173, 107, 8, 65, 204, 189, 237, 61, 108, 173,
+            67, 2, 178, 49, 70, 29, 23, 9, 236, 74, 229, 98, 251, 215,
+        ]
+    );
+    assert_eq!(report.final_state_hash(), activity.view().state_hash());
+    assert!(report.steps().iter().any(|step| matches!(
+        step,
+        StandardUniverseBaselineStep::Decision(decision)
+            if decision.kind() == starclock_activity::ActivityDecisionKind::Encounter
+    )));
+    assert!(report.steps().iter().any(|step| matches!(
+        step,
+        StandardUniverseBaselineStep::Battle {
+            outcome: BattleOutcome::Won,
+            ..
+        }
+    )));
+    assert_eq!(
+        report
+            .steps()
+            .iter()
+            .filter(|step| matches!(step, StandardUniverseBaselineStep::Battle { .. }))
+            .count(),
+        2
     );
 }
 

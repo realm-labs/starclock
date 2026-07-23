@@ -1,0 +1,36 @@
+{
+  "schema_revision": "starclock.goal04-baseline-controller-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P5-B1",
+  "result": "ordered-legal-option-controller-completes-a-seeded-activity-through-verified-nested-battles",
+  "revisions": {
+    "controller": "baseline-activity-controller-v1",
+    "runner": "standard-universe-baseline-runner-v1"
+  },
+  "golden": {
+    "world": 1,
+    "difficulty_index": 0,
+    "activity_instance": 88,
+    "seed": 9,
+    "accepted_steps": 30,
+    "nested_battles": 2,
+    "terminal": "Completed",
+    "final_state_hash": "e0c04c8696e39f7fad6b0841ccbded3d6cad4302b231461d1709ec4ae562fbd7"
+  },
+  "contracts": {
+    "offered_options_only": true,
+    "stable_id_tie_break": true,
+    "integer_scores_only": true,
+    "external_outcome_must_be_offered": true,
+    "nested_result_verified_by_activity": true,
+    "settled_preparation_is_hidden": true
+  },
+  "source_sha256": {
+    "crates/starclock-activity/src/battle_preparation.rs": "27d1e0b15c7442bd8844e7d34cda03757d97c75bf04e587eb7e3593c86701651",
+    "crates/starclock-mode-universe/src/baseline_controller.rs": "eef9513c8158d7957d4fdddbb1ecd6f4ee13e6260643c25b5a75e89c80a13bf7",
+    "crates/starclock-mode-universe/src/baseline_runner.rs": "c2129c647facb417bcd9f0dbc3ac2b429c7004c671eb4ea4325a84871ec353e5",
+    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "8e5e40f2fed411f79328bd0cd40e235f2a0bcb6ce77808ec78dd8c90e7b47fd0"
+  },
+  "policy_sha256": "c05e79157144de4c95ef3848c8f4a76c19d8d59bf59526890a92fed80f5a09dc",
+  "new_registry_packages": []
+}

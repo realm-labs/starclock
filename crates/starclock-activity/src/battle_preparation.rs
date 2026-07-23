@@ -586,7 +586,7 @@ impl ActivityAttemptState {
     }
 
     pub(crate) fn view(&self) -> Option<ActivityPreparationView> {
-        self.pending.is_none().then(|| ActivityPreparationView {
+        (!self.settled && self.pending.is_none()).then(|| ActivityPreparationView {
             initial_points: self.initial_points,
             remaining_points: self.remaining_points,
             selected: self.selected.clone().into_boxed_slice(),

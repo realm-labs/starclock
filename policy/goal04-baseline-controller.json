@@ -1,0 +1,25 @@
+{
+  "schema_revision": "starclock.goal04-baseline-controller.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P5-B1",
+  "controller_revision": "baseline-activity-controller-v1",
+  "runner_revision": "standard-universe-baseline-runner-v1",
+  "golden": {
+    "world": 1,
+    "difficulty_index": 0,
+    "activity_instance": 88,
+    "seed": 9,
+    "accepted_steps": 30,
+    "nested_battles": 2,
+    "terminal": "Completed",
+    "final_state_hash": "e0c04c8696e39f7fad6b0841ccbded3d6cad4302b231461d1709ec4ae562fbd7"
+  },
+  "contracts": {
+    "offered_options_only": true,
+    "stable_id_tie_break": true,
+    "integer_scores_only": true,
+    "external_outcome_must_be_offered": true,
+    "nested_result_verified_by_activity": true,
+    "settled_preparation_is_hidden": true
+  }
+}
