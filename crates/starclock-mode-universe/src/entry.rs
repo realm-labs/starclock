@@ -18,6 +18,7 @@ use crate::{
     battle_overlay::UniverseEncounterOverlay,
     blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
+    curio_effect_runtime::CurioEffectRuntimeCatalog,
     curio_runtime::CurioRuntimeCatalog,
     destruction_runtime::DestructionRuntimeCatalog,
     digest::Encoder,
@@ -240,6 +241,10 @@ impl StandardUniverseProfile {
             CurioRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidCurioRuntime)?,
         );
+        let curio_effect_runtime = Arc::new(
+            CurioEffectRuntimeCatalog::compile(&self.catalog, &curio_runtime)
+                .map_err(|_| StandardUniverseCompileError::InvalidCurioRuntime)?,
+        );
         let run_runtime = Arc::new(
             RunRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidRunRuntime)?,
@@ -325,6 +330,7 @@ impl StandardUniverseProfile {
             propagation_runtime,
             erudition_runtime,
             curio_runtime,
+            curio_effect_runtime,
             run_runtime,
             ability_runtime,
         })
@@ -363,6 +369,7 @@ pub struct CompiledActivity {
     propagation_runtime: Arc<PropagationRuntimeCatalog>,
     erudition_runtime: Arc<EruditionRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
+    curio_effect_runtime: Arc<CurioEffectRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
 }
@@ -500,6 +507,11 @@ impl CompiledActivity {
     }
 
     #[must_use]
+    pub const fn curio_effect_runtime(&self) -> &Arc<CurioEffectRuntimeCatalog> {
+        &self.curio_effect_runtime
+    }
+
+    #[must_use]
     pub const fn run_runtime(&self) -> &Arc<RunRuntimeCatalog> {
         &self.run_runtime
     }
@@ -544,6 +556,7 @@ impl CompiledActivity {
                     propagation_runtime: Arc::clone(&self.propagation_runtime),
                     erudition_runtime: Arc::clone(&self.erudition_runtime),
                     curio_runtime: Arc::clone(&self.curio_runtime),
+                    curio_effect_runtime: Arc::clone(&self.curio_effect_runtime),
                     run_runtime: Arc::clone(&self.run_runtime),
                     ability_runtime: Arc::clone(&self.ability_runtime),
                     ability_tree: self.ability_tree.clone(),
@@ -937,6 +950,7 @@ fn compile_identity(
     encoder.text(crate::propagation_runtime::PROPAGATION_RUNTIME_REVISION);
     encoder.text(crate::erudition_runtime::ERUDITION_RUNTIME_REVISION);
     encoder.text(crate::curio_runtime::CURIO_RUNTIME_REVISION);
+    encoder.text(crate::curio_effect_runtime::CURIO_EFFECT_RUNTIME_REVISION);
     encoder.text(crate::run_runtime::RUN_RUNTIME_REVISION);
     encoder.text(crate::ability_runtime::ABILITY_RUNTIME_REVISION);
     encoder.digest(catalog_identity.configuration_digest().bytes());

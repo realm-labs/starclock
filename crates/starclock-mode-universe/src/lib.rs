@@ -14,6 +14,7 @@ pub mod battle_overlay;
 pub mod blessing_runtime;
 pub mod catalog;
 pub mod curio;
+pub mod curio_effect_runtime;
 pub mod curio_runtime;
 pub mod definition;
 pub mod destruction_runtime;

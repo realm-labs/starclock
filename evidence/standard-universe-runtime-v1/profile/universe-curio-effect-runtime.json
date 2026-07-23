@@ -1,0 +1,62 @@
+{
+  "schema_revision": "starclock.goal04-universe-curio-effect-runtime-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P4-M11",
+  "result": "complete-positive-neutral-and-special-curio-partition-lowers-to-source-attributed-typed-run-and-battle-proposals",
+  "counts": {
+    "content_records": 86,
+    "rule_bindings": 86,
+    "curios": 43,
+    "compiled_programs": 43,
+    "mechanic_templates": 35,
+    "observation_points": 10,
+    "semantic_fixtures": 12
+  },
+  "policies": {
+    "numeric": "CheckedSignedI64SixDecimalNoFloat",
+    "dispatch": "OneAuditedStaticRegistryByReleasedSourceEffectId",
+    "execution": "ReadOnlyCurioFactsToOrdinarySourceAttributedTypedProposals",
+    "battle_boundary": "BattleEffectsReuseTypedPathEffectProposalsWithoutCurioIdsInResolver",
+    "run_boundary": "RunLifecycleRewardEconomyAndDestructibleEffectsRemainTypedCurioEffects",
+    "hidden_probability": "ReleasedSmallChanceRetainedWithoutFabricatedNumericProbability",
+    "cause": "EveryProposalRetainsCurioAndReleasedSourceEffectStableKeys",
+    "resolver_branching": "NoCurioIdBranchInCombatResolver"
+  },
+  "mechanics": [
+    "BlessingRewardRerollEnhanceAndRarity",
+    "FragmentAndPostBattleEconomy",
+    "BattleEntryDamageProtectionAndRecovery",
+    "RevivalHealingAndConsumableLifecycle",
+    "DestructibleLotteryAndDoubling",
+    "WeaknessImplantAndBattleModifiers"
+  ],
+  "goldens": {
+    "curio_effect_runtime_catalog_sha256": "eb2db86bb6c5bf6c9e69fc09893e21ca82dbe3380f54a123a25f18e2dca19bcd",
+    "entry_definition_sha256": "51e686cbb73c0a8dd77adc05c38dc1c275616e1d621d32a3f7a7f85c1c9898a0",
+    "topology_seed_7_sha256": "b0e169443af33de1ffea1df08d2378078110f4bbde6dfb439824bb4aa91be257",
+    "won_reward_state_sha256": "c536401a39eba47599fbf4da8cbae4024e92517dcc4dc3e1026548600142a87f",
+    "selected_contribution_sha256": "a770277426dd46b113a98b2bc72bd465e707c3174c29168298a8e516d2d172fd"
+  },
+  "runtime_coverage": {
+    "content_records_executable": 659,
+    "rule_bindings_executable": 650,
+    "semantic_fixtures_executable": 49
+  },
+  "compatibility": {
+    "generated_rows_public": false,
+    "authoritative_float": false,
+    "free_form_runtime_target": false,
+    "free_form_runtime_event": false,
+    "content_id_branch_in_resolver": false,
+    "activity_mutated_from_combat": false
+  },
+  "source_sha256": {
+    "crates/starclock-mode-universe/src/curio_effect_runtime.rs": "aa8e87fa7538e6f3e0dc1bbb9c71e726b946a784658efd221e0d0e02e6f57f92",
+    "crates/starclock-mode-universe/src/entry.rs": "72b80d506c822340618b609b900bd2bca88af886333f8a18de5f678fe184e917",
+    "crates/starclock-mode-universe/src/runtime.rs": "9dd17bfeb290b4ef8fe43712b202ab7f080fb4bb1f26824c880f39ec67684e53",
+    "crates/starclock-mode-universe/src/path_effect_runtime.rs": "2548d2e3fb38954ae17a82b4ad0940e8b27790f542ecc4eea8c258053c3f1d31",
+    "crates/starclock-mode-universe/tests/curio_effect_runtime.rs": "dffa9833abb7a83eb8a285787b3db919cd9b4ed6a3e291cc4f6790592115a9a3"
+  },
+  "focused_tests": 6,
+  "new_registry_packages": []
+}

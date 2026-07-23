@@ -32,7 +32,7 @@
   "goldens": {
     "runtime_catalog_sha256": "0bf411da0827166aebe61e2fc1f39044e7eb679948142a7b5c94cf417c005278",
     "representative_repairing_contribution_sha256": "4c4dc9d8dc0e67a2b97fa010d8bed96ddbbc4d1ff7e824c606bb903e7d943d3e",
-    "entry_definition_sha256": "d5df8a47f4672fd19f0c5ebb4f0f863bf4b9ea89961e8bc65eb428257c946d8a"
+    "entry_definition_sha256": "51e686cbb73c0a8dd77adc05c38dc1c275616e1d621d32a3f7a7f85c1c9898a0"
   },
   "deferred_scope": {
     "all_curio_effects_executable": false,
@@ -52,12 +52,12 @@
   },
   "source_sha256": {
     "crates/starclock-mode-universe/src/curio_runtime.rs": "6629cca333782f0701e560b9fe823cac4ed3cf6f33bb465aa38fcce5e2ea9204",
-    "crates/starclock-mode-universe/src/entry.rs": "d3219f57bcc2a873a77f0511ff25603005cb84ba511c314664750517e8832f3b",
-    "crates/starclock-mode-universe/src/runtime.rs": "ffc6e6299026760476ee8b1fe394b8504fbd590d90416de8d330791694617689",
+    "crates/starclock-mode-universe/src/entry.rs": "72b80d506c822340618b609b900bd2bca88af886333f8a18de5f678fe184e917",
+    "crates/starclock-mode-universe/src/runtime.rs": "9dd17bfeb290b4ef8fe43712b202ab7f080fb4bb1f26824c880f39ec67684e53",
     "crates/starclock-mode-universe/tests/curio_runtime.rs": "991b2d03ab31cf98e8698e4c2a85dbd99886c25be880bf409a8cd5a1d19e6286",
-    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "c148273ca0c26d4343bff25a21086d8626191695dcb6fa6b45cb71c103a61ace",
-    "crates/starclock-mode-universe/tests/entry_compilation.rs": "eb7542d7bd5b6bb2faeb2c0d7932e2f6bfcf0e9fd336161082ba6068ba227f6e",
-    "crates/starclock-mode-universe/tests/topology_runtime.rs": "d5b32623a74c9e77f4dcceabd52f19d14afdc5ba6db7642c2774ad5713d2155b"
+    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "28756060e293d7f0abd5a6cbd760190341fa480a13a805adc5d85261f7c6b0aa",
+    "crates/starclock-mode-universe/tests/entry_compilation.rs": "4d6c84ce1a01c8c3dd50b91a38edfa152d9bdd7efbbde17866f431193325a386",
+    "crates/starclock-mode-universe/tests/topology_runtime.rs": "75281333c2598978b361285fa8c41a3501fb868b51895c210aec0262d16b69e5"
   },
   "focused_tests": 3,
   "new_registry_packages": []

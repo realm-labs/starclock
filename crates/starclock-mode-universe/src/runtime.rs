@@ -20,6 +20,10 @@ use crate::{
     abundance_runtime::AbundanceRuntimeCatalog,
     battle_overlay::UniverseEncounterOverlay,
     blessing_runtime::{BlessingContributionSet, BlessingRuntimeCatalog, BlessingRuntimeError},
+    curio_effect_runtime::{
+        AppliedCurioEffect, CurioEffectFacts, CurioEffectRuntimeCatalog, CurioEffectRuntimeError,
+        CurioEvent,
+    },
     curio_runtime::{CurioContributionSet, CurioRuntimeCatalog, CurioRuntimeError},
     destruction_runtime::DestructionRuntimeCatalog,
     elation_runtime::ElationRuntimeCatalog,
@@ -57,6 +61,7 @@ pub struct StandardUniverseActivity {
     propagation_runtime: Arc<PropagationRuntimeCatalog>,
     erudition_runtime: Arc<EruditionRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
+    curio_effect_runtime: Arc<CurioEffectRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
     ability_tree: Box<[AbilityTreeNodeId]>,
@@ -85,6 +90,7 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) propagation_runtime: Arc<PropagationRuntimeCatalog>,
     pub(crate) erudition_runtime: Arc<EruditionRuntimeCatalog>,
     pub(crate) curio_runtime: Arc<CurioRuntimeCatalog>,
+    pub(crate) curio_effect_runtime: Arc<CurioEffectRuntimeCatalog>,
     pub(crate) run_runtime: Arc<RunRuntimeCatalog>,
     pub(crate) ability_runtime: Arc<AbilityRuntimeCatalog>,
     pub(crate) ability_tree: Box<[AbilityTreeNodeId]>,
@@ -116,6 +122,7 @@ impl StandardUniverseActivity {
             propagation_runtime: context.propagation_runtime,
             erudition_runtime: context.erudition_runtime,
             curio_runtime: context.curio_runtime,
+            curio_effect_runtime: context.curio_effect_runtime,
             run_runtime: context.run_runtime,
             ability_runtime: context.ability_runtime,
             ability_tree: context.ability_tree,
@@ -731,6 +738,32 @@ impl StandardUniverseActivity {
         self.curio_runtime.contributions(inventory, state, charges)
     }
 
+    pub fn curio_effects(
+        &self,
+        event: CurioEvent,
+        facts: CurioEffectFacts,
+    ) -> Result<Box<[AppliedCurioEffect]>, StandardUniverseCurioEffectError> {
+        let contributions = self
+            .curio_contributions()
+            .map_err(StandardUniverseCurioEffectError::Contribution)?;
+        let mut effects = Vec::new();
+        for contribution in contributions.entries() {
+            if !self
+                .curio_effect_runtime
+                .curio_ids()
+                .any(|candidate| candidate == contribution.curio())
+            {
+                continue;
+            }
+            effects.extend(
+                self.curio_effect_runtime
+                    .execute(contribution.curio(), event, facts)
+                    .map_err(StandardUniverseCurioEffectError::Effect)?,
+            );
+        }
+        Ok(effects.into_boxed_slice())
+    }
+
     pub fn ability_tree_contributions(
         &self,
     ) -> Result<AbilityTreeContributionSet, RunRuntimeError> {
@@ -1011,6 +1044,12 @@ pub enum StandardUniverseEruditionError {
     InvalidLevel,
     Path(StandardUniversePathContributionError),
     Effect(PathEffectRuntimeError),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum StandardUniverseCurioEffectError {
+    Contribution(CurioRuntimeError),
+    Effect(CurioEffectRuntimeError),
 }
 
 pub(crate) fn start(
