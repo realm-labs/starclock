@@ -19,7 +19,7 @@ const expected = new Map([
   ["starclock-mode-universe", ["starclock-activity", "starclock-combat", "starclock-data", "starclock-replay"]],
   ["starclock-mcp", ["starclock-agent-api"]],
   ["starclock-data", ["starclock-activity", "starclock-build", "starclock-combat", "starclock-mode-standard", "starclock-rules"]],
-  ["starclock-cli", ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mcp", "starclock-mode-standard", "starclock-replay", "starclock-rules"]],
+  ["starclock-cli", ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mcp", "starclock-mode-standard", "starclock-mode-universe", "starclock-replay", "starclock-rules"]],
 ]);
 const expectedExternal = new Map([
   ["starclock-agent-api", [

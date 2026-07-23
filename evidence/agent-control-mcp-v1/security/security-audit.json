@@ -10,7 +10,7 @@
     "mcp_authorization_sha256": "41f5e3b8079fc359db8d9b8a6ed8b51b8cf6ced5a021f08f0923af98d5696e35"
   },
   "source_and_api": {
-    "production_rust_files": 24,
+    "production_rust_files": 25,
     "handwritten_limit": 1200,
     "facade_limit": 200,
     "line_limit_exceptions": 0,
@@ -48,9 +48,16 @@
       },
       {
         "path": "crates/starclock-cli/src/main.rs",
-        "lines": 714,
+        "lines": 732,
         "limit": 1200,
-        "utilization_percent": 59,
+        "utilization_percent": 61,
+        "facade": false
+      },
+      {
+        "path": "crates/starclock-cli/src/universe_v1.rs",
+        "lines": 547,
+        "limit": 1200,
+        "utilization_percent": 45,
         "facade": false
       },
       {
@@ -93,13 +100,6 @@
         "lines": 301,
         "limit": 1200,
         "utilization_percent": 25,
-        "facade": false
-      },
-      {
-        "path": "crates/starclock-mcp/src/http_observability.rs",
-        "lines": 220,
-        "limit": 1200,
-        "utilization_percent": 18,
         "facade": false
       }
     ],
@@ -164,6 +164,7 @@
           "starclock-data",
           "starclock-mcp",
           "starclock-mode-standard",
+          "starclock-mode-universe",
           "starclock-replay",
           "starclock-rules"
         ],
@@ -226,7 +227,8 @@
         "local_dependencies": [
           "starclock-activity",
           "starclock-combat",
-          "starclock-data"
+          "starclock-data",
+          "starclock-replay"
         ],
         "registry_dependencies": [
           "serde",

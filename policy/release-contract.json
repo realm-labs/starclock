@@ -6,8 +6,8 @@
   "cli_commands": ["config validate", "catalog coverage", "battle run", "replay verify"],
   "cli_exit_codes": [0, 2, 3, 4, 5, 6, 7],
   "cli_contract_files": [
-    { "path": "crates/starclock-cli/Cargo.toml", "sha256": "3557b4f9c24baccb512fa99f51bc32a410cad30266f4974e5214cf17fc56a21e" },
-    { "path": "crates/starclock-cli/src/main.rs", "sha256": "28cfd8762238df83daed0feffe50501ba945e643dc6ab6695c538ee4c13b6816" },
+    { "path": "crates/starclock-cli/Cargo.toml", "sha256": "6a32b28bea11eca331798054ec1874ec4cbcee4e2911fffa7dfb1d9465b7c83b" },
+    { "path": "crates/starclock-cli/src/main.rs", "sha256": "9e7218eae544a5ec49d88fc4ec38722622ceded62a39740ba13e4342796bc997" },
     { "path": "crates/starclock-cli/src/standard_v1.rs", "sha256": "fb6666ef820b33b7592bc7329db95572e7e77e9077539d909a2398643bf4a0e4" },
     { "path": "crates/starclock-cli/tests/cli_contract.rs", "sha256": "df12feb90b446623436dd37b50cdf3c5b0316d38e1f521ebf1bb12387d514951" },
     { "path": "crates/starclock-cli/tests/standard_replay_smoke.rs", "sha256": "e4d5e6ba5b5b6e5c2c1cad18dc28d6e960e12c39be4c8955d3a4abc0cfefe298" }
@@ -61,7 +61,7 @@
     { "path": "evidence/core-combat-v1/hardening/content-audit.json", "sha256": "008136fb8082d066c4f7afd99ce39dda8d57189d93316e8a97c60894e9bf534a" },
     { "path": "evidence/core-combat-v1/hardening/ci-golden-matrix.json", "sha256": "8964b0a8f52cdd694a7dbb47821f9970812443e670f46ab6ff5b4fa1d0e65dfa" },
     { "path": "evidence/core-combat-v1/hardening/property-hardening.json", "sha256": "11d8f2efc51436a90bbf2dc40e94e711ee1b9960e4b11b60ccf0f48e5dead6ca" },
-    { "path": "evidence/core-combat-v1/hardening/architecture-audit.json", "sha256": "8b2f1db1fc9c53646efa8018cbae157025851ea33d84fa9255e67f4396cd870e" },
+    { "path": "evidence/core-combat-v1/hardening/architecture-audit.json", "sha256": "d88516ff1f08833aec766ebb02da359dfa7b1fe05dff4deabc5ee9cae405c0c2" },
     { "path": "evidence/core-combat-v1/performance/phase8-final-review.json", "sha256": "9f942f44f6827f71213544e8ecb90b4c46499f8b6fd4b34bb882cfc0d5ce0c67" }
   ],
   "clean_checkout_command": "node tools/release/run-clean-checkout.mjs"

@@ -3,6 +3,7 @@
 #![forbid(unsafe_code)]
 
 mod standard_v1;
+mod universe_v1;
 
 use std::{env, fmt, fs, path::PathBuf, process::ExitCode};
 
@@ -57,12 +58,23 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
             catalog_coverage(rest)
         }
         [group, command, rest @ ..] if group == "battle" && command == "run" => battle_run(rest),
+        [group, command, rest @ ..] if group == "universe" && command == "run" => {
+            universe_v1::run(rest).map_err(CliError::Universe)
+        }
+        [group, command, rest @ ..] if group == "universe" && command == "coverage" => {
+            universe_v1::coverage(rest).map_err(CliError::Universe)
+        }
+        [group, scope, command, rest @ ..]
+            if group == "universe" && scope == "config" && command == "validate" =>
+        {
+            universe_v1::config_validate(rest).map_err(CliError::Universe)
+        }
         [group, command, rest @ ..] if group == "mcp" && command == "serve" => mcp_serve(rest),
         [group, command, file, rest @ ..] if group == "replay" && command == "verify" => {
             replay_verify(file, rest)
         }
         _ => Err(CliError::Usage(
-            "starclock config validate [--bundle PATH] [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio | mcp serve --transport streamable-http --development-loopback --bind IP:PORT --allow-origin ORIGIN",
+            "starclock config validate [--bundle PATH] [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | universe config validate [--json] | universe coverage [--json] | universe run --world ID --difficulty-index N --seed U64 [--controller baseline] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio | mcp serve --transport streamable-http --development-loopback --bind IP:PORT --allow-origin ORIGIN",
         )),
     }
 }
@@ -440,6 +452,9 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
     };
     let bytes = fs::read(file).map_err(CliError::Io)?;
     let decoded = decode_replay(&bytes).map_err(BattleReplayError::from)?;
+    if universe_v1::is_universe_replay(decoded.header()) {
+        return universe_v1::verify_replay(&bytes, json).map_err(CliError::Universe);
+    }
     let seed = decoded.header().master_seed();
     let synthetic = matches!(
         decoded.header().entry(),
@@ -663,6 +678,7 @@ enum CliError {
     Replay(BattleReplayError),
     Mcp(starclock_mcp::stdio::StdioServeError),
     McpHttp(starclock_mcp::http::HttpServeError),
+    Universe(universe_v1::UniverseCliError),
 }
 
 impl CliError {
@@ -675,6 +691,7 @@ impl CliError {
             Self::Simulation(_) => 6,
             Self::Io(_) => 7,
             Self::Mcp(_) | Self::McpHttp(_) => 8,
+            Self::Universe(error) => error.exit_code(),
         }
     }
 }
@@ -709,6 +726,7 @@ impl fmt::Display for CliError {
             Self::Replay(error) => error.fmt(formatter),
             Self::Mcp(error) => write!(formatter, "MCP service error: {error}"),
             Self::McpHttp(error) => write!(formatter, "MCP service error: {error}"),
+            Self::Universe(error) => error.fmt(formatter),
         }
     }
 }

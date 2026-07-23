@@ -1,0 +1,47 @@
+{
+  "schema_revision": "starclock.goal04-universe-cli-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P5-B3",
+  "result": "production-bundle-diagnostics-complete-baseline-run-and-canonical-replay-verification-are-cli-accessible",
+  "revision": "starclock-cli-universe-v1",
+  "bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+  "catalog": {
+    "worlds": 9,
+    "difficulties": 33,
+    "paths": 9,
+    "blessings": 162,
+    "curios": 61,
+    "encounter_groups": 74,
+    "content_records": 2201,
+    "rule_bindings": 786,
+    "fixtures": 78
+  },
+  "golden": {
+    "world": 1,
+    "difficulty_index": 0,
+    "seed": 10,
+    "actions": 56,
+    "nested_battles": 4,
+    "final_state_hash": "6bb5ae714d8b89c56f596fe7714832c46bcc0877a044e96771b1be40391fbca3",
+    "encoded_bytes": 9930,
+    "replay_sha256": "14505dfbc8d178fa024022d6f5ff742edfbecfb019742ebf9610263c608d2d1d"
+  },
+  "contracts": {
+    "human_and_json_output": true,
+    "canonical_replay_round_trip": true,
+    "corruption_exit_code": 4,
+    "unknown_content_exit_code": 5,
+    "usage_exit_code": 2,
+    "battle_executor": "verified-reference-projection-v1",
+    "battle_executor_is_not_claimed_as_production_combat": true
+  },
+  "source_sha256": {
+    "crates/starclock-cli/Cargo.toml": "6a32b28bea11eca331798054ec1874ec4cbcee4e2911fffa7dfb1d9465b7c83b",
+    "crates/starclock-cli/src/main.rs": "9e7218eae544a5ec49d88fc4ec38722622ceded62a39740ba13e4342796bc997",
+    "crates/starclock-cli/src/universe_v1.rs": "f7f36fdbdd1f350c3e8623291fba473652d10dea08d81d78a508c2d3cf2b35ca",
+    "crates/starclock-cli/tests/universe_cli.rs": "4a6f2cc4cda218b2caac72fa71752407acdc07c611eb4d065059efcf62731cd3",
+    "tools/workspace/verify-dependencies.mjs": "20a433d881396fc1309cb6074f6628fe3da2b7a28a9c3f51913559c373683da8"
+  },
+  "policy_sha256": "1c79826fff1da6f6311286117d10ec58e90b132b45af7d524705000e253f6523",
+  "new_registry_packages": []
+}

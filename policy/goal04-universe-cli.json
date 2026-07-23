@@ -1,0 +1,37 @@
+{
+  "schema_revision": "starclock.goal04-universe-cli.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P5-B3",
+  "cli_revision": "starclock-cli-universe-v1",
+  "bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+  "catalog": {
+    "worlds": 9,
+    "difficulties": 33,
+    "paths": 9,
+    "blessings": 162,
+    "curios": 61,
+    "encounter_groups": 74,
+    "content_records": 2201,
+    "rule_bindings": 786,
+    "fixtures": 78
+  },
+  "golden": {
+    "world": 1,
+    "difficulty_index": 0,
+    "seed": 10,
+    "actions": 56,
+    "nested_battles": 4,
+    "final_state_hash": "6bb5ae714d8b89c56f596fe7714832c46bcc0877a044e96771b1be40391fbca3",
+    "encoded_bytes": 9930,
+    "replay_sha256": "14505dfbc8d178fa024022d6f5ff742edfbecfb019742ebf9610263c608d2d1d"
+  },
+  "contracts": {
+    "human_and_json_output": true,
+    "canonical_replay_round_trip": true,
+    "corruption_exit_code": 4,
+    "unknown_content_exit_code": 5,
+    "usage_exit_code": 2,
+    "battle_executor": "verified-reference-projection-v1",
+    "battle_executor_is_not_claimed_as_production_combat": true
+  }
+}
