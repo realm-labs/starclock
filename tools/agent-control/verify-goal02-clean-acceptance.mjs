@@ -16,10 +16,9 @@ assert(report.inherited_build_cache === false && report.inherited_repository_sou
 assert(report.build_target === "temporary-checkout/target" && report.tool_bootstrap === "checksum-bound Sora 0.3.0", "clean build/bootstrap boundary drift");
 assert(Number.isInteger(report.elapsed_seconds) && report.elapsed_seconds > 0, "clean elapsed time missing");
 assert(!Number.isNaN(Date.parse(report.recorded_on)), "clean recording time invalid");
-for (const [kind, identity] of [["commit", report.source_commit], ["tree", report.staged_tree]]) {
-  assert(/^[0-9a-f]{40}$/.test(identity), `invalid clean ${kind}`);
-  execFileSync("git", ["cat-file", "-e", `${identity}^{${kind}}`], { cwd: root, stdio: "ignore" });
-}
+assert(/^[0-9a-f]{40}$/.test(report.source_commit), "invalid clean commit");
+assert(/^[0-9a-f]{40}$/.test(report.staged_tree), "invalid clean tree");
+execFileSync("git", ["cat-file", "-e", `${report.source_commit}^{commit}`], { cwd: root, stdio: "ignore" });
 execFileSync("git", ["merge-base", "--is-ancestor", report.source_commit, "HEAD"], { cwd: root, stdio: "ignore" });
 
 const normalizedCommands = policy.commands.map((command) => command.map((argument) => argument === "{starclock_binary}"

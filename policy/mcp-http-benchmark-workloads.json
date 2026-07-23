@@ -1,11 +1,11 @@
 {
   "schema_revision": "starclock.mcp-http-benchmark-policy.v1",
   "workload_revision": "g02-mcp-http-adapter-v1",
-  "reviewed_on": "2026-07-22",
+  "reviewed_on": "2026-07-23",
   "measurement_scope": "In-process Axum middleware, authorization, rate classification, MCP SDK dispatch and JSON/SSE serialization on a current-thread runtime; excludes TCP and combat-only attribution.",
   "baseline": {
     "path": "evidence/agent-control-mcp-v1/performance/phase4-http-baseline-windows-x64.json",
-    "sha256": "6d7fedcccd539edbf74c7384d84e245f216858400778992f352c1900224e7e9e"
+    "sha256": "d1e1ee7bdaafcedb95c754a02df3312f803dad3148be5996035355034296b766"
   },
   "shared_ci_smoke_ceiling": {
     "maximum_total_elapsed_ns": 5000000000,
@@ -32,8 +32,8 @@
     "http-resident-sessions-16-v1": { "maximum_elapsed_ns": 15000000, "minimum_operations_per_second": 1000, "maximum_allocation_bytes": 4000000, "maximum_peak_live_bytes": 400000, "maximum_retained_bytes": 350000 }
   },
   "expected_rows": [
-    { "id": "http-observe-256-v1", "operations": 256, "sessions": 1, "allocation_count": 379041, "allocation_bytes": 45292420, "peak_live_bytes": 1108389, "retained_bytes": 1065856, "peak_live_bytes_per_session": 1108389, "retained_bytes_per_session": 1065856, "payload_bytes": 1593024, "final_hash": "b9d33065f40e044f3326921cd7b3dca7e3341d004dcad8818c4b7265d0440292" },
-    { "id": "http-action-16-v1", "operations": 16, "sessions": 16, "allocation_count": 31506, "allocation_bytes": 4044278, "peak_live_bytes": 347817, "retained_bytes": 290561, "peak_live_bytes_per_session": 21739, "retained_bytes_per_session": 18161, "payload_bytes": 131924, "final_hash": "956e35db53515806c3e5c2a96da078880462b190144094c73e6f313cffa8103a" },
-    { "id": "http-resident-sessions-16-v1", "operations": 16, "sessions": 16, "allocation_count": 25203, "allocation_bytes": 3162914, "peak_live_bytes": 294515, "retained_bytes": 251977, "peak_live_bytes_per_session": 18408, "retained_bytes_per_session": 15749, "payload_bytes": 99510, "final_hash": "b9d33065f40e044f3326921cd7b3dca7e3341d004dcad8818c4b7265d0440292" }
+    { "id": "http-observe-256-v1", "operations": 256, "sessions": 1, "allocation_count": 382625, "final_hash": "b9d33065f40e044f3326921cd7b3dca7e3341d004dcad8818c4b7265d0440292" },
+    { "id": "http-action-16-v1", "operations": 16, "sessions": 16, "allocation_count": 31730, "final_hash": "956e35db53515806c3e5c2a96da078880462b190144094c73e6f313cffa8103a" },
+    { "id": "http-resident-sessions-16-v1", "operations": 16, "sessions": 16, "allocation_count": 25427, "final_hash": "b9d33065f40e044f3326921cd7b3dca7e3341d004dcad8818c4b7265d0440292" }
   ]
 }

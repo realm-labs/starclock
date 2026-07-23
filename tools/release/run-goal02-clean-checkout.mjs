@@ -36,6 +36,7 @@ run("tar", ["-xf", archive, "-C", checkout], root, process.env);
 fs.rmSync(archive, { force: true });
 run("git", ["init", "--quiet"], checkout, process.env);
 run("git", ["fetch", "--quiet", "--no-tags", root, sourceCommit], checkout, process.env);
+run("git", ["reset", "--mixed", "--quiet", sourceCommit], checkout, process.env);
 run("git", ["add", "--all"], checkout, process.env);
 run("git", ["-c", "user.name=Starclock Acceptance", "-c", "user.email=acceptance@invalid", "commit", "--quiet", "-m", "Goal 02 clean acceptance snapshot"], checkout, process.env);
 

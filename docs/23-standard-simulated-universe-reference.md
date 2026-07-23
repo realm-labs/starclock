@@ -141,9 +141,11 @@ it impossible for non-empty Universe rows to enter `starclock-data` before a
 reviewed domain lowering exists. The standalone
 `tools/universe-bundle-loader` compiles the isolated generated readers and
 proves binary decoding without exposing those rows to a runtime crate.
-[Goal 04](goals/04-standard-universe-runtime.md) must deliberately introduce
-the domain conversion and compatibility migration before consuming this
-staging bundle.
+[Goal 04](goals/04-standard-universe-runtime.md) now provides that deliberate
+domain conversion and compatibility boundary: `starclock-mode-universe` reads
+the isolated bundle through private generated types and lowers validated rows
+into Starclock-owned immutable definitions. The core production bundle remains
+independently identified and unchanged.
 
 Workbook rows retain stable IDs, bilingual summaries, coverage state and exact
 evidence references. Editable categories use data validation. Headers are
@@ -164,8 +166,9 @@ An entry is complete only when:
 - a semantic fixture covers every distinct shared mechanic family.
 
 The terminal report requires 100% manifest accounting, zero enabled incomplete
-rows and no unresolved blocking research case. `DataReady` means usable authoring
-data; it does not claim that the future runtime executes the mechanic.
+rows and no unresolved blocking research case. `DataReady` means usable
+authoring data; it does not by itself claim executable runtime coverage. Goal 04
+records that separate coverage in its runtime disposition and release evidence.
 
 ## Initial public cross-checks
 

@@ -1,7 +1,8 @@
 {
-  "schema_revision": "starclock.goal04-release-contract-scaffold.v1",
+  "schema_revision": "starclock.goal04-release-contract.v1",
   "goal_id": "standard-universe-runtime-v1",
-  "state": "Scaffold",
+  "state": "Released",
+  "released_on": "2026-07-23",
   "planned_batches": 50,
   "planned_phases": 7,
   "required_prior_contracts": ["core-combat-v1", "agent-control-mcp-v1", "standard-universe-reference-v1"],
@@ -13,9 +14,40 @@
     "worlds": 9,
     "paths": 9,
     "difficulties": 33,
-    "mechanic_partitions": 15
+    "mechanic_partitions": 15,
+    "complete_seeded_runs": 33,
+    "mcp_activity_tools": 6
   },
-  "required_evidence_families": ["catalog", "activity", "mechanics", "golden-runs", "replay", "interfaces", "performance", "cross-platform", "audits", "release"],
+  "runtime_revisions": {
+    "activity_api": "starclock-activity-api-v2",
+    "activity_state_codec": "starclock-activity-state-v2",
+    "activity_state_hash": "sha256-v4",
+    "activity_rng": "starclock-activity-rng-v2",
+    "activity_replay_action": 1,
+    "agent_activity_interface": "agent-activity-v1",
+    "agent_activity_controller": "agent-activity-session-v1"
+  },
+  "evidence_files": [
+    "evidence/standard-universe-runtime-v1/catalog/bootstrap.json",
+    "evidence/standard-universe-runtime-v1/profile/mechanic-fixture-audit.json",
+    "evidence/standard-universe-runtime-v1/profile/runtime-completeness-audit.json",
+    "evidence/standard-universe-runtime-v1/interfaces/universe-replay.json",
+    "evidence/standard-universe-runtime-v1/interfaces/universe-cli.json",
+    "evidence/standard-universe-runtime-v1/interfaces/activity-agent-api.json",
+    "evidence/standard-universe-runtime-v1/interfaces/activity-mcp.json",
+    "evidence/standard-universe-runtime-v1/hardening/seeded-matrix.json",
+    "evidence/standard-universe-runtime-v1/hardening/determinism-hardening.json",
+    "evidence/standard-universe-runtime-v1/performance/stable-runner.json",
+    "evidence/standard-universe-runtime-v1/audits/release-audits.json"
+  ],
+  "documentation_files": [
+    "docs/goals/04-standard-universe-runtime.md",
+    "docs/goals/04-standard-universe-runtime-status.md",
+    "docs/25-standard-universe-runtime-design.md",
+    "docs/23-standard-simulated-universe-reference.md",
+    "docs/standard-universe-runtime-execution-baseline.md",
+    "docs/ci-platform-matrix.md"
+  ],
   "release_batch": "G04-P6-B4",
   "release_evidence": "evidence/standard-universe-runtime-v1/release/release-evidence.json",
   "clean_checkout_command": "node tools/goal04/verify-release-contract.mjs . --release --require-clean"

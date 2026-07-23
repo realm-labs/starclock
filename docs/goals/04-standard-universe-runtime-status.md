@@ -5,17 +5,17 @@
 | Field | Value |
 |---|---|
 | Goal ID | `standard-universe-runtime-v1` |
-| State | `InProgress` |
-| Active phase | Phase 6 — Golden runs and release hardening |
-| Active batch | `G04-P6-B4` |
-| Next unblocked batch | `G04-P6-B4` |
+| State | `Complete` |
+| Active phase | Complete |
+| Active batch | None |
+| Next unblocked batch | None |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
 | Blocking condition | None |
 
-The persistent Goal 04 execution loop is active. Only the batch named above may
-be `InProgress`; completion evidence and its commit are recorded atomically.
+Goal 04 is complete. Any later Standard Universe behavior or contract change
+requires a new goal or an explicitly versioned maintenance plan.
 
 ## Phase ledger
 
@@ -27,7 +27,7 @@ be `InProgress`; completion evidence and its commit are recorded atomically.
 | Phase 3 — Standard profile | `Complete` | Spatial-free domains, encounters, rewards, Path/Curio lifecycle, run resources and offered external interactions execute generically; content-specific effects retain explicit Phase 4 owners. |
 | Phase 4 — Mechanics | `Complete` | M01–M15 close all 2,201 content records, 786 rule bindings and 78 fixtures. Aggregate semantic and reachability audits reject unimplemented rows, unowned targets and unreviewed stable-ID branches. |
 | Phase 5 — Interfaces | `Complete` | Baseline AI, full-run replay, CLI, agent API and MCP use the same offered commands. |
-| Phase 6 — Hardening | `InProgress` | Full seeded matrix, cross-platform determinism, performance/audits and clean release evidence pass. |
+| Phase 6 — Hardening | `Complete` | Full seeded matrix, cross-platform determinism, performance/audits and clean release evidence pass. |
 
 ## Batch ledger
 
@@ -83,9 +83,9 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P5-B4` | `Complete` | This row's containing commit | Added the additive `agent-activity-v1` boundary without changing Battle v1: owned player-visible slots, inventories, participant carry and terminal state; state/boundary-bound opaque action tokens; stale/forged/idempotent request handling; automatic nested-battle settlement; and canonical replay export/verification under the truthful `agent-activity-session-v1` controller identity. A public-only policy completes World 1 difficulty index 0 at seed 10 through 61 external actions and seven nested battles. Its 68-action, 13,225-byte replay hashes to `e8efd9ae17b597e44379bfe2fd3d83c09a1d06901def434730c6c83bf8e8da04` and ends at `57cafc16f9aa91f6a97d4acd3363b7aa640e8df11c914255231dc428d6a022b3`. The encounter executor remains explicitly labeled `verified-reference-projection-v1`; no production enemy-provider claim is made. All prior agent-api Battle v1 suites pass. Evidence: `evidence/standard-universe-runtime-v1/interfaces/activity-agent-api.json`. |
 | `G04-P5-B5` | `Complete` | This row's containing commit | Added six additive Standard Universe Activity MCP tools and two bounded inert resources while preserving all seven frozen Battle v1 tools. A separate owned Activity registry enforces 1,024 global/64 tenant/16 principal quotas, monotonic 30-minute idle/four-hour lifetime leases, quota-before-ID allocation and one serialized lane per session. Exact Activity create/read/act/replay/close scopes extend the OAuth matrix to 13 scopes; stdio and real authorized HTTP conformance cover discovery, opaque action play, idempotent retry, observe, replay export and close. Evidence: `evidence/standard-universe-runtime-v1/interfaces/activity-mcp.json`. |
 | `G04-P6-B1` | `Complete` | This row's containing commit | Added a release-mode seeded matrix with exactly one complete run for each of 33 constructible World/difficulty entries and canonical Path-option rotation covering all nine Paths. Seeds `100000..100032` produce 1,626 external actions, 1,770 replay actions, 144 verified nested battles and 324,513 replay bytes; every replay verifies from a fresh Activity and all 33 terminal hashes/replay SHA-256 values plus decision/action families are retained. Three inert failure fixtures reject unknown World, out-of-range difficulty and overflowing seed. World 9 difficulty index 3 is retained as an authored four-action zero-battle complete route rather than fabricating an encounter. Evidence: `evidence/standard-universe-runtime-v1/hardening/seeded-matrix.json`. |
-| `G04-P6-B2` | `Complete` | This row's containing commit | Added a separate native-only Goal 04 gate to all three hosted execution profiles without changing the three compile-only claims. Every successful native job must reproduce the exact 33-run/9-Path/33-difficulty matrix, perturb all eight RNG streams by 257 draws, execute the fixed 4,096-command and 256-case replay property corpora plus three complete-Activity corruption classes, regenerate 59 clean-checkout checks and re-verify Goals 01–03. The committed report freezes required vectors rather than fabricating hosted results; each Actions run retains its actual host record. Evidence: `evidence/standard-universe-runtime-v1/hardening/determinism-hardening.json`. |
+| `G04-P6-B2` | `Complete` | This row's containing commit | Added a separate native-only Goal 04 gate to all three hosted execution profiles without changing the three compile-only claims. Every successful native job must reproduce the exact 33-run/9-Path/33-difficulty matrix, perturb all eight RNG streams by 257 draws, execute the fixed 4,096-command and 256-case replay property corpora plus three complete-Activity corruption classes, regenerate 61 clean-checkout checks and re-verify Goals 01–03. The committed report freezes required vectors rather than fabricating hosted results; each Actions run retains its actual host record. Evidence: `evidence/standard-universe-runtime-v1/hardening/determinism-hardening.json`. |
 | `G04-P6-B3` | `Complete` | This row's containing commit | Added a release-mode six-row server harness with three stable-runner samples and one Windows-x64 broad-CI sample. Stable medians are 83 accepted commands/s, 111,392 invalid rejections/s, 21.18 s per 32 complete runs, 20.23 s per 32 fresh replay verifications and 18.08 s per 64 concurrent shared-catalog sessions; every row retains zero catalog clones and zero replay-prefix reconstruction. Peak live memory stays below 73 MiB; cumulative allocation traffic makes incremental/full-run/replay explicit optimization watches, and worker-thread allocations are not falsely attributed to the coordinator. A closed audit proves 12 one-way crates, 136 reviewed registry packages, zero new Goal 04 registry packages, 13 exact scopes, shared quotas, zero unsafe/float/log/provider leaks and the 1,200-LOC policy. Evidence: `evidence/standard-universe-runtime-v1/performance/stable-runner.json` and `evidence/standard-universe-runtime-v1/audits/release-audits.json`. |
-| `G04-P6-B4` | `InProgress` | — | — |
+| `G04-P6-B4` | `Complete` | This row's containing commit | Promoted the seven-phase/50-batch scaffold to `starclock.goal04-release-contract.v1`, froze public module/CLI/agent/MCP boundaries and retained exact digests for eleven evidence artifacts and six normative documents. The release report closes 2,201 content records, 786 rule bindings, 78 fixtures, 15 mechanic partitions, 9 Worlds, 9 Paths, 33 difficulties and 33 complete seeded runs while preserving Goals 01–03. The committed tree passes generated drift, workspace format/lint/tests, all release contracts and the post-commit clean-worktree verifier. Evidence: `evidence/standard-universe-runtime-v1/release/release-evidence.json`. |
 
 ## Frozen starting denominators
 
@@ -151,7 +151,7 @@ without new retained evidence.
 
 ## Terminal checklist
 
-- [ ] All 50 planned batch rows are committed with evidence.
+- [x] All 50 planned batch rows are committed with evidence.
 - [x] 2,201/2,201 content and 786/786 rule bindings have valid runtime dispositions.
 - [x] All 78 mechanic-family fixtures execute against runtime values.
 - [x] All nine Worlds, nine Paths and 33 difficulties construct valid profiles.
@@ -163,19 +163,17 @@ without new retained evidence.
 - [x] Stable-runner performance/allocation and concurrent server workloads pass.
 - [x] Goals 01–03 release contracts and clean generated drift pass.
 - [x] Documentation, dependency, architecture and security audits pass.
-- [ ] `G04-P6-B4` is committed and the clean-worktree release verifier passes.
+- [x] `G04-P6-B4` is committed and the clean-worktree release verifier passes.
 
 ## Completion record
 
-Populate only in `G04-P6-B4`.
-
 | Field | Value |
 |---|---|
-| Final state | Pending |
-| Completion commit | — |
-| Runtime catalog digest | — |
-| Activity/replay revision | — |
-| Coverage evidence | — |
-| Golden matrix evidence | — |
-| Performance evidence | — |
-| Release evidence | — |
+| Final state | Complete |
+| Completion commit | This row's containing commit (`G04-P6-B4`) |
+| Runtime catalog digest | `7926226540a97faa416ececd38fd865b5f3ef1d77efc8c1107dc5f8697204fcd` composed core/Universe configuration |
+| Activity/replay revision | `starclock-activity-api-v2` / state v2 `sha256-v4` / Activity replay action v1 |
+| Coverage evidence | `evidence/standard-universe-runtime-v1/profile/runtime-completeness-audit.json` — 2,201/786/78 verified |
+| Golden matrix evidence | `evidence/standard-universe-runtime-v1/hardening/seeded-matrix.json` — 33 complete runs / 9 Paths |
+| Performance evidence | `evidence/standard-universe-runtime-v1/performance/stable-runner.json` — 3 samples / 6 workloads |
+| Release evidence | `evidence/standard-universe-runtime-v1/release/release-evidence.json` |

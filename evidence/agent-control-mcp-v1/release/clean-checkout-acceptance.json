@@ -2,9 +2,9 @@
   "schema_revision": "starclock.goal02-clean-acceptance-evidence.v1",
   "goal_id": "agent-control-mcp-v1",
   "result": "pass",
-  "recorded_on": "2026-07-22T09:35:15.317Z",
-  "source_commit": "635998595982d6c129c1a248f63afd7fbd0f6a7d",
-  "staged_tree": "f71f36cc8126877c4e73d1074abf4743a46b6da2",
+  "recorded_on": "2026-07-23T14:25:23.838Z",
+  "source_commit": "460e125fda9b4176a721af861bcadf5228339019",
+  "staged_tree": "9f0464748ba8f7da9487f697ae749be1b8e6f73e",
   "snapshot": "staged-git-tree",
   "inherited_build_cache": false,
   "inherited_repository_source_cache": false,
@@ -22,7 +22,7 @@
     "rustc": "1.97.0",
     "node": "v24.15.0"
   },
-  "elapsed_seconds": 782,
+  "elapsed_seconds": 1850,
   "commands": [
     [
       "node",
@@ -148,7 +148,7 @@
     },
     {
       "path": "evidence/agent-control-mcp-v1/performance/phase4-http-baseline-windows-x64.json",
-      "sha256": "6d7fedcccd539edbf74c7384d84e245f216858400778992f352c1900224e7e9e"
+      "sha256": "d1e1ee7bdaafcedb95c754a02df3312f803dad3148be5996035355034296b766"
     },
     {
       "path": "evidence/agent-control-mcp-v1/security/hardening-corpus.json",
@@ -156,15 +156,15 @@
     },
     {
       "path": "evidence/agent-control-mcp-v1/security/security-audit.json",
-      "sha256": "18a4a812980107018000083244e62febd8b79ff7a8e6d4341d11c5c6d1faed4f"
+      "sha256": "f4f0190e748239eec88600b9996bfcd062bb704db01a8b44e4128270054780e9"
     },
     {
       "path": "evidence/agent-control-mcp-v1/contracts/contract-freeze.json",
-      "sha256": "b2446e77351ce4a5f79c89e4f9eae78f223db2aa7346ec21310e063b8cf1f60d"
+      "sha256": "ceb3459f9f23ad3e6f0bb7507441bd4f46acc9793661450e59263ab65156e2da"
     },
     {
       "path": "evidence/core-combat-v1/hardening/ci-golden-matrix.json",
-      "sha256": "8964b0a8f52cdd694a7dbb47821f9970812443e670f46ab6ff5b4fa1d0e65dfa"
+      "sha256": "3acdf3462202f1a7cc1a1f22a40860944adff39759ecadb18a66d36323ba0347"
     }
   ]
 }

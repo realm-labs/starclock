@@ -57,8 +57,12 @@ if let Some(spec) = resolution.battle_spec {
 }
 ```
 
-The exact exported Rust names may be refined before the Goal 04 API freeze,
-but these ownership rules are fixed:
+Goal 04 freezes the explicit module boundaries `entry::StandardUniverseProfile`,
+`entry::StandardUniverseEntry`, `runtime::StandardUniverseActivity`,
+`baseline_runner::StandardUniverseBaselineRunner` and
+`universe_replay::{encode_standard_universe_trace,
+verify_standard_universe_replay}`. No convenience `pub use` facade is part of
+the release contract. These ownership rules are fixed:
 
 - `Activity::apply` is the only authoritative run mutation boundary;
 - `Battle::apply` is the only authoritative battle mutation boundary;
@@ -386,7 +390,11 @@ replay; it must not rebuild all prefixes into quadratic work.
 Goal 04 freezes release workloads after the first vertical slice, including a
 complete run, trigger-heavy battle handoffs, many concurrent runs sharing one
 catalog, invalid-command rejection and replay verification. Allocation,
-semantic-copy and throughput regressions become policy-gated before release.
+semantic-copy and throughput regressions are release-policy gates. The release
+retains three stable-runner samples for all six workloads and one Windows-x64
+broad-CI sample. Full-run and replay cumulative allocation are optimization
+watches; peak-live memory, retained memory, elapsed time, catalog clone count
+and replay-prefix reconstruction are enforced separately.
 
 ## Explicit exclusions
 

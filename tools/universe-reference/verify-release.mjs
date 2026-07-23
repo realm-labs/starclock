@@ -21,7 +21,7 @@ assert(status.includes("| Completion commit | This row's containing commit (`G03
 assert(text("docs/goals/README.md").includes("no universe runtime | Complete |"), "Goal index does not mark Goal 03 Complete");
 const boundary = text("docs/23-standard-simulated-universe-reference.md");
 const normalizedBoundary = boundary.replace(/\s+/g, " ");
-for (const marker of ["config/universe-project.toml", "config/universe-generated/", "not the runtime `config/generated/config.sora`", "[Goal 04](goals/04-standard-universe-runtime.md) must deliberately introduce the domain conversion"])
+for (const marker of ["config/universe-project.toml", "config/universe-generated/", "not the runtime `config/generated/config.sora`", "[Goal 04](goals/04-standard-universe-runtime.md) now provides that deliberate domain conversion"])
   assert(normalizedBoundary.includes(marker), `public boundary omits ${marker}`);
 
 run("node", ["tools/universe-reference/audit-release.mjs", "."]);

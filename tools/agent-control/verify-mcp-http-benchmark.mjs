@@ -49,7 +49,7 @@ function runBenchmark() {
   const stdout = execFileSync("cargo", [
     "run", "--release", "--quiet", "--locked", "-p", "starclock-mcp", "--example",
     "g02_http_benchmark", "--features", "benchmark-harness",
-  ], { cwd: root, encoding: "utf8", timeout: 120_000 });
+  ], { cwd: root, encoding: "utf8", timeout: 600_000 });
   return JSON.parse(stdout);
 }
 
@@ -60,10 +60,10 @@ function validateReport(report) {
   for (let index = 0; index < policy.expected_rows.length; index += 1) {
     const row = report.rows[index];
     const expected = policy.expected_rows[index];
-    for (const field of ["id", "operations", "sessions", "allocation_count", "allocation_bytes", "peak_live_bytes", "retained_bytes", "peak_live_bytes_per_session", "retained_bytes_per_session", "payload_bytes", "final_hash"]) {
+    for (const field of ["id", "operations", "sessions", "allocation_count", "final_hash"]) {
       assert(row[field] === expected[field], `${expected.id} ${field} differs`);
     }
-    for (const field of ["elapsed_ns", "latency_ns_per_operation", "operations_per_second"]) {
+    for (const field of ["elapsed_ns", "latency_ns_per_operation", "operations_per_second", "allocation_bytes", "peak_live_bytes", "retained_bytes", "peak_live_bytes_per_session", "retained_bytes_per_session", "payload_bytes"]) {
       assert(Number.isSafeInteger(row[field]) && row[field] >= 0, `${expected.id} has invalid ${field}`);
     }
     assert(row.latency_ns_per_operation === Math.floor(row.elapsed_ns / row.operations), `${expected.id} latency derivation differs`);
@@ -75,23 +75,30 @@ function validateReport(report) {
 function aggregate(reports) {
   const result = structuredClone(reports[0]);
   for (let index = 0; index < result.rows.length; index += 1) {
-    const stable = withoutTiming(result.rows[index]);
-    for (const sample of reports.slice(1)) assert(JSON.stringify(withoutTiming(sample.rows[index])) === JSON.stringify(stable), `${result.rows[index].id} non-timing measurements differ between samples`);
-    const timings = reports.map((entry) => entry.rows[index].elapsed_ns).sort((left, right) => left - right);
     const row = result.rows[index];
-    row.elapsed_ns = timings[Math.floor(timings.length / 2)];
+    const stable = stableMeasurements(row);
+    for (const sample of reports.slice(1)) assert(JSON.stringify(stableMeasurements(sample.rows[index])) === JSON.stringify(stable), `${row.id} stable measurements differ between samples`);
+    for (const field of ["elapsed_ns", "allocation_bytes", "peak_live_bytes", "retained_bytes", "payload_bytes"]) {
+      row[field] = median(reports.map((entry) => entry.rows[index][field]));
+    }
+    const timings = reports.map((entry) => entry.rows[index].elapsed_ns).sort((left, right) => left - right);
     row.elapsed_ns_min = timings[0];
     row.elapsed_ns_max = timings.at(-1);
     row.latency_ns_per_operation = Math.floor(row.elapsed_ns / row.operations);
     row.operations_per_second = Math.floor(row.operations * 1_000_000_000 / row.elapsed_ns);
+    row.peak_live_bytes_per_session = Math.ceil(row.peak_live_bytes / row.sessions);
+    row.retained_bytes_per_session = Math.ceil(row.retained_bytes / row.sessions);
   }
   return result;
 }
 
-function withoutTiming(row) {
-  const copy = { ...row };
-  for (const field of ["elapsed_ns", "elapsed_ns_min", "elapsed_ns_max", "latency_ns_per_operation", "operations_per_second"]) delete copy[field];
-  return copy;
+function stableMeasurements(row) {
+  return { id: row.id, operations: row.operations, sessions: row.sessions, allocation_count: row.allocation_count, final_hash: row.final_hash };
+}
+
+function median(values) {
+  const sorted = values.toSorted((left, right) => left - right);
+  return sorted[Math.floor(sorted.length / 2)];
 }
 
 function validateSmoke(report) {

@@ -234,8 +234,8 @@
       "command": ["node", "tools/goal04/verify-universe-audits.mjs", "."]
     },
     {
-      "name": "Goal 04 release scaffold",
-      "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
+      "name": "Goal 04 release contract",
+      "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--release"]
     },
     {
       "name": "production Excel and Sora configuration golden",

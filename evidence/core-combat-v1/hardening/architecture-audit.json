@@ -5,7 +5,7 @@
     "dependency_policy_sha256": "a8044cfdd658d855c7ecd8641942173cc1229d53454b3856a4d509ebe054b47a"
   },
   "source_size_audit": {
-    "handwritten_files": 357,
+    "handwritten_files": 361,
     "generated_vendor_exclusions": [
       {
         "path": "config/sora-golden/expected/reader/generated",
@@ -39,6 +39,7 @@
       "crates/starclock-data/src/catalog_tests.rs",
       "crates/starclock-data/src/domain_catalog.rs",
       "crates/starclock-mcp/src/http.rs",
+      "crates/starclock-mcp/src/tools.rs",
       "crates/starclock-replay/src/activity.rs"
     ],
     "near_limit_policy": "These files remain within the enforced limit and receive no exception; any growth beyond the limit requires a module split, not an implicit allowance.",
@@ -107,6 +108,13 @@
         "facade": true
       },
       {
+        "path": "crates/starclock-mcp/src/http.rs",
+        "lines": 1175,
+        "limit": 1200,
+        "utilization_percent": 97,
+        "facade": false
+      },
+      {
         "path": "crates/starclock-data/src/domain_catalog.rs",
         "lines": 1169,
         "limit": 1200,
@@ -128,10 +136,10 @@
         "facade": false
       },
       {
-        "path": "crates/starclock-mcp/src/http.rs",
-        "lines": 1153,
+        "path": "crates/starclock-mcp/src/tools.rs",
+        "lines": 1150,
         "limit": 1200,
-        "utilization_percent": 96,
+        "utilization_percent": 95,
         "facade": false
       },
       {
@@ -175,18 +183,11 @@
         "limit": 1200,
         "utilization_percent": 86,
         "facade": false
-      },
-      {
-        "path": "crates/starclock-mode-universe/src/catalog.rs",
-        "lines": 1020,
-        "limit": 1200,
-        "utilization_percent": 85,
-        "facade": false
       }
     ]
   },
   "public_api_audit": {
-    "public_declarations": 3627,
+    "public_declarations": 3644,
     "public_reexports": 41,
     "reexport_files": {
       "crates/starclock-activity/src/lib.rs": 18,

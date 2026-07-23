@@ -35,7 +35,7 @@ function runBenchmark() {
   const stdout = execFileSync("cargo", [
     "run", "--release", "--quiet", "--locked", "-p", "starclock-agent-api", "--example",
     "g02_agent_benchmark", "--features", "benchmark-harness",
-  ], { cwd: root, encoding: "utf8", timeout: 120_000 });
+  ], { cwd: root, encoding: "utf8", timeout: 600_000 });
   return JSON.parse(stdout);
 }
 

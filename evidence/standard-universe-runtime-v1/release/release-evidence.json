@@ -1,0 +1,79 @@
+{
+  "schema_revision": "starclock.goal04-release-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "released_on": "2026-07-23",
+  "result": "complete",
+  "policy_sha256": "c49fc525f0607cfa01bc240e81cf1e1bd51b3acd524e4c5bba913fd1da0f7293",
+  "completion": {
+    "phases": 7,
+    "batches": 50,
+    "release_batch": "G04-P6-B4"
+  },
+  "runtime": {
+    "revisions": {
+      "activity_api": "starclock-activity-api-v2",
+      "activity_state_codec": "starclock-activity-state-v2",
+      "activity_state_hash": "sha256-v4",
+      "activity_rng": "starclock-activity-rng-v2",
+      "activity_replay_action": 1,
+      "agent_activity_interface": "agent-activity-v1",
+      "agent_activity_controller": "agent-activity-session-v1"
+    },
+    "composed_configuration_sha256": "7926226540a97faa416ececd38fd865b5f3ef1d77efc8c1107dc5f8697204fcd",
+    "content_records": 2201,
+    "rule_bindings": 786,
+    "semantic_fixtures": 78,
+    "mechanic_partitions": 15
+  },
+  "seeded_matrix": {
+    "worlds": 9,
+    "paths": 9,
+    "difficulties": 33,
+    "complete_runs": 33,
+    "evidence_sha256": "a5d2003a1144de6d29392b486384f6f06737e66251bf069719b734e527a3b7e5"
+  },
+  "interfaces": {
+    "activity_mcp_tools": 6,
+    "activity_mcp_resources": 2,
+    "replay": "complete-fresh-verification",
+    "cli": [
+      "universe config validate",
+      "universe coverage",
+      "universe run",
+      "replay verify"
+    ]
+  },
+  "performance": {
+    "samples": 3,
+    "workloads": 6,
+    "stable_runner": "starclock-bench-win10-i7-10700f-v1",
+    "evidence_sha256": "34402515a07cc0be5336a23741749e08c8b4ba839fe40c936d34a1e4c40d2767"
+  },
+  "evidence_sha256": {
+    "evidence/standard-universe-runtime-v1/catalog/bootstrap.json": "0d134ae731cdfbcc289f3da0c66db83d574ad4fde8d9f55512cbbbd7fdd794bb",
+    "evidence/standard-universe-runtime-v1/profile/mechanic-fixture-audit.json": "f4764fad3f9915a219893b17e87ba61b8da1e6878463525102921700476cf8f9",
+    "evidence/standard-universe-runtime-v1/profile/runtime-completeness-audit.json": "5f5e58532db973a6f7b2741774771a6bd7444fc37d911bcb285affae208cb991",
+    "evidence/standard-universe-runtime-v1/interfaces/universe-replay.json": "557d10efce93b1ab78f799d75c3edef43d342e00bbeac9e24d0a5c74343bef69",
+    "evidence/standard-universe-runtime-v1/interfaces/universe-cli.json": "563b1e639bd6d55792b61bd2cec56fd687f89e3fd44990dcc665739d07b39ba7",
+    "evidence/standard-universe-runtime-v1/interfaces/activity-agent-api.json": "fa59159c465cfd7340851663d6c7e020feb3b2fbfebde2cbf0c88118798fb15e",
+    "evidence/standard-universe-runtime-v1/interfaces/activity-mcp.json": "c7cd369f136a0afea9540f01d74d9fc672580f22231cbe884135f21d49263505",
+    "evidence/standard-universe-runtime-v1/hardening/seeded-matrix.json": "a5d2003a1144de6d29392b486384f6f06737e66251bf069719b734e527a3b7e5",
+    "evidence/standard-universe-runtime-v1/hardening/determinism-hardening.json": "eac148a3352f44d96a110c9a7810c0a5969c48d4abb268a6950b8d518b325cba",
+    "evidence/standard-universe-runtime-v1/performance/stable-runner.json": "34402515a07cc0be5336a23741749e08c8b4ba839fe40c936d34a1e4c40d2767",
+    "evidence/standard-universe-runtime-v1/audits/release-audits.json": "47011fff01a47621b08ec20c7d422f102da6be36348d32a29d5721481360ed45"
+  },
+  "documentation_sha256": {
+    "docs/goals/04-standard-universe-runtime.md": "9d15cf6021b133356cbb0f2b09215dca05fcdd0394c02082a7958ab2e7cc7d93",
+    "docs/goals/04-standard-universe-runtime-status.md": "394b264ae78025bca7afdcb88e62cc086f79c85796ff1fbd31647cd6521deb47",
+    "docs/25-standard-universe-runtime-design.md": "3840f7a69bf88c0160fba00252dfb98000c2b5bd671be2facc62b46446a32e74",
+    "docs/23-standard-simulated-universe-reference.md": "f047c535e22eb40a43695831ae1ad92b64206806c7729c882d3dc227917c9f3f",
+    "docs/standard-universe-runtime-execution-baseline.md": "9b5484b16f83336123407d4e58eb60429fa85c1b452f8006e461bad6df3d8b4a",
+    "docs/ci-platform-matrix.md": "f18f93acb104f26d658191758cf9ef1873b86483c566996d4613f2b26f417c1a"
+  },
+  "prior_contracts": [
+    "core-combat-v1",
+    "agent-control-mcp-v1",
+    "standard-universe-reference-v1"
+  ],
+  "clean_checkout_command": "node tools/goal04/verify-release-contract.mjs . --release --require-clean"
+}
