@@ -226,6 +226,14 @@
       "command": ["node", "tools/goal04/verify-determinism-hardening.mjs", "."]
     },
     {
+      "name": "Goal 04 stable performance budgets",
+      "command": ["node", "tools/goal04/verify-universe-performance.mjs", "."]
+    },
+    {
+      "name": "Goal 04 dependency architecture and security audits",
+      "command": ["node", "tools/goal04/verify-universe-audits.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

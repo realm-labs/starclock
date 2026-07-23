@@ -1,0 +1,42 @@
+{
+  "schema_revision": "starclock.goal04-performance.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P6-B3",
+  "workload_revision": "g04-standard-universe-service-v1",
+  "stable_runner": {
+    "id": "starclock-bench-win10-i7-10700f-v1",
+    "samples": 3,
+    "platform": "win32",
+    "architecture": "x64",
+    "rustc": "rustc 1.97.0 (2d8144b78 2026-07-07)"
+  },
+  "broad_ci": {
+    "profile": "windows-x64-native",
+    "command": "node tools/goal04/verify-universe-performance.mjs . --run --broad-ci",
+    "maximum_total_elapsed_ns": 180000000000
+  },
+  "shape_invariants": {
+    "catalog_clone_count": 0,
+    "replayed_prefix_count": 0,
+    "authoritative_float_operations": 0,
+    "allocation_measurement_authoritative": false,
+    "concurrent_allocation_scope": "coordinator-thread-only"
+  },
+  "rows": [
+    {"id":"catalog-load-10-v1","operations":10,"minimum_operations_per_second":4,"maximum_elapsed_ns":4000000000,"maximum_allocation_bytes":1073741824,"maximum_peak_live_bytes":134217728,"expected_final_hash":"59abe5c6cc24712c39d5b19b4abd4b6b1a31e163930350d8e4b42c2acd8b1df5"},
+    {"id":"incremental-session-1024-v1","operations":1024,"minimum_operations_per_second":40,"maximum_elapsed_ns":30000000000,"maximum_allocation_bytes":4294967296,"maximum_peak_live_bytes":134217728,"expected_final_hash":"d7b10b5e7a1e14233e1c9d21ff02077683c485a3d64676ec0fcde2fef4abb93b"},
+    {"id":"invalid-command-4096-v1","operations":4096,"minimum_operations_per_second":50000,"maximum_elapsed_ns":200000000,"maximum_allocation_bytes":67108864,"maximum_peak_live_bytes":1048576,"expected_final_hash":"215c912e98950e712f5f90a782d2c545bf337aa42190f00d8ceb98fb2f961734"},
+    {"id":"world01-complete-32-v1","operations":32,"minimum_operations_per_second":1,"maximum_elapsed_ns":60000000000,"maximum_allocation_bytes":7516192768,"maximum_peak_live_bytes":134217728,"expected_final_hash":"b6f1d7e79cd1f76e1c9b7d41d3eddaf3556afc5ceeecd24f8d3141c2762631f9"},
+    {"id":"activity-replay-verify-32-v1","operations":32,"minimum_operations_per_second":1,"maximum_elapsed_ns":60000000000,"maximum_allocation_bytes":7516192768,"maximum_peak_live_bytes":134217728,"expected_final_hash":"b6f1d7e79cd1f76e1c9b7d41d3eddaf3556afc5ceeecd24f8d3141c2762631f9"},
+    {"id":"concurrent-shared-catalog-64-v1","operations":64,"minimum_operations_per_second":2,"maximum_elapsed_ns":45000000000,"maximum_allocation_bytes":1048576,"maximum_peak_live_bytes":1048576,"expected_final_hash":"c10a584d83d1aa49ea9a89947d24ce154bc4b69633b6e55f9af77bb66881b5d9"}
+  ],
+  "foundation_ceiling_disposition": {
+    "original_total_elapsed_ns": 60000000000,
+    "original_minimum_operations_per_second": 10,
+    "original_maximum_allocation_bytes_per_row": 4294967296,
+    "decision": "replace aggregate shape-only ceilings with measured per-workload release budgets",
+    "reason": "A full run and a full replay are one operation, so their integer operations-per-second values are not comparable to an incremental command. Cumulative allocation traffic exceeds 4 GiB while peak live memory remains below 128 MiB; the retained metric is not a leak claim.",
+    "optimization_watch": ["incremental-session-1024-v1", "world01-complete-32-v1", "activity-replay-verify-32-v1"]
+  },
+  "new_registry_packages": []
+}

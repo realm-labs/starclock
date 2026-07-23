@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
 | Active phase | Phase 6 — Golden runs and release hardening |
-| Active batch | `G04-P6-B3` |
-| Next unblocked batch | `G04-P6-B3` |
+| Active batch | `G04-P6-B4` |
+| Next unblocked batch | `G04-P6-B4` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -84,8 +84,8 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P5-B5` | `Complete` | This row's containing commit | Added six additive Standard Universe Activity MCP tools and two bounded inert resources while preserving all seven frozen Battle v1 tools. A separate owned Activity registry enforces 1,024 global/64 tenant/16 principal quotas, monotonic 30-minute idle/four-hour lifetime leases, quota-before-ID allocation and one serialized lane per session. Exact Activity create/read/act/replay/close scopes extend the OAuth matrix to 13 scopes; stdio and real authorized HTTP conformance cover discovery, opaque action play, idempotent retry, observe, replay export and close. Evidence: `evidence/standard-universe-runtime-v1/interfaces/activity-mcp.json`. |
 | `G04-P6-B1` | `Complete` | This row's containing commit | Added a release-mode seeded matrix with exactly one complete run for each of 33 constructible World/difficulty entries and canonical Path-option rotation covering all nine Paths. Seeds `100000..100032` produce 1,626 external actions, 1,770 replay actions, 144 verified nested battles and 324,513 replay bytes; every replay verifies from a fresh Activity and all 33 terminal hashes/replay SHA-256 values plus decision/action families are retained. Three inert failure fixtures reject unknown World, out-of-range difficulty and overflowing seed. World 9 difficulty index 3 is retained as an authored four-action zero-battle complete route rather than fabricating an encounter. Evidence: `evidence/standard-universe-runtime-v1/hardening/seeded-matrix.json`. |
 | `G04-P6-B2` | `Complete` | This row's containing commit | Added a separate native-only Goal 04 gate to all three hosted execution profiles without changing the three compile-only claims. Every successful native job must reproduce the exact 33-run/9-Path/33-difficulty matrix, perturb all eight RNG streams by 257 draws, execute the fixed 4,096-command and 256-case replay property corpora plus three complete-Activity corruption classes, regenerate 59 clean-checkout checks and re-verify Goals 01–03. The committed report freezes required vectors rather than fabricating hosted results; each Actions run retains its actual host record. Evidence: `evidence/standard-universe-runtime-v1/hardening/determinism-hardening.json`. |
-| `G04-P6-B3` | `InProgress` | — | — |
-| `G04-P6-B4` | `Pending` | — | — |
+| `G04-P6-B3` | `Complete` | This row's containing commit | Added a release-mode six-row server harness with three stable-runner samples and one Windows-x64 broad-CI sample. Stable medians are 83 accepted commands/s, 111,392 invalid rejections/s, 21.18 s per 32 complete runs, 20.23 s per 32 fresh replay verifications and 18.08 s per 64 concurrent shared-catalog sessions; every row retains zero catalog clones and zero replay-prefix reconstruction. Peak live memory stays below 73 MiB; cumulative allocation traffic makes incremental/full-run/replay explicit optimization watches, and worker-thread allocations are not falsely attributed to the coordinator. A closed audit proves 12 one-way crates, 136 reviewed registry packages, zero new Goal 04 registry packages, 13 exact scopes, shared quotas, zero unsafe/float/log/provider leaks and the 1,200-LOC policy. Evidence: `evidence/standard-universe-runtime-v1/performance/stable-runner.json` and `evidence/standard-universe-runtime-v1/audits/release-audits.json`. |
+| `G04-P6-B4` | `InProgress` | — | — |
 
 ## Frozen starting denominators
 
@@ -160,9 +160,9 @@ without new retained evidence.
 - [x] Complete seeded activities execute through verified nested battles.
 - [x] Full-run replay, CLI, baseline AI, agent API and MCP conformance pass.
 - [x] Cross-platform command/event/hash goldens and RNG isolation pass.
-- [ ] Stable-runner performance/allocation and concurrent server workloads pass.
+- [x] Stable-runner performance/allocation and concurrent server workloads pass.
 - [x] Goals 01–03 release contracts and clean generated drift pass.
-- [ ] Documentation, dependency, architecture and security audits pass.
+- [x] Documentation, dependency, architecture and security audits pass.
 - [ ] `G04-P6-B4` is committed and the clean-worktree release verifier passes.
 
 ## Completion record

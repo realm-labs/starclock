@@ -1,0 +1,454 @@
+{
+  "schema_revision": "starclock.goal04-performance-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P6-B3",
+  "result": "six-service-workloads-with-stable-and-broad-budgets",
+  "workload_revision": "g04-standard-universe-service-v1",
+  "runner": {
+    "id": "starclock-bench-win10-i7-10700f-v1",
+    "platform": "win32",
+    "architecture": "x64",
+    "os_release": "10.0.19045",
+    "cpu_model": "Intel(R) Core(TM) i7-10700F CPU @ 2.90GHz",
+    "logical_processors": 16,
+    "rustc": "rustc 1.97.0 (2d8144b78 2026-07-07)",
+    "recorded_on": "2026-07-23"
+  },
+  "samples": [
+    {
+      "schema_revision": "starclock.goal04-universe-benchmark.v1",
+      "workload_revision": "g04-standard-universe-service-v1",
+      "allocation_measurement_authoritative": false,
+      "rows": [
+        {
+          "id": "catalog-load-10-v1",
+          "operations": 10,
+          "elapsed_ns": 1482367200,
+          "operations_per_second": 6,
+          "allocation_count": 5401770,
+          "allocation_bytes": 692214570,
+          "peak_live_bytes": 26809391,
+          "retained_bytes": 0,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 0,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "59abe5c6cc24712c39d5b19b4abd4b6b1a31e163930350d8e4b42c2acd8b1df5"
+        },
+        {
+          "id": "incremental-session-1024-v1",
+          "operations": 1024,
+          "elapsed_ns": 11837059400,
+          "operations_per_second": 86,
+          "allocation_count": 20028740,
+          "allocation_bytes": 3238913822,
+          "peak_live_bytes": 72725444,
+          "retained_bytes": 219164,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 0,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "d7b10b5e7a1e14233e1c9d21ff02077683c485a3d64676ec0fcde2fef4abb93b"
+        },
+        {
+          "id": "invalid-command-4096-v1",
+          "operations": 4096,
+          "elapsed_ns": 24372100,
+          "operations_per_second": 168061,
+          "allocation_count": 98322,
+          "allocation_bytes": 22353061,
+          "peak_live_bytes": 3114,
+          "retained_bytes": 0,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 0,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "215c912e98950e712f5f90a782d2c545bf337aa42190f00d8ceb98fb2f961734"
+        },
+        {
+          "id": "world01-complete-32-v1",
+          "operations": 32,
+          "elapsed_ns": 17751887600,
+          "operations_per_second": 1,
+          "allocation_count": 33692204,
+          "allocation_bytes": 5449718768,
+          "peak_live_bytes": 72691158,
+          "retained_bytes": 333150,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 331102,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "b6f1d7e79cd1f76e1c9b7d41d3eddaf3556afc5ceeecd24f8d3141c2762631f9"
+        },
+        {
+          "id": "activity-replay-verify-32-v1",
+          "operations": 32,
+          "elapsed_ns": 18481125700,
+          "operations_per_second": 1,
+          "allocation_count": 32985045,
+          "allocation_bytes": 5318013225,
+          "peak_live_bytes": 72368814,
+          "retained_bytes": 2048,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 331102,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "b6f1d7e79cd1f76e1c9b7d41d3eddaf3556afc5ceeecd24f8d3141c2762631f9"
+        },
+        {
+          "id": "concurrent-shared-catalog-64-v1",
+          "operations": 64,
+          "elapsed_ns": 18081660400,
+          "operations_per_second": 3,
+          "allocation_count": 194,
+          "allocation_bytes": 10270,
+          "peak_live_bytes": 10240,
+          "retained_bytes": 5120,
+          "allocation_scope": "coordinator-thread-only",
+          "payload_bytes": 0,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "c10a584d83d1aa49ea9a89947d24ce154bc4b69633b6e55f9af77bb66881b5d9"
+        }
+      ]
+    },
+    {
+      "schema_revision": "starclock.goal04-universe-benchmark.v1",
+      "workload_revision": "g04-standard-universe-service-v1",
+      "allocation_measurement_authoritative": false,
+      "rows": [
+        {
+          "id": "catalog-load-10-v1",
+          "operations": 10,
+          "elapsed_ns": 1799108500,
+          "operations_per_second": 5,
+          "allocation_count": 5401770,
+          "allocation_bytes": 692214570,
+          "peak_live_bytes": 26809391,
+          "retained_bytes": 0,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 0,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "59abe5c6cc24712c39d5b19b4abd4b6b1a31e163930350d8e4b42c2acd8b1df5"
+        },
+        {
+          "id": "incremental-session-1024-v1",
+          "operations": 1024,
+          "elapsed_ns": 12192334200,
+          "operations_per_second": 83,
+          "allocation_count": 20028740,
+          "allocation_bytes": 3238913822,
+          "peak_live_bytes": 72725444,
+          "retained_bytes": 219164,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 0,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "d7b10b5e7a1e14233e1c9d21ff02077683c485a3d64676ec0fcde2fef4abb93b"
+        },
+        {
+          "id": "invalid-command-4096-v1",
+          "operations": 4096,
+          "elapsed_ns": 36770900,
+          "operations_per_second": 111392,
+          "allocation_count": 98322,
+          "allocation_bytes": 22353061,
+          "peak_live_bytes": 3114,
+          "retained_bytes": 0,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 0,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "215c912e98950e712f5f90a782d2c545bf337aa42190f00d8ceb98fb2f961734"
+        },
+        {
+          "id": "world01-complete-32-v1",
+          "operations": 32,
+          "elapsed_ns": 21180596200,
+          "operations_per_second": 1,
+          "allocation_count": 33692204,
+          "allocation_bytes": 5449718768,
+          "peak_live_bytes": 72691158,
+          "retained_bytes": 333150,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 331102,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "b6f1d7e79cd1f76e1c9b7d41d3eddaf3556afc5ceeecd24f8d3141c2762631f9"
+        },
+        {
+          "id": "activity-replay-verify-32-v1",
+          "operations": 32,
+          "elapsed_ns": 22129341100,
+          "operations_per_second": 1,
+          "allocation_count": 32985045,
+          "allocation_bytes": 5318013225,
+          "peak_live_bytes": 72368814,
+          "retained_bytes": 2048,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 331102,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "b6f1d7e79cd1f76e1c9b7d41d3eddaf3556afc5ceeecd24f8d3141c2762631f9"
+        },
+        {
+          "id": "concurrent-shared-catalog-64-v1",
+          "operations": 64,
+          "elapsed_ns": 24165991600,
+          "operations_per_second": 2,
+          "allocation_count": 194,
+          "allocation_bytes": 10270,
+          "peak_live_bytes": 10240,
+          "retained_bytes": 5120,
+          "allocation_scope": "coordinator-thread-only",
+          "payload_bytes": 0,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "c10a584d83d1aa49ea9a89947d24ce154bc4b69633b6e55f9af77bb66881b5d9"
+        }
+      ]
+    },
+    {
+      "schema_revision": "starclock.goal04-universe-benchmark.v1",
+      "workload_revision": "g04-standard-universe-service-v1",
+      "allocation_measurement_authoritative": false,
+      "rows": [
+        {
+          "id": "catalog-load-10-v1",
+          "operations": 10,
+          "elapsed_ns": 1775848800,
+          "operations_per_second": 5,
+          "allocation_count": 5401770,
+          "allocation_bytes": 692214570,
+          "peak_live_bytes": 26809391,
+          "retained_bytes": 0,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 0,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "59abe5c6cc24712c39d5b19b4abd4b6b1a31e163930350d8e4b42c2acd8b1df5"
+        },
+        {
+          "id": "incremental-session-1024-v1",
+          "operations": 1024,
+          "elapsed_ns": 12589880000,
+          "operations_per_second": 81,
+          "allocation_count": 20028740,
+          "allocation_bytes": 3238913822,
+          "peak_live_bytes": 72725444,
+          "retained_bytes": 219164,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 0,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "d7b10b5e7a1e14233e1c9d21ff02077683c485a3d64676ec0fcde2fef4abb93b"
+        },
+        {
+          "id": "invalid-command-4096-v1",
+          "operations": 4096,
+          "elapsed_ns": 37285500,
+          "operations_per_second": 109855,
+          "allocation_count": 98322,
+          "allocation_bytes": 22353061,
+          "peak_live_bytes": 3114,
+          "retained_bytes": 0,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 0,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "215c912e98950e712f5f90a782d2c545bf337aa42190f00d8ceb98fb2f961734"
+        },
+        {
+          "id": "world01-complete-32-v1",
+          "operations": 32,
+          "elapsed_ns": 23170938100,
+          "operations_per_second": 1,
+          "allocation_count": 33692204,
+          "allocation_bytes": 5449718768,
+          "peak_live_bytes": 72691158,
+          "retained_bytes": 333150,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 331102,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "b6f1d7e79cd1f76e1c9b7d41d3eddaf3556afc5ceeecd24f8d3141c2762631f9"
+        },
+        {
+          "id": "activity-replay-verify-32-v1",
+          "operations": 32,
+          "elapsed_ns": 20232096400,
+          "operations_per_second": 1,
+          "allocation_count": 32985045,
+          "allocation_bytes": 5318013225,
+          "peak_live_bytes": 72368814,
+          "retained_bytes": 2048,
+          "allocation_scope": "current-thread",
+          "payload_bytes": 331102,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "b6f1d7e79cd1f76e1c9b7d41d3eddaf3556afc5ceeecd24f8d3141c2762631f9"
+        },
+        {
+          "id": "concurrent-shared-catalog-64-v1",
+          "operations": 64,
+          "elapsed_ns": 14180493200,
+          "operations_per_second": 4,
+          "allocation_count": 194,
+          "allocation_bytes": 10270,
+          "peak_live_bytes": 10240,
+          "retained_bytes": 5120,
+          "allocation_scope": "coordinator-thread-only",
+          "payload_bytes": 0,
+          "catalog_clone_count": 0,
+          "replayed_prefix_count": 0,
+          "final_hash": "c10a584d83d1aa49ea9a89947d24ce154bc4b69633b6e55f9af77bb66881b5d9"
+        }
+      ]
+    }
+  ],
+  "medians": [
+    {
+      "id": "catalog-load-10-v1",
+      "elapsed_ns": 1775848800,
+      "operations_per_second": 5,
+      "allocation_count": 5401770,
+      "allocation_bytes": 692214570,
+      "peak_live_bytes": 26809391,
+      "retained_bytes": 0
+    },
+    {
+      "id": "incremental-session-1024-v1",
+      "elapsed_ns": 12192334200,
+      "operations_per_second": 83,
+      "allocation_count": 20028740,
+      "allocation_bytes": 3238913822,
+      "peak_live_bytes": 72725444,
+      "retained_bytes": 219164
+    },
+    {
+      "id": "invalid-command-4096-v1",
+      "elapsed_ns": 36770900,
+      "operations_per_second": 111392,
+      "allocation_count": 98322,
+      "allocation_bytes": 22353061,
+      "peak_live_bytes": 3114,
+      "retained_bytes": 0
+    },
+    {
+      "id": "world01-complete-32-v1",
+      "elapsed_ns": 21180596200,
+      "operations_per_second": 1,
+      "allocation_count": 33692204,
+      "allocation_bytes": 5449718768,
+      "peak_live_bytes": 72691158,
+      "retained_bytes": 333150
+    },
+    {
+      "id": "activity-replay-verify-32-v1",
+      "elapsed_ns": 20232096400,
+      "operations_per_second": 1,
+      "allocation_count": 32985045,
+      "allocation_bytes": 5318013225,
+      "peak_live_bytes": 72368814,
+      "retained_bytes": 2048
+    },
+    {
+      "id": "concurrent-shared-catalog-64-v1",
+      "elapsed_ns": 18081660400,
+      "operations_per_second": 3,
+      "allocation_count": 194,
+      "allocation_bytes": 10270,
+      "peak_live_bytes": 10240,
+      "retained_bytes": 5120
+    }
+  ],
+  "budgets": {
+    "broad_ci": {
+      "profile": "windows-x64-native",
+      "command": "node tools/goal04/verify-universe-performance.mjs . --run --broad-ci",
+      "maximum_total_elapsed_ns": 180000000000
+    },
+    "rows": [
+      {
+        "id": "catalog-load-10-v1",
+        "operations": 10,
+        "minimum_operations_per_second": 4,
+        "maximum_elapsed_ns": 4000000000,
+        "maximum_allocation_bytes": 1073741824,
+        "maximum_peak_live_bytes": 134217728,
+        "expected_final_hash": "59abe5c6cc24712c39d5b19b4abd4b6b1a31e163930350d8e4b42c2acd8b1df5"
+      },
+      {
+        "id": "incremental-session-1024-v1",
+        "operations": 1024,
+        "minimum_operations_per_second": 40,
+        "maximum_elapsed_ns": 30000000000,
+        "maximum_allocation_bytes": 4294967296,
+        "maximum_peak_live_bytes": 134217728,
+        "expected_final_hash": "d7b10b5e7a1e14233e1c9d21ff02077683c485a3d64676ec0fcde2fef4abb93b"
+      },
+      {
+        "id": "invalid-command-4096-v1",
+        "operations": 4096,
+        "minimum_operations_per_second": 50000,
+        "maximum_elapsed_ns": 200000000,
+        "maximum_allocation_bytes": 67108864,
+        "maximum_peak_live_bytes": 1048576,
+        "expected_final_hash": "215c912e98950e712f5f90a782d2c545bf337aa42190f00d8ceb98fb2f961734"
+      },
+      {
+        "id": "world01-complete-32-v1",
+        "operations": 32,
+        "minimum_operations_per_second": 1,
+        "maximum_elapsed_ns": 60000000000,
+        "maximum_allocation_bytes": 7516192768,
+        "maximum_peak_live_bytes": 134217728,
+        "expected_final_hash": "b6f1d7e79cd1f76e1c9b7d41d3eddaf3556afc5ceeecd24f8d3141c2762631f9"
+      },
+      {
+        "id": "activity-replay-verify-32-v1",
+        "operations": 32,
+        "minimum_operations_per_second": 1,
+        "maximum_elapsed_ns": 60000000000,
+        "maximum_allocation_bytes": 7516192768,
+        "maximum_peak_live_bytes": 134217728,
+        "expected_final_hash": "b6f1d7e79cd1f76e1c9b7d41d3eddaf3556afc5ceeecd24f8d3141c2762631f9"
+      },
+      {
+        "id": "concurrent-shared-catalog-64-v1",
+        "operations": 64,
+        "minimum_operations_per_second": 2,
+        "maximum_elapsed_ns": 45000000000,
+        "maximum_allocation_bytes": 1048576,
+        "maximum_peak_live_bytes": 1048576,
+        "expected_final_hash": "c10a584d83d1aa49ea9a89947d24ce154bc4b69633b6e55f9af77bb66881b5d9"
+      }
+    ]
+  },
+  "shape_invariants": {
+    "catalog_clone_count": 0,
+    "replayed_prefix_count": 0,
+    "authoritative_float_operations": 0,
+    "allocation_measurement_authoritative": false,
+    "concurrent_allocation_scope": "coordinator-thread-only"
+  },
+  "foundation_ceiling_disposition": {
+    "original_total_elapsed_ns": 60000000000,
+    "original_minimum_operations_per_second": 10,
+    "original_maximum_allocation_bytes_per_row": 4294967296,
+    "decision": "replace aggregate shape-only ceilings with measured per-workload release budgets",
+    "reason": "A full run and a full replay are one operation, so their integer operations-per-second values are not comparable to an incremental command. Cumulative allocation traffic exceeds 4 GiB while peak live memory remains below 128 MiB; the retained metric is not a leak claim.",
+    "optimization_watch": [
+      "incremental-session-1024-v1",
+      "world01-complete-32-v1",
+      "activity-replay-verify-32-v1"
+    ]
+  },
+  "source_sha256": {
+    "crates/starclock-agent-api/examples/g04_universe_benchmark.rs": "79c9beff9faac36285da09ba775095af3e0c306cf85b6aa9d1eeb976b192ae1c",
+    "crates/starclock-agent-api/Cargo.toml": "8e9b6f4081897ac5c304ad1c6002aaa8f2870947cee6dc646c732cc8074ce82c"
+  },
+  "policy_sha256": "f6233b1e80f22076411592641fefeabaf751695753d38eaf7cd0eebafe4b2d44",
+  "new_registry_packages": []
+}

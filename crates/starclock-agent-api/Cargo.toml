@@ -12,6 +12,11 @@ name = "g02_agent_benchmark"
 path = "examples/g02_agent_benchmark.rs"
 required-features = ["benchmark-harness"]
 
+[[example]]
+name = "g04_universe_benchmark"
+path = "examples/g04_universe_benchmark.rs"
+required-features = ["benchmark-harness"]
+
 [features]
 benchmark-harness = []
 

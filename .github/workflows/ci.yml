@@ -55,6 +55,9 @@ jobs:
         run: node tools/goal04/run-native-ci.mjs --foundation
       - name: Execute Goal 04 determinism hardening natively
         run: node tools/goal04/run-native-ci.mjs --hardening
+      - name: Execute Goal 04 broad performance budgets
+        if: matrix.profile == 'windows-x64-native'
+        run: node tools/goal04/verify-universe-performance.mjs . --run --broad-ci
       - name: Record native execution evidence
         run: node tools/ci/write-evidence.mjs --profile "${{ matrix.profile }}" --output ".ci-evidence/${{ matrix.profile }}.json"
       - name: Retain native evidence

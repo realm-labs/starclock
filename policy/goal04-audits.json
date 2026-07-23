@@ -1,0 +1,42 @@
+{
+  "schema_revision": "starclock.goal04-audits.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P6-B3",
+  "baseline_commit": "285f14f",
+  "workspace_crates": 12,
+  "reviewed_registry_packages": 136,
+  "new_registry_packages": [],
+  "new_workspace_crate": "starclock-mode-universe",
+  "source_policy": {
+    "maximum_handwritten_lines": 1200,
+    "maximum_facade_lines": 200,
+    "line_limit_exceptions": 0,
+    "unsafe_allowed": 0,
+    "authoritative_float_allowed": 0
+  },
+  "architecture": {
+    "domain_crates": ["starclock-activity", "starclock-mode-universe"],
+    "forbidden_domain_dependencies": ["axum", "rmcp", "schemars", "starclock-agent-api", "starclock-mcp", "tokio", "tower"],
+    "activity_allowed_local_dependencies": ["starclock-combat"],
+    "universe_allowed_local_dependencies": ["starclock-activity", "starclock-data", "starclock-replay"],
+    "agent_api_may_depend_on_universe": true,
+    "mcp_may_depend_only_on_agent_api": true
+  },
+  "security": {
+    "authorization_scopes": 13,
+    "global_sessions": 1024,
+    "tenant_sessions": 64,
+    "principal_sessions": 16,
+    "activity_actions_per_settlement": 16,
+    "non_loopback_startup": false,
+    "production_logging_macros": 0,
+    "provider_packages": 0
+  },
+  "required_verifiers": [
+    ["node", "tools/dependency-policy/verify.mjs"],
+    ["node", "tools/workspace/verify-dependencies.mjs"],
+    ["node", "tools/repository-check/verify-source-policy.mjs"],
+    ["node", "tools/agent-control/verify-agent-security-audit.mjs"],
+    ["node", "tools/agent-control/verify-mcp-authorization.mjs"]
+  ]
+}

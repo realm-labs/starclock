@@ -60,6 +60,27 @@ shows that current state hashing builds canonical scratch bytes (nine allocation
 per sample in the recorded fixture), making streaming state hashing an explicit
 optimization candidate rather than a hidden performance assumption.
 
+### Phase 6 release budgets
+
+`G04-P6-B3` executes all six frozen workloads in release mode and records three
+samples on `starclock-bench-win10-i7-10700f-v1`. Each row has its own elapsed,
+throughput, cumulative-allocation and peak-live ceiling. The early common
+`10 operations/second` placeholder is retired: one complete run or one complete
+replay is an operation and cannot be compared meaningfully with one incremental
+command. The stable median sustains roughly 80–90 accepted external commands per
+second, while the 64-session shared-catalog workload completes without catalog
+clones or replay-prefix reconstruction.
+
+The 32-run and 32-replay rows each move about 5.3 GiB of cumulative allocation
+traffic but retain only a few hundred KiB and stay below a 128 MiB peak-live
+ceiling. This is not treated as a leak, but those rows and the 1,024-command row
+are explicit optimization watches. The concurrent row reports coordinator-thread
+allocations only because `allocation-counter` is thread-local; it never claims
+that worker allocations are zero. Windows x64 CI reruns one broad-budget sample,
+while deterministic native execution remains covered on all three native hosts.
+The retained baseline is
+`evidence/standard-universe-runtime-v1/performance/stable-runner.json`.
+
 ### P3-B1 entry compilation
 
 The Standard Universe profile now validates the selected World and difficulty,
@@ -93,8 +114,10 @@ partitions, so this is not yet a complete World claim.
 Goal 04 inherits three native jobs—Windows x64, Linux x64 and macOS ARM64—and
 three compile-only alternate CPU targets. Native jobs run
 `node tools/goal04/run-native-ci.mjs --foundation` in addition to the existing
-repository and Goal 02 gates. The foundation gate grows with Goal 04; the hosted
-matrix itself is expanded into full Activity golden suites in `G04-P6-B2`.
+repository and Goal 02 gates. They also run the native determinism hardening gate
+added by `G04-P6-B2`. Windows x64 alone executes the broad performance sample;
+the stable three-sample baseline remains tied to the named local runner rather
+than pretending hosted machines have stable timing.
 
 Compile-only jobs never claim deterministic execution. Only native profiles may
 produce runtime/hash evidence. Action commits, Rust 1.97.0, Node 24.15.0 and the
