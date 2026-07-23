@@ -27,6 +27,7 @@ pub mod path_effect_runtime;
 pub mod path_runtime;
 pub mod preservation_runtime;
 pub mod progression;
+pub mod remembrance_runtime;
 pub mod rule;
 pub mod run_runtime;
 pub mod runtime;

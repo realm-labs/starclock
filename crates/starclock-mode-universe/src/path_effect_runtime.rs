@@ -1,5 +1,7 @@
 //! Engine-independent typed proposals emitted by Path mechanic executors.
 
+use crate::path::ExactParameter;
+
 /// Signed six-decimal value used at the Universe-to-battle contribution boundary.
 #[derive(Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct PathEffectValue(i64);
@@ -68,6 +70,11 @@ pub enum PathBattleEvent {
     PathResonanceActivated = 8,
     StatQueried = 9,
     DamageCalculated = 10,
+    DamageDealt = 11,
+    IceDamageDealt = 12,
+    EnemyFrozen = 13,
+    DissociationRemoved = 14,
+    UltimateUsed = 15,
 }
 
 /// Cause-relative target retained until the combat adapter resolves unit IDs.
@@ -83,6 +90,8 @@ pub enum PathEffectTarget {
     AllEnemies = 6,
     AllAllies = 7,
     ShieldProvider = 8,
+    RandomEnemy = 9,
+    RandomEnemyWithoutIceWeakness = 10,
 }
 
 /// Generic stat families used by Path conditional modifiers.
@@ -96,6 +105,10 @@ pub enum PathEffectStat {
     DamageTakenReductionRatio = 4,
     ShieldCapacityRatio = 5,
     PathDamageRatio = 6,
+    DamageRatio = 7,
+    DamageTakenRatio = 8,
+    EffectHitRateRatio = 9,
+    FreezeResistanceReductionRatio = 10,
 }
 
 /// Mode damage family retained until lowering into the combat damage class.
@@ -133,9 +146,18 @@ pub struct PathEffectFacts {
     pub hp_lost: PathEffectValue,
     pub provided_shield: PathEffectValue,
     pub path_damage: PathEffectValue,
+    pub path_base_damage: PathEffectValue,
+    pub damage_dealt: PathEffectValue,
+    pub enemy_current_hp_ratio: PathEffectValue,
     pub path_blessing_count: u32,
     pub shielded_allies: u32,
+    pub enemy_attack_count: u32,
     pub actor_is_shielded: bool,
+    pub enemy_is_frozen: bool,
+    pub enemy_is_dissociated: bool,
+    pub enemy_has_dissociation_vulnerability: bool,
+    pub enemy_crossed_hp_threshold_first_time: bool,
+    pub action_is_skill_or_ultimate: bool,
 }
 
 impl PathEffectFacts {
@@ -151,8 +173,13 @@ impl PathEffectFacts {
             self.hp_lost,
             self.provided_shield,
             self.path_damage,
+            self.path_base_damage,
+            self.damage_dealt,
+            self.enemy_current_hp_ratio,
         ];
-        if values.iter().any(|value| value.raw_six_decimal() < 0) {
+        if values.iter().any(|value| value.raw_six_decimal() < 0)
+            || self.enemy_current_hp_ratio > PathEffectValue::ONE
+        {
             Err(PathEffectRuntimeError::InvalidFacts)
         } else {
             Ok(self)
@@ -208,6 +235,51 @@ pub enum PathEffect {
     ApplyAmber {
         target: PathEffectTarget,
     },
+    ApplyFreeze {
+        target: PathEffectTarget,
+        base_chance: PathEffectValue,
+        duration_turns: u8,
+        speed_reduction_ratio: PathEffectValue,
+        ignore_freeze_resistance: bool,
+    },
+    ApplyDissociation {
+        target: PathEffectTarget,
+        base_chance: PathEffectValue,
+        duration_turns: u8,
+        maximum_hp_damage_ratio: PathEffectValue,
+        removal_damage_bonus_ratio: PathEffectValue,
+        ignore_freeze_resistance: bool,
+    },
+    RemoveDissociation {
+        target: PathEffectTarget,
+        removal_damage_multiplier: PathEffectValue,
+    },
+    ApplyIceWeakness {
+        target: PathEffectTarget,
+        base_chance: PathEffectValue,
+        duration_turns: u8,
+    },
+    ApplyEonianRiver {
+        target: PathEffectTarget,
+        base_chance: PathEffectValue,
+        duration_turns: u8,
+    },
+    ApplyFreezeResistanceReduction {
+        target: PathEffectTarget,
+        base_chance: PathEffectValue,
+        value: PathEffectValue,
+        duration_turns: u8,
+    },
+    MarkCriticalExposure {
+        target: PathEffectTarget,
+        attacks: u8,
+        critical_rate_ratio: PathEffectValue,
+    },
+    GainEnergy {
+        target: PathEffectTarget,
+        amount: PathEffectValue,
+        once_per_action: bool,
+    },
 }
 
 /// One source-attributed proposal. Adapters must preserve this source in causes.
@@ -244,4 +316,38 @@ pub enum PathEffectRuntimeError {
     InvalidDefinition,
     UnknownSource,
     Overflow,
+}
+
+pub(crate) fn exact_parameters(
+    parameters: &[ExactParameter],
+) -> Result<Box<[PathEffectValue]>, PathEffectRuntimeError> {
+    parameters
+        .iter()
+        .map(|parameter| {
+            if parameter.scale() > 6 {
+                return Err(PathEffectRuntimeError::InvalidParameter);
+            }
+            let multiplier = 10_i64
+                .checked_pow(u32::from(6 - parameter.scale()))
+                .ok_or(PathEffectRuntimeError::Overflow)?;
+            parameter
+                .coefficient()
+                .checked_mul(multiplier)
+                .map(PathEffectValue::from_raw_six_decimal)
+                .ok_or(PathEffectRuntimeError::Overflow)
+        })
+        .collect::<Result<Vec<_>, _>>()
+        .map(Vec::into_boxed_slice)
+}
+
+pub(crate) fn count(value: PathEffectValue) -> Result<u32, PathEffectRuntimeError> {
+    let raw = value.raw_six_decimal();
+    if raw < 0 || raw % 1_000_000 != 0 {
+        return Err(PathEffectRuntimeError::InvalidParameter);
+    }
+    u32::try_from(raw / 1_000_000).map_err(|_| PathEffectRuntimeError::InvalidParameter)
+}
+
+pub(crate) fn turns(value: PathEffectValue) -> Result<u8, PathEffectRuntimeError> {
+    u8::try_from(count(value)?).map_err(|_| PathEffectRuntimeError::InvalidParameter)
 }

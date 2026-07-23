@@ -4,10 +4,10 @@ use crate::{
     catalog::UniverseCatalog,
     digest::Encoder,
     id::{BlessingId, PathId, ResonanceId},
-    path::ExactParameter,
     path_effect_runtime::{
         AppliedPathEffect, PathBattleEvent, PathEffect, PathEffectDamageKind, PathEffectElement,
         PathEffectFacts, PathEffectRuntimeError, PathEffectStat, PathEffectTarget, PathEffectValue,
+        count, exact_parameters, turns,
     },
 };
 
@@ -501,40 +501,6 @@ fn conditional_stat(
             cap: None,
         });
     }
-}
-
-fn count(value: PathEffectValue) -> Result<u32, PathEffectRuntimeError> {
-    let raw = value.raw_six_decimal();
-    if raw < 0 || raw % 1_000_000 != 0 {
-        return Err(PathEffectRuntimeError::InvalidParameter);
-    }
-    u32::try_from(raw / 1_000_000).map_err(|_| PathEffectRuntimeError::InvalidParameter)
-}
-
-fn turns(value: PathEffectValue) -> Result<u8, PathEffectRuntimeError> {
-    u8::try_from(count(value)?).map_err(|_| PathEffectRuntimeError::InvalidParameter)
-}
-
-fn exact_parameters(
-    parameters: &[ExactParameter],
-) -> Result<Box<[PathEffectValue]>, PathEffectRuntimeError> {
-    parameters
-        .iter()
-        .map(|parameter| {
-            if parameter.scale() > 6 {
-                return Err(PathEffectRuntimeError::InvalidParameter);
-            }
-            let multiplier = 10_i64
-                .checked_pow(u32::from(6 - parameter.scale()))
-                .ok_or(PathEffectRuntimeError::Overflow)?;
-            parameter
-                .coefficient()
-                .checked_mul(multiplier)
-                .map(PathEffectValue::from_raw_six_decimal)
-                .ok_or(PathEffectRuntimeError::Overflow)
-        })
-        .collect::<Result<Vec<_>, _>>()
-        .map(Vec::into_boxed_slice)
 }
 
 /// The only stable source-binding dispatch for this partition.

@@ -1,8 +1,8 @@
 {
-  "schema_revision": "starclock.goal04-universe-preservation-runtime-evidence.v1",
+  "schema_revision": "starclock.goal04-universe-remembrance-runtime-evidence.v1",
   "goal_id": "standard-universe-runtime-v1",
-  "batch": "G04-P4-M02",
-  "result": "complete-preservation-partition-lowers-to-source-attributed-typed-battle-proposals",
+  "batch": "G04-P4-M03",
+  "result": "complete-remembrance-partition-lowers-to-source-attributed-typed-battle-proposals",
   "counts": {
     "content_records": 59,
     "rule_bindings": 58,
@@ -12,34 +12,34 @@
     "formations": 3,
     "compiled_programs": 40,
     "mechanic_templates": 22,
-    "battle_event_points": 11,
-    "effect_variants": 8,
-    "semantic_fixtures": 7
+    "battle_event_points": 16,
+    "shared_effect_variants": 16,
+    "semantic_fixtures": 5
   },
   "policies": {
     "numeric": "CheckedSignedI64SixDecimalNoFloatWithI128IntermediateAndTruncationTowardZero",
     "dispatch": "OneAuditedStaticRegistryByReleasedSourceBindingKey",
     "execution": "ReadOnlyBattleFactsToOrdinarySourceAttributedTypedProposals",
     "integration": "OwnedBlessingsAndAvailableResonanceFormationsExecuteFromStandardUniverseActivity",
-    "chance": "FixedAndBaseChanceRemainTypedUntilBattleRngResolution",
+    "chance": "BaseChanceAndResistanceSemanticsRemainTypedUntilBattleRngResolution",
+    "dissociation": "CountsAsFrozenAndDealsThirtyPercentTargetMaximumHpIceAdditionalDamageWhenRemoved",
     "cause": "EveryProposalRetainsBlessingLevelOrResonanceStableSourceKey",
     "resolver_branching": "NoBlessingOrPathIdBranchInCombatResolver"
   },
   "mechanics": [
-    "QuakeFromCurrentOrPreHitShield",
-    "QuakeSplashBleedAndDefenseScaling",
-    "EntryReactiveAndCyclicSpecialShields",
-    "ShieldCapacityAttackDefenseCriticalAndMitigationModifiers",
-    "WeaknessBreakShieldAndShieldGainDispel",
-    "ResonancePhysicalDamageCriticalFormationShieldAmberAndEnergy"
+    "FreezeFromAttackBreakDamageBattleEntryAndDissociationRemoval",
+    "DissociationApplicationDetonationBonusAndVulnerability",
+    "IceDamageSplashAndConditionalFrozenDamageCriticalModifiers",
+    "IceWeaknessEffectHitRateFreezeResistanceEnergyAndShields",
+    "ResonanceIceDamageFreezeResistanceEonianRiverAndEnergy"
   ],
   "goldens": {
-    "preservation_runtime_catalog_sha256": "ac5561e4c1805232dd438e699387f45880c284a7447773a0343fd1f579f54cb4",
+    "remembrance_runtime_catalog_sha256": "d84808cf1856883ddcb9687e69875ea0aa678b64cdb7874fdbb873a8d0d171a4",
     "entry_definition_sha256": "8f0383c8b1dbccc04a17fbb84c88d4080fcacd9ee62a17172c4cc28d6e373717",
-    "enhanced_resonance_transfer_damage_six_decimal": 1100000000,
-    "nine_blessing_enhanced_defense_ratio_six_decimal": 720000,
-    "four_thousand_shield_resonance_damage_six_decimal": 10000000000,
-    "three_shielded_allies_formation_critical_damage_six_decimal": 450000
+    "enhanced_fuli_removal_bonus_ratio_six_decimal": 200000,
+    "nine_blessing_freeze_resistance_reduction_six_decimal": 720000,
+    "five_hundred_ice_damage_splash_six_decimal": 120000000,
+    "one_thousand_base_resonance_damage_six_decimal": 600000000
   },
   "runtime_coverage": {
     "content_records_executable": 160,
@@ -56,11 +56,11 @@
   },
   "source_sha256": {
     "crates/starclock-mode-universe/src/path_effect_runtime.rs": "5ffca54325afefa3a74a422d451213c59dfe2d39c725859ac4eae92a06c2a91b",
-    "crates/starclock-mode-universe/src/preservation_runtime.rs": "d144d576747a356eeaf620b4d6077deb31af507019aae82363dc41b7e82b72b3",
+    "crates/starclock-mode-universe/src/remembrance_runtime.rs": "8c387745c61725c03195d4dffa4b94d64c49b15f0878aef42515cd758f695ec3",
     "crates/starclock-mode-universe/src/entry.rs": "529b7bad58a580a3f52b7aa2e4c0aa5a3aac88464866387851c0fda025fc881c",
     "crates/starclock-mode-universe/src/runtime.rs": "2b9e87e46c6adc8aa1c3552529d987c674a03f3dbb5fe4ae8b0cdc995afe7085",
-    "crates/starclock-mode-universe/tests/preservation_runtime.rs": "0c4e26673a9cc5c9a516e005f146be7c834f605d0aed2c4977aa798c76ff7f8d"
+    "crates/starclock-mode-universe/tests/remembrance_runtime.rs": "2395079218d9a46bf59b82dbe8705ce544d239496694ffad608c9e5c11b661ee"
   },
-  "focused_tests": 5,
+  "focused_tests": 6,
   "new_registry_packages": []
 }

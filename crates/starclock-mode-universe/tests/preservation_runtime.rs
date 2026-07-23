@@ -64,6 +64,7 @@ fn facts() -> PathEffectFacts {
         path_blessing_count: 9,
         shielded_allies: 3,
         actor_is_shielded: true,
+        ..PathEffectFacts::default()
     }
 }
 

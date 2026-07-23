@@ -26,6 +26,7 @@ use crate::{
     },
     path_runtime::{PathContributionSet, PathRuntimeCatalog, PathRuntimeError},
     preservation_runtime::PreservationRuntimeCatalog,
+    remembrance_runtime::RemembranceRuntimeCatalog,
     run_runtime::{
         AbilityTreeContributionSet, CosmicFragments, RunRuntimeCatalog, RunRuntimeError,
     },
@@ -40,6 +41,7 @@ pub struct StandardUniverseActivity {
     blessing_runtime: Arc<BlessingRuntimeCatalog>,
     path_runtime: Arc<PathRuntimeCatalog>,
     preservation_runtime: Arc<PreservationRuntimeCatalog>,
+    remembrance_runtime: Arc<RemembranceRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -60,6 +62,7 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) blessing_runtime: Arc<BlessingRuntimeCatalog>,
     pub(crate) path_runtime: Arc<PathRuntimeCatalog>,
     pub(crate) preservation_runtime: Arc<PreservationRuntimeCatalog>,
+    pub(crate) remembrance_runtime: Arc<RemembranceRuntimeCatalog>,
     pub(crate) curio_runtime: Arc<CurioRuntimeCatalog>,
     pub(crate) run_runtime: Arc<RunRuntimeCatalog>,
     pub(crate) ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -83,6 +86,7 @@ impl StandardUniverseActivity {
             blessing_runtime: context.blessing_runtime,
             path_runtime: context.path_runtime,
             preservation_runtime: context.preservation_runtime,
+            remembrance_runtime: context.remembrance_runtime,
             curio_runtime: context.curio_runtime,
             run_runtime: context.run_runtime,
             ability_runtime: context.ability_runtime,
@@ -218,6 +222,65 @@ impl StandardUniverseActivity {
                     self.preservation_runtime
                         .execute_resonance(formation.id(), event, facts)
                         .map_err(StandardUniversePreservationError::Effect)?,
+                );
+            }
+        }
+        Ok(effects.into_boxed_slice())
+    }
+
+    /// Executes every owned Remembrance Blessing plus the currently available
+    /// Remembrance Resonance/Formations for one battle observation.
+    pub fn remembrance_effects(
+        &self,
+        event: PathBattleEvent,
+        facts: PathEffectFacts,
+    ) -> Result<Box<[AppliedPathEffect]>, StandardUniverseRemembranceError> {
+        let view = self.graph.player_view();
+        let blessing_inventory = view
+            .inventories()
+            .iter()
+            .find(|inventory| inventory.id() == self.blessing_inventory)
+            .ok_or(StandardUniverseRemembranceError::MissingInventory)?;
+        let mut effects = Vec::new();
+        for (raw, level) in blessing_inventory.entries() {
+            let Ok(raw) = u32::try_from(*raw) else {
+                continue;
+            };
+            let Some(id) = crate::id::BlessingId::new(raw) else {
+                continue;
+            };
+            if !self
+                .remembrance_runtime
+                .blessing_ids()
+                .any(|candidate| candidate == id)
+            {
+                continue;
+            }
+            let level =
+                u8::try_from(*level).map_err(|_| StandardUniverseRemembranceError::InvalidLevel)?;
+            effects.extend(
+                self.remembrance_runtime
+                    .execute_blessing(id, level, event, facts)
+                    .map_err(StandardUniverseRemembranceError::Effect)?,
+            );
+        }
+
+        let path = self
+            .path_contributions()
+            .map_err(StandardUniverseRemembranceError::Path)?;
+        if path.passive().path() == self.remembrance_runtime.path() {
+            if let Some(resonance) = path.resonance() {
+                effects.extend(
+                    self.remembrance_runtime
+                        .execute_resonance(resonance.id(), event, facts)
+                        .map_err(StandardUniverseRemembranceError::Effect)?,
+                );
+            }
+            for formation in path.formations() {
+                effects.extend(
+                    self.remembrance_runtime
+                        .execute_resonance(formation.id(), event, facts)
+                        .map_err(StandardUniverseRemembranceError::Effect)?,
                 );
             }
         }
@@ -456,6 +519,14 @@ pub enum StandardUniversePathContributionError {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum StandardUniversePreservationError {
+    MissingInventory,
+    InvalidLevel,
+    Path(StandardUniversePathContributionError),
+    Effect(PathEffectRuntimeError),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum StandardUniverseRemembranceError {
     MissingInventory,
     InvalidLevel,
     Path(StandardUniversePathContributionError),
