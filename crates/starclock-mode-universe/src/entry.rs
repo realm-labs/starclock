@@ -26,6 +26,7 @@ use crate::{
     erudition_runtime::EruditionRuntimeCatalog,
     hunt_runtime::HuntRuntimeCatalog,
     id::{AbilityTreeNodeId, DifficultyId, PathId, WorldId},
+    negative_curio_runtime::NegativeCurioRuntimeCatalog,
     nihility_runtime::NihilityRuntimeCatalog,
     path_runtime::PathRuntimeCatalog,
     preservation_runtime::PreservationRuntimeCatalog,
@@ -245,6 +246,10 @@ impl StandardUniverseProfile {
             CurioEffectRuntimeCatalog::compile(&self.catalog, &curio_runtime)
                 .map_err(|_| StandardUniverseCompileError::InvalidCurioRuntime)?,
         );
+        let negative_curio_runtime = Arc::new(
+            NegativeCurioRuntimeCatalog::compile(&curio_runtime)
+                .map_err(|_| StandardUniverseCompileError::InvalidCurioRuntime)?,
+        );
         let run_runtime = Arc::new(
             RunRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidRunRuntime)?,
@@ -331,6 +336,7 @@ impl StandardUniverseProfile {
             erudition_runtime,
             curio_runtime,
             curio_effect_runtime,
+            negative_curio_runtime,
             run_runtime,
             ability_runtime,
         })
@@ -370,6 +376,7 @@ pub struct CompiledActivity {
     erudition_runtime: Arc<EruditionRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
     curio_effect_runtime: Arc<CurioEffectRuntimeCatalog>,
+    negative_curio_runtime: Arc<NegativeCurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
 }
@@ -512,6 +519,11 @@ impl CompiledActivity {
     }
 
     #[must_use]
+    pub const fn negative_curio_runtime(&self) -> &Arc<NegativeCurioRuntimeCatalog> {
+        &self.negative_curio_runtime
+    }
+
+    #[must_use]
     pub const fn run_runtime(&self) -> &Arc<RunRuntimeCatalog> {
         &self.run_runtime
     }
@@ -557,6 +569,7 @@ impl CompiledActivity {
                     erudition_runtime: Arc::clone(&self.erudition_runtime),
                     curio_runtime: Arc::clone(&self.curio_runtime),
                     curio_effect_runtime: Arc::clone(&self.curio_effect_runtime),
+                    negative_curio_runtime: Arc::clone(&self.negative_curio_runtime),
                     run_runtime: Arc::clone(&self.run_runtime),
                     ability_runtime: Arc::clone(&self.ability_runtime),
                     ability_tree: self.ability_tree.clone(),
@@ -951,6 +964,7 @@ fn compile_identity(
     encoder.text(crate::erudition_runtime::ERUDITION_RUNTIME_REVISION);
     encoder.text(crate::curio_runtime::CURIO_RUNTIME_REVISION);
     encoder.text(crate::curio_effect_runtime::CURIO_EFFECT_RUNTIME_REVISION);
+    encoder.text(crate::negative_curio_runtime::NEGATIVE_CURIO_RUNTIME_REVISION);
     encoder.text(crate::run_runtime::RUN_RUNTIME_REVISION);
     encoder.text(crate::ability_runtime::ABILITY_RUNTIME_REVISION);
     encoder.digest(catalog_identity.configuration_digest().bytes());

@@ -64,6 +64,20 @@ pub enum CurioDestructibleReward {
     Blessing = 1,
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(u8)]
+pub enum CurioHpChange {
+    Consume = 0,
+    Restore = 1,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(u8)]
+pub enum CurioEnergyChange {
+    Clear = 0,
+    RestoreMaximum = 1,
+}
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum CurioEffect {
     Battle(PathEffect),
@@ -147,6 +161,62 @@ pub enum CurioEffect {
         weakness_count: u8,
         duration_turns: u8,
     },
+    RepairRandomDestroyedCurios {
+        maximum: u8,
+        restore_default_charges: bool,
+    },
+    ReplaceAllOwnedCuriosRandomly {
+        include_source: bool,
+    },
+    ReplaceAllBlessingsRandomly {
+        retain_enhancement: bool,
+        released_higher_rarity_chance: bool,
+    },
+    ChangeActorEnergy {
+        change: CurioEnergyChange,
+    },
+    ChangeActorCurrentHpRatio {
+        change: CurioHpChange,
+        ratio: PathEffectValue,
+        can_defeat: bool,
+    },
+    BattleStatWhileCurrentHpBelow {
+        target: PathEffectTarget,
+        stat: PathEffectStat,
+        value: PathEffectValue,
+        threshold: PathEffectValue,
+    },
+    ModifySkillPoints {
+        delta: i8,
+    },
+    ConfigureParasitized {
+        attack_ratio: PathEffectValue,
+        turn_current_hp_cost_ratio: PathEffectValue,
+        transfer_to_random_ally_when_downed: bool,
+    },
+    SuppressBattleFragmentsThenDoubleCurrent {
+        triggers: u8,
+    },
+    ApplyReleasedMajorAggro {
+        target: PathEffectTarget,
+        target_count: u8,
+        duration_turns: u8,
+    },
+    LoseCosmicFragmentsRatio {
+        ratio: PathEffectValue,
+    },
+    IncreaseBlessingServiceCost {
+        ratio: PathEffectValue,
+        affects_enhance: bool,
+        affects_reset: bool,
+    },
+    ConsumeSkillPoints {
+        amount: u8,
+    },
+    ConfigureCurioFission {
+        released_chance: bool,
+        maximum_concurrent_copies: u8,
+    },
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -156,6 +226,13 @@ pub struct AppliedCurioEffect {
 }
 
 impl AppliedCurioEffect {
+    pub(crate) fn new(source_key: &str, effect: CurioEffect) -> Self {
+        Self {
+            source_key: source_key.into(),
+            effect,
+        }
+    }
+
     #[must_use]
     pub fn source_key(&self) -> &str {
         &self.source_key
@@ -544,10 +621,7 @@ fn execute(
     }
     Ok(effects
         .into_iter()
-        .map(|effect| AppliedCurioEffect {
-            source_key: program.source_key.clone(),
-            effect,
-        })
+        .map(|effect| AppliedCurioEffect::new(&program.source_key, effect))
         .collect::<Vec<_>>()
         .into_boxed_slice())
 }

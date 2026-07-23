@@ -27,6 +27,7 @@ pub mod error;
 pub mod erudition_runtime;
 pub mod hunt_runtime;
 pub mod id;
+pub mod negative_curio_runtime;
 pub mod nihility_runtime;
 pub mod occurrence;
 pub mod path;
