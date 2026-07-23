@@ -21,6 +21,7 @@ use crate::{
     blessing_runtime::{BlessingContributionSet, BlessingRuntimeCatalog, BlessingRuntimeError},
     curio_runtime::{CurioContributionSet, CurioRuntimeCatalog, CurioRuntimeError},
     id::{AbilityTreeNodeId, PathId, ResonanceId},
+    nihility_runtime::NihilityRuntimeCatalog,
     path_effect_runtime::{
         AppliedPathEffect, PathBattleEvent, PathEffectFacts, PathEffectRuntimeError,
     },
@@ -42,6 +43,7 @@ pub struct StandardUniverseActivity {
     path_runtime: Arc<PathRuntimeCatalog>,
     preservation_runtime: Arc<PreservationRuntimeCatalog>,
     remembrance_runtime: Arc<RemembranceRuntimeCatalog>,
+    nihility_runtime: Arc<NihilityRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -63,6 +65,7 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) path_runtime: Arc<PathRuntimeCatalog>,
     pub(crate) preservation_runtime: Arc<PreservationRuntimeCatalog>,
     pub(crate) remembrance_runtime: Arc<RemembranceRuntimeCatalog>,
+    pub(crate) nihility_runtime: Arc<NihilityRuntimeCatalog>,
     pub(crate) curio_runtime: Arc<CurioRuntimeCatalog>,
     pub(crate) run_runtime: Arc<RunRuntimeCatalog>,
     pub(crate) ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -87,6 +90,7 @@ impl StandardUniverseActivity {
             path_runtime: context.path_runtime,
             preservation_runtime: context.preservation_runtime,
             remembrance_runtime: context.remembrance_runtime,
+            nihility_runtime: context.nihility_runtime,
             curio_runtime: context.curio_runtime,
             run_runtime: context.run_runtime,
             ability_runtime: context.ability_runtime,
@@ -281,6 +285,64 @@ impl StandardUniverseActivity {
                     self.remembrance_runtime
                         .execute_resonance(formation.id(), event, facts)
                         .map_err(StandardUniverseRemembranceError::Effect)?,
+                );
+            }
+        }
+        Ok(effects.into_boxed_slice())
+    }
+
+    /// Executes every owned Nihility Blessing plus the currently available
+    /// Nihility Resonance/Formations for one battle observation.
+    pub fn nihility_effects(
+        &self,
+        event: PathBattleEvent,
+        facts: PathEffectFacts,
+    ) -> Result<Box<[AppliedPathEffect]>, StandardUniverseNihilityError> {
+        let view = self.graph.player_view();
+        let blessing_inventory = view
+            .inventories()
+            .iter()
+            .find(|inventory| inventory.id() == self.blessing_inventory)
+            .ok_or(StandardUniverseNihilityError::MissingInventory)?;
+        let mut effects = Vec::new();
+        for (raw, level) in blessing_inventory.entries() {
+            let Ok(raw) = u32::try_from(*raw) else {
+                continue;
+            };
+            let Some(id) = crate::id::BlessingId::new(raw) else {
+                continue;
+            };
+            if !self
+                .nihility_runtime
+                .blessing_ids()
+                .any(|candidate| candidate == id)
+            {
+                continue;
+            }
+            let level =
+                u8::try_from(*level).map_err(|_| StandardUniverseNihilityError::InvalidLevel)?;
+            effects.extend(
+                self.nihility_runtime
+                    .execute_blessing(id, level, event, facts)
+                    .map_err(StandardUniverseNihilityError::Effect)?,
+            );
+        }
+        let path = self
+            .path_contributions()
+            .map_err(StandardUniverseNihilityError::Path)?;
+        if path.passive().path() == self.nihility_runtime.path() {
+            if let Some(resonance) = path.resonance() {
+                effects.extend(
+                    self.nihility_runtime
+                        .execute_resonance(resonance.id(), event, facts)
+                        .map_err(StandardUniverseNihilityError::Effect)?,
+                );
+            }
+            for formation in path.formations() {
+                effects.extend(
+                    self.nihility_runtime
+                        .execute_resonance(formation.id(), event, facts)
+                        .map_err(StandardUniverseNihilityError::Effect)?,
                 );
             }
         }
@@ -527,6 +589,14 @@ pub enum StandardUniversePreservationError {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum StandardUniverseRemembranceError {
+    MissingInventory,
+    InvalidLevel,
+    Path(StandardUniversePathContributionError),
+    Effect(PathEffectRuntimeError),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum StandardUniverseNihilityError {
     MissingInventory,
     InvalidLevel,
     Path(StandardUniversePathContributionError),

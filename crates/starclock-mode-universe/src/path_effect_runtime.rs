@@ -75,6 +75,12 @@ pub enum PathBattleEvent {
     EnemyFrozen = 13,
     DissociationRemoved = 14,
     UltimateUsed = 15,
+    DotDamageTaken = 16,
+    DotApplied = 17,
+    DotRefreshed = 18,
+    EnemyTurnStarted = 19,
+    EnemyDefeated = 20,
+    SuspicionApplying = 21,
 }
 
 /// Cause-relative target retained until the combat adapter resolves unit IDs.
@@ -92,6 +98,8 @@ pub enum PathEffectTarget {
     ShieldProvider = 8,
     RandomEnemy = 9,
     RandomEnemyWithoutIceWeakness = 10,
+    RandomOtherEnemies = 11,
+    RandomAlly = 12,
 }
 
 /// Generic stat families used by Path conditional modifiers.
@@ -109,6 +117,12 @@ pub enum PathEffectStat {
     DamageTakenRatio = 8,
     EffectHitRateRatio = 9,
     FreezeResistanceReductionRatio = 10,
+    AttackReductionRatio = 11,
+    EffectResistanceReductionRatio = 12,
+    WeaknessBreakEfficiencyRatio = 13,
+    BreakEffectRatio = 14,
+    DotDamageRatio = 15,
+    DotDamageTakenRatio = 16,
 }
 
 /// Mode damage family retained until lowering into the combat damage class.
@@ -133,6 +147,13 @@ pub enum PathEffectElement {
     InheritActor = 7,
 }
 
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum PathDotSelection {
+    All = 0,
+    RandomOne = 1,
+}
+
 /// Typed, immutable facts supplied by the battle adapter for one observation.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PathEffectFacts {
@@ -152,12 +173,17 @@ pub struct PathEffectFacts {
     pub path_blessing_count: u32,
     pub shielded_allies: u32,
     pub enemy_attack_count: u32,
+    pub suspicion_stacks: u32,
+    pub dot_count: u32,
     pub actor_is_shielded: bool,
     pub enemy_is_frozen: bool,
     pub enemy_is_dissociated: bool,
     pub enemy_has_dissociation_vulnerability: bool,
     pub enemy_crossed_hp_threshold_first_time: bool,
     pub action_is_skill_or_ultimate: bool,
+    pub enemy_is_weakness_broken: bool,
+    pub enemy_has_dot: bool,
+    pub dot_was_refreshed: bool,
 }
 
 impl PathEffectFacts {
@@ -280,6 +306,71 @@ pub enum PathEffect {
         amount: PathEffectValue,
         once_per_action: bool,
     },
+    ApplySuspicion {
+        target: PathEffectTarget,
+        stacks: u8,
+        maximum_stacks: u8,
+        dot_vulnerability_per_stack: PathEffectValue,
+        decay_per_turn: u8,
+        prevent_decay: bool,
+    },
+    ModifySuspicionApplication {
+        extra_stacks: u8,
+        multiplier: u8,
+    },
+    SpreadSuspicion {
+        target: PathEffectTarget,
+        target_count: u8,
+        stacks: u8,
+    },
+    TriggerDots {
+        target: PathEffectTarget,
+        selection: PathDotSelection,
+        times: u8,
+        damage_ratio: PathEffectValue,
+    },
+    SpreadWeaknessBreak {
+        target: PathEffectTarget,
+    },
+    ApplyRandomBreakDot {
+        target: PathEffectTarget,
+        base_chance: PathEffectValue,
+        duration_turns: u8,
+        wind_shear_stacks: u8,
+        burn_shock_attack_ratio: PathEffectValue,
+        bleed_maximum_hp_ratio: PathEffectValue,
+        dispel_attacker_debuff: bool,
+    },
+    ExtendStandardDots {
+        target: PathEffectTarget,
+        duration_turns: u8,
+    },
+    HealMaximumHpRatio {
+        target: PathEffectTarget,
+        ratio: PathEffectValue,
+    },
+    ApplyResonanceDots {
+        target: PathEffectTarget,
+        base_chance: PathEffectValue,
+        duration_turns: u8,
+        wind_shear_stacks: u8,
+        burn_shock_attack_ratio: PathEffectValue,
+        bleed_maximum_hp_ratio: PathEffectValue,
+    },
+    ModifyResonanceDotApplication {
+        base_chance_bonus: PathEffectValue,
+        duration_bonus_turns: u8,
+        stackable_status_bonus: u8,
+    },
+    ApplyConfusionAndDevoid {
+        target: PathEffectTarget,
+        base_chance: PathEffectValue,
+        confusion_stacks: u8,
+        confusion_dot_trigger_ratio: PathEffectValue,
+        devoid_stacks: u8,
+        toughness_recovery_reduction_per_stack: PathEffectValue,
+        duration_turns: u8,
+    },
 }
 
 /// One source-attributed proposal. Adapters must preserve this source in causes.
@@ -324,17 +415,30 @@ pub(crate) fn exact_parameters(
     parameters
         .iter()
         .map(|parameter| {
-            if parameter.scale() > 6 {
-                return Err(PathEffectRuntimeError::InvalidParameter);
+            let coefficient = parameter.coefficient();
+            if parameter.scale() <= 6 {
+                let multiplier = 10_i64
+                    .checked_pow(u32::from(6 - parameter.scale()))
+                    .ok_or(PathEffectRuntimeError::Overflow)?;
+                return coefficient
+                    .checked_mul(multiplier)
+                    .map(PathEffectValue::from_raw_six_decimal)
+                    .ok_or(PathEffectRuntimeError::Overflow);
             }
-            let multiplier = 10_i64
-                .checked_pow(u32::from(6 - parameter.scale()))
+            let divisor = 10_i64
+                .checked_pow(u32::from(parameter.scale() - 6))
                 .ok_or(PathEffectRuntimeError::Overflow)?;
-            parameter
-                .coefficient()
-                .checked_mul(multiplier)
-                .map(PathEffectValue::from_raw_six_decimal)
-                .ok_or(PathEffectRuntimeError::Overflow)
+            let quotient = coefficient / divisor;
+            let remainder = coefficient % divisor;
+            let rounds_away = i128::from(remainder).abs() * 2 >= i128::from(divisor);
+            let rounded = if rounds_away {
+                quotient
+                    .checked_add(coefficient.signum())
+                    .ok_or(PathEffectRuntimeError::Overflow)?
+            } else {
+                quotient
+            };
+            Ok(PathEffectValue::from_raw_six_decimal(rounded))
         })
         .collect::<Result<Vec<_>, _>>()
         .map(Vec::into_boxed_slice)
