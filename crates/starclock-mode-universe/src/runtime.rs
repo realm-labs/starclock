@@ -29,11 +29,14 @@ use crate::{
     elation_runtime::ElationRuntimeCatalog,
     erudition_runtime::EruditionRuntimeCatalog,
     hunt_runtime::HuntRuntimeCatalog,
-    id::{AbilityTreeNodeId, PathId, ResonanceId},
+    id::{AbilityTreeNodeId, OccurrenceChoiceId, PathId, ResonanceId},
     negative_curio_runtime::{
         NegativeCurioEvent, NegativeCurioRuntimeCatalog, NegativeCurioRuntimeError,
     },
     nihility_runtime::NihilityRuntimeCatalog,
+    occurrence_effect_runtime::{
+        AppliedOccurrenceEffect, OccurrenceEffectRuntimeCatalog, OccurrenceEffectRuntimeError,
+    },
     path_effect_runtime::{
         AppliedPathEffect, PathBattleEvent, PathEffectFacts, PathEffectRuntimeError,
     },
@@ -67,6 +70,7 @@ pub struct StandardUniverseActivity {
     curio_effect_runtime: Arc<CurioEffectRuntimeCatalog>,
     negative_curio_runtime: Arc<NegativeCurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
+    occurrence_effect_runtime: Arc<OccurrenceEffectRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
     ability_tree: Box<[AbilityTreeNodeId]>,
     blessing_inventory: ActivityInventoryId,
@@ -97,6 +101,7 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) curio_effect_runtime: Arc<CurioEffectRuntimeCatalog>,
     pub(crate) negative_curio_runtime: Arc<NegativeCurioRuntimeCatalog>,
     pub(crate) run_runtime: Arc<RunRuntimeCatalog>,
+    pub(crate) occurrence_effect_runtime: Arc<OccurrenceEffectRuntimeCatalog>,
     pub(crate) ability_runtime: Arc<AbilityRuntimeCatalog>,
     pub(crate) ability_tree: Box<[AbilityTreeNodeId]>,
     pub(crate) blessing_inventory: ActivityInventoryId,
@@ -130,6 +135,7 @@ impl StandardUniverseActivity {
             curio_effect_runtime: context.curio_effect_runtime,
             negative_curio_runtime: context.negative_curio_runtime,
             run_runtime: context.run_runtime,
+            occurrence_effect_runtime: context.occurrence_effect_runtime,
             ability_runtime: context.ability_runtime,
             ability_tree: context.ability_tree,
             blessing_inventory: context.blessing_inventory,
@@ -798,6 +804,13 @@ impl StandardUniverseActivity {
         &self,
     ) -> Result<AbilityTreeContributionSet, RunRuntimeError> {
         self.run_runtime.ability_contributions(&self.ability_tree)
+    }
+
+    pub fn occurrence_effect(
+        &self,
+        choice: OccurrenceChoiceId,
+    ) -> Result<AppliedOccurrenceEffect, OccurrenceEffectRuntimeError> {
+        self.occurrence_effect_runtime.execute(choice)
     }
 
     pub fn ability_tree_projection(

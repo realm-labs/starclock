@@ -283,8 +283,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            14, 183, 245, 14, 151, 112, 151, 88, 9, 97, 253, 205, 227, 180, 129, 138, 6, 37, 171,
-            90, 200, 92, 171, 86, 158, 14, 181, 203, 67, 159, 254, 226,
+            173, 37, 234, 183, 172, 130, 208, 79, 99, 47, 162, 242, 193, 200, 58, 186, 79, 194, 17,
+            248, 154, 199, 143, 49, 51, 125, 171, 97, 105, 94, 172, 237,
         ]
     );
     let reward = activity.view();
@@ -350,8 +350,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            179, 58, 91, 79, 246, 47, 129, 144, 24, 203, 241, 100, 210, 28, 177, 15, 188, 3, 137,
-            132, 8, 209, 240, 71, 197, 30, 176, 191, 240, 167, 140, 45,
+            193, 122, 220, 250, 170, 165, 67, 144, 2, 244, 195, 180, 253, 63, 135, 53, 38, 228,
+            148, 89, 186, 36, 192, 214, 114, 222, 37, 97, 78, 17, 243, 189,
         ]
     );
     let formation = activity.view();

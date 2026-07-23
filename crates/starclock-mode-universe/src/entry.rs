@@ -28,6 +28,7 @@ use crate::{
     id::{AbilityTreeNodeId, DifficultyId, PathId, WorldId},
     negative_curio_runtime::NegativeCurioRuntimeCatalog,
     nihility_runtime::NihilityRuntimeCatalog,
+    occurrence_effect_runtime::OccurrenceEffectRuntimeCatalog,
     path_runtime::PathRuntimeCatalog,
     preservation_runtime::PreservationRuntimeCatalog,
     propagation_runtime::PropagationRuntimeCatalog,
@@ -254,6 +255,10 @@ impl StandardUniverseProfile {
             RunRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidRunRuntime)?,
         );
+        let occurrence_effect_runtime = Arc::new(
+            OccurrenceEffectRuntimeCatalog::compile(&self.catalog, &run_runtime)
+                .map_err(|_| StandardUniverseCompileError::InvalidRunRuntime)?,
+        );
         let path_options = self
             .catalog
             .paths()
@@ -338,6 +343,7 @@ impl StandardUniverseProfile {
             curio_effect_runtime,
             negative_curio_runtime,
             run_runtime,
+            occurrence_effect_runtime,
             ability_runtime,
         })
     }
@@ -378,6 +384,7 @@ pub struct CompiledActivity {
     curio_effect_runtime: Arc<CurioEffectRuntimeCatalog>,
     negative_curio_runtime: Arc<NegativeCurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
+    occurrence_effect_runtime: Arc<OccurrenceEffectRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
 }
 
@@ -529,6 +536,11 @@ impl CompiledActivity {
     }
 
     #[must_use]
+    pub const fn occurrence_effect_runtime(&self) -> &Arc<OccurrenceEffectRuntimeCatalog> {
+        &self.occurrence_effect_runtime
+    }
+
+    #[must_use]
     pub const fn ability_runtime(&self) -> &Arc<AbilityRuntimeCatalog> {
         &self.ability_runtime
     }
@@ -571,6 +583,7 @@ impl CompiledActivity {
                     curio_effect_runtime: Arc::clone(&self.curio_effect_runtime),
                     negative_curio_runtime: Arc::clone(&self.negative_curio_runtime),
                     run_runtime: Arc::clone(&self.run_runtime),
+                    occurrence_effect_runtime: Arc::clone(&self.occurrence_effect_runtime),
                     ability_runtime: Arc::clone(&self.ability_runtime),
                     ability_tree: self.ability_tree.clone(),
                     blessing_inventory: self.blessing_inventory(),
@@ -965,6 +978,7 @@ fn compile_identity(
     encoder.text(crate::curio_runtime::CURIO_RUNTIME_REVISION);
     encoder.text(crate::curio_effect_runtime::CURIO_EFFECT_RUNTIME_REVISION);
     encoder.text(crate::negative_curio_runtime::NEGATIVE_CURIO_RUNTIME_REVISION);
+    encoder.text(crate::occurrence_effect_runtime::OCCURRENCE_EFFECT_RUNTIME_REVISION);
     encoder.text(crate::run_runtime::RUN_RUNTIME_REVISION);
     encoder.text(crate::ability_runtime::ABILITY_RUNTIME_REVISION);
     encoder.digest(catalog_identity.configuration_digest().bytes());

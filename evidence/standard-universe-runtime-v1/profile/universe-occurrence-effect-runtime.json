@@ -1,0 +1,58 @@
+{
+  "schema_revision": "starclock.goal04-universe-occurrence-effect-runtime-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P4-M13",
+  "result": "all-released-occurrence-choices-lower-to-source-attributed-typed-effect-plans",
+  "counts": {
+    "content_records": 447,
+    "rule_bindings": 0,
+    "occurrences": 59,
+    "variants": 67,
+    "choices": 321,
+    "costs": 70,
+    "stable_uniform_random_policies": 52,
+    "semantic_fixtures": 9
+  },
+  "policies": {
+    "dispatch": "ImmutableChoiceKeyedRuntimeCatalog",
+    "execution": "ReadOnlyChoiceDefinitionToSourceAttributedTypedPlan",
+    "cost_result_separation": "CostsAndOutcomesRemainDistinct",
+    "numeric": "AuthoredScalarAndPercentUnitsWithExactChancePercent",
+    "randomness": "StableUniformOrderedCandidatesWithoutInventedWeights",
+    "special_transition": "ExplicitTypedOperationWithoutImplicitResourceMutation",
+    "battle_boundary": "BattleOutcomeIsAnActivityHandoffNotACombatMutation",
+    "conditions": "AllAuthoredConditionKeysRetainedForActivityValidation"
+  },
+  "goldens": {
+    "occurrence_effect_runtime_catalog_sha256": "0e826dc00d3c227cf1307be1a0a68f2083fa873a4c546c56e9698faffc9dc058",
+    "entry_definition_sha256": "64dc95ca3d52bf97287af59fbf751ccbe15a80cb81dad3f138d6d0c54bfaffa7",
+    "topology_seed_7_sha256": "5ebe206d733b409274a7068ef23b6e4196fcd3c920ec75eaade9bab82feabd99",
+    "won_reward_state_sha256": "ad25eab7ac82d04f632fa2f2c1c83aba4fc211f89ac78f31337dab61695eaced",
+    "selected_contribution_sha256": "c17adcfaaaa5439002f4c3b4fd3f873526e49459ba24c0d672de25614e11f3bd"
+  },
+  "runtime_coverage": {
+    "content_records_executable": 1148,
+    "rule_bindings_executable": 692,
+    "semantic_fixtures_executable": 65
+  },
+  "compatibility": {
+    "generated_rows_public": false,
+    "authoritative_float": false,
+    "free_form_runtime_operation": false,
+    "invented_random_weight": false,
+    "content_id_branch_in_combat_resolver": false,
+    "activity_mutated_from_combat": false
+  },
+  "source_sha256": {
+    "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs": "ac933a68df26cfedfb8462ada2222d8eb8f2b91eb503fdbce30d283c44c8a060",
+    "crates/starclock-mode-universe/src/run_runtime.rs": "388fa07cbe4545451934dfd746a8a30a1a35a2c6eb105115bf69b79452749b51",
+    "crates/starclock-mode-universe/src/entry.rs": "5d855137280e3cb55fb4fccb3a3059255ef01b1d63ac0f2931a5f199f5d7c4ad",
+    "crates/starclock-mode-universe/src/runtime.rs": "e5864f0935c40ad451c3c5d3223f1fe64cbea4d23c3748a28797329988b8bc22",
+    "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs": "411fd5d51d6756ded10437ce8480dc837b584ca70901e75c5ec45c515a39a744",
+    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "8f5d01570b2d8efd791936fa9b9f498e9df0bc928edc7de6cb75e86127d909d9",
+    "crates/starclock-mode-universe/tests/entry_compilation.rs": "dd2f7a6c6ece1b2a099c3b7b9af8b59b705f1571e77853620007e628c766af69",
+    "crates/starclock-mode-universe/tests/topology_runtime.rs": "627eb14e362a7bb0415b07932dd8b4322e4032d23c676709ceef1fd75d3b7e84"
+  },
+  "focused_tests": 6,
+  "new_registry_packages": []
+}
