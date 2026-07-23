@@ -38,12 +38,35 @@ use crate::{
     session::{MAX_CACHED_RESPONSE_BYTES, MAX_IDEMPOTENCY_ENTRIES},
 };
 
+pub mod registry;
+
 pub const RESPONSIBILITY: &str = "authoritative Activity sessions and replay export";
 pub const ACTIVITY_AGENT_CONTROLLER_REVISION: &str = "agent-activity-session-v1";
 pub const MAX_ACTIVITY_ACTIONS_PER_SETTLEMENT: usize = 16;
 pub const DEFAULT_TECHNIQUE_POINTS: u16 = 5;
 const RULES_REVISION: &str = "standard-universe-rules-v1";
 const DATA_REVISION: &str = "standard-universe-data-v4.4";
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentUniverseWorldSummary {
+    pub world: AgentUInt,
+    pub stable_key: Box<str>,
+    pub name_en: Box<str>,
+    pub name_zh_cn: Box<str>,
+    pub difficulty_count: AgentUInt,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AgentUniverseManifest {
+    pub schema_revision: AgentSchemaRevision,
+    pub game_version: Box<str>,
+    pub snapshot_date: Box<str>,
+    pub catalog_revision: Box<str>,
+    pub profile_revision: Box<str>,
+    pub activity_interface_revision: Box<str>,
+    pub battle_executor_revision: Box<str>,
+    pub worlds: Box<[AgentUniverseWorldSummary]>,
+}
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct CreateActivitySessionRequest {
@@ -164,6 +187,33 @@ impl ActivityAgentSessionFactory {
         };
         session.refresh_offer()?;
         Ok(session)
+    }
+
+    pub fn manifest(&self) -> AgentUniverseManifest {
+        let catalog = self.reference.catalog();
+        let identity = catalog.identity();
+        AgentUniverseManifest {
+            schema_revision: AgentSchemaRevision::V1,
+            game_version: identity.game_version().into(),
+            snapshot_date: identity.snapshot_date().into(),
+            catalog_revision: identity.catalog_revision().into(),
+            profile_revision: identity.profile_revision().into(),
+            activity_interface_revision:
+                crate::activity_observation::ACTIVITY_AGENT_INTERFACE_REVISION.into(),
+            battle_executor_revision: BATTLE_EXECUTOR_REVISION.into(),
+            worlds: catalog
+                .worlds()
+                .iter()
+                .map(|world| AgentUniverseWorldSummary {
+                    world: AgentUInt::from_u64(u64::from(world.number())),
+                    stable_key: world.stable_key().into(),
+                    name_en: world.text().name_en().into(),
+                    name_zh_cn: world.text().name_zh_cn().into(),
+                    difficulty_count: AgentUInt::from_u64(world.difficulties().len() as u64),
+                })
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+        }
     }
 
     pub fn verify_replay(

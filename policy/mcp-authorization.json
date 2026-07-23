@@ -32,6 +32,11 @@
     "starclock:battle:replay",
     "starclock:battle:close",
     "starclock:replay:verify",
+    "starclock:activity:create",
+    "starclock:activity:read",
+    "starclock:activity:act",
+    "starclock:activity:replay",
+    "starclock:activity:close",
     "starclock:debug:omniscient"
   ],
   "operation_scope_matrix": {
@@ -43,7 +48,13 @@
     "starclock_export_replay": "starclock:battle:replay",
     "starclock_close_battle": "starclock:battle:close",
     "starclock_verify_replay": "starclock:replay:verify",
-    "omniscient_debug": "reserved and required; no MCP debug operation exists in the seven-tool v1 surface"
+    "starclock_create_universe": "starclock:activity:create",
+    "starclock_observe_activity": "starclock:activity:read",
+    "starclock_play_activity_action": "starclock:activity:act",
+    "starclock_export_activity_replay": "starclock:activity:replay",
+    "starclock_close_activity": "starclock:activity:close",
+    "starclock_verify_activity_replay": "starclock:replay:verify",
+    "omniscient_debug": "reserved and required; no MCP debug operation exists"
   },
   "errors": {
     "missing_invalid_expired_wrong_issuer_or_audience": 401,

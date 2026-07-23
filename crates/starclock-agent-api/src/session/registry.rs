@@ -55,7 +55,7 @@ impl AgentSessionOwner {
         })
     }
 
-    fn same_tenant(&self, other: &Self) -> bool {
+    pub(crate) fn same_tenant(&self, other: &Self) -> bool {
         self.tenant == other.tenant
     }
 }

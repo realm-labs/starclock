@@ -4,7 +4,7 @@ The retained HTTP client in `crates/starclock-mcp/tests/http_conformance.rs`
 uses raw HTTP/1.1 over `TcpStream` against an ephemeral real loopback listener.
 It does not call MCP handlers directly. The client supplies the exact Host,
 Origin, protocol and bearer headers, negotiates MCP `2025-11-25`, sends the
-initialized notification and discovers all seven tools. It also probes health,
+initialized notification and discovers all thirteen tools. It also probes health,
 readiness and metrics through the production network-header boundary.
 
 The conformance script completes the basic frozen Standard scenario using only
@@ -14,6 +14,13 @@ offered. In-process, stdio and HTTP tests all consume the same retained
 That artifact freezes nine decision-boundary state hashes and the exact
 987-byte, nine-command replay envelope. Each transport must reproduce every
 hash and every replay byte, not only the terminal result.
+
+Before the Battle trace, the client also creates one Standard Universe
+Activity, submits and idempotently retries one offered opaque action, observes
+the resulting boundary, exports its partial canonical replay and closes the
+owned session. This exercises the additive Activity scope and session path over
+the same real HTTP boundary without claiming that the reference encounter
+projection is production combat execution.
 
 After the primary conformance pass, eight clients initialize independent MCP
 transport sessions concurrently. Every client creates, completes, exports,

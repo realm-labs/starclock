@@ -40,6 +40,7 @@ use rmcp::transport::streamable_http_server::{
     StreamableHttpServerConfig, StreamableHttpService, session::local::LocalSessionManager,
 };
 use starclock_agent_api::{
+    activity_session::{ActivityAgentSessionFactory, registry::ActivityAgentSessionRegistry},
     error::{AgentError, AgentErrorCode},
     schema::SessionId,
     session::{
@@ -184,11 +185,19 @@ fn build_loopback_app(
     authorization: Option<AuthorizationPolicy>,
 ) -> Result<LoopbackApp, HttpServeError> {
     let factory = AgentSessionFactory::load_production().map_err(|_| HttpServeError::Startup)?;
+    let activity_factory =
+        ActivityAgentSessionFactory::load_production().map_err(|_| HttpServeError::Startup)?;
     let operational_clock = Arc::new(HttpClock::new());
+    let session_ids = Arc::new(HttpBattleSessionIds::new());
     let registry = AgentSessionRegistry::new(
         factory.clone(),
         operational_clock.clone(),
-        Arc::new(HttpBattleSessionIds::new()),
+        session_ids.clone(),
+    );
+    let activity_registry = ActivityAgentSessionRegistry::new(
+        activity_factory.clone(),
+        operational_clock.clone(),
+        session_ids,
     );
     let rate_limiter = authorization
         .as_ref()
@@ -202,6 +211,8 @@ fn build_loopback_app(
                     return Ok(StarclockMcp::new_authorized(
                         registry.clone(),
                         factory.clone(),
+                        activity_registry.clone(),
+                        activity_factory.clone(),
                     ));
                 }
                 let ordinal = owner_ids.fetch_add(1, Ordering::Relaxed);
@@ -210,7 +221,13 @@ fn build_loopback_app(
                     &format!("http-transport-{ordinal}"),
                 )
                 .map_err(|_| std::io::Error::other("MCP HTTP owner allocation failed"))?;
-                Ok(StarclockMcp::new(registry.clone(), factory.clone(), owner))
+                Ok(StarclockMcp::new(
+                    registry.clone(),
+                    factory.clone(),
+                    activity_registry.clone(),
+                    activity_factory.clone(),
+                    owner,
+                ))
             },
             Arc::new(LocalSessionManager::default()),
             StreamableHttpServerConfig::default()
@@ -412,8 +429,13 @@ fn rate_class_for_request(method: &Method, body: &[u8]) -> RateClass {
             .and_then(|params| params.get("name"))
             .and_then(serde_json::Value::as_str)
         {
-            Some("starclock_create_battle") => RateClass::Create,
-            Some("starclock_play_action" | "starclock_close_battle") => RateClass::Mutation,
+            Some("starclock_create_battle" | "starclock_create_universe") => RateClass::Create,
+            Some(
+                "starclock_play_action"
+                | "starclock_close_battle"
+                | "starclock_play_activity_action"
+                | "starclock_close_activity",
+            ) => RateClass::Mutation,
             _ => RateClass::Read,
         },
         _ => RateClass::Read,
@@ -1071,7 +1093,7 @@ mod tests {
         let metadata: serde_json::Value = serde_json::from_slice(&metadata).unwrap();
         assert_eq!(metadata["resource"], format!("http://{AUTHORITY}/mcp"));
         assert_eq!(metadata["authorization_servers"][0], "https://auth.example");
-        assert_eq!(metadata["scopes_supported"].as_array().unwrap().len(), 8);
+        assert_eq!(metadata["scopes_supported"].as_array().unwrap().len(), 13);
 
         let missing = app
             .clone()

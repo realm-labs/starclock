@@ -5,6 +5,7 @@
 
 #![forbid(unsafe_code)]
 
+mod activity_tools;
 /// Frozen OAuth resource-server claims and operation scope policy.
 pub mod authorization;
 /// Stable agent failure to MCP tool/protocol conversion.
@@ -21,5 +22,5 @@ mod resources;
 pub mod server;
 /// Bounded local MCP stdio service entry point.
 pub mod stdio;
-// Seven frozen tool schemas and handlers stay behind the server boundary.
+// Released Battle tools and additive Activity tools stay behind the server boundary.
 mod tools;

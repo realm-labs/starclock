@@ -1,0 +1,56 @@
+{
+  "schema_revision": "starclock.goal04-activity-mcp-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P5-B5",
+  "result": "authorized-quota-bounded-activity-sessions-are-exposed-over-additive-stdio-and-http-mcp-tools",
+  "mcp_revision": "2025-11-25",
+  "tool_count": 13,
+  "resource_count": 4,
+  "activity_tools": [
+    "starclock_close_activity",
+    "starclock_create_universe",
+    "starclock_export_activity_replay",
+    "starclock_observe_activity",
+    "starclock_play_activity_action",
+    "starclock_verify_activity_replay"
+  ],
+  "activity_resources": [
+    "starclock://rules/standard-universe",
+    "starclock://universe/manifest"
+  ],
+  "limits": {
+    "global_sessions": 1024,
+    "tenant_sessions": 64,
+    "principal_sessions": 16,
+    "idle_ttl_seconds": 1800,
+    "maximum_lifetime_seconds": 14400,
+    "replay_import_bytes": 67108864
+  },
+  "contracts": {
+    "battle_v1_tools_remain_additively_compatible": true,
+    "activity_sessions_are_authority_owned": true,
+    "quota_precedes_identity_allocation": true,
+    "each_session_has_one_serialized_mutation_lane": true,
+    "idempotent_retries_return_byte_equivalent_responses": true,
+    "stdio_and_http_discover_all_tools": true,
+    "http_activity_trace_uses_exact_scopes": true,
+    "resources_are_bounded_inert_summaries": true,
+    "mcp_does_not_mutate_domain_state_directly": true,
+    "reference_executor_is_explicitly_nonproduction": true
+  },
+  "source_sha256": {
+    "crates/starclock-agent-api/src/activity_session.rs": "d8cb265dc80880f663b4504c7fc09b80c6fa8b3658cf15a1feadeb9d83a8373e",
+    "crates/starclock-agent-api/src/activity_session/registry.rs": "a933c5ae78e7a1e1a803da8c665c8df8e5a8da0f2e0b82688130a01fd1472da7",
+    "crates/starclock-agent-api/src/session/registry.rs": "1a25a4500889e27b6878d25da30e2eb0a20ec8df5052dd05b23cfec2cda888d1",
+    "crates/starclock-mcp/src/activity_tools.rs": "3e24cde699e263f360b91961b2fac94fd89ff7c09ba75174d053e2098bffb0d6",
+    "crates/starclock-mcp/src/authorization.rs": "8aadb38d37116bfa2c15094403f98ea0a795fee5bdb242f3162ced8347ca452e",
+    "crates/starclock-mcp/src/http.rs": "7b151a556e18b689aa0b1ff536a0cfea9bf6c350a26b99179745db98bd72157c",
+    "crates/starclock-mcp/src/resources.rs": "d1c24bfd9baae7aad54bddb360ca84c94179008af3b07042c4470d2b5c04bc5b",
+    "crates/starclock-mcp/src/server.rs": "872013e83e7affdbe6d6b5ba3f6ebf455f0087966f6bcfadbb20b31f8b3ea56a",
+    "crates/starclock-mcp/src/stdio.rs": "2bcac98e26633cdd54715639c30abe78e5b8ccdfcbcb1bf957d7496d03fb0fa6",
+    "crates/starclock-mcp/src/tools.rs": "b1323229424fac45ec95461bac634ca34fad9f0a62bb3c9cf482c887277f6f3a",
+    "crates/starclock-mcp/tests/http_conformance.rs": "16f346ac5da45a79ce54e5949ef7048d4f2a349504a6c0853b69dd16ff52c9cd"
+  },
+  "policy_sha256": "71227014a5337bff18c4858ac2c4a1a0383c7daa4f6d2278eeb47978015a5965",
+  "new_registry_packages": []
+}

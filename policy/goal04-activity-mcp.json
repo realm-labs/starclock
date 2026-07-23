@@ -1,0 +1,40 @@
+{
+  "schema_revision": "starclock.goal04-activity-mcp.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P5-B5",
+  "mcp_revision": "2025-11-25",
+  "tool_count": 13,
+  "resource_count": 4,
+  "activity_tools": [
+    "starclock_close_activity",
+    "starclock_create_universe",
+    "starclock_export_activity_replay",
+    "starclock_observe_activity",
+    "starclock_play_activity_action",
+    "starclock_verify_activity_replay"
+  ],
+  "activity_resources": [
+    "starclock://rules/standard-universe",
+    "starclock://universe/manifest"
+  ],
+  "limits": {
+    "global_sessions": 1024,
+    "tenant_sessions": 64,
+    "principal_sessions": 16,
+    "idle_ttl_seconds": 1800,
+    "maximum_lifetime_seconds": 14400,
+    "replay_import_bytes": 67108864
+  },
+  "contracts": {
+    "battle_v1_tools_remain_additively_compatible": true,
+    "activity_sessions_are_authority_owned": true,
+    "quota_precedes_identity_allocation": true,
+    "each_session_has_one_serialized_mutation_lane": true,
+    "idempotent_retries_return_byte_equivalent_responses": true,
+    "stdio_and_http_discover_all_tools": true,
+    "http_activity_trace_uses_exact_scopes": true,
+    "resources_are_bounded_inert_summaries": true,
+    "mcp_does_not_mutate_domain_state_directly": true,
+    "reference_executor_is_explicitly_nonproduction": true
+  }
+}

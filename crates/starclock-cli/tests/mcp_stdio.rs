@@ -5,13 +5,19 @@ use std::{
 
 use serde_json::{Value, json};
 
-const EXPECTED_TOOLS: [&str; 7] = [
+const EXPECTED_TOOLS: [&str; 13] = [
+    "starclock_close_activity",
     "starclock_close_battle",
     "starclock_create_battle",
+    "starclock_create_universe",
+    "starclock_export_activity_replay",
     "starclock_export_replay",
     "starclock_list_scenarios",
+    "starclock_observe_activity",
     "starclock_observe_battle",
     "starclock_play_action",
+    "starclock_play_activity_action",
+    "starclock_verify_activity_replay",
     "starclock_verify_replay",
 ];
 const BASIC_SCENARIO: &str = "scenario.standard-v1.basic-single-wave";
@@ -179,7 +185,9 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
         resource_uris,
         [
             "starclock://catalog/manifest",
-            "starclock://rules/core-combat"
+            "starclock://rules/core-combat",
+            "starclock://universe/manifest",
+            "starclock://rules/standard-universe"
         ]
     );
     let templates = client.result("resources/templates/list", json!({}));

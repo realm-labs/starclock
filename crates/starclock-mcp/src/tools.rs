@@ -19,6 +19,11 @@ use starclock_agent_api::{
     session::{AgentSeedPolicy, PlayActionRequest, RegistryCreateSessionRequest},
 };
 
+use crate::activity_tools::{
+    ActivityActionOutput, ActivityObservationOutput, ActivityReplayExportOutput,
+    ActivitySessionInput, CloseActivityOutput, CreateUniverseInput, PlayActivityActionInput,
+    VerifyActivityReplayInput, VerifyActivityReplayOutput,
+};
 use crate::{error::structured_result, server::StarclockMcp};
 
 pub const MAX_REPLAY_IMPORT_BYTES: usize = 64 * 1024 * 1024;
@@ -440,6 +445,98 @@ impl StarclockMcp {
         structured_result(self.verify_replay_output(input))
     }
 
+    #[tool(
+        name = "starclock_create_universe",
+        description = "Create one owned ephemeral Standard Universe Activity session.",
+        output_schema = rmcp::handler::server::tool::schema_for_type::<ActivityObservationOutput>()
+    )]
+    async fn create_universe(
+        &self,
+        Parameters(input): Parameters<CreateUniverseInput>,
+        context: rmcp::service::RequestContext<rmcp::RoleServer>,
+    ) -> Result<CallToolResult, McpError> {
+        structured_result(
+            self.owner_for_context(&context)
+                .and_then(|owner| self.create_universe_output(&owner, input)),
+        )
+    }
+
+    #[tool(
+        name = "starclock_observe_activity",
+        description = "Read the current bounded player-visible Standard Universe Activity observation.",
+        output_schema = rmcp::handler::server::tool::schema_for_type::<ActivityObservationOutput>()
+    )]
+    async fn observe_activity(
+        &self,
+        Parameters(input): Parameters<ActivitySessionInput>,
+        context: rmcp::service::RequestContext<rmcp::RoleServer>,
+    ) -> Result<CallToolResult, McpError> {
+        structured_result(
+            self.owner_for_context(&context)
+                .and_then(|owner| self.observe_activity_output(&owner, input)),
+        )
+    }
+
+    #[tool(
+        name = "starclock_play_activity_action",
+        description = "Submit one currently offered opaque Activity action with exact boundary, hash and idempotency preconditions.",
+        output_schema = rmcp::handler::server::tool::schema_for_type::<ActivityActionOutput>()
+    )]
+    async fn play_activity_action(
+        &self,
+        Parameters(input): Parameters<PlayActivityActionInput>,
+        context: rmcp::service::RequestContext<rmcp::RoleServer>,
+    ) -> Result<CallToolResult, McpError> {
+        structured_result(
+            self.owner_for_context(&context)
+                .and_then(|owner| self.play_activity_action_output(&owner, input)),
+        )
+    }
+
+    #[tool(
+        name = "starclock_export_activity_replay",
+        description = "Export the canonical Standard Universe Activity replay as lowercase hex.",
+        output_schema = rmcp::handler::server::tool::schema_for_type::<ActivityReplayExportOutput>()
+    )]
+    async fn export_activity_replay(
+        &self,
+        Parameters(input): Parameters<ActivitySessionInput>,
+        context: rmcp::service::RequestContext<rmcp::RoleServer>,
+    ) -> Result<CallToolResult, McpError> {
+        structured_result(
+            self.owner_for_context(&context)
+                .and_then(|owner| self.export_activity_replay_output(&owner, input)),
+        )
+    }
+
+    #[tool(
+        name = "starclock_close_activity",
+        description = "Close an owned Activity session and release its active quota capacity.",
+        output_schema = rmcp::handler::server::tool::schema_for_type::<CloseActivityOutput>()
+    )]
+    async fn close_activity(
+        &self,
+        Parameters(input): Parameters<ActivitySessionInput>,
+        context: rmcp::service::RequestContext<rmcp::RoleServer>,
+    ) -> Result<CallToolResult, McpError> {
+        structured_result(
+            self.owner_for_context(&context)
+                .and_then(|owner| self.close_activity_output(&owner, input)),
+        )
+    }
+
+    #[tool(
+        name = "starclock_verify_activity_replay",
+        description = "Verify a bounded canonical Standard Universe Activity replay without a model.",
+        output_schema = rmcp::handler::server::tool::schema_for_type::<VerifyActivityReplayOutput>()
+    )]
+    async fn verify_activity_replay(
+        &self,
+        Parameters(input): Parameters<VerifyActivityReplayInput>,
+    ) -> Result<CallToolResult, McpError> {
+        structured_result(self.verify_activity_replay_output(input))
+    }
+
     fn list_scenarios_output(&self) -> Result<ListScenariosOutput, AgentError> {
         let scenarios = self
             .factory
@@ -570,11 +667,11 @@ impl StarclockMcp {
     }
 }
 
-fn parse_revision(value: &str) -> Result<AgentSchemaRevision, AgentError> {
+pub(crate) fn parse_revision(value: &str) -> Result<AgentSchemaRevision, AgentError> {
     AgentSchemaRevision::from_str(value).map_err(|_| unknown_revision())
 }
 
-fn parse_session(value: &str) -> Result<SessionId, AgentError> {
+pub(crate) fn parse_session(value: &str) -> Result<SessionId, AgentError> {
     SessionId::parse(value).map_err(|_| invalid_request("The session ID is invalid."))
 }
 
@@ -590,11 +687,11 @@ fn parse_seed(value: Option<&str>) -> Result<AgentSeedPolicy, AgentError> {
     })
 }
 
-fn json_output(value: impl Serialize) -> Result<Value, AgentError> {
+pub(crate) fn json_output(value: impl Serialize) -> Result<Value, AgentError> {
     serde_json::to_value(value).map_err(|_| adapter_error())
 }
 
-fn encode_hex(bytes: &[u8]) -> String {
+pub(crate) fn encode_hex(bytes: &[u8]) -> String {
     const HEX: &[u8; 16] = b"0123456789abcdef";
     let mut encoded = String::with_capacity(bytes.len() * 2);
     for byte in bytes {
@@ -608,7 +705,7 @@ fn decode_hex(value: &str) -> Result<Vec<u8>, AgentError> {
     decode_hex_bounded(value, MAX_REPLAY_IMPORT_BYTES)
 }
 
-fn decode_hex_bounded(value: &str, maximum_bytes: usize) -> Result<Vec<u8>, AgentError> {
+pub(crate) fn decode_hex_bounded(value: &str, maximum_bytes: usize) -> Result<Vec<u8>, AgentError> {
     if value.len() > maximum_bytes.saturating_mul(2) {
         return Err(request_too_large());
     }
@@ -634,11 +731,11 @@ fn hex_nibble(byte: u8) -> Option<u8> {
     }
 }
 
-fn schema_revision() -> String {
+pub(crate) fn schema_revision() -> String {
     AgentSchemaRevision::V1.as_str().into()
 }
 
-fn invalid_request(message: &'static str) -> AgentError {
+pub(crate) fn invalid_request(message: &'static str) -> AgentError {
     AgentError::new(AgentErrorCode::InvalidRequest, message, false, false)
         .expect("static MCP validation error is bounded")
 }
@@ -738,14 +835,27 @@ mod tests {
     #[tokio::test]
     async fn seven_tools_discover_and_complete_create_play_export_verify_close() {
         let factory = starclock_agent_api::session::AgentSessionFactory::load_production().unwrap();
+        let activity_factory =
+            starclock_agent_api::activity_session::ActivityAgentSessionFactory::load_production()
+                .unwrap();
+        let clock = Arc::new(TestClock);
+        let ids = Arc::new(TestIds::default());
         let registry = starclock_agent_api::session::AgentSessionRegistry::new(
             factory.clone(),
-            Arc::new(TestClock),
-            Arc::new(TestIds::default()),
+            clock.clone(),
+            ids.clone(),
         );
+        let activity_registry =
+            starclock_agent_api::activity_session::registry::ActivityAgentSessionRegistry::new(
+                activity_factory.clone(),
+                clock,
+                ids,
+            );
         let server = StarclockMcp::new(
             registry,
             factory,
+            activity_registry,
+            activity_factory,
             starclock_agent_api::session::AgentSessionOwner::new("local", "test").unwrap(),
         );
         let info = server.get_info();
@@ -771,12 +881,18 @@ mod tests {
         assert_eq!(
             names,
             [
+                "starclock_close_activity",
                 "starclock_close_battle",
                 "starclock_create_battle",
+                "starclock_create_universe",
+                "starclock_export_activity_replay",
                 "starclock_export_replay",
                 "starclock_list_scenarios",
+                "starclock_observe_activity",
                 "starclock_observe_battle",
                 "starclock_play_action",
+                "starclock_play_activity_action",
+                "starclock_verify_activity_replay",
                 "starclock_verify_replay",
             ]
         );
@@ -813,7 +929,9 @@ mod tests {
                 .collect::<Vec<_>>(),
             [
                 "starclock://catalog/manifest",
-                "starclock://rules/core-combat"
+                "starclock://rules/core-combat",
+                "starclock://universe/manifest",
+                "starclock://rules/standard-universe"
             ]
         );
         let templates = client.list_all_resource_templates().await.unwrap();
@@ -962,6 +1080,68 @@ mod tests {
         assert_eq!(
             verified.structured_content.as_ref().unwrap()["final_state_hash"],
             final_state_hash
+        );
+
+        let universe = client.call_tool(
+            CallToolRequestParams::new("starclock_create_universe").with_arguments(arguments(json!({
+                "schema_revision":"agent-api-v1", "world":"1", "difficulty_index":"0", "seed":"10"
+            }))),
+        ).await.unwrap();
+        let activity = &universe.structured_content.as_ref().unwrap()["observation"];
+        let activity_id = activity["session_id"].as_str().unwrap().to_owned();
+        let activity_action = &activity["legal_actions"][0];
+        let activity_input = json!({
+            "schema_revision":"agent-api-v1", "session_id":activity_id,
+            "boundary_id":activity["boundary_id"], "expected_state_hash":activity["state_hash"],
+            "action_token":activity_action["token"], "idempotency_key":"mcp_activity_1"
+        });
+        let first = client
+            .call_tool(
+                CallToolRequestParams::new("starclock_play_activity_action")
+                    .with_arguments(arguments(activity_input.clone())),
+            )
+            .await
+            .unwrap();
+        let repeated = client
+            .call_tool(
+                CallToolRequestParams::new("starclock_play_activity_action")
+                    .with_arguments(arguments(activity_input)),
+            )
+            .await
+            .unwrap();
+        assert_eq!(first.is_error, Some(false));
+        assert_eq!(repeated.structured_content, first.structured_content);
+        let activity_export = client
+            .call_tool(
+                CallToolRequestParams::new("starclock_export_activity_replay").with_arguments(
+                    arguments(json!({
+                        "schema_revision":"agent-api-v1", "session_id":activity_id
+                    })),
+                ),
+            )
+            .await
+            .unwrap();
+        assert!(
+            activity_export.structured_content.as_ref().unwrap()["action_count"]
+                .as_str()
+                .unwrap()
+                .parse::<u64>()
+                .unwrap()
+                > 0
+        );
+        let activity_closed = client
+            .call_tool(
+                CallToolRequestParams::new("starclock_close_activity").with_arguments(arguments(
+                    json!({
+                        "schema_revision":"agent-api-v1", "session_id":activity_id
+                    }),
+                )),
+            )
+            .await
+            .unwrap();
+        assert_eq!(
+            activity_closed.structured_content.as_ref().unwrap()["closed"],
+            true
         );
 
         client.cancel().await.unwrap();

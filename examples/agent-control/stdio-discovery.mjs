@@ -44,7 +44,7 @@ const initialized = await request("initialize", {
 write({ jsonrpc: "2.0", method: "notifications/initialized", params: {} });
 const listed = await request("tools/list", {});
 const names = listed.tools.map((tool) => tool.name).sort();
-if (initialized.serverInfo.name !== "starclock-mcp" || names.length !== 7) {
+if (initialized.serverInfo.name !== "starclock-mcp" || names.length !== 13) {
   throw new Error("unexpected frozen MCP contract");
 }
 console.log(`${initialized.serverInfo.name} ${initialized.protocolVersion}: ${names.join(", ")}`);

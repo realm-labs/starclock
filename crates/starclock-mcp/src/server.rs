@@ -12,6 +12,7 @@ use rmcp::{
     tool_handler,
 };
 use starclock_agent_api::{
+    activity_session::{ActivityAgentSessionFactory, registry::ActivityAgentSessionRegistry},
     error::{AgentError, AgentErrorCode},
     session::{AgentSessionFactory, AgentSessionOwner, AgentSessionRegistry},
 };
@@ -28,6 +29,8 @@ pub(crate) enum AuthorityBinding {
 pub struct StarclockMcp {
     pub(crate) registry: AgentSessionRegistry,
     pub(crate) factory: AgentSessionFactory,
+    pub(crate) activity_registry: ActivityAgentSessionRegistry,
+    pub(crate) activity_factory: ActivityAgentSessionFactory,
     pub(crate) authority: AuthorityBinding,
     pub(crate) tool_router: ToolRouter<Self>,
 }
@@ -37,21 +40,32 @@ impl StarclockMcp {
     pub fn new(
         registry: AgentSessionRegistry,
         factory: AgentSessionFactory,
+        activity_registry: ActivityAgentSessionRegistry,
+        activity_factory: ActivityAgentSessionFactory,
         owner: AgentSessionOwner,
     ) -> Self {
         Self {
             registry,
             factory,
+            activity_registry,
+            activity_factory,
             authority: AuthorityBinding::Fixed(owner),
             tool_router: Self::registered_tool_router(),
         }
     }
 
     #[must_use]
-    pub fn new_authorized(registry: AgentSessionRegistry, factory: AgentSessionFactory) -> Self {
+    pub fn new_authorized(
+        registry: AgentSessionRegistry,
+        factory: AgentSessionFactory,
+        activity_registry: ActivityAgentSessionRegistry,
+        activity_factory: ActivityAgentSessionFactory,
+    ) -> Self {
         Self {
             registry,
             factory,
+            activity_registry,
+            activity_factory,
             authority: AuthorityBinding::RequestGrant,
             tool_router: Self::registered_tool_router(),
         }
@@ -121,7 +135,7 @@ impl ServerHandler for StarclockMcp {
         request: ReadResourceRequestParams,
         _context: RequestContext<RoleServer>,
     ) -> Result<ReadResourceResult, McpError> {
-        resources::read_resource(&self.factory, &request.uri)
+        resources::read_resource(&self.factory, &self.activity_factory, &request.uri)
     }
 
     async fn list_prompts(

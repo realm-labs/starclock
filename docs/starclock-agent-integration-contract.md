@@ -76,14 +76,14 @@ the returned Axum router within its reviewed TLS/proxy boundary. The example
 cannot bind a non-loopback address; Goal 02 exposes no non-loopback startup
 profile until TLS/proxy attestation and a deployment security-audit sink exist.
 
-All protected calls use the exact eight-scope matrix in
+All protected calls use the exact thirteen-scope matrix in
 [`mcp-authorization.json`](../policy/mcp-authorization.json). Origin, Host,
 protocol, session, payload, worker, quota and rate controls compose with auth;
 an MCP transport session is never battle authority.
 
-## Frozen MCP and CLI surface
+## MCP and CLI surface
 
-MCP revision `2025-11-25` exposes exactly seven structured tools:
+MCP revision `2025-11-25` retains the seven frozen Goal 02 Battle tools:
 
 ```text
 starclock_list_scenarios
@@ -95,7 +95,24 @@ starclock_close_battle
 starclock_verify_replay
 ```
 
-It also exposes two static resources, two RFC 6570 templates and the fixed
+Goal 04 adds six Activity tools without changing those Battle contracts:
+
+```text
+starclock_create_universe
+starclock_observe_activity
+starclock_play_activity_action
+starclock_export_activity_replay
+starclock_close_activity
+starclock_verify_activity_replay
+```
+
+Activity actions use the same owner, opaque-token, state precondition,
+idempotency, lease and quota model. Their settlement boundary is the next
+external Activity decision or terminal state; nested battles settle inside the
+protocol-neutral session facade. The MCP adapter never mutates Activity or
+Battle state directly.
+
+The adapter exposes four static resources, two RFC 6570 templates and the fixed
 `starclock_battle_loop` prompt. `structuredContent` and `agent-api-v1` are
 authoritative; convenience text is not. The Goal 02 CLI adds only:
 

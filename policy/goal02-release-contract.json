@@ -45,12 +45,12 @@
   "policy_files": [
     { "path": "policy/agent-api-v1.json", "sha256": "0bace8a6a4584a649037d812c4478550a2f14fe4ff4071f1a0e389f0d935fccf" },
     { "path": "policy/mcp-sdk-lock.json", "sha256": "75e6caaac63befbd746c8d8db1988cbc1804abb9e4bb45a56ef565837e2b5187" },
-    { "path": "policy/agent-control-threat-model.json", "sha256": "4080b72e1a434ec7bc1dbc0c4c4b095bed2008da18a92a3aa365f08fa1e9c45a" },
-    { "path": "policy/mcp-authorization.json", "sha256": "41f5e3b8079fc359db8d9b8a6ed8b51b8cf6ced5a021f08f0923af98d5696e35" },
+    { "path": "policy/agent-control-threat-model.json", "sha256": "011dd40b6a4d0878a0caeee805b244d63b40f49b8309415cb8436eb309fdf98e" },
+    { "path": "policy/mcp-authorization.json", "sha256": "647aa4c9ce53608996fb206bd1f0ba8444f60a8807dc696cbfe266f7367c9e9f" },
     { "path": "policy/mcp-http-boundary.json", "sha256": "fa31d03b9fec8069d1d2260a4f53532b99295e9f77f373170629382abd53e03d" },
     { "path": "policy/mcp-tenant-authority.json", "sha256": "22f0e0d661b40491159b355733da57942dfb58b4d90300fb565ac0545eb301bc" },
-    { "path": "policy/agent-control-contract.json", "sha256": "b3eeb076978ff804e0689cfa0102cc654f5da1009a0fb289f9898e1ba56251b3" },
-    { "path": "policy/agent-control-audit.json", "sha256": "819cd5ff8881c1478448b49f1c1f4a508a450a3066eeb6ed10f7cd178d6c9043" },
+    { "path": "policy/agent-control-contract.json", "sha256": "43bd23d0a29beecef4bdb8d89db77b55e02a69ba1310babce3211b494e7dbd7e" },
+    { "path": "policy/agent-control-audit.json", "sha256": "3e4e56a407b7cf1bf264f6475ffcb8756ae2cbc5ce90f6ce6bdd6e1809e55ea4" },
     { "path": "policy/goal02-clean-acceptance.json", "sha256": "fbc8eead738513d66742a561ecebbfda5535d36b89aca88083dd5bda25dd7a93" }
   ],
   "evidence_files": [
@@ -62,14 +62,14 @@
     { "path": "evidence/agent-control-mcp-v1/performance/phase2-baseline-windows-x64.json", "sha256": "e99df5c0fac9cf617903d36be802bd40bc59cca26b91667a8b9cc1f55c5e9a09" },
     { "path": "evidence/agent-control-mcp-v1/performance/phase4-http-baseline-windows-x64.json", "sha256": "6d7fedcccd539edbf74c7384d84e245f216858400778992f352c1900224e7e9e" },
     { "path": "evidence/agent-control-mcp-v1/security/hardening-corpus.json", "sha256": "c27fccbf4a82ef20b353f03cb130b31a209d3355993abf260a10b18b55445b2d" },
-    { "path": "evidence/agent-control-mcp-v1/security/security-audit.json", "sha256": "8d0eb4fabadddad386d4217659860849956ddcafd5be9b4f3cc166757e0b9d68" },
-    { "path": "evidence/agent-control-mcp-v1/contracts/contract-freeze.json", "sha256": "adad712f9eb462c46d12bb212bbfda09a57c59d49a7cab2b650c739827cee7c3" },
+    { "path": "evidence/agent-control-mcp-v1/security/security-audit.json", "sha256": "f4f0190e748239eec88600b9996bfcd062bb704db01a8b44e4128270054780e9" },
+    { "path": "evidence/agent-control-mcp-v1/contracts/contract-freeze.json", "sha256": "f4ad0361274ea851ba430ba8eda8b58aa37c94042e1de2e57fc59f7804b74b21" },
     { "path": "evidence/agent-control-mcp-v1/release/clean-checkout-acceptance.json", "sha256": "73c838acd3ed78717cb450aa26a48ea53e56c1fffc46384e16b4eab65b22c934" },
     { "path": "evidence/core-combat-v1/hardening/ci-golden-matrix.json", "sha256": "8964b0a8f52cdd694a7dbb47821f9970812443e670f46ab6ff5b4fa1d0e65dfa" }
   ],
   "documentation_files": [
-    { "path": "docs/22-agent-control-and-mcp.md", "sha256": "a3afc065b37ee17362a8060a9ff52a38a321c67e0d30ad4b3b3bbdd638565c17" },
-    { "path": "docs/starclock-agent-integration-contract.md", "sha256": "44ee4d4c16b20025c7560a6f933471802d3fd7c83a9a842fb5364c95de0b1483" },
+    { "path": "docs/22-agent-control-and-mcp.md", "sha256": "8e2ded4f699158cb3ebe0d29a9b27e5464f62817d648edc12789c1e2e271ff60" },
+    { "path": "docs/starclock-agent-integration-contract.md", "sha256": "4454da99ebde4f96e1764429b76c1ee2ee166529ccc37bd5ef6f23a5d8a33431" },
     { "path": "docs/starclock-agent-security-audit.md", "sha256": "9ba6f3bfee4e939905f90473ba83682569d018913aad88e9f3287f8468d7c112" },
     { "path": "docs/starclock-agent-cross-platform.md", "sha256": "b9c69b2efda6207d912edf3dd107c0ee3e5e025151324e2ac8d79d67c4893337" },
     { "path": "docs/starclock-agent-clean-acceptance.md", "sha256": "c050001427aef0c085c64dfce29e38ebb62a96f782e70132888df87e8d9c7d64" }

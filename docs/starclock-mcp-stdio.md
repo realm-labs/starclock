@@ -27,6 +27,7 @@ input bytes, session IDs, action tokens and hidden state are never logged.
 Normal EOF performs a clean successful shutdown.
 
 Child-process tests initialize the frozen `2025-11-25` protocol, discover the
-seven tools, assert every stdout line is a JSON-RPC object and require empty
+seven frozen Battle tools plus six additive Activity tools, assert every stdout
+line is a JSON-RPC object and require empty
 stderr. A separate oversized-frame child proves zero stdout bytes, a generic
 stderr-only failure and rejection before JSON decoding.

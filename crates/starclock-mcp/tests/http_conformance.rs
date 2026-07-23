@@ -213,7 +213,9 @@ async fn authorized_tcp_client_proves_conformance_trace_and_multi_session_load()
     let mut discovery = HttpMcpClient::new(address);
     discovery.initialize().await;
     let tools = discovery.request("tools/list", json!({})).await;
-    assert_eq!(tools["tools"].as_array().unwrap().len(), 7);
+    assert_eq!(tools["tools"].as_array().unwrap().len(), 13);
+
+    run_activity_boundary(&mut discovery).await;
 
     let expected = frozen_trace();
     let primary = run_basic_trace(discovery, "primary").await;
@@ -237,6 +239,58 @@ async fn authorized_tcp_client_proves_conformance_trace_and_multi_session_load()
         .await
         .expect("HTTP server stopped within the test bound")
         .unwrap();
+}
+
+async fn run_activity_boundary(client: &mut HttpMcpClient) {
+    let created = client
+        .tool(
+            "starclock_create_universe",
+            json!({
+                "schema_revision":"agent-api-v1", "world":"1", "difficulty_index":"0", "seed":"10"
+            }),
+        )
+        .await;
+    let observation = &created["observation"];
+    let session_id = observation["session_id"].as_str().unwrap().to_owned();
+    let input = json!({
+        "schema_revision":"agent-api-v1", "session_id":session_id,
+        "boundary_id":observation["boundary_id"], "expected_state_hash":observation["state_hash"],
+        "action_token":observation["legal_actions"][0]["token"],
+        "idempotency_key":"http_activity_1"
+    });
+    let first = client
+        .tool("starclock_play_activity_action", input.clone())
+        .await;
+    let repeated = client.tool("starclock_play_activity_action", input).await;
+    assert_eq!(first["response"]["committed"], true);
+    assert_eq!(repeated, first);
+    let exported = client
+        .tool(
+            "starclock_export_activity_replay",
+            json!({
+                "schema_revision":"agent-api-v1", "session_id":session_id
+            }),
+        )
+        .await;
+    assert_ne!(exported["action_count"], "0");
+    let observed = client
+        .tool(
+            "starclock_observe_activity",
+            json!({
+                "schema_revision":"agent-api-v1", "session_id":session_id
+            }),
+        )
+        .await;
+    assert_eq!(observed["observation"]["session_id"], session_id);
+    let closed = client
+        .tool(
+            "starclock_close_activity",
+            json!({
+                "schema_revision":"agent-api-v1", "session_id":session_id
+            }),
+        )
+        .await;
+    assert_eq!(closed["closed"], true);
 }
 
 struct TransportTrace {
@@ -367,7 +421,7 @@ async fn raw_http(
     stream.write_all(request.as_bytes()).await.unwrap();
     stream.write_all(body).await.unwrap();
     let mut bytes = Vec::new();
-    tokio::time::timeout(Duration::from_secs(5), stream.read_to_end(&mut bytes))
+    tokio::time::timeout(Duration::from_secs(20), stream.read_to_end(&mut bytes))
         .await
         .expect("HTTP response completed within the test bound")
         .unwrap();

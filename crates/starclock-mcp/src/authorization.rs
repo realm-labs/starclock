@@ -17,8 +17,13 @@ pub const SCOPE_BATTLE_ACT: &str = "starclock:battle:act";
 pub const SCOPE_BATTLE_REPLAY: &str = "starclock:battle:replay";
 pub const SCOPE_BATTLE_CLOSE: &str = "starclock:battle:close";
 pub const SCOPE_REPLAY_VERIFY: &str = "starclock:replay:verify";
+pub const SCOPE_ACTIVITY_CREATE: &str = "starclock:activity:create";
+pub const SCOPE_ACTIVITY_READ: &str = "starclock:activity:read";
+pub const SCOPE_ACTIVITY_ACT: &str = "starclock:activity:act";
+pub const SCOPE_ACTIVITY_REPLAY: &str = "starclock:activity:replay";
+pub const SCOPE_ACTIVITY_CLOSE: &str = "starclock:activity:close";
 pub const SCOPE_DEBUG_OMNISCIENT: &str = "starclock:debug:omniscient";
-pub const SUPPORTED_SCOPES: [&str; 8] = [
+pub const SUPPORTED_SCOPES: [&str; 13] = [
     SCOPE_SCENARIO_READ,
     SCOPE_BATTLE_CREATE,
     SCOPE_BATTLE_READ,
@@ -26,6 +31,11 @@ pub const SUPPORTED_SCOPES: [&str; 8] = [
     SCOPE_BATTLE_REPLAY,
     SCOPE_BATTLE_CLOSE,
     SCOPE_REPLAY_VERIFY,
+    SCOPE_ACTIVITY_CREATE,
+    SCOPE_ACTIVITY_READ,
+    SCOPE_ACTIVITY_ACT,
+    SCOPE_ACTIVITY_REPLAY,
+    SCOPE_ACTIVITY_CLOSE,
     SCOPE_DEBUG_OMNISCIENT,
 ];
 
@@ -291,11 +301,24 @@ pub enum AuthorizationFailure {
 pub fn required_scope_for_json_rpc(body: &[u8]) -> Option<&'static str> {
     let value = serde_json::from_slice::<serde_json::Value>(body).ok()?;
     match value.get("method")?.as_str()? {
-        "resources/list"
-        | "resources/templates/list"
-        | "resources/read"
-        | "prompts/list"
-        | "prompts/get" => Some(SCOPE_SCENARIO_READ),
+        "resources/list" | "resources/templates/list" | "prompts/list" | "prompts/get" => {
+            Some(SCOPE_SCENARIO_READ)
+        }
+        "resources/read" => {
+            value
+                .get("params")?
+                .get("uri")?
+                .as_str()
+                .map_or(Some(SCOPE_SCENARIO_READ), |uri| {
+                    if uri.starts_with("starclock://universe/")
+                        || uri == "starclock://rules/standard-universe"
+                    {
+                        Some(SCOPE_ACTIVITY_READ)
+                    } else {
+                        Some(SCOPE_SCENARIO_READ)
+                    }
+                })
+        }
         "tools/call" => match value.get("params")?.get("name")?.as_str()? {
             "starclock_list_scenarios" => Some(SCOPE_SCENARIO_READ),
             "starclock_create_battle" => Some(SCOPE_BATTLE_CREATE),
@@ -304,6 +327,12 @@ pub fn required_scope_for_json_rpc(body: &[u8]) -> Option<&'static str> {
             "starclock_export_replay" => Some(SCOPE_BATTLE_REPLAY),
             "starclock_close_battle" => Some(SCOPE_BATTLE_CLOSE),
             "starclock_verify_replay" => Some(SCOPE_REPLAY_VERIFY),
+            "starclock_create_universe" => Some(SCOPE_ACTIVITY_CREATE),
+            "starclock_observe_activity" => Some(SCOPE_ACTIVITY_READ),
+            "starclock_play_activity_action" => Some(SCOPE_ACTIVITY_ACT),
+            "starclock_export_activity_replay" => Some(SCOPE_ACTIVITY_REPLAY),
+            "starclock_close_activity" => Some(SCOPE_ACTIVITY_CLOSE),
+            "starclock_verify_activity_replay" => Some(SCOPE_REPLAY_VERIFY),
             _ => None,
         },
         _ => None,
@@ -425,6 +454,12 @@ mod tests {
             ("starclock_export_replay", SCOPE_BATTLE_REPLAY),
             ("starclock_close_battle", SCOPE_BATTLE_CLOSE),
             ("starclock_verify_replay", SCOPE_REPLAY_VERIFY),
+            ("starclock_create_universe", SCOPE_ACTIVITY_CREATE),
+            ("starclock_observe_activity", SCOPE_ACTIVITY_READ),
+            ("starclock_play_activity_action", SCOPE_ACTIVITY_ACT),
+            ("starclock_export_activity_replay", SCOPE_ACTIVITY_REPLAY),
+            ("starclock_close_activity", SCOPE_ACTIVITY_CLOSE),
+            ("starclock_verify_activity_replay", SCOPE_REPLAY_VERIFY),
         ];
         for (tool, scope) in cases {
             let body = serde_json::json!({
@@ -436,7 +471,7 @@ mod tests {
                 Some(scope)
             );
         }
-        assert_eq!(SUPPORTED_SCOPES.len(), 8);
+        assert_eq!(SUPPORTED_SCOPES.len(), 13);
         assert!(SUPPORTED_SCOPES.contains(&SCOPE_DEBUG_OMNISCIENT));
         for method in [
             "resources/list",
@@ -445,12 +480,17 @@ mod tests {
             "prompts/list",
             "prompts/get",
         ] {
-            let body = serde_json::json!({"jsonrpc":"2.0","id":1,"method":method});
+            let body = serde_json::json!({"jsonrpc":"2.0","id":1,"method":method,"params":{"uri":"starclock://catalog/manifest"}});
             assert_eq!(
                 required_scope_for_json_rpc(body.to_string().as_bytes()),
                 Some(SCOPE_SCENARIO_READ)
             );
         }
+        let universe = serde_json::json!({"jsonrpc":"2.0","id":1,"method":"resources/read","params":{"uri":"starclock://universe/manifest"}});
+        assert_eq!(
+            required_scope_for_json_rpc(universe.to_string().as_bytes()),
+            Some(SCOPE_ACTIVITY_READ)
+        );
     }
 
     #[test]

@@ -13,7 +13,7 @@
     "player_visible is default and omniscient_debug requires a distinct scope and visible marker",
     "non-loopback HTTP startup fails closed unless every required remote control is configured"
   ],
-  "authorization_scopes": ["starclock:scenario:read", "starclock:battle:create", "starclock:battle:read", "starclock:battle:act", "starclock:battle:replay", "starclock:battle:close", "starclock:replay:verify", "starclock:debug:omniscient"],
+  "authorization_scopes": ["starclock:scenario:read", "starclock:battle:create", "starclock:battle:read", "starclock:battle:act", "starclock:battle:replay", "starclock:battle:close", "starclock:replay:verify", "starclock:activity:create", "starclock:activity:read", "starclock:activity:act", "starclock:activity:replay", "starclock:activity:close", "starclock:debug:omniscient"],
   "operational_limits": {
     "global_sessions": 1024,
     "sessions_per_tenant": 64,

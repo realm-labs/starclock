@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `standard-universe-runtime-v1` |
 | State | `InProgress` |
-| Active phase | Phase 5 — Replay, controllers and external interfaces |
-| Active batch | `G04-P5-B5` |
-| Next unblocked batch | `G04-P5-B5` |
+| Active phase | Phase 6 — Golden runs and release hardening |
+| Active batch | `G04-P6-B1` |
+| Next unblocked batch | `G04-P6-B1` |
 | Snapshot | Version 4.4 / Goal 03 release dated 2026-07-22 |
 | Universe staging bundle | `0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04` |
 | Core runtime bundle | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
@@ -26,8 +26,8 @@ be `InProgress`; completion evidence and its commit are recorded atomically.
 | Phase 2 — Activity core | `Complete` | Generic graph/state/transactions/RNG/hash, immutable battle preparation, verified result carry, v2 command codec and provisional service baseline are executable. |
 | Phase 3 — Standard profile | `Complete` | Spatial-free domains, encounters, rewards, Path/Curio lifecycle, run resources and offered external interactions execute generically; content-specific effects retain explicit Phase 4 owners. |
 | Phase 4 — Mechanics | `Complete` | M01–M15 close all 2,201 content records, 786 rule bindings and 78 fixtures. Aggregate semantic and reachability audits reject unimplemented rows, unowned targets and unreviewed stable-ID branches. |
-| Phase 5 — Interfaces | `InProgress` | Baseline AI, full-run replay, CLI, agent API and MCP use the same offered commands. |
-| Phase 6 — Hardening | `Pending` | Full seeded matrix, cross-platform determinism, performance/audits and clean release evidence pass. |
+| Phase 5 — Interfaces | `Complete` | Baseline AI, full-run replay, CLI, agent API and MCP use the same offered commands. |
+| Phase 6 — Hardening | `InProgress` | Full seeded matrix, cross-platform determinism, performance/audits and clean release evidence pass. |
 
 ## Batch ledger
 
@@ -81,8 +81,8 @@ tests and relevant hashes/counts rather than only naming files.
 | `G04-P5-B2` | `Complete` | This row's containing commit | Added versioned full-run Standard Universe replay over the shared canonical envelope. Accepted decision, preparation and automatic nested-battle actions retain expected state after every boundary; decision diagnostics retain all ordered scores; nested records retain the full handoff identity, complete verified result and result digest. Verification starts from a fresh Activity, binds profile/definition/config/controller/state-hash revisions, enforces a 100,000-action/1,000,000-record/16 MiB-record ceiling and reports the first decision, nested-start, nested-end or state divergence. The seed-10 golden completes with 60 actions, 50 diagnostics, five battles and 180 records; its 11,011 bytes hash to `f4ca5a3e84df8f123dc01b313cb0aeaa703370e07295fc4870cda28ac3da0b31`. Evidence: `evidence/standard-universe-runtime-v1/interfaces/universe-replay.json`. |
 | `G04-P5-B3` | `Complete` | This row's containing commit | Added `starclock universe config validate`, `universe coverage` and deterministic `universe run` in human/JSON modes over the exact production bundles. The run command records a canonical full-Activity replay bound to the composed core-plus-Universe configuration identity, and the existing `replay verify` route reconstructs the encoded World/difficulty profile and detects corruption. Seed 10 completes World 1 difficulty index 0 in 56 actions and four nested handoffs with state hash `6bb5ae714d8b89c56f596fe7714832c46bcc0877a044e96771b1be40391fbca3`; the 9,930-byte replay hashes to `14505dfbc8d178fa024022d6f5ff742edfbecfb019742ebf9610263c608d2d1d`. The CLI labels its current nested executor `verified-reference-projection-v1`: it proves orchestration and settlement without claiming the 73 extension enemy definitions are production combat implementations. Evidence: `evidence/standard-universe-runtime-v1/interfaces/universe-cli.json`. |
 | `G04-P5-B4` | `Complete` | This row's containing commit | Added the additive `agent-activity-v1` boundary without changing Battle v1: owned player-visible slots, inventories, participant carry and terminal state; state/boundary-bound opaque action tokens; stale/forged/idempotent request handling; automatic nested-battle settlement; and canonical replay export/verification under the truthful `agent-activity-session-v1` controller identity. A public-only policy completes World 1 difficulty index 0 at seed 10 through 61 external actions and seven nested battles. Its 68-action, 13,225-byte replay hashes to `e8efd9ae17b597e44379bfe2fd3d83c09a1d06901def434730c6c83bf8e8da04` and ends at `57cafc16f9aa91f6a97d4acd3363b7aa640e8df11c914255231dc428d6a022b3`. The encounter executor remains explicitly labeled `verified-reference-projection-v1`; no production enemy-provider claim is made. All prior agent-api Battle v1 suites pass. Evidence: `evidence/standard-universe-runtime-v1/interfaces/activity-agent-api.json`. |
-| `G04-P5-B5` | `Pending` | — | — |
-| `G04-P6-B1` | `Pending` | — | — |
+| `G04-P5-B5` | `Complete` | This row's containing commit | Added six additive Standard Universe Activity MCP tools and two bounded inert resources while preserving all seven frozen Battle v1 tools. A separate owned Activity registry enforces 1,024 global/64 tenant/16 principal quotas, monotonic 30-minute idle/four-hour lifetime leases, quota-before-ID allocation and one serialized lane per session. Exact Activity create/read/act/replay/close scopes extend the OAuth matrix to 13 scopes; stdio and real authorized HTTP conformance cover discovery, opaque action play, idempotent retry, observe, replay export and close. Evidence: `evidence/standard-universe-runtime-v1/interfaces/activity-mcp.json`. |
+| `G04-P6-B1` | `InProgress` | — | — |
 | `G04-P6-B2` | `Pending` | — | — |
 | `G04-P6-B3` | `Pending` | — | — |
 | `G04-P6-B4` | `Pending` | — | — |

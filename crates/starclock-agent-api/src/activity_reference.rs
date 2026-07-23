@@ -87,6 +87,10 @@ impl ActivityReferenceFactory {
             activity,
         ))
     }
+
+    pub(crate) fn catalog(&self) -> &UniverseCatalog {
+        &self.catalog
+    }
 }
 
 pub(crate) fn reference_won_result(

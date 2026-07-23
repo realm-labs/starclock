@@ -10,6 +10,7 @@ use rmcp::{
 };
 use serde::Serialize;
 use starclock_agent_api::{
+    activity_session::ActivityAgentSessionFactory,
     schema::{AgentSchemaRevision, AgentUInt, ScenarioId},
     session::AgentSessionFactory,
 };
@@ -17,6 +18,8 @@ use starclock_agent_api::{
 const MIME_JSON: &str = "application/json";
 const CATALOG_URI: &str = "starclock://catalog/manifest";
 const RULES_URI: &str = "starclock://rules/core-combat";
+const UNIVERSE_URI: &str = "starclock://universe/manifest";
+const UNIVERSE_RULES_URI: &str = "starclock://rules/standard-universe";
 const SCENARIO_PREFIX: &str = "starclock://scenario/";
 const CHARACTER_PREFIX: &str = "starclock://character/";
 const USAGE_PROMPT: &str = "starclock_battle_loop";
@@ -46,6 +49,16 @@ struct CoreRulesResource<'a> {
     replay_authority: &'static str,
 }
 
+#[derive(Serialize)]
+struct UniverseRulesResource {
+    exact_number_encoding: &'static str,
+    external_decision_owner: &'static str,
+    action_authority: &'static str,
+    settlement_boundary: &'static str,
+    nested_battle_policy: &'static str,
+    replay_authority: &'static str,
+}
+
 pub(crate) fn list_resources() -> ListResourcesResult {
     ListResourcesResult::with_all_items(vec![
         Resource::new(CATALOG_URI, "catalog-manifest")
@@ -55,6 +68,14 @@ pub(crate) fn list_resources() -> ListResourcesResult {
         Resource::new(RULES_URI, "core-combat-rules")
             .with_title("Starclock core combat rules")
             .with_description("Concise authority, exact-number, settlement and replay invariants.")
+            .with_mime_type(MIME_JSON),
+        Resource::new(UNIVERSE_URI, "standard-universe-manifest")
+            .with_title("Starclock Standard Universe manifest")
+            .with_description("Bounded entry compatibility and world summaries.")
+            .with_mime_type(MIME_JSON),
+        Resource::new(UNIVERSE_RULES_URI, "standard-universe-rules")
+            .with_title("Starclock Standard Universe Activity rules")
+            .with_description("Concise Activity authority, settlement and replay invariants.")
             .with_mime_type(MIME_JSON),
     ])
 }
@@ -74,6 +95,7 @@ pub(crate) fn list_resource_templates() -> ListResourceTemplatesResult {
 
 pub(crate) fn read_resource(
     factory: &AgentSessionFactory,
+    activity_factory: &ActivityAgentSessionFactory,
     uri: &str,
 ) -> Result<ReadResourceResult, McpError> {
     if uri.len() > MAX_RESOURCE_URI_BYTES {
@@ -101,6 +123,18 @@ pub(crate) fn read_resource(
                 },
             )?
         }
+        UNIVERSE_URI => resource_json("standard_universe_manifest", activity_factory.manifest())?,
+        UNIVERSE_RULES_URI => resource_json(
+            "standard_universe_rules",
+            UniverseRulesResource {
+                exact_number_encoding: "canonical_decimal_strings",
+                external_decision_owner: "activity_player",
+                action_authority: "currently_offered_opaque_token",
+                settlement_boundary: "next_external_activity_decision_or_terminal",
+                nested_battle_policy: "authoritative_session_settlement",
+                replay_authority: "accepted_activity_actions_and_resulting_state_hashes",
+            },
+        )?,
         _ if uri.starts_with(SCENARIO_PREFIX) => {
             let raw = &uri[SCENARIO_PREFIX.len()..];
             let scenario = ScenarioId::parse(raw).map_err(|_| resource_not_found())?;
@@ -180,13 +214,16 @@ mod tests {
     #[test]
     fn resources_are_bounded_original_summaries_without_private_artifact_markers() {
         let factory = AgentSessionFactory::load_production().unwrap();
+        let activity_factory = ActivityAgentSessionFactory::load_production().unwrap();
         for uri in [
             CATALOG_URI,
             RULES_URI,
             "starclock://scenario/scenario.standard-v1.basic-single-wave",
             "starclock://character/1",
+            UNIVERSE_URI,
+            UNIVERSE_RULES_URI,
         ] {
-            let result = read_resource(&factory, uri).unwrap();
+            let result = read_resource(&factory, &activity_factory, uri).unwrap();
             let serialized = serde_json::to_string(&result).unwrap();
             assert!(serialized.len() <= MAX_RESOURCE_CONTENT_BYTES);
             assert!(serialized.contains("\\\"inert_data\\\":true"));
@@ -201,8 +238,15 @@ mod tests {
                 assert!(!serialized.contains(forbidden), "leaked {forbidden}");
             }
         }
-        assert!(read_resource(&factory, "starclock://character/0").is_err());
-        assert!(read_resource(&factory, "starclock://scenario/not-valid").is_err());
+        assert!(read_resource(&factory, &activity_factory, "starclock://character/0").is_err());
+        assert!(
+            read_resource(
+                &factory,
+                &activity_factory,
+                "starclock://scenario/not-valid"
+            )
+            .is_err()
+        );
     }
 
     #[test]

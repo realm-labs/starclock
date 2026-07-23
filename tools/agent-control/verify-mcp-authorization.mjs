@@ -22,6 +22,12 @@ const matrix = {
   starclock_export_replay: "SCOPE_BATTLE_REPLAY",
   starclock_close_battle: "SCOPE_BATTLE_CLOSE",
   starclock_verify_replay: "SCOPE_REPLAY_VERIFY",
+  starclock_create_universe: "SCOPE_ACTIVITY_CREATE",
+  starclock_observe_activity: "SCOPE_ACTIVITY_READ",
+  starclock_play_activity_action: "SCOPE_ACTIVITY_ACT",
+  starclock_export_activity_replay: "SCOPE_ACTIVITY_REPLAY",
+  starclock_close_activity: "SCOPE_ACTIVITY_CLOSE",
+  starclock_verify_activity_replay: "SCOPE_REPLAY_VERIFY",
 };
 for (const [operation, scope] of Object.entries(matrix)) {
   if (!authorization.includes(`"${operation}" => Some(${scope})`)) fail(`${operation} scope drift`);
@@ -54,4 +60,4 @@ for (const marker of [
 }
 if (/println!|eprintln!|tracing::|dbg!/.test(authorization)) fail("authorization boundary contains a logging path");
 
-console.log("MCP OAuth resource metadata, claim validation and exact eight-scope matrix verified");
+console.log("MCP OAuth resource metadata, claim validation and exact thirteen-scope matrix verified");

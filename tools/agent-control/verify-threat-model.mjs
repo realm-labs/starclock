@@ -17,4 +17,4 @@ for (const required of ["TLS or explicitly attested TLS-terminating proxy", "tok
 for (const forbidden of ["anonymous requests", "wildcard Origin", "token passthrough", "startup with any missing required control"]) if (!remote.forbidden.includes(forbidden)) fail(`remote startup does not forbid ${forbidden}`);
 for (const [name, value] of Object.entries(model.operational_limits)) if (!Number.isSafeInteger(value) || value <= 0) fail(`invalid operational limit ${name}`);
 if (model.operational_limits.replay_records !== 1_000_000 || model.operational_limits.replay_record_payload_bytes !== 16 * 1024 * 1024) fail("replay limits disagree with Goal 01 codec");
-console.log("agent-control threat model verified: 19 threats, 3 startup profiles, 8 scopes");
+console.log("agent-control threat model verified: 19 threats, 3 startup profiles, 13 scopes");

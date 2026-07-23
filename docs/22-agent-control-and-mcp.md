@@ -243,6 +243,11 @@ starclock:battle:act
 starclock:battle:replay
 starclock:battle:close
 starclock:replay:verify
+starclock:activity:create
+starclock:activity:read
+starclock:activity:act
+starclock:activity:replay
+starclock:activity:close
 starclock:debug:omniscient
 ```
 

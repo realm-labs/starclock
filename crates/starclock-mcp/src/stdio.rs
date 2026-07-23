@@ -13,6 +13,7 @@ use std::{
 
 use rmcp::ServiceExt;
 use starclock_agent_api::{
+    activity_session::{ActivityAgentSessionFactory, registry::ActivityAgentSessionRegistry},
     error::{AgentError, AgentErrorCode},
     schema::SessionId,
     session::{
@@ -55,22 +56,29 @@ pub fn serve() -> Result<(), StdioServeError> {
 
 async fn serve_async() -> Result<(), StdioServeError> {
     let factory = AgentSessionFactory::load_production().map_err(|_| StdioServeError::Startup)?;
-    let registry = AgentSessionRegistry::new(
-        factory.clone(),
-        Arc::new(LocalClock::new()),
-        Arc::new(LocalSessionIds::new()),
-    );
+    let activity_factory =
+        ActivityAgentSessionFactory::load_production().map_err(|_| StdioServeError::Startup)?;
+    let clock = Arc::new(LocalClock::new());
+    let ids = Arc::new(LocalSessionIds::new());
+    let registry = AgentSessionRegistry::new(factory.clone(), clock.clone(), ids.clone());
+    let activity_registry = ActivityAgentSessionRegistry::new(activity_factory.clone(), clock, ids);
     let owner = AgentSessionOwner::new("local-stdio", &format!("process-{}", std::process::id()))
         .map_err(|_| StdioServeError::Startup)?;
     let (stdin, stdout) = rmcp::transport::stdio();
-    StarclockMcp::new(registry, factory, owner)
-        .serve((BoundedReader::new(stdin), stdout))
-        .await
-        .map_err(|_| StdioServeError::Transport)?
-        .waiting()
-        .await
-        .map(|_| ())
-        .map_err(|_| StdioServeError::Transport)
+    StarclockMcp::new(
+        registry,
+        factory,
+        activity_registry,
+        activity_factory,
+        owner,
+    )
+    .serve((BoundedReader::new(stdin), stdout))
+    .await
+    .map_err(|_| StdioServeError::Transport)?
+    .waiting()
+    .await
+    .map(|_| ())
+    .map_err(|_| StdioServeError::Transport)
 }
 
 struct LocalClock {

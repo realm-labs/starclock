@@ -37,8 +37,11 @@ assert(metadata.includes(`SERVER_NAME: &str = "${policy.mcp.server_name}"`), "MC
 const tools = read("crates/starclock-mcp/src/tools.rs");
 for (const name of policy.mcp.tools) assert(tools.includes(`name = "${name}"`) || tools.includes(`"${name}"`), `MCP tool ${name} missing`);
 assert(new Set(policy.mcp.tools).size === 7, "MCP tool contract is not exactly seven unique names");
+for (const name of policy.mcp.allowed_additive_tools) assert(tools.includes(`name = "${name}"`), `additive MCP tool ${name} missing`);
+assert(new Set([...policy.mcp.tools, ...policy.mcp.allowed_additive_tools]).size === 13, "MCP additive tool surface drift");
 const resources = read("crates/starclock-mcp/src/resources.rs");
 for (const uri of [...policy.mcp.resources, ...policy.mcp.resource_templates]) assert(resources.includes(uri), `MCP resource ${uri} missing`);
+for (const uri of policy.mcp.allowed_additive_resources) assert(resources.includes(uri), `additive MCP resource ${uri} missing`);
 for (const prompt of policy.mcp.prompts) assert(resources.includes(prompt), `MCP prompt ${prompt} missing`);
 assert(policy.mcp.structured_content_authoritative && policy.mcp.non_loopback_startup === false, "MCP authority/startup contract drift");
 
@@ -57,7 +60,7 @@ for (const example of policy.examples) {
 const inProcess = read(policy.examples.find((entry) => entry.kind === "in-process").path);
 for (const marker of ["AgentSessionFactory::load_production", "legal_actions", "apply_action", "idempotency_key", "export_replay", "verify_replay"]) assert(inProcess.includes(marker), `in-process example omits ${marker}`);
 const stdio = read(policy.examples.find((entry) => entry.kind === "stdio").path);
-for (const marker of ["2025-11-25", "notifications/initialized", "tools/list", "names.length !== 7"]) assert(stdio.includes(marker), `stdio example omits ${marker}`);
+for (const marker of ["2025-11-25", "notifications/initialized", "tools/list", "names.length !== 13"]) assert(stdio.includes(marker), `stdio example omits ${marker}`);
 const authorized = read(policy.examples.find((entry) => entry.kind === "authorized-http").path);
 for (const marker of ["AccessTokenSignatureVerifier", "AuthorizationPolicy::new", "authorized_loopback_router", "DenyAllVerifier"]) assert(authorized.includes(marker), `authorized HTTP example omits ${marker}`);
 assert(!authorized.includes("SignedTokenClaims::new"), "authorized HTTP example invents token claims instead of injecting a verifier");
@@ -92,7 +95,7 @@ if (bless) {
   assert(fs.existsSync(outputPath), `${relative}: missing; run with --bless`);
   assert(read(relative) === output, `${relative}: stale; run with --bless`);
 }
-console.log(`Agent contract freeze verified (${sha(output)}; ${contractFiles.length} files, ${policy.mcp.tools.length} tools, ${policy.examples.length} examples).`);
+console.log(`Agent contract freeze verified (${sha(output)}; ${contractFiles.length} files, ${policy.mcp.tools.length} frozen + ${policy.mcp.allowed_additive_tools.length} additive tools, ${policy.examples.length} examples).`);
 
 function read(relative) { return fs.readFileSync(path.join(root, relative), "utf8"); }
 function bytes(relative) { return fs.readFileSync(path.join(root, relative)); }

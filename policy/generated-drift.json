@@ -214,6 +214,10 @@
       "command": ["node", "tools/goal04/verify-activity-agent-api.mjs", "."]
     },
     {
+      "name": "Goal 04 Activity MCP",
+      "command": ["node", "tools/goal04/verify-activity-mcp.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

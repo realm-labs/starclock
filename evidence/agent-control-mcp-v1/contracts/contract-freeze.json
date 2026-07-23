@@ -1,7 +1,7 @@
 {
   "schema_revision": "starclock.agent-control-contract-freeze.v1",
   "result": "pass",
-  "policy_sha256": "b3eeb076978ff804e0689cfa0102cc654f5da1009a0fb289f9898e1ba56251b3",
+  "policy_sha256": "43bd23d0a29beecef4bdb8d89db77b55e02a69ba1310babce3211b494e7dbd7e",
   "library": {
     "crate": "starclock-agent-api",
     "schema_revision": "agent-api-v1",
@@ -42,9 +42,21 @@
       "starclock_play_action",
       "starclock_verify_replay"
     ],
+    "allowed_additive_tools": [
+      "starclock_close_activity",
+      "starclock_create_universe",
+      "starclock_export_activity_replay",
+      "starclock_observe_activity",
+      "starclock_play_activity_action",
+      "starclock_verify_activity_replay"
+    ],
     "resources": [
       "starclock://catalog/manifest",
       "starclock://rules/core-combat"
+    ],
+    "allowed_additive_resources": [
+      "starclock://rules/standard-universe",
+      "starclock://universe/manifest"
     ],
     "resource_templates": [
       "starclock://character/{form_id}",
@@ -133,7 +145,27 @@
     },
     {
       "path": "crates/starclock-agent-api/src/session/registry.rs",
-      "sha256": "b9ca2daafe2fbe028c25ab74be59097f8a5145826154948571187abbca44b596"
+      "sha256": "1a25a4500889e27b6878d25da30e2eb0a20ec8df5052dd05b23cfec2cda888d1"
+    },
+    {
+      "path": "crates/starclock-agent-api/src/activity_action.rs",
+      "sha256": "073d72d0effd86d8bcd567a3ee7ac972360057d7b10e3d4b8da39440517e66b4"
+    },
+    {
+      "path": "crates/starclock-agent-api/src/activity_observation.rs",
+      "sha256": "c8cd1e740190eb2316190caf00850cf9c8369600e8a24e7829835c4c47d1a062"
+    },
+    {
+      "path": "crates/starclock-agent-api/src/activity_reference.rs",
+      "sha256": "118ad2515dd99bc0c837b7d698ee0872b5992bb52e44b537c77fc1fea2f32ec9"
+    },
+    {
+      "path": "crates/starclock-agent-api/src/activity_session.rs",
+      "sha256": "d8cb265dc80880f663b4504c7fc09b80c6fa8b3658cf15a1feadeb9d83a8373e"
+    },
+    {
+      "path": "crates/starclock-agent-api/src/activity_session/registry.rs",
+      "sha256": "a933c5ae78e7a1e1a803da8c665c8df8e5a8da0f2e0b82688130a01fd1472da7"
     },
     {
       "path": "schemas/agent-api-v1/observation.schema.json",
@@ -153,11 +185,15 @@
     },
     {
       "path": "crates/starclock-mcp/src/lib.rs",
-      "sha256": "eee1006a2a7afb2c6094874a6376110cb74cc68b81532e8da295b63e704595d7"
+      "sha256": "cf4e4172bc422ef7d6abd850607165389817ccdd6307d0e93b6764d207d46365"
     },
     {
       "path": "crates/starclock-mcp/src/authorization.rs",
-      "sha256": "45d16daefb9f1b393b82b5c0884238522d5ff7fe53f745172aad4d8d2993eab0"
+      "sha256": "8aadb38d37116bfa2c15094403f98ea0a795fee5bdb242f3162ced8347ca452e"
+    },
+    {
+      "path": "crates/starclock-mcp/src/activity_tools.rs",
+      "sha256": "3e24cde699e263f360b91961b2fac94fd89ff7c09ba75174d053e2098bffb0d6"
     },
     {
       "path": "crates/starclock-mcp/src/error.rs",
@@ -165,7 +201,7 @@
     },
     {
       "path": "crates/starclock-mcp/src/http.rs",
-      "sha256": "360d07e833c4be7dd0d23d90185ccee3e37848b3aca6485cb052e30da7dcef84"
+      "sha256": "7b151a556e18b689aa0b1ff536a0cfea9bf6c350a26b99179745db98bd72157c"
     },
     {
       "path": "crates/starclock-mcp/src/metadata.rs",
@@ -177,19 +213,19 @@
     },
     {
       "path": "crates/starclock-mcp/src/resources.rs",
-      "sha256": "fb595fe0ba2d839778e8cae6b04f3c0abd3522a9778d06ad5a481a091db064b1"
+      "sha256": "d1c24bfd9baae7aad54bddb360ca84c94179008af3b07042c4470d2b5c04bc5b"
     },
     {
       "path": "crates/starclock-mcp/src/server.rs",
-      "sha256": "614a031713d2681b9707510a48015800ffc289f1d3446f29b791ce925c90a604"
+      "sha256": "872013e83e7affdbe6d6b5ba3f6ebf455f0087966f6bcfadbb20b31f8b3ea56a"
     },
     {
       "path": "crates/starclock-mcp/src/stdio.rs",
-      "sha256": "011674ded63c193b6e6e770e63facbcbb418a1a5311042b2efc8ee72b2a35746"
+      "sha256": "2bcac98e26633cdd54715639c30abe78e5b8ccdfcbcb1bf957d7496d03fb0fa6"
     },
     {
       "path": "crates/starclock-mcp/src/tools.rs",
-      "sha256": "2fa8d17501c8426713c973d635b1deb8f795f883a38653ae3708d5185988af23"
+      "sha256": "b1323229424fac45ec95461bac634ca34fad9f0a62bb3c9cf482c887277f6f3a"
     },
     {
       "path": "crates/starclock-cli/Cargo.toml",
@@ -201,7 +237,7 @@
     },
     {
       "path": "docs/starclock-agent-integration-contract.md",
-      "sha256": "44ee4d4c16b20025c7560a6f933471802d3fd7c83a9a842fb5364c95de0b1483"
+      "sha256": "4454da99ebde4f96e1764429b76c1ee2ee166529ccc37bd5ef6f23a5d8a33431"
     },
     {
       "path": "crates/starclock-agent-api/examples/g02_in_process.rs",
@@ -213,7 +249,7 @@
     },
     {
       "path": "examples/agent-control/stdio-discovery.mjs",
-      "sha256": "4b98e094f3adc5e1af3dadc1711450415c4175ef22ba2895eba78578bc6d8dbe"
+      "sha256": "618e6fdc008596154b5b7c255d136553620907fd28e3a9a04af69ee22be28682"
     }
   ]
 }
