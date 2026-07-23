@@ -29,7 +29,7 @@
   "goldens": {
     "runtime_catalog_sha256": "95bde336de4d1e57fc5d5f54366babb5a94c48d4b8d4d80fce0954e311b3fdd8",
     "representative_complete_contribution_sha256": "3c17e1952b3f6bb7666221a033d1da4e09c675ad24c60d8084914bab8d7a5fb5",
-    "entry_definition_sha256": "744356747326d7fd94349e41f36dacf9acef5ee9cc2ccaa9182113873a73cc92",
+    "entry_definition_sha256": "389b60017ee45ca3f453c9bbdfd367f5e91ca1cceaa089420643d1dd1f0fd543",
     "activity_graph_sha256": "16a40a0e287f59891419aa0c668f540ab0241305a27ba97fa859be48d33b0fbb"
   },
   "deferred_scope": {
@@ -59,12 +59,12 @@
   "source_sha256": {
     "crates/starclock-mode-universe/src/path_runtime.rs": "518b203a4dbd6d099e8b4573fb30f021ee6bc8ef0e7f8584796eea59840d2c9a",
     "crates/starclock-mode-universe/src/topology.rs": "fddf2634c6e1c8e50edb0ef7eab551f059adc68a0a0529c1225c74aa3b75b8da",
-    "crates/starclock-mode-universe/src/entry.rs": "a0c4118b3d27228f4946f7fc84bbeb402f92b9307cac9bd7b3f7966049499220",
-    "crates/starclock-mode-universe/src/runtime.rs": "ade1e9b6a164c08d53a00381a6325f074d16f0f0b9b66bf27c830c8c06093656",
+    "crates/starclock-mode-universe/src/entry.rs": "89fbc00feb367c6749e908b19e2be5ac0c85aa83deb94491e1005278bfd3fffb",
+    "crates/starclock-mode-universe/src/runtime.rs": "a1e9ef007647f4094d0be13949e68c5b7ce51cfee65e8ec97a520361070355f5",
     "crates/starclock-mode-universe/tests/path_runtime.rs": "f30adc07ae40c8ad43aab88e1d506c661243d62c68368f0b0079621da687bc56",
-    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "476a2e6d1ca32b4f55e840d295aa3afe82e61b8df460d28b42dda8e463efc496",
-    "crates/starclock-mode-universe/tests/entry_compilation.rs": "e8772ae32e5973cf2491be1264b9d4bb534dd65303ad21a15c8fd21ab182b4a0",
-    "crates/starclock-mode-universe/tests/topology_runtime.rs": "71dd862b8b8b11f685fb2b65f6c218d568f75e9f793c50383f70147fdd341ab8"
+    "crates/starclock-mode-universe/tests/encounter_runtime.rs": "a92e5fb8a006bf596754c86135c8a31e9af54f5e2dfacf3027981b63d30db3b5",
+    "crates/starclock-mode-universe/tests/entry_compilation.rs": "ecf497b59b8ae25c2365a5e44b11bd9b468fc9e4eea46ab262b6b3d8e9e48c14",
+    "crates/starclock-mode-universe/tests/topology_runtime.rs": "08206ffd75968744ea3d42d51be4b072cd46580c09e70da28f7951e5c313398e"
   },
   "focused_tests": 3,
   "new_registry_packages": []

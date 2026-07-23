@@ -16,19 +16,19 @@
   "mechanics": ["CriticalBoostAndExcessCriticalConversion", "DefeatBreakTurnAndConsecutiveActionControl", "HealingEnergySkillPointsAndStaticStats", "WindResonanceCelestialArrowCriticalFormationAndEnergyReservoir"],
   "goldens": {
     "hunt_runtime_catalog_sha256": "2b3567a9743752f12e4bf46381fb91700944bf62fe8d067a9adbbe6d6c82a13d",
-    "entry_definition_sha256": "744356747326d7fd94349e41f36dacf9acef5ee9cc2ccaa9182113873a73cc92",
+    "entry_definition_sha256": "389b60017ee45ca3f453c9bbdfd367f5e91ca1cceaa089420643d1dd1f0fd543",
     "enhanced_critical_boost_maximum_stacks": 12,
     "nine_blessing_speed_ratio_six_decimal": 360000,
     "one_thousand_attack_resonance_damage_six_decimal": 5500000000,
     "resonance_energy_maximum_six_decimal": 200000000
   },
-  "runtime_coverage": { "content_records_executable": 337, "rule_bindings_executable": 332, "semantic_fixtures_executable": 29 },
+  "runtime_coverage": { "content_records_executable": 396, "rule_bindings_executable": 390, "semantic_fixtures_executable": 30 },
   "compatibility": { "generated_rows_public": false, "authoritative_float": false, "free_form_runtime_target": false, "free_form_runtime_event": false, "content_id_branch_in_resolver": false, "activity_mutated_from_combat": false },
   "source_sha256": {
-    "crates/starclock-mode-universe/src/path_effect_runtime.rs": "4131689dfb780aa0622d3262368a3d7ef8cf2d09d7529c2eb2115408bbf8d747",
+    "crates/starclock-mode-universe/src/path_effect_runtime.rs": "24a9b39440c54b3af4901ea3ee2e05e8cc8649fc2feab58f71fef8f8b86b0bd3",
     "crates/starclock-mode-universe/src/hunt_runtime.rs": "a1c5aa6999f77e2a944319167fad1f375792136d2524c286f7a7e0af6f823979",
-    "crates/starclock-mode-universe/src/entry.rs": "a0c4118b3d27228f4946f7fc84bbeb402f92b9307cac9bd7b3f7966049499220",
-    "crates/starclock-mode-universe/src/runtime.rs": "ade1e9b6a164c08d53a00381a6325f074d16f0f0b9b66bf27c830c8c06093656",
+    "crates/starclock-mode-universe/src/entry.rs": "89fbc00feb367c6749e908b19e2be5ac0c85aa83deb94491e1005278bfd3fffb",
+    "crates/starclock-mode-universe/src/runtime.rs": "a1e9ef007647f4094d0be13949e68c5b7ce51cfee65e8ec97a520361070355f5",
     "crates/starclock-mode-universe/tests/hunt_runtime.rs": "dd4973e1b77bbaa9cb3855d998f36d6794dda20b1a070e9d266c6849c072ad6f"
   },
   "focused_tests": 5,

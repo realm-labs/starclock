@@ -16,6 +16,7 @@ pub mod catalog;
 pub mod curio;
 pub mod curio_runtime;
 pub mod definition;
+pub mod destruction_runtime;
 pub mod digest;
 pub mod encounter;
 pub mod encounter_slot;

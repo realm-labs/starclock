@@ -19,6 +19,7 @@ use crate::{
     blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
     curio_runtime::CurioRuntimeCatalog,
+    destruction_runtime::DestructionRuntimeCatalog,
     digest::Encoder,
     hunt_runtime::HuntRuntimeCatalog,
     id::{AbilityTreeNodeId, DifficultyId, PathId, WorldId},
@@ -216,6 +217,10 @@ impl StandardUniverseProfile {
             HuntRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidPathRuntime)?,
         );
+        let destruction_runtime = Arc::new(
+            DestructionRuntimeCatalog::compile(&self.catalog)
+                .map_err(|_| StandardUniverseCompileError::InvalidPathRuntime)?,
+        );
         let curio_runtime = Arc::new(
             CurioRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidCurioRuntime)?,
@@ -300,6 +305,7 @@ impl StandardUniverseProfile {
             nihility_runtime,
             abundance_runtime,
             hunt_runtime,
+            destruction_runtime,
             curio_runtime,
             run_runtime,
             ability_runtime,
@@ -334,6 +340,7 @@ pub struct CompiledActivity {
     nihility_runtime: Arc<NihilityRuntimeCatalog>,
     abundance_runtime: Arc<AbundanceRuntimeCatalog>,
     hunt_runtime: Arc<HuntRuntimeCatalog>,
+    destruction_runtime: Arc<DestructionRuntimeCatalog>,
     curio_runtime: Arc<CurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -447,6 +454,11 @@ impl CompiledActivity {
     }
 
     #[must_use]
+    pub const fn destruction_runtime(&self) -> &Arc<DestructionRuntimeCatalog> {
+        &self.destruction_runtime
+    }
+
+    #[must_use]
     pub const fn curio_runtime(&self) -> &Arc<CurioRuntimeCatalog> {
         &self.curio_runtime
     }
@@ -491,6 +503,7 @@ impl CompiledActivity {
                     nihility_runtime: Arc::clone(&self.nihility_runtime),
                     abundance_runtime: Arc::clone(&self.abundance_runtime),
                     hunt_runtime: Arc::clone(&self.hunt_runtime),
+                    destruction_runtime: Arc::clone(&self.destruction_runtime),
                     curio_runtime: Arc::clone(&self.curio_runtime),
                     run_runtime: Arc::clone(&self.run_runtime),
                     ability_runtime: Arc::clone(&self.ability_runtime),
@@ -880,6 +893,7 @@ fn compile_identity(
     encoder.text(crate::nihility_runtime::NIHILITY_RUNTIME_REVISION);
     encoder.text(crate::abundance_runtime::ABUNDANCE_RUNTIME_REVISION);
     encoder.text(crate::hunt_runtime::HUNT_RUNTIME_REVISION);
+    encoder.text(crate::destruction_runtime::DESTRUCTION_RUNTIME_REVISION);
     encoder.text(crate::curio_runtime::CURIO_RUNTIME_REVISION);
     encoder.text(crate::run_runtime::RUN_RUNTIME_REVISION);
     encoder.text(crate::ability_runtime::ABILITY_RUNTIME_REVISION);

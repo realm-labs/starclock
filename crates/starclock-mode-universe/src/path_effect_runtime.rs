@@ -89,6 +89,8 @@ pub enum PathBattleEvent {
     LethalDamageReceived = 27,
     FollowUpAttackUsed = 28,
     ConsecutiveActionStarted = 29,
+    AttackStarted = 30,
+    HpLost = 31,
 }
 
 /// Cause-relative target retained until the combat adapter resolves unit IDs.
@@ -191,6 +193,9 @@ pub struct PathEffectFacts {
     pub actor_critical_rate_ratio: PathEffectValue,
     pub highest_ally_attack: PathEffectValue,
     pub last_acting_ally_attack: PathEffectValue,
+    pub actor_current_hp_ratio: PathEffectValue,
+    pub actor_hp_lost_ratio: PathEffectValue,
+    pub party_hp_lost: PathEffectValue,
     pub enemy_current_hp_ratio: PathEffectValue,
     pub path_blessing_count: u32,
     pub shielded_allies: u32,
@@ -200,6 +205,7 @@ pub struct PathEffectFacts {
     pub critical_boost_stacks: u32,
     pub consecutive_action_count: u32,
     pub allied_turn_count: u32,
+    pub grit_stacks: u32,
     pub actor_is_shielded: bool,
     pub enemy_is_frozen: bool,
     pub enemy_is_dissociated: bool,
@@ -235,9 +241,14 @@ impl PathEffectFacts {
             self.actor_critical_rate_ratio,
             self.highest_ally_attack,
             self.last_acting_ally_attack,
+            self.actor_current_hp_ratio,
+            self.actor_hp_lost_ratio,
+            self.party_hp_lost,
             self.enemy_current_hp_ratio,
         ];
         if values.iter().any(|value| value.raw_six_decimal() < 0)
+            || self.actor_current_hp_ratio > PathEffectValue::ONE
+            || self.actor_hp_lost_ratio > PathEffectValue::ONE
             || self.enemy_current_hp_ratio > PathEffectValue::ONE
         {
             Err(PathEffectRuntimeError::InvalidFacts)
@@ -524,6 +535,77 @@ pub enum PathEffect {
         turn_interval: u8,
         initial_turns: u8,
         cannot_repeat_for_same_actor: bool,
+    },
+    ApplyVirtualGrit {
+        target: PathEffectTarget,
+        below_hp_ratio: PathEffectValue,
+        base_stacks: u8,
+        additional_hp_loss_interval_ratio: PathEffectValue,
+        additional_stacks_per_interval: u8,
+        maximum_stacks: u8,
+        attack_ratio_per_stack: PathEffectValue,
+        defense_ratio_per_stack: PathEffectValue,
+    },
+    ModifyGrit {
+        target: PathEffectTarget,
+        stacks: i8,
+        adjacent_stacks: u8,
+        maximum_stacks: u8,
+        attack_ratio_per_stack: PathEffectValue,
+        defense_ratio_per_stack: PathEffectValue,
+        once_per_action: bool,
+    },
+    SetGritMaximum {
+        maximum_stacks: u8,
+    },
+    DistributeIncomingDamage {
+        target: PathEffectTarget,
+        damage_reduction_ratio: PathEffectValue,
+    },
+    RetaliateFromGrit {
+        target: PathEffectTarget,
+        amount: PathEffectValue,
+        can_defeat: bool,
+    },
+    ConsumeCurrentHpAndDamage {
+        target: PathEffectTarget,
+        hp_cost_ratio: PathEffectValue,
+        damage_amount: PathEffectValue,
+    },
+    HealMaximumHpRatioCappedPerAction {
+        target: PathEffectTarget,
+        ratio: PathEffectValue,
+        cap_ratio: PathEffectValue,
+    },
+    PreventDefeatAndHeal {
+        target: PathEffectTarget,
+        heal_maximum_hp_ratio: PathEffectValue,
+        maximum_team_triggers_per_battle: u8,
+    },
+    ShieldOnLowHp {
+        target: PathEffectTarget,
+        trigger_below_hp_ratio: PathEffectValue,
+        maximum_hp_ratio: PathEffectValue,
+        duration_turns: u8,
+        maximum_triggers_per_character_per_battle: u8,
+    },
+    ConsumePartyHpForResonance {
+        remaining_hp_ratio: PathEffectValue,
+        resonance_damage_bonus_ratio: PathEffectValue,
+        shield_duration_turns: u8,
+    },
+    ApplyEntropicRetribution {
+        target: PathEffectTarget,
+        base_chance: PathEffectValue,
+        duration_turns: u8,
+        defense_reduction_ratio: PathEffectValue,
+        party_hp_lost_damage_ratio: PathEffectValue,
+    },
+    AutoActivateResonance {
+        trigger_below_hp_ratio: PathEffectValue,
+        maximum_triggers_per_battle: u8,
+        cannot_repeat_for_same_attack: bool,
+        consume_energy: bool,
     },
 }
 
