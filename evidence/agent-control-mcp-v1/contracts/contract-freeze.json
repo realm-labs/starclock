@@ -1,7 +1,7 @@
 {
   "schema_revision": "starclock.agent-control-contract-freeze.v1",
   "result": "pass",
-  "policy_sha256": "1b8cdaf36ddeb461e4e33c928db541b8d7bd5147c18074aef874f239d25ef20a",
+  "policy_sha256": "b3eeb076978ff804e0689cfa0102cc654f5da1009a0fb289f9898e1ba56251b3",
   "library": {
     "crate": "starclock-agent-api",
     "schema_revision": "agent-api-v1",
@@ -12,6 +12,11 @@
       "observation",
       "schema",
       "session"
+    ],
+    "allowed_additive_responsibility_modules": [
+      "activity_action",
+      "activity_observation",
+      "activity_session"
     ],
     "session_operations": [
       "list_scenarios",
@@ -100,11 +105,11 @@
   "contract_files": [
     {
       "path": "crates/starclock-agent-api/Cargo.toml",
-      "sha256": "213ed4990011f4f874d3cf62611bced0b2b0349fdcb9215695b42c5ff4e00d16"
+      "sha256": "ed2cd9544d056a2ef0e45d070e40374461fe476377ebfaf3a4225c86b51d9d96"
     },
     {
       "path": "crates/starclock-agent-api/src/lib.rs",
-      "sha256": "ddd54e75dfdac83f454ced78ee0982e0e6ae46579558b7af0ded8a7c6c600315"
+      "sha256": "ee51bdff9e1b846795305e9c3246e143da8c8fad2b27a4ac06e5a81a43f7b4a0"
     },
     {
       "path": "crates/starclock-agent-api/src/action.rs",

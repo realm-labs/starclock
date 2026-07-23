@@ -1,0 +1,39 @@
+{
+  "schema_revision": "starclock.goal04-activity-agent-api.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P5-B4",
+  "interface_revision": "agent-activity-v1",
+  "controller_revision": "agent-activity-session-v1",
+  "battle_executor": "verified-reference-projection-v1",
+  "limits": {
+    "offered_actions": 256,
+    "accepted_actions_per_settlement": 16,
+    "idempotency_entries": 1024,
+    "cached_response_bytes": 524288,
+    "replay_actions": 100000
+  },
+  "golden": {
+    "world": 1,
+    "difficulty_index": 0,
+    "seed": 10,
+    "external_actions": 61,
+    "replay_actions": 68,
+    "nested_battles": 7,
+    "encoded_bytes": 13225,
+    "replay_sha256": "e8efd9ae17b597e44379bfe2fd3d83c09a1d06901def434730c6c83bf8e8da04",
+    "final_state_hash": "57cafc16f9aa91f6a97d4acd3363b7aa640e8df11c914255231dc428d6a022b3"
+  },
+  "contracts": {
+    "owned_serializable_observations": true,
+    "opaque_current_offer_tokens_only": true,
+    "boundary_and_state_preconditions": true,
+    "rejected_requests_preserve_state": true,
+    "idempotent_retry_returns_equal_response": true,
+    "nested_battles_settle_automatically": true,
+    "external_decisions_are_replay_diagnostic_bound": true,
+    "truthful_controller_revision": true,
+    "terminal_replay_verifies_from_fresh_activity": true,
+    "battle_v1_contract_remains_compatible": true,
+    "reference_executor_is_explicitly_nonproduction": true
+  }
+}

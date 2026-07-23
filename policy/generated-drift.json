@@ -210,6 +210,10 @@
       "command": ["node", "tools/goal04/verify-universe-cli.mjs", "."]
     },
     {
+      "name": "Goal 04 Activity agent API",
+      "command": ["node", "tools/goal04/verify-activity-agent-api.mjs", "."]
+    },
+    {
       "name": "Goal 04 release scaffold",
       "command": ["node", "tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]
     },

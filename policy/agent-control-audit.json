@@ -11,8 +11,8 @@
     "protocol_neutral_crate": "starclock-agent-api",
     "adapter_crate": "starclock-mcp",
     "adapter_local_dependencies": ["starclock-agent-api"],
-    "protocol_neutral_local_dependencies": ["starclock-ai", "starclock-combat", "starclock-data", "starclock-replay"],
-    "domain_crates": ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mode-standard", "starclock-replay", "starclock-rules"],
+    "protocol_neutral_local_dependencies": ["starclock-activity", "starclock-ai", "starclock-combat", "starclock-data", "starclock-mode-universe", "starclock-replay"],
+    "domain_crates": ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mode-standard", "starclock-mode-universe", "starclock-replay", "starclock-rules"],
     "forbidden_domain_dependencies": ["axum", "rmcp", "schemars", "starclock-agent-api", "starclock-mcp", "tokio", "tower"],
     "forbidden_provider_packages": ["anthropic", "async-openai", "candle-core", "genai", "google-generative-ai-rs", "ollama-rs", "openai", "reqwest", "rig-core", "tch"]
   },

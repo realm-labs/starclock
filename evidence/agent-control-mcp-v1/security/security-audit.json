@@ -2,7 +2,7 @@
   "schema_revision": "starclock.agent-control-security-audit.v1",
   "result": "pass",
   "policy": {
-    "agent_control_audit_sha256": "c2ea79e81a0377b38d3365bea94717c112f88c68c7e4dd00b5f9f0be889f7e93",
+    "agent_control_audit_sha256": "819cd5ff8881c1478448b49f1c1f4a508a450a3066eeb6ed10f7cd178d6c9043",
     "repository_checks_sha256": "375ca4a2848519e8b8adec8cffee7789c85390bdafdbecf477c15a8ef2811e31",
     "dependency_policy_sha256": "a8044cfdd658d855c7ecd8641942173cc1229d53454b3856a4d509ebe054b47a",
     "mcp_sdk_lock_sha256": "75e6caaac63befbd746c8d8db1988cbc1804abb9e4bb45a56ef565837e2b5187",
@@ -10,7 +10,7 @@
     "mcp_authorization_sha256": "41f5e3b8079fc359db8d9b8a6ed8b51b8cf6ced5a021f08f0923af98d5696e35"
   },
   "source_and_api": {
-    "production_rust_files": 25,
+    "production_rust_files": 29,
     "handwritten_limit": 1200,
     "facade_limit": 200,
     "line_limit_exceptions": 0,
@@ -54,6 +54,13 @@
         "facade": false
       },
       {
+        "path": "crates/starclock-agent-api/src/activity_session.rs",
+        "lines": 690,
+        "limit": 1200,
+        "utilization_percent": 57,
+        "facade": false
+      },
+      {
         "path": "crates/starclock-cli/src/universe_v1.rs",
         "lines": 547,
         "limit": 1200,
@@ -89,22 +96,15 @@
         "facade": false
       },
       {
-        "path": "crates/starclock-mcp/src/rate_limit.rs",
-        "lines": 304,
+        "path": "crates/starclock-agent-api/src/activity_observation.rs",
+        "lines": 355,
         "limit": 1200,
-        "utilization_percent": 25,
-        "facade": false
-      },
-      {
-        "path": "crates/starclock-agent-api/src/schema.rs",
-        "lines": 301,
-        "limit": 1200,
-        "utilization_percent": 25,
+        "utilization_percent": 29,
         "facade": false
       }
     ],
     "unsafe_syntax_occurrences": 0,
-    "agent_public_declarations": 145,
+    "agent_public_declarations": 201,
     "agent_public_reexports": 1,
     "forbidden_public_api_leaks": 0
   },
@@ -125,9 +125,11 @@
       {
         "crate": "starclock-agent-api",
         "local_dependencies": [
+          "starclock-activity",
           "starclock-ai",
           "starclock-combat",
           "starclock-data",
+          "starclock-mode-universe",
           "starclock-replay"
         ],
         "registry_dependencies": [

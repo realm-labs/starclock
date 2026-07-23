@@ -8,6 +8,13 @@
 
 /// Opaque offered-action vocabulary and private command-binding boundary.
 pub mod action;
+/// Opaque Standard Universe Activity actions and private option bindings.
+pub mod activity_action;
+/// Owned, player-visible Standard Universe Activity projections.
+pub mod activity_observation;
+mod activity_reference;
+/// Authoritative Standard Universe Activity session and replay facade.
+pub mod activity_session;
 /// Stable protocol-neutral failure vocabulary.
 pub mod error;
 /// Owned visibility-controlled projections and bounded event pages.

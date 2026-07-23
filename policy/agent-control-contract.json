@@ -7,6 +7,7 @@
     "schema_revision": "agent-api-v1",
     "schema_bundle_sha256": "1746004f3f73ebbe6fb4cce4b850dd6813a1dc3a8584c3d191903328c0206725",
     "responsibility_modules": ["action", "error", "observation", "schema", "session"],
+    "allowed_additive_responsibility_modules": ["activity_action", "activity_observation", "activity_session"],
     "session_operations": ["list_scenarios", "create", "observe", "apply_action", "export_replay", "verify_replay", "close"],
     "requires_async_runtime": false,
     "requires_transport": false

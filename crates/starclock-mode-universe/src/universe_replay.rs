@@ -331,11 +331,33 @@ impl StandardUniverseReplayReport {
 
 pub fn verify_standard_universe_replay(
     bytes: &[u8],
-    mut activity: StandardUniverseActivity,
+    activity: StandardUniverseActivity,
     expected_profile_id: &str,
 ) -> Result<StandardUniverseReplayReport, StandardUniverseReplayError> {
+    verify_standard_universe_replay_with_controller(
+        bytes,
+        activity,
+        expected_profile_id,
+        StandardUniverseBaselineRunner::REVISION,
+    )
+}
+
+/// Verifies the same authoritative Activity trace for a specifically bound
+/// external controller. The baseline helper above preserves the original B2
+/// contract while agent sessions bind their own truthful controller identity.
+pub fn verify_standard_universe_replay_with_controller(
+    bytes: &[u8],
+    mut activity: StandardUniverseActivity,
+    expected_profile_id: &str,
+    expected_controller_revision: &str,
+) -> Result<StandardUniverseReplayReport, StandardUniverseReplayError> {
     let replay = decode_replay(bytes)?;
-    validate_identity(replay.header(), &activity, expected_profile_id)?;
+    validate_identity(
+        replay.header(),
+        &activity,
+        expected_profile_id,
+        expected_controller_revision,
+    )?;
     let records = replay.records();
     let mut record_index = 0_usize;
     let mut action_index = 0_u32;
@@ -589,8 +611,9 @@ fn validate_identity(
     header: &ReplayHeader,
     activity: &StandardUniverseActivity,
     expected_profile_id: &str,
+    expected_controller_revision: &str,
 ) -> Result<(), StandardUniverseReplayError> {
-    if header.controller().revision() != StandardUniverseBaselineRunner::REVISION
+    if header.controller().revision() != expected_controller_revision
         || header.identity().state_hash_revision() != ACTIVITY_STATE_HASH_REVISION
     {
         return Err(StandardUniverseReplayError::IdentityMismatch);

@@ -1,0 +1,54 @@
+{
+  "schema_revision": "starclock.goal04-activity-agent-api-evidence.v1",
+  "goal_id": "standard-universe-runtime-v1",
+  "batch": "G04-P5-B4",
+  "result": "owned-opaque-token-activity-session-settles-nested-battles-and-exports-a-freshly-verifiable-replay",
+  "revisions": {
+    "interface": "agent-activity-v1",
+    "controller": "agent-activity-session-v1"
+  },
+  "limits": {
+    "offered_actions": 256,
+    "accepted_actions_per_settlement": 16,
+    "idempotency_entries": 1024,
+    "cached_response_bytes": 524288,
+    "replay_actions": 100000
+  },
+  "golden": {
+    "world": 1,
+    "difficulty_index": 0,
+    "seed": 10,
+    "external_actions": 61,
+    "replay_actions": 68,
+    "nested_battles": 7,
+    "encoded_bytes": 13225,
+    "replay_sha256": "e8efd9ae17b597e44379bfe2fd3d83c09a1d06901def434730c6c83bf8e8da04",
+    "final_state_hash": "57cafc16f9aa91f6a97d4acd3363b7aa640e8df11c914255231dc428d6a022b3"
+  },
+  "contracts": {
+    "owned_serializable_observations": true,
+    "opaque_current_offer_tokens_only": true,
+    "boundary_and_state_preconditions": true,
+    "rejected_requests_preserve_state": true,
+    "idempotent_retry_returns_equal_response": true,
+    "nested_battles_settle_automatically": true,
+    "external_decisions_are_replay_diagnostic_bound": true,
+    "truthful_controller_revision": true,
+    "terminal_replay_verifies_from_fresh_activity": true,
+    "battle_v1_contract_remains_compatible": true,
+    "reference_executor_is_explicitly_nonproduction": true
+  },
+  "source_sha256": {
+    "crates/starclock-agent-api/Cargo.toml": "ed2cd9544d056a2ef0e45d070e40374461fe476377ebfaf3a4225c86b51d9d96",
+    "crates/starclock-agent-api/src/lib.rs": "ee51bdff9e1b846795305e9c3246e143da8c8fad2b27a4ac06e5a81a43f7b4a0",
+    "crates/starclock-agent-api/src/activity_action.rs": "073d72d0effd86d8bcd567a3ee7ac972360057d7b10e3d4b8da39440517e66b4",
+    "crates/starclock-agent-api/src/activity_observation.rs": "c8cd1e740190eb2316190caf00850cf9c8369600e8a24e7829835c4c47d1a062",
+    "crates/starclock-agent-api/src/activity_reference.rs": "ac46b1ab926e9e009e9398a54f8f873fb3a146c8ae5eaf9788da260c48f4d7ce",
+    "crates/starclock-agent-api/src/activity_session.rs": "db0f6fd8bf86439cfb74353d9c3dc7292ef5afea36bd2d612f3b0dcae5a7d06c",
+    "crates/starclock-agent-api/tests/activity_session_loop.rs": "7bbd45bc564f4bba3b55ad199268510713d152fd9309b14e838436bb3fa83fa4",
+    "crates/starclock-mode-universe/src/universe_replay.rs": "bbb81e6067e3f04382ce991f7c135a64f16e712c457fafd259b53842b6a947e5",
+    "tools/workspace/verify-dependencies.mjs": "b4a8beb4e8d0fbed130182b27ddc87cadb4fd8deca95ad8c885e5a944bfcd7ba"
+  },
+  "policy_sha256": "893cec6cf56d7f1143608eb591a208c07e2f712ae27e3cae0d06bcb4c911dafe",
+  "new_registry_packages": []
+}

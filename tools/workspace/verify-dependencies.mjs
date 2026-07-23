@@ -8,7 +8,7 @@ assert(/\[workspace\.lints\.rust\][\s\S]*?unsafe_code\s*=\s*"forbid"/.test(works
 assert(/\[workspace\.lints\.rust\][\s\S]*?unexpected_cfgs\s*=\s*"deny"/.test(workspaceManifest), "workspace must deny unexpected cfg values");
 assert(/\[workspace\.lints\.rust\][\s\S]*?unused_must_use\s*=\s*"deny"/.test(workspaceManifest), "workspace must deny unused must-use results");
 const expected = new Map([
-  ["starclock-agent-api", ["starclock-ai", "starclock-combat", "starclock-data", "starclock-replay"]],
+  ["starclock-agent-api", ["starclock-activity", "starclock-ai", "starclock-combat", "starclock-data", "starclock-mode-universe", "starclock-replay"]],
   ["starclock-combat", []],
   ["starclock-build", ["starclock-combat"]],
   ["starclock-activity", ["starclock-combat"]],
@@ -128,7 +128,7 @@ const cli = packages.find((entry) => entry.name === "starclock-cli");
 const cliBinaries = cli.targets.filter((target) => target.kind.includes("bin")).map((target) => target.name);
 assert(JSON.stringify(cliBinaries) === JSON.stringify(["starclock"]), "starclock-cli must own only the starclock binary");
 const agentApi = packages.find((entry) => entry.name === "starclock-agent-api");
-assert(agentApi.dependencies.every((dependency) => ["starclock-ai", "starclock-combat", "starclock-data", "starclock-replay", "serde", "serde_json", "sha2"].includes(dependency.name) || (dependency.kind === "dev" && ["allocation-counter", "proptest"].includes(dependency.name))), "starclock-agent-api may use only reviewed Goal 01 controller/composition/replay boundaries, deterministic serialization/token-digest dependencies and property/benchmark tooling");
+assert(agentApi.dependencies.every((dependency) => ["starclock-activity", "starclock-ai", "starclock-combat", "starclock-data", "starclock-mode-universe", "starclock-replay", "serde", "serde_json", "sha2"].includes(dependency.name) || (dependency.kind === "dev" && ["allocation-counter", "proptest"].includes(dependency.name))), "starclock-agent-api may use only reviewed combat/Activity controller, composition and replay boundaries, deterministic serialization/token-digest dependencies and property/benchmark tooling");
 
 const mcp = packages.find((entry) => entry.name === "starclock-mcp");
 assert(mcp.dependencies.every((dependency) => ["starclock-agent-api", "allocation-counter", "axum", "rmcp", "schemars", "serde", "serde_json", "tokio", "tower"].includes(dependency.name)), "starclock-mcp may depend only on the protocol-neutral agent API, frozen official MCP SDK, reviewed HTTP service boundary, schema/JSON conversion, async runtime and benchmark-only allocator counter");

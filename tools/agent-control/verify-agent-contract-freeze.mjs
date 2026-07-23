@@ -14,7 +14,10 @@ assert(policy.goal_id === "agent-control-mcp-v1", "contract goal drift");
 
 const agentLib = read("crates/starclock-agent-api/src/lib.rs");
 const modules = [...agentLib.matchAll(/^pub mod ([a-z_]+);$/gm)].map((match) => match[1]);
-assert(equal(modules, policy.library.responsibility_modules), "agent responsibility module surface drift");
+for (const module of policy.library.responsibility_modules)
+  assert(modules.includes(module), `released agent responsibility module ${module} is missing`);
+const additiveModules = modules.filter((module) => !policy.library.responsibility_modules.includes(module)).sort();
+assert(equal(additiveModules, [...policy.library.allowed_additive_responsibility_modules].sort()), "agent additive responsibility module surface drift");
 assert(agentLib.includes("#![forbid(unsafe_code)]"), "agent facade unsafe policy drift");
 assert(!/rmcp|axum|tokio|json-rpc|http::/i.test(stripComments(agentLib)), "agent facade gained a transport type");
 const schemaPolicy = JSON.parse(read("policy/agent-api-v1.json"));

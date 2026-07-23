@@ -20,8 +20,10 @@ serde.workspace = true
 serde_json.workspace = true
 sha2.workspace = true
 starclock-ai = { path = "../starclock-ai" }
+starclock-activity = { path = "../starclock-activity" }
 starclock-combat = { path = "../starclock-combat" }
 starclock-data = { path = "../starclock-data" }
+starclock-mode-universe = { path = "../starclock-mode-universe" }
 starclock-replay = { path = "../starclock-replay" }
 
 [dev-dependencies]
