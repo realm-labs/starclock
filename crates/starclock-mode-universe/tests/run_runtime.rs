@@ -162,6 +162,23 @@ fn noncombat_rooms_accept_only_offered_external_outcomes_without_granting_battle
             .iter()
             .all(|binding| binding.kind() != RoomContentKind::EncounterGroup)
     );
+    let bound = compiled
+        .runtime_definition()
+        .interactions()
+        .expect("all external outcomes use the composed handler registry");
+    assert!(bound.bindings().len() >= compiled.abstract_interactions().len());
+    assert!(
+        bound
+            .bindings()
+            .iter()
+            .all(|binding| bound.registry().handler(binding.handler()).is_some())
+    );
+    assert!(
+        compiled
+            .abstract_interactions()
+            .iter()
+            .all(|binding| { bound.binding(binding.node(), binding.outcome()).is_some() })
+    );
 
     let mut selected = None;
     for seed in 0..256 {
@@ -196,6 +213,17 @@ fn noncombat_rooms_accept_only_offered_external_outcomes_without_granting_battle
     let (mut activity, outcome) = selected.expect("bounded seeds include noncombat room");
     let before = activity.player_view();
     let decision = before.decision().unwrap();
+    let before_bytes = activity.canonical_state_bytes();
+    assert!(
+        activity
+            .choose_option(
+                before.state_hash(),
+                decision.id(),
+                decision.options()[0].id(),
+            )
+            .is_err()
+    );
+    assert_eq!(activity.canonical_state_bytes(), before_bytes);
     assert!(
         activity
             .submit_external_outcome(

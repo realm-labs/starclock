@@ -5,14 +5,16 @@ use crate::{
     ActivityBattleResultSubmission, ActivityBattleSettlement, ActivityBattleSettlementError,
     ActivityBattleStartRequest, ActivityCause, ActivityDebugView, ActivityDecisionId,
     ActivityDecisionKind, ActivityDefinitionIdentity, ActivityExpression,
-    ActivityExternalOutcomeId, ActivityFault, ActivityGraphDefinition, ActivityInstanceId,
-    ActivityMasterSeed, ActivityOperation, ActivityOptionDefinition, ActivityOptionId,
-    ActivityPendingBattleView, ActivityPlayerView, ActivityPreparationBoundary,
-    ActivityPreparationError, ActivityPreparationView, ActivityProgramDefinition,
-    ActivityRngContext, ActivityRngError, ActivityRngLabel, ActivityRngStreams, ActivitySlotId,
+    ActivityExternalOutcomeId, ActivityGraphDefinition, ActivityHandlerInput, ActivityInstanceId,
+    ActivityInteractionBinding, ActivityInteractionBindings, ActivityMasterSeed, ActivityOperation,
+    ActivityOptionDefinition, ActivityOptionId, ActivityPendingBattleView, ActivityPlayerView,
+    ActivityPreparationBoundary, ActivityPreparationView, ActivityProgramDefinition,
+    ActivityRngContext, ActivityRngLabel, ActivityRngStreams, ActivitySlotId,
     ActivityStateDefinition, ActivityStateHash, ActivityTransactionEvent,
-    ActivityTransactionOutcome, ActivityTransactionRejection, ActivityTransactionState,
-    ActivityValue, BattleResult, NodeId, ParticipantLock, PendingBattleSpec, SlotValueKind,
+    ActivityTransactionOutcome, ActivityTransactionState, ActivityValue, BattleResult,
+    GraphActivityBattleError, GraphActivityCommandError, GraphActivityDefinitionError,
+    GraphActivityEncounterError, GraphActivityRandomOfferError, GraphActivityRuntimeError,
+    GraphActivityStartError, NodeId, ParticipantLock, PendingBattleSpec, SlotValueKind,
 };
 
 /// Deterministic weighted settlement policy for one internal checkpoint.
@@ -236,6 +238,7 @@ pub struct GraphActivityDefinition {
     bootstrap: Option<ActivityBootstrapSelection>,
     random_checkpoints: Arc<[ActivityRandomCheckpoint]>,
     random_offers: Arc<[ActivityRandomOffer]>,
+    interactions: Option<Arc<ActivityInteractionBindings>>,
 }
 
 impl GraphActivityDefinition {
@@ -355,7 +358,20 @@ impl GraphActivityDefinition {
             bootstrap,
             random_checkpoints: checkpoints.into(),
             random_offers: offers.into(),
+            interactions: None,
         })
+    }
+
+    pub fn with_interactions(
+        mut self,
+        registry: crate::ActivityHandlerRegistry,
+        bindings: Vec<ActivityInteractionBinding>,
+    ) -> Result<Self, GraphActivityDefinitionError> {
+        self.interactions = Some(Arc::new(
+            ActivityInteractionBindings::new(registry, bindings, &self.graph, &self.programs)
+                .map_err(GraphActivityDefinitionError::InvalidInteractionBindings)?,
+        ));
+        Ok(self)
     }
 
     pub fn rebind(
@@ -376,6 +392,7 @@ impl GraphActivityDefinition {
             bootstrap: self.bootstrap.clone(),
             random_checkpoints: Arc::clone(&self.random_checkpoints),
             random_offers: Arc::clone(&self.random_offers),
+            interactions: self.interactions.clone(),
         })
     }
 
@@ -412,6 +429,11 @@ impl GraphActivityDefinition {
     #[must_use]
     pub fn random_offers(&self) -> &[ActivityRandomOffer] {
         &self.random_offers
+    }
+
+    #[must_use]
+    pub fn interactions(&self) -> Option<&ActivityInteractionBindings> {
+        self.interactions.as_deref()
     }
 
     fn program(&self, node: NodeId) -> Option<&ActivityProgramDefinition> {
@@ -606,6 +628,9 @@ impl GraphActivity {
         if offered.id() != decision {
             return Err(GraphActivityCommandError::DecisionNotOffered);
         }
+        if offered.kind() == ActivityDecisionKind::ExternalOutcome {
+            return Err(GraphActivityCommandError::InteractionNotBound);
+        }
         let program = self
             .definition
             .program(self.state.current_node())
@@ -651,7 +676,58 @@ impl GraphActivity {
         {
             return Err(GraphActivityCommandError::DecisionNotOffered);
         }
-        self.choose_option(expected_state_hash, decision, option)
+        let interactions = self
+            .definition
+            .interactions()
+            .ok_or(GraphActivityCommandError::InteractionNotBound)?;
+        let binding = interactions
+            .binding(self.state.current_node(), outcome)
+            .ok_or(GraphActivityCommandError::InteractionNotBound)?;
+        let registration = interactions
+            .registry()
+            .handler(binding.handler())
+            .ok_or(GraphActivityCommandError::HandlerUnavailable)?;
+        let output = registration
+            .execute(
+                ActivityHandlerInput::new(&view, binding.payload())
+                    .map_err(|fault| GraphActivityCommandError::HandlerFault(fault.kind()))?,
+            )
+            .map_err(|fault| GraphActivityCommandError::HandlerFault(fault.kind()))?;
+        let program = self
+            .definition
+            .program(self.state.current_node())
+            .expect("pending decision came from the current node");
+        let selected_operations = program
+            .operations()
+            .iter()
+            .find_map(|operation| match operation {
+                ActivityOperation::Offer { options, .. } => options
+                    .iter()
+                    .find(|candidate| candidate.id() == option)
+                    .map(|candidate| candidate.operations().len()),
+                _ => None,
+            })
+            .expect("validated offered option exists in its source program");
+        if selected_operations
+            .checked_add(output.operations().len())
+            .is_none_or(|count| count > crate::MAX_ACTIVITY_PROGRAM_OPERATIONS)
+        {
+            return Err(GraphActivityCommandError::InteractionOperationLimit);
+        }
+        let cause = ActivityCause::new(
+            self.state.command_sequence().saturating_add(1),
+            program.id(),
+            self.state.current_node(),
+        )
+        .expect("next command sequence is non-zero");
+        let mut events = committed(self.state.apply_option_with_prefix(
+            option,
+            output.operations(),
+            cause,
+            &self.definition.graph,
+        ))?;
+        events.extend(self.pump().map_err(GraphActivityCommandError::Runtime)?);
+        Ok(events.into_boxed_slice())
     }
 
     pub fn reroll_random_offer(
@@ -1115,75 +1191,4 @@ fn committed_runtime(
             Err(GraphActivityRuntimeError::Rejected(error))
         }
     }
-}
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum GraphActivityDefinitionError {
-    InvalidBootstrapSelection,
-    InvalidBootstrapSlot,
-    DuplicateNodeProgram,
-    MissingNodeProgram(NodeId),
-    TerminalNodeProgram(NodeId),
-    InvalidProgramBinding(NodeId),
-    InvalidRandomCheckpoint,
-    DuplicateRandomCheckpoint,
-    InvalidRandomOffer,
-    DuplicateRandomOffer,
-    IncompatibleStateShape,
-    InvalidLogicalScopes,
-}
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum GraphActivityStartError {
-    Rng(ActivityRngError),
-    State(ActivityFault),
-    Runtime(GraphActivityRuntimeError),
-}
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum GraphActivityRuntimeError {
-    MissingNodeProgram,
-    InvalidCause,
-    Rejected(ActivityTransactionRejection),
-    AutomaticStepLimit,
-    InvalidRandomCheckpoint,
-    InvalidRandomOffer,
-    Rng(ActivityRngError),
-}
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum GraphActivityRandomOfferError {
-    StaleStateHash,
-    NotOffered,
-    RerollDisabled,
-    RerollLimitReached,
-    InvalidCounter,
-    InvalidProgram,
-    Rejected(ActivityTransactionRejection),
-    Faulted(ActivityFault),
-    Runtime(GraphActivityRuntimeError),
-}
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum GraphActivityCommandError {
-    StaleStateHash,
-    DecisionNotOffered,
-    Rejected(ActivityTransactionRejection),
-    Runtime(GraphActivityRuntimeError),
-}
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum GraphActivityEncounterError {
-    StaleStateHash,
-    DecisionNotOffered,
-    Rejected(ActivityTransactionRejection),
-    Faulted(ActivityFault),
-    Preparation(ActivityPreparationError),
-    Runtime(GraphActivityRuntimeError),
-}
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum GraphActivityBattleError {
-    Settlement(ActivityBattleSettlementError),
-    Runtime(GraphActivityRuntimeError),
 }

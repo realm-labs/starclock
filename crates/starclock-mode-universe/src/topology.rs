@@ -5,12 +5,13 @@ use std::sync::Arc;
 use starclock_activity::{
     ActivityBootstrapSelection, ActivityCondition, ActivityDecisionKind, ActivityEdgeCondition,
     ActivityEdgeDefinition, ActivityEdgeId, ActivityExpression, ActivityExternalOutcomeId,
-    ActivityGraphDefinition, ActivityInventoryId, ActivityNodeDefinition, ActivityNodeKind,
-    ActivityOperation, ActivityOptionDefinition, ActivityOptionId, ActivityProgramDefinition,
-    ActivityProgramId, ActivityRandomCheckpoint, ActivityRandomOffer, ActivityRandomPolicies,
-    ActivityRngLabel, ActivitySlotId, ActivityStateDefinition, ActivityTerminalOutcome,
-    ActivityValue, GraphActivityDefinition, GraphActivityDefinitionError, GraphActivityNodeProgram,
-    LogicalScopeAddress, LogicalScopeClassDefinition, LogicalScopeClassId, LogicalScopeDefinitions,
+    ActivityGraphDefinition, ActivityInteractionBinding, ActivityInventoryId,
+    ActivityNodeDefinition, ActivityNodeKind, ActivityOperation, ActivityOptionDefinition,
+    ActivityOptionId, ActivityProgramDefinition, ActivityProgramId, ActivityRandomCheckpoint,
+    ActivityRandomOffer, ActivityRandomPolicies, ActivityRngLabel, ActivitySlotId,
+    ActivityStateDefinition, ActivityTerminalOutcome, ActivityValue, GraphActivityDefinition,
+    GraphActivityDefinitionError, GraphActivityNodeProgram, LogicalScopeAddress,
+    LogicalScopeClassDefinition, LogicalScopeClassId, LogicalScopeDefinitions,
     LogicalScopeNodeBinding, NodeId, ParticipantLock, SectionId, TerminalOutcome,
 };
 
@@ -18,6 +19,9 @@ use crate::{
     blessing_runtime::{BlessingOfferEligibility, BlessingRuntimeCatalog},
     catalog::UniverseCatalog,
     encounter::RoomContentKind,
+    handler_bundle::{
+        STANDARD_UNIVERSE_EXTERNAL_INTERACTION_HANDLER_ID, activity_handler_registry,
+    },
     id::{EncounterGroupId, EncounterMemberId, RoomId, TopologyId, TopologyNodeId},
     path::ExactParameter,
     path_runtime::{FormationSelectionBindings, PathRuntimeCatalog},
@@ -200,6 +204,7 @@ impl EncounterOptionBinding {
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AbstractInteractionBinding {
+    node: NodeId,
     outcome: ActivityExternalOutcomeId,
     room: RoomId,
     kind: RoomContentKind,
@@ -207,6 +212,10 @@ pub struct AbstractInteractionBinding {
 }
 
 impl AbstractInteractionBinding {
+    #[must_use]
+    pub const fn node(&self) -> NodeId {
+        self.node
+    }
     #[must_use]
     pub const fn outcome(&self) -> ActivityExternalOutcomeId {
         self.outcome
@@ -390,6 +399,51 @@ pub(crate) fn compile(
             .collect(),
     )
     .map_err(UniverseTopologyCompileError::RuntimeDefinition)?;
+    let activity_interactions = programs
+        .iter()
+        .flat_map(|program| {
+            program
+                .program()
+                .operations()
+                .iter()
+                .filter_map(|operation| match operation {
+                    ActivityOperation::Offer { kind, options }
+                        if *kind == ActivityDecisionKind::ExternalOutcome =>
+                    {
+                        Some(
+                            options
+                                .iter()
+                                .map(|option| (program.node(), option.id()))
+                                .collect::<Vec<_>>(),
+                        )
+                    }
+                    _ => None,
+                })
+                .flatten()
+        })
+        .map(|(node, option)| {
+            let outcome = ActivityExternalOutcomeId::new(option.get())
+                .expect("offered option ID is non-zero");
+            let payload = interactions
+                .iter()
+                .find(|binding| binding.node == node && binding.outcome == outcome)
+                .map_or_else(
+                    || b"room-selection".to_vec(),
+                    |binding| binding.source_content_id.as_bytes().to_vec(),
+                );
+            ActivityInteractionBinding::new(
+                node,
+                outcome,
+                starclock_activity::ActivityHandlerId::new(
+                    STANDARD_UNIVERSE_EXTERNAL_INTERACTION_HANDLER_ID,
+                )
+                .expect("static handler ID is non-zero"),
+                payload,
+                "standard-universe.content.v4.4",
+            )
+            .expect("compiled source interaction identity is valid")
+        })
+        .collect();
     let runtime = GraphActivityDefinition::new(
         identity,
         graph,
@@ -399,6 +453,9 @@ pub(crate) fn compile(
         Some(bootstrap),
         ActivityRandomPolicies::new(random_checkpoints, random_offers),
     )
+    .and_then(|definition| {
+        definition.with_interactions(activity_handler_registry(), activity_interactions)
+    })
     .map_err(UniverseTopologyCompileError::RuntimeDefinition)?;
     Ok(CompiledUniverseTopology {
         runtime: Arc::new(runtime),
@@ -661,6 +718,7 @@ fn compile_programs(
                     ],
                 ));
                 interactions.push(AbstractInteractionBinding {
+                    node: hub.content_node,
                     outcome: ActivityExternalOutcomeId::new(id.get())
                         .expect("derived interaction option is non-zero"),
                     room: room.room,

@@ -195,10 +195,11 @@ fn room_content_and_reward_nodes_gate_routes_without_spatial_state() {
     assert_eq!(decision.kind(), ActivityDecisionKind::ExternalOutcome);
     assert_eq!(decision.options().len(), 1);
     activity
-        .choose_option(
+        .submit_external_outcome(
             content.state_hash(),
             decision.id(),
-            decision.options()[0].id(),
+            starclock_activity::ActivityExternalOutcomeId::new(decision.options()[0].id().get())
+                .unwrap(),
         )
         .expect("consume room content");
     let after = activity.player_view();

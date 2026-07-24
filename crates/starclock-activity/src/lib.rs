@@ -14,8 +14,10 @@ mod codec;
 mod graph;
 mod graph_activity;
 mod graph_command;
+mod graph_error;
 mod handler_registry;
 mod id;
+mod interaction;
 mod logical_scope;
 mod participant;
 mod program;
@@ -65,14 +67,16 @@ pub use graph::{
 };
 pub use graph_activity::{
     ActivityBootstrapSelection, ActivityRandomCheckpoint, ActivityRandomOffer,
-    ActivityRandomPolicies, GraphActivity, GraphActivityBattleError, GraphActivityBattleResolution,
-    GraphActivityCommandError, GraphActivityDefinition, GraphActivityDefinitionError,
-    GraphActivityEncounterError, GraphActivityNodeProgram, GraphActivityPreparationResolution,
-    GraphActivityRandomOfferError, GraphActivityResolution, GraphActivityRuntimeError,
-    GraphActivityStartError,
+    ActivityRandomPolicies, GraphActivity, GraphActivityBattleResolution, GraphActivityDefinition,
+    GraphActivityNodeProgram, GraphActivityPreparationResolution, GraphActivityResolution,
 };
 pub use graph_command::{
     GRAPH_ACTIVITY_API_REVISION, GraphActivityCommand, GraphActivityCommandKind,
+};
+pub use graph_error::{
+    GraphActivityBattleError, GraphActivityCommandError, GraphActivityDefinitionError,
+    GraphActivityEncounterError, GraphActivityRandomOfferError, GraphActivityRuntimeError,
+    GraphActivityStartError,
 };
 pub use handler_registry::{
     ACTIVITY_HANDLER_REGISTRY_REVISION, ActivityHandler, ActivityHandlerBundle,
@@ -86,6 +90,10 @@ pub use id::{
     ActivityExternalOutcomeId, ActivityHandlerId, ActivityInstanceId, ActivityInventoryId,
     ActivityModifierId, ActivityOptionId, ActivityProgramId, ActivitySlotId, AttemptId,
     BattleSequence, LogicalScopeClassId, NodeId, ParticipantId, ProjectionId, SectionId,
+};
+pub use interaction::{
+    ActivityInteractionBinding, ActivityInteractionBindingError, ActivityInteractionBindings,
+    MAX_ACTIVITY_COMPONENT_ID_BYTES, MAX_ACTIVITY_INTERACTION_BINDINGS,
 };
 pub use logical_scope::{
     ACTIVITY_LOGICAL_SCOPE_REVISION, LogicalScopeAddress, LogicalScopeClassDefinition,

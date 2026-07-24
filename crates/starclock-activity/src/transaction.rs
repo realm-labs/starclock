@@ -564,49 +564,17 @@ impl ActivityTransactionState {
         cause: ActivityCause,
         graph: &crate::ActivityGraphDefinition,
     ) -> ActivityTransactionOutcome {
-        let Some(pending) = &self.pending else {
-            return ActivityTransactionOutcome::Rejected(
-                ActivityTransactionRejection::DecisionNotOffered,
-            );
-        };
-        if cause.node != self.current_node
-            || cause.command_sequence != self.command_sequence.saturating_add(1)
-        {
-            return ActivityTransactionOutcome::Rejected(
-                ActivityTransactionRejection::CauseMismatch,
-            );
-        }
-        let Some(selected) = pending.options.iter().find(|item| item.id() == option) else {
-            return ActivityTransactionOutcome::Rejected(
-                ActivityTransactionRejection::UnknownOption,
-            );
-        };
-        let operations = selected.operations().to_vec();
-        let cause = cause.with_option(option);
-        let mut working = self.transaction_copy();
-        working.pending = None;
-        let mut events = Vec::new();
-        match working.execute(&operations, cause, graph, &mut events) {
-            Ok(()) => {
-                working.command_sequence = cause.command_sequence;
-                *self = working;
-                ActivityTransactionOutcome::Committed(events.into_boxed_slice())
-            }
-            Err(ExecutionFailure::Rejected(error)) => ActivityTransactionOutcome::Rejected(error),
-            Err(ExecutionFailure::Fault(fault)) => {
-                let mut faulted = self.transaction_copy();
-                faulted.command_sequence = cause.command_sequence;
-                faulted.pending = None;
-                faulted.terminal = Some(ActivityTerminalOutcome::Faulted);
-                events.clear();
-                events.push(ActivityTransactionEvent {
-                    cause,
-                    kind: ActivityTransactionEventKind::Faulted(fault),
-                });
-                *self = faulted;
-                ActivityTransactionOutcome::Faulted(events.into_boxed_slice(), fault)
-            }
-        }
+        self.apply_option_with_prefix(option, &[], cause, graph)
+    }
+
+    pub(crate) fn apply_option_with_prefix(
+        &mut self,
+        option: ActivityOptionId,
+        prefix: &[crate::ActivityOperation],
+        cause: ActivityCause,
+        graph: &crate::ActivityGraphDefinition,
+    ) -> ActivityTransactionOutcome {
+        decision::apply_option_with_prefix(self, option, prefix, cause, graph)
     }
 
     fn execute(

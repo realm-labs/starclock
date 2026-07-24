@@ -232,8 +232,19 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
             starclock_activity::ActivityDecisionKind::Encounter => {
                 break (view.state_hash(), decision.id(), decision.options()[0].id());
             }
+            starclock_activity::ActivityDecisionKind::ExternalOutcome => {
+                activity
+                    .submit_external_outcome(
+                        view.state_hash(),
+                        decision.id(),
+                        starclock_activity::ActivityExternalOutcomeId::new(
+                            decision.options()[0].id().get(),
+                        )
+                        .unwrap(),
+                    )
+                    .unwrap();
+            }
             starclock_activity::ActivityDecisionKind::Choice
-            | starclock_activity::ActivityDecisionKind::ExternalOutcome
             | starclock_activity::ActivityDecisionKind::Reward
             | starclock_activity::ActivityDecisionKind::Route => {
                 activity
