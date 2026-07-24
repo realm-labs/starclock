@@ -5,25 +5,26 @@
 | Field | Value |
 |---|---|
 | Goal ID | `standard-universe-mechanics-complete-v1` |
-| State | `Ready` |
-| Active phase | None |
+| State | `InProgress` |
+| Active phase | Phase 0 — Freeze truth and execution partitions |
 | Active batch | None |
-| Next unblocked batch | `G07-P0-B1` |
+| Next unblocked batch | `G07-P0-B2` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | Frozen by `G07-P0-B3` |
 | Blocking condition | None |
 
 Goal 06 immutable snapshot `combat-identity-dynamic-assembly-v1` is registered
-and verifies. Goal 07 may start at `G07-P0-B1`; `G07-P0-B3` then expands every
-`Mnn` row below into ordered `Snn` commit rows and freezes the terminal batch
-denominator.
+and machine-verified. G07-P0-B1 froze the inherited 2,201/786/78 oracle, the
+17 fixed batches and 15 content milestones. G07-P0-B2 now audits every
+retained row before G07-P0-B3 expands the milestones into ordered `Snn`
+commit rows.
 
 ## Fixed batch ledger
 
 | Batch | State | Evidence | Result |
 |---|---|---|---|
-| `G07-P0-B1` | `Pending` | Goal 06 snapshot registered at `c84c1a4572024355a1e30d41755133c486b1f4c7` | Freeze execution package and inherited denominator. |
+| `G07-P0-B1` | `Complete` | `node tools/goal07/verify-foundation.mjs`; Goal 06 immutable snapshot; quick repository gate | Froze the Goal 06 completion commit/tree, Goal 05 2,201/786/78 exact-once oracle, 783 retained rules, 73 enemy proxies, 17 fixed batches, 15 content milestones and Excel/openpyxl/Sora authoring contract. |
 | `G07-P0-B2` | `Pending` | — | Audit retained mechanics and evidence gaps. |
 | `G07-P0-B3` | `Pending` | — | Generate concrete content sub-batches and expand ledger. |
 | `G07-P0-B4` | `Pending` | — | Freeze research, approximation and release scaffold. |
@@ -89,7 +90,7 @@ retaining the milestone summary.
 
 | Field | Value |
 |---|---|
-| Final state | Blocked |
+| Final state | In progress |
 | Completion commit | — |
 | Expanded batch denominator | To be frozen by `G07-P0-B3` |
 | Runtime coverage | 3 / 786 executable starting point |

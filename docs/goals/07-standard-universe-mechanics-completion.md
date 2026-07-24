@@ -280,7 +280,7 @@ Generic role/rank proxy behavior is not a released mechanic implementation.
 
 ## Terminal checklist
 
-- [ ] Goal 06 immutable release prerequisite passes.
+- [x] Goal 06 immutable release prerequisite passes.
 - [ ] The concrete content sub-batch manifest is frozen and fully committed.
 - [ ] All 2,201 content records have exact-once runtime and accuracy dispositions.
 - [ ] All 786 mechanic rules are executable.
