@@ -13,7 +13,7 @@ settlement and production end-to-end Activity plus combat execution.
 | Batch | State | Evidence | Result |
 |---|---|---|---|
 | `G05-P0-B1` | `Complete` | This row's containing commit | Froze the execution package, six observed Goal 04 integration gaps, an additive migration contract and 19 commit-sized batches. Goal 04 remains an immutable historical snapshot; Goal 05 explicitly requires real nested combat and atomic effect application without expanding into general ForkJoin. |
-| `G05-P0-B2` | `Pending` | — | Freeze failing integration probes and focused budgets. |
+| `G05-P0-B2` | `Complete` | `node tools/goal05/verify-integration-probes.mjs`; `node tools/repository-check/run.mjs` | Froze the observable starting debt: two production reference-settlement callers, nine standalone Path entry points, two effect-plan-only noncombat entry points, seven physical nodes per domain, 37 acyclic templates/579 source nodes and the 4,058-node/5,993-edge compiled graph. The focused loop is capped at 180 seconds; every later batch must replace debt assertions with positive integration tests. |
 | `G05-P1-B1` | `Pending` | — | Composed Activity handler registry. |
 | `G05-P1-B2` | `Pending` | — | Logical `DomainVisit` scope. |
 | `G05-P1-B3` | `Pending` | — | Component identity/replay scaffold. |

@@ -1,0 +1,42 @@
+{
+  "schema": "starclock.goal05-integration-probes.v1",
+  "goal": "standard-universe-end-to-end-v1",
+  "baseline_commit": "4cc58a6",
+  "frozen_snapshot": {
+    "topology_templates": 37,
+    "source_topology_nodes": 579,
+    "source_topology_cycles": 0,
+    "compiled_activity_nodes": 4058,
+    "compiled_activity_edges": 5993,
+    "physical_nodes_per_domain": 7,
+    "path_effect_entry_points": 9,
+    "production_reference_settlement_files": [
+      "crates/starclock-agent-api/src/activity_reference.rs",
+      "crates/starclock-cli/src/universe_v1.rs"
+    ],
+    "effect_plan_only_entry_points": [
+      "occurrence_effect",
+      "service_effect"
+    ]
+  },
+  "terminal_expectations": {
+    "production_reference_settlement_files": 0,
+    "atomic_external_effect_entry_points": 2,
+    "real_nested_battle_workflows": [
+      "cli",
+      "agent-api",
+      "mcp",
+      "replay"
+    ],
+    "domain_visit_revisit_fixture": true,
+    "component_identity_divergence_fixture": true
+  },
+  "focused_budget": {
+    "wall_seconds": 180,
+    "commands": [
+      "cargo test -p starclock-activity -p starclock-mode-universe -p starclock-replay --all-targets",
+      "cargo clippy -p starclock-activity -p starclock-mode-universe -p starclock-replay --all-targets --all-features -- -D warnings",
+      "node tools/repository-check/run.mjs"
+    ]
+  }
+}

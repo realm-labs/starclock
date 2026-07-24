@@ -92,6 +92,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 66. [Agent clean-checkout acceptance](starclock-agent-clean-acceptance.md) — isolated staged-tree gate, strict runner identity and retained capability/conformance/performance digests.
 67. [Mode extension and evolution contract](26-mode-extension-and-evolution.md) — ordered child tasks, logical scopes, static handler bundles, component digests, experimental promotion, and immutable historical release evidence.
 68. [Standard Universe end-to-end runtime integration](27-standard-universe-end-to-end-integration.md) — real nested combat, atomic run effects, logical domain ownership, composed registries and component-aware replay migration.
+69. [Goal 05 integration probes](goal-05-integration-probes.md) — machine-readable Goal 04 integration-debt baseline and the focused three-minute execution budget.
 
 ## Execution goals
 
