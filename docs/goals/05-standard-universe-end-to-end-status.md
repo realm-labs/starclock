@@ -76,7 +76,7 @@ not promote retained approximations or metadata into integrated mechanics.
 
 | Field | Value |
 |---|---|
-| Final state | Complete |
+| Final state | `Complete` |
 | Completion commit | This row's containing commit (`G05-P5-B3`) |
 | Activity/replay revision | `standard-universe-nested-battle-executor-v1` / component-addressed replay v2 / `starclock-cli-universe-v2` |
 | Integration coverage | `content-manifests/standard-universe-end-to-end-v1/integration-dispositions.json` — 2,201 records / 786 rules / 78 fixtures assigned exactly once |

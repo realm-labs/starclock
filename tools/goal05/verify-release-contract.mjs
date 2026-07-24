@@ -34,7 +34,7 @@ assert(new Set(batchIds).size === batchIds.length, "Goal 05 batch ledger contain
 assert(completeBatchIds.length === policy.planned_batches, "not every Goal 05 batch is Complete");
 assert(new Set(batchIds.map((id) => id.slice(4, 6))).size === policy.planned_phases,
   "Goal 05 phase denominator differs");
-assert(status.includes("| Final state | Complete |"), "Goal 05 terminal state is not Complete");
+assert(status.includes("| Final state | `Complete` |"), "Goal 05 terminal state is not Complete");
 assert(!plan.includes("- [ ]"), "Goal 05 terminal checklist is incomplete");
 
 for (const file of [
