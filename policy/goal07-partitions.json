@@ -1,0 +1,58 @@
+{
+  "schema_revision": "starclock.goal07-partition-policy.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "batch": "G07-P0-B3",
+  "inputs": {
+    "retained_audit": {
+      "path": "content-manifests/standard-universe-mechanics-complete-v1/retained-audit.json",
+      "sha256": "e5b16bb26e56b55c3f0af6f70ea0988c51c9cdc4a87c3269027096cbe3d645f2"
+    },
+    "retained_audit_summary": {
+      "path": "evidence/standard-universe-mechanics-complete-v1/phase0/retained-audit-summary.json",
+      "sha256": "3fdf200aa35b164731110eea281b8eef41fed0e765d0bd24a0f231683151e6b5"
+    },
+    "encounter_waves": {
+      "path": "config/universe-generated/debug-json/UniverseEncounterWave.json",
+      "sha256": "7346515f53681b1ee7816328e5c0e793816281d1810fd9ea3fc4a65138f3b090"
+    }
+  },
+  "caps": {
+    "mechanic_rules_per_batch": 16,
+    "effect_bearing_noncombat_records_per_batch": 32,
+    "ordinary_enemy_variants_per_batch": 12,
+    "boss_variants_per_batch": 1,
+    "topology_metadata_rows_per_batch": 96,
+    "new_native_handler_admissions_per_batch": 1
+  },
+  "expected_generated_batches": 104,
+  "expected_total_batches": 121,
+  "expected_by_milestone": {
+    "G07-P2-M01": 3,
+    "G07-P2-M02": 4,
+    "G07-P2-M03": 4,
+    "G07-P2-M04": 4,
+    "G07-P2-M05": 4,
+    "G07-P2-M06": 4,
+    "G07-P2-M07": 4,
+    "G07-P2-M08": 4,
+    "G07-P2-M09": 4,
+    "G07-P2-M10": 4,
+    "G07-P3-M11": 6,
+    "G07-P3-M12": 3,
+    "G07-P4-M13": 14,
+    "G07-P4-M14": 6,
+    "G07-P5-M15": 36
+  },
+  "focused_commands": [
+    "node tools/goal07/verify-content-partition.mjs --partition {batch_id}",
+    "node tools/repository-check/run.mjs"
+  ],
+  "contracts": {
+    "all_audited_identities_are_assigned_exactly_once": true,
+    "whole_map_groups_are_never_split": true,
+    "boss_variants_are_isolated": true,
+    "native_candidates_are_not_admissions": true,
+    "each_partition_owns_excel_sora_runtime_tests_provenance_and_coverage": true,
+    "partitions_are_ordered_and_may_only_be_split_further": true
+  }
+}

@@ -8,17 +8,17 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Freeze truth and execution partitions |
 | Active batch | None |
-| Next unblocked batch | `G07-P0-B3` |
+| Next unblocked batch | `G07-P0-B4` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
-| Concrete content sub-batches | Frozen by `G07-P0-B3` |
+| Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
 | Blocking condition | None |
 
 Goal 06 immutable snapshot `combat-identity-dynamic-assembly-v1` is registered
 and machine-verified. G07-P0-B1 froze the inherited 2,201/786/78 oracle, the
-17 fixed batches and 15 content milestones. G07-P0-B2 now audits every
-retained row before G07-P0-B3 expands the milestones into ordered `Snn`
-commit rows.
+17 fixed batches and 15 content milestones. G07-P0-B2 audited every retained
+row, and G07-P0-B3 expanded the milestones into 104 ordered, bounded `Snn`
+commit rows. G07-P0-B4 is the next unblocked batch.
 
 ## Fixed batch ledger
 
@@ -26,7 +26,7 @@ commit rows.
 |---|---|---|---|
 | `G07-P0-B1` | `Complete` | `node tools/goal07/verify-foundation.mjs`; Goal 06 immutable snapshot; quick repository gate | Froze the Goal 06 completion commit/tree, Goal 05 2,201/786/78 exact-once oracle, 783 retained rules, 73 enemy proxies, 17 fixed batches, 15 content milestones and Excel/openpyxl/Sora authoring contract. |
 | `G07-P0-B2` | `Complete` | `node tools/goal07/verify-retained-audit.mjs`; generated exact-once audit; quick repository gate | Audited 2,201 content records, 786 rules, 78 fixtures, 86 enemy variants and 173 encounter members. Assigned mechanism family, shared primitive, evidence gaps and terminal runtime/accuracy targets; retained 427 legacy static-handler rule labels as review candidates rather than admissions. |
-| `G07-P0-B3` | `Pending` | — | Generate concrete content sub-batches and expand ledger. |
+| `G07-P0-B3` | `Complete` | `node tools/goal07/verify-partitions.mjs`; generated partition manifest and content ledger; quick repository gate | Froze 104 generated content batches under the declared caps and 121 total Goal 07 batches, with exact-once assignments for all 2,201 records, 786 rules, 78 fixtures, 86 enemy variants and 173 encounter members. |
 | `G07-P0-B4` | `Pending` | — | Freeze research, approximation and release scaffold. |
 | `G07-P1-B1` | `Pending` | — | Close trigger timing and once-scope capabilities. |
 | `G07-P1-B2` | `Pending` | — | Close selector and target-set capabilities. |
@@ -45,26 +45,27 @@ commit rows.
 ## Content milestone ledger
 
 These are coverage milestones, not permission to make one oversized commit.
-`G07-P0-B3` replaces each row with bounded `Snn` sub-batch rows while
-retaining the milestone summary.
+The complete 104-row generated ledger is maintained in
+[Goal 07 content ledger](07-standard-universe-mechanics-content-ledger.md).
+The milestone summary remains here for orientation.
 
 | Milestone | State | Rules/content | Completion condition |
 |---|---|---:|---|
-| `G07-P2-M01` | `PendingExpansion` | 42 / 42 | Ability Tree and shared Activity mechanics executable. |
-| `G07-P2-M02` | `PendingExpansion` | 58 / 59 | Preservation complete. |
-| `G07-P2-M03` | `PendingExpansion` | 58 / 59 | Remembrance complete. |
-| `G07-P2-M04` | `PendingExpansion` | 58 / 59 | Nihility complete. |
-| `G07-P2-M05` | `PendingExpansion` | 58 / 59 | Abundance complete. |
-| `G07-P2-M06` | `PendingExpansion` | 58 / 59 | Hunt complete. |
-| `G07-P2-M07` | `PendingExpansion` | 58 / 59 | Destruction complete. |
-| `G07-P2-M08` | `PendingExpansion` | 58 / 59 | Elation complete. |
-| `G07-P2-M09` | `PendingExpansion` | 58 / 59 | Propagation complete. |
-| `G07-P2-M10` | `PendingExpansion` | 58 / 59 | Erudition complete. |
-| `G07-P3-M11` | `PendingExpansion` | 86 / 86 | Positive/neutral/special Curios complete. |
-| `G07-P3-M12` | `PendingExpansion` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
-| `G07-P4-M13` | `PendingExpansion` | 0 / 447 | Occurrence choices and effects complete. |
-| `G07-P4-M14` | `PendingExpansion` | 94 / 94 | Services, shops, roster and interactables complete. |
-| `G07-P5-M15` | `PendingExpansion` | 0 / 959 | Enemy, encounter, World/difficulty and carry complete. |
+| `G07-P2-M01` | `Expanded` | 42 / 42 | Ability Tree and shared Activity mechanics executable. |
+| `G07-P2-M02` | `Expanded` | 58 / 59 | Preservation complete. |
+| `G07-P2-M03` | `Expanded` | 58 / 59 | Remembrance complete. |
+| `G07-P2-M04` | `Expanded` | 58 / 59 | Nihility complete. |
+| `G07-P2-M05` | `Expanded` | 58 / 59 | Abundance complete. |
+| `G07-P2-M06` | `Expanded` | 58 / 59 | Hunt complete. |
+| `G07-P2-M07` | `Expanded` | 58 / 59 | Destruction complete. |
+| `G07-P2-M08` | `Expanded` | 58 / 59 | Elation complete. |
+| `G07-P2-M09` | `Expanded` | 58 / 59 | Propagation complete. |
+| `G07-P2-M10` | `Expanded` | 58 / 59 | Erudition complete. |
+| `G07-P3-M11` | `Expanded` | 86 / 86 | Positive/neutral/special Curios complete. |
+| `G07-P3-M12` | `Expanded` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
+| `G07-P4-M13` | `Expanded` | 0 / 447 | Occurrence choices and effects complete. |
+| `G07-P4-M14` | `Expanded` | 94 / 94 | Services, shops, roster and interactables complete. |
+| `G07-P5-M15` | `Expanded` | 0 / 959 | Enemy, encounter, World/difficulty and carry complete. |
 
 ## Starting coverage
 
@@ -92,7 +93,7 @@ retaining the milestone summary.
 |---|---|
 | Final state | In progress |
 | Completion commit | — |
-| Expanded batch denominator | To be frozen by `G07-P0-B3` |
+| Expanded batch denominator | 121 total: 17 fixed + 104 generated content batches |
 | Runtime coverage | 3 / 786 executable starting point |
 | Numeric approximation register | To be generated |
 | Cross-platform evidence | To be generated |

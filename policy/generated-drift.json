@@ -162,6 +162,10 @@
       "command": ["node", "tools/goal07/verify-retained-audit.mjs"]
     },
     {
+      "name": "Goal 07 content partition manifest",
+      "command": ["node", "tools/goal07/verify-partitions.mjs"]
+    },
+    {
       "name": "Standard Universe bundle-loader dependency policy",
       "command": ["node", "tools/universe-bundle-loader/generate-policy.mjs"]
     },

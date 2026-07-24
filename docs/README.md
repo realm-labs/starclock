@@ -114,6 +114,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 88. [Goal 06 release contract](goal-06-release-contract.md) — frozen runtime revisions, evidence denominators and retained Goal 07 scope.
 89. [Goal 07 foundation](goal-07-foundation.md) — Goal 06 prerequisite, inherited 2,201/786/78 denominator and Excel/openpyxl/Sora authoring contract.
 90. [Goal 07 retained-mechanic audit](goal-07-retained-audit.md) — exact-once family, primitive, evidence-gap and terminal-disposition audit for content, rules, fixtures, enemies and encounters.
+91. [Goal 07 content partitions](goal-07-content-partitions.md) — 104 bounded generated content batches and the exact-once 121-batch execution denominator.
 
 ## Execution goals
 
