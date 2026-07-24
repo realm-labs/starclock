@@ -26,10 +26,17 @@ use crate::{
         OCCURRENCE_INTERACTION_HANDLER_ID, OccurrenceInteractionRuntimeCatalog,
     },
     path_runtime::{FormationSelectionBindings, PathRuntimeCatalog},
+    service_interaction::ServiceInteractionRuntimeCatalog,
+    topology_identity::{
+        blessing_option, content_option, engage_option, exit_option, formation_option,
+        formation_skip_option, interaction_option, member_option, occurrence_choice_option,
+        path_option, room_option, route_option, service_interaction_option, topology_option,
+    },
+    topology_service::{compile_room_services, option_condition as service_option_condition},
     topology_support::{domain_logical_scopes, exact_weight, occurrence_for_source, resolve_rooms},
 };
 
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v4";
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v5";
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 
 const PATH_NODE: u32 = 1;
@@ -53,18 +60,6 @@ const BATTLE_PROGRAM_OFFSET: u32 = 40_000;
 const REWARD_PROGRAM_OFFSET: u32 = 50_000;
 const FORMATION_PROGRAM_OFFSET: u32 = 55_000;
 const ROUTE_PROGRAM_OFFSET: u32 = 60_000;
-const PATH_OPTION_OFFSET: u64 = 1_000_000;
-const TOPOLOGY_OPTION_OFFSET: u64 = 2_000_000;
-const ROOM_OPTION_OFFSET: u64 = 1_000_000_000_000;
-const CONTENT_OPTION_OFFSET: u64 = 2_000_000_000_000;
-const MEMBER_OPTION_OFFSET: u64 = 3_000_000_000_000;
-const ENGAGE_OPTION_OFFSET: u64 = 4_000_000_000_000;
-const INTERACTION_OPTION_OFFSET: u64 = 4_500_000_000_000;
-const REWARD_OPTION_OFFSET: u64 = 5_000_000_000_000;
-const FORMATION_OPTION_OFFSET: u64 = 5_500_000_000_000;
-const FORMATION_SKIP_OPTION_OFFSET: u64 = 5_900_000_000_000;
-const ROUTE_OPTION_OFFSET: u64 = 6_000_000_000_000;
-const EXIT_OPTION_OFFSET: u64 = 7_000_000_000_000;
 const TOPOLOGY_DRAW_PURPOSE: u16 = 1;
 const ROOM_DRAW_PURPOSE: u16 = 2;
 const MEMBER_DRAW_PURPOSE: u16 = 3;
@@ -228,6 +223,7 @@ pub struct AbstractInteractionBinding {
     handler: u32,
     payload: Box<[u8]>,
     random_candidate_count: Option<u32>,
+    random_label: Option<ActivityRngLabel>,
 }
 
 impl AbstractInteractionBinding {
@@ -280,6 +276,7 @@ pub(crate) fn compile(
     path_blessing_count_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
+    service_interactions: &ServiceInteractionRuntimeCatalog,
     external_outcome_slot: ActivitySlotId,
 ) -> Result<CompiledUniverseTopology, UniverseTopologyCompileError> {
     let mut nodes = terminal_nodes()?;
@@ -327,7 +324,7 @@ pub(crate) fn compile(
                 let edge = push_edge(&mut edges, route_node(source.id()), node(COMPLETED_NODE))?;
                 exit_edges.push((source.id(), edge));
                 routes.push(DomainRouteDefinition {
-                    option: option(EXIT_OPTION_OFFSET + u64::from(source.id().get())),
+                    option: exit_option(source.id().get()),
                     target: None,
                 });
             } else {
@@ -339,7 +336,7 @@ pub(crate) fn compile(
                     )?;
                     topology_edges.push((source.id(), *target, edge));
                     routes.push(DomainRouteDefinition {
-                        option: option(ROUTE_OPTION_OFFSET + u64::from(edge.get())),
+                        option: route_option(edge.get()),
                         target: Some(*target),
                     });
                 }
@@ -397,6 +394,7 @@ pub(crate) fn compile(
         path_blessing_count_slot,
         formation_inventory,
         occurrence_interactions,
+        service_interactions,
         external_outcome_slot,
         path_edge,
         &topology_entry_edges,
@@ -466,11 +464,11 @@ pub(crate) fn compile(
             )
             .expect("compiled source interaction identity is valid");
             authored
-                .and_then(|value| value.random_candidate_count)
-                .map_or(binding.clone(), |candidate_count| {
+                .and_then(|value| value.random_candidate_count.zip(value.random_label))
+                .map_or(binding.clone(), |(candidate_count, label)| {
                     binding.with_random_policy(
                         ActivityInteractionRandomPolicy::new(
-                            ActivityRngLabel::Occurrence,
+                            label,
                             occurrence_random_purpose(node, outcome),
                             candidate_count,
                         )
@@ -555,6 +553,7 @@ fn compile_programs(
     path_blessing_count_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
+    service_interactions: &ServiceInteractionRuntimeCatalog,
     external_outcome_slot: ActivitySlotId,
     path_edge: ActivityEdgeId,
     topology_entry_edges: &[(TopologyId, ActivityEdgeId)],
@@ -569,7 +568,7 @@ fn compile_programs(
         .enumerate()
         .map(|(priority, path)| {
             ActivityOptionDefinition::new(
-                option(PATH_OPTION_OFFSET + u64::from(path.id().get())),
+                path_option(path.id().get()),
                 priority as i32,
                 always(),
                 vec![
@@ -584,7 +583,7 @@ fn compile_programs(
         .enumerate()
         .map(|(priority, (topology, edge))| {
             ActivityOptionDefinition::new(
-                option(TOPOLOGY_OPTION_OFFSET + u64::from(topology.get())),
+                topology_option(topology.get()),
                 priority as i32,
                 optional_equals(topology_slot, u64::from(topology.get())),
                 vec![ActivityOperation::Traverse(*edge)],
@@ -701,6 +700,46 @@ fn compile_programs(
                     room_condition,
                     vec![ActivityOperation::Traverse(edges.content_member)],
                 ));
+            } else if let Some(service_options) =
+                compile_room_services(catalog, service_interactions, room.room)?
+            {
+                for (service_priority, compiled) in service_options.into_iter().enumerate() {
+                    let id = service_interaction_option(
+                        source,
+                        room.room,
+                        u32::try_from(service_priority)
+                            .map_err(|_| UniverseTopologyCompileError::InvalidServiceInteraction)?,
+                    );
+                    content_options.push(ActivityOptionDefinition::new(
+                        id,
+                        room_priority
+                            .saturating_mul(256)
+                            .saturating_add(service_priority) as i32,
+                        service_option_condition(
+                            room_condition.clone(),
+                            service_interactions.cosmic_fragments_slot(),
+                            compiled.required_fragments,
+                        ),
+                        interaction_completion(
+                            hub_clear_slot,
+                            external_outcome_slot,
+                            source,
+                            edges.content_formation,
+                        ),
+                    ));
+                    interactions.push(AbstractInteractionBinding {
+                        node: hub.content_node,
+                        outcome: ActivityExternalOutcomeId::new(id.get())
+                            .expect("derived service option is non-zero"),
+                        room: room.room,
+                        kind: room.kind,
+                        source_content_id: compiled.source_content_id,
+                        handler: compiled.handler,
+                        payload: compiled.payload,
+                        random_candidate_count: compiled.random_candidate_count,
+                        random_label: compiled.random_label,
+                    });
+                }
             } else if let Some(occurrence) = occurrence_for_source(catalog, &room.source_content_id)
             {
                 let mut choice_ids = occurrence
@@ -752,6 +791,9 @@ fn compile_programs(
                         handler: OCCURRENCE_INTERACTION_HANDLER_ID,
                         payload: compiled.payload.into_boxed_slice(),
                         random_candidate_count: compiled.random_candidate_count,
+                        random_label: compiled
+                            .random_candidate_count
+                            .map(|_| ActivityRngLabel::Occurrence),
                     });
                 }
             } else {
@@ -777,6 +819,7 @@ fn compile_programs(
                     handler: STANDARD_UNIVERSE_EXTERNAL_INTERACTION_HANDLER_ID,
                     payload: room.source_content_id.as_bytes().into(),
                     random_candidate_count: None,
+                    random_label: None,
                 });
             }
         }
@@ -1086,49 +1129,6 @@ const fn route_node(source: TopologyNodeId) -> NodeId {
     node(ROUTE_NODE_OFFSET + source.get())
 }
 
-fn room_option(source: u64, room: RoomId) -> ActivityOptionId {
-    option(ROOM_OPTION_OFFSET + source * 1_000 + u64::from(room.get()))
-}
-fn content_option(source: u64, room: RoomId) -> ActivityOptionId {
-    option(CONTENT_OPTION_OFFSET + source * 1_000 + u64::from(room.get()))
-}
-fn member_option(source: u64, room: RoomId, member: EncounterMemberId) -> ActivityOptionId {
-    option(
-        MEMBER_OPTION_OFFSET
-            + source * 1_000_000
-            + u64::from(room.get()) * 1_000
-            + u64::from(member.get()),
-    )
-}
-fn engage_option(source: u64, room: RoomId, member: EncounterMemberId) -> ActivityOptionId {
-    option(
-        ENGAGE_OPTION_OFFSET
-            + source * 1_000_000
-            + u64::from(room.get()) * 1_000
-            + u64::from(member.get()),
-    )
-}
-fn interaction_option(source: u64, room: RoomId) -> ActivityOptionId {
-    option(INTERACTION_OPTION_OFFSET + source * 10_000_000 + u64::from(room.get()))
-}
-fn occurrence_choice_option(source: u64, room: RoomId, choice: u32) -> ActivityOptionId {
-    option(
-        INTERACTION_OPTION_OFFSET
-            + source * 10_000_000
-            + u64::from(room.get()) * 1_000
-            + u64::from(choice),
-    )
-}
-fn blessing_option(source: u64, blessing: crate::id::BlessingId) -> ActivityOptionId {
-    option(REWARD_OPTION_OFFSET + source * 1_000_000 + u64::from(blessing.get()))
-}
-fn formation_option(source: u64, formation: crate::id::ResonanceId) -> ActivityOptionId {
-    option(FORMATION_OPTION_OFFSET + source * 1_000_000 + u64::from(formation.get()))
-}
-fn formation_skip_option(source: u64) -> ActivityOptionId {
-    option(FORMATION_SKIP_OPTION_OFFSET + source)
-}
-
 fn interaction_completion(
     hub_clear_slot: ActivitySlotId,
     external_outcome_slot: ActivitySlotId,
@@ -1167,10 +1167,6 @@ const fn section(raw: u32) -> SectionId {
         None => panic!("static section ID must be non-zero"),
     }
 }
-fn option(raw: u64) -> ActivityOptionId {
-    ActivityOptionId::new(raw).expect("derived option ID is non-zero")
-}
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum UniverseTopologyCompileError {
     InvalidGraph,
@@ -1184,4 +1180,5 @@ pub enum UniverseTopologyCompileError {
     MissingEncounterGroup(EncounterGroupId),
     RuntimeDefinition(GraphActivityDefinitionError),
     InvalidOccurrenceInteraction,
+    InvalidServiceInteraction,
 }

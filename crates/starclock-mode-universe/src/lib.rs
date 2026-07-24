@@ -47,7 +47,10 @@ pub mod rule;
 pub mod run_runtime;
 pub mod runtime;
 pub mod service_effect_runtime;
+pub mod service_interaction;
 pub mod topology;
+mod topology_identity;
+mod topology_service;
 mod topology_support;
 pub mod universe_replay;
 

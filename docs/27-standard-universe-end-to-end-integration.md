@@ -153,6 +153,45 @@ resolves to `universe.occurrence.1.variant.40398`; values such as `0`, `22`,
 `32`, `101` and `102` remain external content-selection seams. The compiler
 must not turn those values into guessed Occurrences by numeric coincidence.
 
+### Service, shop and currency execution
+
+The service interaction runtime owns one immutable, digest-bearing compiler
+over all 94 normalized service definitions. A concrete selection becomes a
+versioned private payload containing only checked Activity operations. It
+supports:
+
+- exact Cosmic Fragment initialization, debit and scheduled reroll prices;
+- one-star Blessing and Curio respite purchases and random Blessing
+  enhancement;
+- rarity-priced explicit Blessing enhancement;
+- concrete Blessing/Curio shop purchases;
+- service-use counters; and
+- explicit deferred atoms for participant carry, roster and Trailblaze effects
+  whose authoritative consumer belongs to the later battle/carry boundary.
+
+Random respite content uses the `Shop` RNG stream. Candidate IDs are
+canonically ordered and filtered against current inventory before the draw;
+an empty candidate set faults without committing state or RNG. Production
+topology suppresses options whose exact fixed price exceeds current Cosmic
+Fragments.
+
+The frozen shop definitions expose pool and price-formula identities, but not
+the concrete generated offers and their prices. Entering a Transaction domain
+therefore opens a source-attributed shop interaction. A concrete purchase must
+come from a trusted offer compiler and carry the selected content ID, positive
+price and non-zero offer digest. The service runtime validates that envelope
+and applies debit, inventory grant and use count in the same transaction. It
+must never invent a price from a missing row or accept an arbitrary zero-cost
+purchase.
+
+Revision 1 exposes only options whose preconditions can be represented exactly
+by the current Activity condition vocabulary. Random two-Blessing enhancement
+and revival are executable concrete selections, but their production offer
+generators must wait for inventory-cardinality and participant-life predicates
+respectively. Downloader and shop opening record explicit deferred state for
+the roster/offer consumer; recording that state is not a claim that the
+roster or purchase already changed.
+
 ## Domain logical scope
 
 Physical engine ownership remains:
