@@ -1,0 +1,39 @@
+{
+  "schema_revision": "starclock.goal05-seeded-matrix.v1",
+  "goal_id": "standard-universe-end-to-end-v1",
+  "batch": "G05-P5-B1",
+  "matrix_revision": "standard-universe-real-seed-matrix-v1",
+  "first_seed": 200000,
+  "coverage": {
+    "worlds": 9,
+    "difficulties": 33,
+    "path_options": 9,
+    "complete_runs": 33,
+    "failure_cases": 3,
+    "encounter_members": 173,
+    "enemy_variants": 86,
+    "exact_enemy_definitions": 13,
+    "approximate_enemy_proxies": 73,
+    "catalog_mechanic_rule_rows": 786,
+    "initial_declared_rule_bindings": 0
+  },
+  "failure_cases": [
+    "unknown_world",
+    "difficulty_out_of_range",
+    "seed_overflow"
+  ],
+  "contracts": {
+    "one_run_per_constructible_difficulty": true,
+    "path_options_rotate_by_canonical_matrix_ordinal": true,
+    "each_seed_is_exact_and_unique": true,
+    "every_run_reaches_completed": true,
+    "every_replay_is_component_v2_and_verifies_from_a_fresh_activity": true,
+    "every_nonzero_battle_count_has_real_commands_and_state_records": true,
+    "zero_battle_complete_routes_are_retained_without_fabrication": true,
+    "external_outcomes_execute_through_atomic_handlers": true,
+    "invalid_entries_fail_before_session_creation": true,
+    "battle_executor": "standard-universe-nested-battle-executor-v1",
+    "enemy_runtime_stats_are_approximate": true,
+    "initial_production_snapshot_has_no_unowned_mechanic_rules": true
+  }
+}

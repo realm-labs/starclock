@@ -93,6 +93,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 67. [Mode extension and evolution contract](26-mode-extension-and-evolution.md) — ordered child tasks, logical scopes, static handler bundles, component digests, experimental promotion, and immutable historical release evidence.
 68. [Standard Universe end-to-end runtime integration](27-standard-universe-end-to-end-integration.md) — real nested combat, atomic run effects, logical domain ownership, composed registries and component-aware replay migration.
 69. [Goal 05 integration probes](goal-05-integration-probes.md) — machine-readable Goal 04 integration-debt baseline and the focused three-minute execution budget.
+70. [Standard Universe integration coverage](28-standard-universe-integration-coverage.md) — exact-once Goal 05 dispositions, real 33-run battle/replay matrix and explicit enemy/rule approximation boundaries.
 
 ## Execution goals
 

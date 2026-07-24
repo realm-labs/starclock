@@ -1,0 +1,56 @@
+{
+  "schema_revision": "starclock.goal05-integration-coverage.v1",
+  "goal_id": "standard-universe-end-to-end-v1",
+  "batch": "G05-P5-B1",
+  "allowed_states": [
+    "Integrated",
+    "Metadata",
+    "Policy",
+    "RetainedApproximation"
+  ],
+  "denominators": {
+    "records": 2201,
+    "rules": 786,
+    "fixtures": 78,
+    "encounter_members": 173,
+    "enemy_variants": 86,
+    "exact_enemy_definitions": 13,
+    "approximate_enemy_proxies": 73,
+    "real_seeded_runs": 33
+  },
+  "record_category_states": {
+    "ability-tree": "RetainedApproximation",
+    "blessing-levels": "RetainedApproximation",
+    "blessings": "RetainedApproximation",
+    "curio-states": "RetainedApproximation",
+    "curios": "RetainedApproximation",
+    "domains": "Integrated",
+    "encounter-groups": "RetainedApproximation",
+    "encounter-pools": "Policy",
+    "maps": "Integrated",
+    "occurrence-choices": "RetainedApproximation",
+    "occurrence-variants": "Integrated",
+    "occurrences": "Integrated",
+    "paths": "RetainedApproximation",
+    "resonances": "RetainedApproximation",
+    "rooms": "Integrated",
+    "services": "RetainedApproximation",
+    "world-difficulties": "RetainedApproximation",
+    "worlds": "Integrated"
+  },
+  "record_overrides": {
+    "universe.blessing.612344.level.2": "Integrated",
+    "universe.curio.8.state.active": "Integrated",
+    "universe.resonance.612420": "Integrated"
+  },
+  "fixture_state": "Metadata",
+  "contracts": {
+    "source_goal04_manifest_is_not_modified": true,
+    "every_goal04_record_rule_and_fixture_is_assigned_once": true,
+    "integrated_requires_a_production_mutation_or_combat_path": true,
+    "metadata_is_not_counted_as_runtime_behavior": true,
+    "policy_is_not_counted_as_runtime_behavior": true,
+    "retained_approximation_names_the_missing_boundary": true,
+    "exact_enemy_definition_match_is_separate_from_runtime_stat_accuracy": true
+  }
+}

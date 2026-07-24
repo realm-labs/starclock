@@ -660,3 +660,8 @@ At minimum, end-to-end tests prove:
 Compatibility shims must be isolated and deleted once every production caller
 uses the new revision. No new universe family should build on the Goal 04
 reference projection seam.
+
+Goal 05 release coverage is reported separately in
+[Standard Universe integration coverage](28-standard-universe-integration-coverage.md).
+That report distinguishes real execution from definition accuracy and retains
+every unlowered or proxy-backed boundary as an explicit approximation.
