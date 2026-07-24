@@ -17,6 +17,11 @@ name = "g04_universe_benchmark"
 path = "examples/g04_universe_benchmark.rs"
 required-features = ["benchmark-harness"]
 
+[[example]]
+name = "g06_dynamic_assembly_benchmark"
+path = "examples/g06_dynamic_assembly_benchmark.rs"
+required-features = ["benchmark-harness"]
+
 [features]
 benchmark-harness = []
 

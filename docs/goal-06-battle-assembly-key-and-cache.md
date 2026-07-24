@@ -42,7 +42,9 @@ with the exact prepared encounter and carry digests.
 ## Cache policy
 
 `BattleAssemblyCache` is a standard-library `BTreeMap` plus FIFO insertion
-order. Its default capacity is 64 immutable assemblies.
+order. Its default capacity is 8 immutable assemblies. P4-B1 reduced the
+initial 64-entry design after release measurement showed that each completed
+composite catalog is materially larger than the Phase 2 estimate.
 
 - capacity is non-zero and explicit;
 - hits do not change eviction order;
@@ -63,4 +65,3 @@ Catalog composition and selected assembly finish before an entry can be
 inserted. A key mismatch is rejected. Cache corruption is a typed error and
 must trigger recomputation or fail preparation before any Activity mutation.
 P2-B3 and P2-B4 add the atomic preparation and exact rollback proofs.
-

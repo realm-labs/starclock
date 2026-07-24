@@ -28,7 +28,7 @@ for (const [text, needle, label] of [
   [key, "contributions: [u8; 32]", "contribution key field"],
   [key, "carry: [u8; 32]", "carry key field"],
   [key, "technique: Option<[u8; 32]>", "technique key field"],
-  [key, "DEFAULT_BATTLE_ASSEMBLY_CACHE_CAPACITY: usize = 64", "bounded default"],
+  [key, "DEFAULT_BATTLE_ASSEMBLY_CACHE_CAPACITY: usize = 8", "bounded default"],
   [key, "VecDeque<BattleAssemblyKey>", "deterministic FIFO"],
   [key, "entry.assembly_key() == key", "cache entry revalidation"],
   [composition, "pub struct UniverseBattleCatalogComposition", "immutable composition"],

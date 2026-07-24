@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 4 — Hardening and release |
 | Active batch | None |
-| Next unblocked batch | `G06-P4-B1` |
+| Next unblocked batch | `G06-P4-B2` |
 | Required snapshot | Goal 05 `standard-universe-end-to-end-v1` |
 | Planned batches | 18 |
 | Blocking condition | None |
@@ -31,7 +31,9 @@ the same dynamic assembler and replay-v3 verification path without changing
 authorization, quotas, idempotency or opaque-action authority. P3-B3 closes
 the phase with one current-snapshot reconstruction per replayed battle, the
 eight-level first-divergence corpus and CLI/Agent/MCP authoritative trace
-parity. Phase 4 will freeze performance, native matrix and release evidence.
+parity. P4-B1 adds release performance evidence and reduces the measured
+memory-heavy assembly cache default from 64 to 8 without changing authority.
+P4-B2 will run the native matrix and corruption release evidence.
 
 ## Batch ledger
 
@@ -52,7 +54,7 @@ parity. Phase 4 will freeze performance, native matrix and release evidence.
 | `G06-P3-B1` | `Complete` | `node tools/goal06/verify-phase3-b1.mjs`; dynamic replay integration; CLI v3 round trip/corruption test; historical replay tests; focused Clippy; quick repository gate | Added a dynamic baseline executor boundary that consumes assembler-paired handoff/catalog results. CLI runs now reassemble every battle, emit canonical replay v3 and verify it by reconstructing current snapshots; historical fixed-catalog v2/v3 verification remains separate and unchanged. |
 | `G06-P3-B2` | `Complete` | `node tools/goal06/verify-phase3-b2.mjs`; Agent session integration and corruption tests; focused MCP tool test; focused Clippy; quick repository gate | Universe Agent sessions now own the shared assembler, dynamically assemble and atomically settle every pending battle, export replay v3 and verify by reconstructing current snapshots. MCP remains a transport over the same registry; its schemas, authorization scopes, quotas, idempotency and opaque-action boundary are unchanged. |
 | `G06-P3-B3` | `Complete` | `node tools/goal06/verify-phase3-b3.mjs`; dynamic replay corruption/reconstruction fixture; CLI-baseline/Agent nested trace parity; MCP/Agent exact replay parity; focused Clippy; quick repository gate | Fresh replay verification resolves one current Activity snapshot for every nested battle and reports component → assembly → combat input → command → event → state → result → Activity first divergence. Equal CLI baseline and Agent runs emit identical authoritative nested traces; MCP emits the exact Agent replay hash and verifies through a fresh factory. Generic frozen-materialization access was removed from production APIs. |
-| `G06-P4-B1` | `Pending` | — | Freeze performance and source-structure hardening. |
+| `G06-P4-B1` | `Complete` | `node tools/goal06/verify-performance.mjs`; local release benchmark; focused Clippy; source policy; quick repository gate | Measured combat-input digest, 33 cold assemblies, 10,000 exact-key hits, 256 forced evictions and 16 concurrent complete sessions. Reduced the non-authoritative cache default from 64 to 8 after the original design retained about 317 MiB; the measured default now retains about 76.9 MiB under a 128 MiB ceiling. Daily verification remains below 180 seconds and every touched Rust source stays below 1,200 lines. |
 | `G06-P4-B2` | `Pending` | — | Run full matrix, corruption and native CI evidence. |
 | `G06-P4-B3` | `Pending` | — | Freeze release and register immutable snapshot. |
 

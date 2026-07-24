@@ -166,7 +166,7 @@ The assembly cache is an optional bounded optimization:
 - entries are immutable;
 - lookup and eviction order are deterministic where observable: the initial
   implementation is FIFO and cache hits do not alter insertion order;
-- capacity is bounded and documented; the production default is 64 entries;
+- capacity is bounded and documented; the production default is 8 entries;
 - cache contents, hit counts and allocation layout are not canonical state;
 - disabling, clearing or evicting the cache produces identical handoff,
   commands, events and hashes;

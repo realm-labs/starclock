@@ -142,6 +142,10 @@
       "command": ["node", "tools/goal06/verify-phase3-b3.mjs"]
     },
     {
+      "name": "Goal 06 performance and source hardening",
+      "command": ["node", "tools/goal06/verify-performance.mjs"]
+    },
+    {
       "name": "Standard Universe bundle-loader dependency policy",
       "command": ["node", "tools/universe-bundle-loader/generate-policy.mjs"]
     },
