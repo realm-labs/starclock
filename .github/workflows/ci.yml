@@ -52,6 +52,8 @@ jobs:
         run: node tools/repository-check/run.mjs
       - name: Execute Goal 02 schema and transport trace vectors natively
         run: cargo test -p starclock-agent-api --test schema_property_contract --test standard_session_loop --all-features && cargo test -p starclock-cli --test mcp_stdio --all-features && cargo test -p starclock-mcp --test http_conformance --all-features
+      - name: Execute Goal 05 real-universe hardening vectors natively
+        run: node tools/goal05/run-native-hardening.mjs --run
       - name: Record native execution evidence
         run: node tools/ci/write-evidence.mjs --profile "${{ matrix.profile }}" --output ".ci-evidence/${{ matrix.profile }}.json"
       - name: Retain native evidence

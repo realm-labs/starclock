@@ -4,6 +4,7 @@
   "workflow": ".github/workflows/ci.yml",
   "repository_gate": "node tools/repository-check/run.mjs",
   "goal02_native_gate": "cargo test -p starclock-agent-api --test schema_property_contract --test standard_session_loop --all-features && cargo test -p starclock-cli --test mcp_stdio --all-features && cargo test -p starclock-mcp --test http_conformance --all-features",
+  "goal05_native_gate": "node tools/goal05/run-native-hardening.mjs --run",
   "evidence_retention_days": 30,
   "golden_suites": [
     {
@@ -45,6 +46,11 @@
       "id": "agent-trace",
       "test_targets": ["crates/starclock-agent-api/tests/standard_session_loop.rs", "crates/starclock-cli/tests/mcp_stdio.rs", "crates/starclock-mcp/tests/http_conformance.rs", "evidence/agent-control-mcp-v1/protocol/basic-transport-trace.json"],
       "claim": "In-process, stdio and authorized real-TCP HTTP execute the exact command/event/state-hash sequence and canonical replay bytes."
+    },
+    {
+      "id": "universe-integration",
+      "test_targets": ["crates/starclock-agent-api/tests/activity_session_loop.rs", "crates/starclock-mode-universe/tests/battle_materialization.rs", "crates/starclock-agent-api/examples/g05_real_universe_seed_matrix.rs", "evidence/standard-universe-end-to-end-v1/coverage/seeded-matrix.json"],
+      "claim": "Real Standard Universe battles, component replay v2, rollback, concurrent isolation and the 33-entry seeded matrix execute without platform drift."
     }
   ],
   "actions": [

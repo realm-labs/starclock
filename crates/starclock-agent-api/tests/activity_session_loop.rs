@@ -167,7 +167,7 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
 
 #[test]
 fn activity_replay_corruption_corpus_is_total_and_live_session_is_inert() {
-    const CORPUS_CASES: usize = 3;
+    const CORPUS_CASES: usize = 16;
 
     let factory = ActivityAgentSessionFactory::load_production().unwrap();
     let mut session = create(&factory, "session_activity_replay_corpus");
@@ -198,3 +198,43 @@ fn activity_replay_corruption_corpus_is_total_and_live_session_is_inert() {
     let verified = session.verify_replay(&factory, replay.bytes()).unwrap();
     assert_eq!(verified.final_state_hash, original_hash);
 }
+
+#[test]
+fn concurrent_real_sessions_share_catalog_but_not_mutable_state() {
+    const SESSIONS: usize = 16;
+
+    let factory = Arc::new(ActivityAgentSessionFactory::load_production().unwrap());
+    let handles = (0..SESSIONS)
+        .map(|ordinal| {
+            let factory = Arc::clone(&factory);
+            thread::spawn(move || {
+                let mut session = create(&factory, &format!("session_activity_parallel_{ordinal}"));
+                let external_steps = drive_to_terminal(&mut session);
+                let replay = session.export_replay().unwrap();
+                (
+                    external_steps,
+                    session.state_hash(),
+                    replay.sha256().clone(),
+                    replay.bytes().len(),
+                )
+            })
+        })
+        .collect::<Vec<_>>();
+    let results = handles
+        .into_iter()
+        .map(|handle| handle.join().unwrap())
+        .collect::<Vec<_>>();
+    assert_eq!(results.len(), SESSIONS);
+    assert!(results.iter().all(|result| result == &results[0]));
+    assert_eq!(results[0].0, 55);
+    assert_eq!(
+        results[0].1.as_str(),
+        "f66ad680373b4f21f1857d2f3c2b52c3ecbed95c8f77e316eb443ec77ca7bb00"
+    );
+    assert_eq!(
+        results[0].2.as_str(),
+        "501b82ae29f573dcfcacb60270b3b59432abfc7c0b2ccd4eeca88b42b957668f"
+    );
+    assert_eq!(results[0].3, 45_453);
+}
+use std::{sync::Arc, thread};

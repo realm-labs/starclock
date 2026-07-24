@@ -383,6 +383,19 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
             .is_err()
     );
     assert_eq!(activity.view().state_hash(), retry_hash);
+    let mut bounded = UniverseNestedBattleExecutor::new(Arc::clone(materialized.combat_catalog()))
+        .with_command_budget(1)
+        .unwrap();
+    assert!(matches!(
+        bounded.execute_pending_activity_battle(&mut activity),
+        Err(
+            starclock_mode_universe::nested_battle_executor::ActivityNestedBattleExecutionError::Execution(
+                NestedBattleExecutionError::StepBudgetExceeded
+            )
+        )
+    ));
+    assert_eq!(activity.view().state_hash(), retry_hash);
+    assert!(bounded.reports().is_empty());
     let mut executor = UniverseNestedBattleExecutor::new(Arc::clone(materialized.combat_catalog()));
     let report = runner
         .run_to_terminal(

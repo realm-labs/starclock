@@ -110,3 +110,17 @@ node tools/goal05/verify-integration-coverage.mjs
 The first command re-executes all 33 runs and compares the complete evidence.
 The second verifies exact-once assignment of all Goal 04 records, rules and
 fixtures and cross-checks the matrix and encounter denominators.
+
+The native hardening gate is:
+
+```text
+node tools/goal05/run-native-hardening.mjs --run
+```
+
+It combines 16 replay-v2 corruption cases, 16 concurrent shared-factory
+sessions, nested-executor rollback, atomic noncombat fixtures and the complete
+33-run matrix under a 180-second ceiling. The recorded Windows x64 run
+completed in 31.632 seconds. CI executes the same command natively on Windows
+x64, Linux x64 and macOS ARM64; only retained successful CI artifacts are
+cross-platform execution proof. Windows ARM64, Linux ARM64 and macOS x64
+remain compile-only and make no runtime determinism claim.

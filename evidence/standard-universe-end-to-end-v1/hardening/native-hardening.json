@@ -1,0 +1,106 @@
+{
+  "schema_revision": "starclock.goal05-hardening-evidence.v1",
+  "goal_id": "standard-universe-end-to-end-v1",
+  "batch": "G05-P5-B2",
+  "result": "local-real-combat-hardening-with-hosted-native-contract",
+  "recorded_on": "2026-07-24",
+  "local_execution": {
+    "runner": {
+      "platform": "win32",
+      "architecture": "x64",
+      "os_release": "10.0.19045",
+      "cpu_model": "Intel(R) Core(TM) i7-10700F CPU @ 2.90GHz",
+      "logical_processors": 16,
+      "rustc": "rustc 1.97.0 (2d8144b78 2026-07-07)",
+      "node": "v24.15.0"
+    },
+    "elapsed_ms": 31632,
+    "commands": [
+      {
+        "id": "agent-replay-concurrency",
+        "elapsed_ms": 13830,
+        "status": "passed"
+      },
+      {
+        "id": "mode-rollback-mechanics",
+        "elapsed_ms": 5228,
+        "status": "passed"
+      },
+      {
+        "id": "real-seeded-matrix",
+        "elapsed_ms": 12505,
+        "status": "passed"
+      },
+      {
+        "id": "integration-dispositions",
+        "elapsed_ms": 67,
+        "status": "passed"
+      }
+    ]
+  },
+  "corpora": {
+    "component_replay_v2_mutations": 16,
+    "concurrent_shared_factory_sessions": 16,
+    "nested_executor_budget_rollback_cases": 1,
+    "seeded_real_runs": 33,
+    "real_nested_battles": 155,
+    "real_battle_commands": 905,
+    "atomic_external_outcomes": 417
+  },
+  "native_profiles": [
+    {
+      "id": "windows-x64-native",
+      "execution": "required-native-on-success",
+      "proof": "retained-ci-artifact"
+    },
+    {
+      "id": "linux-x64-native",
+      "execution": "required-native-on-success",
+      "proof": "retained-ci-artifact"
+    },
+    {
+      "id": "macos-arm64-native",
+      "execution": "required-native-on-success",
+      "proof": "retained-ci-artifact"
+    }
+  ],
+  "compile_only_profiles": [
+    {
+      "id": "windows-arm64-compile",
+      "execution": "compiled-not-executed",
+      "runtime_claims": 0
+    },
+    {
+      "id": "linux-arm64-compile",
+      "execution": "compiled-not-executed",
+      "runtime_claims": 0
+    },
+    {
+      "id": "macos-x64-compile",
+      "execution": "compiled-not-executed",
+      "runtime_claims": 0
+    }
+  ],
+  "contracts": {
+    "component_identity_and_event_payload_corruption_fail_closed": true,
+    "live_session_is_inert_during_replay_verification": true,
+    "failed_nested_execution_restores_activity_hash_and_appends_no_report": true,
+    "concurrent_sessions_share_immutable_catalog_only": true,
+    "occurrence_service_and_curio_effects_commit_atomically": true,
+    "native_ci_execution_is_required_on_three_hosted_architectures": true,
+    "compile_only_profiles_make_no_runtime_claim": true,
+    "committed_local_report_is_not_hosted_ci_proof": true
+  },
+  "source_sha256": {
+    "crates/starclock-agent-api/tests/activity_session_loop.rs": "09e656b24bce186c742edc5ec01dbc6354ef842bbf801f2a9868ff49cdae5242",
+    "crates/starclock-mode-universe/tests/battle_materialization.rs": "90f11d1df4f204e00c33d7618395cc4243a42f3d3bb9b4c5131bbcaa94f2419b",
+    "crates/starclock-mode-universe/tests/mechanic_battle_integration.rs": "82f3f6d991b39459debdf06624153c095d9083ac1464244a7bb9a13e27766e75",
+    "crates/starclock-mode-universe/tests/run_runtime.rs": "de370fc65747a4174bea77687eb66c58c7f3a3ea8401c8a04898ffe38bdae92a",
+    "crates/starclock-mode-universe/tests/service_interaction_runtime.rs": "da98de15720864713fcab573bd4b254807daeb1029f7eb3c1a5af0b80365f433",
+    "evidence/standard-universe-end-to-end-v1/coverage/seeded-matrix.json": "12817d566d2fd029bb2ee5a92af48483f2d23a5e31a5ee8cfe18c716f1a59ed8",
+    "content-manifests/standard-universe-end-to-end-v1/integration-dispositions.json": "1653b5ab106a7fb9902f1482d5557955fa7cf37cedeb34c7417348aa7960ba26"
+  },
+  "policy_sha256": "e4889d957932ab76a3de635b705ef99e16b055f4c4ce0677f497dc63753d5fb9",
+  "workflow_sha256": "7b45ffc7e1a42121672c3d2c27d1145168a9b5bc460d8850a9bbb03b2c88e6dd",
+  "new_registry_packages": []
+}

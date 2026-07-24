@@ -1,0 +1,91 @@
+{
+  "schema_revision": "starclock.goal05-hardening.v1",
+  "goal_id": "standard-universe-end-to-end-v1",
+  "batch": "G05-P5-B2",
+  "native_gate": "node tools/goal05/run-native-hardening.mjs --run",
+  "wall_budget_seconds": 180,
+  "native_profiles": [
+    "windows-x64-native",
+    "linux-x64-native",
+    "macos-arm64-native"
+  ],
+  "compile_only_profiles": [
+    "windows-arm64-compile",
+    "linux-arm64-compile",
+    "macos-x64-compile"
+  ],
+  "corpora": {
+    "component_replay_v2_mutations": 16,
+    "concurrent_shared_factory_sessions": 16,
+    "nested_executor_budget_rollback_cases": 1,
+    "seeded_real_runs": 33,
+    "real_nested_battles": 155,
+    "real_battle_commands": 905,
+    "atomic_external_outcomes": 417
+  },
+  "commands": [
+    {
+      "id": "agent-replay-concurrency",
+      "program": "cargo",
+      "args": [
+        "test",
+        "-p",
+        "starclock-agent-api",
+        "--test",
+        "activity_session_loop",
+        "--all-features"
+      ]
+    },
+    {
+      "id": "mode-rollback-mechanics",
+      "program": "cargo",
+      "args": [
+        "test",
+        "-p",
+        "starclock-mode-universe",
+        "--test",
+        "battle_materialization",
+        "--test",
+        "mechanic_battle_integration",
+        "--test",
+        "run_runtime",
+        "--test",
+        "service_interaction_runtime",
+        "--all-features"
+      ]
+    },
+    {
+      "id": "real-seeded-matrix",
+      "program": "node",
+      "args": [
+        "tools/goal05/verify-seeded-matrix.mjs"
+      ]
+    },
+    {
+      "id": "integration-dispositions",
+      "program": "node",
+      "args": [
+        "tools/goal05/verify-integration-coverage.mjs"
+      ]
+    }
+  ],
+  "source_targets": [
+    "crates/starclock-agent-api/tests/activity_session_loop.rs",
+    "crates/starclock-mode-universe/tests/battle_materialization.rs",
+    "crates/starclock-mode-universe/tests/mechanic_battle_integration.rs",
+    "crates/starclock-mode-universe/tests/run_runtime.rs",
+    "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
+    "evidence/standard-universe-end-to-end-v1/coverage/seeded-matrix.json",
+    "content-manifests/standard-universe-end-to-end-v1/integration-dispositions.json"
+  ],
+  "contracts": {
+    "component_identity_and_event_payload_corruption_fail_closed": true,
+    "live_session_is_inert_during_replay_verification": true,
+    "failed_nested_execution_restores_activity_hash_and_appends_no_report": true,
+    "concurrent_sessions_share_immutable_catalog_only": true,
+    "occurrence_service_and_curio_effects_commit_atomically": true,
+    "native_ci_execution_is_required_on_three_hosted_architectures": true,
+    "compile_only_profiles_make_no_runtime_claim": true,
+    "committed_local_report_is_not_hosted_ci_proof": true
+  }
+}

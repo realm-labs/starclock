@@ -58,7 +58,8 @@ const evidence = {
     id: suite.id,
     disposition: profile.execution_mode === "native" ? "executed" : "compiled-not-executed"
   })),
-  goal02_native_gate: profile.execution_mode === "native" ? policy.goal02_native_gate : null
+  goal02_native_gate: profile.execution_mode === "native" ? policy.goal02_native_gate : null,
+  goal05_native_gate: profile.execution_mode === "native" ? policy.goal05_native_gate : null
 };
 
 if (profile.execution_mode === "native") {

@@ -665,3 +665,15 @@ Goal 05 release coverage is reported separately in
 [Standard Universe integration coverage](28-standard-universe-integration-coverage.md).
 That report distinguishes real execution from definition accuracy and retains
 every unlowered or proxy-backed boundary as an explicit approximation.
+
+The release hardening profile mutates replay-v2 envelopes and payloads,
+verifies live-session inertness, forces a one-command nested-executor budget
+failure, and runs same-seed sessions concurrently through one immutable
+factory. The forced executor failure must restore the exact pre-start Activity
+hash and append no battle report before a normal executor can retry.
+
+The committed local hardening report is performance and regression evidence
+for its named host only. The CI workflow requires the same native gate on
+Windows x64, Linux x64 and macOS ARM64 and retains per-host artifacts.
+Alternate CPU targets are compile-only; documentation must not present those
+jobs as cross-platform runtime proof.

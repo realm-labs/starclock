@@ -9,7 +9,7 @@ const workflow = fs.readFileSync(path.join(root, policy.workflow), "utf8").repla
 assert(policy.schema_revision === "starclock.ci-matrix.v3", "unexpected CI policy schema");
 assert(policy.repository_gate === "node tools/repository-check/run.mjs", "CI must use the local repository runner");
 assert(policy.evidence_retention_days === 30, "CI evidence retention changed without review");
-assert(JSON.stringify(policy.golden_suites.map((suite) => suite.id)) === JSON.stringify(["numeric", "rng", "codec", "battle", "build", "replay", "agent-schema", "agent-trace"]), "golden suite inventory changed without review");
+assert(JSON.stringify(policy.golden_suites.map((suite) => suite.id)) === JSON.stringify(["numeric", "rng", "codec", "battle", "build", "replay", "agent-schema", "agent-trace", "universe-integration"]), "golden suite inventory changed without review");
 for (const suite of policy.golden_suites) {
   assert(suite.test_targets.length > 0 && suite.claim, `${suite.id}: incomplete golden-suite contract`);
   for (const target of suite.test_targets) assert(fs.statSync(path.join(root, target), { throwIfNoEntry: false })?.isFile(), `${suite.id}: missing test target ${target}`);
@@ -65,6 +65,7 @@ requireText("rustup toolchain install 1.97.0", "workflow must install the pinned
 requireText("run: node tools/sora/install.mjs", "native CI must install checksum-bound Sora");
 requireText(`run: ${policy.repository_gate}`, "native CI must call the repository runner verbatim");
 requireText(`run: ${policy.goal02_native_gate}`, "native CI must execute the Goal 02 schema and trace gate verbatim");
+requireText(`run: ${policy.goal05_native_gate}`, "native CI must execute the Goal 05 real-universe hardening gate verbatim");
 requireText("run: cargo check --workspace --all-targets --all-features --target \"${{ matrix.target }}\"", "compile-only CI must use cargo check");
 requireText("if: matrix.profile == 'linux-arm64-compile'", "Linux ARM64 compile profile must install its cross compiler");
 requireText("gcc-aarch64-linux-gnu", "Linux ARM64 compile profile lacks the required cross compiler package");
