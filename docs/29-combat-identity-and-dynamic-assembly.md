@@ -122,6 +122,13 @@ The contribution snapshot includes:
 Acquiring or changing a contribution after a battle starts never mutates that
 battle. It affects the next eligible assembly boundary.
 
+The concrete runtime projection is `StandardUniverseBattleSnapshot`. It keeps
+the typed component sets, evaluated contribution set, ordered carry,
+participant lock and source Activity state hash together instead of reducing
+them prematurely to one opaque digest. `battle_start_snapshot()` derives its
+Ability Tree context from current Activity state; caller-supplied context must
+match. See `goal-06-current-activity-battle-snapshot.md`.
+
 ## Atomic preparation
 
 Assembly is part of pending-task preparation, before the no-draw

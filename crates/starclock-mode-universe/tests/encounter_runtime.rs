@@ -190,6 +190,7 @@ fn combatant(form: u32, digest: u8) -> ResolvedCombatantSpec {
 fn encounter_resolution_preparation_handoff_and_reward_return_are_one_deterministic_chain() {
     let catalog = catalog();
     let lock = participants();
+    let lock_digest = lock.digest();
     let overlay = overlay(&catalog, &lock);
     EncounterContentRuntimeCatalog::compile(&catalog)
         .unwrap()
@@ -225,17 +226,47 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
             .is_empty()
     );
     choose_first(&mut activity);
+    let initial_context = AbilityExecutionContext::new(
+        AbilityProjectionScope::Battle,
+        AbilityBoundary::BattleStart,
+        0,
+        false,
+    );
+    let snapshot = activity
+        .battle_start_snapshot()
+        .expect("current Activity projects one immutable battle snapshot");
+    assert_eq!(snapshot.source_state_hash(), activity.view().state_hash());
+    assert_eq!(snapshot.participant_lock(), lock_digest);
+    assert_eq!(snapshot.path(), &activity.path_contributions().unwrap());
+    assert_eq!(
+        snapshot.blessings(),
+        &activity.blessing_contributions().unwrap()
+    );
+    assert_eq!(snapshot.curios(), &activity.curio_contributions().unwrap());
+    assert_eq!(
+        snapshot.ability_tree(),
+        &activity.ability_tree_contributions().unwrap()
+    );
+    assert!(snapshot.participant_carry().is_empty());
+    assert!(snapshot.digest().iter().any(|byte| *byte != 0));
     let contributions = activity
-        .battle_contributions(AbilityExecutionContext::new(
-            AbilityProjectionScope::Battle,
-            AbilityBoundary::BattleStart,
-            0,
-            false,
-        ))
-        .expect("selected Path compiles through the aggregate battle boundary");
+        .battle_contributions(initial_context)
+        .expect("compatibility contribution API delegates to the snapshot");
+    assert_eq!(snapshot.contributions(), &contributions);
     assert_eq!(contributions.selected_path_blessings(), 0);
     assert!(contributions.rules().is_empty());
     assert!(contributions.modifiers().is_empty());
+    assert!(matches!(
+        activity.battle_contribution_snapshot(AbilityExecutionContext::new(
+            AbilityProjectionScope::Battle,
+            AbilityBoundary::BattleStart,
+            1,
+            false
+        )),
+        Err(
+            starclock_mode_universe::runtime::StandardUniverseBattleContributionError::ContextMismatch
+        )
+    ));
 
     let encounter = loop {
         let view = activity.view();
@@ -332,6 +363,12 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
         starclock_activity::ActivityDecisionKind::Reward
     );
     assert_eq!(reward_decision.options().len(), 3);
+    let before_reroll_snapshot = activity.battle_start_snapshot().unwrap();
+    assert_eq!(before_reroll_snapshot.participant_carry().len(), 4);
+    assert_eq!(
+        before_reroll_snapshot.participant_carry(),
+        activity.view().participant_carry()
+    );
     let before_stale_reroll = activity.graph().canonical_state_bytes();
     assert!(
         activity
@@ -345,6 +382,23 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     activity
         .reroll_blessing_offer(reward.state_hash())
         .expect("one deterministic Blessing reset");
+    let after_reroll_snapshot = activity.battle_start_snapshot().unwrap();
+    assert_eq!(
+        before_reroll_snapshot.contributions().digest(),
+        after_reroll_snapshot.contributions().digest()
+    );
+    assert_eq!(
+        before_reroll_snapshot.carry_digest(),
+        after_reroll_snapshot.carry_digest()
+    );
+    assert_ne!(
+        before_reroll_snapshot.source_state_hash(),
+        after_reroll_snapshot.source_state_hash()
+    );
+    assert_ne!(
+        before_reroll_snapshot.digest(),
+        after_reroll_snapshot.digest()
+    );
     let before_exhausted_reroll = activity.graph().canonical_state_bytes();
     assert!(
         activity

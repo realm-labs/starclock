@@ -1155,12 +1155,14 @@ pub enum StandardUniverseCurioActivityError {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum StandardUniverseBattleContributionError {
     InvalidScope,
+    ContextMismatch,
     Blessing(BlessingRuntimeError),
     Path(StandardUniversePathContributionError),
     Curio(CurioRuntimeError),
     Ability(RunRuntimeError),
     Projection(AbilityRuntimeError),
     Compile(UniverseBattleContributionError),
+    Snapshot(crate::battle_snapshot::StandardUniverseBattleSnapshotError),
 }
 
 pub(crate) fn start(

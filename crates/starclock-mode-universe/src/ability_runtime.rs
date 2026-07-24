@@ -77,6 +77,16 @@ impl AbilityExecutionContext {
     pub const fn boundary(self) -> AbilityBoundary {
         self.boundary
     }
+
+    #[must_use]
+    pub const fn chosen_path_blessings(self) -> u8 {
+        self.chosen_path_blessings
+    }
+
+    #[must_use]
+    pub const fn first_battle_won(self) -> bool {
+        self.first_battle_won
+    }
 }
 
 /// Closed set of Version 4.4 Ability Tree targets.

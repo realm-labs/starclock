@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 2 — Dynamic per-battle assembly |
 | Active batch | None |
-| Next unblocked batch | `G06-P2-B2` |
+| Next unblocked batch | `G06-P2-B3` |
 | Required snapshot | Goal 05 `standard-universe-end-to-end-v1` |
 | Planned batches | 18 |
 | Blocking condition | None |
@@ -19,7 +19,8 @@ combat-owned identity boundary, and event payload v2 removes the unused outer
 source slot without breaking replay-v2 verification. P2-B1 split the released
 encounter/enemy catalog composition from selected contribution assembly and
 added a bounded, non-authoritative exact-key cache. P2-B2 now projects one
-current-Activity contribution snapshot.
+typed immutable snapshot of all current battle contributions and participant
+carry. P2-B3 will assemble and seal each pending encounter from that snapshot.
 
 ## Batch ledger
 
@@ -33,7 +34,7 @@ current-Activity contribution snapshot.
 | `G06-P1-B3` | `Complete` | `node tools/goal06/verify-phase1-b3.mjs`; combat/replay/Universe tests; focused Clippy; quick repository gate | Advanced combat state to `SCBS` v3 / `sha256-v4`, binding combat-input codec, computed input digest and assembly provenance independently. Added component-addressed replay v3 plus six-field nested battle identity payloads and Standard Universe verification with the frozen component → assembly → combat-input → command → event → state → result → Activity first-divergence order. Historical v2 decode/verification remains available and its exact envelope bytes are SHA-256 frozen. |
 | `G06-P1-B4` | `Complete` | `node tools/goal06/verify-phase1-b4.mjs`; workspace no-run; replay/Universe/Agent tests; focused Clippy; quick repository gate | Unified all battle construction on `BattleSpec::new(..., AssemblyDigest, ...)`, leaving combat-input identity computed only by combat-core. Removed the unwritten `activity_source` field, advanced new replay-v3 recordings to event payload v2 while retaining byte-exact payload-v1 replay and event-commitment verification, and split event cause encoding plus Universe request construction out of near-limit files. |
 | `G06-P2-B1` | `Complete` | `node tools/goal06/verify-phase2-b1.mjs`; battle-materialization tests; workspace check; focused Clippy; quick repository gate | Added a once-built immutable encounter/enemy catalog composition, a canonical six-field `BattleAssemblyKey`, and a default-64 deterministic FIFO cache whose entries validate their exact key. Production factory construction now reuses the composition, while cache clear/eviction remain outside authoritative state and preserve battle identities. |
-| `G06-P2-B2` | `Pending` | — | Project the current Activity contribution snapshot. |
+| `G06-P2-B2` | `Complete` | `node tools/goal06/verify-phase2-b2.mjs`; Activity and encounter-runtime tests; workspace check; focused Clippy; quick repository gate | Added `StandardUniverseBattleSnapshot` with typed Path, Blessing, Resonance/Formation, Curio lifecycle, Ability Tree projection, final contributions and ordered carry. `battle_start_snapshot()` derives context from current Activity, binds the source state hash, and rejects mismatched explicit contexts; provenance-only changes alter the snapshot without fabricating combat changes. |
 | `G06-P2-B3` | `Pending` | — | Assemble every pending battle dynamically and atomically. |
 | `G06-P2-B4` | `Pending` | — | Prove cache invalidation, rollback and retry. |
 | `G06-P2-B5` | `Pending` | — | Prove acquire/upgrade/remove effects in real battles. |

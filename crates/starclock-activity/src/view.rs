@@ -86,6 +86,7 @@ pub struct ActivityPlayerView {
     pub(crate) preparation: Option<ActivityPreparationView>,
     pub(crate) pending_battle: Option<ActivityPendingBattleView>,
     pub(crate) participant_carry: Box<[ActivityParticipantCarryState]>,
+    pub(crate) completed_battle_count: u32,
     pub(crate) terminal: Option<ActivityTerminalOutcome>,
     pub(crate) state_hash: ActivityStateHash,
 }
@@ -125,6 +126,10 @@ impl ActivityPlayerView {
     #[must_use]
     pub fn participant_carry(&self) -> &[ActivityParticipantCarryState] {
         &self.participant_carry
+    }
+    #[must_use]
+    pub const fn completed_battle_count(&self) -> u32 {
+        self.completed_battle_count
     }
     #[must_use]
     pub const fn terminal(&self) -> Option<ActivityTerminalOutcome> {

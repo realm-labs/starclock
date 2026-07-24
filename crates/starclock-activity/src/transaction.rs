@@ -452,6 +452,8 @@ impl ActivityTransactionState {
             preparation: self.preparation_view(),
             pending_battle: self.pending_battle_view(),
             participant_carry: self.carry.view(),
+            completed_battle_count: u32::try_from(self.completed_battles.len())
+                .expect("completed battle count is bounded"),
             terminal: self.terminal,
             state_hash: self.state_hash(identity, graph, instance, rng),
         }
