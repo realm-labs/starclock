@@ -1,9 +1,10 @@
 use std::{num::NonZeroUsize, sync::Arc};
 
 use starclock_activity::{
-    ActivityDecisionKind, ActivityExternalOutcomeId, ActivityPreparationBoundary,
+    ActivityDecisionKind, ActivityExternalOutcomeId, ActivityPreparationBoundary, BattleOutcome,
+    BattleResult, EventDigest, ParticipantBattleState, ParticipantId, ProjectedValue,
 };
-use starclock_combat::Battle;
+use starclock_combat::{Battle, BattleStateHash, Energy, Hp, LifeState, PresenceState, TeamSide};
 use starclock_mode_universe::{
     battle_technique::UniverseBattleTechniqueDefinition,
     dynamic_battle_assembler::{
@@ -260,4 +261,82 @@ fn bounded_dynamic_cache_hits_and_evicts_exact_activity_snapshots() {
             .unwrap()
             .cache_hit()
     );
+}
+
+#[test]
+fn settled_carry_is_reassembled_into_the_next_real_battle() {
+    let (mut activity, assembler) = activity_and_assembler(0x6026);
+    drive_to_pending(&mut activity);
+    let first = assembler.start_pending_battle(&mut activity).unwrap();
+    let first_input = first.handoff().identity().combat_input_digest();
+    activity
+        .submit_pending_battle_result(
+            activity.view().state_hash(),
+            damaged_win(first.handoff().identity()),
+        )
+        .unwrap();
+    assert_eq!(activity.view().participant_carry().len(), 4);
+
+    drive_to_pending(&mut activity);
+    let snapshot = activity.battle_start_snapshot().unwrap();
+    assert_eq!(
+        snapshot.participant_carry(),
+        activity.view().participant_carry()
+    );
+    let second = assembler.start_pending_battle(&mut activity).unwrap();
+    assert_ne!(
+        second.handoff().identity().combat_input_digest(),
+        first_input
+    );
+    let players = second
+        .handoff()
+        .battle_spec()
+        .participants()
+        .iter()
+        .filter(|participant| participant.side() == TeamSide::Player)
+        .collect::<Vec<_>>();
+    assert_eq!(players.len(), 4);
+    for (index, participant) in players.iter().enumerate() {
+        let initial = participant
+            .initial_state()
+            .expect("the second battle embeds exact Activity carry");
+        assert_eq!(
+            initial.current_hp(),
+            Hp::new(70_000 + i64::try_from(index).unwrap()).unwrap()
+        );
+        assert_eq!(
+            initial.current_energy(),
+            Energy::from_scaled(40_000_000 + i64::try_from(index).unwrap()).unwrap()
+        );
+    }
+    Battle::create(
+        Arc::clone(second.combat_catalog()),
+        second.handoff().battle_spec().clone(),
+        second.handoff().identity().seed(),
+    )
+    .expect("the carry-adjusted second battle is executable");
+}
+
+fn damaged_win(identity: starclock_activity::BattleResultIdentity) -> BattleResult {
+    let mut values = vec![
+        ProjectedValue::Outcome(BattleOutcome::Won),
+        ProjectedValue::FinalStateHash(BattleStateHash::from_bytes([0x73; 32])),
+        ProjectedValue::EventDigest(EventDigest::new([0x74; 32]).unwrap()),
+        ProjectedValue::TerminalFault(None),
+    ];
+    values.extend((0_u32..4).map(|index| {
+        ProjectedValue::ParticipantState(
+            ParticipantBattleState::new(
+                ParticipantId::new(index + 1).unwrap(),
+                Hp::new(70_000 + i64::from(index)).unwrap(),
+                Hp::new(100_000).unwrap(),
+                Energy::from_scaled(40_000_000 + i64::from(index)).unwrap(),
+                Energy::from_scaled(100_000_000).unwrap(),
+                LifeState::Alive,
+                PresenceState::Present,
+            )
+            .unwrap(),
+        )
+    }));
+    BattleResult::seal(identity, values)
 }

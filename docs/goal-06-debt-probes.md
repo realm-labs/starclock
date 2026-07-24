@@ -49,7 +49,7 @@ the same assembler rather than adding parallel code paths.
 | Scenario | Source | Transitions | Expected identity change |
 |---|---|---|---|
 | Blessing acquire/upgrade | `universe.blessing.612344` | absent → L1 → L2 | combat input + assembly |
-| Curio lifecycle | `universe.curio.8` | absent → active → disabled → removed | combat input + assembly |
+| Curio lifecycle | `universe.curio.8` | absent → active → suppressed → removed | combat input changes only with executable contribution; assembly always changes |
 | Resonance | `universe.resonance.612420` | locked → unlocked → resource consumed | combat input + runtime state |
 | Ability Tree | `universe.ability-tree.2` | not selected → selected | combat input + assembly |
 | Participant carry | Activity participant carry | full → damaged → Energy changed | combat input only |
@@ -58,6 +58,10 @@ the same assembler rather than adding parallel code paths.
 The first Blessing enhanced level, active Curio state and Hunt Resonance are
 the three Goal 05 source-keyed executable rule slices. Goal 06 uses them to
 prove dynamic selection; it does not broaden their content implementation.
+The released data has no distinct disabled state for Curio 8. Suppressed and
+removed states are therefore combat-input equivalent when neither contributes
+an executable effect, while their Activity-derived assembly provenance remains
+different.
 
 ## Terminal inversion
 
@@ -68,4 +72,3 @@ At Goal 06 release:
 - no combat catalog is rebuilt per battle;
 - all five production surfaces share one assembly authority; and
 - new production replays bind the v3 combat-input/assembly identity pair.
-

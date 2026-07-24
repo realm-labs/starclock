@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `combat-identity-dynamic-assembly-v1` |
 | State | `InProgress` |
-| Active phase | Phase 2 — Dynamic per-battle assembly |
+| Active phase | Phase 3 — Production surfaces and replay |
 | Active batch | None |
-| Next unblocked batch | `G06-P2-B5` |
+| Next unblocked batch | `G06-P3-B1` |
 | Required snapshot | Goal 05 `standard-universe-end-to-end-v1` |
 | Planned batches | 18 |
 | Blocking condition | None |
@@ -23,8 +23,9 @@ typed immutable snapshot of all current battle contributions and participant
 carry. P2-B3 resolves the selected encounter from that snapshot and atomically
 replaces/seals the prepared placeholder. P2-B4 now bounds assembly work and
 proves exact state/RNG preservation across stale, invalid, budget and cache
-failure paths. P2-B5 will prove that inventory and carry transitions change
-real successive battles.
+failure paths. P2-B5 closes Phase 2 with real battle fixtures for Blessing,
+Curio, Resonance, Ability Tree and cross-battle carry transitions. Phase 3 now
+migrates every production surface to this one dynamic authority.
 
 ## Batch ledger
 
@@ -41,7 +42,7 @@ real successive battles.
 | `G06-P2-B2` | `Complete` | `node tools/goal06/verify-phase2-b2.mjs`; Activity and encounter-runtime tests; workspace check; focused Clippy; quick repository gate | Added `StandardUniverseBattleSnapshot` with typed Path, Blessing, Resonance/Formation, Curio lifecycle, Ability Tree projection, final contributions and ordered carry. `battle_start_snapshot()` derives context from current Activity, binds the source state hash, and rejects mismatched explicit contexts; provenance-only changes alter the snapshot without fabricating combat changes. |
 | `G06-P2-B3` | `Complete` | `node tools/goal06/verify-phase2-b3.mjs`; Activity, materialization and dynamic-start tests; workspace check; focused Clippy; quick repository gate | Added the shared `StandardUniverseBattleAssembler`, snapshot/carry-aware materialization and an atomic generic Activity replacement/start operation. The returned handoff is paired with its exact immutable combat catalog; encounter, preparation variant, dual identities, contract and seed are sealed together without RNG draws or partial Activity publication. |
 | `G06-P2-B4` | `Complete` | `node tools/goal06/verify-phase2-b4.mjs`; dynamic assembly integration tests; focused Clippy; quick repository gate | Added explicit assembly budgets and configurable bounded cache policy. Integrated fixtures prove exact-key hits and FIFO eviction, reject stale snapshots, unregistered techniques and budget overflow before publication, preserve canonical Activity/RNG bytes, and successfully retry the same pending battle. |
-| `G06-P2-B5` | `Pending` | — | Prove acquire/upgrade/remove effects in real battles. |
+| `G06-P2-B5` | `Complete` | `node tools/goal06/verify-phase2-b5.mjs`; transition unit fixture; dynamic two-battle carry integration; focused Clippy; quick repository gate | Proved absent/L1/L2 Blessing, active/suppressed/removed Curio, locked/unlocked Hunt Resonance, Ability Tree node 2 and settled HP/Energy carry through the shared assembler and real `Battle` construction. Combat-equivalent suppressed/removed Curio inputs retain equal combat identity while independent Activity provenance changes assembly identity. |
 | `G06-P3-B1` | `Pending` | — | Migrate CLI and baseline runs. |
 | `G06-P3-B2` | `Pending` | — | Migrate Agent and MCP surfaces. |
 | `G06-P3-B3` | `Pending` | — | Verify replay reconstruction and interface parity. |

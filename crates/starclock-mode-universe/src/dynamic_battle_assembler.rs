@@ -403,3 +403,6 @@ impl core::fmt::Display for StandardUniverseDynamicBattleError {
 }
 
 impl std::error::Error for StandardUniverseDynamicBattleError {}
+
+#[cfg(test)]
+mod transition_tests;
