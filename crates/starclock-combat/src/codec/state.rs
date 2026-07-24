@@ -111,7 +111,7 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
     e.text(state.identity.catalog_revision.as_str());
     e.raw(&state.identity.catalog_digest.bytes());
     e.text(&state.identity.rules_revision);
-    e.raw(&state.identity.spec_digest.bytes());
+    e.raw(&state.identity.assembly_digest.bytes());
     e.text(NUMERIC_POLICY_REVISION);
     e.text(RNG_ALGORITHM_REVISION);
     e.text(STATE_HASH_REVISION);

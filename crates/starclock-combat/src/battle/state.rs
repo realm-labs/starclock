@@ -16,7 +16,7 @@ use crate::{
 use super::{
     fault::BattleFault,
     model::BattlePhase,
-    spec::{BattleSeed, BattleSpecDigest, ConcedePolicy},
+    spec::{AssemblyDigest, BattleSeed, CombatInputDigest, ConcedePolicy},
 };
 
 #[derive(Clone, Debug)]
@@ -24,7 +24,8 @@ pub(crate) struct BattleIdentity {
     pub(crate) catalog_revision: CatalogRevision,
     pub(crate) catalog_digest: CatalogDigest,
     pub(crate) rules_revision: Box<str>,
-    pub(crate) spec_digest: BattleSpecDigest,
+    pub(crate) combat_input_digest: CombatInputDigest,
+    pub(crate) assembly_digest: AssemblyDigest,
     pub(crate) seed: BattleSeed,
 }
 

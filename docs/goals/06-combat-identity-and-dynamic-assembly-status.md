@@ -8,13 +8,13 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Combat identity and replay v3 |
 | Active batch | None |
-| Next unblocked batch | `G06-P1-B1` |
+| Next unblocked batch | `G06-P1-B2` |
 | Required snapshot | Goal 05 `standard-universe-end-to-end-v1` |
 | Planned batches | 18 |
 | Blocking condition | None |
 
-Goal 06 is active. The execution package and immutable Goal 05 prerequisite are
-frozen; the next batch records the observable digest/materialization debt.
+Goal 06 is active. Phase 0 is frozen and combat now owns canonical input
+identity; the next batch migrates Activity handoff and settlement identity.
 
 ## Batch ledger
 
@@ -23,7 +23,7 @@ frozen; the next batch records the observable digest/materialization debt.
 | `G06-P0-B1` | `Complete` | `node tools/goal06/verify-foundation.mjs`; `node tools/repository-check/verify-release-snapshots.mjs`; quick repository gate | Froze the 5-phase/18-batch execution package and normative identity/assembly contract. Bound the exact Goal 05 completion commit/tree and starting 2,201/786/78 denominator. Defined combat-owned `CombatInputDigest`, opaque `AssemblyDigest`, `BattleAssemblyKey`, replay-v3 target and immutable replay-v2 history without claiming the remaining 783 rules. |
 | `G06-P0-B2` | `Complete` | `node tools/goal06/verify-debt-probes.mjs`; quick repository gate | Froze 32 caller-supplied `BattleSpecDigest` constructor calls across 25 Rust files, the shared factory's one entry-time empty-inventory materialization, the unused current-Activity contribution seam and the single CLI/Agent/MCP authority that must migrate together. Added six ordered transition scenarios covering Blessing upgrade, Curio disable/remove, Resonance, Ability Tree, carry-only and provenance-only identity changes. |
 | `G06-P0-B3` | `Complete` | `node tools/goal06/verify-phase0.mjs`; full repository gate | Froze historical component replay v2 and the v3 six-field nested identity/first-divergence contract, six identity/assembly/cache/concurrency/matrix performance workloads under the 180-second focused budget, a zero-new-dependency Cargo baseline and the five-phase/18-batch release scaffold. Phase 0 generated/drift checks now run mechanically. |
-| `G06-P1-B1` | `Pending` | — | Compute combat input identity in combat-core. |
+| `G06-P1-B1` | `Complete` | `node tools/goal06/verify-phase1-b1.mjs`; `cargo test -p starclock-combat`; combat clippy; workspace check | Added the combat-owned `SCBI` v1 canonical codec and computed `CombatInputDigest`, separated opaque `AssemblyDigest` in `BattleSpec` and runtime battle identity, and retained the historical state/replay bytes until the coordinated P1-B3 revision. The temporary legacy constructor treats its supplied digest only as assembly provenance. |
 | `G06-P1-B2` | `Pending` | — | Migrate Activity handoff and settlement identity. |
 | `G06-P1-B3` | `Pending` | — | Add replay v3 and preserve replay v2 verification. |
 | `G06-P1-B4` | `Pending` | — | Migrate callers, event attribution and touched file layout. |

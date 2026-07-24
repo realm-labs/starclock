@@ -109,9 +109,10 @@ assert(!/rand::distr|random_range|random_iter|thread_rng|sys_rng/.test(randSourc
 const shaUsers = rustFiles.filter((file) => /\bsha2::/.test(fs.readFileSync(file, "utf8")));
 const shaOwners = shaUsers.map((file) => path.relative(root, file).replaceAll("\\", "/")).sort();
 assert(JSON.stringify(shaOwners) === JSON.stringify([
+  "crates/starclock-combat/src/battle/spec_codec.rs",
   "crates/starclock-combat/src/codec/state.rs",
   "crates/starclock-combat/src/rng/derive.rs",
-]), `sha2 escaped the private RNG/state-codec owners: ${shaUsers.join(", ")}`);
+]), `sha2 escaped the private RNG/input/state-codec owners: ${shaUsers.join(", ")}`);
 assert(!combatRoot.includes("pub use rand") && !combatRoot.includes("pub use sha2"), "RNG/hash dependencies must not be re-exported");
 
 console.log(`Dependency policy verified (${reviewed.length} locked registry packages; ${policy.tools.length} pinned tools; private numeric/RNG/hash boundaries).`);

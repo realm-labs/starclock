@@ -46,8 +46,28 @@ digest_type!(
 );
 digest_type!(
     BattleSpecDigest,
-    "Digest of one complete immutable battle request."
+    "Legacy compatibility wrapper for a complete immutable battle request digest."
 );
+digest_type!(
+    CombatInputDigest,
+    "Combat-owned digest of one canonical immutable battle input."
+);
+digest_type!(
+    AssemblyDigest,
+    "Opaque upstream identity of the assembly that produced one battle input."
+);
+
+impl CombatInputDigest {
+    pub(super) const fn from_computed(bytes: [u8; 32]) -> Self {
+        Self(bytes)
+    }
+}
+
+impl BattleSpecDigest {
+    pub(super) const fn from_assembly(digest: AssemblyDigest) -> Self {
+        Self(digest.bytes())
+    }
+}
 
 /// Exact seed of the isolated battle RNG stream.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -766,7 +786,8 @@ impl TeamResourceSpec {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BattleSpec {
     rules_revision: Box<str>,
-    digest: BattleSpecDigest,
+    combat_input_digest: CombatInputDigest,
+    assembly_digest: AssemblyDigest,
     encounter: EncounterId,
     participants: Box<[ParticipantSpec]>,
     player_resources: TeamResourceSpec,
@@ -775,10 +796,36 @@ pub struct BattleSpec {
 }
 
 impl BattleSpec {
-    /// Validates local shape and canonicalizes participants by side/formation.
+    /// Legacy bridge for callers pending migration to [`Self::new_with_assembly`].
+    ///
+    /// The supplied digest is treated only as opaque assembly provenance. The
+    /// combat-visible digest is always computed inside this crate.
     pub fn new(
         rules_revision: impl Into<Box<str>>,
         digest: BattleSpecDigest,
+        encounter: EncounterId,
+        participants: Vec<ParticipantSpec>,
+        player_resources: TeamResourceSpec,
+        enemy_resources: TeamResourceSpec,
+        concede: ConcedePolicy,
+    ) -> Result<Self, BattleSpecError> {
+        let assembly_digest = AssemblyDigest::new(digest.bytes())
+            .expect("BattleSpecDigest construction already rejects zero");
+        Self::new_with_assembly(
+            rules_revision,
+            assembly_digest,
+            encounter,
+            participants,
+            player_resources,
+            enemy_resources,
+            concede,
+        )
+    }
+
+    /// Validates and canonicalizes battle input, then computes its identity.
+    pub fn new_with_assembly(
+        rules_revision: impl Into<Box<str>>,
+        assembly_digest: AssemblyDigest,
         encounter: EncounterId,
         mut participants: Vec<ParticipantSpec>,
         player_resources: TeamResourceSpec,
@@ -820,9 +867,18 @@ impl BattleSpec {
         {
             return Err(BattleSpecError::MissingSide);
         }
+        let combat_input_digest = super::spec_codec::combat_input_digest(
+            &rules_revision,
+            encounter,
+            &participants,
+            &player_resources,
+            &enemy_resources,
+            concede,
+        );
         Ok(Self {
             rules_revision,
-            digest,
+            combat_input_digest,
+            assembly_digest,
             encounter,
             participants: participants.into_boxed_slice(),
             player_resources,
@@ -836,10 +892,20 @@ impl BattleSpec {
     pub fn rules_revision(&self) -> &str {
         &self.rules_revision
     }
-    /// Returns the exact battle request digest.
+    /// Returns the legacy outer request identity during replay-v2 migration.
     #[must_use]
     pub const fn digest(&self) -> BattleSpecDigest {
-        self.digest
+        BattleSpecDigest(self.assembly_digest.bytes())
+    }
+    /// Returns the combat-owned canonical input identity.
+    #[must_use]
+    pub const fn combat_input_digest(&self) -> CombatInputDigest {
+        self.combat_input_digest
+    }
+    /// Returns opaque provenance supplied by the outer assembly owner.
+    #[must_use]
+    pub const fn assembly_digest(&self) -> AssemblyDigest {
+        self.assembly_digest
     }
     /// Returns the selected encounter definition.
     #[must_use]

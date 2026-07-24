@@ -133,11 +133,11 @@
     {
       "name": "authoritative RNG and SHA-256",
       "relationship": "rand and sha2 are direct starclock-combat dependencies; sha2 is also a direct starclock-build, starclock-activity, starclock-data, starclock-mode-universe and starclock-replay dependency; all other entries are transitive through those packages",
-      "owner": "starclock-combat private ChaCha8/stream-derivation implementation, starclock-build private canonical definition/build encoder, starclock-activity private RNG/participant/result/state/transaction encoders, starclock-data and starclock-mode-universe private exact bundle/catalog identity encoders, and starclock-replay private canonical SHA-256 sink",
+      "owner": "starclock-combat private ChaCha8/stream-derivation and combat-input/state codec implementations, starclock-build private canonical definition/build encoder, starclock-activity private RNG/participant/result/state/transaction encoders, starclock-data and starclock-mode-universe private exact bundle/catalog identity encoders, and starclock-replay private canonical SHA-256 sink",
       "features": ["rand:chacha,std", "sha2:none"],
       "default_features": false,
       "source_url": "https://crates.io/",
-      "purpose": "Provide the explicitly named ChaCha8 core and SHA-256 primitive while Starclock owns canonical RNG stream bytes, build definition/catalog/selection encoding, activity handoff/result/state encoding, exact input-bundle hashing, unsigned rejection mapping, cumulative weight selection, draw consumption, counters and replay/state encoding.",
+      "purpose": "Provide the explicitly named ChaCha8 core and SHA-256 primitive while Starclock owns canonical RNG stream bytes, combat-input/build definition/catalog/selection encoding, activity handoff/result/state encoding, exact input-bundle hashing, unsigned rejection mapping, cumulative weight selection, draw consumption, counters and replay/state encoding.",
       "deterministic_impact": "Authoritative and replay-sensitive. Exact versions/features, raw u64 words, battle/activity seed derivation bytes, build/activity digest domains, mapping and draw policy are bound by revisioned encoders and golden vectors; thread/sys RNG features are disabled and generic distribution APIs are mechanically unused.",
       "compile_cost": "A fresh locked starclock-combat check including numeric, RNG and SHA-256 packages measured 3,500 ms on the recorded Windows runner. Existing shared cfg-if, libc and typenum packages are inventoried elsewhere.",
       "rejected_alternatives": [

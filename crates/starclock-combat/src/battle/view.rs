@@ -18,8 +18,8 @@ use super::{
     fault::BattleFault,
     model::BattlePhase,
     spec::{
-        BattleSeed, BattleSpecDigest, CombatantSpecDigest, FormationIndex, ParticipantSource,
-        TeamSide, UnitLevel,
+        AssemblyDigest, BattleSeed, BattleSpecDigest, CombatInputDigest, CombatantSpecDigest,
+        FormationIndex, ParticipantSource, TeamSide, UnitLevel,
     },
     state::BattleState,
 };
@@ -455,7 +455,17 @@ impl<'a> BattleIdentityView<'a> {
     /// Returns the exact battle-spec digest.
     #[must_use]
     pub const fn spec_digest(self) -> BattleSpecDigest {
-        self.state.identity.spec_digest
+        BattleSpecDigest::from_assembly(self.state.identity.assembly_digest)
+    }
+    /// Returns the combat-owned canonical battle-input digest.
+    #[must_use]
+    pub const fn combat_input_digest(self) -> CombatInputDigest {
+        self.state.identity.combat_input_digest
+    }
+    /// Returns opaque provenance for the outer assembly.
+    #[must_use]
+    pub const fn assembly_digest(self) -> AssemblyDigest {
+        self.state.identity.assembly_digest
     }
     /// Returns the authoritative numeric compatibility revision.
     #[must_use]

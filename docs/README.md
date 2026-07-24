@@ -97,6 +97,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 71. [Combat identity and dynamic assembly](29-combat-identity-and-dynamic-assembly.md) — combat-owned input identity, opaque assembly provenance, current-Activity per-battle assembly, cache/rollback rules and replay-v3 migration.
 72. [Goal 06 identity and assembly debt probes](goal-06-debt-probes.md) — machine-checked caller-supplied digest, entry-time materialization, production-surface migration and representative transition baseline.
 73. [Goal 06 Phase 0 baseline](goal-06-phase0-baseline.md) — frozen replay v2/v3 compatibility, assembly/cache performance workloads, dependency identity and release scaffold.
+74. [Goal 06 combat-input identity evidence](goal-06-combat-input-identity.md) — combat-owned canonical input codec, computed digest and separate opaque assembly provenance.
 
 ## Execution goals
 
