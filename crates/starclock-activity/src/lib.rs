@@ -22,6 +22,7 @@ mod logical_scope;
 mod participant;
 mod program;
 mod projection;
+mod random_policy;
 mod scope;
 mod slot;
 mod spec;
@@ -66,8 +67,7 @@ pub use graph::{
     MAX_EDGE_TRAVERSALS, MAX_NODE_VISITS,
 };
 pub use graph_activity::{
-    ActivityBootstrapSelection, ActivityRandomCheckpoint, ActivityRandomOffer,
-    ActivityRandomPolicies, GraphActivity, GraphActivityBattleResolution, GraphActivityDefinition,
+    GraphActivity, GraphActivityBattleResolution, GraphActivityDefinition,
     GraphActivityNodeProgram, GraphActivityPreparationResolution, GraphActivityResolution,
 };
 pub use graph_command::{
@@ -93,7 +93,8 @@ pub use id::{
 };
 pub use interaction::{
     ActivityInteractionBinding, ActivityInteractionBindingError, ActivityInteractionBindings,
-    MAX_ACTIVITY_COMPONENT_ID_BYTES, MAX_ACTIVITY_INTERACTION_BINDINGS,
+    ActivityInteractionRandomPolicy, MAX_ACTIVITY_COMPONENT_ID_BYTES,
+    MAX_ACTIVITY_INTERACTION_BINDINGS, MAX_ACTIVITY_INTERACTION_RANDOM_CANDIDATES,
 };
 pub use logical_scope::{
     ACTIVITY_LOGICAL_SCOPE_REVISION, LogicalScopeAddress, LogicalScopeClassDefinition,
@@ -115,6 +116,10 @@ pub use projection::{
     BattleOutcome, BattleResult, BattleResultConfiguration, BattleResultIdentity,
     BattleResultProjection, BattleResultProjectionError, MetricValue, MetricValueKind,
     ParticipantBattleState, ProjectedValue, ProjectionField,
+};
+pub use random_policy::{
+    ActivityBootstrapSelection, ActivityRandomCheckpoint, ActivityRandomOffer,
+    ActivityRandomPolicies,
 };
 pub use scope::{ActivityScope, OneBattleFlow, OneBattleFlowError, ScopeIdentity, TerminalOutcome};
 pub use slot::{

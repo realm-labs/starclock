@@ -30,6 +30,7 @@ use crate::{
     negative_curio_runtime::NegativeCurioRuntimeCatalog,
     nihility_runtime::NihilityRuntimeCatalog,
     occurrence_effect_runtime::OccurrenceEffectRuntimeCatalog,
+    occurrence_interaction::OccurrenceInteractionRuntimeCatalog,
     path_runtime::PathRuntimeCatalog,
     preservation_runtime::PreservationRuntimeCatalog,
     propagation_runtime::PropagationRuntimeCatalog,
@@ -38,7 +39,7 @@ use crate::{
     service_effect_runtime::ServiceEffectRuntimeCatalog,
 };
 
-pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v1";
+pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v2";
 
 const WORLD_SLOT: u32 = 1;
 const DIFFICULTY_SLOT: u32 = 2;
@@ -54,6 +55,7 @@ const CURIO_STATE_SLOT: u32 = 11;
 const CURIO_CHARGE_SLOT: u32 = 12;
 const COSMIC_FRAGMENTS_SLOT: u32 = 13;
 const EXTERNAL_OUTCOME_SLOT: u32 = 14;
+const OCCURRENCE_EFFECT_SLOT: u32 = 15;
 const BLESSING_INVENTORY: u32 = 1;
 const FORMATION_INVENTORY: u32 = 2;
 const CURIO_INVENTORY: u32 = 3;
@@ -71,6 +73,7 @@ const CURIO_STATE_SOURCE: u64 = 0x5355_000B;
 const CURIO_CHARGE_SOURCE: u64 = 0x5355_000C;
 const COSMIC_FRAGMENTS_SOURCE: u64 = 0x5355_000D;
 const EXTERNAL_OUTCOME_SOURCE: u64 = 0x5355_000E;
+const OCCURRENCE_EFFECT_SOURCE: u64 = 0x5355_000F;
 const BLESSING_INVENTORY_SOURCE: u64 = 0x5355_1001;
 const FORMATION_INVENTORY_SOURCE: u64 = 0x5355_1002;
 const CURIO_INVENTORY_SOURCE: u64 = 0x5355_1003;
@@ -261,6 +264,16 @@ impl StandardUniverseProfile {
             OccurrenceEffectRuntimeCatalog::compile(&self.catalog, &run_runtime)
                 .map_err(|_| StandardUniverseCompileError::InvalidRunRuntime)?,
         );
+        let occurrence_interaction_runtime = Arc::new(
+            OccurrenceInteractionRuntimeCatalog::compile(
+                &self.catalog,
+                slot(COSMIC_FRAGMENTS_SLOT),
+                inventory(BLESSING_INVENTORY),
+                inventory(CURIO_INVENTORY),
+                slot(OCCURRENCE_EFFECT_SLOT),
+            )
+            .map_err(|_| StandardUniverseCompileError::InvalidRunRuntime)?,
+        );
         let service_effect_runtime = Arc::new(
             ServiceEffectRuntimeCatalog::compile(&run_runtime)
                 .map_err(|_| StandardUniverseCompileError::InvalidRunRuntime)?,
@@ -321,6 +334,7 @@ impl StandardUniverseProfile {
                 slot(BLESSING_REROLL_SLOT),
                 slot(PATH_BLESSING_COUNT_SLOT),
                 inventory(FORMATION_INVENTORY),
+                occurrence_interaction_runtime.as_ref(),
                 slot(EXTERNAL_OUTCOME_SLOT),
             )
             .map_err(StandardUniverseCompileError::Topology)?;
@@ -359,6 +373,7 @@ impl StandardUniverseProfile {
             negative_curio_runtime,
             run_runtime,
             occurrence_effect_runtime,
+            occurrence_interaction_runtime,
             service_effect_runtime,
             encounter_content_runtime,
             ability_runtime,
@@ -402,6 +417,7 @@ pub struct CompiledActivity {
     negative_curio_runtime: Arc<NegativeCurioRuntimeCatalog>,
     run_runtime: Arc<RunRuntimeCatalog>,
     occurrence_effect_runtime: Arc<OccurrenceEffectRuntimeCatalog>,
+    occurrence_interaction_runtime: Arc<OccurrenceInteractionRuntimeCatalog>,
     service_effect_runtime: Arc<ServiceEffectRuntimeCatalog>,
     encounter_content_runtime: Arc<EncounterContentRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
@@ -557,6 +573,13 @@ impl CompiledActivity {
     #[must_use]
     pub const fn occurrence_effect_runtime(&self) -> &Arc<OccurrenceEffectRuntimeCatalog> {
         &self.occurrence_effect_runtime
+    }
+
+    #[must_use]
+    pub const fn occurrence_interaction_runtime(
+        &self,
+    ) -> &Arc<OccurrenceInteractionRuntimeCatalog> {
+        &self.occurrence_interaction_runtime
     }
 
     #[must_use]
@@ -876,6 +899,14 @@ fn compile_state(
             EXTERNAL_OUTCOME_SOURCE,
             ActivityStateVisibility::Player,
         )?,
+        counter_slot(
+            OCCURRENCE_EFFECT_SLOT,
+            4_096,
+            0,
+            i64::from(u32::MAX),
+            OCCURRENCE_EFFECT_SOURCE,
+            ActivityStateVisibility::Private,
+        )?,
     ];
     let inventories = vec![
         ActivityInventoryDefinition::new(
@@ -1009,6 +1040,7 @@ fn compile_identity(
     encoder.text(crate::curio_effect_runtime::CURIO_EFFECT_RUNTIME_REVISION);
     encoder.text(crate::negative_curio_runtime::NEGATIVE_CURIO_RUNTIME_REVISION);
     encoder.text(crate::occurrence_effect_runtime::OCCURRENCE_EFFECT_RUNTIME_REVISION);
+    encoder.text(crate::occurrence_interaction::OCCURRENCE_INTERACTION_RUNTIME_REVISION);
     encoder.text(crate::service_effect_runtime::SERVICE_EFFECT_RUNTIME_REVISION);
     encoder.text(crate::encounter_content_runtime::ENCOUNTER_CONTENT_RUNTIME_REVISION);
     encoder.text(crate::run_runtime::RUN_RUNTIME_REVISION);

@@ -35,6 +35,7 @@ pub mod negative_curio_runtime;
 pub mod nihility_runtime;
 pub mod occurrence;
 pub mod occurrence_effect_runtime;
+pub mod occurrence_interaction;
 pub mod path;
 pub mod path_effect_runtime;
 pub mod path_runtime;
@@ -47,6 +48,7 @@ pub mod run_runtime;
 pub mod runtime;
 pub mod service_effect_runtime;
 pub mod topology;
+mod topology_support;
 pub mod universe_replay;
 
 mod curio_lowering;

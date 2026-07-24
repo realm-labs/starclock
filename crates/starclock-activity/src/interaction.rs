@@ -4,12 +4,55 @@ use std::sync::Arc;
 
 use crate::{
     ActivityDecisionKind, ActivityExternalOutcomeId, ActivityGraphDefinition, ActivityHandlerId,
-    ActivityHandlerRegistry, ActivityOptionId, GraphActivityNodeProgram,
+    ActivityHandlerRegistry, ActivityOptionId, ActivityRngLabel, GraphActivityNodeProgram,
     MAX_ACTIVITY_HANDLER_PAYLOAD_BYTES, NodeId,
 };
 
-pub const MAX_ACTIVITY_INTERACTION_BINDINGS: usize = 16_384;
+pub const MAX_ACTIVITY_INTERACTION_BINDINGS: usize = 65_536;
 pub const MAX_ACTIVITY_COMPONENT_ID_BYTES: usize = 128;
+pub const MAX_ACTIVITY_INTERACTION_RANDOM_CANDIDATES: u32 = 65_536;
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ActivityInteractionRandomPolicy {
+    label: ActivityRngLabel,
+    purpose: u16,
+    candidate_count: u32,
+}
+
+impl ActivityInteractionRandomPolicy {
+    pub fn new(
+        label: ActivityRngLabel,
+        purpose: u16,
+        candidate_count: u32,
+    ) -> Result<Self, ActivityInteractionBindingError> {
+        if purpose == 0
+            || candidate_count == 0
+            || candidate_count > MAX_ACTIVITY_INTERACTION_RANDOM_CANDIDATES
+        {
+            return Err(ActivityInteractionBindingError::InvalidRandomPolicy);
+        }
+        Ok(Self {
+            label,
+            purpose,
+            candidate_count,
+        })
+    }
+
+    #[must_use]
+    pub const fn label(self) -> ActivityRngLabel {
+        self.label
+    }
+
+    #[must_use]
+    pub const fn purpose(self) -> u16 {
+        self.purpose
+    }
+
+    #[must_use]
+    pub const fn candidate_count(self) -> u32 {
+        self.candidate_count
+    }
+}
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ActivityInteractionBinding {
@@ -18,6 +61,7 @@ pub struct ActivityInteractionBinding {
     handler: ActivityHandlerId,
     payload: Box<[u8]>,
     component_id: Box<str>,
+    random_policy: Option<ActivityInteractionRandomPolicy>,
 }
 
 impl ActivityInteractionBinding {
@@ -39,7 +83,14 @@ impl ActivityInteractionBinding {
             handler,
             payload: payload.into_boxed_slice(),
             component_id,
+            random_policy: None,
         })
+    }
+
+    #[must_use]
+    pub fn with_random_policy(mut self, policy: ActivityInteractionRandomPolicy) -> Self {
+        self.random_policy = Some(policy);
+        self
     }
 
     #[must_use]
@@ -65,6 +116,11 @@ impl ActivityInteractionBinding {
     #[must_use]
     pub fn component_id(&self) -> &str {
         &self.component_id
+    }
+
+    #[must_use]
+    pub const fn random_policy(&self) -> Option<ActivityInteractionRandomPolicy> {
+        self.random_policy
     }
 }
 
@@ -133,6 +189,7 @@ pub enum ActivityInteractionBindingError {
     WrongNodeKind,
     OutcomeNotOffered,
     MissingHandler,
+    InvalidRandomPolicy,
 }
 
 impl core::fmt::Display for ActivityInteractionBindingError {

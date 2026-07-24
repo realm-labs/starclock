@@ -121,6 +121,38 @@ noncombat outcome performs one transaction:
 An effect-plan API used only by a unit test is not runtime completion.
 Rejected or faulting effects preserve the pre-command state and RNG counters.
 
+### Occurrence execution and source identity
+
+The Standard Universe Occurrence interaction runtime precompiles all 321
+authored choices into private canonical handler payloads. The payload catalog
+is immutable, digest-bearing and separate from the older effect-plan view.
+Each payload lowers:
+
+- Cosmic Fragment changes to checked integer or percentage operations;
+- Blessing and Curio obtain, enhance, consume, discard and lose operations to
+  bounded inventory mutations;
+- authored ownership/currency costs to transaction requirements;
+- `StableUniformOrderedCandidates` to one labeled `Occurrence` RNG draw;
+- battle, participant-HP and special-state effects that cannot yet mutate an
+  Activity-owned value to source-keyed deferred effect state. The later
+  battle/carry compiler consumes this state; it is never acknowledged by an
+  empty handler.
+
+The frozen partition currently produces 284 immediate checked operations and
+186 deferred effect atoms. Deferred atoms are explicit boundary data, not a
+claim that the combat/carry effect has already resolved.
+
+When frozen authored data omits a scalar amount, the revision-1 lowering uses
+an explicit one-unit or positive-balance project policy. Coverage and
+provenance must not label that approximation as an exact game value.
+
+Room `source_content_id` values are upstream scene-content identities, not
+Occurrence IDs. A room may bind concrete choices only when its source is
+provably the exact Occurrence variant source. In the frozen data, `40398`
+resolves to `universe.occurrence.1.variant.40398`; values such as `0`, `22`,
+`32`, `101` and `102` remain external content-selection seams. The compiler
+must not turn those values into guessed Occurrences by numeric coincidence.
+
 ## Domain logical scope
 
 Physical engine ownership remains:

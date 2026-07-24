@@ -6,9 +6,13 @@ use starclock_activity::{
     ActivityHandlerRegistry, core_activity_handler_bundle,
 };
 
+use crate::occurrence_interaction::{
+    OCCURRENCE_INTERACTION_HANDLER_ID, execute as execute_occurrence_interaction,
+};
+
 pub const STANDARD_UNIVERSE_HANDLER_BUNDLE_ID: &str = "starclock.mode.standard-universe";
 pub const STANDARD_UNIVERSE_HANDLER_BUNDLE_REVISION: &str =
-    "standard-universe-activity-handlers-v1";
+    "standard-universe-activity-handlers-v2";
 pub const STANDARD_UNIVERSE_EXTERNAL_INTERACTION_HANDLER_ID: u32 = 1;
 
 fn deferred_external_interaction(
@@ -27,16 +31,28 @@ pub fn activity_handler_bundle() -> ActivityHandlerBundle {
         STANDARD_UNIVERSE_HANDLER_BUNDLE_ID,
         STANDARD_UNIVERSE_HANDLER_BUNDLE_REVISION,
         vec!["starclock.activity.core"],
-        vec![ActivityHandlerRegistration::new(
-            ActivityHandlerId::new(STANDARD_UNIVERSE_EXTERNAL_INTERACTION_HANDLER_ID)
-                .expect("static handler ID is non-zero"),
-            "standard-universe.external-interaction",
-            "v1",
-            [0x51; 32],
-            "validated-content-id-no-rng",
-            "starclock.mode.standard-universe",
-            deferred_external_interaction,
-        )],
+        vec![
+            ActivityHandlerRegistration::new(
+                ActivityHandlerId::new(STANDARD_UNIVERSE_EXTERNAL_INTERACTION_HANDLER_ID)
+                    .expect("static handler ID is non-zero"),
+                "standard-universe.external-interaction",
+                "v1",
+                [0x51; 32],
+                "validated-content-id-no-rng",
+                "starclock.mode.standard-universe",
+                deferred_external_interaction,
+            ),
+            ActivityHandlerRegistration::new(
+                ActivityHandlerId::new(OCCURRENCE_INTERACTION_HANDLER_ID)
+                    .expect("static handler ID is non-zero"),
+                "standard-universe.occurrence-choice",
+                "v2",
+                [0x62; 32],
+                "canonical-choice-plan-labeled-activity-rng",
+                "starclock.mode.standard-universe",
+                execute_occurrence_interaction,
+            ),
+        ],
     )
     .expect("the static Standard Universe Activity handler bundle is valid")
 }

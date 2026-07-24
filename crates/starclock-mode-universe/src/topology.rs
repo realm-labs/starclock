@@ -5,14 +5,13 @@ use std::sync::Arc;
 use starclock_activity::{
     ActivityBootstrapSelection, ActivityCondition, ActivityDecisionKind, ActivityEdgeCondition,
     ActivityEdgeDefinition, ActivityEdgeId, ActivityExpression, ActivityExternalOutcomeId,
-    ActivityGraphDefinition, ActivityInteractionBinding, ActivityInventoryId,
-    ActivityNodeDefinition, ActivityNodeKind, ActivityOperation, ActivityOptionDefinition,
-    ActivityOptionId, ActivityProgramDefinition, ActivityProgramId, ActivityRandomCheckpoint,
-    ActivityRandomOffer, ActivityRandomPolicies, ActivityRngLabel, ActivitySlotId,
-    ActivityStateDefinition, ActivityTerminalOutcome, ActivityValue, GraphActivityDefinition,
-    GraphActivityDefinitionError, GraphActivityNodeProgram, LogicalScopeAddress,
-    LogicalScopeClassDefinition, LogicalScopeClassId, LogicalScopeDefinitions,
-    LogicalScopeNodeBinding, NodeId, ParticipantLock, SectionId, TerminalOutcome,
+    ActivityGraphDefinition, ActivityInteractionBinding, ActivityInteractionRandomPolicy,
+    ActivityInventoryId, ActivityNodeDefinition, ActivityNodeKind, ActivityOperation,
+    ActivityOptionDefinition, ActivityOptionId, ActivityProgramDefinition, ActivityProgramId,
+    ActivityRandomCheckpoint, ActivityRandomOffer, ActivityRandomPolicies, ActivityRngLabel,
+    ActivitySlotId, ActivityStateDefinition, ActivityTerminalOutcome, ActivityValue,
+    GraphActivityDefinition, GraphActivityDefinitionError, GraphActivityNodeProgram, NodeId,
+    ParticipantLock, SectionId, TerminalOutcome,
 };
 
 use crate::{
@@ -23,8 +22,11 @@ use crate::{
         STANDARD_UNIVERSE_EXTERNAL_INTERACTION_HANDLER_ID, activity_handler_registry,
     },
     id::{EncounterGroupId, EncounterMemberId, RoomId, TopologyId, TopologyNodeId},
-    path::ExactParameter,
+    occurrence_interaction::{
+        OCCURRENCE_INTERACTION_HANDLER_ID, OccurrenceInteractionRuntimeCatalog,
+    },
     path_runtime::{FormationSelectionBindings, PathRuntimeCatalog},
+    topology_support::{domain_logical_scopes, exact_weight, occurrence_for_source, resolve_rooms},
 };
 
 pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v4";
@@ -94,6 +96,20 @@ pub struct ResolvedRoomContent {
 }
 
 impl ResolvedRoomContent {
+    pub(crate) fn new(
+        room: RoomId,
+        kind: RoomContentKind,
+        encounter_group: Option<EncounterGroupId>,
+        source_content_id: &str,
+    ) -> Self {
+        Self {
+            room,
+            kind,
+            encounter_group,
+            source_content_id: source_content_id.into(),
+        }
+    }
+
     #[must_use]
     pub const fn room(&self) -> RoomId {
         self.room
@@ -209,6 +225,9 @@ pub struct AbstractInteractionBinding {
     room: RoomId,
     kind: RoomContentKind,
     source_content_id: Box<str>,
+    handler: u32,
+    payload: Box<[u8]>,
+    random_candidate_count: Option<u32>,
 }
 
 impl AbstractInteractionBinding {
@@ -260,6 +279,7 @@ pub(crate) fn compile(
     blessing_reroll_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
+    occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
     external_outcome_slot: ActivitySlotId,
 ) -> Result<CompiledUniverseTopology, UniverseTopologyCompileError> {
     let mut nodes = terminal_nodes()?;
@@ -376,6 +396,7 @@ pub(crate) fn compile(
         blessing_reroll_slot,
         path_blessing_count_slot,
         formation_inventory,
+        occurrence_interactions,
         external_outcome_slot,
         path_edge,
         &topology_entry_edges,
@@ -424,24 +445,38 @@ pub(crate) fn compile(
         .map(|(node, option)| {
             let outcome = ActivityExternalOutcomeId::new(option.get())
                 .expect("offered option ID is non-zero");
-            let payload = interactions
+            let authored = interactions
                 .iter()
-                .find(|binding| binding.node == node && binding.outcome == outcome)
-                .map_or_else(
-                    || b"room-selection".to_vec(),
-                    |binding| binding.source_content_id.as_bytes().to_vec(),
-                );
-            ActivityInteractionBinding::new(
+                .find(|binding| binding.node == node && binding.outcome == outcome);
+            let payload = authored.map_or_else(
+                || b"room-selection".to_vec(),
+                |value| value.payload.to_vec(),
+            );
+            let handler = authored
+                .map_or(STANDARD_UNIVERSE_EXTERNAL_INTERACTION_HANDLER_ID, |value| {
+                    value.handler
+                });
+            let binding = ActivityInteractionBinding::new(
                 node,
                 outcome,
-                starclock_activity::ActivityHandlerId::new(
-                    STANDARD_UNIVERSE_EXTERNAL_INTERACTION_HANDLER_ID,
-                )
-                .expect("static handler ID is non-zero"),
+                starclock_activity::ActivityHandlerId::new(handler)
+                    .expect("static handler ID is non-zero"),
                 payload,
                 "standard-universe.content.v4.4",
             )
-            .expect("compiled source interaction identity is valid")
+            .expect("compiled source interaction identity is valid");
+            authored
+                .and_then(|value| value.random_candidate_count)
+                .map_or(binding.clone(), |candidate_count| {
+                    binding.with_random_policy(
+                        ActivityInteractionRandomPolicy::new(
+                            ActivityRngLabel::Occurrence,
+                            occurrence_random_purpose(node, outcome),
+                            candidate_count,
+                        )
+                        .expect("compiled Occurrence RNG policy is bounded"),
+                    )
+                })
         })
         .collect();
     let runtime = GraphActivityDefinition::new(
@@ -487,38 +522,6 @@ pub(crate) fn rebind(
     })
 }
 
-fn domain_logical_scopes(
-    graph: &ActivityGraphDefinition,
-    hubs: &[DomainHubDefinition],
-) -> Result<LogicalScopeDefinitions, UniverseTopologyCompileError> {
-    let class = LogicalScopeClassId::new(STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS)
-        .ok_or(UniverseTopologyCompileError::InvalidGraph)?;
-    let class_definition =
-        LogicalScopeClassDefinition::new(class, None, graph.maximum_total_visits())
-            .ok_or(UniverseTopologyCompileError::InvalidGraph)?;
-    let mut bindings = Vec::with_capacity(hubs.len().saturating_mul(7));
-    for hub in hubs {
-        let address = LogicalScopeAddress::new(class, u64::from(hub.source_node.get()))
-            .ok_or(UniverseTopologyCompileError::InvalidGraph)?;
-        for node in [
-            hub.resolution_node,
-            hub.content_node,
-            hub.member_node,
-            hub.battle_node,
-            hub.reward_node,
-            hub.formation_node,
-            hub.route_node,
-        ] {
-            bindings.push(
-                LogicalScopeNodeBinding::new(node, vec![address])
-                    .map_err(|_| UniverseTopologyCompileError::InvalidGraph)?,
-            );
-        }
-    }
-    LogicalScopeDefinitions::new(vec![class_definition], bindings)
-        .map_err(|_| UniverseTopologyCompileError::InvalidGraph)
-}
-
 #[derive(Clone, Copy)]
 struct HubEdges {
     resolution_content: ActivityEdgeId,
@@ -551,6 +554,7 @@ fn compile_programs(
     blessing_reroll_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
+    occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
     external_outcome_slot: ActivitySlotId,
     path_edge: ActivityEdgeId,
     topology_entry_edges: &[(TopologyId, ActivityEdgeId)],
@@ -697,25 +701,71 @@ fn compile_programs(
                     room_condition,
                     vec![ActivityOperation::Traverse(edges.content_member)],
                 ));
+            } else if let Some(occurrence) = occurrence_for_source(catalog, &room.source_content_id)
+            {
+                let mut choice_ids = occurrence
+                    .variants()
+                    .iter()
+                    .filter_map(|id| {
+                        catalog
+                            .occurrence_variants()
+                            .iter()
+                            .find(|value| value.id() == *id)
+                    })
+                    .flat_map(|variant| variant.choices().iter().copied())
+                    .collect::<Vec<_>>();
+                choice_ids.sort_unstable();
+                choice_ids.dedup();
+                if choice_ids.is_empty() {
+                    return Err(UniverseTopologyCompileError::InvalidOccurrence);
+                }
+                for (choice_priority, choice_id) in choice_ids.iter().enumerate() {
+                    let choice = catalog
+                        .occurrence_choices()
+                        .iter()
+                        .find(|value| value.id() == *choice_id)
+                        .ok_or(UniverseTopologyCompileError::InvalidOccurrence)?;
+                    let id = occurrence_choice_option(source, room.room, choice.id().get());
+                    content_options.push(ActivityOptionDefinition::new(
+                        id,
+                        room_priority
+                            .saturating_mul(256)
+                            .saturating_add(choice_priority) as i32,
+                        room_condition.clone(),
+                        interaction_completion(
+                            hub_clear_slot,
+                            external_outcome_slot,
+                            source,
+                            edges.content_formation,
+                        ),
+                    ));
+                    let compiled = occurrence_interactions
+                        .compiled(choice.id())
+                        .ok_or(UniverseTopologyCompileError::InvalidOccurrenceInteraction)?;
+                    interactions.push(AbstractInteractionBinding {
+                        node: hub.content_node,
+                        outcome: ActivityExternalOutcomeId::new(id.get())
+                            .expect("derived interaction option is non-zero"),
+                        room: room.room,
+                        kind: room.kind,
+                        source_content_id: choice.stable_key().into(),
+                        handler: OCCURRENCE_INTERACTION_HANDLER_ID,
+                        payload: compiled.payload.into_boxed_slice(),
+                        random_candidate_count: compiled.random_candidate_count,
+                    });
+                }
             } else {
                 let id = interaction_option(source, room.room);
                 content_options.push(ActivityOptionDefinition::new(
                     id,
                     room_priority as i32,
                     room_condition.clone(),
-                    vec![
-                        ActivityOperation::AddCounter {
-                            slot: hub_clear_slot,
-                            key: source,
-                            delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
-                        },
-                        ActivityOperation::AddCounter {
-                            slot: external_outcome_slot,
-                            key: source,
-                            delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
-                        },
-                        ActivityOperation::Traverse(edges.content_formation),
-                    ],
+                    interaction_completion(
+                        hub_clear_slot,
+                        external_outcome_slot,
+                        source,
+                        edges.content_formation,
+                    ),
                 ));
                 interactions.push(AbstractInteractionBinding {
                     node: hub.content_node,
@@ -724,6 +774,9 @@ fn compile_programs(
                     room: room.room,
                     kind: room.kind,
                     source_content_id: room.source_content_id.clone(),
+                    handler: STANDARD_UNIVERSE_EXTERNAL_INTERACTION_HANDLER_ID,
+                    payload: room.source_content_id.as_bytes().into(),
+                    random_candidate_count: None,
                 });
             }
         }
@@ -930,58 +983,6 @@ fn build_hub_edges(
     })
 }
 
-fn resolve_rooms(
-    catalog: &UniverseCatalog,
-    source_node: u32,
-) -> Result<Box<[ResolvedRoomContent]>, UniverseTopologyCompileError> {
-    let mut resolved = Vec::new();
-    for room in catalog
-        .rooms()
-        .iter()
-        .filter(|room| room_is_eligible(room.section_ids(), source_node))
-    {
-        let mut bindings = catalog.room_content().iter().filter(|binding| {
-            binding.room() == room.id() && binding.condition_key() == room.source_group_id()
-        });
-        let binding =
-            bindings
-                .next()
-                .ok_or(UniverseTopologyCompileError::MissingPrimaryRoomContent(
-                    room.id(),
-                ))?;
-        if bindings.next().is_some() {
-            return Err(UniverseTopologyCompileError::AmbiguousPrimaryRoomContent(
-                room.id(),
-            ));
-        }
-        resolved.push(ResolvedRoomContent {
-            room: room.id(),
-            kind: binding.kind(),
-            encounter_group: binding.encounter_group(),
-            source_content_id: binding.source_content_id().into(),
-        });
-    }
-    if resolved.is_empty() {
-        return Err(UniverseTopologyCompileError::NoEligibleRoom(
-            TopologyNodeId::new(source_node).ok_or(UniverseTopologyCompileError::InvalidGraph)?,
-        ));
-    }
-    Ok(resolved.into_boxed_slice())
-}
-
-fn exact_weight(value: ExactParameter) -> Result<u64, UniverseTopologyCompileError> {
-    if value.coefficient() <= 0 || value.scale() > 6 {
-        return Err(UniverseTopologyCompileError::InvalidEncounterWeight);
-    }
-    let multiplier = 10_u64
-        .checked_pow(u32::from(6 - value.scale()))
-        .ok_or(UniverseTopologyCompileError::InvalidEncounterWeight)?;
-    u64::try_from(value.coefficient())
-        .ok()
-        .and_then(|coefficient| coefficient.checked_mul(multiplier))
-        .ok_or(UniverseTopologyCompileError::InvalidEncounterWeight)
-}
-
 fn node_program(
     node_id: u32,
     program_id: u32,
@@ -1110,6 +1111,14 @@ fn engage_option(source: u64, room: RoomId, member: EncounterMemberId) -> Activi
 fn interaction_option(source: u64, room: RoomId) -> ActivityOptionId {
     option(INTERACTION_OPTION_OFFSET + source * 10_000_000 + u64::from(room.get()))
 }
+fn occurrence_choice_option(source: u64, room: RoomId, choice: u32) -> ActivityOptionId {
+    option(
+        INTERACTION_OPTION_OFFSET
+            + source * 10_000_000
+            + u64::from(room.get()) * 1_000
+            + u64::from(choice),
+    )
+}
 fn blessing_option(source: u64, blessing: crate::id::BlessingId) -> ActivityOptionId {
     option(REWARD_OPTION_OFFSET + source * 1_000_000 + u64::from(blessing.get()))
 }
@@ -1120,9 +1129,32 @@ fn formation_skip_option(source: u64) -> ActivityOptionId {
     option(FORMATION_SKIP_OPTION_OFFSET + source)
 }
 
-fn room_is_eligible(section_ids: &[u32], source_node: u32) -> bool {
-    section_ids.is_empty() || section_ids.contains(&0) || section_ids.contains(&source_node)
+fn interaction_completion(
+    hub_clear_slot: ActivitySlotId,
+    external_outcome_slot: ActivitySlotId,
+    source: u64,
+    edge: ActivityEdgeId,
+) -> Vec<ActivityOperation> {
+    vec![
+        ActivityOperation::AddCounter {
+            slot: hub_clear_slot,
+            key: source,
+            delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
+        },
+        ActivityOperation::AddCounter {
+            slot: external_outcome_slot,
+            key: source,
+            delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
+        },
+        ActivityOperation::Traverse(edge),
+    ]
 }
+
+fn occurrence_random_purpose(node: NodeId, outcome: ActivityExternalOutcomeId) -> u16 {
+    let mixed = u64::from(node.get()) ^ outcome.get().rotate_left(17);
+    u16::try_from(mixed % u64::from(u16::MAX) + 1).expect("modulo fits non-zero u16")
+}
+
 const fn node(raw: u32) -> NodeId {
     match NodeId::new(raw) {
         Some(value) => value,
@@ -1145,9 +1177,11 @@ pub enum UniverseTopologyCompileError {
     InvalidProgram,
     InvalidEncounterWeight,
     InvalidBlessingRuntime,
+    InvalidOccurrence,
     NoEligibleRoom(TopologyNodeId),
     MissingPrimaryRoomContent(RoomId),
     AmbiguousPrimaryRoomContent(RoomId),
     MissingEncounterGroup(EncounterGroupId),
     RuntimeDefinition(GraphActivityDefinitionError),
+    InvalidOccurrenceInteraction,
 }

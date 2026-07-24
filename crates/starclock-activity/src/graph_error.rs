@@ -60,6 +60,8 @@ pub enum GraphActivityCommandError {
     HandlerUnavailable,
     HandlerFault(ActivityHandlerFaultKind),
     InteractionOperationLimit,
+    InteractionFault(ActivityFault),
+    Rng(ActivityRngError),
     Rejected(ActivityTransactionRejection),
     Runtime(GraphActivityRuntimeError),
 }

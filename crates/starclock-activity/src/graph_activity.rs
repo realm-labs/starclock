@@ -3,208 +3,19 @@ use std::sync::Arc;
 use crate::{
     ActivityBattleHandoff, ActivityBattlePreparationRequest, ActivityBattleResultContract,
     ActivityBattleResultSubmission, ActivityBattleSettlement, ActivityBattleSettlementError,
-    ActivityBattleStartRequest, ActivityCause, ActivityDebugView, ActivityDecisionId,
-    ActivityDecisionKind, ActivityDefinitionIdentity, ActivityExpression,
+    ActivityBattleStartRequest, ActivityBootstrapSelection, ActivityCause, ActivityDebugView,
+    ActivityDecisionId, ActivityDecisionKind, ActivityDefinitionIdentity, ActivityExpression,
     ActivityExternalOutcomeId, ActivityGraphDefinition, ActivityHandlerInput, ActivityInstanceId,
     ActivityInteractionBinding, ActivityInteractionBindings, ActivityMasterSeed, ActivityOperation,
     ActivityOptionDefinition, ActivityOptionId, ActivityPendingBattleView, ActivityPlayerView,
     ActivityPreparationBoundary, ActivityPreparationView, ActivityProgramDefinition,
-    ActivityRngContext, ActivityRngLabel, ActivityRngStreams, ActivitySlotId,
-    ActivityStateDefinition, ActivityStateHash, ActivityTransactionEvent,
+    ActivityRandomCheckpoint, ActivityRandomOffer, ActivityRandomPolicies, ActivityRngContext,
+    ActivityRngStreams, ActivityStateDefinition, ActivityStateHash, ActivityTransactionEvent,
     ActivityTransactionOutcome, ActivityTransactionState, ActivityValue, BattleResult,
     GraphActivityBattleError, GraphActivityCommandError, GraphActivityDefinitionError,
     GraphActivityEncounterError, GraphActivityRandomOfferError, GraphActivityRuntimeError,
     GraphActivityStartError, NodeId, ParticipantLock, PendingBattleSpec, SlotValueKind,
 };
-
-/// Deterministic weighted settlement policy for one internal checkpoint.
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ActivityRandomCheckpoint {
-    node: NodeId,
-    label: ActivityRngLabel,
-    purpose: u16,
-    weights: Box<[(ActivityOptionId, u64)]>,
-}
-
-/// Deterministic weighted, without-replacement candidate policy for one
-/// player-visible decision. The complete authored option set remains in the
-/// node program; this policy only narrows the currently offered subset.
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ActivityRandomOffer {
-    node: NodeId,
-    label: ActivityRngLabel,
-    purpose: u16,
-    maximum_options: u16,
-    weights: Box<[(ActivityOptionId, u64)]>,
-    reroll_counter: Option<(ActivitySlotId, u32)>,
-}
-
-impl ActivityRandomOffer {
-    pub fn new(
-        node: NodeId,
-        label: ActivityRngLabel,
-        purpose: u16,
-        maximum_options: u16,
-        mut weights: Vec<(ActivityOptionId, u64)>,
-        reroll_counter: Option<(ActivitySlotId, u32)>,
-    ) -> Result<Self, GraphActivityDefinitionError> {
-        weights.sort_by_key(|item| item.0);
-        if purpose == 0
-            || maximum_options == 0
-            || usize::from(maximum_options) > weights.len()
-            || weights.is_empty()
-            || weights.len() > 256
-            || weights.iter().any(|item| item.1 == 0)
-            || weights.windows(2).any(|pair| pair[0].0 == pair[1].0)
-            || reroll_counter.is_some_and(|(_, maximum)| maximum == 0)
-        {
-            return Err(GraphActivityDefinitionError::InvalidRandomOffer);
-        }
-        Ok(Self {
-            node,
-            label,
-            purpose,
-            maximum_options,
-            weights: weights.into_boxed_slice(),
-            reroll_counter,
-        })
-    }
-    #[must_use]
-    pub const fn node(&self) -> NodeId {
-        self.node
-    }
-    #[must_use]
-    pub const fn label(&self) -> ActivityRngLabel {
-        self.label
-    }
-    #[must_use]
-    pub const fn purpose(&self) -> u16 {
-        self.purpose
-    }
-    #[must_use]
-    pub const fn maximum_options(&self) -> u16 {
-        self.maximum_options
-    }
-    #[must_use]
-    pub fn weights(&self) -> &[(ActivityOptionId, u64)] {
-        &self.weights
-    }
-    #[must_use]
-    pub const fn reroll_counter(&self) -> Option<(ActivitySlotId, u32)> {
-        self.reroll_counter
-    }
-}
-
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
-pub struct ActivityRandomPolicies {
-    checkpoints: Vec<ActivityRandomCheckpoint>,
-    offers: Vec<ActivityRandomOffer>,
-}
-
-impl ActivityRandomPolicies {
-    #[must_use]
-    pub fn new(
-        checkpoints: Vec<ActivityRandomCheckpoint>,
-        offers: Vec<ActivityRandomOffer>,
-    ) -> Self {
-        Self {
-            checkpoints,
-            offers,
-        }
-    }
-}
-
-impl ActivityRandomCheckpoint {
-    pub fn new(
-        node: NodeId,
-        label: ActivityRngLabel,
-        purpose: u16,
-        mut weights: Vec<(ActivityOptionId, u64)>,
-    ) -> Result<Self, GraphActivityDefinitionError> {
-        weights.sort_by_key(|item| item.0);
-        if purpose == 0
-            || weights.is_empty()
-            || weights.len() > 256
-            || weights.iter().any(|item| item.1 == 0)
-            || weights.windows(2).any(|pair| pair[0].0 == pair[1].0)
-        {
-            return Err(GraphActivityDefinitionError::InvalidRandomCheckpoint);
-        }
-        Ok(Self {
-            node,
-            label,
-            purpose,
-            weights: weights.into_boxed_slice(),
-        })
-    }
-
-    #[must_use]
-    pub const fn node(&self) -> NodeId {
-        self.node
-    }
-    #[must_use]
-    pub const fn label(&self) -> ActivityRngLabel {
-        self.label
-    }
-    #[must_use]
-    pub const fn purpose(&self) -> u16 {
-        self.purpose
-    }
-    #[must_use]
-    pub fn weights(&self) -> &[(ActivityOptionId, u64)] {
-        &self.weights
-    }
-}
-
-/// One deterministic bootstrap draw applied before the entry-node program.
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct ActivityBootstrapSelection {
-    slot: ActivitySlotId,
-    label: ActivityRngLabel,
-    purpose: u16,
-    candidates: Box<[u64]>,
-}
-
-impl ActivityBootstrapSelection {
-    pub fn new(
-        slot: ActivitySlotId,
-        label: ActivityRngLabel,
-        purpose: u16,
-        candidates: Vec<u64>,
-    ) -> Result<Self, GraphActivityDefinitionError> {
-        if purpose == 0
-            || candidates.is_empty()
-            || candidates.len() > 256
-            || candidates.contains(&0)
-            || candidates.windows(2).any(|pair| pair[0] >= pair[1])
-        {
-            return Err(GraphActivityDefinitionError::InvalidBootstrapSelection);
-        }
-        Ok(Self {
-            slot,
-            label,
-            purpose,
-            candidates: candidates.into_boxed_slice(),
-        })
-    }
-
-    #[must_use]
-    pub const fn slot(&self) -> ActivitySlotId {
-        self.slot
-    }
-    #[must_use]
-    pub const fn label(&self) -> ActivityRngLabel {
-        self.label
-    }
-    #[must_use]
-    pub const fn purpose(&self) -> u16 {
-        self.purpose
-    }
-    #[must_use]
-    pub fn candidates(&self) -> &[u64] {
-        &self.candidates
-    }
-}
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GraphActivityNodeProgram {
@@ -687,10 +498,26 @@ impl GraphActivity {
             .registry()
             .handler(binding.handler())
             .ok_or(GraphActivityCommandError::HandlerUnavailable)?;
+        let mut working_rng = self.rng.transaction_copy();
+        let random_index = binding
+            .random_policy()
+            .map(|policy| {
+                working_rng
+                    .choose_index(policy.label(), policy.purpose(), policy.candidate_count())
+                    .map(|draw| {
+                        draw.expect("non-zero random candidate count")
+                            .value()
+                            .try_into()
+                            .expect("candidate count is bounded to u32")
+                    })
+            })
+            .transpose()
+            .map_err(GraphActivityCommandError::Rng)?;
         let output = registration
             .execute(
                 ActivityHandlerInput::new(&view, binding.payload())
-                    .map_err(|fault| GraphActivityCommandError::HandlerFault(fault.kind()))?,
+                    .map_err(|fault| GraphActivityCommandError::HandlerFault(fault.kind()))?
+                    .with_random_index(random_index),
             )
             .map_err(|fault| GraphActivityCommandError::HandlerFault(fault.kind()))?;
         let program = self
@@ -720,12 +547,23 @@ impl GraphActivity {
             self.state.current_node(),
         )
         .expect("next command sequence is non-zero");
-        let mut events = committed(self.state.apply_option_with_prefix(
+        let mut working_state = self.state.transaction_copy();
+        let mut events = match working_state.apply_option_with_prefix(
             option,
             output.operations(),
             cause,
             &self.definition.graph,
-        ))?;
+        ) {
+            ActivityTransactionOutcome::Committed(events) => events.into_vec(),
+            ActivityTransactionOutcome::Rejected(error) => {
+                return Err(GraphActivityCommandError::Rejected(error));
+            }
+            ActivityTransactionOutcome::Faulted(_, fault) => {
+                return Err(GraphActivityCommandError::InteractionFault(fault));
+            }
+        };
+        self.state = working_state;
+        self.rng = working_rng;
         events.extend(self.pump().map_err(GraphActivityCommandError::Runtime)?);
         Ok(events.into_boxed_slice())
     }

@@ -85,7 +85,7 @@ fn all_topologies_compile_to_bounded_spatial_free_hubs() {
     let runtime = compiled.runtime_definition();
     assert_eq!(compiled.topology_candidates().len(), 37);
     assert_eq!(compiled.domain_hubs().len(), 579);
-    assert_eq!(compiled.abstract_interactions().len(), 8_445);
+    assert_eq!(compiled.abstract_interactions().len(), 8_451);
     assert_eq!(runtime.graph().nodes().len(), 4_058);
     assert_eq!(runtime.graph().edges().len(), 5_993);
     assert_eq!(runtime.graph().maximum_total_visits(), 4_058);
@@ -142,8 +142,8 @@ fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state(
     assert_eq!(
         view.state_hash().bytes(),
         [
-            68, 119, 95, 171, 64, 255, 247, 132, 207, 224, 122, 93, 122, 69, 17, 153, 27, 239, 25,
-            245, 178, 144, 150, 212, 58, 205, 250, 217, 227, 145, 214, 236,
+            255, 19, 109, 71, 221, 20, 63, 140, 23, 75, 245, 219, 92, 51, 183, 118, 185, 134, 134,
+            142, 126, 106, 242, 127, 221, 73, 163, 166, 132, 175, 217, 146,
         ]
     );
     let decision = view.decision().expect("Path choice");

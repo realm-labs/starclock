@@ -1,12 +1,15 @@
 use std::sync::{Arc, OnceLock};
 
 use starclock_activity::{
-    ActivityCause, ActivityDecisionKind, ActivityEdgeCondition, ActivityEdgeDefinition,
-    ActivityEdgeId, ActivityGraphDefinition, ActivityInstanceId, ActivityMasterSeed,
-    ActivityNodeDefinition, ActivityNodeKind, ActivityProgramDefinition, ActivityProgramId,
-    ActivityScope, ActivitySlotDefinition, ActivitySlotId, ActivityStateDefinition,
-    ActivityStateSource, ActivityStateVisibility, ActivityTransactionOutcome,
-    ActivityTransactionRejection, ActivityTransactionState, ActivityValue, BuildDigest,
+    ActivityCause, ActivityConfigDigest, ActivityDecisionKind, ActivityDefinitionDigest,
+    ActivityDefinitionId, ActivityDefinitionIdentity, ActivityEdgeCondition,
+    ActivityEdgeDefinition, ActivityEdgeId, ActivityGraphDefinition, ActivityInstanceId,
+    ActivityInteractionBinding, ActivityMasterSeed, ActivityNodeDefinition, ActivityNodeKind,
+    ActivityOperation, ActivityOptionDefinition, ActivityProgramDefinition, ActivityProgramId,
+    ActivityRandomPolicies, ActivityScope, ActivitySlotDefinition, ActivitySlotId,
+    ActivityStateDefinition, ActivityStateSource, ActivityStateVisibility, ActivityTerminalOutcome,
+    ActivityTransactionOutcome, ActivityTransactionRejection, ActivityTransactionState,
+    ActivityValue, BuildDigest, GraphActivity, GraphActivityDefinition, GraphActivityNodeProgram,
     LoadoutLockScope, NodeId, OpaqueParticipantBuild, ParticipantId, ParticipantLock,
     ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
     SectionId, SlotCarryPolicy, SlotResetPoint,
@@ -16,6 +19,7 @@ use starclock_mode_universe::{
     catalog::UniverseCatalog,
     encounter::RoomContentKind,
     entry::{StandardUniverseEntry, StandardUniverseProfile},
+    occurrence::{OccurrenceOperation, OccurrenceTarget},
     run_runtime::{CosmicFragments, RUN_RUNTIME_REVISION, RunRuntimeCatalog},
 };
 
@@ -252,6 +256,225 @@ fn noncombat_rooms_accept_only_offered_external_outcomes_without_granting_battle
         .find(|inventory| inventory.id() == compiled.blessing_inventory())
         .expect("Blessing inventory");
     assert!(blessings.entries().is_empty());
+}
+
+#[test]
+fn occurrence_choices_compile_and_exact_room_sources_bind_executable_handlers() {
+    let catalog = catalog();
+    let world = &catalog.worlds()[0];
+    let compiled = StandardUniverseProfile::new(Arc::clone(&catalog))
+        .compile(StandardUniverseEntry::new(
+            world.id(),
+            world.difficulties()[0],
+            participants(),
+            vec![],
+        ))
+        .unwrap();
+    let occurrence_bindings = compiled
+        .abstract_interactions()
+        .iter()
+        .filter(|binding| {
+            catalog
+                .occurrence_choices()
+                .iter()
+                .any(|choice| choice.stable_key() == binding.source_content_id())
+        })
+        .collect::<Vec<_>>();
+    assert!(occurrence_bindings.iter().all(|binding| {
+        binding
+            .source_content_id()
+            .starts_with("universe.occurrence.1.variant.40398.choice.")
+    }));
+    assert_eq!(
+        occurrence_bindings
+            .iter()
+            .map(|binding| binding.source_content_id())
+            .collect::<std::collections::BTreeSet<_>>()
+            .len(),
+        3
+    );
+    let runtime = compiled.runtime_definition().interactions().unwrap();
+    assert!(occurrence_bindings.iter().all(|binding| {
+        runtime
+            .binding(binding.node(), binding.outcome())
+            .is_some_and(|value| runtime.registry().handler(value.handler()).is_some())
+    }));
+    let interaction_catalog = compiled.occurrence_interaction_runtime();
+    assert_eq!(interaction_catalog.choice_count(), 321);
+    assert_eq!(interaction_catalog.immediate_operation_count(), 284);
+    assert_eq!(interaction_catalog.deferred_operation_count(), 186);
+    assert!(catalog.occurrence_choices().iter().any(|choice| {
+        let outcome = &choice.outcomes()[0];
+        outcome.operations().contains(&OccurrenceOperation::Obtain)
+            && outcome.targets().iter().any(|target| {
+                matches!(target, OccurrenceTarget::Blessing | OccurrenceTarget::Curio)
+            })
+    }));
+}
+
+#[test]
+fn occurrence_choice_commits_inventory_rng_and_graph_transition_atomically() {
+    let catalog = catalog();
+    let world = &catalog.worlds()[0];
+    let compiled = StandardUniverseProfile::new(Arc::clone(&catalog))
+        .compile(StandardUniverseEntry::new(
+            world.id(),
+            world.difficulties()[0],
+            participants(),
+            vec![],
+        ))
+        .unwrap();
+    let choice_key = "universe.occurrence.1.variant.40398.choice.02";
+    let abstract_binding = compiled
+        .abstract_interactions()
+        .iter()
+        .find(|binding| binding.source_content_id() == choice_key)
+        .expect("exact Occurrence binding");
+    let interactions = compiled.runtime_definition().interactions().unwrap();
+    let binding = interactions
+        .binding(abstract_binding.node(), abstract_binding.outcome())
+        .expect("runtime interaction");
+    let mut activity = occurrence_harness(&compiled, binding, interactions.registry());
+    let outcome = abstract_binding.outcome();
+    let before = activity.player_view();
+    let decision = before.decision().unwrap();
+    let before_bytes = activity.canonical_state_bytes();
+    let before_rng = activity.debug_view().rng().to_vec();
+    assert!(
+        activity
+            .submit_external_outcome(
+                starclock_activity::ActivityStateHash::new([0x7f; 32]).unwrap(),
+                decision.id(),
+                outcome,
+            )
+            .is_err()
+    );
+    assert_eq!(activity.canonical_state_bytes(), before_bytes);
+    assert_eq!(activity.debug_view().rng(), before_rng);
+
+    activity
+        .submit_external_outcome(before.state_hash(), decision.id(), outcome)
+        .expect("Occurrence choice");
+    assert_ne!(activity.canonical_state_bytes(), before_bytes);
+    let after = activity.player_view();
+    let blessings = after
+        .inventories()
+        .iter()
+        .find(|inventory| inventory.id() == compiled.blessing_inventory())
+        .expect("Blessing inventory");
+    assert_eq!(
+        blessings.entries().iter().map(|entry| entry.1).sum::<u32>(),
+        1
+    );
+    let before_draws = before_rng
+        .iter()
+        .find(|stream| stream.label() == starclock_activity::ActivityRngLabel::Occurrence)
+        .unwrap()
+        .draw_count();
+    let after_draws = activity
+        .debug_view()
+        .rng()
+        .iter()
+        .find(|stream| stream.label() == starclock_activity::ActivityRngLabel::Occurrence)
+        .unwrap()
+        .draw_count();
+    assert_eq!(after_draws, before_draws + 1);
+}
+
+fn occurrence_harness(
+    compiled: &starclock_mode_universe::entry::CompiledActivity,
+    source: &ActivityInteractionBinding,
+    registry: &Arc<starclock_activity::ActivityHandlerRegistry>,
+) -> GraphActivity {
+    let graph = ActivityGraphDefinition::new(
+        node(1),
+        vec![
+            ActivityNodeDefinition::new(node(1), section(1), ActivityNodeKind::ExternalOutcome, 1)
+                .unwrap(),
+            ActivityNodeDefinition::new(
+                node(2),
+                section(1),
+                ActivityNodeKind::Terminal(ActivityTerminalOutcome::Completed),
+                1,
+            )
+            .unwrap(),
+        ],
+        vec![
+            ActivityEdgeDefinition::new(
+                ActivityEdgeId::new(1).unwrap(),
+                node(1),
+                node(2),
+                ActivityEdgeCondition::OptionSelected,
+                0,
+                1,
+            )
+            .unwrap(),
+        ],
+        2,
+    )
+    .unwrap();
+    let program = GraphActivityNodeProgram::new(
+        node(1),
+        ActivityProgramDefinition::new(
+            program(1),
+            vec![ActivityOperation::Offer {
+                kind: ActivityDecisionKind::ExternalOutcome,
+                options: vec![ActivityOptionDefinition::new(
+                    starclock_activity::ActivityOptionId::new(source.offered_outcome().get())
+                        .unwrap(),
+                    0,
+                    starclock_activity::ActivityCondition::Boolean(
+                        starclock_activity::ActivityExpression::Literal(ActivityValue::Boolean(
+                            true,
+                        )),
+                    ),
+                    vec![ActivityOperation::Traverse(ActivityEdgeId::new(1).unwrap())],
+                )]
+                .into_boxed_slice(),
+            }],
+        )
+        .unwrap(),
+    );
+    let blessing = *compiled
+        .state_definition()
+        .inventories()
+        .iter()
+        .find(|inventory| inventory.id() == compiled.blessing_inventory())
+        .unwrap();
+    let state = ActivityStateDefinition::new(vec![], vec![blessing], vec![]).unwrap();
+    let mut binding = ActivityInteractionBinding::new(
+        node(1),
+        source.offered_outcome(),
+        source.handler(),
+        source.payload().to_vec(),
+        source.component_id(),
+    )
+    .unwrap();
+    if let Some(policy) = source.random_policy() {
+        binding = binding.with_random_policy(policy);
+    }
+    let definition = GraphActivityDefinition::new(
+        ActivityDefinitionIdentity::new(
+            ActivityDefinitionId::new(9_001).unwrap(),
+            ActivityDefinitionDigest::new([0x41; 32]).unwrap(),
+            ActivityConfigDigest::new([0x42; 32]).unwrap(),
+        ),
+        graph,
+        state,
+        Arc::new(participants()),
+        vec![program],
+        None,
+        ActivityRandomPolicies::default(),
+    )
+    .and_then(|definition| definition.with_interactions((**registry).clone(), vec![binding]))
+    .unwrap();
+    GraphActivity::start(
+        Arc::new(definition),
+        ActivityInstanceId::new(9_001).unwrap(),
+        ActivityMasterSeed::from_u64(9_001),
+    )
+    .unwrap()
+    .into_activity()
 }
 
 fn participants() -> ParticipantLock {

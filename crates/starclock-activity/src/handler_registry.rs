@@ -23,6 +23,7 @@ pub fn core_activity_handler_bundle() -> ActivityHandlerBundle {
 pub struct ActivityHandlerInput<'a> {
     view: &'a ActivityPlayerView,
     payload: &'a [u8],
+    random_index: Option<u32>,
 }
 
 impl<'a> ActivityHandlerInput<'a> {
@@ -35,7 +36,16 @@ impl<'a> ActivityHandlerInput<'a> {
                 ActivityHandlerFaultKind::PayloadTooLarge,
             ));
         }
-        Ok(Self { view, payload })
+        Ok(Self {
+            view,
+            payload,
+            random_index: None,
+        })
+    }
+
+    pub(crate) fn with_random_index(mut self, random_index: Option<u32>) -> Self {
+        self.random_index = random_index;
+        self
     }
 
     #[must_use]
@@ -46,6 +56,11 @@ impl<'a> ActivityHandlerInput<'a> {
     #[must_use]
     pub const fn payload(self) -> &'a [u8] {
         self.payload
+    }
+
+    #[must_use]
+    pub const fn random_index(self) -> Option<u32> {
+        self.random_index
     }
 }
 
