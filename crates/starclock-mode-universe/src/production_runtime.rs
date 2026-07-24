@@ -1,6 +1,6 @@
 //! Shared production assembly for the engine-free Standard Universe facade.
 
-use std::sync::{Arc, Mutex};
+use std::sync::Arc;
 
 use starclock_activity::{
     ActivityInstanceId, ActivityMasterSeed, BuildDigest, LoadoutLockScope, OpaqueParticipantBuild,
@@ -18,7 +18,7 @@ use crate::{
     ability_runtime::{
         AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope, AbilityRuntimeCatalog,
     },
-    battle_assembly::{BattleAssemblyCache, BattleAssemblyCacheMetrics},
+    battle_assembly::BattleAssemblyCacheMetrics,
     battle_contribution::{UniverseBattleContributionCompiler, UniverseBattleContributionSet},
     battle_materialization::{
         UniverseBattleMaterialization, UniverseBattleMaterializer, UniverseBattleRoster,
@@ -27,6 +27,7 @@ use crate::{
     blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
     curio_runtime::CurioRuntimeCatalog,
+    dynamic_battle_assembler::StandardUniverseBattleAssembler,
     entry::{StandardUniverseEntry, StandardUniverseProfile},
     id::WorldId,
     path_runtime::PathRuntimeCatalog,
@@ -46,7 +47,7 @@ pub struct StandardUniverseRuntimeFactory {
     catalog: Arc<UniverseCatalog>,
     participants: ParticipantLock,
     catalog_composition: Arc<UniverseBattleCatalogComposition>,
-    assembly_cache: Arc<Mutex<BattleAssemblyCache>>,
+    battle_assembler: Arc<StandardUniverseBattleAssembler>,
     materialization: Arc<UniverseBattleMaterialization>,
 }
 
@@ -69,15 +70,20 @@ impl StandardUniverseRuntimeFactory {
             .compile_from_composition(&catalog, &catalog_composition, &roster, &contributions)
             .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?;
         let materialization = Arc::new(materialization);
-        let mut assembly_cache = BattleAssemblyCache::default();
-        assembly_cache
-            .insert(materialization.assembly_key(), Arc::clone(&materialization))
-            .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?;
+        let battle_assembler = Arc::new(
+            StandardUniverseBattleAssembler::new(
+                Arc::clone(&catalog),
+                Arc::clone(&catalog_composition),
+                roster,
+                Arc::clone(&materialization),
+            )
+            .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?,
+        );
         Ok(Self {
             catalog,
             participants,
             catalog_composition,
-            assembly_cache: Arc::new(Mutex::new(assembly_cache)),
+            battle_assembler,
             materialization,
         })
     }
@@ -136,6 +142,7 @@ impl StandardUniverseRuntimeFactory {
             )
             .into_boxed_str(),
             activity,
+            battle_assembler: Arc::clone(&self.battle_assembler),
             combat_catalog: Arc::clone(self.materialization.combat_catalog()),
             components,
             compatibility,
@@ -159,18 +166,12 @@ impl StandardUniverseRuntimeFactory {
 
     #[must_use]
     pub fn assembly_cache_metrics(&self) -> BattleAssemblyCacheMetrics {
-        match self.assembly_cache.lock() {
-            Ok(cache) => cache.metrics(),
-            Err(poisoned) => poisoned.into_inner().metrics(),
-        }
+        self.battle_assembler.cache_metrics()
     }
 
     #[must_use]
     pub fn assembly_cache_entry_count(&self) -> usize {
-        match self.assembly_cache.lock() {
-            Ok(cache) => cache.len(),
-            Err(poisoned) => poisoned.into_inner().len(),
-        }
+        self.battle_assembler.cache_entry_count()
     }
 }
 
@@ -184,6 +185,7 @@ pub struct StandardUniverseControllerIdentity<'a> {
 pub struct StandardUniverseRuntimeInstance {
     profile_id: Box<str>,
     activity: StandardUniverseActivity,
+    battle_assembler: Arc<StandardUniverseBattleAssembler>,
     combat_catalog: Arc<CombatCatalog>,
     components: ConfigurationComponentSet,
     compatibility: ReplayCompatibilityV2,
@@ -197,6 +199,10 @@ impl StandardUniverseRuntimeInstance {
     #[must_use]
     pub const fn activity(&self) -> &StandardUniverseActivity {
         &self.activity
+    }
+    #[must_use]
+    pub const fn battle_assembler(&self) -> &Arc<StandardUniverseBattleAssembler> {
+        &self.battle_assembler
     }
     #[must_use]
     pub const fn combat_catalog(&self) -> &Arc<CombatCatalog> {

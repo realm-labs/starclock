@@ -146,6 +146,14 @@ failure or result-contract construction failure return typed errors and leave
 Activity canonical bytes, RNG counters, pending decision and replay records
 unchanged.
 
+The concrete implementation uses
+`GraphActivity::start_assembled_pending_battle`: it replaces the prepared
+placeholder binding and seals the result contract on a transaction copy, then
+publishes the working Activity state only after the complete start succeeds.
+The mode-level `StandardUniverseBattleAssembler` returns the paired handoff and
+immutable combat catalog required to execute it. See
+`goal-06-atomic-dynamic-battle-start.md`.
+
 ## Cache contract
 
 The assembly cache is an optional bounded optimization:

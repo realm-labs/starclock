@@ -106,6 +106,10 @@ impl PreparedBattleVariant {
     pub fn battle_spec(&self) -> &BattleSpec {
         self.binding.battle_spec()
     }
+    #[must_use]
+    pub fn battle_binding(&self) -> &BattleBinding {
+        &self.binding
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -473,6 +477,7 @@ pub enum ActivityPreparationError {
     TeamOutsideLock,
     TechniqueParticipantOutsideTeam,
     BattleParticipantMismatch,
+    PendingAssemblyMismatch,
     DecisionNotOffered,
     TechniquePointsInsufficient,
     MissingPreparedVariant,
@@ -617,6 +622,26 @@ impl ActivityAttemptState {
 
     pub(crate) const fn pending(&self) -> Option<&PendingBattleSpec> {
         self.pending.as_ref()
+    }
+
+    pub(crate) fn replace_pending_binding(
+        &mut self,
+        binding: BattleBinding,
+        contribution: TechniqueContributionDigest,
+    ) -> Result<(), ActivityPreparationError> {
+        let pending = self
+            .pending
+            .as_mut()
+            .ok_or(ActivityPreparationError::MissingPreparedVariant)?;
+        if binding.participant_lock_digest() != pending.participant_lock
+            || binding.battle_spec().encounter() != pending.battle_spec().encounter()
+        {
+            return Err(ActivityPreparationError::PendingAssemblyMismatch);
+        }
+        validate_battle_binding(&self.roster, self.definition.team_index, &binding)?;
+        pending.binding = Arc::new(binding);
+        pending.contribution = contribution;
+        Ok(())
     }
 
     pub(crate) fn pending_view(&self) -> Option<ActivityPendingBattleView> {
@@ -788,6 +813,17 @@ impl ActivityTransactionState {
             .and_then(ActivityAttemptState::pending)
     }
 
+    pub(crate) fn replace_pending_battle_binding(
+        &mut self,
+        binding: BattleBinding,
+        contribution: TechniqueContributionDigest,
+    ) -> Result<(), ActivityPreparationError> {
+        self.attempt
+            .as_mut()
+            .ok_or(ActivityPreparationError::MissingAttempt)?
+            .replace_pending_binding(binding, contribution)
+    }
+
     pub(crate) fn pending_battle_view(&self) -> Option<ActivityPendingBattleView> {
         self.attempt
             .as_ref()
@@ -875,26 +911,43 @@ fn validate_roster(
         return Err(ActivityPreparationError::TechniqueParticipantOutsideTeam);
     }
     for variant in definition.variants.iter() {
-        let players = variant
-            .battle_spec()
-            .participants()
+        validate_battle_binding(roster, definition.team_index, &variant.binding)?;
+    }
+    Ok(())
+}
+
+fn validate_battle_binding(
+    roster: &ActivityRosterLock,
+    team_index: u8,
+    binding: &BattleBinding,
+) -> Result<(), ActivityPreparationError> {
+    if binding.participant_lock_digest() != roster.digest() {
+        return Err(ActivityPreparationError::ParticipantLockMismatch);
+    }
+    let entries = roster
+        .participants
+        .entries()
+        .iter()
+        .filter(|entry| entry.team_index() == team_index)
+        .collect::<Vec<_>>();
+    let players = binding
+        .battle_spec()
+        .participants()
+        .iter()
+        .filter(|participant| participant.side() == TeamSide::Player)
+        .collect::<Vec<_>>();
+    if players.len() != entries.len()
+        || players
             .iter()
-            .filter(|participant| participant.side() == TeamSide::Player)
-            .collect::<Vec<_>>();
-        if players.len() != entries.len()
-            || players
-                .iter()
-                .zip(entries.iter())
-                .any(|(actual, expected)| {
-                    actual.source() != ParticipantSource::Player
-                        || actual.formation().get() != expected.formation_index()
-                        || actual.combatant().form() != expected.character()
-                        || actual.locked_combatant_digest()
-                            != expected.build().resolved_spec_digest()
-                })
-        {
-            return Err(ActivityPreparationError::BattleParticipantMismatch);
-        }
+            .zip(entries.iter())
+            .any(|(actual, expected)| {
+                actual.source() != ParticipantSource::Player
+                    || actual.formation().get() != expected.formation_index()
+                    || actual.combatant().form() != expected.character()
+                    || actual.locked_combatant_digest() != expected.build().resolved_spec_digest()
+            })
+    {
+        return Err(ActivityPreparationError::BattleParticipantMismatch);
     }
     Ok(())
 }

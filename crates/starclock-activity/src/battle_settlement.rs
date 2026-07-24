@@ -481,6 +481,7 @@ pub enum ActivityBattleSettlementError {
     BattleAlreadyStarted,
     BattleNotStarted,
     ParticipantContractMismatch,
+    PendingAssemblyMismatch,
     MetricSlotMismatch,
     ResultIdentityMismatch,
     ResultDigestMismatch,

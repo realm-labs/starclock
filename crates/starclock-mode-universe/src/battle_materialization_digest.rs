@@ -35,6 +35,14 @@ pub(super) fn empty_carry_digest() -> [u8; 32] {
     Encoder::new(b"starclock.standard-universe.empty-battle-carry.v1").finish()
 }
 
+pub(super) fn snapshot_root_digest(root: [u8; 32], snapshot: [u8; 32]) -> [u8; 32] {
+    let mut encoder =
+        Encoder::new(b"starclock.standard-universe.dynamic-battle-materialization.v1");
+    encoder.digest(root);
+    encoder.digest(snapshot);
+    encoder.finish()
+}
+
 pub(super) fn root_digest(
     universe: &UniverseCatalog,
     roster: &UniverseBattleRoster,

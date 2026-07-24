@@ -731,6 +731,42 @@ impl GraphActivity {
         )
     }
 
+    /// Atomically replaces a prepared placeholder with one externally
+    /// assembled binding and seals its result contract.
+    pub fn start_assembled_pending_battle(
+        &mut self,
+        expected_state_hash: ActivityStateHash,
+        binding: crate::BattleBinding,
+        contribution: crate::TechniqueContributionDigest,
+        contract: Arc<ActivityBattleResultContract>,
+    ) -> Result<ActivityBattleHandoff, ActivityBattleSettlementError> {
+        if expected_state_hash != self.state_hash() {
+            return Err(ActivityBattleSettlementError::StaleState);
+        }
+        let mut working = self.state.transaction_copy();
+        working
+            .replace_pending_battle_binding(binding, contribution)
+            .map_err(|_| ActivityBattleSettlementError::PendingAssemblyMismatch)?;
+        let assembled_state_hash = working.state_hash(
+            self.definition.identity,
+            &self.definition.graph,
+            self.instance,
+            &self.rng,
+        );
+        let handoff = working.start_pending_battle(
+            &self.definition.graph,
+            &self.rng,
+            ActivityBattleStartRequest::new(
+                assembled_state_hash,
+                self.definition.identity,
+                self.instance,
+                contract,
+            ),
+        )?;
+        self.state = working;
+        Ok(handoff)
+    }
+
     /// Rolls back only the adapter-owned started marker after nested execution
     /// failed before a result existed. No Activity command or RNG draw is
     /// consumed by start, so this restores the exact prior boundary.

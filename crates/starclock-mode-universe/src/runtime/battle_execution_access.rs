@@ -3,13 +3,26 @@
 use std::sync::Arc;
 
 use starclock_activity::{
-    ActivityBattleHandoff, ActivityStateHash, BattleResult, GraphActivityBattleError,
-    GraphActivityBattleResolution,
+    ActivityBattleHandoff, ActivityBattleResultContract, ActivityStateHash, BattleBinding,
+    BattleResult, GraphActivityBattleError, GraphActivityBattleResolution,
+    TechniqueContributionDigest,
 };
 
 use super::{StandardUniverseActivity, StandardUniverseBattleStartError};
 
 impl StandardUniverseActivity {
+    pub(crate) fn start_assembled_pending_battle(
+        &mut self,
+        expected_state_hash: ActivityStateHash,
+        binding: BattleBinding,
+        contribution: TechniqueContributionDigest,
+        contract: Arc<ActivityBattleResultContract>,
+    ) -> Result<ActivityBattleHandoff, StandardUniverseBattleStartError> {
+        self.graph
+            .start_assembled_pending_battle(expected_state_hash, binding, contribution, contract)
+            .map_err(StandardUniverseBattleStartError::Activity)
+    }
+
     pub fn start_pending_battle(
         &mut self,
         expected_state_hash: ActivityStateHash,
