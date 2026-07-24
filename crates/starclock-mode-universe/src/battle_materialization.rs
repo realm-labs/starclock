@@ -1,6 +1,7 @@
 //! Standard Universe encounter rows lowered into validated combat requests.
 
 mod battle_spec;
+pub mod catalog_composition;
 #[path = "battle_materialization_digest.rs"]
 mod materialization_digest;
 
@@ -28,6 +29,7 @@ use starclock_combat::{
 };
 
 use crate::{
+    battle_assembly::BattleAssemblyKey,
     battle_contribution::UniverseBattleContributionSet,
     battle_overlay::{UniverseEncounterBattleBinding, UniverseEncounterOverlay},
     battle_rule_lowering::{RESONANCE_ABILITY_ID, RuleAttachment},
@@ -38,8 +40,9 @@ use crate::{
     id::{DifficultyId, EncounterMemberId},
 };
 use battle_spec::{difficulty_spec, member_spec};
+use catalog_composition::UniverseBattleCatalogComposition;
 use materialization_digest::{
-    combatant_digest, coverage_digest, root_digest, technique_variant_digest,
+    combatant_digest, coverage_digest, empty_carry_digest, root_digest, technique_variant_digest,
 };
 
 pub const UNIVERSE_BATTLE_MATERIALIZATION_REVISION: &str =
@@ -279,6 +282,7 @@ impl UniverseBattleMaterializationCoverage {
 
 #[derive(Clone, Debug)]
 pub struct UniverseBattleMaterialization {
+    assembly_key: BattleAssemblyKey,
     combat_catalog: Arc<CombatCatalog>,
     overlay: UniverseEncounterOverlay,
     difficulty_specs: Box<[UniverseDifficultyBattleSpec]>,
@@ -288,6 +292,11 @@ pub struct UniverseBattleMaterialization {
 }
 
 impl UniverseBattleMaterialization {
+    #[must_use]
+    pub const fn assembly_key(&self) -> BattleAssemblyKey {
+        self.assembly_key
+    }
+
     #[must_use]
     pub const fn combat_catalog(&self) -> &Arc<CombatCatalog> {
         &self.combat_catalog
@@ -324,7 +333,8 @@ impl UniverseBattleMaterializer {
         roster: &UniverseBattleRoster,
         contributions: &UniverseBattleContributionSet,
     ) -> Result<UniverseBattleMaterialization, UniverseBattleMaterializationError> {
-        self.compile_inner(universe, roster, contributions, None)
+        let composition = UniverseBattleCatalogComposition::compile(universe)?;
+        self.compile_inner(universe, &composition, roster, contributions, None)
     }
 
     pub fn compile_with_technique(
@@ -334,20 +344,62 @@ impl UniverseBattleMaterializer {
         contributions: &UniverseBattleContributionSet,
         technique: UniverseBattleTechniqueDefinition,
     ) -> Result<UniverseBattleMaterialization, UniverseBattleMaterializationError> {
-        self.compile_inner(universe, roster, contributions, Some(technique))
+        let composition = UniverseBattleCatalogComposition::compile(universe)?;
+        self.compile_inner(
+            universe,
+            &composition,
+            roster,
+            contributions,
+            Some(technique),
+        )
+    }
+
+    pub fn compile_from_composition(
+        self,
+        universe: &UniverseCatalog,
+        composition: &UniverseBattleCatalogComposition,
+        roster: &UniverseBattleRoster,
+        contributions: &UniverseBattleContributionSet,
+    ) -> Result<UniverseBattleMaterialization, UniverseBattleMaterializationError> {
+        self.compile_inner(universe, composition, roster, contributions, None)
+    }
+
+    pub fn compile_from_composition_with_technique(
+        self,
+        universe: &UniverseCatalog,
+        composition: &UniverseBattleCatalogComposition,
+        roster: &UniverseBattleRoster,
+        contributions: &UniverseBattleContributionSet,
+        technique: UniverseBattleTechniqueDefinition,
+    ) -> Result<UniverseBattleMaterialization, UniverseBattleMaterializationError> {
+        self.compile_inner(
+            universe,
+            composition,
+            roster,
+            contributions,
+            Some(technique),
+        )
     }
 
     fn compile_inner(
         self,
         universe: &UniverseCatalog,
+        composition: &UniverseBattleCatalogComposition,
         roster: &UniverseBattleRoster,
         contributions: &UniverseBattleContributionSet,
         technique: Option<UniverseBattleTechniqueDefinition>,
     ) -> Result<UniverseBattleMaterialization, UniverseBattleMaterializationError> {
-        let content = EncounterContentRuntimeCatalog::compile(universe)
-            .map_err(|_| UniverseBattleMaterializationError::InvalidEncounterContent)?;
-        let enemies = materialize_enemies(universe, &content)?;
-        let enemy_map = enemies
+        if composition.digest()
+            != materialization_digest::catalog_composition_digest(
+                universe,
+                composition.content().digest(),
+                composition.enemies(),
+            )
+        {
+            return Err(UniverseBattleMaterializationError::CatalogCompositionMismatch);
+        }
+        let enemy_map = composition
+            .enemies()
             .iter()
             .map(|enemy| (enemy.stable_key(), enemy.combat_enemy()))
             .collect::<BTreeMap<_, _>>();
@@ -366,34 +418,30 @@ impl UniverseBattleMaterializer {
                 {
                     return Err(UniverseBattleMaterializationError::TechniqueMismatch);
                 }
-                CompiledUniverseBattleTechnique::compile(
-                    universe.simulation_catalog().combat_catalog(),
-                    definition,
-                )
-                .map_err(|_| UniverseBattleMaterializationError::InvalidTechnique)
+                CompiledUniverseBattleTechnique::compile(composition.combat_catalog(), definition)
+                    .map_err(|_| UniverseBattleMaterializationError::InvalidTechnique)
             })
             .transpose()?;
         let digest = root_digest(
             universe,
             roster,
             contributions,
-            &enemies,
+            composition.enemies(),
             technique.as_ref(),
         );
-        let revision = format!(
-            "{}+{}",
-            universe
-                .simulation_catalog()
-                .combat_catalog()
-                .revision()
-                .as_str(),
-            UNIVERSE_BATTLE_MATERIALIZATION_REVISION
+        let assembly_key = BattleAssemblyKey::new(
+            composition.digest(),
+            roster.participant_lock(),
+            composition.content().digest(),
+            contributions.digest(),
+            empty_carry_digest(),
+            technique
+                .as_ref()
+                .map(CompiledUniverseBattleTechnique::digest),
         );
-        let mut builder = CombatCatalogBuilder::from_catalog(
-            universe.simulation_catalog().combat_catalog(),
-            revision.clone(),
-            digest,
-        );
+        let revision = composition.revision();
+        let mut builder =
+            CombatCatalogBuilder::from_catalog(composition.combat_catalog(), revision, digest);
         for modifier in contributions.modifiers() {
             builder.add_modifier_group(modifier.group().clone());
             builder.add_modifier(modifier.definition().clone());
@@ -420,12 +468,6 @@ impl UniverseBattleMaterializer {
             builder.add_rule(technique.rule().clone());
             builder.add_rule_bundle(technique.bundle().clone());
         }
-        for member in members(universe) {
-            builder.add_encounter(member_encounter(member, &enemy_map)?);
-        }
-        for (index, binding) in universe.difficulty_enemy_bindings().iter().enumerate() {
-            builder.add_encounter(difficulty_encounter(index, binding, &enemy_map)?);
-        }
         let combat_catalog = builder
             .build()
             .map_err(|_| UniverseBattleMaterializationError::InvalidCompositeCatalog)?;
@@ -450,7 +492,7 @@ impl UniverseBattleMaterializer {
                 &players,
                 &enemy_map,
                 &combat_catalog,
-                &revision,
+                revision,
                 digest,
                 contributions,
             )?;
@@ -475,7 +517,7 @@ impl UniverseBattleMaterializer {
                     technique_players,
                     &enemy_map,
                     &combat_catalog,
-                    &revision,
+                    revision,
                     digest,
                     contributions,
                 )?;
@@ -517,7 +559,8 @@ impl UniverseBattleMaterializer {
         }
         let overlay = UniverseEncounterOverlay::new(overlay_bindings)
             .map_err(|_| UniverseBattleMaterializationError::InvalidBattleOverlay)?;
-        content
+        composition
+            .content()
             .validate_overlay(&overlay)
             .map_err(|_| UniverseBattleMaterializationError::InvalidBattleOverlay)?;
 
@@ -529,7 +572,7 @@ impl UniverseBattleMaterializer {
                 &players,
                 &enemy_map,
                 &combat_catalog,
-                &revision,
+                revision,
                 digest,
                 contributions,
             )?;
@@ -552,11 +595,13 @@ impl UniverseBattleMaterializer {
         {
             return Err(UniverseBattleMaterializationError::InvalidDenominator);
         }
-        let exact = enemies
+        let exact = composition
+            .enemies()
             .iter()
             .filter(|enemy| enemy.definition_match == EnemyDefinitionMatch::Exact)
             .count();
-        if enemies.len() != ENEMY_VARIANT_COUNT || exact != EXACT_ENEMY_VARIANT_COUNT {
+        if composition.enemies().len() != ENEMY_VARIANT_COUNT || exact != EXACT_ENEMY_VARIANT_COUNT
+        {
             return Err(UniverseBattleMaterializationError::InvalidDenominator);
         }
         let coverage_digest = coverage_digest(
@@ -565,7 +610,7 @@ impl UniverseBattleMaterializer {
             exact,
             contributions.rules().len(),
             contributions.materialized_rule_binding_count(),
-            &enemies,
+            composition.enemies(),
         );
         let coverage = UniverseBattleMaterializationCoverage {
             member_count: MEMBER_COUNT as u16,
@@ -574,7 +619,7 @@ impl UniverseBattleMaterializer {
             difficulty_binding_count: DIFFICULTY_BINDING_COUNT as u16,
             enemy_variant_count: ENEMY_VARIANT_COUNT as u16,
             exact_enemy_variant_count: exact as u16,
-            approximate_enemy_variant_count: (enemies.len() - exact) as u16,
+            approximate_enemy_variant_count: (composition.enemies().len() - exact) as u16,
             declared_rule_binding_count: u16::try_from(contributions.rules().len())
                 .map_err(|_| UniverseBattleMaterializationError::InvalidDenominator)?,
             materialized_rule_binding_count: u16::try_from(
@@ -585,10 +630,11 @@ impl UniverseBattleMaterializer {
             digest: coverage_digest,
         };
         Ok(UniverseBattleMaterialization {
+            assembly_key,
             combat_catalog,
             overlay,
             difficulty_specs: difficulty_specs.into_boxed_slice(),
-            enemies: enemies.into_boxed_slice(),
+            enemies: composition.enemies().to_vec().into_boxed_slice(),
             coverage,
             digest,
         })
@@ -961,6 +1007,7 @@ fn difficulty_wave_id(index: usize) -> Result<EncounterWaveId, UniverseBattleMat
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum UniverseBattleMaterializationError {
     InvalidEncounterContent,
+    CatalogCompositionMismatch,
     RosterMismatch,
     MissingProxyEnemy,
     MissingEnemyMapping,

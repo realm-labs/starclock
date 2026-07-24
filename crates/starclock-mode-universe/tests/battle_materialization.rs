@@ -1,4 +1,7 @@
-use std::sync::{Arc, OnceLock};
+use std::{
+    num::NonZeroUsize,
+    sync::{Arc, OnceLock},
+};
 
 use starclock_activity::{
     ActivityInstanceId, ActivityMasterSeed, BuildDigest, LoadoutLockScope, OpaqueParticipantBuild,
@@ -16,10 +19,11 @@ use starclock_mode_universe::{
     baseline_runner::{
         NestedBattleExecutionError, StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner,
     },
+    battle_assembly::BattleAssemblyCache,
     battle_contribution::{UniverseBattleContributionCompiler, UniverseBattleContributionSet},
     battle_materialization::{
         EnemyDefinitionMatch, UNIVERSE_ENEMY_RUNTIME_STAT_POLICY, UniverseBattleMaterializer,
-        UniverseBattleRoster,
+        UniverseBattleRoster, catalog_composition::UniverseBattleCatalogComposition,
     },
     blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
@@ -124,6 +128,13 @@ fn roster(catalog: &UniverseCatalog) -> UniverseBattleRoster {
 }
 
 fn contributions(catalog: &Arc<UniverseCatalog>) -> UniverseBattleContributionSet {
+    contributions_with_ability_limit(catalog, usize::MAX)
+}
+
+fn contributions_with_ability_limit(
+    catalog: &Arc<UniverseCatalog>,
+    ability_limit: usize,
+) -> UniverseBattleContributionSet {
     let path_definition = &catalog.paths()[0];
     let selected_path = path_definition.id();
     let mut owned_blessings = path_definition
@@ -177,6 +188,7 @@ fn contributions(catalog: &Arc<UniverseCatalog>) -> UniverseBattleContributionSe
     let selected_abilities = catalog
         .ability_tree_nodes()
         .iter()
+        .take(ability_limit)
         .map(|node| node.id())
         .collect::<Vec<_>>();
     let abilities = RunRuntimeCatalog::compile(catalog)
@@ -199,6 +211,90 @@ fn contributions(catalog: &Arc<UniverseCatalog>) -> UniverseBattleContributionSe
         .unwrap()
         .compile_snapshot(&path, &blessings, &curios, &abilities, &projection)
         .unwrap()
+}
+
+#[test]
+fn immutable_catalog_composition_and_bounded_exact_key_cache_are_separate() {
+    let catalog = catalog();
+    let roster = roster(&catalog);
+    let composition = UniverseBattleCatalogComposition::compile(&catalog).unwrap();
+    let contribution_sets =
+        [0, 1, 2].map(|limit| contributions_with_ability_limit(&catalog, limit));
+    let assemblies = contribution_sets
+        .iter()
+        .map(|contributions| {
+            Arc::new(
+                UniverseBattleMaterializer
+                    .compile_from_composition(&catalog, &composition, &roster, contributions)
+                    .unwrap(),
+            )
+        })
+        .collect::<Vec<_>>();
+
+    assert!(assemblies.windows(2).all(|pair| {
+        pair[0].assembly_key() != pair[1].assembly_key()
+            && pair[0].assembly_key().catalog_composition()
+                == pair[1].assembly_key().catalog_composition()
+    }));
+    assert!(assemblies.iter().all(|assembly| {
+        assembly.assembly_key().catalog_composition() == composition.digest()
+            && assembly.assembly_key().participant_lock() == roster.participant_lock()
+            && assembly.assembly_key().encounter() == composition.content().digest()
+    }));
+
+    let mut cache = BattleAssemblyCache::new(NonZeroUsize::new(2).unwrap());
+    cache
+        .insert(assemblies[0].assembly_key(), Arc::clone(&assemblies[0]))
+        .unwrap();
+    cache
+        .insert(assemblies[1].assembly_key(), Arc::clone(&assemblies[1]))
+        .unwrap();
+    assert!(
+        cache
+            .get(assemblies[0].assembly_key())
+            .is_some_and(|value| Arc::ptr_eq(&value, &assemblies[0]))
+    );
+    cache
+        .insert(assemblies[2].assembly_key(), Arc::clone(&assemblies[2]))
+        .unwrap();
+
+    assert_eq!(cache.len(), 2);
+    assert!(cache.get(assemblies[0].assembly_key()).is_none());
+    assert!(cache.get(assemblies[1].assembly_key()).is_some());
+    assert!(cache.get(assemblies[2].assembly_key()).is_some());
+    assert_eq!(cache.metrics().hits(), 3);
+    assert_eq!(cache.metrics().misses(), 1);
+    assert_eq!(cache.metrics().insertions(), 3);
+    assert_eq!(cache.metrics().evictions(), 1);
+
+    let identities = assemblies
+        .iter()
+        .map(|assembly| {
+            let spec = assembly.overlay().bindings()[0].preparation().variants()[0].battle_spec();
+            (
+                spec.combat_input_digest(),
+                spec.assembly_digest(),
+                assembly.digest(),
+            )
+        })
+        .collect::<Vec<_>>();
+    cache.clear();
+    assert!(cache.is_empty());
+    assert_eq!(
+        identities,
+        assemblies
+            .iter()
+            .map(|assembly| {
+                let spec =
+                    assembly.overlay().bindings()[0].preparation().variants()[0].battle_spec();
+                (
+                    spec.combat_input_digest(),
+                    spec.assembly_digest(),
+                    assembly.digest(),
+                )
+            })
+            .collect::<Vec<_>>()
+    );
 }
 
 #[test]

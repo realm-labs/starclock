@@ -145,9 +145,13 @@ The assembly cache is an optional bounded optimization:
 
 - the key contains every component/snapshot/encounter/roster input consumed by
   assembly;
+- key revision v1 stores the catalog-composition, participant-lock, encounter,
+  contribution, carry and optional technique digests as exact ordered fields,
+  then computes a separate canonical key digest;
 - entries are immutable;
-- lookup and eviction order are deterministic where observable;
-- capacity is bounded and documented;
+- lookup and eviction order are deterministic where observable: the initial
+  implementation is FIFO and cache hits do not alter insertion order;
+- capacity is bounded and documented; the production default is 64 entries;
 - cache contents, hit counts and allocation layout are not canonical state;
 - disabling, clearing or evicting the cache produces identical handoff,
   commands, events and hashes;
@@ -155,6 +159,8 @@ The assembly cache is an optional bounded optimization:
 
 The immutable combat catalog may be shared by concurrent sessions. Mutable
 session/Activity state and cache scratch cannot be shared without isolation.
+The concrete Phase 2 lifetime and cache contract is recorded in
+`goal-06-battle-assembly-key-and-cache.md`.
 
 ## Replay v3
 

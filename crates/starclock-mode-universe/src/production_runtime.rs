@@ -1,6 +1,6 @@
 //! Shared production assembly for the engine-free Standard Universe facade.
 
-use std::sync::Arc;
+use std::sync::{Arc, Mutex};
 
 use starclock_activity::{
     ActivityInstanceId, ActivityMasterSeed, BuildDigest, LoadoutLockScope, OpaqueParticipantBuild,
@@ -18,9 +18,11 @@ use crate::{
     ability_runtime::{
         AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope, AbilityRuntimeCatalog,
     },
+    battle_assembly::{BattleAssemblyCache, BattleAssemblyCacheMetrics},
     battle_contribution::{UniverseBattleContributionCompiler, UniverseBattleContributionSet},
     battle_materialization::{
         UniverseBattleMaterialization, UniverseBattleMaterializer, UniverseBattleRoster,
+        catalog_composition::UniverseBattleCatalogComposition,
     },
     blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
@@ -37,12 +39,14 @@ pub const STANDARD_UNIVERSE_PROFILE_PREFIX: &str = "standard-universe-v1/world-"
 pub const STANDARD_UNIVERSE_DEFAULT_BUILD_REVISION: &str =
     "standard-universe-default-resolved-build-v1";
 
-/// Immutable bundles, roster and initial battle materialization shared by CLI
-/// and protocol-neutral agent sessions.
+/// Immutable bundles and catalog composition shared by CLI and
+/// protocol-neutral agent sessions.
 #[derive(Clone)]
 pub struct StandardUniverseRuntimeFactory {
     catalog: Arc<UniverseCatalog>,
     participants: ParticipantLock,
+    catalog_composition: Arc<UniverseBattleCatalogComposition>,
+    assembly_cache: Arc<Mutex<BattleAssemblyCache>>,
     materialization: Arc<UniverseBattleMaterialization>,
 }
 
@@ -57,13 +61,24 @@ impl StandardUniverseRuntimeFactory {
             .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?;
         let (roster, participants) = default_roster(&catalog)?;
         let contributions = initial_contributions(&catalog)?;
+        let catalog_composition = Arc::new(
+            UniverseBattleCatalogComposition::compile(&catalog)
+                .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?,
+        );
         let materialization = UniverseBattleMaterializer
-            .compile(&catalog, &roster, &contributions)
+            .compile_from_composition(&catalog, &catalog_composition, &roster, &contributions)
+            .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?;
+        let materialization = Arc::new(materialization);
+        let mut assembly_cache = BattleAssemblyCache::default();
+        assembly_cache
+            .insert(materialization.assembly_key(), Arc::clone(&materialization))
             .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?;
         Ok(Self {
             catalog,
             participants,
-            materialization: Arc::new(materialization),
+            catalog_composition,
+            assembly_cache: Arc::new(Mutex::new(assembly_cache)),
+            materialization,
         })
     }
 
@@ -135,6 +150,27 @@ impl StandardUniverseRuntimeFactory {
     #[must_use]
     pub const fn materialization(&self) -> &Arc<UniverseBattleMaterialization> {
         &self.materialization
+    }
+
+    #[must_use]
+    pub const fn catalog_composition(&self) -> &Arc<UniverseBattleCatalogComposition> {
+        &self.catalog_composition
+    }
+
+    #[must_use]
+    pub fn assembly_cache_metrics(&self) -> BattleAssemblyCacheMetrics {
+        match self.assembly_cache.lock() {
+            Ok(cache) => cache.metrics(),
+            Err(poisoned) => poisoned.into_inner().metrics(),
+        }
+    }
+
+    #[must_use]
+    pub fn assembly_cache_entry_count(&self) -> usize {
+        match self.assembly_cache.lock() {
+            Ok(cache) => cache.len(),
+            Err(poisoned) => poisoned.into_inner().len(),
+        }
     }
 }
 

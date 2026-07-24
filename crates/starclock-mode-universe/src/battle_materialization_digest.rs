@@ -12,6 +12,29 @@ use super::{
     UNIVERSE_ENEMY_RUNTIME_STAT_POLICY, UniverseBattleRoster, UniverseEnemyMaterialization,
 };
 
+pub(super) fn catalog_composition_digest(
+    universe: &UniverseCatalog,
+    content_digest: [u8; 32],
+    enemies: &[UniverseEnemyMaterialization],
+) -> [u8; 32] {
+    let mut encoder = Encoder::new(b"starclock.standard-universe.battle-catalog-composition.v1");
+    encoder.text(UNIVERSE_BATTLE_MATERIALIZATION_REVISION);
+    encoder.digest(universe.identity().universe_bundle_digest().bytes());
+    encoder.digest(content_digest);
+    encoder.u32(enemies.len() as u32);
+    for enemy in enemies {
+        encoder.text(enemy.stable_key());
+        encoder.u8(enemy.definition_match() as u8);
+        encoder.u32(enemy.combat_enemy().get());
+        encoder.optional_text(enemy.proxy_stable_key());
+    }
+    encoder.finish()
+}
+
+pub(super) fn empty_carry_digest() -> [u8; 32] {
+    Encoder::new(b"starclock.standard-universe.empty-battle-carry.v1").finish()
+}
+
 pub(super) fn root_digest(
     universe: &UniverseCatalog,
     roster: &UniverseBattleRoster,
