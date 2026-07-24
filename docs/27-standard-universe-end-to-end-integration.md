@@ -501,16 +501,16 @@ no Activity command or RNG draw, the pre-call Activity hash is restored and
 the same handoff can be derived and retried. Only a combat-owned terminal
 fault becomes `BattleOutcome::Faulted` plus the exact `BattleFault`
 projection. The executor enforces a 10,000-command default budget and retains
-the accepted command/controller/state-hash/event-count trace for replay
+the accepted command/controller/state-hash/complete-event trace for replay
 integration.
 
 The revision-1 `EventDigest` is a versioned SHA-256 commitment to catalog and
 rules identity, seed/spec identity, every accepted command, every resulting
 canonical state hash, and every ordered event ID/cause/family. Those frozen
-inputs deterministically imply the complete event payload. P4-B1 replaces
-this input-and-shape commitment with a payload-direct event replay component;
-the two formats have different revision labels and must never be compared as
-the same codec.
+inputs deterministically imply the complete event payload. This digest remains
+the declared `BattleResult` projection field. Replay v2 additionally stores
+the complete payload of every event; the digest and payload codec are distinct
+revisioned representations and must never be compared as the same codec.
 
 The first real Activity fixture completes three nested battles using 15
 accepted combat commands. Its final Activity state hash is
@@ -538,11 +538,42 @@ Each component has stable kind, ID, revision and digest. The ordered component
 root, not a physical `.sora` file digest, is authoritative for simulation
 compatibility. Artifact digests remain provenance.
 
-Replay verification reconstructs exactly that component set, repeats Activity
-commands and real nested battles, and detects the first component, command,
-event, RNG, battle or state-hash divergence. Legacy Goal 04 replays remain
-verifiable through their archived release snapshot; the new runtime need not
-emit the legacy format.
+Replay v2 uses the following nested record shape:
+
+```text
+NestedBattleStart(identity)
+AcceptedActivityCommand(Battle)
+  AcceptedBattleCommand(controller, Command)
+  ExpectedBattleState(state_hash, [complete canonical BattleEvent payloads])
+  ...
+NestedBattleEnd(projected_result_digest)
+ExpectedActivityState(activity_state_hash)
+```
+
+`standard_universe_component_set` derives the exact ordered manifest from the
+compiled Activity, Universe catalog, materialized combat catalog, composed
+Activity handler registry, encounter overlay and selected controller.
+Verification compares that manifest before executing any command and reports
+the first component index.
+
+Every nested battle is then recreated from the authoritative handoff and
+catalog. Recorded commands must remain legal and are applied through
+`Battle::apply`; the resulting state hash and every event identity, cause-chain
+field and typed payload field are byte-compared in order. A mismatch reports
+the Activity action, battle, command and first event position as applicable.
+Only the newly projected real `BattleResult` is submitted to Activity after
+the command stream reaches a terminal battle and matches the recorded result.
+The verifier never settles a battle by trusting the recorded projection.
+
+The event codec has its own payload revision and explicitly encodes fixed-width
+IDs, fixed-point millionths, integral amounts, enum discriminants, bounded
+strings, collections and option-presence bytes. It does not use `Debug`,
+ordinary Serde output or a hash-only event family summary. Unknown future
+event families fail closed until the codec revision is extended.
+
+Legacy Goal 04 replay v1 remains verifiable through its archived release
+snapshot. Production migration uses v2; no new caller should emit a v1
+reference-projection run.
 
 ## Acceptance slices
 

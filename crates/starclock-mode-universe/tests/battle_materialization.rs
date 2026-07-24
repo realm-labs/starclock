@@ -28,6 +28,11 @@ use starclock_mode_universe::{
     nested_battle_executor::{NestedBattleController, UniverseNestedBattleExecutor},
     path_runtime::PathRuntimeCatalog,
     run_runtime::RunRuntimeCatalog,
+    universe_replay_v2::{
+        StandardUniverseReplayV2Error, encode_standard_universe_trace_v2, record_baseline_run_v2,
+        standard_universe_component_set, standard_universe_header_v2,
+        verify_standard_universe_replay_v2,
+    },
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
@@ -429,4 +434,169 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
             .iter()
             .all(|carry| carry.current_hp() == carry.maximum_hp())
     );
+}
+
+#[test]
+fn component_replay_reexecutes_nested_commands_and_compares_event_payloads() {
+    let catalog = catalog();
+    let (roster, lock) = roster_and_lock(&catalog);
+    let materialized = UniverseBattleMaterializer
+        .compile(&catalog, &roster, &contributions(&catalog))
+        .unwrap();
+    let world = &catalog.worlds()[0];
+    let compiled = StandardUniverseProfile::new(Arc::clone(&catalog))
+        .compile(
+            StandardUniverseEntry::new(world.id(), world.difficulties()[0], lock, vec![])
+                .with_encounter_overlay(materialized.overlay().clone()),
+        )
+        .unwrap();
+    let components = standard_universe_component_set(
+        &catalog,
+        &compiled,
+        &materialized,
+        "baseline-controller",
+        StandardUniverseBaselineRunner::REVISION,
+        [0x42; 32],
+    )
+    .unwrap();
+    let compatibility = starclock_replay::format_v2::ReplayCompatibilityV2::new(
+        "4.4",
+        starclock_combat::NUMERIC_POLICY_REVISION,
+        starclock_combat::rng::RNG_ALGORITHM_REVISION,
+        starclock_activity::ACTIVITY_STATE_HASH_REVISION,
+    )
+    .unwrap();
+    let instance = ActivityInstanceId::new(5_034).unwrap();
+    let seed = ActivityMasterSeed::from_u64(0x5034);
+    let mut activity = compiled
+        .start_standard(instance, seed)
+        .unwrap()
+        .into_activity();
+    let header = standard_universe_header_v2(
+        compatibility.clone(),
+        components.clone(),
+        0x5034,
+        &activity,
+        "standard-universe-v1",
+    )
+    .unwrap();
+    let mut executor = UniverseNestedBattleExecutor::new(Arc::clone(materialized.combat_catalog()));
+    let recorded = record_baseline_run_v2(
+        &mut activity,
+        &StandardUniverseBaselinePolicy::default(),
+        &mut executor,
+    )
+    .unwrap();
+    let bytes = encode_standard_universe_trace_v2(&header, &recorded).unwrap();
+    let fresh = compiled
+        .start_standard(instance, seed)
+        .unwrap()
+        .into_activity();
+    let verified = verify_standard_universe_replay_v2(
+        &bytes,
+        fresh,
+        Arc::clone(materialized.combat_catalog()),
+        &components,
+        &compatibility,
+        "standard-universe-v1",
+    )
+    .unwrap();
+    assert_eq!(verified.battle_count() as usize, recorded.battles().len());
+    assert_eq!(
+        verified.battle_command_count() as usize,
+        recorded
+            .battles()
+            .iter()
+            .map(|battle| battle.trace().len())
+            .sum::<usize>()
+    );
+    assert_eq!(
+        verified.final_state_hash().bytes(),
+        recorded.report().final_state_hash().bytes()
+    );
+
+    let mut event_corrupt = bytes.clone();
+    let payload = v2_payload_offset(
+        &event_corrupt,
+        starclock_replay::record::RecordKind::ExpectedBattleState,
+        0,
+    );
+    // state payload: version + hash + event count + first event byte length.
+    event_corrupt[payload + 42] ^= 0x80;
+    let fresh = compiled
+        .start_standard(instance, seed)
+        .unwrap()
+        .into_activity();
+    assert!(matches!(
+        verify_standard_universe_replay_v2(
+            &event_corrupt,
+            fresh,
+            Arc::clone(materialized.combat_catalog()),
+            &components,
+            &compatibility,
+            "standard-universe-v1",
+        ),
+        Err(StandardUniverseReplayV2Error::BattleEventDivergence {
+            battle_index: 0,
+            command_index: 0,
+            event_index: 0,
+            ..
+        })
+    ));
+
+    let divergent = replacement_controller_component_set(&components);
+    let fresh = compiled
+        .start_standard(instance, seed)
+        .unwrap()
+        .into_activity();
+    assert!(matches!(
+        verify_standard_universe_replay_v2(
+            &bytes,
+            fresh,
+            Arc::clone(materialized.combat_catalog()),
+            &divergent,
+            &compatibility,
+            "standard-universe-v1",
+        ),
+        Err(StandardUniverseReplayV2Error::ComponentDivergence(divergence))
+            if divergence.expected.as_ref().unwrap().id() == "baseline-controller"
+    ));
+}
+
+fn replacement_controller_component_set(
+    source: &starclock_replay::component::ConfigurationComponentSet,
+) -> starclock_replay::component::ConfigurationComponentSet {
+    use starclock_replay::{
+        component::{ConfigurationComponentIdentity, ConfigurationComponentKind},
+        digest::ComponentDigest,
+    };
+    let mut values = source.components().to_vec();
+    let controller = values
+        .iter()
+        .position(|value| value.kind() == ConfigurationComponentKind::Controller)
+        .unwrap();
+    values[controller] = ConfigurationComponentIdentity::new(
+        ConfigurationComponentKind::Controller,
+        "baseline-controller",
+        StandardUniverseBaselineRunner::REVISION,
+        ComponentDigest::new([0x43; 32]),
+    )
+    .unwrap();
+    starclock_replay::component::ConfigurationComponentSet::new(values).unwrap()
+}
+
+fn v2_payload_offset(
+    bytes: &[u8],
+    kind: starclock_replay::record::RecordKind,
+    ordinal: usize,
+) -> usize {
+    let decoded = starclock_replay::format_v2::decode_replay_v2(bytes).unwrap();
+    let payload = decoded
+        .records()
+        .iter()
+        .filter(|record| record.kind() == kind)
+        .nth(ordinal)
+        .unwrap()
+        .payload();
+    payload.as_ptr() as usize - bytes.as_ptr() as usize
 }

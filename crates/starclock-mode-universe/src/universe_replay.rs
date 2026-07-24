@@ -640,7 +640,7 @@ fn validate_identity(
     }
 }
 
-fn encode_action(
+pub(crate) fn encode_action(
     action: &StandardUniverseReplayAction,
 ) -> Result<Vec<u8>, StandardUniverseReplayError> {
     let mut encoder = Encoder::new(Vec::new());
@@ -670,7 +670,7 @@ fn encode_action(
     Ok(encoder.into_inner())
 }
 
-fn decode_action(
+pub(crate) fn decode_action(
     bytes: &[u8],
 ) -> Result<StandardUniverseReplayAction, StandardUniverseReplayError> {
     let mut decoder = Decoder::new(bytes);
@@ -704,7 +704,9 @@ fn decode_action(
     Ok(action)
 }
 
-fn decode_decision_kind(raw: u8) -> Result<ActivityDecisionKind, StandardUniverseReplayError> {
+pub(crate) fn decode_decision_kind(
+    raw: u8,
+) -> Result<ActivityDecisionKind, StandardUniverseReplayError> {
     match raw {
         0 => Ok(ActivityDecisionKind::Choice),
         1 => Ok(ActivityDecisionKind::Route),

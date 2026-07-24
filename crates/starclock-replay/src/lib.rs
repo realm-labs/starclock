@@ -7,9 +7,11 @@
 
 pub mod activity;
 pub mod battle;
+pub mod battle_event;
 pub mod codec;
 pub mod component;
 pub mod digest;
 pub mod format;
 pub mod format_v2;
+pub mod nested_battle;
 pub mod record;

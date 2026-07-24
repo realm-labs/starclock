@@ -68,7 +68,7 @@ pub fn encode_battle_trace(
     }
     let mut payloads = Vec::with_capacity(expected as usize);
     for entry in trace {
-        payloads.push(encode_command(entry.command())?);
+        payloads.push(encode_battle_command_payload(entry.command())?);
         payloads.push(entry.state_hash().bytes().to_vec());
     }
     let mut records = Vec::with_capacity(payloads.len());
@@ -126,7 +126,7 @@ pub fn verify_battle_replay(
         {
             return Err(BattleReplayError::InvalidRecordLayout);
         }
-        let command = decode_command(pair[0].payload())?;
+        let command = decode_battle_command_payload(pair[0].payload())?;
         let resolution =
             battle
                 .apply(command)
@@ -208,7 +208,9 @@ fn validate_identity(replay: &DecodedReplay<'_>, battle: &Battle) -> Result<(), 
     }
 }
 
-fn encode_command(command: &Command) -> Result<Vec<u8>, BattleCommandPayloadError> {
+pub fn encode_battle_command_payload(
+    command: &Command,
+) -> Result<Vec<u8>, BattleCommandPayloadError> {
     let mut encoder = Encoder::new(Vec::new());
     encoder.u16(BATTLE_COMMAND_PAYLOAD_VERSION);
     match command {
@@ -272,7 +274,7 @@ fn encode_action_command(
     }
 }
 
-fn decode_command(bytes: &[u8]) -> Result<Command, BattleCommandPayloadError> {
+pub fn decode_battle_command_payload(bytes: &[u8]) -> Result<Command, BattleCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
     let version = decoder.u16()?;
     if version != BATTLE_COMMAND_PAYLOAD_VERSION {

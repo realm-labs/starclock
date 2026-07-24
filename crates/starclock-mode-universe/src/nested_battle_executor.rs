@@ -35,13 +35,13 @@ pub enum NestedBattleController {
     AuthoredEnemy = 2,
 }
 
-/// One accepted command boundary retained for replay integration and diagnostics.
+/// One accepted command boundary with payload-direct replay evidence.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NestedBattleTraceEntry {
     controller: NestedBattleController,
     command: Command,
     state_hash: BattleStateHash,
-    emitted_events: u32,
+    events: Box<[starclock_combat::BattleEvent]>,
 }
 
 impl NestedBattleTraceEntry {
@@ -59,7 +59,11 @@ impl NestedBattleTraceEntry {
     }
     #[must_use]
     pub const fn emitted_events(&self) -> u32 {
-        self.emitted_events
+        self.events.len() as u32
+    }
+    #[must_use]
+    pub fn events(&self) -> &[starclock_combat::BattleEvent] {
+        &self.events
     }
 }
 
@@ -142,9 +146,7 @@ impl UniverseNestedBattleExecutor {
         &self,
         handoff: &ActivityBattleHandoff,
     ) -> Result<(BattleResult, NestedBattleExecutionReport), NestedBattleExecutionError> {
-        let spec = carried_spec(handoff)?;
-        let mut battle = Battle::create(Arc::clone(&self.catalog), spec, handoff.identity().seed())
-            .map_err(|_| NestedBattleExecutionError::BattleBuild)?;
+        let mut battle = create_nested_battle(Arc::clone(&self.catalog), handoff)?;
         let mut enemy = EnemyController::new(enemy_controller_seed(handoff));
         let mut commitment = EventCommitment::new(&self.catalog, handoff);
         let mut trace = Vec::new();
@@ -169,8 +171,7 @@ impl UniverseNestedBattleExecutor {
                 controller,
                 command,
                 state_hash: resolution.state_hash(),
-                emitted_events: u32::try_from(resolution.events().len())
-                    .map_err(|_| NestedBattleExecutionError::StepBudgetExceeded)?,
+                events: resolution.events().to_vec().into_boxed_slice(),
             });
             if let Some((actor, graph)) = enemy_action {
                 enemy
@@ -196,6 +197,15 @@ impl NestedBattleExecutor for UniverseNestedBattleExecutor {
         self.reports.push(report);
         Ok(result)
     }
+}
+
+pub(crate) fn create_nested_battle(
+    catalog: Arc<CombatCatalog>,
+    handoff: &ActivityBattleHandoff,
+) -> Result<Battle, NestedBattleExecutionError> {
+    let spec = carried_spec(handoff)?;
+    Battle::create(catalog, spec, handoff.identity().seed())
+        .map_err(|_| NestedBattleExecutionError::BattleBuild)
 }
 
 fn carried_spec(
@@ -392,7 +402,7 @@ fn static_condition(condition: &ConditionExpr) -> bool {
     }
 }
 
-fn project_result(
+pub(crate) fn project_result(
     battle: &Battle,
     handoff: &ActivityBattleHandoff,
     event_digest: EventDigest,
@@ -491,10 +501,10 @@ fn enemy_controller_seed(handoff: &ActivityBattleHandoff) -> RngSeed {
 /// typed family. The inputs plus frozen rules revision deterministically imply
 /// the full event payload. A payload-direct event codec is reserved as a
 /// separately versioned replay component.
-struct EventCommitment(Encoder);
+pub(crate) struct EventCommitment(Encoder);
 
 impl EventCommitment {
-    fn new(catalog: &CombatCatalog, handoff: &ActivityBattleHandoff) -> Self {
+    pub(crate) fn new(catalog: &CombatCatalog, handoff: &ActivityBattleHandoff) -> Self {
         let mut encoder = Encoder::new(UNIVERSE_BATTLE_EVENT_COMMITMENT_REVISION.as_bytes());
         encoder.text(catalog.revision().as_str());
         encoder.digest(catalog.digest().bytes());
@@ -503,7 +513,7 @@ impl EventCommitment {
         Self(encoder)
     }
 
-    fn push(&mut self, command: &Command, resolution: &starclock_combat::Resolution) {
+    pub(crate) fn push(&mut self, command: &Command, resolution: &starclock_combat::Resolution) {
         encode_command(&mut self.0, command);
         self.0.digest(resolution.state_hash().bytes());
         self.0.u64(resolution.root_command().get());
@@ -542,7 +552,7 @@ impl EventCommitment {
         }
     }
 
-    fn finish(self) -> EventDigest {
+    pub(crate) fn finish(self) -> EventDigest {
         EventDigest::new(self.0.finish()).expect("SHA-256 output is non-zero")
     }
 }
