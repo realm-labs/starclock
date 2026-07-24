@@ -1,16 +1,20 @@
 use std::sync::{Arc, OnceLock};
 
 use starclock_activity::{
-    BuildDigest, LoadoutLockScope, OpaqueParticipantBuild, ParticipantId, ParticipantLock,
-    ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
+    ActivityInstanceId, ActivityMasterSeed, BuildDigest, LoadoutLockScope, OpaqueParticipantBuild,
+    ParticipantId, ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
+    ParticipantUniquenessScope,
 };
 use starclock_combat::{
     CombatantSpecDigest, Energy, Hp, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
-    UnitDefinitionId, UnitLevel,
+    StatValue, UnitDefinitionId, UnitLevel, catalog::action::AbilityKind,
 };
 use starclock_mode_universe::{
     ability_runtime::{
         AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope, AbilityRuntimeCatalog,
+    },
+    baseline_runner::{
+        NestedBattleExecutionError, StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner,
     },
     battle_contribution::{UniverseBattleContributionCompiler, UniverseBattleContributionSet},
     battle_materialization::{
@@ -20,6 +24,8 @@ use starclock_mode_universe::{
     blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
     curio_runtime::CurioRuntimeCatalog,
+    entry::{StandardUniverseEntry, StandardUniverseProfile},
+    nested_battle_executor::{NestedBattleController, UniverseNestedBattleExecutor},
     path_runtime::PathRuntimeCatalog,
     run_runtime::RunRuntimeCatalog,
 };
@@ -35,7 +41,7 @@ fn catalog() -> Arc<UniverseCatalog> {
     }))
 }
 
-fn roster(catalog: &UniverseCatalog) -> UniverseBattleRoster {
+fn roster_and_lock(catalog: &UniverseCatalog) -> (UniverseBattleRoster, ParticipantLock) {
     let policy = ParticipantPolicy::new(
         1,
         1,
@@ -53,16 +59,32 @@ fn roster(catalog: &UniverseCatalog) -> UniverseBattleRoster {
             .combat_catalog()
             .unit(form)
             .expect("production character unit");
+        let basic = unit
+            .abilities()
+            .iter()
+            .copied()
+            .find(|ability| {
+                catalog
+                    .simulation_catalog()
+                    .combat_catalog()
+                    .ability(*ability)
+                    .and_then(|definition| definition.action())
+                    .is_some_and(|action| action.kind() == AbilityKind::Basic)
+            })
+            .expect("production character has a Basic action");
         let combatant = ResolvedCombatantSpec::new(
             form,
             UnitLevel::new(80).unwrap(),
             Hp::new(100_000).unwrap(),
             Speed::from_scaled(200_000_000).unwrap(),
-            ResolvedDefinitionBindings::new(unit.abilities().to_vec(), Vec::new(), Vec::new())
-                .unwrap(),
+            ResolvedDefinitionBindings::new(vec![basic], Vec::new(), Vec::new()).unwrap(),
             CombatantSpecDigest::new([index + 1; 32]).unwrap(),
         )
         .unwrap()
+        .with_base_attack_defense(
+            StatValue::from_scaled(1_000_000_000).unwrap(),
+            StatValue::from_scaled(1_000_000_000).unwrap(),
+        )
         .with_energy(Energy::ZERO, Energy::from_scaled(100_000_000).unwrap())
         .unwrap();
         let participant = ParticipantId::new(u32::from(index) + 1).unwrap();
@@ -85,7 +107,11 @@ fn roster(catalog: &UniverseCatalog) -> UniverseBattleRoster {
         combatants.push((participant, combatant));
     }
     let lock = ParticipantLock::seal(policy, lock_entries).unwrap();
-    UniverseBattleRoster::new(&lock, combatants).unwrap()
+    (UniverseBattleRoster::new(&lock, combatants).unwrap(), lock)
+}
+
+fn roster(catalog: &UniverseCatalog) -> UniverseBattleRoster {
+    roster_and_lock(catalog).0
 }
 
 fn contributions(catalog: &Arc<UniverseCatalog>) -> UniverseBattleContributionSet {
@@ -304,4 +330,103 @@ fn roster_mismatch_fails_before_any_catalog_or_spec_is_emitted() {
     )
     .unwrap();
     assert!(UniverseBattleRoster::new(&lock, combatants).is_err());
+}
+
+#[test]
+fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
+    let catalog = catalog();
+    let (roster, lock) = roster_and_lock(&catalog);
+    let contributions = contributions(&catalog);
+    let materialized = UniverseBattleMaterializer
+        .compile(&catalog, &roster, &contributions)
+        .unwrap();
+    let world = &catalog.worlds()[0];
+    let compiled = StandardUniverseProfile::new(Arc::clone(&catalog))
+        .compile(
+            StandardUniverseEntry::new(world.id(), world.difficulties()[0], lock, vec![])
+                .with_encounter_overlay(materialized.overlay().clone()),
+        )
+        .unwrap();
+    let mut activity = compiled
+        .start_standard(
+            ActivityInstanceId::new(5_033).unwrap(),
+            ActivityMasterSeed::from_u64(0x5033),
+        )
+        .unwrap()
+        .into_activity();
+    let runner = StandardUniverseBaselineRunner::default();
+    let mut failing = |_: &starclock_activity::ActivityBattleHandoff| {
+        Err(NestedBattleExecutionError::StepBudgetExceeded)
+    };
+    assert!(
+        runner
+            .run_to_terminal(
+                &mut activity,
+                &StandardUniverseBaselinePolicy::default(),
+                &mut failing,
+            )
+            .is_err()
+    );
+    let retry_hash = activity.view().state_hash();
+    assert!(
+        runner
+            .advance(
+                &mut activity,
+                &StandardUniverseBaselinePolicy::default(),
+                &mut failing,
+            )
+            .is_err()
+    );
+    assert_eq!(activity.view().state_hash(), retry_hash);
+    let mut executor = UniverseNestedBattleExecutor::new(Arc::clone(materialized.combat_catalog()));
+    let report = runner
+        .run_to_terminal(
+            &mut activity,
+            &StandardUniverseBaselinePolicy::default(),
+            &mut executor,
+        )
+        .unwrap();
+
+    assert_eq!(
+        report.terminal(),
+        starclock_activity::ActivityTerminalOutcome::Completed
+    );
+    assert_eq!(executor.reports().len(), 3);
+    assert_eq!(
+        executor
+            .reports()
+            .iter()
+            .map(|battle| battle.trace().len())
+            .sum::<usize>(),
+        15
+    );
+    assert_eq!(
+        report.final_state_hash().bytes(),
+        [
+            140, 9, 218, 237, 192, 227, 89, 32, 245, 13, 11, 235, 214, 152, 65, 91, 44, 66, 226,
+            129, 95, 73, 248, 188, 159, 192, 96, 39, 9, 56, 192, 36,
+        ]
+    );
+    assert_eq!(
+        executor.reports()[0].event_digest().bytes(),
+        [
+            48, 255, 232, 37, 197, 227, 80, 223, 81, 145, 152, 29, 225, 61, 56, 11, 103, 81, 7, 6,
+            114, 173, 177, 197, 92, 110, 195, 190, 121, 244, 167, 81,
+        ]
+    );
+    assert!(executor.reports().iter().all(|battle| {
+        battle.outcome() == starclock_activity::BattleOutcome::Won
+            && !battle.trace().is_empty()
+            && battle
+                .trace()
+                .iter()
+                .any(|entry| entry.controller() == NestedBattleController::BaselinePlayer)
+    }));
+    assert!(
+        activity
+            .view()
+            .participant_carry()
+            .iter()
+            .all(|carry| carry.current_hp() == carry.maximum_hp())
+    );
 }

@@ -81,7 +81,7 @@
     },
     {
       "name": "starclock-mode-universe",
-      "local": ["starclock-activity", "starclock-combat", "starclock-data", "starclock-replay"],
+      "local": ["starclock-activity", "starclock-ai", "starclock-combat", "starclock-data", "starclock-replay"],
       "external": [
         { "name": "serde", "requirement": "=1.0.228", "features": ["derive", "rc", "std"] },
         { "name": "serde_json", "requirement": "=1.0.151", "features": ["std"] },

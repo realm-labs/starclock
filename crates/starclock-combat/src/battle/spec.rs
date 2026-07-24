@@ -478,6 +478,64 @@ pub struct ParticipantSpec {
     wave: u16,
     source: ParticipantSource,
     combatant: ResolvedCombatantSpec,
+    locked_combatant_digest: CombatantSpecDigest,
+    initial_state: Option<ParticipantInitialState>,
+}
+
+/// Optional runtime state supplied by a cross-battle activity handoff.
+///
+/// Ordinary standalone battles omit this value and retain the authored
+/// full-HP/current-Energy defaults from [`ResolvedCombatantSpec`].
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ParticipantInitialState {
+    current_hp: Hp,
+    current_energy: Energy,
+    life: crate::LifeState,
+    presence: crate::PresenceState,
+}
+
+impl ParticipantInitialState {
+    #[must_use]
+    pub fn new(
+        current_hp: Hp,
+        maximum_hp: Hp,
+        current_energy: Energy,
+        maximum_energy: Energy,
+        life: crate::LifeState,
+        presence: crate::PresenceState,
+    ) -> Option<Self> {
+        if current_hp.get() > maximum_hp.get()
+            || current_energy.scaled() > maximum_energy.scaled()
+            || (life == crate::LifeState::Alive && current_hp.get() == 0)
+            || (matches!(life, crate::LifeState::Downed | crate::LifeState::Defeated)
+                && current_hp.get() != 0)
+        {
+            return None;
+        }
+        Some(Self {
+            current_hp,
+            current_energy,
+            life,
+            presence,
+        })
+    }
+
+    #[must_use]
+    pub const fn current_hp(self) -> Hp {
+        self.current_hp
+    }
+    #[must_use]
+    pub const fn current_energy(self) -> Energy {
+        self.current_energy
+    }
+    #[must_use]
+    pub const fn life(self) -> crate::LifeState {
+        self.life
+    }
+    #[must_use]
+    pub const fn presence(self) -> crate::PresenceState {
+        self.presence
+    }
 }
 
 impl ParticipantSpec {
@@ -489,12 +547,15 @@ impl ParticipantSpec {
         source: ParticipantSource,
         combatant: ResolvedCombatantSpec,
     ) -> Self {
+        let locked_combatant_digest = combatant.digest();
         Self {
             side,
             formation,
             wave: 1,
             source,
             combatant,
+            locked_combatant_digest,
+            initial_state: None,
         }
     }
 
@@ -507,6 +568,30 @@ impl ParticipantSpec {
             self.wave = wave;
             Some(self)
         }
+    }
+
+    /// Supplies validated activity carry state for this exact participant.
+    #[must_use]
+    pub fn with_initial_state(mut self, state: ParticipantInitialState) -> Option<Self> {
+        if state.current_hp.get() > self.combatant.maximum_hp().get()
+            || state.current_energy.scaled() > self.combatant.maximum_energy().scaled()
+        {
+            None
+        } else {
+            self.initial_state = Some(state);
+            Some(self)
+        }
+    }
+
+    /// Retains the pre-mode resolved build identity checked by an Activity
+    /// participant lock when runtime mode contributions alter the combatant.
+    #[must_use]
+    pub fn with_locked_combatant_digest(
+        mut self,
+        locked_combatant_digest: CombatantSpecDigest,
+    ) -> Self {
+        self.locked_combatant_digest = locked_combatant_digest;
+        self
     }
 
     /// Returns the formation side.
@@ -533,6 +618,16 @@ impl ParticipantSpec {
     #[must_use]
     pub const fn combatant(&self) -> &ResolvedCombatantSpec {
         &self.combatant
+    }
+    /// Returns the pre-mode combatant identity bound by an outer Activity.
+    #[must_use]
+    pub const fn locked_combatant_digest(&self) -> CombatantSpecDigest {
+        self.locked_combatant_digest
+    }
+    /// Returns explicit cross-battle carry state when supplied.
+    #[must_use]
+    pub const fn initial_state(&self) -> Option<ParticipantInitialState> {
+        self.initial_state
     }
 }
 

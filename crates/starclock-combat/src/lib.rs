@@ -63,9 +63,10 @@ pub use battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy};
 pub use battle::model::{BattlePhase, Resolution};
 pub use battle::spec::{
     BattleSeed, BattleSpec, BattleSpecDigest, BattleSpecError, CombatantSpecDigest,
-    CombatantSpecError, ConcedePolicy, FormationIndex, KeyedTeamResourceSpec, ParticipantSource,
-    ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, ResolvedModifierBinding,
-    TeamResourceSpec, TeamResourceWavePolicy, TeamSide, UnitLevel,
+    CombatantSpecError, ConcedePolicy, FormationIndex, KeyedTeamResourceSpec,
+    ParticipantInitialState, ParticipantSource, ParticipantSpec, ResolvedCombatantSpec,
+    ResolvedDefinitionBindings, ResolvedModifierBinding, TeamResourceSpec, TeamResourceWavePolicy,
+    TeamSide, UnitLevel,
 };
 pub use battle::view::{
     ActiveTurnView, BattleIdentityView, BattleView, BreakEffectView, EffectView, EncounterView,

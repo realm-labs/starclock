@@ -1,7 +1,9 @@
 use std::{collections::BTreeMap, sync::Arc};
 
 use sha2::{Digest, Sha256};
-use starclock_combat::{BattleSeed, BattleSpec, Energy, Hp, LifeState, PresenceState};
+use starclock_combat::{
+    BattleSeed, BattleSpec, Energy, FormationIndex, Hp, LifeState, PresenceState,
+};
 
 use crate::{
     ActivityDefinitionIdentity, ActivityEdgeCondition, ActivityEdgeId, ActivityFault,
@@ -320,6 +322,10 @@ impl ActivityCarryLedger {
     fn insert(&mut self, state: ActivityParticipantCarryState) {
         self.0.insert(state.participant, state);
     }
+
+    fn get(&self, participant: ParticipantId) -> Option<ActivityParticipantCarryState> {
+        self.0.get(&participant).copied()
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -336,9 +342,29 @@ impl ActivityAwaitingBattle {
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ActivityBattleParticipantBinding {
+    participant: ParticipantId,
+    formation: FormationIndex,
+}
+
+impl ActivityBattleParticipantBinding {
+    #[must_use]
+    pub const fn participant(&self) -> ParticipantId {
+        self.participant
+    }
+
+    #[must_use]
+    pub const fn formation(&self) -> FormationIndex {
+        self.formation
+    }
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ActivityBattleHandoff {
     identity: BattleResultIdentity,
     battle_spec: BattleSpec,
+    projection: Arc<BattleResultProjection>,
+    participants: Box<[ActivityBattleParticipantBinding]>,
     carry: Box<[ActivityParticipantCarryState]>,
     contract_digest: BattleSettlementContractDigest,
 }
@@ -351,6 +377,14 @@ impl ActivityBattleHandoff {
     #[must_use]
     pub const fn battle_spec(&self) -> &BattleSpec {
         &self.battle_spec
+    }
+    #[must_use]
+    pub fn projection(&self) -> &BattleResultProjection {
+        &self.projection
+    }
+    #[must_use]
+    pub fn participants(&self) -> &[ActivityBattleParticipantBinding] {
+        &self.participants
     }
     #[must_use]
     pub fn participant_carry(&self) -> &[ActivityParticipantCarryState] {
@@ -517,16 +551,54 @@ impl crate::ActivityTransactionState {
             pending.battle_spec_digest(),
             seed,
         );
+        let battle_spec = pending.battle_spec().clone();
+        let participant_specs = attempt.participant_specs();
+        let participants = participant_specs
+            .iter()
+            .map(|(participant, spec)| ActivityBattleParticipantBinding {
+                participant: *participant,
+                formation: spec.formation(),
+            })
+            .collect::<Vec<_>>()
+            .into_boxed_slice();
+        let carry = participant_specs
+            .into_iter()
+            .map(|(participant, spec)| {
+                self.carry.get(participant).unwrap_or_else(|| {
+                    let initial = spec.initial_state();
+                    ActivityParticipantCarryState {
+                        participant,
+                        current_hp: initial
+                            .map_or(spec.combatant().maximum_hp(), |state| state.current_hp()),
+                        maximum_hp: spec.combatant().maximum_hp(),
+                        current_energy: initial
+                            .map_or(spec.combatant().current_energy(), |state| {
+                                state.current_energy()
+                            }),
+                        maximum_energy: spec.combatant().maximum_energy(),
+                        life: initial.map_or(LifeState::Alive, |state| state.life()),
+                        presence: initial.map_or(PresenceState::Present, |state| state.presence()),
+                    }
+                })
+            })
+            .collect::<Vec<_>>()
+            .into_boxed_slice();
         self.awaiting_battle = Some(ActivityAwaitingBattle {
             identity,
             contract: Arc::clone(&request.contract),
         });
         Ok(ActivityBattleHandoff {
             identity,
-            battle_spec: pending.battle_spec().clone(),
-            carry: self.carry.view(),
+            battle_spec,
+            projection: Arc::clone(&request.contract.projection),
+            participants,
+            carry,
             contract_digest: request.contract.digest(),
         })
+    }
+
+    pub(crate) fn rollback_pending_battle_start(&mut self) -> bool {
+        self.awaiting_battle.take().is_some()
     }
 
     pub fn submit_pending_battle_result(

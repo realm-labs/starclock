@@ -80,6 +80,10 @@ impl Encoder {
         self.0.update(value.to_le_bytes());
     }
 
+    pub(crate) fn u64(&mut self, value: u64) {
+        self.0.update(value.to_le_bytes());
+    }
+
     pub(crate) fn i64(&mut self, value: i64) {
         self.0.update(value.to_le_bytes());
     }

@@ -95,7 +95,7 @@ pub fn run(args: &[String]) -> Result<(), UniverseCliError> {
     let mut activity = context.activity;
     let header = replay_header(&activity, &context.profile_id, options.seed)?;
     let mut executor = |handoff: &starclock_activity::ActivityBattleHandoff| {
-        reference_won_result(handoff.identity())
+        Ok(reference_won_result(handoff.identity()))
     };
     let recorded = record_baseline_run(
         &mut activity,

@@ -1,14 +1,14 @@
 //! Standard Universe runtime facade over the generic graph Activity.
 mod battle_contribution_access;
+mod battle_execution_access;
 
 use std::sync::Arc;
 
 use starclock_activity::{
-    ActivityBattleHandoff, ActivityDecisionId, ActivityExternalOutcomeId, ActivityInventoryId,
-    ActivityOptionId, ActivityPlayerView, ActivityPreparationBoundary, ActivityPreparationView,
-    ActivityRosterLock, ActivityScopePath, ActivitySlotId, ActivityStateHash, ActivityValue,
-    AttemptId, BattleResult, BattleSequence, GraphActivity, GraphActivityBattleError,
-    GraphActivityBattleResolution, GraphActivityCommandError, GraphActivityEncounterError,
+    ActivityDecisionId, ActivityExternalOutcomeId, ActivityInventoryId, ActivityOptionId,
+    ActivityPlayerView, ActivityPreparationBoundary, ActivityPreparationView, ActivityRosterLock,
+    ActivityScopePath, ActivitySlotId, ActivityStateHash, ActivityValue, AttemptId, BattleSequence,
+    GraphActivity, GraphActivityCommandError, GraphActivityEncounterError,
     GraphActivityPreparationResolution, GraphActivityResolution, GraphActivityStartError,
     ParticipantLock,
 };
@@ -1003,33 +1003,6 @@ impl StandardUniverseActivity {
     ) -> Result<ActivityPreparationBoundary, GraphActivityEncounterError> {
         self.graph
             .choose_preparation_option(expected_state_hash, option)
-    }
-
-    pub fn start_pending_battle(
-        &mut self,
-        expected_state_hash: ActivityStateHash,
-    ) -> Result<ActivityBattleHandoff, StandardUniverseBattleStartError> {
-        let digest = self
-            .graph
-            .pending_battle()
-            .ok_or(StandardUniverseBattleStartError::MissingPendingBattle)?
-            .battle_spec_digest();
-        let binding = self
-            .overlay
-            .binding_for_spec(digest.bytes())
-            .ok_or(StandardUniverseBattleStartError::MissingBattleOverlay)?;
-        self.graph
-            .start_pending_battle(expected_state_hash, Arc::clone(binding.contract()))
-            .map_err(StandardUniverseBattleStartError::Activity)
-    }
-
-    pub fn submit_pending_battle_result(
-        &mut self,
-        expected_state_hash: ActivityStateHash,
-        result: BattleResult,
-    ) -> Result<GraphActivityBattleResolution, GraphActivityBattleError> {
-        self.graph
-            .submit_pending_battle_result(expected_state_hash, result)
     }
 }
 

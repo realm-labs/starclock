@@ -16,20 +16,42 @@ use crate::runtime::{
 
 /// Synchronous authoritative battle boundary used by CLI, services and tests.
 ///
-/// Runtime failures belong in the returned battle projection as an explicit
-/// fault. Infrastructure cancellation is deliberately outside the accepted
-/// Activity-command transaction.
+/// A failed execution leaves the Activity at the already-started handoff
+/// boundary. The exact same handoff can therefore be retried or inspected
+/// without manufacturing a combat-domain fault.
 pub trait NestedBattleExecutor {
-    fn execute(&mut self, handoff: &starclock_activity::ActivityBattleHandoff) -> BattleResult;
+    fn execute(
+        &mut self,
+        handoff: &starclock_activity::ActivityBattleHandoff,
+    ) -> Result<BattleResult, NestedBattleExecutionError>;
 }
 
 impl<F> NestedBattleExecutor for F
 where
-    F: FnMut(&starclock_activity::ActivityBattleHandoff) -> BattleResult,
+    F: FnMut(
+        &starclock_activity::ActivityBattleHandoff,
+    ) -> Result<BattleResult, NestedBattleExecutionError>,
 {
-    fn execute(&mut self, handoff: &starclock_activity::ActivityBattleHandoff) -> BattleResult {
+    fn execute(
+        &mut self,
+        handoff: &starclock_activity::ActivityBattleHandoff,
+    ) -> Result<BattleResult, NestedBattleExecutionError> {
         self(handoff)
     }
+}
+
+/// Stable execution failures outside the authoritative battle result.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum NestedBattleExecutionError {
+    BattleBuild,
+    MissingDecision,
+    UnsupportedDecision,
+    MissingEnemyController,
+    EnemyDecision(starclock_ai::EnemyDecisionError),
+    CommandRejected,
+    StepBudgetExceeded,
+    ParticipantMapping,
+    UnsupportedProjection,
 }
 
 /// Immutable baseline policy shared by all automatic Standard Universe runs.
@@ -148,7 +170,14 @@ impl StandardUniverseBaselineRunner {
                 .start_pending_battle(view.state_hash())
                 .map_err(StandardUniverseBaselineError::BattleStart)?;
             let identity = handoff.identity();
-            let result = executor.execute(&handoff);
+            let result = match executor.execute(&handoff) {
+                Ok(result) => result,
+                Err(error) => {
+                    let rolled_back = activity.rollback_pending_battle_start();
+                    debug_assert!(rolled_back, "the runner just started this exact handoff");
+                    return Err(StandardUniverseBaselineError::BattleExecution(error));
+                }
+            };
             let result_digest = result.actual_digest();
             let settled = activity
                 .submit_pending_battle_result(activity.view().state_hash(), result)
@@ -262,5 +291,6 @@ pub enum StandardUniverseBaselineError {
     Encounter(StandardUniverseEncounterError),
     Preparation(GraphActivityEncounterError),
     BattleStart(StandardUniverseBattleStartError),
+    BattleExecution(NestedBattleExecutionError),
     BattleSettlement(GraphActivityBattleError),
 }

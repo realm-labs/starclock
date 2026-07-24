@@ -182,10 +182,13 @@ struct CapturingExecutor<'a, E> {
 }
 
 impl<E: NestedBattleExecutor> NestedBattleExecutor for CapturingExecutor<'_, E> {
-    fn execute(&mut self, handoff: &starclock_activity::ActivityBattleHandoff) -> BattleResult {
-        let result = self.inner.execute(handoff);
+    fn execute(
+        &mut self,
+        handoff: &starclock_activity::ActivityBattleHandoff,
+    ) -> Result<BattleResult, crate::baseline_runner::NestedBattleExecutionError> {
+        let result = self.inner.execute(handoff)?;
         self.results.push(result.clone());
-        result
+        Ok(result)
     }
 }
 

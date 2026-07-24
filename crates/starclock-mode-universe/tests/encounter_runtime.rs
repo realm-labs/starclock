@@ -436,7 +436,7 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
         .into_activity();
     let runner = StandardUniverseBaselineRunner::default();
     let mut executor =
-        |handoff: &starclock_activity::ActivityBattleHandoff| won_result(handoff.identity());
+        |handoff: &starclock_activity::ActivityBattleHandoff| Ok(won_result(handoff.identity()));
     let report = runner
         .run_to_terminal(
             &mut activity,
@@ -519,7 +519,7 @@ fn complete_run_replay_verifies_and_reports_the_first_divergence() {
     )
     .unwrap();
     let mut executor =
-        |handoff: &starclock_activity::ActivityBattleHandoff| won_result(handoff.identity());
+        |handoff: &starclock_activity::ActivityBattleHandoff| Ok(won_result(handoff.identity()));
     let recorded = record_baseline_run(
         &mut activity,
         &StandardUniverseBaselinePolicy::default(),

@@ -46,7 +46,13 @@ fn verified_result_projects_metrics_and_exact_participant_carry() {
         .unwrap();
     assert_eq!(setup.rng.snapshots(), rng_before);
     assert_eq!(handoff.battle_spec().digest().bytes(), [0x33; 32]);
-    assert!(handoff.participant_carry().is_empty());
+    assert_eq!(handoff.participant_carry().len(), 1);
+    assert_eq!(handoff.participant_carry()[0].participant(), participant(1));
+    assert_eq!(handoff.participant_carry()[0].current_hp(), hp(1_000));
+    assert_eq!(
+        handoff.participant_carry()[0].current_energy(),
+        Energy::ZERO
+    );
     assert_eq!(
         handoff.contract_digest().bytes(),
         [

@@ -5,8 +5,8 @@ use starclock_combat::{
     BattleEventKind, BattlePhase, BattleSeed, BattleSpec, BattleSpecDigest, BattleSpecError,
     CombatantSpecDigest, CombatantSpecError, Command, CommandErrorKind, ConcedePolicy,
     DecisionEventData, DecisionId, DecisionKind, DecisionOwner, EncounterId, EnemyDefinitionId,
-    FormationIndex, HitEventData, Hp, InterruptWindowKind, LifeState, ParticipantSource,
-    ParticipantSpec, PhaseEventData, PresenceState, ResolvedCombatantSpec,
+    FormationIndex, HitEventData, Hp, InterruptWindowKind, LifeState, ParticipantInitialState,
+    ParticipantSource, ParticipantSpec, PhaseEventData, PresenceState, ResolvedCombatantSpec,
     ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamSide, TurnEventData, UnitDefinitionId,
     UnitId, UnitLevel,
     catalog::{
@@ -283,6 +283,51 @@ fn battle_construction_allocates_canonical_private_stores_and_read_only_views() 
     assert_eq!(actors[0].speed().scaled(), 100_000_000);
     assert_eq!(view.team(TeamSide::Player).skill_points(), 3);
     assert_eq!(view.team(TeamSide::Player).maximum_skill_points(), 5);
+}
+
+#[test]
+fn activity_carry_initializes_player_runtime_state_without_changing_standalone_defaults() {
+    let maximum_energy = starclock_combat::Energy::from_scaled(100_000_000).unwrap();
+    let current_energy = starclock_combat::Energy::from_scaled(60_000_000).unwrap();
+    let player = combatant(1, 1, 0x61)
+        .with_energy(starclock_combat::Energy::ZERO, maximum_energy)
+        .unwrap();
+    let initial = ParticipantInitialState::new(
+        Hp::new(700).unwrap(),
+        player.maximum_hp(),
+        current_energy,
+        maximum_energy,
+        LifeState::Alive,
+        PresenceState::Present,
+    )
+    .unwrap();
+    let spec = spec_with(
+        1,
+        ParticipantSpec::new(
+            TeamSide::Player,
+            FormationIndex::new(0).unwrap(),
+            ParticipantSource::Player,
+            player,
+        )
+        .with_initial_state(initial)
+        .unwrap(),
+        ParticipantSpec::new(
+            TeamSide::Enemy,
+            FormationIndex::new(4).unwrap(),
+            ParticipantSource::EncounterEnemy(definition(1)),
+            combatant(2, 2, 0x62),
+        ),
+    );
+    let battle = Battle::create(catalog(), spec, BattleSeed::new([0x72; 32])).unwrap();
+    let player = battle
+        .view()
+        .units_by_id()
+        .find(|unit| unit.side() == TeamSide::Player)
+        .unwrap();
+    assert_eq!(player.current_hp(), Hp::new(700).unwrap());
+    assert_eq!(player.current_energy(), current_energy);
+    assert_eq!(player.life(), LifeState::Alive);
+    assert_eq!(player.presence(), PresenceState::Present);
 }
 
 #[test]

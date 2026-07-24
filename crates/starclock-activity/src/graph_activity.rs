@@ -731,6 +731,13 @@ impl GraphActivity {
         )
     }
 
+    /// Rolls back only the adapter-owned started marker after nested execution
+    /// failed before a result existed. No Activity command or RNG draw is
+    /// consumed by start, so this restores the exact prior boundary.
+    pub fn rollback_pending_battle_start(&mut self) -> bool {
+        self.state.rollback_pending_battle_start()
+    }
+
     pub fn submit_pending_battle_result(
         &mut self,
         expected_state_hash: ActivityStateHash,

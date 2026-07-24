@@ -62,6 +62,7 @@ impl Battle {
             let definition = catalog
                 .unit(combatant.form())
                 .expect("battle build validated unit definition");
+            let initial = participant.initial_state();
             units.insert(UnitState {
                 id: unit_id,
                 spawn,
@@ -71,18 +72,19 @@ impl Battle {
                 formation: participant.formation(),
                 entry_wave: participant.wave(),
                 level: combatant.level(),
-                life: LifeState::Alive,
+                life: initial.map_or(LifeState::Alive, |state| state.life()),
                 presence: if participant.side() == TeamSide::Enemy && participant.wave() > 1 {
                     PresenceState::Reserved
                 } else {
-                    PresenceState::Present
+                    initial.map_or(PresenceState::Present, |state| state.presence())
                 },
-                current_hp: combatant.maximum_hp(),
+                current_hp: initial.map_or(combatant.maximum_hp(), |state| state.current_hp()),
                 maximum_hp: combatant.maximum_hp(),
                 base_attack: combatant.base_attack(),
                 base_defense: combatant.base_defense(),
                 base_speed: combatant.speed(),
-                current_energy: combatant.current_energy(),
+                current_energy: initial
+                    .map_or(combatant.current_energy(), |state| state.current_energy()),
                 maximum_energy: combatant.maximum_energy(),
                 rank: combatant.rank(),
                 weaknesses: combatant.weaknesses().to_vec(),

@@ -119,7 +119,7 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
         session.apply_action(next).unwrap();
         external_steps += 1;
     }
-    assert_eq!(external_steps, 61);
+    assert_eq!(external_steps, 52);
     assert_eq!(
         session.terminal(),
         Some(starclock_activity::ActivityTerminalOutcome::Completed)
@@ -131,11 +131,11 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
 
     let replay = session.export_replay().unwrap();
     assert!(replay.complete());
-    assert_eq!(replay.action_count().as_str(), "68");
-    assert_eq!(replay.bytes().len(), 13_225);
+    assert_eq!(replay.action_count().as_str(), "56");
+    assert_eq!(replay.bytes().len(), 10_015);
     assert_eq!(
         replay.sha256().as_str(),
-        "e8efd9ae17b597e44379bfe2fd3d83c09a1d06901def434730c6c83bf8e8da04"
+        "58846cd25fcf92fc89c6b041545aabfd7428b31e8dcbcc7134d17c002430f6c0"
     );
     assert_eq!(
         replay.action_count().to_u64(),
@@ -144,10 +144,10 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
     let verified = session.verify_replay(&factory, replay.bytes()).unwrap();
     assert_eq!(verified.action_count, replay.action_count().clone());
     assert_eq!(verified.final_state_hash, session.state_hash());
-    assert_eq!(verified.nested_battles.as_str(), "7");
+    assert_eq!(verified.nested_battles.as_str(), "4");
     assert_eq!(
         verified.final_state_hash.as_str(),
-        "57cafc16f9aa91f6a97d4acd3363b7aa640e8df11c914255231dc428d6a022b3"
+        "d01fd31dd1d7e04be2c03faa5a2b18a6b026455373c18f2d6c3ce8bd3b9b21fe"
     );
 
     let mut corrupt = replay.bytes().to_vec();
@@ -171,7 +171,7 @@ fn activity_replay_corruption_corpus_is_total_and_live_session_is_inert() {
 
     let factory = ActivityAgentSessionFactory::load_production().unwrap();
     let mut session = create(&factory, "session_activity_replay_corpus");
-    assert_eq!(drive_to_terminal(&mut session), 61);
+    assert_eq!(drive_to_terminal(&mut session), 52);
     let replay = session.export_replay().unwrap();
     let original_hash = session.state_hash();
     let original_actions = session.replay_action_count();

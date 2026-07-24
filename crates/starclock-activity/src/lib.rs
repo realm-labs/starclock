@@ -47,9 +47,9 @@ pub use battle_preparation::{
     PreparedBattleVariant, TechniqueEngagement, TechniqueOptionDefinition,
 };
 pub use battle_settlement::{
-    ActivityBattleHandoff, ActivityBattleResultContract, ActivityBattleResultContractError,
-    ActivityBattleResultSubmission, ActivityBattleSettlement, ActivityBattleSettlementError,
-    ActivityBattleStartRequest, ActivityMetricProjectionBinding,
+    ActivityBattleHandoff, ActivityBattleParticipantBinding, ActivityBattleResultContract,
+    ActivityBattleResultContractError, ActivityBattleResultSubmission, ActivityBattleSettlement,
+    ActivityBattleSettlementError, ActivityBattleStartRequest, ActivityMetricProjectionBinding,
     ActivityParticipantCarryDefinition, ActivityParticipantCarryState, EnergyCarryPolicy,
     HpCarryPolicy, LifeCarryPolicy, MAX_COMPLETED_ACTIVITY_BATTLES, MetricSettlementPolicy,
     PresenceCarryPolicy,

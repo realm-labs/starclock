@@ -617,7 +617,8 @@ fn player_participants(
                 entry.formation(),
                 ParticipantSource::Player,
                 apply_party_modifiers(entry.combatant(), contributions)?,
-            ))
+            )
+            .with_locked_combatant_digest(entry.combatant().digest()))
         })
         .collect()
 }

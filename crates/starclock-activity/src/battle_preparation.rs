@@ -865,7 +865,8 @@ fn validate_roster(
                     actual.source() != ParticipantSource::Player
                         || actual.formation().get() != expected.formation_index()
                         || actual.combatant().form() != expected.character()
-                        || actual.combatant().digest() != expected.build().resolved_spec_digest()
+                        || actual.locked_combatant_digest()
+                            != expected.build().resolved_spec_digest()
                 })
         {
             return Err(ActivityPreparationError::BattleParticipantMismatch);

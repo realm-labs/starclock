@@ -36,6 +36,7 @@ pub mod handler_bundle;
 pub mod hunt_runtime;
 pub mod id;
 pub mod negative_curio_runtime;
+pub mod nested_battle_executor;
 pub mod nihility_runtime;
 pub mod occurrence;
 pub mod occurrence_effect_runtime;

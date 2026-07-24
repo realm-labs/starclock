@@ -385,9 +385,70 @@ overlay. The materialization root golden is
 the explicit coverage golden is
 `2fa0e46786809544478f9c224ea45539540f278ff5fed3548a6e5c119aded9f3`.
 
-Production CLI, baseline, agent and MCP workflows execute the resulting battle
-through `starclock-combat`. A reference projection is allowed only in
-explicitly named tests/fixtures and cannot satisfy release acceptance.
+The production nested executor now executes the resulting battle through
+`starclock-combat`. CLI, agent and MCP caller migration is owned by P4; until
+then their legacy Goal 04 paths remain truthfully labeled
+`verified-reference-projection-v1`. A reference projection is allowed only in
+explicitly named tests/fixtures after that migration and cannot satisfy
+release acceptance.
+
+### Production nested execution revision 1
+
+`UniverseNestedBattleExecutor` owns one immutable composed `CombatCatalog` and
+executes the exact `ActivityBattleHandoff` synchronously:
+
+1. bind every Activity participant ID to one player formation slot;
+2. initialize the first battle from the resolved combatant and later battles
+   from the exact HP, Energy, life and presence carry ledger;
+3. call `Battle::create` with the Activity-derived battle seed;
+4. answer system boundaries canonically, player boundaries with a stable
+   legal-command policy and enemy normal actions through the authored
+   `EnemyController`;
+5. repeatedly call `Battle::apply` until Won, Lost or Faulted;
+6. construct `ProjectedValue` entries in the exact order declared by the
+   handoff projection; and
+7. let Activity verify and settle the sealed result atomically.
+
+The handoff exposes the projection and an explicit
+`(ParticipantId, FormationIndex)` mapping. It never requires an executor to
+guess positional participant identity. A first handoff supplies full/default
+carry values instead of an ambiguous empty ledger.
+
+`ParticipantSpec` separates two identities:
+
+- `locked_combatant_digest` is the pre-mode resolved build checked by
+  `ParticipantLock`;
+- `combatant().digest()` identifies the actual runtime assembly after
+  Universe modifiers and rule bindings have been added.
+
+Equating those digests would reject every legitimate mode contribution.
+`ParticipantInitialState` is the generic cross-battle initialization seam; it
+contains no Universe-specific state and standalone battles retain their
+existing full-HP defaults.
+
+Executor infrastructure failures return
+`NestedBattleExecutionError` without submitting a fabricated result. Activity
+rolls back only the adapter-owned started marker; because battle start consumes
+no Activity command or RNG draw, the pre-call Activity hash is restored and
+the same handoff can be derived and retried. Only a combat-owned terminal
+fault becomes `BattleOutcome::Faulted` plus the exact `BattleFault`
+projection. The executor enforces a 10,000-command default budget and retains
+the accepted command/controller/state-hash/event-count trace for replay
+integration.
+
+The revision-1 `EventDigest` is a versioned SHA-256 commitment to catalog and
+rules identity, seed/spec identity, every accepted command, every resulting
+canonical state hash, and every ordered event ID/cause/family. Those frozen
+inputs deterministically imply the complete event payload. P4-B1 replaces
+this input-and-shape commitment with a payload-direct event replay component;
+the two formats have different revision labels and must never be compared as
+the same codec.
+
+The first real Activity fixture completes three nested battles using 15
+accepted combat commands. Its final Activity state hash is
+`8c09daedc0e35920f50d0bebd698415b2c42e2815f49f8bc9fc060270938c024`;
+the first battle event commitment is
+`30ffe825c5e350df5191981de13d380b6751070672adb1c55c6ec3be79f4a751`.
 
 ## Component identity and replay
 
