@@ -1,0 +1,17 @@
+{
+  "schema_revision": "starclock.goal06-dependency-baseline.v1",
+  "goal_id": "combat-identity-dynamic-assembly-v1",
+  "batch": "G06-P0-B3",
+  "recorded_on": "2026-07-24",
+  "cargo_lock_sha256": "4713a3a2fdd88bda781a5a4f7bd19db1763a4960e265f1350e1c6c6e369889c7",
+  "workspace_manifest_sha256": "bdfe9c0451e975422adcd18cfd552d2d155ba3327b6c4999dcb48c33b258d712",
+  "new_registry_packages": 0,
+  "new_direct_dependencies": 0,
+  "review_policy": "policy/dependency-and-tool-policy.json",
+  "contracts": {
+    "identity_codec_uses_existing_sha2": true,
+    "assembly_cache_uses_standard_library_collections": true,
+    "replay_v3_uses_existing_codec_primitives": true,
+    "new_dependency_requires_exact_pin_license_and_determinism_review": true
+  }
+}

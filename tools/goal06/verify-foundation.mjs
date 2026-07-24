@@ -25,8 +25,6 @@ const batches = status.match(/^\| `G06-P[0-4]-B\d+` \|/gmu) ?? [];
 assert(batches.length === policy.planned_batches, "Goal 06 status batch count differs");
 assert(status.includes("| `G06-P0-B1` | `Complete` |"), "G06-P0-B1 is not Complete");
 assert(status.includes("| State | `InProgress` |"), "Goal 06 is not active");
-assert(status.includes("| Next unblocked batch | `G06-P0-B2` |"),
-  "Goal 06 next batch differs");
 
 for (const file of policy.documents)
   assert(fs.statSync(path.join(root, file), { throwIfNoEntry: false })?.isFile(),

@@ -1,0 +1,46 @@
+{
+  "schema_revision": "starclock.goal06-replay-compatibility.v1",
+  "goal_id": "combat-identity-dynamic-assembly-v1",
+  "batch": "G06-P0-B3",
+  "historical_v2": {
+    "format_version": 2,
+    "schema_version": 1,
+    "envelope": "component-addressed-v2",
+    "component_count": 9,
+    "decoder": "starclock_replay::format_v2::decode_replay_v2",
+    "universe_verifier": "verify_standard_universe_replay_v2",
+    "emission_after_goal06": false,
+    "evidence_is_immutable": true
+  },
+  "target_v3": {
+    "format_version": 3,
+    "schema_version": 1,
+    "envelope": "component-addressed-v3",
+    "required_nested_battle_identity": [
+      "component_root",
+      "assembly_digest",
+      "combat_input_codec_revision",
+      "combat_input_digest",
+      "handoff_identity",
+      "result_identity"
+    ],
+    "first_divergence_order": [
+      "component",
+      "assembly",
+      "combat_input",
+      "command",
+      "event",
+      "state",
+      "result",
+      "activity"
+    ],
+    "unknown_record_policy": "reject"
+  },
+  "migration_contracts": {
+    "v2_decode_and_verify_remain_available": true,
+    "v2_frozen_bytes_are_not_reencoded": true,
+    "new_production_recordings_are_v3": true,
+    "v3_reconstructs_each_dynamic_assembly": true,
+    "v3_binds_combat_and_assembly_identity_separately": true
+  }
+}

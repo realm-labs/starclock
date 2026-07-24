@@ -82,6 +82,18 @@
       "command": ["node", "tools/goal05/verify-release-contract.mjs", ".", "--release"]
     },
     {
+      "name": "Goal 06 foundation contract",
+      "command": ["node", "tools/goal06/verify-foundation.mjs"]
+    },
+    {
+      "name": "Goal 06 identity and assembly debt",
+      "command": ["node", "tools/goal06/verify-debt-probes.mjs"]
+    },
+    {
+      "name": "Goal 06 Phase 0 baseline",
+      "command": ["node", "tools/goal06/verify-phase0.mjs"]
+    },
+    {
       "name": "Standard Universe bundle-loader dependency policy",
       "command": ["node", "tools/universe-bundle-loader/generate-policy.mjs"]
     },

@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `combat-identity-dynamic-assembly-v1` |
 | State | `InProgress` |
-| Active phase | Phase 0 — Contract and observable debt |
+| Active phase | Phase 1 — Combat identity and replay v3 |
 | Active batch | None |
-| Next unblocked batch | `G06-P0-B3` |
+| Next unblocked batch | `G06-P1-B1` |
 | Required snapshot | Goal 05 `standard-universe-end-to-end-v1` |
 | Planned batches | 18 |
 | Blocking condition | None |
@@ -22,7 +22,7 @@ frozen; the next batch records the observable digest/materialization debt.
 |---|---|---|---|
 | `G06-P0-B1` | `Complete` | `node tools/goal06/verify-foundation.mjs`; `node tools/repository-check/verify-release-snapshots.mjs`; quick repository gate | Froze the 5-phase/18-batch execution package and normative identity/assembly contract. Bound the exact Goal 05 completion commit/tree and starting 2,201/786/78 denominator. Defined combat-owned `CombatInputDigest`, opaque `AssemblyDigest`, `BattleAssemblyKey`, replay-v3 target and immutable replay-v2 history without claiming the remaining 783 rules. |
 | `G06-P0-B2` | `Complete` | `node tools/goal06/verify-debt-probes.mjs`; quick repository gate | Froze 32 caller-supplied `BattleSpecDigest` constructor calls across 25 Rust files, the shared factory's one entry-time empty-inventory materialization, the unused current-Activity contribution seam and the single CLI/Agent/MCP authority that must migrate together. Added six ordered transition scenarios covering Blessing upgrade, Curio disable/remove, Resonance, Ability Tree, carry-only and provenance-only identity changes. |
-| `G06-P0-B3` | `Pending` | — | Freeze replay, performance and release scaffold. |
+| `G06-P0-B3` | `Complete` | `node tools/goal06/verify-phase0.mjs`; full repository gate | Froze historical component replay v2 and the v3 six-field nested identity/first-divergence contract, six identity/assembly/cache/concurrency/matrix performance workloads under the 180-second focused budget, a zero-new-dependency Cargo baseline and the five-phase/18-batch release scaffold. Phase 0 generated/drift checks now run mechanically. |
 | `G06-P1-B1` | `Pending` | — | Compute combat input identity in combat-core. |
 | `G06-P1-B2` | `Pending` | — | Migrate Activity handoff and settlement identity. |
 | `G06-P1-B3` | `Pending` | — | Add replay v3 and preserve replay v2 verification. |

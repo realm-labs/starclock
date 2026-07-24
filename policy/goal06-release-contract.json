@@ -1,0 +1,40 @@
+{
+  "schema_revision": "starclock.goal06-release-contract-scaffold.v1",
+  "goal_id": "combat-identity-dynamic-assembly-v1",
+  "state": "Scaffold",
+  "planned_batches": 18,
+  "planned_phases": 5,
+  "required_prior_contracts": [
+    "core-combat-v1",
+    "agent-control-mcp-v1",
+    "standard-universe-reference-v1",
+    "standard-universe-runtime-v1",
+    "standard-universe-end-to-end-v1"
+  ],
+  "terminal_denominators": {
+    "worlds": 9,
+    "paths": 9,
+    "difficulties": 33,
+    "representative_transitions": 6,
+    "production_surfaces": 5,
+    "caller_supplied_combat_digest_parameters": 0,
+    "catalog_compositions_per_battle": 0
+  },
+  "target_revisions": {
+    "combat_input": "combat-input-v1",
+    "assembly": "battle-assembly-v1",
+    "replay": "component-addressed-v3",
+    "universe_factory": "standard-universe-dynamic-assembly-v1"
+  },
+  "required_evidence_families": [
+    "identity-goldens",
+    "dynamic-transitions",
+    "replay-v3",
+    "interface-parity",
+    "cache-and-performance",
+    "native-matrix"
+  ],
+  "release_batch": "G06-P4-B3",
+  "release_evidence": "evidence/combat-identity-dynamic-assembly-v1/release/release-evidence.json",
+  "clean_checkout_command": "node tools/goal06/verify-release-contract.mjs . --release --require-clean"
+}

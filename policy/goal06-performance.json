@@ -1,0 +1,52 @@
+{
+  "schema_revision": "starclock.goal06-performance.v1",
+  "goal_id": "combat-identity-dynamic-assembly-v1",
+  "batch": "G06-P0-B3",
+  "focused_wall_budget_seconds": 180,
+  "stable_runner_policy": "reuse Goal 01 stable runner identity; record local host separately",
+  "workloads": [
+    {
+      "id": "combat-input-digest-10000",
+      "kind": "identity",
+      "iterations": 10000,
+      "measures": ["elapsed_ns", "canonical_bytes", "allocations"]
+    },
+    {
+      "id": "assembly-cold-all-entries",
+      "kind": "assembly",
+      "iterations": 33,
+      "measures": ["elapsed_ns", "catalog_compositions", "cache_misses"]
+    },
+    {
+      "id": "assembly-warm-representative",
+      "kind": "assembly-cache",
+      "iterations": 10000,
+      "measures": ["elapsed_ns", "cache_hits", "cache_entries", "retained_bytes"]
+    },
+    {
+      "id": "assembly-eviction-replay",
+      "kind": "cache-invariance",
+      "iterations": 256,
+      "measures": ["state_hashes", "assembly_digests", "evictions"]
+    },
+    {
+      "id": "concurrent-shared-catalog",
+      "kind": "service",
+      "iterations": 16,
+      "measures": ["elapsed_ns", "catalog_compositions", "final_hashes", "replay_hashes"]
+    },
+    {
+      "id": "real-seeded-matrix-v3",
+      "kind": "end-to-end",
+      "iterations": 33,
+      "measures": ["elapsed_ms", "battles", "commands", "assembly_cache_hits"]
+    }
+  ],
+  "terminal_limits": {
+    "catalog_compositions_per_factory": 1,
+    "catalog_compositions_per_battle": 0,
+    "cache_authoritative_fields": 0,
+    "focused_gate_max_seconds": 180,
+    "material_regression_review_required_percent": 20
+  }
+}
