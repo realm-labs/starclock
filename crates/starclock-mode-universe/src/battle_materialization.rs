@@ -1,5 +1,8 @@
 //! Standard Universe encounter rows lowered into validated combat requests.
 
+#[path = "battle_materialization_digest.rs"]
+mod materialization_digest;
+
 use std::{collections::BTreeMap, sync::Arc};
 
 use starclock_activity::{
@@ -10,9 +13,10 @@ use starclock_activity::{
 };
 use starclock_combat::{
     Battle, BattleSeed, BattleSpec, BattleSpecDigest, CombatantSpecDigest, ConcedePolicy,
-    EncounterId, EncounterWaveId, EnemyDefinitionId, Energy, FormationIndex, Hp, ParticipantSource,
-    ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, ResolvedModifierBinding,
-    Speed, TeamResourceSpec, TeamSide, UnitLevel,
+    EncounterId, EncounterWaveId, EnemyDefinitionId, Energy, FormationIndex, Hp,
+    KeyedTeamResourceSpec, ParticipantSource, ParticipantSpec, ResolvedCombatantSpec,
+    ResolvedDefinitionBindings, ResolvedModifierBinding, Speed, TeamResourceSpec,
+    TeamResourceWavePolicy, TeamSide, UnitLevel,
     catalog::{
         CombatCatalog,
         builder::CombatCatalogBuilder,
@@ -27,11 +31,18 @@ use starclock_combat::{
 use crate::{
     battle_contribution::UniverseBattleContributionSet,
     battle_overlay::{UniverseEncounterBattleBinding, UniverseEncounterOverlay},
+    battle_rule_lowering::{
+        RESONANCE_ABILITY_ID, RESONANCE_RESOURCE_ID, RESONANCE_RESOURCE_KEY, RuleAttachment,
+    },
+    battle_technique::{CompiledUniverseBattleTechnique, UniverseBattleTechniqueDefinition},
     catalog::UniverseCatalog,
-    digest::Encoder,
     encounter::{DifficultyEnemyBinding, EncounterMemberDefinition, EnemyRole},
     encounter_content_runtime::EncounterContentRuntimeCatalog,
     id::{DifficultyId, EncounterMemberId},
+};
+use materialization_digest::{
+    combatant_digest, coverage_digest, enemy_digest, root_digest, spec_digest,
+    technique_variant_digest,
 };
 
 pub const UNIVERSE_BATTLE_MATERIALIZATION_REVISION: &str =
@@ -316,6 +327,26 @@ impl UniverseBattleMaterializer {
         roster: &UniverseBattleRoster,
         contributions: &UniverseBattleContributionSet,
     ) -> Result<UniverseBattleMaterialization, UniverseBattleMaterializationError> {
+        self.compile_inner(universe, roster, contributions, None)
+    }
+
+    pub fn compile_with_technique(
+        self,
+        universe: &UniverseCatalog,
+        roster: &UniverseBattleRoster,
+        contributions: &UniverseBattleContributionSet,
+        technique: UniverseBattleTechniqueDefinition,
+    ) -> Result<UniverseBattleMaterialization, UniverseBattleMaterializationError> {
+        self.compile_inner(universe, roster, contributions, Some(technique))
+    }
+
+    fn compile_inner(
+        self,
+        universe: &UniverseCatalog,
+        roster: &UniverseBattleRoster,
+        contributions: &UniverseBattleContributionSet,
+        technique: Option<UniverseBattleTechniqueDefinition>,
+    ) -> Result<UniverseBattleMaterialization, UniverseBattleMaterializationError> {
         let content = EncounterContentRuntimeCatalog::compile(universe)
             .map_err(|_| UniverseBattleMaterializationError::InvalidEncounterContent)?;
         let enemies = materialize_enemies(universe, &content)?;
@@ -323,7 +354,35 @@ impl UniverseBattleMaterializer {
             .iter()
             .map(|enemy| (enemy.stable_key(), enemy.combat_enemy()))
             .collect::<BTreeMap<_, _>>();
-        let digest = root_digest(universe, roster, contributions, &enemies);
+        let technique = technique
+            .map(|definition| {
+                let entry = roster
+                    .entries()
+                    .iter()
+                    .find(|entry| entry.participant() == definition.participant())
+                    .ok_or(UniverseBattleMaterializationError::TechniqueMismatch)?;
+                if entry
+                    .combatant()
+                    .abilities()
+                    .binary_search(&definition.ability())
+                    .is_err()
+                {
+                    return Err(UniverseBattleMaterializationError::TechniqueMismatch);
+                }
+                CompiledUniverseBattleTechnique::compile(
+                    universe.simulation_catalog().combat_catalog(),
+                    definition,
+                )
+                .map_err(|_| UniverseBattleMaterializationError::InvalidTechnique)
+            })
+            .transpose()?;
+        let digest = root_digest(
+            universe,
+            roster,
+            contributions,
+            &enemies,
+            technique.as_ref(),
+        );
         let revision = format!(
             "{}+{}",
             universe
@@ -342,6 +401,28 @@ impl UniverseBattleMaterializer {
             builder.add_modifier_group(modifier.group().clone());
             builder.add_modifier(modifier.definition().clone());
         }
+        for executable in contributions.executable_rules() {
+            for selector in executable.selectors() {
+                builder.add_selector(selector.clone());
+            }
+            for program in executable.programs() {
+                builder.add_program(program.clone());
+            }
+            builder.add_rule(executable.definition().clone());
+            builder.add_rule_bundle(executable.bundle().clone());
+        }
+        if let Some(resonance) = contributions.resonance() {
+            builder.add_selector(resonance.selector().clone());
+            builder.add_program(resonance.program().clone());
+            builder.add_ability(resonance.ability().clone());
+        }
+        if let Some(technique) = &technique {
+            builder.add_selector(technique.actor_selector().clone());
+            builder.add_selector(technique.target_selector().clone());
+            builder.add_program(technique.program().clone());
+            builder.add_rule(technique.rule().clone());
+            builder.add_rule_bundle(technique.bundle().clone());
+        }
         for member in members(universe) {
             builder.add_encounter(member_encounter(member, &enemy_map)?);
         }
@@ -351,7 +432,11 @@ impl UniverseBattleMaterializer {
         let combat_catalog = builder
             .build()
             .map_err(|_| UniverseBattleMaterializationError::InvalidCompositeCatalog)?;
-        let players = player_participants(roster, contributions)?;
+        let players = player_participants(roster, contributions, None)?;
+        let technique_players = technique
+            .as_ref()
+            .map(|technique| player_participants(roster, contributions, Some(technique)))
+            .transpose()?;
         let contract = settlement_contract(roster)?;
         let mut overlay_bindings = Vec::with_capacity(MEMBER_COUNT);
         let mut member_wave_count = 0_usize;
@@ -370,27 +455,61 @@ impl UniverseBattleMaterializer {
                 &combat_catalog,
                 &revision,
                 digest,
+                contributions,
             )?;
             validate_executable(&combat_catalog, &spec)?;
+            let mut variants = vec![PreparedBattleVariant::new(
+                Vec::new(),
+                TechniqueContributionDigest::new(contributions.digest())
+                    .expect("contribution digest is non-zero"),
+                BattleBinding::new(
+                    spec,
+                    "standard-universe-battle",
+                    UNIVERSE_BATTLE_MATERIALIZATION_REVISION,
+                    roster.participant_lock(),
+                )
+                .map_err(|_| UniverseBattleMaterializationError::InvalidBattleBinding)?,
+            )];
+            if let (Some(technique), Some(technique_players)) =
+                (technique.as_ref(), technique_players.as_ref())
+            {
+                let technique_spec = member_spec(
+                    member,
+                    technique_players,
+                    &enemy_map,
+                    &combat_catalog,
+                    &revision,
+                    digest,
+                    contributions,
+                )?;
+                validate_executable(&combat_catalog, &technique_spec)?;
+                variants.push(PreparedBattleVariant::new(
+                    vec![technique.definition().option()],
+                    TechniqueContributionDigest::new(technique_variant_digest(
+                        contributions.digest(),
+                        technique.digest(),
+                    ))
+                    .expect("combined technique digest is non-zero"),
+                    BattleBinding::new(
+                        technique_spec,
+                        "standard-universe-battle-technique",
+                        UNIVERSE_BATTLE_MATERIALIZATION_REVISION,
+                        roster.participant_lock(),
+                    )
+                    .map_err(|_| UniverseBattleMaterializationError::InvalidBattleBinding)?,
+                ));
+            }
             let preparation = starclock_activity::EncounterPreparationDefinition::new(
                 ActivityOptionId::new(u64::from(NORMAL_ENGAGEMENT_OPTION))
                     .expect("reserved engagement option is non-zero"),
                 EncounterInitiativePolicy::PlayerControlled,
                 roster.participant_lock(),
                 0,
-                Vec::new(),
-                vec![PreparedBattleVariant::new(
-                    Vec::new(),
-                    TechniqueContributionDigest::new(contributions.digest())
-                        .expect("contribution digest is non-zero"),
-                    BattleBinding::new(
-                        spec,
-                        "standard-universe-battle",
-                        UNIVERSE_BATTLE_MATERIALIZATION_REVISION,
-                        roster.participant_lock(),
-                    )
-                    .map_err(|_| UniverseBattleMaterializationError::InvalidBattleBinding)?,
-                )],
+                technique
+                    .as_ref()
+                    .map(|technique| vec![technique.activity_definition()])
+                    .unwrap_or_default(),
+                variants,
             )
             .map_err(|_| UniverseBattleMaterializationError::InvalidBattleBinding)?;
             overlay_bindings.push(UniverseEncounterBattleBinding::new(
@@ -415,6 +534,7 @@ impl UniverseBattleMaterializer {
                 &combat_catalog,
                 &revision,
                 digest,
+                contributions,
             )?;
             validate_executable(&combat_catalog, &spec)?;
             difficulty_specs.push(UniverseDifficultyBattleSpec {
@@ -447,6 +567,7 @@ impl UniverseBattleMaterializer {
             member_enemy_slot_count,
             exact,
             contributions.rules().len(),
+            contributions.materialized_rule_binding_count(),
             &enemies,
         );
         let coverage = UniverseBattleMaterializationCoverage {
@@ -459,7 +580,10 @@ impl UniverseBattleMaterializer {
             approximate_enemy_variant_count: (enemies.len() - exact) as u16,
             declared_rule_binding_count: u16::try_from(contributions.rules().len())
                 .map_err(|_| UniverseBattleMaterializationError::InvalidDenominator)?,
-            materialized_rule_binding_count: 0,
+            materialized_rule_binding_count: u16::try_from(
+                contributions.materialized_rule_binding_count(),
+            )
+            .map_err(|_| UniverseBattleMaterializationError::InvalidDenominator)?,
             runtime_stat_policy: UNIVERSE_ENEMY_RUNTIME_STAT_POLICY.into(),
             digest: coverage_digest,
         };
@@ -607,16 +731,25 @@ fn difficulty_encounter(
 fn player_participants(
     roster: &UniverseBattleRoster,
     contributions: &UniverseBattleContributionSet,
+    technique: Option<&CompiledUniverseBattleTechnique>,
 ) -> Result<Vec<ParticipantSpec>, UniverseBattleMaterializationError> {
     roster
         .entries()
         .iter()
-        .map(|entry| {
+        .enumerate()
+        .map(|(index, entry)| {
             Ok(ParticipantSpec::new(
                 TeamSide::Player,
                 entry.formation(),
                 ParticipantSource::Player,
-                apply_party_modifiers(entry.combatant(), contributions)?,
+                apply_party_modifiers(
+                    entry.combatant(),
+                    contributions,
+                    index == 0,
+                    technique.filter(|technique| {
+                        technique.definition().participant() == entry.participant()
+                    }),
+                )?,
             )
             .with_locked_combatant_digest(entry.combatant().digest()))
         })
@@ -626,6 +759,8 @@ fn player_participants(
 fn apply_party_modifiers(
     base: &ResolvedCombatantSpec,
     contributions: &UniverseBattleContributionSet,
+    first_player: bool,
+    technique: Option<&CompiledUniverseBattleTechnique>,
 ) -> Result<ResolvedCombatantSpec, UniverseBattleMaterializationError> {
     let mut modifier_ids = base.modifiers().to_vec();
     modifier_ids.extend(
@@ -657,18 +792,40 @@ fn apply_party_modifiers(
         ResolvedModifierBinding::new(binding.definition().id, binding.source().definition())
     }));
     modifier_bindings.sort_unstable_by_key(|binding| binding.definition());
-    let digest = combatant_digest(base, contributions);
+    let mut rule_bundles = base.rule_bundles().to_vec();
+    rule_bundles.extend(
+        contributions
+            .executable_rules()
+            .iter()
+            .filter(|rule| {
+                rule.attachment() == RuleAttachment::EveryPlayer
+                    || first_player && rule.attachment() == RuleAttachment::FirstPlayer
+            })
+            .map(|rule| rule.bundle().id()),
+    );
+    if let Some(technique) = technique {
+        rule_bundles.push(technique.bundle().id());
+    }
+    rule_bundles.sort_unstable();
+    if rule_bundles.windows(2).any(|pair| pair[0] == pair[1]) {
+        return Err(UniverseBattleMaterializationError::ContributionCollision);
+    }
+    let mut abilities = base.abilities().to_vec();
+    if first_player && contributions.resonance().is_some() {
+        abilities.push(RESONANCE_ABILITY_ID);
+    }
+    abilities.sort_unstable();
+    if abilities.windows(2).any(|pair| pair[0] == pair[1]) {
+        return Err(UniverseBattleMaterializationError::ContributionCollision);
+    }
+    let digest = combatant_digest(base, contributions, technique);
     let mut resolved = ResolvedCombatantSpec::new(
         base.form(),
         base.level(),
         base.maximum_hp(),
         base.speed(),
-        ResolvedDefinitionBindings::new(
-            base.abilities().to_vec(),
-            base.rule_bundles().to_vec(),
-            modifier_ids,
-        )
-        .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?,
+        ResolvedDefinitionBindings::new(abilities, rule_bundles, modifier_ids)
+            .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?,
         CombatantSpecDigest::new(digest).expect("SHA-256 digest is non-zero"),
     )
     .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?
@@ -689,6 +846,26 @@ fn apply_party_modifiers(
         .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)
 }
 
+fn player_resources(
+    contributions: &UniverseBattleContributionSet,
+) -> Result<TeamResourceSpec, UniverseBattleMaterializationError> {
+    let resources = TeamResourceSpec::new(3, 5).expect("standard player resources are valid");
+    let Some(resonance) = contributions.resonance() else {
+        return Ok(resources);
+    };
+    let resonance = KeyedTeamResourceSpec::new(
+        RESONANCE_RESOURCE_ID,
+        resonance.initial_energy(),
+        resonance.maximum_energy(),
+        TeamResourceWavePolicy::Persist,
+    )
+    .and_then(|resource| resource.with_stable_key(RESONANCE_RESOURCE_KEY))
+    .ok_or(UniverseBattleMaterializationError::InvalidCombatant)?;
+    resources
+        .with_keyed(vec![resonance])
+        .ok_or(UniverseBattleMaterializationError::InvalidCombatant)
+}
+
 fn member_spec(
     member: &EncounterMemberDefinition,
     players: &[ParticipantSpec],
@@ -696,6 +873,7 @@ fn member_spec(
     catalog: &CombatCatalog,
     revision: &str,
     root_digest: [u8; 32],
+    contributions: &UniverseBattleContributionSet,
 ) -> Result<BattleSpec, UniverseBattleMaterializationError> {
     let mut participants = players.to_vec();
     for (wave_index, wave) in member.waves().iter().enumerate() {
@@ -724,7 +902,7 @@ fn member_spec(
         .expect("SHA-256 digest is non-zero"),
         member_encounter_id(member.id())?,
         participants,
-        TeamResourceSpec::new(3, 5).expect("standard player resources are valid"),
+        player_resources(contributions)?,
         TeamResourceSpec::new(0, 0).expect("empty enemy resources are valid"),
         ConcedePolicy::Allowed,
     )
@@ -740,6 +918,7 @@ fn difficulty_spec(
     catalog: &CombatCatalog,
     revision: &str,
     root_digest: [u8; 32],
+    contributions: &UniverseBattleContributionSet,
 ) -> Result<BattleSpec, UniverseBattleMaterializationError> {
     let enemy = *enemy_map
         .get(binding.enemy_variant_key())
@@ -765,7 +944,7 @@ fn difficulty_spec(
         .expect("SHA-256 digest is non-zero"),
         difficulty_encounter_id(index)?,
         participants,
-        TeamResourceSpec::new(3, 5).expect("standard player resources are valid"),
+        player_resources(contributions)?,
         TeamResourceSpec::new(0, 0).expect("empty enemy resources are valid"),
         ConcedePolicy::Allowed,
     )
@@ -923,102 +1102,6 @@ fn difficulty_wave_id(index: usize) -> Result<EncounterWaveId, UniverseBattleMat
     .ok_or(UniverseBattleMaterializationError::IdentityOverflow)
 }
 
-fn root_digest(
-    universe: &UniverseCatalog,
-    roster: &UniverseBattleRoster,
-    contributions: &UniverseBattleContributionSet,
-    enemies: &[UniverseEnemyMaterialization],
-) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.standard-universe.battle-materialization.root.v1");
-    encoder.text(UNIVERSE_BATTLE_MATERIALIZATION_REVISION);
-    encoder.digest(universe.identity().universe_bundle_digest().bytes());
-    encoder.digest(roster.participant_lock().bytes());
-    encoder.digest(contributions.digest());
-    encoder.u32(enemies.len() as u32);
-    for enemy in enemies {
-        encoder.text(enemy.stable_key());
-        encoder.u8(enemy.definition_match as u8);
-        encoder.u32(enemy.combat_enemy().get());
-        encoder.optional_text(enemy.proxy_stable_key());
-    }
-    encoder.finish()
-}
-
-fn combatant_digest(
-    base: &ResolvedCombatantSpec,
-    contributions: &UniverseBattleContributionSet,
-) -> [u8; 32] {
-    let mut encoder =
-        Encoder::new(b"starclock.standard-universe.player-combatant-materialization.v1");
-    encoder.digest(base.digest().bytes());
-    encoder.digest(contributions.digest());
-    encoder.finish()
-}
-
-fn enemy_digest(
-    enemy: EnemyDefinitionId,
-    level: UnitLevel,
-    wave_index: usize,
-    slot_index: usize,
-    source_key: &str,
-) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.standard-universe.enemy-proxy-combatant.v1");
-    encoder.text(UNIVERSE_ENEMY_RUNTIME_STAT_POLICY);
-    encoder.text(source_key);
-    encoder.u32(enemy.get());
-    encoder.u8(level.get());
-    encoder.u32(wave_index as u32);
-    encoder.u32(slot_index as u32);
-    encoder.finish()
-}
-
-fn spec_digest(
-    root: [u8; 32],
-    kind: u8,
-    identity: u32,
-    participants: &[ParticipantSpec],
-) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.standard-universe.battle-spec.v1");
-    encoder.digest(root);
-    encoder.u8(kind);
-    encoder.u32(identity);
-    encoder.u32(participants.len() as u32);
-    for participant in participants {
-        encoder.u8(participant.side() as u8);
-        encoder.u8(participant.formation().get());
-        encoder.u32(u32::from(participant.wave()));
-        encoder.digest(participant.combatant().digest().bytes());
-    }
-    encoder.finish()
-}
-
-fn coverage_digest(
-    wave_count: usize,
-    enemy_slot_count: usize,
-    exact: usize,
-    declared_rules: usize,
-    enemies: &[UniverseEnemyMaterialization],
-) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock.standard-universe.battle-coverage.v1");
-    encoder.u32(MEMBER_COUNT as u32);
-    encoder.u32(wave_count as u32);
-    encoder.u32(enemy_slot_count as u32);
-    encoder.u32(DIFFICULTY_BINDING_COUNT as u32);
-    encoder.u32(enemies.len() as u32);
-    encoder.u32(exact as u32);
-    encoder.u32((enemies.len() - exact) as u32);
-    encoder.u32(declared_rules as u32);
-    encoder.u32(0);
-    encoder.text(UNIVERSE_ENEMY_RUNTIME_STAT_POLICY);
-    for enemy in enemies {
-        encoder.text(enemy.stable_key());
-        encoder.u8(enemy.definition_match as u8);
-        encoder.u32(enemy.combat_enemy().get());
-        encoder.optional_text(enemy.proxy_stable_key());
-    }
-    encoder.finish()
-}
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum UniverseBattleMaterializationError {
     InvalidEncounterContent,
@@ -1036,6 +1119,8 @@ pub enum UniverseBattleMaterializationError {
     InvalidBattleOverlay,
     InvalidDenominator,
     IdentityOverflow,
+    InvalidTechnique,
+    TechniqueMismatch,
 }
 
 impl core::fmt::Display for UniverseBattleMaterializationError {

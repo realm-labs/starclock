@@ -5,7 +5,7 @@ use crate::{
     command::{legal, model::DecisionPoint},
     event::{
         cause::Cause,
-        model::{BattleEventKind, DecisionEventData, TurnEventData},
+        model::{BattleEventData, BattleEventKind, DecisionEventData, TurnEventData},
     },
     id::{CommandId, EventId},
     timeline::{
@@ -20,6 +20,30 @@ use super::{
     settle::{ActionBoundary, settle_after_action},
     transaction::{Transaction, action_cause, action_fault, commit_targets},
 };
+
+pub(super) fn start_battle(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+) -> Result<(), BattleFault> {
+    let mut started = txn.emit(
+        Cause::root(root),
+        BattleEventKind::Battle(BattleEventData::Started),
+    );
+    started = super::rule::dispatch_pending_after_events(catalog, txn, started)?;
+    started = drain_reactions(
+        catalog,
+        txn,
+        crate::catalog::action::ReactionBoundary::BeforeTimeline,
+        started,
+    )?;
+    if let ActionBoundary::Continue(started) =
+        settle_after_action(catalog, txn, Cause::root(root), started)?
+    {
+        begin_turn(catalog, txn, root, started)?;
+    }
+    Ok(())
+}
 
 pub(super) fn begin_turn(
     catalog: &CombatCatalog,

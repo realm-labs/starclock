@@ -15,6 +15,8 @@ pub mod baseline_runner;
 pub mod battle_contribution;
 pub mod battle_materialization;
 pub mod battle_overlay;
+mod battle_rule_lowering;
+pub mod battle_technique;
 pub mod blessing_runtime;
 pub mod catalog;
 pub mod curio;

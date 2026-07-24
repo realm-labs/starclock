@@ -203,6 +203,7 @@ fn execute_emission(
     resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
 ) -> Result<crate::EventId, BattleFault> {
     let operation_id = txn.allocate_operation();
+    let current_target = emission_current_target(&emission);
     let request = match emission {
         RuleEmission::SetSlot { slot, value, .. } => Operation::ModifyStateSlot(slot_operation(
             context,
@@ -235,9 +236,27 @@ fn execute_emission(
             .with_class(class);
             Operation::Damage(DamageOp {
                 id: operation_id,
-                targets: targets(resolved, selector)?,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
                 formula,
                 element: Some(element),
+            })
+        }
+        RuleEmission::TrueDamage {
+            selector, amount, ..
+        } => {
+            let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
+            let formula = OrdinaryDamageDefinition::new(
+                amount,
+                OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
+                    .expect("neutral multipliers are valid"),
+            )
+            .map_err(|_| program_fault(58, amount.scaled()))?
+            .with_class(crate::formula::model::DamageClass::Additional);
+            Operation::Damage(DamageOp {
+                id: operation_id,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
+                formula,
+                element: None,
             })
         }
         RuleEmission::Heal {
@@ -253,7 +272,7 @@ fn execute_emission(
             .map_err(|_| program_fault(3, amount.scaled()))?;
             Operation::Heal(crate::operation::HealOp {
                 id: operation_id,
-                targets: targets(resolved, selector)?,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
                 formula,
             })
         }
@@ -269,7 +288,7 @@ fn execute_emission(
                 .map_err(|_| program_fault(5, 0))?;
             Operation::ConsumeHp(ConsumeHpOp {
                 id: operation_id,
-                targets: targets(resolved, selector)?,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
                 definition: crate::catalog::action::HpConsumptionDefinition::new(requested, floor),
             })
         }
@@ -277,7 +296,7 @@ fn execute_emission(
             selector, element, ..
         } => Operation::AddWeakness(AddWeaknessOp {
             id: operation_id,
-            targets: targets(resolved, selector)?,
+            targets: emission_targets(catalog, resolved, selector, current_target)?,
             definition: crate::catalog::action::WeaknessApplicationDefinition::permanent(element),
         }),
         RuleEmission::ReduceToughness {
@@ -292,7 +311,7 @@ fn execute_emission(
                 .map_err(|_| program_fault(6, amount.scaled()))?;
             Operation::ReduceToughness(ReduceToughnessOp {
                 id: operation_id,
-                targets: targets(resolved, selector)?,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
                 definition: toughness_reduction(element, base),
             })
         }
@@ -305,7 +324,7 @@ fn execute_emission(
             let element = toughness_element.ok_or_else(|| program_fault(43, 0))?;
             Operation::SuperBreak(SuperBreakOp {
                 id: operation_id,
-                targets: targets(resolved, selector)?,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
                 definition: super_break(context, multiplier, element),
             })
         }
@@ -329,7 +348,7 @@ fn execute_emission(
                     target_specific_resistance: Ratio::ZERO,
                 },
             };
-            let targets = targets(resolved, selector)?;
+            let targets = emission_targets(catalog, resolved, selector, current_target)?;
             let resolved_runtime = catalog
                 .effect(effect)
                 .and_then(|definition| definition.runtime_template())
@@ -354,7 +373,7 @@ fn execute_emission(
             selector, effect, ..
         } => Operation::RemoveEffects(RemoveEffectsOp {
             id: operation_id,
-            targets: targets(resolved, selector)?,
+            targets: emission_targets(catalog, resolved, selector, current_target)?,
             definition: crate::EffectRemovalDefinition::exact(effect, u16::MAX)
                 .expect("nonzero maximum is valid"),
         }),
@@ -365,19 +384,31 @@ fn execute_emission(
             ..
         } => Operation::DetonateDots(DetonateDotsOp {
             id: operation_id,
-            targets: targets(resolved, selector)?,
+            targets: emission_targets(catalog, resolved, selector, current_target)?,
             definition: crate::DotDetonationDefinition::new(ratio(fraction)?, required_tag)
                 .ok_or_else(|| program_fault(9, 0))?,
         }),
         RuleEmission::AdvanceAction {
             selector, amount, ..
         } => {
-            return shift_action(txn, parent, resolved, selector, amount, true);
+            return shift_action(
+                txn,
+                parent,
+                emission_targets(catalog, resolved, selector, current_target)?,
+                amount,
+                true,
+            );
         }
         RuleEmission::DelayAction {
             selector, amount, ..
         } => {
-            return shift_action(txn, parent, resolved, selector, amount, false);
+            return shift_action(
+                txn,
+                parent,
+                emission_targets(catalog, resolved, selector, current_target)?,
+                amount,
+                false,
+            );
         }
         RuleEmission::ModifyStateSlot {
             slot,
@@ -403,8 +434,8 @@ fn execute_emission(
             let trigger = context.trigger.ok_or_else(|| program_fault(47, 0))?;
             Operation::QueueRuleAction(QueueRuleActionOp {
                 id: operation_id,
-                actors: targets(resolved, actor_selector)?,
-                targets: targets(resolved, target_selector)?,
+                actors: emission_targets(catalog, resolved, actor_selector, current_target)?,
+                targets: emission_targets(catalog, resolved, target_selector, current_target)?,
                 owner: queue_owner(cause, context, owner)?,
                 ability,
                 origin: queue_origin(catalog, ability, forced_use)?,
@@ -427,19 +458,25 @@ fn execute_emission(
             ..
         } => {
             return modify_resource(
-                txn, cause, parent, resolved, selector, resource, update, amount,
+                txn,
+                cause,
+                parent,
+                emission_targets(catalog, resolved, selector, current_target)?,
+                resource,
+                update,
+                amount,
             );
         }
         RuleEmission::ChangePresence {
             selector, presence, ..
         } => Operation::ChangePresence(ChangePresenceOp {
             id: operation_id,
-            targets: targets(resolved, selector)?,
+            targets: emission_targets(catalog, resolved, selector, current_target)?,
             presence,
         }),
         RuleEmission::Despawn { selector, .. } => Operation::DespawnLinked(UnitLifecycleOp {
             id: operation_id,
-            targets: targets(resolved, selector)?,
+            targets: emission_targets(catalog, resolved, selector, current_target)?,
         }),
         RuleEmission::Summon {
             owner_selector,
@@ -447,7 +484,7 @@ fn execute_emission(
             ..
         } => Operation::SummonLinked(SummonLinkedOp {
             id: operation_id,
-            owners: targets(resolved, owner_selector)?,
+            owners: emission_targets(catalog, resolved, owner_selector, current_target)?,
             definition: catalog
                 .linked_unit(unit_definition)
                 .ok_or_else(|| program_fault(49, i64::from(unit_definition.get())))?
@@ -472,7 +509,7 @@ fn execute_emission(
             .ok_or_else(|| program_fault(11, i64::from(replacement_definition.get())))?;
             Operation::Transform(TransformOp {
                 id: operation_id,
-                targets: targets(resolved, selector)?,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
                 definition,
             })
         }
@@ -485,8 +522,7 @@ fn execute_emission(
             return replace_ability(
                 catalog,
                 txn,
-                resolved,
-                selector,
+                emission_targets(catalog, resolved, selector, current_target)?,
                 old_ability,
                 new_ability,
                 parent,
@@ -526,6 +562,61 @@ fn targets(
         .ok()
         .map(|index| resolved[index].1.clone())
         .ok_or_else(|| program_fault(20, i64::from(selector.get())))
+}
+
+fn emission_targets(
+    catalog: &crate::catalog::CombatCatalog,
+    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
+    selector: crate::SelectorId,
+    current_target: Option<crate::UnitId>,
+) -> Result<Box<[crate::UnitId]>, BattleFault> {
+    let is_current_subject = catalog
+        .selector(selector)
+        .and_then(crate::catalog::definition::SelectorDefinition::rule_units)
+        .is_some_and(|definition| {
+            definition.origin() == crate::catalog::selector::RuleSelectorOrigin::CurrentSubject
+        });
+    if is_current_subject && let Some(target) = current_target {
+        return Ok(vec![target].into_boxed_slice());
+    }
+    targets(resolved, selector)
+}
+
+fn emission_current_target(emission: &RuleEmission) -> Option<crate::UnitId> {
+    match emission {
+        RuleEmission::SetSlot { current_target, .. }
+        | RuleEmission::AddSlot { current_target, .. }
+        | RuleEmission::Damage { current_target, .. }
+        | RuleEmission::TrueDamage { current_target, .. }
+        | RuleEmission::Heal { current_target, .. }
+        | RuleEmission::Shield { current_target, .. }
+        | RuleEmission::ConsumeHp { current_target, .. }
+        | RuleEmission::ReduceToughness { current_target, .. }
+        | RuleEmission::Break { current_target, .. }
+        | RuleEmission::SuperBreak { current_target, .. }
+        | RuleEmission::AddWeakness { current_target, .. }
+        | RuleEmission::RemoveWeakness { current_target, .. }
+        | RuleEmission::CreateToughnessLayer { current_target, .. }
+        | RuleEmission::RemoveToughnessLayer { current_target, .. }
+        | RuleEmission::ModifyResource { current_target, .. }
+        | RuleEmission::ApplyEffect { current_target, .. }
+        | RuleEmission::RemoveEffect { current_target, .. }
+        | RuleEmission::DetonateDot { current_target, .. }
+        | RuleEmission::ModifyStateSlot { current_target, .. }
+        | RuleEmission::AdvanceAction { current_target, .. }
+        | RuleEmission::DelayAction { current_target, .. }
+        | RuleEmission::QueueAction { current_target, .. }
+        | RuleEmission::GrantExtraTurn { current_target, .. }
+        | RuleEmission::Summon { current_target, .. }
+        | RuleEmission::Despawn { current_target, .. }
+        | RuleEmission::Transform { current_target, .. }
+        | RuleEmission::ReplaceAbility { current_target, .. }
+        | RuleEmission::ChangePresence { current_target, .. }
+        | RuleEmission::CreateCountdown { current_target, .. }
+        | RuleEmission::Informational { current_target, .. }
+        | RuleEmission::Replacement { current_target, .. }
+        | RuleEmission::InvokeNative { current_target, .. } => *current_target,
+    }
 }
 
 fn slot_operation(
@@ -628,8 +719,7 @@ fn queue_origin(
 fn shift_action(
     txn: &mut Transaction<'_>,
     parent: crate::EventId,
-    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
-    selector: crate::SelectorId,
+    targets: Box<[crate::UnitId]>,
     amount: RuleValue,
     advance: bool,
 ) -> Result<crate::EventId, BattleFault> {
@@ -644,7 +734,7 @@ fn shift_action(
     } else {
         scaled
     };
-    for target in targets(resolved, selector)? {
+    for target in targets {
         txn.delay_unit(target, delta)?;
     }
     Ok(parent)
@@ -655,14 +745,13 @@ fn modify_resource(
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: crate::EventId,
-    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
-    selector: crate::SelectorId,
+    targets: Box<[crate::UnitId]>,
     resource: RuleResourceKind,
     update: ResourceUpdateKind,
     amount: RuleValue,
 ) -> Result<crate::EventId, BattleFault> {
     let amount = non_negative_scalar(amount)?;
-    for target in targets(resolved, selector)? {
+    for target in targets {
         match &resource {
             RuleResourceKind::Energy => {
                 let (before, maximum) = txn
@@ -787,8 +876,7 @@ fn modify_resource(
 fn replace_ability(
     catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
-    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
-    selector: crate::SelectorId,
+    targets: Box<[crate::UnitId]>,
     old: crate::AbilityId,
     new: crate::AbilityId,
     parent: crate::EventId,
@@ -796,7 +884,7 @@ fn replace_ability(
     if catalog.ability(new).is_none() {
         return Err(program_fault(29, i64::from(new.get())));
     }
-    for target in targets(resolved, selector)? {
+    for target in targets {
         let state = txn
             .state
             .units

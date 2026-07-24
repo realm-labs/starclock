@@ -292,10 +292,10 @@ are validated by the normal combat modifier registry.
 
 The contribution batch freezes binding declarations and modifier definitions.
 P3-B2 composes definitions that are already executable, including the seven
-static Ability Tree modifiers. Event-driven Rule IR definitions remain an
-explicit zero-count coverage field until P3-B4 translates and proves them; a
-binding declaration alone is not evidence that an event-driven Blessing,
-Resonance or Curio effect has resolved.
+static Ability Tree modifiers. P3-B4 adds the first source-keyed executable
+Rule IR slice. Coverage counts only definitions actually lowered into the
+composed combat catalog; the remaining declarations are not presented as
+implemented mechanics merely because their source rows exist.
 
 `UniverseBattleSpecCompiler` consumes an immutable snapshot:
 
@@ -355,7 +355,7 @@ The frozen Version 4.4 materialization denominator is:
 | member enemy slots | 538 | exact slot order, source key and stage level |
 | difficulty boss/elite bindings | 182 | exact ordered source key, role and level |
 | distinct referenced enemy variants | 86 | 13 exact core definitions; 73 explicit proxies |
-| event-driven Universe rule bindings | snapshot-dependent | declared, not yet materialized in P3-B2 |
+| event-driven Universe rule bindings | snapshot-dependent | only the P3-B4 executable slice is counted |
 | static Ability Tree modifiers | up to 7 | executable combat modifier definitions |
 
 Only 13 of the 86 referenced variants exist in the Goal 01 representative
@@ -391,6 +391,74 @@ then their legacy Goal 04 paths remain truthfully labeled
 `verified-reference-projection-v1`. A reference projection is allowed only in
 explicitly named tests/fixtures after that migration and cannot satisfy
 release acceptance.
+
+### Executable mechanic slice revision 1
+
+P3-B4 lowers three representative public mechanics through ordinary catalog
+definitions and resolver operations:
+
+- `StageAbility_612344`, selected at level 2, attaches one once-per-action
+  additional-damage trigger to every player and reads the exact selected
+  fixed-point parameter;
+- Curio source effect `8` executes at `BattleStarted`, iterates all currently
+  present enemies and applies the exact selected maximum-HP ratio through
+  `TrueDamage`; and
+- Hunt Resonance `StageAbility_612420` is a reserved catalog ability backed by
+  a keyed team resource. It is offered through the normal interrupt window,
+  spends 100 Resonance Energy and resolves its exact selected ATK coefficient
+  as Wind additional damage.
+
+`materialized_rule_binding_count` is therefore an executable count, not the
+number of selected source declarations. Other Blessing, Curio, Formation and
+Resonance rows remain declared but unmaterialized until an explicit lowerer
+and a real battle fixture exist.
+
+Rule evaluation now preserves the dynamic subject of nested `ForEach`
+programs. A `CurrentSubject` selector resolves to that exact iteration target
+when the emission becomes an operation; a two-enemy combat-core fixture proves
+that no outer selector fan-out is repeated. `BattleStarted` events are
+dispatched before timeline selection, true-damage emissions use the normal
+damage operation, and queued AOE/self actions construct their primary-target
+commitment from the ability selector rather than inventing a primary target.
+
+Ability Tree projections are present as active source-attributed modifier
+instances in the created battle. A with/without-tree fixture proves different
+contribution, `BattleSpec` and battle-state hashes. This slice does not relabel
+all 42 Ability Tree source rules as event-driven combat implementations; typed
+boundary values still retain their existing explicit disposition.
+
+Pre-battle techniques use an explicit content/build input:
+
+```rust
+UniverseBattleMaterializer::compile_with_technique(
+    universe_catalog,
+    &locked_resolved_roster,
+    &battle_contributions,
+    technique_definition,
+)
+```
+
+The input names the participant, authored ability, Activity option, point cost
+and engagement policy. The compiler validates that the locked runtime
+combatant owns that ability and emits two prepared variants: no technique and
+the selected technique. The selected variant attaches a mode-owned
+`BattleStarted -> QueueAction` bundle, so technique damage is an ordinary
+forced combat action before the first timeline turn. Combat does not infer a
+technique from `AbilityKind::ExtraAction`. Revision 1 accepts one explicit
+technique option and rejects Blast targeting; multiple accumulated techniques
+and Blast-primary authoring require a later revision rather than an
+approximation. The executable fixture uses Asta's public AOE technique.
+
+The frozen Standard Universe rows expose 173 single-wave members. They are not
+rewritten into fabricated multi-wave public encounters. Generic multi-wave
+support remains acceptance-tested with the combat-core synthetic topology:
+AfterAction advancement occurs only after the complete action, reserve units
+cannot be hit early, and HP/Energy/resource carry follows the authored
+`WaveCarry`. The same lifecycle suite proves real terminal player defeat.
+Separately, the production nested-executor fixture proves exact participant
+HP/Energy/life/presence carry across three Activity battles. Together these
+tests protect the extension seam without overstating Version 4.4 encounter
+data.
 
 ### Production nested execution revision 1
 

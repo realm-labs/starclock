@@ -101,6 +101,62 @@ fn catalog(
     builder.add_selector(SelectorDefinition::new(id(3)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
     ));
+    builder.add_selector(
+        SelectorDefinition::new(id(105)).with_rule_units(
+            RuleUnitSelector::new(
+                RuleSelectorOrigin::Encounter,
+                RuleSelectorSide::Opposing,
+                RuleLifePredicate::Alive,
+                RulePresencePredicate::Present,
+                RuleSelectorReference::CurrentState,
+                RuleSelectorOrdering::StableId,
+                1,
+                16,
+                RuleEmptyPoolPolicy::NoOp,
+                RuleSelectorChoice::All,
+                None,
+                false,
+            )
+            .unwrap(),
+        ),
+    );
+    builder.add_selector(
+        SelectorDefinition::new(id(106)).with_rule_units(
+            RuleUnitSelector::new(
+                RuleSelectorOrigin::CurrentSubject,
+                RuleSelectorSide::Opposing,
+                RuleLifePredicate::Alive,
+                RulePresencePredicate::Present,
+                RuleSelectorReference::CurrentState,
+                RuleSelectorOrdering::StableId,
+                1,
+                1,
+                RuleEmptyPoolPolicy::NoOp,
+                RuleSelectorChoice::First,
+                None,
+                false,
+            )
+            .unwrap(),
+        ),
+    );
+    builder.add_program(
+        ProgramDefinition::new(id(107), vec![], vec![id(106)], vec![], vec![]).with_steps(vec![
+            ProgramStep::Operation(RuleOperationTemplate::TrueDamage {
+                selector: id(106),
+                amount: ValueExpr::Multiply {
+                    lhs: Box::new(ValueExpr::QueryStat {
+                        subject: StatQuerySubject::CurrentTarget,
+                        stat: StatKind::Hp,
+                        purpose: FormulaPurpose::Stat,
+                    }),
+                    rhs: Box::new(ValueExpr::Literal(RuleValue::Scalar(Scalar::from_scaled(
+                        300_000,
+                    )))),
+                    rounding: Rounding::NearestTiesEven,
+                },
+            }),
+        ]),
+    );
     builder.add_program(program);
     if authored_effects.binary_search(&id(1)).is_ok() {
         let template = EffectRuntimeTemplate::new(
@@ -321,6 +377,15 @@ fn catalog(
                                 None,
                                 None,
                                 true,
+                            )
+                            .unwrap(),
+                            WaveSlotDefinition::new(
+                                2,
+                                FormationIndex::new(5).unwrap(),
+                                id(1),
+                                None,
+                                None,
+                                false,
                             )
                             .unwrap(),
                         ],
@@ -602,6 +667,39 @@ fn battle(
     )
     .unwrap();
     Battle::create(catalog, spec, BattleSeed::new([0x47; 32])).unwrap()
+}
+
+fn battle_with_two_enemies(catalog: Arc<CombatCatalog>) -> Battle {
+    let spec = BattleSpec::new(
+        "ability-program-current-subject-v1",
+        BattleSpecDigest::new([0x71; 32]).unwrap(),
+        id(1),
+        vec![
+            ParticipantSpec::new(
+                TeamSide::Player,
+                FormationIndex::new(0).unwrap(),
+                ParticipantSource::Player,
+                combatant(1, 1, 0x72, false, false, false),
+            ),
+            ParticipantSpec::new(
+                TeamSide::Enemy,
+                FormationIndex::new(4).unwrap(),
+                ParticipantSource::EncounterEnemy(id(1)),
+                combatant(2, 2, 0x73, false, false, false),
+            ),
+            ParticipantSpec::new(
+                TeamSide::Enemy,
+                FormationIndex::new(5).unwrap(),
+                ParticipantSource::EncounterEnemy(id(1)),
+                combatant(2, 2, 0x74, false, false, false),
+            ),
+        ],
+        TeamResourceSpec::new(0, 5).unwrap(),
+        TeamResourceSpec::new(0, 0).unwrap(),
+        ConcedePolicy::Allowed,
+    )
+    .unwrap();
+    Battle::create(catalog, spec, BattleSeed::new([0x75; 32])).unwrap()
 }
 
 fn start_and_use(
@@ -972,7 +1070,7 @@ fn representative_rule_emissions_use_authoritative_runtime_services() {
 }
 
 #[test]
-fn unsupported_program_emission_rolls_back_the_whole_command() {
+fn true_damage_program_emission_executes_authoritatively() {
     let program =
         ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![], vec![]).with_steps(vec![
             ProgramStep::Operation(RuleOperationTemplate::TrueDamage {
@@ -1002,7 +1100,6 @@ fn unsupported_program_emission_rolls_back_the_whole_command() {
         .unwrap()
         .clone();
     battle.apply(pass).unwrap();
-    let before_revision = battle.view().committed_revision();
     let command = battle
         .decision()
         .unwrap()
@@ -1014,12 +1111,7 @@ fn unsupported_program_emission_rolls_back_the_whole_command() {
         .unwrap()
         .clone();
     let resolution = battle.apply(command).unwrap();
-    assert!(resolution.fault().is_some());
-    assert_eq!(
-        battle.view().phase(),
-        starclock_combat::BattlePhase::Faulted
-    );
-    assert_eq!(battle.view().committed_revision(), before_revision + 1);
+    assert!(resolution.fault().is_none());
     assert_eq!(
         battle
             .view()
@@ -1028,6 +1120,36 @@ fn unsupported_program_emission_rolls_back_the_whole_command() {
             .unwrap()
             .current_hp()
             .get(),
-        1_000
+        800
+    );
+}
+
+#[test]
+fn for_each_current_subject_targets_each_unit_exactly_once_per_iteration() {
+    let program = ProgramDefinition::new(id(1), vec![], vec![id(105), id(106)], vec![], vec![])
+        .with_steps(vec![ProgramStep::ForEach {
+            selector: id(105),
+            body: id(107),
+            maximum: 16,
+        }]);
+    let mut battle = battle_with_two_enemies(catalog(program, false, false, false, false));
+    let resolution = start_and_use(&mut battle).unwrap();
+    let damage = resolution
+        .events()
+        .iter()
+        .filter_map(|event| match event.kind() {
+            BattleEventKind::Damage(value) => Some(value.applied.get()),
+            _ => None,
+        })
+        .collect::<Vec<_>>();
+    assert_eq!(damage, [75, 75, 225, 225]);
+    assert_eq!(
+        battle
+            .view()
+            .units_by_id()
+            .filter(|unit| unit.side() == TeamSide::Enemy)
+            .map(|unit| unit.current_hp().get())
+            .collect::<Vec<_>>(),
+        [700, 700]
     );
 }

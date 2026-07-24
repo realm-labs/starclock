@@ -14,6 +14,7 @@ use starclock_combat::{
 
 use crate::{
     ability_runtime::{AbilityRuntimeProjection, AbilityTarget, AbilityValue},
+    battle_rule_lowering::{ExecutableBattleRule, ExecutableResonance, lower_rules},
     blessing_runtime::BlessingContributionSet,
     catalog::UniverseCatalog,
     curio_runtime::CurioContributionSet,
@@ -163,6 +164,8 @@ pub struct UniverseBattleContributionSet {
     rules: Box<[UniverseBattleRuleBinding]>,
     modifiers: Box<[UniverseBattleModifierBinding]>,
     boundary_values: Box<[UniverseBattleBoundaryValue]>,
+    executable_rules: Box<[ExecutableBattleRule]>,
+    resonance: Option<ExecutableResonance>,
     digest: [u8; 32],
 }
 
@@ -195,6 +198,19 @@ impl UniverseBattleContributionSet {
     #[must_use]
     pub fn boundary_values(&self) -> &[UniverseBattleBoundaryValue] {
         &self.boundary_values
+    }
+
+    pub(crate) fn executable_rules(&self) -> &[ExecutableBattleRule] {
+        &self.executable_rules
+    }
+
+    pub(crate) const fn resonance(&self) -> Option<&ExecutableResonance> {
+        self.resonance.as_ref()
+    }
+
+    #[must_use]
+    pub fn materialized_rule_binding_count(&self) -> usize {
+        self.executable_rules.len() + usize::from(self.resonance.is_some())
     }
 
     #[must_use]
@@ -368,6 +384,20 @@ impl UniverseBattleContributionCompiler {
             .iter()
             .filter_map(|value| modifier_binding(*value, ability_projection.digest()))
             .collect::<Result<Vec<_>, UniverseBattleContributionError>>()?;
+        let initial_resonance_energy = boundary_values
+            .iter()
+            .find(|value| value.target == AbilityTarget::PathResonanceInitialEnergy)
+            .map_or(0, |value| value.value.raw_six_decimal() / 1_000_000);
+        let initial_resonance_energy = u16::try_from(initial_resonance_energy)
+            .map_err(|_| UniverseBattleContributionError::InvalidExecutableRule)?;
+        let (executable_rules, resonance) = lower_rules(
+            &self.catalog,
+            &rules,
+            blessings,
+            curios,
+            initial_resonance_energy,
+        )
+        .map_err(|_| UniverseBattleContributionError::InvalidExecutableRule)?;
         let digest = contribution_digest(
             selected_path,
             path,
@@ -386,6 +416,8 @@ impl UniverseBattleContributionCompiler {
             rules: rules.into_boxed_slice(),
             modifiers: modifiers.into_boxed_slice(),
             boundary_values: boundary_values.into_boxed_slice(),
+            executable_rules: executable_rules.into_boxed_slice(),
+            resonance,
             digest,
         })
     }
@@ -647,6 +679,7 @@ pub enum UniverseBattleContributionError {
     DuplicateBinding,
     IdentityOverflow,
     IdentityCollision,
+    InvalidExecutableRule,
 }
 
 impl core::fmt::Display for UniverseBattleContributionError {

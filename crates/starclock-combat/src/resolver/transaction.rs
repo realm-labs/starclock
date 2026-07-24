@@ -131,13 +131,7 @@ fn execute(
     maybe_inject(injection, FaultInjectionPoint::AfterResolvingPhase)?;
 
     match command {
-        ValidatedCommand::StartBattle => {
-            let started = txn.emit(
-                Cause::root(root),
-                BattleEventKind::Battle(BattleEventData::Started),
-            );
-            super::turn::begin_turn(catalog, txn, root, started)?;
-        }
+        ValidatedCommand::StartBattle => super::turn::start_battle(catalog, txn, root)?,
         ValidatedCommand::PassInterruptWindow => {
             let closed = close_active_decision(txn, root)?;
             let turn = txn

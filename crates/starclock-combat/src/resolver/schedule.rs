@@ -128,7 +128,15 @@ pub(super) fn execute_queue_rule_action(
         .and_then(|definition| definition.unit_targets())
         .ok_or_else(|| invariant_fault(65))?;
     for actor in operation.actors {
-        let primary = operation.targets.first().copied();
+        let primary = match (selector.relation(), selector.pattern()) {
+            (crate::catalog::action::TargetRelation::SelfUnit, _)
+            | (_, crate::catalog::action::TargetPattern::All) => None,
+            (
+                _,
+                crate::catalog::action::TargetPattern::Single
+                | crate::catalog::action::TargetPattern::Blast,
+            ) => operation.targets.first().copied(),
+        };
         let targets = crate::target::select::commit(
             &txn.state.units,
             &txn.state.formations,
