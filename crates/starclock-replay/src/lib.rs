@@ -8,6 +8,8 @@
 pub mod activity;
 pub mod battle;
 pub mod codec;
+pub mod component;
 pub mod digest;
 pub mod format;
+pub mod format_v2;
 pub mod record;

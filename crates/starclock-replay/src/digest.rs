@@ -55,6 +55,14 @@ digest_type!(
     Sha256Digest,
     "SHA-256 digest of an explicitly selected canonical byte stream."
 );
+digest_type!(
+    ComponentDigest,
+    "Digest of one consumed configuration or runtime component."
+);
+digest_type!(
+    ComponentRootDigest,
+    "Canonical root digest of the ordered consumed-component set."
+);
 
 /// Streaming SHA-256 byte sink with no canonical-state byte allocation.
 #[derive(Debug, Default)]
