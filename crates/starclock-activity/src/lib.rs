@@ -14,6 +14,7 @@ mod codec;
 mod graph;
 mod graph_activity;
 mod graph_command;
+mod handler_registry;
 mod id;
 mod participant;
 mod program;
@@ -72,11 +73,18 @@ pub use graph_activity::{
 pub use graph_command::{
     GRAPH_ACTIVITY_API_REVISION, GraphActivityCommand, GraphActivityCommandKind,
 };
+pub use handler_registry::{
+    ACTIVITY_HANDLER_REGISTRY_REVISION, ActivityHandler, ActivityHandlerBundle,
+    ActivityHandlerFault, ActivityHandlerFaultKind, ActivityHandlerInput, ActivityHandlerOutput,
+    ActivityHandlerRegistration, ActivityHandlerRegistry, ActivityHandlerRegistryDigest,
+    ActivityHandlerRegistryError, MAX_ACTIVITY_HANDLER_BUNDLES, MAX_ACTIVITY_HANDLER_PAYLOAD_BYTES,
+    MAX_ACTIVITY_HANDLERS, core_activity_handler_bundle,
+};
 pub use id::{
     ActivityBattleHandoffId, ActivityDecisionId, ActivityDefinitionId, ActivityEdgeId,
-    ActivityExternalOutcomeId, ActivityInstanceId, ActivityInventoryId, ActivityModifierId,
-    ActivityOptionId, ActivityProgramId, ActivitySlotId, AttemptId, BattleSequence, NodeId,
-    ParticipantId, ProjectionId, SectionId,
+    ActivityExternalOutcomeId, ActivityHandlerId, ActivityInstanceId, ActivityInventoryId,
+    ActivityModifierId, ActivityOptionId, ActivityProgramId, ActivitySlotId, AttemptId,
+    BattleSequence, NodeId, ParticipantId, ProjectionId, SectionId,
 };
 pub use participant::{
     LoadoutLockScope, OpaqueParticipantBuild, ParticipantLock, ParticipantLockEntry,

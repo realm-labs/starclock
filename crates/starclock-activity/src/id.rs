@@ -127,3 +127,9 @@ id_type!(
     NonZeroU64,
     "Stable authored external-outcome option accepted by a graph Activity."
 );
+id_type!(
+    ActivityHandlerId,
+    u32,
+    NonZeroU32,
+    "Stable compiled Activity extension-handler identity."
+);

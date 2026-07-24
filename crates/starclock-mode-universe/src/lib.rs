@@ -28,6 +28,7 @@ pub mod encounter_slot;
 pub mod entry;
 pub mod error;
 pub mod erudition_runtime;
+pub mod handler_bundle;
 pub mod hunt_runtime;
 pub mod id;
 pub mod negative_curio_runtime;

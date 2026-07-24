@@ -217,3 +217,38 @@ impl ActivityStateEncoder {
         self.0.into_boxed_slice()
     }
 }
+
+/// Canonical little-endian writer for immutable Activity extension identities.
+pub(crate) struct ActivityRegistryWriter(Sha256);
+
+impl ActivityRegistryWriter {
+    pub(crate) fn new(domain: &[u8]) -> Self {
+        let mut hash = Sha256::new();
+        hash.update(b"SCAR");
+        hash.update(1_u32.to_le_bytes());
+        hash.update(
+            u32::try_from(domain.len())
+                .expect("static registry domain length fits u32")
+                .to_le_bytes(),
+        );
+        hash.update(domain);
+        Self(hash)
+    }
+
+    pub(crate) fn u32(&mut self, value: u32) {
+        self.0.update(value.to_le_bytes());
+    }
+
+    pub(crate) fn text(&mut self, value: &str) {
+        self.u32(u32::try_from(value.len()).expect("validated registry text length fits u32"));
+        self.0.update(value.as_bytes());
+    }
+
+    pub(crate) fn digest(&mut self, value: [u8; 32]) {
+        self.0.update(value);
+    }
+
+    pub(crate) fn finish(self) -> [u8; 32] {
+        self.0.finalize().into()
+    }
+}
