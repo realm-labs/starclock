@@ -95,6 +95,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 69. [Goal 05 integration probes](goal-05-integration-probes.md) — machine-readable Goal 04 integration-debt baseline and the focused three-minute execution budget.
 70. [Standard Universe integration coverage](28-standard-universe-integration-coverage.md) — exact-once Goal 05 dispositions, real 33-run battle/replay matrix and explicit enemy/rule approximation boundaries.
 71. [Combat identity and dynamic assembly](29-combat-identity-and-dynamic-assembly.md) — combat-owned input identity, opaque assembly provenance, current-Activity per-battle assembly, cache/rollback rules and replay-v3 migration.
+72. [Goal 06 identity and assembly debt probes](goal-06-debt-probes.md) — machine-checked caller-supplied digest, entry-time materialization, production-surface migration and representative transition baseline.
 
 ## Execution goals
 

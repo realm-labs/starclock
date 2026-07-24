@@ -1,0 +1,81 @@
+{
+  "schema_revision": "starclock.goal06-debt-probes.v1",
+  "goal_id": "combat-identity-dynamic-assembly-v1",
+  "batch": "G06-P0-B2",
+  "observed_on": "2026-07-24",
+  "caller_supplied_identity": {
+    "constructor": "BattleSpec::new",
+    "parameter_type": "BattleSpecDigest",
+    "call_sites": 32,
+    "source_files": 25,
+    "combat_owned_digest_constructor": false
+  },
+  "entry_time_materialization": {
+    "factory": "StandardUniverseRuntimeFactory",
+    "factory_source": "crates/starclock-mode-universe/src/production_runtime.rs",
+    "contribution_function": "initial_contributions",
+    "stored_materialization": "Arc<UniverseBattleMaterialization>",
+    "current_activity_projection_exists": true,
+    "current_activity_projection_used_by_factory_start": false
+  },
+  "production_surfaces": {
+    "shared_factory_sources": [
+      "crates/starclock-cli/src/universe_v1.rs",
+      "crates/starclock-agent-api/src/activity_runtime.rs",
+      "crates/starclock-agent-api/src/activity_session.rs"
+    ],
+    "mcp_delegates_to_agent_registry": true,
+    "required_terminal_surfaces": [
+      "cli",
+      "baseline",
+      "agent-api",
+      "mcp",
+      "replay"
+    ]
+  },
+  "representative_scenarios": [
+    {
+      "id": "blessing-acquire-upgrade",
+      "source": "universe.blessing.612344",
+      "transitions": ["absent", "owned-level-1", "owned-level-2"],
+      "expected_next_battle_change": "combat-input-and-assembly"
+    },
+    {
+      "id": "curio-acquire-disable-remove",
+      "source": "universe.curio.8",
+      "transitions": ["absent", "active", "disabled", "removed"],
+      "expected_next_battle_change": "combat-input-and-assembly"
+    },
+    {
+      "id": "resonance-unlock-and-consume",
+      "source": "universe.resonance.612420",
+      "transitions": ["locked", "unlocked", "resource-consumed"],
+      "expected_next_battle_change": "combat-input-and-runtime-state"
+    },
+    {
+      "id": "ability-tree-selection",
+      "source": "universe.ability-tree.2",
+      "transitions": ["not-selected", "selected"],
+      "expected_next_battle_change": "combat-input-and-assembly"
+    },
+    {
+      "id": "participant-carry-only",
+      "source": "activity.participant-carry",
+      "transitions": ["full", "damaged", "energy-changed"],
+      "expected_next_battle_change": "combat-input-only"
+    },
+    {
+      "id": "provenance-only",
+      "source": "synthetic.outer-provenance",
+      "transitions": ["assembly-a", "assembly-b"],
+      "expected_next_battle_change": "assembly-only"
+    }
+  ],
+  "terminal_expectations": {
+    "caller_supplied_combat_digest_parameters": 0,
+    "per_battle_current_activity_projection": true,
+    "catalog_rebuilds_per_battle": 0,
+    "production_surface_assembly_paths": 1,
+    "replay_version": 3
+  }
+}
