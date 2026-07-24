@@ -1,4 +1,6 @@
 //! Standard Universe entry validation and generic Activity-state compilation.
+mod runtime_access;
+
 use starclock_activity::{
     ActivityDefinitionIdentity, ActivityInstanceId, ActivityInventoryDefinition,
     ActivityInventoryId, ActivityMasterSeed, ActivityScope, ActivitySlotDefinition, ActivitySlotId,
@@ -14,6 +16,7 @@ use crate::{
         AbilityExecutionContext, AbilityRuntimeCatalog, AbilityRuntimeProjection, AbilityTarget,
     },
     abundance_runtime::AbundanceRuntimeCatalog,
+    battle_contribution::UniverseBattleContributionCompiler,
     battle_overlay::UniverseEncounterOverlay,
     blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
@@ -198,6 +201,10 @@ impl StandardUniverseProfile {
         let ability_runtime = Arc::new(
             AbilityRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidAbilityRuntime)?,
+        );
+        let battle_contribution_compiler = Arc::new(
+            UniverseBattleContributionCompiler::compile(Arc::clone(&self.catalog))
+                .map_err(|_| StandardUniverseCompileError::InvalidBattleContributionRuntime)?,
         );
         let run_start = ability_runtime
             .project(&ability_tree, AbilityExecutionContext::run_start())
@@ -414,6 +421,7 @@ impl StandardUniverseProfile {
             service_interaction_runtime,
             encounter_content_runtime,
             ability_runtime,
+            battle_contribution_compiler,
         })
     }
 }
@@ -459,6 +467,7 @@ pub struct CompiledActivity {
     service_interaction_runtime: Arc<ServiceInteractionRuntimeCatalog>,
     encounter_content_runtime: Arc<EncounterContentRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
+    battle_contribution_compiler: Arc<UniverseBattleContributionCompiler>,
 }
 
 impl CompiledActivity {
@@ -533,113 +542,6 @@ impl CompiledActivity {
         self.encounter_overlay.as_ref()
     }
 
-    #[must_use]
-    pub const fn blessing_runtime(&self) -> &Arc<BlessingRuntimeCatalog> {
-        &self.blessing_runtime
-    }
-
-    #[must_use]
-    pub const fn path_runtime(&self) -> &Arc<PathRuntimeCatalog> {
-        &self.path_runtime
-    }
-
-    #[must_use]
-    pub const fn preservation_runtime(&self) -> &Arc<PreservationRuntimeCatalog> {
-        &self.preservation_runtime
-    }
-
-    #[must_use]
-    pub const fn remembrance_runtime(&self) -> &Arc<RemembranceRuntimeCatalog> {
-        &self.remembrance_runtime
-    }
-
-    #[must_use]
-    pub const fn nihility_runtime(&self) -> &Arc<NihilityRuntimeCatalog> {
-        &self.nihility_runtime
-    }
-
-    #[must_use]
-    pub const fn abundance_runtime(&self) -> &Arc<AbundanceRuntimeCatalog> {
-        &self.abundance_runtime
-    }
-
-    #[must_use]
-    pub const fn hunt_runtime(&self) -> &Arc<HuntRuntimeCatalog> {
-        &self.hunt_runtime
-    }
-
-    #[must_use]
-    pub const fn destruction_runtime(&self) -> &Arc<DestructionRuntimeCatalog> {
-        &self.destruction_runtime
-    }
-
-    #[must_use]
-    pub const fn elation_runtime(&self) -> &Arc<ElationRuntimeCatalog> {
-        &self.elation_runtime
-    }
-
-    #[must_use]
-    pub const fn propagation_runtime(&self) -> &Arc<PropagationRuntimeCatalog> {
-        &self.propagation_runtime
-    }
-
-    #[must_use]
-    pub const fn erudition_runtime(&self) -> &Arc<EruditionRuntimeCatalog> {
-        &self.erudition_runtime
-    }
-
-    #[must_use]
-    pub const fn curio_runtime(&self) -> &Arc<CurioRuntimeCatalog> {
-        &self.curio_runtime
-    }
-
-    #[must_use]
-    pub const fn curio_effect_runtime(&self) -> &Arc<CurioEffectRuntimeCatalog> {
-        &self.curio_effect_runtime
-    }
-
-    #[must_use]
-    pub const fn negative_curio_runtime(&self) -> &Arc<NegativeCurioRuntimeCatalog> {
-        &self.negative_curio_runtime
-    }
-
-    #[must_use]
-    pub const fn run_runtime(&self) -> &Arc<RunRuntimeCatalog> {
-        &self.run_runtime
-    }
-
-    #[must_use]
-    pub const fn occurrence_effect_runtime(&self) -> &Arc<OccurrenceEffectRuntimeCatalog> {
-        &self.occurrence_effect_runtime
-    }
-
-    #[must_use]
-    pub const fn occurrence_interaction_runtime(
-        &self,
-    ) -> &Arc<OccurrenceInteractionRuntimeCatalog> {
-        &self.occurrence_interaction_runtime
-    }
-
-    #[must_use]
-    pub const fn service_effect_runtime(&self) -> &Arc<ServiceEffectRuntimeCatalog> {
-        &self.service_effect_runtime
-    }
-
-    #[must_use]
-    pub const fn service_interaction_runtime(&self) -> &Arc<ServiceInteractionRuntimeCatalog> {
-        &self.service_interaction_runtime
-    }
-
-    #[must_use]
-    pub const fn encounter_content_runtime(&self) -> &Arc<EncounterContentRuntimeCatalog> {
-        &self.encounter_content_runtime
-    }
-
-    #[must_use]
-    pub const fn ability_runtime(&self) -> &Arc<AbilityRuntimeCatalog> {
-        &self.ability_runtime
-    }
-
     pub fn start(
         &self,
         instance: ActivityInstanceId,
@@ -681,6 +583,7 @@ impl CompiledActivity {
                     occurrence_effect_runtime: Arc::clone(&self.occurrence_effect_runtime),
                     service_effect_runtime: Arc::clone(&self.service_effect_runtime),
                     ability_runtime: Arc::clone(&self.ability_runtime),
+                    battle_contribution_compiler: Arc::clone(&self.battle_contribution_compiler),
                     ability_tree: self.ability_tree.clone(),
                     blessing_inventory: self.blessing_inventory(),
                     formation_inventory: self.formation_inventory(),
@@ -1186,6 +1089,7 @@ pub enum StandardUniverseCompileError {
     InvalidCurioRuntime,
     InvalidRunRuntime,
     InvalidAbilityRuntime,
+    InvalidBattleContributionRuntime,
     InvalidEncounterContentRuntime,
     EncounterOverlayParticipantMismatch,
     Topology(crate::topology::UniverseTopologyCompileError),

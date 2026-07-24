@@ -1,4 +1,5 @@
 //! Standard Universe runtime facade over the generic graph Activity.
+mod battle_contribution_access;
 
 use std::sync::Arc;
 
@@ -18,6 +19,7 @@ use crate::{
         AbilityRuntimeError, AbilityRuntimeProjection,
     },
     abundance_runtime::AbundanceRuntimeCatalog,
+    battle_contribution::{UniverseBattleContributionCompiler, UniverseBattleContributionError},
     battle_overlay::UniverseEncounterOverlay,
     blessing_runtime::{BlessingContributionSet, BlessingRuntimeCatalog, BlessingRuntimeError},
     curio_activity::{
@@ -79,6 +81,7 @@ pub struct StandardUniverseActivity {
     occurrence_effect_runtime: Arc<OccurrenceEffectRuntimeCatalog>,
     service_effect_runtime: Arc<ServiceEffectRuntimeCatalog>,
     ability_runtime: Arc<AbilityRuntimeCatalog>,
+    battle_contribution_compiler: Arc<UniverseBattleContributionCompiler>,
     ability_tree: Box<[AbilityTreeNodeId]>,
     blessing_inventory: ActivityInventoryId,
     formation_inventory: ActivityInventoryId,
@@ -113,6 +116,7 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) occurrence_effect_runtime: Arc<OccurrenceEffectRuntimeCatalog>,
     pub(crate) service_effect_runtime: Arc<ServiceEffectRuntimeCatalog>,
     pub(crate) ability_runtime: Arc<AbilityRuntimeCatalog>,
+    pub(crate) battle_contribution_compiler: Arc<UniverseBattleContributionCompiler>,
     pub(crate) ability_tree: Box<[AbilityTreeNodeId]>,
     pub(crate) blessing_inventory: ActivityInventoryId,
     pub(crate) formation_inventory: ActivityInventoryId,
@@ -150,6 +154,7 @@ impl StandardUniverseActivity {
             occurrence_effect_runtime: context.occurrence_effect_runtime,
             service_effect_runtime: context.service_effect_runtime,
             ability_runtime: context.ability_runtime,
+            battle_contribution_compiler: context.battle_contribution_compiler,
             ability_tree: context.ability_tree,
             blessing_inventory: context.blessing_inventory,
             formation_inventory: context.formation_inventory,
@@ -1172,6 +1177,17 @@ pub enum StandardUniverseCurioActivityError {
     Fragments(RunRuntimeError),
     Effect(CurioEffectRuntimeError),
     Projection(CurioActivityProjectionError),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum StandardUniverseBattleContributionError {
+    InvalidScope,
+    Blessing(BlessingRuntimeError),
+    Path(StandardUniversePathContributionError),
+    Curio(CurioRuntimeError),
+    Ability(RunRuntimeError),
+    Projection(AbilityRuntimeError),
+    Compile(UniverseBattleContributionError),
 }
 
 pub(crate) fn start(

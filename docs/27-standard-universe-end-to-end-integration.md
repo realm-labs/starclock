@@ -261,6 +261,41 @@ counter keyed only by source node ID.
 
 ## Battle materialization
 
+### Immutable battle-contribution snapshot
+
+`UniverseBattleContributionCompiler` is the only Standard Universe
+Activity-to-combat rule boundary. It freezes all 786 normalized mechanic-rule
+records and validates their exact family denominators before any run starts:
+42 Ability Tree, 162 Blessing definitions, 324 Blessing levels, 61 Curio
+definitions, 67 Curio states, 36 Resonance/Formation and 94 run-service rows.
+Duplicate `(kind, source_record)` identities fail catalog construction.
+
+For one battle boundary it reads one immutable authoritative snapshot and
+produces a canonical `UniverseBattleContributionSet`:
+
+- the selected Path identity, selected-Path Blessing count and Path digest;
+- both definition and selected-level rule bindings for every owned Blessing;
+- the unlocked Resonance and each selected Formation binding;
+- both definition and current-state bindings for every valid owned Curio;
+- only Battle or Run-and-Battle Ability Tree source bindings;
+- combat modifier definitions for party ATK, DEF, maximum HP, CRIT Rate,
+  Speed, CRIT DMG and Effect Hit Rate; and
+- all remaining Ability Tree values as typed boundary resources for the
+  Resonance/resource compiler.
+
+Every source binding carries a stable `RuleId`, `RuleBundleId`,
+`SourceDefinitionId`, source-record key, source-binding key, mechanic tags and
+canonical source digest. IDs use a reviewed reserved namespace and are checked
+against the core combat catalog for collisions. Static Ability Tree modifiers
+use combat-owned `ModifierDefinition` and `ModifierStackingGroup` values and
+are validated by the normal combat modifier registry.
+
+This batch freezes binding declarations and modifier definitions. P3-B2 owns
+composition of the corresponding Rule IR definitions into the executable
+combat catalog; a binding declaration alone is not evidence that an
+event-driven Blessing, Resonance or Curio effect has resolved. P3-B3/P3-B4 must
+prove that execution through real battle events.
+
 `UniverseBattleSpecCompiler` consumes an immutable snapshot:
 
 - selected World/difficulty and resolved encounter member/waves;

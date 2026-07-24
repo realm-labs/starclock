@@ -18,6 +18,7 @@ use starclock_combat::{
     TeamResourceSpec, TeamSide, UnitDefinitionId, UnitLevel,
 };
 use starclock_mode_universe::{
+    ability_runtime::{AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope},
     baseline_runner::{
         StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner,
         StandardUniverseBaselineStep,
@@ -224,6 +225,17 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
             .is_empty()
     );
     choose_first(&mut activity);
+    let contributions = activity
+        .battle_contributions(AbilityExecutionContext::new(
+            AbilityProjectionScope::Battle,
+            AbilityBoundary::BattleStart,
+            0,
+            false,
+        ))
+        .expect("selected Path compiles through the aggregate battle boundary");
+    assert_eq!(contributions.selected_path_blessings(), 0);
+    assert!(contributions.rules().is_empty());
+    assert!(contributions.modifiers().is_empty());
 
     let encounter = loop {
         let view = activity.view();
