@@ -150,6 +150,10 @@
       "command": ["node", "tools/goal06/run-native-hardening.mjs"]
     },
     {
+      "name": "Goal 06 release contract",
+      "command": ["node", "tools/goal06/verify-release-contract.mjs", ".", "--release"]
+    },
+    {
       "name": "Standard Universe bundle-loader dependency policy",
       "command": ["node", "tools/universe-bundle-loader/generate-policy.mjs"]
     },

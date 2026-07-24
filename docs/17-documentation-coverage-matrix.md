@@ -29,11 +29,11 @@ outside this release.
 | Fixed point, RNG, hashing | `09`, `16` | Implemented and golden-verified | Native matrix execution plus alternate-CPU compile evidence. |
 | Rule IR/native handlers | `11` | Implemented and audited | Typed interpreter tests and zero production native handlers. |
 | Enemy AI/encounters | `13` | Goal 01 subset implemented | 17 frozen variants, six encounters and six scenarios execute. |
-| Activity core/mode extension | `19`, `26` | Sequential runtime implemented; extension evolution normative | Generic graph/scope/roster/persistence tests plus ordered task-set, logical-scope, composed-registry and alternate-executor revisions before dependent modes release. |
+| Activity core/mode extension | `19`, `26`, `29` | Sequential runtime and current-state nested-battle assembly implemented; extension evolution normative | Generic graph/scope/roster/persistence tests plus ordered task-set, logical-scope, composed-registry and alternate-executor revisions before dependent modes release. |
 | Universe profiles | `14`, `19` | Standard SU implemented; other families data pending | One complete manifest and seeded golden activity per additional supported family. |
 | Standard/challenge profiles | `18`, `19` | Normative profile design; seasonal data pending | Standard golden activities plus active 4.4 manifests/golden stages for all three challenge families. |
 | Content/provenance/coverage | `15`, `26` | Released core and Standard SU implemented; experimental lane specified | Generated digest-addressed released reports; experimental rows remain excluded from production coverage. |
-| Replay/CLI/engine adapters | `16` | CLI/replay implemented; engine adapter future | Replay verifier and CLI contracts pass. |
+| Replay/CLI/engine adapters | `16`, `29` | CLI and component replay v3 implemented; engine adapter future | Replay v3 reconstructs every dynamic assembly and reports ordered first divergence; historical v2 remains verifiable. |
 
 ## Content data
 
@@ -44,7 +44,7 @@ outside this release.
 | Light Cones | 165 frozen definitions | Imported through Excel/Sora with stat curves, promotions, S1-S5 selections, rules and goldens | 165/165 `GoldenVerified`. |
 | Relic and planar sets | Detailed set/affix/piece schema | Not imported | Frozen 4.4 manifest, piece effects, main/sub-affix curves and provenance. |
 | Enemies and bosses | Behavior/AI/phase model plus prepared source evidence | Goal 01 imports the exact 17-variant Standard subset and 63 source-bound abilities | 17/17 frozen variants verified; broader catalogs remain future scope. |
-| Standard Simulated Universe | System boundary and runtime implemented | 2,201 DataReady records, 786 rules, 78 fixtures and seeded complete runs | Preserve current component digests and runtime compatibility tests. |
+| Standard Simulated Universe | System boundary, runtime and current-Activity per-battle assembly implemented | 2,201 DataReady records, 786 rules, 78 fixtures and 33 replay-v3 seeded complete runs | Goal 07 must replace the retained 783 rule and 73 enemy-proxy approximations without changing the Goal 06 combat boundary. |
 | Swarm Disaster | System boundary documented | Not imported | Full active content, dice/map/progression mechanics and seeded golden run. |
 | Gold and Gears | System boundary documented | Not imported | Full active content, custom dice/Cognition/Secrets/Conundrum and seeded golden run. |
 | Unknowable Domain | System boundary documented | Not imported | Full Scepter/Component/alignment/stage data and seeded golden run. |

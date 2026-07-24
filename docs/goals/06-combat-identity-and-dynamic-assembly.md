@@ -198,11 +198,10 @@ draws and replay records. A running `Battle` never reads live Activity state.
 
 ## Terminal checklist
 
-- [ ] All 18 batches are committed with ledger evidence.
-- [ ] Combat input and assembly identities are separated and canonical.
-- [ ] Replay v3 records and verifies dynamic assemblies; v2 remains historical.
-- [ ] Every production Standard Universe battle uses the current Activity snapshot.
-- [ ] Representative acquire/upgrade/remove mechanics affect the next real battle.
-- [ ] Cache, rollback, concurrency and cross-surface parity gates pass.
-- [ ] Focused and full clean-worktree release verification pass.
-
+- [x] All 18 batches are committed with ledger evidence.
+- [x] Combat input and assembly identities are separated and canonical.
+- [x] Replay v3 records and verifies dynamic assemblies; v2 remains historical.
+- [x] Every production Standard Universe battle uses the current Activity snapshot.
+- [x] Representative acquire/upgrade/remove mechanics affect the next real battle.
+- [x] Cache, rollback, concurrency and cross-surface parity gates pass.
+- [x] Focused and full clean-worktree release verification pass.

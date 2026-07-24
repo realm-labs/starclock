@@ -5,15 +5,15 @@
 | Field | Value |
 |---|---|
 | Goal ID | `combat-identity-dynamic-assembly-v1` |
-| State | `InProgress` |
-| Active phase | Phase 4 — Hardening and release |
+| State | `Complete` |
+| Active phase | None |
 | Active batch | None |
-| Next unblocked batch | `G06-P4-B3` |
+| Next unblocked batch | None |
 | Required snapshot | Goal 05 `standard-universe-end-to-end-v1` |
 | Planned batches | 18 |
 | Blocking condition | None |
 
-Goal 06 is active. Phase 1 is complete: combat, Activity and replay v3 carry
+Goal 06 is complete. Phase 1 established combat, Activity and replay v3
 independent canonical input and assembly identities, all constructors use the
 combat-owned identity boundary, and event payload v2 removes the unused outer
 source slot without breaking replay-v2 verification. P2-B1 split the released
@@ -34,7 +34,8 @@ eight-level first-divergence corpus and CLI/Agent/MCP authoritative trace
 parity. P4-B1 adds release performance evidence and reduces the measured
 memory-heavy assembly cache default from 64 to 8 without changing authority.
 P4-B2 freezes the 33-entry replay-v3 matrix, corruption/concurrency corpora and
-the three-host native CI contract. P4-B3 will freeze the final release.
+the three-host native CI contract. P4-B3 freezes the release contract,
+documentation, evidence and clean-worktree acceptance boundary.
 
 ## Batch ledger
 
@@ -57,7 +58,7 @@ the three-host native CI contract. P4-B3 will freeze the final release.
 | `G06-P3-B3` | `Complete` | `node tools/goal06/verify-phase3-b3.mjs`; dynamic replay corruption/reconstruction fixture; CLI-baseline/Agent nested trace parity; MCP/Agent exact replay parity; focused Clippy; quick repository gate | Fresh replay verification resolves one current Activity snapshot for every nested battle and reports component → assembly → combat input → command → event → state → result → Activity first divergence. Equal CLI baseline and Agent runs emit identical authoritative nested traces; MCP emits the exact Agent replay hash and verifies through a fresh factory. Generic frozen-materialization access was removed from production APIs. |
 | `G06-P4-B1` | `Complete` | `node tools/goal06/verify-performance.mjs`; local release benchmark; focused Clippy; source policy; quick repository gate | Measured combat-input digest, 33 cold assemblies, 10,000 exact-key hits, 256 forced evictions and 16 concurrent complete sessions. Reduced the non-authoritative cache default from 64 to 8 after the original design retained about 317 MiB; the measured default now retains about 76.9 MiB under a 128 MiB ceiling. Daily verification remains below 180 seconds and every touched Rust source stays below 1,200 lines. |
 | `G06-P4-B2` | `Complete` | `node tools/goal06/run-native-hardening.mjs . --run`; 33-entry release matrix; replay/Agent/MCP corruption and parity suites; native workflow verification | Local native hardening passed in 45.8 seconds. All 33 world/difficulty entries completed 166 real nested battles and freshly verified replay v3 with frozen aggregate state/replay digests. CI now runs the same gate on Windows x64, Linux x64 and macOS ARM64 while three alternate targets remain compile-only. |
-| `G06-P4-B3` | `Pending` | — | Freeze release and register immutable snapshot. |
+| `G06-P4-B3` | `Complete` | `node tools/goal06/verify-release-contract.mjs . --release`; full repository gate; clean-worktree release verification | Froze all 18 batches, runtime revisions, transition/matrix/performance/native evidence and retained Goal 07 scope. The batch commit is the immutable completion tree registered immediately afterward. |
 
 ## Starting debt
 
@@ -82,10 +83,10 @@ the three-host native CI contract. P4-B3 will freeze the final release.
 
 | Field | Value |
 |---|---|
-| Final state | Not started |
-| Completion commit | — |
-| Combat identity revision | To be frozen |
-| Replay revision | To be frozen |
-| Dynamic assembly coverage | To be generated |
-| Performance evidence | To be generated |
-| Release evidence | To be generated |
+| Final state | `Complete` |
+| Completion commit | This row's containing commit (`G06-P4-B3`) |
+| Combat identity revision | `combat-input-v1` plus opaque `battle-assembly-v1` |
+| Replay revision | `component-addressed-v3`; historical v2 verification retained |
+| Dynamic assembly coverage | 6 representative transitions; 5 production surfaces; 33 seeded runs / 166 nested battles / 956 accepted battle commands |
+| Performance evidence | `evidence/combat-identity-dynamic-assembly-v1/performance/stable-runner.json`; default cache 8; retained-memory ceiling 128 MiB |
+| Release evidence | `evidence/combat-identity-dynamic-assembly-v1/release/release-evidence.json` |

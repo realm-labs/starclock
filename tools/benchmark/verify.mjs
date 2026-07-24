@@ -6,7 +6,16 @@ import { execFileSync } from "node:child_process";
 
 const root = path.resolve(import.meta.dirname, "../..");
 const policy = JSON.parse(fs.readFileSync(path.join(root, "policy/benchmark-workloads.json"), "utf8"));
+const currentHashes = JSON.parse(
+  fs.readFileSync(path.join(root, "policy/goal06-benchmark-hashes.json"), "utf8"),
+);
 assert(policy.budget_stage === "phase8-final", "benchmark budget stage differs");
+assert(currentHashes.schema_revision === "starclock.goal06-benchmark-hashes.v1"
+  && currentHashes.workload_revision === policy.workload_revision,
+"current benchmark hash policy differs");
+assert(JSON.stringify(Object.keys(currentHashes.final_hashes))
+  === JSON.stringify(policy.expected_rows.map(({ id }) => id)),
+"current benchmark hash inventory differs");
 const baselinePath = path.join(root, policy.phase3_baseline.path);
 const baselineDigest = crypto.createHash("sha256").update(fs.readFileSync(baselinePath)).digest("hex");
 assert(baselineDigest === policy.phase3_baseline.sha256, "Phase 3 baseline digest differs");
@@ -59,9 +68,11 @@ function validateReport(report) {
   for (let index = 0; index < policy.expected_rows.length; index += 1) {
     const row = report.rows[index];
     const expected = policy.expected_rows[index];
-    for (const field of ["id", "commands", "hashes", "jobs", "workers", "replay_bytes", "final_hash"]) {
+    for (const field of ["id", "commands", "hashes", "jobs", "workers", "replay_bytes"]) {
       assert(row[field] === expected[field], `${expected.id} ${field} differs`);
     }
+    assert(row.final_hash === currentHashes.final_hashes[expected.id],
+      `${expected.id} final_hash differs`);
     for (const field of ["elapsed_ns", "nanoseconds_per_command", "commands_per_second", "commands_per_second_core", "allocation_count", "allocations_per_1000_commands", "allocation_bytes", "allocation_bytes_per_command", "peak_live_bytes_per_job", "semantic_copy_bytes", "canonical_bytes_hashed", "journal_entries", "event_entries", "operation_allocations", "journal_retained_bytes"]) {
       assert(Number.isSafeInteger(row[field]) && row[field] >= 0, `${expected.id} has invalid ${field}`);
     }

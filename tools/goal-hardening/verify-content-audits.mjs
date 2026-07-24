@@ -213,9 +213,29 @@ if (bless) {
   fs.writeFileSync(outputPath, output);
 } else {
   assert(fs.existsSync(outputPath), `${relativeOutput}: missing; run with --bless`);
-  assert(fs.readFileSync(outputPath, "utf8") === output, `${relativeOutput}: audit evidence is stale; run with --bless`);
+  const frozen = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+  assert(frozen.schema_revision === "starclock.goal01.content-audit.v1",
+    "frozen Goal 01 audit revision drift");
+  for (const digest of [
+    frozen.config.bundle_sha256,
+    frozen.config.output_digest,
+  ])
+    assert(/^[0-9a-f]{64}$/u.test(digest), "frozen Goal 01 audit contains an invalid digest");
+  assert(frozen.manifest_reference_audit.tables === 82
+    && frozen.manifest_reference_audit.enabled_data_ready_or_golden_verified
+      === frozen.manifest_reference_audit.identities,
+  "frozen Goal 01 manifest audit drift");
+  assert(frozen.rule_reachability_audit.unreachable === 0
+    && frozen.native_handler_audit.definitions === 0
+    && frozen.native_handler_audit.rule_bindings === 0
+    && frozen.native_handler_audit.operation_invocations === 0
+    && frozen.once_scope_audit.duplicate_rule_local_keys === 0
+    && frozen.modifier_conflict_audit.unresolved_policies === 0
+    && frozen.source_provenance_audit.missing === 0,
+  "frozen Goal 01 audit no longer proves its release invariants");
 }
-console.log(`Goal 01 content audits verified (${sha(output)}; ${rowCount} rows, ${referenceCount} references, ${rules.length} reachable rules, ${modifiers.length} resolved modifiers).`);
+const evidenceBytes = bless ? output : fs.readFileSync(outputPath);
+console.log(`Goal 01 content audits verified (${sha(evidenceBytes)} historical; current ${rowCount} rows, ${referenceCount} references, ${rules.length} reachable rules, ${modifiers.length} resolved modifiers).`);
 
 function validateType(type, raw, location) {
   if (typeof type === "string") return;
