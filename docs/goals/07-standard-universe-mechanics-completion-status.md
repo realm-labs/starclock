@@ -5,24 +5,25 @@
 | Field | Value |
 |---|---|
 | Goal ID | `standard-universe-mechanics-complete-v1` |
-| State | `BlockedByGoal06` |
+| State | `Ready` |
 | Active phase | None |
 | Active batch | None |
-| Next unblocked batch | None |
+| Next unblocked batch | `G07-P0-B1` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | Frozen by `G07-P0-B3` |
-| Blocking condition | Goal 06 is not complete and registered. |
+| Blocking condition | None |
 
-Do not mark `G07-P0-B1` in progress until the Goal 06 immutable snapshot
-verifies. Once unblocked, `G07-P0-B3` expands every `Mnn` row below into
-ordered `Snn` commit rows and freezes the terminal batch denominator.
+Goal 06 immutable snapshot `combat-identity-dynamic-assembly-v1` is registered
+and verifies. Goal 07 may start at `G07-P0-B1`; `G07-P0-B3` then expands every
+`Mnn` row below into ordered `Snn` commit rows and freezes the terminal batch
+denominator.
 
 ## Fixed batch ledger
 
 | Batch | State | Evidence | Result |
 |---|---|---|---|
-| `G07-P0-B1` | `Blocked` | Goal 06 snapshot | Freeze execution package and inherited denominator. |
+| `G07-P0-B1` | `Pending` | Goal 06 snapshot registered at `c84c1a4572024355a1e30d41755133c486b1f4c7` | Freeze execution package and inherited denominator. |
 | `G07-P0-B2` | `Pending` | — | Audit retained mechanics and evidence gaps. |
 | `G07-P0-B3` | `Pending` | — | Generate concrete content sub-batches and expand ledger. |
 | `G07-P0-B4` | `Pending` | — | Freeze research, approximation and release scaffold. |
@@ -95,4 +96,3 @@ retaining the milestone summary.
 | Numeric approximation register | To be generated |
 | Cross-platform evidence | To be generated |
 | Release evidence | To be generated |
-
