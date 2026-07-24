@@ -11,6 +11,21 @@ pub(super) fn count(table: &Table) -> usize {
     table.values().map(BTreeMap::len).sum()
 }
 
+pub(super) fn definitions(
+    table: &Table,
+) -> impl Iterator<Item = super::definition::AbilityParameterDefinition> + '_ {
+    table.iter().flat_map(|(ability, parameters)| {
+        parameters.iter().map(|(stable_key, value)| {
+            super::definition::AbilityParameterDefinition::new(
+                *ability,
+                stable_key.clone(),
+                value.clone(),
+            )
+            .expect("validated catalog parameters remain valid builder inputs")
+        })
+    })
+}
+
 impl CombatCatalog {
     /// Looks up one selected effective-level parameter by exact semantic key.
     #[must_use]

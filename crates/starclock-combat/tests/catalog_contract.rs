@@ -13,8 +13,9 @@ use starclock_combat::{
         },
         builder::{CatalogBuildErrorKind, CombatCatalogBuilder},
         definition::{
-            AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition,
-            ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
+            AbilityDefinition, AbilityParameterDefinition, EffectDefinition, EncounterDefinition,
+            EnemyDefinition, ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition,
+            UnitDefinition,
         },
         encounter::{
             AiCandidateDefinition, AiCandidateSelection, AiGraphDefinition, AiNoTargetFallback,
@@ -248,6 +249,14 @@ fn complete_catalog(reverse_insertion: bool) -> Arc<CombatCatalog> {
     for definition in abilities {
         builder.add_ability(definition);
     }
+    builder.add_ability_parameter(
+        AbilityParameterDefinition::new(
+            id(1),
+            "coefficient",
+            RuleValue::Scalar(Scalar::checked_from_integer(2).unwrap()),
+        )
+        .unwrap(),
+    );
     builder.add_effect(EffectDefinition::new(id(1), vec![id(1)], vec![id(1)]));
     builder.add_rule(RuleDefinition::new(
         id(1),
@@ -298,7 +307,7 @@ fn insertion_order_cannot_change_canonical_catalog_indexes() {
 
     assert_eq!(forward.revision().as_str(), "catalog-contract-v1");
     assert_eq!(forward.digest().bytes(), [0x5a; 32]);
-    assert_eq!(forward.definition_count(), 16);
+    assert_eq!(forward.definition_count(), 17);
     assert_eq!(
         forward
             .unit_ids()
@@ -334,6 +343,25 @@ fn insertion_order_cannot_change_canonical_catalog_indexes() {
         [id::<EnemyDefinitionId>(2), id(1)]
     );
     assert!(Arc::ptr_eq(&forward, &Arc::clone(&forward)));
+}
+
+#[test]
+fn validated_catalog_can_be_composed_without_exposing_private_tables() {
+    let base = complete_catalog(false);
+    let mut builder =
+        CombatCatalogBuilder::from_catalog(&base, "catalog-contract-composed-v1", [0x6b; 32]);
+    builder.add_encounter(EncounterDefinition::new(id(2), vec![id(2)], vec![]));
+    let composed = builder.build().expect("composed catalog validates again");
+
+    assert_eq!(composed.revision().as_str(), "catalog-contract-composed-v1");
+    assert_eq!(composed.digest().bytes(), [0x6b; 32]);
+    assert_eq!(composed.definition_count(), base.definition_count() + 1);
+    assert_eq!(
+        composed.ability_parameter(id(1), "coefficient"),
+        base.ability_parameter(id(1), "coefficient")
+    );
+    assert!(composed.encounter(id(1)).is_some());
+    assert!(composed.encounter(id(2)).is_some());
 }
 
 #[test]

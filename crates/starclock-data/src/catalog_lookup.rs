@@ -118,6 +118,23 @@ impl SimulationCatalog {
         self.encounters.enemy(id)
     }
 
+    /// Resolves one mechanically distinct enemy by its authored stable key.
+    ///
+    /// Stable-key lookup stays in the data layer so generated identity rows do
+    /// not leak into mode or combat APIs.
+    #[must_use]
+    pub fn enemy_by_stable_key(
+        &self,
+        stable_key: &str,
+    ) -> Option<&starclock_combat::catalog::definition::EnemyDefinition> {
+        let raw = self
+            .identities
+            .iter()
+            .find(|identity| identity.stable_key.as_ref() == stable_key)?
+            .id;
+        self.enemy(starclock_combat::EnemyDefinitionId::new(raw)?)
+    }
+
     /// Looks up one validated ordered encounter definition.
     #[must_use]
     pub fn encounter(

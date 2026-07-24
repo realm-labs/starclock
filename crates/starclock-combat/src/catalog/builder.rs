@@ -20,6 +20,7 @@ use crate::modifier::{
     registry::ModifierRegistry,
 };
 
+mod composition;
 mod lifecycle_validate;
 mod parameter_validate;
 

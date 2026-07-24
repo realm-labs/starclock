@@ -290,11 +290,12 @@ against the core combat catalog for collisions. Static Ability Tree modifiers
 use combat-owned `ModifierDefinition` and `ModifierStackingGroup` values and
 are validated by the normal combat modifier registry.
 
-This batch freezes binding declarations and modifier definitions. P3-B2 owns
-composition of the corresponding Rule IR definitions into the executable
-combat catalog; a binding declaration alone is not evidence that an
-event-driven Blessing, Resonance or Curio effect has resolved. P3-B3/P3-B4 must
-prove that execution through real battle events.
+The contribution batch freezes binding declarations and modifier definitions.
+P3-B2 composes definitions that are already executable, including the seven
+static Ability Tree modifiers. Event-driven Rule IR definitions remain an
+explicit zero-count coverage field until P3-B4 translates and proves them; a
+binding declaration alone is not evidence that an event-driven Blessing,
+Resonance or Curio effect has resolved.
 
 `UniverseBattleSpecCompiler` consumes an immutable snapshot:
 
@@ -318,6 +319,71 @@ All enabled structured Standard Universe encounter members must materialize.
 Where Version 4.4 public data lacks an exact enemy behavior, the existing
 documented approximation policy may be used, but the battle must remain
 executable and the approximation must be visible in coverage/provenance.
+
+### Executable encounter materialization revision 1
+
+`UniverseBattleMaterializer` accepts three validated domain inputs:
+
+```rust
+UniverseBattleMaterializer::compile(
+    universe_catalog,
+    &locked_resolved_roster,
+    &battle_contributions,
+)
+```
+
+It returns one immutable `UniverseBattleMaterialization` containing a composed
+`CombatCatalog`, the complete 173-member Activity overlay, 182 ordered
+difficulty enemy battle specifications, per-enemy definition disposition,
+coverage and a canonical root digest. The locked roster must match participant,
+formation, character form and pre-mode combatant digest exactly. Party
+modifiers are added to a new source-attributed combatant assembly; the
+participant build lock itself remains the upstream pre-mode identity.
+
+The generic combat composition seam is
+`CombatCatalogBuilder::from_catalog`. It copies Starclock-owned domain
+definitions from an already validated catalog, accepts additional mode-owned
+definitions and runs the complete catalog validator again. It neither mutates
+the base catalog nor exposes private definition-table or generated row types.
+
+The frozen Version 4.4 materialization denominator is:
+
+| Item | Materialized | Exactness |
+|---|---:|---|
+| structured encounter members | 173 | exact member identity and order |
+| encounter waves | 173 | exact authored topology |
+| member enemy slots | 538 | exact slot order, source key and stage level |
+| difficulty boss/elite bindings | 182 | exact ordered source key, role and level |
+| distinct referenced enemy variants | 86 | 13 exact core definitions; 73 explicit proxies |
+| event-driven Universe rule bindings | snapshot-dependent | declared, not yet materialized in P3-B2 |
+| static Ability Tree modifiers | up to 7 | executable combat modifier definitions |
+
+Only 13 of the 86 referenced variants exist in the Goal 01 representative
+combat bundle. Each of the other 73 records therefore has
+`ApproximateProxy`, its original stable key, selected proxy key and proxy enemy
+ID. Proxy selection is deterministic by authored rank token: Minion,
+MinionLv2, Elite or BigBoss. It never claims that the proxy reproduces the
+missing enemy's skills, phases or AI.
+
+Goal 01 did not retain full scalable enemy stat rows for this broader enemy
+set. Revision 1 consequently uses the explicit
+`goal01-executable-enemy-proxy-stats-v1` policy for every Universe enemy
+occurrence: exact authored level with the existing Goal 01 executable proxy
+HP/Speed assembly. This policy is approximate even when the enemy definition
+itself is an exact match. It exists to make every structural request
+executable without fabricating authoritative statistics; importing complete
+Excel/Sora enemy definitions and curves is a later data expansion, not a
+silent revision of these coverage claims.
+
+Member encounter IDs, difficulty encounter IDs and wave IDs occupy separate
+reviewed ranges. Catalog composition rejects collisions. Every emitted
+`BattleSpec` is immediately passed to `Battle::create` during materialization;
+a missing unit, ability, modifier, enemy, encounter, wave participant or
+source binding fails the whole compiler before an Activity can expose the
+overlay. The materialization root golden is
+`afc6a00b2adf0d106adb01d64ec61ba8b1202c5fae8b07a5cf510a921b9e0dc4`;
+the explicit coverage golden is
+`2fa0e46786809544478f9c224ea45539540f278ff5fed3548a6e5c119aded9f3`.
 
 Production CLI, baseline, agent and MCP workflows execute the resulting battle
 through `starclock-combat`. A reference projection is allowed only in
