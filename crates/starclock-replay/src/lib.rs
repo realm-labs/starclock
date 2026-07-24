@@ -13,5 +13,6 @@ pub mod component;
 pub mod digest;
 pub mod format;
 pub mod format_v2;
+pub mod format_v3;
 pub mod nested_battle;
 pub mod record;

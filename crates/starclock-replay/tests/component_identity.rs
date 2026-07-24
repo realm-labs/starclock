@@ -1,3 +1,4 @@
+use sha2::{Digest, Sha256};
 use starclock_replay::{
     component::{
         ComponentIdentityError, ConfigurationComponentIdentity, ConfigurationComponentKind,
@@ -9,6 +10,7 @@ use starclock_replay::{
         REPLAY_FORMAT_VERSION_V2, ReplayCompatibilityV2, ReplayHeaderV2, decode_replay_v2,
         encode_replay_v2,
     },
+    format_v3::{REPLAY_FORMAT_VERSION_V3, decode_replay_v3, encode_replay_v3},
 };
 
 fn component(
@@ -19,6 +21,55 @@ fn component(
 ) -> ConfigurationComponentIdentity {
     ConfigurationComponentIdentity::new(kind, id, revision, ComponentDigest::new([byte; 32]))
         .unwrap()
+}
+
+#[test]
+fn v3_uses_a_distinct_envelope_and_rejects_unknown_records() {
+    let header = ReplayHeaderV2::new(
+        ReplayCompatibilityV2::new("4.4", "fixed-6-v1", "chacha8-v1", "sha256-v3").unwrap(),
+        component_set(0x44),
+        42,
+        ReplayEntry::Battle {
+            definition_id: 7,
+            spec_digest: EntrySpecDigest::new([0x77; 32]),
+        },
+        0,
+    )
+    .unwrap();
+    let bytes = encode_replay_v3(&header, &[], Vec::new()).unwrap();
+    assert_eq!(
+        u32::from_le_bytes(bytes[4..8].try_into().unwrap()),
+        REPLAY_FORMAT_VERSION_V3
+    );
+    assert_eq!(decode_replay_v3(&bytes).unwrap().header(), &header);
+    assert!(decode_replay_v2(&bytes).is_err());
+
+    let mut unknown = encode_replay_v3(
+        &ReplayHeaderV2::new(
+            header.compatibility().clone(),
+            header.components().clone(),
+            header.master_seed(),
+            header.entry().clone(),
+            1,
+        )
+        .unwrap(),
+        &[starclock_replay::record::RecordRef::new(
+            starclock_replay::record::RecordKind::ControllerDiagnostic,
+            0,
+            &[],
+        )
+        .unwrap()],
+        Vec::new(),
+    )
+    .unwrap();
+    let record_kind_offset = unknown.len() - 13;
+    unknown[record_kind_offset] = 0xff;
+    assert!(matches!(
+        decode_replay_v3(&unknown),
+        Err(starclock_replay::format_v3::ReplayV3Error::Format(
+            starclock_replay::record::ReplayFormatError::UnknownRecordKind(0xff)
+        ))
+    ));
 }
 
 fn component_set(controller_byte: u8) -> ConfigurationComponentSet {
@@ -114,6 +165,14 @@ fn v2_round_trip_binds_components_without_changing_legacy_decoder() {
     )
     .unwrap();
     let bytes = encode_replay_v2(&header, &[], Vec::new()).unwrap();
+    let frozen_digest: [u8; 32] = Sha256::digest(&bytes).into();
+    assert_eq!(
+        frozen_digest,
+        [
+            234, 149, 123, 1, 147, 51, 12, 39, 35, 100, 77, 57, 7, 10, 179, 250, 188, 168, 1, 171,
+            165, 220, 65, 140, 10, 54, 26, 226, 248, 58, 231, 172,
+        ]
+    );
     assert_eq!(
         u32::from_le_bytes(bytes[4..8].try_into().unwrap()),
         REPLAY_FORMAT_VERSION_V2

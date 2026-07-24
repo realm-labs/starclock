@@ -525,7 +525,7 @@ def expected_manifest_row() -> dict[str, Any]:
         "game_version": "4.4", "snapshot_date": "2026-07-17", "data_revision": "core-combat-v1-phase7-v1b",
         "required_rules_revision": "core-combat-rules-v1", "sora_cli_version": "0.3.0",
         "numeric_policy_revision": "fixed-i64-6dp-v1", "rng_algorithm_revision": "chacha8-rand-0.10.2-intmap-v1",
-        "state_hash_revision": "sha256-v3", "replay_format_version": "replay-v1",
+        "state_hash_revision": "sha256-v4", "replay_format_version": "replay-v1",
         "coverage_manifest_sha256": GOAL_DIGEST,
     }
 

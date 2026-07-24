@@ -8,13 +8,14 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Combat identity and replay v3 |
 | Active batch | None |
-| Next unblocked batch | `G06-P1-B3` |
+| Next unblocked batch | `G06-P1-B4` |
 | Required snapshot | Goal 05 `standard-universe-end-to-end-v1` |
 | Planned batches | 18 |
 | Blocking condition | None |
 
-Goal 06 is active. Combat and Activity now carry independent canonical input
-and assembly identities; the next batch freezes component-addressed replay v3.
+Goal 06 is active. Combat, Activity and replay v3 now carry independent
+canonical input and assembly identities; the next batch removes the temporary
+caller-supplied digest bridge and finishes Phase 1 construction/event cleanup.
 
 ## Batch ledger
 
@@ -25,7 +26,7 @@ and assembly identities; the next batch freezes component-addressed replay v3.
 | `G06-P0-B3` | `Complete` | `node tools/goal06/verify-phase0.mjs`; full repository gate | Froze historical component replay v2 and the v3 six-field nested identity/first-divergence contract, six identity/assembly/cache/concurrency/matrix performance workloads under the 180-second focused budget, a zero-new-dependency Cargo baseline and the five-phase/18-batch release scaffold. Phase 0 generated/drift checks now run mechanically. |
 | `G06-P1-B1` | `Complete` | `node tools/goal06/verify-phase1-b1.mjs`; `cargo test -p starclock-combat`; combat clippy; workspace check | Added the combat-owned `SCBI` v1 canonical codec and computed `CombatInputDigest`, separated opaque `AssemblyDigest` in `BattleSpec` and runtime battle identity, and retained the historical state/replay bytes until the coordinated P1-B3 revision. The temporary legacy constructor treats its supplied digest only as assembly provenance. |
 | `G06-P1-B2` | `Complete` | `node tools/goal06/verify-phase1-b2.mjs`; Activity/replay/Universe tests; workspace check | Migrated pending battle views, deterministic battle seeds, handoffs, result envelopes, result digests and settlement validation to independent combat-input and assembly identities. Advanced authoritative Activity state to codec v3 / `sha256-v5`; dual-identity payloads emit current versions while released single-digest payloads retain explicit read-only decoders. Independent mismatch tests preserve byte-identical Activity state. |
-| `G06-P1-B3` | `Pending` | — | Add replay v3 and preserve replay v2 verification. |
+| `G06-P1-B3` | `Complete` | `node tools/goal06/verify-phase1-b3.mjs`; combat/replay/Universe tests; focused Clippy; quick repository gate | Advanced combat state to `SCBS` v3 / `sha256-v4`, binding combat-input codec, computed input digest and assembly provenance independently. Added component-addressed replay v3 plus six-field nested battle identity payloads and Standard Universe verification with the frozen component → assembly → combat-input → command → event → state → result → Activity first-divergence order. Historical v2 decode/verification remains available and its exact envelope bytes are SHA-256 frozen. |
 | `G06-P1-B4` | `Pending` | — | Migrate callers, event attribution and touched file layout. |
 | `G06-P2-B1` | `Pending` | — | Separate catalog composition and assembly; define cache key. |
 | `G06-P2-B2` | `Pending` | — | Project the current Activity contribution snapshot. |

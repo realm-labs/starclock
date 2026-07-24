@@ -530,6 +530,12 @@ fn verify_nested_battle(
                 kind: error.kind(),
             }
         })?;
+        compare_events(
+            battle_index,
+            command_index,
+            expected.event_payloads(),
+            resolution.events(),
+        )?;
         if expected.state_hash().bytes() != resolution.state_hash().bytes() {
             return Err(StandardUniverseReplayV2Error::BattleStateDivergence {
                 battle_index,
@@ -538,12 +544,6 @@ fn verify_nested_battle(
                 actual: StateDigest::new(resolution.state_hash().bytes()),
             });
         }
-        compare_events(
-            battle_index,
-            command_index,
-            expected.event_payloads(),
-            resolution.events(),
-        )?;
         commitment.push(&command, &resolution);
         command_index += 1;
     }

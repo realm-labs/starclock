@@ -33,6 +33,10 @@ use starclock_mode_universe::{
         standard_universe_component_set, standard_universe_header_v2,
         verify_standard_universe_replay_v2,
     },
+    universe_replay_v3::{
+        ReplayV3DivergenceKind, encode_standard_universe_trace_v3,
+        verify_standard_universe_replay_v3,
+    },
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
@@ -416,20 +420,20 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
             .iter()
             .map(|battle| battle.trace().len())
             .sum::<usize>(),
-        14
+        10
     );
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            88, 171, 240, 212, 93, 124, 58, 169, 248, 82, 142, 35, 190, 95, 88, 31, 154, 203, 160,
-            18, 10, 165, 229, 54, 168, 114, 7, 61, 178, 7, 11, 73,
+            56, 95, 116, 154, 237, 182, 85, 91, 213, 171, 112, 37, 57, 129, 65, 88, 207, 37, 100,
+            13, 254, 225, 228, 212, 30, 56, 41, 106, 255, 132, 114, 99,
         ]
     );
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
         [
-            213, 159, 41, 81, 175, 10, 87, 1, 158, 38, 95, 242, 197, 82, 118, 241, 185, 11, 41,
-            224, 113, 146, 132, 112, 4, 157, 218, 239, 189, 100, 218, 218,
+            184, 206, 139, 235, 58, 77, 22, 134, 212, 246, 180, 172, 175, 16, 193, 57, 75, 125, 73,
+            0, 105, 129, 221, 42, 104, 90, 52, 128, 68, 36, 236, 108,
         ]
     );
     assert!(executor.reports().iter().all(|battle| {
@@ -574,6 +578,132 @@ fn component_replay_reexecutes_nested_commands_and_compares_event_payloads() {
         Err(StandardUniverseReplayV2Error::ComponentDivergence(divergence))
             if divergence.expected.as_ref().unwrap().id() == "baseline-controller"
     ));
+
+    let v3 = encode_standard_universe_trace_v3(&header, &recorded).unwrap();
+    assert_eq!(u32::from_le_bytes(v3[4..8].try_into().unwrap()), 3);
+    let fresh = compiled
+        .start_standard(instance, seed)
+        .unwrap()
+        .into_activity();
+    let verified = verify_standard_universe_replay_v3(
+        &v3,
+        fresh,
+        Arc::clone(materialized.combat_catalog()),
+        &components,
+        &compatibility,
+        "standard-universe-v1",
+    )
+    .unwrap();
+    assert_eq!(verified.battle_count() as usize, recorded.battles().len());
+
+    let divergence = |bytes: &[u8]| {
+        let fresh = compiled
+            .start_standard(instance, seed)
+            .unwrap()
+            .into_activity();
+        verify_standard_universe_replay_v3(
+            bytes,
+            fresh,
+            Arc::clone(materialized.combat_catalog()),
+            &components,
+            &compatibility,
+            "standard-universe-v1",
+        )
+        .unwrap_err()
+        .first_divergence()
+    };
+
+    let mut event_and_state_corrupt = v3.clone();
+    let state_payload = v3_payload_offset(
+        &event_and_state_corrupt,
+        starclock_replay::record::RecordKind::ExpectedBattleState,
+        0,
+    );
+    event_and_state_corrupt[state_payload + 2] ^= 0x80;
+    event_and_state_corrupt[state_payload + 42] ^= 0x80;
+    assert_eq!(
+        divergence(&event_and_state_corrupt),
+        Some(ReplayV3DivergenceKind::Event)
+    );
+
+    let start_payload = v3_payload_offset(
+        &v3,
+        starclock_replay::record::RecordKind::NestedBattleStart,
+        0,
+    );
+    let revision_length = u32::from_le_bytes(
+        v3[start_payload + 34..start_payload + 38]
+            .try_into()
+            .unwrap(),
+    ) as usize;
+    let identity = start_payload + 38 + revision_length;
+    let combat_input = identity + 8 + 16 + 96;
+    let assembly = combat_input + 32;
+
+    let mut component_and_assembly_corrupt = v3.clone();
+    component_and_assembly_corrupt[start_payload + 2] ^= 0x80;
+    component_and_assembly_corrupt[assembly] ^= 0x80;
+    assert_eq!(
+        divergence(&component_and_assembly_corrupt),
+        Some(ReplayV3DivergenceKind::Component)
+    );
+
+    let mut assembly_corrupt = v3.clone();
+    assembly_corrupt[assembly] ^= 0x80;
+    assert_eq!(
+        divergence(&assembly_corrupt),
+        Some(ReplayV3DivergenceKind::Assembly)
+    );
+
+    let mut combat_corrupt = v3.clone();
+    combat_corrupt[combat_input] ^= 0x80;
+    assert_eq!(
+        divergence(&combat_corrupt),
+        Some(ReplayV3DivergenceKind::CombatInput)
+    );
+
+    let mut command_corrupt = v3.clone();
+    let command_payload = v3_payload_offset(
+        &command_corrupt,
+        starclock_replay::record::RecordKind::AcceptedBattleCommand,
+        0,
+    );
+    command_corrupt[command_payload + 2] ^= 0xff;
+    assert_eq!(
+        divergence(&command_corrupt),
+        Some(ReplayV3DivergenceKind::Command)
+    );
+
+    let mut state_corrupt = v3.clone();
+    state_corrupt[state_payload + 2] ^= 0x80;
+    assert_eq!(
+        divergence(&state_corrupt),
+        Some(ReplayV3DivergenceKind::State)
+    );
+
+    let mut result_corrupt = v3.clone();
+    let (result_payload, result_length) = v3_payload_range(
+        &result_corrupt,
+        starclock_replay::record::RecordKind::NestedBattleEnd,
+        0,
+    );
+    result_corrupt[result_payload + result_length - 1] ^= 0x80;
+    assert_eq!(
+        divergence(&result_corrupt),
+        Some(ReplayV3DivergenceKind::Result)
+    );
+
+    let mut activity_corrupt = v3;
+    let activity_state = v3_payload_offset(
+        &activity_corrupt,
+        starclock_replay::record::RecordKind::ExpectedActivityState,
+        0,
+    );
+    activity_corrupt[activity_state] ^= 0x80;
+    assert_eq!(
+        divergence(&activity_corrupt),
+        Some(ReplayV3DivergenceKind::Activity)
+    );
 }
 
 fn replacement_controller_component_set(
@@ -612,4 +742,39 @@ fn v2_payload_offset(
         .unwrap()
         .payload();
     payload.as_ptr() as usize - bytes.as_ptr() as usize
+}
+
+fn v3_payload_offset(
+    bytes: &[u8],
+    kind: starclock_replay::record::RecordKind,
+    ordinal: usize,
+) -> usize {
+    let decoded = starclock_replay::format_v3::decode_replay_v3(bytes).unwrap();
+    let payload = decoded
+        .records()
+        .iter()
+        .filter(|record| record.kind() == kind)
+        .nth(ordinal)
+        .unwrap()
+        .payload();
+    payload.as_ptr() as usize - bytes.as_ptr() as usize
+}
+
+fn v3_payload_range(
+    bytes: &[u8],
+    kind: starclock_replay::record::RecordKind,
+    ordinal: usize,
+) -> (usize, usize) {
+    let decoded = starclock_replay::format_v3::decode_replay_v3(bytes).unwrap();
+    let payload = decoded
+        .records()
+        .iter()
+        .filter(|record| record.kind() == kind)
+        .nth(ordinal)
+        .unwrap()
+        .payload();
+    (
+        payload.as_ptr() as usize - bytes.as_ptr() as usize,
+        payload.len(),
+    )
 }

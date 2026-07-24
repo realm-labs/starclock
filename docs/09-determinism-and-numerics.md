@@ -173,17 +173,19 @@ Hard limits are authored rules-revision constants. Battle limits cover events, r
 ## Canonical state hash
 
 After every accepted command, compute or make available a canonical SHA-256
-state digest. The released combat and legacy one-battle implementation uses
-`state_hash_revision = "sha256-v3"`; it superseded `sha256-v2` when linked-unit
-lifecycle and attachment state became authoritative. A revision identifies both
-the algorithm and the canonical byte layout. Its byte stream uses:
+state digest. Current combat uses `SCBS` codec version 3 and
+`state_hash_revision = "sha256-v4"`. Version 4 supersedes `sha256-v3` by
+binding the combat-input codec revision, computed `CombatInputDigest` and
+opaque `AssemblyDigest` as distinct fields. A revision identifies both the
+algorithm and the canonical byte layout. Its byte stream uses:
 
 - explicit field order and version;
 - fixed-width integers in a declared byte order;
 - entities/effects/actions sorted by stable IDs and sequence keys;
 - raw fixed-point integers, never formatted decimal strings;
 - RNG state/draw index, timeline state, wave state, team resources, units, effects, shields, marks, summons, and countdowns;
-- the config bundle SHA-256, rules revision, numeric policy revision, and RNG algorithm revision.
+- the config bundle SHA-256, rules revision, combat-input/assembly identities,
+  numeric policy revision, and RNG algorithm revision.
 
 Exclude caches, allocation capacity, pointers, logs, presentation state, wall-clock timestamps, and engine entity IDs. Do not use Rust's default `Hasher`, raw struct memory, or derived serialization whose field/version stability is not controlled by the replay format.
 
@@ -193,10 +195,12 @@ byte vector; golden tests may direct the encoder to a collecting sink and must
 prove byte-for-byte equivalence. Buffer reuse, chunk size and hasher update
 boundaries are non-authoritative implementation details.
 
-`sha256-v3` is intentionally a full-state digest after each accepted command.
+`sha256-v4` is intentionally a full-state digest after each accepted command.
 The earlier `sha256-v2` had superseded `sha256-v1` by canonically encoding
 initial team resources and the enemy definition/AI/phase cursor; v3 additionally
-binds authoritative linked-unit lifecycle and attachment state.
+bound authoritative linked-unit lifecycle and attachment state. Historical
+v3 replay verification remains available only through its released
+compatibility path.
 Caching encoded immutable definition bodies is unnecessary because the catalog
 is represented by its digest. Incremental field hashes, Merkle roots or dirty
 page hashing require a new documented `state_hash_revision` unless they are

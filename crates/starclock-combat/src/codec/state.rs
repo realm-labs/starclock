@@ -14,7 +14,7 @@ use crate::{
 use super::BattleStateHash;
 
 const STATE_MAGIC: &[u8; 4] = b"SCBS";
-const STATE_CODEC_VERSION: u16 = 2;
+const STATE_CODEC_VERSION: u16 = 3;
 
 pub(crate) fn hash_state(state: &BattleState) -> BattleStateHash {
     let mut sink = Sha256Sink(Sha256::new());
@@ -111,6 +111,8 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
     e.text(state.identity.catalog_revision.as_str());
     e.raw(&state.identity.catalog_digest.bytes());
     e.text(&state.identity.rules_revision);
+    e.text(crate::COMBAT_INPUT_CODEC_REVISION);
+    e.raw(&state.identity.combat_input_digest.bytes());
     e.raw(&state.identity.assembly_digest.bytes());
     e.text(NUMERIC_POLICY_REVISION);
     e.text(RNG_ALGORITHM_REVISION);

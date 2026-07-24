@@ -56,7 +56,11 @@ Replay and state hashing use a project-owned versioned codec:
 - optional values encoded with an explicit presence byte;
 - no pointer values, `usize`, struct memory, map iteration order, wall-clock timestamps, caches, or presentation fields.
 
-Normal `serde`, JSON, Rust's `Hash`, and dependency-defined binary encodings are not canonical. They may support debug output only. State hashing applies SHA-256 to the exact canonical state byte stream and records `state_hash_revision = "sha256-v2"`.
+Normal `serde`, JSON, Rust's `Hash`, and dependency-defined binary encodings are
+not canonical. They may support debug output only. Current combat state hashing
+applies SHA-256 to `SCBS` version 3 and records
+`state_hash_revision = "sha256-v4"`; older revisions below describe historical
+formats rather than the current emission contract.
 
 The codec exposes one canonical sink contract. State hashing streams into a
 SHA-256 sink; golden/debug tooling may collect the same bytes. Replay
@@ -87,6 +91,22 @@ skipping unknown bytes is not a compatibility mechanism. The library limit is
 framing, lengths, sequence and trailing-byte boundary before allocating the
 borrowed record table. Later batches define domain payload bytes inside these
 reserved kinds without changing the envelope.
+
+### Component-addressed envelopes
+
+Released replay v2 adds the exact ordered consumed-component set and its
+canonical root while retaining closed, bounded record framing. Its decoder and
+Standard Universe verifier remain available for historical recordings and
+never reinterpret those bytes as a newer format.
+
+Current replay v3 keeps schema version 1 but advances the envelope version to
+3. Every nested battle start binds its component root, combat-input codec
+revision, computed combat-input digest, assembly digest and exact handoff
+identity. Its nested end binds the exact result identity and result digest.
+Unknown records are rejected. Verification reports the first mismatch in this
+order: component, assembly, combat input, command, event, state, result, then
+Activity. New production surfaces migrate to v3 together; replay v2 is
+verification-only after that migration.
 
 ## Replay verification
 

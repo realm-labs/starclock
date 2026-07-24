@@ -62,6 +62,7 @@ mod topology_service;
 mod topology_support;
 pub mod universe_replay;
 pub mod universe_replay_v2;
+pub mod universe_replay_v3;
 
 mod curio_lowering;
 mod encounter_digest;

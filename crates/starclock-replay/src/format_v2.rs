@@ -133,16 +133,7 @@ impl ReplayHeaderV2 {
 
 impl CanonicalEncode for ReplayHeaderV2 {
     fn encode<S: CanonicalSink>(&self, e: &mut Encoder<S>) -> Result<(), CodecError> {
-        e.raw(&REPLAY_MAGIC);
-        e.u32(REPLAY_FORMAT_VERSION_V2);
-        e.u32(REPLAY_SCHEMA_VERSION_V2);
-        e.u8(UnknownRecordPolicy::Reject as u8);
-        encode_compatibility(&self.compatibility, e)?;
-        self.components.encode(e)?;
-        e.u64(self.master_seed);
-        encode_entry(&self.entry, e)?;
-        e.u32(self.record_count);
-        Ok(())
+        encode_header(self, e, REPLAY_FORMAT_VERSION_V2)
     }
 }
 
@@ -169,13 +160,22 @@ pub fn encode_replay_v2<S: CanonicalSink>(
     records: &[RecordRef<'_>],
     sink: S,
 ) -> Result<S, ReplayV2Error> {
+    encode_replay_with_version(header, records, sink, REPLAY_FORMAT_VERSION_V2)
+}
+
+pub(crate) fn encode_replay_with_version<S: CanonicalSink>(
+    header: &ReplayHeaderV2,
+    records: &[RecordRef<'_>],
+    sink: S,
+    format_version: u32,
+) -> Result<S, ReplayV2Error> {
     if records.len() != header.record_count as usize {
         return Err(ReplayV2Error::Format(
             ReplayFormatError::InvalidRecordSequence,
         ));
     }
     let mut encoder = Encoder::new(sink);
-    header.encode(&mut encoder)?;
+    encode_header(header, &mut encoder, format_version)?;
     for (expected, record) in records.iter().enumerate() {
         if record.sequence() != expected as u64 {
             return Err(ReplayV2Error::Format(
@@ -188,8 +188,15 @@ pub fn encode_replay_v2<S: CanonicalSink>(
 }
 
 pub fn decode_replay_v2(bytes: &[u8]) -> Result<DecodedReplayV2<'_>, ReplayV2Error> {
+    decode_replay_with_version(bytes, REPLAY_FORMAT_VERSION_V2)
+}
+
+pub(crate) fn decode_replay_with_version(
+    bytes: &[u8],
+    format_version: u32,
+) -> Result<DecodedReplayV2<'_>, ReplayV2Error> {
     let mut decoder = Decoder::new(bytes);
-    let header = decode_header(&mut decoder)?;
+    let header = decode_header(&mut decoder, format_version)?;
     let records_start = decoder.position();
     let mut record_decoder = Decoder::new(&bytes[records_start..]);
     let mut records = Vec::with_capacity(header.record_count as usize);
@@ -201,6 +208,23 @@ pub fn decode_replay_v2(bytes: &[u8]) -> Result<DecodedReplayV2<'_>, ReplayV2Err
         header,
         records: records.into_boxed_slice(),
     })
+}
+
+fn encode_header<S: CanonicalSink>(
+    header: &ReplayHeaderV2,
+    e: &mut Encoder<S>,
+    format_version: u32,
+) -> Result<(), CodecError> {
+    e.raw(&REPLAY_MAGIC);
+    e.u32(format_version);
+    e.u32(REPLAY_SCHEMA_VERSION_V2);
+    e.u8(UnknownRecordPolicy::Reject as u8);
+    encode_compatibility(&header.compatibility, e)?;
+    header.components.encode(e)?;
+    e.u64(header.master_seed);
+    encode_entry(&header.entry, e)?;
+    e.u32(header.record_count);
+    Ok(())
 }
 
 fn encode_compatibility<S: CanonicalSink>(
@@ -255,12 +279,15 @@ fn encode_entry<S: CanonicalSink>(
     Ok(())
 }
 
-fn decode_header(d: &mut Decoder<'_>) -> Result<ReplayHeaderV2, ReplayV2Error> {
+fn decode_header(
+    d: &mut Decoder<'_>,
+    expected_format_version: u32,
+) -> Result<ReplayHeaderV2, ReplayV2Error> {
     if d.take(4)? != REPLAY_MAGIC {
         return Err(ReplayV2Error::Format(ReplayFormatError::InvalidMagic));
     }
     let version = d.u32()?;
-    if version != REPLAY_FORMAT_VERSION_V2 {
+    if version != expected_format_version {
         return Err(ReplayV2Error::Format(
             ReplayFormatError::UnsupportedFormatVersion(version),
         ));

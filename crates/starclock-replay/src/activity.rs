@@ -4,6 +4,8 @@
 mod identity;
 #[path = "activity_v2.rs"]
 pub mod v2;
+#[path = "activity_v3.rs"]
+pub mod v3;
 
 use core::fmt;
 
