@@ -44,6 +44,7 @@ use crate::{
     },
     battle_materialization::UniverseBattleMaterialization,
     catalog::UniverseCatalog,
+    dynamic_battle_assembler::StandardUniverseBattleAssembler,
     entry::CompiledActivity,
     handler_bundle::activity_handler_registry,
     nested_battle_executor::{
@@ -148,6 +149,18 @@ pub struct RecordedStandardUniverseRunV2 {
 }
 
 impl RecordedStandardUniverseRunV2 {
+    pub(crate) fn new(
+        report: StandardUniverseBaselineReport,
+        trace: Box<[StandardUniverseTraceEntry]>,
+        battles: Box<[NestedBattleExecutionReport]>,
+    ) -> Self {
+        Self {
+            report,
+            trace,
+            battles,
+        }
+    }
+
     #[must_use]
     pub const fn report(&self) -> &StandardUniverseBaselineReport {
         &self.report
@@ -180,11 +193,11 @@ pub fn record_baseline_run_v2(
     if battles.len() != expected_battles {
         return Err(StandardUniverseReplayV2Error::CapturedBattleMismatch);
     }
-    Ok(RecordedStandardUniverseRunV2 {
-        report: recorded.report().clone(),
-        trace: recorded.trace().to_vec().into_boxed_slice(),
-        battles: battles.into_boxed_slice(),
-    })
+    Ok(RecordedStandardUniverseRunV2::new(
+        recorded.report().clone(),
+        recorded.trace().to_vec().into_boxed_slice(),
+        battles.into_boxed_slice(),
+    ))
 }
 
 pub fn standard_universe_record_count_v2(
@@ -349,8 +362,50 @@ impl StandardUniverseReplayReportV2 {
 #[allow(clippy::too_many_arguments)]
 pub fn verify_standard_universe_replay_v2(
     bytes: &[u8],
-    mut activity: StandardUniverseActivity,
+    activity: StandardUniverseActivity,
     catalog: Arc<CombatCatalog>,
+    actual_components: &ConfigurationComponentSet,
+    actual_compatibility: &ReplayCompatibilityV2,
+    expected_profile_id: &str,
+) -> Result<StandardUniverseReplayReportV2, StandardUniverseReplayV2Error> {
+    verify_standard_universe_replay_v2_with_source(
+        bytes,
+        activity,
+        BattleCatalogSource::Static(catalog),
+        actual_components,
+        actual_compatibility,
+        expected_profile_id,
+    )
+}
+
+pub(crate) fn verify_standard_universe_replay_v2_dynamic(
+    bytes: &[u8],
+    activity: StandardUniverseActivity,
+    assembler: &StandardUniverseBattleAssembler,
+    actual_components: &ConfigurationComponentSet,
+    actual_compatibility: &ReplayCompatibilityV2,
+    expected_profile_id: &str,
+) -> Result<StandardUniverseReplayReportV2, StandardUniverseReplayV2Error> {
+    verify_standard_universe_replay_v2_with_source(
+        bytes,
+        activity,
+        BattleCatalogSource::Dynamic(assembler),
+        actual_components,
+        actual_compatibility,
+        expected_profile_id,
+    )
+}
+
+enum BattleCatalogSource<'a> {
+    Static(Arc<CombatCatalog>),
+    Dynamic(&'a StandardUniverseBattleAssembler),
+}
+
+#[allow(clippy::too_many_arguments)]
+fn verify_standard_universe_replay_v2_with_source(
+    bytes: &[u8],
+    mut activity: StandardUniverseActivity,
+    source: BattleCatalogSource<'_>,
     actual_components: &ConfigurationComponentSet,
     actual_compatibility: &ReplayCompatibilityV2,
     expected_profile_id: &str,
@@ -439,11 +494,27 @@ pub fn verify_standard_universe_replay_v2(
                 }
                 let start = nested_start
                     .ok_or(StandardUniverseReplayV2Error::MissingNestedBoundary { action_index })?;
-                let handoff = activity
-                    .start_pending_battle(activity.view().state_hash())
-                    .map_err(|_| StandardUniverseReplayV2Error::ActivityCommandRejected {
-                        action_index,
-                    })?;
+                let (handoff, catalog) = match &source {
+                    BattleCatalogSource::Static(catalog) => (
+                        activity
+                            .start_pending_battle(activity.view().state_hash())
+                            .map_err(|_| {
+                                StandardUniverseReplayV2Error::ActivityCommandRejected {
+                                    action_index,
+                                }
+                            })?,
+                        Arc::clone(catalog),
+                    ),
+                    BattleCatalogSource::Dynamic(assembler) => {
+                        let start =
+                            assembler.start_pending_battle(&mut activity).map_err(|_| {
+                                StandardUniverseReplayV2Error::ActivityCommandRejected {
+                                    action_index,
+                                }
+                            })?;
+                        (start.handoff().clone(), Arc::clone(start.combat_catalog()))
+                    }
+                };
                 if start != handoff.identity() || recorded_result.identity() != start {
                     return Err(StandardUniverseReplayV2Error::NestedStartDivergence {
                         action_index,
@@ -457,7 +528,7 @@ pub fn verify_standard_universe_replay_v2(
                     action_index,
                     battle_index,
                     &handoff,
-                    Arc::clone(&catalog),
+                    catalog,
                     recorded_result,
                 )?;
                 battle_command_count = checked_add(battle_command_count, commands)?;

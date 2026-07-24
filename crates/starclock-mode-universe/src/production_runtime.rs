@@ -234,6 +234,25 @@ impl StandardUniverseRuntimeInstance {
             self.compatibility,
         )
     }
+
+    #[must_use]
+    pub fn into_dynamic_parts(
+        self,
+    ) -> (
+        Box<str>,
+        StandardUniverseActivity,
+        Arc<StandardUniverseBattleAssembler>,
+        ConfigurationComponentSet,
+        ReplayCompatibilityV2,
+    ) {
+        (
+            self.profile_id,
+            self.activity,
+            self.battle_assembler,
+            self.components,
+            self.compatibility,
+        )
+    }
 }
 
 fn default_roster(

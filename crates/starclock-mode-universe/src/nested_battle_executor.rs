@@ -16,8 +16,11 @@ use starclock_combat::{
 };
 
 use crate::{
-    baseline_runner::{NestedBattleExecutionError, NestedBattleExecutor},
+    baseline_runner::{
+        DynamicNestedBattleExecutor, NestedBattleExecutionError, NestedBattleExecutor,
+    },
     digest::Encoder,
+    dynamic_battle_assembler::StandardUniverseDynamicBattleStart,
 };
 
 pub const UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION: &str =
@@ -102,7 +105,7 @@ impl NestedBattleExecutionReport {
 
 /// Deterministic production executor over the generic combat aggregate.
 pub struct UniverseNestedBattleExecutor {
-    catalog: Arc<CombatCatalog>,
+    compatibility_catalog: Option<Arc<CombatCatalog>>,
     command_budget: u32,
     reports: Vec<NestedBattleExecutionReport>,
 }
@@ -111,7 +114,17 @@ impl UniverseNestedBattleExecutor {
     #[must_use]
     pub fn new(catalog: Arc<CombatCatalog>) -> Self {
         Self {
-            catalog,
+            compatibility_catalog: Some(catalog),
+            command_budget: DEFAULT_NESTED_BATTLE_COMMAND_BUDGET,
+            reports: Vec::new(),
+        }
+    }
+
+    /// Creates an executor that accepts only assembler-paired dynamic starts.
+    #[must_use]
+    pub fn dynamic() -> Self {
+        Self {
+            compatibility_catalog: None,
             command_budget: DEFAULT_NESTED_BATTLE_COMMAND_BUDGET,
             reports: Vec::new(),
         }
@@ -149,10 +162,13 @@ impl UniverseNestedBattleExecutor {
         &mut self,
         activity: &mut crate::runtime::StandardUniverseActivity,
     ) -> Result<SettledNestedBattle, ActivityNestedBattleExecutionError> {
+        let catalog = self.compatibility_catalog.as_ref().ok_or(
+            ActivityNestedBattleExecutionError::Execution(NestedBattleExecutionError::BattleBuild),
+        )?;
         let handoff = activity
             .start_pending_battle(activity.view().state_hash())
             .map_err(ActivityNestedBattleExecutionError::Start)?;
-        let (result, report) = match self.execute_checked(&handoff) {
+        let (result, report) = match self.execute_checked(catalog, &handoff) {
             Ok(value) => value,
             Err(error) => {
                 let restored = activity.rollback_pending_battle_start();
@@ -173,11 +189,12 @@ impl UniverseNestedBattleExecutor {
 
     fn execute_checked(
         &self,
+        catalog: &Arc<CombatCatalog>,
         handoff: &ActivityBattleHandoff,
     ) -> Result<(BattleResult, NestedBattleExecutionReport), NestedBattleExecutionError> {
-        let mut battle = create_nested_battle(Arc::clone(&self.catalog), handoff)?;
+        let mut battle = create_nested_battle(Arc::clone(catalog), handoff)?;
         let mut enemy = EnemyController::new(enemy_controller_seed(handoff));
-        let mut commitment = EventCommitment::new(&self.catalog, handoff);
+        let mut commitment = EventCommitment::new(catalog, handoff);
         let mut trace = Vec::new();
 
         for _ in 0..self.command_budget {
@@ -191,7 +208,7 @@ impl UniverseNestedBattleExecutor {
                 .cloned()
                 .ok_or(NestedBattleExecutionError::MissingDecision)?;
             let (command, controller, enemy_action) =
-                select_command(&battle, &self.catalog, &mut enemy, &decision)?;
+                select_command(&battle, catalog, &mut enemy, &decision)?;
             let resolution = battle
                 .apply(command.clone())
                 .map_err(|_| NestedBattleExecutionError::CommandRejected)?;
@@ -246,7 +263,22 @@ impl NestedBattleExecutor for UniverseNestedBattleExecutor {
         &mut self,
         handoff: &ActivityBattleHandoff,
     ) -> Result<BattleResult, NestedBattleExecutionError> {
-        let (result, report) = self.execute_checked(handoff)?;
+        let catalog = self
+            .compatibility_catalog
+            .as_ref()
+            .ok_or(NestedBattleExecutionError::BattleBuild)?;
+        let (result, report) = self.execute_checked(catalog, handoff)?;
+        self.reports.push(report);
+        Ok(result)
+    }
+}
+
+impl DynamicNestedBattleExecutor for UniverseNestedBattleExecutor {
+    fn execute_dynamic(
+        &mut self,
+        start: &StandardUniverseDynamicBattleStart,
+    ) -> Result<BattleResult, NestedBattleExecutionError> {
+        let (result, report) = self.execute_checked(start.combat_catalog(), start.handoff())?;
         self.reports.push(report);
         Ok(result)
     }

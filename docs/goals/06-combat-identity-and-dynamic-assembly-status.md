@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 3 — Production surfaces and replay |
 | Active batch | None |
-| Next unblocked batch | `G06-P3-B1` |
+| Next unblocked batch | `G06-P3-B2` |
 | Required snapshot | Goal 05 `standard-universe-end-to-end-v1` |
 | Planned batches | 18 |
 | Blocking condition | None |
@@ -24,8 +24,9 @@ carry. P2-B3 resolves the selected encounter from that snapshot and atomically
 replaces/seals the prepared placeholder. P2-B4 now bounds assembly work and
 proves exact state/RNG preservation across stale, invalid, budget and cache
 failure paths. P2-B5 closes Phase 2 with real battle fixtures for Blessing,
-Curio, Resonance, Ability Tree and cross-battle carry transitions. Phase 3 now
-migrates every production surface to this one dynamic authority.
+Curio, Resonance, Ability Tree and cross-battle carry transitions. P3-B1 moves
+the baseline runner and CLI to dynamic-only execution and replay-v3
+record/verification. P3-B2 will migrate Agent sessions and MCP tools.
 
 ## Batch ledger
 
@@ -43,7 +44,7 @@ migrates every production surface to this one dynamic authority.
 | `G06-P2-B3` | `Complete` | `node tools/goal06/verify-phase2-b3.mjs`; Activity, materialization and dynamic-start tests; workspace check; focused Clippy; quick repository gate | Added the shared `StandardUniverseBattleAssembler`, snapshot/carry-aware materialization and an atomic generic Activity replacement/start operation. The returned handoff is paired with its exact immutable combat catalog; encounter, preparation variant, dual identities, contract and seed are sealed together without RNG draws or partial Activity publication. |
 | `G06-P2-B4` | `Complete` | `node tools/goal06/verify-phase2-b4.mjs`; dynamic assembly integration tests; focused Clippy; quick repository gate | Added explicit assembly budgets and configurable bounded cache policy. Integrated fixtures prove exact-key hits and FIFO eviction, reject stale snapshots, unregistered techniques and budget overflow before publication, preserve canonical Activity/RNG bytes, and successfully retry the same pending battle. |
 | `G06-P2-B5` | `Complete` | `node tools/goal06/verify-phase2-b5.mjs`; transition unit fixture; dynamic two-battle carry integration; focused Clippy; quick repository gate | Proved absent/L1/L2 Blessing, active/suppressed/removed Curio, locked/unlocked Hunt Resonance, Ability Tree node 2 and settled HP/Energy carry through the shared assembler and real `Battle` construction. Combat-equivalent suppressed/removed Curio inputs retain equal combat identity while independent Activity provenance changes assembly identity. |
-| `G06-P3-B1` | `Pending` | — | Migrate CLI and baseline runs. |
+| `G06-P3-B1` | `Complete` | `node tools/goal06/verify-phase3-b1.mjs`; dynamic replay integration; CLI v3 round trip/corruption test; historical replay tests; focused Clippy; quick repository gate | Added a dynamic baseline executor boundary that consumes assembler-paired handoff/catalog results. CLI runs now reassemble every battle, emit canonical replay v3 and verify it by reconstructing current snapshots; historical fixed-catalog v2/v3 verification remains separate and unchanged. |
 | `G06-P3-B2` | `Pending` | — | Migrate Agent and MCP surfaces. |
 | `G06-P3-B3` | `Pending` | — | Verify replay reconstruction and interface parity. |
 | `G06-P4-B1` | `Pending` | — | Freeze performance and source-structure hardening. |

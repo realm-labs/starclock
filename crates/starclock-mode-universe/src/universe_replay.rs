@@ -117,10 +117,18 @@ pub fn record_baseline_run<E: NestedBattleExecutor>(
     let report = StandardUniverseBaselineRunner::default()
         .run_to_terminal(activity, policy, &mut capture)
         .map_err(StandardUniverseReplayError::Runner)?;
+    recorded_from_report(report, policy, capture.results)
+}
+
+pub(crate) fn recorded_from_report(
+    report: StandardUniverseBaselineReport,
+    policy: &StandardUniverseBaselinePolicy,
+    results: Vec<BattleResult>,
+) -> Result<RecordedStandardUniverseRun, StandardUniverseReplayError> {
     if report.steps().len() > MAX_STANDARD_UNIVERSE_REPLAY_ACTIONS as usize {
         return Err(StandardUniverseReplayError::TooManyActions);
     }
-    let mut results = capture.results.into_iter();
+    let mut results = results.into_iter();
     let mut trace = Vec::with_capacity(report.steps().len());
     for (sequence, step) in report.steps().iter().enumerate() {
         let (action, state_hash, diagnostic) = match step {

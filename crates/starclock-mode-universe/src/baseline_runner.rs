@@ -10,6 +10,10 @@ use starclock_activity::{
     GraphActivityBattleError, GraphActivityCommandError, GraphActivityEncounterError,
 };
 
+use crate::dynamic_battle_assembler::{
+    StandardUniverseBattleAssembler, StandardUniverseDynamicBattleError,
+    StandardUniverseDynamicBattleStart,
+};
 use crate::runtime::{
     StandardUniverseActivity, StandardUniverseBattleStartError, StandardUniverseEncounterError,
 };
@@ -23,6 +27,17 @@ pub trait NestedBattleExecutor {
     fn execute(
         &mut self,
         handoff: &starclock_activity::ActivityBattleHandoff,
+    ) -> Result<BattleResult, NestedBattleExecutionError>;
+}
+
+/// Current-state nested battle boundary used by new production runs.
+///
+/// The assembler owns start-time selection and pairs the handoff with the
+/// exact immutable combat catalog that validated it.
+pub trait DynamicNestedBattleExecutor {
+    fn execute_dynamic(
+        &mut self,
+        start: &StandardUniverseDynamicBattleStart,
     ) -> Result<BattleResult, NestedBattleExecutionError>;
 }
 
@@ -241,6 +256,77 @@ impl StandardUniverseBaselineRunner {
         }
         Err(StandardUniverseBaselineError::StepBudgetExceeded)
     }
+
+    pub fn advance_dynamic<E: DynamicNestedBattleExecutor>(
+        self,
+        activity: &mut StandardUniverseActivity,
+        policy: &StandardUniverseBaselinePolicy,
+        assembler: &StandardUniverseBattleAssembler,
+        executor: &mut E,
+    ) -> Result<StandardUniverseBaselineStep, StandardUniverseBaselineError> {
+        let view = activity.view();
+        if view.terminal().is_some() {
+            return Err(StandardUniverseBaselineError::AlreadyTerminal);
+        }
+        if view.pending_battle().is_some() {
+            let start = assembler
+                .start_pending_battle(activity)
+                .map_err(StandardUniverseBaselineError::DynamicBattleStart)?;
+            let identity = start.handoff().identity();
+            let result = match executor.execute_dynamic(&start) {
+                Ok(result) => result,
+                Err(error) => {
+                    let rolled_back = activity.rollback_pending_battle_start();
+                    debug_assert!(rolled_back, "the assembler just started this exact handoff");
+                    return Err(StandardUniverseBaselineError::BattleExecution(error));
+                }
+            };
+            let result_digest = result.actual_digest();
+            let settled = activity
+                .submit_pending_battle_result(activity.view().state_hash(), result)
+                .map_err(StandardUniverseBaselineError::BattleSettlement)?;
+            return Ok(StandardUniverseBaselineStep::Battle {
+                identity: Box::new(identity),
+                result_digest,
+                outcome: settled.settlement().outcome(),
+                state_hash: settled.state_hash(),
+            });
+        }
+        self.advance(activity, policy, &mut UnreachableStaticExecutor)
+    }
+
+    pub fn run_to_terminal_dynamic<E: DynamicNestedBattleExecutor>(
+        self,
+        activity: &mut StandardUniverseActivity,
+        policy: &StandardUniverseBaselinePolicy,
+        assembler: &StandardUniverseBattleAssembler,
+        executor: &mut E,
+    ) -> Result<StandardUniverseBaselineReport, StandardUniverseBaselineError> {
+        let mut steps = Vec::new();
+        for _ in 0..policy.max_steps() {
+            let view = activity.view();
+            if let Some(terminal) = view.terminal() {
+                return Ok(StandardUniverseBaselineReport {
+                    terminal,
+                    final_state_hash: view.state_hash(),
+                    steps: steps.into_boxed_slice(),
+                });
+            }
+            steps.push(self.advance_dynamic(activity, policy, assembler, executor)?);
+        }
+        Err(StandardUniverseBaselineError::StepBudgetExceeded)
+    }
+}
+
+struct UnreachableStaticExecutor;
+
+impl NestedBattleExecutor for UnreachableStaticExecutor {
+    fn execute(
+        &mut self,
+        _handoff: &starclock_activity::ActivityBattleHandoff,
+    ) -> Result<BattleResult, NestedBattleExecutionError> {
+        Err(NestedBattleExecutionError::BattleBuild)
+    }
 }
 
 fn apply_decision(
@@ -291,6 +377,7 @@ pub enum StandardUniverseBaselineError {
     Encounter(StandardUniverseEncounterError),
     Preparation(GraphActivityEncounterError),
     BattleStart(StandardUniverseBattleStartError),
+    DynamicBattleStart(StandardUniverseDynamicBattleError),
     BattleExecution(NestedBattleExecutionError),
     BattleSettlement(GraphActivityBattleError),
 }

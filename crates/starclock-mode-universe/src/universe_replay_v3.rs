@@ -27,14 +27,24 @@ use starclock_replay::{
 };
 
 use crate::{
-    baseline_runner::StandardUniverseBaselinePolicy,
+    baseline_runner::{
+        DynamicNestedBattleExecutor, NestedBattleExecutionError, StandardUniverseBaselinePolicy,
+        StandardUniverseBaselineRunner,
+    },
+    dynamic_battle_assembler::{
+        StandardUniverseBattleAssembler, StandardUniverseDynamicBattleStart,
+    },
     nested_battle_executor::{NestedBattleExecutionReport, UniverseNestedBattleExecutor},
     runtime::StandardUniverseActivity,
-    universe_replay::StandardUniverseTraceEntry,
+    universe_replay::{
+        StandardUniverseReplayAction, StandardUniverseReplayError, StandardUniverseTraceEntry,
+        recorded_from_report,
+    },
     universe_replay_v2::{
         RecordedStandardUniverseRunV2, StandardUniverseReplayReportV2,
         StandardUniverseReplayV2Error, encode_standard_universe_trace_parts_v2,
-        record_baseline_run_v2, standard_universe_header_v2, verify_standard_universe_replay_v2,
+        standard_universe_header_v2, verify_standard_universe_replay_v2,
+        verify_standard_universe_replay_v2_dynamic,
     },
 };
 
@@ -53,10 +63,58 @@ pub enum ReplayV3DivergenceKind {
 pub fn record_baseline_run_v3(
     activity: &mut StandardUniverseActivity,
     policy: &StandardUniverseBaselinePolicy,
+    assembler: &StandardUniverseBattleAssembler,
     executor: &mut UniverseNestedBattleExecutor,
 ) -> Result<RecordedStandardUniverseRunV2, StandardUniverseReplayV3Error> {
-    record_baseline_run_v2(activity, policy, executor)
-        .map_err(StandardUniverseReplayV3Error::Historical)
+    let first_report = executor.reports().len();
+    let mut capture = CapturingDynamicExecutor {
+        inner: executor,
+        results: Vec::new(),
+    };
+    let report = StandardUniverseBaselineRunner::default()
+        .run_to_terminal_dynamic(activity, policy, assembler, &mut capture)
+        .map_err(|error| {
+            StandardUniverseReplayV3Error::Historical(StandardUniverseReplayV2Error::Legacy(
+                StandardUniverseReplayError::Runner(error),
+            ))
+        })?;
+    let recorded = recorded_from_report(report, policy, capture.results).map_err(|error| {
+        StandardUniverseReplayV3Error::Historical(StandardUniverseReplayV2Error::Legacy(error))
+    })?;
+    let battles = executor.reports()[first_report..]
+        .to_vec()
+        .into_boxed_slice();
+    let expected = recorded
+        .trace()
+        .iter()
+        .filter(|entry| matches!(entry.action(), StandardUniverseReplayAction::Battle { .. }))
+        .count();
+    if battles.len() != expected {
+        return Err(StandardUniverseReplayV3Error::Historical(
+            StandardUniverseReplayV2Error::CapturedBattleMismatch,
+        ));
+    }
+    Ok(RecordedStandardUniverseRunV2::new(
+        recorded.report().clone(),
+        recorded.trace().to_vec().into_boxed_slice(),
+        battles,
+    ))
+}
+
+struct CapturingDynamicExecutor<'a> {
+    inner: &'a mut UniverseNestedBattleExecutor,
+    results: Vec<starclock_activity::BattleResult>,
+}
+
+impl DynamicNestedBattleExecutor for CapturingDynamicExecutor<'_> {
+    fn execute_dynamic(
+        &mut self,
+        start: &StandardUniverseDynamicBattleStart,
+    ) -> Result<starclock_activity::BattleResult, NestedBattleExecutionError> {
+        let result = self.inner.execute_dynamic(start)?;
+        self.results.push(result.clone());
+        Ok(result)
+    }
 }
 
 pub fn standard_universe_header_v3(
@@ -156,6 +214,42 @@ pub fn verify_standard_universe_replay_v3(
         actual_compatibility,
         expected_profile_id,
     );
+    map_translated_verification(&translated, verification)
+}
+
+#[allow(clippy::too_many_arguments)]
+pub fn verify_standard_universe_replay_v3_dynamic(
+    bytes: &[u8],
+    activity: StandardUniverseActivity,
+    assembler: &StandardUniverseBattleAssembler,
+    actual_components: &ConfigurationComponentSet,
+    actual_compatibility: &ReplayCompatibilityV2,
+    expected_profile_id: &str,
+) -> Result<StandardUniverseReplayReportV2, StandardUniverseReplayV3Error> {
+    let replay = decode_replay_v3(bytes).map_err(StandardUniverseReplayV3Error::Envelope)?;
+    replay
+        .header()
+        .components()
+        .verify_exact(actual_components)
+        .map_err(|_| {
+            StandardUniverseReplayV3Error::divergence(ReplayV3DivergenceKind::Component)
+        })?;
+    let translated = translate_v3_to_v2(&replay)?;
+    let verification = verify_standard_universe_replay_v2_dynamic(
+        &translated.bytes,
+        activity,
+        assembler,
+        actual_components,
+        actual_compatibility,
+        expected_profile_id,
+    );
+    map_translated_verification(&translated, verification)
+}
+
+fn map_translated_verification(
+    translated: &TranslatedReplayV3,
+    verification: Result<StandardUniverseReplayReportV2, StandardUniverseReplayV2Error>,
+) -> Result<StandardUniverseReplayReportV2, StandardUniverseReplayV3Error> {
     match verification {
         Err(error) => {
             let mapped = map_verification_error(error);

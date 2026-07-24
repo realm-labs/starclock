@@ -6,11 +6,17 @@ use starclock_activity::{
 };
 use starclock_combat::{Battle, BattleStateHash, Energy, Hp, LifeState, PresenceState, TeamSide};
 use starclock_mode_universe::{
+    baseline_runner::{StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner},
     battle_technique::UniverseBattleTechniqueDefinition,
     dynamic_battle_assembler::{
         BattleAssemblyBudget, StandardUniverseBattleAssembler, StandardUniverseDynamicBattleError,
     },
+    nested_battle_executor::UniverseNestedBattleExecutor,
     production_runtime::{StandardUniverseControllerIdentity, StandardUniverseRuntimeFactory},
+    universe_replay_v3::{
+        encode_standard_universe_trace_v3, record_baseline_run_v3, standard_universe_header_v3,
+        verify_standard_universe_replay_v3_dynamic,
+    },
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
@@ -339,4 +345,59 @@ fn damaged_win(identity: starclock_activity::BattleResultIdentity) -> BattleResu
         )
     }));
     BattleResult::seal(identity, values)
+}
+
+#[test]
+fn production_baseline_records_and_verifies_dynamic_replay_v3() {
+    let factory = StandardUniverseRuntimeFactory::load(CORE_BUNDLE, UNIVERSE_BUNDLE).unwrap();
+    let controller = StandardUniverseControllerIdentity {
+        id: "dynamic-replay-test",
+        revision: StandardUniverseBaselineRunner::REVISION,
+        digest: [0x63; 32],
+    };
+    let instance = factory.start(1, 0, 0x6027, controller).unwrap();
+    let profile_id = instance.profile_id().to_owned();
+    let components = instance.components().clone();
+    let compatibility = instance.compatibility().clone();
+    let assembler = Arc::clone(instance.battle_assembler());
+    let (_, mut activity, _, _, _) = instance.into_dynamic_parts();
+    let header = standard_universe_header_v3(
+        compatibility.clone(),
+        components.clone(),
+        0x6027,
+        &activity,
+        &profile_id,
+    )
+    .unwrap();
+    let mut executor = UniverseNestedBattleExecutor::dynamic();
+    let recorded = record_baseline_run_v3(
+        &mut activity,
+        &StandardUniverseBaselinePolicy::default(),
+        &assembler,
+        &mut executor,
+    )
+    .unwrap();
+    let replay = encode_standard_universe_trace_v3(&header, &recorded).unwrap();
+    assert!(
+        starclock_replay::format_v3::decode_replay_v3(&replay).is_ok(),
+        "new production recordings use replay v3"
+    );
+
+    let fresh = factory.start(1, 0, 0x6027, controller).unwrap();
+    let fresh_assembler = Arc::clone(fresh.battle_assembler());
+    let (_, fresh_activity, _, _, _) = fresh.into_dynamic_parts();
+    let verified = verify_standard_universe_replay_v3_dynamic(
+        &replay,
+        fresh_activity,
+        &fresh_assembler,
+        &components,
+        &compatibility,
+        &profile_id,
+    )
+    .unwrap();
+    assert_eq!(verified.battle_count(), recorded.battles().len() as u32);
+    assert_eq!(
+        verified.final_state_hash().bytes(),
+        recorded.report().final_state_hash().bytes()
+    );
 }
