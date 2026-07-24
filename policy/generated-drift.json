@@ -78,6 +78,10 @@
       "command": ["node", "tools/universe-reference/verify-sora-fixtures.mjs", "."]
     },
     {
+      "name": "Goal 05 Standard Universe integration release",
+      "command": ["node", "tools/goal05/verify-release-contract.mjs", ".", "--release"]
+    },
+    {
       "name": "Standard Universe bundle-loader dependency policy",
       "command": ["node", "tools/universe-bundle-loader/generate-policy.mjs"]
     },

@@ -157,10 +157,10 @@ The normative design is
 
 ## Terminal checklist
 
-- [ ] All 19 batches are committed with ledger evidence.
-- [ ] Atomic run/noncombat effects pass.
-- [ ] Real nested combat passes for all structured encounters.
-- [ ] Production reference settlement is removed.
-- [ ] Component-aware replay and external interfaces pass.
-- [ ] Seeded/cross-platform/performance evidence passes.
-- [ ] Full clean-worktree release verification passes.
+- [x] All 19 batches are committed with ledger evidence.
+- [x] Atomic run/noncombat effects pass.
+- [x] Real nested combat passes for all structured encounters.
+- [x] Production reference settlement is removed.
+- [x] Component-aware replay and external interfaces pass.
+- [x] Seeded/cross-platform/performance evidence passes.
+- [x] Full clean-worktree release verification passes.

@@ -2,11 +2,13 @@
 
 ## Current state
 
-`InProgress`
+`Complete`
 
-Goal 05 starts from the immutable Goal 04 completion snapshot. It closes the
-gap between independently executable mechanic plans/reference battle
-settlement and production end-to-end Activity plus combat execution.
+Goal 05 is complete. It started from the immutable Goal 04 completion snapshot
+and closed the gap between independently executable mechanic plans/reference
+battle settlement and production end-to-end Activity plus combat execution.
+The integration dispositions remain the normative boundary: completion does
+not promote retained approximations or metadata into integrated mechanics.
 
 ## Batch ledger
 
@@ -30,7 +32,7 @@ settlement and production end-to-end Activity plus combat execution.
 | `G05-P4-B3` | `Complete` | `cargo test -p starclock-agent-api --all-targets --all-features`; `cargo test -p starclock-mcp --all-targets --all-features`; `cargo test -p starclock-cli --test universe_cli --all-features`; focused Clippy; `node tools/goal05/verify-integration-probes.mjs`; quick repository gate | Deleted the Agent reference-settlement adapter and moved CLI plus Agent construction onto one immutable `StandardUniverseRuntimeFactory`. Agent sessions now execute and atomically settle each pending handoff through `UniverseNestedBattleExecutor`, retain real battle reports, emit component replay v2 incrementally and verify by recreating every Battle and comparing commands/events/hashes. The Standard Universe MCP tools remain a thin authority-preserving Agent facade; an authorized HTTP test now completes a real run, retries the first request idempotently, exports replay v2 and verifies non-zero nested battles. The manifest and CLI both advertise `standard-universe-nested-battle-executor-v1`, and the public rules resource declares real-combat settlement and nested command/event replay authority. Seed 10 now gives the shared canonical Activity result: 60 accepted actions, five battles, 33 combat commands and hash `f66ad680…bb00`; Agent replay is 45,453 bytes (`501b82ae…668f`) and CLI replay is 45,458 bytes (`40d13949…ba69`) because controller component identities differ. Production crate sources contain no reference-Won helper or reference executor revision. |
 | `G05-P5-B1` | `Complete` | `node tools/goal05/verify-seeded-matrix.mjs`; `node tools/goal05/verify-integration-coverage.mjs`; `cargo clippy -p starclock-agent-api --example g05_real_universe_seed_matrix --all-features -- -D warnings`; quick repository gate | Added a release-mode component-replay-v2 matrix over all 33 constructible World/difficulty entries and all nine Path choices. Seeds `200000..200032` complete 33 runs through 1,749 external actions, 417 atomic external outcomes, 155 real battles and 905 accepted combat commands; every command has a matching state/event record and every replay verifies from a fresh runtime. Added exact-once Goal 05 dispositions for all 2,201 Goal 04 records, 786 rules and 78 fixtures without changing the historical manifest: 889 records are integrated, 92 are policy and 1,220 retain a named approximation; only the three representative combat-rule slices are marked integrated, while fixtures are metadata. All 173 encounter members execute, but only 13/86 enemy definitions match exactly, 73 use explicit proxies and all current Standard Universe stat assemblies remain approximate. The production initial snapshot grants zero unowned rules; dynamic inventory-to-later-battle rematerialization remains explicitly unimplemented rather than being hidden by the matrix. Evidence: `evidence/standard-universe-end-to-end-v1/coverage/seeded-matrix.json` and `content-manifests/standard-universe-end-to-end-v1/integration-dispositions.json`. |
 | `G05-P5-B2` | `Complete` | `node tools/goal05/run-native-hardening.mjs --record`; `node tools/goal05/run-native-hardening.mjs`; `node tools/ci/verify-workflow.mjs`; focused Clippy; quick repository gate | Added one native hardening lane over the migrated production path. Sixteen deterministic replay-v2 truncate/trailing/hash mutations fail without changing the live session; component and first-event payload corruption retain precise divergence fixtures. Sixteen concurrent same-seed sessions share the immutable factory while producing identical state/replay hashes. A one-command nested-executor budget failure restores the exact pre-start Activity hash and appends no report before successful retry. Atomic Occurrence, service and Curio tests plus the 33-run/155-battle/905-command matrix execute in the same gate. The local Windows x64 run completed in 31.632 seconds under the 180-second budget. CI now requires the same command on Windows x64, Linux x64 and macOS ARM64 and retains their artifacts; three alternate targets remain compile-only with zero runtime claim. Evidence: `evidence/standard-universe-end-to-end-v1/hardening/native-hardening.json`. |
-| `G05-P5-B3` | `Pending` | — | Release freeze. |
+| `G05-P5-B3` | `Complete` | `node tools/goal05/verify-release-contract.mjs . --release`; `node tools/repository-check/run.mjs --full`; clean worktree verification | Froze the 19-batch Goal 05 contract and SHA-256 release evidence over the coverage matrix, native hardening report, exact-once integration dispositions and normative documentation. The release preserves the explicit boundary of 889 integrated/92 policy/1,220 approximate content records and 3 integrated/783 approximate rules. The full repository gate verifies prior immutable releases, generated artifacts, formatting, workspace Clippy and all workspace tests; the immutable completion commit is registered separately in `policy/release-snapshots.json`. |
 
 ## Frozen findings
 
@@ -74,9 +76,9 @@ settlement and production end-to-end Activity plus combat execution.
 
 | Field | Value |
 |---|---|
-| Final state | In progress |
-| Completion commit | — |
-| Activity/replay revision | To be frozen by P1/P4 |
-| Integration coverage | To be generated |
-| Performance evidence | To be generated |
-| Release evidence | To be generated |
+| Final state | Complete |
+| Completion commit | This row's containing commit (`G05-P5-B3`) |
+| Activity/replay revision | `standard-universe-nested-battle-executor-v1` / component-addressed replay v2 / `starclock-cli-universe-v2` |
+| Integration coverage | `content-manifests/standard-universe-end-to-end-v1/integration-dispositions.json` — 2,201 records / 786 rules / 78 fixtures assigned exactly once |
+| Performance evidence | `evidence/standard-universe-end-to-end-v1/hardening/native-hardening.json` — local native hardening 31.632 seconds under the 180-second budget; hosted native proof remains CI-artifact scoped |
+| Release evidence | `evidence/standard-universe-end-to-end-v1/release/release-evidence.json` |

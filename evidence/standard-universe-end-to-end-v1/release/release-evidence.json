@@ -1,0 +1,102 @@
+{
+  "schema_revision": "starclock.goal05-release-evidence.v1",
+  "goal_id": "standard-universe-end-to-end-v1",
+  "released_on": "2026-07-24",
+  "result": "complete",
+  "policy_sha256": "03b7477f7506fe963306c71b14d743f67c3517f643e62a990f2d48dc5e0219ae",
+  "completion": {
+    "phases": 6,
+    "batches": 19,
+    "release_batch": "G05-P5-B3"
+  },
+  "runtime_revisions": {
+    "battle_executor": "standard-universe-nested-battle-executor-v1",
+    "replay_envelope": "component-addressed-v2",
+    "cli": "starclock-cli-universe-v2",
+    "agent_activity_interface": "agent-activity-v1",
+    "agent_controller": "agent-activity-session-v1"
+  },
+  "integration_coverage": {
+    "content_records": 2201,
+    "rule_bindings": 786,
+    "semantic_fixtures": 78,
+    "record_states": {
+      "Integrated": 889,
+      "Metadata": 0,
+      "Policy": 92,
+      "RetainedApproximation": 1220
+    },
+    "rule_states": {
+      "Integrated": 3,
+      "Metadata": 0,
+      "Policy": 0,
+      "RetainedApproximation": 783
+    },
+    "fixture_states": {
+      "Integrated": 0,
+      "Metadata": 78,
+      "Policy": 0,
+      "RetainedApproximation": 0
+    },
+    "disposition_sha256": "1653b5ab106a7fb9902f1482d5557955fa7cf37cedeb34c7417348aa7960ba26"
+  },
+  "real_execution": {
+    "worlds": 9,
+    "paths": 9,
+    "difficulties": 33,
+    "complete_runs": 33,
+    "nested_battles": 155,
+    "battle_commands": 905,
+    "atomic_external_outcomes": 417,
+    "encounter_members": 173,
+    "exact_enemy_definitions": 13,
+    "approximate_enemy_proxies": 73,
+    "runtime_stat_policy": "goal01-executable-enemy-proxy-stats-v1",
+    "seeded_matrix_sha256": "12817d566d2fd029bb2ee5a92af48483f2d23a5e31a5ee8cfe18c716f1a59ed8"
+  },
+  "hardening": {
+    "local_elapsed_ms": 31632,
+    "wall_budget_seconds": 180,
+    "required_native_profiles": [
+      "windows-x64-native",
+      "linux-x64-native",
+      "macos-arm64-native"
+    ],
+    "compile_only_profiles": [
+      "windows-arm64-compile",
+      "linux-arm64-compile",
+      "macos-x64-compile"
+    ],
+    "hosted_native_proof": "retained-ci-artifact-only",
+    "hardening_sha256": "5f49d535b31c209bb2658c0e6cf5b485c37045932b459a386f561785c3923fb8"
+  },
+  "evidence_sha256": {
+    "evidence/standard-universe-end-to-end-v1/coverage/seeded-matrix.json": "12817d566d2fd029bb2ee5a92af48483f2d23a5e31a5ee8cfe18c716f1a59ed8",
+    "evidence/standard-universe-end-to-end-v1/hardening/native-hardening.json": "5f49d535b31c209bb2658c0e6cf5b485c37045932b459a386f561785c3923fb8"
+  },
+  "manifest_sha256": {
+    "content-manifests/standard-universe-end-to-end-v1/integration-dispositions.json": "1653b5ab106a7fb9902f1482d5557955fa7cf37cedeb34c7417348aa7960ba26"
+  },
+  "documentation_sha256": {
+    "docs/goals/05-standard-universe-end-to-end.md": "392921bd6f648533f72252e7ad9a75985ef207bcbb7a5954bd908ced6b7cfe95",
+    "docs/goals/05-standard-universe-end-to-end-status.md": "ae63a5d5e5d4ca6d43b08f45770fb5f4bb66bd12a28832f0e341f04ad3d0cbda",
+    "docs/goals/05-standard-universe-end-to-end-prompt.md": "4cd471af5f1e5a3a7c2cbf4eddd19c7ec5ecd3d07d5f2ca1893260a7b4c9fa3e",
+    "docs/26-mode-extension-and-evolution.md": "4d1e70691cce5bfa2b610dd65c523c32d1fa7efc37b2d5e28f2a01fba8c4a5de",
+    "docs/27-standard-universe-end-to-end-integration.md": "c4f8cda8723f31e06ba648d6bd74411d0ab518b78eff36befb6ed1b6b8e2c4c9",
+    "docs/28-standard-universe-integration-coverage.md": "7ae2766ca81cc622cb1dc7f3417bc85a7cc0d2e19f8c949e7adaa370e9d21da5",
+    "docs/ci-platform-matrix.md": "78d437fb453f2a164b9df9eeee581eb715af329a73697f4db69a260f8506e945"
+  },
+  "prior_contracts": [
+    "core-combat-v1",
+    "agent-control-mcp-v1",
+    "standard-universe-reference-v1",
+    "standard-universe-runtime-v1"
+  ],
+  "retained_boundaries": {
+    "dynamic_acquired_inventory_battle_rematerialization": "not-implemented",
+    "retained_approximate_content_records": 1220,
+    "retained_approximate_rules": 783,
+    "all_current_enemy_runtime_stats": "approximate"
+  },
+  "clean_checkout_command": "node tools/goal05/verify-release-contract.mjs . --release --require-clean"
+}

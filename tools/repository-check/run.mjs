@@ -110,6 +110,7 @@ function runFull() {
     ["node", "tools/workspace/verify-dependencies.mjs"],
     ["node", "tools/ci/verify-workflow.mjs"],
     ["node", "tools/repository-check/verify-release-snapshots.mjs"],
+    ["node", "tools/goal05/verify-release-contract.mjs", ".", "--release"],
     ["node", "tools/repository-check/verify-source-policy.mjs"],
     ["node", "tools/repository-check/verify-native-handlers.mjs"],
     ["node", "tools/goal-hardening/verify-content-audits.mjs"],
