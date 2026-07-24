@@ -1,13 +1,14 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    ActionEventData, ActionGauge, ActionOrigin, Battle, BattleEventKind, BattleSeed, BattleSpec,
-    BattleSpecDigest, CombatantSpecDigest, Command, ConcedePolicy, DispelCategory, DurationClock,
-    EffectApplicationDefinition, EffectCategory, EffectChancePolicy, EffectRuntimeDefinition,
-    EffectStackPolicy, EffectTickPhase, Energy, FormationIndex, Hp, KeyedTeamResourceSpec,
-    LinkedEntityKind, LinkedUnitDefinition, OwnerLinkPolicy, ParticipantSource, ParticipantSpec,
-    Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings, Scalar, SkillPointPayer, Speed,
-    TeamResourceSpec, TeamResourceWavePolicy, TeamSide, UnitLevel, WaveLinkPolicy,
+    ActionEventData, ActionGauge, ActionOrigin, AssemblyDigest, Battle, BattleEventKind,
+    BattleSeed, BattleSpec, CombatantSpecDigest, Command, ConcedePolicy, DispelCategory,
+    DurationClock, EffectApplicationDefinition, EffectCategory, EffectChancePolicy,
+    EffectRuntimeDefinition, EffectStackPolicy, EffectTickPhase, Energy, FormationIndex, Hp,
+    KeyedTeamResourceSpec, LinkedEntityKind, LinkedUnitDefinition, OwnerLinkPolicy,
+    ParticipantSource, ParticipantSpec, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings,
+    Scalar, SkillPointPayer, Speed, TeamResourceSpec, TeamResourceWavePolicy, TeamSide, UnitLevel,
+    WaveLinkPolicy,
     catalog::{
         CombatCatalog,
         action::{
@@ -215,7 +216,7 @@ fn run(shared_actor: bool) -> (Battle, starclock_combat::Resolution) {
         .unwrap();
     let spec = BattleSpec::new(
         "shared-elation-rules-v1",
-        BattleSpecDigest::new([0xe2; 32]).unwrap(),
+        AssemblyDigest::new([0xe2; 32]).unwrap(),
         id(1),
         vec![
             ParticipantSpec::new(

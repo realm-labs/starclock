@@ -7,7 +7,7 @@ current authoritative Activity snapshot.
 
 ## Problem statement
 
-The Goal 05 runtime executes real battles, but two boundaries remain too weak:
+The Goal 05 runtime started with two weak boundaries:
 
 1. `BattleSpecDigest` is supplied by the caller even though it is described as
    the exact battle request identity. `starclock-combat` validates references
@@ -20,6 +20,10 @@ The Goal 05 runtime executes real battles, but two boundaries remain too weak:
 The first issue weakens server/replay identity. The second prevents otherwise
 executable acquired mechanics from affecting later battles. Neither requires
 Universe state inside the combat resolver.
+
+Goal 06 Phase 1 closed the first issue: `BattleSpec::new` now accepts only
+`AssemblyDigest` and computes `CombatInputDigest` internally. The dynamic
+assembly issue is the Phase 2 migration target.
 
 ## Identity domains
 
@@ -206,4 +210,3 @@ shared battle code.
 - per-battle assembly does not rebuild the immutable catalog;
 - native platform and service-throughput gates remain within their declared
   budgets.
-

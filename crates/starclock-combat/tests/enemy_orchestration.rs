@@ -1,13 +1,13 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    Battle, BattleEventKind, BattleSeed, BattleSpec, BattleSpecDigest, CombatantSpecDigest,
-    Command, ConcedePolicy, DispelCategory, DurationClock, EffectApplicationDefinition,
-    EffectCategory, EffectChancePolicy, EffectDefinitionId, EffectRuntimeDefinition,
-    EffectStackPolicy, EffectTickPhase, EncounterWaveId, EnemyPhaseEventData, EnemyPhaseId,
-    FormationIndex, Hp, ParticipantSource, ParticipantSpec, PresenceState, Ratio,
-    ResolvedCombatantSpec, ResolvedDefinitionBindings, Scalar, Speed, TeamResourceSpec, TeamSide,
-    ToughnessLayerSpec, UnitLevel,
+    AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec, CombatantSpecDigest, Command,
+    ConcedePolicy, DispelCategory, DurationClock, EffectApplicationDefinition, EffectCategory,
+    EffectChancePolicy, EffectDefinitionId, EffectRuntimeDefinition, EffectStackPolicy,
+    EffectTickPhase, EncounterWaveId, EnemyPhaseEventData, EnemyPhaseId, FormationIndex, Hp,
+    ParticipantSource, ParticipantSpec, PresenceState, Ratio, ResolvedCombatantSpec,
+    ResolvedDefinitionBindings, Scalar, Speed, TeamResourceSpec, TeamSide, ToughnessLayerSpec,
+    UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -222,7 +222,7 @@ fn battle() -> Battle {
         .unwrap();
     let spec = BattleSpec::new(
         "enemy-orchestration-rules-v1",
-        BattleSpecDigest::new([0x31; 32]).unwrap(),
+        AssemblyDigest::new([0x31; 32]).unwrap(),
         id(1),
         vec![
             ParticipantSpec::new(

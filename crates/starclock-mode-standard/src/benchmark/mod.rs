@@ -6,7 +6,7 @@ mod spec;
 use std::sync::Arc;
 
 use starclock_combat::{
-    Battle, BattleBuildError, BattleSeed, BattleSpec, BattleSpecDigest, EncounterId,
+    AssemblyDigest, Battle, BattleBuildError, BattleSeed, BattleSpec, EncounterId,
     catalog::CombatCatalog,
 };
 
@@ -126,7 +126,7 @@ impl BenchmarkBattle {
 
     /// Returns the battle-spec digest.
     #[must_use]
-    pub const fn spec_digest(&self) -> BattleSpecDigest {
-        self.spec.digest()
+    pub const fn assembly_digest(&self) -> AssemblyDigest {
+        self.spec.assembly_digest()
     }
 }

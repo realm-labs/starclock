@@ -22,6 +22,7 @@ use starclock_replay::{
     component::ConfigurationComponentSet,
     format_v2::{ReplayCompatibilityV2, ReplayHeaderV2, decode_replay_v2, encode_replay_v2},
     format_v3::{ReplayHeaderV3, ReplayV3Error, decode_replay_v3, encode_replay_v3},
+    nested_battle::encode_nested_battle_state_payload,
     record::{RecordKind, RecordRef, ReplayFormatError},
 };
 
@@ -86,6 +87,7 @@ pub fn encode_standard_universe_trace_parts_v3(
     let decoded = decode_replay_v2(&historical).map_err(StandardUniverseReplayV3Error::Envelope)?;
     let mut payloads = Vec::with_capacity(decoded.records().len());
     let mut open_identity = None;
+    let mut battle_steps = battles.iter().flat_map(|battle| battle.trace().iter());
     for record in decoded.records() {
         let payload = match record.kind() {
             RecordKind::NestedBattleStart => {
@@ -108,11 +110,21 @@ pub fn encode_standard_universe_trace_parts_v3(
                     .map_err(StandardUniverseReplayV3Error::HistoricalPayload)?;
                 encode_nested_battle_end_v3(NestedBattleEndV3::new(identity, digest))
             }
+            RecordKind::ExpectedBattleState => {
+                let step = battle_steps
+                    .next()
+                    .ok_or(StandardUniverseReplayV3Error::RecordLayout)?;
+                encode_nested_battle_state_payload(step.state_hash(), step.events())
+                    .map_err(StandardUniverseReplayV3Error::NestedPayload)?
+            }
             _ => record.payload().to_vec(),
         };
         payloads.push((record.kind(), payload));
     }
     if open_identity.is_some() {
+        return Err(StandardUniverseReplayV3Error::RecordLayout);
+    }
+    if battle_steps.next().is_some() {
         return Err(StandardUniverseReplayV3Error::RecordLayout);
     }
     encode_v3_from_payloads(header_template, &payloads)
@@ -308,6 +320,7 @@ pub enum StandardUniverseReplayV3Error {
     Envelope(ReplayV3Error),
     Format(ReplayFormatError),
     Payload(NestedBattleV3PayloadError),
+    NestedPayload(starclock_replay::nested_battle::NestedBattlePayloadError),
     HistoricalPayload(starclock_replay::activity::ActivityCommandPayloadError),
     Historical(StandardUniverseReplayV2Error),
     RecordLayout,

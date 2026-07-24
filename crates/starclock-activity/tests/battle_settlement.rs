@@ -19,7 +19,7 @@ use starclock_activity::{
     SectionId, SlotCarryPolicy, TechniqueContributionDigest,
 };
 use starclock_combat::{
-    AbilityId, BattleSpec, BattleSpecDigest, BattleStateHash, CombatantSpecDigest, ConcedePolicy,
+    AbilityId, AssemblyDigest, BattleSpec, BattleStateHash, CombatantSpecDigest, ConcedePolicy,
     EncounterId, EnemyDefinitionId, Energy, FormationIndex, Hp, LifeState, ParticipantSource,
     ParticipantSpec, PresenceState, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
     TeamResourceSpec, TeamSide, UnitDefinitionId, UnitLevel,
@@ -45,7 +45,7 @@ fn verified_result_projects_metrics_and_exact_participant_carry() {
         )
         .unwrap();
     assert_eq!(setup.rng.snapshots(), rng_before);
-    assert_eq!(handoff.battle_spec().digest().bytes(), [0x33; 32]);
+    assert_eq!(handoff.battle_spec().assembly_digest().bytes(), [0x33; 32]);
     assert_eq!(
         handoff.identity().combat_input_digest(),
         handoff.battle_spec().combat_input_digest()
@@ -603,7 +603,7 @@ fn participant_lock() -> ParticipantLock {
 fn battle_spec() -> BattleSpec {
     BattleSpec::new(
         "rules-v1",
-        BattleSpecDigest::new([0x33; 32]).unwrap(),
+        AssemblyDigest::new([0x33; 32]).unwrap(),
         EncounterId::new(1).unwrap(),
         vec![
             ParticipantSpec::new(

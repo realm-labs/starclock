@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    Battle, BattleEventKind, BattleSeed, BattleSpec, BattleSpecDigest, CombatantSpecDigest,
+    AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec, CombatantSpecDigest,
     CombatantSpecError, Command, CommandErrorKind, ConcedePolicy, Energy, FormationIndex,
     HitEventData, Hp, ParticipantSource, ParticipantSpec, ResolvedCombatantSpec,
     ResolvedDefinitionBindings, ResourceEventData, Speed, TeamResourceSpec, TeamSide, UnitLevel,
@@ -173,7 +173,7 @@ fn battle_with_skill_points(skill_points: u16) -> Battle {
     }
     let spec = BattleSpec::new(
         "action-resource-rules-v1",
-        BattleSpecDigest::new([0x61; 32]).unwrap(),
+        AssemblyDigest::new([0x61; 32]).unwrap(),
         definition(1),
         participants,
         TeamResourceSpec::new(skill_points, 5).unwrap(),
@@ -510,7 +510,7 @@ fn named_resource_battle() -> Battle {
     ];
     let spec = BattleSpec::new(
         "named-action-resource-v1",
-        BattleSpecDigest::new([0xa3; 32]).unwrap(),
+        AssemblyDigest::new([0xa3; 32]).unwrap(),
         definition(10),
         participants,
         TeamResourceSpec::new(0, 5).unwrap(),

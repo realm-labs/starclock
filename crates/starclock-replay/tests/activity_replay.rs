@@ -8,7 +8,7 @@ use starclock_activity::{
     ProjectedValue, ProjectionField, ProjectionId, SlotResetPoint,
 };
 use starclock_combat::{
-    AbilityId, BattleSpec, BattleSpecDigest, BattleStateHash, CombatantSpecDigest, ConcedePolicy,
+    AbilityId, AssemblyDigest, BattleSpec, BattleStateHash, CombatantSpecDigest, ConcedePolicy,
     EncounterId, EnemyDefinitionId, FormationIndex, Hp, ParticipantSource, ParticipantSpec,
     ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamSide,
     UnitDefinitionId, UnitLevel,
@@ -335,7 +335,7 @@ fn successful_values() -> Vec<ProjectedValue> {
 fn battle_spec() -> BattleSpec {
     BattleSpec::new(
         "combat-rules-v1",
-        BattleSpecDigest::new(SPEC_DIGEST).unwrap(),
+        AssemblyDigest::new(SPEC_DIGEST).unwrap(),
         EncounterId::new(1).unwrap(),
         vec![
             ParticipantSpec::new(

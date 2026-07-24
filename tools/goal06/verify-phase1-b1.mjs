@@ -20,7 +20,7 @@ const status = read("docs/goals/06-combat-identity-and-dynamic-assembly-status.m
 for (const [needle, label] of [
   ["CombatInputDigest", "combat-owned identity"],
   ["AssemblyDigest", "opaque assembly identity"],
-  ["pub fn new_with_assembly(", "computed constructor"],
+  ["pub fn new(", "computed constructor"],
   ["super::spec_codec::combat_input_digest(", "constructor-owned hashing"],
 ]) {
   requireText(spec, needle, label);

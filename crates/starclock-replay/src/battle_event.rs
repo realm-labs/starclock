@@ -6,55 +6,47 @@
 
 use starclock_combat::{
     ActionEventData, BattleEvent, BattleEventData, BattleEventKind, BreakDamageEventData,
-    BreakDamageKind, Cause, CauseActor, DamageEventData, DamageKind, DecisionEventData,
-    DecisionKind, DecisionOwner, EffectEventData, EnemyPhaseEventData, FaultEventData,
-    HealEventData, HitEventData, HpConsumptionEventData, LinkedEntity, PhaseEventData,
-    ResourceEventData, RuleSignalEventData, RuleStateEventData, ShieldEventData, SkillPointPayer,
-    TeamSide, ToughnessEventData, TurnEventData, UnitEventData, WaveEventData,
+    BreakDamageKind, DamageEventData, DamageKind, DecisionEventData, DecisionKind, DecisionOwner,
+    EffectEventData, EnemyPhaseEventData, FaultEventData, HealEventData, HitEventData,
+    HpConsumptionEventData, LinkedEntity, PhaseEventData, ResourceEventData, RuleSignalEventData,
+    RuleStateEventData, ShieldEventData, SkillPointPayer, TeamSide, ToughnessEventData,
+    TurnEventData, UnitEventData, WaveEventData,
     catalog::{action::AbilityTags, encounter::EnemyPhaseTransitionModel},
     formula::model::{CombatElement, DamageClass},
     rule::model::RuleValue,
 };
 
+use crate::battle_event_cause::encode_cause;
 use crate::codec::{CodecError, Encoder};
 
-/// Version of one complete event byte payload.
-pub const BATTLE_EVENT_PAYLOAD_VERSION: u16 = 1;
+/// Historical event payload emitted by released replay-v2 files.
+pub const BATTLE_EVENT_PAYLOAD_VERSION_V1: u16 = 1;
+/// Current event payload. Activity provenance belongs to assembly identity,
+/// while battle events attribute executable definitions through
+/// [`starclock_combat::Cause::source_definition`].
+pub const BATTLE_EVENT_PAYLOAD_VERSION: u16 = 2;
 
 /// Canonically encodes one event identity, cause chain and complete typed data.
 pub fn encode_battle_event_payload(
     event: &BattleEvent,
 ) -> Result<Vec<u8>, BattleEventPayloadError> {
-    let mut encoder = Encoder::new(Vec::new());
-    encoder.u16(BATTLE_EVENT_PAYLOAD_VERSION);
-    encoder.u64(event.id().get());
-    encode_cause(&mut encoder, event.cause());
-    encode_kind(&mut encoder, event.kind())?;
-    Ok(encoder.into_inner())
+    encode_battle_event_payload_for_version(event, BATTLE_EVENT_PAYLOAD_VERSION)
 }
 
-fn encode_cause(encoder: &mut Encoder<Vec<u8>>, cause: Cause) {
-    optional_u64(encoder, cause.parent_event().map(|value| value.get()));
-    encoder.u64(cause.root_command().get());
-    optional_u64(encoder, cause.action().map(|value| value.get()));
-    optional_u64(encoder, cause.phase().map(|value| value.get()));
-    optional_u64(encoder, cause.hit().map(|value| value.get()));
-    optional_u64(encoder, cause.owner().map(|value| value.get()));
-    match cause.actor() {
-        None => encoder.u8(0),
-        Some(CauseActor::Unit(value)) => {
-            encoder.u8(1);
-            encoder.u64(value.get());
-        }
-        Some(CauseActor::TimelineActor(value)) => {
-            encoder.u8(2);
-            encoder.u64(value.get());
-        }
+/// Encodes an event for an explicit released payload revision.
+pub fn encode_battle_event_payload_for_version(
+    event: &BattleEvent,
+    version: u16,
+) -> Result<Vec<u8>, BattleEventPayloadError> {
+    if version != BATTLE_EVENT_PAYLOAD_VERSION_V1 && version != BATTLE_EVENT_PAYLOAD_VERSION {
+        return Err(BattleEventPayloadError::UnsupportedVersion(version));
     }
-    optional_u64(encoder, cause.applier().map(|value| value.get()));
-    optional_u32(encoder, cause.source_definition().map(|value| value.get()));
-    optional_u64(encoder, cause.primary_target().map(|value| value.get()));
-    optional_u32(encoder, cause.activity_source().map(|value| value.get()));
+    let mut encoder = Encoder::new(Vec::new());
+    encoder.u16(version);
+    encoder.u64(event.id().get());
+    encode_cause(&mut encoder, event.cause(), version);
+    encode_kind(&mut encoder, event.kind())?;
+    Ok(encoder.into_inner())
 }
 
 fn encode_kind(
@@ -917,6 +909,7 @@ fn operation_effect_target(
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum BattleEventPayloadError {
     Codec(CodecError),
+    UnsupportedVersion(u16),
     UnsupportedEventFamily,
 }
 

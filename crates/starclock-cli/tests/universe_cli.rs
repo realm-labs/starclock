@@ -66,11 +66,11 @@ fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
     assert!(run.status.success(), "{run:?}");
     assert_eq!(
         text(run.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-universe-v2\",\"kind\":\"universe-run\",\"world\":1,\"difficulty_index\":0,\"seed\":10,\"controller\":\"baseline\",\"battle_executor\":\"standard-universe-nested-battle-executor-v1\",\"actions\":60,\"nested_battles\":5,\"battle_commands\":33,\"terminal\":\"completed\",\"state_hash\":\"f66ad680373b4f21f1857d2f3c2b52c3ecbed95c8f77e316eb443ec77ca7bb00\",\"replay_bytes\":45458}"
+        "{\"schema_revision\":\"starclock-cli-universe-v2\",\"kind\":\"universe-run\",\"world\":1,\"difficulty_index\":0,\"seed\":10,\"controller\":\"baseline\",\"battle_executor\":\"standard-universe-nested-battle-executor-v1\",\"actions\":52,\"nested_battles\":3,\"battle_commands\":19,\"terminal\":\"completed\",\"state_hash\":\"6367dce31434b34edd0e5f48750de08fcd28a22f45670401663a74ef5267d676\",\"replay_bytes\":28557}"
     );
 
     let replay_bytes = fs::read(&replay).unwrap();
-    assert_eq!(replay_bytes.len(), 45_458);
+    assert_eq!(replay_bytes.len(), 28_557);
     let decoded = starclock_replay::format_v2::decode_replay_v2(&replay_bytes).unwrap();
     assert_eq!(decoded.header().components().components().len(), 9);
     assert!(decoded.records().iter().any(|record| {
@@ -82,9 +82,9 @@ fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
     assert_eq!(
         replay_hash.finalize(),
         Sha256Digest::new([
-            0x40, 0xd1, 0x39, 0x49, 0x69, 0x7d, 0xa7, 0xea, 0xd3, 0xe8, 0xb9, 0xad, 0x79, 0xf2,
-            0xc9, 0x3b, 0x3a, 0x3e, 0x4c, 0x8c, 0x39, 0x42, 0x59, 0x0c, 0x53, 0x16, 0xf8, 0x0f,
-            0xa4, 0x26, 0xba, 0x69,
+            0x6f, 0xf5, 0x8d, 0xdd, 0x7b, 0x81, 0x3b, 0x2d, 0xbb, 0x61, 0x24, 0x68, 0x9d, 0x80,
+            0x78, 0x04, 0xe5, 0x74, 0xa7, 0xf9, 0xd4, 0x84, 0xa7, 0x61, 0xaf, 0x7c, 0x95, 0xe1,
+            0xc2, 0xe9, 0x5f, 0x71,
         ])
     );
 
@@ -92,7 +92,7 @@ fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
     assert!(verified.status.success(), "{verified:?}");
     assert_eq!(
         text(verified.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-universe-v2\",\"kind\":\"replay-verify\",\"entry\":\"standard-universe\",\"actions\":60,\"nested_battles\":5,\"battle_commands\":33,\"terminal\":\"completed\",\"state_hash\":\"f66ad680373b4f21f1857d2f3c2b52c3ecbed95c8f77e316eb443ec77ca7bb00\"}"
+        "{\"schema_revision\":\"starclock-cli-universe-v2\",\"kind\":\"replay-verify\",\"entry\":\"standard-universe\",\"actions\":52,\"nested_battles\":3,\"battle_commands\":19,\"terminal\":\"completed\",\"state_hash\":\"6367dce31434b34edd0e5f48750de08fcd28a22f45670401663a74ef5267d676\"}"
     );
 
     let mut changed = replay_bytes;

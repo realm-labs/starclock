@@ -4,10 +4,11 @@ use std::{collections::BTreeSet, sync::Arc};
 
 use crate::catalog::SimulationCatalog;
 use starclock_combat::{
-    AbilityId, Battle, BattleSeed, BattleSpec, BattleSpecDigest, CombatantSpecDigest,
-    ConcedePolicy, EncounterId, EnemyDefinitionId, Energy, FormationIndex, Hp, ParticipantSource,
-    ParticipantSpec, ProgramId, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings, Scalar,
-    SelectorId, Speed, TeamResourceSpec, TeamSide, UnitDefinitionId, UnitLevel,
+    AbilityId, AssemblyDigest, Battle, BattleSeed, BattleSpec, BattleSpecDigest,
+    CombatantSpecDigest, ConcedePolicy, EncounterId, EnemyDefinitionId, Energy, FormationIndex, Hp,
+    ParticipantSource, ParticipantSpec, ProgramId, Ratio, ResolvedCombatantSpec,
+    ResolvedDefinitionBindings, Scalar, SelectorId, Speed, TeamResourceSpec, TeamSide,
+    UnitDefinitionId, UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -52,7 +53,7 @@ pub const SCENARIOS: [(&str, u32, u32); 6] = [
 pub struct StandardV1Battle {
     battle: Battle,
     encounter: EncounterId,
-    spec_digest: BattleSpecDigest,
+    assembly_digest: AssemblyDigest,
     master_seed: u64,
 }
 
@@ -117,7 +118,7 @@ impl StandardV1Catalog {
             "standard-v1-battle",
         )
         .map_err(|_| "frozen Standard-v1 RNG path is invalid")?;
-        let spec_digest = spec.digest();
+        let assembly_digest = spec.assembly_digest();
         let battle = Battle::create(
             Arc::clone(&self.combat),
             spec,
@@ -127,7 +128,7 @@ impl StandardV1Catalog {
         Ok(StandardV1Battle {
             battle,
             encounter: EncounterId::new(encounter_id).expect("static encounter ID"),
-            spec_digest,
+            assembly_digest,
             master_seed,
         })
     }
@@ -155,8 +156,13 @@ impl StandardV1Battle {
         self.encounter
     }
 
-    pub const fn spec_digest(&self) -> BattleSpecDigest {
-        self.spec_digest
+    pub const fn assembly_digest(&self) -> AssemblyDigest {
+        self.assembly_digest
+    }
+
+    /// Legacy replay-v1 view retained until the production-surface migration.
+    pub fn spec_digest(&self) -> BattleSpecDigest {
+        BattleSpecDigest::new(self.assembly_digest.bytes()).expect("AssemblyDigest is non-zero")
     }
 
     pub const fn master_seed(&self) -> u64 {
@@ -347,7 +353,7 @@ fn battle_spec(
     }
     BattleSpec::new(
         RULES_REVISION,
-        BattleSpecDigest::new([u8::try_from(scenario_raw - 277).expect("scenario ordinal"); 32])
+        AssemblyDigest::new([u8::try_from(scenario_raw - 277).expect("scenario ordinal"); 32])
             .expect("nonzero spec digest"),
         encounter_id,
         participants,
@@ -378,32 +384,32 @@ mod tests {
             (
                 SCENARIOS[0].0,
                 66,
-                "5021cdd6019e0a100ad35e36ffb69fdb4860600db472c77fb8b33a9571b507ec",
+                "1720715d5d784dc533905aa1fb74b8633b85df2cd039e7254e7a010d5b75b475",
             ),
             (
                 SCENARIOS[1].0,
                 18,
-                "87d2523332871b19cf4773373d031c6473bac29a48d17e796e0584cda296b344",
+                "0e12ee3c7ffca5b5815444bb4cbbe1b1adbcbdabf5de09c2feda2e0f08bde17c",
             ),
             (
                 SCENARIOS[2].0,
                 50,
-                "c6c1a62d408e6c31f45624440802e64d79cbc359faf9ffb58b62b25be3879603",
+                "5f53e4b9e9586761e1563787c67a58d5cf871346396ecc8898295785e8cff588",
             ),
             (
                 SCENARIOS[3].0,
                 18,
-                "d3459759678910e92a719341a837a2ceca24a05bc1f5abbfa2190556e21e9c06",
+                "d3e28d8c884ee073bcad8e97dc2e92b846d96b12af7e3017228a156e2ae5961b",
             ),
             (
                 SCENARIOS[4].0,
                 182,
-                "c89ee783c91ce046d6b3b07ee0b29376417dc34ccc2f6935510bab180254a588",
+                "0725ca202c4b14a6a8831c5f78b0ee50116944f8e11def996924934c70c904a6",
             ),
             (
                 SCENARIOS[5].0,
                 182,
-                "413356b9d452876c51b269e62703072eef916ef866fd1420cfd7164e7383356b",
+                "12c2649faccc4c0cfe084cbe5deea68780490b169f0df0a412b9f34192aedb66",
             ),
         ];
         for (scenario, expected_events, expected_hash) in EXPECTED {

@@ -277,7 +277,7 @@ fn carried_spec(
     }
     starclock_combat::BattleSpec::new(
         handoff.battle_spec().rules_revision(),
-        handoff.battle_spec().digest(),
+        handoff.identity().assembly_digest(),
         handoff.battle_spec().encounter(),
         participants,
         handoff.battle_spec().resources(TeamSide::Player).clone(),
@@ -545,7 +545,7 @@ fn report(
 fn enemy_controller_seed(handoff: &ActivityBattleHandoff) -> RngSeed {
     let mut encoder = Encoder::new(b"starclock-standard-universe-enemy-controller-v1");
     encoder.digest(handoff.identity().seed().bytes());
-    encoder.digest(handoff.identity().spec_digest().bytes());
+    encoder.digest(handoff.identity().assembly_digest().bytes());
     RngSeed::new(encoder.finish())
 }
 
@@ -562,7 +562,7 @@ impl EventCommitment {
         encoder.text(catalog.revision().as_str());
         encoder.digest(catalog.digest().bytes());
         encoder.digest(handoff.identity().seed().bytes());
-        encoder.digest(handoff.identity().spec_digest().bytes());
+        encoder.digest(handoff.identity().assembly_digest().bytes());
         Self(encoder)
     }
 
@@ -597,10 +597,9 @@ impl EventCommitment {
                 cause.source_definition().map(|value| value.get()),
             );
             optional_u64(&mut self.0, cause.primary_target().map(|value| value.get()));
-            optional_u32(
-                &mut self.0,
-                cause.activity_source().map(|value| value.get()),
-            );
+            // Preserve the released commitment byte shape. This option never
+            // had a writer and is not part of event payload v2.
+            optional_u32(&mut self.0, None);
             self.0.u8(event_family(event.kind()));
         }
     }

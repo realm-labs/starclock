@@ -1,8 +1,8 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    Battle, BattleEventKind, BattleSeed, BattleSpec, BattleSpecDigest, CombatantSpecDigest,
-    Command, ConcedePolicy, DamageKind, DispelCategory, DotDefinition, DotDetonationDefinition,
+    AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec, CombatantSpecDigest, Command,
+    ConcedePolicy, DamageKind, DispelCategory, DotDefinition, DotDetonationDefinition,
     DurationClock, EffectApplicationDefinition, EffectCategory, EffectChancePolicy,
     EffectDefinitionId, EffectEventData, EffectRuntimeDefinition, EffectStackPolicy,
     EffectTickPhase, Energy, FormationIndex, Hp, ParticipantSource, ParticipantSpec, Probability,
@@ -191,7 +191,7 @@ fn combatant(form: u32, ability: u32, speed: i64, digest: u8) -> ResolvedCombata
 fn battle() -> Battle {
     let spec = BattleSpec::new(
         "effect-resource-rules-v1",
-        BattleSpecDigest::new([0x41; 32]).unwrap(),
+        AssemblyDigest::new([0x41; 32]).unwrap(),
         definition(1),
         vec![
             ParticipantSpec::new(

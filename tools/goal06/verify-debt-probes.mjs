@@ -8,25 +8,27 @@ assert(policy.schema_revision === "starclock.goal06-debt-probes.v1",
   "unsupported Goal 06 debt-probe revision");
 
 const rustFiles = files("crates", ".rs");
-const specCallFiles = rustFiles.filter((file) => text(file).includes("BattleSpec::new("));
-const specCalls = specCallFiles.reduce(
-  (total, file) => total + occurrences(text(file), "BattleSpec::new("),
-  0,
-);
-assert(specCallFiles.length === policy.caller_supplied_identity.source_files,
-  `BattleSpec caller file count drifted to ${specCallFiles.length}`);
-assert(specCalls === policy.caller_supplied_identity.call_sites,
-  `BattleSpec call-site count drifted to ${specCalls}`);
-
 const spec = text("crates/starclock-combat/src/battle/spec.rs");
-for (const marker of [
-  "pub struct BattleSpec",
-  "digest: BattleSpecDigest",
-  "pub fn new(",
-  "digest: BattleSpecDigest,",
-  "pub const fn digest(&self) -> BattleSpecDigest",
-]) assert(spec.includes(marker), `caller-supplied digest marker is missing: ${marker}`);
-assert(!spec.includes("CombatInputDigest"), "combat-owned identity was introduced before P1-B1");
+assert(spec.includes("pub struct BattleSpec"), "BattleSpec is missing");
+assert(spec.includes("pub fn new("), "BattleSpec constructor is missing");
+if (!spec.includes("CombatInputDigest")) {
+  const specCallFiles = rustFiles.filter((file) => text(file).includes("BattleSpec::new("));
+  const specCalls = specCallFiles.reduce(
+    (total, file) => total + occurrences(text(file), "BattleSpec::new("),
+    0,
+  );
+  assert(specCallFiles.length === policy.caller_supplied_identity.source_files,
+    `BattleSpec caller file count drifted to ${specCallFiles.length}`);
+  assert(specCalls === policy.caller_supplied_identity.call_sites,
+    `BattleSpec call-site count drifted to ${specCalls}`);
+  assert(spec.includes("digest: BattleSpecDigest,"),
+    "frozen caller-supplied digest marker is missing");
+} else {
+  assert(spec.includes("assembly_digest: AssemblyDigest,"),
+    "migrated constructor does not accept AssemblyDigest");
+  assert(!spec.includes("digest: BattleSpecDigest,"),
+    "migrated constructor still accepts BattleSpecDigest");
+}
 
 const production = text(policy.entry_time_materialization.factory_source);
 for (const marker of [
@@ -88,8 +90,8 @@ for (const source of [
 }
 
 console.log(
-  `Goal 06 debt probes verified (${specCalls} BattleSpec callers, entry-time materialization, `
-    + `${policy.representative_scenarios.length} frozen scenarios).`,
+  `Goal 06 debt probes verified (frozen baseline plus ${policy.representative_scenarios.length} `
+    + "transition scenarios).",
 );
 
 function files(relative, suffix) {

@@ -1,12 +1,12 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    ActionEventData, ActionOrigin, Battle, BattleEventKind, BattleSeed, BattleSpec,
-    BattleSpecDigest, CombatantSpecDigest, Command, ConcedePolicy, ControlledAction,
-    DispelCategory, DurationClock, EffectApplicationDefinition, EffectCategory, EffectChancePolicy,
-    EffectRuntimeDefinition, EffectStackPolicy, EffectTickPhase, Energy, FormationIndex, Hp,
-    ParticipantSource, ParticipantSpec, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings,
-    Scalar, Speed, TeamResourceSpec, TeamSide, UnitLevel,
+    ActionEventData, ActionOrigin, AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec,
+    CombatantSpecDigest, Command, ConcedePolicy, ControlledAction, DispelCategory, DurationClock,
+    EffectApplicationDefinition, EffectCategory, EffectChancePolicy, EffectRuntimeDefinition,
+    EffectStackPolicy, EffectTickPhase, Energy, FormationIndex, Hp, ParticipantSource,
+    ParticipantSpec, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings, Scalar, Speed,
+    TeamResourceSpec, TeamSide, UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -202,7 +202,7 @@ fn battle(
 ) -> Battle {
     let spec = BattleSpec::new(
         "reaction-scheduler-rules-v1",
-        BattleSpecDigest::new([0xc6; 32]).unwrap(),
+        AssemblyDigest::new([0xc6; 32]).unwrap(),
         definition(1),
         vec![
             ParticipantSpec::new(

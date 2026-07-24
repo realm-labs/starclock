@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    ActionGauge, Battle, BattleEventKind, BattleSeed, BattleSpec, BattleSpecDigest,
+    ActionGauge, AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec,
     CombatantSpecDigest, Command, ConcedePolicy, CountdownCatalogDefinition, CountdownDefinition,
     DispelCategory, DurationClock, EffectCategory, EffectRuntimeDefinition, EffectRuntimeTemplate,
     EffectStackPolicy, EffectTickPhase, EncounterWaveId, FormationIndex, Hp, KeyedTeamResourceSpec,
@@ -628,7 +628,7 @@ fn battle(
 ) -> Battle {
     let spec = BattleSpec::new(
         "ability-program-rules-v1",
-        BattleSpecDigest::new([0x44; 32]).unwrap(),
+        AssemblyDigest::new([0x44; 32]).unwrap(),
         id(1),
         vec![
             ParticipantSpec::new(
@@ -672,7 +672,7 @@ fn battle(
 fn battle_with_two_enemies(catalog: Arc<CombatCatalog>) -> Battle {
     let spec = BattleSpec::new(
         "ability-program-current-subject-v1",
-        BattleSpecDigest::new([0x71; 32]).unwrap(),
+        AssemblyDigest::new([0x71; 32]).unwrap(),
         id(1),
         vec![
             ParticipantSpec::new(

@@ -418,7 +418,7 @@ mod tests {
 
     use super::*;
     use crate::{
-        BattleEventData, BattleEventKind, BattleSpecDigest, CombatantSpecDigest, ConcedePolicy,
+        AssemblyDigest, BattleEventData, BattleEventKind, CombatantSpecDigest, ConcedePolicy,
         FaultKind, FaultPolicy, FormationIndex, Hp, ParticipantSource, ParticipantSpec,
         ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, TeamResourceSpec, UnitLevel,
         catalog::{
@@ -521,7 +521,7 @@ mod tests {
     fn fixture_battle() -> Battle {
         let spec = BattleSpec::new(
             "transaction-rules-v1",
-            BattleSpecDigest::new([0x51; 32]).unwrap(),
+            AssemblyDigest::new([0x51; 32]).unwrap(),
             definition(1),
             vec![
                 ParticipantSpec::new(

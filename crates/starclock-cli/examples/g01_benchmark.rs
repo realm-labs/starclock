@@ -442,7 +442,7 @@ fn replay_header(scenario: &BenchmarkBattle, commands: usize) -> ReplayHeader {
         scenario.master_seed(),
         ReplayEntry::Battle {
             definition_id: scenario.encounter().get(),
-            spec_digest: EntrySpecDigest::new(scenario.spec_digest().bytes()),
+            spec_digest: EntrySpecDigest::new(scenario.assembly_digest().bytes()),
         },
         battle_record_count(commands).expect("benchmark command count is bounded"),
     )

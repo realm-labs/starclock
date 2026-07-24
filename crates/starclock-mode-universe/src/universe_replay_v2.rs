@@ -17,7 +17,10 @@ use starclock_replay::{
         decode_nested_battle_start_payload, encode_controller_diagnostic_payload,
         encode_nested_battle_end_payload, encode_nested_battle_start_payload,
     },
-    battle_event::{BattleEventPayloadError, encode_battle_event_payload},
+    battle_event::{
+        BATTLE_EVENT_PAYLOAD_VERSION, BATTLE_EVENT_PAYLOAD_VERSION_V1, BattleEventPayloadError,
+        encode_battle_event_payload_for_version,
+    },
     component::{
         ComponentIdentityError, ConfigurationComponentDivergence, ConfigurationComponentIdentity,
         ConfigurationComponentKind, ConfigurationComponentSet,
@@ -30,7 +33,7 @@ use starclock_replay::{
     nested_battle::{
         NestedBattleCommandPayload, NestedBattlePayloadError, decode_nested_battle_command_payload,
         decode_nested_battle_state_payload, encode_nested_battle_command_payload,
-        encode_nested_battle_state_payload,
+        encode_nested_battle_state_payload_v1,
     },
     record::{MAX_REPLAY_RECORDS, RecordKind, RecordRef, ReplayFormatError},
 };
@@ -283,7 +286,7 @@ pub fn encode_standard_universe_trace_parts_v2(
                 ));
                 payloads.push((
                     RecordKind::ExpectedBattleState,
-                    encode_nested_battle_state_payload(step.state_hash(), step.events())?,
+                    encode_nested_battle_state_payload_v1(step.state_hash(), step.events())?,
                 ));
             }
             let result = match entry.action() {
@@ -575,7 +578,27 @@ fn compare_events(
 ) -> Result<(), StandardUniverseReplayV2Error> {
     let shared = expected.len().min(actual.len());
     for event_index in 0..shared {
-        let payload = encode_battle_event_payload(&actual[event_index])?;
+        let version = expected[event_index]
+            .get(..2)
+            .and_then(|bytes| bytes.try_into().ok())
+            .map(u16::from_le_bytes)
+            .ok_or(StandardUniverseReplayV2Error::BattleEventDivergence {
+                battle_index,
+                command_index,
+                event_index: event_index as u32,
+                expected_count: expected.len() as u32,
+                actual_count: actual.len() as u32,
+            })?;
+        if version != BATTLE_EVENT_PAYLOAD_VERSION_V1 && version != BATTLE_EVENT_PAYLOAD_VERSION {
+            return Err(StandardUniverseReplayV2Error::BattleEventDivergence {
+                battle_index,
+                command_index,
+                event_index: event_index as u32,
+                expected_count: expected.len() as u32,
+                actual_count: actual.len() as u32,
+            });
+        }
+        let payload = encode_battle_event_payload_for_version(&actual[event_index], version)?;
         if expected[event_index] != payload {
             return Err(StandardUniverseReplayV2Error::BattleEventDivergence {
                 battle_index,

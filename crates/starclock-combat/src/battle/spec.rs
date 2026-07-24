@@ -796,34 +796,8 @@ pub struct BattleSpec {
 }
 
 impl BattleSpec {
-    /// Legacy bridge for callers pending migration to [`Self::new_with_assembly`].
-    ///
-    /// The supplied digest is treated only as opaque assembly provenance. The
-    /// combat-visible digest is always computed inside this crate.
-    pub fn new(
-        rules_revision: impl Into<Box<str>>,
-        digest: BattleSpecDigest,
-        encounter: EncounterId,
-        participants: Vec<ParticipantSpec>,
-        player_resources: TeamResourceSpec,
-        enemy_resources: TeamResourceSpec,
-        concede: ConcedePolicy,
-    ) -> Result<Self, BattleSpecError> {
-        let assembly_digest = AssemblyDigest::new(digest.bytes())
-            .expect("BattleSpecDigest construction already rejects zero");
-        Self::new_with_assembly(
-            rules_revision,
-            assembly_digest,
-            encounter,
-            participants,
-            player_resources,
-            enemy_resources,
-            concede,
-        )
-    }
-
     /// Validates and canonicalizes battle input, then computes its identity.
-    pub fn new_with_assembly(
+    pub fn new(
         rules_revision: impl Into<Box<str>>,
         assembly_digest: AssemblyDigest,
         encounter: EncounterId,
@@ -891,11 +865,6 @@ impl BattleSpec {
     #[must_use]
     pub fn rules_revision(&self) -> &str {
         &self.rules_revision
-    }
-    /// Returns the legacy outer request identity during replay-v2 migration.
-    #[must_use]
-    pub const fn digest(&self) -> BattleSpecDigest {
-        BattleSpecDigest(self.assembly_digest.bytes())
     }
     /// Returns the combat-owned canonical input identity.
     #[must_use]

@@ -1,5 +1,5 @@
 use starclock_combat::{
-    AbilityId, BattleSeed, BattleSpec, BattleSpecDigest, CombatantSpecDigest, ConcedePolicy,
+    AbilityId, AssemblyDigest, BattleSeed, BattleSpec, CombatantSpecDigest, ConcedePolicy,
     EncounterId, EnemyDefinitionId, FormationIndex, Hp, KeyedTeamResourceSpec, ParticipantSource,
     ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, SourceDefinitionId, Speed,
     TeamResourceSpec, TeamResourceWavePolicy, TeamSide, UnitDefinitionId, UnitLevel,
@@ -47,7 +47,7 @@ pub(super) fn battle_spec(scenario: BenchmarkScenario) -> BattleSpec {
         .expect("static keyed resource IDs are unique");
     BattleSpec::new(
         BENCHMARK_RULES_REVISION,
-        BattleSpecDigest::new([scenario.code(); 32]).expect("scenario code is non-zero"),
+        AssemblyDigest::new([scenario.code(); 32]).expect("scenario code is non-zero"),
         EncounterId::new(encounter).expect("static ID"),
         participants,
         player_resources,

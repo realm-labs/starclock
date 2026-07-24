@@ -5,7 +5,7 @@ use proptest::{
     test_runner::{Config as ProptestConfig, FileFailurePersistence, RngAlgorithm, RngSeed},
 };
 use starclock_combat::{
-    AbilityId, Battle, BattleSeed, BattleSpec, BattleSpecDigest, CombatantSpecDigest, Command,
+    AbilityId, AssemblyDigest, Battle, BattleSeed, BattleSpec, CombatantSpecDigest, Command,
     ConcedePolicy, DecisionKind, EncounterId, EnemyDefinitionId, FormationIndex, Hp,
     ParticipantSource, ParticipantSpec, ProgramId, ResolvedCombatantSpec,
     ResolvedDefinitionBindings, SelectorId, Speed, TeamResourceSpec, TeamSide, UnitDefinitionId,
@@ -25,6 +25,10 @@ use starclock_combat::{
 };
 use starclock_replay::{
     battle::{BattleTraceEntry, battle_record_count, encode_battle_trace, verify_battle_replay},
+    battle_event::{
+        BATTLE_EVENT_PAYLOAD_VERSION, BATTLE_EVENT_PAYLOAD_VERSION_V1, BattleEventPayloadError,
+        encode_battle_event_payload, encode_battle_event_payload_for_version,
+    },
     digest::{ConfigBundleDigest, ControllerDigest, EntrySpecDigest},
     format::{ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, decode_replay},
     record::RecordKind,
@@ -119,7 +123,7 @@ fn combatant(form: u32, digest: u8) -> ResolvedCombatantSpec {
 fn battle() -> Battle {
     let spec = BattleSpec::new(
         "battle-property-rules-v1",
-        BattleSpecDigest::new(SPEC_DIGEST).unwrap(),
+        AssemblyDigest::new(SPEC_DIGEST).unwrap(),
         definition::<EncounterId>(1),
         vec![
             ParticipantSpec::new(
@@ -211,6 +215,31 @@ fn unique_offset(bytes: &[u8], needle: &[u8]) -> usize {
         .collect::<Vec<_>>();
     assert_eq!(offsets.len(), 1, "fixture payload must occur exactly once");
     offsets[0]
+}
+
+#[test]
+fn event_payload_v2_removes_only_the_never_written_activity_source_slot() {
+    let mut battle = battle();
+    let command = supported_command(&battle);
+    let resolution = battle.apply(command).unwrap();
+    let event = &resolution.events()[0];
+    let historical =
+        encode_battle_event_payload_for_version(event, BATTLE_EVENT_PAYLOAD_VERSION_V1).unwrap();
+    let current = encode_battle_event_payload(event).unwrap();
+
+    assert_eq!(
+        u16::from_le_bytes(historical[..2].try_into().unwrap()),
+        BATTLE_EVENT_PAYLOAD_VERSION_V1
+    );
+    assert_eq!(
+        u16::from_le_bytes(current[..2].try_into().unwrap()),
+        BATTLE_EVENT_PAYLOAD_VERSION
+    );
+    assert_eq!(historical.len(), current.len() + 1);
+    assert_eq!(
+        encode_battle_event_payload_for_version(event, u16::MAX),
+        Err(BattleEventPayloadError::UnsupportedVersion(u16::MAX))
+    );
 }
 
 proptest! {

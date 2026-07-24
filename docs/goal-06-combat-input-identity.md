@@ -6,7 +6,7 @@
   canonical encoding.
 - `AssemblyDigest` is opaque provenance supplied by the build or Activity
   assembly owner.
-- `BattleSpec::new_with_assembly` canonicalizes participants before computing
+- `BattleSpec::new` canonicalizes participants before computing
   the combat-input digest. No caller parameter can override that digest.
 - `BattleIdentity` retains both values independently.
 
@@ -16,9 +16,9 @@ definition/source bindings, team resources and battle-local policy. It uses
 explicit tags, fixed-width little-endian integers and length-prefixed
 collections/text rather than serialization output.
 
-The legacy `BattleSpec::new` and `BattleSpecDigest` surface remains only as a
-temporary compile-safe migration bridge through `G06-P1-B4`. Its argument is
-treated as `AssemblyDigest`; combat input is still computed internally.
+`BattleSpecDigest` remains only in historical replay and Activity payload
+decoders. It is not accepted by battle construction and cannot override
+`CombatInputDigest`.
 
 Canonical battle-state and replay bytes deliberately remain on historical
 `sha256-v3`/replay v2 in this batch. `G06-P1-B3` performs their coordinated

@@ -375,7 +375,8 @@ fn standard_v1_battle_run(
         standard_v1::instantiate(scenario, Some(seed)).map_err(|_| CliError::UnknownScenario)?;
     let header_identity = (
         instantiated.encounter(),
-        instantiated.spec_digest(),
+        starclock_combat::BattleSpecDigest::new(instantiated.assembly_digest().bytes())
+            .expect("AssemblyDigest is non-zero"),
         instantiated.master_seed(),
     );
     let mut trace = Vec::new();
@@ -500,7 +501,7 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
         }
         let instantiated = standard_v1::instantiate(scenario, Some(seed))
             .map_err(|_| CliError::UnknownScenario)?;
-        if EntrySpecDigest::new(instantiated.spec_digest().bytes()) != spec_digest {
+        if EntrySpecDigest::new(instantiated.assembly_digest().bytes()) != spec_digest {
             return Err(CliError::UnknownScenario);
         }
         instantiated.into_battle()
@@ -558,7 +559,7 @@ fn replay_header(
     let controller = ControllerIdentity::new(CONTROLLER_REVISION, controller_digest())?;
     let entry = ReplayEntry::Battle {
         definition_id: scenario.encounter().get(),
-        spec_digest: EntrySpecDigest::new(scenario.spec_digest().bytes()),
+        spec_digest: EntrySpecDigest::new(scenario.assembly_digest().bytes()),
     };
     ReplayHeader::new(
         identity,

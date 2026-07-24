@@ -12,7 +12,7 @@ use starclock_activity::{
     TechniqueContributionDigest,
 };
 use starclock_combat::{
-    AbilityId, BattleSpec, BattleSpecDigest, BattleStateHash, CombatantSpecDigest, ConcedePolicy,
+    AbilityId, AssemblyDigest, BattleSpec, BattleStateHash, CombatantSpecDigest, ConcedePolicy,
     EncounterId, EnemyDefinitionId, Energy, FormationIndex, Hp, LifeState, ParticipantSource,
     ParticipantSpec, PresenceState, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
     TeamResourceSpec, TeamSide, UnitDefinitionId, UnitLevel,
@@ -161,7 +161,7 @@ fn battle_spec(member: u32) -> BattleSpec {
     ));
     BattleSpec::new(
         "universe-test-rules-v1",
-        BattleSpecDigest::new([u8::try_from(member).unwrap(); 32]).unwrap(),
+        AssemblyDigest::new([u8::try_from(member).unwrap(); 32]).unwrap(),
         EncounterId::new(member).unwrap(),
         participants,
         TeamResourceSpec::new(3, 5).unwrap(),

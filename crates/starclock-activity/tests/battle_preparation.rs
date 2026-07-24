@@ -13,7 +13,7 @@ use starclock_activity::{
     TechniqueOptionDefinition,
 };
 use starclock_combat::{
-    AbilityId, BattleSpec, BattleSpecDigest, CombatantSpecDigest, ConcedePolicy, EncounterId,
+    AbilityId, AssemblyDigest, BattleSpec, CombatantSpecDigest, ConcedePolicy, EncounterId,
     EnemyDefinitionId, FormationIndex, Hp, ParticipantSource, ParticipantSpec,
     ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamSide,
     UnitDefinitionId, UnitLevel,
@@ -375,7 +375,7 @@ fn lock_entry(
 fn battle_spec(digest: u8, first_player_digest: u8) -> BattleSpec {
     BattleSpec::new(
         "rules-v1",
-        BattleSpecDigest::new([digest; 32]).unwrap(),
+        AssemblyDigest::new([digest; 32]).unwrap(),
         EncounterId::new(1).unwrap(),
         vec![
             ParticipantSpec::new(

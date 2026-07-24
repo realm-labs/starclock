@@ -1,8 +1,8 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    AbilityId, ActionEventData, ActionOrigin, Battle, BattleBuildErrorKind, BattleEventData,
-    BattleEventKind, BattlePhase, BattleSeed, BattleSpec, BattleSpecDigest, BattleSpecError,
+    AbilityId, ActionEventData, ActionOrigin, AssemblyDigest, Battle, BattleBuildErrorKind,
+    BattleEventData, BattleEventKind, BattlePhase, BattleSeed, BattleSpec, BattleSpecError,
     CombatantSpecDigest, CombatantSpecError, Command, CommandErrorKind, ConcedePolicy,
     DecisionEventData, DecisionId, DecisionKind, DecisionOwner, EncounterId, EnemyDefinitionId,
     FormationIndex, HitEventData, Hp, InterruptWindowKind, LifeState, ParticipantInitialState,
@@ -143,7 +143,7 @@ fn combatant_at_speed(
 fn spec_with(encounter: u32, player: ParticipantSpec, enemy: ParticipantSpec) -> BattleSpec {
     BattleSpec::new(
         "synthetic-rules-v1",
-        BattleSpecDigest::new([0x51; 32]).unwrap(),
+        AssemblyDigest::new([0x51; 32]).unwrap(),
         definition(encounter),
         vec![enemy, player],
         TeamResourceSpec::new(3, 5).unwrap(),
@@ -804,7 +804,7 @@ fn local_specs_reject_noncanonical_bindings_and_illegal_formations() {
 
     let duplicate = BattleSpec::new(
         "synthetic-rules-v1",
-        BattleSpecDigest::new([0x78; 32]).unwrap(),
+        AssemblyDigest::new([0x78; 32]).unwrap(),
         definition(1),
         vec![
             ParticipantSpec::new(

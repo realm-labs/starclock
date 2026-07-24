@@ -312,7 +312,7 @@ It produces:
 - resolved participant rule/modifier bindings;
 - encounter/environment rule bundles;
 - deterministic battle seed and purpose identity;
-- a `BattleSpecDigest` covering every consumed contribution;
+- an `AssemblyDigest` covering every consumed contribution;
 - a declared result projection/carry contract.
 
 All enabled structured Standard Universe encounter members must materialize.
@@ -569,6 +569,10 @@ IDs, fixed-point millionths, integral amounts, enum discriminants, bounded
 strings, collections and option-presence bytes. It does not use `Debug`,
 ordinary Serde output or a hash-only event family summary. Unknown future
 event families fail closed until the codec revision is extended.
+
+Payload v2 attributes executable origins through `source_definition` and omits
+the never-written `activity_source` slot. Historical replay v2 uses the
+explicit payload-v1 encoder, including its permanently empty reserved byte.
 
 Legacy Goal 04 replay v1 remains verifiable through its archived release
 snapshot. Production migration uses v2; no new caller should emit a v1

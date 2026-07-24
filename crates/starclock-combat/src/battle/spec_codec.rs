@@ -279,7 +279,7 @@ mod tests {
                 player,
             ),
         };
-        BattleSpec::new_with_assembly(
+        BattleSpec::new(
             revision,
             AssemblyDigest::new([assembly; 32]).unwrap(),
             EncounterId::new(1).unwrap(),
@@ -330,7 +330,7 @@ mod tests {
                 combatant,
             )
         };
-        let forward = BattleSpec::new_with_assembly(
+        let forward = BattleSpec::new(
             "rules-v1",
             assembly,
             EncounterId::new(1).unwrap(),
@@ -353,7 +353,7 @@ mod tests {
             ConcedePolicy::Allowed,
         )
         .unwrap();
-        let reverse = BattleSpec::new_with_assembly(
+        let reverse = BattleSpec::new(
             "rules-v1",
             assembly,
             EncounterId::new(1).unwrap(),

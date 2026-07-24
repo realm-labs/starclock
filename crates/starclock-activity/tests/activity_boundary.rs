@@ -12,10 +12,10 @@ use starclock_activity::{
     SlotDefinitionError, SlotResetPoint, TerminalOutcome,
 };
 use starclock_combat::{
-    AbilityId, AssemblyDigest, BattleSpec, BattleSpecDigest, BattleStateHash, CombatInputDigest,
-    CombatantSpecDigest, ConcedePolicy, EncounterId, EnemyDefinitionId, FormationIndex, Hp,
-    ParticipantSource, ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
-    TeamResourceSpec, TeamSide, UnitDefinitionId, UnitLevel,
+    AbilityId, AssemblyDigest, BattleSpec, BattleStateHash, CombatInputDigest, CombatantSpecDigest,
+    ConcedePolicy, EncounterId, EnemyDefinitionId, FormationIndex, Hp, ParticipantSource,
+    ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, TeamResourceSpec,
+    TeamSide, UnitDefinitionId, UnitLevel,
 };
 
 const DEFINITION_DIGEST: [u8; 32] = [0x11; 32];
@@ -49,7 +49,7 @@ fn one_battle_handoff_accepts_only_the_declared_projection_and_reaches_terminal(
         })
         .unwrap();
     let handoff = started.battle_handoff().expect("start returns one handoff");
-    assert_eq!(handoff.battle_spec().digest().bytes(), SPEC_DIGEST);
+    assert_eq!(handoff.battle_spec().assembly_digest().bytes(), SPEC_DIGEST);
     assert_eq!(handoff.seed(), handoff.identity().seed());
     assert_eq!(
         handoff.seed().bytes(),
@@ -414,7 +414,7 @@ fn successful_values() -> Vec<ProjectedValue> {
 fn battle_spec() -> BattleSpec {
     BattleSpec::new(
         "combat-rules-v1",
-        BattleSpecDigest::new(SPEC_DIGEST).unwrap(),
+        AssemblyDigest::new(SPEC_DIGEST).unwrap(),
         EncounterId::new(1).unwrap(),
         vec![
             ParticipantSpec::new(

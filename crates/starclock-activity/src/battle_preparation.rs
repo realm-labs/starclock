@@ -397,7 +397,8 @@ impl PendingBattleSpec {
     }
     #[must_use]
     pub fn battle_spec_digest(&self) -> BattleSpecDigest {
-        self.binding.battle_spec().digest()
+        BattleSpecDigest::new(self.binding.battle_spec().assembly_digest().bytes())
+            .expect("AssemblyDigest is non-zero")
     }
     #[must_use]
     pub fn combat_input_digest(&self) -> CombatInputDigest {

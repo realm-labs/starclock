@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    ActionGauge, ActionOrigin, Battle, BattleEventKind, BattleSeed, BattleSpec, BattleSpecDigest,
+    ActionGauge, ActionOrigin, AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec,
     CombatantSpecDigest, ConcedePolicy, CountdownCatalogDefinition, CountdownDefinition,
     FormationIndex, Hp, LifeState, LinkedEntity, LinkedEntityKind, LinkedOwnerScaling,
     LinkedStatScaling, LinkedUnitDefinition, OwnerLinkPolicy, ParticipantSource, ParticipantSpec,
@@ -367,7 +367,7 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
 fn fixture_battle() -> Battle {
     let spec = BattleSpec::new(
         "linked-lifecycle-rules-v1",
-        BattleSpecDigest::new([0x51; 32]).unwrap(),
+        AssemblyDigest::new([0x51; 32]).unwrap(),
         definition(1),
         vec![
             ParticipantSpec::new(

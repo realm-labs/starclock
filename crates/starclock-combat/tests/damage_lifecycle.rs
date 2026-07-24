@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    Battle, BattleEventKind, BattlePhase, BattleSeed, BattleSpec, BattleSpecDigest,
+    AssemblyDigest, Battle, BattleEventKind, BattlePhase, BattleSeed, BattleSpec,
     CombatantSpecDigest, Command, CommandErrorKind, ConcedePolicy, EncounterWaveId, FormationIndex,
     Hp, LifeState, ParticipantSource, ParticipantSpec, PresenceState, Ratio, ResolvedCombatantSpec,
     ResolvedDefinitionBindings, Scalar, Speed, StatValue, TeamResourceSpec, TeamSide,
@@ -363,7 +363,7 @@ fn battle_with_policy(
     }
     let spec = BattleSpec::new(
         "damage-lifecycle-rules-v1",
-        BattleSpecDigest::new([0x51; 32]).unwrap(),
+        AssemblyDigest::new([0x51; 32]).unwrap(),
         definition(1),
         participants,
         TeamResourceSpec::new(0, 5).unwrap(),
@@ -396,7 +396,7 @@ fn toughness_battle() -> Battle {
         .unwrap();
     let spec = BattleSpec::new(
         "toughness-layer-rules-v1",
-        BattleSpecDigest::new([0x73; 32]).unwrap(),
+        AssemblyDigest::new([0x73; 32]).unwrap(),
         definition(1),
         vec![
             ParticipantSpec::new(
@@ -433,7 +433,7 @@ fn break_recovery_battle_with_enemy_hp(enemy_hp: i64) -> Battle {
         .unwrap();
     let spec = BattleSpec::new(
         "break-recovery-rules-v1",
-        BattleSpecDigest::new([0x77; 32]).unwrap(),
+        AssemblyDigest::new([0x77; 32]).unwrap(),
         definition(1),
         vec![
             ParticipantSpec::new(
@@ -514,7 +514,7 @@ fn scaling_hit_damage_resolves_the_actors_live_stat() {
     let enemy = combatant(2, vec![3], 2_000, 1_000_000, 0x41);
     let spec = BattleSpec::new(
         "scaling-hit-damage-v1",
-        BattleSpecDigest::new([0x51; 32]).unwrap(),
+        AssemblyDigest::new([0x51; 32]).unwrap(),
         definition(1),
         vec![
             ParticipantSpec::new(

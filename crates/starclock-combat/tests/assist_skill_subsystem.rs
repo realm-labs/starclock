@@ -1,14 +1,13 @@
 use std::sync::Arc;
 
 use starclock_combat::{
-    ActionEventData, ActionOrigin, Battle, BattleEventKind, BattleSeed, BattleSpec,
-    BattleSpecDigest, CauseActor, CombatantSpecDigest, Command, ConcedePolicy, DispelCategory,
-    DurationClock, EffectApplicationDefinition, EffectCategory, EffectChancePolicy,
-    EffectRuntimeDefinition, EffectStackPolicy, EffectTickPhase, Energy, FormationIndex, Hp,
-    KeyedTeamResourceSpec, ParticipantSource, ParticipantSpec, Ratio, RawToughness,
-    ResolvedCombatantSpec, ResolvedDefinitionBindings, ResourceEventData, Scalar, Speed, StatValue,
-    TeamResourceSpec, TeamResourceWavePolicy, TeamSide, ToughnessLayerSpec,
-    ToughnessReductionDefinition, UnitLevel,
+    ActionEventData, ActionOrigin, AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec,
+    CauseActor, CombatantSpecDigest, Command, ConcedePolicy, DispelCategory, DurationClock,
+    EffectApplicationDefinition, EffectCategory, EffectChancePolicy, EffectRuntimeDefinition,
+    EffectStackPolicy, EffectTickPhase, Energy, FormationIndex, Hp, KeyedTeamResourceSpec,
+    ParticipantSource, ParticipantSpec, Ratio, RawToughness, ResolvedCombatantSpec,
+    ResolvedDefinitionBindings, ResourceEventData, Scalar, Speed, StatValue, TeamResourceSpec,
+    TeamResourceWavePolicy, TeamSide, ToughnessLayerSpec, ToughnessReductionDefinition, UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -232,7 +231,7 @@ fn battle(assist_uses: u16, expiring_grant: bool) -> Battle {
         .unwrap();
     let spec = BattleSpec::new(
         "assist-skill-rules-v1",
-        BattleSpecDigest::new([0xa2; 32]).unwrap(),
+        AssemblyDigest::new([0xa2; 32]).unwrap(),
         id(1),
         vec![
             ParticipantSpec::new(

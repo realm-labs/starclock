@@ -7,7 +7,7 @@ use starclock_agent_api::observation::{
     project_player_visible,
 };
 use starclock_combat::{
-    Battle, BattleSeed, BattleSpec, BattleSpecDigest, CombatantSpecDigest, ConcedePolicy,
+    AssemblyDigest, Battle, BattleSeed, BattleSpec, CombatantSpecDigest, ConcedePolicy,
     FormationIndex, Hp, ParticipantSource, ParticipantSpec, ResolvedCombatantSpec,
     ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamSide, UnitLevel,
     catalog::{
@@ -95,7 +95,7 @@ fn combatant(form: u32, digest: u8) -> ResolvedCombatantSpec {
 fn fixture_battle() -> Battle {
     let spec = BattleSpec::new(
         "agent-projection-rules-v1",
-        BattleSpecDigest::new([0x51; 32]).unwrap(),
+        AssemblyDigest::new([0x51; 32]).unwrap(),
         definition(1),
         vec![
             ParticipantSpec::new(

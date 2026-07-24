@@ -1,5 +1,5 @@
 use starclock_combat::{
-    AbilityId, BattleSeed, BattleSpec, BattleSpecDigest, CombatantSpecDigest, ConcedePolicy,
+    AbilityId, AssemblyDigest, BattleSeed, BattleSpec, CombatantSpecDigest, ConcedePolicy,
     EncounterId, EnemyDefinitionId, FormationIndex, Hp, ParticipantSource, ParticipantSpec,
     ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamSide,
     UnitDefinitionId, UnitLevel, rng::derive::StreamPath,
@@ -12,7 +12,7 @@ pub(super) fn battle_spec() -> BattleSpec {
     let enemy = combatant(2, 2, 600, 50_000_000, 0xc2);
     BattleSpec::new(
         SYNTHETIC_STANDARD_RULES_REVISION,
-        BattleSpecDigest::new(SYNTHETIC_STANDARD_SPEC_DIGEST).expect("static digest is non-zero"),
+        AssemblyDigest::new(SYNTHETIC_STANDARD_SPEC_DIGEST).expect("static digest is non-zero"),
         EncounterId::new(1).expect("static ID"),
         vec![
             ParticipantSpec::new(

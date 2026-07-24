@@ -67,7 +67,7 @@ impl UniverseEncounterOverlay {
         let mut specs = Vec::new();
         for binding in &bindings {
             for variant in binding.preparation.variants() {
-                let digest = variant.battle_spec().digest();
+                let digest = variant.battle_spec().assembly_digest();
                 if specs.contains(&digest) {
                     return Err(UniverseEncounterOverlayError::DuplicateBattleSpec);
                 }
@@ -103,7 +103,7 @@ impl UniverseEncounterOverlay {
                 .preparation
                 .variants()
                 .iter()
-                .any(|variant| variant.battle_spec().digest().bytes() == digest)
+                .any(|variant| variant.battle_spec().assembly_digest().bytes() == digest)
         })
     }
     #[must_use]

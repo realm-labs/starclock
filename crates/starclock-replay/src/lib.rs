@@ -8,6 +8,7 @@
 pub mod activity;
 pub mod battle;
 pub mod battle_event;
+mod battle_event_cause;
 pub mod codec;
 pub mod component;
 pub mod digest;

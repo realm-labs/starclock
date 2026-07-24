@@ -7,7 +7,7 @@ use starclock_activity::{
     ParticipantUniquenessScope, ProjectedValue, ProjectionField, ProjectionId, SlotResetPoint,
 };
 use starclock_combat::{
-    AbilityId, BattleSpec, BattleSpecDigest, BattleStateHash, CombatantSpecDigest, ConcedePolicy,
+    AbilityId, AssemblyDigest, BattleSpec, BattleStateHash, CombatantSpecDigest, ConcedePolicy,
     EncounterId, EnemyDefinitionId, FormationIndex, Hp, ParticipantSource, ParticipantSpec,
     ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamSide,
     UnitDefinitionId, UnitLevel, catalog::encounter::WaveTransitionPolicy,
@@ -313,7 +313,7 @@ fn participant_entry(raw: u32, team: u8) -> ParticipantLockEntry {
 fn battle_spec() -> BattleSpec {
     BattleSpec::new(
         "combat-rules-v1",
-        BattleSpecDigest::new([0x31; 32]).unwrap(),
+        AssemblyDigest::new([0x31; 32]).unwrap(),
         EncounterId::new(1).unwrap(),
         vec![
             ParticipantSpec::new(

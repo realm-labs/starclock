@@ -6,7 +6,7 @@ mod spec;
 use std::sync::Arc;
 
 use starclock_combat::{
-    Battle, BattleBuildError, BattleSeed, BattleSpec, BattleSpecDigest, EncounterId,
+    AssemblyDigest, Battle, BattleBuildError, BattleSeed, BattleSpec, EncounterId,
     catalog::CombatCatalog,
 };
 
@@ -67,8 +67,8 @@ impl SyntheticStandardBattle {
 
     /// Returns the exact battle-spec digest.
     #[must_use]
-    pub const fn spec_digest(&self) -> BattleSpecDigest {
-        self.spec.digest()
+    pub const fn assembly_digest(&self) -> AssemblyDigest {
+        self.spec.assembly_digest()
     }
 
     /// Returns the synthetic catalog revision.
@@ -98,7 +98,7 @@ mod tests {
         let right_battle = right.create_battle().unwrap();
         assert_eq!(left.master_seed(), 7);
         assert_eq!(left.encounter().get(), 1);
-        assert_eq!(left.spec_digest(), right.spec_digest());
+        assert_eq!(left.assembly_digest(), right.assembly_digest());
         assert_eq!(left.config_digest(), SYNTHETIC_STANDARD_CONFIG_DIGEST);
         assert_eq!(left_battle.state_hash(), right_battle.state_hash());
         assert_eq!(left_battle.view().encounter().total_waves(), 1);

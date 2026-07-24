@@ -6,7 +6,7 @@ use starclock_activity::{
     ParticipantUniquenessScope, TechniqueEngagement,
 };
 use starclock_combat::{
-    AbilityId, Battle, BattleEventKind, BattleSeed, BattleSpec, BattleSpecDigest,
+    AbilityId, AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec,
     CombatantSpecDigest, Command, Energy, Hp, KeyedTeamResourceSpec, ParticipantSource,
     ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, StatValue,
     TeamResourceSpec, TeamResourceWavePolicy, TeamSide, UnitDefinitionId, UnitLevel,
@@ -316,7 +316,7 @@ fn durable_spec(
     };
     BattleSpec::new(
         original.rules_revision(),
-        BattleSpecDigest::new([marker.wrapping_add(1); 32]).unwrap(),
+        AssemblyDigest::new([marker.wrapping_add(1); 32]).unwrap(),
         original.encounter(),
         participants,
         player_resources,
@@ -474,7 +474,7 @@ fn ability_tree_projection_changes_battle_spec_and_active_modifier_state() {
     let with_tree = materialize(&catalog, &with_tree);
     let without_spec = without_tree.difficulty_specs()[0].battle_spec();
     let with_spec = with_tree.difficulty_specs()[0].battle_spec();
-    assert_ne!(without_spec.digest(), with_spec.digest());
+    assert_ne!(without_spec.assembly_digest(), with_spec.assembly_digest());
     assert!(
         without_spec
             .participants()
@@ -534,8 +534,8 @@ fn selected_asta_technique_executes_before_the_first_timeline_turn() {
         .find(|variant| variant.techniques().is_empty())
         .unwrap();
     assert_ne!(
-        selected.battle_spec().digest(),
-        normal.battle_spec().digest()
+        selected.battle_spec().assembly_digest(),
+        normal.battle_spec().assembly_digest()
     );
 
     let mut battle = Battle::create(

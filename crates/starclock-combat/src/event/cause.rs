@@ -24,7 +24,6 @@ pub struct Cause {
     applier: Option<UnitId>,
     source_definition: Option<SourceDefinitionId>,
     primary_target: Option<UnitId>,
-    activity_source: Option<SourceDefinitionId>,
 }
 
 impl Cause {
@@ -40,7 +39,6 @@ impl Cause {
             applier: None,
             source_definition: None,
             primary_target: None,
-            activity_source: None,
         }
     }
 
@@ -173,10 +171,5 @@ impl Cause {
     #[must_use]
     pub const fn primary_target(self) -> Option<UnitId> {
         self.primary_target
-    }
-    /// Returns an optional opaque activity-supplied source identity.
-    #[must_use]
-    pub const fn activity_source(self) -> Option<SourceDefinitionId> {
-        self.activity_source
     }
 }
