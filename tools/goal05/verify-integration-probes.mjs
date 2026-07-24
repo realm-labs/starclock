@@ -17,20 +17,41 @@ if (policy.focused_budget.wall_seconds < 60 || policy.focused_budget.wall_second
 }
 
 const cli = read("crates/starclock-cli/src/universe_v1.rs");
-const agent = read("crates/starclock-agent-api/src/activity_reference.rs");
-if (cli.includes("reference_won_result") || cli.includes("verified-reference-projection-v1")) {
-  fail("CLI reverted to the frozen Goal 04 reference-settlement baseline");
+const agent = [
+  read("crates/starclock-agent-api/src/activity_runtime.rs"),
+  read("crates/starclock-agent-api/src/activity_session.rs")
+].join("\n");
+const mcp = [
+  read("crates/starclock-mcp/src/activity_tools.rs"),
+  read("crates/starclock-mcp/src/resources.rs")
+].join("\n");
+for (const [surface, source] of [["CLI", cli], ["agent API", agent], ["MCP", mcp]]) {
+  if (source.includes("reference_won_result") || source.includes("verified-reference-projection-v1")) {
+    fail(`${surface} reverted to the frozen Goal 04 reference-settlement baseline`);
+  }
 }
 for (const marker of [
   "UniverseNestedBattleExecutor",
   "record_baseline_run_v2",
   "verify_standard_universe_replay_v2",
-  "standard_universe_component_set"
+  "StandardUniverseRuntimeFactory"
 ]) {
   if (!cli.includes(marker)) fail(`CLI is missing real-combat migration marker ${marker}`);
 }
-if (!agent.includes("reference_won_result") || !agent.includes("verified-reference-projection-v1")) {
-  fail("agent API moved before its owning G05-P4-B3 batch");
+for (const marker of [
+  "StandardUniverseRuntimeFactory",
+  "UniverseNestedBattleExecutor",
+  "verify_standard_universe_replay_v2",
+  "encode_standard_universe_trace_parts_v2"
+]) {
+  if (!agent.includes(marker)) fail(`agent API is missing real-combat migration marker ${marker}`);
+}
+for (const marker of [
+  "activity_registry.apply_action",
+  "activity_registry.export_replay",
+  "activity_factory.verify_replay"
+]) {
+  if (!mcp.includes(marker)) fail(`MCP is missing authoritative agent delegation marker ${marker}`);
 }
 
 const runtime = read("crates/starclock-mode-universe/src/runtime.rs");
@@ -107,6 +128,6 @@ if (cycles !== policy.frozen_snapshot.source_topology_cycles) {
 }
 
 process.stdout.write(
-  `Goal 05 integration probes verified with CLI real combat (${byMap.size} maps, ${maps.length} source nodes, ` +
+  `Goal 05 integration probes verified with CLI/agent/MCP real combat (${byMap.size} maps, ${maps.length} source nodes, ` +
     `${pathMethods.length} path entry points, ${cycles} source cycles, <=${policy.focused_budget.wall_seconds}s focused gate).\n`
 );

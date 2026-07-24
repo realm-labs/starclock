@@ -3,8 +3,8 @@
 use std::sync::Arc;
 
 use starclock_activity::{
-    ActivityBattleHandoff, BattleOutcome, BattleResult, EventDigest, ParticipantBattleState,
-    ProjectedValue, ProjectionField,
+    ActivityBattleHandoff, BattleOutcome, BattleResult, EventDigest, GraphActivityBattleError,
+    ParticipantBattleState, ProjectedValue, ProjectionField,
 };
 use starclock_ai::EnemyController;
 use starclock_combat::{
@@ -142,6 +142,35 @@ impl UniverseNestedBattleExecutor {
         &self.reports
     }
 
+    /// Starts, executes and settles the current Activity handoff as one adapter
+    /// operation. Infrastructure or settlement failure restores the unstarted
+    /// Activity boundary and does not append a report.
+    pub fn execute_pending_activity_battle(
+        &mut self,
+        activity: &mut crate::runtime::StandardUniverseActivity,
+    ) -> Result<SettledNestedBattle, ActivityNestedBattleExecutionError> {
+        let handoff = activity
+            .start_pending_battle(activity.view().state_hash())
+            .map_err(ActivityNestedBattleExecutionError::Start)?;
+        let (result, report) = match self.execute_checked(&handoff) {
+            Ok(value) => value,
+            Err(error) => {
+                let restored = activity.rollback_pending_battle_start();
+                debug_assert!(restored, "this adapter started the exact pending handoff");
+                return Err(ActivityNestedBattleExecutionError::Execution(error));
+            }
+        };
+        if let Err(error) =
+            activity.submit_pending_battle_result(activity.view().state_hash(), result.clone())
+        {
+            let restored = activity.rollback_pending_battle_start();
+            debug_assert!(restored, "failed settlement retains the started handoff");
+            return Err(ActivityNestedBattleExecutionError::Settlement(error));
+        }
+        self.reports.push(report.clone());
+        Ok(SettledNestedBattle { result, report })
+    }
+
     fn execute_checked(
         &self,
         handoff: &ActivityBattleHandoff,
@@ -186,6 +215,30 @@ impl UniverseNestedBattleExecutor {
         }
         Err(NestedBattleExecutionError::StepBudgetExceeded)
     }
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SettledNestedBattle {
+    result: BattleResult,
+    report: NestedBattleExecutionReport,
+}
+
+impl SettledNestedBattle {
+    #[must_use]
+    pub const fn result(&self) -> &BattleResult {
+        &self.result
+    }
+    #[must_use]
+    pub const fn report(&self) -> &NestedBattleExecutionReport {
+        &self.report
+    }
+}
+
+#[derive(Debug)]
+pub enum ActivityNestedBattleExecutionError {
+    Start(crate::runtime::StandardUniverseBattleStartError),
+    Execution(NestedBattleExecutionError),
+    Settlement(GraphActivityBattleError),
 }
 
 impl NestedBattleExecutor for UniverseNestedBattleExecutor {

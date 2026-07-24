@@ -583,7 +583,7 @@ Path snapshot, materializes all structured encounters, and executes every
 nested handoff with `UniverseNestedBattleExecutor`.
 
 The CLI emits `starclock-cli-universe-v2` and
-`battle_executor=starclock-combat-nested-v1`. JSON output exposes Activity
+`battle_executor=standard-universe-nested-battle-executor-v1`. JSON output exposes Activity
 action count, nested battle count and accepted battle-command count. Replay
 files use envelope v2, contain the nine consumed components and include real
 `AcceptedBattleCommand`/`ExpectedBattleState` records. `replay verify`
@@ -596,6 +596,38 @@ the richer representative mechanic-test loadout into a production run. Later
 run-time inventory changes remain explicit Activity state; expanding
 per-battle dynamic rematerialization is a separate versioned content/runtime
 capability and must not be simulated by granting unowned rows.
+
+### Agent and MCP production revision 2
+
+CLI and Agent session creation now share one immutable
+`StandardUniverseRuntimeFactory`. It owns the resolved four-member roster,
+participant lock, initial contribution snapshot, encounter materialization,
+component identities and replay compatibility. Each surface still supplies
+its own controller ID, revision and digest, so controller authority remains
+explicit without allowing the underlying battle assembly to drift.
+
+An Agent action continues to accept only an opaque action token bound to the
+current boundary and state hash. Once that action produces a pending battle,
+the session invokes `UniverseNestedBattleExecutor`, submits only its actual
+sealed result, and records the Battle action plus the complete nested report.
+The adapter rolls back its no-draw start marker if execution or result
+submission fails and appends no report for the failed attempt. Incremental
+replay export uses the same replay-v2 encoder as the CLI; verification creates
+a fresh Activity and combat catalog and re-executes every recorded battle.
+
+MCP contains no second simulation path. Its Activity tools delegate to the
+Agent registry, so HTTP authorization, tenant/principal quotas, session
+ownership, idempotency and bounded replay import remain protocol concerns
+around the same authoritative session. The public Universe manifest reports
+`standard-universe-nested-battle-executor-v1`; the rules resource declares
+`authoritative_real_combat_settlement` and nested command/event/state replay
+authority.
+
+For World 1, difficulty index 0 and seed 10, the shared runtime completes 60
+Activity actions, five nested battles and 33 accepted combat commands at
+Activity hash `f66ad680…bb00`. Agent and CLI replay bytes differ only where
+their declared controller component identities differ; both reproduce the
+same Activity outcome.
 
 ## Acceptance slices
 

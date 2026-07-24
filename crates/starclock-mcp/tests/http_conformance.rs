@@ -264,6 +264,32 @@ async fn run_activity_boundary(client: &mut HttpMcpClient) {
     let repeated = client.tool("starclock_play_activity_action", input).await;
     assert_eq!(first["response"]["committed"], true);
     assert_eq!(repeated, first);
+    let mut observation = first["response"]["observation"].clone();
+    let mut steps = 1_u64;
+    while observation["status"] == "awaiting_action" {
+        assert!(steps < 1_000);
+        let actions = observation["legal_actions"].as_array().unwrap();
+        let action = actions
+            .iter()
+            .find(|action| action["kind"] == "engage_battle")
+            .unwrap_or(&actions[0]);
+        let played = client
+            .tool(
+                "starclock_play_activity_action",
+                json!({
+                    "schema_revision":"agent-api-v1",
+                    "session_id":session_id,
+                    "boundary_id":observation["boundary_id"],
+                    "expected_state_hash":observation["state_hash"],
+                    "action_token":action["token"],
+                    "idempotency_key":format!("http_activity_{}", steps + 1)
+                }),
+            )
+            .await;
+        observation = played["response"]["observation"].clone();
+        steps += 1;
+    }
+    assert_eq!(observation["status"], "completed");
     let exported = client
         .tool(
             "starclock_export_activity_replay",
@@ -273,6 +299,28 @@ async fn run_activity_boundary(client: &mut HttpMcpClient) {
         )
         .await;
     assert_ne!(exported["action_count"], "0");
+    assert_eq!(exported["complete"], true);
+    let verified = client
+        .tool(
+            "starclock_verify_activity_replay",
+            json!({
+                "schema_revision":"agent-api-v1",
+                "world":"1",
+                "difficulty_index":"0",
+                "seed":"10",
+                "replay_hex":exported["replay_hex"]
+            }),
+        )
+        .await;
+    assert!(
+        verified["nested_battles"]
+            .as_str()
+            .unwrap()
+            .parse::<u64>()
+            .unwrap()
+            > 0
+    );
+    assert_eq!(verified["final_state_hash"], observation["state_hash"]);
     let observed = client
         .tool(
             "starclock_observe_activity",

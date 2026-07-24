@@ -38,7 +38,12 @@ for (const entry of rules.allowed_public_reexports) {
   reexportAllowlist.set(relative, entry.reason);
 }
 
-const selectedRustFiles = execFileSync("git", ["ls-files", "--cached", "--others", "--exclude-standard", "--", "*.rs"], { cwd: root, encoding: "utf8" }).split(/\r?\n/).filter(Boolean).map(normalize).sort((left, right) => left.localeCompare(right));
+const selectedRustFiles = execFileSync("git", ["ls-files", "--cached", "--others", "--exclude-standard", "--", "*.rs"], { cwd: root, encoding: "utf8" })
+  .split(/\r?\n/)
+  .filter(Boolean)
+  .map(normalize)
+  .filter((relative) => fs.statSync(path.join(root, relative), { throwIfNoEntry: false })?.isFile())
+  .sort((left, right) => left.localeCompare(right));
 const rustFiles = selectedRustFiles.filter((relative) => !isExcluded(relative));
 for (const excluded of exclusions.keys()) assert(selectedRustFiles.some((relative) => relative.startsWith(`${excluded}/`)), `${excluded}: excluded root contains no selected Rust source`);
 

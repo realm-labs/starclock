@@ -187,16 +187,22 @@ pub fn record_baseline_run_v2(
 pub fn standard_universe_record_count_v2(
     recorded: &RecordedStandardUniverseRunV2,
 ) -> Result<u32, StandardUniverseReplayV2Error> {
+    standard_universe_record_count_parts_v2(recorded.trace(), recorded.battles())
+}
+
+fn standard_universe_record_count_parts_v2(
+    trace: &[StandardUniverseTraceEntry],
+    battles: &[NestedBattleExecutionReport],
+) -> Result<u32, StandardUniverseReplayV2Error> {
     let mut count = 0_u32;
     let mut battle_index = 0_usize;
-    for entry in recorded.trace() {
+    for entry in trace {
         count = checked_add(count, 2)?;
         if entry.diagnostic().is_some() {
             count = checked_add(count, 1)?;
         }
         if matches!(entry.action(), StandardUniverseReplayAction::Battle { .. }) {
-            let report = recorded
-                .battles()
+            let report = battles
                 .get(battle_index)
                 .ok_or(StandardUniverseReplayV2Error::CapturedBattleMismatch)?;
             battle_index += 1;
@@ -210,7 +216,7 @@ pub fn standard_universe_record_count_v2(
             )?;
         }
     }
-    if battle_index != recorded.battles().len() || count > MAX_REPLAY_RECORDS {
+    if battle_index != battles.len() || count > MAX_REPLAY_RECORDS {
         Err(StandardUniverseReplayV2Error::TooManyRecords)
     } else {
         Ok(count)
@@ -221,7 +227,17 @@ pub fn encode_standard_universe_trace_v2(
     header_template: &ReplayHeaderV2,
     recorded: &RecordedStandardUniverseRunV2,
 ) -> Result<Vec<u8>, StandardUniverseReplayV2Error> {
-    let count = standard_universe_record_count_v2(recorded)?;
+    encode_standard_universe_trace_parts_v2(header_template, recorded.trace(), recorded.battles())
+}
+
+/// Encodes an incremental externally controlled Activity session. Battle
+/// reports must correspond one-to-one with Battle actions in trace order.
+pub fn encode_standard_universe_trace_parts_v2(
+    header_template: &ReplayHeaderV2,
+    trace: &[StandardUniverseTraceEntry],
+    battles: &[NestedBattleExecutionReport],
+) -> Result<Vec<u8>, StandardUniverseReplayV2Error> {
+    let count = standard_universe_record_count_parts_v2(trace, battles)?;
     let header = ReplayHeaderV2::new(
         header_template.compatibility().clone(),
         header_template.components().clone(),
@@ -230,8 +246,8 @@ pub fn encode_standard_universe_trace_v2(
         count,
     )?;
     let mut payloads = Vec::<(RecordKind, Vec<u8>)>::with_capacity(count as usize);
-    let mut battles = recorded.battles().iter();
-    for entry in recorded.trace() {
+    let mut battles = battles.iter();
+    for entry in trace {
         if let Some(diagnostic) = entry.diagnostic() {
             payloads.push((
                 RecordKind::ControllerDiagnostic,

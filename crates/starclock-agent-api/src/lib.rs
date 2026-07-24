@@ -12,7 +12,7 @@ pub mod action;
 pub mod activity_action;
 /// Owned, player-visible Standard Universe Activity projections.
 pub mod activity_observation;
-mod activity_reference;
+mod activity_runtime;
 /// Authoritative Standard Universe Activity session and replay facade.
 pub mod activity_session;
 /// Stable protocol-neutral failure vocabulary.

@@ -11,6 +11,7 @@ use starclock_agent_api::{
     error::AgentErrorCode,
     schema::{AgentSchemaRevision, AgentUInt, IdempotencyKey, SessionId},
 };
+use starclock_mode_universe::nested_battle_executor::UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION;
 
 const MATRIX_REVISION: &str = "standard-universe-seed-matrix-v1";
 const FIRST_SEED: u64 = 100_000;
@@ -120,7 +121,7 @@ fn main() {
     let evidence = MatrixEvidence {
         schema_revision: MATRIX_REVISION,
         result: "all-constructible-difficulties-complete-with-nine-path-options-covered",
-        executor_revision: "verified-reference-projection-v1",
+        executor_revision: UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION,
         coverage: Coverage {
             worlds: manifest.worlds.len(),
             difficulties: entries.len(),

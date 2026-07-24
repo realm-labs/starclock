@@ -131,8 +131,8 @@ pub(crate) fn read_resource(
                 external_decision_owner: "activity_player",
                 action_authority: "currently_offered_opaque_token",
                 settlement_boundary: "next_external_activity_decision_or_terminal",
-                nested_battle_policy: "authoritative_session_settlement",
-                replay_authority: "accepted_activity_actions_and_resulting_state_hashes",
+                nested_battle_policy: "authoritative_real_combat_settlement",
+                replay_authority: "accepted_activity_actions_nested_battle_commands_events_and_state_hashes",
             },
         )?,
         _ if uri.starts_with(SCENARIO_PREFIX) => {
@@ -215,6 +215,13 @@ mod tests {
     fn resources_are_bounded_original_summaries_without_private_artifact_markers() {
         let factory = AgentSessionFactory::load_production().unwrap();
         let activity_factory = ActivityAgentSessionFactory::load_production().unwrap();
+        assert_eq!(
+            activity_factory
+                .manifest()
+                .battle_executor_revision
+                .as_ref(),
+            "standard-universe-nested-battle-executor-v1"
+        );
         for uri in [
             CATALOG_URI,
             RULES_URI,

@@ -8,17 +8,20 @@ use starclock_activity::{
     ActivityDecisionKind, ActivityExternalOutcomeId, ActivityTerminalOutcome,
 };
 use starclock_mode_universe::{
+    nested_battle_executor::UniverseNestedBattleExecutor,
     runtime::StandardUniverseActivity,
     universe_replay::{
         MAX_STANDARD_UNIVERSE_REPLAY_ACTIONS, StandardUniverseReplayAction,
-        StandardUniverseTraceEntry, encode_standard_universe_trace, replay_entry_for,
-        verify_standard_universe_replay_with_controller,
+        StandardUniverseTraceEntry,
+    },
+    universe_replay_v2::{
+        encode_standard_universe_trace_parts_v2, standard_universe_header_v2,
+        verify_standard_universe_replay_v2,
     },
 };
 use starclock_replay::{
     activity::{ControllerDecisionKind, ControllerDiagnostic, ControllerOptionScore},
-    digest::{ConfigBundleDigest, ControllerDigest},
-    format::{ControllerIdentity, ReplayHeader, ReplayIdentity},
+    format_v2::ReplayHeaderV2,
 };
 
 use crate::{
@@ -29,10 +32,7 @@ use crate::{
     activity_observation::{
         ActivityObservationContext, AgentActivityObservation, project_activity_observation,
     },
-    activity_reference::{
-        ActivityReferenceError, ActivityReferenceFactory, BATTLE_EXECUTOR_REVISION,
-        reference_won_result,
-    },
+    activity_runtime::{ActivityRuntimeError, ActivityRuntimeFactory, BATTLE_EXECUTOR_REVISION},
     error::{AgentError, AgentErrorCode},
     schema::{ActionToken, AgentHash, AgentSchemaRevision, AgentUInt, IdempotencyKey, SessionId},
     session::{MAX_CACHED_RESPONSE_BYTES, MAX_IDEMPOTENCY_ENTRIES},
@@ -44,8 +44,6 @@ pub const RESPONSIBILITY: &str = "authoritative Activity sessions and replay exp
 pub const ACTIVITY_AGENT_CONTROLLER_REVISION: &str = "agent-activity-session-v1";
 pub const MAX_ACTIVITY_ACTIONS_PER_SETTLEMENT: usize = 16;
 pub const DEFAULT_TECHNIQUE_POINTS: u16 = 5;
-const RULES_REVISION: &str = "standard-universe-rules-v1";
-const DATA_REVISION: &str = "standard-universe-data-v4.4";
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct AgentUniverseWorldSummary {
@@ -149,13 +147,13 @@ pub enum AgentActivityTerminalOutcome {
 
 #[derive(Clone)]
 pub struct ActivityAgentSessionFactory {
-    reference: ActivityReferenceFactory,
+    runtime: ActivityRuntimeFactory,
 }
 
 impl ActivityAgentSessionFactory {
     pub fn load_production() -> Result<Self, AgentError> {
         Ok(Self {
-            reference: ActivityReferenceFactory::load().map_err(reference_error)?,
+            runtime: ActivityRuntimeFactory::load().map_err(runtime_error)?,
         })
     }
 
@@ -167,19 +165,28 @@ impl ActivityAgentSessionFactory {
         let difficulty_index =
             usize::try_from(request.difficulty_index.to_u64()).map_err(|_| invalid_request())?;
         let seed = request.seed.to_u64();
-        let (profile, activity) = self
-            .reference
-            .start(world, difficulty_index, seed)
-            .map_err(reference_error)?;
-        let replay_header = replay_header(&activity, &profile, seed)?;
+        let runtime = self
+            .runtime
+            .start(world, difficulty_index, seed, controller_digest())
+            .map_err(runtime_error)?;
+        let (profile, activity, combat_catalog, components, compatibility) = runtime.into_parts();
+        let replay_header = standard_universe_header_v2(
+            compatibility.clone(),
+            components.clone(),
+            seed,
+            &activity,
+            &profile,
+        )
+        .map_err(|_| adapter_error(false))?;
         let mut session = ActivityAgentSession {
             id: request.session_id,
-            profile: profile.into_boxed_str(),
+            profile,
             world,
             difficulty_index,
             seed,
             activity,
             replay_header,
+            battle_executor: UniverseNestedBattleExecutor::new(combat_catalog),
             trace: Vec::new(),
             offered: None,
             idempotency: BTreeMap::new(),
@@ -190,7 +197,7 @@ impl ActivityAgentSessionFactory {
     }
 
     pub fn manifest(&self) -> AgentUniverseManifest {
-        let catalog = self.reference.catalog();
+        let catalog = self.runtime.catalog();
         let identity = catalog.identity();
         AgentUniverseManifest {
             schema_revision: AgentSchemaRevision::V1,
@@ -226,20 +233,23 @@ impl ActivityAgentSessionFactory {
         let world = u32::try_from(world.to_u64()).map_err(|_| invalid_request())?;
         let difficulty_index =
             usize::try_from(difficulty_index.to_u64()).map_err(|_| invalid_request())?;
-        let (profile, activity) = self
-            .reference
-            .start(world, difficulty_index, seed.to_u64())
-            .map_err(reference_error)?;
-        let report = verify_standard_universe_replay_with_controller(
+        let runtime = self
+            .runtime
+            .start(world, difficulty_index, seed.to_u64(), controller_digest())
+            .map_err(runtime_error)?;
+        let (profile, activity, combat_catalog, components, compatibility) = runtime.into_parts();
+        let report = verify_standard_universe_replay_v2(
             bytes,
             activity,
+            combat_catalog,
+            &components,
+            &compatibility,
             &profile,
-            ACTIVITY_AGENT_CONTROLLER_REVISION,
         )
         .map_err(|error| replay_error_with_reason(&format!("{error:?}")))?;
         Ok(AgentActivityReplayVerification {
             action_count: AgentUInt::from_u64(u64::from(report.action_count())),
-            nested_battles: AgentUInt::from_u64(u64::from(report.nested_battle_count())),
+            nested_battles: AgentUInt::from_u64(u64::from(report.battle_count())),
             final_state_hash: AgentHash::from_bytes(report.final_state_hash().bytes()),
             terminal: terminal(report.terminal()),
         })
@@ -259,7 +269,8 @@ pub struct ActivityAgentSession {
     difficulty_index: usize,
     seed: u64,
     activity: StandardUniverseActivity,
-    replay_header: ReplayHeader,
+    replay_header: ReplayHeaderV2,
+    battle_executor: UniverseNestedBattleExecutor,
     trace: Vec<StandardUniverseTraceEntry>,
     offered: Option<OfferedActivityActionSet>,
     idempotency: BTreeMap<IdempotencyKey, CachedActivityResponse>,
@@ -425,8 +436,12 @@ impl ActivityAgentSession {
     }
 
     pub fn export_replay(&self) -> Result<AgentActivityReplayExport, AgentError> {
-        let bytes = encode_standard_universe_trace(&self.replay_header, &self.trace)
-            .map_err(|_| adapter_error(false))?;
+        let bytes = encode_standard_universe_trace_parts_v2(
+            &self.replay_header,
+            &self.trace,
+            self.battle_executor.reports(),
+        )
+        .map_err(|_| adapter_error(false))?;
         Ok(AgentActivityReplayExport {
             sha256: AgentHash::from_bytes(Sha256::digest(&bytes).into()),
             bytes: bytes.into_boxed_slice(),
@@ -509,17 +524,16 @@ impl ActivityAgentSession {
     fn settle_automatic_battles(&mut self) -> Result<u64, AgentError> {
         let mut battles = 0_u64;
         while self.activity.view().pending_battle().is_some() {
-            let handoff = self
-                .activity
-                .start_pending_battle(self.activity.view().state_hash())
-                .map_err(|_| activity_rejected())?;
-            let result = reference_won_result(handoff.identity());
-            self.activity
-                .submit_pending_battle_result(self.activity.view().state_hash(), result.clone())
-                .map_err(|_| activity_rejected())?;
+            if self.trace.len() >= MAX_STANDARD_UNIVERSE_REPLAY_ACTIONS as usize {
+                return Err(settlement_budget_error());
+            }
+            let settled = self
+                .battle_executor
+                .execute_pending_activity_battle(&mut self.activity)
+                .map_err(|_| nested_battle_error())?;
             self.push_trace(
                 StandardUniverseReplayAction::Battle {
-                    result: Box::new(result),
+                    result: Box::new(settled.result().clone()),
                 },
                 None,
             )?;
@@ -598,40 +612,6 @@ impl ActivityAgentSession {
     }
 }
 
-fn replay_header(
-    activity: &StandardUniverseActivity,
-    profile: &str,
-    seed: u64,
-) -> Result<ReplayHeader, AgentError> {
-    let config = activity
-        .graph()
-        .definition()
-        .identity()
-        .config_digest()
-        .bytes();
-    ReplayHeader::new(
-        ReplayIdentity::new(
-            "4.4",
-            RULES_REVISION,
-            DATA_REVISION,
-            ConfigBundleDigest::new(config),
-            starclock_combat::NUMERIC_POLICY_REVISION,
-            starclock_combat::rng::RNG_ALGORITHM_REVISION,
-            starclock_activity::ACTIVITY_STATE_HASH_REVISION,
-        )
-        .map_err(|_| adapter_error(false))?,
-        ControllerIdentity::new(
-            ACTIVITY_AGENT_CONTROLLER_REVISION,
-            ControllerDigest::new(controller_digest()),
-        )
-        .map_err(|_| adapter_error(false))?,
-        seed,
-        replay_entry_for(activity, profile),
-        0,
-    )
-    .map_err(|_| adapter_error(false))
-}
-
 fn controller_digest() -> [u8; 32] {
     let mut hash = Sha256::new();
     hash.update(b"agent-activity-session-v1\0external-player\0");
@@ -651,17 +631,29 @@ fn action_binding_error(error: ActivityActionBindingError) -> AgentError {
     }
 }
 
-fn reference_error(error: ActivityReferenceError) -> AgentError {
+fn runtime_error(error: ActivityRuntimeError) -> AgentError {
     match error {
-        ActivityReferenceError::UnknownEntry | ActivityReferenceError::InvalidSeed => {
-            invalid_request()
-        }
-        ActivityReferenceError::Configuration | ActivityReferenceError::Start => agent_error(
+        ActivityRuntimeError::Runtime(
+            starclock_mode_universe::production_runtime::StandardUniverseRuntimeFactoryError::UnknownEntry
+            | starclock_mode_universe::production_runtime::StandardUniverseRuntimeFactoryError::InvalidSeed,
+        ) => invalid_request(),
+        ActivityRuntimeError::Runtime(
+            starclock_mode_universe::production_runtime::StandardUniverseRuntimeFactoryError::Configuration
+            | starclock_mode_universe::production_runtime::StandardUniverseRuntimeFactoryError::Start,
+        ) => agent_error(
             AgentErrorCode::ConfigurationRejected,
             "The Standard Universe Activity could not be constructed.",
             false,
         ),
     }
+}
+
+fn nested_battle_error() -> AgentError {
+    agent_error(
+        AgentErrorCode::CombatRejected,
+        "The automatic nested battle failed and the Activity boundary was restored.",
+        true,
+    )
 }
 
 fn terminal(value: ActivityTerminalOutcome) -> AgentActivityTerminalOutcome {
