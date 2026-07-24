@@ -1,7 +1,8 @@
 use crate::{
     ActivityDecisionId, ActivityDecisionKind, ActivityEdgeId, ActivityInventoryId,
     ActivityModifierId, ActivityOptionId, ActivityParticipantCarryState, ActivityRngStreamSnapshot,
-    ActivitySlotId, ActivityStateHash, ActivityTerminalOutcome, ActivityValue, NodeId,
+    ActivitySlotId, ActivityStateHash, ActivityTerminalOutcome, ActivityValue,
+    LogicalScopeInstance, NodeId,
     battle_preparation::{ActivityPendingBattleView, ActivityPreparationView},
 };
 
@@ -78,6 +79,7 @@ impl ActivityDecisionView {
 pub struct ActivityPlayerView {
     pub(crate) current_node: NodeId,
     pub(crate) command_sequence: u64,
+    pub(crate) logical_scopes: Box<[LogicalScopeInstance]>,
     pub(crate) slots: Box<[ActivitySlotView]>,
     pub(crate) inventories: Box<[ActivityInventoryView]>,
     pub(crate) decision: Option<ActivityDecisionView>,
@@ -95,6 +97,10 @@ impl ActivityPlayerView {
     #[must_use]
     pub const fn command_sequence(&self) -> u64 {
         self.command_sequence
+    }
+    #[must_use]
+    pub fn logical_scopes(&self) -> &[LogicalScopeInstance] {
+        &self.logical_scopes
     }
     #[must_use]
     pub fn slots(&self) -> &[ActivitySlotView] {
@@ -138,6 +144,7 @@ pub struct ActivityDebugView {
     pub(crate) modifiers: Box<[(ActivityModifierId, u32)]>,
     pub(crate) node_visits: Box<[(NodeId, u32)]>,
     pub(crate) edge_traversals: Box<[(ActivityEdgeId, u32)]>,
+    pub(crate) logical_scopes: Box<[LogicalScopeInstance]>,
     pub(crate) rng: Box<[ActivityRngStreamSnapshot]>,
 }
 impl ActivityDebugView {
@@ -164,6 +171,10 @@ impl ActivityDebugView {
     #[must_use]
     pub fn edge_traversals(&self) -> &[(ActivityEdgeId, u32)] {
         &self.edge_traversals
+    }
+    #[must_use]
+    pub fn logical_scopes(&self) -> &[LogicalScopeInstance] {
+        &self.logical_scopes
     }
     #[must_use]
     pub fn rng(&self) -> &[ActivityRngStreamSnapshot] {

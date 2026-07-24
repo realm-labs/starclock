@@ -298,8 +298,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            124, 3, 202, 129, 216, 105, 174, 104, 113, 27, 25, 17, 23, 186, 57, 162, 152, 158, 209,
-            204, 87, 90, 109, 174, 248, 161, 29, 121, 138, 245, 162, 77,
+            246, 108, 108, 209, 118, 105, 246, 138, 242, 53, 139, 127, 155, 196, 170, 120, 110, 39,
+            245, 148, 228, 231, 209, 28, 141, 32, 24, 235, 15, 138, 220, 88,
         ]
     );
     let reward = activity.view();
@@ -429,8 +429,8 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            224, 192, 76, 134, 150, 227, 159, 127, 173, 107, 8, 65, 204, 189, 237, 61, 108, 173,
-            67, 2, 178, 49, 70, 29, 23, 9, 236, 74, 229, 98, 251, 215,
+            53, 151, 70, 253, 0, 218, 107, 79, 251, 88, 62, 192, 188, 102, 224, 0, 178, 254, 76,
+            86, 152, 234, 90, 202, 41, 130, 98, 155, 16, 56, 19, 161,
         ]
     );
     assert_eq!(report.final_state_hash(), activity.view().state_hash());
@@ -505,12 +505,12 @@ fn complete_run_replay_verifies_and_reports_the_first_divergence() {
     .unwrap();
     let bytes = encode_standard_universe_trace(&header, recorded.trace()).unwrap();
     assert_eq!(bytes.len(), 11_011);
-    // SHA-256: f4ca5a3e84df8f123dc01b313cb0aeaa703370e07295fc4870cda28ac3da0b31
+    // SHA-256: 6dd77844950c1b8a0cb803809dd2e18688610da5d224378f2290cc58f266cf34
     assert_eq!(
         sha2::Sha256::digest(&bytes).as_slice(),
         [
-            244, 202, 90, 62, 132, 223, 143, 18, 61, 192, 27, 49, 60, 176, 174, 170, 112, 51, 112,
-            224, 114, 149, 252, 72, 112, 205, 162, 138, 195, 218, 11, 49,
+            109, 215, 120, 68, 149, 12, 27, 138, 12, 184, 3, 128, 157, 210, 225, 134, 136, 97, 13,
+            165, 210, 36, 55, 143, 34, 144, 204, 88, 242, 102, 207, 52,
         ]
     );
     let fresh = compiled

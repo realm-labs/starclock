@@ -1,6 +1,6 @@
 use crate::{
     ActivityInstanceId, ActivityInventoryId, ActivityModifierId, ActivityScope,
-    ActivitySlotDefinition, ActivitySlotId, AttemptId, NodeId, SectionId,
+    ActivitySlotDefinition, ActivitySlotId, AttemptId, LogicalScopeDefinitions, NodeId, SectionId,
 };
 
 pub const MAX_ACTIVITY_STATE_SLOTS: usize = 4_096;
@@ -398,6 +398,7 @@ pub struct ActivityStateDefinition {
     slots: Box<[ActivitySlotDefinition]>,
     inventories: Box<[ActivityInventoryDefinition]>,
     modifiers: Box<[ActivityModifierDefinition]>,
+    logical_scopes: LogicalScopeDefinitions,
 }
 
 impl ActivityStateDefinition {
@@ -453,7 +454,14 @@ impl ActivityStateDefinition {
             slots: slots.into_boxed_slice(),
             inventories: inventories.into_boxed_slice(),
             modifiers: modifiers.into_boxed_slice(),
+            logical_scopes: LogicalScopeDefinitions::default(),
         })
+    }
+
+    #[must_use]
+    pub fn with_logical_scopes(mut self, logical_scopes: LogicalScopeDefinitions) -> Self {
+        self.logical_scopes = logical_scopes;
+        self
     }
 
     #[must_use]
@@ -467,6 +475,10 @@ impl ActivityStateDefinition {
     #[must_use]
     pub fn modifiers(&self) -> &[ActivityModifierDefinition] {
         &self.modifiers
+    }
+    #[must_use]
+    pub const fn logical_scopes(&self) -> &LogicalScopeDefinitions {
+        &self.logical_scopes
     }
 }
 

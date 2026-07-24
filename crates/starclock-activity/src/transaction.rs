@@ -11,10 +11,11 @@ use crate::{
     ActivityInventoryId, ActivityModifierId, ActivityOptionDefinition, ActivityOptionId,
     ActivityProgramDefinition, ActivityProgramId, ActivityRngStreams, ActivitySlotId,
     ActivityStateDefinition, ActivityStateHash, ActivityStateVisibility, ActivityTerminalOutcome,
-    ActivityValue, NodeId,
+    ActivityValue, LogicalScopeInstance, NodeId,
     battle_preparation::ActivityAttemptState,
     battle_settlement::{ActivityAwaitingBattle, ActivityCarryLedger, MetricSettlementPolicy},
     codec::ActivityStateEncoder,
+    logical_scope::LogicalScopeRuntimeState,
     view::{
         ActivityDebugView, ActivityDecisionView, ActivityInventoryView, ActivityOptionView,
         ActivityPlayerView, ActivitySlotView,
@@ -117,6 +118,7 @@ pub enum ActivityFault {
     ModifierBounds(ActivityModifierId),
     InvalidGraphEdge(ActivityEdgeId),
     VisitLimitExceeded,
+    LogicalScopeLimitExceeded,
     InvalidProgramBoundary,
 }
 
@@ -155,6 +157,7 @@ pub struct ActivityTransactionState {
     node_visits: BTreeMap<NodeId, u32>,
     edge_traversals: BTreeMap<ActivityEdgeId, u32>,
     total_visits: u32,
+    logical_scopes: LogicalScopeRuntimeState,
     pub(crate) attempt: Option<ActivityAttemptState>,
     pub(crate) awaiting_battle: Option<ActivityAwaitingBattle>,
     pub(crate) carry: ActivityCarryLedger,
@@ -181,6 +184,9 @@ impl ActivityTransactionState {
             .iter()
             .map(|item| (item.id(), 0))
             .collect();
+        let logical_scopes =
+            LogicalScopeRuntimeState::new(definition.logical_scopes(), current_node)
+                .expect("validated logical scope entry fits declared instance limits");
         Self {
             definition,
             slots,
@@ -191,6 +197,7 @@ impl ActivityTransactionState {
             node_visits: BTreeMap::from([(current_node, 1)]),
             edge_traversals: BTreeMap::new(),
             total_visits: 1,
+            logical_scopes,
             attempt: None,
             awaiting_battle: None,
             carry: ActivityCarryLedger::default(),
@@ -295,6 +302,10 @@ impl ActivityTransactionState {
     pub fn edge_traversals(&self, edge: ActivityEdgeId) -> u32 {
         self.edge_traversals.get(&edge).copied().unwrap_or(0)
     }
+    #[must_use]
+    pub fn active_logical_scopes(&self) -> &[LogicalScopeInstance] {
+        self.logical_scopes.active()
+    }
 
     #[must_use]
     pub fn canonical_state_bytes(
@@ -339,6 +350,9 @@ impl ActivityTransactionState {
         for (edge, count) in &self.edge_traversals {
             writer.u32(edge.get());
             writer.u32(*count);
+        }
+        if !self.definition.logical_scopes().is_empty() {
+            self.logical_scopes.encode(&mut writer);
         }
         writer.u32(self.slots.len() as u32);
         for (slot, value) in &self.slots {
@@ -431,6 +445,7 @@ impl ActivityTransactionState {
         ActivityPlayerView {
             current_node: self.current_node,
             command_sequence: self.command_sequence,
+            logical_scopes: self.logical_scopes.active().to_vec().into_boxed_slice(),
             slots,
             inventories,
             decision: self.pending.as_ref().map(decision_view),
@@ -486,6 +501,7 @@ impl ActivityTransactionState {
                 .map(|(id, count)| (*id, *count))
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),
+            logical_scopes: self.logical_scopes.active().to_vec().into_boxed_slice(),
             rng: rng.snapshots(),
         }
     }
@@ -622,6 +638,7 @@ impl ActivityTransactionState {
             node_visits: self.node_visits.clone(),
             edge_traversals: self.edge_traversals.clone(),
             total_visits: self.total_visits,
+            logical_scopes: self.logical_scopes.clone(),
             attempt: self.attempt.clone(),
             awaiting_battle: self.awaiting_battle.clone(),
             carry: self.carry.clone(),
@@ -926,6 +943,9 @@ impl ActivityTransactionState {
         self.edge_traversals.insert(edge, next_edge_count);
         self.node_visits.insert(edge_def.to(), next_node_count);
         self.total_visits = next_total;
+        self.logical_scopes
+            .transition(self.definition.logical_scopes(), edge_def.to())
+            .map_err(|_| ActivityFault::LogicalScopeLimitExceeded)?;
         self.current_node = edge_def.to();
         Ok(edge_def.to())
     }

@@ -133,3 +133,9 @@ id_type!(
     NonZeroU32,
     "Stable compiled Activity extension-handler identity."
 );
+id_type!(
+    LogicalScopeClassId,
+    u32,
+    NonZeroU32,
+    "Stable authored logical-scope class identity."
+);

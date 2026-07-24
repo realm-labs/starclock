@@ -11,7 +11,7 @@ use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
 use starclock_mode_universe::{
     catalog::UniverseCatalog,
     entry::{CompiledActivity, StandardUniverseEntry, StandardUniverseProfile},
-    topology::STANDARD_UNIVERSE_TOPOLOGY_REVISION,
+    topology::{STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS, STANDARD_UNIVERSE_TOPOLOGY_REVISION},
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
@@ -90,6 +90,20 @@ fn all_topologies_compile_to_bounded_spatial_free_hubs() {
     assert_eq!(runtime.graph().edges().len(), 5_993);
     assert_eq!(runtime.graph().maximum_total_visits(), 4_058);
     assert_eq!(
+        runtime.state_definition().logical_scopes().classes().len(),
+        1
+    );
+    assert_eq!(
+        runtime.state_definition().logical_scopes().classes()[0]
+            .id()
+            .get(),
+        STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS
+    );
+    assert_eq!(
+        runtime.state_definition().logical_scopes().bindings().len(),
+        579 * 7
+    );
+    assert_eq!(
         runtime.graph().digest().bytes(),
         [
             22, 164, 10, 14, 40, 127, 89, 137, 20, 25, 170, 12, 102, 143, 84, 10, 176, 36, 19, 5,
@@ -128,8 +142,8 @@ fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state(
     assert_eq!(
         view.state_hash().bytes(),
         [
-            177, 172, 119, 206, 184, 0, 141, 220, 114, 76, 14, 211, 185, 125, 167, 28, 92, 57, 71,
-            97, 9, 137, 80, 214, 136, 15, 229, 36, 18, 143, 38, 13,
+            68, 119, 95, 171, 64, 255, 247, 132, 207, 224, 122, 93, 122, 69, 17, 153, 27, 239, 25,
+            245, 178, 144, 150, 212, 58, 205, 250, 217, 227, 145, 214, 236,
         ]
     );
     let decision = view.decision().expect("Path choice");

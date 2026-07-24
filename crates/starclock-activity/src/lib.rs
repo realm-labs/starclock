@@ -16,6 +16,7 @@ mod graph_activity;
 mod graph_command;
 mod handler_registry;
 mod id;
+mod logical_scope;
 mod participant;
 mod program;
 mod projection;
@@ -84,7 +85,13 @@ pub use id::{
     ActivityBattleHandoffId, ActivityDecisionId, ActivityDefinitionId, ActivityEdgeId,
     ActivityExternalOutcomeId, ActivityHandlerId, ActivityInstanceId, ActivityInventoryId,
     ActivityModifierId, ActivityOptionId, ActivityProgramId, ActivitySlotId, AttemptId,
-    BattleSequence, NodeId, ParticipantId, ProjectionId, SectionId,
+    BattleSequence, LogicalScopeClassId, NodeId, ParticipantId, ProjectionId, SectionId,
+};
+pub use logical_scope::{
+    ACTIVITY_LOGICAL_SCOPE_REVISION, LogicalScopeAddress, LogicalScopeClassDefinition,
+    LogicalScopeDefinitionError, LogicalScopeDefinitions, LogicalScopeInstance,
+    LogicalScopeNodeBinding, MAX_LOGICAL_SCOPE_BINDINGS, MAX_LOGICAL_SCOPE_CLASSES,
+    MAX_LOGICAL_SCOPE_DEPTH, MAX_LOGICAL_SCOPE_INSTANCES,
 };
 pub use participant::{
     LoadoutLockScope, OpaqueParticipantBuild, ParticipantLock, ParticipantLockEntry,

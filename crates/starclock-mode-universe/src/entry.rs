@@ -336,7 +336,7 @@ impl StandardUniverseProfile {
             participants,
             ability_tree: ability_tree.into_boxed_slice(),
             path_options: path_options.into_boxed_slice(),
-            state,
+            state: topology.runtime.state_definition().clone(),
             runtime: topology.runtime,
             hubs: topology.hubs,
             topology_candidates: topology.candidates,

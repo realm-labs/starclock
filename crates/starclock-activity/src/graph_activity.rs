@@ -268,6 +268,10 @@ impl GraphActivityDefinition {
                 return Err(GraphActivityDefinitionError::TerminalNodeProgram(node.id()));
             }
         }
+        state
+            .logical_scopes()
+            .validate_graph(&graph)
+            .map_err(|_| GraphActivityDefinitionError::InvalidLogicalScopes)?;
         for binding in &programs {
             binding
                 .program
@@ -454,6 +458,7 @@ fn compatible_state_shape(
             .iter()
             .zip(actual.modifiers())
             .all(|(left, right)| left.id() == right.id())
+        && expected.logical_scopes() == actual.logical_scopes()
 }
 
 /// Mutable generic graph execution. Mode crates only compile definitions.
@@ -1125,6 +1130,7 @@ pub enum GraphActivityDefinitionError {
     InvalidRandomOffer,
     DuplicateRandomOffer,
     IncompatibleStateShape,
+    InvalidLogicalScopes,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

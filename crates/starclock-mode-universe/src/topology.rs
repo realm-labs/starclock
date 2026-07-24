@@ -10,7 +10,8 @@ use starclock_activity::{
     ActivityProgramId, ActivityRandomCheckpoint, ActivityRandomOffer, ActivityRandomPolicies,
     ActivityRngLabel, ActivitySlotId, ActivityStateDefinition, ActivityTerminalOutcome,
     ActivityValue, GraphActivityDefinition, GraphActivityDefinitionError, GraphActivityNodeProgram,
-    NodeId, ParticipantLock, SectionId, TerminalOutcome,
+    LogicalScopeAddress, LogicalScopeClassDefinition, LogicalScopeClassId, LogicalScopeDefinitions,
+    LogicalScopeNodeBinding, NodeId, ParticipantLock, SectionId, TerminalOutcome,
 };
 
 use crate::{
@@ -23,6 +24,7 @@ use crate::{
 };
 
 pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v4";
+pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 
 const PATH_NODE: u32 = 1;
 const TOPOLOGY_SELECTOR_NODE: u32 = 2;
@@ -345,6 +347,7 @@ pub(crate) fn compile(
             .map_err(|_| UniverseTopologyCompileError::InvalidGraph)?,
     )
     .map_err(|_| UniverseTopologyCompileError::InvalidGraph)?;
+    let state = state.with_logical_scopes(domain_logical_scopes(&graph, &hubs)?);
     let CompiledPrograms {
         programs,
         random_checkpoints,
@@ -412,6 +415,8 @@ pub(crate) fn rebind(
     state: ActivityStateDefinition,
     participants: Arc<ParticipantLock>,
 ) -> Result<CompiledUniverseTopology, UniverseTopologyCompileError> {
+    let state =
+        state.with_logical_scopes(template.runtime.state_definition().logical_scopes().clone());
     let runtime = template
         .runtime
         .rebind(identity, state, participants)
@@ -423,6 +428,38 @@ pub(crate) fn rebind(
         encounter_options: Arc::clone(&template.encounter_options),
         interactions: Arc::clone(&template.interactions),
     })
+}
+
+fn domain_logical_scopes(
+    graph: &ActivityGraphDefinition,
+    hubs: &[DomainHubDefinition],
+) -> Result<LogicalScopeDefinitions, UniverseTopologyCompileError> {
+    let class = LogicalScopeClassId::new(STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS)
+        .ok_or(UniverseTopologyCompileError::InvalidGraph)?;
+    let class_definition =
+        LogicalScopeClassDefinition::new(class, None, graph.maximum_total_visits())
+            .ok_or(UniverseTopologyCompileError::InvalidGraph)?;
+    let mut bindings = Vec::with_capacity(hubs.len().saturating_mul(7));
+    for hub in hubs {
+        let address = LogicalScopeAddress::new(class, u64::from(hub.source_node.get()))
+            .ok_or(UniverseTopologyCompileError::InvalidGraph)?;
+        for node in [
+            hub.resolution_node,
+            hub.content_node,
+            hub.member_node,
+            hub.battle_node,
+            hub.reward_node,
+            hub.formation_node,
+            hub.route_node,
+        ] {
+            bindings.push(
+                LogicalScopeNodeBinding::new(node, vec![address])
+                    .map_err(|_| UniverseTopologyCompileError::InvalidGraph)?,
+            );
+        }
+    }
+    LogicalScopeDefinitions::new(vec![class_definition], bindings)
+        .map_err(|_| UniverseTopologyCompileError::InvalidGraph)
 }
 
 #[derive(Clone, Copy)]
