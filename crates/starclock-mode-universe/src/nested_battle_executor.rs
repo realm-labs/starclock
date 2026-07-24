@@ -21,6 +21,9 @@ use crate::{
     },
     digest::Encoder,
     dynamic_battle_assembler::StandardUniverseDynamicBattleStart,
+    dynamic_battle_assembler::{
+        StandardUniverseBattleAssembler, StandardUniverseDynamicBattleError,
+    },
 };
 
 pub const UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION: &str =
@@ -187,6 +190,35 @@ impl UniverseNestedBattleExecutor {
         Ok(SettledNestedBattle { result, report })
     }
 
+    /// Dynamically assembles, executes and settles the current Activity battle
+    /// with rollback on every post-start failure.
+    pub fn execute_dynamic_pending_activity_battle(
+        &mut self,
+        activity: &mut crate::runtime::StandardUniverseActivity,
+        assembler: &StandardUniverseBattleAssembler,
+    ) -> Result<SettledNestedBattle, ActivityNestedBattleExecutionError> {
+        let start = assembler
+            .start_pending_battle(activity)
+            .map_err(ActivityNestedBattleExecutionError::DynamicStart)?;
+        let (result, report) = match self.execute_checked(start.combat_catalog(), start.handoff()) {
+            Ok(value) => value,
+            Err(error) => {
+                let restored = activity.rollback_pending_battle_start();
+                debug_assert!(restored, "the assembler started the exact pending handoff");
+                return Err(ActivityNestedBattleExecutionError::Execution(error));
+            }
+        };
+        if let Err(error) =
+            activity.submit_pending_battle_result(activity.view().state_hash(), result.clone())
+        {
+            let restored = activity.rollback_pending_battle_start();
+            debug_assert!(restored, "failed settlement retains the started handoff");
+            return Err(ActivityNestedBattleExecutionError::Settlement(error));
+        }
+        self.reports.push(report.clone());
+        Ok(SettledNestedBattle { result, report })
+    }
+
     fn execute_checked(
         &self,
         catalog: &Arc<CombatCatalog>,
@@ -254,6 +286,7 @@ impl SettledNestedBattle {
 #[derive(Debug)]
 pub enum ActivityNestedBattleExecutionError {
     Start(crate::runtime::StandardUniverseBattleStartError),
+    DynamicStart(StandardUniverseDynamicBattleError),
     Execution(NestedBattleExecutionError),
     Settlement(GraphActivityBattleError),
 }

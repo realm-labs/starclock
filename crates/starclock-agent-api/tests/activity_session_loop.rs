@@ -132,22 +132,23 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
     let replay = session.export_replay().unwrap();
     assert!(replay.complete());
     assert_eq!(replay.action_count().as_str(), "52");
-    assert_eq!(replay.bytes().len(), 28_552);
+    assert_eq!(replay.bytes().len(), 29_187);
     assert_eq!(
         replay.sha256().as_str(),
-        "20b1721328e632a171a98daae14d6d893c1b544b3db0ffa18a27ec6cd12192c5"
+        "cee617d4e1fbb86e3f2257b426e5dd28a2b392bc91507e41b1c77a3c0bf4545b"
     );
     assert_eq!(
         replay.action_count().to_u64(),
         session.replay_action_count() as u64
     );
+    assert!(starclock_replay::format_v3::decode_replay_v3(replay.bytes()).is_ok());
     let verified = session.verify_replay(&factory, replay.bytes()).unwrap();
     assert_eq!(verified.action_count, replay.action_count().clone());
     assert_eq!(verified.final_state_hash, session.state_hash());
     assert_eq!(verified.nested_battles.as_str(), "3");
     assert_eq!(
         verified.final_state_hash.as_str(),
-        "6367dce31434b34edd0e5f48750de08fcd28a22f45670401663a74ef5267d676"
+        "e250e6d4611c605b49e87cdc18a025d37a3ca3e6199454f8aef79b2653da4724"
     );
 
     let mut corrupt = replay.bytes().to_vec();
@@ -229,12 +230,12 @@ fn concurrent_real_sessions_share_catalog_but_not_mutable_state() {
     assert_eq!(results[0].0, 49);
     assert_eq!(
         results[0].1.as_str(),
-        "6367dce31434b34edd0e5f48750de08fcd28a22f45670401663a74ef5267d676"
+        "e250e6d4611c605b49e87cdc18a025d37a3ca3e6199454f8aef79b2653da4724"
     );
     assert_eq!(
         results[0].2.as_str(),
-        "20b1721328e632a171a98daae14d6d893c1b544b3db0ffa18a27ec6cd12192c5"
+        "cee617d4e1fbb86e3f2257b426e5dd28a2b392bc91507e41b1c77a3c0bf4545b"
     );
-    assert_eq!(results[0].3, 28_552);
+    assert_eq!(results[0].3, 29_187);
 }
 use std::{sync::Arc, thread};

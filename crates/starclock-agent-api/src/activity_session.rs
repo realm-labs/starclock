@@ -1,6 +1,6 @@
 //! Authoritative incremental Standard Universe Activity sessions.
 
-use std::collections::BTreeMap;
+use std::{collections::BTreeMap, sync::Arc};
 
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
@@ -8,20 +8,21 @@ use starclock_activity::{
     ActivityDecisionKind, ActivityExternalOutcomeId, ActivityTerminalOutcome,
 };
 use starclock_mode_universe::{
+    dynamic_battle_assembler::StandardUniverseBattleAssembler,
     nested_battle_executor::UniverseNestedBattleExecutor,
     runtime::StandardUniverseActivity,
     universe_replay::{
         MAX_STANDARD_UNIVERSE_REPLAY_ACTIONS, StandardUniverseReplayAction,
         StandardUniverseTraceEntry,
     },
-    universe_replay_v2::{
-        encode_standard_universe_trace_parts_v2, standard_universe_header_v2,
-        verify_standard_universe_replay_v2,
+    universe_replay_v3::{
+        encode_standard_universe_trace_parts_v3, standard_universe_header_v3,
+        verify_standard_universe_replay_v3_dynamic,
     },
 };
 use starclock_replay::{
     activity::{ControllerDecisionKind, ControllerDiagnostic, ControllerOptionScore},
-    format_v2::ReplayHeaderV2,
+    format_v3::ReplayHeaderV3,
 };
 
 use crate::{
@@ -169,8 +170,9 @@ impl ActivityAgentSessionFactory {
             .runtime
             .start(world, difficulty_index, seed, controller_digest())
             .map_err(runtime_error)?;
-        let (profile, activity, combat_catalog, components, compatibility) = runtime.into_parts();
-        let replay_header = standard_universe_header_v2(
+        let (profile, activity, battle_assembler, components, compatibility) =
+            runtime.into_dynamic_parts();
+        let replay_header = standard_universe_header_v3(
             compatibility.clone(),
             components.clone(),
             seed,
@@ -186,7 +188,8 @@ impl ActivityAgentSessionFactory {
             seed,
             activity,
             replay_header,
-            battle_executor: UniverseNestedBattleExecutor::new(combat_catalog),
+            battle_assembler,
+            battle_executor: UniverseNestedBattleExecutor::dynamic(),
             trace: Vec::new(),
             offered: None,
             idempotency: BTreeMap::new(),
@@ -237,11 +240,12 @@ impl ActivityAgentSessionFactory {
             .runtime
             .start(world, difficulty_index, seed.to_u64(), controller_digest())
             .map_err(runtime_error)?;
-        let (profile, activity, combat_catalog, components, compatibility) = runtime.into_parts();
-        let report = verify_standard_universe_replay_v2(
+        let (profile, activity, battle_assembler, components, compatibility) =
+            runtime.into_dynamic_parts();
+        let report = verify_standard_universe_replay_v3_dynamic(
             bytes,
             activity,
-            combat_catalog,
+            &battle_assembler,
             &components,
             &compatibility,
             &profile,
@@ -269,7 +273,8 @@ pub struct ActivityAgentSession {
     difficulty_index: usize,
     seed: u64,
     activity: StandardUniverseActivity,
-    replay_header: ReplayHeaderV2,
+    replay_header: ReplayHeaderV3,
+    battle_assembler: Arc<StandardUniverseBattleAssembler>,
     battle_executor: UniverseNestedBattleExecutor,
     trace: Vec<StandardUniverseTraceEntry>,
     offered: Option<OfferedActivityActionSet>,
@@ -436,7 +441,7 @@ impl ActivityAgentSession {
     }
 
     pub fn export_replay(&self) -> Result<AgentActivityReplayExport, AgentError> {
-        let bytes = encode_standard_universe_trace_parts_v2(
+        let bytes = encode_standard_universe_trace_parts_v3(
             &self.replay_header,
             &self.trace,
             self.battle_executor.reports(),
@@ -529,7 +534,7 @@ impl ActivityAgentSession {
             }
             let settled = self
                 .battle_executor
-                .execute_pending_activity_battle(&mut self.activity)
+                .execute_dynamic_pending_activity_battle(&mut self.activity, &self.battle_assembler)
                 .map_err(|_| nested_battle_error())?;
             self.push_trace(
                 StandardUniverseReplayAction::Battle {

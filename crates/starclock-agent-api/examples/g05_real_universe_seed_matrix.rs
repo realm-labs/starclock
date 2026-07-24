@@ -15,7 +15,7 @@ use starclock_mode_universe::{
     nested_battle_executor::UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION,
     production_runtime::StandardUniverseRuntimeFactory,
 };
-use starclock_replay::{format_v2::decode_replay_v2, record::RecordKind};
+use starclock_replay::{format_v3::decode_replay_v3, record::RecordKind};
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
 const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../config/universe-generated/config.sora");
@@ -156,7 +156,7 @@ fn main() {
     let assembly = runtime.materialization().coverage();
     let evidence = MatrixEvidence {
         schema_revision: MATRIX_REVISION,
-        result: "all-constructible-difficulties-complete-with-real-battle-replay-v2",
+        result: "all-constructible-difficulties-complete-with-real-battle-replay-v3",
         executor_revision: UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION,
         coverage: Coverage {
             worlds: manifest.worlds.len(),
@@ -245,7 +245,7 @@ fn run(factory: &ActivityAgentSessionFactory, entry: Entry) -> RunEvidence {
         external_actions += 1;
     }
     let replay = session.export_replay().expect("complete replay exports");
-    let decoded = decode_replay_v2(replay.bytes()).expect("matrix emits replay v2");
+    let decoded = decode_replay_v3(replay.bytes()).expect("matrix emits replay v3");
     let battle_commands = count_records(&decoded, RecordKind::AcceptedBattleCommand);
     let battle_states = count_records(&decoded, RecordKind::ExpectedBattleState);
     assert_eq!(battle_commands, battle_states);
@@ -332,7 +332,7 @@ fn failure_evidence(factory: &ActivityAgentSessionFactory) -> Vec<FailureEvidenc
     .collect()
 }
 
-fn count_records(replay: &starclock_replay::format_v2::DecodedReplayV2, kind: RecordKind) -> u64 {
+fn count_records(replay: &starclock_replay::format_v3::DecodedReplayV3, kind: RecordKind) -> u64 {
     replay
         .records()
         .iter()
