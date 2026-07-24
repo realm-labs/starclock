@@ -1,0 +1,43 @@
+{
+  "schema_revision": "starclock.goal06-foundation.v1",
+  "goal_id": "combat-identity-dynamic-assembly-v1",
+  "batch": "G06-P0-B1",
+  "planned_phases": 5,
+  "planned_batches": 18,
+  "required_snapshot": {
+    "goal_id": "standard-universe-end-to-end-v1",
+    "completion_commit": "fd990d989fd4db88a6a27ee2047dfe175f902973",
+    "completion_tree": "c87c40abf5b3c2985fef99349554083662bc96d8"
+  },
+  "starting_denominators": {
+    "content_records": 2201,
+    "rule_bindings": 786,
+    "semantic_fixtures": 78,
+    "integrated_rules": 3,
+    "retained_rule_approximations": 783,
+    "world_difficulty_entries": 33
+  },
+  "identity_terms": {
+    "combat_input": "CombatInputDigest",
+    "outer_assembly": "AssemblyDigest",
+    "replay_target": "component-addressed-v3",
+    "historical_replay": "component-addressed-v2",
+    "assembly_key": "BattleAssemblyKey"
+  },
+  "documents": [
+    "docs/goals/06-combat-identity-and-dynamic-assembly.md",
+    "docs/goals/06-combat-identity-and-dynamic-assembly-status.md",
+    "docs/goals/06-combat-identity-and-dynamic-assembly-prompt.md",
+    "docs/29-combat-identity-and-dynamic-assembly.md"
+  ],
+  "contracts": {
+    "combat_input_digest_is_computed_by_combat_core": true,
+    "assembly_digest_is_opaque_to_combat_core": true,
+    "catalog_is_not_rebuilt_per_battle": true,
+    "battle_never_reads_live_activity_state": true,
+    "assembly_failure_preserves_activity_and_rng": true,
+    "all_production_surfaces_share_one_assembler": true,
+    "replay_v2_evidence_remains_immutable": true,
+    "remaining_rule_completion_belongs_to_goal07": true
+  }
+}

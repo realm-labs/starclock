@@ -5,22 +5,22 @@
 | Field | Value |
 |---|---|
 | Goal ID | `combat-identity-dynamic-assembly-v1` |
-| State | `Ready` |
-| Active phase | None |
+| State | `InProgress` |
+| Active phase | Phase 0 — Contract and observable debt |
 | Active batch | None |
-| Next unblocked batch | `G06-P0-B1` |
+| Next unblocked batch | `G06-P0-B2` |
 | Required snapshot | Goal 05 `standard-universe-end-to-end-v1` |
 | Planned batches | 18 |
 | Blocking condition | None |
 
-Goal 06 has not started. This ledger becomes the resumable source of truth once
-`G06-P0-B1` is marked `InProgress`.
+Goal 06 is active. The execution package and immutable Goal 05 prerequisite are
+frozen; the next batch records the observable digest/materialization debt.
 
 ## Batch ledger
 
 | Batch | State | Evidence | Result |
 |---|---|---|---|
-| `G06-P0-B1` | `Pending` | — | Freeze execution package and identity terminology. |
+| `G06-P0-B1` | `Complete` | `node tools/goal06/verify-foundation.mjs`; `node tools/repository-check/verify-release-snapshots.mjs`; quick repository gate | Froze the 5-phase/18-batch execution package and normative identity/assembly contract. Bound the exact Goal 05 completion commit/tree and starting 2,201/786/78 denominator. Defined combat-owned `CombatInputDigest`, opaque `AssemblyDigest`, `BattleAssemblyKey`, replay-v3 target and immutable replay-v2 history without claiming the remaining 783 rules. |
 | `G06-P0-B2` | `Pending` | — | Freeze digest/materialization debt probes. |
 | `G06-P0-B3` | `Pending` | — | Freeze replay, performance and release scaffold. |
 | `G06-P1-B1` | `Pending` | — | Compute combat input identity in combat-core. |
@@ -69,4 +69,3 @@ Goal 06 has not started. This ledger becomes the resumable source of truth once
 | Dynamic assembly coverage | To be generated |
 | Performance evidence | To be generated |
 | Release evidence | To be generated |
-
