@@ -386,11 +386,10 @@ the explicit coverage golden is
 `2fa0e46786809544478f9c224ea45539540f278ff5fed3548a6e5c119aded9f3`.
 
 The production nested executor now executes the resulting battle through
-`starclock-combat`. CLI, agent and MCP caller migration is owned by P4; until
-then their legacy Goal 04 paths remain truthfully labeled
-`verified-reference-projection-v1`. A reference projection is allowed only in
-explicitly named tests/fixtures after that migration and cannot satisfy
-release acceptance.
+`starclock-combat`. CLI run and replay verification use that executor and the
+component-addressed replay v2 path. Agent and MCP caller migration is owned by
+P4-B3. A reference projection is allowed only in explicitly named historical
+tests/fixtures after migration and cannot satisfy release acceptance.
 
 ### Executable mechanic slice revision 1
 
@@ -574,6 +573,29 @@ event families fail closed until the codec revision is extended.
 Legacy Goal 04 replay v1 remains verifiable through its archived release
 snapshot. Production migration uses v2; no new caller should emit a v1
 reference-projection run.
+
+### CLI production revision 2
+
+`starclock universe run` no longer constructs synthetic unknown unit IDs or a
+fabricated Won result. It loads the pinned core and Universe bundles, resolves
+a four-member production combat roster, compiles the initial deterministic
+Path snapshot, materializes all structured encounters, and executes every
+nested handoff with `UniverseNestedBattleExecutor`.
+
+The CLI emits `starclock-cli-universe-v2` and
+`battle_executor=starclock-combat-nested-v1`. JSON output exposes Activity
+action count, nested battle count and accepted battle-command count. Replay
+files use envelope v2, contain the nine consumed components and include real
+`AcceptedBattleCommand`/`ExpectedBattleState` records. `replay verify`
+reconstructs the same catalog/materialization and performs the complete
+component, command, event, battle-result and Activity-state verification.
+
+The default CLI battle snapshot starts with the first baseline-selected Path
+and empty Blessing, Curio and Ability Tree inventories. This avoids importing
+the richer representative mechanic-test loadout into a production run. Later
+run-time inventory changes remain explicit Activity state; expanding
+per-battle dynamic rematerialization is a separate versioned content/runtime
+capability and must not be simulated by granting unowned rows.
 
 ## Acceptance slices
 

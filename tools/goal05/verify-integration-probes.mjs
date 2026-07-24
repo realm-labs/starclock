@@ -18,13 +18,19 @@ if (policy.focused_budget.wall_seconds < 60 || policy.focused_budget.wall_second
 
 const cli = read("crates/starclock-cli/src/universe_v1.rs");
 const agent = read("crates/starclock-agent-api/src/activity_reference.rs");
-for (const [name, source] of [["CLI", cli], ["agent API", agent]]) {
-  if (!source.includes("reference_won_result")) {
-    fail(`${name} no longer matches the frozen Goal 04 reference-settlement baseline`);
-  }
-  if (!source.includes("verified-reference-projection-v1")) {
-    fail(`${name} no longer exposes the frozen reference executor revision`);
-  }
+if (cli.includes("reference_won_result") || cli.includes("verified-reference-projection-v1")) {
+  fail("CLI reverted to the frozen Goal 04 reference-settlement baseline");
+}
+for (const marker of [
+  "UniverseNestedBattleExecutor",
+  "record_baseline_run_v2",
+  "verify_standard_universe_replay_v2",
+  "standard_universe_component_set"
+]) {
+  if (!cli.includes(marker)) fail(`CLI is missing real-combat migration marker ${marker}`);
+}
+if (!agent.includes("reference_won_result") || !agent.includes("verified-reference-projection-v1")) {
+  fail("agent API moved before its owning G05-P4-B3 batch");
 }
 
 const runtime = read("crates/starclock-mode-universe/src/runtime.rs");
@@ -101,6 +107,6 @@ if (cycles !== policy.frozen_snapshot.source_topology_cycles) {
 }
 
 process.stdout.write(
-  `Goal 05 integration debt frozen (${byMap.size} maps, ${maps.length} source nodes, ` +
+  `Goal 05 integration probes verified with CLI real combat (${byMap.size} maps, ${maps.length} source nodes, ` +
     `${pathMethods.length} path entry points, ${cycles} source cycles, <=${policy.focused_budget.wall_seconds}s focused gate).\n`
 );

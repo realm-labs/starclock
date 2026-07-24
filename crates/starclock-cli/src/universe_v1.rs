@@ -1,42 +1,44 @@
 use std::{fmt, fs, path::PathBuf, sync::Arc};
 
 use starclock_activity::{
-    ActivityBattleResultContract, ActivityInstanceId, ActivityMasterSeed,
-    ActivityParticipantCarryDefinition, BattleBinding, BattleOutcome, BattleResult, BuildDigest,
-    EnergyCarryPolicy, EventDigest, HpCarryPolicy, LifeCarryPolicy, LoadoutLockScope,
-    OpaqueParticipantBuild, ParticipantBattleState, ParticipantId, ParticipantLock,
-    ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind, PresenceCarryPolicy,
-    ProjectedValue, ProjectionField, ProjectionId, TechniqueContributionDigest,
+    ActivityInstanceId, ActivityMasterSeed, BuildDigest, LoadoutLockScope, OpaqueParticipantBuild,
+    ParticipantId, ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
 };
 use starclock_combat::{
-    AbilityId, BattleSpec, BattleSpecDigest, BattleStateHash, CombatantSpecDigest, ConcedePolicy,
-    EncounterId, EnemyDefinitionId, Energy, FormationIndex, Hp, LifeState, ParticipantSource,
-    ParticipantSpec, PresenceState, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
-    TeamResourceSpec, TeamSide, UnitDefinitionId, UnitLevel,
+    CombatantSpecDigest, Energy, Hp, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
+    StatValue, UnitDefinitionId, UnitLevel, catalog::action::AbilityKind,
 };
 use starclock_mode_universe::{
+    ability_runtime::{
+        AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope, AbilityRuntimeCatalog,
+    },
     baseline_runner::{StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner},
-    battle_overlay::{UniverseEncounterBattleBinding, UniverseEncounterOverlay},
+    battle_contribution::{UniverseBattleContributionCompiler, UniverseBattleContributionSet},
+    battle_materialization::{UniverseBattleMaterializer, UniverseBattleRoster},
+    blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
+    curio_runtime::CurioRuntimeCatalog,
     entry::{StandardUniverseEntry, StandardUniverseProfile},
     id::WorldId,
-    universe_replay::{
-        encode_standard_universe_trace, record_baseline_run, replay_entry_for,
-        verify_standard_universe_replay,
+    nested_battle_executor::{
+        UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION, UniverseNestedBattleExecutor,
+    },
+    path_runtime::PathRuntimeCatalog,
+    run_runtime::RunRuntimeCatalog,
+    universe_replay_v2::{
+        encode_standard_universe_trace_v2, record_baseline_run_v2, standard_universe_component_set,
+        standard_universe_header_v2, verify_standard_universe_replay_v2,
     },
 };
 use starclock_replay::{
-    codec::CanonicalSink,
-    digest::{ConfigBundleDigest, ControllerDigest, Sha256Sink},
-    format::{ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity},
+    codec::CanonicalSink, digest::Sha256Sink, format::ReplayEntry, format_v2::ReplayCompatibilityV2,
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
 const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../config/universe-generated/config.sora");
 const PROFILE_PREFIX: &str = "standard-universe-v1/world-";
-const CLI_REVISION: &str = "starclock-cli-universe-v1";
-const RULES_REVISION: &str = "standard-universe-rules-v1";
-const DATA_REVISION: &str = "standard-universe-data-v4.4";
+const CLI_REVISION: &str = "starclock-cli-universe-v2";
+const BATTLE_EXECUTOR: &str = "starclock-combat-nested-v1";
 
 pub fn config_validate(args: &[String]) -> Result<(), UniverseCliError> {
     let json = json_only(args)?;
@@ -93,17 +95,23 @@ pub fn run(args: &[String]) -> Result<(), UniverseCliError> {
     let options = RunOptions::parse(args)?;
     let context = context(options.world, options.difficulty_index, options.seed)?;
     let mut activity = context.activity;
-    let header = replay_header(&activity, &context.profile_id, options.seed)?;
-    let mut executor = |handoff: &starclock_activity::ActivityBattleHandoff| {
-        Ok(reference_won_result(handoff.identity()))
-    };
-    let recorded = record_baseline_run(
+    let header = standard_universe_header_v2(
+        context.compatibility.clone(),
+        context.components.clone(),
+        options.seed,
+        &activity,
+        &context.profile_id,
+    )
+    .map_err(|_| UniverseCliError::Replay)?;
+    let mut executor =
+        UniverseNestedBattleExecutor::new(Arc::clone(&context.materialized_combat_catalog));
+    let recorded = record_baseline_run_v2(
         &mut activity,
         &StandardUniverseBaselinePolicy::default(),
         &mut executor,
     )
     .map_err(|_| UniverseCliError::Simulation)?;
-    let replay = encode_standard_universe_trace(&header, recorded.trace())
+    let replay = encode_standard_universe_trace_v2(&header, &recorded)
         .map_err(|_| UniverseCliError::Replay)?;
     if let Some(path) = &options.replay_out {
         fs::write(path, &replay).map_err(UniverseCliError::Io)?;
@@ -111,21 +119,33 @@ pub fn run(args: &[String]) -> Result<(), UniverseCliError> {
     let report = recorded.report();
     if options.json {
         println!(
-            "{{\"schema_revision\":\"{CLI_REVISION}\",\"kind\":\"universe-run\",\"world\":{},\"difficulty_index\":{},\"seed\":{},\"controller\":\"baseline\",\"battle_executor\":\"verified-reference-projection-v1\",\"actions\":{},\"terminal\":\"completed\",\"state_hash\":\"{}\",\"replay_bytes\":{}}}",
+            "{{\"schema_revision\":\"{CLI_REVISION}\",\"kind\":\"universe-run\",\"world\":{},\"difficulty_index\":{},\"seed\":{},\"controller\":\"baseline\",\"battle_executor\":\"{BATTLE_EXECUTOR}\",\"actions\":{},\"nested_battles\":{},\"battle_commands\":{},\"terminal\":\"completed\",\"state_hash\":\"{}\",\"replay_bytes\":{}}}",
             options.world,
             options.difficulty_index,
             options.seed,
             report.steps().len(),
+            recorded.battles().len(),
+            recorded
+                .battles()
+                .iter()
+                .map(|battle| battle.trace().len())
+                .sum::<usize>(),
             hex(report.final_state_hash().bytes()),
             replay.len(),
         );
     } else {
         println!(
-            "universe completed world={} difficulty_index={} seed={} controller=baseline battle_executor=verified-reference-projection-v1 actions={} hash={} replay_bytes={}",
+            "universe completed world={} difficulty_index={} seed={} controller=baseline battle_executor={BATTLE_EXECUTOR} actions={} nested_battles={} battle_commands={} hash={} replay_bytes={}",
             options.world,
             options.difficulty_index,
             options.seed,
             report.steps().len(),
+            recorded.battles().len(),
+            recorded
+                .battles()
+                .iter()
+                .map(|battle| battle.trace().len())
+                .sum::<usize>(),
             hex(report.final_state_hash().bytes()),
             replay.len(),
         );
@@ -133,33 +153,47 @@ pub fn run(args: &[String]) -> Result<(), UniverseCliError> {
     Ok(())
 }
 
-pub fn is_universe_replay(header: &ReplayHeader) -> bool {
-    matches!(header.entry(), ReplayEntry::Activity { profile_id, .. } if profile_id.starts_with(PROFILE_PREFIX))
+pub fn is_universe_replay_v2(bytes: &[u8]) -> bool {
+    starclock_replay::format_v2::decode_replay_v2(bytes)
+        .is_ok_and(|replay| is_universe_entry(replay.header().entry()))
+}
+
+fn is_universe_entry(entry: &ReplayEntry) -> bool {
+    matches!(entry, ReplayEntry::Activity { profile_id, .. } if profile_id.starts_with(PROFILE_PREFIX))
 }
 
 pub fn verify_replay(bytes: &[u8], json: bool) -> Result<(), UniverseCliError> {
-    let decoded =
-        starclock_replay::format::decode_replay(bytes).map_err(|_| UniverseCliError::Replay)?;
-    let (world, difficulty_index, profile_id) = parse_profile(decoded.header())?;
+    let decoded = starclock_replay::format_v2::decode_replay_v2(bytes)
+        .map_err(|_| UniverseCliError::Replay)?;
+    let (world, difficulty_index, profile_id) = parse_profile(decoded.header().entry())?;
     let seed = decoded.header().master_seed();
     let context = context(world, difficulty_index, seed)?;
     if context.profile_id != profile_id {
         return Err(UniverseCliError::Replay);
     }
-    let report = verify_standard_universe_replay(bytes, context.activity, &profile_id)
-        .map_err(|_| UniverseCliError::Replay)?;
+    let report = verify_standard_universe_replay_v2(
+        bytes,
+        context.activity,
+        context.materialized_combat_catalog,
+        &context.components,
+        &context.compatibility,
+        &profile_id,
+    )
+    .map_err(|_| UniverseCliError::Replay)?;
     if json {
         println!(
-            "{{\"schema_revision\":\"{CLI_REVISION}\",\"kind\":\"replay-verify\",\"entry\":\"standard-universe\",\"actions\":{},\"nested_battles\":{},\"terminal\":\"completed\",\"state_hash\":\"{}\"}}",
+            "{{\"schema_revision\":\"{CLI_REVISION}\",\"kind\":\"replay-verify\",\"entry\":\"standard-universe\",\"actions\":{},\"nested_battles\":{},\"battle_commands\":{},\"terminal\":\"completed\",\"state_hash\":\"{}\"}}",
             report.action_count(),
-            report.nested_battle_count(),
+            report.battle_count(),
+            report.battle_command_count(),
             hex(report.final_state_hash().bytes()),
         );
     } else {
         println!(
-            "universe replay verified actions={} nested_battles={} terminal=completed hash={}",
+            "universe replay verified actions={} nested_battles={} battle_commands={} terminal=completed hash={}",
             report.action_count(),
-            report.nested_battle_count(),
+            report.battle_count(),
+            report.battle_command_count(),
             hex(report.final_state_hash().bytes()),
         );
     }
@@ -227,6 +261,9 @@ fn parse<T: core::str::FromStr>(value: Option<&str>, _name: &str) -> Result<T, U
 struct RunContext {
     profile_id: String,
     activity: starclock_mode_universe::runtime::StandardUniverseActivity,
+    materialized_combat_catalog: Arc<starclock_combat::catalog::CombatCatalog>,
+    components: starclock_replay::component::ConfigurationComponentSet,
+    compatibility: ReplayCompatibilityV2,
 }
 
 fn context(
@@ -243,14 +280,34 @@ fn context(
         .difficulties()
         .get(difficulty_index)
         .ok_or(UniverseCliError::UnknownEntry)?;
-    let lock = participants()?;
-    let overlay = overlay(&catalog, &lock)?;
+    let (roster, lock) = participants(&catalog)?;
+    let contributions = initial_contributions(&catalog)?;
+    let materialized = UniverseBattleMaterializer
+        .compile(&catalog, &roster, &contributions)
+        .map_err(|_| UniverseCliError::Configuration)?;
     let compiled = StandardUniverseProfile::new(Arc::clone(&catalog))
         .compile(
             StandardUniverseEntry::new(world_id, difficulty, lock, vec![])
-                .with_encounter_overlay(overlay),
+                .with_encounter_overlay(materialized.overlay().clone()),
         )
         .map_err(|_| UniverseCliError::Configuration)?;
+    let controller_digest = controller_digest();
+    let components = standard_universe_component_set(
+        &catalog,
+        &compiled,
+        &materialized,
+        "baseline-controller",
+        StandardUniverseBaselineRunner::REVISION,
+        controller_digest,
+    )
+    .map_err(|_| UniverseCliError::Configuration)?;
+    let compatibility = ReplayCompatibilityV2::new(
+        catalog.identity().game_version(),
+        starclock_combat::NUMERIC_POLICY_REVISION,
+        starclock_combat::rng::RNG_ALGORITHM_REVISION,
+        starclock_activity::ACTIVITY_STATE_HASH_REVISION,
+    )
+    .map_err(|_| UniverseCliError::Configuration)?;
     let instance = ActivityInstanceId::new(seed.checked_add(1).ok_or(UniverseCliError::Usage)?)
         .ok_or(UniverseCliError::Usage)?;
     let activity = compiled
@@ -260,6 +317,9 @@ fn context(
     Ok(RunContext {
         profile_id: format!("{PROFILE_PREFIX}{world_raw}/difficulty-{difficulty_index}"),
         activity,
+        materialized_combat_catalog: Arc::clone(materialized.combat_catalog()),
+        components,
+        compatibility,
     })
 }
 
@@ -269,7 +329,9 @@ fn catalog() -> Result<Arc<UniverseCatalog>, UniverseCliError> {
     UniverseCatalog::load(UNIVERSE_BUNDLE, core).map_err(|_| UniverseCliError::Configuration)
 }
 
-fn participants() -> Result<ParticipantLock, UniverseCliError> {
+fn participants(
+    catalog: &UniverseCatalog,
+) -> Result<(UniverseBattleRoster, ParticipantLock), UniverseCliError> {
     let policy = ParticipantPolicy::new(
         1,
         1,
@@ -278,203 +340,118 @@ fn participants() -> Result<ParticipantLock, UniverseCliError> {
         LoadoutLockScope::Activity,
     )
     .ok_or(UniverseCliError::Configuration)?;
-    let entries = (0_u8..4)
-        .map(|index| {
-            let byte = index + 1;
+    let mut lock_entries = Vec::new();
+    let mut combatants = Vec::new();
+    for index in 0_u8..4 {
+        let form =
+            UnitDefinitionId::new(u32::from(index) + 1).ok_or(UniverseCliError::Configuration)?;
+        let unit = catalog
+            .simulation_catalog()
+            .combat_catalog()
+            .unit(form)
+            .ok_or(UniverseCliError::Configuration)?;
+        let basic = unit
+            .abilities()
+            .iter()
+            .copied()
+            .find(|ability| {
+                catalog
+                    .simulation_catalog()
+                    .combat_catalog()
+                    .ability(*ability)
+                    .and_then(|definition| definition.action())
+                    .is_some_and(|action| action.kind() == AbilityKind::Basic)
+            })
+            .ok_or(UniverseCliError::Configuration)?;
+        let combatant = ResolvedCombatantSpec::new(
+            form,
+            UnitLevel::new(80).ok_or(UniverseCliError::Configuration)?,
+            Hp::new(100_000).map_err(|_| UniverseCliError::Configuration)?,
+            Speed::from_scaled(200_000_000).map_err(|_| UniverseCliError::Configuration)?,
+            ResolvedDefinitionBindings::new(vec![basic], Vec::new(), Vec::new())
+                .map_err(|_| UniverseCliError::Configuration)?,
+            CombatantSpecDigest::new([index + 1; 32]).ok_or(UniverseCliError::Configuration)?,
+        )
+        .map_err(|_| UniverseCliError::Configuration)?
+        .with_base_attack_defense(
+            StatValue::from_scaled(1_000_000_000).map_err(|_| UniverseCliError::Configuration)?,
+            StatValue::from_scaled(1_000_000_000).map_err(|_| UniverseCliError::Configuration)?,
+        )
+        .with_energy(
+            Energy::ZERO,
+            Energy::from_scaled(100_000_000).map_err(|_| UniverseCliError::Configuration)?,
+        )
+        .map_err(|_| UniverseCliError::Configuration)?;
+        let participant =
+            ParticipantId::new(u32::from(index) + 1).ok_or(UniverseCliError::Configuration)?;
+        lock_entries.push(
             ParticipantLockEntry::new(
-                ParticipantId::new(u32::from(byte)).unwrap(),
+                participant,
                 0,
                 index,
-                UnitDefinitionId::new(20_001 + u32::from(index)).unwrap(),
+                form,
                 OpaqueParticipantBuild::new(
-                    CombatantSpecDigest::new([byte; 32]).unwrap(),
-                    BuildDigest::new([byte + 32; 32]).unwrap(),
-                    "universe-cli-reference-build-v1",
-                    ParticipantSourceKind::CompiledBuild,
+                    combatant.digest(),
+                    BuildDigest::new([index + 17; 32]).ok_or(UniverseCliError::Configuration)?,
+                    "universe-cli-resolved-build-v1",
+                    ParticipantSourceKind::FixedResolved,
                 )
-                .unwrap(),
+                .map_err(|_| UniverseCliError::Configuration)?,
             )
-            .unwrap()
-        })
-        .collect();
-    ParticipantLock::seal(policy, entries).map_err(|_| UniverseCliError::Configuration)
+            .map_err(|_| UniverseCliError::Configuration)?,
+        );
+        combatants.push((participant, combatant));
+    }
+    let lock =
+        ParticipantLock::seal(policy, lock_entries).map_err(|_| UniverseCliError::Configuration)?;
+    let roster = UniverseBattleRoster::new(&lock, combatants)
+        .map_err(|_| UniverseCliError::Configuration)?;
+    Ok((roster, lock))
 }
 
-fn overlay(
-    catalog: &UniverseCatalog,
-    lock: &ParticipantLock,
-) -> Result<UniverseEncounterOverlay, UniverseCliError> {
-    let contract = Arc::new(
-        ActivityBattleResultContract::new(
-            Arc::new(
-                starclock_activity::BattleResultProjection::new(
-                    ProjectionId::new(1).unwrap(),
-                    vec![
-                        ProjectionField::Outcome,
-                        ProjectionField::FinalStateHash,
-                        ProjectionField::EventDigest,
-                        ProjectionField::TerminalFault,
-                        ProjectionField::ParticipantState(ParticipantId::new(1).unwrap()),
-                        ProjectionField::ParticipantState(ParticipantId::new(2).unwrap()),
-                        ProjectionField::ParticipantState(ParticipantId::new(3).unwrap()),
-                        ProjectionField::ParticipantState(ParticipantId::new(4).unwrap()),
-                    ],
-                )
-                .unwrap(),
+fn initial_contributions(
+    catalog: &Arc<UniverseCatalog>,
+) -> Result<UniverseBattleContributionSet, UniverseCliError> {
+    let path_definition = catalog
+        .paths()
+        .first()
+        .ok_or(UniverseCliError::Configuration)?;
+    let blessings = BlessingRuntimeCatalog::compile(catalog)
+        .map_err(|_| UniverseCliError::Configuration)?
+        .contributions_from_owned(&[])
+        .map_err(|_| UniverseCliError::Configuration)?;
+    let path = PathRuntimeCatalog::compile(catalog)
+        .map_err(|_| UniverseCliError::Configuration)?
+        .contributions(path_definition.id(), &blessings, &[])
+        .map_err(|_| UniverseCliError::Configuration)?;
+    let curios = CurioRuntimeCatalog::compile(catalog)
+        .map_err(|_| UniverseCliError::Configuration)?
+        .contributions_from_owned(&[], &[], &[])
+        .map_err(|_| UniverseCliError::Configuration)?;
+    let abilities = RunRuntimeCatalog::compile(catalog)
+        .map_err(|_| UniverseCliError::Configuration)?
+        .ability_contributions(&[])
+        .map_err(|_| UniverseCliError::Configuration)?;
+    let projection = AbilityRuntimeCatalog::compile(catalog)
+        .map_err(|_| UniverseCliError::Configuration)?
+        .project(
+            &[],
+            AbilityExecutionContext::new(
+                AbilityProjectionScope::Battle,
+                AbilityBoundary::BattleStart,
+                0,
+                false,
             ),
-            (1..=4)
-                .map(|raw| {
-                    ActivityParticipantCarryDefinition::new(
-                        ParticipantId::new(raw).unwrap(),
-                        HpCarryPolicy::CarryExact,
-                        EnergyCarryPolicy::CarryExact,
-                        LifeCarryPolicy::CarryExact,
-                        PresenceCarryPolicy::CarryExact,
-                    )
-                })
-                .collect(),
-            vec![],
         )
-        .unwrap(),
-    );
-    let bindings = catalog
-        .encounter_groups()
-        .iter()
-        .flat_map(|group| group.members())
-        .map(|member| {
-            let preparation = Arc::new(
-                starclock_activity::EncounterPreparationDefinition::new(
-                    starclock_activity::ActivityOptionId::new(10).unwrap(),
-                    starclock_activity::EncounterInitiativePolicy::PlayerControlled,
-                    lock.digest(),
-                    0,
-                    vec![],
-                    vec![starclock_activity::PreparedBattleVariant::new(
-                        vec![],
-                        TechniqueContributionDigest::new([0x44; 32]).unwrap(),
-                        BattleBinding::new(
-                            battle_spec(member.id().get()),
-                            "universe-cli-reference",
-                            "universe-battle-spec-v1",
-                            lock.digest(),
-                        )
-                        .unwrap(),
-                    )],
-                )
-                .unwrap(),
-            );
-            UniverseEncounterBattleBinding::new(member.id(), preparation, Arc::clone(&contract))
-        })
-        .collect();
-    UniverseEncounterOverlay::new(bindings).map_err(|_| UniverseCliError::Configuration)
+        .map_err(|_| UniverseCliError::Configuration)?;
+    UniverseBattleContributionCompiler::compile(Arc::clone(catalog))
+        .map_err(|_| UniverseCliError::Configuration)?
+        .compile_snapshot(&path, &blessings, &curios, &abilities, &projection)
+        .map_err(|_| UniverseCliError::Configuration)
 }
 
-fn battle_spec(member: u32) -> BattleSpec {
-    let mut entries = (0_u8..4)
-        .map(|index| {
-            ParticipantSpec::new(
-                TeamSide::Player,
-                FormationIndex::new(index).unwrap(),
-                ParticipantSource::Player,
-                combatant(20_001 + u32::from(index), index + 1),
-            )
-        })
-        .collect::<Vec<_>>();
-    let enemy = 30_000 + member;
-    entries.push(ParticipantSpec::new(
-        TeamSide::Enemy,
-        FormationIndex::new(0).unwrap(),
-        ParticipantSource::EncounterEnemy(EnemyDefinitionId::new(enemy).unwrap()),
-        combatant(enemy, u8::try_from(member).unwrap()),
-    ));
-    BattleSpec::new(
-        "universe-cli-reference-rules-v1",
-        BattleSpecDigest::new([u8::try_from(member).unwrap(); 32]).unwrap(),
-        EncounterId::new(member).unwrap(),
-        entries,
-        TeamResourceSpec::new(3, 5).unwrap(),
-        TeamResourceSpec::new(0, 0).unwrap(),
-        ConcedePolicy::Allowed,
-    )
-    .unwrap()
-}
-
-fn combatant(form: u32, digest: u8) -> ResolvedCombatantSpec {
-    ResolvedCombatantSpec::new(
-        UnitDefinitionId::new(form).unwrap(),
-        UnitLevel::new(80).unwrap(),
-        Hp::new(1_000).unwrap(),
-        Speed::from_scaled(100_000_000).unwrap(),
-        ResolvedDefinitionBindings::new(vec![AbilityId::new(form).unwrap()], vec![], vec![])
-            .unwrap(),
-        CombatantSpecDigest::new([digest; 32]).unwrap(),
-    )
-    .unwrap()
-    .with_energy(Energy::ZERO, Energy::from_scaled(100_000_000).unwrap())
-    .unwrap()
-}
-
-fn reference_won_result(identity: starclock_activity::BattleResultIdentity) -> BattleResult {
-    let mut values = vec![
-        ProjectedValue::Outcome(BattleOutcome::Won),
-        ProjectedValue::FinalStateHash(BattleStateHash::from_bytes([0x71; 32])),
-        ProjectedValue::EventDigest(EventDigest::new([0x72; 32]).unwrap()),
-        ProjectedValue::TerminalFault(None),
-    ];
-    values.extend((1_u32..=4).map(|raw| {
-        ProjectedValue::ParticipantState(
-            ParticipantBattleState::new(
-                ParticipantId::new(raw).unwrap(),
-                Hp::new(900).unwrap(),
-                Hp::new(1_000).unwrap(),
-                Energy::from_scaled(50_000_000).unwrap(),
-                Energy::from_scaled(100_000_000).unwrap(),
-                LifeState::Alive,
-                PresenceState::Present,
-            )
-            .unwrap(),
-        )
-    }));
-    BattleResult::seal(identity, values)
-}
-
-fn replay_header(
-    activity: &starclock_mode_universe::runtime::StandardUniverseActivity,
-    profile: &str,
-    seed: u64,
-) -> Result<ReplayHeader, UniverseCliError> {
-    ReplayHeader::new(
-        ReplayIdentity::new(
-            "4.4",
-            RULES_REVISION,
-            DATA_REVISION,
-            ConfigBundleDigest::new(
-                activity
-                    .graph()
-                    .definition()
-                    .identity()
-                    .config_digest()
-                    .bytes(),
-            ),
-            starclock_combat::NUMERIC_POLICY_REVISION,
-            starclock_combat::rng::RNG_ALGORITHM_REVISION,
-            starclock_activity::ACTIVITY_STATE_HASH_REVISION,
-        )
-        .map_err(|_| UniverseCliError::Replay)?,
-        ControllerIdentity::new(
-            StandardUniverseBaselineRunner::REVISION,
-            controller_digest(),
-        )
-        .map_err(|_| UniverseCliError::Replay)?,
-        seed,
-        replay_entry_for(activity, profile),
-        0,
-    )
-    .map_err(|_| UniverseCliError::Replay)
-}
-
-fn parse_profile(header: &ReplayHeader) -> Result<(u32, usize, String), UniverseCliError> {
-    let ReplayEntry::Activity { profile_id, .. } = header.entry() else {
+fn parse_profile(entry: &ReplayEntry) -> Result<(u32, usize, String), UniverseCliError> {
+    let ReplayEntry::Activity { profile_id, .. } = entry else {
         return Err(UniverseCliError::Replay);
     };
     let suffix = profile_id
@@ -503,10 +480,12 @@ fn universe_bundle_digest() -> [u8; 32] {
     value.write(UNIVERSE_BUNDLE);
     value.finalize().bytes()
 }
-fn controller_digest() -> ControllerDigest {
+fn controller_digest() -> [u8; 32] {
     let mut value = Sha256Sink::new();
-    value.write(b"standard-universe-baseline-runner-v1\0verified-reference-projection-v1");
-    ControllerDigest::new(value.finalize().bytes())
+    value.write(StandardUniverseBaselineRunner::REVISION.as_bytes());
+    value.write(&[0]);
+    value.write(UNIVERSE_NESTED_BATTLE_EXECUTOR_REVISION.as_bytes());
+    value.finalize().bytes()
 }
 fn hex(bytes: [u8; 32]) -> String {
     bytes.iter().map(|byte| format!("{byte:02x}")).collect()

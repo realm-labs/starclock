@@ -62,10 +62,12 @@ function runQuick() {
     console.log(`\nHIT  Rust quick receipt ${short(fingerprint)} (${scope.direct.length} direct package${scope.direct.length === 1 ? "" : "s"}).`);
   } else {
     const directFlags = packageFlags(scope.direct);
-    run(["cargo", "clippy", ...directFlags, "--lib", "--bins", "--tests", "--all-features", "--", "-D", "warnings"], budgetMs);
-    run(["cargo", "test", ...directFlags, "--lib", "--tests", "--all-features"], budgetMs);
+    const directTargets = scope.directHasLibrary ? ["--lib", "--bins", "--tests"] : ["--bins", "--tests"];
+    run(["cargo", "clippy", ...directFlags, ...directTargets, "--all-features", "--", "-D", "warnings"], budgetMs);
+    run(["cargo", "test", ...directFlags, ...directTargets, "--all-features"], budgetMs);
     if (scope.downstream.length > 0) {
-      run(["cargo", "check", ...packageFlags(scope.downstream), "--lib", "--bins", "--tests", "--all-features"], budgetMs);
+      const downstreamTargets = scope.downstreamHasLibrary ? ["--lib", "--bins", "--tests"] : ["--bins", "--tests"];
+      run(["cargo", "check", ...packageFlags(scope.downstream), ...downstreamTargets, "--all-features"], budgetMs);
     }
     writeJson(receiptPath, {
       schema_revision: "starclock.repository-quick-rust.v1",
@@ -186,7 +188,15 @@ function rustScope(changes, allRust) {
     }
   }
   const names = (ids) => [...ids].map((id) => byId.get(id).name).sort();
-  return { direct: names(directIds), downstream: names(downstreamIds) };
+  const hasLibrary = (ids) => [...ids].some((id) =>
+    byId.get(id).targets.some((target) => target.kind.includes("lib"))
+  );
+  return {
+    direct: names(directIds),
+    downstream: names(downstreamIds),
+    directHasLibrary: hasLibrary(directIds),
+    downstreamHasLibrary: hasLibrary(downstreamIds),
+  };
 }
 
 function rustFingerprint() {

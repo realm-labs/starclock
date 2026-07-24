@@ -451,10 +451,10 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
         }
     };
     let bytes = fs::read(file).map_err(CliError::Io)?;
-    let decoded = decode_replay(&bytes).map_err(BattleReplayError::from)?;
-    if universe_v1::is_universe_replay(decoded.header()) {
+    if universe_v1::is_universe_replay_v2(&bytes) {
         return universe_v1::verify_replay(&bytes, json).map_err(CliError::Universe);
     }
+    let decoded = decode_replay(&bytes).map_err(BattleReplayError::from)?;
     let seed = decoded.header().master_seed();
     let synthetic = matches!(
         decoded.header().entry(),
