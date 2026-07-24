@@ -21,7 +21,8 @@ use crate::{
     battle_assembly::BattleAssemblyCacheMetrics,
     battle_contribution::{UniverseBattleContributionCompiler, UniverseBattleContributionSet},
     battle_materialization::{
-        UniverseBattleMaterialization, UniverseBattleMaterializer, UniverseBattleRoster,
+        UniverseBattleMaterialization, UniverseBattleMaterializationCoverage,
+        UniverseBattleMaterializer, UniverseBattleRoster,
         catalog_composition::UniverseBattleCatalogComposition,
     },
     blessing_runtime::BlessingRuntimeCatalog,
@@ -155,8 +156,8 @@ impl StandardUniverseRuntimeFactory {
     }
 
     #[must_use]
-    pub const fn materialization(&self) -> &Arc<UniverseBattleMaterialization> {
-        &self.materialization
+    pub fn baseline_materialization_coverage(&self) -> &UniverseBattleMaterializationCoverage {
+        self.materialization.coverage()
     }
 
     #[must_use]
@@ -205,10 +206,6 @@ impl StandardUniverseRuntimeInstance {
         &self.battle_assembler
     }
     #[must_use]
-    pub const fn combat_catalog(&self) -> &Arc<CombatCatalog> {
-        &self.combat_catalog
-    }
-    #[must_use]
     pub const fn components(&self) -> &ConfigurationComponentSet {
         &self.components
     }
@@ -216,8 +213,11 @@ impl StandardUniverseRuntimeInstance {
     pub const fn compatibility(&self) -> &ReplayCompatibilityV2 {
         &self.compatibility
     }
+    /// Decomposes the instance for historical replay-v2 verification only.
+    ///
+    /// New execution must use [`Self::into_dynamic_parts`].
     #[must_use]
-    pub fn into_parts(
+    pub fn into_replay_v2_compatibility_parts(
         self,
     ) -> (
         Box<str>,

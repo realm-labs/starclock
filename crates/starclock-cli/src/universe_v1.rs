@@ -299,7 +299,7 @@ fn context(
         .map_err(runtime_factory_error)?;
     let battle_assembler = Arc::clone(instance.battle_assembler());
     let (profile_id, activity, materialized_combat_catalog, components, compatibility) =
-        instance.into_parts();
+        instance.into_replay_v2_compatibility_parts();
     Ok(RunContext {
         profile_id: profile_id.into(),
         activity,

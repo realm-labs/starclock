@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `combat-identity-dynamic-assembly-v1` |
 | State | `InProgress` |
-| Active phase | Phase 3 — Production surfaces and replay |
+| Active phase | Phase 4 — Hardening and release |
 | Active batch | None |
-| Next unblocked batch | `G06-P3-B3` |
+| Next unblocked batch | `G06-P4-B1` |
 | Required snapshot | Goal 05 `standard-universe-end-to-end-v1` |
 | Planned batches | 18 |
 | Blocking condition | None |
@@ -28,8 +28,10 @@ Curio, Resonance, Ability Tree and cross-battle carry transitions. P3-B1 moves
 the baseline runner and CLI to dynamic-only execution and replay-v3
 record/verification. P3-B2 moves Agent sessions and their MCP transport through
 the same dynamic assembler and replay-v3 verification path without changing
-authorization, quotas, idempotency or opaque-action authority. P3-B3 will
-harden reconstruction and cross-surface parity.
+authorization, quotas, idempotency or opaque-action authority. P3-B3 closes
+the phase with one current-snapshot reconstruction per replayed battle, the
+eight-level first-divergence corpus and CLI/Agent/MCP authoritative trace
+parity. Phase 4 will freeze performance, native matrix and release evidence.
 
 ## Batch ledger
 
@@ -49,7 +51,7 @@ harden reconstruction and cross-surface parity.
 | `G06-P2-B5` | `Complete` | `node tools/goal06/verify-phase2-b5.mjs`; transition unit fixture; dynamic two-battle carry integration; focused Clippy; quick repository gate | Proved absent/L1/L2 Blessing, active/suppressed/removed Curio, locked/unlocked Hunt Resonance, Ability Tree node 2 and settled HP/Energy carry through the shared assembler and real `Battle` construction. Combat-equivalent suppressed/removed Curio inputs retain equal combat identity while independent Activity provenance changes assembly identity. |
 | `G06-P3-B1` | `Complete` | `node tools/goal06/verify-phase3-b1.mjs`; dynamic replay integration; CLI v3 round trip/corruption test; historical replay tests; focused Clippy; quick repository gate | Added a dynamic baseline executor boundary that consumes assembler-paired handoff/catalog results. CLI runs now reassemble every battle, emit canonical replay v3 and verify it by reconstructing current snapshots; historical fixed-catalog v2/v3 verification remains separate and unchanged. |
 | `G06-P3-B2` | `Complete` | `node tools/goal06/verify-phase3-b2.mjs`; Agent session integration and corruption tests; focused MCP tool test; focused Clippy; quick repository gate | Universe Agent sessions now own the shared assembler, dynamically assemble and atomically settle every pending battle, export replay v3 and verify by reconstructing current snapshots. MCP remains a transport over the same registry; its schemas, authorization scopes, quotas, idempotency and opaque-action boundary are unchanged. |
-| `G06-P3-B3` | `Pending` | — | Verify replay reconstruction and interface parity. |
+| `G06-P3-B3` | `Complete` | `node tools/goal06/verify-phase3-b3.mjs`; dynamic replay corruption/reconstruction fixture; CLI-baseline/Agent nested trace parity; MCP/Agent exact replay parity; focused Clippy; quick repository gate | Fresh replay verification resolves one current Activity snapshot for every nested battle and reports component → assembly → combat input → command → event → state → result → Activity first divergence. Equal CLI baseline and Agent runs emit identical authoritative nested traces; MCP emits the exact Agent replay hash and verifies through a fresh factory. Generic frozen-materialization access was removed from production APIs. |
 | `G06-P4-B1` | `Pending` | — | Freeze performance and source-structure hardening. |
 | `G06-P4-B2` | `Pending` | — | Run full matrix, corruption and native CI evidence. |
 | `G06-P4-B3` | `Pending` | — | Freeze release and register immutable snapshot. |

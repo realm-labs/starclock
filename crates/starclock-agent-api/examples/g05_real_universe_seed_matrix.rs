@@ -153,7 +153,7 @@ fn main() {
 
     let runtime =
         StandardUniverseRuntimeFactory::load(CORE_BUNDLE, UNIVERSE_BUNDLE).expect("runtime");
-    let assembly = runtime.materialization().coverage();
+    let assembly = runtime.baseline_materialization_coverage();
     let evidence = MatrixEvidence {
         schema_revision: MATRIX_REVISION,
         result: "all-constructible-difficulties-complete-with-real-battle-replay-v3",

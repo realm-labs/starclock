@@ -1,3 +1,6 @@
+use std::{sync::Arc, thread};
+
+use sha2::{Digest, Sha256};
 use starclock_agent_api::{
     activity_action::{AgentActivityActionKind, OfferedActivityAction},
     activity_observation::AgentActivityStatus,
@@ -8,6 +11,18 @@ use starclock_agent_api::{
     error::AgentErrorCode,
     schema::{ActionToken, AgentHash, AgentSchemaRevision, AgentUInt, IdempotencyKey, SessionId},
 };
+use starclock_mode_universe::{
+    baseline_runner::{StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner},
+    nested_battle_executor::UniverseNestedBattleExecutor,
+    production_runtime::{StandardUniverseControllerIdentity, StandardUniverseRuntimeFactory},
+    universe_replay_v3::{
+        encode_standard_universe_trace_v3, record_baseline_run_v3, standard_universe_header_v3,
+    },
+};
+use starclock_replay::record::RecordKind;
+
+const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
+const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../config/universe-generated/config.sora");
 
 fn create(factory: &ActivityAgentSessionFactory, id: &str) -> ActivityAgentSession {
     factory
@@ -238,4 +253,67 @@ fn concurrent_real_sessions_share_catalog_but_not_mutable_state() {
     );
     assert_eq!(results[0].3, 29_187);
 }
-use std::{sync::Arc, thread};
+
+#[test]
+fn baseline_and_agent_surfaces_emit_identical_authoritative_nested_trace() {
+    let runtime_factory =
+        StandardUniverseRuntimeFactory::load(CORE_BUNDLE, UNIVERSE_BUNDLE).unwrap();
+    let controller = StandardUniverseControllerIdentity {
+        id: "baseline-controller",
+        revision: StandardUniverseBaselineRunner::REVISION,
+        digest: [0x65; 32],
+    };
+    let instance = runtime_factory.start(1, 0, 10, controller).unwrap();
+    let profile_id = instance.profile_id().to_owned();
+    let components = instance.components().clone();
+    let compatibility = instance.compatibility().clone();
+    let assembler = Arc::clone(instance.battle_assembler());
+    let (_, mut activity, _, _, _) = instance.into_dynamic_parts();
+    let header =
+        standard_universe_header_v3(compatibility, components, 10, &activity, &profile_id).unwrap();
+    let mut executor = UniverseNestedBattleExecutor::dynamic();
+    let recorded = record_baseline_run_v3(
+        &mut activity,
+        &StandardUniverseBaselinePolicy::default(),
+        &assembler,
+        &mut executor,
+    )
+    .unwrap();
+    let baseline = encode_standard_universe_trace_v3(&header, &recorded).unwrap();
+
+    let agent_factory = ActivityAgentSessionFactory::load_production().unwrap();
+    let mut agent = create(&agent_factory, "session_activity_cross_surface");
+    drive_to_terminal(&mut agent);
+    let agent_replay = agent.export_replay().unwrap();
+
+    assert_eq!(
+        nested_authority_digest(&baseline),
+        nested_authority_digest(agent_replay.bytes()),
+        "controller diagnostics and component identity may differ, but nested commands, events, \
+         states and results must not"
+    );
+    assert_eq!(
+        AgentHash::from_bytes(activity.view().state_hash().bytes()),
+        agent.state_hash()
+    );
+}
+
+fn nested_authority_digest(bytes: &[u8]) -> [u8; 32] {
+    let replay = starclock_replay::format_v3::decode_replay_v3(bytes).unwrap();
+    let mut hash = Sha256::new();
+    for record in replay.records() {
+        let payload = match record.kind() {
+            RecordKind::NestedBattleStart => &record.payload()[34..],
+            RecordKind::AcceptedBattleCommand
+            | RecordKind::ExpectedBattleState
+            | RecordKind::NestedBattleEnd => record.payload(),
+            RecordKind::AcceptedActivityCommand
+            | RecordKind::ExpectedActivityState
+            | RecordKind::ControllerDiagnostic => continue,
+        };
+        hash.update([record.kind() as u8]);
+        hash.update((payload.len() as u64).to_le_bytes());
+        hash.update(payload);
+    }
+    hash.finalize().into()
+}
