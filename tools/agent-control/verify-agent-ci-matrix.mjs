@@ -11,7 +11,9 @@ const fail = (message) => { throw new Error(`Agent native CI matrix: ${message}`
 const sha = (bytes) => crypto.createHash("sha256").update(bytes).digest("hex");
 
 if (policy.schema_revision !== "starclock.ci-matrix.v3" || report.schema_revision !== "starclock.ci-golden-matrix.v2") fail("matrix revision drift");
-if (JSON.stringify(policy.golden_suites.slice(-2).map(({ id }) => id)) !== JSON.stringify(["agent-schema", "agent-trace"])) fail("Goal 02 suite inventory drift");
+const suiteIds = policy.golden_suites.map(({ id }) => id);
+const agentSchemaIndex = suiteIds.indexOf("agent-schema");
+if (agentSchemaIndex < 0 || suiteIds[agentSchemaIndex + 1] !== "agent-trace") fail("Goal 02 suite inventory drift");
 if (!policy.goal02_native_gate.includes("schema_property_contract") || !policy.goal02_native_gate.includes("standard_session_loop") || !policy.goal02_native_gate.includes("mcp_stdio") || !policy.goal02_native_gate.includes("http_conformance")) fail("native Goal 02 command is incomplete");
 const nativeWorkflow = workflow.slice(0, workflow.indexOf("  compile-only:"));
 const compileWorkflow = workflow.slice(workflow.indexOf("  compile-only:"));

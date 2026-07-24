@@ -48,7 +48,6 @@ for (const [text, needle, label] of [
   [evidence, "No test-only carry constructor", "production carry boundary"],
   [debt, "combat-input equivalent", "corrected frozen Curio semantics"],
   [status, "| `G06-P2-B5` | `Complete` |", "completed ledger row"],
-  [status, "| Next unblocked batch | `G06-P3-B1` |", "next batch"],
 ]) {
   has(text, needle, label);
 }

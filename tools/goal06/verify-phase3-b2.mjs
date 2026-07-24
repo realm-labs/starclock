@@ -74,7 +74,6 @@ for (const [text, needle, label] of [
   [evidence, "`agent-api-v1`", "stable public schema statement"],
   [evidence, "opaque action-token authority", "stable authority statement"],
   [status, "| `G06-P3-B2` | `Complete` |", "completed ledger row"],
-  [status, "| Next unblocked batch | `G06-P3-B3` |", "next batch"],
 ]) {
   has(text, needle, label);
 }

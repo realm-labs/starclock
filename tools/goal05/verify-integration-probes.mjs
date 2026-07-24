@@ -32,8 +32,9 @@ for (const [surface, source] of [["CLI", cli], ["agent API", agent], ["MCP", mcp
 }
 for (const marker of [
   "UniverseNestedBattleExecutor",
-  "record_baseline_run_v2",
-  "verify_standard_universe_replay_v2",
+  "record_baseline_run_v3",
+  "verify_standard_universe_replay_v3_dynamic",
+  "StandardUniverseBattleAssembler",
   "StandardUniverseRuntimeFactory"
 ]) {
   if (!cli.includes(marker)) fail(`CLI is missing real-combat migration marker ${marker}`);
@@ -41,8 +42,9 @@ for (const marker of [
 for (const marker of [
   "StandardUniverseRuntimeFactory",
   "UniverseNestedBattleExecutor",
-  "verify_standard_universe_replay_v2",
-  "encode_standard_universe_trace_parts_v2"
+  "StandardUniverseBattleAssembler",
+  "verify_standard_universe_replay_v3_dynamic",
+  "encode_standard_universe_trace_parts_v3"
 ]) {
   if (!agent.includes(marker)) fail(`agent API is missing real-combat migration marker ${marker}`);
 }

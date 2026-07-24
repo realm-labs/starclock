@@ -49,7 +49,6 @@ for (const [text, needle, label] of [
   ],
   [evidence, "released replay-v2", "historical compatibility boundary"],
   [status, "| `G06-P3-B1` | `Complete` |", "completed ledger row"],
-  [status, "| Next unblocked batch | `G06-P3-B2` |", "next batch"],
 ]) {
   has(text, needle, label);
 }

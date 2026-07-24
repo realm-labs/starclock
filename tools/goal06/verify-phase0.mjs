@@ -52,8 +52,11 @@ assert(Object.values(dependencies.contracts).every((value) => value === true),
   "dependency baseline contract is not accepted");
 
 const release = json("policy/goal06-release-contract.json");
-assert(release.schema_revision === "starclock.goal06-release-contract-scaffold.v1"
-  && release.state === "Scaffold", "Goal 06 release scaffold differs");
+assert([
+  "starclock.goal06-release-contract-scaffold.v1",
+  "starclock.goal06-release-contract.v1",
+].includes(release.schema_revision)
+  && ["Scaffold", "Released"].includes(release.state), "Goal 06 release contract differs");
 assert(release.planned_batches === 18 && release.planned_phases === 5,
   "Goal 06 release denominator differs");
 assert(release.required_prior_contracts.at(-1) === "standard-universe-end-to-end-v1",
@@ -64,8 +67,9 @@ assert((status.match(/^\| `G06-P[0-4]-B\d+` \|/gmu) ?? []).length === 18,
   "Goal 06 status batch denominator differs");
 assert((status.match(/^\| `G06-P0-B[1-3]` \| `Complete` \|/gmu) ?? []).length === 3,
   "Goal 06 Phase 0 is not complete");
-assert(status.includes("| Next unblocked batch | `G06-P1-B1` |"),
-  "Goal 06 next batch differs");
+const nextBatch = status.match(/^\| Next unblocked batch \| (.+) \|$/mu)?.[1];
+assert(nextBatch === "None" || /^`G06-P[1-4]-B\d+`$/u.test(nextBatch ?? ""),
+  "Goal 06 next batch regressed into Phase 0 or is malformed");
 
 console.log("Goal 06 Phase 0 verified (v2/v3 compatibility, 6 workloads, no dependency drift).");
 

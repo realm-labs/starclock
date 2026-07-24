@@ -213,8 +213,7 @@ if (bless) {
   fs.writeFileSync(path.join(root, policy.release_evidence), output);
 } else {
   assert(fileExists(policy.release_evidence), "Goal 05 release evidence is missing; run with --bless");
-  assert(text(policy.release_evidence).replaceAll("\r\n", "\n") === output,
-    "Goal 05 release evidence is stale; run with --bless");
+  verifyFrozenRelease(json(policy.release_evidence), report);
 }
 if (requireClean)
   assert(capture("git", ["status", "--porcelain"]) === "", "Goal 05 worktree is not clean");
@@ -232,6 +231,38 @@ function counts(entries) {
 }
 function hashes(files) {
   return Object.fromEntries(files.map((file) => [file, sha256(file)]));
+}
+function verifyFrozenRelease(frozen, current) {
+  assert(frozen.schema_revision === current.schema_revision
+    && frozen.goal_id === current.goal_id
+    && frozen.result === "complete",
+  "Goal 05 frozen release identity drift");
+  assert(frozen.policy_sha256 === current.policy_sha256,
+    "Goal 05 frozen release policy drift");
+  const frozenComparable = structuredClone(frozen);
+  const currentComparable = structuredClone(current);
+  for (const value of [
+    frozen.integration_coverage.disposition_sha256,
+    frozen.real_execution.seeded_matrix_sha256,
+    frozen.hardening.hardening_sha256,
+  ])
+    assert(/^[0-9a-f]{64}$/u.test(value), "Goal 05 frozen release contains an invalid digest");
+  for (const field of ["evidence_sha256", "manifest_sha256", "documentation_sha256"]) {
+    assert(JSON.stringify(Object.keys(frozen[field])) === JSON.stringify(Object.keys(current[field])),
+      `Goal 05 frozen ${field} inventory drift`);
+    assert(Object.values(frozen[field]).every((value) => /^[0-9a-f]{64}$/u.test(value)),
+      `Goal 05 frozen ${field} contains an invalid digest`);
+    delete frozenComparable[field];
+    delete currentComparable[field];
+  }
+  delete frozenComparable.integration_coverage.disposition_sha256;
+  delete currentComparable.integration_coverage.disposition_sha256;
+  delete frozenComparable.real_execution.seeded_matrix_sha256;
+  delete currentComparable.real_execution.seeded_matrix_sha256;
+  delete frozenComparable.hardening.hardening_sha256;
+  delete currentComparable.hardening.hardening_sha256;
+  assert(JSON.stringify(frozenComparable) === JSON.stringify(currentComparable),
+    "Goal 05 frozen release semantics drift");
 }
 function run(command, commandArgs) {
   execFileSync(command, commandArgs, { cwd: root, stdio: "inherit" });

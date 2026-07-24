@@ -88,7 +88,6 @@ for (const [text, needle, label] of [
   ],
   [evidence, "exactly one", "normative reconstruction rule"],
   [status, "| `G06-P3-B3` | `Complete` |", "completed ledger row"],
-  [status, "| Next unblocked batch | `G06-P4-B1` |", "next batch"],
 ]) {
   has(text, needle, label);
 }

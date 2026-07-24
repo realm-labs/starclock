@@ -1,0 +1,72 @@
+{
+  "schema_revision": "starclock.goal06-hardening.v1",
+  "goal_id": "combat-identity-dynamic-assembly-v1",
+  "batch": "G06-P4-B2",
+  "wall_budget_seconds": 180,
+  "commands": [
+    {
+      "id": "dynamic-assembly-and-replay",
+      "program": "cargo",
+      "args": ["test", "-p", "starclock-mode-universe", "--test", "dynamic_battle_assembly"]
+    },
+    {
+      "id": "agent-concurrency-and-corruption",
+      "program": "cargo",
+      "args": ["test", "-p", "starclock-agent-api", "--test", "activity_session_loop"]
+    },
+    {
+      "id": "mcp-surface-and-http",
+      "program": "cargo",
+      "args": ["test", "-p", "starclock-mcp", "--test", "universe_surface_parity", "--test", "http_conformance"]
+    },
+    {
+      "id": "replay-v3-identity",
+      "program": "cargo",
+      "args": ["test", "-p", "starclock-replay", "--test", "nested_identity_v3", "--test", "component_identity"]
+    }
+  ],
+  "matrix": {
+    "program": "cargo",
+    "args": ["run", "--quiet", "--release", "-p", "starclock-agent-api", "--example", "g05_real_universe_seed_matrix"],
+    "worlds": 9,
+    "difficulties": 33,
+    "runs": 33,
+    "nested_battles": 166,
+    "battle_commands": 956,
+    "replay_actions": 1954,
+    "encoded_bytes": 1398322,
+    "stdout_sha256": "69cac2b14abe597717922256c442d5fb1e864b80a5b6a17eb5600a7d1760dff9",
+    "final_state_digest": "3825f79b56860791d22c70bbe94f5812742f85715ee020798020d43d8198428f",
+    "replay_digest": "67fb1e6ac1c752f2129dac0b71e363f6563a00abcdd45edf422050f33b5c1c99"
+  },
+  "corpora": {
+    "ordered_first_divergence_kinds": 8,
+    "agent_replay_mutations": 16,
+    "concurrent_shared_factory_sessions": 16,
+    "production_surfaces": 3,
+    "matrix_replay_verifications": 33
+  },
+  "native_profiles": [
+    "windows-x64-native",
+    "linux-x64-native",
+    "macos-arm64-native"
+  ],
+  "compile_only_profiles": [
+    "windows-arm64-compile",
+    "linux-arm64-compile",
+    "macos-x64-compile"
+  ],
+  "source_targets": [
+    "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs",
+    "crates/starclock-agent-api/tests/activity_session_loop.rs",
+    "crates/starclock-mcp/tests/universe_surface_parity.rs",
+    "crates/starclock-agent-api/examples/g05_real_universe_seed_matrix.rs"
+  ],
+  "contracts": {
+    "matrix_uses_replay_v3": true,
+    "every_matrix_replay_verifies_fresh": true,
+    "native_profiles_execute_tests": true,
+    "compile_only_profiles_make_no_runtime_claim": true,
+    "cache_state_is_nonauthoritative": true
+  }
+}

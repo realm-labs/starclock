@@ -146,6 +146,10 @@
       "command": ["node", "tools/goal06/verify-performance.mjs"]
     },
     {
+      "name": "Goal 06 native matrix and corruption hardening",
+      "command": ["node", "tools/goal06/run-native-hardening.mjs"]
+    },
+    {
       "name": "Standard Universe bundle-loader dependency policy",
       "command": ["node", "tools/universe-bundle-loader/generate-policy.mjs"]
     },

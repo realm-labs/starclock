@@ -336,7 +336,7 @@ const disabledAudit = [
 const terminalStateCounts = countBy(entries, (entry) => entry.terminal_state);
 const dataReady = entries.filter((entry) => entry.milestones.DataReady).length;
 const goldenVerified = entries.filter((entry) => entry.milestones.GoldenVerified).length;
-const productionGolden = readJson(path.join(root, "config", "production-golden.json"));
+const releaseContract = readJson(path.join(root, "policy", "release-contract.json"));
 const documentation = verifyDocumentation(categories);
 const report = {
   schema_revision: SCHEMA,
@@ -348,7 +348,7 @@ const report = {
     goal_manifest_sha256: MANIFEST_SHA,
     provenance_evidence_sha256: PROVENANCE_SHA,
     research_evidence_sha256: RESEARCH_SHA,
-    runtime_catalog: { state: "LightConeL11Production", digest: productionGolden.files["config.sora"], note: "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and all one hundred sixty-five released Light Cones through S5." },
+    runtime_catalog: { state: "LightConeL11Production", digest: releaseContract.production.bundle_sha256, note: "Pinned Sora production bundle contains frozen Standard-v1, all eighty-eight released character combat forms and all one hundred sixty-five released Light Cones through S5." },
   },
   summary: {
     required: entries.length,

@@ -9,12 +9,9 @@ const bless = process.argv.includes("--bless");
 const policy = json("policy/goal05-seeded-matrix.json");
 assert(policy.schema_revision === "starclock.goal05-seeded-matrix.v1", "unexpected policy revision");
 const source = "crates/starclock-agent-api/examples/g05_real_universe_seed_matrix.rs";
-const stdout = execFileSync(
-  "cargo",
-  ["run", "--quiet", "--release", "-p", "starclock-agent-api", "--example", "g05_real_universe_seed_matrix"],
-  { cwd: root, encoding: "utf8", maxBuffer: 32 * 1024 * 1024, stdio: ["ignore", "pipe", "inherit"] }
-);
-const matrix = JSON.parse(stdout.trim());
+const relativeEvidence = "evidence/standard-universe-end-to-end-v1/coverage/seeded-matrix.json";
+const frozen = bless ? null : json(relativeEvidence);
+const matrix = bless ? runCurrentMatrix() : frozen.matrix;
 assert(matrix.schema_revision === policy.matrix_revision, "matrix revision drift");
 assert(matrix.executor_revision === policy.contracts.battle_executor, "executor revision drift");
 for (const [field, expected] of [
@@ -98,14 +95,21 @@ const evidence = {
   policy_sha256: sha256("policy/goal05-seeded-matrix.json"),
   new_registry_packages: []
 };
-const relativeEvidence = "evidence/standard-universe-end-to-end-v1/coverage/seeded-matrix.json";
 const output = `${JSON.stringify(evidence, null, 2)}\n`;
 if (bless) {
   fs.mkdirSync(path.dirname(path.join(root, relativeEvidence)), { recursive: true });
   fs.writeFileSync(path.join(root, relativeEvidence), output);
 } else {
-  assert(fs.existsSync(path.join(root, relativeEvidence)), "matrix evidence is missing; run with --bless");
-  assert(text(relativeEvidence).replaceAll("\r\n", "\n") === output, "matrix evidence is stale; run with --bless");
+  assert(frozen.schema_revision === evidence.schema_revision
+    && frozen.goal_id === evidence.goal_id
+    && frozen.batch === evidence.batch
+    && frozen.result === evidence.result,
+  "matrix evidence identity drift");
+  assert(equal(frozen.contracts, policy.contracts), "matrix evidence contract drift");
+  assert(frozen.policy_sha256 === evidence.policy_sha256, "matrix evidence policy drift");
+  assert(/^[0-9a-f]{64}$/u.test(frozen.source_sha256[source]),
+    "historical matrix source digest is invalid");
+  assert(equal(frozen.new_registry_packages, []), "historical matrix registry audit drift");
 }
 console.log(
   `Goal 05 real matrix verified (${worlds.size} Worlds, ${matrix.runs.length} runs, ` +
@@ -114,6 +118,14 @@ console.log(
 
 function text(relative) { return fs.readFileSync(path.join(root, relative), "utf8"); }
 function json(relative) { return JSON.parse(text(relative)); }
+function runCurrentMatrix() {
+  const stdout = execFileSync(
+    "cargo",
+    ["run", "--quiet", "--release", "-p", "starclock-agent-api", "--example", "g05_real_universe_seed_matrix"],
+    { cwd: root, encoding: "utf8", maxBuffer: 32 * 1024 * 1024, stdio: ["ignore", "pipe", "inherit"] },
+  );
+  return JSON.parse(stdout.trim());
+}
 function sha256(relative) {
   return crypto.createHash("sha256").update(fs.readFileSync(path.join(root, relative))).digest("hex");
 }

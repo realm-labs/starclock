@@ -44,7 +44,6 @@ for (const [text, needle, label] of [
   [tests, "canonical_state_bytes()", "canonical state preservation"],
   [evidence, "consumes no Activity RNG draw", "RNG preservation contract"],
   [status, "| `G06-P2-B4` | `Complete` |", "completed ledger row"],
-  [status, "| Next unblocked batch | `G06-P2-B5` |", "next batch"],
 ]) {
   has(text, needle, label);
 }

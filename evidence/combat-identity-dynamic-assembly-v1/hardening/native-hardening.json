@@ -1,0 +1,111 @@
+{
+  "schema_revision": "starclock.goal06-hardening-evidence.v1",
+  "goal_id": "combat-identity-dynamic-assembly-v1",
+  "batch": "G06-P4-B2",
+  "result": "local-dynamic-assembly-hardening-with-hosted-native-contract",
+  "recorded_on": "2026-07-24",
+  "local_execution": {
+    "runner": {
+      "platform": "win32",
+      "architecture": "x64",
+      "os_release": "10.0.19045",
+      "cpu_model": "Intel(R) Core(TM) i7-10700F CPU @ 2.90GHz",
+      "logical_processors": 16,
+      "rustc": "rustc 1.97.0 (2d8144b78 2026-07-07)",
+      "node": "v24.15.0"
+    },
+    "elapsed_ms": 56864,
+    "commands": [
+      {
+        "id": "dynamic-assembly-and-replay",
+        "elapsed_ms": 10219,
+        "status": "passed"
+      },
+      {
+        "id": "agent-concurrency-and-corruption",
+        "elapsed_ms": 17137,
+        "status": "passed"
+      },
+      {
+        "id": "mcp-surface-and-http",
+        "elapsed_ms": 10803,
+        "status": "passed"
+      },
+      {
+        "id": "replay-v3-identity",
+        "elapsed_ms": 603,
+        "status": "passed"
+      }
+    ],
+    "matrix": {
+      "elapsed_ms": 18100,
+      "stdout_sha256": "69cac2b14abe597717922256c442d5fb1e864b80a5b6a17eb5600a7d1760dff9",
+      "worlds": 9,
+      "difficulties": 33,
+      "runs": 33,
+      "nested_battles": 166,
+      "battle_commands": 956,
+      "replay_actions": 1954,
+      "encoded_bytes": 1398322,
+      "final_state_digest": "3825f79b56860791d22c70bbe94f5812742f85715ee020798020d43d8198428f",
+      "replay_digest": "67fb1e6ac1c752f2129dac0b71e363f6563a00abcdd45edf422050f33b5c1c99"
+    }
+  },
+  "corpora": {
+    "ordered_first_divergence_kinds": 8,
+    "agent_replay_mutations": 16,
+    "concurrent_shared_factory_sessions": 16,
+    "production_surfaces": 3,
+    "matrix_replay_verifications": 33
+  },
+  "native_profiles": [
+    {
+      "id": "windows-x64-native",
+      "execution": "required-native-on-success",
+      "proof": "retained-ci-artifact"
+    },
+    {
+      "id": "linux-x64-native",
+      "execution": "required-native-on-success",
+      "proof": "retained-ci-artifact"
+    },
+    {
+      "id": "macos-arm64-native",
+      "execution": "required-native-on-success",
+      "proof": "retained-ci-artifact"
+    }
+  ],
+  "compile_only_profiles": [
+    {
+      "id": "windows-arm64-compile",
+      "execution": "compiled-not-executed",
+      "runtime_claims": 0
+    },
+    {
+      "id": "linux-arm64-compile",
+      "execution": "compiled-not-executed",
+      "runtime_claims": 0
+    },
+    {
+      "id": "macos-x64-compile",
+      "execution": "compiled-not-executed",
+      "runtime_claims": 0
+    }
+  ],
+  "contracts": {
+    "matrix_uses_replay_v3": true,
+    "every_matrix_replay_verifies_fresh": true,
+    "native_profiles_execute_tests": true,
+    "compile_only_profiles_make_no_runtime_claim": true,
+    "cache_state_is_nonauthoritative": true
+  },
+  "source_sha256": {
+    "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs": "5b66a082babc44380e8b0f52d4687c3c37bded55c1fa09e91f586cfad1bb7a56",
+    "crates/starclock-agent-api/tests/activity_session_loop.rs": "4963fbd9b0f0b157724ace748bd37269d5f6ebd0973216b0beaa741db2dd8c39",
+    "crates/starclock-mcp/tests/universe_surface_parity.rs": "0c97a505d205e1da28dde3b6027847a10570eab50c24394b090528a952e0b58a",
+    "crates/starclock-agent-api/examples/g05_real_universe_seed_matrix.rs": "c22adabde7fc2c46ae1b8077f704d4ec5f4d532060eb463feb7880eae63cae84"
+  },
+  "policy_sha256": "38d42c5b5284dcb962e2f31474856ebed6d692c7d153ff6e2227d02714c9a5a4",
+  "workflow_sha256": "9ae59d582eb7436272b729f3a9bcbdcd545349391425b7b66771242fec89a7ea",
+  "new_registry_packages": []
+}

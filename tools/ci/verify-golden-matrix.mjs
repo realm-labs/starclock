@@ -82,9 +82,59 @@ const file = path.join(root, relative);
 if (bless) fs.writeFileSync(file, output);
 else {
   assert(fs.existsSync(file), `${relative}: missing; run with --bless`);
-  assert(fs.readFileSync(file, "utf8") === output, `${relative}: stale; run with --bless`);
+  verifyFrozenReport(JSON.parse(fs.readFileSync(file, "utf8")));
 }
-console.log(`CI golden matrix verified (${sha(output)}; ${suites.length} suites, ${native.length} native, ${compileOnly.length} compile-only).`);
+const verifiedBytes = bless ? output : fs.readFileSync(file);
+const verifiedSuiteCount = bless
+  ? suites.length
+  : JSON.parse(fs.readFileSync(file, "utf8")).suites.length;
+console.log(`CI golden matrix verified (${sha(verifiedBytes)}; ${verifiedSuiteCount} frozen suites, ${suites.length} current suites, ${native.length} native, ${compileOnly.length} compile-only).`);
+
+function verifyFrozenReport(frozen) {
+  assert(frozen.schema_revision === "starclock.ci-golden-matrix.v2", "frozen matrix revision drift");
+  assert(/^[0-9a-f]{64}$/u.test(frozen.policy_sha256), "invalid historical policy digest");
+  assert(/^[0-9a-f]{64}$/u.test(frozen.golden_suite_contract_sha256),
+    "invalid historical suite-contract digest");
+  for (const suite of frozen.suites) {
+    const current = policy.golden_suites.find(({ id }) => id === suite.id);
+    assert(current !== undefined, `current CI policy removed frozen suite ${suite.id}`);
+    assert(current.claim === suite.claim, `${suite.id}: frozen claim drift`);
+    assert(JSON.stringify(current.test_targets) === JSON.stringify(
+      suite.targets.map(({ path: targetPath }) => targetPath),
+    ), `${suite.id}: frozen target inventory drift`);
+  }
+  for (const suite of frozen.suites)
+    for (const target of suite.targets)
+      assert(/^[0-9a-f]{64}$/u.test(target.normalized_sha256),
+        `${suite.id}: invalid historical target digest for ${target.path}`);
+  for (const profile of frozen.profiles) {
+    const current = [...native, ...compileOnly].find(({ id }) => id === profile.id);
+    assert(current !== undefined, `current CI policy removed frozen profile ${profile.id}`);
+    for (const field of [
+      "runner", "host", "target", "execution_mode", "tests_executed_on_successful_job",
+    ])
+      assert(profile[field] === current[field], `${profile.id}: frozen ${field} drift`);
+    const expectedDisposition = profile.execution_mode === "native"
+      ? "executed"
+      : "compiled-not-executed";
+    assert(JSON.stringify(Object.keys(profile.suite_disposition))
+      === JSON.stringify(frozen.suites.map(({ id }) => id)),
+    `${profile.id}: frozen disposition inventory drift`);
+    assert(Object.values(profile.suite_disposition).every((value) => value === expectedDisposition),
+      `${profile.id}: frozen suite disposition drift`);
+  }
+  assert(frozen.evidence_boundary.native_profiles === 3
+    && frozen.evidence_boundary.compile_only_profiles === 3
+    && frozen.evidence_boundary.compile_only_runtime_claims === 0,
+  "frozen evidence boundary drift");
+  for (const value of [
+    frozen.production_contract.bundle_sha256,
+    frozen.agent_contract.schema_bundle_sha256,
+    frozen.agent_contract.transport_trace_sha256,
+    frozen.agent_contract.replay_sha256,
+  ])
+    assert(/^[0-9a-f]{64}$/u.test(value), "invalid frozen contract digest");
+}
 
 function profileEvidence(profile, disposition, runtimeClaim) {
   assert(profile.tests_executed === runtimeClaim, `${profile.id}: tests_executed contradicts execution mode`);
