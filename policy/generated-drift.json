@@ -158,6 +158,10 @@
       "command": ["node", "tools/goal07/verify-foundation.mjs"]
     },
     {
+      "name": "Goal 07 retained mechanics audit",
+      "command": ["node", "tools/goal07/verify-retained-audit.mjs"]
+    },
+    {
       "name": "Standard Universe bundle-loader dependency policy",
       "command": ["node", "tools/universe-bundle-loader/generate-policy.mjs"]
     },

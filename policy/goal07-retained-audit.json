@@ -1,0 +1,84 @@
+{
+  "schema_revision": "starclock.goal07-retained-audit-policy.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "batch": "G07-P0-B2",
+  "inputs": {
+    "runtime_dispositions": {
+      "path": "content-manifests/standard-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "4c6f141fdeb99c501ed61bc8614c0fd58046b5e3a5458a4f4ad3c85fef8000d6"
+    },
+    "goal05_dispositions": {
+      "path": "content-manifests/standard-universe-end-to-end-v1/integration-dispositions.json",
+      "sha256": "1653b5ab106a7fb9902f1482d5557955fa7cf37cedeb34c7417348aa7960ba26"
+    },
+    "reference_pack": {
+      "path": "content-reference/standard-universe-v1/pack-index.json",
+      "sha256": "851c13797b9e16169cd0b569c37c147f2cea0c661baa92ba7013189f36520f15"
+    },
+    "encounter_members": {
+      "path": "config/universe-generated/debug-json/UniverseEncounterMember.json",
+      "sha256": "0b13308109750fa631e7838b4b485aa86c759e6533742247f57d9e076bda0d89"
+    },
+    "encounter_wave_enemies": {
+      "path": "config/universe-generated/debug-json/UniverseEncounterWaveEnemy.json",
+      "sha256": "16959f8db23d067172d1d517bed3d2148ebaccb1775f3bb0fa183ff869941702"
+    },
+    "difficulty_enemies": {
+      "path": "config/universe-generated/debug-json/UniverseDifficultyEnemy.json",
+      "sha256": "d46c0c66d1fab98a81f1f50c46a5f9632fa7a06814fd4cfaf3c6adf803ef155b"
+    },
+    "core_enemy_variants": {
+      "path": "config/generated/debug-json/EnemyVariant.json",
+      "sha256": "58692afcd5548bbe809fe75a665981c8ea32b0c01756a88498c3eaada0434e9a"
+    }
+  },
+  "denominators": {
+    "records": 2201,
+    "rules": 786,
+    "fixtures": 78,
+    "enemy_variants": 86,
+    "encounter_members": 173,
+    "retained_records": 1220,
+    "retained_rules": 783,
+    "approximate_enemy_proxies": 73
+  },
+  "runtime_targets": [
+    "ExecutableRuleIr",
+    "ExecutableShared",
+    "SelectionPolicy",
+    "ExternalDecision",
+    "Metadata"
+  ],
+  "accuracy_targets": [
+    "ExactPublic",
+    "ApprovedNumericApproximation",
+    "NotApplicable"
+  ],
+  "milestone_families": {
+    "G04-P4-M01": "shared-activity-and-ability-tree",
+    "G04-P4-M02": "path-preservation",
+    "G04-P4-M03": "path-remembrance",
+    "G04-P4-M04": "path-nihility",
+    "G04-P4-M05": "path-abundance",
+    "G04-P4-M06": "path-hunt",
+    "G04-P4-M07": "path-destruction",
+    "G04-P4-M08": "path-elation",
+    "G04-P4-M09": "path-propagation",
+    "G04-P4-M10": "path-erudition",
+    "G04-P4-M11": "curio-positive-neutral-special",
+    "G04-P4-M12": "curio-negative-error-repair-replacement",
+    "G04-P4-M13": "occurrences-and-choices",
+    "G04-P4-M14": "services-shops-roster-interactables",
+    "G04-P4-M15": "enemies-encounters-worlds-difficulty-carry"
+  },
+  "contracts": {
+    "all_inherited_rows_are_audited_not_only_retained_rows": true,
+    "goal04_static_handler_labels_are_candidates_not_admissions": true,
+    "rule_ir_is_the_default_executable_target": true,
+    "project_policy_mechanisms_require_replacement_or_justification": true,
+    "fixtures_require_production_execution": true,
+    "enemy_mechanics_must_be_exact": true,
+    "enemy_numbers_may_use_approved_approximation": true,
+    "audit_generation_is_deterministic": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema_revision": "starclock.goal07-retained-audit-summary.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "batch": "G07-P0-B2",
+  "result": "complete",
+  "audited": {
+    "records": 2201,
+    "rules": 786,
+    "fixtures": 78,
+    "enemy_variants": 86,
+    "encounter_members": 173
+  },
+  "inherited_debt": {
+    "retained_records": 1220,
+    "retained_rules": 783,
+    "approximate_enemy_proxies": 73
+  },
+  "target_runtime_dispositions": {
+    "ExecutableRuleIr": 1572,
+    "ExecutableShared": 546,
+    "ExternalDecision": 52,
+    "Metadata": 1062,
+    "SelectionPolicy": 92
+  },
+  "target_accuracy_dispositions": {
+    "ApprovedNumericApproximation": 73,
+    "ExactPublic": 2189,
+    "NotApplicable": 1062
+  },
+  "native_review_candidate_entries": 854,
+  "native_review_candidate_rules": 427,
+  "project_policy_evidence_gaps": 52,
+  "audit_sha256": "e5b16bb26e56b55c3f0af6f70ea0988c51c9cdc4a87c3269027096cbe3d645f2",
+  "policy_sha256": "81b7b518ce066f7693b24b02c107bf296ff48baf8d97e1a178b272770b08abbc"
+}

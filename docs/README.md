@@ -112,6 +112,8 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 86. [Goal 06 performance hardening](goal-06-performance-and-source-hardening.md) — identity, cold/warm assembly, eviction and concurrent-service baselines.
 87. [Goal 06 native matrix hardening](goal-06-native-matrix-and-corruption.md) — 33-run replay-v3 matrix, corruption corpus and native CI contract.
 88. [Goal 06 release contract](goal-06-release-contract.md) — frozen runtime revisions, evidence denominators and retained Goal 07 scope.
+89. [Goal 07 foundation](goal-07-foundation.md) — Goal 06 prerequisite, inherited 2,201/786/78 denominator and Excel/openpyxl/Sora authoring contract.
+90. [Goal 07 retained-mechanic audit](goal-07-retained-audit.md) — exact-once family, primitive, evidence-gap and terminal-disposition audit for content, rules, fixtures, enemies and encounters.
 
 ## Execution goals
 

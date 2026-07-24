@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Freeze truth and execution partitions |
 | Active batch | None |
-| Next unblocked batch | `G07-P0-B2` |
+| Next unblocked batch | `G07-P0-B3` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | Frozen by `G07-P0-B3` |
@@ -25,7 +25,7 @@ commit rows.
 | Batch | State | Evidence | Result |
 |---|---|---|---|
 | `G07-P0-B1` | `Complete` | `node tools/goal07/verify-foundation.mjs`; Goal 06 immutable snapshot; quick repository gate | Froze the Goal 06 completion commit/tree, Goal 05 2,201/786/78 exact-once oracle, 783 retained rules, 73 enemy proxies, 17 fixed batches, 15 content milestones and Excel/openpyxl/Sora authoring contract. |
-| `G07-P0-B2` | `Pending` | — | Audit retained mechanics and evidence gaps. |
+| `G07-P0-B2` | `Complete` | `node tools/goal07/verify-retained-audit.mjs`; generated exact-once audit; quick repository gate | Audited 2,201 content records, 786 rules, 78 fixtures, 86 enemy variants and 173 encounter members. Assigned mechanism family, shared primitive, evidence gaps and terminal runtime/accuracy targets; retained 427 legacy static-handler rule labels as review candidates rather than admissions. |
 | `G07-P0-B3` | `Pending` | — | Generate concrete content sub-batches and expand ledger. |
 | `G07-P0-B4` | `Pending` | — | Freeze research, approximation and release scaffold. |
 | `G07-P1-B1` | `Pending` | — | Close trigger timing and once-scope capabilities. |
