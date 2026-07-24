@@ -48,6 +48,7 @@ function runQuick() {
 
   for (const command of [
     ["node", "tools/repository-check/verify-runner.mjs"],
+    ["node", "tools/repository-check/verify-extension-contract.mjs"],
     ["node", "tools/dependency-policy/verify.mjs"],
     ["node", "tools/workspace/verify-dependencies.mjs"],
     ["node", "tools/repository-check/verify-source-policy.mjs"],
@@ -102,21 +103,15 @@ function runQuick() {
 function runFull() {
   const commands = [
     ["node", "tools/repository-check/verify-runner.mjs"],
+    ["node", "tools/repository-check/verify-extension-contract.mjs"],
     ["node", "tools/dependency-policy/verify.mjs"],
     ["node", "tools/workspace/verify-dependencies.mjs"],
     ["node", "tools/ci/verify-workflow.mjs"],
-    ["node", "tools/ci/verify-golden-matrix.mjs"],
-    ["node", "tools/agent-control/verify-agent-security-audit.mjs"],
-    ["node", "tools/agent-control/verify-agent-contract-freeze.mjs"],
-    ["node", "tools/agent-control/verify-goal02-clean-acceptance.mjs"],
-    ["node", "tools/agent-control/verify-goal02-release-contract.mjs"],
+    ["node", "tools/repository-check/verify-release-snapshots.mjs"],
     ["node", "tools/repository-check/verify-source-policy.mjs"],
     ["node", "tools/repository-check/verify-native-handlers.mjs"],
     ["node", "tools/goal-hardening/verify-content-audits.mjs"],
-    ["node", "tools/goal-hardening/verify-property-hardening.mjs"],
-    ["node", "tools/goal-hardening/verify-architecture-audit.mjs"],
     ["node", "tools/benchmark/review-phase8.mjs", "--check"],
-    ["node", "tools/goal-hardening/verify-release-contract.mjs"],
     ["node", "tools/repository-check/verify-generated-drift.mjs", ...(includeSourceCache ? ["--with-source-cache"] : [])],
     ["node", "tools/core-kernel/verify-phase4.mjs", "--artifacts-only"],
     ["cargo", "fmt", "--all", "--", "--check"],

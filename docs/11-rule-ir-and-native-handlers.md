@@ -123,7 +123,18 @@ Trigger phase is independent of observed event kind. Supported phases include Be
 
 ## Native handler boundary
 
-The static native registry maps `(HandlerDomain, NativeHandlerId)` to a versioned battle or activity handler implementation. Dynamic libraries, runtime scripting, and arbitrary function names from Excel are forbidden.
+The authoritative native registry is a deterministic composition of immutable
+handler bundles. Core, character/content, and the selected mode may each
+contribute a bundle mapping `(HandlerDomain, NativeHandlerId)` to a versioned
+battle or activity implementation. Catalog construction rejects duplicate IDs,
+incompatible schemas/revisions, and noncanonical bundle ordering. The composed
+registry revision/digest enters battle/activity/replay identity.
+
+This is static linking, not runtime plugin discovery. Dynamic libraries,
+runtime scripting, global mutable registration, filesystem discovery, and
+arbitrary function names from Excel are forbidden. A new mode owns its bundle
+and must not require adding a mode-ID branch to a central registry. See
+[Mode extension and evolution](26-mode-extension-and-evolution.md).
 
 A handler receives a read-only rule context, validated arguments, the triggering event/cause, and budget access. It may return typed operations, state-slot deltas, or a replacement proposal. It may not:
 

@@ -22,17 +22,17 @@ outside this release.
 | Damage, healing, shields | `03`, `12` | Research baseline | Fixed-point golden vectors and kit-specific snapshot fixtures. |
 | Toughness, Break, Super Break, layers | `04`, `12` | Research baseline | Provider-specific Exo/multi-layer rows and observations. |
 | Effects, resources, aggro | `05`, `12` | Research baseline | Full content validation plus targeting/effect fixtures. |
-| Workspace and APIs | `06`, `08` | Implemented and frozen | Dependency, visibility, source-size and public-API audits. |
+| Workspace and APIs | `06`, `08` | Implemented and versioned | Dependency, visibility, source-size and public-API audits; additive modes do not rewrite historical Goal evidence. |
 | Core implementation ownership and resolver design | `20` | Normative | Compiling aggregate, stores, lowering, transaction, operation/event pipeline, and command-to-hash vertical slice. |
 | Character build, Trace, Light Cone, relic compilation | `21` | Normative design | Compiling independent `starclock-build` catalog/compiler plus E0/E6, S1-S5, affix/set, preset, generic combat-output, lock, source-attribution, and cross-platform digest tests. |
 | Excel/Sora pipeline | `07` | Implemented and frozen | Pinned Sora project, templates, workbooks, generated readers, and bundle. |
 | Fixed point, RNG, hashing | `09`, `16` | Implemented and golden-verified | Native matrix execution plus alternate-CPU compile evidence. |
 | Rule IR/native handlers | `11` | Implemented and audited | Typed interpreter tests and zero production native handlers. |
 | Enemy AI/encounters | `13` | Goal 01 subset implemented | 17 frozen variants, six encounters and six scenarios execute. |
-| Activity core/mode extension | `19` | Normative | Generic graph/scope/roster/persistence/clock/metric/BattleSpec tests plus future-mode fixtures. |
-| Universe profiles | `14`, `19` | Specified, data pending | One complete manifest and seeded golden activity per supported family. |
+| Activity core/mode extension | `19`, `26` | Sequential runtime implemented; extension evolution normative | Generic graph/scope/roster/persistence tests plus ordered task-set, logical-scope, composed-registry and alternate-executor revisions before dependent modes release. |
+| Universe profiles | `14`, `19` | Standard SU implemented; other families data pending | One complete manifest and seeded golden activity per additional supported family. |
 | Standard/challenge profiles | `18`, `19` | Normative profile design; seasonal data pending | Standard golden activities plus active 4.4 manifests/golden stages for all three challenge families. |
-| Content/provenance/coverage | `15` | Implemented and frozen | Generated digest-addressed 283/283 report. |
+| Content/provenance/coverage | `15`, `26` | Released core and Standard SU implemented; experimental lane specified | Generated digest-addressed released reports; experimental rows remain excluded from production coverage. |
 | Replay/CLI/engine adapters | `16` | CLI/replay implemented; engine adapter future | Replay verifier and CLI contracts pass. |
 
 ## Content data
@@ -44,7 +44,7 @@ outside this release.
 | Light Cones | 165 frozen definitions | Imported through Excel/Sora with stat curves, promotions, S1-S5 selections, rules and goldens | 165/165 `GoldenVerified`. |
 | Relic and planar sets | Detailed set/affix/piece schema | Not imported | Frozen 4.4 manifest, piece effects, main/sub-affix curves and provenance. |
 | Enemies and bosses | Behavior/AI/phase model plus prepared source evidence | Goal 01 imports the exact 17-variant Standard subset and 63 source-bound abilities | 17/17 frozen variants verified; broader catalogs remain future scope. |
-| Standard Simulated Universe | System boundary documented | Not imported | Full active permanent content manifest and seeded golden run. |
+| Standard Simulated Universe | System boundary and runtime implemented | 2,201 DataReady records, 786 rules, 78 fixtures and seeded complete runs | Preserve current component digests and runtime compatibility tests. |
 | Swarm Disaster | System boundary documented | Not imported | Full active content, dice/map/progression mechanics and seeded golden run. |
 | Gold and Gears | System boundary documented | Not imported | Full active content, custom dice/Cognition/Secrets/Conundrum and seeded golden run. |
 | Unknowable Domain | System boundary documented | Not imported | Full Scepter/Component/alignment/stage data and seeded golden run. |
@@ -76,7 +76,9 @@ Unverified values use `Researching` status with a conflict note. They do not inh
 
 This documentation milestone is complete when:
 
-- all documents agree on lifecycle, fault, wave, Activity/Section/Node/Attempt scopes, numeric, RNG, source, and coverage vocabulary;
+- all documents agree on lifecycle, fault, wave, physical/logical Activity
+  scopes, ordered child tasks, component digests, numeric, RNG, source, and
+  coverage vocabulary;
 - every architecture subsystem has an owner, dependency direction, public boundary, validation rules, and tests;
 - every promised content category has a normalized data contract and terminal coverage gate;
 - local Markdown links resolve;

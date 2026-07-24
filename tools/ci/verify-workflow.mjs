@@ -59,6 +59,7 @@ for (const action of policy.actions) {
 }
 assert(!/^\s*uses:\s*\S+@(v\d+|main|master)\s*$/gmu.test(workflow), "workflow contains a mutable action reference");
 requireText("permissions:\n  contents: read", "workflow permissions must remain read-only");
+requireText("fetch-depth: 0", "native CI must fetch immutable Goal completion commits");
 requireText("node-version-file: .node-version", "workflow must install .node-version");
 requireText("rustup toolchain install 1.97.0", "workflow must install the pinned Rust toolchain");
 requireText("run: node tools/sora/install.mjs", "native CI must install checksum-bound Sora");
@@ -71,6 +72,7 @@ requireText("run: node tools/ci/write-evidence.mjs", "CI must write profile evid
 requireText("if-no-files-found: error", "missing evidence must fail artifact upload");
 requireText(`retention-days: ${policy.evidence_retention_days}`, "evidence retention differs from policy");
 assert(!workflow.includes("cargo test --target \"${{ matrix.target }}\""), "compile-only targets must not execute tests");
+assert(!workflow.includes("tools/goal04/run-native-ci.mjs"), "current CI must not rerun historical Goal 04 acceptance");
 
 console.log(`CI workflow contract verified: ${policy.native_profiles.length} native and ${policy.compile_only_profiles.length} compile-only profiles.`);
 

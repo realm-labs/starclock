@@ -26,8 +26,6 @@ if (process.env.GITHUB_ACTIONS === "true") {
 }
 
 const expectedManifest = JSON.parse(fs.readFileSync(path.join(root, "config/sora-golden/expected-manifest.json"), "utf8"));
-const goal04PolicyBytes = fs.readFileSync(path.join(root, "policy/goal04-determinism-hardening.json"));
-const goal04Policy = JSON.parse(goal04PolicyBytes);
 const evidence = {
   schema_revision: "starclock.ci-evidence.v1",
   profile: profile.id,
@@ -62,12 +60,6 @@ const evidence = {
   })),
   goal02_native_gate: profile.execution_mode === "native" ? policy.goal02_native_gate : null
 };
-
-evidence.goal04_determinism = profile.execution_mode === "native" ? {
-  gate: goal04Policy.native_gate,
-  contract_sha256: sha256(goal04PolicyBytes),
-  suites: goal04Policy.suites.map((suite) => suite.id)
-} : null;
 
 if (profile.execution_mode === "native") {
   const soraPolicy = JSON.parse(fs.readFileSync(path.join(root, "policy/sora-toolchain.json"), "utf8"));

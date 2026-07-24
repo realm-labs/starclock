@@ -36,6 +36,12 @@ Universe authoring names map to generic scopes:
 
 Run-scope blessings, curios, equations, currencies, and progression are typed Activity slots/inventories. Plane countdowns and map effects are Section state. Domain beacons/dice effects are Node state. Battle-visible effects compile into a battle-scoped `RuleBundle` and never reach back into live activity state.
 
+This direct mapping is the simple Standard-Universe profile, not a permanent
+limit. A future family with orthogonal or deeper concepts declares logical
+scope classes owned by these physical lifetimes as specified in
+[Mode extension and evolution](26-mode-extension-and-evolution.md); it does not
+add mode-specific core scope enum variants or collapse unrelated lifetimes.
+
 ## Graph and decisions
 
 Linear Standard SU worlds and map-based expansions are graph-generator/profile differences over the same immutable ActivityNode/ActivityEdge model.

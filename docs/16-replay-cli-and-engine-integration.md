@@ -19,7 +19,9 @@ schema_version
 game_version
 rules_revision
 data_revision
-config_bundle_sha256
+configuration_root_sha256
+consumed_component_digests[]
+artifact_bundle_sha256
 numeric_policy_revision
 rng_algorithm_revision
 state_hash_revision
@@ -30,6 +32,16 @@ entry_spec_sha256
 ```
 
 `entry_kind` distinguishes low-level battle and activity replays. An activity header also identifies its mode profile and definition digest; universe/challenge/event names are metadata rather than separate replay protocols. A battle entry/spec digest covers ordered generic `CombatantSpecDigest` values. Build-aware mode/activity records additionally bind the corresponding `CombatantBuildDigest` values and BuildCatalog revision, so Trace, Eidolon, Light Cone, relic, trial, and synthetic-policy differences cannot share a build-aware replay identity. A low-level synthetic battle replay requires no build vocabulary. The header is followed by accepted commands in sequence, nested battle records, optional controller diagnostics, and expected state hashes after every command. Rejected commands are diagnostic input attempts, not part of the authoritative accepted stream.
+
+`configuration_root_sha256` is calculated from an ordered typed set containing
+the consumed combat, build, Activity-core, selected-mode, content-partition,
+and composed-handler/executor registry digests. `artifact_bundle_sha256`
+identifies the physical release artifact for provenance. Adding an unrelated
+mode or localization-only partition may change the artifact digest but does
+not invalidate a replay whose consumed component set is unchanged. Version 1
+replays with only `config_bundle_sha256` retain their legacy all-or-nothing
+interpretation; conversion creates a new replay header rather than changing
+old bytes.
 
 ## Canonical codec
 
@@ -78,7 +90,13 @@ reserved kinds without changing the envelope.
 
 ## Replay verification
 
-Verification loads the exact config bundle digest, checks every policy revision, rebuilds the entry state, applies commands, and compares hashes after each accepted command. On divergence it reports the first command/event/state boundary, expected/actual digest, and stable structural path if a diagnostic decoder is available.
+Verification resolves the exact consumed component digest set and composed
+registry digest, checks every policy revision, rebuilds the entry state,
+applies commands, and compares hashes after each accepted command. When a
+legacy replay provides only a bundle digest, verification loads that exact
+archived bundle. On divergence it reports the first command/event/state
+boundary, expected/actual digest, and stable structural path if a diagnostic
+decoder is available.
 
 Unknown revisions, mismatched bundles, invalid commands, missing archived configuration, and trailing/truncated records are hard failures. A migration creates a new replay with a new header; it never pretends the old canonical bytes were produced under new rules.
 

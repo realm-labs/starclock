@@ -108,9 +108,15 @@ starclock-cli / starclock-bevy -----------------> starclock-combat / starclock-b
 - Mode crates compose generic activity graphs and combat rules. They must not fork command processing, graph execution, formula, effect, timeline, RNG, replay, or hash implementations.
 - `run-core` and `challenge-core` are not target crates. Generic cross-battle behavior belongs to `starclock-activity`; universe/challenge names remain mode-domain concepts.
 - `starclock-rules` is a static native-handler registry and cannot depend on presentation, CLI, or mode orchestration.
+- Static registries are composed from immutable owner bundles. Adding a mode
+  must not require a mode-ID branch or mutable global registration in
+  `starclock-rules`; the composed registry digest is authoritative.
 - Adapter crates may depend on the core; the core must not depend on adapters.
 - Avoid cyclic crate or module dependencies. Move the shared domain concept toward the lower-level owner instead of introducing callback glue to hide a cycle.
 - New dependencies require a concrete use, license review, and consideration of deterministic behavior and compile-time cost.
+- Workspace crate/dependency allowlists live in
+  `policy/workspace-dependencies.json`. A new mode adds a reviewed declarative
+  package record; it must not require changing the dependency-check algorithm.
 
 ## Domain modeling
 
@@ -236,6 +242,17 @@ only when their exact paths and review reasons appear in
 `policy/repository-checks.json`. Ignored Phase 0 evidence caches can be included
 in the full profile with `--with-source-cache`; they are not required
 clean-checkout inputs.
+
+Completed Goal evidence is historical. Repository checks validate its recorded
+completion commit/tree and read release policy/status/evidence from that
+snapshot. They must not compare historical source digests with the current
+working tree or require re-blessing a completed Goal after additive work.
+Current behavior is protected by current tests, generated-data checks, and the
+active Goal's evidence. Historical architecture, property, security,
+clean-checkout, and CI matrix reports may retain standalone verifiers, but
+those verifiers are not current-source gates after their Goal is complete. The
+normative extension rules are in
+[Mode extension and evolution](26-mode-extension-and-evolution.md).
 
 ## Review checklist
 

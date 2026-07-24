@@ -38,6 +38,7 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
+          fetch-depth: 0
       - name: Install pinned Node
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -51,13 +52,6 @@ jobs:
         run: node tools/repository-check/run.mjs
       - name: Execute Goal 02 schema and transport trace vectors natively
         run: cargo test -p starclock-agent-api --test schema_property_contract --test standard_session_loop --all-features && cargo test -p starclock-cli --test mcp_stdio --all-features && cargo test -p starclock-mcp --test http_conformance --all-features
-      - name: Execute Goal 04 foundation contracts natively
-        run: node tools/goal04/run-native-ci.mjs --foundation
-      - name: Execute Goal 04 determinism hardening natively
-        run: node tools/goal04/run-native-ci.mjs --hardening
-      - name: Execute Goal 04 broad performance budgets
-        if: matrix.profile == 'windows-x64-native'
-        run: node tools/goal04/verify-universe-performance.mjs . --run --broad-ci
       - name: Record native execution evidence
         run: node tools/ci/write-evidence.mjs --profile "${{ matrix.profile }}" --output ".ci-evidence/${{ matrix.profile }}.json"
       - name: Retain native evidence

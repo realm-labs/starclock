@@ -1,0 +1,41 @@
+{
+  "schema_revision": "starclock.release-snapshots.v1",
+  "goals": [
+    {
+      "goal_id": "core-combat-v1",
+      "completion_commit": "453f76e2c98a896d3166e2a57364941ceea86ee2",
+      "completion_tree": "8b732c16b46f4173f139e48b146ba843880a88ed",
+      "status_path": "docs/goals/01-core-combat-and-content-status.md",
+      "release_policy_path": "policy/release-contract.json",
+      "release_evidence_path": "evidence/core-combat-v1/release/release-evidence.json",
+      "evidence_schema_revision": "starclock.goal01-release-evidence.v1"
+    },
+    {
+      "goal_id": "agent-control-mcp-v1",
+      "completion_commit": "cc1751f3bc02708a4e32689d9b958c33fb6c108c",
+      "completion_tree": "c3f4241257d5fce471bd7c12d9cd0679541bc0bd",
+      "status_path": "docs/goals/02-agent-control-and-mcp-status.md",
+      "release_policy_path": "policy/goal02-release-contract.json",
+      "release_evidence_path": "evidence/agent-control-mcp-v1/release/release-evidence.json",
+      "evidence_schema_revision": "starclock.goal02-release-evidence.v1"
+    },
+    {
+      "goal_id": "standard-universe-reference-v1",
+      "completion_commit": "60ca52ed98c5c83d867d33bff7f88c69e0b389de",
+      "completion_tree": "3fc33d2b45ad9344522faf6e470c861ab75ff4c5",
+      "status_path": "docs/goals/03-standard-universe-reference-data-status.md",
+      "release_policy_path": "policy/standard-universe-reference.json",
+      "release_evidence_path": "evidence/standard-universe-reference-v1/release/release-evidence.json",
+      "evidence_schema_revision": "starclock.standard-universe-reference-release.v1"
+    },
+    {
+      "goal_id": "standard-universe-runtime-v1",
+      "completion_commit": "1a14bcff292063ed3d9a9c0588488d6da4769ce6",
+      "completion_tree": "bf49f41a44189ccd85e17f1f1b60d13446a29a28",
+      "status_path": "docs/goals/04-standard-universe-runtime-status.md",
+      "release_policy_path": "policy/goal04-release-contract.json",
+      "release_evidence_path": "evidence/standard-universe-runtime-v1/release/release-evidence.json",
+      "evidence_schema_revision": "starclock.goal04-release-evidence.v1"
+    }
+  ]
+}

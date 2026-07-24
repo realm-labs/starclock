@@ -9,6 +9,7 @@ const generatedDrift = read("tools/repository-check/verify-generated-drift.mjs")
 const phase4 = read("tools/core-kernel/verify-phase4.mjs");
 const goal04Fixture = read("tools/goal04/verify-mechanic-fixtures.mjs");
 const workbookVerifier = read("tools/universe-reference/verify_production_workbooks.mjs");
+const releaseSnapshots = read("tools/repository-check/verify-release-snapshots.mjs");
 const cargoManifest = read("Cargo.toml");
 const release = read("tools/release/run-goal02-clean-checkout.mjs");
 const readme = read("tools/repository-check/README.md");
@@ -27,6 +28,7 @@ for (const marker of [
   "cargo\", \"clippy\", \"--workspace\"",
   "tools/repository-check/run-workspace-tests.mjs",
 ]) assert(runner.includes(marker), `repository runner omits ${marker}`);
+assert(runner.includes("tools/repository-check/verify-release-snapshots.mjs"), "full gate omits immutable release snapshots");
 
 for (const marker of [
   '"--no-run", "--message-format=json"',
@@ -41,6 +43,8 @@ assert(phase4.includes("--artifacts-only"), "Phase 4 verifier lacks its non-test
 assert(goal04Fixture.includes('process.env.STARCLOCK_ARTIFACT_CHECK_ONLY === "1"'), "Goal 04 artifact checks cannot defer workspace-owned tests");
 for (const marker of ["inputFingerprint()", "universe-production-workbooks.json", "STARCLOCK_NO_ARTIFACT_CACHE"])
   assert(workbookVerifier.includes(marker), `production workbook verifier omits ${marker}`);
+for (const marker of ["completion_commit", "completion_tree", 'captureGit(["show"'])
+  assert(releaseSnapshots.includes(marker), `release snapshot verifier omits ${marker}`);
 assert(cargoManifest.includes("[profile.test]") && cargoManifest.includes("opt-level = 1"), "simulation-heavy tests lack the bounded optimized profile");
 assert(release.includes('STARCLOCK_REPOSITORY_PROFILE: "full"'), "isolated release acceptance does not force the full profile");
 for (const document of [readme, standards]) {

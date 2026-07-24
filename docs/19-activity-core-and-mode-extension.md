@@ -1,6 +1,14 @@
 # Activity Core and Mode Extension
 
-This document is normative for every layer above a single battle. It replaces separate generic `run-core` and `challenge-core` state machines with one deterministic `starclock-activity`. Standard encounters, rotating challenges, Simulated Universe families, combat events, survival modes, boss rushes, drafting modes, and future rule sets are profiles over the same activity model.
+This document is normative for deterministic orchestration above a single
+battle. It replaces separate generic `run-core` and `challenge-core` state
+machines with one `starclock-activity`. Standard encounters, rotating
+challenges, Simulated Universe families, combat events, survival modes, boss
+rushes, and drafting modes are profiles over the same model. A future mode
+whose child simulation cannot truthfully use `BattleSpec` still reuses the
+Activity transaction/graph/task protocol through a registered executor; it is
+not forced into `starclock-combat`. The evolution rules are normative in
+[Mode extension and evolution](26-mode-extension-and-evolution.md).
 
 ## Design objective
 
@@ -32,7 +40,7 @@ Mutation remains command-based:
 pub struct ActivityResolution {
     pub events: Vec<ActivityEvent>,
     pub next_decision: ActivityDecisionPoint,
-    pub battle_spec: Option<BattleSpec>,
+    pub pending_tasks: Vec<PendingActivityTask>,
     pub state_hash: [u8; 32],
 }
 
@@ -54,7 +62,14 @@ Initial command families are:
 - submit an offered external outcome for a presentation/minigame node;
 - retry, resume from an authored checkpoint, or abandon when offered.
 
-Invalid commands preserve the complete activity hash. Accepted commands settle synchronously to another decision, a pending `BattleSpec`, completion, failure, or `Faulted`.
+Invalid commands preserve the complete activity hash. Accepted commands settle
+synchronously to another decision, an ordered pending task set, completion,
+failure, or `Faulted`.
+
+`pending_tasks` is ordered by branch/task identity and bounded by the Activity
+definition. A sequential profile returns zero or one `Combat(BattleSpec)` task.
+The existing Activity v2 cardinality-one surface remains a compatibility
+profile, but it must not be presented as complete `ForkJoin` support.
 
 ## Activity graph
 
@@ -80,7 +95,7 @@ Edges declare condition, priority, stable edge ID, consumption/once policy, and 
 
 ## Generic scope model
 
-All activity state uses one lifetime hierarchy:
+Activity state has stable physical engine lifetimes:
 
 ```text
 Activity -> Section -> Node -> Attempt -> Battle -> Wave -> Turn -> Action -> Hit
@@ -91,7 +106,13 @@ Activity -> Section -> Node -> Attempt -> Battle -> Wave -> Turn -> Action -> Hi
 - `Node` represents a challenge side, universe domain, shop, choice, or battle location.
 - `Attempt` separates retry-local state from state retained by the activity.
 
-Mode-facing names such as Run, Plane, Domain, Stage, or Side are authoring aliases with metadata; they map to these generic scopes before runtime. The rule interpreter and state hash use generic scope IDs only.
+Simple mode-facing names such as Run, Plane, Domain, Stage, or Side may map to
+these physical scopes. Modes with deeper or orthogonal concepts declare a
+bounded logical scope tree whose instances are owned by one physical scope.
+Logical scope class/instance/parent identities and limits enter the state hash;
+they do not add a new core enum variant per mode. Two semantically independent
+lifetimes must not be collapsed into one alias merely because the original
+four-level mapping lacks a name.
 
 A state slot declares value type, owner scope, default, bounds, reset/carry policy, visibility, and provenance. A shorter-lived scope cannot write directly into a longer-lived slot unless an explicit projection/aggregation operation permits it.
 
@@ -180,7 +201,13 @@ BattleResult
 
 Activity nodes use a typed operation IR parallel in discipline to the battle rule IR. Initial operations include slot/resource changes, option generation, graph transition, roster/loadout mutation, modifier inventory changes, clock/metric/objective updates, BattleSpec request, checkpoint, and terminal outcome.
 
-Mode-native extensions use a static `ActivityHandlerId` registry. A handler receives read-only validated context and returns ordinary activity operations/options. It cannot mutate state, launch a battle directly, call external services, use untracked RNG, or bypass graph/visit/slot/result validation.
+Mode-native extensions contribute an immutable handler/executor bundle that is
+composed with core bundles during catalog construction. A handler receives
+read-only validated context and returns ordinary activity operations/options.
+It cannot mutate state, launch a task directly, call external services, use
+untracked RNG, or bypass graph/visit/slot/result validation. Adding a mode must
+not require editing a central handler match statement. The composed bundle
+revision and digest are authoritative inputs.
 
 Do not add a new core node kind for one event until composition plus a registered handler has proven insufficient. Do not add `if mode_id == ...` to `starclock-activity`.
 
@@ -192,7 +219,10 @@ Mode crates are composition libraries and validators:
 - `starclock-mode-challenge`: Forgotten Hall, Memory of Chaos, Pure Fiction, Apocalyptic Shadow, and future fixed-stage/score/boss-rush profiles.
 - `starclock-mode-universe`: Standard SU, Swarm Disaster, Gold and Gears, Unknowable Domain, and current Divergent Universe.
 - `starclock-mode-event`: reusable limited-event profiles such as survival, defense, trial roster, drafting, branching battles, escalating waves, and custom objectives.
-- future modes such as auto-battler/team-building or tournament structures add a profile and, only if necessary, isolated extension handlers.
+- future modes such as auto-battler/team-building or tournament structures add
+  a profile, logical scopes, and isolated extension bundles; a genuinely
+  different combat model uses a registered child-task executor rather than
+  pretending to be a normal `BattleSpec`.
 
 A profile may define authoring aliases and focused Excel tables, but it compiles to generic activity graph/state/operations plus normal battle rules.
 
@@ -210,7 +240,12 @@ The architecture must support without changing `starclock-combat`:
 - configurable state/resource carry between battles;
 - external minigame outcomes and deterministic baseline automation.
 
-Network authority, real-time physics/action gameplay, account inventory/rewards, matchmaking, and unrestricted user scripting remain outside scope. They may submit validated commands/outcomes through adapters but cannot become authoritative activity inputs implicitly.
+Network authority, real-time physics/action gameplay, account
+inventory/rewards, matchmaking, and unrestricted user scripting remain outside
+the core. They may submit validated commands/outcomes through adapters but
+cannot become authoritative activity inputs implicitly. Deterministic alternate
+child simulators are not excluded when registered through the bounded task
+protocol.
 
 ## Determinism and hashing
 

@@ -1,0 +1,106 @@
+{
+  "schema_revision": "starclock.workspace-dependencies.v1",
+  "packages": [
+    {
+      "name": "starclock-activity",
+      "local": ["starclock-combat"],
+      "external": [
+        { "name": "allocation-counter", "requirement": "=0.8.1", "features": [], "kind": "dev" },
+        { "name": "rand", "requirement": "=0.10.2", "features": ["chacha", "std"] },
+        { "name": "sha2", "requirement": "=0.11.0", "features": [] }
+      ]
+    },
+    {
+      "name": "starclock-agent-api",
+      "local": ["starclock-activity", "starclock-ai", "starclock-combat", "starclock-data", "starclock-mode-universe", "starclock-replay"],
+      "external": [
+        { "name": "allocation-counter", "requirement": "=0.8.1", "features": [], "kind": "dev" },
+        { "name": "proptest", "requirement": "=1.11.0", "features": ["std"], "kind": "dev" },
+        { "name": "serde", "requirement": "=1.0.228", "features": ["derive", "rc", "std"] },
+        { "name": "serde_json", "requirement": "=1.0.151", "features": ["std"] },
+        { "name": "sha2", "requirement": "=0.11.0", "features": [] }
+      ]
+    },
+    {
+      "name": "starclock-ai",
+      "local": ["starclock-combat"],
+      "external": []
+    },
+    {
+      "name": "starclock-build",
+      "local": ["starclock-combat"],
+      "external": [
+        { "name": "sha2", "requirement": "=0.11.0", "features": [] }
+      ]
+    },
+    {
+      "name": "starclock-cli",
+      "local": ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mcp", "starclock-mode-standard", "starclock-mode-universe", "starclock-replay", "starclock-rules"],
+      "external": [
+        { "name": "allocation-counter", "requirement": "=0.8.1", "features": [], "kind": "dev" },
+        { "name": "serde_json", "requirement": "=1.0.151", "features": ["std"], "kind": "dev" }
+      ]
+    },
+    {
+      "name": "starclock-combat",
+      "local": [],
+      "external": [
+        { "name": "fixnum", "requirement": "=0.9.5", "features": ["i64", "std"] },
+        { "name": "proptest", "requirement": "=1.11.0", "features": ["std"], "kind": "dev" },
+        { "name": "rand", "requirement": "=0.10.2", "features": ["chacha", "std"] },
+        { "name": "sha2", "requirement": "=0.11.0", "features": [] }
+      ]
+    },
+    {
+      "name": "starclock-data",
+      "local": ["starclock-activity", "starclock-build", "starclock-combat", "starclock-mode-standard", "starclock-rules"],
+      "external": [
+        { "name": "serde", "requirement": "=1.0.228", "features": ["derive", "rc", "std"] },
+        { "name": "sha2", "requirement": "=0.11.0", "features": [] },
+        { "name": "zstd", "requirement": "=0.13.3", "features": [] }
+      ]
+    },
+    {
+      "name": "starclock-mcp",
+      "local": ["starclock-agent-api"],
+      "external": [
+        { "name": "allocation-counter", "requirement": "=0.8.1", "features": [], "kind": "dev" },
+        { "name": "axum", "requirement": "=0.8.9", "features": ["http1", "tokio"] },
+        { "name": "rmcp", "requirement": "=2.2.0", "features": ["client", "macros", "server", "transport-io", "transport-streamable-http-server"] },
+        { "name": "schemars", "requirement": "=1.2.1", "features": ["derive", "std"] },
+        { "name": "serde", "requirement": "=1.0.228", "features": ["derive", "rc", "std"] },
+        { "name": "serde_json", "requirement": "=1.0.151", "features": ["std"] },
+        { "name": "tokio", "requirement": "=1.53.1", "features": ["io-util", "macros", "net", "rt-multi-thread", "signal", "sync", "time"] },
+        { "name": "tower", "requirement": "=0.5.3", "features": ["util"], "kind": "dev" }
+      ]
+    },
+    {
+      "name": "starclock-mode-standard",
+      "local": ["starclock-activity", "starclock-combat"],
+      "external": []
+    },
+    {
+      "name": "starclock-mode-universe",
+      "local": ["starclock-activity", "starclock-combat", "starclock-data", "starclock-replay"],
+      "external": [
+        { "name": "serde", "requirement": "=1.0.228", "features": ["derive", "rc", "std"] },
+        { "name": "serde_json", "requirement": "=1.0.151", "features": ["std"] },
+        { "name": "sha2", "requirement": "=0.11.0", "features": [] },
+        { "name": "zstd", "requirement": "=0.13.3", "features": [] }
+      ]
+    },
+    {
+      "name": "starclock-replay",
+      "local": ["starclock-activity", "starclock-combat"],
+      "external": [
+        { "name": "proptest", "requirement": "=1.11.0", "features": ["std"], "kind": "dev" },
+        { "name": "sha2", "requirement": "=0.11.0", "features": [] }
+      ]
+    },
+    {
+      "name": "starclock-rules",
+      "local": ["starclock-activity", "starclock-combat"],
+      "external": []
+    }
+  ]
+}

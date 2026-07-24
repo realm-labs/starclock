@@ -23,6 +23,27 @@ Every manifest entry has exactly one state:
 
 States are monotonic only within one data revision. A live-version change can move an entry from `GoldenVerified` back to `Researching` in the next revision. “Released,” “profile written,” and “DataReady” are independent facts.
 
+## Delivery lanes
+
+Coverage state and publication maturity are separate. New gameplay uses:
+
+| Lane | Requirements | Availability |
+|---|---|---|
+| `Experimental` | Isolated `.xlsx` workbook, partial local manifest, original/synthetic fixtures, valid deterministic domain data | Tests and explicit developer entry points only |
+| `Candidate` | Production Sora schema/export, provenance, bounded promised manifest, semantic fixtures | Integration and compatibility testing |
+| `Released` | Complete bilingual/provenance fields, 100% promised-manifest accounting, replay and platform gates | Production library/CLI/MCP profiles |
+
+Experimental content does not bypass Excel/Sora authoring, numeric policy,
+typed operations, reference validation, or deterministic simulation. It
+defers publication, full-source research, localization, and complete-catalog
+claims while a mechanic is being proved. Debug JSON never becomes a parallel
+production input.
+
+Promotion creates a new digest-bound revision. Production catalog construction
+rejects Experimental rows, and coverage reports never count them as released.
+The detailed evolution contract is
+[Mode extension and evolution](26-mode-extension-and-evolution.md).
+
 ## Common identity and localization
 
 All content uses a neutral stable key and these project-authored metadata fields:
@@ -146,7 +167,12 @@ Generated reports must provide, per category and source snapshot:
 - counts by `Cataloged`, `Documented`, `Researching`, `DataReady`, and `GoldenVerified`;
 - the exact manifest/config digest used to calculate the report.
 
-The release gate requires 100% manifest accounting, zero enabled incomplete entries, and `DataReady` for every released entry in the promised category. Golden verification has a separately declared target so lack of an observation fixture is not hidden.
+The release gate requires 100% manifest accounting, zero enabled incomplete
+entries, and `DataReady` for every released entry in the explicitly promised
+category/revision. It does not require an Experimental or Candidate mode to
+freeze the eventual complete live-game catalog before a mechanic probe can
+run. Golden verification has a separately declared target so lack of an
+observation fixture is not hidden.
 
 ## Goal 01 release status
 

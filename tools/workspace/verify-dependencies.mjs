@@ -7,72 +7,12 @@ const workspaceManifest = read(path.join(root, "Cargo.toml"));
 assert(/\[workspace\.lints\.rust\][\s\S]*?unsafe_code\s*=\s*"forbid"/.test(workspaceManifest), "workspace must forbid unsafe Rust");
 assert(/\[workspace\.lints\.rust\][\s\S]*?unexpected_cfgs\s*=\s*"deny"/.test(workspaceManifest), "workspace must deny unexpected cfg values");
 assert(/\[workspace\.lints\.rust\][\s\S]*?unused_must_use\s*=\s*"deny"/.test(workspaceManifest), "workspace must deny unused must-use results");
-const expected = new Map([
-  ["starclock-agent-api", ["starclock-activity", "starclock-ai", "starclock-combat", "starclock-data", "starclock-mode-universe", "starclock-replay"]],
-  ["starclock-combat", []],
-  ["starclock-build", ["starclock-combat"]],
-  ["starclock-activity", ["starclock-combat"]],
-  ["starclock-rules", ["starclock-activity", "starclock-combat"]],
-  ["starclock-replay", ["starclock-activity", "starclock-combat"]],
-  ["starclock-ai", ["starclock-combat"]],
-  ["starclock-mode-standard", ["starclock-activity", "starclock-combat"]],
-  ["starclock-mode-universe", ["starclock-activity", "starclock-combat", "starclock-data", "starclock-replay"]],
-  ["starclock-mcp", ["starclock-agent-api"]],
-  ["starclock-data", ["starclock-activity", "starclock-build", "starclock-combat", "starclock-mode-standard", "starclock-rules"]],
-  ["starclock-cli", ["starclock-activity", "starclock-ai", "starclock-build", "starclock-combat", "starclock-data", "starclock-mcp", "starclock-mode-standard", "starclock-mode-universe", "starclock-replay", "starclock-rules"]],
-]);
-const expectedExternal = new Map([
-  ["starclock-agent-api", [
-    { name: "allocation-counter", requirement: "=0.8.1", features: [], kind: "dev" },
-    { name: "proptest", requirement: "=1.11.0", features: ["std"], kind: "dev" },
-    { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
-    { name: "serde_json", requirement: "=1.0.151", features: ["std"] },
-    { name: "sha2", requirement: "=0.11.0", features: [] },
-  ]],
-  ["starclock-combat", [
-    { name: "fixnum", requirement: "=0.9.5", features: ["i64", "std"] },
-    { name: "proptest", requirement: "=1.11.0", features: ["std"], kind: "dev" },
-    { name: "rand", requirement: "=0.10.2", features: ["chacha", "std"] },
-    { name: "sha2", requirement: "=0.11.0", features: [] },
-  ]],
-  ["starclock-build", [
-    { name: "sha2", requirement: "=0.11.0", features: [] },
-  ]],
-  ["starclock-activity", [
-    { name: "allocation-counter", requirement: "=0.8.1", features: [], kind: "dev" },
-    { name: "rand", requirement: "=0.10.2", features: ["chacha", "std"] },
-    { name: "sha2", requirement: "=0.11.0", features: [] },
-  ]],
-  ["starclock-data", [
-    { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
-    { name: "sha2", requirement: "=0.11.0", features: [] },
-    { name: "zstd", requirement: "=0.13.3", features: [] },
-  ]],
-  ["starclock-mode-universe", [
-    { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
-    { name: "serde_json", requirement: "=1.0.151", features: ["std"] },
-    { name: "sha2", requirement: "=0.11.0", features: [] },
-    { name: "zstd", requirement: "=0.13.3", features: [] },
-  ]],
-  ["starclock-replay", [
-    { name: "proptest", requirement: "=1.11.0", features: ["std"], kind: "dev" },
-    { name: "sha2", requirement: "=0.11.0", features: [] },
-  ]],
-  ["starclock-mcp", [
-    { name: "allocation-counter", requirement: "=0.8.1", features: [], kind: "dev" },
-    { name: "axum", requirement: "=0.8.9", features: ["http1", "tokio"] },
-    { name: "rmcp", requirement: "=2.2.0", features: ["client", "macros", "server", "transport-io", "transport-streamable-http-server"] },
-    { name: "schemars", requirement: "=1.2.1", features: ["derive", "std"] },
-    { name: "serde", requirement: "=1.0.228", features: ["derive", "rc", "std"] },
-    { name: "serde_json", requirement: "=1.0.151", features: ["std"] },
-    { name: "tokio", requirement: "=1.53.1", features: ["io-util", "macros", "net", "rt-multi-thread", "signal", "sync", "time"] },
-    { name: "tower", requirement: "=0.5.3", features: ["util"], kind: "dev" },
-  ]],
-  ["starclock-cli", [
-    { name: "allocation-counter", requirement: "=0.8.1", features: [], kind: "dev" },
-    { name: "serde_json", requirement: "=1.0.151", features: ["std"], kind: "dev" },
-  ]],
-]);
+const dependencyPolicy = JSON.parse(read(path.join(root, "policy/workspace-dependencies.json")));
+assert(dependencyPolicy.schema_revision === "starclock.workspace-dependencies.v1", "unsupported workspace dependency policy");
+assert(Array.isArray(dependencyPolicy.packages) && dependencyPolicy.packages.length > 0, "workspace dependency policy is empty");
+const expected = new Map(dependencyPolicy.packages.map((pkg) => [pkg.name, pkg.local]));
+const expectedExternal = new Map(dependencyPolicy.packages.map((pkg) => [pkg.name, pkg.external]));
+assert(expected.size === dependencyPolicy.packages.length, "workspace dependency policy contains duplicate packages");
 
 const metadata = JSON.parse(execFileSync("cargo", ["metadata", "--format-version", "1", "--no-deps"], {
   cwd: root,
@@ -133,7 +73,7 @@ assert(agentApi.dependencies.every((dependency) => ["starclock-activity", "starc
 const mcp = packages.find((entry) => entry.name === "starclock-mcp");
 assert(mcp.dependencies.every((dependency) => ["starclock-agent-api", "allocation-counter", "axum", "rmcp", "schemars", "serde", "serde_json", "tokio", "tower"].includes(dependency.name)), "starclock-mcp may depend only on the protocol-neutral agent API, frozen official MCP SDK, reviewed HTTP service boundary, schema/JSON conversion, async runtime and benchmark-only allocator counter");
 
-console.log("Workspace dependency boundaries verified (12 crates; generic Activity/mode separation and one-way protocol adapters).");
+console.log(`Workspace dependency boundaries verified (${packages.length} crates; declarative reviewed dependency graph).`);
 
 function normalize(value) { return path.resolve(value).replaceAll("\\", "/").toLowerCase(); }
 function read(file) { return fs.readFileSync(file, "utf8"); }

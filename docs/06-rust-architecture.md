@@ -296,7 +296,9 @@ pub struct ReplayHeader {
     pub schema_version: u32,
     pub rules_revision: String,
     pub data_revision: String,
-    pub config_bundle_sha256: [u8; 32],
+    pub configuration_root_sha256: [u8; 32],
+    pub consumed_component_digests: Vec<ComponentDigest>,
+    pub artifact_bundle_sha256: [u8; 32],
     pub numeric_policy_revision: String,
     pub rng_algorithm_revision: String,
     pub state_hash_revision: String,
@@ -304,7 +306,15 @@ pub struct ReplayHeader {
 }
 ```
 
-A replay stores initial battle or activity identity and accepted commands. Activity replays contain nested battle identities/results under the same config/profile digest. Events and per-command hashes may be stored for audit and divergence detection but must be reproducible. Replay loading must use the same `config.sora` digest or an explicit migration/archive lookup. The canonical byte layout and planned command-line surface are specified in [Replay, CLI, and engine integration](16-replay-cli-and-engine-integration.md).
+A replay stores initial battle or activity identity and accepted commands.
+Activity replays contain nested task/battle identities and results under the
+same consumed component/profile digest set. Events and per-command hashes may
+be stored for audit and divergence detection but must be reproducible. Replay
+loading resolves every consumed component exactly; the physical
+`config.sora` digest remains provenance metadata and the compatibility key for
+legacy v1 replays. Missing components require an explicit archive or migration
+lookup. The canonical byte layout and planned command-line surface are
+specified in [Replay, CLI, and engine integration](16-replay-cli-and-engine-integration.md).
 
 ## Bevy integration later
 

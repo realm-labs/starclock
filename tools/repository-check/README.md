@@ -57,3 +57,12 @@ CI automatically selects the full profile through `CI=true`. Isolated release
 acceptance sets `STARCLOCK_REPOSITORY_PROFILE=full` and still uses a fresh
 target with incremental compilation disabled. Local quick/full runs never
 delete `target`.
+
+Completed Goals are checked through `policy/release-snapshots.json`. The gate
+loads their status, release policy and evidence from the recorded completion
+commit/tree; it does not compare historical source hashes with the evolving
+working tree. Current compatibility remains owned by current tests and current
+generated-data validation. Historical architecture/property/security/clean
+reports and committed CI matrix evidence remain available through their
+standalone verifiers, but the current repository gate does not regenerate them
+from current source.
