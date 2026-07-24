@@ -1,9 +1,5 @@
 //! Standard Universe entry validation and generic Activity-state compilation.
-
-use std::sync::{Arc, OnceLock};
-
 use starclock_activity::{
-    ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
     ActivityDefinitionIdentity, ActivityInstanceId, ActivityInventoryDefinition,
     ActivityInventoryId, ActivityMasterSeed, ActivityScope, ActivitySlotDefinition, ActivitySlotId,
     ActivityStateDefinition, ActivityStateSource, ActivityStateVisibility, ActivityValue,
@@ -11,19 +7,23 @@ use starclock_activity::{
     LoadoutLockScope, ParticipantLock, ParticipantPolicy, ParticipantUniquenessScope,
     SlotCarryPolicy, SlotResetPoint,
 };
+use std::sync::{Arc, OnceLock};
 
 use crate::{
-    ability_runtime::{AbilityExecutionContext, AbilityRuntimeCatalog, AbilityTarget},
+    ability_runtime::{
+        AbilityExecutionContext, AbilityRuntimeCatalog, AbilityRuntimeProjection, AbilityTarget,
+    },
     abundance_runtime::AbundanceRuntimeCatalog,
     battle_overlay::UniverseEncounterOverlay,
     blessing_runtime::BlessingRuntimeCatalog,
     catalog::UniverseCatalog,
+    curio_activity::{CurioActivityBindings, compile_records as compile_curio_activity_records},
     curio_effect_runtime::CurioEffectRuntimeCatalog,
     curio_runtime::CurioRuntimeCatalog,
     destruction_runtime::DestructionRuntimeCatalog,
-    digest::Encoder,
     elation_runtime::ElationRuntimeCatalog,
     encounter_content_runtime::EncounterContentRuntimeCatalog,
+    entry_identity::compile_identity,
     erudition_runtime::EruditionRuntimeCatalog,
     hunt_runtime::HuntRuntimeCatalog,
     id::{AbilityTreeNodeId, DifficultyId, PathId, WorldId},
@@ -37,10 +37,10 @@ use crate::{
     remembrance_runtime::RemembranceRuntimeCatalog,
     run_runtime::RunRuntimeCatalog,
     service_effect_runtime::ServiceEffectRuntimeCatalog,
-    service_interaction::ServiceInteractionRuntimeCatalog,
+    service_interaction::{ServiceActivityBindings, ServiceInteractionRuntimeCatalog},
 };
 
-pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v3";
+pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v4";
 
 const WORLD_SLOT: u32 = 1;
 const DIFFICULTY_SLOT: u32 = 2;
@@ -59,6 +59,8 @@ const EXTERNAL_OUTCOME_SLOT: u32 = 14;
 const OCCURRENCE_EFFECT_SLOT: u32 = 15;
 const SERVICE_USE_SLOT: u32 = 16;
 const SERVICE_EFFECT_SLOT: u32 = 17;
+const CURIO_EVENT_SLOT: u32 = 18;
+const ABILITY_PROJECTION_SLOT: u32 = 19;
 const BLESSING_INVENTORY: u32 = 1;
 const FORMATION_INVENTORY: u32 = 2;
 const CURIO_INVENTORY: u32 = 3;
@@ -79,6 +81,8 @@ const EXTERNAL_OUTCOME_SOURCE: u64 = 0x5355_000E;
 const OCCURRENCE_EFFECT_SOURCE: u64 = 0x5355_000F;
 const SERVICE_USE_SOURCE: u64 = 0x5355_0010;
 const SERVICE_EFFECT_SOURCE: u64 = 0x5355_0011;
+const CURIO_EVENT_SOURCE: u64 = 0x5355_0012;
+const ABILITY_PROJECTION_SOURCE: u64 = 0x5355_0013;
 const BLESSING_INVENTORY_SOURCE: u64 = 0x5355_1001;
 const FORMATION_INVENTORY_SOURCE: u64 = 0x5355_1002;
 const CURIO_INVENTORY_SOURCE: u64 = 0x5355_1003;
@@ -253,6 +257,14 @@ impl StandardUniverseProfile {
             CurioRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidCurioRuntime)?,
         );
+        let curio_activity_records = compile_curio_activity_records(&curio_runtime)
+            .map_err(|_| StandardUniverseCompileError::InvalidCurioRuntime)?;
+        let curio_activity_bindings = CurioActivityBindings {
+            inventory: inventory(CURIO_INVENTORY),
+            state_slot: slot(CURIO_STATE_SLOT),
+            charge_slot: slot(CURIO_CHARGE_SLOT),
+            event_slot: slot(CURIO_EVENT_SLOT),
+        };
         let curio_effect_runtime = Arc::new(
             CurioEffectRuntimeCatalog::compile(&self.catalog, &curio_runtime)
                 .map_err(|_| StandardUniverseCompileError::InvalidCurioRuntime)?,
@@ -274,7 +286,8 @@ impl StandardUniverseProfile {
                 &self.catalog,
                 slot(COSMIC_FRAGMENTS_SLOT),
                 inventory(BLESSING_INVENTORY),
-                inventory(CURIO_INVENTORY),
+                &curio_activity_records,
+                curio_activity_bindings,
                 slot(OCCURRENCE_EFFECT_SLOT),
             )
             .map_err(|_| StandardUniverseCompileError::InvalidRunRuntime)?,
@@ -287,11 +300,15 @@ impl StandardUniverseProfile {
             ServiceInteractionRuntimeCatalog::compile(
                 &self.catalog,
                 service_effect_runtime.as_ref().clone(),
-                slot(COSMIC_FRAGMENTS_SLOT),
-                slot(SERVICE_USE_SLOT),
-                slot(SERVICE_EFFECT_SLOT),
-                inventory(BLESSING_INVENTORY),
-                inventory(CURIO_INVENTORY),
+                &curio_runtime,
+                curio_activity_bindings,
+                ServiceActivityBindings {
+                    cosmic_fragments: slot(COSMIC_FRAGMENTS_SLOT),
+                    service_uses: slot(SERVICE_USE_SLOT),
+                    service_effects: slot(SERVICE_EFFECT_SLOT),
+                    blessing_inventory: inventory(BLESSING_INVENTORY),
+                    curio_inventory: inventory(CURIO_INVENTORY),
+                },
             )
             .map_err(|_| StandardUniverseCompileError::InvalidRunRuntime)?,
         );
@@ -319,6 +336,7 @@ impl StandardUniverseProfile {
             difficulty.id(),
             &ability_tree,
             initial_cosmic_fragments,
+            &run_start,
         )?;
         let participant_digest = entry.participants.digest();
         let identity = compile_identity(
@@ -669,8 +687,10 @@ impl CompiledActivity {
                     curio_inventory: self.curio_inventory(),
                     curio_state_slot: self.curio_state_slot(),
                     curio_charge_slot: self.curio_charge_slot(),
+                    curio_event_slot: self.curio_event_slot(),
                     cosmic_fragments_slot: self.cosmic_fragments_slot(),
                     selected_path_slot: self.selected_path_slot(),
+                    ability_projection_slot: self.ability_projection_slot(),
                 }
             }),
         )
@@ -747,6 +767,11 @@ impl CompiledActivity {
     }
 
     #[must_use]
+    pub const fn occurrence_effect_slot(&self) -> ActivitySlotId {
+        slot(OCCURRENCE_EFFECT_SLOT)
+    }
+
+    #[must_use]
     pub const fn service_use_slot(&self) -> ActivitySlotId {
         slot(SERVICE_USE_SLOT)
     }
@@ -754,6 +779,16 @@ impl CompiledActivity {
     #[must_use]
     pub const fn service_effect_slot(&self) -> ActivitySlotId {
         slot(SERVICE_EFFECT_SLOT)
+    }
+
+    #[must_use]
+    pub const fn curio_event_slot(&self) -> ActivitySlotId {
+        slot(CURIO_EVENT_SLOT)
+    }
+
+    #[must_use]
+    pub const fn ability_projection_slot(&self) -> ActivitySlotId {
+        slot(ABILITY_PROJECTION_SLOT)
     }
 
     #[must_use]
@@ -823,6 +858,7 @@ fn compile_state(
     difficulty: DifficultyId,
     ability_tree: &[AbilityTreeNodeId],
     initial_cosmic_fragments: i64,
+    run_start: &AbilityRuntimeProjection,
 ) -> Result<ActivityStateDefinition, StandardUniverseCompileError> {
     let slots = vec![
         activity_slot(
@@ -958,6 +994,32 @@ fn compile_state(
             SERVICE_EFFECT_SOURCE,
             ActivityStateVisibility::Private,
         )?,
+        counter_slot(
+            CURIO_EVENT_SLOT,
+            640,
+            0,
+            i64::from(u32::MAX),
+            CURIO_EVENT_SOURCE,
+            ActivityStateVisibility::Private,
+        )?,
+        counter_slot_with_initial(
+            ABILITY_PROJECTION_SLOT,
+            run_start
+                .values()
+                .iter()
+                .map(|value| {
+                    (
+                        value.target().activity_key(),
+                        value.value().raw_six_decimal(),
+                    )
+                })
+                .collect::<Vec<_>>(),
+            22,
+            0,
+            i64::MAX,
+            ABILITY_PROJECTION_SOURCE,
+            ActivityStateVisibility::Private,
+        )?,
     ];
     let inventories = vec![
         ActivityInventoryDefinition::new(
@@ -1042,6 +1104,29 @@ fn counter_slot(
     .map_err(|_| StandardUniverseCompileError::InvalidActivityState)
 }
 
+fn counter_slot_with_initial(
+    id: u32,
+    initial: Vec<(u64, i64)>,
+    maximum_entries: u32,
+    minimum: i64,
+    maximum: i64,
+    source: u64,
+    visibility: ActivityStateVisibility,
+) -> Result<ActivitySlotDefinition, StandardUniverseCompileError> {
+    ActivitySlotDefinition::new_with_policy(
+        slot(id),
+        ActivityScope::Activity,
+        ActivityValue::BoundedCounterMap(initial.into_boxed_slice()),
+        Some((minimum, maximum)),
+        Some(maximum_entries),
+        vec![SlotResetPoint::ActivityStart],
+        SlotCarryPolicy::CarryExact,
+        visibility,
+        ActivityStateSource::new(source).expect("static state source is non-zero"),
+    )
+    .map_err(|_| StandardUniverseCompileError::InvalidActivityState)
+}
+
 fn integer_slot(
     id: u32,
     initial: i64,
@@ -1062,70 +1147,6 @@ fn integer_slot(
         ActivityStateSource::new(source).expect("static state source is non-zero"),
     )
     .map_err(|_| StandardUniverseCompileError::InvalidActivityState)
-}
-
-fn compile_identity(
-    catalog: &UniverseCatalog,
-    world: WorldId,
-    difficulty: DifficultyId,
-    participant_digest: [u8; 32],
-    ability_tree: &[AbilityTreeNodeId],
-    path_options: &[PathId],
-    encounter_overlay: Option<&UniverseEncounterOverlay>,
-) -> Result<ActivityDefinitionIdentity, StandardUniverseCompileError> {
-    let catalog_identity = catalog.identity();
-    let mut encoder = Encoder::new(b"starclock-standard-universe-entry-definition-v1");
-    encoder.text(STANDARD_UNIVERSE_ENTRY_REVISION);
-    encoder.text(crate::blessing_runtime::BLESSING_RUNTIME_REVISION);
-    encoder.text(crate::path_runtime::PATH_RUNTIME_REVISION);
-    encoder.text(crate::preservation_runtime::PRESERVATION_RUNTIME_REVISION);
-    encoder.text(crate::remembrance_runtime::REMEMBRANCE_RUNTIME_REVISION);
-    encoder.text(crate::nihility_runtime::NIHILITY_RUNTIME_REVISION);
-    encoder.text(crate::abundance_runtime::ABUNDANCE_RUNTIME_REVISION);
-    encoder.text(crate::hunt_runtime::HUNT_RUNTIME_REVISION);
-    encoder.text(crate::destruction_runtime::DESTRUCTION_RUNTIME_REVISION);
-    encoder.text(crate::elation_runtime::ELATION_RUNTIME_REVISION);
-    encoder.text(crate::propagation_runtime::PROPAGATION_RUNTIME_REVISION);
-    encoder.text(crate::erudition_runtime::ERUDITION_RUNTIME_REVISION);
-    encoder.text(crate::curio_runtime::CURIO_RUNTIME_REVISION);
-    encoder.text(crate::curio_effect_runtime::CURIO_EFFECT_RUNTIME_REVISION);
-    encoder.text(crate::negative_curio_runtime::NEGATIVE_CURIO_RUNTIME_REVISION);
-    encoder.text(crate::occurrence_effect_runtime::OCCURRENCE_EFFECT_RUNTIME_REVISION);
-    encoder.text(crate::occurrence_interaction::OCCURRENCE_INTERACTION_RUNTIME_REVISION);
-    encoder.text(crate::service_effect_runtime::SERVICE_EFFECT_RUNTIME_REVISION);
-    encoder.text(crate::service_interaction::SERVICE_INTERACTION_RUNTIME_REVISION);
-    encoder.text(crate::encounter_content_runtime::ENCOUNTER_CONTENT_RUNTIME_REVISION);
-    encoder.text(crate::run_runtime::RUN_RUNTIME_REVISION);
-    encoder.text(crate::ability_runtime::ABILITY_RUNTIME_REVISION);
-    encoder.digest(catalog_identity.configuration_digest().bytes());
-    encoder.digest(catalog_identity.definitions_digest().bytes());
-    encoder.digest(catalog_identity.path_definitions_digest().bytes());
-    encoder.digest(catalog_identity.run_definitions_digest().bytes());
-    encoder.u32(world.get());
-    encoder.u32(difficulty.get());
-    encoder.digest(participant_digest);
-    encoder.u32(ability_tree.len() as u32);
-    for node in ability_tree {
-        encoder.u32(node.get());
-    }
-    encoder.u32(path_options.len() as u32);
-    for path in path_options {
-        encoder.u32(path.get());
-    }
-    if let Some(overlay) = encounter_overlay {
-        encoder.digest(overlay.digest().bytes());
-    }
-    let definition_digest = ActivityDefinitionDigest::new(encoder.finish())
-        .ok_or(StandardUniverseCompileError::InvalidCatalogIdentity)?;
-    let config_digest = ActivityConfigDigest::new(catalog_identity.configuration_digest().bytes())
-        .ok_or(StandardUniverseCompileError::InvalidCatalogIdentity)?;
-    let definition_id = ActivityDefinitionId::new(catalog.activity_binding().id().get())
-        .ok_or(StandardUniverseCompileError::InvalidCatalogIdentity)?;
-    Ok(ActivityDefinitionIdentity::new(
-        definition_id,
-        definition_digest,
-        config_digest,
-    ))
 }
 
 const fn slot(raw: u32) -> ActivitySlotId {

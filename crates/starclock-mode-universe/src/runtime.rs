@@ -14,12 +14,15 @@ use starclock_activity::{
 
 use crate::{
     ability_runtime::{
-        AbilityExecutionContext, AbilityRuntimeCatalog, AbilityRuntimeError,
-        AbilityRuntimeProjection,
+        AbilityActivityProjection, AbilityExecutionContext, AbilityRuntimeCatalog,
+        AbilityRuntimeError, AbilityRuntimeProjection,
     },
     abundance_runtime::AbundanceRuntimeCatalog,
     battle_overlay::UniverseEncounterOverlay,
     blessing_runtime::{BlessingContributionSet, BlessingRuntimeCatalog, BlessingRuntimeError},
+    curio_activity::{
+        CurioActivityProjection, CurioActivityProjectionError, lower_effects as lower_curio_effects,
+    },
     curio_effect_runtime::{
         AppliedCurioEffect, CurioEffectFacts, CurioEffectRuntimeCatalog, CurioEffectRuntimeError,
         CurioEvent,
@@ -29,7 +32,7 @@ use crate::{
     elation_runtime::ElationRuntimeCatalog,
     erudition_runtime::EruditionRuntimeCatalog,
     hunt_runtime::HuntRuntimeCatalog,
-    id::{AbilityTreeNodeId, OccurrenceChoiceId, PathId, ResonanceId, ServiceId},
+    id::{AbilityTreeNodeId, CurioId, OccurrenceChoiceId, PathId, ResonanceId, ServiceId},
     negative_curio_runtime::{
         NegativeCurioEvent, NegativeCurioRuntimeCatalog, NegativeCurioRuntimeError,
     },
@@ -82,8 +85,10 @@ pub struct StandardUniverseActivity {
     curio_inventory: ActivityInventoryId,
     curio_state_slot: ActivitySlotId,
     curio_charge_slot: ActivitySlotId,
+    curio_event_slot: ActivitySlotId,
     cosmic_fragments_slot: ActivitySlotId,
     selected_path_slot: ActivitySlotId,
+    ability_projection_slot: ActivitySlotId,
 }
 
 pub(crate) struct StandardUniverseRuntimeContext {
@@ -114,8 +119,10 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) curio_inventory: ActivityInventoryId,
     pub(crate) curio_state_slot: ActivitySlotId,
     pub(crate) curio_charge_slot: ActivitySlotId,
+    pub(crate) curio_event_slot: ActivitySlotId,
     pub(crate) cosmic_fragments_slot: ActivitySlotId,
     pub(crate) selected_path_slot: ActivitySlotId,
+    pub(crate) ability_projection_slot: ActivitySlotId,
 }
 
 impl StandardUniverseActivity {
@@ -149,8 +156,10 @@ impl StandardUniverseActivity {
             curio_inventory: context.curio_inventory,
             curio_state_slot: context.curio_state_slot,
             curio_charge_slot: context.curio_charge_slot,
+            curio_event_slot: context.curio_event_slot,
             cosmic_fragments_slot: context.cosmic_fragments_slot,
             selected_path_slot: context.selected_path_slot,
+            ability_projection_slot: context.ability_projection_slot,
         }
     }
 
@@ -782,6 +791,42 @@ impl StandardUniverseActivity {
         Ok(effects.into_boxed_slice())
     }
 
+    pub fn curio_activity_projection(
+        &self,
+        curio: CurioId,
+        event: CurioEvent,
+        mut facts: CurioEffectFacts,
+    ) -> Result<CurioActivityProjection, StandardUniverseCurioActivityError> {
+        if !self
+            .curio_contributions()
+            .map_err(StandardUniverseCurioActivityError::Contribution)?
+            .entries()
+            .iter()
+            .any(|contribution| contribution.curio() == curio)
+        {
+            return Err(StandardUniverseCurioActivityError::NotOwned);
+        }
+        let fragments = self
+            .cosmic_fragments()
+            .map_err(StandardUniverseCurioActivityError::Fragments)?;
+        facts.cosmic_fragments = u32::try_from(fragments.get()).map_err(|_| {
+            StandardUniverseCurioActivityError::Fragments(RunRuntimeError::InvalidFragmentAmount)
+        })?;
+        let effects = self
+            .curio_effect_runtime
+            .execute(curio, event, facts)
+            .map_err(StandardUniverseCurioActivityError::Effect)?;
+        lower_curio_effects(
+            curio,
+            event,
+            &effects,
+            facts.cosmic_fragments,
+            self.cosmic_fragments_slot,
+            self.curio_event_slot,
+        )
+        .map_err(StandardUniverseCurioActivityError::Projection)
+    }
+
     pub fn negative_curio_effects(
         &self,
         event: NegativeCurioEvent,
@@ -831,6 +876,17 @@ impl StandardUniverseActivity {
         context: AbilityExecutionContext,
     ) -> Result<AbilityRuntimeProjection, AbilityRuntimeError> {
         self.ability_runtime.project(&self.ability_tree, context)
+    }
+
+    pub fn ability_activity_projection(
+        &self,
+        context: AbilityExecutionContext,
+    ) -> Result<AbilityActivityProjection, AbilityRuntimeError> {
+        self.ability_runtime.project_activity_operations(
+            &self.ability_tree,
+            context,
+            self.ability_projection_slot,
+        )
     }
 
     pub fn cosmic_fragments(&self) -> Result<CosmicFragments, RunRuntimeError> {
@@ -1107,6 +1163,15 @@ pub enum StandardUniverseCurioEffectError {
     Contribution(CurioRuntimeError),
     Effect(CurioEffectRuntimeError),
     NegativeEffect(NegativeCurioRuntimeError),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum StandardUniverseCurioActivityError {
+    NotOwned,
+    Contribution(CurioRuntimeError),
+    Fragments(RunRuntimeError),
+    Effect(CurioEffectRuntimeError),
+    Projection(CurioActivityProjectionError),
 }
 
 pub(crate) fn start(

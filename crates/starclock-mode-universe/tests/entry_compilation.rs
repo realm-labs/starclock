@@ -1,12 +1,14 @@
 use std::sync::{Arc, OnceLock};
 
 use starclock_activity::{
-    ActivityValue, BuildDigest, LoadoutLockScope, OpaqueParticipantBuild, ParticipantId,
-    ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
+    ActivityCause, ActivityProgramDefinition, ActivityProgramId, ActivityTransactionOutcome,
+    ActivityTransactionState, ActivityValue, BuildDigest, LoadoutLockScope, OpaqueParticipantBuild,
+    ParticipantId, ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
     ParticipantUniquenessScope, SlotValueKind,
 };
 use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
 use starclock_mode_universe::{
+    ability_runtime::{AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope},
     catalog::UniverseCatalog,
     entry::{
         STANDARD_UNIVERSE_ENTRY_REVISION, StandardUniverseCompileError, StandardUniverseEntry,
@@ -80,7 +82,7 @@ fn every_world_and_difficulty_compiles_the_same_generic_entry_contract() {
             assert_eq!(activity.world(), world.id());
             assert_eq!(activity.difficulty(), *difficulty);
             assert_eq!(activity.path_options().len(), 9);
-            assert_eq!(activity.state_definition().slots().len(), 17);
+            assert_eq!(activity.state_definition().slots().len(), 19);
             assert_eq!(activity.state_definition().inventories().len(), 3);
             assert_eq!(activity.blessing_runtime().definitions().len(), 162);
             assert_eq!(activity.path_runtime().len(), 9);
@@ -111,7 +113,7 @@ fn every_world_and_difficulty_compiles_the_same_generic_entry_contract() {
     assert_eq!(compiled, 33);
     assert_eq!(
         STANDARD_UNIVERSE_ENTRY_REVISION,
-        "standard-universe-entry-v3"
+        "standard-universe-entry-v4"
     );
 }
 
@@ -258,8 +260,8 @@ fn world_difficulty_roster_and_ability_input_are_definition_identity() {
     assert_eq!(
         base.identity().definition_digest().bytes(),
         [
-            21, 31, 98, 105, 215, 234, 142, 232, 79, 102, 200, 135, 38, 95, 231, 110, 211, 101,
-            210, 232, 75, 1, 215, 227, 0, 222, 248, 25, 245, 189, 165, 213,
+            207, 74, 111, 251, 218, 65, 196, 63, 59, 152, 142, 14, 18, 152, 137, 241, 46, 77, 222,
+            247, 87, 116, 2, 126, 17, 2, 171, 58, 129, 104, 253, 209,
         ]
     );
     assert_eq!(
@@ -292,4 +294,57 @@ fn ability_tree_run_start_currency_is_materialized_into_activity_state() {
         .find(|slot| slot.id() == compiled.cosmic_fragments_slot())
         .expect("Cosmic Fragment slot");
     assert_eq!(fragments.initial(), &ActivityValue::BoundedInteger(50));
+    let projection = compiled
+        .state_definition()
+        .slots()
+        .iter()
+        .find(|slot| slot.id() == compiled.ability_projection_slot())
+        .expect("Ability projection slot");
+    assert!(matches!(
+        projection.initial(),
+        ActivityValue::BoundedCounterMap(values) if !values.is_empty()
+    ));
+
+    let battle = compiled
+        .ability_runtime()
+        .project_activity_operations(
+            compiled.ability_tree(),
+            AbilityExecutionContext::new(
+                AbilityProjectionScope::Battle,
+                AbilityBoundary::BattleStart,
+                14,
+                false,
+            ),
+            compiled.ability_projection_slot(),
+        )
+        .expect("battle boundary projection");
+    assert!(!battle.projection().values().is_empty());
+    assert!(!battle.operations().is_empty());
+    let program = ActivityProgramDefinition::new(
+        ActivityProgramId::new(9_901).unwrap(),
+        battle.operations().to_vec(),
+    )
+    .expect("bounded boundary program");
+    program
+        .validate_against(
+            compiled.state_definition(),
+            compiled.runtime_definition().graph(),
+        )
+        .expect("boundary projection uses valid ordinary Activity operations");
+    let graph = compiled.runtime_definition().graph();
+    let mut state =
+        ActivityTransactionState::new(compiled.state_definition().clone(), graph.entry());
+    assert!(matches!(
+        state.apply_program(
+            &program,
+            ActivityCause::new(1, program.id(), graph.entry()).unwrap(),
+            graph,
+        ),
+        ActivityTransactionOutcome::Committed(_)
+    ));
+    assert!(matches!(
+        state.slot(compiled.ability_projection_slot()),
+        Some(ActivityValue::BoundedCounterMap(values))
+            if values.iter().any(|(_, value)| *value == 420_000_000)
+    ));
 }

@@ -779,7 +779,7 @@ fn compile_programs(
                         ),
                     ));
                     let compiled = occurrence_interactions
-                        .compiled(choice.id())
+                        .compile_choice(choice.id())
                         .ok_or(UniverseTopologyCompileError::InvalidOccurrenceInteraction)?;
                     interactions.push(AbstractInteractionBinding {
                         node: hub.content_node,
@@ -789,10 +789,10 @@ fn compile_programs(
                         kind: room.kind,
                         source_content_id: choice.stable_key().into(),
                         handler: OCCURRENCE_INTERACTION_HANDLER_ID,
-                        payload: compiled.payload.into_boxed_slice(),
-                        random_candidate_count: compiled.random_candidate_count,
+                        payload: compiled.payload().into(),
+                        random_candidate_count: compiled.random_candidate_count(),
                         random_label: compiled
-                            .random_candidate_count
+                            .random_candidate_count()
                             .map(|_| ActivityRngLabel::Occurrence),
                     });
                 }

@@ -3,10 +3,11 @@ use std::sync::{Arc, OnceLock};
 use starclock_activity::{
     ActivityCause, ActivityConfigDigest, ActivityDecisionKind, ActivityDefinitionDigest,
     ActivityDefinitionId, ActivityDefinitionIdentity, ActivityEdgeCondition,
-    ActivityEdgeDefinition, ActivityEdgeId, ActivityGraphDefinition, ActivityInstanceId,
-    ActivityInteractionBinding, ActivityMasterSeed, ActivityNodeDefinition, ActivityNodeKind,
-    ActivityOperation, ActivityOptionDefinition, ActivityProgramDefinition, ActivityProgramId,
-    ActivityRandomPolicies, ActivityScope, ActivitySlotDefinition, ActivitySlotId,
+    ActivityEdgeDefinition, ActivityEdgeId, ActivityExternalOutcomeId, ActivityGraphDefinition,
+    ActivityInstanceId, ActivityInteractionBinding, ActivityInteractionRandomPolicy,
+    ActivityMasterSeed, ActivityNodeDefinition, ActivityNodeKind, ActivityOperation,
+    ActivityOptionDefinition, ActivityProgramDefinition, ActivityProgramId, ActivityRandomPolicies,
+    ActivityRngLabel, ActivityScope, ActivitySlotDefinition, ActivitySlotId,
     ActivityStateDefinition, ActivityStateSource, ActivityStateVisibility, ActivityTerminalOutcome,
     ActivityTransactionOutcome, ActivityTransactionRejection, ActivityTransactionState,
     ActivityValue, BuildDigest, GraphActivity, GraphActivityDefinition, GraphActivityNodeProgram,
@@ -20,6 +21,7 @@ use starclock_mode_universe::{
     encounter::RoomContentKind,
     entry::{StandardUniverseEntry, StandardUniverseProfile},
     occurrence::{OccurrenceOperation, OccurrenceTarget},
+    occurrence_interaction::OCCURRENCE_INTERACTION_HANDLER_ID,
     run_runtime::{CosmicFragments, RUN_RUNTIME_REVISION, RunRuntimeCatalog},
 };
 
@@ -301,8 +303,8 @@ fn occurrence_choices_compile_and_exact_room_sources_bind_executable_handlers() 
     }));
     let interaction_catalog = compiled.occurrence_interaction_runtime();
     assert_eq!(interaction_catalog.choice_count(), 321);
-    assert_eq!(interaction_catalog.immediate_operation_count(), 284);
-    assert_eq!(interaction_catalog.deferred_operation_count(), 186);
+    assert_eq!(interaction_catalog.immediate_operation_count(), 283);
+    assert_eq!(interaction_catalog.deferred_operation_count(), 187);
     assert!(catalog.occurrence_choices().iter().any(|choice| {
         let outcome = &choice.outcomes()[0];
         outcome.operations().contains(&OccurrenceOperation::Obtain)
@@ -381,6 +383,98 @@ fn occurrence_choice_commits_inventory_rng_and_graph_transition_atomically() {
     assert_eq!(after_draws, before_draws + 1);
 }
 
+#[test]
+fn occurrence_curio_acquisition_initializes_lifecycle_in_the_same_transaction() {
+    let catalog = catalog();
+    let world = &catalog.worlds()[0];
+    let compiled = StandardUniverseProfile::new(Arc::clone(&catalog))
+        .compile(StandardUniverseEntry::new(
+            world.id(),
+            world.difficulties()[0],
+            participants(),
+            vec![],
+        ))
+        .unwrap();
+    let choice = catalog
+        .occurrence_choices()
+        .iter()
+        .find(|choice| choice.stable_key() == "universe.occurrence.39.variant.12201.choice.06")
+        .expect("Curio acquisition choice");
+    let interaction = compiled
+        .occurrence_interaction_runtime()
+        .compile_choice(choice.id())
+        .expect("compiled Curio choice");
+    let outcome = ActivityExternalOutcomeId::new(99_002).unwrap();
+    let mut binding = ActivityInteractionBinding::new(
+        node(1),
+        outcome,
+        starclock_activity::ActivityHandlerId::new(OCCURRENCE_INTERACTION_HANDLER_ID).unwrap(),
+        interaction.payload().to_vec(),
+        "standard-universe.occurrence-choice.v2",
+    )
+    .unwrap();
+    binding = binding.with_random_policy(
+        ActivityInteractionRandomPolicy::new(
+            ActivityRngLabel::Occurrence,
+            91,
+            interaction.random_candidate_count().unwrap(),
+        )
+        .unwrap(),
+    );
+    let registry = compiled
+        .runtime_definition()
+        .interactions()
+        .unwrap()
+        .registry();
+    let mut activity = occurrence_harness(&compiled, &binding, registry);
+    let before = activity.player_view();
+    activity
+        .submit_external_outcome(
+            before.state_hash(),
+            before.decision().unwrap().id(),
+            outcome,
+        )
+        .expect("atomic Curio acquisition");
+
+    let player = activity.player_view();
+    let inventory = player
+        .inventories()
+        .iter()
+        .find(|value| value.id() == compiled.curio_inventory())
+        .unwrap();
+    let state = player
+        .slots()
+        .iter()
+        .find(|value| value.id() == compiled.curio_state_slot())
+        .unwrap();
+    let charges = player
+        .slots()
+        .iter()
+        .find(|value| value.id() == compiled.curio_charge_slot())
+        .unwrap();
+    assert_eq!(
+        compiled
+            .curio_runtime()
+            .contributions(inventory, state, charges)
+            .expect("valid lifecycle")
+            .entries()
+            .len(),
+        1
+    );
+    assert!(
+        activity
+            .debug_view()
+            .all_slots()
+            .iter()
+            .find(|value| value.id() == compiled.curio_event_slot())
+            .is_some_and(|slot| matches!(
+                slot.value(),
+                ActivityValue::BoundedCounterMap(entries)
+                    if entries.iter().any(|(_, count)| *count == 1)
+            ))
+    );
+}
+
 fn occurrence_harness(
     compiled: &starclock_mode_universe::entry::CompiledActivity,
     source: &ActivityInteractionBinding,
@@ -435,13 +529,36 @@ fn occurrence_harness(
         )
         .unwrap(),
     );
-    let blessing = *compiled
-        .state_definition()
-        .inventories()
-        .iter()
-        .find(|inventory| inventory.id() == compiled.blessing_inventory())
-        .unwrap();
-    let state = ActivityStateDefinition::new(vec![], vec![blessing], vec![]).unwrap();
+    let required_slots = [
+        compiled.cosmic_fragments_slot(),
+        compiled.occurrence_effect_slot(),
+        compiled.curio_state_slot(),
+        compiled.curio_charge_slot(),
+        compiled.curio_event_slot(),
+    ];
+    let state = ActivityStateDefinition::new(
+        compiled
+            .state_definition()
+            .slots()
+            .iter()
+            .filter(|slot| required_slots.contains(&slot.id()))
+            .cloned()
+            .collect(),
+        compiled
+            .state_definition()
+            .inventories()
+            .iter()
+            .filter(|inventory| {
+                matches!(
+                    inventory.id(),
+                    id if id == compiled.blessing_inventory() || id == compiled.curio_inventory()
+                )
+            })
+            .copied()
+            .collect(),
+        vec![],
+    )
+    .unwrap();
     let mut binding = ActivityInteractionBinding::new(
         node(1),
         source.offered_outcome(),

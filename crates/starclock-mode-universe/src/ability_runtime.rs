@@ -1,5 +1,9 @@
 //! Closed, deterministic execution model for Standard Universe Ability Tree effects.
 
+use starclock_activity::{
+    ActivityExpression, ActivityOperation, ActivitySlotId, ActivityValue as ActivityStateValue,
+};
+
 use crate::{
     catalog::UniverseCatalog,
     digest::Encoder,
@@ -104,6 +108,36 @@ pub enum AbilityTarget {
 }
 
 impl AbilityTarget {
+    const ALL: [Self; 22] = [
+        Self::RunPathSelection,
+        Self::BattlePathResonance,
+        Self::PartyAttackFlat,
+        Self::PartyDefenseFlat,
+        Self::PartyMaximumHpFlat,
+        Self::RunPathResonance,
+        Self::PathResonanceDamageRatio,
+        Self::ServiceReviver,
+        Self::ServiceReviverRestoredHpRatio,
+        Self::BlessingChoiceResetCount,
+        Self::EnhancedTrailblazeBonus,
+        Self::InitialCosmicFragments,
+        Self::FirstBattleBlessingCount,
+        Self::PartyCritRateRatio,
+        Self::PathResonanceInitialEnergy,
+        Self::PartySpeedRatio,
+        Self::PartyInitialEnergy,
+        Self::PartyEnergy,
+        Self::PartyCritDamageRatio,
+        Self::PartyDamageTakenReductionRatio,
+        Self::PartyEffectHitRateRatio,
+        Self::RunConsumableUse,
+    ];
+
+    #[must_use]
+    pub const fn activity_key(self) -> u64 {
+        self as u64 + 1
+    }
+
     fn parse(value: &str) -> Option<Self> {
         Some(match value {
             "run.path_selection" => Self::RunPathSelection,
@@ -366,6 +400,26 @@ pub struct AbilityRuntimeProjection {
     digest: [u8; 32],
 }
 
+/// One projection plus the ordinary Activity operations that replace the
+/// authoritative values for its scope at a declared boundary.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct AbilityActivityProjection {
+    projection: AbilityRuntimeProjection,
+    operations: Box<[ActivityOperation]>,
+}
+
+impl AbilityActivityProjection {
+    #[must_use]
+    pub const fn projection(&self) -> &AbilityRuntimeProjection {
+        &self.projection
+    }
+
+    #[must_use]
+    pub fn operations(&self) -> &[ActivityOperation] {
+        &self.operations
+    }
+}
+
 impl AbilityRuntimeProjection {
     #[must_use]
     pub const fn context(&self) -> AbilityExecutionContext {
@@ -486,6 +540,40 @@ impl AbilityRuntimeCatalog {
             values: values.into_boxed_slice(),
             applied: applied.into_boxed_slice(),
             digest,
+        })
+    }
+
+    pub fn project_activity_operations(
+        &self,
+        selected: &[AbilityTreeNodeId],
+        context: AbilityExecutionContext,
+        slot: ActivitySlotId,
+    ) -> Result<AbilityActivityProjection, AbilityRuntimeError> {
+        let projection = self.project(selected, context)?;
+        let operations = AbilityTarget::ALL
+            .into_iter()
+            .filter(|target| target.scope() == context.scope())
+            .map(|target| {
+                let value = projection.value(target).unwrap_or(AbilityValue::ZERO);
+                ActivityOperation::AddCounter {
+                    slot,
+                    key: target.activity_key(),
+                    delta: ActivityExpression::Subtract(
+                        Box::new(ActivityExpression::Literal(
+                            ActivityStateValue::BoundedInteger(value.raw_six_decimal()),
+                        )),
+                        Box::new(ActivityExpression::CounterValue {
+                            slot,
+                            key: target.activity_key(),
+                        }),
+                    ),
+                }
+            })
+            .collect::<Vec<_>>()
+            .into_boxed_slice();
+        Ok(AbilityActivityProjection {
+            projection,
+            operations,
         })
     }
 }

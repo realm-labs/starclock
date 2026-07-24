@@ -72,7 +72,7 @@ fn all_service_families_compile_to_concrete_checked_payloads() {
     let runtime = compiled.service_interaction_runtime();
     assert_eq!(
         SERVICE_INTERACTION_RUNTIME_REVISION,
-        "standard-universe-service-interaction-runtime-v1"
+        "standard-universe-service-interaction-runtime-v2"
     );
     assert_eq!(runtime.service_count(), 94);
     assert_ne!(runtime.digest(), [0; 32]);
@@ -265,6 +265,86 @@ fn unaffordable_service_preserves_state_and_does_not_consume_the_offer() {
     );
 }
 
+#[test]
+fn curio_purchase_initializes_lifecycle_charge_and_boundary_event_atomically() {
+    let compiled = compiled();
+    let definition = compiled
+        .curio_runtime()
+        .definitions()
+        .iter()
+        .find(|definition| {
+            definition
+                .states()
+                .iter()
+                .find(|state| state.id() == definition.initial_state())
+                .is_some_and(|state| state.maximum_charges().is_some())
+        })
+        .expect("charged Curio fixture");
+    let shop = service("universe.service.shop.100021");
+    let interaction = compiled
+        .service_interaction_runtime()
+        .compile_selection(
+            shop,
+            &ServiceInteractionSelection::ShopPurchase {
+                content: ServicePurchaseContent::Curio(definition.curio()),
+                cost: 120,
+                offer_digest: [0x6a; 32],
+            },
+        )
+        .expect("concrete Curio purchase");
+    let outcome = ActivityExternalOutcomeId::new(90_033).unwrap();
+    let mut activity = harness(
+        &compiled,
+        outcome,
+        interaction.payload(),
+        interaction.random_candidate_count(),
+        200,
+    );
+    let before = activity.player_view();
+    activity
+        .submit_external_outcome(
+            before.state_hash(),
+            before.decision().unwrap().id(),
+            outcome,
+        )
+        .expect("atomic Curio purchase");
+
+    let player = activity.player_view();
+    let inventory = player
+        .inventories()
+        .iter()
+        .find(|value| value.id() == compiled.curio_inventory())
+        .unwrap();
+    let state = player
+        .slots()
+        .iter()
+        .find(|value| value.id() == compiled.curio_state_slot())
+        .unwrap();
+    let charges = player
+        .slots()
+        .iter()
+        .find(|value| value.id() == compiled.curio_charge_slot())
+        .unwrap();
+    let contributions = compiled
+        .curio_runtime()
+        .contributions(inventory, state, charges)
+        .expect("lifecycle-complete Curio contribution");
+    assert_eq!(contributions.entries().len(), 1);
+    assert_eq!(contributions.entries()[0].curio(), definition.curio());
+    assert!(
+        activity
+            .debug_view()
+            .all_slots()
+            .iter()
+            .find(|value| value.id() == compiled.curio_event_slot())
+            .is_some_and(|slot| matches!(
+                slot.value(),
+                ActivityValue::BoundedCounterMap(entries)
+                    if entries.iter().any(|(_, count)| *count == 1)
+            ))
+    );
+}
+
 fn harness(
     compiled: &CompiledActivity,
     outcome: ActivityExternalOutcomeId,
@@ -331,6 +411,27 @@ fn harness(
                 ActivityStateVisibility::Private,
                 0x7003,
             ),
+            compiled
+                .state_definition()
+                .slots()
+                .iter()
+                .find(|value| value.id() == compiled.curio_state_slot())
+                .unwrap()
+                .clone(),
+            compiled
+                .state_definition()
+                .slots()
+                .iter()
+                .find(|value| value.id() == compiled.curio_charge_slot())
+                .unwrap()
+                .clone(),
+            compiled
+                .state_definition()
+                .slots()
+                .iter()
+                .find(|value| value.id() == compiled.curio_event_slot())
+                .unwrap()
+                .clone(),
         ],
         vec![
             *compiled

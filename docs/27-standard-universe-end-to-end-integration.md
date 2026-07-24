@@ -129,8 +129,10 @@ is immutable, digest-bearing and separate from the older effect-plan view.
 Each payload lowers:
 
 - Cosmic Fragment changes to checked integer or percentage operations;
-- Blessing and Curio obtain, enhance, consume, discard and lose operations to
-  bounded inventory mutations;
+- Blessing obtain, enhance, consume, discard and lose operations to bounded
+  inventory mutations;
+- Curio obtain and removal through the complete lifecycle tuple described
+  below;
 - authored ownership/currency costs to transaction requirements;
 - `StableUniformOrderedCandidates` to one labeled `Occurrence` RNG draw;
 - battle, participant-HP and special-state effects that cannot yet mutate an
@@ -138,8 +140,10 @@ Each payload lowers:
   battle/carry compiler consumes this state; it is never acknowledged by an
   empty handler.
 
-The frozen partition currently produces 284 immediate checked operations and
-186 deferred effect atoms. Deferred atoms are explicit boundary data, not a
+The frozen partition currently produces 283 immediate checked operations and
+187 deferred effect atoms. Curio enhancement is intentionally deferred instead
+of being misrepresented as acquisition of a second Curio. Deferred atoms are
+explicit boundary data, not a
 claim that the combat/carry effect has already resolved.
 
 When frozen authored data omits a scalar amount, the revision-1 lowering uses
@@ -184,13 +188,51 @@ and applies debit, inventory grant and use count in the same transaction. It
 must never invent a price from a missing row or accept an arbitrary zero-cost
 purchase.
 
-Revision 1 exposes only options whose preconditions can be represented exactly
+Revision 2 exposes only options whose preconditions can be represented exactly
 by the current Activity condition vocabulary. Random two-Blessing enhancement
 and revival are executable concrete selections, but their production offer
 generators must wait for inventory-cardinality and participant-life predicates
 respectively. Downloader and shop opening record explicit deferred state for
 the roster/offer consumer; recording that state is not a claim that the
 roster or purchase already changed.
+
+### Curio lifecycle and boundary effects
+
+Activity ownership of one Curio is not represented by inventory membership
+alone. It is the validated tuple:
+
+```text
+(inventory membership, active state, remaining charges, pending lifecycle events)
+```
+
+The immutable Curio Activity catalog freezes this tuple's initial state and
+charge count for all 61 Curios. Occurrence and service acquisition initialize
+the complete tuple and record `Acquired` in the private Curio event slot in the
+same transaction as payment and graph progression. Removal/discard/lose
+operations remove inventory ownership and clear state and charges atomically.
+An orphan inventory row is invalid input to contribution compilation.
+
+`CurioActivityProjection` consumes exactly one recorded lifecycle event and
+returns ordinary checked `ActivityOperation` values. Run-owned Fragment grants
+and losses execute immediately. RNG-dependent, participant-carry, combat and
+later-lifecycle effects become bounded source-keyed deferred atoms in the same
+transaction; P3 owns their battle/carry consumers. Recording a deferred atom
+does not claim that its effect has occurred.
+
+### Ability Tree boundary projection
+
+All 42 Ability Tree nodes and 50 normalized effects retain the Goal 04 typed
+executor. At each declared Run or Battle boundary, the executor now also
+projects every resolved target into ordinary Activity counter operations.
+Each operation replaces the previous projected value by applying the checked
+difference, so repeated boundary evaluation cannot silently stack the same
+contribution.
+
+The selected RunStart projection is materialized in private Activity state
+during entry compilation. BattleStart, elite/boss entry and post-battle
+projections use the same operation form and remain explicit boundary inputs for
+the P3 combat-contribution and carry compilers. No Ability Tree row type or
+numeric backend becomes part of the public battle API.
 
 ## Domain logical scope
 

@@ -8,24 +8,28 @@ use starclock_activity::{
 
 use crate::{
     catalog::UniverseCatalog,
+    curio_activity::{
+        CurioActivityBindings, CurioActivityRecord, acquisition_operations, teardown_operations,
+    },
     digest::Encoder,
-    id::OccurrenceChoiceId,
+    id::{CurioId, CurioStateId, OccurrenceChoiceId},
     occurrence::{
         AuthoredScalar, AuthoredScalarUnit, OccurrenceChoiceDefinition, OccurrenceOperation,
         OccurrenceOutcome, OccurrenceTarget, RandomOutcomePolicy,
     },
 };
 
-pub(crate) const OCCURRENCE_INTERACTION_HANDLER_ID: u32 = 2;
+pub const OCCURRENCE_INTERACTION_HANDLER_ID: u32 = 2;
 pub const OCCURRENCE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-occurrence-interaction-runtime-v1";
-const PAYLOAD_REVISION: u8 = 1;
+    "standard-universe-occurrence-interaction-runtime-v2";
+const PAYLOAD_REVISION: u8 = 2;
 const TAG_FRAGMENT_SCALAR: u8 = 1;
 const TAG_FRAGMENT_PERCENT: u8 = 2;
 const TAG_INVENTORY: u8 = 3;
 const TAG_REQUIRE_INVENTORY: u8 = 4;
 const TAG_DEFERRED_EFFECT: u8 = 5;
 const TAG_REQUIRE_FRAGMENT: u8 = 6;
+const TAG_CURIO_INVENTORY: u8 = 7;
 const MAX_PAYLOAD_OPERATIONS: usize = 128;
 const DEFERRED_EFFECT_KEY_BASE: u64 = 1 << 63;
 
@@ -51,7 +55,8 @@ impl OccurrenceInteractionRuntimeCatalog {
         catalog: &UniverseCatalog,
         cosmic_fragments: ActivitySlotId,
         blessing_inventory: ActivityInventoryId,
-        curio_inventory: ActivityInventoryId,
+        curio_records: &[CurioActivityRecord],
+        curio_bindings: CurioActivityBindings,
         deferred_effects: ActivitySlotId,
     ) -> Result<Self, OccurrenceInteractionError> {
         let mut programs = catalog
@@ -63,7 +68,8 @@ impl OccurrenceInteractionRuntimeCatalog {
                     catalog,
                     cosmic_fragments,
                     blessing_inventory,
-                    curio_inventory,
+                    curio_records,
+                    curio_bindings,
                     deferred_effects,
                 )
                 .map(|compiled| CompiledOccurrenceProgram {
@@ -119,7 +125,7 @@ impl OccurrenceInteractionRuntimeCatalog {
         self.digest
     }
 
-    pub(crate) fn compiled(
+    pub fn compile_choice(
         &self,
         choice: OccurrenceChoiceId,
     ) -> Option<CompiledOccurrenceInteraction> {
@@ -136,11 +142,33 @@ impl OccurrenceInteractionRuntimeCatalog {
     }
 }
 
-pub(crate) struct CompiledOccurrenceInteraction {
-    pub(crate) payload: Vec<u8>,
-    pub(crate) random_candidate_count: Option<u32>,
-    pub(crate) immediate_operations: u16,
-    pub(crate) deferred_operations: u16,
+pub struct CompiledOccurrenceInteraction {
+    payload: Vec<u8>,
+    random_candidate_count: Option<u32>,
+    immediate_operations: u16,
+    deferred_operations: u16,
+}
+
+impl CompiledOccurrenceInteraction {
+    #[must_use]
+    pub fn payload(&self) -> &[u8] {
+        &self.payload
+    }
+
+    #[must_use]
+    pub const fn random_candidate_count(&self) -> Option<u32> {
+        self.random_candidate_count
+    }
+
+    #[must_use]
+    pub const fn immediate_operations(&self) -> u16 {
+        self.immediate_operations
+    }
+
+    #[must_use]
+    pub const fn deferred_operations(&self) -> u16 {
+        self.deferred_operations
+    }
 }
 
 pub(crate) fn compile(
@@ -148,7 +176,8 @@ pub(crate) fn compile(
     catalog: &UniverseCatalog,
     cosmic_fragments: ActivitySlotId,
     blessing_inventory: ActivityInventoryId,
-    curio_inventory: ActivityInventoryId,
+    curio_records: &[CurioActivityRecord],
+    curio_bindings: CurioActivityBindings,
     deferred_effects: ActivitySlotId,
 ) -> Result<CompiledOccurrenceInteraction, OccurrenceInteractionError> {
     let blessing_ids = catalog
@@ -156,8 +185,7 @@ pub(crate) fn compile(
         .iter()
         .map(|value| u64::from(value.id().get()))
         .collect::<Vec<_>>();
-    let curio_ids = catalog
-        .curios()
+    let curio_ids = curio_records
         .iter()
         .map(|value| u64::from(value.id().get()))
         .collect::<Vec<_>>();
@@ -171,7 +199,7 @@ pub(crate) fn compile(
         choice,
         cosmic_fragments,
         blessing_inventory,
-        curio_inventory,
+        curio_bindings.inventory,
         &blessing_ids,
         &curio_ids,
     )?;
@@ -181,10 +209,10 @@ pub(crate) fn compile(
         choice.id(),
         cosmic_fragments,
         blessing_inventory,
-        curio_inventory,
+        curio_bindings,
         deferred_effects,
         &blessing_ids,
-        &curio_ids,
+        curio_records,
     )?;
     if operations.len() > MAX_PAYLOAD_OPERATIONS {
         return Err(OccurrenceInteractionError::TooManyOperations);
@@ -195,6 +223,9 @@ pub(crate) fn compile(
                 .iter()
                 .filter_map(|operation| match operation {
                     PayloadOperation::Inventory { candidates, .. } => {
+                        u32::try_from(candidates.len()).ok()
+                    }
+                    PayloadOperation::CurioInventory { candidates, .. } => {
                         u32::try_from(candidates.len()).ok()
                     }
                     _ => None,
@@ -258,6 +289,9 @@ pub(crate) fn execute(
                 let slot = slot(decoder.u32()?)?;
                 let amount = decoder.u64()?;
                 operations.push(require_at_least(slot, amount)?);
+            }
+            TAG_CURIO_INVENTORY => {
+                decode_curio_inventory(input, &mut decoder, &mut operations)?;
             }
             _ => return Err(invalid_payload()),
         }
@@ -385,6 +419,66 @@ fn decode_inventory_requirement(
     Ok(())
 }
 
+fn decode_curio_inventory(
+    input: ActivityHandlerInput<'_>,
+    decoder: &mut Decoder<'_>,
+    operations: &mut Vec<ActivityOperation>,
+) -> Result<(), ActivityHandlerFault> {
+    let bindings = CurioActivityBindings {
+        inventory: inventory(decoder.u32()?)?,
+        state_slot: slot(decoder.u32()?)?,
+        charge_slot: slot(decoder.u32()?)?,
+        event_slot: slot(decoder.u32()?)?,
+    };
+    let delta = decoder.i8()?;
+    let quantity = usize::from(decoder.u16()?);
+    let owned_only = decoder.u8()? != 0;
+    let count = usize::from(decoder.u16()?);
+    if delta == 0 || quantity == 0 || count == 0 {
+        return Err(invalid_payload());
+    }
+    let mut records = Vec::with_capacity(count);
+    for _ in 0..count {
+        records.push(CurioActivityRecord::new(
+            CurioId::new(decoder.u32()?).ok_or_else(invalid_payload)?,
+            CurioStateId::new(decoder.u32()?).ok_or_else(invalid_payload)?,
+            decoder.u8()?,
+        ));
+    }
+    if records.windows(2).any(|pair| pair[0].id() >= pair[1].id()) {
+        return Err(invalid_payload());
+    }
+    let candidates = records
+        .iter()
+        .map(|record| u64::from(record.id().get()))
+        .collect::<Vec<_>>();
+    let selected = select_candidates(
+        input,
+        bindings.inventory,
+        &candidates,
+        owned_only,
+        input.random_index(),
+        quantity,
+    )?;
+    for content in selected {
+        let id = u32::try_from(content)
+            .ok()
+            .and_then(CurioId::new)
+            .ok_or_else(invalid_payload)?;
+        if delta > 0 {
+            let record = records
+                .binary_search_by_key(&id, |record| record.id())
+                .ok()
+                .map(|index| records[index])
+                .ok_or_else(invalid_payload)?;
+            operations.extend(acquisition_operations(record, bindings));
+        } else {
+            operations.extend(teardown_operations(id, bindings));
+        }
+    }
+    Ok(())
+}
+
 fn decode_deferred_effect(
     decoder: &mut Decoder<'_>,
     operations: &mut Vec<ActivityOperation>,
@@ -416,6 +510,13 @@ enum PayloadOperation {
         quantity: u16,
         owned_only: bool,
         candidates: Vec<u64>,
+    },
+    CurioInventory {
+        bindings: CurioActivityBindings,
+        delta: i8,
+        quantity: u16,
+        owned_only: bool,
+        candidates: Vec<CurioActivityRecord>,
     },
     RequireInventory {
         inventory: ActivityInventoryId,
@@ -491,6 +592,32 @@ impl PayloadOperation {
                     output.extend_from_slice(&candidate.to_le_bytes());
                 }
             }
+            Self::CurioInventory {
+                bindings,
+                delta,
+                quantity,
+                owned_only,
+                candidates,
+            } => {
+                output.push(TAG_CURIO_INVENTORY);
+                output.extend_from_slice(&bindings.inventory.get().to_le_bytes());
+                output.extend_from_slice(&bindings.state_slot.get().to_le_bytes());
+                output.extend_from_slice(&bindings.charge_slot.get().to_le_bytes());
+                output.extend_from_slice(&bindings.event_slot.get().to_le_bytes());
+                output.push(delta as u8);
+                output.extend_from_slice(&quantity.to_le_bytes());
+                output.push(u8::from(owned_only));
+                output.extend_from_slice(
+                    &u16::try_from(candidates.len())
+                        .map_err(|_| OccurrenceInteractionError::TooManyCandidates)?
+                        .to_le_bytes(),
+                );
+                for candidate in candidates {
+                    output.extend_from_slice(&candidate.id().get().to_le_bytes());
+                    output.extend_from_slice(&candidate.initial_state().get().to_le_bytes());
+                    output.push(candidate.initial_charges());
+                }
+            }
             Self::DeferredEffect { slot, key } => {
                 output.push(TAG_DEFERRED_EFFECT);
                 output.extend_from_slice(&slot.get().to_le_bytes());
@@ -519,10 +646,10 @@ fn lower_pairs(
     choice: OccurrenceChoiceId,
     cosmic_fragments: ActivitySlotId,
     blessing_inventory: ActivityInventoryId,
-    curio_inventory: ActivityInventoryId,
+    curio_bindings: CurioActivityBindings,
     deferred_effects: ActivitySlotId,
     blessing_ids: &[u64],
-    curio_ids: &[u64],
+    curio_records: &[CurioActivityRecord],
 ) -> Result<(), OccurrenceInteractionError> {
     for (index, (operation, target, scalar)) in pairs.into_iter().enumerate() {
         let sign = operation_sign(operation);
@@ -566,20 +693,22 @@ fn lower_pairs(
                     candidates: blessing_ids.to_vec(),
                 });
             }
-            Some(OccurrenceTarget::Curio) if sign != 0 => {
+            Some(OccurrenceTarget::Curio)
+                if sign != 0 && operation != OccurrenceOperation::Enhance =>
+            {
                 let count = scalar
                     .filter(|value| value.unit() == AuthoredScalarUnit::Scalar)
                     .map(exact_integer)
                     .transpose()?
                     .unwrap_or(1)
                     .max(1);
-                output.push(PayloadOperation::Inventory {
-                    inventory: curio_inventory,
+                output.push(PayloadOperation::CurioInventory {
+                    bindings: curio_bindings,
                     delta: sign,
                     quantity: u16::try_from(count)
                         .map_err(|_| OccurrenceInteractionError::Arithmetic)?,
                     owned_only: sign < 0,
-                    candidates: curio_ids.to_vec(),
+                    candidates: curio_records.to_vec(),
                 });
             }
             _ => output.push(PayloadOperation::DeferredEffect {
