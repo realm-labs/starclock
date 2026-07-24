@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 2 — Dynamic per-battle assembly |
 | Active batch | None |
-| Next unblocked batch | `G06-P2-B4` |
+| Next unblocked batch | `G06-P2-B5` |
 | Required snapshot | Goal 05 `standard-universe-end-to-end-v1` |
 | Planned batches | 18 |
 | Blocking condition | None |
@@ -20,9 +20,11 @@ source slot without breaking replay-v2 verification. P2-B1 split the released
 encounter/enemy catalog composition from selected contribution assembly and
 added a bounded, non-authoritative exact-key cache. P2-B2 now projects one
 typed immutable snapshot of all current battle contributions and participant
-carry. P2-B3 now resolves the selected encounter from that snapshot and
-atomically replaces/seals the prepared placeholder. P2-B4 will harden cache,
-stale, failure and retry behavior.
+carry. P2-B3 resolves the selected encounter from that snapshot and atomically
+replaces/seals the prepared placeholder. P2-B4 now bounds assembly work and
+proves exact state/RNG preservation across stale, invalid, budget and cache
+failure paths. P2-B5 will prove that inventory and carry transitions change
+real successive battles.
 
 ## Batch ledger
 
@@ -38,7 +40,7 @@ stale, failure and retry behavior.
 | `G06-P2-B1` | `Complete` | `node tools/goal06/verify-phase2-b1.mjs`; battle-materialization tests; workspace check; focused Clippy; quick repository gate | Added a once-built immutable encounter/enemy catalog composition, a canonical six-field `BattleAssemblyKey`, and a default-64 deterministic FIFO cache whose entries validate their exact key. Production factory construction now reuses the composition, while cache clear/eviction remain outside authoritative state and preserve battle identities. |
 | `G06-P2-B2` | `Complete` | `node tools/goal06/verify-phase2-b2.mjs`; Activity and encounter-runtime tests; workspace check; focused Clippy; quick repository gate | Added `StandardUniverseBattleSnapshot` with typed Path, Blessing, Resonance/Formation, Curio lifecycle, Ability Tree projection, final contributions and ordered carry. `battle_start_snapshot()` derives context from current Activity, binds the source state hash, and rejects mismatched explicit contexts; provenance-only changes alter the snapshot without fabricating combat changes. |
 | `G06-P2-B3` | `Complete` | `node tools/goal06/verify-phase2-b3.mjs`; Activity, materialization and dynamic-start tests; workspace check; focused Clippy; quick repository gate | Added the shared `StandardUniverseBattleAssembler`, snapshot/carry-aware materialization and an atomic generic Activity replacement/start operation. The returned handoff is paired with its exact immutable combat catalog; encounter, preparation variant, dual identities, contract and seed are sealed together without RNG draws or partial Activity publication. |
-| `G06-P2-B4` | `Pending` | — | Prove cache invalidation, rollback and retry. |
+| `G06-P2-B4` | `Complete` | `node tools/goal06/verify-phase2-b4.mjs`; dynamic assembly integration tests; focused Clippy; quick repository gate | Added explicit assembly budgets and configurable bounded cache policy. Integrated fixtures prove exact-key hits and FIFO eviction, reject stale snapshots, unregistered techniques and budget overflow before publication, preserve canonical Activity/RNG bytes, and successfully retry the same pending battle. |
 | `G06-P2-B5` | `Pending` | — | Prove acquire/upgrade/remove effects in real battles. |
 | `G06-P3-B1` | `Pending` | — | Migrate CLI and baseline runs. |
 | `G06-P3-B2` | `Pending` | — | Migrate Agent and MCP surfaces. |

@@ -1,6 +1,9 @@
 //! Atomic current-Activity assembly for one prepared Standard Universe battle.
 
-use std::sync::{Arc, Mutex};
+use std::{
+    num::NonZeroUsize,
+    sync::{Arc, Mutex},
+};
 
 use starclock_activity::{ActivityBattleHandoff, BattleBinding};
 use starclock_combat::catalog::CombatCatalog;
@@ -22,6 +25,47 @@ use crate::{
         StandardUniverseBattleStartError,
     },
 };
+
+pub const DEFAULT_MAXIMUM_ASSEMBLY_RULE_BINDINGS: usize = 1_024;
+pub const DEFAULT_MAXIMUM_ASSEMBLY_MODIFIERS: usize = 64;
+pub const DEFAULT_MAXIMUM_ASSEMBLY_CARRY_ENTRIES: usize = 8;
+pub const DEFAULT_MAXIMUM_ASSEMBLY_ENCOUNTERS: usize = 512;
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct BattleAssemblyBudget {
+    maximum_rule_bindings: usize,
+    maximum_modifiers: usize,
+    maximum_carry_entries: usize,
+    maximum_encounters: usize,
+}
+
+impl Default for BattleAssemblyBudget {
+    fn default() -> Self {
+        Self {
+            maximum_rule_bindings: DEFAULT_MAXIMUM_ASSEMBLY_RULE_BINDINGS,
+            maximum_modifiers: DEFAULT_MAXIMUM_ASSEMBLY_MODIFIERS,
+            maximum_carry_entries: DEFAULT_MAXIMUM_ASSEMBLY_CARRY_ENTRIES,
+            maximum_encounters: DEFAULT_MAXIMUM_ASSEMBLY_ENCOUNTERS,
+        }
+    }
+}
+
+impl BattleAssemblyBudget {
+    #[must_use]
+    pub const fn new(
+        maximum_rule_bindings: usize,
+        maximum_modifiers: usize,
+        maximum_carry_entries: usize,
+        maximum_encounters: usize,
+    ) -> Self {
+        Self {
+            maximum_rule_bindings,
+            maximum_modifiers,
+            maximum_carry_entries,
+            maximum_encounters,
+        }
+    }
+}
 
 pub struct StandardUniverseDynamicBattleStart {
     handoff: ActivityBattleHandoff,
@@ -53,11 +97,33 @@ impl StandardUniverseDynamicBattleStart {
     }
 }
 
+pub struct StandardUniverseResolvedAssembly {
+    materialization: Arc<UniverseBattleMaterialization>,
+    assembly_key: BattleAssemblyKey,
+    cache_hit: bool,
+}
+
+impl StandardUniverseResolvedAssembly {
+    #[must_use]
+    pub const fn materialization(&self) -> &Arc<UniverseBattleMaterialization> {
+        &self.materialization
+    }
+    #[must_use]
+    pub const fn assembly_key(&self) -> BattleAssemblyKey {
+        self.assembly_key
+    }
+    #[must_use]
+    pub const fn cache_hit(&self) -> bool {
+        self.cache_hit
+    }
+}
+
 pub struct StandardUniverseBattleAssembler {
     catalog: Arc<UniverseCatalog>,
     composition: Arc<UniverseBattleCatalogComposition>,
     roster: UniverseBattleRoster,
     template: Arc<UniverseBattleMaterialization>,
+    budget: BattleAssemblyBudget,
     cache: Mutex<BattleAssemblyCache>,
 }
 
@@ -68,12 +134,31 @@ impl StandardUniverseBattleAssembler {
         roster: UniverseBattleRoster,
         template: Arc<UniverseBattleMaterialization>,
     ) -> Result<Self, StandardUniverseDynamicBattleError> {
+        Self::new_with_policy(
+            catalog,
+            composition,
+            roster,
+            template,
+            NonZeroUsize::new(crate::battle_assembly::DEFAULT_BATTLE_ASSEMBLY_CACHE_CAPACITY)
+                .expect("default cache capacity is non-zero"),
+            BattleAssemblyBudget::default(),
+        )
+    }
+
+    pub fn new_with_policy(
+        catalog: Arc<UniverseCatalog>,
+        composition: Arc<UniverseBattleCatalogComposition>,
+        roster: UniverseBattleRoster,
+        template: Arc<UniverseBattleMaterialization>,
+        cache_capacity: NonZeroUsize,
+        budget: BattleAssemblyBudget,
+    ) -> Result<Self, StandardUniverseDynamicBattleError> {
         if roster.participant_lock() != template.assembly_key().participant_lock()
             || composition.digest() != template.assembly_key().catalog_composition()
         {
             return Err(StandardUniverseDynamicBattleError::TemplateMismatch);
         }
-        let mut cache = BattleAssemblyCache::default();
+        let mut cache = BattleAssemblyCache::new(cache_capacity);
         cache
             .insert(template.assembly_key(), Arc::clone(&template))
             .map_err(StandardUniverseDynamicBattleError::Cache)?;
@@ -82,13 +167,43 @@ impl StandardUniverseBattleAssembler {
             composition,
             roster,
             template,
+            budget,
             cache: Mutex::new(cache),
         })
+    }
+
+    pub fn fork_with_policy(
+        &self,
+        cache_capacity: NonZeroUsize,
+        budget: BattleAssemblyBudget,
+    ) -> Result<Self, StandardUniverseDynamicBattleError> {
+        Self::new_with_policy(
+            Arc::clone(&self.catalog),
+            Arc::clone(&self.composition),
+            self.roster.clone(),
+            Arc::clone(&self.template),
+            cache_capacity,
+            budget,
+        )
     }
 
     pub fn start_pending_battle(
         &self,
         activity: &mut StandardUniverseActivity,
+    ) -> Result<StandardUniverseDynamicBattleStart, StandardUniverseDynamicBattleError> {
+        if activity.view().pending_battle().is_none() {
+            return Err(StandardUniverseDynamicBattleError::MissingPendingBattle);
+        }
+        let snapshot = activity
+            .battle_start_snapshot()
+            .map_err(StandardUniverseDynamicBattleError::Snapshot)?;
+        self.start_pending_battle_from_snapshot(activity, snapshot)
+    }
+
+    pub fn start_pending_battle_from_snapshot(
+        &self,
+        activity: &mut StandardUniverseActivity,
+        snapshot: crate::battle_snapshot::StandardUniverseBattleSnapshot,
     ) -> Result<StandardUniverseDynamicBattleStart, StandardUniverseDynamicBattleError> {
         let view = activity.view();
         let expected_state_hash = view.state_hash();
@@ -103,21 +218,11 @@ impl StandardUniverseBattleAssembler {
         let member = template_binding.member();
         let selected_technique =
             selected_technique(pending.techniques(), self.template.techniques())?;
-        let snapshot = activity
-            .battle_start_snapshot()
-            .map_err(StandardUniverseDynamicBattleError::Snapshot)?;
         if snapshot.source_state_hash() != expected_state_hash {
             return Err(StandardUniverseDynamicBattleError::StaleSnapshot);
         }
-        let key = UniverseBattleMaterializer
-            .snapshot_assembly_key(
-                &self.composition,
-                &self.roster,
-                &snapshot,
-                selected_technique,
-            )
-            .map_err(StandardUniverseDynamicBattleError::Materialization)?;
-        let (materialization, cache_hit) = self.resolve(key, &snapshot, selected_technique)?;
+        let resolved = self.resolve_snapshot(&snapshot, selected_technique)?;
+        let materialization = resolved.materialization();
         let binding = materialization
             .overlay()
             .binding(member)
@@ -141,6 +246,26 @@ impl StandardUniverseBattleAssembler {
         Ok(StandardUniverseDynamicBattleStart {
             handoff,
             combat_catalog: Arc::clone(materialization.combat_catalog()),
+            assembly_key: resolved.assembly_key(),
+            cache_hit: resolved.cache_hit(),
+        })
+    }
+
+    pub fn resolve_snapshot(
+        &self,
+        snapshot: &crate::battle_snapshot::StandardUniverseBattleSnapshot,
+        technique: Option<UniverseBattleTechniqueDefinition>,
+    ) -> Result<StandardUniverseResolvedAssembly, StandardUniverseDynamicBattleError> {
+        self.validate_budget(snapshot)?;
+        if technique.is_some_and(|candidate| !self.template.techniques().contains(&candidate)) {
+            return Err(StandardUniverseDynamicBattleError::MissingTechnique);
+        }
+        let key = UniverseBattleMaterializer
+            .snapshot_assembly_key(&self.composition, &self.roster, snapshot, technique)
+            .map_err(StandardUniverseDynamicBattleError::Materialization)?;
+        let (materialization, cache_hit) = self.resolve(key, snapshot, technique)?;
+        Ok(StandardUniverseResolvedAssembly {
+            materialization,
             assembly_key: key,
             cache_hit,
         })
@@ -206,6 +331,20 @@ impl StandardUniverseBattleAssembler {
             .map_err(StandardUniverseDynamicBattleError::Cache)?;
         Ok((materialization, false))
     }
+
+    fn validate_budget(
+        &self,
+        snapshot: &crate::battle_snapshot::StandardUniverseBattleSnapshot,
+    ) -> Result<(), StandardUniverseDynamicBattleError> {
+        if snapshot.contributions().rules().len() > self.budget.maximum_rule_bindings
+            || snapshot.contributions().modifiers().len() > self.budget.maximum_modifiers
+            || snapshot.participant_carry().len() > self.budget.maximum_carry_entries
+            || self.template.overlay().bindings().len() > self.budget.maximum_encounters
+        {
+            return Err(StandardUniverseDynamicBattleError::BudgetExceeded);
+        }
+        Ok(())
+    }
 }
 
 fn selected_technique(
@@ -246,6 +385,7 @@ pub enum StandardUniverseDynamicBattleError {
     StaleSnapshot,
     KeyMismatch,
     InvalidBinding,
+    BudgetExceeded,
     CachePoisoned,
     Snapshot(StandardUniverseBattleContributionError),
     Materialization(UniverseBattleMaterializationError),
