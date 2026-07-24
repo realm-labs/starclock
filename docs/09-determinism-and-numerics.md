@@ -205,7 +205,9 @@ canonical byte stream and final SHA-256 value.
 
 The same revision family defines a canonical activity digest after every
 accepted activity command, but Activity has its own codec section. Goal 04 graph
-Activities use `starclock-activity-state-v2` and replay identity `sha256-v4`;
+Current Goal 06 Activities use `starclock-activity-state-v3` and replay
+identity `sha256-v5`; historical Goal 04/05 Activities used
+`starclock-activity-state-v2` and `sha256-v4`.
 legacy one-battle Activity and nested battle hashes retain v3. Activity v2
 includes definition/config digests, graph position/visits, scoped slots,
 participants and loadout locks, inventories/modifiers, clocks,

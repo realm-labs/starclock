@@ -1,7 +1,9 @@
 use std::sync::Arc;
 
 use sha2::{Digest, Sha256};
-use starclock_combat::{BattleSpec, BattleSpecDigest, ParticipantSource, TeamSide};
+use starclock_combat::{
+    AssemblyDigest, BattleSpec, BattleSpecDigest, CombatInputDigest, ParticipantSource, TeamSide,
+};
 
 use crate::{
     ActivityGraphDefinition, ActivityInstanceId, ActivityOptionId, ActivityScope,
@@ -397,12 +399,21 @@ impl PendingBattleSpec {
     pub fn battle_spec_digest(&self) -> BattleSpecDigest {
         self.binding.battle_spec().digest()
     }
+    #[must_use]
+    pub fn combat_input_digest(&self) -> CombatInputDigest {
+        self.binding.battle_spec().combat_input_digest()
+    }
+    #[must_use]
+    pub fn assembly_digest(&self) -> AssemblyDigest {
+        self.binding.battle_spec().assembly_digest()
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ActivityPendingBattleView {
     battle_sequence: BattleSequence,
-    spec_digest: BattleSpecDigest,
+    combat_input_digest: CombatInputDigest,
+    assembly_digest: AssemblyDigest,
     participant_lock: ParticipantLockDigest,
     initiative: EncounterInitiativePolicy,
     techniques: Box<[ActivityOptionId]>,
@@ -415,8 +426,17 @@ impl ActivityPendingBattleView {
         self.battle_sequence
     }
     #[must_use]
-    pub const fn battle_spec_digest(&self) -> BattleSpecDigest {
-        self.spec_digest
+    pub fn battle_spec_digest(&self) -> BattleSpecDigest {
+        BattleSpecDigest::new(self.assembly_digest.bytes())
+            .expect("assembly identities are non-zero")
+    }
+    #[must_use]
+    pub const fn combat_input_digest(&self) -> CombatInputDigest {
+        self.combat_input_digest
+    }
+    #[must_use]
+    pub const fn assembly_digest(&self) -> AssemblyDigest {
+        self.assembly_digest
     }
     #[must_use]
     pub const fn participant_lock_digest(&self) -> ParticipantLockDigest {
@@ -603,7 +623,8 @@ impl ActivityAttemptState {
             .as_ref()
             .map(|pending| ActivityPendingBattleView {
                 battle_sequence: pending.battle_sequence,
-                spec_digest: pending.battle_spec_digest(),
+                combat_input_digest: pending.combat_input_digest(),
+                assembly_digest: pending.assembly_digest(),
                 participant_lock: pending.participant_lock,
                 initiative: pending.initiative,
                 techniques: pending.techniques.clone(),
@@ -627,7 +648,9 @@ impl ActivityAttemptState {
         }
         writer.bool(self.pending.is_some());
         if let Some(pending) = &self.pending {
-            writer.digest(pending.battle_spec_digest().bytes());
+            writer.text(starclock_combat::COMBAT_INPUT_CODEC_REVISION);
+            writer.digest(pending.combat_input_digest().bytes());
+            writer.digest(pending.assembly_digest().bytes());
             writer.digest(pending.contribution.bytes());
             writer.byte(pending.initiative as u8);
         }
@@ -903,7 +926,9 @@ fn preparation_digest(
             hash.update(option.get().to_le_bytes());
         }
         hash.update(variant.contribution.bytes());
-        hash.update(variant.binding.battle_spec().digest().bytes());
+        hash.update(starclock_combat::COMBAT_INPUT_CODEC_REVISION.as_bytes());
+        hash.update(variant.binding.battle_spec().combat_input_digest().bytes());
+        hash.update(variant.binding.battle_spec().assembly_digest().bytes());
         hash_text(&mut hash, variant.binding.seed_stream_label());
         hash_text(&mut hash, variant.binding.battle_spec_policy_revision());
     }

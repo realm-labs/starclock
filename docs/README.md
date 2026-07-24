@@ -98,6 +98,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 72. [Goal 06 identity and assembly debt probes](goal-06-debt-probes.md) — machine-checked caller-supplied digest, entry-time materialization, production-surface migration and representative transition baseline.
 73. [Goal 06 Phase 0 baseline](goal-06-phase0-baseline.md) — frozen replay v2/v3 compatibility, assembly/cache performance workloads, dependency identity and release scaffold.
 74. [Goal 06 combat-input identity evidence](goal-06-combat-input-identity.md) — combat-owned canonical input codec, computed digest and separate opaque assembly provenance.
+75. [Goal 06 Activity battle identity evidence](goal-06-activity-battle-identity.md) — dual-digest pending handoff, battle seed, result and settlement identity with Activity state v3/v5.
 
 ## Execution goals
 

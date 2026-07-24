@@ -12,10 +12,10 @@ use starclock_activity::{
     SlotDefinitionError, SlotResetPoint, TerminalOutcome,
 };
 use starclock_combat::{
-    AbilityId, BattleSpec, BattleSpecDigest, BattleStateHash, CombatantSpecDigest, ConcedePolicy,
-    EncounterId, EnemyDefinitionId, FormationIndex, Hp, ParticipantSource, ParticipantSpec,
-    ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamSide,
-    UnitDefinitionId, UnitLevel,
+    AbilityId, AssemblyDigest, BattleSpec, BattleSpecDigest, BattleStateHash, CombatInputDigest,
+    CombatantSpecDigest, ConcedePolicy, EncounterId, EnemyDefinitionId, FormationIndex, Hp,
+    ParticipantSource, ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
+    TeamResourceSpec, TeamSide, UnitDefinitionId, UnitLevel,
 };
 
 const DEFINITION_DIGEST: [u8; 32] = [0x11; 32];
@@ -39,8 +39,8 @@ fn one_battle_handoff_accepts_only_the_declared_projection_and_reaches_terminal(
     assert_eq!(
         initial_hash.bytes(),
         [
-            194, 66, 33, 96, 163, 97, 179, 52, 154, 253, 206, 31, 83, 165, 245, 61, 99, 251, 158,
-            92, 16, 37, 154, 52, 233, 147, 124, 215, 202, 125, 239, 108,
+            100, 157, 92, 120, 190, 222, 219, 232, 179, 250, 65, 120, 24, 16, 120, 87, 88, 131, 57,
+            68, 168, 19, 45, 111, 53, 112, 99, 189, 192, 238, 225, 135,
         ]
     );
     let started = activity
@@ -54,16 +54,16 @@ fn one_battle_handoff_accepts_only_the_declared_projection_and_reaches_terminal(
     assert_eq!(
         handoff.seed().bytes(),
         [
-            29, 167, 11, 212, 239, 51, 161, 77, 120, 138, 102, 156, 242, 170, 138, 245, 228, 43,
-            152, 181, 28, 11, 47, 202, 231, 110, 158, 235, 164, 157, 142, 70,
+            174, 211, 141, 113, 184, 111, 93, 118, 249, 28, 160, 85, 67, 50, 114, 175, 220, 6, 228,
+            39, 29, 162, 105, 229, 48, 48, 154, 69, 7, 63, 206, 227,
         ]
     );
     assert_ne!(started.state_hash(), initial_hash);
     assert_eq!(
         started.state_hash().bytes(),
         [
-            237, 237, 61, 51, 73, 192, 225, 120, 19, 100, 97, 187, 155, 192, 52, 68, 41, 227, 86,
-            217, 219, 245, 36, 255, 116, 103, 85, 236, 112, 80, 6, 56,
+            244, 169, 27, 224, 59, 49, 177, 184, 229, 88, 228, 171, 243, 219, 117, 116, 118, 19,
+            171, 159, 135, 236, 85, 246, 99, 68, 252, 172, 86, 62, 63, 180,
         ]
     );
     assert_eq!(activity.phase(), ActivityPhase::AwaitingBattleResult);
@@ -85,8 +85,8 @@ fn one_battle_handoff_accepts_only_the_declared_projection_and_reaches_terminal(
     assert_eq!(
         terminal.state_hash().bytes(),
         [
-            89, 89, 16, 147, 45, 104, 234, 28, 95, 159, 115, 251, 223, 49, 190, 160, 16, 9, 9, 54,
-            217, 13, 110, 236, 68, 2, 162, 212, 86, 87, 52, 122,
+            108, 40, 123, 209, 169, 22, 8, 173, 61, 154, 79, 208, 76, 143, 128, 4, 62, 96, 219, 2,
+            199, 197, 105, 196, 191, 52, 91, 9, 195, 27, 138, 160,
         ]
     );
     assert!(matches!(
@@ -126,7 +126,8 @@ fn rejected_results_and_stale_commands_preserve_the_complete_activity_hash() {
             ActivityConfigDigest::new([0xfe; 32]).unwrap(),
             identity.participant_lock_digest(),
         ),
-        identity.spec_digest(),
+        identity.combat_input_digest(),
+        identity.assembly_digest(),
         identity.seed(),
     );
     let error = activity
@@ -140,6 +141,51 @@ fn rejected_results_and_stale_commands_preserve_the_complete_activity_hash() {
         ActivityCommandErrorKind::ResultIdentityMismatch(ResultIdentityField::ConfigDigest)
     );
     assert_eq!(activity.state_hash(), awaiting);
+
+    for (wrong_identity, field) in [
+        (
+            BattleResultIdentity::new(
+                identity.scope(),
+                identity.battle_sequence(),
+                BattleResultConfiguration::new(
+                    identity.definition_digest(),
+                    identity.config_digest(),
+                    identity.participant_lock_digest(),
+                ),
+                CombatInputDigest::new([0xfd; 32]).unwrap(),
+                identity.assembly_digest(),
+                identity.seed(),
+            ),
+            ResultIdentityField::CombatInputDigest,
+        ),
+        (
+            BattleResultIdentity::new(
+                identity.scope(),
+                identity.battle_sequence(),
+                BattleResultConfiguration::new(
+                    identity.definition_digest(),
+                    identity.config_digest(),
+                    identity.participant_lock_digest(),
+                ),
+                identity.combat_input_digest(),
+                AssemblyDigest::new([0xfc; 32]).unwrap(),
+                identity.seed(),
+            ),
+            ResultIdentityField::AssemblyDigest,
+        ),
+    ] {
+        let error = activity
+            .apply(ActivityCommand::SubmitBattleResult {
+                expected_state_hash: awaiting,
+                result: Box::new(successful_result(wrong_identity)),
+            })
+            .unwrap_err();
+        assert_eq!(
+            error.kind(),
+            ActivityCommandErrorKind::ResultIdentityMismatch(field)
+        );
+        assert_eq!(activity.state_hash(), awaiting);
+    }
 
     let values = successful_values();
     let wrong_digest = BattleResult::new(

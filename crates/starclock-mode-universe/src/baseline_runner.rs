@@ -114,7 +114,7 @@ pub enum StandardUniverseBaselineStep {
         state_hash: ActivityStateHash,
     },
     Battle {
-        identity: BattleResultIdentity,
+        identity: Box<BattleResultIdentity>,
         result_digest: BattleResultDigest,
         outcome: BattleOutcome,
         state_hash: ActivityStateHash,
@@ -183,7 +183,7 @@ impl StandardUniverseBaselineRunner {
                 .submit_pending_battle_result(activity.view().state_hash(), result)
                 .map_err(StandardUniverseBaselineError::BattleSettlement)?;
             return Ok(StandardUniverseBaselineStep::Battle {
-                identity,
+                identity: Box::new(identity),
                 result_digest,
                 outcome: settled.settlement().outcome(),
                 state_hash: settled.state_hash(),

@@ -97,20 +97,20 @@ fn weighted_without_replacement_is_unique_bounded_and_draw_exact() {
 }
 
 #[test]
-fn canonical_v2_state_bytes_and_hash_cover_commands_values_options_and_rng() {
+fn canonical_v3_state_bytes_and_hash_cover_commands_values_options_and_rng() {
     let graph = graph();
     let identity = identity();
     let instance = instance();
     let mut state = state();
     let mut rng = rng();
     let initial_bytes = state.canonical_state_bytes(identity, &graph, instance, &rng);
-    assert_eq!(&initial_bytes[..8], b"SCAS\x02\0\0\0");
+    assert_eq!(&initial_bytes[..8], b"SCAS\x03\0\0\0");
     let initial = state.state_hash(identity, &graph, instance, &rng);
     assert_eq!(
         initial.bytes(),
         [
-            89, 78, 108, 132, 216, 12, 57, 224, 126, 242, 189, 212, 44, 119, 252, 133, 162, 199,
-            248, 187, 137, 83, 224, 87, 81, 7, 171, 109, 240, 208, 202, 235,
+            116, 155, 220, 196, 228, 4, 204, 209, 57, 74, 87, 165, 119, 129, 137, 119, 119, 212,
+            178, 234, 156, 127, 243, 75, 215, 62, 204, 52, 221, 213, 156, 213,
         ]
     );
 

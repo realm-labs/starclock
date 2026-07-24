@@ -43,8 +43,8 @@ digest_type!(
     true
 );
 
-pub const ACTIVITY_STATE_CODEC_REVISION: &str = "starclock-activity-state-v2";
-pub const ACTIVITY_STATE_HASH_REVISION: &str = "sha256-v4";
+pub const ACTIVITY_STATE_CODEC_REVISION: &str = "starclock-activity-state-v3";
+pub const ACTIVITY_STATE_HASH_REVISION: &str = "sha256-v5";
 digest_type!(
     ActivityGraphDigest,
     "Digest of one validated immutable Activity graph.",
@@ -185,7 +185,7 @@ impl ActivityStateEncoder {
     pub(crate) fn new() -> Self {
         let mut bytes = Vec::new();
         bytes.extend_from_slice(b"SCAS");
-        bytes.extend_from_slice(&2_u32.to_le_bytes());
+        bytes.extend_from_slice(&3_u32.to_le_bytes());
         Self(bytes)
     }
     pub(crate) fn byte(&mut self, value: u8) {

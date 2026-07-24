@@ -11,7 +11,7 @@ use crate::{
     codec::{Decoder, Encoder},
 };
 
-pub const GRAPH_ACTIVITY_COMMAND_PAYLOAD_VERSION: u16 = 2;
+pub const GRAPH_ACTIVITY_COMMAND_PAYLOAD_VERSION: u16 = 3;
 
 pub fn encode_graph_activity_command(
     command: &GraphActivityCommand,
@@ -47,7 +47,7 @@ pub fn decode_graph_activity_command(
 ) -> Result<GraphActivityCommand, ActivityCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
     let version = decoder.u16()?;
-    if version != GRAPH_ACTIVITY_COMMAND_PAYLOAD_VERSION {
+    if !matches!(version, 2 | GRAPH_ACTIVITY_COMMAND_PAYLOAD_VERSION) {
         return Err(ActivityCommandPayloadError::UnsupportedVersion(version));
     }
     let expected_state_hash = ActivityStateHash::new(fixed_digest(&mut decoder)?)
@@ -64,7 +64,7 @@ pub fn decode_graph_activity_command(
                 .ok_or(ActivityCommandPayloadError::InvalidId)?,
         },
         2 => GraphActivityCommandKind::SubmitBattleResult {
-            result: Box::new(decode_result(&mut decoder)?),
+            result: Box::new(decode_result(&mut decoder, version == 2)?),
         },
         3 => GraphActivityCommandKind::SubmitExternalOutcome {
             outcome: ActivityExternalOutcomeId::new(decoder.u64()?)
@@ -88,12 +88,12 @@ mod tests {
         BattleResult, BattleResultConfiguration, BattleResultIdentity, BattleSequence, EventDigest,
         ProjectedValue, ScopeIdentity,
     };
-    use starclock_combat::{BattleSeed, BattleSpecDigest, BattleStateHash};
+    use starclock_combat::{AssemblyDigest, BattleSeed, BattleStateHash, CombatInputDigest};
 
     use super::*;
 
     #[test]
-    fn all_five_graph_command_kinds_round_trip_under_payload_version_two() {
+    fn all_five_graph_command_kinds_round_trip_under_payload_version_three() {
         let hash = ActivityStateHash::new([0x11; 32]).unwrap();
         let decision = ActivityDecisionId::new(7).unwrap();
         let identity = BattleResultIdentity::new(
@@ -109,7 +109,8 @@ mod tests {
                 ActivityConfigDigest::new([0x22; 32]).unwrap(),
                 starclock_activity::ParticipantLockDigest::new([0x23; 32]).unwrap(),
             ),
-            BattleSpecDigest::new([0x24; 32]).unwrap(),
+            CombatInputDigest::new([0x24; 32]).unwrap(),
+            AssemblyDigest::new([0x26; 32]).unwrap(),
             BattleSeed::new([0x25; 32]),
         );
         let result = BattleResult::seal(
@@ -139,7 +140,10 @@ mod tests {
         for kind in kinds {
             let command = GraphActivityCommand::new(hash, decision, kind);
             let encoded = encode_graph_activity_command(&command).unwrap();
-            assert_eq!(u16::from_le_bytes(encoded[..2].try_into().unwrap()), 2);
+            assert_eq!(
+                u16::from_le_bytes(encoded[..2].try_into().unwrap()),
+                GRAPH_ACTIVITY_COMMAND_PAYLOAD_VERSION
+            );
             assert_eq!(decode_graph_activity_command(&encoded), Ok(command));
         }
     }

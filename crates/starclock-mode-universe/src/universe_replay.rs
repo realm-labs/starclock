@@ -151,7 +151,7 @@ pub fn record_baseline_run<E: NestedBattleExecutor>(
                 let result = results
                     .next()
                     .ok_or(StandardUniverseReplayError::CapturedBattleMismatch)?;
-                if result.identity() != *identity || result.actual_digest() != *result_digest {
+                if result.identity() != **identity || result.actual_digest() != *result_digest {
                     return Err(StandardUniverseReplayError::CapturedBattleMismatch);
                 }
                 (

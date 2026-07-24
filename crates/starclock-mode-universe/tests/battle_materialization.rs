@@ -409,27 +409,27 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(executor.reports().len(), 3);
+    assert_eq!(executor.reports().len(), 2);
     assert_eq!(
         executor
             .reports()
             .iter()
             .map(|battle| battle.trace().len())
             .sum::<usize>(),
-        15
+        14
     );
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            140, 9, 218, 237, 192, 227, 89, 32, 245, 13, 11, 235, 214, 152, 65, 91, 44, 66, 226,
-            129, 95, 73, 248, 188, 159, 192, 96, 39, 9, 56, 192, 36,
+            88, 171, 240, 212, 93, 124, 58, 169, 248, 82, 142, 35, 190, 95, 88, 31, 154, 203, 160,
+            18, 10, 165, 229, 54, 168, 114, 7, 61, 178, 7, 11, 73,
         ]
     );
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
         [
-            48, 255, 232, 37, 197, 227, 80, 223, 81, 145, 152, 29, 225, 61, 56, 11, 103, 81, 7, 6,
-            114, 173, 177, 197, 92, 110, 195, 190, 121, 244, 167, 81,
+            213, 159, 41, 81, 175, 10, 87, 1, 158, 38, 95, 242, 197, 82, 118, 241, 185, 11, 41,
+            224, 113, 146, 132, 112, 4, 157, 218, 239, 189, 100, 218, 218,
         ]
     );
     assert!(executor.reports().iter().all(|battle| {

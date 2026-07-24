@@ -298,7 +298,8 @@ impl Activity {
         identity!(definition_digest, DefinitionDigest);
         identity!(config_digest, ConfigDigest);
         identity!(participant_lock_digest, ParticipantLockDigest);
-        identity!(spec_digest, BattleSpecDigest);
+        identity!(combat_input_digest, CombatInputDigest);
+        identity!(assembly_digest, AssemblyDigest);
         identity!(seed, Seed);
         if result.actual_digest() != result.claimed_digest() {
             return Err(ActivityCommandError::new(
@@ -341,7 +342,7 @@ impl Activity {
     }
 
     fn hash_state(&self) -> ActivityStateHash {
-        let mut writer = CanonicalWriter::new(b"starclock-activity-state-v1");
+        let mut writer = CanonicalWriter::new(b"starclock-activity-state-v2");
         self.spec.encode(&mut writer);
         writer.u64(self.scope.activity().get());
         writer.u32(self.scope.section().get());
@@ -381,7 +382,8 @@ pub enum ResultIdentityField {
     DefinitionDigest,
     ConfigDigest,
     ParticipantLockDigest,
-    BattleSpecDigest,
+    CombatInputDigest,
+    AssemblyDigest,
     Seed,
 }
 

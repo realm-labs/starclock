@@ -43,8 +43,8 @@ fn accumulated_and_attacking_techniques_select_one_exact_immutable_battle_varian
     assert_eq!(
         definition.digest().bytes(),
         [
-            3, 136, 252, 52, 42, 133, 45, 105, 16, 218, 181, 70, 27, 48, 66, 92, 145, 136, 193,
-            179, 151, 128, 134, 22, 235, 237, 165, 181, 141, 139, 133, 83,
+            138, 66, 248, 238, 88, 145, 39, 163, 159, 42, 120, 165, 147, 40, 123, 104, 228, 37,
+            227, 103, 168, 141, 9, 84, 2, 127, 2, 235, 71, 167, 19, 223,
         ]
     );
     assert_eq!(
@@ -93,19 +93,35 @@ fn accumulated_and_attacking_techniques_select_one_exact_immutable_battle_varian
     assert_eq!(pending.techniques(), [option(11), option(12)]);
     assert_eq!(pending.remaining_technique_points(), 0);
     assert_eq!(pending.battle_spec_digest().bytes(), [0x34; 32]);
+    assert_eq!(
+        pending.combat_input_digest(),
+        pending.battle_spec().combat_input_digest()
+    );
+    assert_eq!(
+        pending.assembly_digest(),
+        pending.battle_spec().assembly_digest()
+    );
     assert_eq!(pending.participant_lock_digest(), lock_digest);
     let player = state.player_view(identity(), &graph, instance, &rng());
     let pending_state_hash = state.state_hash(identity(), &graph, instance, &rng());
     assert_eq!(
         pending_state_hash.bytes(),
         [
-            208, 32, 33, 164, 48, 129, 7, 145, 134, 176, 155, 122, 57, 104, 185, 129, 153, 250, 70,
-            176, 88, 123, 8, 202, 166, 199, 74, 2, 160, 187, 252, 58,
+            72, 179, 30, 187, 189, 216, 234, 131, 221, 34, 4, 47, 5, 105, 184, 49, 244, 117, 47,
+            65, 113, 5, 214, 49, 89, 204, 13, 8, 95, 224, 19, 70,
         ]
     );
     assert_eq!(
         player.pending_battle().unwrap().battle_spec_digest(),
         pending.battle_spec_digest()
+    );
+    assert_eq!(
+        player.pending_battle().unwrap().combat_input_digest(),
+        pending.combat_input_digest()
+    );
+    assert_eq!(
+        player.pending_battle().unwrap().assembly_digest(),
+        pending.assembly_digest()
     );
 }
 

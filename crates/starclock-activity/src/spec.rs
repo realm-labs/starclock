@@ -135,7 +135,9 @@ impl BattleBinding {
         writer.text(&self.seed_stream_label);
         writer.text(&self.battle_spec_policy_revision);
         writer.digest(self.participant_lock_digest.bytes());
-        writer.digest(self.spec.digest().bytes());
+        writer.text(starclock_combat::COMBAT_INPUT_CODEC_REVISION);
+        writer.digest(self.spec.combat_input_digest().bytes());
+        writer.digest(self.spec.assembly_digest().bytes());
         BattleSeed::new(writer.finish())
     }
 
@@ -143,7 +145,9 @@ impl BattleBinding {
         writer.text(&self.seed_stream_label);
         writer.text(&self.battle_spec_policy_revision);
         writer.digest(self.participant_lock_digest.bytes());
-        writer.digest(self.spec.digest().bytes());
+        writer.text(starclock_combat::COMBAT_INPUT_CODEC_REVISION);
+        writer.digest(self.spec.combat_input_digest().bytes());
+        writer.digest(self.spec.assembly_digest().bytes());
     }
 }
 
@@ -237,7 +241,8 @@ impl ActivitySpec {
                 self.identity.config_digest(),
                 self.participants.digest(),
             ),
-            self.binding.spec.digest(),
+            self.binding.spec.combat_input_digest(),
+            self.binding.spec.assembly_digest(),
             seed,
         )
     }

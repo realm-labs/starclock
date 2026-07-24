@@ -1,20 +1,20 @@
 //! Activity command/result payloads, nested boundaries and one-shot verification.
 
+#[path = "activity_identity.rs"]
+mod identity;
 #[path = "activity_v2.rs"]
 pub mod v2;
 
 use core::fmt;
 
 use starclock_activity::{
-    Activity, ActivityCommand, ActivityCommandErrorKind, ActivityConfigDigest, ActivityDecision,
-    ActivityDefinitionDigest, ActivityInstanceId, ActivityPhase, ActivityStateHash, AttemptId,
-    BattleOutcome, BattleResult, BattleResultConfiguration, BattleResultDigest,
-    BattleResultIdentity, BattleSequence, EventDigest, MetricValue, NodeId, ParticipantBattleState,
-    ParticipantId, ProjectedValue, ScopeIdentity, SectionId,
+    Activity, ActivityCommand, ActivityCommandErrorKind, ActivityDecision, ActivityPhase,
+    ActivityStateHash, BattleOutcome, BattleResult, BattleResultDigest, BattleResultIdentity,
+    EventDigest, MetricValue, ParticipantBattleState, ParticipantId, ProjectedValue,
 };
 use starclock_combat::{
-    BattleFault, BattleSeed, BattleSpecDigest, BattleStateHash, Energy, FaultBoundary, FaultKind,
-    FaultPolicy, Hp, LifeState, PresenceState,
+    BattleFault, BattleStateHash, Energy, FaultBoundary, FaultKind, FaultPolicy, Hp, LifeState,
+    PresenceState,
 };
 
 use crate::{
@@ -24,10 +24,12 @@ use crate::{
     record::{MAX_REPLAY_RECORDS, RecordKind, RecordRef, ReplayFormatError},
 };
 
-pub const ACTIVITY_COMMAND_PAYLOAD_VERSION: u16 = 1;
-pub const NESTED_BATTLE_PAYLOAD_VERSION: u16 = 1;
+use identity::{decode_identity, decode_identity_legacy, encode_identity};
+
+pub const ACTIVITY_COMMAND_PAYLOAD_VERSION: u16 = 2;
+pub const NESTED_BATTLE_PAYLOAD_VERSION: u16 = 2;
 pub const CONTROLLER_DIAGNOSTIC_PAYLOAD_VERSION: u16 = 1;
-pub const BATTLE_RESULT_PAYLOAD_VERSION: u16 = 1;
+pub const BATTLE_RESULT_PAYLOAD_VERSION: u16 = 2;
 pub const MAX_CONTROLLER_OPTIONS: u32 = 4_096;
 
 /// Generic controller family retained only as replay diagnostics.
@@ -570,7 +572,7 @@ fn encode_command(command: &ActivityCommand) -> Result<Vec<u8>, ActivityCommandP
 fn decode_command(bytes: &[u8]) -> Result<ActivityCommand, ActivityCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
     let version = decoder.u16()?;
-    if version != ACTIVITY_COMMAND_PAYLOAD_VERSION {
+    if !matches!(version, 1 | ACTIVITY_COMMAND_PAYLOAD_VERSION) {
         return Err(ActivityCommandPayloadError::UnsupportedVersion(version));
     }
     let kind = decoder.u8()?;
@@ -582,7 +584,7 @@ fn decode_command(bytes: &[u8]) -> Result<ActivityCommand, ActivityCommandPayloa
         },
         1 => ActivityCommand::SubmitBattleResult {
             expected_state_hash: expected,
-            result: Box::new(decode_result(&mut decoder)?),
+            result: Box::new(decode_result(&mut decoder, version == 1)?),
         },
         other => return Err(ActivityCommandPayloadError::UnknownCommand(other)),
     };
@@ -605,8 +607,13 @@ pub(super) fn encode_result(
 
 pub(super) fn decode_result(
     decoder: &mut Decoder<'_>,
+    legacy_identity: bool,
 ) -> Result<BattleResult, ActivityCommandPayloadError> {
-    let identity = decode_identity(decoder)?;
+    let identity = if legacy_identity {
+        decode_identity_legacy(decoder)?
+    } else {
+        decode_identity(decoder)?
+    };
     let count = decoder.u32()?;
     if count == 0 || count > 100 {
         return Err(ActivityCommandPayloadError::InvalidProjection);
@@ -634,54 +641,12 @@ pub fn decode_battle_result_payload(
 ) -> Result<BattleResult, ActivityCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
     let version = decoder.u16()?;
-    if version != BATTLE_RESULT_PAYLOAD_VERSION {
+    if !matches!(version, 1 | BATTLE_RESULT_PAYLOAD_VERSION) {
         return Err(ActivityCommandPayloadError::UnsupportedVersion(version));
     }
-    let result = decode_result(&mut decoder)?;
+    let result = decode_result(&mut decoder, version == 1)?;
     decoder.finish()?;
     Ok(result)
-}
-
-fn encode_identity(identity: BattleResultIdentity, encoder: &mut Encoder<Vec<u8>>) {
-    encoder.u64(identity.activity().get());
-    encoder.u32(identity.scope().section().get());
-    encoder.u32(identity.scope().node().get());
-    encoder.u32(identity.scope().attempt().get());
-    encoder.u32(identity.battle_sequence().get());
-    encoder.raw(&identity.definition_digest().bytes());
-    encoder.raw(&identity.config_digest().bytes());
-    encoder.raw(&identity.participant_lock_digest().bytes());
-    encoder.raw(&identity.spec_digest().bytes());
-    encoder.raw(&identity.seed().bytes());
-}
-
-fn decode_identity(
-    decoder: &mut Decoder<'_>,
-) -> Result<BattleResultIdentity, ActivityCommandPayloadError> {
-    let activity =
-        ActivityInstanceId::new(decoder.u64()?).ok_or(ActivityCommandPayloadError::InvalidId)?;
-    let section = SectionId::new(decoder.u32()?).ok_or(ActivityCommandPayloadError::InvalidId)?;
-    let node = NodeId::new(decoder.u32()?).ok_or(ActivityCommandPayloadError::InvalidId)?;
-    let attempt = AttemptId::new(decoder.u32()?).ok_or(ActivityCommandPayloadError::InvalidId)?;
-    let sequence =
-        BattleSequence::new(decoder.u32()?).ok_or(ActivityCommandPayloadError::InvalidId)?;
-    let definition = ActivityDefinitionDigest::new(fixed_digest(decoder)?)
-        .ok_or(ActivityCommandPayloadError::InvalidDigest)?;
-    let config = ActivityConfigDigest::new(fixed_digest(decoder)?)
-        .ok_or(ActivityCommandPayloadError::InvalidDigest)?;
-    let lock = starclock_activity::ParticipantLockDigest::new(fixed_digest(decoder)?)
-        .ok_or(ActivityCommandPayloadError::InvalidDigest)?;
-    let spec = BattleSpecDigest::new(fixed_digest(decoder)?)
-        .ok_or(ActivityCommandPayloadError::InvalidDigest)?;
-    let seed = BattleSeed::new(fixed_digest(decoder)?);
-    let scope = ScopeIdentity::new(activity, section, node, attempt);
-    Ok(BattleResultIdentity::new(
-        scope,
-        sequence,
-        BattleResultConfiguration::new(definition, config, lock),
-        spec,
-        seed,
-    ))
 }
 
 fn encode_projected(
@@ -893,12 +858,16 @@ pub fn decode_nested_battle_start_payload(
 ) -> Result<BattleResultIdentity, ActivityCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
     let version = decoder.u16()?;
-    if version != NESTED_BATTLE_PAYLOAD_VERSION {
+    if !matches!(version, 1 | NESTED_BATTLE_PAYLOAD_VERSION) {
         return Err(ActivityCommandPayloadError::UnsupportedNestedVersion(
             version,
         ));
     }
-    let identity = decode_identity(&mut decoder)?;
+    let identity = if version == 1 {
+        decode_identity_legacy(&mut decoder)?
+    } else {
+        decode_identity(&mut decoder)?
+    };
     decoder.finish()?;
     Ok(identity)
 }
@@ -916,7 +885,7 @@ pub fn decode_nested_battle_end_payload(
 ) -> Result<BattleResultDigest, ActivityCommandPayloadError> {
     let mut decoder = Decoder::new(bytes);
     let version = decoder.u16()?;
-    if version != NESTED_BATTLE_PAYLOAD_VERSION {
+    if !matches!(version, 1 | NESTED_BATTLE_PAYLOAD_VERSION) {
         return Err(ActivityCommandPayloadError::UnsupportedNestedVersion(
             version,
         ));
@@ -1093,6 +1062,12 @@ impl std::error::Error for ActivityReplayError {}
 
 #[cfg(test)]
 mod tests {
+    use starclock_activity::{
+        ActivityConfigDigest, ActivityDefinitionDigest, ActivityInstanceId, AttemptId,
+        BattleResultConfiguration, BattleSequence, NodeId, ScopeIdentity, SectionId,
+    };
+    use starclock_combat::{BattleSeed, BattleSpecDigest};
+
     use super::*;
 
     #[test]
@@ -1103,7 +1078,7 @@ mod tests {
             NodeId::new(3).unwrap(),
             AttemptId::new(4).unwrap(),
         );
-        let identity = BattleResultIdentity::new(
+        let identity = BattleResultIdentity::new_legacy(
             scope,
             BattleSequence::new(5).unwrap(),
             BattleResultConfiguration::new(

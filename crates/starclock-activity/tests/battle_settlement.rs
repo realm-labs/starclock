@@ -46,6 +46,14 @@ fn verified_result_projects_metrics_and_exact_participant_carry() {
         .unwrap();
     assert_eq!(setup.rng.snapshots(), rng_before);
     assert_eq!(handoff.battle_spec().digest().bytes(), [0x33; 32]);
+    assert_eq!(
+        handoff.identity().combat_input_digest(),
+        handoff.battle_spec().combat_input_digest()
+    );
+    assert_eq!(
+        handoff.identity().assembly_digest(),
+        handoff.battle_spec().assembly_digest()
+    );
     assert_eq!(handoff.participant_carry().len(), 1);
     assert_eq!(handoff.participant_carry()[0].participant(), participant(1));
     assert_eq!(handoff.participant_carry()[0].current_hp(), hp(1_000));
@@ -63,8 +71,8 @@ fn verified_result_projects_metrics_and_exact_participant_carry() {
     assert_eq!(
         handoff.identity().seed().bytes(),
         [
-            121, 121, 24, 248, 126, 92, 84, 44, 250, 191, 126, 114, 108, 83, 15, 226, 84, 165, 125,
-            186, 47, 146, 157, 177, 19, 30, 169, 80, 248, 150, 80, 34,
+            208, 7, 119, 187, 146, 214, 220, 104, 11, 250, 33, 221, 195, 3, 218, 82, 203, 84, 147,
+            138, 36, 214, 163, 11, 66, 83, 199, 115, 228, 6, 4, 80,
         ]
     );
     let awaiting = state.state_hash(setup.identity, &setup.graph, setup.instance, &setup.rng);
@@ -105,8 +113,8 @@ fn verified_result_projects_metrics_and_exact_participant_carry() {
     assert_eq!(
         settlement.state_hash().bytes(),
         [
-            118, 199, 159, 64, 18, 81, 163, 83, 222, 126, 254, 161, 157, 14, 70, 255, 26, 55, 221,
-            72, 194, 112, 113, 107, 163, 189, 29, 135, 226, 6, 198, 121,
+            247, 255, 23, 4, 26, 49, 122, 102, 91, 244, 57, 152, 141, 137, 10, 220, 157, 37, 147,
+            175, 34, 246, 86, 147, 79, 213, 77, 22, 178, 187, 19, 28,
         ]
     );
 }

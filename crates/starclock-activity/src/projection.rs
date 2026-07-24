@@ -1,6 +1,6 @@
 use starclock_combat::{
-    BattleFault, BattleSeed, BattleSpecDigest, BattleStateHash, Energy, Hp, LifeState,
-    PresenceState,
+    AssemblyDigest, BattleFault, BattleSeed, BattleSpecDigest, BattleStateHash, CombatInputDigest,
+    Energy, Hp, LifeState, PresenceState,
 };
 
 use crate::{
@@ -196,7 +196,8 @@ pub struct BattleResultIdentity {
     scope: ScopeIdentity,
     battle_sequence: BattleSequence,
     configuration: BattleResultConfiguration,
-    spec_digest: BattleSpecDigest,
+    combat_input_digest: CombatInputDigest,
+    assembly_digest: AssemblyDigest,
     seed: BattleSeed,
 }
 
@@ -206,16 +207,38 @@ impl BattleResultIdentity {
         scope: ScopeIdentity,
         battle_sequence: BattleSequence,
         configuration: BattleResultConfiguration,
-        spec_digest: BattleSpecDigest,
+        combat_input_digest: CombatInputDigest,
+        assembly_digest: AssemblyDigest,
         seed: BattleSeed,
     ) -> Self {
         Self {
             scope,
             battle_sequence,
             configuration,
-            spec_digest,
+            combat_input_digest,
+            assembly_digest,
             seed,
         }
+    }
+
+    /// Reconstructs the historical single-digest identity used by replay v2.
+    #[must_use]
+    pub fn new_legacy(
+        scope: ScopeIdentity,
+        battle_sequence: BattleSequence,
+        configuration: BattleResultConfiguration,
+        spec_digest: BattleSpecDigest,
+        seed: BattleSeed,
+    ) -> Self {
+        Self::new(
+            scope,
+            battle_sequence,
+            configuration,
+            CombatInputDigest::new(spec_digest.bytes())
+                .expect("legacy BattleSpecDigest is non-zero"),
+            AssemblyDigest::new(spec_digest.bytes()).expect("legacy BattleSpecDigest is non-zero"),
+            seed,
+        )
     }
 
     #[must_use]
@@ -243,8 +266,18 @@ impl BattleResultIdentity {
         self.configuration.participant_lock_digest
     }
     #[must_use]
-    pub const fn spec_digest(self) -> BattleSpecDigest {
-        self.spec_digest
+    pub const fn combat_input_digest(self) -> CombatInputDigest {
+        self.combat_input_digest
+    }
+    #[must_use]
+    pub const fn assembly_digest(self) -> AssemblyDigest {
+        self.assembly_digest
+    }
+    /// Returns historical single-digest assembly identity for replay v2 only.
+    #[must_use]
+    pub fn spec_digest(self) -> BattleSpecDigest {
+        BattleSpecDigest::new(self.assembly_digest.bytes())
+            .expect("assembly identities are non-zero")
     }
     #[must_use]
     pub const fn seed(self) -> BattleSeed {
@@ -260,7 +293,9 @@ impl BattleResultIdentity {
         writer.digest(self.configuration.definition_digest.bytes());
         writer.digest(self.configuration.config_digest.bytes());
         writer.digest(self.configuration.participant_lock_digest.bytes());
-        writer.digest(self.spec_digest.bytes());
+        writer.text(starclock_combat::COMBAT_INPUT_CODEC_REVISION);
+        writer.digest(self.combat_input_digest.bytes());
+        writer.digest(self.assembly_digest.bytes());
         writer.digest(self.seed.bytes());
     }
 }
