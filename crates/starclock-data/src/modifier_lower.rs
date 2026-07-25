@@ -17,8 +17,8 @@ use crate::{
     catalog::{CatalogLoadError, domain_fail, parse_decimal},
     generated::{
         self, SoraConfig, formula_purpose, formula_stage, modifier_aggregation,
-        modifier_filter_node, rounding_policy, selector_origin, snapshot_policy, stat_kind,
-        value_binary_operator, value_expression_node,
+        modifier_filter_node, rounding_policy, selector_origin, snapshot_capture_kind,
+        snapshot_policy, snapshot_subject, stat_kind, value_binary_operator, value_expression_node,
     },
 };
 
@@ -108,6 +108,41 @@ fn lower_definition(
         .filter(|filter| filter.modifier_id == row.id)
         .map(|filter| lower_filter(&filter.filter))
         .collect::<Result<Vec<_>, _>>()?;
+    let stack_captures = config
+        .snapshot_capture()
+        .iter()
+        .filter(|capture| {
+            capture.owner_identity_id == row.id && capture.capture_key == "source_effect_stacks"
+        })
+        .collect::<Vec<_>>();
+    if stack_captures.len() > 1 {
+        return Err(domain_fail(format!(
+            "modifier {} has duplicate source-effect stack captures",
+            row.id
+        )));
+    }
+    let source_stack_slot = stack_captures
+        .first()
+        .map(|capture| {
+            if row.source_effect_id.is_none()
+                || capture.subject != snapshot_subject::SnapshotSubject::Source
+                || capture.capture_kind != snapshot_capture_kind::SnapshotCaptureKind::StateSlot
+            {
+                return Err(domain_fail(format!(
+                    "modifier {} has an invalid source-effect stack capture",
+                    row.id
+                )));
+            }
+            let raw = capture.state_slot_id.ok_or_else(|| {
+                domain_fail(format!(
+                    "modifier {} source-effect stack capture lacks a slot",
+                    row.id
+                ))
+            })?;
+            let raw = positive(raw)?;
+            Ok(starclock_combat::StateSlotDefinitionId::new(raw).expect("positive state-slot ID"))
+        })
+        .transpose()?;
     Ok(ModifierDefinition {
         id: modifier_id(row.id)?,
         stat: stat(row.stat),
@@ -120,6 +155,7 @@ fn lower_definition(
         cap: optional_scalar(config, row.cap_expression_id)?,
         cap_stage: stage(row.cap_formula_stage),
         snapshot: snapshot(row.snapshot_policy),
+        source_stack_slot,
         filters: filters.into_boxed_slice(),
     })
 }

@@ -31,6 +31,8 @@ pub(super) fn settle_after_action(
             cause.with_parent(parent),
             BattleEventKind::Battle(BattleEventData::Lost),
         );
+        parent = super::operation::settle_effects_at_battle_end(txn, cause, parent)?;
+        txn.reset_rule_slots(crate::rule::model::SlotResetPoint::BattleEnd, None);
         return Ok(ActionBoundary::Terminal(parent));
     }
 
@@ -48,6 +50,8 @@ pub(super) fn settle_after_action(
             cause.with_parent(parent),
             BattleEventKind::Battle(BattleEventData::Won),
         );
+        parent = super::operation::settle_effects_at_battle_end(txn, cause, parent)?;
+        txn.reset_rule_slots(crate::rule::model::SlotResetPoint::BattleEnd, None);
         return Ok(ActionBoundary::Terminal(parent));
     }
 
@@ -115,6 +119,8 @@ fn transition_wave(
             number: current,
         }),
     );
+    parent = super::operation::settle_effects_at_wave_end(txn, cause, parent)?;
+    txn.reset_rule_slots(crate::rule::model::SlotResetPoint::WaveEnd, None);
     parent = super::lifecycle::settle_wave_links(txn, cause, parent)?;
     parent = settle_team_resources(txn, cause, parent)?;
     let departing = txn

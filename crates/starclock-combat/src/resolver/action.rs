@@ -105,7 +105,7 @@ pub(super) fn drain_reactions(
         }
         parent = execute_action_plan(catalog, txn, queued.root, queued.parent, &mut plan)?;
         let cause = super::transaction::action_cause(queued.root, &plan)?;
-        parent = super::operation::settle_effects_at_action_end(txn, cause, parent)?;
+        parent = super::operation::settle_effects_at_action_end(catalog, txn, cause, parent)?;
     }
     Ok(parent)
 }
@@ -176,6 +176,14 @@ pub(super) fn execute_action_plan(
         crate::rule::model::SlotResetPoint::ActionStart,
         Some(plan.actor),
     );
+    parent = super::effect_boundary::tick(
+        catalog,
+        txn,
+        base.with_applier(plan.owner),
+        parent,
+        crate::EffectTickPhase::ActionStart,
+        plan.actor,
+    )?;
     parent = txn.emit(
         base.with_parent(parent),
         BattleEventKind::Action(ActionEventData::Started {

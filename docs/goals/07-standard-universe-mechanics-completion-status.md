@@ -7,7 +7,7 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 1 — Shared mechanic capability closure |
-| Active batch | `G07-P1-B4` |
+| Active batch | `G07-P1-B5` |
 | Next unblocked batch | None |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
@@ -20,6 +20,10 @@ and machine-verified. G07-P0-B1 froze the inherited 2,201/786/78 oracle, the
 row, and G07-P0-B3 expanded the milestones into 104 ordered, bounded `Snn`
 commit rows. G07-P0-B4 registered all public-evidence and approximation
 boundaries and froze the dependency, performance and release scaffold.
+Phase 1 now has executable trigger, selector, modifier and state/effect
+foundations. P1-B4 completed authoritative lifecycle resets, stack-aware DoT,
+effect attachment teardown, duration clocks and the formal openpyxl/Sora reset
+probe; P1-B5 is the active action/reaction/break/phase capability batch.
 
 ## Fixed batch ledger
 
@@ -32,7 +36,7 @@ boundaries and froze the dependency, performance and release scaffold.
 | `G07-P1-B1` | `Complete` | `node tools/goal07/verify-phase1-b1.mjs`; `cargo test -p starclock-combat --all-features --locked`; quick repository gate | Replaced AfterEvent-only dispatch with a validated phase/point matrix; added Before/start, AfterMutation, AfterDefeatSettlement, AfterAction and Boundary execution, direct observed-event cause chains, eight bounded once scopes with real turn reset, and typed fail-closed replacement proposals. |
 | `G07-P1-B2` | `Complete` | `node tools/goal07/verify-phase1-b2.mjs`; production Excel/Sora verification; combat/data tests; quick repository gate | Lowered formal selector predicates and weights; executed three reference points, seven predicate families, eight total orders, repeated uniform/weighted draws, dependency topology and four distinct empty-pool controls. Production ActionSnapshot, weighted-choice and empty-policy goldens pass. |
 | `G07-P1-B3` | `Complete` | `node tools/goal07/verify-phase1-b3.mjs`; openpyxl author check; production Excel/Sora verification; combat/data tests; quick repository gate | Executed five stat and sixteen formula stages with named-stage bounds, all nine deterministic stacking policies and authored strongest comparators. Damage/healing/shield operations consume formula modifiers. Initial/application/action/phase/hit and partial snapshots capture fixed domain values, fail closed and remain outside content-specific branches. |
-| `G07-P1-B4` | `Pending` | — | Close effects, state-slot, charge and lifecycle capabilities. |
+| `G07-P1-B4` | `Complete` | `node tools/goal07/verify-phase1-b4.mjs`; openpyxl author check; production Excel/Sora verification; combat/data tests; quick repository gate | Executed all nine slot reset points, stack-aware DoT ticks/detonations, original-applier formula attribution, effect-stack modifier bindings, action/turn ticks, wave/battle clocks and owner attachment teardown. Kept shields and bounded charges on their dedicated generic stores. |
 | `G07-P1-B5` | `Pending` | — | Close action, reaction, break and phase capabilities. |
 | `G07-P1-B6` | `Pending` | — | Freeze shared probes, native handlers and coverage rules. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |

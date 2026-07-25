@@ -1100,6 +1100,7 @@ mod tests {
                 cap: None,
                 cap_stage: FormulaStage::DamageBoost,
                 snapshot: SnapshotPolicy::Dynamic,
+                source_stack_slot: None,
                 filters: Box::new([]),
             });
         }

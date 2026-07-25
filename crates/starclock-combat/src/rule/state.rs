@@ -303,4 +303,69 @@ mod tests {
             .collect::<Vec<_>>();
         assert_eq!(values, [RuleValue::Integer(0), RuleValue::Integer(1)]);
     }
+
+    #[test]
+    fn every_declared_lifecycle_reset_point_is_executable() {
+        let points = [
+            SlotResetPoint::BattleStart,
+            SlotResetPoint::WaveStart,
+            SlotResetPoint::TurnStart,
+            SlotResetPoint::ActionStart,
+            SlotResetPoint::HitStart,
+            SlotResetPoint::TurnEnd,
+            SlotResetPoint::ActionEnd,
+            SlotResetPoint::WaveEnd,
+            SlotResetPoint::BattleEnd,
+        ];
+        let slots = points
+            .iter()
+            .enumerate()
+            .map(|(index, point)| {
+                StateSlotDef::new(
+                    StateSlotDefinitionId::new(u32::try_from(index + 1).unwrap()).unwrap(),
+                    RuleValueKind::Integer,
+                    BattleRuleScope::Battle,
+                    RuleValue::Integer(0),
+                )
+                .with_reset_points(vec![*point])
+            })
+            .collect::<Vec<_>>();
+        let runtime = BattleRuleDefinition::new(
+            RuleSource::new(
+                SourceDefinitionId::new(2).unwrap(),
+                SourceClass::Mode,
+                vec![],
+                [0x52; 32],
+            ),
+            slots,
+            vec![],
+            None,
+        );
+        let owner = UnitId::new(1).unwrap();
+        let instance = crate::RuleInstanceId::new(1).unwrap();
+        let mut store = RuleStateStore::default();
+        assert!(store.insert(instance, RuleId::new(1).unwrap(), Some(owner), &runtime));
+        for index in 0..points.len() {
+            store
+                .update(
+                    instance,
+                    StateSlotDefinitionId::new(u32::try_from(index + 1).unwrap()).unwrap(),
+                    StateSlotUpdateKind::Set,
+                    RuleValue::Integer(1),
+                )
+                .unwrap();
+        }
+        for point in points {
+            assert_eq!(store.reset(point, Some(owner)), 1);
+        }
+        assert!(
+            store
+                .iter_by_id()
+                .next()
+                .unwrap()
+                .slots
+                .iter()
+                .all(|(_, value)| value == &RuleValue::Integer(0))
+        );
+    }
 }

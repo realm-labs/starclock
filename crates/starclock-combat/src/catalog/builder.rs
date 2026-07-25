@@ -21,6 +21,7 @@ use crate::modifier::{
 };
 
 mod composition;
+mod effect_validate;
 mod lifecycle_validate;
 mod parameter_validate;
 mod selector_validate;
@@ -610,6 +611,7 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             DefinitionKind::Ability,
         )?;
     }
+    effect_validate::validate(catalog)?;
     for id in catalog.rules.ids() {
         let rule = catalog
             .rules
@@ -1193,6 +1195,6 @@ pub(super) fn catalog_error(
     }
 }
 
-fn error(kind: CatalogBuildErrorKind, message: impl Into<String>) -> CatalogBuildError {
+pub(super) fn error(kind: CatalogBuildErrorKind, message: impl Into<String>) -> CatalogBuildError {
     catalog_error(kind, message)
 }

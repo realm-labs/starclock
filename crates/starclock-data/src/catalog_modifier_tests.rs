@@ -50,3 +50,20 @@ fn production_rows_execute_formula_stage_and_authored_comparator() {
     .unwrap();
     assert_eq!(value, starclock_combat::Scalar::from_scaled(32_000));
 }
+
+#[test]
+fn production_state_slot_reset_survives_excel_and_sora_lowering() {
+    let catalog = load(PRODUCTION_BUNDLE).expect("production catalog must load");
+    let rule = catalog
+        .battle_rule(starclock_combat::RuleId::new(24_002).unwrap())
+        .expect("Asta charging rule");
+    let slot = rule
+        .state_slots()
+        .iter()
+        .find(|slot| slot.id().get() == 24_003)
+        .expect("Asta charging slot");
+    assert_eq!(
+        slot.reset_points(),
+        &[starclock_combat::rule::model::SlotResetPoint::BattleStart]
+    );
+}

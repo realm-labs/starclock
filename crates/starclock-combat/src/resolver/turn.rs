@@ -26,6 +26,7 @@ pub(super) fn start_battle(
     txn: &mut Transaction<'_>,
     root: CommandId,
 ) -> Result<(), BattleFault> {
+    txn.reset_rule_slots(crate::rule::model::SlotResetPoint::BattleStart, None);
     let mut started = txn.emit(
         Cause::root(root),
         BattleEventKind::Battle(BattleEventData::Started),
@@ -83,7 +84,9 @@ pub(super) fn begin_turn(
     }
     let (mut parent, frozen_skip) =
         super::operation::settle_break_effects_at_turn_start(txn, turn_cause, parent, turn.unit)?;
-    parent = super::operation::settle_effects_at_turn_start(txn, turn_cause, parent, turn.unit)?;
+    parent = super::operation::settle_effects_at_turn_start(
+        catalog, txn, turn_cause, parent, turn.unit,
+    )?;
     match settle_after_action(catalog, txn, turn_cause, parent)? {
         ActionBoundary::Terminal(_) => return Ok(()),
         ActionBoundary::Continue(next) => parent = next,
@@ -95,7 +98,6 @@ pub(super) fn begin_turn(
         .map(|unit| unit.life == crate::LifeState::Alive)
         .ok_or_else(|| action_fault(58))?;
     if frozen_skip || !alive {
-        txn.set_active_turn(None);
         txn.set_actor_gauge(
             turn.actor,
             ActionGauge::from_scaled(if frozen_skip {
@@ -112,6 +114,11 @@ pub(super) fn begin_turn(
                 owner: turn.owner,
             }),
         );
+        parent = super::operation::settle_effects_at_turn_end(
+            catalog, txn, turn_cause, parent, turn.unit,
+        )?;
+        txn.reset_rule_slots(crate::rule::model::SlotResetPoint::TurnEnd, Some(turn.unit));
+        txn.set_active_turn(None);
         return begin_turn(catalog, txn, root, parent);
     }
     let was_broken = txn
@@ -186,7 +193,7 @@ fn execute_automatic_turn(
     .ok_or_else(|| action_fault(98))?;
     let mut parent = execute_action_plan(catalog, txn, root, parent, &mut plan)?;
     let cause = action_cause(root, &plan)?;
-    parent = super::operation::settle_effects_at_action_end(txn, cause, parent)?;
+    parent = super::operation::settle_effects_at_action_end(catalog, txn, cause, parent)?;
     parent = drain_reactions(
         catalog,
         txn,
@@ -211,7 +218,8 @@ fn execute_automatic_turn(
             owner: turn.owner,
         }),
     );
-    parent = super::operation::settle_effects_at_turn_end(txn, cause, parent, turn.unit)?;
+    parent = super::operation::settle_effects_at_turn_end(catalog, txn, cause, parent, turn.unit)?;
+    txn.reset_rule_slots(crate::rule::model::SlotResetPoint::TurnEnd, Some(turn.unit));
     txn.set_active_turn(None);
     if let ActionBoundary::Continue(parent) = settle_after_action(catalog, txn, cause, parent)? {
         let parent = drain_reactions(

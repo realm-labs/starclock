@@ -13,8 +13,8 @@ use crate::{
     formula,
     id::EventId,
     operation::{
-        AddWeaknessOp, ApplyEffectOp, ConsumeHpOp, DamageOp, DetonateDotsOp, HealOp,
-        HitOperationScratch, Operation, ReduceToughnessOp, RemoveEffectsOp, ShieldOp, SuperBreakOp,
+        AddWeaknessOp, ApplyEffectOp, ConsumeHpOp, DamageOp, HealOp, HitOperationScratch,
+        Operation, ReduceToughnessOp, RemoveEffectsOp, ShieldOp, SuperBreakOp,
     },
 };
 pub(super) mod fault;
@@ -47,7 +47,9 @@ pub(super) fn execute_operation(
         Operation::RemoveEffects(operation) => {
             execute_remove_effects(txn, cause, parent, operation)
         }
-        Operation::DetonateDots(operation) => execute_detonate_dots(txn, cause, parent, operation),
+        Operation::DetonateDots(operation) => {
+            super::effect_operation::detonate_dots(catalog, txn, cause, parent, operation)
+        }
         Operation::ModifyStateSlot(operation) => {
             super::operation_resource::execute_modify_state_slot(txn, cause, parent, operation)
         }
@@ -527,42 +529,20 @@ pub(super) fn settle_break_effects_at_turn_start(
 }
 
 pub(super) fn settle_effects_at_turn_start(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
     owner: crate::UnitId,
 ) -> Result<EventId, BattleFault> {
-    let effects = txn
-        .state
-        .effects
-        .iter_by_id()
-        .filter(|effect| {
-            effect.target == owner && effect.tick_phase == crate::EffectTickPhase::TurnStart
-        })
-        .cloned()
-        .collect::<Vec<_>>();
-    for effect in effects {
-        if let Some(dot) = effect.dot {
-            let calculation = formula::ordinary_damage(dot.formula())
-                .map_err(|_| numeric_fault(34, dot.formula().base_damage().scaled()))?;
-            let attributed = cause
-                .with_applier(effect.applier)
-                .with_source_definition(effect.source_definition);
-            parent = apply_ordinary_damage(
-                txn,
-                attributed,
-                parent,
-                effect.source_operation,
-                owner,
-                DamageKind::DotTick,
-                dot.formula().class(),
-                Some(dot.element()),
-                Some(effect.id),
-                calculation.raw,
-                calculation.finalized,
-            )?;
-        }
-    }
+    parent = super::effect_boundary::tick(
+        catalog,
+        txn,
+        cause,
+        parent,
+        crate::EffectTickPhase::TurnStart,
+        owner,
+    )?;
     advance_effect_clock(
         txn,
         cause,
@@ -582,11 +562,20 @@ pub(super) fn settle_effects_at_turn_start(
 }
 
 pub(super) fn settle_effects_at_turn_end(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     parent: EventId,
     owner: crate::UnitId,
 ) -> Result<EventId, BattleFault> {
+    let parent = super::effect_boundary::tick(
+        catalog,
+        txn,
+        cause,
+        parent,
+        crate::EffectTickPhase::TurnEnd,
+        owner,
+    )?;
     let parent = advance_effect_clock(
         txn,
         cause,
@@ -604,15 +593,50 @@ pub(super) fn settle_effects_at_turn_end(
 }
 
 pub(super) fn settle_effects_at_action_end(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     parent: EventId,
 ) -> Result<EventId, BattleFault> {
+    let owner = match cause.actor() {
+        Some(crate::CauseActor::Unit(unit)) => unit,
+        Some(crate::CauseActor::TimelineActor(actor)) => txn
+            .state
+            .actors
+            .get(actor)
+            .map(|state| state.unit.unwrap_or(state.owner))
+            .ok_or_else(|| invariant_fault(50))?,
+        None => cause.applier().ok_or_else(|| invariant_fault(50))?,
+    };
+    let parent = super::effect_boundary::tick(
+        catalog,
+        txn,
+        cause,
+        parent,
+        crate::EffectTickPhase::ActionEnd,
+        owner,
+    )?;
     txn.reset_rule_slots(
         crate::rule::model::SlotResetPoint::ActionEnd,
         cause.applier(),
     );
     advance_effect_clock(txn, cause, parent, crate::DurationClock::ActionEnd, None)
+}
+
+pub(super) fn settle_effects_at_wave_end(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    parent: EventId,
+) -> Result<EventId, BattleFault> {
+    advance_effect_clock(txn, cause, parent, crate::DurationClock::WaveEnd, None)
+}
+
+pub(super) fn settle_effects_at_battle_end(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    parent: EventId,
+) -> Result<EventId, BattleFault> {
+    advance_effect_clock(txn, cause, parent, crate::DurationClock::BattleEnd, None)
 }
 
 fn advance_effect_clock(
@@ -715,7 +739,7 @@ fn execute_damage(
 }
 
 #[allow(clippy::too_many_arguments)]
-fn apply_ordinary_damage(
+pub(super) fn apply_ordinary_damage(
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -905,13 +929,19 @@ fn execute_apply_effect(
                         remaining: state.remaining,
                     }),
                 );
-                instantiate_effect_attachments(catalog, txn, effect)?;
+                super::effect_operation::instantiate_attachments(catalog, txn, effect)?;
             }
             crate::effect::state::EffectApplyResult::Refreshed {
                 effect,
                 stacks_before,
                 stacks_after,
             } => {
+                super::modifier_snapshot::refresh_effect_stacks(
+                    catalog,
+                    txn,
+                    effect,
+                    stacks_after,
+                )?;
                 let remaining = txn
                     .state
                     .effects
@@ -965,111 +995,6 @@ fn execute_remove_effects(
                     operation: operation.id,
                     effect,
                     target,
-                }),
-            );
-        }
-    }
-    Ok(parent)
-}
-
-fn instantiate_effect_attachments(
-    catalog: &crate::catalog::CombatCatalog,
-    txn: &mut Transaction<'_>,
-    effect: crate::EffectInstanceId,
-) -> Result<(), BattleFault> {
-    let state = txn
-        .state
-        .effects
-        .get(effect)
-        .cloned()
-        .ok_or_else(|| invariant_fault(38))?;
-    let definition = catalog
-        .effect(state.definition)
-        .ok_or_else(|| invariant_fault(39))?;
-    for modifier in definition.modifiers() {
-        let instance = txn.allocate_modifier();
-        txn.insert_modifier(
-            catalog,
-            crate::modifier::model::ActiveModifier {
-                instance,
-                definition: *modifier,
-                owner: state.applier,
-                subject: state.target,
-                source: state.source_definition,
-                source_class: crate::rule::model::SourceClass::Effect,
-                insertion_sequence: instance.get(),
-                application_action: None,
-                source_effect: Some(effect),
-                slots: Box::new([]),
-                captured_value: None,
-                captured_stats: Box::new([]),
-            },
-        )?;
-    }
-    for rule in definition.rules() {
-        let runtime = catalog
-            .rule(*rule)
-            .and_then(crate::catalog::definition::RuleDefinition::runtime)
-            .ok_or_else(|| invariant_fault(40))?;
-        let instance = txn.allocate_rule();
-        if !txn
-            .state
-            .rules
-            .insert_attached(instance, *rule, state.target, effect, runtime)
-        {
-            return Err(invariant_fault(41));
-        }
-    }
-    Ok(())
-}
-
-fn execute_detonate_dots(
-    txn: &mut Transaction<'_>,
-    cause: Cause,
-    mut parent: EventId,
-    operation: DetonateDotsOp,
-) -> Result<EventId, BattleFault> {
-    for target in operation.targets {
-        for effect in txn
-            .state
-            .effects
-            .dots_for(target, operation.definition.required_tag)
-        {
-            let dot = effect.dot.ok_or_else(|| invariant_fault(36))?;
-            let calculation = formula::ordinary_damage(dot.formula())
-                .map_err(|_| numeric_fault(31, dot.formula().base_damage().scaled()))?;
-            let raw = operation
-                .definition
-                .fraction
-                .checked_apply(calculation.raw, crate::Rounding::NearestTiesEven)
-                .map_err(|_| numeric_fault(32, calculation.raw.scaled()))?;
-            let finalized = crate::DamageAmount::from_scalar(raw, crate::Rounding::Floor)
-                .map_err(|_| numeric_fault(33, raw.scaled()))?;
-            let attributed = cause
-                .with_applier(effect.applier)
-                .with_source_definition(effect.source_definition);
-            parent = apply_ordinary_damage(
-                txn,
-                attributed,
-                parent,
-                operation.id,
-                target,
-                DamageKind::DotDetonation,
-                dot.formula().class(),
-                Some(dot.element()),
-                Some(effect.id),
-                raw,
-                finalized,
-            )?;
-            parent = txn.emit(
-                attributed
-                    .with_parent(parent)
-                    .with_primary_target(Some(target)),
-                BattleEventKind::Effect(EffectEventData::Detonated {
-                    operation: operation.id,
-                    effect: effect.id,
-                    target,
-                    fraction: operation.definition.fraction,
                 }),
             );
         }

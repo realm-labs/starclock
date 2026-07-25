@@ -5,9 +5,9 @@ use starclock_combat::{
     ConcedePolicy, DamageKind, DispelCategory, DotDefinition, DotDetonationDefinition,
     DurationClock, EffectApplicationDefinition, EffectCategory, EffectChancePolicy,
     EffectDefinitionId, EffectEventData, EffectRuntimeDefinition, EffectStackPolicy,
-    EffectTickPhase, Energy, FormationIndex, Hp, ParticipantSource, ParticipantSpec, Probability,
-    Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings, Scalar, Speed, TeamResourceSpec,
-    TeamSide, UnitLevel,
+    EffectTickPhase, Energy, FormationIndex, Hp, ModifierDefinitionId, ModifierStackingGroupId,
+    ParticipantSource, ParticipantSpec, Probability, Ratio, ResolvedCombatantSpec,
+    ResolvedDefinitionBindings, Scalar, Speed, TeamResourceSpec, TeamSide, UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -22,6 +22,10 @@ use starclock_combat::{
         },
     },
     formula::model::CombatElement,
+    modifier::model::{
+        FormulaPurpose, FormulaStage, ModifierAggregation, ModifierDefinition,
+        ModifierStackingGroup, SnapshotPolicy, StatKind,
+    },
     rule::model::{
         BattleRuleDefinition, BattleRuleScope, RuleSlotMutationDefinition, RuleSource, RuleValue,
         RuleValueKind, SlotResetPoint, SourceClass, StateSlotDef, StateSlotUpdateKind,
@@ -78,11 +82,11 @@ fn catalog() -> Arc<CombatCatalog> {
     let runtime = EffectRuntimeDefinition::new(
         EffectCategory::Dot,
         DispelCategory::DispellableDebuff,
-        1,
+        5,
         Some(2),
         DurationClock::TargetTurnStart,
         EffectTickPhase::TurnStart,
-        EffectStackPolicy::Refresh,
+        EffectStackPolicy::RefreshAndAddStacks,
     )
     .unwrap()
     .with_snapshot(starclock_combat::EffectSnapshotPolicy::OnApplication)
@@ -92,7 +96,34 @@ fn catalog() -> Arc<CombatCatalog> {
         None,
     ))
     .unwrap();
-    builder.add_effect(EffectDefinition::new(definition(1), vec![], vec![]).with_runtime(runtime));
+    builder.add_modifier_group(ModifierStackingGroup {
+        id: ModifierStackingGroupId::new(1).unwrap(),
+        aggregation: ModifierAggregation::Sum,
+        comparator: None,
+    });
+    builder.add_modifier(ModifierDefinition {
+        id: ModifierDefinitionId::new(1).unwrap(),
+        stat: StatKind::Atk,
+        stage: FormulaStage::Vulnerability,
+        purpose: FormulaPurpose::Dot,
+        value: starclock_combat::rule::model::ValueExpr::Slot(definition(2)),
+        stacking_group: ModifierStackingGroupId::new(1).unwrap(),
+        priority: 0,
+        floor: None,
+        cap: None,
+        cap_stage: FormulaStage::Vulnerability,
+        snapshot: SnapshotPolicy::RecomputeOnStackChange,
+        source_stack_slot: Some(definition(2)),
+        filters: Box::new([]),
+    });
+    builder.add_effect(
+        EffectDefinition::new(
+            definition(1),
+            vec![],
+            vec![ModifierDefinitionId::new(1).unwrap()],
+        )
+        .with_runtime(runtime),
+    );
 
     let slot = StateSlotDef::new(
         definition(1),
@@ -102,11 +133,19 @@ fn catalog() -> Arc<CombatCatalog> {
     )
     .with_bounds(RuleValue::Integer(0), RuleValue::Integer(5))
     .with_reset_points(vec![SlotResetPoint::TurnStart]);
+    let action_slot = StateSlotDef::new(
+        definition(2),
+        RuleValueKind::Integer,
+        BattleRuleScope::Action,
+        RuleValue::Integer(0),
+    )
+    .with_bounds(RuleValue::Integer(0), RuleValue::Integer(5))
+    .with_reset_points(vec![SlotResetPoint::ActionEnd]);
     let source = RuleSource::new(definition(1), SourceClass::Ability, vec![], [0x31; 32]);
     builder.add_rule(
         RuleDefinition::new(definition(1), vec![], vec![]).with_runtime(BattleRuleDefinition::new(
             source,
-            vec![slot],
+            vec![slot, action_slot],
             vec![],
             None,
         )),
@@ -130,6 +169,12 @@ fn catalog() -> Arc<CombatCatalog> {
             HitOperationDefinition::ModifyStateSlot(RuleSlotMutationDefinition {
                 rule: definition(1),
                 slot: definition(1),
+                update: StateSlotUpdateKind::Add,
+                value: RuleValue::Integer(1),
+            }),
+            HitOperationDefinition::ModifyStateSlot(RuleSlotMutationDefinition {
+                rule: definition(1),
+                slot: definition(2),
                 update: StateSlotUpdateKind::Add,
                 value: RuleValue::Integer(1),
             }),
@@ -252,11 +297,11 @@ fn kafka_style_detonation_retains_source_snapshot_duration_and_stacks() {
     assert_eq!(damages.len(), 2);
     assert_eq!(
         (damages[0].1.kind, damages[0].1.calculated.get()),
-        (DamageKind::DotDetonation, 75)
+        (DamageKind::DotDetonation, 450)
     );
     assert_eq!(
         (damages[1].1.kind, damages[1].1.calculated.get()),
-        (DamageKind::DotTick, 100)
+        (DamageKind::DotTick, 600)
     );
     let effect_id = damages[0].1.source_effect.unwrap();
     assert_eq!(damages[1].1.source_effect, Some(effect_id));
@@ -268,7 +313,7 @@ fn kafka_style_detonation_retains_source_snapshot_duration_and_stacks() {
     let effect = battle.view().effects_by_id().next().unwrap();
     assert_eq!(
         (effect.id(), effect.stacks(), effect.remaining()),
-        (effect_id, 1, Some(1))
+        (effect_id, 2, Some(1))
     );
     assert_eq!(
         effect.snapshot_policy(),
@@ -282,7 +327,7 @@ fn kafka_style_detonation_retains_source_snapshot_duration_and_stacks() {
             .unwrap()
             .current_hp()
             .get(),
-        825
+        0
     );
     assert_eq!(
         battle.view().rng_draw_count(),
@@ -300,7 +345,10 @@ fn kafka_style_detonation_retains_source_snapshot_duration_and_stacks() {
         .unwrap()
         .slots()
         .collect::<Vec<_>>();
-    assert!(matches!(slots.as_slice(), [(_, RuleValue::Integer(1))]));
+    assert!(matches!(
+        slots.as_slice(),
+        [(_, RuleValue::Integer(1)), (_, RuleValue::Integer(0))]
+    ));
 }
 
 #[test]

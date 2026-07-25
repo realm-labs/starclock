@@ -115,6 +115,7 @@ fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<Comb
             cap: None,
             cap_stage: FormulaStage::DamageBoost,
             snapshot,
+            source_stack_slot: None,
             filters: Box::new([]),
         });
     }

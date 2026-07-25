@@ -117,7 +117,7 @@ impl DotDefinition {
         detonation_tag: Option<SourceDefinitionId>,
     ) -> Self {
         Self {
-            formula,
+            formula: formula.with_class(DamageClass::Dot),
             element,
             detonation_tag,
         }
@@ -247,6 +247,11 @@ impl EffectRuntimeTemplate {
     #[must_use]
     pub const fn magnitude_expression(&self) -> Option<&ValueExpr> {
         self.magnitude.as_ref()
+    }
+
+    #[must_use]
+    pub const fn tick_phase(&self) -> EffectTickPhase {
+        self.tick_phase
     }
 
     /// Materializes immutable runtime state from values evaluated for one target.

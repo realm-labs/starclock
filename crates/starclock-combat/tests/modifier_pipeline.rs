@@ -331,6 +331,7 @@ fn definition_for_stat(
         cap: None,
         cap_stage: stage,
         snapshot: SnapshotPolicy::Dynamic,
+        source_stack_slot: None,
         filters: Box::new([]),
     }
 }

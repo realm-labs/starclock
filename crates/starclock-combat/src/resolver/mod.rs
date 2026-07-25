@@ -1,4 +1,6 @@
 pub(crate) mod action;
+mod effect_boundary;
+mod effect_operation;
 pub(crate) mod journal;
 pub(crate) mod lifecycle;
 pub(crate) mod modifier_snapshot;

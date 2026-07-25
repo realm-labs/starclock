@@ -4,7 +4,7 @@ use starclock_combat::{
     AbilityId, AiCandidateId, AiGraphId, AiStateId, AiTransitionId, EffectDefinitionId,
     EncounterId, EncounterWaveId, EnemyDefinitionId, EnemyPhaseId, Energy, FormationIndex,
     ModifierDefinitionId, ModifierStackingGroupId, OwnerLinkPolicy, ProgramId, RuleBundleId,
-    RuleId, Scalar, SelectorId, UnitDefinitionId, WaveLinkPolicy,
+    RuleId, Scalar, SelectorId, StateSlotDefinitionId, UnitDefinitionId, WaveLinkPolicy,
     catalog::{
         CombatCatalog,
         action::{
@@ -292,6 +292,7 @@ fn complete_catalog(reverse_insertion: bool) -> Arc<CombatCatalog> {
         cap: None,
         cap_stage: FormulaStage::Flat,
         snapshot: SnapshotPolicy::Dynamic,
+        source_stack_slot: None,
         filters: Box::new([]),
     });
     for definition in enemies {
@@ -368,6 +369,32 @@ fn validated_catalog_can_be_composed_without_exposing_private_tables() {
     );
     assert!(composed.encounter(id(1)).is_some());
     assert!(composed.encounter(id(2)).is_some());
+}
+
+#[test]
+fn source_effect_stack_slots_require_one_effect_owner() {
+    let base = complete_catalog(false);
+    let mut builder =
+        CombatCatalogBuilder::from_catalog(&base, "orphan-effect-stack-v1", [0x6c; 32]);
+    builder.add_modifier(ModifierDefinition {
+        id: id(3),
+        stat: StatKind::Atk,
+        stage: FormulaStage::Vulnerability,
+        purpose: FormulaPurpose::Dot,
+        value: ValueExpr::Slot(id::<StateSlotDefinitionId>(1)),
+        stacking_group: id(1),
+        priority: 0,
+        floor: None,
+        cap: None,
+        cap_stage: FormulaStage::Vulnerability,
+        snapshot: SnapshotPolicy::RecomputeOnStackChange,
+        source_stack_slot: Some(id(1)),
+        filters: Box::new([]),
+    });
+    assert_eq!(
+        builder.build().unwrap_err().kind(),
+        CatalogBuildErrorKind::InvalidDefinition
+    );
 }
 
 #[test]

@@ -331,6 +331,7 @@ fn combat_catalog() -> Arc<CombatCatalog> {
             cap: None,
             cap_stage: FormulaStage::Flat,
             snapshot: SnapshotPolicy::Dynamic,
+            source_stack_slot: None,
             filters: Box::new([]),
         });
     }

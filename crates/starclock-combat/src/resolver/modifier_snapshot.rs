@@ -167,6 +167,82 @@ pub(super) fn refresh(
     Ok(())
 }
 
+pub(super) fn refresh_effect_stacks(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    effect: crate::EffectInstanceId,
+    stacks: u16,
+) -> Result<(), BattleFault> {
+    let bindings = txn
+        .state
+        .modifiers
+        .iter_by_id()
+        .filter(|instance| instance.source_effect == Some(effect))
+        .filter_map(|instance| {
+            catalog
+                .modifier(instance.definition)
+                .and_then(|definition| definition.source_stack_slot)
+                .map(|slot| (instance.instance, slot))
+        })
+        .collect::<Vec<_>>();
+    for (instance, slot) in &bindings {
+        let modifier = txn
+            .state
+            .modifiers
+            .get_mut(*instance)
+            .ok_or_else(|| action_fault(141))?;
+        if !modifier.set_slot(
+            slot.to_owned(),
+            crate::rule::model::RuleValue::Integer(i64::from(stacks)),
+        ) {
+            return Err(action_fault(142));
+        }
+        txn.journal.mutation(
+            MutationField::ModifierStore,
+            instance.get(),
+            u64::from(stacks),
+        );
+    }
+    let bases = super::program::stat_bases(txn)?;
+    let active = txn
+        .state
+        .modifiers
+        .iter_by_id()
+        .cloned()
+        .collect::<Vec<_>>();
+    for (instance, _) in bindings {
+        let current = active
+            .iter()
+            .find(|candidate| candidate.instance == instance)
+            .ok_or_else(|| action_fault(143))?;
+        let definition = catalog
+            .modifier(current.definition)
+            .ok_or_else(|| action_fault(144))?;
+        if definition.snapshot != SnapshotPolicy::RecomputeOnStackChange {
+            continue;
+        }
+        let peers = active
+            .iter()
+            .filter(|candidate| candidate.instance != instance)
+            .cloned()
+            .collect::<Vec<_>>();
+        let resolver = crate::modifier::resolve::StatResolver::new(
+            catalog.modifier_registry(),
+            &bases,
+            &peers,
+        );
+        let value = resolver
+            .capture_value(current, definition)
+            .map_err(|_| action_fault(145))?;
+        txn.state
+            .modifiers
+            .get_mut(instance)
+            .ok_or_else(|| action_fault(146))?
+            .captured_value = Some(value);
+    }
+    Ok(())
+}
+
 fn capture_stats(
     resolver: &crate::modifier::resolve::StatResolver<'_>,
     instance: &ActiveModifier,

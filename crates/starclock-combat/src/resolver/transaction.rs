@@ -182,6 +182,7 @@ fn execute(
             let action_resolved = execute_action_plan(catalog, txn, root, closed, &mut plan)?;
             let boundary_cause = action_cause(root, &plan)?;
             let action_resolved = super::operation::settle_effects_at_action_end(
+                catalog,
                 txn,
                 boundary_cause,
                 action_resolved,
@@ -204,11 +205,16 @@ fn execute(
                 }),
             );
             let ended = super::operation::settle_effects_at_turn_end(
+                catalog,
                 txn,
                 boundary_cause,
                 ended,
                 turn.owner,
             )?;
+            txn.reset_rule_slots(
+                crate::rule::model::SlotResetPoint::TurnEnd,
+                Some(turn.owner),
+            );
             txn.set_active_turn(None);
             if let ActionBoundary::Continue(parent) =
                 settle_after_action(catalog, txn, boundary_cause, ended)?
@@ -242,8 +248,12 @@ fn execute(
                 .ok_or_else(|| action_fault(12))?;
             let resolved = execute_action_plan(catalog, txn, root, closed, &mut plan)?;
             let boundary_cause = action_cause(root, &plan)?;
-            let resolved =
-                super::operation::settle_effects_at_action_end(txn, boundary_cause, resolved)?;
+            let resolved = super::operation::settle_effects_at_action_end(
+                catalog,
+                txn,
+                boundary_cause,
+                resolved,
+            )?;
             let resolved = drain_reactions(
                 catalog,
                 txn,

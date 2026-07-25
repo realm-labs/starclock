@@ -693,6 +693,7 @@ fn settle_owner_boundary(
     owner: UnitId,
     defeated: bool,
 ) -> Result<EventId, BattleFault> {
+    parent = settle_owned_effects(txn, cause, parent, owner)?;
     if defeated
         && txn
             .state
@@ -716,6 +717,44 @@ fn settle_owner_boundary(
         apply_link_policy(txn, link.entity, policy)?;
         txn.set_link_active(link.entity, false)?;
         parent = emit_link(txn, cause, parent, link, policy);
+    }
+    Ok(parent)
+}
+
+fn settle_owned_effects(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    owner: UnitId,
+) -> Result<EventId, BattleFault> {
+    let effects = txn
+        .state
+        .effects
+        .iter_by_id()
+        .filter(|effect| {
+            effect.applier == owner
+                && effect.teardown_policy == crate::EffectTeardownPolicy::RemoveWithOwner
+        })
+        .map(|effect| effect.id)
+        .collect::<Vec<_>>();
+    for effect in effects {
+        let removed = txn
+            .state
+            .effects
+            .remove(effect)
+            .ok_or_else(|| action_fault(120))?;
+        txn.remove_effect_attachments(effect);
+        txn.record_effect_change(effect.get(), 0, effect.get());
+        parent = txn.emit(
+            cause
+                .with_parent(parent)
+                .with_primary_target(Some(removed.target)),
+            BattleEventKind::Effect(crate::EffectEventData::Removed {
+                operation: removed.source_operation,
+                effect,
+                target: removed.target,
+            }),
+        );
     }
     Ok(parent)
 }
@@ -826,10 +865,11 @@ fn validate_combatant(
             .rule_bundles()
             .iter()
             .any(|bundle| catalog.rule_bundle(*bundle).is_none())
-        || combatant
-            .modifiers()
-            .iter()
-            .any(|modifier| catalog.modifier(*modifier).is_none())
+        || combatant.modifiers().iter().any(|modifier| {
+            catalog
+                .modifier(*modifier)
+                .is_none_or(|definition| definition.source_stack_slot.is_some())
+        })
         || combatant.modifier_bindings().len() != combatant.modifiers().len()
         || combatant.modifier_bindings().iter().any(|binding| {
             combatant

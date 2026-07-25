@@ -44,8 +44,8 @@ impl FormulaInputs {
         target: crate::UnitId,
     ) -> Result<crate::formula::sustain::DamageCalculation, BattleFault> {
         let resolver = self.resolver(catalog);
-        let source = formula_source(txn, cause)?;
         let purpose = damage_purpose(formula.class());
+        let source = formula_source(txn, cause, purpose)?;
         let source_context = modifier_context(txn, source, target, element, formula.class())?;
         let target_context = modifier_context(txn, target, target, element, formula.class())?;
         for stage in [
@@ -83,7 +83,7 @@ impl FormulaInputs {
         target: crate::UnitId,
     ) -> Result<crate::formula::sustain::HealingCalculation, BattleFault> {
         let resolver = self.resolver(catalog);
-        let source = formula_source(txn, cause)?;
+        let source = formula_source(txn, cause, FormulaPurpose::Healing)?;
         let outgoing = formula_modifier(
             &resolver,
             source,
@@ -130,7 +130,7 @@ impl FormulaInputs {
         target: crate::UnitId,
     ) -> Result<formula::model::ShieldCalculation, BattleFault> {
         let resolver = self.resolver(catalog);
-        let source = formula_source(txn, cause)?;
+        let source = formula_source(txn, cause, FormulaPurpose::Shield)?;
         let outgoing = formula_modifier(
             &resolver,
             source,
@@ -205,7 +205,16 @@ fn formula_modifier(
         .map_err(|_| numeric_fault(46, i64::from(stage as u8)))
 }
 
-fn formula_source(txn: &Transaction<'_>, cause: Cause) -> Result<crate::UnitId, BattleFault> {
+fn formula_source(
+    txn: &Transaction<'_>,
+    cause: Cause,
+    purpose: FormulaPurpose,
+) -> Result<crate::UnitId, BattleFault> {
+    if purpose == FormulaPurpose::Dot
+        && let Some(applier) = cause.applier()
+    {
+        return Ok(applier);
+    }
     match cause.actor() {
         Some(CauseActor::Unit(unit)) => Ok(unit),
         Some(CauseActor::TimelineActor(actor)) => txn

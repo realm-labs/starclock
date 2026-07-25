@@ -119,6 +119,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 93. [Goal 07 trigger timing and cause runtime](goal-07-trigger-timing-and-cause.md) — executable phase/point matrix, bounded once scopes, complete cause attribution and fail-closed replacement proposals.
 94. [Selector and target-set runtime boundary](selector-and-target-set-runtime-boundary.md) — executable predicates, snapshots, deterministic ordering, weighted draws and empty-pool control.
 95. [Goal 07 modifier-stage and snapshot runtime](goal-07-modifier-stage-and-snapshot-runtime.md) — executable stat/formula stages, authored stacking comparators, lifecycle snapshots and production Excel/Sora evidence.
+96. [Goal 07 effect, state and lifecycle runtime](goal-07-effect-state-and-lifecycle-runtime.md) — authoritative slot resets, effect stacking, DoT ticks/detonations, duration clocks, teardown and formal Excel/Sora evidence.
 
 ## Execution goals
 

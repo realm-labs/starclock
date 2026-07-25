@@ -165,6 +165,8 @@ pub struct ModifierDefinition {
     pub cap: Option<crate::Scalar>,
     pub cap_stage: FormulaStage,
     pub snapshot: SnapshotPolicy,
+    /// Optional slot populated from the current source-effect stack count.
+    pub source_stack_slot: Option<StateSlotDefinitionId>,
     pub filters: Box<[ModifierFilter]>,
 }
 
