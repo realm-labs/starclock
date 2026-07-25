@@ -176,9 +176,19 @@ fn execute(
             let targets = commit_targets(catalog, txn, actor, ability, primary_target)?;
             let owner = legal::ability_owner(txn.state, catalog, actor, ability)
                 .ok_or_else(|| action_fault(5))?;
-            let mut plan =
-                lower_normal_action(catalog, txn, actor, owner, turn.actor, ability, targets)
-                    .ok_or_else(|| action_fault(5))?;
+            let mut plan = lower_normal_action(
+                catalog,
+                txn,
+                crate::action::lower::TimelineActionContext {
+                    actor,
+                    owner,
+                    timeline_actor: turn.actor,
+                    origin: turn.origin,
+                },
+                ability,
+                targets,
+            )
+            .ok_or_else(|| action_fault(5))?;
             let action_resolved = execute_action_plan(catalog, txn, root, closed, &mut plan)?;
             let boundary_cause = action_cause(root, &plan)?;
             let action_resolved = super::operation::settle_effects_at_action_end(
@@ -193,28 +203,36 @@ fn execute(
                 crate::catalog::action::ReactionBoundary::AfterAction,
                 action_resolved,
             )?;
-            txn.set_actor_gauge(
-                turn.actor,
-                ActionGauge::from_scaled(10_000_000_000).map_err(|_| action_fault(6))?,
-            )?;
+            if turn.origin == crate::ActionOrigin::NormalTurn {
+                txn.set_actor_gauge(
+                    turn.actor,
+                    ActionGauge::from_scaled(10_000_000_000).map_err(|_| action_fault(6))?,
+                )?;
+            }
             let ended = txn.emit(
                 Cause::for_turn(root, turn.owner, turn.actor).with_parent(action_resolved),
                 BattleEventKind::Turn(TurnEventData::Ended {
                     actor: turn.actor,
                     owner: turn.owner,
+                    origin: turn.origin,
                 }),
             );
-            let ended = super::operation::settle_effects_at_turn_end(
-                catalog,
-                txn,
-                boundary_cause,
-                ended,
-                turn.owner,
-            )?;
-            txn.reset_rule_slots(
-                crate::rule::model::SlotResetPoint::TurnEnd,
-                Some(turn.owner),
-            );
+            let ended = if turn.origin == crate::ActionOrigin::NormalTurn {
+                let ended = super::operation::settle_effects_at_turn_end(
+                    catalog,
+                    txn,
+                    boundary_cause,
+                    ended,
+                    turn.owner,
+                )?;
+                txn.reset_rule_slots(
+                    crate::rule::model::SlotResetPoint::TurnEnd,
+                    Some(turn.owner),
+                );
+                ended
+            } else {
+                ended
+            };
             txn.set_active_turn(None);
             if let ActionBoundary::Continue(parent) =
                 settle_after_action(catalog, txn, boundary_cause, ended)?
@@ -228,7 +246,7 @@ fn execute(
                 if let ActionBoundary::Continue(parent) =
                     settle_after_action(catalog, txn, boundary_cause, parent)?
                 {
-                    super::turn::begin_turn(catalog, txn, root, parent)?;
+                    super::turn::begin_next_turn(catalog, txn, root, parent)?;
                 }
             }
         }
@@ -269,6 +287,7 @@ fn execute(
         ValidatedCommand::Concede => {
             let closed = close_active_decision(txn, root)?;
             txn.set_decision(None);
+            txn.clear_extra_turns();
             txn.set_phase(BattlePhase::Lost);
             txn.emit(
                 Cause::root(root).with_parent(closed),
@@ -834,32 +853,6 @@ impl<'a> Transaction<'a> {
                 .mutation(MutationField::EnemyOrchestration, before_code, after_code);
         }
         Ok(())
-    }
-
-    pub(super) fn delay_unit(
-        &mut self,
-        owner: crate::UnitId,
-        scaled: i64,
-    ) -> Result<(), BattleFault> {
-        let actor = self
-            .state
-            .actors
-            .id_for_owner(owner)
-            .ok_or_else(|| action_fault(43))?;
-        let before = self
-            .state
-            .actors
-            .get(actor)
-            .ok_or_else(|| action_fault(44))?
-            .gauge;
-        let after = ActionGauge::from_scaled(
-            before
-                .scaled()
-                .checked_add(scaled)
-                .ok_or_else(|| action_fault(45))?,
-        )
-        .map_err(|_| action_fault(46))?;
-        self.set_actor_gauge(actor, after)
     }
 
     pub(super) fn unit_speed(&self, owner: crate::UnitId) -> Result<crate::Speed, BattleFault> {

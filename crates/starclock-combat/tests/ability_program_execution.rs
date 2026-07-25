@@ -45,6 +45,8 @@ use starclock_combat::{
     },
 };
 
+#[path = "ability_program_execution/action_break.rs"]
+mod action_break;
 #[path = "ability_program_execution/trigger_phases.rs"]
 mod trigger_phases;
 
@@ -310,6 +312,8 @@ fn catalog_with_trigger(
                         || {
                             if recursive_rule {
                                 OnceScope::Event
+                            } else if mechanics_rule {
+                                OnceScope::Battle
                             } else {
                                 OnceScope::Action
                             }
@@ -511,6 +515,25 @@ fn mechanics_steps() -> Vec<ProgramStep> {
                 "shared.punchline".into(),
             )),
         }),
+        ProgramStep::Operation(RuleOperationTemplate::DelayAction {
+            selector: id(4),
+            amount: ValueExpr::Literal(RuleValue::Scalar(Scalar::ONE)),
+        }),
+        ProgramStep::Operation(RuleOperationTemplate::AdvanceAction {
+            selector: id(4),
+            amount: ValueExpr::Literal(RuleValue::Scalar(Scalar::ONE)),
+        }),
+        ProgramStep::Operation(RuleOperationTemplate::GrantExtraTurn {
+            actor_selector: id(4),
+        }),
+        ProgramStep::Operation(RuleOperationTemplate::Break {
+            selector: id(2),
+            element: CombatElement::Fire,
+        }),
+        ProgramStep::Operation(RuleOperationTemplate::SuperBreak {
+            selector: id(2),
+            multiplier: ValueExpr::Literal(RuleValue::Scalar(Scalar::from_scaled(500_000))),
+        }),
         ProgramStep::Operation(RuleOperationTemplate::Summon {
             owner_selector: id(4),
             unit_definition: id(3),
@@ -668,6 +691,21 @@ fn combatant(
             )])
             .unwrap()
             .with_modifier_bindings(vec![ResolvedModifierBinding::new(id(1), source)])
+            .unwrap();
+    }
+    if form == 2 {
+        combatant = combatant
+            .with_toughness(
+                starclock_combat::formula::toughness::EnemyRank::Normal,
+                vec![],
+                vec![
+                    starclock_combat::ToughnessLayerSpec::ordinary(
+                        1,
+                        starclock_combat::RawToughness::new(30).unwrap(),
+                    )
+                    .unwrap(),
+                ],
+            )
             .unwrap();
     }
     combatant
@@ -991,101 +1029,6 @@ fn recursively_emitting_rule_faults_at_the_dispatch_budget_and_rolls_back() {
             .current_hp()
             .get(),
         1_000
-    );
-}
-
-#[test]
-fn representative_rule_emissions_use_authoritative_runtime_services() {
-    let program = ProgramDefinition::new(id(1), vec![], vec![], vec![], vec![]);
-    let mut battle = battle(
-        catalog(program, false, true, false, true),
-        false,
-        true,
-        true,
-    );
-    let resolution = start_and_use(&mut battle).unwrap();
-
-    assert!(
-        resolution.fault().is_none(),
-        "unexpected mechanics fault: {:?}",
-        resolution.fault()
-    );
-    assert!(resolution.events().iter().any(|event| matches!(
-        event.kind(),
-        BattleEventKind::Action(starclock_combat::ActionEventData::Queued {
-            ability,
-            origin: starclock_combat::ActionOrigin::Forced,
-            ..
-        }) if ability.get() == 3
-    )));
-    assert!(resolution.events().iter().any(|event| matches!(
-        event.kind(),
-        BattleEventKind::RuleSignal(starclock_combat::RuleSignalEventData {
-            code: 77,
-            value: Some(RuleValue::Integer(3)),
-            ..
-        })
-    )));
-    assert!(resolution.events().iter().any(|event| matches!(
-        event.kind(),
-        BattleEventKind::Unit(starclock_combat::UnitEventData::Summoned {
-            kind: LinkedEntityKind::Memosprite,
-            ..
-        })
-    )));
-    assert!(resolution.events().iter().any(|event| matches!(
-        event.kind(),
-        BattleEventKind::Unit(starclock_combat::UnitEventData::CountdownCreated {
-            ability,
-            ..
-        }) if ability.get() == 4
-    )));
-    let effect_events = resolution
-        .events()
-        .iter()
-        .filter(|event| matches!(event.kind(), BattleEventKind::Effect(_)))
-        .count();
-    assert_eq!(effect_events, 2);
-    assert_eq!(battle.view().effects_by_id().count(), 0);
-    assert_eq!(battle.view().units_by_id().count(), 3);
-    assert_eq!(battle.view().links().count(), 2);
-    assert_eq!(
-        battle
-            .view()
-            .units_by_id()
-            .next()
-            .unwrap()
-            .character_resource("enhanced-counter-charges"),
-        Some((
-            Scalar::checked_from_integer(1).unwrap(),
-            Scalar::checked_from_integer(2).unwrap()
-        ))
-    );
-    assert_eq!(
-        battle.view().team(TeamSide::Player).keyed_resource(id(90)),
-        Some((3, 5))
-    );
-    assert_eq!(
-        battle
-            .view()
-            .rule_instances_by_id()
-            .next()
-            .unwrap()
-            .slots()
-            .next()
-            .unwrap()
-            .1,
-        &RuleValue::Integer(0)
-    );
-    assert_eq!(
-        battle
-            .view()
-            .units_by_id()
-            .find(|unit| unit.form().get() == 2)
-            .unwrap()
-            .current_hp()
-            .get(),
-        975
     );
 }
 

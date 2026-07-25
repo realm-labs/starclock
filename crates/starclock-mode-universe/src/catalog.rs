@@ -48,11 +48,11 @@ const EXPECTED_CORE_DATA_REVISION: &str = "core-combat-v1-phase7-l11";
 const EXPECTED_CORE_RULES_REVISION: &str = "core-combat-rules-v1";
 const EXPECTED_NUMERIC_REVISION: &str = "fixed-i64-6dp-v1";
 const EXPECTED_RNG_REVISION: &str = "chacha8-rand-0.10.2-intmap-v1";
-const EXPECTED_STATE_HASH_REVISION: &str = "sha256-v4";
+const EXPECTED_STATE_HASH_REVISION: &str = "sha256-v5";
 
 const EXPECTED_CORE_BUNDLE: [u8; 32] = [
-    0x59, 0x5a, 0xec, 0xaa, 0x99, 0xdb, 0xd9, 0x69, 0xf4, 0x21, 0x1a, 0x72, 0x85, 0x50, 0x07, 0x14,
-    0x4d, 0x3f, 0xe3, 0xc0, 0xd7, 0x54, 0x58, 0xc0, 0xe7, 0x59, 0x51, 0x76, 0x4d, 0x74, 0xa5, 0x11,
+    0x87, 0x59, 0x36, 0xda, 0x8c, 0x01, 0x59, 0x35, 0x85, 0x38, 0x95, 0x63, 0xfc, 0xb3, 0xd0, 0xc4,
+    0x33, 0x4b, 0xdb, 0x14, 0xd8, 0x5a, 0x3e, 0x7f, 0xfb, 0x9f, 0xb0, 0xdc, 0xc0, 0x18, 0x95, 0x3b,
 ];
 const EXPECTED_UNIVERSE_BUNDLE: UniverseBundleDigest = UniverseBundleDigest::new([
     0x0d, 0x94, 0xd2, 0x5b, 0xf9, 0x33, 0x92, 0xfb, 0x65, 0xcc, 0xa1, 0xd2, 0x87, 0x9a, 0x36, 0x17,
@@ -558,7 +558,13 @@ fn validate_core(
     } else {
         Err(error(
             UniverseCatalogLoadErrorKind::CoreCompatibility,
-            "combat/build catalog identity is incompatible with Standard Universe v1",
+            format!(
+                "combat/build catalog identity is incompatible with Standard Universe v1: \
+                 combat={:02x?}, build={:02x?}, state={}",
+                core.combat_catalog().digest().bytes(),
+                core.build_catalog().compatible_combat_digest().bytes(),
+                manifest.state_hash_revision,
+            ),
         ))
     }
 }
@@ -974,8 +980,8 @@ mod tests {
         assert_eq!(
             catalog.identity().configuration_digest().bytes(),
             [
-                239, 223, 206, 40, 89, 132, 53, 42, 185, 94, 23, 230, 62, 36, 216, 204, 98, 198,
-                15, 236, 147, 216, 104, 148, 107, 16, 94, 117, 46, 131, 190, 152,
+                173, 69, 195, 153, 67, 61, 103, 111, 247, 255, 139, 84, 164, 206, 179, 44, 3, 63,
+                237, 57, 124, 47, 224, 228, 225, 126, 0, 140, 138, 29, 87, 123,
             ]
         );
         assert_eq!(

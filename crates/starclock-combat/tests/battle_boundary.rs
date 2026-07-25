@@ -237,7 +237,7 @@ fn battle_construction_allocates_canonical_private_stores_and_read_only_views() 
         view.identity().rng_algorithm_revision(),
         "chacha8-rand-0.10.2-intmap-v1"
     );
-    assert_eq!(view.identity().state_hash_revision(), "sha256-v4");
+    assert_eq!(view.identity().state_hash_revision(), "sha256-v5");
     assert_eq!(view.identity().seed().bytes(), [0x71; 32]);
     assert_eq!(view.encounter().definition(), definition::<EncounterId>(1));
     assert_eq!(view.encounter().wave().get(), 1);
@@ -336,8 +336,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         battle.state_hash().bytes(),
         [
-            17, 191, 29, 205, 221, 226, 60, 102, 72, 8, 49, 51, 26, 137, 175, 115, 236, 181, 94,
-            172, 245, 32, 184, 221, 126, 100, 194, 115, 186, 159, 95, 90,
+            205, 110, 251, 81, 85, 185, 155, 216, 56, 35, 235, 202, 133, 3, 10, 54, 31, 22, 241,
+            22, 212, 180, 197, 95, 64, 188, 95, 168, 12, 148, 181, 245,
         ]
     );
     let before = snapshot(&battle);
@@ -366,8 +366,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         started.state_hash().bytes(),
         [
-            210, 192, 216, 88, 215, 65, 225, 214, 109, 69, 119, 77, 4, 148, 234, 251, 136, 161, 11,
-            16, 10, 95, 117, 25, 121, 125, 131, 13, 74, 71, 199, 105,
+            47, 25, 181, 4, 236, 235, 44, 63, 90, 88, 24, 216, 99, 164, 1, 147, 124, 5, 214, 224,
+            183, 194, 159, 199, 182, 79, 122, 17, 202, 4, 66, 50,
         ]
     );
     assert_eq!(started.phase(), BattlePhase::AwaitingCommand);
@@ -388,6 +388,7 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
         &BattleEventKind::Turn(TurnEventData::Started {
             actor: runtime(1),
             owner: runtime(1),
+            origin: starclock_combat::ActionOrigin::NormalTurn,
         })
     );
     assert_eq!(started.events()[2].id().get(), 3);
@@ -439,8 +440,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         passed.state_hash().bytes(),
         [
-            225, 251, 6, 129, 57, 20, 135, 71, 192, 122, 73, 69, 28, 2, 14, 192, 213, 247, 193, 66,
-            190, 80, 96, 83, 213, 120, 222, 131, 143, 213, 232, 1,
+            62, 222, 212, 102, 180, 139, 108, 9, 192, 10, 22, 195, 242, 184, 78, 100, 152, 53, 146,
+            18, 154, 158, 38, 38, 101, 20, 124, 59, 238, 153, 70, 184,
         ]
     );
     let next = passed.next_decision().unwrap();
@@ -483,8 +484,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         ended.state_hash().bytes(),
         [
-            193, 132, 138, 169, 82, 63, 190, 37, 219, 186, 35, 37, 6, 103, 18, 224, 163, 125, 133,
-            51, 1, 174, 104, 133, 147, 47, 100, 70, 54, 154, 72, 99,
+            52, 244, 198, 60, 23, 221, 27, 251, 88, 205, 233, 63, 33, 194, 1, 209, 165, 165, 224,
+            225, 144, 138, 110, 127, 97, 0, 105, 18, 61, 232, 233, 95,
         ]
     );
     assert_eq!(ended.phase(), BattlePhase::Lost);
@@ -540,8 +541,8 @@ fn normal_action_lowers_one_phase_and_hit_then_selects_the_next_turn() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            147, 173, 125, 22, 153, 53, 111, 16, 157, 63, 161, 13, 215, 23, 145, 196, 249, 201, 58,
-            131, 148, 238, 182, 96, 45, 55, 128, 39, 83, 111, 128, 167,
+            95, 98, 196, 35, 60, 29, 129, 53, 1, 112, 16, 228, 48, 169, 34, 192, 96, 42, 27, 236,
+            71, 244, 111, 140, 227, 134, 194, 85, 59, 191, 208, 54,
         ]
     );
 
@@ -590,12 +591,12 @@ fn normal_action_lowers_one_phase_and_hit_then_selects_the_next_turn() {
     ));
     assert!(matches!(
         resolution.events()[8].kind(),
-        BattleEventKind::Turn(TurnEventData::Ended { actor, owner })
+        BattleEventKind::Turn(TurnEventData::Ended { actor, owner, .. })
             if actor.get() == 1 && owner.get() == 1
     ));
     assert!(matches!(
         resolution.events()[9].kind(),
-        BattleEventKind::Turn(TurnEventData::Started { actor, owner })
+        BattleEventKind::Turn(TurnEventData::Started { actor, owner, .. })
             if actor.get() == 2 && owner.get() == 2
     ));
     assert!(matches!(
@@ -617,7 +618,6 @@ fn normal_action_lowers_one_phase_and_hit_then_selects_the_next_turn() {
     }
     let view = battle.view();
     assert_eq!(view.active_turn().unwrap().owner().get(), 2);
-    assert_eq!(view.interrupt_window().unwrap().pending_count(), 0);
     let gauges = view
         .timeline_actors()
         .map(|actor| actor.action_gauge().scaled())

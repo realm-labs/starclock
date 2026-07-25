@@ -606,9 +606,49 @@ fn positive(value: i32) -> Result<u32, CatalogLoadError> {
         .filter(|value| *value > 0)
         .ok_or_else(|| domain_fail("operation-domain ID must be positive"))
 }
+
 fn selector_id(value: i32) -> Result<SelectorId, CatalogLoadError> {
     Ok(SelectorId::new(positive(value)?).expect("positive selector ID"))
 }
+
 fn effect(value: i32) -> Result<EffectDefinitionId, CatalogLoadError> {
     Ok(EffectDefinitionId::new(positive(value)?).expect("positive effect ID"))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::generated::runtime::SoraBundle;
+
+    const PRODUCTION: &[u8] = include_bytes!("../../../config/generated/config.sora");
+
+    #[test]
+    fn goal07_action_break_probes_survive_excel_sora_and_typed_lowering() {
+        let bundle = SoraBundle::parse(PRODUCTION).expect("production Sora bundle");
+        let config = SoraConfig::from_source(&bundle).expect("generated production config");
+        let handlers = BTreeSet::new();
+        let lowered = [24_701, 24_702, 24_703].map(|id| {
+            lower_operation(
+                &config,
+                config.operation().get(&id).expect("Goal 07 probe row"),
+                &handlers,
+            )
+            .expect("typed operation lowering")
+        });
+        assert!(matches!(
+            lowered[0],
+            RuleOperationTemplate::Break {
+                element: CombatElement::Fire,
+                ..
+            }
+        ));
+        assert!(matches!(
+            lowered[1],
+            RuleOperationTemplate::DelayAction { .. }
+        ));
+        assert!(matches!(
+            lowered[2],
+            RuleOperationTemplate::GrantExtraTurn { .. }
+        ));
+    }
 }

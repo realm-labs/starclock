@@ -38,6 +38,9 @@ pub(super) fn execute_operation(
         Operation::ReduceToughness(operation) => {
             execute_toughness_reduction(txn, cause, parent, operation, scratch)
         }
+        Operation::ForceBreak(operation) => {
+            super::operation_break::execute_force_break(txn, cause, parent, operation, scratch)
+        }
         Operation::SuperBreak(operation) => {
             execute_super_break(txn, cause, parent, operation, scratch)
         }
@@ -91,6 +94,7 @@ pub(super) fn execute_operation(
         }
     }
 }
+
 fn execute_add_weakness(
     txn: &mut Transaction<'_>,
     cause: Cause,
@@ -120,7 +124,7 @@ fn execute_add_weakness(
     Ok(parent)
 }
 
-fn execute_toughness_reduction(
+pub(super) fn execute_toughness_reduction(
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -171,6 +175,7 @@ fn execute_toughness_reduction(
             BattleEventKind::Toughness(ToughnessEventData::Reduced {
                 operation: operation.id,
                 target,
+                element: operation.definition.element,
                 layer_key,
                 attempted: calculation.attempted,
                 effective,

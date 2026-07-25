@@ -41,7 +41,9 @@ for (const review of reviews) {
 const branchPolicy = policy.content_branch_audit;
 for (const auditRoot of branchPolicy.roots) assert(fs.statSync(absolute(auditRoot), { throwIfNoEntry: false })?.isDirectory(), `${auditRoot}: branch-audit root does not exist`);
 const tracked = execFileSync("git", ["ls-files", "--", ...branchPolicy.roots.map((auditRoot) => `${auditRoot}/*.rs`), ...branchPolicy.roots.map((auditRoot) => `${auditRoot}/**/*.rs`)], { cwd: root, encoding: "utf8" })
-  .split(/\r?\n/).filter(Boolean).map(normalize).sort();
+  .split(/\r?\n/).filter(Boolean).map(normalize)
+  .filter((relative) => fs.existsSync(absolute(relative)))
+  .sort();
 assert(tracked.length > 0, "content-branch audit selected no Rust sources");
 for (const relative of tracked) auditRust(relative, branchPolicy);
 

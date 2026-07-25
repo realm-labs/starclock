@@ -10,9 +10,9 @@ use crate::{
     },
     operation::{
         AddWeaknessOp, ApplyEffectOp, ChangePresenceOp, ConsumeHpOp, CreateCountdownOp, DamageOp,
-        DetonateDotsOp, HitOperationScratch, ModifyStateSlotOp, Operation, QueueRuleActionOp,
-        ReduceToughnessOp, RemoveEffectsOp, SummonLinkedOp, SuperBreakOp, TransformOp,
-        UnitLifecycleOp,
+        DetonateDotsOp, ForceBreakOp, HitOperationScratch, ModifyStateSlotOp, Operation,
+        QueueRuleActionOp, ReduceToughnessOp, RemoveEffectsOp, SummonLinkedOp, SuperBreakOp,
+        TransformOp, UnitLifecycleOp,
     },
     rule::{
         evaluate::{EvaluationBudget, evaluate_program},
@@ -53,6 +53,69 @@ pub(super) fn execute_ability_program(
     context: AbilityProgramContext,
     scratch: &mut HitOperationScratch,
 ) -> Result<crate::EventId, BattleFault> {
+    execute_program(
+        catalog,
+        txn,
+        cause,
+        parent,
+        context,
+        scratch,
+        crate::rule::model::RuleEventKind::Phase,
+        crate::rule::model::RuleEventPoint::PhaseStarted,
+    )
+}
+
+pub(super) fn execute_boundary_program(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    parent: crate::EventId,
+    program: crate::ProgramId,
+    owner: crate::UnitId,
+    event_kind: crate::rule::model::RuleEventKind,
+) -> Result<crate::EventId, BattleFault> {
+    let action = cause.action().ok_or_else(|| program_fault(2, 0))?;
+    let ability = cause
+        .source_definition()
+        .and_then(|source| crate::AbilityId::new(source.get()))
+        .ok_or_else(|| program_fault(3, 0))?;
+    execute_program(
+        catalog,
+        txn,
+        cause.with_owner(owner),
+        parent,
+        AbilityProgramContext {
+            program,
+            owner,
+            actor: owner,
+            ability,
+            action,
+            rule: None,
+            rule_instance: None,
+            trigger: None,
+            hit: cause.hit(),
+            primary: Some(owner),
+            damage_share: Ratio::ONE,
+            toughness_share: Ratio::ONE,
+            crit_policy: HitCritPolicy::Never,
+        },
+        &mut HitOperationScratch::default(),
+        event_kind,
+        crate::rule::model::RuleEventPoint::EncounterTransition,
+    )
+}
+
+#[allow(clippy::too_many_arguments)]
+fn execute_program(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    parent: crate::EventId,
+    context: AbilityProgramContext,
+    scratch: &mut HitOperationScratch,
+    event_kind: crate::rule::model::RuleEventKind,
+    event_point: crate::rule::model::RuleEventPoint,
+) -> Result<crate::EventId, BattleFault> {
     let bases = stat_bases(txn)?;
     let modifiers = txn
         .state
@@ -66,7 +129,7 @@ pub(super) fn execute_ability_program(
         &modifiers,
     );
     let event_facts = crate::rule::model::RuleEventFacts {
-        point: Some(crate::rule::model::RuleEventPoint::PhaseStarted),
+        point: Some(event_point),
         has_parent: true,
         has_action: true,
         has_phase: true,
@@ -113,7 +176,7 @@ pub(super) fn execute_ability_program(
             })
             .collect::<Vec<_>>();
         let selection_input = RuleEvaluationInput {
-            event_kind: crate::rule::model::RuleEventKind::Phase,
+            event_kind,
             event_facts: &event_facts,
             cause: rule_cause,
             occurrence,
@@ -156,7 +219,7 @@ pub(super) fn execute_ability_program(
         })
         .collect::<Vec<_>>();
     let input = RuleEvaluationInput {
-        event_kind: crate::rule::model::RuleEventKind::Phase,
+        event_kind,
         event_facts: &event_facts,
         cause: rule_cause,
         occurrence,
@@ -359,16 +422,35 @@ fn execute_emission(
                 definition: toughness_reduction(element, base),
             })
         }
+        RuleEmission::Break {
+            selector, element, ..
+        } => {
+            *toughness_element = Some(element);
+            Operation::ForceBreak(ForceBreakOp {
+                id: operation_id,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
+                element,
+            })
+        }
         RuleEmission::SuperBreak {
             selector,
             multiplier,
             ..
         } => {
             let multiplier = ratio(multiplier)?;
-            let element = toughness_element.ok_or_else(|| program_fault(43, 0))?;
+            let element = toughness_element
+                .or(input.event_facts.element)
+                .ok_or_else(|| program_fault(43, 0))?;
+            let targets = emission_targets(catalog, resolved, selector, current_target)?;
+            super::program_break::seed_observed_reduction(
+                scratch,
+                input.cause.target,
+                input.event_facts.toughness_reduction,
+                &targets,
+            );
             Operation::SuperBreak(SuperBreakOp {
                 id: operation_id,
-                targets: emission_targets(catalog, resolved, selector, current_target)?,
+                targets,
                 definition: super_break(context, multiplier, element),
             })
         }
@@ -437,6 +519,7 @@ fn execute_emission(
         } => {
             return shift_action(
                 txn,
+                cause,
                 parent,
                 emission_targets(catalog, resolved, selector, current_target)?,
                 amount,
@@ -448,6 +531,7 @@ fn execute_emission(
         } => {
             return shift_action(
                 txn,
+                cause,
                 parent,
                 emission_targets(catalog, resolved, selector, current_target)?,
                 amount,
@@ -493,6 +577,10 @@ fn execute_emission(
                 instance,
                 trigger,
             })
+        }
+        RuleEmission::GrantExtraTurn { actor_selector, .. } => {
+            let actors = emission_targets(catalog, resolved, actor_selector, current_target)?;
+            return super::program_timeline::grant_extra_turns(txn, cause, parent, actors);
         }
         RuleEmission::ModifyResource {
             selector,
@@ -762,26 +850,13 @@ fn queue_origin(
 
 fn shift_action(
     txn: &mut Transaction<'_>,
+    cause: Cause,
     parent: crate::EventId,
     targets: Box<[crate::UnitId]>,
     amount: RuleValue,
     advance: bool,
 ) -> Result<crate::EventId, BattleFault> {
-    let scaled = ratio(amount)?
-        .scaled()
-        .checked_mul(10_000)
-        .ok_or_else(|| program_fault(21, 0))?;
-    let delta = if advance {
-        scaled
-            .checked_neg()
-            .ok_or_else(|| program_fault(22, scaled))?
-    } else {
-        scaled
-    };
-    for target in targets {
-        txn.delay_unit(target, delta)?;
-    }
-    Ok(parent)
+    super::program_timeline::shift_actions(txn, cause, parent, targets, ratio(amount)?, advance)
 }
 
 #[allow(clippy::too_many_arguments)]

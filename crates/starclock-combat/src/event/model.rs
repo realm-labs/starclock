@@ -218,6 +218,7 @@ pub enum ToughnessEventData {
     Reduced {
         operation: OperationId,
         target: UnitId,
+        element: crate::formula::model::CombatElement,
         layer_key: Option<u32>,
         attempted: crate::RawToughness,
         effective: crate::RawToughness,
@@ -398,17 +399,35 @@ pub enum EnemyPhaseEventData {
 }
 
 /// Normal timeline-turn facts.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum ActionGaugeChangeKind {
+    Advance,
+    Delay,
+}
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum TurnEventData {
-    /// Global time advanced and this actor began its normal turn.
+    /// A rule granted a future extra turn without changing Action Gauge.
+    ExtraTurnGranted { owner: UnitId, insertion: u64 },
+    ActionGaugeChanged {
+        actor: TimelineActorId,
+        owner: UnitId,
+        kind: ActionGaugeChangeKind,
+        amount: crate::Ratio,
+        before: crate::ActionGauge,
+        after: crate::ActionGauge,
+    },
+    /// Global time advanced, or an already-granted extra turn began.
     Started {
         actor: TimelineActorId,
         owner: UnitId,
+        origin: ActionOrigin,
     },
-    /// The normal action and post-action boundary completed.
+    /// The selected normal or extra-turn action boundary completed.
     Ended {
         actor: TimelineActorId,
         owner: UnitId,
+        origin: ActionOrigin,
     },
 }
 

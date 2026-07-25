@@ -26,8 +26,9 @@ use starclock_combat::{
 use starclock_replay::{
     battle::{BattleTraceEntry, battle_record_count, encode_battle_trace, verify_battle_replay},
     battle_event::{
-        BATTLE_EVENT_PAYLOAD_VERSION, BATTLE_EVENT_PAYLOAD_VERSION_V1, BattleEventPayloadError,
-        encode_battle_event_payload, encode_battle_event_payload_for_version,
+        BATTLE_EVENT_PAYLOAD_VERSION, BATTLE_EVENT_PAYLOAD_VERSION_V1,
+        BATTLE_EVENT_PAYLOAD_VERSION_V2, BattleEventPayloadError, encode_battle_event_payload,
+        encode_battle_event_payload_for_version,
     },
     digest::{ConfigBundleDigest, ControllerDigest, EntrySpecDigest},
     format::{ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, decode_replay},
@@ -218,13 +219,15 @@ fn unique_offset(bytes: &[u8], needle: &[u8]) -> usize {
 }
 
 #[test]
-fn event_payload_v2_removes_only_the_never_written_activity_source_slot() {
+fn event_payload_v3_retains_both_historical_event_revisions() {
     let mut battle = battle();
     let command = supported_command(&battle);
     let resolution = battle.apply(command).unwrap();
     let event = &resolution.events()[0];
     let historical =
         encode_battle_event_payload_for_version(event, BATTLE_EVENT_PAYLOAD_VERSION_V1).unwrap();
+    let previous =
+        encode_battle_event_payload_for_version(event, BATTLE_EVENT_PAYLOAD_VERSION_V2).unwrap();
     let current = encode_battle_event_payload(event).unwrap();
 
     assert_eq!(
@@ -232,10 +235,15 @@ fn event_payload_v2_removes_only_the_never_written_activity_source_slot() {
         BATTLE_EVENT_PAYLOAD_VERSION_V1
     );
     assert_eq!(
+        u16::from_le_bytes(previous[..2].try_into().unwrap()),
+        BATTLE_EVENT_PAYLOAD_VERSION_V2
+    );
+    assert_eq!(
         u16::from_le_bytes(current[..2].try_into().unwrap()),
         BATTLE_EVENT_PAYLOAD_VERSION
     );
-    assert_eq!(historical.len(), current.len() + 1);
+    assert_eq!(historical.len(), previous.len() + 1);
+    assert_eq!(previous[2..], current[2..]);
     assert_eq!(
         encode_battle_event_payload_for_version(event, u16::MAX),
         Err(BattleEventPayloadError::UnsupportedVersion(u16::MAX))

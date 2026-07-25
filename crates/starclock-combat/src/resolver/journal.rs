@@ -18,6 +18,7 @@ pub(crate) enum AllocationKind {
     Effect,
     Wave,
     Reaction,
+    ExtraTurn,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -28,6 +29,7 @@ pub(crate) enum AllocationKind {
 pub(crate) enum QueueKind {
     Operation,
     Reaction,
+    ExtraTurn,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -208,6 +208,7 @@ fn enqueue(
     txn.reactions.push(crate::reaction::queue::QueuedAction {
         order: crate::reaction::queue::ReactionOrder {
             boundary,
+            tier: crate::reaction::queue::ReactionTier::for_origin(origin),
             priority,
             side,
             formation,

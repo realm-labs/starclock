@@ -163,8 +163,6 @@ impl<'a> BattleView<'a> {
             .map(|window| InterruptWindowView {
                 kind: window.kind,
                 turn: ActiveTurnView::from(window.turn),
-                pending_count: u64::try_from(window.pending.entries().len())
-                    .expect("interrupt queue length is bounded below u64::MAX"),
             })
     }
 }
@@ -362,6 +360,7 @@ pub struct ActiveTurnView {
     side: TeamSide,
     formation: FormationIndex,
     spawn: SpawnSequence,
+    origin: crate::ActionOrigin,
 }
 
 impl ActiveTurnView {
@@ -390,6 +389,11 @@ impl ActiveTurnView {
     pub const fn spawn_sequence(self) -> SpawnSequence {
         self.spawn
     }
+    /// Returns whether this is a timeline turn or a granted extra turn.
+    #[must_use]
+    pub const fn origin(self) -> crate::ActionOrigin {
+        self.origin
+    }
 }
 
 impl From<crate::timeline::state::NormalTurnState> for ActiveTurnView {
@@ -400,6 +404,7 @@ impl From<crate::timeline::state::NormalTurnState> for ActiveTurnView {
             side: turn.side,
             formation: turn.formation,
             spawn: turn.spawn,
+            origin: turn.origin,
         }
     }
 }
@@ -409,7 +414,6 @@ impl From<crate::timeline::state::NormalTurnState> for ActiveTurnView {
 pub struct InterruptWindowView {
     kind: crate::timeline::state::InterruptWindowKind,
     turn: ActiveTurnView,
-    pending_count: u64,
 }
 
 impl InterruptWindowView {
@@ -422,11 +426,6 @@ impl InterruptWindowView {
     #[must_use]
     pub const fn turn(self) -> ActiveTurnView {
         self.turn
-    }
-    /// Returns queued automatic/out-of-order actions without exposing entries.
-    #[must_use]
-    pub const fn pending_count(self) -> u64 {
-        self.pending_count
     }
 }
 

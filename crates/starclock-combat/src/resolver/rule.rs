@@ -368,8 +368,18 @@ fn rule_event_point(event: &BattleEventKind) -> Option<RuleEventPoint> {
             RuleEventPoint::DecisionRequested
         }
         BattleEventKind::Decision(crate::DecisionEventData::Closed { .. }) => return None,
+        BattleEventKind::Turn(crate::TurnEventData::Started {
+            origin: crate::ActionOrigin::ExtraTurn,
+            ..
+        })
+        | BattleEventKind::Turn(crate::TurnEventData::Ended {
+            origin: crate::ActionOrigin::ExtraTurn,
+            ..
+        }) => return None,
         BattleEventKind::Turn(crate::TurnEventData::Started { .. }) => RuleEventPoint::TurnStarted,
         BattleEventKind::Turn(crate::TurnEventData::Ended { .. }) => RuleEventPoint::TurnEnded,
+        BattleEventKind::Turn(crate::TurnEventData::ExtraTurnGranted { .. }) => return None,
+        BattleEventKind::Turn(crate::TurnEventData::ActionGaugeChanged { .. }) => return None,
         BattleEventKind::Action(crate::ActionEventData::Declared { .. }) => {
             RuleEventPoint::ActionDeclared
         }
@@ -506,6 +516,9 @@ fn event_facts(
         }
         BattleEventKind::Toughness(data) => {
             facts.element = toughness_element(data);
+            if let crate::ToughnessEventData::Reduced { effective, .. } = data {
+                facts.toughness_reduction = Some(*effective);
+            }
         }
         BattleEventKind::Effect(data) => {
             facts.stack_count = match data {
@@ -625,6 +638,7 @@ fn toughness_element(data: &crate::ToughnessEventData) -> Option<CombatElement> 
     match data {
         crate::ToughnessEventData::WeaknessAdded { element, .. }
         | crate::ToughnessEventData::WeaknessRemoved { element, .. }
+        | crate::ToughnessEventData::Reduced { element, .. }
         | crate::ToughnessEventData::BaseEffectApplied { element, .. }
         | crate::ToughnessEventData::BaseEffectResisted { element, .. }
         | crate::ToughnessEventData::BaseEffectExpired { element, .. } => Some(*element),

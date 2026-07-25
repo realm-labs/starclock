@@ -12,6 +12,7 @@ use crate::{
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub(crate) struct ReactionOrder {
     pub(crate) boundary: ReactionBoundary,
+    pub(crate) tier: ReactionTier,
     pub(crate) priority: i16,
     pub(crate) side: TeamSide,
     pub(crate) formation: FormationIndex,
@@ -23,6 +24,32 @@ pub(crate) struct ReactionOrder {
     pub(crate) actor: UnitId,
     pub(crate) ability: AbilityId,
     pub(crate) insertion: u64,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub(crate) enum ReactionTier {
+    ForcedFollowUp = 0,
+    Ultimate = 1,
+    ExtraAction = 2,
+    ExtraTurnAction = 3,
+}
+
+impl ReactionTier {
+    pub(crate) const fn for_origin(origin: ActionOrigin) -> Self {
+        match origin {
+            ActionOrigin::FollowUp | ActionOrigin::Counter => Self::ForcedFollowUp,
+            ActionOrigin::UltimateInterrupt => Self::Ultimate,
+            ActionOrigin::ExtraTurn => Self::ExtraTurnAction,
+            ActionOrigin::NormalTurn
+            | ActionOrigin::Forced
+            | ActionOrigin::ExtraAction
+            | ActionOrigin::DelayedAction
+            | ActionOrigin::SummonAction
+            | ActionOrigin::MemospriteAction
+            | ActionOrigin::Countdown => Self::ExtraAction,
+        }
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -101,6 +128,7 @@ mod tests {
         QueuedAction {
             order: ReactionOrder {
                 boundary,
+                tier: ReactionTier::ForcedFollowUp,
                 priority,
                 side: TeamSide::Player,
                 formation: FormationIndex::new(0).unwrap(),
@@ -131,6 +159,25 @@ mod tests {
     }
 
     #[test]
+    fn semantic_tiers_cannot_be_inverted_by_authored_priority() {
+        let mut follow_up = entry(ReactionBoundary::AfterAction, 100, 2);
+        follow_up.order.tier = ReactionTier::for_origin(ActionOrigin::FollowUp);
+        let mut extra_action = entry(ReactionBoundary::AfterAction, -100, 1);
+        extra_action.order.tier = ReactionTier::for_origin(ActionOrigin::ExtraAction);
+        extra_action.origin = ActionOrigin::ExtraAction;
+        let mut queue = ReactionQueue::default();
+        queue.push(extra_action);
+        queue.push(follow_up);
+        assert_eq!(
+            queue
+                .pop_ready(ReactionBoundary::AfterAction)
+                .unwrap()
+                .origin,
+            ActionOrigin::FollowUp
+        );
+    }
+
+    #[test]
     fn boundary_priority_and_insertion_form_a_complete_stable_order() {
         let mut queue = ReactionQueue::default();
         queue.push(entry(ReactionBoundary::AfterAction, -10, 1));
@@ -143,15 +190,36 @@ mod tests {
                 .iter()
                 .map(|entry| (
                     entry.order.boundary,
+                    entry.order.tier,
                     entry.order.priority,
                     entry.order.insertion
                 ))
                 .collect::<Vec<_>>(),
             [
-                (ReactionBoundary::AfterHit, -10, 1),
-                (ReactionBoundary::AfterHit, -10, 2),
-                (ReactionBoundary::AfterHit, 10, 3),
-                (ReactionBoundary::AfterAction, -10, 1),
+                (
+                    ReactionBoundary::AfterHit,
+                    ReactionTier::ForcedFollowUp,
+                    -10,
+                    1
+                ),
+                (
+                    ReactionBoundary::AfterHit,
+                    ReactionTier::ForcedFollowUp,
+                    -10,
+                    2
+                ),
+                (
+                    ReactionBoundary::AfterHit,
+                    ReactionTier::ForcedFollowUp,
+                    10,
+                    3
+                ),
+                (
+                    ReactionBoundary::AfterAction,
+                    ReactionTier::ForcedFollowUp,
+                    -10,
+                    1
+                ),
             ]
         );
         assert_eq!(

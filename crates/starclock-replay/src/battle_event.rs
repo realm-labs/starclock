@@ -21,10 +21,12 @@ use crate::codec::{CodecError, Encoder};
 
 /// Historical event payload emitted by released replay-v2 files.
 pub const BATTLE_EVENT_PAYLOAD_VERSION_V1: u16 = 1;
+/// Historical event payload emitted by released replay-v3 files.
+pub const BATTLE_EVENT_PAYLOAD_VERSION_V2: u16 = 2;
 /// Current event payload. Activity provenance belongs to assembly identity,
 /// while battle events attribute executable definitions through
 /// [`starclock_combat::Cause::source_definition`].
-pub const BATTLE_EVENT_PAYLOAD_VERSION: u16 = 2;
+pub const BATTLE_EVENT_PAYLOAD_VERSION: u16 = 3;
 
 /// Canonically encodes one event identity, cause chain and complete typed data.
 pub fn encode_battle_event_payload(
@@ -38,20 +40,27 @@ pub fn encode_battle_event_payload_for_version(
     event: &BattleEvent,
     version: u16,
 ) -> Result<Vec<u8>, BattleEventPayloadError> {
-    if version != BATTLE_EVENT_PAYLOAD_VERSION_V1 && version != BATTLE_EVENT_PAYLOAD_VERSION {
+    if ![
+        BATTLE_EVENT_PAYLOAD_VERSION_V1,
+        BATTLE_EVENT_PAYLOAD_VERSION_V2,
+        BATTLE_EVENT_PAYLOAD_VERSION,
+    ]
+    .contains(&version)
+    {
         return Err(BattleEventPayloadError::UnsupportedVersion(version));
     }
     let mut encoder = Encoder::new(Vec::new());
     encoder.u16(version);
     encoder.u64(event.id().get());
     encode_cause(&mut encoder, event.cause(), version);
-    encode_kind(&mut encoder, event.kind())?;
+    encode_kind(&mut encoder, event.kind(), version)?;
     Ok(encoder.into_inner())
 }
 
 fn encode_kind(
     encoder: &mut Encoder<Vec<u8>>,
     kind: &BattleEventKind,
+    version: u16,
 ) -> Result<(), BattleEventPayloadError> {
     match kind {
         BattleEventKind::Battle(value) => {
@@ -64,7 +73,7 @@ fn encode_kind(
         }
         BattleEventKind::Turn(value) => {
             encoder.u8(2);
-            encode_turn(encoder, *value);
+            encode_turn(encoder, *value, version)?;
         }
         BattleEventKind::Action(value) => {
             encoder.u8(3);
@@ -96,7 +105,7 @@ fn encode_kind(
         }
         BattleEventKind::Toughness(value) => {
             encoder.u8(10);
-            encode_toughness(encoder, *value);
+            encode_toughness(encoder, *value, version);
         }
         BattleEventKind::BreakDamage(value) => {
             encoder.u8(11);
@@ -170,14 +179,68 @@ fn encode_decision(encoder: &mut Encoder<Vec<u8>>, value: DecisionEventData) {
     }
 }
 
-fn encode_turn(encoder: &mut Encoder<Vec<u8>>, value: TurnEventData) {
-    let (kind, actor, owner) = match value {
-        TurnEventData::Started { actor, owner } => (0, actor, owner),
-        TurnEventData::Ended { actor, owner } => (1, actor, owner),
-    };
-    encoder.u8(kind);
-    encoder.u64(actor.get());
-    encoder.u64(owner.get());
+fn encode_turn(
+    encoder: &mut Encoder<Vec<u8>>,
+    value: TurnEventData,
+    version: u16,
+) -> Result<(), BattleEventPayloadError> {
+    if version <= BATTLE_EVENT_PAYLOAD_VERSION_V2 {
+        let (kind, actor, owner) = match value {
+            TurnEventData::Started { actor, owner, .. } => (0, actor, owner),
+            TurnEventData::Ended { actor, owner, .. } => (1, actor, owner),
+            TurnEventData::ExtraTurnGranted { .. } | TurnEventData::ActionGaugeChanged { .. } => {
+                return Err(BattleEventPayloadError::UnsupportedEventFamily);
+            }
+        };
+        encoder.u8(kind);
+        encoder.u64(actor.get());
+        encoder.u64(owner.get());
+        return Ok(());
+    }
+    match value {
+        TurnEventData::ExtraTurnGranted { owner, insertion } => {
+            encoder.u8(0);
+            encoder.u64(owner.get());
+            encoder.u64(insertion);
+        }
+        TurnEventData::ActionGaugeChanged {
+            actor,
+            owner,
+            kind,
+            amount,
+            before,
+            after,
+        } => {
+            encoder.u8(1);
+            encoder.u64(actor.get());
+            encoder.u64(owner.get());
+            encoder.u8(kind as u8);
+            encoder.i64(amount.scaled());
+            encoder.i64(before.scaled());
+            encoder.i64(after.scaled());
+        }
+        TurnEventData::Started {
+            actor,
+            owner,
+            origin,
+        } => {
+            encoder.u8(2);
+            encoder.u64(actor.get());
+            encoder.u64(owner.get());
+            encoder.u8(origin as u8);
+        }
+        TurnEventData::Ended {
+            actor,
+            owner,
+            origin,
+        } => {
+            encoder.u8(3);
+            encoder.u64(actor.get());
+            encoder.u64(owner.get());
+            encoder.u8(origin as u8);
+        }
+    }
+    Ok(())
 }
 
 fn encode_action(encoder: &mut Encoder<Vec<u8>>, value: ActionEventData) {
@@ -469,7 +532,7 @@ fn encode_effect(encoder: &mut Encoder<Vec<u8>>, value: EffectEventData) {
     }
 }
 
-fn encode_toughness(encoder: &mut Encoder<Vec<u8>>, value: ToughnessEventData) {
+fn encode_toughness(encoder: &mut Encoder<Vec<u8>>, value: ToughnessEventData, version: u16) {
     match value {
         ToughnessEventData::WeaknessAdded {
             operation,
@@ -498,6 +561,7 @@ fn encode_toughness(encoder: &mut Encoder<Vec<u8>>, value: ToughnessEventData) {
         ToughnessEventData::Reduced {
             operation,
             target,
+            element: value,
             layer_key,
             attempted,
             effective,
@@ -507,6 +571,9 @@ fn encode_toughness(encoder: &mut Encoder<Vec<u8>>, value: ToughnessEventData) {
             encoder.u8(2);
             encoder.u64(operation.get());
             encoder.u64(target.get());
+            if version >= BATTLE_EVENT_PAYLOAD_VERSION {
+                element(encoder, value);
+            }
             optional_u32(encoder, layer_key);
             encoder.i64(attempted.get());
             encoder.i64(effective.get());

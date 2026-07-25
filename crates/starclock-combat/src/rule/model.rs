@@ -411,6 +411,8 @@ pub struct RuleEventFacts {
     pub resource: Option<RuleResourceKind>,
     pub damage_amount: Option<Scalar>,
     pub hp_change_amount: Option<Scalar>,
+    /// Effective Toughness reduction carried by a `Reduced` event.
+    pub toughness_reduction: Option<crate::RawToughness>,
     pub resource_delta: Option<Scalar>,
     pub stack_count: Option<i64>,
     pub hit_index: Option<i64>,
@@ -419,7 +421,6 @@ pub struct RuleEventFacts {
     pub has_phase: bool,
     pub has_hit: bool,
 }
-
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum TriggerPhase {
     Before,
@@ -430,7 +431,6 @@ pub enum TriggerPhase {
     AfterAction,
     Boundary,
 }
-
 /// Stable signed reaction priority. Smaller values execute first.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct ReactionPriority(i16);

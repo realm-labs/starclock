@@ -85,11 +85,12 @@ pub use effect::model::{
 };
 pub use event::cause::{Cause, CauseActor};
 pub use event::model::{
-    ActionEventData, BattleEvent, BattleEventData, BattleEventKind, BreakDamageEventData,
-    BreakDamageKind, DamageEventData, DamageKind, DecisionEventData, EffectEventData,
-    EnemyPhaseEventData, FaultEventData, HealEventData, HitEventData, HpConsumptionEventData,
-    PhaseEventData, ResourceEventData, RuleSignalEventData, RuleStateEventData, ShieldEventData,
-    SkillPointPayer, ToughnessEventData, TurnEventData, UnitEventData, WaveEventData,
+    ActionEventData, ActionGaugeChangeKind, BattleEvent, BattleEventData, BattleEventKind,
+    BreakDamageEventData, BreakDamageKind, DamageEventData, DamageKind, DecisionEventData,
+    EffectEventData, EnemyPhaseEventData, FaultEventData, HealEventData, HitEventData,
+    HpConsumptionEventData, PhaseEventData, ResourceEventData, RuleSignalEventData,
+    RuleStateEventData, ShieldEventData, SkillPointPayer, ToughnessEventData, TurnEventData,
+    UnitEventData, WaveEventData,
 };
 pub use timeline::state::InterruptWindowKind;
 pub use toughness::model::{
@@ -100,6 +101,6 @@ pub use toughness::model::{
 /// Compatibility identifier for authoritative numeric representation and rounding.
 pub const NUMERIC_POLICY_REVISION: &str = "fixed-i64-6dp-v1";
 /// Compatibility identifier for canonical battle-state hashing.
-pub const STATE_HASH_REVISION: &str = "sha256-v4";
+pub const STATE_HASH_REVISION: &str = "sha256-v5";
 /// Compatibility identifier for canonical combat-input encoding and hashing.
 pub const COMBAT_INPUT_CODEC_REVISION: &str = "combat-input-v1";

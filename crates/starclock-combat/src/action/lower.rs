@@ -31,25 +31,34 @@ struct ActionContext {
 pub(crate) fn lower_normal_action(
     catalog: &CombatCatalog,
     allocator: &mut impl ActionIdentityAllocator,
-    actor: UnitId,
-    owner: UnitId,
-    timeline_actor: TimelineActorId,
+    context: TimelineActionContext,
     ability: AbilityId,
     targets: TargetCommitment,
 ) -> Option<ActionPlan> {
-    lower_action(
+    if !matches!(
+        context.origin,
+        ActionOrigin::NormalTurn | ActionOrigin::ExtraTurn
+    ) {
+        return None;
+    }
+    let mut plan = lower_action(
         catalog,
         allocator,
         ActionContext {
-            actor,
-            owner,
+            actor: context.actor,
+            owner: context.owner,
             origin: ActionOrigin::NormalTurn,
-            timeline_actor: Some(timeline_actor),
+            timeline_actor: Some(context.timeline_actor),
         },
         ability,
         targets,
         None,
-    )
+    )?;
+    if context.origin == ActionOrigin::ExtraTurn {
+        plan.origin = context.origin;
+        plan.normal_turn = None;
+    }
+    Some(plan)
 }
 
 pub(crate) fn lower_interrupt_action(

@@ -9,7 +9,6 @@ use crate::{
     },
     id::{CommandId, EventId},
     timeline::{
-        queue::InterruptQueue,
         select::plan_next_turn,
         state::{InterruptWindowKind, InterruptWindowState},
     },
@@ -41,9 +40,49 @@ pub(super) fn start_battle(
     if let ActionBoundary::Continue(started) =
         settle_after_action(catalog, txn, Cause::root(root), started)?
     {
-        begin_turn(catalog, txn, root, started)?;
+        begin_next_turn(catalog, txn, root, started)?;
     }
     Ok(())
+}
+
+pub(super) fn begin_next_turn(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+    parent: EventId,
+) -> Result<(), BattleFault> {
+    while let Some(pending) = txn.pop_extra_turn() {
+        let Some(unit) = txn.state.units.get(pending.unit) else {
+            continue;
+        };
+        if unit.life != crate::LifeState::Alive || !unit.presence.is_timeline_eligible() {
+            continue;
+        }
+        let Some(actor) = txn.state.actors.any_id_for_unit(pending.unit) else {
+            continue;
+        };
+        let turn = crate::timeline::state::NormalTurnState {
+            actor,
+            owner: pending.unit,
+            unit: pending.unit,
+            automatic: None,
+            side: unit.side,
+            formation: unit.formation,
+            spawn: unit.spawn,
+            origin: crate::ActionOrigin::ExtraTurn,
+        };
+        txn.set_active_turn(Some(turn));
+        let started = txn.emit(
+            Cause::for_turn(root, turn.owner, turn.actor).with_parent(parent),
+            BattleEventKind::Turn(TurnEventData::Started {
+                actor: turn.actor,
+                owner: turn.owner,
+                origin: turn.origin,
+            }),
+        );
+        return offer_turn_decision(catalog, txn, root, started, turn);
+    }
+    begin_turn(catalog, txn, root, parent)
 }
 
 pub(super) fn begin_turn(
@@ -67,6 +106,7 @@ pub(super) fn begin_turn(
         BattleEventKind::Turn(TurnEventData::Started {
             actor: turn.actor,
             owner: turn.owner,
+            origin: turn.origin,
         }),
     );
     let turn_cause = Cause::for_turn(root, turn.owner, turn.actor);
@@ -112,6 +152,7 @@ pub(super) fn begin_turn(
             BattleEventKind::Turn(TurnEventData::Ended {
                 actor: turn.actor,
                 owner: turn.owner,
+                origin: turn.origin,
             }),
         );
         parent = super::operation::settle_effects_at_turn_end(
@@ -119,7 +160,7 @@ pub(super) fn begin_turn(
         )?;
         txn.reset_rule_slots(crate::rule::model::SlotResetPoint::TurnEnd, Some(turn.unit));
         txn.set_active_turn(None);
-        return begin_turn(catalog, txn, root, parent);
+        return begin_next_turn(catalog, txn, root, parent);
     }
     let was_broken = txn
         .state
@@ -148,10 +189,19 @@ pub(super) fn begin_turn(
     if let Some((ability, origin)) = turn.automatic {
         return execute_automatic_turn(catalog, txn, root, parent, turn, ability, origin);
     }
+    offer_turn_decision(catalog, txn, root, parent, turn)
+}
+
+fn offer_turn_decision(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+    parent: EventId,
+    turn: crate::timeline::state::NormalTurnState,
+) -> Result<(), BattleFault> {
     txn.set_interrupt(Some(InterruptWindowState {
         kind: InterruptWindowKind::PreAction,
         turn,
-        pending: InterruptQueue::default(),
     }));
     let decision_id = txn.allocate_decision();
     let decision = legal::interrupt_window(
@@ -216,6 +266,7 @@ fn execute_automatic_turn(
         BattleEventKind::Turn(TurnEventData::Ended {
             actor: turn.actor,
             owner: turn.owner,
+            origin: turn.origin,
         }),
     );
     parent = super::operation::settle_effects_at_turn_end(catalog, txn, cause, parent, turn.unit)?;
@@ -230,7 +281,7 @@ fn execute_automatic_turn(
         )?;
         if let ActionBoundary::Continue(parent) = settle_after_action(catalog, txn, cause, parent)?
         {
-            begin_turn(catalog, txn, root, parent)?;
+            begin_next_turn(catalog, txn, root, parent)?;
         }
     }
     Ok(())

@@ -18,7 +18,8 @@ use starclock_replay::{
         encode_nested_battle_end_payload, encode_nested_battle_start_payload,
     },
     battle_event::{
-        BATTLE_EVENT_PAYLOAD_VERSION, BATTLE_EVENT_PAYLOAD_VERSION_V1, BattleEventPayloadError,
+        BATTLE_EVENT_PAYLOAD_VERSION, BATTLE_EVENT_PAYLOAD_VERSION_V1,
+        BATTLE_EVENT_PAYLOAD_VERSION_V2, BattleEventPayloadError,
         encode_battle_event_payload_for_version,
     },
     component::{
@@ -660,7 +661,13 @@ fn compare_events(
                 expected_count: expected.len() as u32,
                 actual_count: actual.len() as u32,
             })?;
-        if version != BATTLE_EVENT_PAYLOAD_VERSION_V1 && version != BATTLE_EVENT_PAYLOAD_VERSION {
+        if ![
+            BATTLE_EVENT_PAYLOAD_VERSION_V1,
+            BATTLE_EVENT_PAYLOAD_VERSION_V2,
+            BATTLE_EVENT_PAYLOAD_VERSION,
+        ]
+        .contains(&version)
+        {
             return Err(StandardUniverseReplayV2Error::BattleEventDivergence {
                 battle_index,
                 command_index,

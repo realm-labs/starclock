@@ -25,7 +25,12 @@ pub(crate) struct BreakEffectStore {
 
 impl BreakEffectStore {
     pub(crate) fn insert(&mut self, state: BreakEffectState) {
-        assert_eq!(state.id.get(), self.entries.len() as u64 + 1);
+        assert!(
+            self.entries
+                .last()
+                .is_none_or(|existing| existing.id < state.id),
+            "shared effect-instance IDs must remain strictly increasing"
+        );
         self.entries.push(state);
     }
     pub(crate) fn iter_by_id(&self) -> impl Iterator<Item = &BreakEffectState> {

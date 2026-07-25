@@ -14,7 +14,7 @@ use crate::{
 use super::BattleStateHash;
 
 const STATE_MAGIC: &[u8; 4] = b"SCBS";
-const STATE_CODEC_VERSION: u16 = 3;
+const STATE_CODEC_VERSION: u16 = 4;
 
 pub(crate) fn hash_state(state: &BattleState) -> BattleStateHash {
     let mut sink = Sha256Sink(Sha256::new());
@@ -439,17 +439,12 @@ fn encode_timeline<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {
             e.u8(1);
             e.u8(window.kind as u8);
             encode_turn(e, window.turn);
-            e.length(window.pending.entries().len());
-            for pending in window.pending.entries() {
-                e.u8(pending.priority as u8);
-                e.u8(pending.side as u8);
-                e.u8(pending.formation.get());
-                e.u64(pending.spawn.get());
-                e.u64(pending.actor.get());
-                e.u32(pending.ability.get());
-                e.u64(pending.insertion);
-            }
         }
+    }
+    e.length(state.timeline.extra_turns.len());
+    for pending in &state.timeline.extra_turns {
+        e.u64(pending.insertion);
+        e.u64(pending.unit.get());
     }
 }
 
@@ -468,6 +463,7 @@ fn encode_turn<S: Sink>(e: &mut Encoder<'_, S>, turn: crate::timeline::state::No
     e.u8(turn.side as u8);
     e.u8(turn.formation.get());
     e.u64(turn.spawn.get());
+    e.u8(turn.origin as u8);
 }
 
 fn encode_units<S: Sink>(e: &mut Encoder<'_, S>, state: &BattleState) {

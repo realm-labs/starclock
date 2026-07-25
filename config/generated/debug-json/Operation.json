@@ -1236,6 +1236,114 @@
             "Integer": 66001
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24701
+          },
+          "payload": {
+            "Object": {
+              "element": {
+                "String": "Fire"
+              },
+              "type": {
+                "String": "Break"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "EventSnapshot"
+          },
+          "stable_key": {
+            "String": "goal07.probe.operation.force-break"
+          },
+          "target_selector_id": {
+            "Integer": 14001
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24702
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 24309
+              },
+              "type": {
+                "String": "DelayAction"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.probe.operation.delay-action"
+          },
+          "target_selector_id": {
+            "Integer": 24051
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 24703
+          },
+          "payload": {
+            "Object": {
+              "actor_selector_id": {
+                "Integer": 24051
+              },
+              "type": {
+                "String": "GrantExtraTurn"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.probe.operation.grant-extra-turn"
+          },
+          "target_selector_id": {
+            "Integer": 24051
+          }
+        }
       }
     ]
   }

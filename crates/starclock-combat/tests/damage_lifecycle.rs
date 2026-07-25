@@ -137,6 +137,15 @@ fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<Comb
             vec![],
         ));
     }
+    for raw in [90, 91, 92] {
+        builder.add_program(ProgramDefinition::new(
+            definition(raw),
+            vec![],
+            vec![],
+            vec![],
+            vec![],
+        ));
+    }
     let healing = HealingDefinition::new(
         Scalar::checked_from_integer(600).unwrap(),
         Ratio::from_scaled(200_000),
@@ -304,12 +313,24 @@ fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<Comb
     ));
     let wave_rows = (1..=waves)
         .map(|number| {
+            let entry_program = (number > 1).then(|| definition(91));
+            let exit_program = (number < waves).then(|| definition(90));
+            let carry = if number > 1 {
+                WaveCarry {
+                    hp: starclock_combat::catalog::encounter::WaveCarryPolicy::ExplicitProgram(
+                        definition(92),
+                    ),
+                    ..WaveCarry::CARRY_ALL
+                }
+            } else {
+                WaveCarry::CARRY_ALL
+            };
             EncounterWaveDefinition::new(
                 definition::<EncounterWaveId>(u32::from(number)),
                 number,
-                None,
-                None,
-                WaveCarry::CARRY_ALL,
+                entry_program,
+                exit_program,
+                carry,
                 vec![
                     WaveSlotDefinition::new(
                         1,
@@ -849,8 +870,8 @@ fn damage_and_healing_emit_calculated_and_effective_hp_facts() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            15, 112, 69, 240, 173, 154, 13, 91, 35, 156, 220, 153, 20, 165, 222, 162, 209, 205,
-            232, 118, 253, 44, 51, 174, 25, 125, 83, 7, 165, 160, 87, 234,
+            235, 239, 80, 91, 21, 152, 218, 215, 159, 46, 249, 46, 109, 241, 52, 224, 24, 115, 15,
+            182, 52, 33, 206, 173, 19, 25, 129, 88, 150, 118, 84, 59,
         ]
     );
     let damage = resolution
@@ -966,8 +987,8 @@ fn single_wave_defeat_settles_to_victory_and_terminal_rejection_is_immutable() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            42, 169, 151, 80, 119, 236, 67, 130, 78, 118, 179, 77, 233, 136, 238, 178, 66, 56, 12,
-            63, 44, 238, 78, 31, 34, 52, 212, 215, 251, 202, 84, 189,
+            254, 15, 211, 202, 208, 94, 214, 218, 16, 21, 71, 109, 183, 191, 55, 22, 133, 188, 22,
+            177, 56, 233, 140, 1, 169, 142, 80, 30, 164, 243, 26, 198,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Won);
@@ -999,8 +1020,8 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         first.state_hash().bytes(),
         [
-            144, 217, 5, 96, 27, 210, 131, 227, 120, 254, 166, 25, 136, 126, 101, 220, 43, 51, 9,
-            78, 254, 162, 136, 177, 190, 3, 227, 249, 91, 45, 206, 192,
+            149, 73, 66, 42, 10, 104, 33, 100, 128, 112, 50, 163, 185, 39, 200, 235, 51, 60, 222,
+            109, 65, 85, 54, 215, 209, 107, 25, 35, 70, 73, 127, 41,
         ]
     );
     assert_eq!(first.phase(), BattlePhase::AwaitingCommand);
@@ -1042,8 +1063,8 @@ fn after_action_wave_transition_does_not_let_later_hits_reach_reserve_units() {
     assert_eq!(
         second.state_hash().bytes(),
         [
-            94, 98, 79, 38, 195, 242, 225, 120, 34, 17, 74, 101, 67, 24, 88, 206, 92, 165, 56, 154,
-            170, 86, 179, 130, 18, 204, 82, 113, 8, 221, 170, 89,
+            36, 192, 136, 142, 111, 214, 97, 254, 216, 121, 71, 222, 164, 27, 180, 40, 252, 233,
+            125, 222, 13, 105, 138, 128, 67, 233, 117, 45, 134, 54, 164, 87,
         ]
     );
     assert_eq!(second.phase(), BattlePhase::Won);
@@ -1112,8 +1133,8 @@ fn defeating_the_last_player_settles_loss() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            162, 175, 68, 114, 239, 254, 32, 52, 131, 117, 191, 184, 100, 147, 36, 145, 127, 97,
-            17, 125, 59, 74, 34, 23, 248, 105, 33, 222, 177, 124, 194, 13,
+            101, 176, 174, 245, 225, 169, 1, 242, 25, 86, 125, 95, 255, 71, 116, 114, 83, 138, 189,
+            206, 37, 105, 206, 116, 189, 45, 40, 15, 252, 120, 222, 249,
         ]
     );
     assert_eq!(resolution.phase(), BattlePhase::Lost);

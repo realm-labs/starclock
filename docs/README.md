@@ -120,6 +120,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 94. [Selector and target-set runtime boundary](selector-and-target-set-runtime-boundary.md) — executable predicates, snapshots, deterministic ordering, weighted draws and empty-pool control.
 95. [Goal 07 modifier-stage and snapshot runtime](goal-07-modifier-stage-and-snapshot-runtime.md) — executable stat/formula stages, authored stacking comparators, lifecycle snapshots and production Excel/Sora evidence.
 96. [Goal 07 effect, state and lifecycle runtime](goal-07-effect-state-and-lifecycle-runtime.md) — authoritative slot resets, effect stacking, DoT ticks/detonations, duration clocks, teardown and formal Excel/Sora evidence.
+97. [Goal 07 action, reaction, Break and boundary runtime](goal-07-action-reaction-break-and-boundary-runtime.md) — persistent extra turns, semantic reaction ordering, Break hooks, executable wave/phase programs and compatibility revisions.
 
 ## Execution goals
 

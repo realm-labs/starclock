@@ -114,7 +114,7 @@ function verifyGeneratedOutput(directory) {
     Effect: 4, EffectGrantedAbility: 3, EffectModifierBinding: 1, ModifierDefinition: 1556,
     ModifierStackingGroup: 25, ModifierFilter: 151,
     CountdownDefinition: 1, LinkedUnitDefinition: 1,
-    Operation: 30, Program: 14, ProgramStep: 35, RuleDefinition: 168, RuleSourceTag: 0, Selector: 62,
+    Operation: 33, Program: 14, ProgramStep: 35, RuleDefinition: 168, RuleSourceTag: 0, Selector: 62,
     StateSlot: 3, ValueExpression: 1596, LightCone: 165, LightConeStat: 14190,
     LightConeSuperimposition: 2665,
   })) assert(counts.get(name) === expected, `${name} production count differs`);

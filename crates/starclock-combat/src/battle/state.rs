@@ -54,6 +54,7 @@ pub(crate) struct SequenceState {
     next_effect: u64,
     next_rule: u64,
     next_modifier: u64,
+    next_extra_turn: u64,
 }
 
 impl SequenceState {
@@ -74,6 +75,7 @@ impl SequenceState {
             next_effect: 1,
             next_rule: 1,
             next_modifier: 1,
+            next_extra_turn: 1,
         }
     }
 
@@ -145,7 +147,13 @@ impl SequenceState {
         allocate(&mut self.next_modifier, crate::ModifierInstanceId::new)
     }
 
-    pub(crate) const fn canonical_next_values(&self) -> [u64; 15] {
+    pub(crate) fn try_extra_turn(&mut self) -> Option<u64> {
+        let raw = self.next_extra_turn;
+        self.next_extra_turn = raw.checked_add(1)?;
+        Some(raw)
+    }
+
+    pub(crate) const fn canonical_next_values(&self) -> [u64; 16] {
         [
             self.next_unit,
             self.next_actor,
@@ -162,6 +170,7 @@ impl SequenceState {
             self.next_effect,
             self.next_rule,
             self.next_modifier,
+            self.next_extra_turn,
         ]
     }
 }

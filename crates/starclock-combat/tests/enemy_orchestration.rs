@@ -28,7 +28,7 @@ use starclock_combat::{
         },
     },
     formula::{model::CombatElement, toughness::EnemyRank},
-    rule::model::ConditionExpr,
+    rule::model::{ConditionExpr, ProgramStep, RuleOperationTemplate},
 };
 
 fn id<I: TryFrom<u32>>(raw: u32) -> I
@@ -73,7 +73,7 @@ fn phase(raw: u32, targetable: bool, carry: EnemyPhaseCarry) -> EnemyPhaseDefini
         id(1),
         targetable,
         EnemyPhaseTransitionModel::TransformSameUnit,
-        None,
+        (raw == 2).then(|| id(4)),
         carry,
     )
 }
@@ -94,6 +94,21 @@ fn catalog() -> Arc<CombatCatalog> {
             vec![],
         ));
     }
+    builder.add_program(
+        ProgramDefinition::new(id(4), vec![], vec![], vec![], vec![]).with_steps(vec![
+            ProgramStep::Operation(RuleOperationTemplate::EmitRuleEvent {
+                code: 704,
+                value: None,
+            }),
+        ]),
+    );
+    builder.add_program(ProgramDefinition::new(
+        id(5),
+        vec![],
+        vec![],
+        vec![],
+        vec![],
+    ));
     let effect_runtime = EffectRuntimeDefinition::new(
         EffectCategory::Debuff,
         DispelCategory::DispellableDebuff,
@@ -160,7 +175,7 @@ fn catalog() -> Arc<CombatCatalog> {
         action_gauge: PhaseCarryPolicy::Reset,
         effects: PhaseCarryPolicy::Clear,
         toughness: PhaseCarryPolicy::Clear,
-        summons: PhaseCarryPolicy::Clear,
+        summons: PhaseCarryPolicy::ExplicitProgram(id(5)),
     };
     builder.add_enemy(
         EnemyDefinition::new(id(1), id(2), vec![id(2)])
@@ -281,6 +296,10 @@ fn phase_transition_is_transactional_and_applies_every_carry_family() {
     assert!(resolution.events().iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::EnemyPhase(EnemyPhaseEventData::Transitioned { to, .. }) if *to == id(2)
+    )));
+    assert!(resolution.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::RuleSignal(starclock_combat::RuleSignalEventData { code: 704, .. })
     )));
     let enemy = battle
         .view()

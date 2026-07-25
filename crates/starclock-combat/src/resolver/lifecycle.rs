@@ -52,7 +52,7 @@ pub(super) fn execute_enemy_phase(
         if phase.sequence() != expected_sequence {
             return Err(action_fault(101));
         }
-        parent = apply_phase_carry(txn, cause, parent, unit, phase.carry())?;
+        parent = apply_phase_carry(catalog, txn, cause, parent, unit, phase.carry())?;
         let presence = if phase.targetable() {
             PresenceState::Present
         } else {
@@ -101,11 +101,23 @@ pub(super) fn execute_enemy_phase(
                 state,
             }),
         );
+        if let Some(program) = phase.entry_program() {
+            parent = super::program::execute_boundary_program(
+                catalog,
+                txn,
+                cause,
+                parent,
+                program,
+                unit,
+                crate::rule::model::RuleEventKind::Unit,
+            )?;
+        }
     }
     Ok(parent)
 }
 
 fn apply_phase_carry(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -125,7 +137,7 @@ fn apply_phase_carry(
         PhaseCarryPolicy::Clear => {
             txn.set_hp(unit, crate::Hp::new(1).map_err(|_| action_fault(105))?)?
         }
-        PhaseCarryPolicy::ExplicitProgram(_) => return Err(action_fault(106)),
+        PhaseCarryPolicy::ExplicitProgram(_) => {}
     }
     match carry.action_gauge {
         PhaseCarryPolicy::CarryExact | PhaseCarryPolicy::CarryRatio => {}
@@ -142,15 +154,14 @@ fn apply_phase_carry(
             };
             txn.set_actor_gauge(actor, gauge)?;
         }
-        PhaseCarryPolicy::ExplicitProgram(_) => return Err(action_fault(109)),
+        PhaseCarryPolicy::ExplicitProgram(_) => {}
     }
     if !matches!(
         carry.effects,
-        PhaseCarryPolicy::CarryExact | PhaseCarryPolicy::CarryRatio
+        PhaseCarryPolicy::CarryExact
+            | PhaseCarryPolicy::CarryRatio
+            | PhaseCarryPolicy::ExplicitProgram(_)
     ) {
-        if matches!(carry.effects, PhaseCarryPolicy::ExplicitProgram(_)) {
-            return Err(action_fault(110));
-        }
         let effects = txn
             .state
             .effects
@@ -201,7 +212,7 @@ fn apply_phase_carry(
             }
             txn.set_weakness_broken(unit, carry.toughness == PhaseCarryPolicy::Clear)?;
         }
-        PhaseCarryPolicy::ExplicitProgram(_) => return Err(action_fault(112)),
+        PhaseCarryPolicy::ExplicitProgram(_) => {}
     }
     match carry.summons {
         PhaseCarryPolicy::CarryExact | PhaseCarryPolicy::CarryRatio => {}
@@ -232,7 +243,32 @@ fn apply_phase_carry(
                 );
             }
         }
-        PhaseCarryPolicy::ExplicitProgram(_) => return Err(action_fault(113)),
+        PhaseCarryPolicy::ExplicitProgram(_) => {}
+    }
+    let mut programs = Vec::new();
+    for policy in [
+        carry.hp,
+        carry.action_gauge,
+        carry.effects,
+        carry.toughness,
+        carry.summons,
+    ] {
+        if let PhaseCarryPolicy::ExplicitProgram(program) = policy
+            && !programs.contains(&program)
+        {
+            programs.push(program);
+        }
+    }
+    for program in programs {
+        parent = super::program::execute_boundary_program(
+            catalog,
+            txn,
+            cause,
+            parent,
+            program,
+            unit,
+            crate::rule::model::RuleEventKind::Unit,
+        )?;
     }
     Ok(parent)
 }

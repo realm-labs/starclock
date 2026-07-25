@@ -99,7 +99,7 @@ fn catalog(
         enemy_operations.push(HitOperationDefinition::QueueAction(
             QueueActionDefinition::new(
                 definition(4),
-                ActionOrigin::ExtraAction,
+                ActionOrigin::FollowUp,
                 QueuedActor::CauseApplier,
                 QueuedTarget::None,
                 ReactionBoundary::AfterAction,
@@ -142,7 +142,7 @@ fn catalog(
     builder.add_ability(
         AbilityDefinition::new(definition(4), definition(4), definition(4), vec![]).with_action(
             action(
-                AbilityKind::ExtraAction,
+                AbilityKind::FollowUp,
                 vec![HitOperationDefinition::Damage(
                     OrdinaryDamageDefinition::new(
                         Scalar::checked_from_integer(2_000).unwrap(),

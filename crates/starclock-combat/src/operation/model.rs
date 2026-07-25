@@ -15,6 +15,7 @@ pub(crate) enum Operation {
     ConsumeHp(ConsumeHpOp),
     AddWeakness(AddWeaknessOp),
     ReduceToughness(ReduceToughnessOp),
+    ForceBreak(ForceBreakOp),
     SuperBreak(SuperBreakOp),
     ApplyEffect(ApplyEffectOp),
     RemoveEffects(RemoveEffectsOp),
@@ -43,6 +44,7 @@ impl Operation {
             Self::ConsumeHp(operation) => operation.id,
             Self::AddWeakness(operation) => operation.id,
             Self::ReduceToughness(operation) => operation.id,
+            Self::ForceBreak(operation) => operation.id,
             Self::SuperBreak(operation) => operation.id,
             Self::ApplyEffect(operation) => operation.id,
             Self::RemoveEffects(operation) => operation.id,
@@ -195,6 +197,13 @@ pub(crate) struct ReduceToughnessOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
     pub(crate) definition: crate::ToughnessReductionDefinition,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct ForceBreakOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) element: crate::formula::model::CombatElement,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

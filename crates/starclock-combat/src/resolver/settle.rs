@@ -26,6 +26,7 @@ pub(super) fn settle_after_action(
         txn.set_decision(None);
         txn.set_interrupt(None);
         txn.set_active_turn(None);
+        txn.clear_extra_turns();
         txn.set_phase(BattlePhase::Lost);
         parent = txn.emit(
             cause.with_parent(parent),
@@ -45,6 +46,7 @@ pub(super) fn settle_after_action(
         txn.set_decision(None);
         txn.set_interrupt(None);
         txn.set_active_turn(None);
+        txn.clear_extra_turns();
         txn.set_phase(BattlePhase::Won);
         parent = txn.emit(
             cause.with_parent(parent),
@@ -112,6 +114,24 @@ fn transition_wave(
 ) -> Result<EventId, BattleFault> {
     let ended_wave = txn.state.encounter.wave;
     let current = txn.state.encounter.number;
+    let encounter = catalog
+        .encounter(txn.state.encounter.definition)
+        .ok_or_else(|| action_fault(42))?;
+    let owner = boundary_owner(txn, cause)?;
+    if let Some(program) = encounter
+        .wave(current)
+        .and_then(crate::catalog::encounter::EncounterWaveDefinition::exit_program)
+    {
+        parent = super::program::execute_boundary_program(
+            catalog,
+            txn,
+            cause,
+            parent,
+            program,
+            owner,
+            crate::rule::model::RuleEventKind::Wave,
+        )?;
+    }
     parent = txn.emit(
         cause.with_parent(parent),
         BattleEventKind::Wave(WaveEventData::Ended {
@@ -136,12 +156,12 @@ fn transition_wave(
     }
 
     let next = current.checked_add(1).ok_or_else(|| action_fault(40))?;
-    let carry = catalog
+    let next_wave = catalog
         .encounter(txn.state.encounter.definition)
         .and_then(|encounter| encounter.wave(next))
         .ok_or_else(|| action_fault(42))?
-        .carry();
-    parent = settle_wave_carry(txn, cause, parent, carry)?;
+        .clone();
+    parent = settle_wave_carry(catalog, txn, cause, parent, owner, next_wave.carry())?;
     let arriving = txn
         .state
         .units
@@ -162,13 +182,26 @@ fn transition_wave(
         cause.with_parent(parent),
         BattleEventKind::Wave(WaveEventData::Started { wave, number: next }),
     );
+    if let Some(program) = next_wave.entry_program() {
+        parent = super::program::execute_boundary_program(
+            catalog,
+            txn,
+            cause,
+            parent,
+            program,
+            owner,
+            crate::rule::model::RuleEventKind::Wave,
+        )?;
+    }
     Ok(parent)
 }
 
 fn settle_wave_carry(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
+    owner: crate::UnitId,
     carry: crate::catalog::encounter::WaveCarry,
 ) -> Result<EventId, BattleFault> {
     use crate::catalog::encounter::WaveCarryPolicy;
@@ -184,7 +217,7 @@ fn settle_wave_carry(
             WaveCarryPolicy::CarryExact => None,
             WaveCarryPolicy::Reset => Some(maximum_hp),
             WaveCarryPolicy::Clear => Some(crate::Hp::new(1).expect("one HP is valid")),
-            WaveCarryPolicy::ExplicitProgram(_) => return Err(action_fault(44)),
+            WaveCarryPolicy::ExplicitProgram(_) => None,
         };
         if let Some(after) = hp {
             txn.set_hp(unit, after)?;
@@ -192,7 +225,7 @@ fn settle_wave_carry(
         let energy = match carry.energy {
             WaveCarryPolicy::CarryExact => None,
             WaveCarryPolicy::Reset | WaveCarryPolicy::Clear => Some(crate::Energy::ZERO),
-            WaveCarryPolicy::ExplicitProgram(_) => return Err(action_fault(45)),
+            WaveCarryPolicy::ExplicitProgram(_) => None,
         };
         if let Some(after) = energy
             && after != current_energy
@@ -215,7 +248,7 @@ fn settle_wave_carry(
                     actor,
                     crate::ActionGauge::from_scaled(0).map_err(|_| action_fault(47))?,
                 )?,
-                WaveCarryPolicy::ExplicitProgram(_) => return Err(action_fault(48)),
+                WaveCarryPolicy::ExplicitProgram(_) => {}
                 WaveCarryPolicy::CarryExact => unreachable!(),
             }
         }
@@ -224,15 +257,17 @@ fn settle_wave_carry(
         let after = match carry.skill_points {
             WaveCarryPolicy::Reset => txn.state.teams.get(TeamSide::Player).initial_skill_points,
             WaveCarryPolicy::Clear => 0,
-            WaveCarryPolicy::ExplicitProgram(_) => return Err(action_fault(49)),
+            WaveCarryPolicy::ExplicitProgram(_) => {
+                txn.state.teams.get(TeamSide::Player).skill_points
+            }
             WaveCarryPolicy::CarryExact => unreachable!(),
         };
         txn.set_skill_points(TeamSide::Player, after);
     }
-    if carry.effects != WaveCarryPolicy::CarryExact {
-        if matches!(carry.effects, WaveCarryPolicy::ExplicitProgram(_)) {
-            return Err(action_fault(50));
-        }
+    if !matches!(
+        carry.effects,
+        WaveCarryPolicy::CarryExact | WaveCarryPolicy::ExplicitProgram(_)
+    ) {
         let effects = txn
             .state
             .effects
@@ -263,7 +298,45 @@ fn settle_wave_carry(
             }
         }
     }
+    let mut programs = Vec::new();
+    for policy in [
+        carry.hp,
+        carry.energy,
+        carry.skill_points,
+        carry.effects,
+        carry.action_gauge,
+    ] {
+        if let WaveCarryPolicy::ExplicitProgram(program) = policy
+            && !programs.contains(&program)
+        {
+            programs.push(program);
+        }
+    }
+    for program in programs {
+        parent = super::program::execute_boundary_program(
+            catalog,
+            txn,
+            cause,
+            parent,
+            program,
+            owner,
+            crate::rule::model::RuleEventKind::Wave,
+        )?;
+    }
     Ok(parent)
+}
+
+fn boundary_owner(txn: &Transaction<'_>, cause: Cause) -> Result<crate::UnitId, BattleFault> {
+    cause
+        .owner()
+        .or_else(|| {
+            txn.state
+                .units
+                .iter_by_id()
+                .find(|unit| unit.side == TeamSide::Player && unit.life == LifeState::Alive)
+                .map(|unit| unit.id)
+        })
+        .ok_or_else(|| action_fault(52))
 }
 
 fn settle_team_resources(

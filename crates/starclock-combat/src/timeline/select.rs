@@ -87,6 +87,9 @@ pub(crate) fn plan_next_turn(
             side: selected.6,
             formation: selected.7,
             spawn: selected.8,
+            origin: selected
+                .3
+                .map_or(crate::ActionOrigin::NormalTurn, |(_, origin)| origin),
         },
         gauges,
     })
