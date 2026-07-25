@@ -357,6 +357,7 @@ fn shielded_damage_reduction(
                 RuleOperationTemplate::ApplyEffect {
                     selector: owner,
                     effect,
+                    stacks: ValueExpr::Literal(RuleValue::Integer(1)),
                     chance: RuleEffectChancePolicy::Guaranteed,
                     base_chance: None,
                     rng_purpose: None,
@@ -407,6 +408,7 @@ fn shield_cleanse(
                 RuleOperationTemplate::ApplyEffect {
                     selector: owner,
                     effect: marker,
+                    stacks: ValueExpr::Literal(RuleValue::Integer(1)),
                     chance: RuleEffectChancePolicy::Fixed,
                     base_chance: Some(scalar(chance)),
                     rng_purpose: Some(DrawPurpose::EFFECT_CHANCE),

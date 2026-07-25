@@ -32,38 +32,6 @@ pub struct RuleSource {
     tags: Box<[SourceDefinitionId]>,
     digest: [u8; 32],
 }
-impl RuleSource {
-    #[must_use]
-    pub fn new(
-        definition: SourceDefinitionId,
-        class: SourceClass,
-        tags: Vec<SourceDefinitionId>,
-        digest: [u8; 32],
-    ) -> Self {
-        Self {
-            definition,
-            class,
-            tags: tags.into_boxed_slice(),
-            digest,
-        }
-    }
-    #[must_use]
-    pub const fn definition(&self) -> SourceDefinitionId {
-        self.definition
-    }
-    #[must_use]
-    pub const fn class(&self) -> SourceClass {
-        self.class
-    }
-    #[must_use]
-    pub fn tags(&self) -> &[SourceDefinitionId] {
-        &self.tags
-    }
-    #[must_use]
-    pub const fn digest(&self) -> [u8; 32] {
-        self.digest
-    }
-}
 /// Runtime value kind declared by a state slot or expression.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum RuleValueKind {
@@ -83,19 +51,6 @@ pub enum RuleValue {
     StableId(u64),
     OptionalStableId(Option<u64>),
     OrderedStableIdSet(Box<[u64]>),
-}
-impl RuleValue {
-    #[must_use]
-    pub const fn kind(&self) -> RuleValueKind {
-        match self {
-            Self::Integer(_) => RuleValueKind::Integer,
-            Self::Scalar(_) => RuleValueKind::Scalar,
-            Self::Boolean(_) => RuleValueKind::Boolean,
-            Self::StableId(_) => RuleValueKind::StableId,
-            Self::OptionalStableId(_) => RuleValueKind::OptionalStableId,
-            Self::OrderedStableIdSet(_) => RuleValueKind::OrderedStableIdSet,
-        }
-    }
 }
 
 /// Battle-owned lifetime scope for a rule slot.
@@ -373,6 +328,7 @@ pub enum EventValueProperty {
     HpChangeAmount,
     ResourceDelta,
     StackCount,
+    StackDelta,
     HitIndex,
     ShieldChangeAmount,
     HpBefore,
@@ -406,6 +362,7 @@ pub struct RuleEventFacts {
     pub toughness_reduction: Option<crate::RawToughness>,
     pub resource_delta: Option<Scalar>,
     pub stack_count: Option<i64>,
+    pub stack_delta: Option<i64>,
     pub hit_index: Option<i64>,
     pub has_parent: bool,
     pub has_action: bool,
@@ -460,6 +417,7 @@ pub struct EventFilter {
     pub applier: Option<UnitId>,
     pub target: Option<UnitId>,
     pub source: Option<SourceDefinitionId>,
+    pub excluded_source: Option<SourceDefinitionId>,
     pub effect_definition: Option<EffectDefinitionId>,
     pub source_class: Option<SourceClass>,
     pub owner_selector: Option<SelectorId>,
@@ -519,6 +477,11 @@ pub enum ValueExpr {
     QueryShield {
         subject: StatQuerySubject,
         observation: ShieldObservation,
+    },
+    /// Reads the current aggregate stack count of one effect on the active subject.
+    QueryEffectStacks {
+        subject: StatQuerySubject,
+        effect: EffectDefinitionId,
     },
     Add(Box<ValueExpr>, Box<ValueExpr>),
     Subtract(Box<ValueExpr>, Box<ValueExpr>),
@@ -709,9 +672,15 @@ pub enum RuleOperationTemplate {
     ApplyEffect {
         selector: SelectorId,
         effect: EffectDefinitionId,
+        stacks: ValueExpr,
         chance: RuleEffectChancePolicy,
         base_chance: Option<ValueExpr>,
         rng_purpose: Option<crate::rng::types::DrawPurpose>,
+    },
+    AdjustEffectStacks {
+        selector: SelectorId,
+        effect: EffectDefinitionId,
+        delta: ValueExpr,
     },
     RemoveEffect {
         selector: SelectorId,
@@ -1035,9 +1004,16 @@ pub enum RuleEmission {
     ApplyEffect {
         selector: SelectorId,
         effect: EffectDefinitionId,
+        stacks: RuleValue,
         chance: RuleEffectChancePolicy,
         base_chance: Option<RuleValue>,
         rng_purpose: Option<crate::rng::types::DrawPurpose>,
+        current_target: Option<UnitId>,
+    },
+    AdjustEffectStacks {
+        selector: SelectorId,
+        effect: EffectDefinitionId,
+        delta: RuleValue,
         current_target: Option<UnitId>,
     },
     RemoveEffect {

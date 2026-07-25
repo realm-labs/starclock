@@ -80,7 +80,27 @@ Expressions cannot mutate state, draw RNG, perform unbounded iteration, recurse,
 
 `ConditionExpr` supports typed comparisons, boolean composition, tag membership, life/presence checks, resource bounds, effect/state existence, weakness/broken state, selector cardinality, and event/cause predicates.
 
-An `EventFilter` first narrows by cheap indexed fields such as source, owner, actor, applier, target, action kind, ability tags, element, damage class, effect category, Toughness event kind, and cause ancestry. The condition then evaluates contextual values such as pre/post HP from the committed event. This split is an implementation optimization but must not change semantics.
+An `EventFilter` first narrows by cheap indexed fields such as included or
+excluded source, owner, actor, applier, target, action kind, ability tags,
+element, damage class, effect category, Toughness event kind, and cause
+ancestry. The condition then evaluates contextual values such as pre/post HP
+or signed effect-stack delta from the committed event. This split is an
+implementation optimization but must not change semantics.
+
+Effect stack programs use the same typed boundary:
+
+- `ApplyEffect { stacks }` requires a positive integer at runtime;
+- `AdjustEffectStacks { delta }` accepts a signed integer and resolves
+  refresh/removal events transactionally;
+- `QueryEffectStacks` returns the aggregate matching count for the resolved
+  subject;
+- `StackCount` and `StackDelta` expose the current event's post-count and
+  signed mutation respectively.
+
+These operations are generic and source-agnostic. Content must prevent
+self-reaction with `excluded_source`, an appropriate once scope, or another
+bounded condition instead of adding a content identity branch to the
+resolver.
 
 Effect lifecycle facts additionally carry the effect definition's optional
 specific-resistance stat. This distinguishes Freeze-class control from another

@@ -73,6 +73,29 @@ Support these policies explicitly:
 
 Magnitude comparison needs a definition-specific comparator. Comparing a single numeric field is insufficient for effects with several modifiers.
 
+Effect stack mutation is an authoritative operation, not a modifier-side
+shortcut:
+
+- `ApplyEffect` evaluates a positive integer stack expression and then applies
+  the definition's stack/refresh policy and stack limit;
+- `AdjustEffectStacks` applies one signed integer delta to every matching
+  instance on each selected target, clamps each instance to its authored
+  `[0, stack_limit]` interval, and removes an instance that reaches zero;
+- a nonzero adjustment emits `EffectRefreshed` with exact before/after stacks,
+  or `EffectRemoved` at zero, so subsequent triggers observe the committed
+  mutation;
+- `QueryEffectStacks` reads the integer sum of all matching instances on one
+  subject from the immutable evaluation snapshot;
+- `StackCount` is the post-event count while `StackDelta` is the signed
+  before/after difference. An initial application has `StackDelta ==
+  StackCount`.
+
+Modifier attachments backed by effect stacks are refreshed in the same
+transaction before the stack-change event is dispatched. A rule that reacts
+to its own stack event must exclude its source definition or use another
+explicit terminating condition; the reaction budget remains the final fault
+boundary.
+
 ## DoT and control
 
 Ordinary DoT normally resolves at the affected unit's turn start and does not CRIT. Break DoT uses the Break formula and duration rules in [Toughness and Break](04-toughness-and-break.md).

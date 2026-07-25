@@ -306,7 +306,8 @@ fn value_dependencies(expression: &ValueExpr, output: &mut BTreeSet<SelectorId>)
         | ValueExpr::CurrentTarget
         | ValueExpr::QueryStat { .. }
         | ValueExpr::QueryBaseStat { .. }
-        | ValueExpr::QueryShield { .. } => {}
+        | ValueExpr::QueryShield { .. }
+        | ValueExpr::QueryEffectStacks { .. } => {}
     }
 }
 

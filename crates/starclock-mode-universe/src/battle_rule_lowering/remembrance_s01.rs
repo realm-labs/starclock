@@ -173,6 +173,7 @@ fn reticence(
         ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
             selector: owner,
             effect: FREEZE,
+            stacks: ValueExpr::Literal(RuleValue::Integer(1)),
             chance: RuleEffectChancePolicy::Resistible,
             base_chance: Some(scalar(parameter(parameters, 1)?)),
             rng_purpose: Some(DrawPurpose::EFFECT_CHANCE),
@@ -429,6 +430,7 @@ fn dizziness(
         RuleOperationTemplate::ApplyEffect {
             selector: target,
             effect: DIZZINESS_EFFECT,
+            stacks: ValueExpr::Literal(RuleValue::Integer(1)),
             chance: RuleEffectChancePolicy::Guaranteed,
             base_chance: None,
             rng_purpose: None,
@@ -596,6 +598,7 @@ fn apply_effect_program(
         vec![ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
             selector: target,
             effect,
+            stacks: ValueExpr::Literal(RuleValue::Integer(1)),
             chance,
             base_chance: Some(scalar(base_chance)),
             rng_purpose: Some(DrawPurpose::EFFECT_CHANCE),

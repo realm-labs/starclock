@@ -226,6 +226,7 @@ fn eutectic_rule(
         ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
             selector: owner,
             effect: amber_effect,
+            stacks: ValueExpr::Literal(RuleValue::Integer(1)),
             chance: RuleEffectChancePolicy::Guaranteed,
             base_chance: None,
             rng_purpose: None,

@@ -39,6 +39,11 @@ pub(super) fn event_property(
             .stack_count
             .map(RuleValue::Integer)
             .ok_or_else(missing),
+        EventValueProperty::StackDelta => input
+            .event_facts
+            .stack_delta
+            .map(RuleValue::Integer)
+            .ok_or_else(missing),
         EventValueProperty::HitIndex => input
             .event_facts
             .hit_index

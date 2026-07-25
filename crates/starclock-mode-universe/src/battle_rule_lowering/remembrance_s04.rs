@@ -423,6 +423,7 @@ fn apply_effect(selector: SelectorId, effect: EffectDefinitionId, chance: i64) -
     ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
         selector,
         effect,
+        stacks: ValueExpr::Literal(RuleValue::Integer(1)),
         chance: RuleEffectChancePolicy::Resistible,
         base_chance: Some(scalar(chance)),
         rng_purpose: Some(DrawPurpose::EFFECT_CHANCE),

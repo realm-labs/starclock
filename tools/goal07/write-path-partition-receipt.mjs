@@ -140,6 +140,18 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612230"))
+    return "Typed DoT damage facts and generic effect-stack application express Suspicion gain and its persistent enhanced policy.";
+  if (id.includes("612231"))
+    return "Typed DoT application/refresh facts and positive stack deltas express both initial and enhanced Suspicion gain.";
+  if (id.includes("612232"))
+    return "Enemy-owner turn triggers and the generic ordered DoT detonation operation express the complete current-DoT detonation.";
+  if (id.includes("612240"))
+    return "Defeat facts, aggregate effect-stack queries and labeled stable random selectors express Suspicion transfer.";
+  if (id.includes("612241"))
+    return "Signed stack-delta reads and excluded-source filters express additive or doubled Suspicion without recursive self-reaction.";
+  if (id.includes("612242"))
+    return "Effect-stack-backed capped stat modifiers express the exact ATK and Effect RES reductions.";
   if (id.includes("612156"))
     return "Typed Freeze effect/BaseEffect facts, explicit action context and action once keys express per-applier Energy restoration.";
   if (id.includes("612157"))
@@ -403,6 +415,31 @@ function partitionProfile(id) {
         "remembrance_resonance_orders_total_eonian_damage_and_freeze",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration remembrance_s04 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M04-S01") {
+    return {
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/nihility_s01.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s01.rs",
+        "crates/starclock-combat/src/resolver/program_effect.rs",
+        "crates/starclock-combat/src/resolver/rule.rs",
+        "crates/starclock-combat/src/catalog/rule_validate.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-nihility-s01.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/nihility_s01.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s01.rs",
+      fixtureMarker:
+        "enhanced_suspicion_application_doubles_stacks_and_never_decays",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration nihility_s01 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

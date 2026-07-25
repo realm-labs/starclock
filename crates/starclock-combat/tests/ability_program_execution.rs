@@ -479,6 +479,7 @@ fn mechanics_steps() -> Vec<ProgramStep> {
         ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
             selector: id(2),
             effect: id(1),
+            stacks: ValueExpr::Literal(RuleValue::Integer(1)),
             chance: RuleEffectChancePolicy::Guaranteed,
             base_chance: None,
             rng_purpose: None,
@@ -969,6 +970,7 @@ fn expression_backed_dot_runtime_resolves_per_application_target() {
             ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
                 selector: id(2),
                 effect: id(1),
+                stacks: ValueExpr::Literal(RuleValue::Integer(1)),
                 chance: RuleEffectChancePolicy::Guaranteed,
                 base_chance: None,
                 rng_purpose: None,
@@ -1017,6 +1019,7 @@ fn removing_an_effect_tears_down_its_modifier_attachments() {
             ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
                 selector: id(2),
                 effect: id(1),
+                stacks: ValueExpr::Literal(RuleValue::Integer(1)),
                 chance: RuleEffectChancePolicy::Guaranteed,
                 base_chance: None,
                 rng_purpose: None,

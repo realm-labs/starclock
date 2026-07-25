@@ -532,6 +532,7 @@ fn execute_emission(
         RuleEmission::ApplyEffect {
             selector,
             effect,
+            stacks,
             chance,
             base_chance,
             rng_purpose,
@@ -544,10 +545,28 @@ fn execute_emission(
             selector,
             current_target,
             effect,
+            stacks,
             chance,
             base_chance,
             rng_purpose,
         )?,
+        RuleEmission::AdjustEffectStacks {
+            selector,
+            effect,
+            delta,
+            ..
+        } => {
+            return super::program_effect::adjust_effect_stacks(
+                catalog,
+                txn,
+                cause,
+                parent,
+                operation_id,
+                emission_targets(catalog, resolved, selector, current_target)?,
+                effect,
+                delta,
+            );
+        }
         RuleEmission::RemoveEffect {
             selector, effect, ..
         } => Operation::RemoveEffects(RemoveEffectsOp {

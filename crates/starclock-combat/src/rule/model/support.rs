@@ -1,7 +1,55 @@
 use super::{
     OnceKey, OnceScope, RuleEvaluationInput, RuleEventKind, RuleEventPoint, RuleOccurrence,
+    RuleSource, RuleValue, RuleValueKind,
 };
-use crate::TriggerId;
+use crate::{SourceDefinitionId, TriggerId};
+
+impl RuleSource {
+    #[must_use]
+    pub fn new(
+        definition: SourceDefinitionId,
+        class: super::SourceClass,
+        tags: Vec<SourceDefinitionId>,
+        digest: [u8; 32],
+    ) -> Self {
+        Self {
+            definition,
+            class,
+            tags: tags.into_boxed_slice(),
+            digest,
+        }
+    }
+    #[must_use]
+    pub const fn definition(&self) -> SourceDefinitionId {
+        self.definition
+    }
+    #[must_use]
+    pub const fn class(&self) -> super::SourceClass {
+        self.class
+    }
+    #[must_use]
+    pub fn tags(&self) -> &[SourceDefinitionId] {
+        &self.tags
+    }
+    #[must_use]
+    pub const fn digest(&self) -> [u8; 32] {
+        self.digest
+    }
+}
+
+impl RuleValue {
+    #[must_use]
+    pub const fn kind(&self) -> RuleValueKind {
+        match self {
+            Self::Integer(_) => RuleValueKind::Integer,
+            Self::Scalar(_) => RuleValueKind::Scalar,
+            Self::Boolean(_) => RuleValueKind::Boolean,
+            Self::StableId(_) => RuleValueKind::StableId,
+            Self::OptionalStableId(_) => RuleValueKind::OptionalStableId,
+            Self::OrderedStableIdSet(_) => RuleValueKind::OrderedStableIdSet,
+        }
+    }
+}
 
 impl core::fmt::Debug for RuleEvaluationInput<'_> {
     fn fmt(&self, formatter: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {

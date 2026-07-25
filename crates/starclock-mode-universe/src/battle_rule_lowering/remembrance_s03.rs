@@ -118,6 +118,7 @@ fn lost_memory(
                 ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
                     selector: owner,
                     effect: freeze,
+                    stacks: ValueExpr::Literal(RuleValue::Integer(1)),
                     chance: RuleEffectChancePolicy::Resistible,
                     base_chance: Some(scalar(parameter(parameters, 1)?)),
                     rng_purpose: Some(DrawPurpose::EFFECT_CHANCE),
@@ -484,6 +485,7 @@ fn effect_program(
         RuleOperationTemplate::ApplyEffect {
             selector,
             effect,
+            stacks: ValueExpr::Literal(RuleValue::Integer(1)),
             chance: if guaranteed {
                 RuleEffectChancePolicy::Guaranteed
             } else {
@@ -516,6 +518,7 @@ fn apply_effect_step(selector: SelectorId, effect: EffectDefinitionId) -> Progra
     ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
         selector,
         effect,
+        stacks: ValueExpr::Literal(RuleValue::Integer(1)),
         chance: RuleEffectChancePolicy::Guaranteed,
         base_chance: None,
         rng_purpose: None,

@@ -330,6 +330,7 @@ fn collect_value_queries(
         }
         ValueExpr::QueryStat { .. }
         | ValueExpr::QueryShield { .. }
+        | ValueExpr::QueryEffectStacks { .. }
         | ValueExpr::Literal(_)
         | ValueExpr::Slot(_)
         | ValueExpr::AbilityParameter { .. }

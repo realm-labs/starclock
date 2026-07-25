@@ -598,6 +598,15 @@ fn event_facts(
                 }
                 _ => None,
             };
+            facts.stack_delta = match data {
+                crate::EffectEventData::Applied { stacks, .. } => Some(i64::from(*stacks)),
+                crate::EffectEventData::Refreshed {
+                    stacks_before,
+                    stacks_after,
+                    ..
+                } => Some(i64::from(*stacks_after) - i64::from(*stacks_before)),
+                _ => None,
+            };
         }
         BattleEventKind::Resource(data) => match data {
             crate::ResourceEventData::SkillPoints { before, after, .. } => {
@@ -748,7 +757,7 @@ pub(super) struct BattleQuerySnapshot {
     units: BTreeMap<UnitId, UnitQuerySnapshot>,
     skill_points: [crate::Scalar; 2],
     team_resources: [BTreeMap<Box<str>, crate::Scalar>; 2],
-    effects: BTreeSet<(UnitId, crate::EffectDefinitionId)>,
+    effects: BTreeMap<(UnitId, crate::EffectDefinitionId), i64>,
     frozen: BTreeSet<UnitId>,
 }
 
@@ -805,12 +814,13 @@ impl BattleQuerySnapshot {
                 })
                 .collect();
         }
-        let effects = txn
-            .state
-            .effects
-            .iter_by_id()
-            .map(|effect| (effect.target, effect.definition))
-            .collect();
+        let mut effects = BTreeMap::<_, i64>::new();
+        for effect in txn.state.effects.iter_by_id() {
+            effects
+                .entry((effect.target, effect.definition))
+                .and_modify(|stacks| *stacks += i64::from(effect.stacks))
+                .or_insert(i64::from(effect.stacks));
+        }
         let mut frozen = txn
             .state
             .effects
@@ -865,7 +875,7 @@ impl crate::rule::evaluate::BattleQueryReader for BattleQuerySnapshot {
     }
 
     fn has_effect(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> bool {
-        self.effects.contains(&(subject, effect))
+        self.effects.contains_key(&(subject, effect))
     }
 
     fn is_frozen(&self, subject: UnitId) -> bool {
@@ -884,6 +894,10 @@ impl crate::rule::evaluate::BattleQueryReader for BattleQuerySnapshot {
 
     fn current_shield(&self, subject: UnitId) -> Option<crate::Scalar> {
         self.units.get(&subject).map(|unit| unit.shield)
+    }
+
+    fn effect_stacks(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> Option<i64> {
+        self.effects.get(&(subject, effect)).copied()
     }
 }
 

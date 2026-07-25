@@ -1,6 +1,7 @@
 //! Executable Standard Universe combat slices lowered from validated contributions.
 
 mod hunt_resonance;
+mod nihility_s01;
 mod preservation_s02;
 mod preservation_s03;
 mod preservation_s04;
@@ -300,6 +301,7 @@ pub(crate) fn lower_rules(
     output.extend(remembrance_s02::lower(catalog, bindings, blessings)?);
     output.extend(remembrance_s03::lower(bindings, blessings)?);
     output.extend(remembrance_s04::lower_rules(catalog, bindings, blessings)?);
+    output.extend(nihility_s01::lower(bindings, blessings)?);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::BlessingLevel
             && binding.source_binding_key() == Some(ABUNDANCE_ADDITIONAL_DAMAGE_BINDING)
@@ -802,6 +804,7 @@ fn preservation_quake_bleed(
     let operation = RuleOperationTemplate::ApplyEffect {
         selector: target,
         effect,
+        stacks: ValueExpr::Literal(RuleValue::Integer(1)),
         chance: if chance >= 1_000_000 {
             RuleEffectChancePolicy::Guaranteed
         } else {

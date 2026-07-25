@@ -514,6 +514,10 @@ impl crate::rule::evaluate::BattleQueryReader for ShieldReader<'_> {
     fn current_shield(&self, subject: UnitId) -> Option<Scalar> {
         self.values.get(&subject).copied()
     }
+
+    fn effect_stacks(&self, _subject: UnitId, _effect: crate::EffectDefinitionId) -> Option<i64> {
+        None
+    }
 }
 
 fn aggregate(

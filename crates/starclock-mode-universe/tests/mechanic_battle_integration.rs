@@ -33,6 +33,8 @@ const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../config/universe-generate
 const RESONANCE_ABILITY_RAW: u32 = 0x7630_0001;
 const RESONANCE_RESOURCE_RAW: u32 = 0x7630_0004;
 
+#[path = "mechanic_battle_integration/nihility_s01.rs"]
+mod nihility_s01;
 #[path = "mechanic_battle_integration/preservation_s02.rs"]
 mod preservation_s02;
 #[path = "mechanic_battle_integration/preservation_s03.rs"]
@@ -74,6 +76,24 @@ fn roster_for_forms_with_ability_kinds(
     technique: Option<(u32, u32)>,
     extra_kinds: &[AbilityKind],
     full_energy: bool,
+) -> UniverseBattleRoster {
+    roster_for_forms_with_ability_kinds_and_energy(
+        catalog,
+        forms,
+        technique,
+        extra_kinds,
+        full_energy,
+        100_000_000,
+    )
+}
+
+fn roster_for_forms_with_ability_kinds_and_energy(
+    catalog: &UniverseCatalog,
+    forms: [u32; 4],
+    technique: Option<(u32, u32)>,
+    extra_kinds: &[AbilityKind],
+    full_energy: bool,
+    maximum_energy_scaled: i64,
 ) -> UniverseBattleRoster {
     let policy = ParticipantPolicy::new(
         1,
@@ -130,7 +150,7 @@ fn roster_for_forms_with_ability_kinds(
         }
         abilities.sort_unstable();
         abilities.dedup();
-        let maximum_energy = Energy::from_scaled(100_000_000).unwrap();
+        let maximum_energy = Energy::from_scaled(maximum_energy_scaled).unwrap();
         let combatant = ResolvedCombatantSpec::new(
             form,
             UnitLevel::new(80).unwrap(),
@@ -343,6 +363,16 @@ fn materialize(
         .unwrap()
 }
 
+fn materialize_with_roster(
+    catalog: &Arc<UniverseCatalog>,
+    roster: &UniverseBattleRoster,
+    contributions: &UniverseBattleContributionSet,
+) -> UniverseBattleMaterialization {
+    UniverseBattleMaterializer
+        .compile(catalog, roster, contributions)
+        .unwrap()
+}
+
 fn durable_spec(
     materialization: &UniverseBattleMaterialization,
     marker: u8,
@@ -354,6 +384,21 @@ fn durable_spec(
 fn durable_spec_with_two_enemies(
     materialization: &UniverseBattleMaterialization,
     marker: u8,
+) -> BattleSpec {
+    durable_spec_with_two_enemy_hp(
+        materialization,
+        marker,
+        [
+            Hp::new(2_000_000_000).unwrap(),
+            Hp::new(2_000_000_000).unwrap(),
+        ],
+    )
+}
+
+fn durable_spec_with_two_enemy_hp(
+    materialization: &UniverseBattleMaterialization,
+    marker: u8,
+    enemy_hp: [Hp; 2],
 ) -> BattleSpec {
     let original = materialization
         .overlay()
@@ -369,6 +414,7 @@ fn durable_spec_with_two_enemies(
                 >= 2
         })
         .unwrap();
+    let mut enemy_index = 0_usize;
     let participants = original
         .participants()
         .iter()
@@ -382,10 +428,12 @@ fn durable_spec_with_two_enemies(
                 _ => panic!("fixture enemy source"),
             };
             let base = participant.combatant();
+            let hp = enemy_hp[enemy_index.min(enemy_hp.len() - 1)];
+            enemy_index += 1;
             let mut combatant = ResolvedCombatantSpec::new(
                 base.form(),
                 base.level(),
-                Hp::new(2_000_000_000).unwrap(),
+                hp,
                 base.speed(),
                 ResolvedDefinitionBindings::new(
                     base.abilities().to_vec(),

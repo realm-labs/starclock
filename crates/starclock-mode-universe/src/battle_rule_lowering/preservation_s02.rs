@@ -63,6 +63,7 @@ pub(super) fn preservation_sanctuary(
                 ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
                     selector: owner,
                     effect,
+                    stacks: ValueExpr::Literal(RuleValue::Integer(1)),
                     chance: chance_policy,
                     base_chance: (chance_policy == RuleEffectChancePolicy::Fixed)
                         .then(|| scalar(chance)),
@@ -330,6 +331,7 @@ pub(super) fn persistent_modifier_rule(
                 RuleOperationTemplate::ApplyEffect {
                     selector: owner,
                     effect,
+                    stacks: ValueExpr::Literal(RuleValue::Integer(1)),
                     chance: RuleEffectChancePolicy::Guaranteed,
                     base_chance: None,
                     rng_purpose: None,

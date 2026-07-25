@@ -449,11 +449,15 @@ fn validate_operation(
         RuleOperationTemplate::ApplyEffect {
             selector,
             effect,
+            stacks,
             chance,
             base_chance,
             rng_purpose,
         } => {
             require_selector(catalog, *selector)?;
+            if infer_value(catalog, runtime, stacks, 0)? != RuleValueKind::Integer {
+                return Err("effect stack expression must be integer".into());
+            }
             if catalog.effect(*effect).is_none() {
                 return Err(format!(
                     "operation refers to missing effect {}",
@@ -478,6 +482,22 @@ fn validate_operation(
                         return Err("chance operation requires RNG purpose".into());
                     }
                 }
+            }
+        }
+        RuleOperationTemplate::AdjustEffectStacks {
+            selector,
+            effect,
+            delta,
+        } => {
+            require_selector(catalog, *selector)?;
+            if catalog.effect(*effect).is_none() {
+                return Err(format!(
+                    "operation refers to missing effect {}",
+                    effect.get()
+                ));
+            }
+            if infer_value(catalog, runtime, delta, 0)? != RuleValueKind::Integer {
+                return Err("effect stack delta must be integer".into());
             }
         }
         RuleOperationTemplate::RemoveEffect { selector, effect } => {
@@ -624,7 +644,9 @@ fn infer_value(
             | EventValueProperty::ShieldChangeAmount
             | EventValueProperty::HpBefore
             | EventValueProperty::HpAfter => RuleValueKind::Scalar,
-            EventValueProperty::StackCount | EventValueProperty::HitIndex => RuleValueKind::Integer,
+            EventValueProperty::StackCount
+            | EventValueProperty::StackDelta
+            | EventValueProperty::HitIndex => RuleValueKind::Integer,
         },
         ValueExpr::SelectorCount(selector) => {
             require_selector(catalog, *selector)?;
@@ -647,6 +669,7 @@ fn infer_value(
         ValueExpr::QueryStat { .. }
         | ValueExpr::QueryBaseStat { .. }
         | ValueExpr::QueryShield { .. } => RuleValueKind::Scalar,
+        ValueExpr::QueryEffectStacks { .. } => RuleValueKind::Integer,
         ValueExpr::Add(lhs, rhs)
         | ValueExpr::Subtract(lhs, rhs)
         | ValueExpr::Minimum(lhs, rhs)

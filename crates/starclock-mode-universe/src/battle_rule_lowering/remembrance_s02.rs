@@ -458,6 +458,7 @@ fn apply_effect_program(
         vec![ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
             selector,
             effect,
+            stacks: ValueExpr::Literal(RuleValue::Integer(1)),
             chance: RuleEffectChancePolicy::Resistible,
             base_chance: Some(scalar(base_chance)),
             rng_purpose: Some(DrawPurpose::EFFECT_CHANCE),
@@ -481,6 +482,7 @@ fn guaranteed_effect_program(
         RuleOperationTemplate::ApplyEffect {
             selector,
             effect,
+            stacks: ValueExpr::Literal(RuleValue::Integer(1)),
             chance: RuleEffectChancePolicy::Guaranteed,
             base_chance: None,
             rng_purpose: None,

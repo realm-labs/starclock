@@ -3,11 +3,16 @@
 use crate::{
     Ratio, Rounding, Scalar,
     battle::fault::BattleFault,
+    event::{
+        cause::Cause,
+        model::{BattleEventKind, EffectEventData},
+    },
     operation::{ApplyEffectOp, Operation},
     rule::model::{RuleEffectChancePolicy, RuleEvaluationInput, RuleValue},
 };
 
 use super::program::{emission_targets, non_negative_scalar, probability, program_fault, ratio};
+use super::transaction::Transaction;
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn apply_effect_operation(
@@ -18,10 +23,12 @@ pub(super) fn apply_effect_operation(
     selector: crate::SelectorId,
     current_target: Option<crate::UnitId>,
     effect: crate::EffectDefinitionId,
+    stacks: RuleValue,
     chance: RuleEffectChancePolicy,
     base_chance: Option<RuleValue>,
     rng_purpose: Option<crate::rng::types::DrawPurpose>,
 ) -> Result<Operation, BattleFault> {
+    let stacks = effect_stacks(stacks)?;
     let base_chance = match chance {
         RuleEffectChancePolicy::Guaranteed => crate::EffectChancePolicy::Guaranteed,
         RuleEffectChancePolicy::Fixed => crate::EffectChancePolicy::Fixed {
@@ -60,12 +67,101 @@ pub(super) fn apply_effect_operation(
     Ok(Operation::ApplyEffect(ApplyEffectOp {
         id: operation_id,
         targets,
-        definition: crate::EffectApplicationDefinition::new(effect, base_chance, 1)
-            .expect("one stack is valid"),
+        definition: crate::EffectApplicationDefinition::new(effect, base_chance, stacks)
+            .expect("validated stacks are nonzero"),
         rng_purpose,
         resolved_chances,
         resolved_runtime,
     }))
+}
+
+fn effect_stacks(value: RuleValue) -> Result<u16, BattleFault> {
+    let RuleValue::Integer(value) = value else {
+        return Err(program_fault(72, 0));
+    };
+    u16::try_from(value)
+        .ok()
+        .filter(|value| *value > 0)
+        .ok_or_else(|| program_fault(72, value))
+}
+
+#[allow(clippy::too_many_arguments)]
+pub(super) fn adjust_effect_stacks(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: crate::EventId,
+    operation: crate::OperationId,
+    targets: Box<[crate::UnitId]>,
+    definition: crate::EffectDefinitionId,
+    delta: RuleValue,
+) -> Result<crate::EventId, BattleFault> {
+    let RuleValue::Integer(delta) = delta else {
+        return Err(program_fault(73, 0));
+    };
+    if delta == 0 {
+        return Ok(parent);
+    }
+    for target in targets {
+        let effects = txn
+            .state
+            .effects
+            .iter_by_id()
+            .filter(|effect| effect.target == target && effect.definition == definition)
+            .map(|effect| effect.id)
+            .collect::<Vec<_>>();
+        for effect in effects {
+            let (before, after, remaining) = {
+                let state = txn
+                    .state
+                    .effects
+                    .get_mut(effect)
+                    .ok_or_else(|| program_fault(74, i64::from(definition.get())))?;
+                let before = state.stacks;
+                let after = i64::from(before)
+                    .checked_add(delta)
+                    .map(|value| value.clamp(0, i64::from(state.stack_limit)))
+                    .and_then(|value| u16::try_from(value).ok())
+                    .ok_or_else(|| program_fault(74, delta))?;
+                state.stacks = after;
+                (before, after, state.remaining)
+            };
+            if before == after {
+                continue;
+            }
+            txn.record_effect_change(u64::from(before), u64::from(after), effect.get());
+            if after == 0 {
+                txn.state
+                    .effects
+                    .remove(effect)
+                    .ok_or_else(|| program_fault(75, i64::from(definition.get())))?;
+                txn.remove_effect_attachments(effect);
+                parent = txn.emit(
+                    cause.with_parent(parent).with_primary_target(Some(target)),
+                    BattleEventKind::Effect(EffectEventData::Removed {
+                        operation,
+                        effect,
+                        definition,
+                        target,
+                    }),
+                );
+            } else {
+                super::modifier_snapshot::refresh_effect_stacks(catalog, txn, effect, after)?;
+                parent = txn.emit(
+                    cause.with_parent(parent).with_primary_target(Some(target)),
+                    BattleEventKind::Effect(EffectEventData::Refreshed {
+                        operation,
+                        effect,
+                        target,
+                        stacks_before: before,
+                        stacks_after: after,
+                        remaining,
+                    }),
+                );
+            }
+        }
+    }
+    Ok(parent)
 }
 
 fn resolve_chances(

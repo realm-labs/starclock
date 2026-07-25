@@ -66,6 +66,7 @@ pub trait BattleQueryReader {
     fn has_weakness(&self, subject: UnitId, element: crate::formula::model::CombatElement) -> bool;
     fn is_broken(&self, subject: UnitId) -> bool;
     fn current_shield(&self, subject: UnitId) -> Option<Scalar>;
+    fn effect_stacks(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> Option<i64>;
 }
 
 /// Stable evaluation failure category.
@@ -484,18 +485,30 @@ fn evaluate_operation(
         RuleOperationTemplate::ApplyEffect {
             selector,
             effect,
+            stacks,
             chance,
             base_chance,
             rng_purpose,
         } => RuleEmission::ApplyEffect {
             selector: *selector,
             effect: *effect,
+            stacks: evaluate_value(stacks, input, current_target)?,
             chance: *chance,
             base_chance: base_chance
                 .as_ref()
                 .map(|value| evaluate_value(value, input, current_target))
                 .transpose()?,
             rng_purpose: *rng_purpose,
+            current_target,
+        },
+        RuleOperationTemplate::AdjustEffectStacks {
+            selector,
+            effect,
+            delta,
+        } => RuleEmission::AdjustEffectStacks {
+            selector: *selector,
+            effect: *effect,
+            delta: evaluate_value(delta, input, current_target)?,
             current_target,
         },
         RuleOperationTemplate::RemoveEffect { selector, effect } => RuleEmission::RemoveEffect {
@@ -767,6 +780,9 @@ pub fn matches_filter(filter: &EventFilter, input: RuleEvaluationInput<'_>) -> b
             .source
             .is_none_or(|value| input.cause.source == Some(value))
         && filter
+            .excluded_source
+            .is_none_or(|value| input.cause.source != Some(value))
+        && filter
             .effect_definition
             .is_none_or(|value| input.event_facts.effect_definition == Some(value))
         && filter
@@ -942,6 +958,17 @@ pub fn evaluate_value(
                 ShieldObservation::BeforeEvent => current,
             };
             Ok(RuleValue::Scalar(value))
+        }
+        ValueExpr::QueryEffectStacks { subject, effect } => {
+            let subject = query_subject(*subject, input, current_target)?;
+            input
+                .battle_query_reader
+                .and_then(|reader| reader.effect_stacks(subject, *effect))
+                .map(RuleValue::Integer)
+                .ok_or(RuleEvaluationError {
+                    kind: RuleEvaluationErrorKind::MissingValue,
+                    context: effect.get(),
+                })
         }
         ValueExpr::Add(lhs, rhs) => arithmetic(lhs, rhs, input, current_target, Arithmetic::Add),
         ValueExpr::Subtract(lhs, rhs) => {

@@ -7,6 +7,7 @@ fn rule_cleanse_removes_a_dispellable_negative_effect_through_the_resolver() {
             ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
                 selector: id(2),
                 effect: id(1),
+                stacks: ValueExpr::Literal(RuleValue::Integer(1)),
                 chance: RuleEffectChancePolicy::Guaranteed,
                 base_chance: None,
                 rng_purpose: None,

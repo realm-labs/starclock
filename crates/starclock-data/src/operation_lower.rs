@@ -12,7 +12,7 @@ use starclock_combat::{
         model::{
             ProgramStep, ReactionPriority, ResourceUpdateKind, RuleActionOwner,
             RuleActionPaymentPolicy, RuleEffectChancePolicy, RuleOperationTemplate,
-            RuleResourceKind, StateSlotUpdateKind,
+            RuleResourceKind, RuleValue, StateSlotUpdateKind, ValueExpr,
         },
     },
 };
@@ -140,6 +140,9 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
             }
             | O::RemoveShield { selector, effect }
             | O::ApplyEffect {
+                selector, effect, ..
+            }
+            | O::AdjustEffectStacks {
                 selector, effect, ..
             } => {
                 selectors.insert(*selector);
@@ -331,6 +334,7 @@ fn lower_operation(
         } => RuleOperationTemplate::ApplyEffect {
             selector: selector()?,
             effect: effect(*effect_id)?,
+            stacks: ValueExpr::Literal(RuleValue::Integer(1)),
             chance: lower_effect_chance(*chance_policy),
             base_chance: base_chance_expression_id.map(expression).transpose()?,
             rng_purpose: lower_rng_purpose(rng_purpose_key.as_deref())?,
