@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M02-S03` |
-| Next unblocked batch | `G07-P2-M02-S03` |
+| Active batch | `G07-P2-M02-S04` |
+| Next unblocked batch | `G07-P2-M02-S04` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -26,10 +26,12 @@ runtime matrix, six formal Excel rows, zero current native-handler admissions
 and exact ordered completion receipts for every generated content partition.
 All three Ability Tree partitions are complete. Their 42 records, 42 rules and
 ten semantic fixtures execute from formal Excel/Sora definitions. The first
-Two Preservation partitions are complete: 33 records, 32 rules and five
+three Preservation partitions are complete: 49 records, 48 rules and six
 fixtures execute exact Quake, shield cycles, dynamic stat conversion,
-directional shield strength and provider-shield behavior without a native
-handler. `G07-P2-M02-S03` is active.
+directional shield strength, provider-shield behavior, action-scoped HP-loss
+shields, Break-triggered team shields, shield-gated mitigation and bounded
+negative-effect cleansing without a native handler. `G07-P2-M02-S04` is
+active.
 
 ## Fixed batch ledger
 
@@ -50,6 +52,7 @@ handler. `G07-P2-M02-S03` is active.
 | `G07-P2-M01-S03` | `Complete` | openpyxl partition check; production Sora verification; Ability Tree/path/service/carry tests; partition receipt; quick repository gate | Executed Ability Tree nodes 4–9 and 39–42. Replaced the Formation special case with generic 0–3 Ability Tree capacity, added participant-specific Reviver options backed by atomic cross-battle carry restoration, exposed the consumable-use authorization seam, and made topology template reuse participant-lock-safe. |
 | `G07-P2-M02-S01` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Preservation/replay tests; partition receipt; quick repository gate | Executed Resonance Transfer, Metastatic Field, Macrosegregation, Quadrangular Pyramid, Shear Structure and the Solid Solution definition. Added generic current/pre-event shield queries, effect-scoped shield removal, target-within-action once scope and nonlethal Rule IR damage. Exact current-DEF Quake composition, multi-enemy splash, Bleed and shield reset run through production materialization; ten native candidates close as `IrSufficient`. |
 | `G07-P2-M02-S02` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Preservation/replay tests; partition receipt; quick repository gate | Executed both levels of Solid Solution, Safe Load, Sanctuary, Quadrangular Pyramid and Hypoeutectoid plus Assemble L1. Added generic authored-base-stat queries, dynamic shield-backed modifiers, source/target formula subjects and battle-start rule-applier attribution. Exact 110/130 damage, 15,600/20,250 shields and 240/360 provider-shield vectors pass; eleven native candidates close as `IrSufficient`. |
+| `G07-P2-M02-S03` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Preservation/replay tests; partition receipt; quick repository gate | Executed Assemble L2 plus both levels of Sentinel, Patch, Compensation, Firmness and Rotation. Added a generic bounded negative-effect Cleanse operation, action-scoped effective HP-loss accumulation and dynamic shield-gated mitigation. Exact 16,000/24,000 battle-start shields, 18% action-loss recovery shields, 18% Break-triggered team shields and 16% mitigation vectors pass; eleven native candidates close as `IrSufficient`. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |

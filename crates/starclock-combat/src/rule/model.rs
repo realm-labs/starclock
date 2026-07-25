@@ -309,41 +309,6 @@ pub enum RuleEventPoint {
     InformationalRule,
 }
 
-impl RuleEventPoint {
-    #[must_use]
-    pub const fn kind(self) -> RuleEventKind {
-        match self {
-            Self::BattleStarted | Self::BattleWon | Self::BattleLost | Self::BattleFaulted => {
-                RuleEventKind::Battle
-            }
-            Self::WaveStarted | Self::WaveEnded | Self::EncounterTransition => RuleEventKind::Wave,
-            Self::TurnStarted | Self::TurnEnded | Self::TimelineChanged => RuleEventKind::Turn,
-            Self::ActionDeclared | Self::ActionStarted | Self::ActionResolved => {
-                RuleEventKind::Action
-            }
-            Self::PhaseStarted | Self::PhaseEnded => RuleEventKind::Phase,
-            Self::HitStarted | Self::HitEnded => RuleEventKind::Hit,
-            Self::DamageCalculated | Self::DamageApplied | Self::HpChanged => RuleEventKind::Damage,
-            Self::HealApplied | Self::ShieldChanged => RuleEventKind::Heal,
-            Self::ToughnessChanged | Self::WeaknessBroken => RuleEventKind::Toughness,
-            Self::EffectApplied
-            | Self::EffectRemoved
-            | Self::EffectRefreshed
-            | Self::EffectStacksChanged
-            | Self::RuleStateChanged
-            | Self::InformationalRule => RuleEventKind::Rule,
-            Self::ResourceChanged => RuleEventKind::Resource,
-            Self::UnitDowned
-            | Self::UnitDefeated
-            | Self::UnitRevived
-            | Self::UnitTransformed
-            | Self::PresenceChanged => RuleEventKind::Unit,
-            Self::DecisionRequested => RuleEventKind::Decision,
-            Self::FaultRaised => RuleEventKind::Fault,
-        }
-    }
-}
-
 /// Generic action family accepted by authored event filters.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum RuleActionKind {
@@ -722,6 +687,10 @@ pub enum RuleOperationTemplate {
         selector: SelectorId,
         effect: EffectDefinitionId,
     },
+    Cleanse {
+        selector: SelectorId,
+        maximum: u16,
+    },
     DetonateDot {
         selector: SelectorId,
         fraction: ValueExpr,
@@ -1042,6 +1011,11 @@ pub enum RuleEmission {
     RemoveEffect {
         selector: SelectorId,
         effect: EffectDefinitionId,
+        current_target: Option<UnitId>,
+    },
+    Cleanse {
+        selector: SelectorId,
+        maximum: u16,
         current_target: Option<UnitId>,
     },
     DetonateDot {

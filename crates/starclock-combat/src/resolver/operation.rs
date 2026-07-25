@@ -1063,6 +1063,7 @@ fn execute_remove_effects(
         let ids = txn.state.effects.removable_for(
             target,
             operation.definition.category,
+            operation.definition.include_cleanseable_control,
             operation.definition.required_definition,
             operation.definition.required_tag,
         );

@@ -485,6 +485,8 @@ impl DotDetonationDefinition {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EffectRemovalDefinition {
     pub category: DispelCategory,
+    /// Includes control effects in a general negative-effect cleanse.
+    pub include_cleanseable_control: bool,
     pub required_definition: Option<EffectDefinitionId>,
     pub required_tag: Option<SourceDefinitionId>,
     pub maximum: u16,
@@ -502,6 +504,7 @@ impl EffectRemovalDefinition {
         } else {
             Some(Self {
                 category,
+                include_cleanseable_control: false,
                 required_definition: None,
                 required_tag,
                 maximum,
@@ -516,7 +519,24 @@ impl EffectRemovalDefinition {
         } else {
             Some(Self {
                 category: DispelCategory::NonDispellable,
+                include_cleanseable_control: false,
                 required_definition: Some(definition),
+                required_tag: None,
+                maximum,
+            })
+        }
+    }
+
+    /// Removes debuffs and cleanseable control effects under one shared limit.
+    #[must_use]
+    pub const fn negative(maximum: u16) -> Option<Self> {
+        if maximum == 0 {
+            None
+        } else {
+            Some(Self {
+                category: DispelCategory::DispellableDebuff,
+                include_cleanseable_control: true,
+                required_definition: None,
                 required_tag: None,
                 maximum,
             })

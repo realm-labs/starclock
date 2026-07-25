@@ -125,6 +125,7 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
             | O::RemoveToughnessLayer { selector, .. }
             | O::ModifyResource { selector, .. }
             | O::RemoveEffect { selector, .. }
+            | O::Cleanse { selector, .. }
             | O::DetonateDot { selector, .. }
             | O::AdvanceAction { selector, .. }
             | O::DelayAction { selector, .. }

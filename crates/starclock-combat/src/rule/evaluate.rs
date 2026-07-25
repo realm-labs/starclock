@@ -495,6 +495,11 @@ fn evaluate_operation(
             effect: *effect,
             current_target,
         },
+        RuleOperationTemplate::Cleanse { selector, maximum } => RuleEmission::Cleanse {
+            selector: *selector,
+            maximum: *maximum,
+            current_target,
+        },
         RuleOperationTemplate::DetonateDot {
             selector,
             fraction,

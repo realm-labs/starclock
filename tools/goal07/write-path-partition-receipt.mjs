@@ -140,6 +140,16 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612051"))
+    return "Battle-start triggers, current MaxHP queries and bounded owner-turn counters express Sentinel.";
+  if (id.includes("612052"))
+    return "Action-scoped HP-loss accumulation and bounded owner-turn counters express Patch without hit-count assumptions.";
+  if (id.includes("612053"))
+    return "WeaknessBroken events, per-owner MaxHP queries and owner-turn counters express Compensation for every ally.";
+  if (id.includes("612054"))
+    return "Dynamic current-shield queries and ordinary mitigation modifiers cover every reducible damage purpose.";
+  if (id.includes("612055"))
+    return "Fixed effect chance and the bounded negative-effect Cleanse Rule IR operation express Rotation.";
   if (id.includes("612043"))
     return "Dynamic current-shield and authored-base-stat queries express the capped ATK conversion without a content branch.";
   if (id.includes("612044"))
@@ -199,6 +209,30 @@ function partitionProfile(id) {
         "goal07_p2_m02_s02_executes_dynamic_stat_and_directional_shield_rules",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration goal07_p2_m02_s02 --all-features",
+        "cargo test -p starclock-mode-universe --test preservation_runtime --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M02-S03") {
+    return {
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/preservation_s03.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/preservation_s03.rs",
+        "crates/starclock-combat/tests/ability_program_execution/cleanse.rs",
+        "crates/starclock-combat/src/effect/state.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-preservation-s03.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/preservation_s03.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/preservation_s03.rs",
+      fixtureMarker:
+        "goal07_p2_m02_s03_executes_break_shields_and_rotation_chance_programs",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration goal07_p2_m02_s03 --all-features",
+        "cargo test -p starclock-combat --test ability_program_execution rule_cleanse --all-features",
         "cargo test -p starclock-mode-universe --test preservation_runtime --all-features",
       ],
     };

@@ -1,6 +1,7 @@
 //! Executable Standard Universe combat slices lowered from validated contributions.
 
 mod preservation_s02;
+mod preservation_s03;
 mod support;
 
 use preservation_s02::*;
@@ -269,6 +270,7 @@ pub(crate) fn lower_rules(
             _ => unreachable!("closed Preservation S02 binding set"),
         });
     }
+    output.extend(preservation_s03::lower(bindings, blessings)?);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::BlessingLevel
             && binding.source_binding_key() == Some(ABUNDANCE_ADDITIONAL_DAMAGE_BINDING)

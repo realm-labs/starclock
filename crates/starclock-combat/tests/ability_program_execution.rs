@@ -45,6 +45,9 @@ use starclock_combat::{
     },
 };
 
+#[path = "ability_program_execution/cleanse.rs"]
+mod cleanse;
+
 #[path = "ability_program_execution/action_break.rs"]
 mod action_break;
 #[path = "ability_program_execution/trigger_phases.rs"]

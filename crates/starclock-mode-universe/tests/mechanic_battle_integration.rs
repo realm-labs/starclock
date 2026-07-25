@@ -35,6 +35,8 @@ const RESONANCE_RESOURCE_RAW: u32 = 0x7630_0004;
 
 #[path = "mechanic_battle_integration/preservation_s02.rs"]
 mod preservation_s02;
+#[path = "mechanic_battle_integration/preservation_s03.rs"]
+mod preservation_s03;
 
 fn catalog() -> Arc<UniverseCatalog> {
     static CATALOG: OnceLock<Arc<UniverseCatalog>> = OnceLock::new();

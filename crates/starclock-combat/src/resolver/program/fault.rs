@@ -15,6 +15,7 @@ pub(super) const fn emission_code(emission: &RuleEmission) -> i64 {
         RuleEmission::CreateToughnessLayer { .. } => 7,
         RuleEmission::RemoveToughnessLayer { .. } => 8,
         RuleEmission::RemoveEffect { .. } => 9,
+        RuleEmission::Cleanse { .. } => 19,
         RuleEmission::ModifyStateSlot { .. } => 10,
         RuleEmission::QueueAction { .. } => 11,
         RuleEmission::GrantExtraTurn { .. } => 12,

@@ -475,6 +475,12 @@ fn validate_operation(
                 ));
             }
         }
+        RuleOperationTemplate::Cleanse { selector, maximum } => {
+            require_selector(catalog, *selector)?;
+            if *maximum == 0 {
+                return Err("cleanse maximum must be nonzero".into());
+            }
+        }
         RuleOperationTemplate::DetonateDot {
             selector, fraction, ..
         } => {

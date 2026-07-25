@@ -199,6 +199,7 @@ impl EffectStore {
         &self,
         target: UnitId,
         category: DispelCategory,
+        include_cleanseable_control: bool,
         required_definition: Option<EffectDefinitionId>,
         required_tag: Option<SourceDefinitionId>,
     ) -> Vec<EffectInstanceId> {
@@ -206,9 +207,12 @@ impl EffectStore {
             .values()
             .filter(|entry| {
                 entry.target == target
-                    && required_definition.map_or(entry.dispel == category, |definition| {
-                        entry.definition == definition
-                    })
+                    && required_definition.map_or(
+                        entry.dispel == category
+                            || include_cleanseable_control
+                                && entry.dispel == DispelCategory::CleanseableControl,
+                        |definition| entry.definition == definition,
+                    )
                     && required_tag.is_none_or(|tag| entry.tags.binary_search(&tag).is_ok())
             })
             .map(|entry| entry.id)
@@ -513,17 +517,50 @@ mod tests {
         assert!(store.blocks(unit(10), ControlledAction::NormalAction));
         assert!(!store.blocks(unit(10), ControlledAction::Ultimate));
         assert_eq!(
-            store.removable_for(unit(10), DispelCategory::CleanseableControl, None, None),
+            store.removable_for(
+                unit(10),
+                DispelCategory::CleanseableControl,
+                false,
+                None,
+                None
+            ),
             [effect(1)]
         );
         assert_eq!(
-            store.removable_for(unit(11), DispelCategory::DispellableBuff, None, None),
+            store.removable_for(unit(11), DispelCategory::DispellableBuff, false, None, None),
             [effect(2)]
         );
         assert!(
             store
-                .removable_for(unit(10), DispelCategory::NonDispellable, None, None)
+                .removable_for(unit(10), DispelCategory::NonDispellable, false, None, None)
                 .is_empty()
+        );
+    }
+
+    #[test]
+    fn negative_cleanse_shares_one_ordered_pool_across_debuffs_and_controls() {
+        let mut store = EffectStore::default();
+        let mut debuff = candidate(1, EffectStackPolicy::Refresh, 1, 10, 1, 1);
+        debuff.category = EffectCategory::Debuff;
+        debuff.dispel = DispelCategory::DispellableDebuff;
+        store.apply(debuff);
+        store.apply(candidate(
+            2,
+            EffectStackPolicy::IndependentInstances,
+            2,
+            10,
+            1,
+            1,
+        ));
+        assert_eq!(
+            store.removable_for(
+                unit(10),
+                DispelCategory::DispellableDebuff,
+                true,
+                None,
+                None
+            ),
+            [effect(1), effect(2)]
         );
     }
 
