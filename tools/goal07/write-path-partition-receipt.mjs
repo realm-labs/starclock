@@ -140,6 +140,16 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612351"))
+    return "A target-directional Healing-stage modifier expresses Incoming Healing exactly once for allied and self-healing.";
+  if (id.includes("612352"))
+    return "BattleStarted triggers, live MaxHP queries and ordinary Heal operations express battle-entry restoration.";
+  if (id.includes("612353"))
+    return "WeaknessBroken facts, actor-owner filtering and live MaxHP healing express restoration for the breaking character only.";
+  if (id.includes("612354"))
+    return "Positive effective-heal facts and a refreshable owner-turn effect express the complete one-turn DEF state.";
+  if (id.includes("612355"))
+    return "Ability-source healing facts, action occurrence keys and ordinary MaxHP healing express one provider restoration per action.";
   if (id.includes("612342"))
     return "Typed Dewdrop rupture signals, fixed-chance effect application and ordered Cleanse express the complete dispel.";
   if (id.includes("612343"))
@@ -623,6 +633,32 @@ function partitionProfile(id) {
         "enhanced_hp_additional_damage_executes_once_on_an_actual_attack_target",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration abundance_s02 --all-features",
+        "cargo test -p starclock-mode-universe --test battle_materialization --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M05-S03") {
+    return {
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/abundance_s03.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s03.rs",
+        "crates/starclock-combat/src/resolver/operation_formula.rs",
+        "crates/starclock-combat/src/resolver/operation/sustain.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-abundance-s03.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/abundance_s03.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s03.rs",
+      fixtureMarker:
+        "healing_action_triggers_provider_once_defense_and_break_healing",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration abundance_s03 --all-features",
         "cargo test -p starclock-mode-universe --test battle_materialization --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",

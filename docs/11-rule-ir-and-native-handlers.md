@@ -162,6 +162,11 @@ Trigger phase is independent of observed event kind. Supported phases include Be
 
 `OnceScope` keys include per event, hit, target within hit, ability, action, turn, wave, battle, attempt, node, section, and activity. Mode-facing aliases compile to the generic scope. The key always includes rule instance and trigger ID. Multi-target and bounce behavior therefore cannot accidentally multiply a once-per-action passive.
 
+Once-per-action healing reactions must also require an action-bearing observed
+event. Content distinguishes character-provided healing from secondary rule
+healing with source-class filters; it must not approximate this distinction by
+testing only actor or applier identity.
+
 ## Native handler boundary
 
 The authoritative native registry is a deterministic composition of immutable

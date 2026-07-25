@@ -91,6 +91,12 @@ repeat that formula block. Both floor before the missing-HP bound, report
 effective healing and overheal, and dispatch reactions only after the HP write
 commits.
 
+Incoming-healing modifiers are target-directional formula inputs. They remain
+applicable when healer and target are the same unit and must not also enter the
+unscoped source-side query. A healing reaction that is limited to once per
+action consumes the accepted action occurrence before its emitted `Heal`
+event is dispatched, so self-healing cannot reopen the same occurrence.
+
 ## Event causality
 
 Each event has a monotonic `EventId` and one cause record:

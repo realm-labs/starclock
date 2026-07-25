@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M05-S03` |
-| Next unblocked batch | `G07-P2-M05-S03` |
+| Active batch | `G07-P2-M05-S04` |
+| Next unblocked batch | `G07-P2-M05-S04` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -54,8 +54,10 @@ healing and capped healing-derived ATK all execute from production
 materialization. Abundance S02 is also complete: Dewdrop cleanse, healing-
 triggered team ATK, current/maximum-HP additional damage, full-HP mitigation
 and Effect RES, exact effective-heal restoration and capped Blessing-count
-MaxHP all execute without a native handler. `G07-P2-M05-S03` (Abundance) is
-active.
+MaxHP all execute without a native handler. Abundance S03 is complete:
+target-directional Incoming Healing, battle-entry healing, breaking-actor
+healing, one-turn healed DEF and once-per-action provider self-healing execute
+from production Rule IR. `G07-P2-M05-S04` (Abundance) is active.
 
 ## Fixed batch ledger
 
@@ -88,6 +90,7 @@ active.
 | `G07-P2-M04-S04` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Nihility/replay tests; partition receipt; quick repository gate | Executed both levels of Offerings of Deception and Before Sunrise, Nihility Resonance and all three Formations. Added modifier-aware Toughness recovery, effect-stack-backed Devoid, no-op-safe modifier refresh journals and non-applicable once-scope handling. Production Kafka proves exact four-per-DoT 1,500 heals, stable random Energy restoration, 40/2 Resonance Energy, 90% three-stack Confusion detonation and 7-of-10 Devoid recovery; eight native candidates close as `IrSufficient`. |
 | `G07-P2-M05-S01` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Abundance/replay tests; partition receipt; quick repository gate | Executed both levels of Perennial Prosperity, Mudra, All Abundance, Sin Dead and The Blessed Many. Added current-HP and rule-signal reads, event-element damage, selector exclusion and stable random selection from committed action targets. Production Bailu proves exact 70% turn charge, capped 120% full-HP efficiency, 20% bounded rupture healing and nonrecursive shared healing with capped flat ATK; ten native candidates close as `IrSufficient`. |
 | `G07-P2-M05-S02` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Abundance/materialization/replay tests; partition receipt; quick repository gate | Executed both levels of Salvation From Damnation, Candlelight Radiance, Bitter Is the Bane, Corporeal Pellucidity and Prajna Voyage plus Dharma Rain L1. Added exact already-resolved HP restoration and replaced the legacy enhanced-only HP-damage slice with committed-target, event-element L1/L2 Rule IR. Production materialization proves 65%/100% Cleanse, one-turn 50% ATK, 36%/42% HP damage, 36% mitigation, 27% Effect RES, 30%/45% extra healing and six-stack 30% MaxHP; eleven native candidates close as `IrSufficient`. |
+| `G07-P2-M05-S03` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Abundance/materialization/replay tests; partition receipt; quick repository gate | Executed Dharma Rain L2 and both levels of Dew Delight, Extended Life, Mudra, Peril Parry and Back to Life. Added target-directional incoming healing, actor-credited Break healing and ability-source once-per-action provider healing. Production execution proves the 63% nine-Blessing cap, 12%/18% Incoming Healing, 24%/36% entry healing, 16%/24% breaking-actor healing, one-turn 24%/36% DEF and 12%/18% provider healing; eleven native candidates close as `IrSufficient`. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |

@@ -2,6 +2,7 @@
 
 mod abundance_s01;
 mod abundance_s02;
+mod abundance_s03;
 mod hunt_resonance;
 mod nihility_s01;
 mod nihility_s02;
@@ -311,6 +312,7 @@ pub(crate) fn lower_rules(
     output.extend(nihility_s04::lower_rules(catalog, bindings, blessings)?);
     output.extend(abundance_s01::lower(bindings, blessings)?);
     output.extend(abundance_s02::lower(catalog, bindings, blessings)?);
+    output.extend(abundance_s03::lower(bindings, blessings)?);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::CurioState
             && binding.source_binding_key() == Some(ENTRY_ENEMY_DAMAGE_BINDING)

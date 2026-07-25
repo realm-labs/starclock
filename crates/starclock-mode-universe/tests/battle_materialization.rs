@@ -345,7 +345,7 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
         coverage.declared_rule_binding_count(),
         u16::try_from(contributions.rules().len()).unwrap()
     );
-    assert_eq!(coverage.materialized_rule_binding_count(), 11);
+    assert_eq!(coverage.materialized_rule_binding_count(), 14);
     assert_eq!(
         coverage.runtime_stat_policy(),
         UNIVERSE_ENEMY_RUNTIME_STAT_POLICY
@@ -360,8 +360,8 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
     assert_eq!(
         coverage.digest(),
         [
-            229, 226, 9, 64, 236, 92, 224, 4, 4, 95, 5, 88, 247, 51, 76, 40, 243, 120, 31, 63, 207,
-            166, 83, 174, 93, 125, 145, 229, 106, 159, 239, 55,
+            26, 104, 227, 157, 40, 245, 137, 202, 160, 175, 79, 81, 136, 219, 126, 147, 74, 7, 115,
+            194, 85, 94, 162, 108, 199, 112, 127, 182, 141, 178, 202, 126,
         ]
     );
 
@@ -509,27 +509,27 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(executor.reports().len(), 4);
+    assert_eq!(executor.reports().len(), 3);
     assert_eq!(
         executor
             .reports()
             .iter()
             .map(|battle| battle.trace().len())
             .sum::<usize>(),
-        22
+        15
     );
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            17, 144, 162, 110, 181, 113, 206, 232, 169, 102, 124, 146, 135, 104, 129, 104, 4, 54,
-            13, 153, 27, 116, 56, 97, 6, 166, 47, 215, 36, 39, 191, 91,
+            24, 237, 12, 58, 43, 224, 115, 71, 142, 156, 215, 218, 78, 0, 225, 39, 117, 196, 199,
+            213, 63, 96, 34, 69, 182, 170, 202, 19, 79, 179, 203, 30,
         ]
     );
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
         [
-            126, 170, 172, 51, 0, 240, 151, 171, 140, 169, 130, 228, 77, 0, 195, 46, 39, 205, 135,
-            182, 74, 156, 146, 237, 188, 21, 204, 16, 181, 221, 133, 230,
+            215, 203, 0, 115, 96, 60, 52, 119, 240, 137, 23, 129, 5, 111, 222, 41, 215, 56, 109,
+            111, 82, 3, 162, 82, 236, 188, 166, 32, 114, 34, 253, 240,
         ]
     );
     assert!(executor.reports().iter().all(|battle| {
