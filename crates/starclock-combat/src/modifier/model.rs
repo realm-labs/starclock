@@ -37,6 +37,11 @@ pub enum StatKind {
     /// The authored base is `1.0`; ordinary stat modifiers can increase or
     /// decrease it without introducing content identities into effect code.
     DebuffDurationMultiplier,
+    /// Fraction of authored Toughness restored when a broken unit recovers.
+    /// The authored base is `1.0`.
+    ///
+    /// Appended to preserve the canonical discriminants of existing stats.
+    ToughnessRecovery,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]

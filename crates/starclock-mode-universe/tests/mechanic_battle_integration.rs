@@ -39,6 +39,8 @@ mod nihility_s01;
 mod nihility_s02;
 #[path = "mechanic_battle_integration/nihility_s03.rs"]
 mod nihility_s03;
+#[path = "mechanic_battle_integration/nihility_s04.rs"]
+mod nihility_s04;
 #[path = "mechanic_battle_integration/preservation_s02.rs"]
 mod preservation_s02;
 #[path = "mechanic_battle_integration/preservation_s03.rs"]

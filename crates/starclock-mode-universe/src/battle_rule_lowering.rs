@@ -4,6 +4,7 @@ mod hunt_resonance;
 mod nihility_s01;
 mod nihility_s02;
 mod nihility_s03;
+mod nihility_s04;
 mod preservation_s02;
 mod preservation_s03;
 mod preservation_s04;
@@ -306,6 +307,7 @@ pub(crate) fn lower_rules(
     output.extend(nihility_s01::lower(bindings, blessings)?);
     output.extend(nihility_s02::lower(catalog, bindings, blessings)?);
     output.extend(nihility_s03::lower(bindings, blessings)?);
+    output.extend(nihility_s04::lower_rules(catalog, bindings, blessings)?);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::BlessingLevel
             && binding.source_binding_key() == Some(ABUNDANCE_ADDITIONAL_DAMAGE_BINDING)
@@ -343,6 +345,7 @@ pub(crate) fn lower_rules(
                     Some(HUNT_RESONANCE_BINDING)
                         | Some(preservation_s04::RESONANCE)
                         | Some(remembrance_s04::RESONANCE)
+                        | Some(nihility_s04::RESONANCE)
                 )
         })
         .map(|binding| match binding.source_binding_key() {
@@ -360,6 +363,9 @@ pub(crate) fn lower_rules(
                 initial_resonance_energy,
                 resonance_damage_ratio,
             ),
+            Some(nihility_s04::RESONANCE) => {
+                nihility_s04::resonance(catalog, bindings, binding, initial_resonance_energy)
+            }
             _ => hunt_resonance::lower(
                 catalog,
                 binding,

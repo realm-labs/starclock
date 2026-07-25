@@ -197,16 +197,23 @@ pub(super) fn refresh_effect_stacks(
             .modifiers
             .get_mut(*instance)
             .ok_or_else(|| action_fault(141))?;
-        if !modifier.set_slot(
-            slot.to_owned(),
-            crate::rule::model::RuleValue::Integer(i64::from(stacks)),
-        ) {
+        let value = crate::rule::model::RuleValue::Integer(i64::from(stacks));
+        let before = modifier
+            .slots
+            .binary_search_by_key(slot, |entry| entry.0)
+            .ok()
+            .map(|index| modifier.slots[index].1.clone())
+            .ok_or_else(|| action_fault(142))?;
+        if before == value {
+            continue;
+        }
+        if !modifier.set_slot(slot.to_owned(), value) {
             return Err(action_fault(142));
         }
         txn.journal.mutation(
             MutationField::ModifierStore,
             instance.get(),
-            u64::from(stacks),
+            instance.get() ^ (u64::from(stacks) + 1),
         );
     }
     let bases = super::program::stat_bases(txn)?;
@@ -408,7 +415,7 @@ fn stat_bases(
 > {
     use crate::modifier::model::StatKind::{
         Atk, BreakBaseDamage, DebuffDurationMultiplier, Def, DotDurationAddition, FreezeResistance,
-        Hp, Spd, ToughnessDamage,
+        Hp, Spd, ToughnessDamage, ToughnessRecovery,
     };
 
     let mut bases = std::collections::BTreeMap::new();
@@ -431,6 +438,7 @@ fn stat_bases(
         );
         bases.insert((unit.id, FreezeResistance), crate::Scalar::ZERO);
         bases.insert((unit.id, ToughnessDamage), crate::Scalar::ZERO);
+        bases.insert((unit.id, ToughnessRecovery), crate::Scalar::ONE);
         if let Some(value) = crate::formula::toughness::attacker_level_multiplier(unit.level) {
             bases.insert((unit.id, BreakBaseDamage), value);
         }

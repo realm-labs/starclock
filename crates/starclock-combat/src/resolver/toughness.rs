@@ -151,6 +151,7 @@ impl Transaction<'_> {
     pub(super) fn recover_toughness(
         &mut self,
         unit: UnitId,
+        dynamic_ratio: crate::Ratio,
     ) -> Result<Vec<(u32, RawToughness, RawToughness)>, BattleFault> {
         let changes = self
             .state
@@ -163,6 +164,8 @@ impl Transaction<'_> {
                 let scaled = layer
                     .spec
                     .recovery_ratio()
+                    .checked_mul(dynamic_ratio, crate::Rounding::NearestTiesEven)
+                    .ok()?
                     .checked_apply(
                         crate::Scalar::checked_from_integer(layer.spec.maximum().get()).ok()?,
                         crate::Rounding::Floor,

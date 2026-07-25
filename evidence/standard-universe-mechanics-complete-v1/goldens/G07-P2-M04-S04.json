@@ -1,0 +1,67 @@
+{
+  "schema_revision": "starclock.goal07-path-partition-golden.v1",
+  "partition_id": "G07-P2-M04-S04",
+  "record_ids": [
+    "universe.blessing.612256",
+    "universe.blessing.612256.level.1",
+    "universe.blessing.612256.level.2",
+    "universe.blessing.612257",
+    "universe.blessing.612257.level.1",
+    "universe.blessing.612257.level.2",
+    "universe.resonance.612220",
+    "universe.resonance.612221",
+    "universe.resonance.612222",
+    "universe.resonance.612223"
+  ],
+  "rule_ids": [
+    "universe.rule.blessing.612256",
+    "universe.rule.blessing.612256.level.1",
+    "universe.rule.blessing.612256.level.2",
+    "universe.rule.blessing.612257",
+    "universe.rule.blessing.612257.level.1",
+    "universe.rule.blessing.612257.level.2",
+    "universe.rule.resonance.612220",
+    "universe.rule.resonance.612221",
+    "universe.rule.resonance.612222",
+    "universe.rule.resonance.612223"
+  ],
+  "fixture_ids": [
+    "universe.fixture.blessing-tag.healing"
+  ],
+  "workbooks": {
+    "Universe.xlsx": "c5121bc5cdb49739e78cd0e709994764bc411c9acd62e9e3996ef744c64358b0",
+    "UniverseBindings.xlsx": "5780e99c7c08d0ed8659ddfd56b37f77e88972ec413940d82f956a56e84c1e4a",
+    "UniverseEvidence.xlsx": "be3ab26158150dda1261f6d58f5520704341b3e09a469202f7a9e651ade95065"
+  },
+  "sora_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+  "tables": {
+    "UniversePath": {
+      "rows": 1,
+      "semantic_sha256": "21d4cb9213f8fe3e883f40b367b8568f874a7b84bc720153477a46bae5d73111"
+    },
+    "UniversePathBlessing": {
+      "rows": 2,
+      "semantic_sha256": "ba4e54643e1c673e291e85ef359c35ffb31903f6119613d1a9b618725a056b59"
+    },
+    "UniverseBlessing": {
+      "rows": 2,
+      "semantic_sha256": "47148e3722011c5f6d2bd0f79d6d4acfa2c5f3398564cd4d87ab26d7189b3bf6"
+    },
+    "UniverseBlessingLevel": {
+      "rows": 4,
+      "semantic_sha256": "fe36dea7013735c3853f16b89ef24674587b49209825179ca4edf746bdcb7c52"
+    },
+    "UniverseBlessingParameter": {
+      "rows": 4,
+      "semantic_sha256": "15bb9cf9e837adb1af2602367072c16be21fd6c23c419bc097a526feac28e5cc"
+    },
+    "UniverseMechanicRule": {
+      "rows": 10,
+      "semantic_sha256": "aac0543d85cdff67e5222c023f9aec4efa30f4b3acea52cdc0b72662c5113714"
+    },
+    "UniverseReviewFixture": {
+      "rows": 1,
+      "semantic_sha256": "04008deff3261c3c905fd252d5560977e389ca990053224abb4e12e0a9f70047"
+    }
+  }
+}

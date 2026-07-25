@@ -266,12 +266,9 @@ impl TriggerLedger {
         {
             return Ok(Vec::new());
         }
-        let key = once_key(trigger.id, trigger.once_scope, input.occurrence).ok_or(
-            RuleEvaluationError {
-                kind: RuleEvaluationErrorKind::MissingValue,
-                context: trigger.id.get(),
-            },
-        )?;
+        let Some(key) = once_key(trigger.id, trigger.once_scope, input.occurrence) else {
+            return Ok(Vec::new());
+        };
         if self.keys.contains(&key) {
             return Ok(Vec::new());
         }

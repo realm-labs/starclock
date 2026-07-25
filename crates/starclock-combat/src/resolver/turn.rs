@@ -171,7 +171,9 @@ pub(super) fn begin_turn(
         .map(|unit| unit.weakness_broken)
         .ok_or_else(|| action_fault(60))?;
     if was_broken {
-        let changes = txn.recover_toughness(turn.unit)?;
+        let recovery = super::operation_formula::FormulaInputs::new(txn)?
+            .toughness_recovery(catalog, txn, turn.unit)?;
+        let changes = txn.recover_toughness(turn.unit, recovery)?;
         txn.set_weakness_broken(turn.unit, false)?;
         for (layer_key, before, after) in changes {
             parent = txn.emit(

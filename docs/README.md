@@ -136,6 +136,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 110. [Goal 07 Nihility partition S01](goal-07-nihility-s01.md) — Suspicion lifecycle, DoT detonation/transfer and stack-backed debuffs.
 111. [Goal 07 Nihility partition S02](goal-07-nihility-s02.md) — Break efficiency/propagation, random DoTs, selected detonation and Blessing-count DoT scaling.
 112. [Goal 07 Nihility partition S03](goal-07-nihility-s03.md) — Break damage, Effect RES, DoT vulnerability/duration and dynamic DoT-stack vulnerability.
+113. [Goal 07 Nihility partition S04](goal-07-nihility-s04.md) — team healing/Energy from DoTs, Resonance statuses, Confusion, Devoid and all Nihility Formations.
 
 ## Execution goals
 

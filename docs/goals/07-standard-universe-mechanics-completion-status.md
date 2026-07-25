@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M04-S04` |
-| Next unblocked batch | `G07-P2-M04-S04` |
+| Active batch | `G07-P2-M05-S01` |
+| Next unblocked batch | `G07-P2-M05-S01` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -38,13 +38,17 @@ Melancholia, Dizziness, Insensitivity, Sentimentality, Indelibility, Shudder,
 Maverick, both Unspeakable Shame levels, Torment of Alienation, Lost Memory,
 Stone Cold Hatred, Pain & Suffering, Primordial Hardship, Thrill of Escalation,
 Responsive Excitement, Remembrance Resonance and all three Formations.
-The first three Nihility partitions are complete: their 49 records, 48 rules and
-production Kafka fixture execute Suspicion application, amplification,
+All four Nihility partitions are complete: their 59 records, 58 rules and two
+semantic fixtures execute Suspicion application, amplification,
 enemy-turn decay/persistence, DoT detonation/transfer, stack-backed debuffs,
 Weakness Break Efficiency, same-element Break propagation, stable random DoT
 application, one-current-DoT detonation, Blessing-count DoT scaling, Break
 damage, Effect RES reduction, DoT vulnerability and duration, and dynamic
-total-DoT-stack vulnerability. `G07-P2-M04-S04` (Nihility) is active.
+total-DoT-stack vulnerability. Offerings of Deception, Before Sunrise,
+Nihility Resonance and all three Formations additionally execute exact team
+healing, stable random Energy restoration, four ordinary DoTs, Confusion
+detonation, Devoid Toughness recovery and Resonance Energy. `G07-P2-M05-S01`
+(Abundance) is active.
 
 ## Fixed batch ledger
 
@@ -74,6 +78,7 @@ total-DoT-stack vulnerability. `G07-P2-M04-S04` (Nihility) is active.
 | `G07-P2-M04-S01` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Nihility/replay tests; partition receipt; quick repository gate | Executed Funeral, Man in the Cover, Why Hasn't Everything Already Disappeared, Beginning and End, Café Self-Deceit and Call of the Wilderness. Added expression-backed effect stacks, signed adjustment, aggregate stack queries, typed stack deltas and source exclusion. Kafka production Ultimate proves exact four-to-two ordinary decay and enhanced doubling/persistence; ten native candidates close as `IrSufficient`. |
 | `G07-P2-M04-S02` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Nihility/replay tests; partition receipt; quick repository gate | Executed Call level rows, Night Beyond Pyre, Hell is Other People, Twilight of Existence, All Things are Possible and Ignosticism L1. Added modifier-aware Break efficiency, adjacent-only propagation, ordered random effect application, one-current-DoT detonation, newest-first cleansing and the exact level 1–80 Break-base lookup. Production Kafka proves exact 30% efficiency, same-element adjacent Break and selected DoT execution; eleven native candidates close as `IrSufficient`. |
 | `G07-P2-M04-S03` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Nihility/replay tests; partition receipt; quick repository gate | Executed Ignosticism L2 and both levels of Questioning of Purpose, Blind Vision, Tragic Lecture, Sensory Labyrinth and Emotional Decluttering. Added dynamic effect-category stack queries, integral DoT duration and modifier-aware Break-family formula preparation. Production Kafka proves exact 50% initial-Break gain and two-turn Shock extension; enhanced Ignosticism and Emotional Decluttering cap at 72% and 20%; eleven native candidates close as `IrSufficient`. |
+| `G07-P2-M04-S04` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Nihility/replay tests; partition receipt; quick repository gate | Executed both levels of Offerings of Deception and Before Sunrise, Nihility Resonance and all three Formations. Added modifier-aware Toughness recovery, effect-stack-backed Devoid, no-op-safe modifier refresh journals and non-applicable once-scope handling. Production Kafka proves exact four-per-DoT 1,500 heals, stable random Energy restoration, 40/2 Resonance Energy, 90% three-stack Confusion detonation and 7-of-10 Devoid recovery; eight native candidates close as `IrSufficient`. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |
@@ -96,7 +101,7 @@ The milestone summary remains here for orientation.
 | `G07-P2-M01` | `Complete` | 42 / 42 | Ability Tree and shared Activity mechanics executable. |
 | `G07-P2-M02` | `Complete` | 58 / 59 | Preservation complete. |
 | `G07-P2-M03` | `Complete` | 58 / 59 | Remembrance complete. |
-| `G07-P2-M04` | `Expanded` | 58 / 59 | Nihility complete. |
+| `G07-P2-M04` | `Complete` | 58 / 59 | Nihility complete. |
 | `G07-P2-M05` | `Expanded` | 58 / 59 | Abundance complete. |
 | `G07-P2-M06` | `Expanded` | 58 / 59 | Hunt complete. |
 | `G07-P2-M07` | `Expanded` | 58 / 59 | Destruction complete. |

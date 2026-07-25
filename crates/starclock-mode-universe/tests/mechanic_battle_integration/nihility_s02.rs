@@ -461,7 +461,7 @@ pub(super) fn two_enemy_break_spec(
                 base.form(),
                 base.level(),
                 base.maximum_hp(),
-                base.speed(),
+                Speed::from_scaled(50_000_000).unwrap(),
                 ResolvedDefinitionBindings::new(
                     base.abilities().to_vec(),
                     base.rule_bundles().to_vec(),

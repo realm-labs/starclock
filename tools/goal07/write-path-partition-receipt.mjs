@@ -172,6 +172,18 @@ function nativeDecision(id) {
     return "The generic integral DoT-duration stat adjusts newly applied DoT lifetimes before duration multiplication.";
   if (id.includes("612255"))
     return "Dynamic effect-category stack queries and capped target vulnerability express the current total DoT-stack scaling.";
+  if (id.includes("612256"))
+    return "Typed enemy DoT-damage facts, stable all-ally iteration and current MaxHP healing express Offerings of Deception.";
+  if (id.includes("612257"))
+    return "A labeled stable random ally selector and generic personal-Energy mutation express Before Sunrise.";
+  if (id.includes("612220"))
+    return "A team-resource-gated ordered ability program applies the four ordinary snapshot DoTs through the shared effect-chance pipeline.";
+  if (id.includes("612221"))
+    return "Formation selection lowers to generic chance, duration and stack parameters before the immutable Resonance definition is built.";
+  if (id.includes("612222"))
+    return "Stack-aware DoT detonation, signed effect-stack adjustment and an effect-backed Toughness-recovery modifier express both statuses.";
+  if (id.includes("612223"))
+    return "Battle-start and typed enemy DoT-damage triggers use the checked keyed team-resource service.";
   if (id.includes("612156"))
     return "Typed Freeze effect/BaseEffect facts, explicit action context and action once keys express per-applier Energy restoration.";
   if (id.includes("612157"))
@@ -513,6 +525,31 @@ function partitionProfile(id) {
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration nihility_s03 --all-features",
         "cargo test -p starclock-combat --test modifier_pipeline --all-features",
         "cargo test -p starclock-combat --test damage_lifecycle --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M04-S04") {
+    return {
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/nihility_s04.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s04.rs",
+        "crates/starclock-combat/src/resolver/turn.rs",
+        "crates/starclock-combat/src/resolver/modifier_snapshot.rs",
+        "crates/starclock-combat/src/rule/evaluate.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-nihility-s04.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/nihility_s04.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s04.rs",
+      fixtureMarker:
+        "enemy_dot_ticks_heal_the_team_restore_random_energy_and_charge_resonance",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration nihility_s04 --all-features",
+        "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
     };

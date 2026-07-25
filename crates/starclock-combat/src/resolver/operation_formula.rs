@@ -365,6 +365,36 @@ impl FormulaInputs {
         Ok(crate::Ratio::from_scaled(value.scaled()))
     }
 
+    pub(super) fn toughness_recovery(
+        &self,
+        catalog: &crate::catalog::CombatCatalog,
+        txn: &Transaction<'_>,
+        target: crate::UnitId,
+    ) -> Result<crate::Ratio, BattleFault> {
+        let stat = crate::modifier::model::StatKind::ToughnessRecovery;
+        let value = self
+            .resolver(catalog)
+            .query(
+                crate::modifier::model::StatQuery {
+                    subject: target,
+                    stat,
+                    purpose: FormulaPurpose::Stat,
+                },
+                &modifier_context(
+                    txn,
+                    target,
+                    target,
+                    None,
+                    formula::model::DamageClass::Direct,
+                )?,
+            )
+            .map_err(|_| numeric_fault(67, i64::from(stat as u8)))?;
+        if value.scaled() < 0 {
+            return Err(numeric_fault(68, value.scaled()));
+        }
+        Ok(crate::Ratio::from_scaled(value.scaled()))
+    }
+
     pub(super) fn healing(
         &self,
         catalog: &crate::catalog::CombatCatalog,
