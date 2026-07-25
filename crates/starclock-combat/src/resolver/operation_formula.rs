@@ -76,6 +76,41 @@ impl FormulaInputs {
             .map_err(|_| numeric_fault(1, formula.base_damage().scaled()))
     }
 
+    pub(super) fn critical_profile(
+        &self,
+        catalog: &crate::catalog::CombatCatalog,
+        txn: &Transaction<'_>,
+        cause: Cause,
+        class: formula::model::DamageClass,
+    ) -> Result<CriticalProfile, BattleFault> {
+        use crate::{
+            modifier::model::{StatKind, StatQuerySubject},
+            rule::evaluate::StatQueryReader,
+        };
+
+        let purpose = damage_purpose(class);
+        let source = formula_source(txn, cause, purpose)?;
+        let resolver = self.resolver(catalog);
+        let rate = resolver
+            .query_stat(StatQuerySubject::Actor, source, StatKind::CritRate, purpose)
+            .map_err(|_| numeric_fault(50, i64::from(StatKind::CritRate as u8)))?;
+        let damage = resolver
+            .query_stat(
+                StatQuerySubject::Actor,
+                source,
+                StatKind::CritDamage,
+                purpose,
+            )
+            .map_err(|_| numeric_fault(51, i64::from(StatKind::CritDamage as u8)))?;
+        if damage.scaled() < 0 {
+            return Err(numeric_fault(52, damage.scaled()));
+        }
+        Ok(CriticalProfile {
+            chance: formula::model::clamp_probability(crate::Ratio::from_scaled(rate.scaled())),
+            damage,
+        })
+    }
+
     pub(super) fn target_mitigation(
         &self,
         catalog: &crate::catalog::CombatCatalog,
@@ -205,6 +240,11 @@ impl FormulaInputs {
         StatResolver::new(catalog.modifier_registry(), &self.bases, &self.modifiers)
             .with_shields(&self.shields)
     }
+}
+
+pub(super) struct CriticalProfile {
+    pub(super) chance: crate::Probability,
+    pub(super) damage: crate::Scalar,
 }
 
 fn formula_modifier(

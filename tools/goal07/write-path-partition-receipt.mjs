@@ -160,6 +160,18 @@ function nativeDecision(id) {
     return "Shield delta events, complete cause roles and bounded Rule IR slots express the provider shield and its lifetime.";
   if (id.includes("612050"))
     return "The validated contribution compiler supplies the owned Preservation count to an ordinary percent-of-base modifier.";
+  if (id.includes("612056"))
+    return "Dynamic current-shield queries and live CRIT DMG modifiers express Burst without a source branch.";
+  if (id.includes("612057"))
+    return "Dynamic current-shield queries and the labeled per-hit CRIT stream express Concentration.";
+  if (id.includes("612020"))
+    return "Ordered selector sums, team-resource costs and ability-program battle queries express Preservation Resonance.";
+  if (id.includes("612021"))
+    return "A fixed authored CRIT multiplier and shielded-ally selector sum express Zero-Dimensional Reinforcement.";
+  if (id.includes("612022"))
+    return "ActionResolved triggers, owner-scoped Shields and the generic one-shot overflow guard express Eutectic Reaction.";
+  if (id.includes("612023"))
+    return "Battle-start and positive Shield-delta triggers use the checked team-resource service for Isomorphous Reaction.";
   if (id.includes("612032"))
     return "Dedicated shield state, event deltas, scoped removal and Rule IR slots express the complete cycle.";
   if (id.includes("612041"))
@@ -233,6 +245,30 @@ function partitionProfile(id) {
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration goal07_p2_m02_s03 --all-features",
         "cargo test -p starclock-combat --test ability_program_execution rule_cleanse --all-features",
+        "cargo test -p starclock-mode-universe --test preservation_runtime --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M02-S04") {
+    return {
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/preservation_s04.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/preservation_s04.rs",
+        "crates/starclock-combat/src/resolver/operation.rs",
+        "crates/starclock-combat/src/resolver/program.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-preservation-s04.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/preservation_s04.rs",
+        "crates/starclock-combat/src/effect/model.rs",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/preservation_s04.rs",
+      fixtureMarker:
+        "goal07_p2_m02_s04_executes_shield_conditioned_critical_stats",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration goal07_p2_m02_s04 --all-features",
+        "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-mode-universe --test preservation_runtime --all-features",
       ],
     };

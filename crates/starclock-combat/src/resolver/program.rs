@@ -134,6 +134,7 @@ fn execute_program(
         &modifiers,
     )
     .with_shields(&shields);
+    let battle_queries = super::rule::BattleQuerySnapshot::new(txn);
     let event_facts = crate::rule::model::RuleEventFacts {
         point: Some(event_point),
         has_parent: true,
@@ -192,8 +193,8 @@ fn execute_program(
             selectors: &views,
             stat_reader: Some(&stat_reader),
             ability_parameter_reader: Some(catalog),
-            resource_reader: None,
-            battle_query_reader: None,
+            resource_reader: Some(&battle_queries),
+            battle_query_reader: Some(&battle_queries),
         };
         let selection = txn.resolve_rule_selector(
             catalog,
@@ -236,8 +237,8 @@ fn execute_program(
         selectors: &selectors,
         stat_reader: Some(&stat_reader),
         ability_parameter_reader: Some(catalog),
-        resource_reader: None,
-        battle_query_reader: None,
+        resource_reader: Some(&battle_queries),
+        battle_query_reader: Some(&battle_queries),
     };
     let emissions = evaluate_program(catalog, context.program, input, EvaluationBudget::STANDARD)
         .map_err(|error| program_fault(1, i64::from(error.context())))?;
@@ -249,7 +250,7 @@ fn execute_program(
 pub(super) fn stat_bases(
     txn: &Transaction<'_>,
 ) -> Result<BTreeMap<(crate::UnitId, crate::modifier::model::StatKind), Scalar>, BattleFault> {
-    use crate::modifier::model::StatKind::{Atk, Def, Hp, Spd};
+    use crate::modifier::model::StatKind::{Atk, CritDamage, CritRate, Def, Hp, Spd};
 
     let mut bases = BTreeMap::new();
     for unit in txn.state.units.iter_by_id() {
@@ -269,6 +270,15 @@ pub(super) fn stat_bases(
         bases.insert(
             (unit.id, Spd),
             Scalar::from_scaled(unit.base_speed.scaled()),
+        );
+        let player = unit.side == crate::TeamSide::Player;
+        bases.insert(
+            (unit.id, CritRate),
+            Scalar::from_scaled(if player { 50_000 } else { 0 }),
+        );
+        bases.insert(
+            (unit.id, CritDamage),
+            Scalar::from_scaled(if player { 500_000 } else { 0 }),
         );
     }
     Ok(bases)
@@ -339,6 +349,7 @@ fn execute_emission(
             amount,
             class,
             element,
+            can_crit,
             can_defeat,
             ..
         } => {
@@ -355,6 +366,11 @@ fn execute_emission(
                 targets: emission_targets(catalog, resolved, selector, current_target)?,
                 formula,
                 element: Some(element),
+                crit_policy: if can_crit {
+                    context.crit_policy
+                } else {
+                    HitCritPolicy::Never
+                },
                 minimum_hp: i64::from(!can_defeat),
             })
         }
@@ -374,6 +390,7 @@ fn execute_emission(
                 targets: emission_targets(catalog, resolved, selector, current_target)?,
                 formula,
                 element: None,
+                crit_policy: HitCritPolicy::Never,
                 minimum_hp: 0,
             })
         }

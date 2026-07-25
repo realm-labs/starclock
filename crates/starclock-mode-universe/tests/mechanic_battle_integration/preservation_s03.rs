@@ -45,7 +45,7 @@ fn goal07_p2_m02_s03_executes_timed_shield_and_mitigation_rules() {
             None,
             false,
         );
-        assert_eq!(contributions.materialized_rule_binding_count(), 3);
+        assert_eq!(contributions.materialized_rule_binding_count(), 4);
         let materialization = materialize(&catalog, &contributions);
         let (battle, start) = start(
             &materialization,

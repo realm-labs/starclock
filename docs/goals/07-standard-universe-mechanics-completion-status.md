@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M02-S04` |
-| Next unblocked batch | `G07-P2-M02-S04` |
+| Active batch | `G07-P2-M03-S01` |
+| Next unblocked batch | `G07-P2-M03-S01` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -25,13 +25,13 @@ action/reaction, Break and boundary foundations. P1-B6 freezes a 15-probe
 runtime matrix, six formal Excel rows, zero current native-handler admissions
 and exact ordered completion receipts for every generated content partition.
 All three Ability Tree partitions are complete. Their 42 records, 42 rules and
-ten semantic fixtures execute from formal Excel/Sora definitions. The first
-three Preservation partitions are complete: 49 records, 48 rules and six
-fixtures execute exact Quake, shield cycles, dynamic stat conversion,
-directional shield strength, provider-shield behavior, action-scoped HP-loss
-shields, Break-triggered team shields, shield-gated mitigation and bounded
-negative-effect cleansing without a native handler. `G07-P2-M02-S04` is
-active.
+ten semantic fixtures execute from formal Excel/Sora definitions. All four
+Preservation partitions are complete: 59 records, 58 rules and seven fixtures
+execute exact Quake, shield cycles, dynamic stat conversion, directional
+shield strength, provider-shield behavior, action-scoped HP-loss shields,
+Break-triggered team shields, shield-gated mitigation, bounded negative-effect
+cleansing, deterministic critical hits and all three Resonance Formations
+without a native handler. `G07-P2-M03-S01` is active.
 
 ## Fixed batch ledger
 
@@ -53,6 +53,7 @@ active.
 | `G07-P2-M02-S01` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Preservation/replay tests; partition receipt; quick repository gate | Executed Resonance Transfer, Metastatic Field, Macrosegregation, Quadrangular Pyramid, Shear Structure and the Solid Solution definition. Added generic current/pre-event shield queries, effect-scoped shield removal, target-within-action once scope and nonlethal Rule IR damage. Exact current-DEF Quake composition, multi-enemy splash, Bleed and shield reset run through production materialization; ten native candidates close as `IrSufficient`. |
 | `G07-P2-M02-S02` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Preservation/replay tests; partition receipt; quick repository gate | Executed both levels of Solid Solution, Safe Load, Sanctuary, Quadrangular Pyramid and Hypoeutectoid plus Assemble L1. Added generic authored-base-stat queries, dynamic shield-backed modifiers, source/target formula subjects and battle-start rule-applier attribution. Exact 110/130 damage, 15,600/20,250 shields and 240/360 provider-shield vectors pass; eleven native candidates close as `IrSufficient`. |
 | `G07-P2-M02-S03` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Preservation/replay tests; partition receipt; quick repository gate | Executed Assemble L2 plus both levels of Sentinel, Patch, Compensation, Firmness and Rotation. Added a generic bounded negative-effect Cleanse operation, action-scoped effective HP-loss accumulation and dynamic shield-gated mitigation. Exact 16,000/24,000 battle-start shields, 18% action-loss recovery shields, 18% Break-triggered team shields and 16% mitigation vectors pass; eleven native candidates close as `IrSufficient`. |
+| `G07-P2-M02-S04` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Preservation/replay tests; partition receipt; quick repository gate | Executed both levels of Burst and Concentration, Preservation Resonance and all three Formations. Added deterministic per-target/shared CRIT execution, ability-program battle queries and a generic one-shot shield-overflow guard. Exact 97.5 critical, 160,000/336,000 Resonance, 40-point entry Energy and four 1,000-Shield Eutectic vectors pass; eight native candidates close as `IrSufficient`. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |
@@ -73,7 +74,7 @@ The milestone summary remains here for orientation.
 | Milestone | State | Rules/content | Completion condition |
 |---|---|---:|---|
 | `G07-P2-M01` | `Complete` | 42 / 42 | Ability Tree and shared Activity mechanics executable. |
-| `G07-P2-M02` | `Expanded` | 58 / 59 | Preservation complete. |
+| `G07-P2-M02` | `Complete` | 58 / 59 | Preservation complete. |
 | `G07-P2-M03` | `Expanded` | 58 / 59 | Remembrance complete. |
 | `G07-P2-M04` | `Expanded` | 58 / 59 | Nihility complete. |
 | `G07-P2-M05` | `Expanded` | 58 / 59 | Abundance complete. |

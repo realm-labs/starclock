@@ -30,7 +30,9 @@ pub(super) fn execute_operation(
 ) -> Result<EventId, BattleFault> {
     txn.snapshot(operation.id());
     match operation {
-        Operation::Damage(operation) => execute_damage(catalog, txn, cause, parent, operation),
+        Operation::Damage(operation) => {
+            execute_damage(catalog, txn, cause, parent, operation, scratch)
+        }
         Operation::Heal(operation) => sustain::execute_heal(catalog, txn, cause, parent, operation),
         Operation::Shield(operation) => {
             sustain::execute_shield(catalog, txn, cause, parent, operation)
@@ -216,6 +218,7 @@ pub(super) fn execute_toughness_reduction(
             )
             .map_err(|_| numeric_fault(12, value.maximum.get()))?;
             parent = apply_break_damage(
+                catalog,
                 txn,
                 break_cause,
                 parent,
@@ -377,6 +380,7 @@ fn execute_super_break(
         let damage = formula::toughness::super_break_damage(definition, effective)
             .map_err(|_| numeric_fault(15, effective.get()))?;
         parent = apply_break_damage(
+            catalog,
             txn,
             cause,
             parent,
@@ -404,6 +408,7 @@ struct BreakDamageApplication {
 }
 
 fn apply_break_damage(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -415,7 +420,7 @@ fn apply_break_damage(
         element,
         kind,
         raw,
-        calculated,
+        mut calculated,
     } = application;
     let (hp_before, life_before) = txn
         .state
@@ -423,6 +428,8 @@ fn apply_break_damage(
         .get(target)
         .map(|unit| (unit.current_hp, unit.life))
         .ok_or_else(|| invariant_fault(9))?;
+    (parent, calculated) =
+        apply_damage_guard(catalog, txn, cause, parent, operation, target, calculated)?;
     let (absorbed, changes) = txn
         .state
         .shields
@@ -525,6 +532,7 @@ pub(super) fn settle_break_effects_at_turn_start(
             let damage = formula::toughness::break_effect_damage(definition, base, true)
                 .map_err(|_| numeric_fault(23, base.scaled()))?;
             parent = apply_break_damage(
+                catalog,
                 txn,
                 cause
                     .with_applier(effect.applier)
@@ -767,18 +775,52 @@ fn execute_damage(
     cause: Cause,
     mut parent: EventId,
     operation: DamageOp,
+    scratch: &mut HitOperationScratch,
 ) -> Result<EventId, BattleFault> {
     let inputs = super::operation_formula::FormulaInputs::new(txn)?;
+    let critical = (operation.crit_policy != crate::catalog::action::HitCritPolicy::Never)
+        .then(|| inputs.critical_profile(catalog, txn, cause, operation.formula.class()))
+        .transpose()?;
     for target in operation.targets {
-        let calculation = inputs.damage(
-            catalog,
-            txn,
-            cause,
-            operation.formula,
-            operation.element,
-            target,
-        )?;
+        let is_critical = match operation.crit_policy {
+            crate::catalog::action::HitCritPolicy::Never => false,
+            crate::catalog::action::HitCritPolicy::Shared => match scratch.shared_critical {
+                Some(value) => value,
+                None => {
+                    let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
+                    let value = txn
+                        .roll_probability(critical.chance, crate::rng::types::DrawPurpose::CRIT)?;
+                    scratch.shared_critical = Some(value);
+                    value
+                }
+            },
+            crate::catalog::action::HitCritPolicy::PerTarget => {
+                match scratch.critical_by_target.get(&target).copied() {
+                    Some(value) => value,
+                    None => {
+                        let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
+                        let value = txn.roll_probability(
+                            critical.chance,
+                            crate::rng::types::DrawPurpose::CRIT,
+                        )?;
+                        scratch.critical_by_target.insert(target, value);
+                        value
+                    }
+                }
+            }
+        };
+        let formula = if is_critical {
+            let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
+            operation
+                .formula
+                .with_formula_modifier(crate::modifier::model::FormulaStage::Crit, critical.damage)
+                .map_err(|_| numeric_fault(50, critical.damage.scaled()))?
+        } else {
+            operation.formula
+        };
+        let calculation = inputs.damage(catalog, txn, cause, formula, operation.element, target)?;
         parent = apply_ordinary_damage_with_floor(
+            catalog,
             txn,
             cause,
             parent,
@@ -798,6 +840,7 @@ fn execute_damage(
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn apply_ordinary_damage(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     parent: EventId,
@@ -811,6 +854,7 @@ pub(super) fn apply_ordinary_damage(
     calculated: crate::DamageAmount,
 ) -> Result<EventId, BattleFault> {
     apply_ordinary_damage_with_floor(
+        catalog,
         txn,
         cause,
         parent,
@@ -828,6 +872,7 @@ pub(super) fn apply_ordinary_damage(
 
 #[allow(clippy::too_many_arguments)]
 fn apply_ordinary_damage_with_floor(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -838,7 +883,7 @@ fn apply_ordinary_damage_with_floor(
     element: Option<crate::formula::model::CombatElement>,
     source_effect: Option<crate::EffectInstanceId>,
     raw: crate::Scalar,
-    calculated: crate::DamageAmount,
+    mut calculated: crate::DamageAmount,
     minimum_hp: i64,
 ) -> Result<EventId, BattleFault> {
     let (hp_before, life_before) = txn
@@ -847,6 +892,8 @@ fn apply_ordinary_damage_with_floor(
         .get(target)
         .map(|unit| (unit.current_hp, unit.life))
         .ok_or_else(|| invariant_fault(1))?;
+    (parent, calculated) =
+        apply_damage_guard(catalog, txn, cause, parent, operation, target, calculated)?;
     let (absorbed, shield_changes) = txn
         .state
         .shields
@@ -905,6 +952,56 @@ fn apply_ordinary_damage_with_floor(
         parent = super::lifecycle::settle_owner_defeat(txn, cause, parent, target)?;
     }
     Ok(parent)
+}
+
+#[allow(clippy::too_many_arguments)]
+fn apply_damage_guard(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: crate::OperationId,
+    target: crate::UnitId,
+    calculated: DamageAmount,
+) -> Result<(EventId, DamageAmount), BattleFault> {
+    let shield = txn
+        .state
+        .shields
+        .effective_remaining(target)
+        .map_err(|_| numeric_fault(53, i64::try_from(target.get()).unwrap_or(i64::MAX)))?;
+    if shield.get() == 0 || calculated.get() <= shield.get() {
+        return Ok((parent, calculated));
+    }
+    let guard = txn.state.effects.iter_by_id().find_map(|effect| {
+        (effect.target == target
+            && catalog.effect(effect.definition).is_some_and(|definition| {
+                definition.runtime().is_some_and(|runtime| {
+                    runtime.damage_guard() == crate::EffectDamageGuard::ShieldOverflowOnce
+                }) || definition.runtime_template().is_some_and(|runtime| {
+                    runtime.damage_guard() == crate::EffectDamageGuard::ShieldOverflowOnce
+                })
+            }))
+        .then_some(effect.id)
+    });
+    let Some(effect) = guard else {
+        return Ok((parent, calculated));
+    };
+    txn.state
+        .effects
+        .remove(effect)
+        .ok_or_else(|| invariant_fault(54))?;
+    txn.remove_effect_attachments(effect);
+    txn.record_effect_change(1, 0, effect.get());
+    parent = txn.emit(
+        cause.with_parent(parent).with_primary_target(Some(target)),
+        BattleEventKind::Effect(EffectEventData::Removed {
+            operation,
+            effect,
+            target,
+        }),
+    );
+    let guarded = DamageAmount::new(shield.get()).map_err(|_| numeric_fault(55, shield.get()))?;
+    Ok((parent, guarded))
 }
 
 fn execute_apply_effect(

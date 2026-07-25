@@ -74,7 +74,12 @@ fn action(
     )
     .unwrap()
     .with_tags(tags)
-    .with_hits(vec![ActionHitDefinition::new(operations)])
+    .with_hits(vec![ActionHitDefinition::new(operations).with_profile(
+        starclock_combat::catalog::action::HitTargetGroup::Selected,
+        Ratio::ONE,
+        Ratio::ONE,
+        starclock_combat::catalog::action::HitCritPolicy::Never,
+    )])
     .unwrap()
 }
 

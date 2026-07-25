@@ -1,17 +1,19 @@
 //! Executable Standard Universe combat slices lowered from validated contributions.
 
+mod hunt_resonance;
 mod preservation_s02;
 mod preservation_s03;
+mod preservation_s04;
 mod support;
 
 use preservation_s02::*;
 use starclock_combat::{
     AbilityId, EffectDefinitionId, ModifierDefinitionId, ModifierStackingGroupId, ProgramId, Ratio,
-    SelectorId, SourceDefinitionId, StateSlotDefinitionId, TriggerId,
+    Rounding, SelectorId, SourceDefinitionId, StateSlotDefinitionId, TriggerId,
     catalog::{
         action::{
-            AbilityActionDefinition, AbilityKind, AbilityTag, ActionHitDefinition,
-            ActionResourcePolicy, HitOperationDefinition, ScalingDamageDefinition,
+            AbilityActionDefinition, AbilityKind, AbilityProgramBinding, AbilityProgramTiming,
+            AbilityTag, ActionHitDefinition, ActionResourcePolicy, HitCritPolicy,
             TargetInvalidationPolicy, TargetPattern, TargetRelation, TeamResourceCost,
             UnitTargetSelector,
         },
@@ -27,9 +29,9 @@ use starclock_combat::{
     },
     rule::model::{
         BattleRuleDefinition, BattleRuleScope, Comparison, ConditionExpr, EventFilter,
-        EventValueProperty, OnceScope, ProgramStep, ReactionPriority, RuleEventKind,
-        RuleEventPoint, RuleOperationTemplate, RuleValue, RuleValueKind, ShieldObservation,
-        StateSlotDef, TriggerDef, TriggerPhase, ValueExpr,
+        EventValueProperty, OnceScope, ProgramStep, ReactionPriority, ResourceUpdateKind,
+        RuleEventKind, RuleEventPoint, RuleOperationTemplate, RuleResourceKind, RuleValue,
+        RuleValueKind, ShieldObservation, StateSlotDef, TriggerDef, TriggerPhase, ValueExpr,
     },
 };
 use starclock_combat::{
@@ -137,7 +139,7 @@ impl ExecutableBattleRule {
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct ExecutableResonance {
-    selector: SelectorDefinition,
+    selectors: Box<[SelectorDefinition]>,
     program: ProgramDefinition,
     ability: AbilityDefinition,
     initial_energy: u16,
@@ -145,8 +147,8 @@ pub(crate) struct ExecutableResonance {
 }
 
 impl ExecutableResonance {
-    pub(crate) const fn selector(&self) -> &SelectorDefinition {
-        &self.selector
+    pub(crate) fn selectors(&self) -> &[SelectorDefinition] {
+        &self.selectors
     }
     pub(crate) const fn program(&self) -> &ProgramDefinition {
         &self.program
@@ -271,6 +273,7 @@ pub(crate) fn lower_rules(
         });
     }
     output.extend(preservation_s03::lower(bindings, blessings)?);
+    output.extend(preservation_s04::lower_rules(catalog, bindings, blessings)?);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::BlessingLevel
             && binding.source_binding_key() == Some(ABUNDANCE_ADDITIONAL_DAMAGE_BINDING)
@@ -303,15 +306,28 @@ pub(crate) fn lower_rules(
         .iter()
         .find(|binding| {
             binding.role() == UniverseBattleRuleRole::Resonance
-                && binding.source_binding_key() == Some(HUNT_RESONANCE_BINDING)
+                && matches!(
+                    binding.source_binding_key(),
+                    Some(HUNT_RESONANCE_BINDING) | Some(preservation_s04::RESONANCE)
+                )
         })
         .map(|binding| {
-            hunt_resonance(
-                catalog,
-                binding,
-                initial_resonance_energy,
-                resonance_damage_ratio,
-            )
+            if binding.source_binding_key() == Some(preservation_s04::RESONANCE) {
+                preservation_s04::resonance(
+                    catalog,
+                    bindings,
+                    binding,
+                    initial_resonance_energy,
+                    resonance_damage_ratio,
+                )
+            } else {
+                hunt_resonance::lower(
+                    catalog,
+                    binding,
+                    initial_resonance_energy,
+                    resonance_damage_ratio,
+                )
+            }
         })
         .transpose()?;
     Ok((output, resonance))
@@ -1111,82 +1127,6 @@ fn entry_enemy_damage(
         programs: vec![root_definition, body_definition].into_boxed_slice(),
         definition,
         bundle: RuleBundle::new(binding.bundle(), vec![binding.rule()]),
-    })
-}
-
-fn hunt_resonance(
-    catalog: &UniverseCatalog,
-    binding: &UniverseBattleRuleBinding,
-    initial_energy: u16,
-    damage_ratio: i64,
-) -> Result<ExecutableResonance, BattleRuleLoweringError> {
-    let resonance = catalog
-        .resonances()
-        .iter()
-        .find(|definition| definition.stable_key() == binding.source_record_key())
-        .ok_or(BattleRuleLoweringError::SnapshotMismatch)?;
-    let ratio = Ratio::from_scaled(parameter(resonance.parameters(), 1)?)
-        .checked_mul(
-            Ratio::ONE
-                .checked_add(Ratio::from_scaled(damage_ratio))
-                .map_err(|_| BattleRuleLoweringError::InvalidParameter)?,
-            starclock_combat::Rounding::NearestTiesEven,
-        )
-        .map_err(|_| BattleRuleLoweringError::InvalidParameter)?;
-    let action = AbilityActionDefinition::new(
-        AbilityKind::Ultimate,
-        1,
-        TargetInvalidationPolicy::CancelRemainingForTarget,
-        ActionResourcePolicy::new(
-            0,
-            0,
-            starclock_combat::Energy::ZERO,
-            starclock_combat::Energy::ZERO,
-        )
-        .with_team_resource_costs(vec![
-            TeamResourceCost::new(RESONANCE_RESOURCE_KEY, 100)
-                .ok_or(BattleRuleLoweringError::InvalidDefinition)?,
-        ])
-        .ok_or(BattleRuleLoweringError::InvalidDefinition)?,
-    )
-    .ok_or(BattleRuleLoweringError::InvalidDefinition)?
-    .with_tags(&[AbilityTag::Attack, AbilityTag::Ultimate, AbilityTag::Assist])
-    .with_hits(vec![ActionHitDefinition::new(vec![
-        HitOperationDefinition::ScalingDamage(
-            ScalingDamageDefinition::new(
-                StatKind::Atk,
-                ratio,
-                DamageClass::Additional,
-                CombatElement::Wind,
-            )
-            .map_err(|_| BattleRuleLoweringError::InvalidDefinition)?,
-        ),
-    ])])
-    .ok_or(BattleRuleLoweringError::InvalidDefinition)?;
-    let selector = SelectorDefinition::new(RESONANCE_SELECTOR_ID).with_unit_targets(
-        UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::All)
-            .ok_or(BattleRuleLoweringError::InvalidDefinition)?,
-    );
-    let program = ProgramDefinition::new(
-        RESONANCE_PROGRAM_ID,
-        Vec::new(),
-        vec![RESONANCE_SELECTOR_ID],
-        Vec::new(),
-        Vec::new(),
-    );
-    let ability = AbilityDefinition::new(
-        RESONANCE_ABILITY_ID,
-        RESONANCE_PROGRAM_ID,
-        RESONANCE_SELECTOR_ID,
-        Vec::new(),
-    )
-    .with_action(action);
-    Ok(ExecutableResonance {
-        selector,
-        program,
-        ability,
-        initial_energy: initial_energy.min(100),
-        maximum_energy: 100,
     })
 }
 

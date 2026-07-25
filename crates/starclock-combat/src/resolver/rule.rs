@@ -689,7 +689,7 @@ struct UnitQuerySnapshot {
     broken: bool,
 }
 
-struct BattleQuerySnapshot {
+pub(super) struct BattleQuerySnapshot {
     units: BTreeMap<UnitId, UnitQuerySnapshot>,
     skill_points: [crate::Scalar; 2],
     team_resources: [BTreeMap<Box<str>, crate::Scalar>; 2],
@@ -697,7 +697,7 @@ struct BattleQuerySnapshot {
 }
 
 impl BattleQuerySnapshot {
-    fn new(txn: &Transaction<'_>) -> Self {
+    pub(super) fn new(txn: &Transaction<'_>) -> Self {
         let units = txn
             .state
             .units

@@ -90,6 +90,15 @@ pub enum EffectTeardownPolicy {
     ExplicitRule,
 }
 
+/// Generic one-shot damage guards carried by an effect definition.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum EffectDamageGuard {
+    None,
+    /// If positive shield capacity would be exceeded, cap that damage to the
+    /// current effective shield and consume the effect.
+    ShieldOverflowOnce,
+}
+
 /// Named action families that a control effect may suppress.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]
@@ -136,6 +145,35 @@ impl DotDefinition {
     }
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn runtime_template_preserves_damage_guard() {
+        let template = EffectRuntimeTemplate::new(
+            EffectCategory::Buff,
+            DispelCategory::NonDispellable,
+            1,
+            Some(ValueExpr::Literal(crate::rule::model::RuleValue::Integer(
+                2,
+            ))),
+            DurationClock::OwnerTurnEnd,
+            EffectTickPhase::TurnEnd,
+            EffectStackPolicy::Replace,
+        )
+        .unwrap()
+        .with_damage_guard(EffectDamageGuard::ShieldOverflowOnce);
+        assert_eq!(
+            template
+                .resolve(Some(2), Scalar::ZERO)
+                .unwrap()
+                .damage_guard(),
+            EffectDamageGuard::ShieldOverflowOnce
+        );
+    }
+}
+
 /// Immutable generic runtime portion of one catalog effect.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EffectRuntimeDefinition {
@@ -153,6 +191,7 @@ pub struct EffectRuntimeDefinition {
     tags: Box<[SourceDefinitionId]>,
     controlled_actions: Box<[ControlledAction]>,
     dot: Option<DotDefinition>,
+    damage_guard: EffectDamageGuard,
 }
 
 /// Authored effect semantics whose expression-backed values are resolved at application time.
@@ -170,6 +209,7 @@ pub struct EffectRuntimeTemplate {
     teardown_policy: EffectTeardownPolicy,
     application_priority: i32,
     dot: Option<(CombatElement, Option<SourceDefinitionId>)>,
+    damage_guard: EffectDamageGuard,
 }
 
 impl EffectRuntimeTemplate {
@@ -199,6 +239,7 @@ impl EffectRuntimeTemplate {
             teardown_policy: EffectTeardownPolicy::RemoveWithOwner,
             application_priority: 0,
             dot: None,
+            damage_guard: EffectDamageGuard::None,
         })
     }
 
@@ -224,6 +265,17 @@ impl EffectRuntimeTemplate {
     pub const fn with_teardown(mut self, policy: EffectTeardownPolicy) -> Self {
         self.teardown_policy = policy;
         self
+    }
+
+    #[must_use]
+    pub const fn with_damage_guard(mut self, guard: EffectDamageGuard) -> Self {
+        self.damage_guard = guard;
+        self
+    }
+
+    #[must_use]
+    pub const fn damage_guard(&self) -> EffectDamageGuard {
+        self.damage_guard
     }
 
     #[must_use]
@@ -272,7 +324,8 @@ impl EffectRuntimeTemplate {
         )?
         .with_comparison(magnitude, self.application_priority)
         .with_snapshot(self.snapshot_policy)
-        .with_teardown(self.teardown_policy);
+        .with_teardown(self.teardown_policy)
+        .with_damage_guard(self.damage_guard);
         if self.category == EffectCategory::Dot {
             let (element, detonation_tag) = self.dot?;
             let formula = OrdinaryDamageDefinition::new(
@@ -319,6 +372,7 @@ impl EffectRuntimeDefinition {
             tags: Box::new([]),
             controlled_actions: Box::new([]),
             dot: None,
+            damage_guard: EffectDamageGuard::None,
         })
     }
     #[must_use]
@@ -354,6 +408,11 @@ impl EffectRuntimeDefinition {
     #[must_use]
     pub const fn with_teardown(mut self, policy: EffectTeardownPolicy) -> Self {
         self.teardown_policy = policy;
+        self
+    }
+    #[must_use]
+    pub const fn with_damage_guard(mut self, guard: EffectDamageGuard) -> Self {
+        self.damage_guard = guard;
         self
     }
     #[must_use]
@@ -419,6 +478,10 @@ impl EffectRuntimeDefinition {
     #[must_use]
     pub const fn dot(&self) -> Option<DotDefinition> {
         self.dot
+    }
+    #[must_use]
+    pub const fn damage_guard(&self) -> EffectDamageGuard {
+        self.damage_guard
     }
 }
 

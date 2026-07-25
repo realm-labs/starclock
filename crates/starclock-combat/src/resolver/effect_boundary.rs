@@ -47,6 +47,7 @@ pub(super) fn tick(
             owner,
         )?;
         parent = super::operation::apply_ordinary_damage(
+            catalog,
             txn,
             attributed,
             parent,

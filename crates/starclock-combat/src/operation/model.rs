@@ -185,6 +185,8 @@ pub(crate) struct DetonateDotsOp {
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub(crate) struct HitOperationScratch {
     pub(crate) effective_reductions: BTreeMap<UnitId, crate::RawToughness>,
+    pub(crate) critical_by_target: BTreeMap<UnitId, bool>,
+    pub(crate) shared_critical: Option<bool>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -221,6 +223,7 @@ pub(crate) struct DamageOp {
     pub(crate) targets: Box<[UnitId]>,
     pub(crate) formula: OrdinaryDamageDefinition,
     pub(crate) element: Option<crate::formula::model::CombatElement>,
+    pub(crate) crit_policy: crate::catalog::action::HitCritPolicy,
     pub(crate) minimum_hp: i64,
 }
 

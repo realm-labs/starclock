@@ -79,9 +79,9 @@ pub use command::model::{
 };
 pub use effect::model::{
     ControlledAction, DispelCategory, DotDefinition, DotDetonationDefinition, DurationClock,
-    EffectApplicationDefinition, EffectCategory, EffectChancePolicy, EffectRemovalDefinition,
-    EffectRuntimeDefinition, EffectRuntimeTemplate, EffectSnapshotPolicy, EffectStackPolicy,
-    EffectTeardownPolicy, EffectTickPhase,
+    EffectApplicationDefinition, EffectCategory, EffectChancePolicy, EffectDamageGuard,
+    EffectRemovalDefinition, EffectRuntimeDefinition, EffectRuntimeTemplate, EffectSnapshotPolicy,
+    EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase,
 };
 pub use event::cause::{Cause, CauseActor};
 pub use event::model::{

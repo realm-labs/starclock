@@ -271,6 +271,7 @@ pub(super) fn execute_action_plan(
                             targets: targets.clone(),
                             formula,
                             element: Some(definition.element()),
+                            crit_policy: hit.crit_policy,
                             minimum_hp: 0,
                         })
                     }
@@ -279,6 +280,7 @@ pub(super) fn execute_action_plan(
                         targets: targets.clone(),
                         formula: *formula,
                         element: None,
+                        crit_policy: hit.crit_policy,
                         minimum_hp: 0,
                     }),
                     HitOperationDefinition::Heal(formula) => Operation::Heal(HealOp {

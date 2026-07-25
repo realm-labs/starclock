@@ -308,7 +308,7 @@ pub(super) fn preservation_blessing_count(
     .map_err(|_| BattleRuleLoweringError::InvalidParameter)
 }
 
-fn persistent_modifier_rule(
+pub(super) fn persistent_modifier_rule(
     binding: &UniverseBattleRuleBinding,
     stat: StatKind,
     stage: FormulaStage,

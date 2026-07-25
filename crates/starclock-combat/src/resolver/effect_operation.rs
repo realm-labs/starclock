@@ -124,6 +124,7 @@ pub(super) fn detonate_dots(
             let finalized = crate::DamageAmount::from_scalar(raw, crate::Rounding::Floor)
                 .map_err(|_| numeric_fault(33, raw.scaled()))?;
             parent = super::operation::apply_ordinary_damage(
+                catalog,
                 txn,
                 attributed,
                 parent,

@@ -533,7 +533,9 @@ impl UniverseBattleMaterializer {
             builder.add_rule_bundle(executable.bundle().clone());
         }
         if let Some(resonance) = contributions.resonance() {
-            builder.add_selector(resonance.selector().clone());
+            for selector in resonance.selectors() {
+                builder.add_selector(selector.clone());
+            }
             builder.add_program(resonance.program().clone());
             builder.add_ability(resonance.ability().clone());
         }

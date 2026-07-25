@@ -37,6 +37,8 @@ const RESONANCE_RESOURCE_RAW: u32 = 0x7630_0004;
 mod preservation_s02;
 #[path = "mechanic_battle_integration/preservation_s03.rs"]
 mod preservation_s03;
+#[path = "mechanic_battle_integration/preservation_s04.rs"]
+mod preservation_s04;
 
 fn catalog() -> Arc<UniverseCatalog> {
     static CATALOG: OnceLock<Arc<UniverseCatalog>> = OnceLock::new();
@@ -149,6 +151,24 @@ fn contributions_many(
     curio_key: Option<&str>,
     ability_tree: bool,
 ) -> UniverseBattleContributionSet {
+    contributions_many_with_formations(
+        catalog,
+        path_key,
+        required_blessings,
+        &[],
+        curio_key,
+        ability_tree,
+    )
+}
+
+fn contributions_many_with_formations(
+    catalog: &Arc<UniverseCatalog>,
+    path_key: &str,
+    required_blessings: &[(&str, u32)],
+    formation_keys: &[&str],
+    curio_key: Option<&str>,
+    ability_tree: bool,
+) -> UniverseBattleContributionSet {
     let path_definition = catalog
         .paths()
         .iter()
@@ -166,8 +186,14 @@ fn contributions_many(
         )
     });
     let mut owned = required.collect::<Vec<_>>();
+    let required_count = match formation_keys.len() {
+        0 => 3,
+        1 => 6,
+        2 => 10,
+        _ => 14,
+    };
     for blessing in path_definition.blessings() {
-        if owned.len() >= 3 {
+        if owned.len() >= required_count {
             break;
         }
         if owned.iter().all(|entry| entry.0 != *blessing) {
@@ -179,9 +205,28 @@ fn contributions_many(
         .unwrap()
         .contributions_from_owned(&owned)
         .unwrap();
+    let formations = formation_keys
+        .iter()
+        .map(|key| {
+            (
+                catalog
+                    .resonances()
+                    .iter()
+                    .find(|formation| formation.stable_key() == *key)
+                    .unwrap()
+                    .id(),
+                1,
+            )
+        })
+        .collect::<Vec<_>>();
     let path = PathRuntimeCatalog::compile(catalog)
         .unwrap()
-        .contributions(path_definition.id(), &blessings, &[])
+        .contributions_with_formation_slots(
+            path_definition.id(),
+            &blessings,
+            &formations,
+            u8::try_from(formations.len()).unwrap(),
+        )
         .unwrap();
 
     let curio_runtime = CurioRuntimeCatalog::compile(catalog).unwrap();
@@ -752,7 +797,7 @@ fn goal07_p2_m02_s01_executes_every_assigned_rule_and_operation_fixture() {
         None,
         false,
     );
-    assert_eq!(contributions.materialized_rule_binding_count(), 4);
+    assert_eq!(contributions.materialized_rule_binding_count(), 5);
     let materialization = materialize(&catalog, &contributions);
     assert_eq!(
         materialization
@@ -879,7 +924,7 @@ fn goal07_p2_m02_s01_executes_every_assigned_rule_and_operation_fixture() {
         None,
         false,
     );
-    assert_eq!(defense.materialized_rule_binding_count(), 3);
+    assert_eq!(defense.materialized_rule_binding_count(), 4);
     let defense = materialize(&catalog, &defense);
     let (defense_battle, defense_start) = start(
         &defense,

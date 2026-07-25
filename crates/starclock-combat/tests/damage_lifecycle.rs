@@ -79,7 +79,14 @@ fn action(
     .with_hits(
         operations
             .into_iter()
-            .map(ActionHitDefinition::new)
+            .map(|operations| {
+                ActionHitDefinition::new(operations).with_profile(
+                    starclock_combat::catalog::action::HitTargetGroup::Selected,
+                    Ratio::ONE,
+                    Ratio::ONE,
+                    starclock_combat::catalog::action::HitCritPolicy::Never,
+                )
+            })
             .collect(),
     )
     .unwrap()
