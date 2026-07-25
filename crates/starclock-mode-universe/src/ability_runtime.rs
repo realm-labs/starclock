@@ -12,7 +12,7 @@ use crate::{
     progression::{AbilityEffectClass, AbilityOperation, AbilityValueUnit},
 };
 
-pub const ABILITY_RUNTIME_REVISION: &str = "standard-universe-ability-runtime-v1";
+pub const ABILITY_RUNTIME_REVISION: &str = "standard-universe-ability-runtime-v2";
 const SIX_DECIMAL_SCALE: i64 = 1_000_000;
 
 /// Generic execution boundary at which an Ability Tree projection is requested.
@@ -288,7 +288,12 @@ impl AbilityTrigger {
             Self::Always => true,
             Self::ChosenPathBlessingsAtLeast(required) => context.chosen_path_blessings >= required,
             Self::FirstBattleWon => context.first_battle_won,
-            Self::BattleStart => matches!(context.boundary, AbilityBoundary::BattleStart),
+            // Entering an Elite/Boss domain is a stronger battle-start
+            // boundary: ordinary battle-start effects still execute there.
+            Self::BattleStart => matches!(
+                context.boundary,
+                AbilityBoundary::BattleStart | AbilityBoundary::EnterEliteOrBossDomain
+            ),
             Self::EnterEliteOrBossDomain => {
                 matches!(context.boundary, AbilityBoundary::EnterEliteOrBossDomain)
             }

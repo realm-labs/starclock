@@ -74,6 +74,40 @@ impl FormulaInputs {
             .map_err(|_| numeric_fault(1, formula.base_damage().scaled()))
     }
 
+    pub(super) fn target_mitigation(
+        &self,
+        catalog: &crate::catalog::CombatCatalog,
+        txn: &Transaction<'_>,
+        target: crate::UnitId,
+        purpose: FormulaPurpose,
+        element: formula::model::CombatElement,
+    ) -> Result<crate::Ratio, BattleFault> {
+        let resolver = self.resolver(catalog);
+        let mut context = modifier_context(
+            txn,
+            target,
+            target,
+            Some(element),
+            formula::model::DamageClass::Direct,
+        )?;
+        context.damage_tags = vec![match purpose {
+            FormulaPurpose::Break => "break".into(),
+            FormulaPurpose::SuperBreak => "super_break".into(),
+            _ => return Err(invariant_fault(47)),
+        }]
+        .into_boxed_slice();
+        let value = formula_modifier(
+            &resolver,
+            target,
+            FormulaStage::Mitigation,
+            purpose,
+            &context,
+        )?;
+        crate::Ratio::ONE
+            .checked_sub(crate::Ratio::from_scaled(value.scaled()))
+            .map_err(|_| numeric_fault(48, value.scaled()))
+    }
+
     pub(super) fn healing(
         &self,
         catalog: &crate::catalog::CombatCatalog,

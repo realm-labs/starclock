@@ -7,7 +7,7 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M01-S02` |
+| Active batch | `G07-P2-M01-S03` |
 | Next unblocked batch | None |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
@@ -24,9 +24,10 @@ Phase 1 now has executable trigger, selector, modifier, state/effect,
 action/reaction, Break and boundary foundations. P1-B6 freezes a 15-probe
 runtime matrix, six formal Excel rows, zero current native-handler admissions
 and exact ordered completion receipts for every generated content partition.
-The first Ability Tree partition, `G07-P2-M01-S01`, is complete. Its 16
-records, 16 rules and six semantic fixtures execute from formal Excel/Sora
-definitions. `G07-P2-M01-S02` is active.
+The first two Ability Tree partitions, `G07-P2-M01-S01` and
+`G07-P2-M01-S02`, are complete. Their 32 records, 32 rules and eight semantic
+fixtures execute from formal Excel/Sora definitions. `G07-P2-M01-S03` is
+active.
 
 ## Fixed batch ledger
 
@@ -43,6 +44,7 @@ definitions. `G07-P2-M01-S02` is active.
 | `G07-P1-B5` | `Complete` | `node tools/goal07/verify-phase1-b5.mjs`; openpyxl author checks; production Excel/Sora verification; combat/data/replay tests; quick repository gate | Added persistent selected extra turns, fixed semantic reaction tiers, authoritative action-gauge shifts, forced Break and observed-reduction Super Break. Executed wave/phase entry, exit and explicit carry programs; advanced state/event compatibility while retaining historical event encodings. |
 | `G07-P1-B6` | `Complete` | `node tools/goal07/verify-phase1-b6.mjs`; shared capability matrix; native-handler audit; generated content progress; quick repository gate | Bound all five shared capability families to 15 authoritative runtime probes and six openpyxl/Sora rows. Kept `native-registry-v1` explicitly empty and froze the full admission metadata/equivalence contract. Added ordered, exact-assignment receipts that reject typed/workbook/route-only completion claims and derive progress independently from the frozen 104-row assignment ledger. |
 | `G07-P2-M01-S01` | `Complete` | openpyxl partition check; production Sora verification; Activity/Ability Tree/encounter tests; partition receipt; quick repository gate | Executed Ability Tree nodes 1, 2 and 10–23 with 20 typed effects. Added a generic terminal conditional Activity operation, atomic post-battle delta projection, Ability Tree-gated Blessing reroll and one consumed first-battle bonus Blessing choice. Empty trees preserve historical hashes; rejected settlement preserves exact state bytes. |
+| `G07-P2-M01-S02` | `Complete` | openpyxl partition check; production Sora verification; Ability Tree/materialization/path tests; partition receipt; quick repository gate | Executed Ability Tree nodes 3 and 24–38 with 18 typed effects. Materialized full-Energy boundaries, generic six-purpose damage mitigation, checked Path Resonance Energy/damage bonuses and an Ability Tree-gated third Formation slot. Elite/Boss encounters now select a composite battle-start boundary from spatial-free room/domain bindings. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |

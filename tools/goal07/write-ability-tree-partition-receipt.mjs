@@ -32,16 +32,27 @@ const auditRules = new Map(audit.rules.map((entry) => [entry.id, entry]));
 const auditFixtures = new Map(audit.fixtures.map((entry) => [entry.id, entry]));
 const workbookEvidence = (file) => [{ path: `config/data/${file}` }];
 const provenanceEvidence = [{ path: "content-reference/standard-universe-v1/ability-tree.json" }];
+const slice = partitionId.match(/-S(\d+)$/)?.[1];
+assert(slice, `${partitionId}: missing slice suffix`);
+const testStem = `goal07_ability_tree_s${slice}`;
+const supportTest = slice === "01" ? "encounter_runtime" : "battle_materialization";
+const combatExecution = slice === "02"
+  ? [
+      { path: "crates/starclock-combat/tests/damage_lifecycle.rs" },
+      { path: "crates/starclock-combat/tests/damage_lifecycle/damage_mitigation.rs" },
+    ]
+  : [];
 const ruleExecution = [
   {
-    path: "crates/starclock-mode-universe/tests/goal07_ability_tree_s01.rs",
+    path: `crates/starclock-mode-universe/tests/${testStem}.rs`,
   },
   {
-    path: "crates/starclock-mode-universe/tests/encounter_runtime.rs",
+    path: `crates/starclock-mode-universe/tests/${supportTest}.rs`,
   },
+  ...combatExecution,
 ];
-const fixtureMarker =
-  "goal07_p2_m01_s01_executes_every_assigned_rule_and_operation_fixture";
+const fixtureMarker = `${partitionId.toLowerCase().replace(/^g07/, "goal07").replaceAll("-", "_")}` +
+  "_executes_every_assigned_rule_and_operation_fixture";
 
 const receipt = {
   schema_revision: "starclock.goal07-content-partition-receipt.v1",
@@ -101,7 +112,7 @@ const receipt = {
       workbookEvidence("UniverseEvidence.xlsx"),
     ),
     execution_kind: "RustTest",
-    test_path: "crates/starclock-mode-universe/tests/goal07_ability_tree_s01.rs",
+    test_path: `crates/starclock-mode-universe/tests/${testStem}.rs`,
     test_marker: fixtureMarker,
   })),
   enemy_variants: [],
@@ -113,8 +124,11 @@ const receipt = {
       `python tools/goal07/author-ability-tree-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify_production_workbooks.mjs .",
       "cargo test -p starclock-activity --test activity_transaction --all-features",
-      "cargo test -p starclock-mode-universe --test goal07_ability_tree_s01 --all-features",
-      "cargo test -p starclock-mode-universe --test encounter_runtime --all-features",
+      `cargo test -p starclock-mode-universe --test ${testStem} --all-features`,
+      `cargo test -p starclock-mode-universe --test ${supportTest} --all-features`,
+      ...(slice === "02"
+        ? ["cargo test -p starclock-combat --test damage_lifecycle --all-features"]
+        : []),
     ],
     goldens: [evidence(goldenPath)],
   },

@@ -68,7 +68,7 @@ fn all_ten_operations_and_fifty_effects_compile_to_a_closed_runtime() {
 
     assert_eq!(
         ABILITY_RUNTIME_REVISION,
-        "standard-universe-ability-runtime-v1"
+        "standard-universe-ability-runtime-v2"
     );
     assert_eq!(runtime.effect_count(), 50);
     assert_eq!(
@@ -89,8 +89,8 @@ fn all_ten_operations_and_fifty_effects_compile_to_a_closed_runtime() {
     assert_eq!(
         runtime.digest(),
         [
-            23, 136, 165, 10, 193, 242, 98, 194, 13, 100, 24, 94, 11, 197, 237, 225, 123, 226, 54,
-            120, 151, 86, 63, 80, 22, 178, 129, 141, 128, 47, 58, 110,
+            58, 79, 164, 96, 60, 39, 124, 132, 167, 11, 198, 41, 180, 161, 41, 200, 157, 244, 20,
+            88, 53, 119, 219, 1, 217, 65, 201, 167, 214, 4, 218, 191,
         ]
     );
 }
@@ -167,7 +167,7 @@ fn battle_projection_aggregates_exact_stats_and_boundary_resources() {
         )
         .expect("elite projection");
     assert_raw(&elite, AbilityTarget::PartyEnergy, 1_000_000);
-    assert_eq!(elite.value(AbilityTarget::PartyInitialEnergy), None);
+    assert_raw(&elite, AbilityTarget::PartyInitialEnergy, 1_000_000);
 }
 
 #[test]

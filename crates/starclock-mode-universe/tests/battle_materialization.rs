@@ -155,7 +155,7 @@ fn contributions_with_ability_limit(
         .collect::<Vec<_>>();
     let path = PathRuntimeCatalog::compile(catalog)
         .unwrap()
-        .contributions(selected_path, &blessings, &formations)
+        .contributions_with_formation_capability(selected_path, &blessings, &formations, true)
         .unwrap();
     let curio_runtime = CurioRuntimeCatalog::compile(catalog).unwrap();
     let selected_curios = curio_runtime
@@ -353,8 +353,8 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
     assert_eq!(
         materialized.digest(),
         [
-            175, 198, 160, 11, 42, 223, 13, 16, 106, 219, 1, 214, 78, 198, 27, 168, 177, 32, 44,
-            95, 174, 139, 7, 165, 207, 81, 10, 146, 27, 158, 13, 196,
+            17, 243, 97, 90, 84, 114, 90, 28, 124, 91, 229, 79, 188, 122, 212, 15, 74, 37, 83, 195,
+            2, 117, 157, 130, 58, 206, 133, 26, 171, 18, 242, 227,
         ]
     );
     assert_eq!(
@@ -509,27 +509,27 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(executor.reports().len(), 7);
+    assert_eq!(executor.reports().len(), 4);
     assert_eq!(
         executor
             .reports()
             .iter()
             .map(|battle| battle.trace().len())
             .sum::<usize>(),
-        39
+        22
     );
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            79, 150, 178, 74, 62, 154, 189, 4, 16, 25, 9, 4, 218, 40, 100, 1, 246, 85, 171, 227,
-            42, 208, 81, 31, 32, 248, 114, 161, 3, 243, 121, 198,
+            26, 230, 26, 10, 0, 126, 38, 78, 202, 77, 248, 248, 196, 70, 139, 107, 20, 177, 149,
+            127, 124, 87, 45, 79, 250, 123, 252, 170, 120, 171, 177, 136,
         ]
     );
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
         [
-            55, 122, 244, 213, 220, 244, 87, 204, 74, 8, 16, 34, 104, 211, 178, 13, 152, 227, 127,
-            83, 43, 68, 39, 172, 145, 18, 99, 64, 11, 63, 80, 169,
+            210, 113, 255, 93, 177, 129, 149, 108, 214, 238, 151, 102, 150, 70, 145, 199, 3, 199,
+            200, 74, 230, 253, 240, 205, 232, 0, 210, 189, 121, 94, 40, 74,
         ]
     );
     assert!(executor.reports().iter().all(|battle| {

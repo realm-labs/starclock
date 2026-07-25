@@ -1,0 +1,80 @@
+{
+  "schema_revision": "starclock.goal07-ability-tree-partition-golden.v1",
+  "partition_id": "G07-P2-M01-S02",
+  "record_ids": [
+    "universe.ability-tree.24",
+    "universe.ability-tree.25",
+    "universe.ability-tree.26",
+    "universe.ability-tree.27",
+    "universe.ability-tree.28",
+    "universe.ability-tree.29",
+    "universe.ability-tree.3",
+    "universe.ability-tree.30",
+    "universe.ability-tree.31",
+    "universe.ability-tree.32",
+    "universe.ability-tree.33",
+    "universe.ability-tree.34",
+    "universe.ability-tree.35",
+    "universe.ability-tree.36",
+    "universe.ability-tree.37",
+    "universe.ability-tree.38"
+  ],
+  "rule_ids": [
+    "universe.rule.ability-tree.24",
+    "universe.rule.ability-tree.25",
+    "universe.rule.ability-tree.26",
+    "universe.rule.ability-tree.27",
+    "universe.rule.ability-tree.28",
+    "universe.rule.ability-tree.29",
+    "universe.rule.ability-tree.3",
+    "universe.rule.ability-tree.30",
+    "universe.rule.ability-tree.31",
+    "universe.rule.ability-tree.32",
+    "universe.rule.ability-tree.33",
+    "universe.rule.ability-tree.34",
+    "universe.rule.ability-tree.35",
+    "universe.rule.ability-tree.36",
+    "universe.rule.ability-tree.37",
+    "universe.rule.ability-tree.38"
+  ],
+  "fixture_ids": [
+    "universe.fixture.ability-operation.addresource",
+    "universe.fixture.ability-operation.setratio"
+  ],
+  "workbooks": {
+    "Universe.xlsx": "c5121bc5cdb49739e78cd0e709994764bc411c9acd62e9e3996ef744c64358b0",
+    "UniverseBindings.xlsx": "5780e99c7c08d0ed8659ddfd56b37f77e88972ec413940d82f956a56e84c1e4a",
+    "UniverseEvidence.xlsx": "be3ab26158150dda1261f6d58f5520704341b3e09a469202f7a9e651ade95065"
+  },
+  "sora_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+  "tables": {
+    "UniverseAbilityTreeNode": {
+      "rows": 16,
+      "semantic_sha256": "aad5bf21d9b2144e1af29618a08fc22d35741f074af94eb73e097b8b9c0e47d2"
+    },
+    "UniverseAbilityTreeEdge": {
+      "rows": 20,
+      "semantic_sha256": "c2e4b44e2447c120b716e2595bbf47a0e23d64b67427aef07a96086b0ed9af79"
+    },
+    "UniverseAbilityTreeCost": {
+      "rows": 16,
+      "semantic_sha256": "b182aa8b6184cda64be078c38ccaff6aa3eaf1bf48ef51bddd0afd351feb14fe"
+    },
+    "UniverseAbilityTreeEffect": {
+      "rows": 18,
+      "semantic_sha256": "ed444f153978de8504e0f112ec03fbd978a3f2757000d3c2eb77ffa8ddfa2b35"
+    },
+    "UniverseAbilityTreeParameter": {
+      "rows": 17,
+      "semantic_sha256": "8e8e4c54c00c0ad21b4f27e342a06983e251298d3c6e65d4caefa2fc9f43f6c5"
+    },
+    "UniverseMechanicRule": {
+      "rows": 16,
+      "semantic_sha256": "b09a21de7a8aa3731d6800270c652a2f2a611062841178b77c307daeeec2fa27"
+    },
+    "UniverseReviewFixture": {
+      "rows": 2,
+      "semantic_sha256": "f6db99161957fa1fef4b1902fef7af4eebe73a5b8228b6c29298b2535c681048"
+    }
+  }
+}

@@ -58,6 +58,9 @@ pub(super) fn resolve_rooms(
         .iter()
         .filter(|room| room_is_eligible(room.section_ids(), source_node))
     {
+        let domain = catalog
+            .domain(room.domain())
+            .ok_or(UniverseTopologyCompileError::InvalidGraph)?;
         let mut bindings = catalog.room_content().iter().filter(|binding| {
             binding.room() == room.id() && binding.condition_key() == room.source_group_id()
         });
@@ -74,6 +77,7 @@ pub(super) fn resolve_rooms(
         }
         resolved.push(ResolvedRoomContent::new(
             room.id(),
+            domain.kind(),
             binding.kind(),
             binding.encounter_group(),
             binding.source_content_id(),

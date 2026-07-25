@@ -31,7 +31,7 @@ use starclock_combat::{
         },
     },
     modifier::model::{
-        FormulaPurpose, FormulaStage, ModifierAggregation, ModifierDefinition,
+        FormulaPurpose, FormulaStage, ModifierAggregation, ModifierDefinition, ModifierFilter,
         ModifierStackingGroup, SnapshotPolicy, StatKind,
     },
     rule::model::{RuleSource, RuleValue, SourceClass, ValueExpr},
@@ -117,6 +117,31 @@ fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<Comb
             snapshot,
             source_stack_slot: None,
             filters: Box::new([]),
+        });
+    }
+    for (id, purpose) in [(6, FormulaPurpose::Break), (7, FormulaPurpose::SuperBreak)] {
+        builder.add_modifier(ModifierDefinition {
+            id: definition(id),
+            stat: StatKind::Hp,
+            stage: FormulaStage::Mitigation,
+            purpose,
+            value: ValueExpr::Literal(RuleValue::Scalar(Scalar::from_scaled(500_000))),
+            stacking_group: definition(1),
+            priority: 0,
+            floor: None,
+            cap: None,
+            cap_stage: FormulaStage::Mitigation,
+            snapshot: SnapshotPolicy::Dynamic,
+            source_stack_slot: None,
+            filters: vec![ModifierFilter::DamageTag(
+                match purpose {
+                    FormulaPurpose::Break => "break",
+                    FormulaPurpose::SuperBreak => "super_break",
+                    _ => unreachable!(),
+                }
+                .into(),
+            )]
+            .into_boxed_slice(),
         });
     }
     for (raw, relation) in [
@@ -361,6 +386,17 @@ fn combatant(
     speed: i64,
     digest: u8,
 ) -> ResolvedCombatantSpec {
+    combatant_with_modifiers(form, abilities, vec![], hp, speed, digest)
+}
+
+fn combatant_with_modifiers(
+    form: u32,
+    abilities: Vec<u32>,
+    modifiers: Vec<u32>,
+    hp: i64,
+    speed: i64,
+    digest: u8,
+) -> ResolvedCombatantSpec {
     ResolvedCombatantSpec::new(
         definition(form),
         UnitLevel::new(80).unwrap(),
@@ -369,7 +405,7 @@ fn combatant(
         ResolvedDefinitionBindings::new(
             abilities.into_iter().map(definition).collect(),
             vec![],
-            vec![],
+            modifiers.into_iter().map(definition).collect(),
         )
         .unwrap(),
         CombatantSpecDigest::new([digest; 32]).unwrap(),
@@ -476,45 +512,11 @@ fn battle_with_policy(
 }
 
 fn toughness_battle() -> Battle {
-    let player = combatant(1, vec![5], 1_000, 1_000_000_000, 0x71);
-    let ordinary =
-        ToughnessLayerSpec::ordinary(1, starclock_combat::RawToughness::new(50).unwrap())
-            .unwrap()
-            .with_break_credit(starclock_combat::BreakCreditPolicy::LayerProvider(
-                definition(99),
-            ));
-    let exo = ToughnessLayerSpec::ordinary(2, starclock_combat::RawToughness::new(40).unwrap())
-        .unwrap()
-        .with_kind(ToughnessLayerKind::ExoToughness)
-        .with_break_behavior(true, true, true, false);
-    let enemy = combatant(2, vec![3], 10_000, 1_000_000, 0x72)
-        .with_toughness(EnemyRank::Normal, vec![], vec![ordinary, exo])
-        .unwrap();
-    let spec = BattleSpec::new(
-        "toughness-layer-rules-v1",
-        AssemblyDigest::new([0x73; 32]).unwrap(),
-        definition(1),
-        vec![
-            ParticipantSpec::new(
-                TeamSide::Player,
-                FormationIndex::new(0).unwrap(),
-                ParticipantSource::Player,
-                player,
-            ),
-            ParticipantSpec::new(
-                TeamSide::Enemy,
-                FormationIndex::new(4).unwrap(),
-                ParticipantSource::EncounterEnemy(definition(1)),
-                enemy,
-            ),
-        ],
-        TeamResourceSpec::new(0, 5).unwrap(),
-        TeamResourceSpec::new(0, 0).unwrap(),
-        ConcedePolicy::Allowed,
-    )
-    .unwrap();
-    Battle::create(catalog(1), spec, BattleSeed::new([0x74; 32])).unwrap()
+    damage_mitigation::toughness_battle_with_mitigation(false)
 }
+
+#[path = "damage_lifecycle/damage_mitigation.rs"]
+mod damage_mitigation;
 
 fn break_recovery_battle() -> Battle {
     break_recovery_battle_with_enemy_hp(10_000)

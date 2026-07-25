@@ -15,7 +15,7 @@ use crate::{
 };
 
 pub const STANDARD_UNIVERSE_BATTLE_SNAPSHOT_REVISION: &str =
-    "standard-universe-battle-contribution-snapshot-v1";
+    "standard-universe-battle-contribution-snapshot-v2";
 
 /// One self-contained, immutable read of battle-relevant Activity state.
 #[derive(Clone, Debug, Eq, PartialEq)]

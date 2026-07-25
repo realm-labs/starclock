@@ -27,7 +27,7 @@ use crate::{
     run_runtime::AbilityTreeContributionSet,
 };
 
-pub const UNIVERSE_BATTLE_CONTRIBUTION_REVISION: &str = "standard-universe-battle-contribution-v1";
+pub const UNIVERSE_BATTLE_CONTRIBUTION_REVISION: &str = "standard-universe-battle-contribution-v2";
 
 const RULE_ID_BASE: u32 = 0x7000_0000;
 const BUNDLE_ID_BASE: u32 = 0x7100_0000;
@@ -382,7 +382,7 @@ impl UniverseBattleContributionCompiler {
             .collect::<Vec<_>>();
         let modifiers = boundary_values
             .iter()
-            .filter_map(|value| modifier_binding(*value, ability_projection.digest()))
+            .flat_map(|value| modifier_bindings(*value, ability_projection.digest()))
             .collect::<Result<Vec<_>, UniverseBattleContributionError>>()?;
         let initial_resonance_energy = boundary_values
             .iter()
@@ -390,12 +390,17 @@ impl UniverseBattleContributionCompiler {
             .map_or(0, |value| value.value.raw_six_decimal() / 1_000_000);
         let initial_resonance_energy = u16::try_from(initial_resonance_energy)
             .map_err(|_| UniverseBattleContributionError::InvalidExecutableRule)?;
+        let resonance_damage_ratio = boundary_values
+            .iter()
+            .find(|value| value.target == AbilityTarget::PathResonanceDamageRatio)
+            .map_or(0, |value| value.value.raw_six_decimal());
         let (executable_rules, resonance) = lower_rules(
             &self.catalog,
             &rules,
             blessings,
             curios,
             initial_resonance_energy,
+            resonance_damage_ratio,
         )
         .map_err(|_| UniverseBattleContributionError::InvalidExecutableRule)?;
         let digest = contribution_digest(
@@ -501,59 +506,110 @@ fn binding(
     })
 }
 
-fn modifier_binding(
+fn modifier_bindings(
     value: UniverseBattleBoundaryValue,
     projection_digest: [u8; 32],
-) -> Option<Result<UniverseBattleModifierBinding, UniverseBattleContributionError>> {
+) -> Vec<Result<UniverseBattleModifierBinding, UniverseBattleContributionError>> {
     if value.value == AbilityValue::ZERO {
-        return None;
+        return Vec::new();
     }
-    let (stat, stage) = match value.target {
-        AbilityTarget::PartyAttackFlat => (StatKind::Atk, FormulaStage::Flat),
-        AbilityTarget::PartyDefenseFlat => (StatKind::Def, FormulaStage::Flat),
-        AbilityTarget::PartyMaximumHpFlat => (StatKind::Hp, FormulaStage::Flat),
-        AbilityTarget::PartyCritRateRatio => (StatKind::CritRate, FormulaStage::Flat),
-        AbilityTarget::PartySpeedRatio => (StatKind::Spd, FormulaStage::PercentOfBase),
-        AbilityTarget::PartyCritDamageRatio => (StatKind::CritDamage, FormulaStage::Flat),
-        AbilityTarget::PartyEffectHitRateRatio => (StatKind::EffectHitRate, FormulaStage::Flat),
-        _ => return None,
-    };
-    let raw = value.target as u32 + 1;
-    let definition_id = ModifierDefinitionId::new(MODIFIER_ID_BASE + raw)?;
-    let group_id = ModifierStackingGroupId::new(MODIFIER_GROUP_ID_BASE + raw)?;
-    let source_id = SourceDefinitionId::new(MODIFIER_SOURCE_ID_BASE + raw)?;
-    Some(Ok(UniverseBattleModifierBinding {
-        target: value.target,
-        value: value.value,
-        group: ModifierStackingGroup {
-            id: group_id,
-            aggregation: ModifierAggregation::ReplaceGroup,
-            comparator: None,
-        },
-        definition: ModifierDefinition {
-            id: definition_id,
-            stat,
-            stage,
-            purpose: FormulaPurpose::Stat,
-            value: ValueExpr::Literal(RuleValue::Scalar(Scalar::from_scaled(
-                value.value.raw_six_decimal(),
-            ))),
-            stacking_group: group_id,
-            priority: 0,
-            floor: None,
-            cap: None,
-            cap_stage: stage,
-            snapshot: SnapshotPolicy::Dynamic,
-            source_stack_slot: None,
-            filters: Box::new([]),
-        },
-        source: RuleSource::new(
-            source_id,
-            SourceClass::Progression,
-            vec![],
-            projection_digest,
+    let (stat, stage, purposes): (StatKind, FormulaStage, &[FormulaPurpose]) = match value.target {
+        AbilityTarget::PartyAttackFlat => {
+            (StatKind::Atk, FormulaStage::Flat, &[FormulaPurpose::Stat])
+        }
+        AbilityTarget::PartyDefenseFlat => {
+            (StatKind::Def, FormulaStage::Flat, &[FormulaPurpose::Stat])
+        }
+        AbilityTarget::PartyMaximumHpFlat => {
+            (StatKind::Hp, FormulaStage::Flat, &[FormulaPurpose::Stat])
+        }
+        AbilityTarget::PartyCritRateRatio => (
+            StatKind::CritRate,
+            FormulaStage::Flat,
+            &[FormulaPurpose::Stat],
         ),
-    }))
+        AbilityTarget::PartySpeedRatio => (
+            StatKind::Spd,
+            FormulaStage::PercentOfBase,
+            &[FormulaPurpose::Stat],
+        ),
+        AbilityTarget::PartyCritDamageRatio => (
+            StatKind::CritDamage,
+            FormulaStage::Flat,
+            &[FormulaPurpose::Stat],
+        ),
+        AbilityTarget::PartyEffectHitRateRatio => (
+            StatKind::EffectHitRate,
+            FormulaStage::Flat,
+            &[FormulaPurpose::Stat],
+        ),
+        AbilityTarget::PartyDamageTakenReductionRatio => (
+            // Formula-stage modifiers do not query the stat discriminator.
+            StatKind::Hp,
+            FormulaStage::Mitigation,
+            &[
+                FormulaPurpose::OrdinaryDamage,
+                FormulaPurpose::Dot,
+                FormulaPurpose::AdditionalDamage,
+                FormulaPurpose::ElationDamage,
+                FormulaPurpose::Break,
+                FormulaPurpose::SuperBreak,
+            ],
+        ),
+        _ => return Vec::new(),
+    };
+    purposes
+        .iter()
+        .enumerate()
+        .map(|(index, purpose)| {
+            let raw = if purposes.len() == 1 {
+                value.target as u32 + 1
+            } else {
+                (value.target as u32 + 1)
+                    .checked_mul(16)
+                    .and_then(|value| value.checked_add(index as u32 + 1))
+                    .ok_or(UniverseBattleContributionError::IdentityOverflow)?
+            };
+            let definition_id = ModifierDefinitionId::new(MODIFIER_ID_BASE + raw)
+                .ok_or(UniverseBattleContributionError::IdentityOverflow)?;
+            let group_id = ModifierStackingGroupId::new(MODIFIER_GROUP_ID_BASE + raw)
+                .ok_or(UniverseBattleContributionError::IdentityOverflow)?;
+            let source_id = SourceDefinitionId::new(MODIFIER_SOURCE_ID_BASE + raw)
+                .ok_or(UniverseBattleContributionError::IdentityOverflow)?;
+            Ok(UniverseBattleModifierBinding {
+                target: value.target,
+                value: value.value,
+                group: ModifierStackingGroup {
+                    id: group_id,
+                    aggregation: ModifierAggregation::ReplaceGroup,
+                    comparator: None,
+                },
+                definition: ModifierDefinition {
+                    id: definition_id,
+                    stat,
+                    stage,
+                    purpose: *purpose,
+                    value: ValueExpr::Literal(RuleValue::Scalar(Scalar::from_scaled(
+                        value.value.raw_six_decimal(),
+                    ))),
+                    stacking_group: group_id,
+                    priority: 0,
+                    floor: None,
+                    cap: None,
+                    cap_stage: stage,
+                    snapshot: SnapshotPolicy::Dynamic,
+                    source_stack_slot: None,
+                    filters: Box::new([]),
+                },
+                source: RuleSource::new(
+                    source_id,
+                    SourceClass::Progression,
+                    vec![],
+                    projection_digest,
+                ),
+            })
+        })
+        .collect()
 }
 
 fn source_class(role: UniverseBattleRuleRole) -> SourceClass {

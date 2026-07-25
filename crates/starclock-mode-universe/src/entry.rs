@@ -13,7 +13,8 @@ use std::sync::{Arc, OnceLock};
 
 use crate::{
     ability_runtime::{
-        AbilityExecutionContext, AbilityRuntimeCatalog, AbilityRuntimeProjection, AbilityTarget,
+        AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope, AbilityRuntimeCatalog,
+        AbilityRuntimeProjection, AbilityTarget,
     },
     abundance_runtime::AbundanceRuntimeCatalog,
     battle_contribution::UniverseBattleContributionCompiler,
@@ -43,7 +44,7 @@ use crate::{
     service_interaction::{ServiceActivityBindings, ServiceInteractionRuntimeCatalog},
 };
 
-pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v4";
+pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v5";
 
 const WORLD_SLOT: u32 = 1;
 const DIFFICULTY_SLOT: u32 = 2;
@@ -64,6 +65,7 @@ const SERVICE_USE_SLOT: u32 = 16;
 const SERVICE_EFFECT_SLOT: u32 = 17;
 const CURIO_EVENT_SLOT: u32 = 18;
 const ABILITY_PROJECTION_SLOT: u32 = 19;
+const THIRD_FORMATION_CAPABILITY_SLOT: u32 = 20;
 const BLESSING_INVENTORY: u32 = 1;
 const FORMATION_INVENTORY: u32 = 2;
 const CURIO_INVENTORY: u32 = 3;
@@ -86,6 +88,7 @@ const SERVICE_USE_SOURCE: u64 = 0x5355_0010;
 const SERVICE_EFFECT_SOURCE: u64 = 0x5355_0011;
 const CURIO_EVENT_SOURCE: u64 = 0x5355_0012;
 const ABILITY_PROJECTION_SOURCE: u64 = 0x5355_0013;
+const THIRD_FORMATION_CAPABILITY_SOURCE: u64 = 0x5355_0014;
 const BLESSING_INVENTORY_SOURCE: u64 = 0x5355_1001;
 const FORMATION_INVENTORY_SOURCE: u64 = 0x5355_1002;
 const CURIO_INVENTORY_SOURCE: u64 = 0x5355_1003;
@@ -216,6 +219,19 @@ impl StandardUniverseProfile {
                     .integral()
                     .ok_or(StandardUniverseCompileError::InvalidAbilityRuntime)
             })?;
+        let third_formation_capability = ability_runtime
+            .project(
+                &ability_tree,
+                AbilityExecutionContext::new(
+                    AbilityProjectionScope::Run,
+                    AbilityBoundary::AfterBattle,
+                    14,
+                    false,
+                ),
+            )
+            .map_err(|_| StandardUniverseCompileError::InvalidAbilityRuntime)?
+            .value(AbilityTarget::RunPathResonance)
+            .is_some_and(|value| value.raw_six_decimal() > 0);
         let blessing_runtime = Arc::new(
             BlessingRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidBlessingRuntime)?,
@@ -344,6 +360,7 @@ impl StandardUniverseProfile {
             &ability_tree,
             initial_cosmic_fragments,
             &run_start,
+            third_formation_capability,
         )?;
         let participant_digest = entry.participants.digest();
         let identity = compile_identity(
@@ -376,6 +393,7 @@ impl StandardUniverseProfile {
                 slot(BLESSING_REROLL_SLOT),
                 slot(PATH_BLESSING_COUNT_SLOT),
                 slot(ABILITY_PROJECTION_SLOT),
+                slot(THIRD_FORMATION_CAPABILITY_SLOT),
                 inventory(FORMATION_INVENTORY),
                 occurrence_interaction_runtime.as_ref(),
                 service_interaction_runtime.as_ref(),
@@ -595,6 +613,8 @@ impl CompiledActivity {
                     cosmic_fragments_slot: self.cosmic_fragments_slot(),
                     selected_path_slot: self.selected_path_slot(),
                     ability_projection_slot: self.ability_projection_slot(),
+                    selected_room_slot: self.selected_room_slot(),
+                    third_formation_capability_slot: self.third_formation_capability_slot(),
                 }
             }),
         )
@@ -696,6 +716,11 @@ impl CompiledActivity {
     }
 
     #[must_use]
+    pub const fn third_formation_capability_slot(&self) -> ActivitySlotId {
+        slot(THIRD_FORMATION_CAPABILITY_SLOT)
+    }
+
+    #[must_use]
     pub const fn blessing_inventory(&self) -> ActivityInventoryId {
         inventory(BLESSING_INVENTORY)
     }
@@ -763,6 +788,7 @@ fn compile_state(
     ability_tree: &[AbilityTreeNodeId],
     initial_cosmic_fragments: i64,
     run_start: &AbilityRuntimeProjection,
+    third_formation_capability: bool,
 ) -> Result<ActivityStateDefinition, StandardUniverseCompileError> {
     let slots = vec![
         activity_slot(
@@ -922,6 +948,13 @@ fn compile_state(
             0,
             i64::MAX,
             ABILITY_PROJECTION_SOURCE,
+            ActivityStateVisibility::Private,
+        )?,
+        activity_slot(
+            THIRD_FORMATION_CAPABILITY_SLOT,
+            ActivityValue::Boolean(third_formation_capability),
+            None,
+            THIRD_FORMATION_CAPABILITY_SOURCE,
             ActivityStateVisibility::Private,
         )?,
     ];

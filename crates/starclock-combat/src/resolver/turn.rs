@@ -122,8 +122,9 @@ pub(super) fn begin_turn(
             }),
         );
     }
-    let (mut parent, frozen_skip) =
-        super::operation::settle_break_effects_at_turn_start(txn, turn_cause, parent, turn.unit)?;
+    let (mut parent, frozen_skip) = super::operation::settle_break_effects_at_turn_start(
+        catalog, txn, turn_cause, parent, turn.unit,
+    )?;
     parent = super::operation::settle_effects_at_turn_start(
         catalog, txn, turn_cause, parent, turn.unit,
     )?;

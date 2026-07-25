@@ -2,11 +2,12 @@
 
 use starclock_activity::ActivityParticipantCarryState;
 use starclock_combat::{
-    CombatantSpecDigest, ParticipantInitialState, ParticipantSource, ParticipantSpec,
+    CombatantSpecDigest, Energy, ParticipantInitialState, ParticipantSource, ParticipantSpec,
     ResolvedCombatantSpec, ResolvedDefinitionBindings, ResolvedModifierBinding, TeamSide,
 };
 
 use crate::{
+    ability_runtime::AbilityTarget,
     battle_contribution::UniverseBattleContributionSet,
     battle_rule_lowering::{RESONANCE_ABILITY_ID, RuleAttachment},
     battle_technique::CompiledUniverseBattleTechnique,
@@ -28,6 +29,7 @@ pub(super) fn player_participants(
         .iter()
         .enumerate()
         .map(|(index, entry)| {
+            let projected_energy = projected_party_energy(entry.combatant(), contributions)?;
             let mut participant = ParticipantSpec::new(
                 TeamSide::Player,
                 entry.formation(),
@@ -49,7 +51,7 @@ pub(super) fn player_participants(
                 let initial = ParticipantInitialState::new(
                     state.current_hp(),
                     state.maximum_hp(),
-                    state.current_energy(),
+                    projected_energy.unwrap_or(state.current_energy()),
                     state.maximum_energy(),
                     state.life(),
                     state.presence(),
@@ -138,7 +140,10 @@ fn apply_party_modifiers(
     )
     .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?
     .with_base_attack_defense(base.base_attack(), base.base_defense())
-    .with_energy(base.current_energy(), base.maximum_energy())
+    .with_energy(
+        projected_party_energy(base, contributions)?.unwrap_or(base.current_energy()),
+        base.maximum_energy(),
+    )
     .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?
     .with_toughness(
         base.rank(),
@@ -151,5 +156,38 @@ fn apply_party_modifiers(
         .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?;
     resolved
         .with_modifier_bindings(modifier_bindings)
+        .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)
+}
+
+fn projected_party_energy(
+    base: &ResolvedCombatantSpec,
+    contributions: &UniverseBattleContributionSet,
+) -> Result<Option<Energy>, UniverseBattleMaterializationError> {
+    let ratio = [
+        AbilityTarget::PartyEnergy,
+        AbilityTarget::PartyInitialEnergy,
+    ]
+    .into_iter()
+    .find_map(|target| {
+        contributions
+            .boundary_values()
+            .iter()
+            .find(|value| value.target() == target)
+            .map(|value| value.value().raw_six_decimal())
+    });
+    let Some(ratio) = ratio else {
+        return Ok(None);
+    };
+    if !(0..=1_000_000).contains(&ratio) {
+        return Err(UniverseBattleMaterializationError::InvalidCombatant);
+    }
+    let scaled = base
+        .maximum_energy()
+        .scaled()
+        .checked_mul(ratio)
+        .and_then(|value| value.checked_div(1_000_000))
+        .ok_or(UniverseBattleMaterializationError::InvalidCombatant)?;
+    Energy::from_scaled(scaled)
+        .map(Some)
         .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)
 }

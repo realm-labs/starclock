@@ -52,7 +52,7 @@ fn complete_snapshot_compiles_to_canonical_rule_modifier_and_boundary_bindings()
         .map(|id| (*id, 1))
         .collect::<Vec<_>>();
     let path = path_runtime
-        .contributions(selected_path, &blessings, &formations)
+        .contributions_with_formation_capability(selected_path, &blessings, &formations, true)
         .unwrap();
 
     let curio_runtime = CurioRuntimeCatalog::compile(&catalog).unwrap();
@@ -110,8 +110,8 @@ fn complete_snapshot_compiles_to_canonical_rule_modifier_and_boundary_bindings()
     assert_eq!(
         compiler.digest(),
         [
-            93, 87, 109, 65, 189, 231, 199, 152, 93, 17, 213, 118, 175, 160, 227, 113, 136, 148,
-            162, 188, 103, 8, 58, 134, 46, 100, 223, 191, 20, 154, 91, 209,
+            210, 158, 109, 32, 40, 217, 1, 78, 179, 180, 87, 185, 235, 40, 137, 12, 59, 107, 229,
+            110, 84, 142, 7, 235, 118, 171, 202, 90, 184, 19, 170, 70,
         ]
     );
     let contributions = compiler
@@ -119,7 +119,7 @@ fn complete_snapshot_compiles_to_canonical_rule_modifier_and_boundary_bindings()
         .unwrap();
     assert_eq!(
         UNIVERSE_BATTLE_CONTRIBUTION_REVISION,
-        "standard-universe-battle-contribution-v1"
+        "standard-universe-battle-contribution-v2"
     );
     assert_eq!(contributions.selected_path(), selected_path);
     assert_eq!(contributions.selected_path_blessings(), 14);
@@ -167,7 +167,7 @@ fn complete_snapshot_compiles_to_canonical_rule_modifier_and_boundary_bindings()
         3
     );
 
-    assert_eq!(contributions.modifiers().len(), 7);
+    assert_eq!(contributions.modifiers().len(), 13);
     let registry = ModifierRegistry::new(
         contributions
             .modifiers()
@@ -181,7 +181,7 @@ fn complete_snapshot_compiles_to_canonical_rule_modifier_and_boundary_bindings()
             .collect(),
     )
     .expect("projected modifier definitions validate through combat");
-    assert_eq!(registry.len(), 7);
+    assert_eq!(registry.len(), 13);
     for target in [
         AbilityTarget::PartyAttackFlat,
         AbilityTarget::PartyDefenseFlat,
@@ -190,6 +190,7 @@ fn complete_snapshot_compiles_to_canonical_rule_modifier_and_boundary_bindings()
         AbilityTarget::PartySpeedRatio,
         AbilityTarget::PartyCritDamageRatio,
         AbilityTarget::PartyEffectHitRateRatio,
+        AbilityTarget::PartyDamageTakenReductionRatio,
     ] {
         assert!(
             contributions
@@ -207,8 +208,8 @@ fn complete_snapshot_compiles_to_canonical_rule_modifier_and_boundary_bindings()
     assert_eq!(
         contributions.digest(),
         [
-            235, 122, 85, 225, 222, 199, 106, 121, 94, 192, 63, 124, 189, 133, 128, 208, 200, 105,
-            145, 144, 127, 90, 89, 195, 0, 77, 88, 90, 133, 44, 226, 168,
+            0, 19, 60, 131, 129, 116, 91, 90, 44, 177, 118, 115, 25, 208, 113, 43, 158, 68, 162,
+            183, 253, 210, 156, 68, 154, 198, 164, 47, 2, 70, 37, 91,
         ]
     );
 }

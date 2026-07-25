@@ -123,6 +123,7 @@ pub(crate) fn lower_rules(
     blessings: &BlessingContributionSet,
     curios: &CurioContributionSet,
     initial_resonance_energy: u16,
+    resonance_damage_ratio: i64,
 ) -> Result<(Vec<ExecutableBattleRule>, Option<ExecutableResonance>), BattleRuleLoweringError> {
     let mut output = Vec::new();
     if let Some(binding) = bindings.iter().find(|binding| {
@@ -159,7 +160,14 @@ pub(crate) fn lower_rules(
             binding.role() == UniverseBattleRuleRole::Resonance
                 && binding.source_binding_key() == Some(HUNT_RESONANCE_BINDING)
         })
-        .map(|binding| hunt_resonance(catalog, binding, initial_resonance_energy))
+        .map(|binding| {
+            hunt_resonance(
+                catalog,
+                binding,
+                initial_resonance_energy,
+                resonance_damage_ratio,
+            )
+        })
         .transpose()?;
     Ok((output, resonance))
 }
@@ -313,13 +321,21 @@ fn hunt_resonance(
     catalog: &UniverseCatalog,
     binding: &UniverseBattleRuleBinding,
     initial_energy: u16,
+    damage_ratio: i64,
 ) -> Result<ExecutableResonance, BattleRuleLoweringError> {
     let resonance = catalog
         .resonances()
         .iter()
         .find(|definition| definition.stable_key() == binding.source_record_key())
         .ok_or(BattleRuleLoweringError::SnapshotMismatch)?;
-    let ratio = parameter(resonance.parameters(), 1)?;
+    let ratio = Ratio::from_scaled(parameter(resonance.parameters(), 1)?)
+        .checked_mul(
+            Ratio::ONE
+                .checked_add(Ratio::from_scaled(damage_ratio))
+                .map_err(|_| BattleRuleLoweringError::InvalidParameter)?,
+            starclock_combat::Rounding::NearestTiesEven,
+        )
+        .map_err(|_| BattleRuleLoweringError::InvalidParameter)?;
     let action = AbilityActionDefinition::new(
         AbilityKind::Ultimate,
         1,
@@ -342,7 +358,7 @@ fn hunt_resonance(
         HitOperationDefinition::ScalingDamage(
             ScalingDamageDefinition::new(
                 StatKind::Atk,
-                Ratio::from_scaled(ratio),
+                ratio,
                 DamageClass::Additional,
                 CombatElement::Wind,
             )

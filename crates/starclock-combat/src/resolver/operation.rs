@@ -36,13 +36,13 @@ pub(super) fn execute_operation(
         Operation::ConsumeHp(operation) => execute_hp_consumption(txn, cause, parent, operation),
         Operation::AddWeakness(operation) => execute_add_weakness(txn, cause, parent, operation),
         Operation::ReduceToughness(operation) => {
-            execute_toughness_reduction(txn, cause, parent, operation, scratch)
+            execute_toughness_reduction(catalog, txn, cause, parent, operation, scratch)
         }
-        Operation::ForceBreak(operation) => {
-            super::operation_break::execute_force_break(txn, cause, parent, operation, scratch)
-        }
+        Operation::ForceBreak(operation) => super::operation_break::execute_force_break(
+            catalog, txn, cause, parent, operation, scratch,
+        ),
         Operation::SuperBreak(operation) => {
-            execute_super_break(txn, cause, parent, operation, scratch)
+            execute_super_break(catalog, txn, cause, parent, operation, scratch)
         }
         Operation::ApplyEffect(operation) => {
             execute_apply_effect(catalog, txn, cause, parent, operation)
@@ -125,6 +125,7 @@ fn execute_add_weakness(
 }
 
 pub(super) fn execute_toughness_reduction(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -191,8 +192,17 @@ pub(super) fn execute_toughness_reduction(
             crate::BreakCreditPolicy::LayerProvider(source) => cause.with_source_definition(source),
         };
         if value.applies_break_damage {
+            let mut definition = operation.definition.break_damage;
+            definition.mitigation_multiplier = dynamic_mitigation(
+                catalog,
+                txn,
+                target,
+                crate::modifier::model::FormulaPurpose::Break,
+                value.break_element,
+                definition.mitigation_multiplier,
+            )?;
             let damage = formula::toughness::break_damage(
-                operation.definition.break_damage,
+                definition,
                 value.break_element,
                 value.maximum,
                 was_broken,
@@ -318,6 +328,7 @@ pub(super) fn execute_toughness_reduction(
 }
 
 fn execute_super_break(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -347,7 +358,16 @@ fn execute_super_break(
             );
             continue;
         }
-        let damage = formula::toughness::super_break_damage(operation.definition, effective)
+        let mut definition = operation.definition;
+        definition.mitigation_multiplier = dynamic_mitigation(
+            catalog,
+            txn,
+            target,
+            crate::modifier::model::FormulaPurpose::SuperBreak,
+            definition.element,
+            definition.mitigation_multiplier,
+        )?;
+        let damage = formula::toughness::super_break_damage(definition, effective)
             .map_err(|_| numeric_fault(15, effective.get()))?;
         parent = apply_break_damage(
             txn,
@@ -453,6 +473,7 @@ fn apply_break_damage(
 }
 
 pub(super) fn settle_break_effects_at_turn_start(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -485,7 +506,16 @@ pub(super) fn settle_break_effects_at_turn_start(
                     .checked_mul_integer(i64::from(effect.stacks))
                     .map_err(|_| numeric_fault(22, i64::from(effect.stacks)))?;
             }
-            let damage = formula::toughness::break_effect_damage(effect.damage, base, true)
+            let mut definition = effect.damage;
+            definition.mitigation_multiplier = dynamic_mitigation(
+                catalog,
+                txn,
+                owner,
+                crate::modifier::model::FormulaPurpose::Break,
+                effect.plan.element,
+                definition.mitigation_multiplier,
+            )?;
+            let damage = formula::toughness::break_effect_damage(definition, base, true)
                 .map_err(|_| numeric_fault(23, base.scaled()))?;
             parent = apply_break_damage(
                 txn,
@@ -531,6 +561,21 @@ pub(super) fn settle_break_effects_at_turn_start(
         }
     }
     Ok((parent, skips_action))
+}
+
+fn dynamic_mitigation(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &Transaction<'_>,
+    target: crate::UnitId,
+    purpose: crate::modifier::model::FormulaPurpose,
+    element: crate::formula::model::CombatElement,
+    existing: crate::Ratio,
+) -> Result<crate::Ratio, BattleFault> {
+    let dynamic = super::operation_formula::FormulaInputs::new(txn)?
+        .target_mitigation(catalog, txn, target, purpose, element)?;
+    existing
+        .checked_mul(dynamic, crate::Rounding::NearestTiesEven)
+        .map_err(|_| numeric_fault(24, dynamic.scaled()))
 }
 
 pub(super) fn settle_effects_at_turn_start(

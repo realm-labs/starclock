@@ -17,6 +17,7 @@ use starclock_activity::{
 use crate::{
     blessing_runtime::{BlessingOfferEligibility, BlessingRuntimeCatalog},
     catalog::UniverseCatalog,
+    definition::DomainKind,
     encounter::RoomContentKind,
     handler_bundle::{
         STANDARD_UNIVERSE_EXTERNAL_INTERACTION_HANDLER_ID, activity_handler_registry,
@@ -37,7 +38,7 @@ use crate::{
     topology_support::{domain_logical_scopes, exact_weight, occurrence_for_source, resolve_rooms},
 };
 
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v5";
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v6";
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 
 const PATH_NODE: u32 = 1;
@@ -86,6 +87,7 @@ impl DomainRouteDefinition {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResolvedRoomContent {
     room: RoomId,
+    domain_kind: DomainKind,
     kind: RoomContentKind,
     encounter_group: Option<EncounterGroupId>,
     source_content_id: Box<str>,
@@ -94,12 +96,14 @@ pub struct ResolvedRoomContent {
 impl ResolvedRoomContent {
     pub(crate) fn new(
         room: RoomId,
+        domain_kind: DomainKind,
         kind: RoomContentKind,
         encounter_group: Option<EncounterGroupId>,
         source_content_id: &str,
     ) -> Self {
         Self {
             room,
+            domain_kind,
             kind,
             encounter_group,
             source_content_id: source_content_id.into(),
@@ -109,6 +113,10 @@ impl ResolvedRoomContent {
     #[must_use]
     pub const fn room(&self) -> RoomId {
         self.room
+    }
+    #[must_use]
+    pub const fn domain_kind(&self) -> DomainKind {
+        self.domain_kind
     }
     #[must_use]
     pub const fn kind(&self) -> RoomContentKind {
@@ -201,6 +209,8 @@ impl DomainHubDefinition {
 pub struct EncounterOptionBinding {
     option: ActivityOptionId,
     member: EncounterMemberId,
+    room: RoomId,
+    domain_kind: DomainKind,
 }
 
 impl EncounterOptionBinding {
@@ -211,6 +221,14 @@ impl EncounterOptionBinding {
     #[must_use]
     pub const fn member(self) -> EncounterMemberId {
         self.member
+    }
+    #[must_use]
+    pub const fn room(self) -> RoomId {
+        self.room
+    }
+    #[must_use]
+    pub const fn domain_kind(self) -> DomainKind {
+        self.domain_kind
     }
 }
 
@@ -276,6 +294,7 @@ pub(crate) fn compile(
     blessing_reroll_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     ability_projection_slot: ActivitySlotId,
+    third_formation_capability_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
     service_interactions: &ServiceInteractionRuntimeCatalog,
@@ -395,6 +414,7 @@ pub(crate) fn compile(
         blessing_reroll_slot,
         path_blessing_count_slot,
         ability_projection_slot,
+        third_formation_capability_slot,
         formation_inventory,
         occurrence_interactions,
         service_interactions,
@@ -555,6 +575,7 @@ fn compile_programs(
     blessing_reroll_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     ability_projection_slot: ActivitySlotId,
+    third_formation_capability_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
     service_interactions: &ServiceInteractionRuntimeCatalog,
@@ -696,6 +717,8 @@ fn compile_programs(
                     encounter_options.push(EncounterOptionBinding {
                         option: engage,
                         member: member.id(),
+                        room: room.room,
+                        domain_kind: room.domain_kind,
                     });
                 }
                 content_options.push(ActivityOptionDefinition::new(
@@ -858,8 +881,10 @@ fn compile_programs(
             source,
             edges.reward_formation,
             hub_clear_slot,
+            path_slot,
             path_blessing_count_slot,
             ability_projection_slot,
+            third_formation_capability_slot,
             blessing_inventory,
             blessing_runtime,
             &eligible_blessings,
@@ -885,6 +910,7 @@ fn compile_programs(
             FormationSelectionBindings {
                 selected_path_slot: path_slot,
                 path_blessing_count_slot,
+                third_formation_capability_slot,
                 formation_inventory,
             },
             formation_skip_option(source),

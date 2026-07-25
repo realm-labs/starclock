@@ -4,6 +4,7 @@ use crate::{
     ability_runtime::{AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope},
     battle_contribution::UniverseBattleContributionSet,
     battle_snapshot::StandardUniverseBattleSnapshot,
+    definition::DomainKind,
 };
 
 use super::{StandardUniverseActivity, StandardUniverseBattleContributionError};
@@ -16,13 +17,52 @@ impl StandardUniverseActivity {
         let path = self
             .path_contributions()
             .map_err(StandardUniverseBattleContributionError::Path)?;
+        let boundary = self.pending_battle_boundary(&view)?;
         let context = AbilityExecutionContext::new(
             AbilityProjectionScope::Battle,
-            AbilityBoundary::BattleStart,
+            boundary,
             path.selected_path_blessings(),
             view.completed_battle_count() > 0,
         );
         self.compile_battle_snapshot(view, path, context)
+    }
+
+    fn pending_battle_boundary(
+        &self,
+        view: &starclock_activity::ActivityPlayerView,
+    ) -> Result<AbilityBoundary, StandardUniverseBattleContributionError> {
+        let Some(pending) = view.pending_battle() else {
+            return Ok(AbilityBoundary::BattleStart);
+        };
+        let member = self
+            .overlay
+            .binding_for_spec(pending.assembly_digest().bytes())
+            .ok_or(StandardUniverseBattleContributionError::ContextMismatch)?
+            .member();
+        let room = self
+            .graph
+            .debug_view()
+            .all_slots()
+            .iter()
+            .find(|slot| slot.id() == self.selected_room_slot)
+            .and_then(|slot| match slot.value() {
+                starclock_activity::ActivityValue::OptionalId(Some(value)) => Some(*value),
+                _ => None,
+            })
+            .and_then(|value| u32::try_from(value).ok())
+            .and_then(crate::id::RoomId::new)
+            .ok_or(StandardUniverseBattleContributionError::ContextMismatch)?;
+        let domain = self
+            .encounter_options
+            .iter()
+            .find(|binding| binding.member() == member && binding.room() == room)
+            .map(|binding| binding.domain_kind())
+            .ok_or(StandardUniverseBattleContributionError::ContextMismatch)?;
+        Ok(if matches!(domain, DomainKind::Elite | DomainKind::Boss) {
+            AbilityBoundary::EnterEliteOrBossDomain
+        } else {
+            AbilityBoundary::BattleStart
+        })
     }
 
     pub fn battle_contribution_snapshot(

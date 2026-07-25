@@ -67,12 +67,12 @@ fn all_paths_compile_resonance_thresholds_formations_and_exact_contributions() {
     assert_eq!(
         path_runtime.digest(),
         [
-            149, 189, 227, 54, 222, 77, 30, 87, 252, 93, 95, 84, 54, 107, 171, 181, 169, 76, 72,
-            212, 184, 212, 216, 15, 206, 9, 84, 227, 17, 179, 253, 216,
+            134, 110, 65, 106, 109, 51, 247, 10, 240, 10, 176, 21, 133, 156, 1, 75, 152, 75, 221,
+            9, 178, 123, 31, 244, 145, 18, 48, 30, 203, 50, 183, 178,
         ]
     );
     assert_eq!(FORMATION_SELECTION_THRESHOLDS, [6, 10, 14]);
-    assert_eq!(PATH_RUNTIME_REVISION, "standard-universe-path-runtime-v1");
+    assert_eq!(PATH_RUNTIME_REVISION, "standard-universe-path-runtime-v2");
 
     for path in catalog.paths() {
         let owned = path
@@ -113,7 +113,7 @@ fn all_paths_compile_resonance_thresholds_formations_and_exact_contributions() {
             .map(|id| (*id, 1))
             .collect::<Vec<_>>();
         let complete = path_runtime
-            .contributions(path.id(), &all, &formations)
+            .contributions_with_formation_capability(path.id(), &all, &formations, true)
             .expect("three selected Formations");
         assert_eq!(complete.selected_path_blessings(), 18);
         assert_eq!(complete.formations().len(), 3);

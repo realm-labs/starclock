@@ -10,6 +10,7 @@ use crate::{
 use super::{operation::execute_toughness_reduction, transaction::Transaction};
 
 pub(super) fn execute_force_break(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -29,6 +30,7 @@ pub(super) fn execute_force_break(
             })
             .unwrap_or_else(|| crate::RawToughness::new(0).expect("zero Toughness is valid"));
         parent = execute_toughness_reduction(
+            catalog,
             txn,
             cause,
             parent,

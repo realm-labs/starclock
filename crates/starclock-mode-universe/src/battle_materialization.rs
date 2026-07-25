@@ -48,7 +48,7 @@ use materialization_digest::{
 use player::player_participants;
 
 pub const UNIVERSE_BATTLE_MATERIALIZATION_REVISION: &str =
-    "standard-universe-battle-materialization-v1";
+    "standard-universe-battle-materialization-v2";
 pub const UNIVERSE_ENEMY_RUNTIME_STAT_POLICY: &str = "goal01-executable-enemy-proxy-stats-v1";
 
 const MEMBER_ENCOUNTER_ID_BASE: u32 = 0x7500_0000;
