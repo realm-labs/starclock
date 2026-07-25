@@ -298,6 +298,12 @@ pub enum ShieldEventData {
         before: crate::ShieldAmount,
         after: crate::ShieldAmount,
     },
+    Removed {
+        operation: OperationId,
+        shield: crate::ShieldInstanceId,
+        target: UnitId,
+        before: crate::ShieldAmount,
+    },
 }
 
 /// Healing calculation and effective bounded HP restoration.

@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M02-S01` |
-| Next unblocked batch | `G07-P2-M02-S01` |
+| Active batch | `G07-P2-M02-S02` |
+| Next unblocked batch | `G07-P2-M02-S02` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -25,8 +25,10 @@ action/reaction, Break and boundary foundations. P1-B6 freezes a 15-probe
 runtime matrix, six formal Excel rows, zero current native-handler admissions
 and exact ordered completion receipts for every generated content partition.
 All three Ability Tree partitions are complete. Their 42 records, 42 rules and
-ten semantic fixtures execute from formal Excel/Sora definitions.
-`G07-P2-M02-S01`, the first Preservation partition, is active.
+ten semantic fixtures execute from formal Excel/Sora definitions. The first
+Preservation partition is also complete: 17 records, 16 rules and five
+fixtures execute exact Quake, shield-cycle, splash and Bleed behavior without
+a native handler. `G07-P2-M02-S02` is active.
 
 ## Fixed batch ledger
 
@@ -45,6 +47,7 @@ ten semantic fixtures execute from formal Excel/Sora definitions.
 | `G07-P2-M01-S01` | `Complete` | openpyxl partition check; production Sora verification; Activity/Ability Tree/encounter tests; partition receipt; quick repository gate | Executed Ability Tree nodes 1, 2 and 10–23 with 20 typed effects. Added a generic terminal conditional Activity operation, atomic post-battle delta projection, Ability Tree-gated Blessing reroll and one consumed first-battle bonus Blessing choice. Empty trees preserve historical hashes; rejected settlement preserves exact state bytes. |
 | `G07-P2-M01-S02` | `Complete` | openpyxl partition check; production Sora verification; Ability Tree/materialization/path tests; partition receipt; quick repository gate | Executed Ability Tree nodes 3 and 24–38 with 18 typed effects. Materialized full-Energy boundaries, generic six-purpose damage mitigation, checked Path Resonance Energy/damage bonuses and an Ability Tree-gated third Formation slot. Elite/Boss encounters now select a composite battle-start boundary from spatial-free room/domain bindings. |
 | `G07-P2-M01-S03` | `Complete` | openpyxl partition check; production Sora verification; Ability Tree/path/service/carry tests; partition receipt; quick repository gate | Executed Ability Tree nodes 4–9 and 39–42. Replaced the Formation special case with generic 0–3 Ability Tree capacity, added participant-specific Reviver options backed by atomic cross-battle carry restoration, exposed the consumable-use authorization seam, and made topology template reuse participant-lock-safe. |
+| `G07-P2-M02-S01` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Preservation/replay tests; partition receipt; quick repository gate | Executed Resonance Transfer, Metastatic Field, Macrosegregation, Quadrangular Pyramid, Shear Structure and the Solid Solution definition. Added generic current/pre-event shield queries, effect-scoped shield removal, target-within-action once scope and nonlethal Rule IR damage. Exact current-DEF Quake composition, multi-enemy splash, Bleed and shield reset run through production materialization; ten native candidates close as `IrSufficient`. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |
@@ -108,6 +111,9 @@ The milestone summary remains here for orientation.
 | 2026-07-25 | Keep `native-registry-v1` empty until a partition supplies the complete admission and equivalence record. | The 427 inherited static-handler labels are planning candidates; at most one reviewed handler may be admitted per partition and compiled/Sora metadata must match exactly. |
 | 2026-07-25 | Express the first-battle extra Blessing as a terminal conditional Activity operation on the existing Reward node. | This keeps the mechanic data-driven and transactional without adding two nodes to every one of 579 domain hubs or introducing a mode-owned graph mutation path. |
 | 2026-07-25 | Model Ability Tree Formation capacity, Reviver and consumable use as run capabilities rather than service- or item-specific battle branches. | Formation and restoration consume generic Activity state/operations; account consumable inventory remains external and can be attached later without changing combat. |
+| 2026-07-25 | Model Preservation shields in the dedicated shield store and expose only generic Rule IR queries/removal. | Macrosegregation needs effective current and pre-event shield values plus source-scoped reset, but no Blessing ID belongs in combat-core. |
+| 2026-07-25 | Compose Solid Solution's current-DEF contribution into the originating Quake formula before the global Quake boost. | The public mechanic increases Quake damage rather than shields; one composed value keeps splash, Bleed caps and replay attribution consistent. |
+| 2026-07-25 | Advance current combat state/event identity to `SCBS` v5 / `sha256-v6` and event payload v4. | Shield source identity affects future legal resolution and must be hashed; historical event payload versions 1–3 remain explicitly supported. |
 
 ## Terminal record
 

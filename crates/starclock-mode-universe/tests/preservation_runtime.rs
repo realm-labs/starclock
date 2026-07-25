@@ -146,6 +146,42 @@ fn quake_shield_and_conditional_stat_formulas_are_exact() {
         } if amount.raw_six_decimal() == 1_100_000_000
     ));
 
+    let retaliation = runtime
+        .execute_blessing(
+            blessing("universe.blessing.612031"),
+            2,
+            PathBattleEvent::CharacterAttacked,
+            facts(),
+        )
+        .expect("enhanced retaliatory Quake");
+    assert!(matches!(
+        retaliation[0].effect(),
+        PathEffect::Damage {
+            target: PathEffectTarget::Attacker,
+            amount,
+            can_defeat: false,
+            ..
+        } if amount.raw_six_decimal() == 5_040_000_000
+    ));
+
+    let solid_solution = runtime
+        .execute_blessing(
+            blessing("universe.blessing.612042"),
+            2,
+            PathBattleEvent::PathDamageDealt,
+            facts(),
+        )
+        .expect("enhanced current-DEF Quake contribution");
+    assert!(matches!(
+        solid_solution[0].effect(),
+        PathEffect::Damage {
+            target: PathEffectTarget::PrimaryEnemy,
+            amount,
+            can_defeat: true,
+            ..
+        } if amount.raw_six_decimal() == 960_000_000
+    ));
+
     let defense = runtime
         .execute_blessing(
             blessing("universe.blessing.612050"),

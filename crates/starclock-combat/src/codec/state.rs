@@ -14,7 +14,7 @@ use crate::{
 use super::BattleStateHash;
 
 const STATE_MAGIC: &[u8; 4] = b"SCBS";
-const STATE_CODEC_VERSION: u16 = 4;
+const STATE_CODEC_VERSION: u16 = 5;
 
 pub(crate) fn hash_state(state: &BattleState) -> BattleStateHash {
     let mut sink = Sha256Sink(Sha256::new());
@@ -191,6 +191,13 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
         e.u64(shield.id.get());
         e.u64(shield.owner.get());
         e.u64(shield.source_operation.get());
+        match shield.source_effect {
+            Some(effect) => {
+                e.u8(1);
+                e.u32(effect.get());
+            }
+            None => e.u8(0),
+        }
         e.i64(shield.remaining.get());
         e.u8(match shield.policy {
             crate::formula::shield::ShieldAbsorptionPolicy::ConcurrentLargest => 0,

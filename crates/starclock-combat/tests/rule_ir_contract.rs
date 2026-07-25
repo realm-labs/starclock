@@ -73,6 +73,7 @@ fn input<'a>(
         ..RuleEventFacts::default()
     }));
     RuleEvaluationInput {
+        rule_owner: None,
         event_kind: RuleEventKind::Action,
         event_facts,
         cause: RuleCause {

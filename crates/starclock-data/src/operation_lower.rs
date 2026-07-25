@@ -137,6 +137,7 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
             O::Shield {
                 selector, effect, ..
             }
+            | O::RemoveShield { selector, effect }
             | O::ApplyEffect {
                 selector, effect, ..
             } => {
@@ -202,6 +203,7 @@ fn lower_operation(
             class: lower_damage_class(*damage_class)?,
             element: lower_element(*element),
             can_crit: *can_crit,
+            can_defeat: true,
         },
         Payload::TrueDamage {
             amount_expression_id,

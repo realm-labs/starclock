@@ -93,15 +93,35 @@ for (const [field, expected] of Object.entries({
 assert(manifest.partitions[0]?.id === gate.partition_receipt.first_partition,
   "first content partition differs");
 run("node", ["tools/goal07/generate-content-progress.mjs", "--check"]);
-run("node", [
-  "tools/goal07/verify-content-partition.mjs",
-  "--partition",
-  gate.partition_receipt.first_partition,
-  "--expect-pending",
-]);
+const progress = json(
+  "evidence/standard-universe-mechanics-complete-v1/content-progress.json",
+);
+assert(progress.total_partitions === manifest.partitions.length,
+  "content progress denominator differs");
+assert(progress.completed_partitions + progress.pending_partitions
+  === progress.total_partitions, "content progress totals differ");
+const completed = progress.rows.filter(({ state }) => state === "Complete");
+assert(completed.length === progress.completed_partitions,
+  "completed content progress count differs");
+for (const row of completed) {
+  run("node", [
+    "tools/goal07/verify-content-partition.mjs",
+    "--partition",
+    row.id,
+  ]);
+}
+if (progress.next_partition !== null) {
+  run("node", [
+    "tools/goal07/verify-content-partition.mjs",
+    "--partition",
+    progress.next_partition,
+    "--expect-pending",
+  ]);
+}
 assert(status.includes("| `G07-P1-B6` | `Complete` |"), "G07-P1-B6 is not complete");
-assert(status.includes("| Active batch | `G07-P2-M01-S01` |"),
-  "first content partition is not active");
+assert(progress.next_partition === null
+  || status.includes(`| Active batch | \`${progress.next_partition}\` |`),
+"next content partition is not active");
 console.log(
   "Goal 07 P1-B6 verified " +
   "(5 shared capability families, 15 runtime probes, 6 formal Excel rows, " +

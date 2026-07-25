@@ -27,7 +27,9 @@ assert(
   "trigger runtime contract is incomplete",
 );
 
-const model = text("crates/starclock-combat/src/rule/model.rs");
+const model =
+  text("crates/starclock-combat/src/rule/model.rs")
+  + text("crates/starclock-combat/src/rule/model/support.rs");
 for (const marker of [
   "pub struct RuleReplacementProposal",
   "pub parent_event: Option<EventId>",

@@ -644,6 +644,7 @@ fn firefly_input(stats: &FireflyStats) -> RuleEvaluationInput<'_> {
         ..RuleEventFacts::default()
     }));
     RuleEvaluationInput {
+        rule_owner: None,
         event_kind: RuleEventKind::Action,
         event_facts,
         cause: RuleCause {

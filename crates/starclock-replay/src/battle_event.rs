@@ -23,10 +23,12 @@ use crate::codec::{CodecError, Encoder};
 pub const BATTLE_EVENT_PAYLOAD_VERSION_V1: u16 = 1;
 /// Historical event payload emitted by released replay-v3 files.
 pub const BATTLE_EVENT_PAYLOAD_VERSION_V2: u16 = 2;
+/// Historical payload with action-origin and elemental toughness events.
+pub const BATTLE_EVENT_PAYLOAD_VERSION_V3: u16 = 3;
 /// Current event payload. Activity provenance belongs to assembly identity,
 /// while battle events attribute executable definitions through
 /// [`starclock_combat::Cause::source_definition`].
-pub const BATTLE_EVENT_PAYLOAD_VERSION: u16 = 3;
+pub const BATTLE_EVENT_PAYLOAD_VERSION: u16 = 4;
 
 /// Canonically encodes one event identity, cause chain and complete typed data.
 pub fn encode_battle_event_payload(
@@ -43,6 +45,7 @@ pub fn encode_battle_event_payload_for_version(
     if ![
         BATTLE_EVENT_PAYLOAD_VERSION_V1,
         BATTLE_EVENT_PAYLOAD_VERSION_V2,
+        BATTLE_EVENT_PAYLOAD_VERSION_V3,
         BATTLE_EVENT_PAYLOAD_VERSION,
     ]
     .contains(&version)
@@ -101,7 +104,7 @@ fn encode_kind(
         }
         BattleEventKind::Shield(value) => {
             encoder.u8(9);
-            encode_shield(encoder, *value);
+            encode_shield(encoder, *value, version)?;
         }
         BattleEventKind::Toughness(value) => {
             encoder.u8(10);
@@ -411,7 +414,11 @@ fn encode_hp_consumption(encoder: &mut Encoder<Vec<u8>>, value: HpConsumptionEve
     encoder.i64(value.hp_after.get());
 }
 
-fn encode_shield(encoder: &mut Encoder<Vec<u8>>, value: ShieldEventData) {
+fn encode_shield(
+    encoder: &mut Encoder<Vec<u8>>,
+    value: ShieldEventData,
+    version: u16,
+) -> Result<(), BattleEventPayloadError> {
     match value {
         ShieldEventData::Applied {
             operation,
@@ -439,7 +446,23 @@ fn encode_shield(encoder: &mut Encoder<Vec<u8>>, value: ShieldEventData) {
             encoder.i64(before.get());
             encoder.i64(after.get());
         }
+        ShieldEventData::Removed {
+            operation,
+            shield,
+            target,
+            before,
+        } => {
+            if version < BATTLE_EVENT_PAYLOAD_VERSION {
+                return Err(BattleEventPayloadError::UnsupportedEventFamily);
+            }
+            encoder.u8(2);
+            encoder.u64(operation.get());
+            encoder.u64(shield.get());
+            encoder.u64(target.get());
+            encoder.i64(before.get());
+        }
     }
+    Ok(())
 }
 
 fn encode_break_damage(encoder: &mut Encoder<Vec<u8>>, value: BreakDamageEventData) {
@@ -571,7 +594,7 @@ fn encode_toughness(encoder: &mut Encoder<Vec<u8>>, value: ToughnessEventData, v
             encoder.u8(2);
             encoder.u64(operation.get());
             encoder.u64(target.get());
-            if version >= BATTLE_EVENT_PAYLOAD_VERSION {
+            if version >= BATTLE_EVENT_PAYLOAD_VERSION_V3 {
                 element(encoder, value);
             }
             optional_u32(encoder, layer_key);

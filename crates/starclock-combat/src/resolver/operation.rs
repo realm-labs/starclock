@@ -1,23 +1,23 @@
 use super::transaction::Transaction;
 use crate::{
-    DamageAmount, HealingAmount, Hp, LifeState,
+    DamageAmount, Hp, LifeState,
     battle::fault::BattleFault,
     event::{
         cause::Cause,
         model::{
             BattleEventKind, BreakDamageEventData, BreakDamageKind, DamageEventData, DamageKind,
-            EffectEventData, HealEventData, HpConsumptionEventData, ShieldEventData,
-            ToughnessEventData, UnitEventData,
+            EffectEventData, ShieldEventData, ToughnessEventData, UnitEventData,
         },
     },
     formula,
     id::EventId,
     operation::{
-        AddWeaknessOp, ApplyEffectOp, ConsumeHpOp, DamageOp, HealOp, HitOperationScratch,
-        Operation, ReduceToughnessOp, RemoveEffectsOp, ShieldOp, SuperBreakOp,
+        AddWeaknessOp, ApplyEffectOp, DamageOp, HitOperationScratch, Operation, ReduceToughnessOp,
+        RemoveEffectsOp, SuperBreakOp,
     },
 };
 pub(super) mod fault;
+mod sustain;
 use fault::{invariant_fault, numeric_fault};
 
 pub(super) fn execute_operation(
@@ -31,9 +31,16 @@ pub(super) fn execute_operation(
     txn.snapshot(operation.id());
     match operation {
         Operation::Damage(operation) => execute_damage(catalog, txn, cause, parent, operation),
-        Operation::Heal(operation) => execute_heal(catalog, txn, cause, parent, operation),
-        Operation::Shield(operation) => execute_shield(catalog, txn, cause, parent, operation),
-        Operation::ConsumeHp(operation) => execute_hp_consumption(txn, cause, parent, operation),
+        Operation::Heal(operation) => sustain::execute_heal(catalog, txn, cause, parent, operation),
+        Operation::Shield(operation) => {
+            sustain::execute_shield(catalog, txn, cause, parent, operation)
+        }
+        Operation::RemoveShields(operation) => {
+            sustain::execute_remove_shields(txn, cause, parent, operation)
+        }
+        Operation::ConsumeHp(operation) => {
+            sustain::execute_hp_consumption(txn, cause, parent, operation)
+        }
         Operation::AddWeakness(operation) => execute_add_weakness(txn, cause, parent, operation),
         Operation::ReduceToughness(operation) => {
             execute_toughness_reduction(catalog, txn, cause, parent, operation, scratch)
@@ -771,7 +778,7 @@ fn execute_damage(
             operation.element,
             target,
         )?;
-        parent = apply_ordinary_damage(
+        parent = apply_ordinary_damage_with_floor(
             txn,
             cause,
             parent,
@@ -783,6 +790,7 @@ fn execute_damage(
             None,
             calculation.raw,
             calculation.finalized,
+            operation.minimum_hp,
         )?;
     }
     Ok(parent)
@@ -790,6 +798,36 @@ fn execute_damage(
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn apply_ordinary_damage(
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    parent: EventId,
+    operation: crate::OperationId,
+    target: crate::UnitId,
+    kind: DamageKind,
+    class: crate::formula::model::DamageClass,
+    element: Option<crate::formula::model::CombatElement>,
+    source_effect: Option<crate::EffectInstanceId>,
+    raw: crate::Scalar,
+    calculated: crate::DamageAmount,
+) -> Result<EventId, BattleFault> {
+    apply_ordinary_damage_with_floor(
+        txn,
+        cause,
+        parent,
+        operation,
+        target,
+        kind,
+        class,
+        element,
+        source_effect,
+        raw,
+        calculated,
+        0,
+    )
+}
+
+#[allow(clippy::too_many_arguments)]
+fn apply_ordinary_damage_with_floor(
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -801,6 +839,7 @@ pub(super) fn apply_ordinary_damage(
     source_effect: Option<crate::EffectInstanceId>,
     raw: crate::Scalar,
     calculated: crate::DamageAmount,
+    minimum_hp: i64,
 ) -> Result<EventId, BattleFault> {
     let (hp_before, life_before) = txn
         .state
@@ -826,7 +865,7 @@ pub(super) fn apply_ordinary_damage(
         );
     }
     let overflow_raw = calculated.get() - absorbed.get();
-    let applied_raw = overflow_raw.min(hp_before.get());
+    let applied_raw = overflow_raw.min(hp_before.get().saturating_sub(minimum_hp));
     let applied = DamageAmount::new(applied_raw).map_err(|_| numeric_fault(2, applied_raw))?;
     let hp_after =
         Hp::new(hp_before.get() - applied_raw).map_err(|_| numeric_fault(3, hp_before.get()))?;
@@ -1048,128 +1087,6 @@ fn execute_remove_effects(
                 }),
             );
         }
-    }
-    Ok(parent)
-}
-
-fn execute_shield(
-    catalog: &crate::catalog::CombatCatalog,
-    txn: &mut Transaction<'_>,
-    cause: Cause,
-    mut parent: EventId,
-    operation: ShieldOp,
-) -> Result<EventId, BattleFault> {
-    let inputs = super::operation_formula::FormulaInputs::new(txn)?;
-    for target in operation.targets {
-        let calculation = inputs.shield(catalog, txn, cause, operation.formula, target)?;
-        let shield = txn.allocate_shield();
-        txn.state
-            .shields
-            .insert(crate::effect::shield::ShieldState {
-                id: shield,
-                owner: target,
-                source_operation: operation.id,
-                remaining: calculation.finalized,
-                policy: operation.formula.policy(),
-            })
-            .map_err(|_| invariant_fault(4))?;
-        txn.record_shield_change(
-            crate::ShieldAmount::new(0).expect("zero shield amount is valid"),
-            calculation.finalized,
-        );
-        parent = txn.emit(
-            cause.with_parent(parent).with_primary_target(Some(target)),
-            BattleEventKind::Shield(ShieldEventData::Applied {
-                operation: operation.id,
-                shield,
-                target,
-                raw: calculation.raw,
-                amount: calculation.finalized,
-            }),
-        );
-    }
-    Ok(parent)
-}
-
-fn execute_hp_consumption(
-    txn: &mut Transaction<'_>,
-    cause: Cause,
-    mut parent: EventId,
-    operation: ConsumeHpOp,
-) -> Result<EventId, BattleFault> {
-    for target in operation.targets {
-        let before = txn
-            .state
-            .units
-            .get(target)
-            .map(|unit| unit.current_hp)
-            .ok_or_else(|| invariant_fault(5))?;
-        let result = formula::hp::consume(
-            before,
-            operation.definition.requested(),
-            operation.definition.floor(),
-        )
-        .map_err(|_| numeric_fault(10, operation.definition.requested().get()))?;
-        txn.set_hp(target, result.after)?;
-        parent = txn.emit(
-            cause.with_parent(parent).with_primary_target(Some(target)),
-            BattleEventKind::HpConsumption(HpConsumptionEventData {
-                operation: operation.id,
-                target,
-                requested: result.requested,
-                effective: result.effective,
-                overflow: result.overflow,
-                hp_before: result.before,
-                hp_after: result.after,
-            }),
-        );
-    }
-    Ok(parent)
-}
-
-fn execute_heal(
-    catalog: &crate::catalog::CombatCatalog,
-    txn: &mut Transaction<'_>,
-    cause: Cause,
-    mut parent: EventId,
-    operation: HealOp,
-) -> Result<EventId, BattleFault> {
-    let inputs = super::operation_formula::FormulaInputs::new(txn)?;
-    for target in operation.targets {
-        let calculation = inputs.healing(catalog, txn, cause, operation.formula, target)?;
-        let (hp_before, maximum_hp, life) = txn
-            .state
-            .units
-            .get(target)
-            .map(|unit| (unit.current_hp, unit.maximum_hp, unit.life))
-            .ok_or_else(|| invariant_fault(3))?;
-        let missing = if life == LifeState::Alive {
-            maximum_hp.get() - hp_before.get()
-        } else {
-            0
-        };
-        let effective_raw = calculation.finalized.get().min(missing);
-        let overheal_raw = calculation.finalized.get() - effective_raw;
-        let effective =
-            HealingAmount::new(effective_raw).map_err(|_| numeric_fault(5, effective_raw))?;
-        let overheal =
-            HealingAmount::new(overheal_raw).map_err(|_| numeric_fault(6, overheal_raw))?;
-        let hp_after = Hp::new(hp_before.get() + effective_raw)
-            .map_err(|_| numeric_fault(7, hp_before.get()))?;
-        txn.set_hp(target, hp_after)?;
-        parent = txn.emit(
-            cause.with_parent(parent).with_primary_target(Some(target)),
-            BattleEventKind::Heal(HealEventData {
-                operation: operation.id,
-                target,
-                raw: calculation.raw,
-                calculated: calculation.finalized,
-                effective,
-                overheal,
-                hp_before,
-                hp_after,
-            }),
-        );
     }
     Ok(parent)
 }

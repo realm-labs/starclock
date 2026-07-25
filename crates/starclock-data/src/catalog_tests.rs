@@ -146,6 +146,7 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
         rounding: starclock_combat::Rounding::NearestTiesEven,
     };
     let mut input = starclock_combat::rule::model::RuleEvaluationInput {
+        rule_owner: None,
         event_kind: starclock_combat::rule::model::RuleEventKind::Action,
         event_facts: &starclock_combat::rule::model::RuleEventFacts {
             point: Some(starclock_combat::rule::model::RuleEventPoint::ActionResolved),

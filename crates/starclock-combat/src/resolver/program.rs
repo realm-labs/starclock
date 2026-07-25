@@ -2,7 +2,7 @@
 
 use crate::{
     Ratio, Rounding, Scalar,
-    battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
+    battle::fault::BattleFault,
     catalog::action::{HitCritPolicy, OrdinaryDamageDefinition, OrdinaryDamageMultipliers},
     event::{
         cause::Cause,
@@ -11,8 +11,8 @@ use crate::{
     operation::{
         AddWeaknessOp, ApplyEffectOp, ChangePresenceOp, ConsumeHpOp, CreateCountdownOp, DamageOp,
         DetonateDotsOp, ForceBreakOp, HitOperationScratch, ModifyStateSlotOp, Operation,
-        QueueRuleActionOp, ReduceToughnessOp, RemoveEffectsOp, SummonLinkedOp, SuperBreakOp,
-        TransformOp, UnitLifecycleOp,
+        QueueRuleActionOp, ReduceToughnessOp, RemoveEffectsOp, RemoveShieldsOp, ShieldOp,
+        SummonLinkedOp, SuperBreakOp, TransformOp, UnitLifecycleOp,
     },
     rule::{
         evaluate::{EvaluationBudget, evaluate_program},
@@ -28,6 +28,8 @@ use crate::{
 use std::collections::BTreeMap;
 
 use super::{operation::execute_operation, transaction::Transaction};
+mod fault;
+use fault::{emission_code, program_fault};
 
 pub(super) struct AbilityProgramContext {
     pub(super) program: crate::ProgramId,
@@ -180,6 +182,7 @@ fn execute_program(
             event_facts: &event_facts,
             cause: rule_cause,
             occurrence,
+            rule_owner: Some(context.owner),
             source_tags: &[],
             slots: &[],
             selectors: &views,
@@ -223,6 +226,7 @@ fn execute_program(
         event_facts: &event_facts,
         cause: rule_cause,
         occurrence,
+        rule_owner: Some(context.owner),
         source_tags: &[],
         slots: &[],
         selectors: &selectors,
@@ -331,6 +335,7 @@ fn execute_emission(
             amount,
             class,
             element,
+            can_defeat,
             ..
         } => {
             let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
@@ -346,6 +351,7 @@ fn execute_emission(
                 targets: emission_targets(catalog, resolved, selector, current_target)?,
                 formula,
                 element: Some(element),
+                minimum_hp: i64::from(!can_defeat),
             })
         }
         RuleEmission::TrueDamage {
@@ -364,6 +370,7 @@ fn execute_emission(
                 targets: emission_targets(catalog, resolved, selector, current_target)?,
                 formula,
                 element: None,
+                minimum_hp: 0,
             })
         }
         RuleEmission::Heal {
@@ -383,6 +390,36 @@ fn execute_emission(
                 formula,
             })
         }
+        RuleEmission::Shield {
+            selector,
+            amount,
+            effect,
+            ..
+        } => {
+            if catalog.effect(effect).is_none() {
+                return Err(program_fault(59, i64::from(effect.get())));
+            }
+            let amount = non_negative_scalar(amount)?;
+            let formula = crate::catalog::action::ShieldDefinition::new(
+                amount,
+                Ratio::ZERO,
+                crate::formula::shield::ShieldAbsorptionPolicy::ConcurrentLargest,
+            )
+            .map_err(|_| program_fault(60, amount.scaled()))?;
+            Operation::Shield(ShieldOp {
+                id: operation_id,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
+                formula,
+                source_effect: Some(effect),
+            })
+        }
+        RuleEmission::RemoveShield {
+            selector, effect, ..
+        } => Operation::RemoveShields(RemoveShieldsOp {
+            id: operation_id,
+            targets: emission_targets(catalog, resolved, selector, current_target)?,
+            effect,
+        }),
         RuleEmission::ConsumeHp {
             selector,
             amount,
@@ -722,6 +759,7 @@ fn emission_current_target(emission: &RuleEmission) -> Option<crate::UnitId> {
         | RuleEmission::TrueDamage { current_target, .. }
         | RuleEmission::Heal { current_target, .. }
         | RuleEmission::Shield { current_target, .. }
+        | RuleEmission::RemoveShield { current_target, .. }
         | RuleEmission::ConsumeHp { current_target, .. }
         | RuleEmission::ReduceToughness { current_target, .. }
         | RuleEmission::Break { current_target, .. }
@@ -1156,37 +1194,4 @@ fn scale(value: Scalar, ratio: Ratio) -> Result<Scalar, BattleFault> {
     ratio
         .checked_apply(value, Rounding::NearestTiesEven)
         .map_err(|_| program_fault(42, value.scaled()))
-}
-
-const fn emission_code(emission: &RuleEmission) -> i64 {
-    match emission {
-        RuleEmission::SetSlot { .. } => 1,
-        RuleEmission::AddSlot { .. } => 2,
-        RuleEmission::TrueDamage { .. } => 3,
-        RuleEmission::Shield { .. } => 4,
-        RuleEmission::Break { .. } => 5,
-        RuleEmission::RemoveWeakness { .. } => 6,
-        RuleEmission::CreateToughnessLayer { .. } => 7,
-        RuleEmission::RemoveToughnessLayer { .. } => 8,
-        RuleEmission::RemoveEffect { .. } => 9,
-        RuleEmission::ModifyStateSlot { .. } => 10,
-        RuleEmission::QueueAction { .. } => 11,
-        RuleEmission::GrantExtraTurn { .. } => 12,
-        RuleEmission::Summon { .. } => 13,
-        RuleEmission::CreateCountdown { .. } => 14,
-        RuleEmission::Informational { .. } => 15,
-        RuleEmission::Replacement { .. } => 16,
-        RuleEmission::InvokeNative { .. } => 17,
-        _ => 0,
-    }
-}
-
-fn program_fault(context: u32, detail: i64) -> BattleFault {
-    BattleFault::new(
-        FaultKind::InvariantViolation,
-        FaultBoundary::Command,
-        FaultPolicy::Rollback,
-        0x33a0 + context,
-        Some(detail),
-    )
 }

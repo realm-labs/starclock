@@ -12,6 +12,7 @@ pub(crate) enum Operation {
     Damage(DamageOp),
     Heal(HealOp),
     Shield(ShieldOp),
+    RemoveShields(RemoveShieldsOp),
     ConsumeHp(ConsumeHpOp),
     AddWeakness(AddWeaknessOp),
     ReduceToughness(ReduceToughnessOp),
@@ -41,6 +42,7 @@ impl Operation {
             Self::Damage(operation) => operation.id,
             Self::Heal(operation) => operation.id,
             Self::Shield(operation) => operation.id,
+            Self::RemoveShields(operation) => operation.id,
             Self::ConsumeHp(operation) => operation.id,
             Self::AddWeakness(operation) => operation.id,
             Self::ReduceToughness(operation) => operation.id,
@@ -219,6 +221,7 @@ pub(crate) struct DamageOp {
     pub(crate) targets: Box<[UnitId]>,
     pub(crate) formula: OrdinaryDamageDefinition,
     pub(crate) element: Option<crate::formula::model::CombatElement>,
+    pub(crate) minimum_hp: i64,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -233,6 +236,14 @@ pub(crate) struct ShieldOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
     pub(crate) formula: ShieldDefinition,
+    pub(crate) source_effect: Option<crate::EffectDefinitionId>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct RemoveShieldsOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) effect: crate::EffectDefinitionId,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

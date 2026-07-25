@@ -109,6 +109,7 @@ fn after_defeat_settlement_dispatches_from_the_defeated_fact() {
                 class: DamageClass::Direct,
                 element: CombatElement::Physical,
                 can_crit: false,
+                can_defeat: true,
             }),
         ]);
     let trigger = TestTrigger {

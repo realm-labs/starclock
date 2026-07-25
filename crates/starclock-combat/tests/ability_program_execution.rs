@@ -238,6 +238,7 @@ fn catalog_with_trigger(
                     class: DamageClass::Additional,
                     element: CombatElement::Physical,
                     can_crit: false,
+                    can_defeat: true,
                 })]
             }
         });
@@ -835,6 +836,7 @@ fn hit_programs_use_authored_selector_order_and_exact_hit_shares() {
                 class: DamageClass::Direct,
                 element: CombatElement::Physical,
                 can_crit: false,
+                can_defeat: true,
             }),
         ]);
     let mut battle = battle(
@@ -866,6 +868,51 @@ fn hit_programs_use_authored_selector_order_and_exact_hit_shares() {
 }
 
 #[test]
+fn rule_damage_marked_nonlethal_clamps_each_emission_at_one_hp() {
+    let program =
+        ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![], vec![]).with_steps(vec![
+            ProgramStep::Operation(RuleOperationTemplate::Damage {
+                selector: id(2),
+                amount: ValueExpr::Literal(RuleValue::Scalar(
+                    Scalar::checked_from_integer(2_000).unwrap(),
+                )),
+                class: DamageClass::Additional,
+                element: CombatElement::Physical,
+                can_crit: false,
+                can_defeat: false,
+            }),
+        ]);
+    let mut battle = battle(
+        catalog(program, false, false, false, false),
+        false,
+        false,
+        false,
+    );
+    let resolution = start_and_use(&mut battle).unwrap();
+    let damage = resolution
+        .events()
+        .iter()
+        .filter_map(|event| match event.kind() {
+            BattleEventKind::Damage(value) => Some(value.applied.get()),
+            _ => None,
+        })
+        .collect::<Vec<_>>();
+
+    assert_eq!(damage, [500, 499]);
+    assert_eq!(
+        battle
+            .view()
+            .units_by_id()
+            .nth(1)
+            .unwrap()
+            .current_hp()
+            .get(),
+        1
+    );
+    assert!(resolution.fault().is_none());
+}
+
+#[test]
 fn selected_build_modifier_changes_rule_ir_stat_query_inside_transaction() {
     let program =
         ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![], vec![]).with_steps(vec![
@@ -879,6 +926,7 @@ fn selected_build_modifier_changes_rule_ir_stat_query_inside_transaction() {
                 class: DamageClass::Direct,
                 element: CombatElement::Physical,
                 can_crit: false,
+                can_defeat: true,
             }),
         ]);
     let mut battle = battle(
@@ -1005,6 +1053,7 @@ fn recursively_emitting_rule_faults_at_the_dispatch_budget_and_rolls_back() {
                 class: DamageClass::Direct,
                 element: CombatElement::Physical,
                 can_crit: false,
+                can_defeat: true,
             }),
         ]);
     let mut battle = battle(

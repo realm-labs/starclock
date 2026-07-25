@@ -101,6 +101,6 @@ pub use toughness::model::{
 /// Compatibility identifier for authoritative numeric representation and rounding.
 pub const NUMERIC_POLICY_REVISION: &str = "fixed-i64-6dp-v1";
 /// Compatibility identifier for canonical battle-state hashing.
-pub const STATE_HASH_REVISION: &str = "sha256-v5";
+pub const STATE_HASH_REVISION: &str = "sha256-v6";
 /// Compatibility identifier for canonical combat-input encoding and hashing.
 pub const COMBAT_INPUT_CODEC_REVISION: &str = "combat-input-v1";

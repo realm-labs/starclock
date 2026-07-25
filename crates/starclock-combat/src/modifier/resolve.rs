@@ -325,6 +325,7 @@ impl<'a> StatResolver<'a> {
                 turn_event: None,
                 wave: WaveInstanceId::new(1).expect("nonzero"),
             },
+            rule_owner: Some(instance.owner),
             source_tags: &[],
             slots: &instance.slots,
             selectors: &[],

@@ -237,7 +237,7 @@ fn battle_construction_allocates_canonical_private_stores_and_read_only_views() 
         view.identity().rng_algorithm_revision(),
         "chacha8-rand-0.10.2-intmap-v1"
     );
-    assert_eq!(view.identity().state_hash_revision(), "sha256-v5");
+    assert_eq!(view.identity().state_hash_revision(), "sha256-v6");
     assert_eq!(view.identity().seed().bytes(), [0x71; 32]);
     assert_eq!(view.encounter().definition(), definition::<EncounterId>(1));
     assert_eq!(view.encounter().wave().get(), 1);
@@ -336,8 +336,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         battle.state_hash().bytes(),
         [
-            205, 110, 251, 81, 85, 185, 155, 216, 56, 35, 235, 202, 133, 3, 10, 54, 31, 22, 241,
-            22, 212, 180, 197, 95, 64, 188, 95, 168, 12, 148, 181, 245,
+            5, 124, 212, 116, 110, 23, 219, 16, 15, 19, 119, 86, 235, 218, 113, 78, 206, 63, 202,
+            22, 203, 57, 37, 151, 233, 254, 162, 58, 54, 127, 101, 58,
         ]
     );
     let before = snapshot(&battle);
@@ -366,8 +366,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         started.state_hash().bytes(),
         [
-            47, 25, 181, 4, 236, 235, 44, 63, 90, 88, 24, 216, 99, 164, 1, 147, 124, 5, 214, 224,
-            183, 194, 159, 199, 182, 79, 122, 17, 202, 4, 66, 50,
+            33, 76, 207, 164, 66, 72, 141, 52, 88, 4, 15, 109, 142, 201, 74, 24, 245, 198, 241,
+            241, 205, 133, 155, 243, 133, 77, 115, 83, 226, 38, 123, 63,
         ]
     );
     assert_eq!(started.phase(), BattlePhase::AwaitingCommand);
@@ -440,8 +440,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         passed.state_hash().bytes(),
         [
-            62, 222, 212, 102, 180, 139, 108, 9, 192, 10, 22, 195, 242, 184, 78, 100, 152, 53, 146,
-            18, 154, 158, 38, 38, 101, 20, 124, 59, 238, 153, 70, 184,
+            38, 228, 191, 120, 19, 55, 228, 180, 88, 105, 251, 223, 139, 83, 57, 206, 72, 172, 27,
+            66, 163, 5, 53, 160, 102, 202, 61, 213, 210, 108, 37, 10,
         ]
     );
     let next = passed.next_decision().unwrap();
@@ -484,8 +484,8 @@ fn rejected_stale_forged_and_terminal_commands_preserve_observable_state() {
     assert_eq!(
         ended.state_hash().bytes(),
         [
-            52, 244, 198, 60, 23, 221, 27, 251, 88, 205, 233, 63, 33, 194, 1, 209, 165, 165, 224,
-            225, 144, 138, 110, 127, 97, 0, 105, 18, 61, 232, 233, 95,
+            132, 154, 218, 89, 125, 10, 89, 172, 201, 30, 102, 171, 98, 80, 223, 207, 22, 239, 131,
+            8, 193, 3, 82, 216, 48, 171, 81, 249, 114, 217, 215, 47,
         ]
     );
     assert_eq!(ended.phase(), BattlePhase::Lost);
@@ -541,8 +541,8 @@ fn normal_action_lowers_one_phase_and_hit_then_selects_the_next_turn() {
     assert_eq!(
         resolution.state_hash().bytes(),
         [
-            95, 98, 196, 35, 60, 29, 129, 53, 1, 112, 16, 228, 48, 169, 34, 192, 96, 42, 27, 236,
-            71, 244, 111, 140, 227, 134, 194, 85, 59, 191, 208, 54,
+            8, 253, 111, 149, 127, 140, 73, 165, 192, 164, 216, 180, 65, 96, 173, 171, 128, 127,
+            150, 117, 214, 153, 50, 88, 49, 139, 197, 149, 243, 235, 7, 77,
         ]
     );
 

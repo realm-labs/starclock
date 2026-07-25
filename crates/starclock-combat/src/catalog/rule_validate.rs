@@ -399,6 +399,15 @@ fn validate_operation(
                 return Err(format!("shield refers to missing effect {}", effect.get()));
             }
         }
+        RuleOperationTemplate::RemoveShield { selector, effect } => {
+            require_selector(catalog, *selector)?;
+            if catalog.effect(*effect).is_none() {
+                return Err(format!(
+                    "shield removal refers to missing effect {}",
+                    effect.get()
+                ));
+            }
+        }
         RuleOperationTemplate::ConsumeHp {
             selector,
             amount,
@@ -590,7 +599,8 @@ fn infer_value(
             | EventValueProperty::PrimaryTargetId => RuleValueKind::OptionalStableId,
             EventValueProperty::DamageAmount
             | EventValueProperty::HpChangeAmount
-            | EventValueProperty::ResourceDelta => RuleValueKind::Scalar,
+            | EventValueProperty::ResourceDelta
+            | EventValueProperty::ShieldChangeAmount => RuleValueKind::Scalar,
             EventValueProperty::StackCount | EventValueProperty::HitIndex => RuleValueKind::Integer,
         },
         ValueExpr::SelectorCount(selector) => {
@@ -611,7 +621,7 @@ fn infer_value(
         | ValueExpr::EventApplier
         | ValueExpr::EventTarget
         | ValueExpr::CurrentTarget => RuleValueKind::OptionalStableId,
-        ValueExpr::QueryStat { .. } => RuleValueKind::Scalar,
+        ValueExpr::QueryStat { .. } | ValueExpr::QueryShield { .. } => RuleValueKind::Scalar,
         ValueExpr::Add(lhs, rhs)
         | ValueExpr::Subtract(lhs, rhs)
         | ValueExpr::Minimum(lhs, rhs)
@@ -710,7 +720,7 @@ fn once_scope_constructible(trigger: &TriggerDef) -> bool {
                 | crate::rule::model::RuleEventKind::Damage
                 | crate::rule::model::RuleEventKind::Heal
         ),
-        OnceScope::Ability | OnceScope::Action => matches!(
+        OnceScope::Ability | OnceScope::Action | OnceScope::TargetWithinAction => matches!(
             trigger.event,
             crate::rule::model::RuleEventKind::Action
                 | crate::rule::model::RuleEventKind::Phase

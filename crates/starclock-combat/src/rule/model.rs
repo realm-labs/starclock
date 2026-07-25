@@ -9,6 +9,7 @@ use crate::{
     formula::model::{CombatElement, DamageClass},
     modifier::model::{FormulaPurpose, StatKind, StatQuerySubject},
 };
+mod support;
 
 /// Stable generic semantic class for rule attribution and filtering.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -398,6 +399,7 @@ pub enum EventValueProperty {
     ResourceDelta,
     StackCount,
     HitIndex,
+    ShieldChangeAmount,
 }
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -411,6 +413,10 @@ pub struct RuleEventFacts {
     pub resource: Option<RuleResourceKind>,
     pub damage_amount: Option<Scalar>,
     pub hp_change_amount: Option<Scalar>,
+    /// Effective visible shield on the event target immediately before mutation.
+    pub shield_before: Option<Scalar>,
+    /// Signed capacity delta carried by a shield mutation event.
+    pub shield_change_amount: Option<Scalar>,
     /// Effective Toughness reduction carried by a `Reduced` event.
     pub toughness_reduction: Option<crate::RawToughness>,
     pub resource_delta: Option<Scalar>,
@@ -457,6 +463,8 @@ pub enum OnceScope {
     Turn,
     Wave,
     Battle,
+    /// Once for each distinct target observed inside one action.
+    TargetWithinAction,
 }
 
 /// Cheap indexed cause fields checked before contextual conditions.
@@ -511,6 +519,11 @@ pub enum ValueExpr {
         stat: StatKind,
         purpose: FormulaPurpose,
     },
+    /// Reads effective visible shield capacity from the dedicated shield store.
+    QueryShield {
+        subject: StatQuerySubject,
+        observation: ShieldObservation,
+    },
     Add(Box<ValueExpr>, Box<ValueExpr>),
     Subtract(Box<ValueExpr>, Box<ValueExpr>),
     Multiply {
@@ -541,6 +554,15 @@ pub enum ValueExpr {
         target: RuleValueKind,
         rounding: Rounding,
     },
+}
+
+/// Explicit temporal reference for a shield query.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum ShieldObservation {
+    /// Current effective capacity in the immutable evaluation snapshot.
+    Current,
+    /// Capacity immediately before the observed event mutated the event target.
+    BeforeEvent,
 }
 
 /// Typed comparison operator.
@@ -622,6 +644,7 @@ pub enum RuleOperationTemplate {
         class: DamageClass,
         element: CombatElement,
         can_crit: bool,
+        can_defeat: bool,
     },
     TrueDamage {
         selector: SelectorId,
@@ -634,6 +657,10 @@ pub enum RuleOperationTemplate {
     Shield {
         selector: SelectorId,
         amount: ValueExpr,
+        effect: EffectDefinitionId,
+    },
+    RemoveShield {
+        selector: SelectorId,
         effect: EffectDefinitionId,
     },
     ConsumeHp {
@@ -923,6 +950,7 @@ pub enum RuleEmission {
         class: DamageClass,
         element: CombatElement,
         can_crit: bool,
+        can_defeat: bool,
         current_target: Option<UnitId>,
     },
     TrueDamage {
@@ -938,6 +966,11 @@ pub enum RuleEmission {
     Shield {
         selector: SelectorId,
         amount: RuleValue,
+        effect: EffectDefinitionId,
+        current_target: Option<UnitId>,
+    },
+    RemoveShield {
+        selector: SelectorId,
         effect: EffectDefinitionId,
         current_target: Option<UnitId>,
     },
@@ -1103,6 +1136,8 @@ pub struct RuleEvaluationInput<'a> {
     pub event_facts: &'a RuleEventFacts,
     pub cause: RuleCause,
     pub occurrence: RuleOccurrence,
+    /// Owner of the rule/program currently being evaluated, distinct from the observed cause.
+    pub rule_owner: Option<UnitId>,
     pub source_tags: &'a [SourceDefinitionId],
     pub slots: &'a [(StateSlotDefinitionId, RuleValue)],
     pub selectors: &'a [SelectorResult<'a>],
@@ -1110,30 +1145,6 @@ pub struct RuleEvaluationInput<'a> {
     pub ability_parameter_reader: Option<&'a dyn super::evaluate::AbilityParameterReader>,
     pub resource_reader: Option<&'a dyn super::evaluate::ResourceQueryReader>,
     pub battle_query_reader: Option<&'a dyn super::evaluate::BattleQueryReader>,
-}
-impl core::fmt::Debug for RuleEvaluationInput<'_> {
-    fn fmt(&self, formatter: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        formatter
-            .debug_struct("RuleEvaluationInput")
-            .field("event_kind", &self.event_kind)
-            .field("event_facts", &self.event_facts)
-            .field("cause", &self.cause)
-            .field("occurrence", &self.occurrence)
-            .field("source_tags", &self.source_tags)
-            .field("slots", &self.slots)
-            .field("selectors", &self.selectors)
-            .field("has_stat_reader", &self.stat_reader.is_some())
-            .field(
-                "has_ability_parameter_reader",
-                &self.ability_parameter_reader.is_some(),
-            )
-            .field("has_resource_reader", &self.resource_reader.is_some())
-            .field(
-                "has_battle_query_reader",
-                &self.battle_query_reader.is_some(),
-            )
-            .finish()
-    }
 }
 /// Stable key used to enforce one trigger occurrence.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -1151,29 +1162,7 @@ pub fn once_key(
     scope: OnceScope,
     occurrence: RuleOccurrence,
 ) -> Option<OnceKey> {
-    let (first, second) = match scope {
-        OnceScope::Event => (occurrence.event.get(), 0),
-        OnceScope::Hit => (occurrence.hit?.get(), 0),
-        OnceScope::TargetWithinHit => (occurrence.hit?.get(), occurrence.target?.get()),
-        OnceScope::Ability => (
-            occurrence.action?.get(),
-            u64::from(occurrence.ability?.get()),
-        ),
-        OnceScope::Action => (occurrence.action?.get(), 0),
-        // Turn keys are cleared atomically at every TurnStart boundary. Keeping
-        // the key local to the rule instance avoids persisting a second turn
-        // identity solely for once-scope bookkeeping.
-        OnceScope::Turn => (0, 0),
-        OnceScope::Wave => (occurrence.wave.get(), 0),
-        OnceScope::Battle => (0, 0),
-    };
-    Some(OnceKey {
-        rule_instance: occurrence.rule_instance,
-        trigger,
-        scope,
-        first,
-        second,
-    })
+    support::once_key(trigger, scope, occurrence)
 }
 /// Stable definition-only order; runtime owner/instance/insertion keys append to it.
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]

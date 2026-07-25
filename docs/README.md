@@ -122,6 +122,10 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 96. [Goal 07 effect, state and lifecycle runtime](goal-07-effect-state-and-lifecycle-runtime.md) — authoritative slot resets, effect stacking, DoT ticks/detonations, duration clocks, teardown and formal Excel/Sora evidence.
 97. [Goal 07 action, reaction, Break and boundary runtime](goal-07-action-reaction-break-and-boundary-runtime.md) — persistent extra turns, semantic reaction ordering, Break hooks, executable wave/phase programs and compatibility revisions.
 98. [Goal 07 shared capability and content gates](goal-07-shared-capability-and-content-gates.md) — executable shared-probe matrix, zero-handler admission contract and ordered exact-coverage receipts for all 104 content batches.
+99. [Goal 07 Ability Tree partition S01](goal-07-ability-tree-s01.md) — first Ability Tree partition authoring and executable run/battle capabilities.
+100. [Goal 07 Ability Tree partition S02](goal-07-ability-tree-s02.md) — battle modifiers, Resonance resources and Formation-boundary execution.
+101. [Goal 07 Ability Tree partition S03](goal-07-ability-tree-s03.md) — generic Formation capacity, Reviver carry and consumable authorization.
+102. [Goal 07 Preservation partition S01](goal-07-preservation-s01.md) — exact Quake composition, Macrosegregation shield lifecycle, splash, Bleed and shared core primitives.
 
 ## Execution goals
 

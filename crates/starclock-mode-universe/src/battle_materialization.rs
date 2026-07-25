@@ -520,6 +520,9 @@ impl UniverseBattleMaterializer {
             for program in executable.programs() {
                 builder.add_program(program.clone());
             }
+            for effect in executable.effects() {
+                builder.add_effect(effect.clone());
+            }
             builder.add_rule(executable.definition().clone());
             builder.add_rule_bundle(executable.bundle().clone());
         }

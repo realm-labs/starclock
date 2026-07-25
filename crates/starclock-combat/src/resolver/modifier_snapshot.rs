@@ -320,6 +320,7 @@ fn collect_value_queries(
             collect_value_queries(when_false, policy, instance, output);
         }
         ValueExpr::QueryStat { .. }
+        | ValueExpr::QueryShield { .. }
         | ValueExpr::Literal(_)
         | ValueExpr::Slot(_)
         | ValueExpr::AbilityParameter { .. }

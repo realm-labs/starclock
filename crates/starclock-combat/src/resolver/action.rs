@@ -271,6 +271,7 @@ pub(super) fn execute_action_plan(
                             targets: targets.clone(),
                             formula,
                             element: Some(definition.element()),
+                            minimum_hp: 0,
                         })
                     }
                     HitOperationDefinition::Damage(formula) => Operation::Damage(DamageOp {
@@ -278,6 +279,7 @@ pub(super) fn execute_action_plan(
                         targets: targets.clone(),
                         formula: *formula,
                         element: None,
+                        minimum_hp: 0,
                     }),
                     HitOperationDefinition::Heal(formula) => Operation::Heal(HealOp {
                         id: operation.id,
@@ -288,6 +290,7 @@ pub(super) fn execute_action_plan(
                         id: operation.id,
                         targets: targets.clone(),
                         formula: *formula,
+                        source_effect: None,
                     }),
                     HitOperationDefinition::ConsumeHp(definition) => {
                         Operation::ConsumeHp(ConsumeHpOp {

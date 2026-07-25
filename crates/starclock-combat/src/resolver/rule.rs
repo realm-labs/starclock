@@ -227,6 +227,7 @@ fn evaluate_candidate(
             event_facts: &event_facts,
             cause: rule_cause,
             occurrence,
+            rule_owner: Some(owner),
             source_tags: &candidate.source_tags,
             slots: &candidate.slots,
             selectors: &views,
@@ -274,6 +275,7 @@ fn evaluate_candidate(
         event_facts: &event_facts,
         cause: rule_cause,
         occurrence,
+        rule_owner: Some(owner),
         source_tags: &candidate.source_tags,
         slots: &candidate.slots,
         selectors: &selectors,
@@ -494,6 +496,13 @@ fn event_facts(
             let amount = scalar_from_u64(data.applied.get());
             facts.damage_amount = amount;
             facts.hp_change_amount = amount.and_then(|value| value.checked_neg().ok());
+            facts.shield_before = txn
+                .state
+                .shields
+                .effective_remaining(data.target)
+                .ok()
+                .and_then(|after| after.get().checked_add(data.absorbed.get()))
+                .and_then(scalar_from_u64);
         }
         BattleEventKind::BreakDamage(data) => {
             facts.damage_class = Some(match data.kind {
@@ -506,6 +515,13 @@ fn event_facts(
             let amount = scalar_from_u64(data.applied.get());
             facts.damage_amount = amount;
             facts.hp_change_amount = amount.and_then(|value| value.checked_neg().ok());
+            facts.shield_before = txn
+                .state
+                .shields
+                .effective_remaining(data.target)
+                .ok()
+                .and_then(|after| after.get().checked_add(data.absorbed.get()))
+                .and_then(scalar_from_u64);
         }
         BattleEventKind::HpConsumption(data) => {
             facts.hp_change_amount =
@@ -513,6 +529,15 @@ fn event_facts(
         }
         BattleEventKind::Heal(data) => {
             facts.hp_change_amount = scalar_from_u64(data.effective.get());
+        }
+        BattleEventKind::Shield(data) => {
+            facts.shield_change_amount = match data {
+                crate::ShieldEventData::Applied { amount, .. } => scalar_from_u64(amount.get()),
+                crate::ShieldEventData::Absorbed { before, after, .. } => {
+                    signed_scalar(after.get() - before.get())
+                }
+                crate::ShieldEventData::Removed { before, .. } => signed_scalar(-before.get()),
+            };
         }
         BattleEventKind::Toughness(data) => {
             facts.element = toughness_element(data);
@@ -652,6 +677,7 @@ struct UnitQuerySnapshot {
     life: crate::LifeState,
     presence: crate::PresenceState,
     energy: crate::Scalar,
+    shield: crate::Scalar,
     resources: BTreeMap<Box<str>, crate::Scalar>,
     weaknesses: BTreeSet<CombatElement>,
     broken: bool,
@@ -678,6 +704,13 @@ impl BattleQuerySnapshot {
                         life: unit.life,
                         presence: unit.presence,
                         energy: crate::Scalar::from_scaled(unit.current_energy.scaled()),
+                        shield: txn
+                            .state
+                            .shields
+                            .effective_remaining(unit.id)
+                            .ok()
+                            .and_then(|value| crate::Scalar::checked_from_integer(value.get()).ok())
+                            .unwrap_or(crate::Scalar::ZERO),
                         resources: unit
                             .resources
                             .iter()
@@ -759,6 +792,10 @@ impl crate::rule::evaluate::BattleQueryReader for BattleQuerySnapshot {
 
     fn is_broken(&self, subject: UnitId) -> bool {
         self.units.get(&subject).is_some_and(|unit| unit.broken)
+    }
+
+    fn current_shield(&self, subject: UnitId) -> Option<crate::Scalar> {
+        self.units.get(&subject).map(|unit| unit.shield)
     }
 }
 

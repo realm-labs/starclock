@@ -3,13 +3,16 @@
 use core::cmp::Ordering;
 use std::collections::BTreeSet;
 
+mod helpers;
+use helpers::{budget_error, numeric_error, optional_unit, type_error};
+
 use super::model::{
     CauseAncestry, Comparison, ConditionExpr, EventFilter, EventValueProperty, ProgramStep,
     RuleEmission, RuleEvaluationInput, RuleOperationTemplate, RuleReplacementProposal,
-    RuleResourceKind, RuleValue, RuleValueKind, TriggerDef, ValueExpr, once_key,
+    RuleResourceKind, RuleValue, RuleValueKind, ShieldObservation, TriggerDef, ValueExpr, once_key,
 };
 use crate::modifier::model::{FormulaPurpose, StatKind, StatQuerySubject};
-use crate::{NumericError, ProgramId, RuleId, Scalar, StateSlotDefinitionId, UnitId};
+use crate::{ProgramId, RuleId, Scalar, StateSlotDefinitionId, UnitId};
 
 /// Immutable program lookup used by the evaluator and static handler tests.
 pub trait ProgramLookup {
@@ -45,6 +48,7 @@ pub trait BattleQueryReader {
     fn has_effect(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> bool;
     fn has_weakness(&self, subject: UnitId, element: crate::formula::model::CombatElement) -> bool;
     fn is_broken(&self, subject: UnitId) -> bool;
+    fn current_shield(&self, subject: UnitId) -> Option<Scalar>;
 }
 
 /// Stable evaluation failure category.
@@ -345,12 +349,14 @@ fn evaluate_operation(
             class,
             element,
             can_crit,
+            can_defeat,
         } => RuleEmission::Damage {
             selector: *selector,
             amount: evaluate_value(amount, input, current_target)?,
             class: *class,
             element: *element,
             can_crit: *can_crit,
+            can_defeat: *can_defeat,
             current_target,
         },
         RuleOperationTemplate::TrueDamage { selector, amount } => RuleEmission::TrueDamage {
@@ -370,6 +376,11 @@ fn evaluate_operation(
         } => RuleEmission::Shield {
             selector: *selector,
             amount: evaluate_value(amount, input, current_target)?,
+            effect: *effect,
+            current_target,
+        },
+        RuleOperationTemplate::RemoveShield { selector, effect } => RuleEmission::RemoveShield {
+            selector: *selector,
             effect: *effect,
             current_target,
         },
@@ -860,6 +871,27 @@ pub fn evaluate_value(
                 .query_stat(origin, subject, *stat, *purpose)
                 .map(RuleValue::Scalar)
         }
+        ValueExpr::QueryShield {
+            subject,
+            observation,
+        } => {
+            let subject = query_subject(*subject, input, current_target)?;
+            let current = input
+                .battle_query_reader
+                .and_then(|reader| reader.current_shield(subject))
+                .ok_or(RuleEvaluationError {
+                    kind: RuleEvaluationErrorKind::MissingValue,
+                    context: 0x202,
+                })?;
+            let value = match observation {
+                ShieldObservation::Current => current,
+                ShieldObservation::BeforeEvent if input.cause.target == Some(subject) => {
+                    input.event_facts.shield_before.unwrap_or(current)
+                }
+                ShieldObservation::BeforeEvent => current,
+            };
+            Ok(RuleValue::Scalar(value))
+        }
         ValueExpr::Add(lhs, rhs) => arithmetic(lhs, rhs, input, current_target, Arithmetic::Add),
         ValueExpr::Subtract(lhs, rhs) => {
             arithmetic(lhs, rhs, input, current_target, Arithmetic::Subtract)
@@ -975,6 +1007,11 @@ fn event_property(
             .hit_index
             .map(RuleValue::Integer)
             .ok_or_else(missing),
+        EventValueProperty::ShieldChangeAmount => input
+            .event_facts
+            .shield_change_amount
+            .map(RuleValue::Scalar)
+            .ok_or_else(missing),
     }
 }
 
@@ -998,7 +1035,7 @@ fn query_subject(
     current_target: Option<UnitId>,
 ) -> Result<UnitId, RuleEvaluationError> {
     let value = match subject {
-        StatQuerySubject::Owner => input.cause.owner,
+        StatQuerySubject::Owner => input.rule_owner.or(input.cause.owner),
         StatQuerySubject::Actor => input.cause.actor,
         StatQuerySubject::Applier => input.cause.applier,
         StatQuerySubject::EventTarget => input.cause.target,
@@ -1152,37 +1189,6 @@ fn slot_value(input: RuleEvaluationInput<'_>, slot: StateSlotDefinitionId) -> Op
         .map(|index| &input.slots[index].1)
 }
 
-fn optional_unit(value: Option<UnitId>) -> Result<RuleValue, RuleEvaluationError> {
-    Ok(RuleValue::OptionalStableId(value.map(UnitId::get)))
-}
-
-fn type_error(context: u32) -> RuleEvaluationError {
-    RuleEvaluationError {
-        kind: RuleEvaluationErrorKind::TypeMismatch,
-        context,
-    }
-}
-
-fn numeric_error(context: u32) -> RuleEvaluationError {
-    RuleEvaluationError {
-        kind: RuleEvaluationErrorKind::Numeric,
-        context,
-    }
-}
-
-fn budget_error() -> RuleEvaluationError {
-    RuleEvaluationError {
-        kind: RuleEvaluationErrorKind::BudgetExceeded,
-        context: 0x1ff,
-    }
-}
-
-impl From<NumericError> for RuleEvaluationError {
-    fn from(_: NumericError) -> Self {
-        numeric_error(0x1fe)
-    }
-}
-
 /// Stable definition-only total order for candidate triggers.
 #[must_use]
 pub fn trigger_definition_order(
@@ -1190,11 +1196,5 @@ pub fn trigger_definition_order(
     source: crate::SourceDefinitionId,
     trigger: &super::model::TriggerDef,
 ) -> super::model::TriggerDefinitionOrder {
-    super::model::TriggerDefinitionOrder {
-        phase: trigger.phase,
-        priority: trigger.priority,
-        source,
-        rule,
-        trigger: trigger.id,
-    }
+    helpers::trigger_definition_order(rule, source, trigger)
 }

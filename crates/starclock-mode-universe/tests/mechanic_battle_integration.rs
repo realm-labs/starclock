@@ -133,25 +133,36 @@ fn contributions(
     curio_key: Option<&str>,
     ability_tree: bool,
 ) -> UniverseBattleContributionSet {
+    let required = required_blessing.into_iter().collect::<Vec<_>>();
+    contributions_many(catalog, path_key, &required, curio_key, ability_tree)
+}
+
+fn contributions_many(
+    catalog: &Arc<UniverseCatalog>,
+    path_key: &str,
+    required_blessings: &[(&str, u32)],
+    curio_key: Option<&str>,
+    ability_tree: bool,
+) -> UniverseBattleContributionSet {
     let path_definition = catalog
         .paths()
         .iter()
         .find(|path| path.stable_key() == path_key)
         .unwrap();
-    let required = required_blessing.map(|(key, level)| {
+    let required = required_blessings.iter().map(|(key, level)| {
         (
             catalog
                 .blessings()
                 .iter()
-                .find(|blessing| blessing.stable_key() == key)
+                .find(|blessing| blessing.stable_key() == *key)
                 .unwrap()
                 .id(),
-            level,
+            *level,
         )
     });
-    let mut owned = required.into_iter().collect::<Vec<_>>();
+    let mut owned = required.collect::<Vec<_>>();
     for blessing in path_definition.blessings() {
-        if owned.len() == 3 {
+        if owned.len() >= 3 {
             break;
         }
         if owned.iter().all(|entry| entry.0 != *blessing) {
@@ -244,6 +255,99 @@ fn durable_spec(
     marker: u8,
     charged_resonance: bool,
 ) -> BattleSpec {
+    durable_spec_with_enemy_speed(materialization, marker, charged_resonance, None)
+}
+
+fn durable_spec_with_two_enemies(
+    materialization: &UniverseBattleMaterialization,
+    marker: u8,
+) -> BattleSpec {
+    let original = materialization
+        .overlay()
+        .bindings()
+        .iter()
+        .flat_map(|binding| binding.preparation().variants())
+        .map(|variant| variant.battle_spec())
+        .find(|spec| {
+            spec.participants()
+                .iter()
+                .filter(|participant| participant.side() == TeamSide::Enemy)
+                .count()
+                >= 2
+        })
+        .unwrap();
+    let participants = original
+        .participants()
+        .iter()
+        .enumerate()
+        .map(|(index, participant)| {
+            if participant.side() != TeamSide::Enemy {
+                return participant.clone();
+            }
+            let source = match participant.source() {
+                ParticipantSource::EncounterEnemy(source) => source,
+                _ => panic!("fixture enemy source"),
+            };
+            let base = participant.combatant();
+            let mut combatant = ResolvedCombatantSpec::new(
+                base.form(),
+                base.level(),
+                Hp::new(2_000_000_000).unwrap(),
+                base.speed(),
+                ResolvedDefinitionBindings::new(
+                    base.abilities().to_vec(),
+                    base.rule_bundles().to_vec(),
+                    base.modifiers().to_vec(),
+                )
+                .unwrap(),
+                CombatantSpecDigest::new([marker.wrapping_add(u8::try_from(index).unwrap()); 32])
+                    .unwrap(),
+            )
+            .unwrap()
+            .with_base_attack_defense(base.base_attack(), base.base_defense())
+            .with_energy(base.current_energy(), base.maximum_energy())
+            .unwrap()
+            .with_sources(base.sources().to_vec())
+            .unwrap()
+            .with_modifier_bindings(base.modifier_bindings().to_vec())
+            .unwrap();
+            if !base.toughness_layers().is_empty() {
+                combatant = combatant
+                    .with_toughness(
+                        base.rank(),
+                        base.weaknesses().to_vec(),
+                        base.toughness_layers().to_vec(),
+                    )
+                    .unwrap();
+            }
+            ParticipantSpec::new(
+                TeamSide::Enemy,
+                participant.formation(),
+                ParticipantSource::EncounterEnemy(source),
+                combatant,
+            )
+            .with_wave(participant.wave())
+            .unwrap()
+        })
+        .collect::<Vec<_>>();
+    BattleSpec::new(
+        original.rules_revision(),
+        AssemblyDigest::new([marker.wrapping_add(3); 32]).unwrap(),
+        original.encounter(),
+        participants,
+        original.resources(TeamSide::Player).clone(),
+        original.resources(TeamSide::Enemy).clone(),
+        original.concede_policy(),
+    )
+    .unwrap()
+}
+
+fn durable_spec_with_enemy_speed(
+    materialization: &UniverseBattleMaterialization,
+    marker: u8,
+    charged_resonance: bool,
+    enemy_speed: Option<Speed>,
+) -> BattleSpec {
     let original = materialization.difficulty_specs()[0].battle_spec();
     let mut participants = original.participants().to_vec();
     let enemy_index = participants
@@ -262,7 +366,7 @@ fn durable_spec(
         base.form(),
         base.level(),
         Hp::new(2_000_000_000).unwrap(),
-        base.speed(),
+        enemy_speed.unwrap_or(base.speed()),
         ResolvedDefinitionBindings::new(
             base.abilities().to_vec(),
             base.rule_bundles().to_vec(),
@@ -625,4 +729,175 @@ fn hunt_resonance_is_a_legal_shared_resource_transition() {
                 if data.element == Some(starclock_combat::formula::model::CombatElement::Wind)
         )
     }));
+}
+
+#[test]
+fn goal07_p2_m02_s01_executes_every_assigned_rule_and_operation_fixture() {
+    let catalog = catalog();
+    let contributions = contributions_many(
+        &catalog,
+        "universe.path.preservation",
+        &[
+            ("universe.blessing.612030", 2),
+            ("universe.blessing.612032", 2),
+            ("universe.blessing.612040", 2),
+            ("universe.blessing.612041", 2),
+            ("universe.blessing.612042", 2),
+        ],
+        None,
+        false,
+    );
+    assert_eq!(contributions.materialized_rule_binding_count(), 4);
+    let materialization = materialize(&catalog, &contributions);
+    assert_eq!(
+        materialization
+            .combat_catalog()
+            .trigger_ids(
+                starclock_combat::rule::model::RuleEventKind::Damage,
+                starclock_combat::rule::model::TriggerPhase::AfterEvent,
+            )
+            .filter(|(rule, _)| rule.get() == 1_879_048_249)
+            .count(),
+        2
+    );
+    let (mut battle, start_resolution) = start(
+        &materialization,
+        durable_spec_with_two_enemies(&materialization, 0xa1),
+        0xa2,
+    );
+    assert!(
+        start_resolution.fault().is_none(),
+        "{:?} {:?}",
+        start_resolution.fault(),
+        start_resolution.events()
+    );
+    let applied = start_resolution
+        .events()
+        .iter()
+        .filter_map(|event| match event.kind() {
+            BattleEventKind::Shield(starclock_combat::ShieldEventData::Applied {
+                amount, ..
+            }) => Some(amount.get()),
+            _ => None,
+        })
+        .collect::<Vec<_>>();
+    assert_eq!(
+        applied,
+        vec![10_000; 4],
+        "Macrosegregation shields every rule owner"
+    );
+    assert_eq!(battle.view().shields_by_id().count(), 4);
+    assert_eq!(
+        battle
+            .view()
+            .rule_instances_by_id()
+            .filter(|rule| rule.rule().get() == 1_879_048_249)
+            .count(),
+        4
+    );
+
+    let resolution = first_normal_action(&mut battle);
+    assert!(
+        resolution.fault().is_none(),
+        "{:?} {:?}",
+        resolution.fault(),
+        resolution.events()
+    );
+    let quake = resolution
+        .events()
+        .iter()
+        .filter_map(|event| match event.kind() {
+            BattleEventKind::Damage(data)
+                if data.class == starclock_combat::formula::model::DamageClass::Additional
+                    && data.element
+                        == Some(starclock_combat::formula::model::CombatElement::Physical) =>
+            {
+                Some(data.applied.get())
+            }
+            _ => None,
+        })
+        .collect::<Vec<_>>();
+    assert_eq!(
+        quake,
+        [18_538, 5_561],
+        "enhanced Quake includes 120% current DEF before its 15% boost and 30% splash"
+    );
+    assert!(
+        resolution.events().iter().any(|event| {
+            matches!(
+                event.kind(),
+                BattleEventKind::Effect(starclock_combat::EffectEventData::Applied { .. })
+            )
+        }),
+        "{:?} {:?}",
+        resolution.events(),
+        contributions
+            .rules()
+            .iter()
+            .map(|rule| (
+                rule.source_binding_key(),
+                rule.source().definition().get(),
+                rule.rule().get(),
+            ))
+            .collect::<Vec<_>>()
+    );
+    assert!(
+        battle
+            .view()
+            .effects_by_id()
+            .any(|effect| effect.category() == starclock_combat::EffectCategory::Dot),
+        "enhanced Quake applies the production Bleed effect"
+    );
+    let mut cycle_reset = false;
+    for _ in 0..5 {
+        let resolution = first_normal_action(&mut battle);
+        cycle_reset |= resolution.events().iter().any(|event| {
+            matches!(
+                event.kind(),
+                BattleEventKind::Shield(starclock_combat::ShieldEventData::Removed { .. })
+            )
+        });
+    }
+    assert!(
+        cycle_reset,
+        "Macrosegregation removes and reissues its special shield every two owner turns"
+    );
+
+    let defense = contributions_many(
+        &catalog,
+        "universe.path.preservation",
+        &[
+            ("universe.blessing.612031", 2),
+            ("universe.blessing.612032", 2),
+            ("universe.blessing.612043", 1),
+        ],
+        None,
+        false,
+    );
+    assert_eq!(defense.materialized_rule_binding_count(), 2);
+    let defense = materialize(&catalog, &defense);
+    let (defense_battle, defense_start) = start(
+        &defense,
+        durable_spec_with_enemy_speed(
+            &defense,
+            0xb1,
+            false,
+            Some(Speed::from_scaled(400_000_000).unwrap()),
+        ),
+        0xb2,
+    );
+    assert!(
+        defense_start.fault().is_none(),
+        "{:?}",
+        defense_start.fault()
+    );
+    assert_eq!(
+        defense_battle
+            .view()
+            .rule_instances_by_id()
+            .filter(|rule| rule.rule().get() == 1_879_048_240)
+            .count(),
+        4,
+        "Metastatic Field is attached to every player rule owner"
+    );
 }

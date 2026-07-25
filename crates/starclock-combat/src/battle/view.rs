@@ -347,6 +347,11 @@ impl ShieldView<'_> {
     }
 
     #[must_use]
+    pub const fn source_effect(self) -> Option<crate::EffectDefinitionId> {
+        self.state.source_effect
+    }
+
+    #[must_use]
     pub const fn policy(self) -> crate::formula::shield::ShieldAbsorptionPolicy {
         self.state.policy
     }

@@ -234,6 +234,7 @@ fn evaluation_input<'a>() -> RuleEvaluationInput<'a> {
         ..RuleEventFacts::default()
     }));
     RuleEvaluationInput {
+        rule_owner: None,
         event_kind: RuleEventKind::Action,
         event_facts,
         cause: RuleCause {

@@ -36,10 +36,14 @@ for (const id of [24_701, 24_702, 24_703]) {
 const combat = text("crates/starclock-combat/src/lib.rs");
 const codec = text("crates/starclock-combat/src/codec/state.rs");
 const replay = text("crates/starclock-replay/src/battle_event.rs");
-assert(combat.includes('STATE_HASH_REVISION: &str = "sha256-v5"'), "combat hash revision differs");
-assert(codec.includes("STATE_CODEC_VERSION: u16 = 4"), "combat state codec differs");
-assert(replay.includes("BATTLE_EVENT_PAYLOAD_VERSION: u16 = 3"), "event payload differs");
-for (const version of ["BATTLE_EVENT_PAYLOAD_VERSION_V1", "BATTLE_EVENT_PAYLOAD_VERSION_V2"]) {
+assert(combat.includes('STATE_HASH_REVISION: &str = "sha256-v6"'), "current combat hash revision differs");
+assert(codec.includes("STATE_CODEC_VERSION: u16 = 5"), "current combat state codec differs");
+assert(replay.includes("BATTLE_EVENT_PAYLOAD_VERSION: u16 = 4"), "current event payload differs");
+for (const version of [
+  "BATTLE_EVENT_PAYLOAD_VERSION_V1",
+  "BATTLE_EVENT_PAYLOAD_VERSION_V2",
+  "BATTLE_EVENT_PAYLOAD_VERSION_V3",
+]) {
   assert(replay.includes(version), `historical event codec is missing: ${version}`);
 }
 const runtime = [
@@ -72,7 +76,10 @@ for (const marker of [
 ]) assert(tests.includes(marker), `action/reaction golden is missing: ${marker}`);
 const status = text("docs/goals/07-standard-universe-mechanics-completion-status.md");
 assert(status.includes("| `G07-P1-B5` | `Complete` |"), "G07-P1-B5 is not complete");
-console.log("Goal 07 P1-B5 verified (11 origins, 4 boundaries, Break hooks, SCBS v4).");
+console.log(
+  "Goal 07 P1-B5 verified " +
+  "(11 origins, 4 boundaries, Break hooks, historical SCBS v4, current SCBS v5).",
+);
 
 function text(relative) {
   return fs.readFileSync(path.join(root, relative), "utf8");
