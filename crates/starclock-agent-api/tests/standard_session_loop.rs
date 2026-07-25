@@ -7,12 +7,12 @@ use starclock_agent_api::{
 use starclock_data::standard_v1::SCENARIOS;
 
 const EXPECTED_FINAL_HASHES: [&str; 6] = [
-    "1720715d5d784dc533905aa1fb74b8633b85df2cd039e7254e7a010d5b75b475",
-    "0e12ee3c7ffca5b5815444bb4cbbe1b1adbcbdabf5de09c2feda2e0f08bde17c",
-    "5f53e4b9e9586761e1563787c67a58d5cf871346396ecc8898295785e8cff588",
-    "d3e28d8c884ee073bcad8e97dc2e92b846d96b12af7e3017228a156e2ae5961b",
-    "0725ca202c4b14a6a8831c5f78b0ee50116944f8e11def996924934c70c904a6",
-    "12c2649faccc4c0cfe084cbe5deea68780490b169f0df0a412b9f34192aedb66",
+    "2d2bcb50b70ad488cf17744c9fc8082dca3c2b66aa51eca00ee1327c2359fefe",
+    "bea916585577191dad2b8818c5ef84a98c73fa745c83092676ebb6c751cad493",
+    "7bf6795a63223c7ef58d76971d79e9d81d5d39db8a27e7f1a4776cd0e1a5ab05",
+    "a3f2217378030f1c1dc995f477df9b9f8aa6ea2b6520f60c22e6bb8ae18e8900",
+    "70d8f90b5646befa1124dcc7c824d8fefc4acefba0ab6029ea2bdb5b13f72dae",
+    "3e10a00231405cec20c20b6c5ec5c81e553075f2c2f392db0ffaa2c3698a7293",
 ];
 const EXPECTED_EXTERNAL_STEPS: [u64; 6] = [8, 2, 6, 2, 22, 22];
 const EXPECTED_REPLAY_COMMANDS: [usize; 6] = [9, 3, 7, 3, 23, 23];

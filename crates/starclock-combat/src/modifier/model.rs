@@ -25,6 +25,7 @@ pub enum StatKind {
     ShieldStrength,
     Aggro,
     ToughnessDamage,
+    FreezeResistance,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]

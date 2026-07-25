@@ -134,7 +134,7 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
         session.apply_action(next).unwrap();
         external_steps += 1;
     }
-    assert_eq!(external_steps, 7);
+    assert_eq!(external_steps, 61);
     assert_eq!(
         session.terminal(),
         Some(starclock_activity::ActivityTerminalOutcome::Completed)
@@ -146,11 +146,11 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
 
     let replay = session.export_replay().unwrap();
     assert!(replay.complete());
-    assert_eq!(replay.action_count().as_str(), "8");
-    assert_eq!(replay.bytes().len(), 8_136);
+    assert_eq!(replay.action_count().as_str(), "68");
+    assert_eq!(replay.bytes().len(), 55_635);
     assert_eq!(
         replay.sha256().as_str(),
-        "4f2d9f9a12cdc3d634f5de6fa19d4a7929ba1b6228f4d2970bf980c2a5c5df3c"
+        "0ac6627b244c965f6718169598715ebfb8f2df4dc9c36b52a6db9181fd953aeb"
     );
     assert_eq!(
         replay.action_count().to_u64(),
@@ -160,10 +160,10 @@ fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay()
     let verified = session.verify_replay(&factory, replay.bytes()).unwrap();
     assert_eq!(verified.action_count, replay.action_count().clone());
     assert_eq!(verified.final_state_hash, session.state_hash());
-    assert_eq!(verified.nested_battles.as_str(), "1");
+    assert_eq!(verified.nested_battles.as_str(), "7");
     assert_eq!(
         verified.final_state_hash.as_str(),
-        "f330c5990f32063c8df3f81878661bcef31af8e65938a01e374ebca6e00ec3e3"
+        "f97c1eb4b4a76fc50788056711e8de66959e63d5f6348aa18f5ad1a2f640b630"
     );
 
     let mut corrupt = replay.bytes().to_vec();
@@ -187,7 +187,7 @@ fn activity_replay_corruption_corpus_is_total_and_live_session_is_inert() {
 
     let factory = ActivityAgentSessionFactory::load_production().unwrap();
     let mut session = create(&factory, "session_activity_replay_corpus");
-    assert_eq!(drive_to_terminal(&mut session), 7);
+    assert_eq!(drive_to_terminal(&mut session), 61);
     let replay = session.export_replay().unwrap();
     let original_hash = session.state_hash();
     let original_actions = session.replay_action_count();
@@ -242,16 +242,16 @@ fn concurrent_real_sessions_share_catalog_but_not_mutable_state() {
         .collect::<Vec<_>>();
     assert_eq!(results.len(), SESSIONS);
     assert!(results.iter().all(|result| result == &results[0]));
-    assert_eq!(results[0].0, 7);
+    assert_eq!(results[0].0, 61);
     assert_eq!(
         results[0].1.as_str(),
-        "f330c5990f32063c8df3f81878661bcef31af8e65938a01e374ebca6e00ec3e3"
+        "f97c1eb4b4a76fc50788056711e8de66959e63d5f6348aa18f5ad1a2f640b630"
     );
     assert_eq!(
         results[0].2.as_str(),
-        "4f2d9f9a12cdc3d634f5de6fa19d4a7929ba1b6228f4d2970bf980c2a5c5df3c"
+        "0ac6627b244c965f6718169598715ebfb8f2df4dc9c36b52a6db9181fd953aeb"
     );
-    assert_eq!(results[0].3, 8_136);
+    assert_eq!(results[0].3, 55_635);
 }
 
 #[test]

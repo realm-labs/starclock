@@ -5,6 +5,27 @@ use crate::{
     rule::model::{RuleEvaluationInput, RuleValue, TriggerDef, TriggerDefinitionOrder},
 };
 
+pub(super) fn ancestry_matches(
+    value: crate::rule::model::CauseAncestry,
+    input: RuleEvaluationInput<'_>,
+) -> bool {
+    match value {
+        crate::rule::model::CauseAncestry::Any => true,
+        crate::rule::model::CauseAncestry::RootCommand => !input.event_facts.has_parent,
+        crate::rule::model::CauseAncestry::DirectParent => input.event_facts.has_parent,
+        crate::rule::model::CauseAncestry::SameAction => input.event_facts.has_action,
+        crate::rule::model::CauseAncestry::SamePhase => input.event_facts.has_phase,
+        crate::rule::model::CauseAncestry::SameHit => input.event_facts.has_hit,
+    }
+}
+
+pub(crate) const fn stat_query_error(context: u32) -> RuleEvaluationError {
+    RuleEvaluationError {
+        kind: RuleEvaluationErrorKind::MissingValue,
+        context,
+    }
+}
+
 pub(super) fn optional_unit(value: Option<UnitId>) -> Result<RuleValue, RuleEvaluationError> {
     Ok(RuleValue::OptionalStableId(value.map(UnitId::get)))
 }

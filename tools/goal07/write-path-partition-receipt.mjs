@@ -140,6 +140,18 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612130"))
+    return "Frozen-state predicates, resistible effect application and effect-removal facts express Fuli and its enhanced Dissociation damage.";
+  if (id.includes("612131"))
+    return "WeaknessBroken facts and the shared effect-chance pipeline express Innocence without a source branch.";
+  if (id.includes("612132"))
+    return "Per-enemy rule attachment, target-within-action once scope, bounded counters and generic control effects express Reticence.";
+  if (id.includes("612140"))
+    return "Effect predicates, deterministic current-target MaxHP damage and typed effect removal express Melancholia.";
+  if (id.includes("612141"))
+    return "Effect-definition event filters and effect-scoped vulnerability modifiers express Dizziness across all damage purposes.";
+  if (id.includes("612142"))
+    return "The definition-only Insensitivity record introduces no executable level behavior in this partition.";
   if (id.includes("612051"))
     return "Battle-start triggers, current MaxHP queries and bounded owner-turn counters express Sentinel.";
   if (id.includes("612052"))
@@ -270,6 +282,31 @@ function partitionProfile(id) {
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration goal07_p2_m02_s04 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-mode-universe --test preservation_runtime --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M03-S01") {
+    return {
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/remembrance_s01.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s01.rs",
+        "crates/starclock-combat/src/resolver/effect_duration.rs",
+        "crates/starclock-combat/src/resolver/program_effect.rs",
+        "crates/starclock-combat/src/resolver/turn.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-remembrance-s01.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/remembrance_s01.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s01.rs",
+      fixtureMarker:
+        "goal07_p2_m03_s01_executes_freeze_dissociation_and_removal_damage",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration remembrance_ --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
       ],
     };
   }

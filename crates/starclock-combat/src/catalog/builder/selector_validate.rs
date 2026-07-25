@@ -214,6 +214,7 @@ fn historical_condition_safe(condition: &crate::rule::model::ConditionExpr) -> b
     match condition {
         ConditionExpr::LifePresence { .. }
         | ConditionExpr::EffectExists { .. }
+        | ConditionExpr::IsFrozen(_)
         | ConditionExpr::HasWeakness { .. }
         | ConditionExpr::IsBroken(_) => false,
         ConditionExpr::Not(value) => historical_condition_safe(value),

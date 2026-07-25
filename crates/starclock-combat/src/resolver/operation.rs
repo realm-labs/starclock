@@ -608,7 +608,7 @@ pub(super) fn settle_effects_at_turn_start(
         crate::EffectTickPhase::TurnStart,
         owner,
     )?;
-    advance_effect_clock(
+    super::effect_duration::advance_effect_clock(
         txn,
         cause,
         parent,
@@ -616,7 +616,7 @@ pub(super) fn settle_effects_at_turn_start(
         Some(owner),
     )
     .and_then(|parent| {
-        advance_effect_clock(
+        super::effect_duration::advance_effect_clock(
             txn,
             cause,
             parent,
@@ -641,14 +641,14 @@ pub(super) fn settle_effects_at_turn_end(
         crate::EffectTickPhase::TurnEnd,
         owner,
     )?;
-    let parent = advance_effect_clock(
+    let parent = super::effect_duration::advance_effect_clock(
         txn,
         cause,
         parent,
         crate::DurationClock::TargetTurnEnd,
         Some(owner),
     )?;
-    advance_effect_clock(
+    super::effect_duration::advance_effect_clock(
         txn,
         cause,
         parent,
@@ -685,7 +685,13 @@ pub(super) fn settle_effects_at_action_end(
         crate::rule::model::SlotResetPoint::ActionEnd,
         cause.applier(),
     );
-    advance_effect_clock(txn, cause, parent, crate::DurationClock::ActionEnd, None)
+    super::effect_duration::advance_effect_clock(
+        txn,
+        cause,
+        parent,
+        crate::DurationClock::ActionEnd,
+        None,
+    )
 }
 
 pub(super) fn settle_effects_at_wave_end(
@@ -693,7 +699,13 @@ pub(super) fn settle_effects_at_wave_end(
     cause: Cause,
     parent: EventId,
 ) -> Result<EventId, BattleFault> {
-    advance_effect_clock(txn, cause, parent, crate::DurationClock::WaveEnd, None)
+    super::effect_duration::advance_effect_clock(
+        txn,
+        cause,
+        parent,
+        crate::DurationClock::WaveEnd,
+        None,
+    )
 }
 
 pub(super) fn settle_effects_at_battle_end(
@@ -701,72 +713,13 @@ pub(super) fn settle_effects_at_battle_end(
     cause: Cause,
     parent: EventId,
 ) -> Result<EventId, BattleFault> {
-    advance_effect_clock(txn, cause, parent, crate::DurationClock::BattleEnd, None)
-}
-
-fn advance_effect_clock(
-    txn: &mut Transaction<'_>,
-    cause: Cause,
-    mut parent: EventId,
-    clock: crate::DurationClock,
-    owner: Option<crate::UnitId>,
-) -> Result<EventId, BattleFault> {
-    let ids =
-        txn.state
-            .effects
-            .iter_by_id()
-            .filter(|effect| {
-                effect.duration_clock == clock
-                    && match clock {
-                        crate::DurationClock::OwnerTurnStart
-                        | crate::DurationClock::OwnerTurnEnd => owner == Some(effect.applier),
-                        crate::DurationClock::TargetTurnStart
-                        | crate::DurationClock::TargetTurnEnd => owner == Some(effect.target),
-                        _ => true,
-                    }
-            })
-            .map(|effect| effect.id)
-            .collect::<Vec<_>>();
-    for id in ids {
-        let (operation, target, before, after) = {
-            let effect = txn
-                .state
-                .effects
-                .get_mut(id)
-                .ok_or_else(|| invariant_fault(37))?;
-            let before = effect.remaining.ok_or_else(|| invariant_fault(38))?;
-            let after = before.checked_sub(1).ok_or_else(|| invariant_fault(39))?;
-            effect.remaining = Some(after);
-            (effect.source_operation, effect.target, before, after)
-        };
-        txn.record_effect_change(u64::from(before) + 1, u64::from(after) + 1, id.get());
-        parent = txn.emit(
-            cause.with_parent(parent).with_primary_target(Some(target)),
-            BattleEventKind::Effect(EffectEventData::Ticked {
-                operation,
-                effect: id,
-                target,
-                remaining: Some(after),
-            }),
-        );
-        if after == 0 {
-            txn.state
-                .effects
-                .remove(id)
-                .ok_or_else(|| invariant_fault(40))?;
-            txn.remove_effect_attachments(id);
-            txn.record_effect_change(1, 0, id.get());
-            parent = txn.emit(
-                cause.with_parent(parent).with_primary_target(Some(target)),
-                BattleEventKind::Effect(EffectEventData::Removed {
-                    operation,
-                    effect: id,
-                    target,
-                }),
-            );
-        }
-    }
-    Ok(parent)
+    super::effect_duration::advance_effect_clock(
+        txn,
+        cause,
+        parent,
+        crate::DurationClock::BattleEnd,
+        None,
+    )
 }
 
 fn execute_damage(
@@ -986,7 +939,8 @@ fn apply_damage_guard(
     let Some(effect) = guard else {
         return Ok((parent, calculated));
     };
-    txn.state
+    let removed = txn
+        .state
         .effects
         .remove(effect)
         .ok_or_else(|| invariant_fault(54))?;
@@ -997,6 +951,7 @@ fn apply_damage_guard(
         BattleEventKind::Effect(EffectEventData::Removed {
             operation,
             effect,
+            definition: removed.definition,
             target,
         }),
     );
@@ -1019,6 +974,11 @@ fn execute_apply_effect(
     {
         return Err(invariant_fault(31));
     }
+    if let Some(chances) = &operation.resolved_chances
+        && chances.len() != operation.targets.len()
+    {
+        return Err(invariant_fault(31));
+    }
     let source = cause
         .source_definition()
         .ok_or_else(|| invariant_fault(32))?;
@@ -1030,7 +990,12 @@ fn execute_apply_effect(
             .map(|values| &values[index])
             .or_else(|| definition.runtime())
             .ok_or_else(|| invariant_fault(31))?;
-        let (pre_clamp, probability) = match operation.definition.chance {
+        let chance = operation
+            .resolved_chances
+            .as_ref()
+            .map(|values| values[index])
+            .unwrap_or(operation.definition.chance);
+        let (pre_clamp, probability) = match chance {
             crate::EffectChancePolicy::Guaranteed => (crate::Scalar::ONE, crate::Probability::ONE),
             crate::EffectChancePolicy::Fixed { chance } => (
                 crate::Scalar::from_scaled(i64::from(chance.millionths())),
@@ -1048,7 +1013,7 @@ fn execute_apply_effect(
                     target_effect_resistance,
                     target_specific_resistance,
                 )
-                .map_err(|_| numeric_fault(30, i64::from(base_chance.millionths())))?;
+                .map_err(|_| numeric_fault(30, base_chance.scaled()))?;
                 (value.pre_clamp, value.probability)
             }
         };
@@ -1082,6 +1047,12 @@ fn execute_apply_effect(
                 stacks: operation.definition.stacks,
             },
         );
+        let removed_definitions = txn
+            .state
+            .effects
+            .iter_by_id()
+            .map(|effect| (effect.id, effect.definition))
+            .collect::<std::collections::BTreeMap<_, _>>();
         let before = txn.state.effects.canonical_entries().len() as u64;
         let result = txn.state.effects.apply(candidate);
         let after = txn.state.effects.canonical_entries().len() as u64;
@@ -1095,6 +1066,9 @@ fn execute_apply_effect(
                         BattleEventKind::Effect(EffectEventData::Removed {
                             operation: operation.id,
                             effect: removed,
+                            definition: *removed_definitions
+                                .get(&removed)
+                                .ok_or_else(|| invariant_fault(34))?,
                             target,
                         }),
                     );
@@ -1169,7 +1143,8 @@ fn execute_remove_effects(
             .take(usize::from(operation.definition.maximum))
         {
             let before = txn.state.effects.canonical_entries().len() as u64;
-            txn.state
+            let removed = txn
+                .state
                 .effects
                 .remove(effect)
                 .ok_or_else(|| invariant_fault(35))?;
@@ -1181,6 +1156,7 @@ fn execute_remove_effects(
                 BattleEventKind::Effect(EffectEventData::Removed {
                     operation: operation.id,
                     effect,
+                    definition: removed.definition,
                     target,
                 }),
             );

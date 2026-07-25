@@ -182,6 +182,7 @@ fn apply_phase_carry(
                     BattleEventKind::Effect(crate::EffectEventData::Removed {
                         operation: removed.source_operation,
                         effect,
+                        definition: removed.definition,
                         target: unit,
                     }),
                 );
@@ -788,6 +789,7 @@ fn settle_owned_effects(
             BattleEventKind::Effect(crate::EffectEventData::Removed {
                 operation: removed.source_operation,
                 effect,
+                definition: removed.definition,
                 target: removed.target,
             }),
         );

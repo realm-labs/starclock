@@ -122,6 +122,7 @@ pub(super) fn begin_turn(
             }),
         );
     }
+    let controlled_skip = txn.state.effects.skips_normal_turn_at_start(turn.unit);
     let (mut parent, frozen_skip) = super::operation::settle_break_effects_at_turn_start(
         catalog, txn, turn_cause, parent, turn.unit,
     )?;
@@ -138,10 +139,10 @@ pub(super) fn begin_turn(
         .get(turn.unit)
         .map(|unit| unit.life == crate::LifeState::Alive)
         .ok_or_else(|| action_fault(58))?;
-    if frozen_skip || !alive {
+    if frozen_skip || controlled_skip || !alive {
         txn.set_actor_gauge(
             turn.actor,
-            ActionGauge::from_scaled(if frozen_skip {
+            ActionGauge::from_scaled(if frozen_skip || controlled_skip {
                 5_000_000_000
             } else {
                 10_000_000_000

@@ -328,6 +328,7 @@ fn condition_dependencies(
         ConditionExpr::SelectorCardinality { selector, .. }
         | ConditionExpr::LifePresence { selector, .. }
         | ConditionExpr::EffectExists { selector, .. }
+        | ConditionExpr::IsFrozen(selector)
         | ConditionExpr::HasWeakness { selector, .. }
         | ConditionExpr::IsBroken(selector) => {
             output.insert(*selector);

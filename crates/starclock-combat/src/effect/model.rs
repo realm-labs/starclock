@@ -4,6 +4,7 @@ use crate::{
     EffectDefinitionId, Probability, Ratio, Scalar, SourceDefinitionId,
     catalog::action::{OrdinaryDamageDefinition, OrdinaryDamageMultipliers},
     formula::model::{CombatElement, DamageClass},
+    modifier::model::StatKind,
     rule::model::ValueExpr,
 };
 
@@ -163,13 +164,16 @@ mod tests {
             EffectStackPolicy::Replace,
         )
         .unwrap()
-        .with_damage_guard(EffectDamageGuard::ShieldOverflowOnce);
+        .with_damage_guard(EffectDamageGuard::ShieldOverflowOnce)
+        .with_specific_resistance(StatKind::FreezeResistance);
+        let runtime = template.resolve(Some(2), Scalar::ZERO).unwrap();
         assert_eq!(
-            template
-                .resolve(Some(2), Scalar::ZERO)
-                .unwrap()
-                .damage_guard(),
+            runtime.damage_guard(),
             EffectDamageGuard::ShieldOverflowOnce
+        );
+        assert_eq!(
+            runtime.specific_resistance_stat(),
+            Some(StatKind::FreezeResistance)
         );
     }
 }
@@ -192,6 +196,7 @@ pub struct EffectRuntimeDefinition {
     controlled_actions: Box<[ControlledAction]>,
     dot: Option<DotDefinition>,
     damage_guard: EffectDamageGuard,
+    specific_resistance_stat: Option<StatKind>,
 }
 
 /// Authored effect semantics whose expression-backed values are resolved at application time.
@@ -210,6 +215,7 @@ pub struct EffectRuntimeTemplate {
     application_priority: i32,
     dot: Option<(CombatElement, Option<SourceDefinitionId>)>,
     damage_guard: EffectDamageGuard,
+    specific_resistance_stat: Option<StatKind>,
 }
 
 impl EffectRuntimeTemplate {
@@ -240,6 +246,7 @@ impl EffectRuntimeTemplate {
             application_priority: 0,
             dot: None,
             damage_guard: EffectDamageGuard::None,
+            specific_resistance_stat: None,
         })
     }
 
@@ -272,10 +279,19 @@ impl EffectRuntimeTemplate {
         self.damage_guard = guard;
         self
     }
+    #[must_use]
+    pub const fn with_specific_resistance(mut self, stat: StatKind) -> Self {
+        self.specific_resistance_stat = Some(stat);
+        self
+    }
 
     #[must_use]
     pub const fn damage_guard(&self) -> EffectDamageGuard {
         self.damage_guard
+    }
+    #[must_use]
+    pub const fn specific_resistance_stat(&self) -> Option<StatKind> {
+        self.specific_resistance_stat
     }
 
     #[must_use]
@@ -326,6 +342,9 @@ impl EffectRuntimeTemplate {
         .with_snapshot(self.snapshot_policy)
         .with_teardown(self.teardown_policy)
         .with_damage_guard(self.damage_guard);
+        if let Some(stat) = self.specific_resistance_stat {
+            runtime = runtime.with_specific_resistance(stat);
+        }
         if self.category == EffectCategory::Dot {
             let (element, detonation_tag) = self.dot?;
             let formula = OrdinaryDamageDefinition::new(
@@ -373,6 +392,7 @@ impl EffectRuntimeDefinition {
             controlled_actions: Box::new([]),
             dot: None,
             damage_guard: EffectDamageGuard::None,
+            specific_resistance_stat: None,
         })
     }
     #[must_use]
@@ -413,6 +433,11 @@ impl EffectRuntimeDefinition {
     #[must_use]
     pub const fn with_damage_guard(mut self, guard: EffectDamageGuard) -> Self {
         self.damage_guard = guard;
+        self
+    }
+    #[must_use]
+    pub const fn with_specific_resistance(mut self, stat: StatKind) -> Self {
+        self.specific_resistance_stat = Some(stat);
         self
     }
     #[must_use]
@@ -483,6 +508,10 @@ impl EffectRuntimeDefinition {
     pub const fn damage_guard(&self) -> EffectDamageGuard {
         self.damage_guard
     }
+    #[must_use]
+    pub const fn specific_resistance_stat(&self) -> Option<StatKind> {
+        self.specific_resistance_stat
+    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -492,7 +521,9 @@ pub enum EffectChancePolicy {
         chance: Probability,
     },
     Resistible {
-        base_chance: Probability,
+        /// Unclamped authored base chance. Values above 100% remain meaningful
+        /// before Effect RES and specific resistance are applied.
+        base_chance: Ratio,
         attacker_effect_hit_rate: Ratio,
         target_effect_resistance: Ratio,
         target_specific_resistance: Ratio,

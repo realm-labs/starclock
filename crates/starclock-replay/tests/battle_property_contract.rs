@@ -27,8 +27,9 @@ use starclock_replay::{
     battle::{BattleTraceEntry, battle_record_count, encode_battle_trace, verify_battle_replay},
     battle_event::{
         BATTLE_EVENT_PAYLOAD_VERSION, BATTLE_EVENT_PAYLOAD_VERSION_V1,
-        BATTLE_EVENT_PAYLOAD_VERSION_V2, BATTLE_EVENT_PAYLOAD_VERSION_V3, BattleEventPayloadError,
-        encode_battle_event_payload, encode_battle_event_payload_for_version,
+        BATTLE_EVENT_PAYLOAD_VERSION_V2, BATTLE_EVENT_PAYLOAD_VERSION_V3,
+        BATTLE_EVENT_PAYLOAD_VERSION_V4, BattleEventPayloadError, encode_battle_event_payload,
+        encode_battle_event_payload_for_version,
     },
     digest::{ConfigBundleDigest, ControllerDigest, EntrySpecDigest},
     format::{ControllerIdentity, ReplayEntry, ReplayHeader, ReplayIdentity, decode_replay},
@@ -219,7 +220,7 @@ fn unique_offset(bytes: &[u8], needle: &[u8]) -> usize {
 }
 
 #[test]
-fn event_payload_v4_retains_all_historical_event_revisions() {
+fn event_payload_v5_retains_all_historical_event_revisions() {
     let mut battle = battle();
     let command = supported_command(&battle);
     let resolution = battle.apply(command).unwrap();
@@ -230,6 +231,8 @@ fn event_payload_v4_retains_all_historical_event_revisions() {
         encode_battle_event_payload_for_version(event, BATTLE_EVENT_PAYLOAD_VERSION_V2).unwrap();
     let previous_v3 =
         encode_battle_event_payload_for_version(event, BATTLE_EVENT_PAYLOAD_VERSION_V3).unwrap();
+    let previous_v4 =
+        encode_battle_event_payload_for_version(event, BATTLE_EVENT_PAYLOAD_VERSION_V4).unwrap();
     let current = encode_battle_event_payload(event).unwrap();
 
     assert_eq!(
@@ -245,12 +248,17 @@ fn event_payload_v4_retains_all_historical_event_revisions() {
         BATTLE_EVENT_PAYLOAD_VERSION_V3
     );
     assert_eq!(
+        u16::from_le_bytes(previous_v4[..2].try_into().unwrap()),
+        BATTLE_EVENT_PAYLOAD_VERSION_V4
+    );
+    assert_eq!(
         u16::from_le_bytes(current[..2].try_into().unwrap()),
         BATTLE_EVENT_PAYLOAD_VERSION
     );
     assert_eq!(historical.len(), previous.len() + 1);
     assert_eq!(previous[2..], previous_v3[2..]);
-    assert_eq!(previous_v3[2..], current[2..]);
+    assert_eq!(previous_v3[2..], previous_v4[2..]);
+    assert_eq!(previous_v4[2..], current[2..]);
     assert_eq!(
         encode_battle_event_payload_for_version(event, u16::MAX),
         Err(BattleEventPayloadError::UnsupportedVersion(u16::MAX))

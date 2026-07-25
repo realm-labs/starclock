@@ -515,6 +515,7 @@ fn static_condition(condition: &ConditionExpr) -> bool {
         | ConditionExpr::SelectorCardinality { .. }
         | ConditionExpr::LifePresence { .. }
         | ConditionExpr::EffectExists { .. }
+        | ConditionExpr::IsFrozen(_)
         | ConditionExpr::HasWeakness { .. }
         | ConditionExpr::IsBroken(_) => false,
     }

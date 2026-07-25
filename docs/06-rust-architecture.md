@@ -230,6 +230,7 @@ pub enum Stat {
     BreakEffect,
     EffectHitRate,
     EffectResistance,
+    FreezeResistance,
     EnergyRegenRate,
 }
 

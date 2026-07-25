@@ -328,6 +328,7 @@ pub(super) fn execute_action_plan(
                             targets: targets.clone(),
                             definition: *definition,
                             rng_purpose: None,
+                            resolved_chances: None,
                             resolved_runtime: None,
                         })
                     }

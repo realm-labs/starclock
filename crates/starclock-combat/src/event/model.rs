@@ -147,6 +147,7 @@ pub enum EffectEventData {
     Removed {
         operation: OperationId,
         effect: crate::EffectInstanceId,
+        definition: crate::EffectDefinitionId,
         target: UnitId,
     },
     Ticked {

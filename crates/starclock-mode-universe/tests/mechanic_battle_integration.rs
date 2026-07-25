@@ -39,6 +39,8 @@ mod preservation_s02;
 mod preservation_s03;
 #[path = "mechanic_battle_integration/preservation_s04.rs"]
 mod preservation_s04;
+#[path = "mechanic_battle_integration/remembrance_s01.rs"]
+mod remembrance_s01;
 
 fn catalog() -> Arc<UniverseCatalog> {
     static CATALOG: OnceLock<Arc<UniverseCatalog>> = OnceLock::new();
@@ -398,6 +400,31 @@ fn durable_spec_with_enemy_speed(
     charged_resonance: bool,
     enemy_speed: Option<Speed>,
 ) -> BattleSpec {
+    durable_spec_with_enemy_profile(
+        materialization,
+        marker,
+        charged_resonance,
+        enemy_speed,
+        Hp::new(2_000_000_000).unwrap(),
+    )
+}
+
+fn durable_spec_with_enemy_hp(
+    materialization: &UniverseBattleMaterialization,
+    marker: u8,
+    charged_resonance: bool,
+    enemy_hp: Hp,
+) -> BattleSpec {
+    durable_spec_with_enemy_profile(materialization, marker, charged_resonance, None, enemy_hp)
+}
+
+fn durable_spec_with_enemy_profile(
+    materialization: &UniverseBattleMaterialization,
+    marker: u8,
+    charged_resonance: bool,
+    enemy_speed: Option<Speed>,
+    enemy_hp: Hp,
+) -> BattleSpec {
     let original = materialization.difficulty_specs()[0].battle_spec();
     let mut participants = original.participants().to_vec();
     let enemy_index = participants
@@ -415,7 +442,7 @@ fn durable_spec_with_enemy_speed(
     let mut combatant = ResolvedCombatantSpec::new(
         base.form(),
         base.level(),
-        Hp::new(2_000_000_000).unwrap(),
+        enemy_hp,
         enemy_speed.unwrap_or(base.speed()),
         ResolvedDefinitionBindings::new(
             base.abilities().to_vec(),

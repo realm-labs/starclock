@@ -495,6 +495,10 @@ impl crate::rule::evaluate::BattleQueryReader for ShieldReader<'_> {
         false
     }
 
+    fn is_frozen(&self, _subject: UnitId) -> bool {
+        false
+    }
+
     fn has_weakness(
         &self,
         _subject: UnitId,

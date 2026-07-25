@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M03-S01` |
-| Next unblocked batch | `G07-P2-M03-S01` |
+| Active batch | `G07-P2-M03-S02` |
+| Next unblocked batch | `G07-P2-M03-S02` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -31,7 +31,9 @@ execute exact Quake, shield cycles, dynamic stat conversion, directional
 shield strength, provider-shield behavior, action-scoped HP-loss shields,
 Break-triggered team shields, shield-gated mitigation, bounded negative-effect
 cleansing, deterministic critical hits and all three Resonance Formations
-without a native handler. `G07-P2-M03-S01` is active.
+without a native handler. Remembrance S01 adds 17 records, 16 rules and two
+fixtures for Freeze, Dissociation, Fuli, Innocence, Reticence, Melancholia and
+Dizziness. `G07-P2-M03-S02` is active.
 
 ## Fixed batch ledger
 
@@ -54,6 +56,7 @@ without a native handler. `G07-P2-M03-S01` is active.
 | `G07-P2-M02-S02` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Preservation/replay tests; partition receipt; quick repository gate | Executed both levels of Solid Solution, Safe Load, Sanctuary, Quadrangular Pyramid and Hypoeutectoid plus Assemble L1. Added generic authored-base-stat queries, dynamic shield-backed modifiers, source/target formula subjects and battle-start rule-applier attribution. Exact 110/130 damage, 15,600/20,250 shields and 240/360 provider-shield vectors pass; eleven native candidates close as `IrSufficient`. |
 | `G07-P2-M02-S03` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Preservation/replay tests; partition receipt; quick repository gate | Executed Assemble L2 plus both levels of Sentinel, Patch, Compensation, Firmness and Rotation. Added a generic bounded negative-effect Cleanse operation, action-scoped effective HP-loss accumulation and dynamic shield-gated mitigation. Exact 16,000/24,000 battle-start shields, 18% action-loss recovery shields, 18% Break-triggered team shields and 16% mitigation vectors pass; eleven native candidates close as `IrSufficient`. |
 | `G07-P2-M02-S04` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Preservation/replay tests; partition receipt; quick repository gate | Executed both levels of Burst and Concentration, Preservation Resonance and all three Formations. Added deterministic per-target/shared CRIT execution, ability-program battle queries and a generic one-shot shield-overflow guard. Exact 97.5 critical, 160,000/336,000 Resonance, 40-point entry Energy and four 1,000-Shield Eutectic vectors pass; eight native candidates close as `IrSufficient`. |
+| `G07-P2-M03-S01` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Remembrance/replay tests; partition receipt; quick repository gate | Executed both levels of Fuli, Innocence, Reticence, Melancholia and Dizziness plus the Insensitivity and Path definitions. Added generic Freeze control, typed effect-definition events, target-specific resistance policy and every-enemy rule attachment. Exact 36% enhanced natural removal and 200% Melancholia vectors pass; ten native candidates close as `IrSufficient`. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |
@@ -122,6 +125,7 @@ The milestone summary remains here for orientation.
 | 2026-07-25 | Advance current combat state/event identity to `SCBS` v5 / `sha256-v6` and event payload v4. | Shield source identity affects future legal resolution and must be hashed; historical event payload versions 1–3 remain explicitly supported. |
 | 2026-07-25 | Keep authored base-stat reads distinct from derived stat reads, and make `FormulaPurpose::Stat` a global stat modifier purpose. | Safe Load's cap must not recurse through its own ATK bonus, while ordinary stat bonuses must remain visible from damage-, DoT-, healing- and rule-specific stat-query contexts. |
 | 2026-07-25 | Represent generated-shield and received-shield bonuses with generic source/target formula-subject filters. | A self-shield must apply exactly one authored direction, and no Preservation-specific branch belongs in the sustain formula. |
+| 2026-07-25 | Advance the current battle-event payload to v5 while retaining v1–v4 encoders. | `EffectRemoved` now carries the removed definition identity required by generic lifecycle rules; changing released v4 bytes in place would invalidate historical replay verification. |
 
 ## Terminal record
 

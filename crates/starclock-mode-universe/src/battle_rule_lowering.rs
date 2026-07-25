@@ -4,6 +4,7 @@ mod hunt_resonance;
 mod preservation_s02;
 mod preservation_s03;
 mod preservation_s04;
+mod remembrance_s01;
 mod support;
 
 use preservation_s02::*;
@@ -35,9 +36,9 @@ use starclock_combat::{
     },
 };
 use starclock_combat::{
-    DispelCategory, DurationClock, EffectCategory, EffectRuntimeTemplate, EffectSnapshotPolicy,
-    EffectStackPolicy, EffectTickPhase, rng::types::DrawPurpose,
-    rule::model::RuleEffectChancePolicy,
+    ControlledAction, DispelCategory, DurationClock, EffectCategory, EffectRuntimeDefinition,
+    EffectRuntimeTemplate, EffectSnapshotPolicy, EffectStackPolicy, EffectTickPhase,
+    rng::types::DrawPurpose, rule::model::RuleEffectChancePolicy,
 };
 use support::*;
 
@@ -96,6 +97,7 @@ const PRESERVATION_ASSEMBLE_BINDING: &str = "StageAbility_612050";
 pub(crate) enum RuleAttachment {
     EveryPlayer,
     FirstPlayer,
+    EveryEnemy,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -274,6 +276,7 @@ pub(crate) fn lower_rules(
     }
     output.extend(preservation_s03::lower(bindings, blessings)?);
     output.extend(preservation_s04::lower_rules(catalog, bindings, blessings)?);
+    output.extend(remembrance_s01::lower(bindings, blessings)?);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::BlessingLevel
             && binding.source_binding_key() == Some(ABUNDANCE_ADDITIONAL_DAMAGE_BINDING)

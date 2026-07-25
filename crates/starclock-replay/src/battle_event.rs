@@ -25,10 +25,12 @@ pub const BATTLE_EVENT_PAYLOAD_VERSION_V1: u16 = 1;
 pub const BATTLE_EVENT_PAYLOAD_VERSION_V2: u16 = 2;
 /// Historical payload with action-origin and elemental toughness events.
 pub const BATTLE_EVENT_PAYLOAD_VERSION_V3: u16 = 3;
+/// Historical payload with shield-removal source identity.
+pub const BATTLE_EVENT_PAYLOAD_VERSION_V4: u16 = 4;
 /// Current event payload. Activity provenance belongs to assembly identity,
 /// while battle events attribute executable definitions through
 /// [`starclock_combat::Cause::source_definition`].
-pub const BATTLE_EVENT_PAYLOAD_VERSION: u16 = 4;
+pub const BATTLE_EVENT_PAYLOAD_VERSION: u16 = 5;
 
 /// Canonically encodes one event identity, cause chain and complete typed data.
 pub fn encode_battle_event_payload(
@@ -46,6 +48,7 @@ pub fn encode_battle_event_payload_for_version(
         BATTLE_EVENT_PAYLOAD_VERSION_V1,
         BATTLE_EVENT_PAYLOAD_VERSION_V2,
         BATTLE_EVENT_PAYLOAD_VERSION_V3,
+        BATTLE_EVENT_PAYLOAD_VERSION_V4,
         BATTLE_EVENT_PAYLOAD_VERSION,
     ]
     .contains(&version)
@@ -132,7 +135,7 @@ fn encode_kind(
         }
         BattleEventKind::Effect(value) => {
             encoder.u8(16);
-            encode_effect(encoder, *value);
+            encode_effect(encoder, *value, version);
         }
         BattleEventKind::RuleState(value) => {
             encoder.u8(17);
@@ -452,7 +455,7 @@ fn encode_shield(
             target,
             before,
         } => {
-            if version < BATTLE_EVENT_PAYLOAD_VERSION {
+            if version < BATTLE_EVENT_PAYLOAD_VERSION_V4 {
                 return Err(BattleEventPayloadError::UnsupportedEventFamily);
             }
             encoder.u8(2);
@@ -482,7 +485,7 @@ fn encode_break_damage(encoder: &mut Encoder<Vec<u8>>, value: BreakDamageEventDa
     encoder.i64(value.hp_after.get());
 }
 
-fn encode_effect(encoder: &mut Encoder<Vec<u8>>, value: EffectEventData) {
+fn encode_effect(encoder: &mut Encoder<Vec<u8>>, value: EffectEventData, version: u16) {
     match value {
         EffectEventData::Applied {
             operation,
@@ -527,10 +530,14 @@ fn encode_effect(encoder: &mut Encoder<Vec<u8>>, value: EffectEventData) {
         EffectEventData::Removed {
             operation,
             effect,
+            definition,
             target,
         } => {
             encoder.u8(3);
             operation_effect_target(encoder, operation.get(), effect.get(), target.get());
+            if version >= BATTLE_EVENT_PAYLOAD_VERSION {
+                encoder.u32(definition.get());
+            }
         }
         EffectEventData::Ticked {
             operation,

@@ -370,6 +370,8 @@ pub enum EventValueProperty {
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct RuleEventFacts {
     pub point: Option<RuleEventPoint>,
+    /// Effect definition carried by an effect lifecycle event, when known.
+    pub effect_definition: Option<EffectDefinitionId>,
     pub source_class: Option<SourceClass>,
     pub action_kind: Option<RuleActionKind>,
     pub ability_tags: crate::catalog::action::AbilityTags,
@@ -440,6 +442,7 @@ pub struct EventFilter {
     pub applier: Option<UnitId>,
     pub target: Option<UnitId>,
     pub source: Option<SourceDefinitionId>,
+    pub effect_definition: Option<EffectDefinitionId>,
     pub source_class: Option<SourceClass>,
     pub owner_selector: Option<SelectorId>,
     pub actor_selector: Option<SelectorId>,
@@ -579,6 +582,8 @@ pub enum ConditionExpr {
         element: CombatElement,
     },
     IsBroken(SelectorId),
+    /// Every selected unit is currently in a Freeze-compatible control state.
+    IsFrozen(SelectorId),
 }
 
 /// One finite ordered program step.
@@ -798,6 +803,7 @@ pub enum RuleEffectChancePolicy {
     Guaranteed,
     Fixed,
     Resistible,
+    ResistibleIgnoringSpecificResistance,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]

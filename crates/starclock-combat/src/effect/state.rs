@@ -271,6 +271,21 @@ impl EffectStore {
                 && entry.controlled_actions.binary_search(&action).is_ok()
         })
     }
+
+    /// A target-turn-start control consumes the reached normal turn before it
+    /// expires. The caller applies the authored Freeze-style 50% recovery
+    /// gauge after the effect clock advances.
+    pub(crate) fn skips_normal_turn_at_start(&self, owner: UnitId) -> bool {
+        self.entries.values().any(|entry| {
+            entry.target == owner
+                && entry.category == EffectCategory::Control
+                && entry.duration_clock == DurationClock::TargetTurnStart
+                && entry
+                    .controlled_actions
+                    .binary_search(&ControlledAction::NormalAction)
+                    .is_ok()
+        })
+    }
 }
 
 #[cfg(test)]

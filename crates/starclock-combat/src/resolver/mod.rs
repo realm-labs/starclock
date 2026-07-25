@@ -1,5 +1,6 @@
 pub(crate) mod action;
 mod effect_boundary;
+mod effect_duration;
 mod effect_operation;
 pub(crate) mod journal;
 pub(crate) mod lifecycle;
@@ -10,6 +11,7 @@ mod operation_formula;
 pub(crate) mod operation_resource;
 mod program;
 mod program_break;
+mod program_effect;
 mod program_timeline;
 mod rule;
 pub(crate) mod schedule;

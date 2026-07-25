@@ -9,18 +9,17 @@ use crate::{
         model::{BattleEventKind, ResourceEventData, SkillPointPayer},
     },
     operation::{
-        AddWeaknessOp, ApplyEffectOp, ChangePresenceOp, ConsumeHpOp, CreateCountdownOp, DamageOp,
-        DetonateDotsOp, ForceBreakOp, HitOperationScratch, ModifyStateSlotOp, Operation,
-        QueueRuleActionOp, ReduceToughnessOp, RemoveEffectsOp, RemoveShieldsOp, ShieldOp,
-        SummonLinkedOp, SuperBreakOp, TransformOp, UnitLifecycleOp,
+        AddWeaknessOp, ChangePresenceOp, ConsumeHpOp, CreateCountdownOp, DamageOp, DetonateDotsOp,
+        ForceBreakOp, HitOperationScratch, ModifyStateSlotOp, Operation, QueueRuleActionOp,
+        ReduceToughnessOp, RemoveEffectsOp, RemoveShieldsOp, ShieldOp, SummonLinkedOp,
+        SuperBreakOp, TransformOp, UnitLifecycleOp,
     },
     rule::{
         evaluate::{EvaluationBudget, evaluate_program},
         model::{
-            ResourceUpdateKind, RuleActionOwner, RuleActionPaymentPolicy, RuleCause,
-            RuleEffectChancePolicy, RuleEmission, RuleEvaluationInput, RuleOccurrence,
-            RuleResourceKind, RuleSlotMutationDefinition, RuleValue, SelectorResult,
-            StateSlotUpdateKind,
+            ResourceUpdateKind, RuleActionOwner, RuleActionPaymentPolicy, RuleCause, RuleEmission,
+            RuleEvaluationInput, RuleOccurrence, RuleResourceKind, RuleSlotMutationDefinition,
+            RuleValue, SelectorResult, StateSlotUpdateKind,
         },
     },
 };
@@ -29,9 +28,10 @@ use std::collections::BTreeMap;
 
 use super::{operation::execute_operation, transaction::Transaction};
 mod emission;
-mod fault;
+pub(super) mod fault;
 use emission::emission_current_target;
-use fault::{emission_code, program_fault};
+use fault::emission_code;
+pub(super) use fault::program_fault;
 
 pub(super) struct AbilityProgramContext {
     pub(super) program: crate::ProgramId,
@@ -250,7 +250,9 @@ fn execute_program(
 pub(super) fn stat_bases(
     txn: &Transaction<'_>,
 ) -> Result<BTreeMap<(crate::UnitId, crate::modifier::model::StatKind), Scalar>, BattleFault> {
-    use crate::modifier::model::StatKind::{Atk, CritDamage, CritRate, Def, Hp, Spd};
+    use crate::modifier::model::StatKind::{
+        Atk, CritDamage, CritRate, Def, EffectHitRate, EffectResistance, FreezeResistance, Hp, Spd,
+    };
 
     let mut bases = BTreeMap::new();
     for unit in txn.state.units.iter_by_id() {
@@ -280,6 +282,9 @@ pub(super) fn stat_bases(
             (unit.id, CritDamage),
             Scalar::from_scaled(if player { 500_000 } else { 0 }),
         );
+        bases.insert((unit.id, EffectHitRate), Scalar::ZERO);
+        bases.insert((unit.id, EffectResistance), Scalar::ZERO);
+        bases.insert((unit.id, FreezeResistance), Scalar::ZERO);
     }
     Ok(bases)
 }
@@ -519,40 +524,18 @@ fn execute_emission(
             base_chance,
             rng_purpose,
             ..
-        } => {
-            let chance = match chance {
-                RuleEffectChancePolicy::Guaranteed => crate::EffectChancePolicy::Guaranteed,
-                RuleEffectChancePolicy::Fixed => crate::EffectChancePolicy::Fixed {
-                    chance: probability(base_chance.ok_or_else(|| program_fault(7, 0))?)?,
-                },
-                RuleEffectChancePolicy::Resistible => crate::EffectChancePolicy::Resistible {
-                    base_chance: probability(base_chance.ok_or_else(|| program_fault(8, 0))?)?,
-                    attacker_effect_hit_rate: Ratio::ZERO,
-                    target_effect_resistance: Ratio::ZERO,
-                    target_specific_resistance: Ratio::ZERO,
-                },
-            };
-            let targets = emission_targets(catalog, resolved, selector, current_target)?;
-            let resolved_runtime = catalog
-                .effect(effect)
-                .and_then(|definition| definition.runtime_template())
-                .map(|template| {
-                    targets
-                        .iter()
-                        .map(|target| resolve_effect_runtime(template, input, *target))
-                        .collect::<Result<Vec<_>, _>>()
-                        .map(Vec::into_boxed_slice)
-                })
-                .transpose()?;
-            Operation::ApplyEffect(ApplyEffectOp {
-                id: operation_id,
-                targets,
-                definition: crate::EffectApplicationDefinition::new(effect, chance, 1)
-                    .expect("one stack is valid"),
-                rng_purpose,
-                resolved_runtime,
-            })
-        }
+        } => super::program_effect::apply_effect_operation(
+            catalog,
+            input,
+            operation_id,
+            resolved,
+            selector,
+            current_target,
+            effect,
+            chance,
+            base_chance,
+            rng_purpose,
+        )?,
         RuleEmission::RemoveEffect {
             selector, effect, ..
         } => Operation::RemoveEffects(RemoveEffectsOp {
@@ -762,7 +745,7 @@ fn targets(
         .ok_or_else(|| program_fault(20, i64::from(selector.get())))
 }
 
-fn emission_targets(
+pub(super) fn emission_targets(
     catalog: &crate::catalog::CombatCatalog,
     resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
     selector: crate::SelectorId,
@@ -1124,60 +1107,19 @@ fn super_break(
     }
 }
 
-fn non_negative_scalar(value: RuleValue) -> Result<Scalar, BattleFault> {
+pub(super) fn non_negative_scalar(value: RuleValue) -> Result<Scalar, BattleFault> {
     match value {
         RuleValue::Scalar(value) if value.scaled() >= 0 => Ok(value),
         _ => Err(program_fault(40, 0)),
     }
 }
 
-fn resolve_effect_runtime(
-    template: &crate::EffectRuntimeTemplate,
-    input: RuleEvaluationInput<'_>,
-    target: crate::UnitId,
-) -> Result<crate::EffectRuntimeDefinition, BattleFault> {
-    let duration = template
-        .duration_expression()
-        .map(|expression| {
-            crate::rule::evaluate::evaluate_value(expression, input, Some(target))
-                .map_err(|error| program_fault(45, i64::from(error.context())))
-                .and_then(effect_duration)
-        })
-        .transpose()?;
-    let magnitude = template
-        .magnitude_expression()
-        .map(|expression| {
-            crate::rule::evaluate::evaluate_value(expression, input, Some(target))
-                .map_err(|error| program_fault(46, i64::from(error.context())))
-                .and_then(non_negative_scalar)
-        })
-        .transpose()?
-        .unwrap_or(Scalar::ZERO);
-    template
-        .resolve(duration, magnitude)
-        .ok_or_else(|| program_fault(47, i64::try_from(target.get()).unwrap_or(i64::MAX)))
-}
-
-fn effect_duration(value: RuleValue) -> Result<u16, BattleFault> {
-    let raw = match value {
-        RuleValue::Integer(value) => value,
-        RuleValue::Scalar(value) => value
-            .rounded_integer(Rounding::NearestTiesEven)
-            .map_err(|_| program_fault(48, value.scaled()))?,
-        _ => return Err(program_fault(48, 0)),
-    };
-    u16::try_from(raw)
-        .ok()
-        .filter(|value| *value > 0)
-        .ok_or_else(|| program_fault(48, raw))
-}
-
-fn ratio(value: RuleValue) -> Result<Ratio, BattleFault> {
+pub(super) fn ratio(value: RuleValue) -> Result<Ratio, BattleFault> {
     let value = non_negative_scalar(value)?;
     Ok(Ratio::from_scaled(value.scaled()))
 }
 
-fn probability(value: RuleValue) -> Result<crate::Probability, BattleFault> {
+pub(super) fn probability(value: RuleValue) -> Result<crate::Probability, BattleFault> {
     crate::Probability::from_ratio(ratio(value)?).map_err(|_| program_fault(41, 0))
 }
 

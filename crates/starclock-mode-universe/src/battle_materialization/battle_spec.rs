@@ -11,7 +11,7 @@ use starclock_combat::{
 
 use crate::{
     battle_contribution::UniverseBattleContributionSet,
-    battle_rule_lowering::{RESONANCE_RESOURCE_ID, RESONANCE_RESOURCE_KEY},
+    battle_rule_lowering::{RESONANCE_RESOURCE_ID, RESONANCE_RESOURCE_KEY, RuleAttachment},
     encounter::{DifficultyEnemyBinding, EncounterMemberDefinition},
 };
 
@@ -43,6 +43,7 @@ pub(super) fn member_spec(
                 wave_index,
                 slot_index,
                 slot.enemy_variant_key(),
+                contributions,
             )?);
         }
     }
@@ -86,6 +87,7 @@ pub(super) fn difficulty_spec(
         0,
         0,
         binding.enemy_variant_key(),
+        contributions,
     )?);
     BattleSpec::new(
         revision,
@@ -133,16 +135,23 @@ fn enemy_participant(
     wave_index: usize,
     slot_index: usize,
     source_key: &str,
+    contributions: &UniverseBattleContributionSet,
 ) -> Result<ParticipantSpec, UniverseBattleMaterializationError> {
     let enemy = catalog
         .enemy(enemy_id)
         .ok_or(UniverseBattleMaterializationError::MissingProxyEnemy)?;
+    let enemy_rules = contributions
+        .executable_rules()
+        .iter()
+        .filter(|rule| rule.attachment() == RuleAttachment::EveryEnemy)
+        .map(|rule| rule.bundle().id())
+        .collect::<Vec<_>>();
     let combatant = ResolvedCombatantSpec::new(
         enemy.unit(),
         level,
         Hp::new(1).expect("Goal 01 executable proxy HP is positive"),
         Speed::from_scaled(50_000_000).expect("static proxy Speed is valid"),
-        ResolvedDefinitionBindings::new(enemy.abilities().to_vec(), Vec::new(), Vec::new())
+        ResolvedDefinitionBindings::new(enemy.abilities().to_vec(), enemy_rules, Vec::new())
             .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?,
         CombatantSpecDigest::new(enemy_digest(
             enemy_id, level, wave_index, slot_index, source_key,

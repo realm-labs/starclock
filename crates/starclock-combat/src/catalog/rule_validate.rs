@@ -567,6 +567,7 @@ fn validate_condition(
             require_selector(catalog, *selector)?;
         }
         ConditionExpr::LifePresence { selector, .. }
+        | ConditionExpr::IsFrozen(selector)
         | ConditionExpr::HasWeakness { selector, .. }
         | ConditionExpr::IsBroken(selector) => require_selector(catalog, *selector)?,
         ConditionExpr::EffectExists { selector, effect } => {

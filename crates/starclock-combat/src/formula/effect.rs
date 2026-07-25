@@ -10,7 +10,7 @@ pub struct EffectChanceCalculation {
 
 /// Applies the documented resistible-effect chance factors and retains the unclamped result.
 pub fn resistible_chance(
-    base: Probability,
+    base: Ratio,
     attacker_effect_hit_rate: Ratio,
     target_effect_resistance: Ratio,
     target_specific_resistance: Ratio,
@@ -23,7 +23,10 @@ pub fn resistible_chance(
     if attacker_effect_hit_rate.scaled() < 0 {
         return Err(NumericError::OutOfDomain);
     }
-    let mut value = Scalar::from_scaled(i64::from(base.millionths()));
+    if base.scaled() < 0 {
+        return Err(NumericError::OutOfDomain);
+    }
+    let mut value = Scalar::from_scaled(base.scaled());
     for factor in [
         Ratio::ONE.checked_add(attacker_effect_hit_rate)?,
         Ratio::ONE.checked_sub(target_effect_resistance)?,

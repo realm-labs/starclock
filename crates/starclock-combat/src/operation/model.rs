@@ -165,6 +165,7 @@ pub(crate) struct ApplyEffectOp {
     pub(crate) targets: Box<[UnitId]>,
     pub(crate) definition: crate::EffectApplicationDefinition,
     pub(crate) rng_purpose: Option<crate::rng::types::DrawPurpose>,
+    pub(crate) resolved_chances: Option<Box<[crate::EffectChancePolicy]>>,
     pub(crate) resolved_runtime: Option<Box<[crate::EffectRuntimeDefinition]>>,
 }
 

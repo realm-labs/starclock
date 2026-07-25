@@ -28,7 +28,7 @@ pub(super) const fn emission_code(emission: &RuleEmission) -> i64 {
     }
 }
 
-pub(super) fn program_fault(context: u32, detail: i64) -> BattleFault {
+pub(in crate::resolver) fn program_fault(context: u32, detail: i64) -> BattleFault {
     BattleFault::new(
         FaultKind::InvariantViolation,
         FaultBoundary::Command,

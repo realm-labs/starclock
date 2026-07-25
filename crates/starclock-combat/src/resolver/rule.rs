@@ -552,6 +552,16 @@ fn event_facts(
             }
         }
         BattleEventKind::Effect(data) => {
+            facts.effect_definition = match data {
+                crate::EffectEventData::Applied { definition, .. }
+                | crate::EffectEventData::Resisted { definition, .. } => Some(*definition),
+                crate::EffectEventData::Refreshed { effect, .. }
+                | crate::EffectEventData::Ticked { effect, .. }
+                | crate::EffectEventData::Detonated { effect, .. } => {
+                    txn.state.effects.get(*effect).map(|state| state.definition)
+                }
+                crate::EffectEventData::Removed { definition, .. } => Some(*definition),
+            };
             facts.stack_count = match data {
                 crate::EffectEventData::Applied { stacks, .. } => Some(i64::from(*stacks)),
                 crate::EffectEventData::Refreshed { stacks_after, .. } => {
@@ -694,6 +704,7 @@ pub(super) struct BattleQuerySnapshot {
     skill_points: [crate::Scalar; 2],
     team_resources: [BTreeMap<Box<str>, crate::Scalar>; 2],
     effects: BTreeSet<(UnitId, crate::EffectDefinitionId)>,
+    frozen: BTreeSet<UnitId>,
 }
 
 impl BattleQuerySnapshot {
@@ -755,11 +766,33 @@ impl BattleQuerySnapshot {
             .iter_by_id()
             .map(|effect| (effect.target, effect.definition))
             .collect();
+        let mut frozen = txn
+            .state
+            .effects
+            .iter_by_id()
+            .filter(|effect| {
+                effect.category == crate::EffectCategory::Control
+                    && effect.duration_clock == crate::DurationClock::TargetTurnStart
+                    && effect
+                        .controlled_actions
+                        .binary_search(&crate::ControlledAction::NormalAction)
+                        .is_ok()
+            })
+            .map(|effect| effect.target)
+            .collect::<BTreeSet<_>>();
+        frozen.extend(
+            txn.state
+                .break_effects
+                .iter_by_id()
+                .filter(|effect| effect.plan.skips_action)
+                .map(|effect| effect.owner),
+        );
         Self {
             units,
             skill_points,
             team_resources,
             effects,
+            frozen,
         }
     }
 }
@@ -788,6 +821,10 @@ impl crate::rule::evaluate::BattleQueryReader for BattleQuerySnapshot {
 
     fn has_effect(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> bool {
         self.effects.contains(&(subject, effect))
+    }
+
+    fn is_frozen(&self, subject: UnitId) -> bool {
+        self.frozen.contains(&subject)
     }
 
     fn has_weakness(&self, subject: UnitId, element: CombatElement) -> bool {

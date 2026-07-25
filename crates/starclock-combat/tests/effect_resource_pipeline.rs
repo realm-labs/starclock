@@ -6,8 +6,8 @@ use starclock_combat::{
     DurationClock, EffectApplicationDefinition, EffectCategory, EffectChancePolicy,
     EffectDefinitionId, EffectEventData, EffectRuntimeDefinition, EffectStackPolicy,
     EffectTickPhase, Energy, FormationIndex, Hp, ModifierDefinitionId, ModifierStackingGroupId,
-    ParticipantSource, ParticipantSpec, Probability, Ratio, ResolvedCombatantSpec,
-    ResolvedDefinitionBindings, Scalar, Speed, TeamResourceSpec, TeamSide, UnitLevel,
+    ParticipantSource, ParticipantSpec, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings,
+    Scalar, Speed, TeamResourceSpec, TeamSide, UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -362,7 +362,7 @@ fn effect_execution_is_replay_deterministic() {
 #[test]
 fn chance_energy_and_aggro_goldens_use_checked_fixed_point() {
     let chance = starclock_combat::formula::effect::resistible_chance(
-        Probability::from_millionths(800_000).unwrap(),
+        Ratio::from_scaled(800_000),
         Ratio::from_scaled(500_000),
         Ratio::from_scaled(200_000),
         Ratio::from_scaled(100_000),
@@ -371,6 +371,20 @@ fn chance_energy_and_aggro_goldens_use_checked_fixed_point() {
     assert_eq!(
         (chance.pre_clamp.scaled(), chance.probability.millionths()),
         (864_000, 864_000)
+    );
+    let over_cap = starclock_combat::formula::effect::resistible_chance(
+        Ratio::from_scaled(1_500_000),
+        Ratio::from_scaled(500_000),
+        Ratio::from_scaled(200_000),
+        Ratio::from_scaled(100_000),
+    )
+    .unwrap();
+    assert_eq!(
+        (
+            over_cap.pre_clamp.scaled(),
+            over_cap.probability.millionths()
+        ),
+        (1_620_000, 1_000_000)
     );
     assert_eq!(
         starclock_combat::formula::effect::energy_gain(

@@ -32,6 +32,9 @@ real_chance =
 This is documented by the [Effect Hit Rate reference](https://honkai-star-rail.fandom.com/wiki/Effect_Hit_Rate) and in-game terminology transcriptions. Clamp the final comparison probability to `[0, 1]`; retain the pre-clamp value for diagnostics.
 
 `target_specific_debuff_res` is resistance to a category such as Crowd Control or a named status. It is a separate multiplicative factor from general Effect RES.
+Effect definitions name the applicable typed resistance stat, such as
+`FreezeResistance`. A rule may explicitly ignore only that specific channel
+while still applying general Effect RES; this is distinct from fixed chance.
 
 Fixed chance is different: it ignores Effect Hit Rate and resistances unless an authored rule explicitly modifies it. Guaranteed/unconditional application should bypass RNG rather than use an arbitrarily large base chance.
 

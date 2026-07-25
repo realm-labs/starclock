@@ -292,6 +292,7 @@ fn settle_wave_carry(
                     BattleEventKind::Effect(crate::EffectEventData::Removed {
                         operation: removed.source_operation,
                         effect,
+                        definition: removed.definition,
                         target: removed.target,
                     }),
                 );

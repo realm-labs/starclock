@@ -4,12 +4,16 @@ use core::cmp::Ordering;
 use std::collections::BTreeSet;
 
 mod helpers;
-use helpers::{add_values, budget_error, numeric_error, optional_unit, query_subject, type_error};
+pub(crate) use helpers::stat_query_error;
+use helpers::{
+    add_values, ancestry_matches, budget_error, numeric_error, optional_unit, query_subject,
+    type_error,
+};
 
 use super::model::{
-    CauseAncestry, Comparison, ConditionExpr, EventFilter, EventValueProperty, ProgramStep,
-    RuleEmission, RuleEvaluationInput, RuleOperationTemplate, RuleReplacementProposal,
-    RuleResourceKind, RuleValue, RuleValueKind, ShieldObservation, TriggerDef, ValueExpr, once_key,
+    Comparison, ConditionExpr, EventFilter, EventValueProperty, ProgramStep, RuleEmission,
+    RuleEvaluationInput, RuleOperationTemplate, RuleReplacementProposal, RuleResourceKind,
+    RuleValue, RuleValueKind, ShieldObservation, TriggerDef, ValueExpr, once_key,
 };
 use crate::modifier::model::{FormulaPurpose, StatKind, StatQuerySubject};
 use crate::{ProgramId, RuleId, Scalar, StateSlotDefinitionId, UnitId};
@@ -56,6 +60,7 @@ pub trait ResourceQueryReader {
 pub trait BattleQueryReader {
     fn life_presence(&self, subject: UnitId) -> Option<(crate::LifeState, crate::PresenceState)>;
     fn has_effect(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> bool;
+    fn is_frozen(&self, subject: UnitId) -> bool;
     fn has_weakness(&self, subject: UnitId, element: crate::formula::model::CombatElement) -> bool;
     fn is_broken(&self, subject: UnitId) -> bool;
     fn current_shield(&self, subject: UnitId) -> Option<Scalar>;
@@ -101,13 +106,6 @@ impl core::fmt::Display for RuleEvaluationError {
 }
 
 impl std::error::Error for RuleEvaluationError {}
-
-pub(crate) const fn stat_query_error(context: u32) -> RuleEvaluationError {
-    RuleEvaluationError {
-        kind: RuleEvaluationErrorKind::MissingValue,
-        context,
-    }
-}
 
 /// Per-trigger hard limits. Catalog policy supplies these fixed values.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -701,6 +699,18 @@ pub fn evaluate_condition(
                     .battle_query_reader
                     .is_some_and(|reader| reader.has_effect(unit, *effect))
             }),
+        ConditionExpr::IsFrozen(selector) => selector_units(input, *selector)
+            .ok_or(RuleEvaluationError {
+                kind: RuleEvaluationErrorKind::MissingValue,
+                context: selector.get(),
+            })?
+            .iter()
+            .copied()
+            .all(|unit| {
+                input
+                    .battle_query_reader
+                    .is_some_and(|reader| reader.is_frozen(unit))
+            }),
         ConditionExpr::HasWeakness { selector, element } => selector_units(input, *selector)
             .ok_or(RuleEvaluationError {
                 kind: RuleEvaluationErrorKind::MissingValue,
@@ -747,6 +757,9 @@ pub fn matches_filter(filter: &EventFilter, input: RuleEvaluationInput<'_>) -> b
             .source
             .is_none_or(|value| input.cause.source == Some(value))
         && filter
+            .effect_definition
+            .is_none_or(|value| input.event_facts.effect_definition == Some(value))
+        && filter
             .source_class
             .is_none_or(|value| input.event_facts.source_class == Some(value))
         && selector_matches(filter.owner_selector, input.cause.owner, input)
@@ -782,17 +795,6 @@ fn selector_matches(
             selector_units(input, selector).is_some_and(|units| units.binary_search(&unit).is_ok())
         })
     })
-}
-
-fn ancestry_matches(value: CauseAncestry, input: RuleEvaluationInput<'_>) -> bool {
-    match value {
-        CauseAncestry::Any => true,
-        CauseAncestry::RootCommand => !input.event_facts.has_parent,
-        CauseAncestry::DirectParent => input.event_facts.has_parent,
-        CauseAncestry::SameAction => input.event_facts.has_action,
-        CauseAncestry::SamePhase => input.event_facts.has_phase,
-        CauseAncestry::SameHit => input.event_facts.has_hit,
-    }
 }
 
 pub fn evaluate_value(
