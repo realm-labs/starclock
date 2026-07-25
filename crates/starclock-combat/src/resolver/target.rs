@@ -9,28 +9,110 @@ use crate::{
 
 use super::transaction::{Transaction, action_fault};
 
+pub(super) enum RuleSelectorResolution {
+    Selected(Box<[crate::UnitId]>),
+    Skip,
+    CancelRemaining,
+}
+
+pub(super) fn ordered_rule_selectors(
+    catalog: &crate::catalog::CombatCatalog,
+    requested: &[crate::SelectorId],
+) -> Result<Vec<crate::SelectorId>, BattleFault> {
+    fn visit(
+        catalog: &crate::catalog::CombatCatalog,
+        id: crate::SelectorId,
+        visiting: &mut std::collections::BTreeSet<crate::SelectorId>,
+        visited: &mut std::collections::BTreeSet<crate::SelectorId>,
+        output: &mut Vec<crate::SelectorId>,
+    ) -> Result<(), BattleFault> {
+        if visited.contains(&id) {
+            return Ok(());
+        }
+        if !visiting.insert(id) {
+            return Err(action_fault(133));
+        }
+        let selector = catalog
+            .selector(id)
+            .and_then(crate::catalog::definition::SelectorDefinition::rule_units)
+            .ok_or_else(|| action_fault(134))?;
+        for dependency in selector.dependencies() {
+            visit(catalog, dependency, visiting, visited, output)?;
+        }
+        visiting.remove(&id);
+        visited.insert(id);
+        output.push(id);
+        Ok(())
+    }
+
+    let mut output = Vec::new();
+    let mut visiting = std::collections::BTreeSet::new();
+    let mut visited = std::collections::BTreeSet::new();
+    for id in requested {
+        visit(catalog, *id, &mut visiting, &mut visited, &mut output)?;
+    }
+    Ok(output)
+}
+
 impl Transaction<'_> {
+    #[allow(clippy::too_many_arguments)]
     pub(super) fn resolve_rule_selector(
         &mut self,
+        catalog: &crate::catalog::CombatCatalog,
         selector: &crate::catalog::selector::RuleUnitSelector,
         owner: crate::UnitId,
         actor: crate::UnitId,
+        source: Option<crate::UnitId>,
         applier: Option<crate::UnitId>,
         primary: Option<crate::UnitId>,
         current_subject: Option<crate::UnitId>,
-    ) -> Result<Box<[crate::UnitId]>, BattleFault> {
+        event_order: &[crate::UnitId],
+        input: crate::rule::model::RuleEvaluationInput<'_>,
+    ) -> Result<RuleSelectorResolution, BattleFault> {
         use crate::catalog::selector::{
             RuleLifePredicate, RulePresencePredicate, RuleSelectorChoice, RuleSelectorOrdering,
-            RuleSelectorOrigin, RuleSelectorSide,
+            RuleSelectorOrigin, RuleSelectorPredicate, RuleSelectorSide,
         };
-        let owner_side = self
-            .state
-            .units
-            .get(owner)
+        use crate::modifier::model::{FormulaPurpose, StatQuerySubject};
+        use crate::rule::evaluate::{compare, compare_values, evaluate_value};
+        use crate::rule::model::RuleValue;
+        let snapshot = self.selector_snapshot(
+            selector.reference(),
+            input.occurrence.event,
+            input.cause.action,
+        );
+        if selector.reference() != crate::catalog::selector::RuleSelectorReference::CurrentState
+            && snapshot.is_none()
+        {
+            return Err(action_fault(135));
+        }
+        let snapshot_bases = snapshot
+            .as_deref()
+            .map(super::selector_snapshot::RuleSelectorSnapshot::stat_bases)
+            .transpose()
+            .map_err(|_| action_fault(136))?;
+        let snapshot_reader =
+            snapshot_bases
+                .as_ref()
+                .zip(snapshot.as_deref())
+                .map(|(bases, snapshot)| {
+                    crate::modifier::resolve::StatResolver::new(
+                        catalog.modifier_registry(),
+                        bases,
+                        &snapshot.modifiers,
+                    )
+                });
+        let mut input = input;
+        if let Some(reader) = &snapshot_reader {
+            input.stat_reader = Some(reader);
+        }
+        let snapshot = snapshot.as_deref();
+        let owner_side = selector_unit(self.state, snapshot, owner)
             .ok_or_else(|| action_fault(120))?
             .side;
         let anchored = match selector.origin() {
-            RuleSelectorOrigin::Owner | RuleSelectorOrigin::Source => Some(owner),
+            RuleSelectorOrigin::Source => source,
+            RuleSelectorOrigin::Owner => Some(owner),
             RuleSelectorOrigin::Actor => Some(actor),
             RuleSelectorOrigin::Applier => applier,
             RuleSelectorOrigin::PrimaryTarget => primary,
@@ -43,9 +125,7 @@ impl Transaction<'_> {
             RuleSelectorSide::Any => true,
         };
         let direct = anchored.filter(|unit| {
-            self.state
-                .units
-                .get(*unit)
+            selector_unit(self.state, snapshot, *unit)
                 .is_some_and(|state| on_selected_side(state.side))
         });
         let use_direct = direct.is_some()
@@ -59,15 +139,16 @@ impl Transaction<'_> {
         let mut pool = if use_direct {
             direct.into_iter().collect::<Vec<_>>()
         } else {
-            self.state
-                .units
-                .iter_by_id()
-                .filter(|unit| on_selected_side(unit.side))
-                .map(|unit| unit.id)
+            selector_unit_ids(self.state, snapshot)
+                .into_iter()
+                .filter(|id| {
+                    selector_unit(self.state, snapshot, *id)
+                        .is_some_and(|unit| on_selected_side(unit.side))
+                })
                 .collect::<Vec<_>>()
         };
         pool.retain(|id| {
-            self.state.units.get(*id).is_some_and(|unit| {
+            selector_unit(self.state, snapshot, *id).is_some_and(|unit| {
                 let life = match selector.life() {
                     RuleLifePredicate::Any => true,
                     RuleLifePredicate::Alive => unit.life == crate::LifeState::Alive,
@@ -96,47 +177,122 @@ impl Transaction<'_> {
                 life && presence
             })
         });
+        for predicate in selector.predicates() {
+            pool.retain(|id| match predicate {
+                RuleSelectorPredicate::FormationRange { minimum, maximum } => {
+                    selector_unit(self.state, snapshot, *id)
+                        .is_some_and(|unit| (*minimum..=*maximum).contains(&unit.formation.get()))
+                }
+                RuleSelectorPredicate::HasMark(effect)
+                | RuleSelectorPredicate::HasEffect(effect) => {
+                    selector_has_effect(self.state, snapshot, *id, *effect)
+                }
+                RuleSelectorPredicate::HasWeakness(element) => {
+                    selector_unit(self.state, snapshot, *id)
+                        .is_some_and(|unit| unit.weaknesses.binary_search(element).is_ok())
+                }
+                RuleSelectorPredicate::HasTag(tag) => {
+                    selector_has_tag(self.state, snapshot, *id, *tag)
+                }
+                RuleSelectorPredicate::OwnedBy(owner_selector) => {
+                    let owners = input
+                        .selectors
+                        .binary_search_by_key(owner_selector, |result| result.selector)
+                        .ok()
+                        .map(|index| input.selectors[index].units)
+                        .unwrap_or_default();
+                    selector_owner(self.state, snapshot, *id)
+                        .is_some_and(|owner| owners.contains(&owner))
+                }
+                RuleSelectorPredicate::StatCompare {
+                    stat,
+                    comparison,
+                    value,
+                } => {
+                    let Some(reader) = input.stat_reader else {
+                        return false;
+                    };
+                    let Ok(lhs) = reader.query_stat(
+                        StatQuerySubject::CurrentTarget,
+                        *id,
+                        *stat,
+                        FormulaPurpose::Stat,
+                    ) else {
+                        return false;
+                    };
+                    let Ok(rhs) = evaluate_value(value, input, Some(*id)) else {
+                        return false;
+                    };
+                    compare(&RuleValue::Scalar(lhs), *comparison, &rhs).unwrap_or(false)
+                }
+            });
+        }
+        if matches!(
+            selector.ordering(),
+            RuleSelectorOrdering::StatAscending | RuleSelectorOrdering::StatDescending
+        ) {
+            let expression = selector.weight().ok_or_else(|| action_fault(126))?;
+            let mut keyed = pool
+                .drain(..)
+                .map(|id| {
+                    evaluate_value(expression, input, Some(id))
+                        .map(|value| (id, value))
+                        .map_err(|_| action_fault(128))
+                })
+                .collect::<Result<Vec<_>, _>>()?;
+            fallible_sort(&mut keyed, |left, right| {
+                let ordering = compare_values(&left.1, &right.1).map_err(|_| action_fault(129))?;
+                let ordering = if selector.ordering() == RuleSelectorOrdering::StatDescending {
+                    ordering.reverse()
+                } else {
+                    ordering
+                };
+                Ok(ordering.then_with(|| left.0.cmp(&right.0)))
+            })?;
+            pool = keyed.into_iter().map(|value| value.0).collect();
+        }
         match selector.ordering() {
             RuleSelectorOrdering::Formation => pool.sort_unstable_by_key(|id| {
-                self.state
-                    .units
-                    .get(*id)
+                selector_unit(self.state, snapshot, *id)
                     .map(|unit| (unit.side as u8, unit.formation.get(), id.get()))
             }),
             RuleSelectorOrdering::Timeline => pool.sort_unstable_by_key(|id| {
-                self.state
-                    .actors
-                    .id_for_owner(*id)
-                    .and_then(|actor| self.state.actors.get(actor))
-                    .map(|state| (state.gauge.scaled(), id.get()))
+                let gauge = selector_unit(self.state, snapshot, *id).and_then(|unit| unit.gauge);
+                (
+                    gauge.is_none(),
+                    gauge.map_or(i64::MAX, |value| value.scaled()),
+                    id.get(),
+                )
             }),
             RuleSelectorOrdering::HpRatioAscending | RuleSelectorOrdering::HpRatioDescending => {
                 pool.sort_unstable_by(|left, right| {
-                    let left = self
-                        .state
-                        .units
-                        .get(*left)
-                        .expect("selector candidate exists");
-                    let right = self
-                        .state
-                        .units
-                        .get(*right)
-                        .expect("selector candidate exists");
-                    let ordering = (i128::from(left.current_hp.get())
+                    let left =
+                        selector_unit(self.state, snapshot, *left).expect("candidate exists");
+                    let right =
+                        selector_unit(self.state, snapshot, *right).expect("candidate exists");
+                    let ratio_ordering = (i128::from(left.current_hp.get())
                         * i128::from(right.maximum_hp.get()))
-                    .cmp(&(i128::from(right.current_hp.get()) * i128::from(left.maximum_hp.get())))
-                    .then_with(|| left.id.cmp(&right.id));
-                    if selector.ordering() == RuleSelectorOrdering::HpRatioDescending {
-                        ordering.reverse()
-                    } else {
-                        ordering
-                    }
+                    .cmp(&(i128::from(right.current_hp.get()) * i128::from(left.maximum_hp.get())));
+                    let ratio_ordering =
+                        if selector.ordering() == RuleSelectorOrdering::HpRatioDescending {
+                            ratio_ordering.reverse()
+                        } else {
+                            ratio_ordering
+                        };
+                    ratio_ordering.then_with(|| left.id.cmp(&right.id))
                 });
             }
-            RuleSelectorOrdering::StableId
-            | RuleSelectorOrdering::EventOrder
-            | RuleSelectorOrdering::StatAscending
-            | RuleSelectorOrdering::StatDescending => pool.sort_unstable(),
+            RuleSelectorOrdering::EventOrder => pool.sort_unstable_by_key(|id| {
+                (
+                    event_order
+                        .iter()
+                        .position(|candidate| candidate == id)
+                        .unwrap_or(usize::MAX),
+                    id.get(),
+                )
+            }),
+            RuleSelectorOrdering::StableId => pool.sort_unstable(),
+            RuleSelectorOrdering::StatAscending | RuleSelectorOrdering::StatDescending => {}
         }
         let maximum = usize::from(selector.maximum());
         let mut selected = match selector.choice() {
@@ -149,67 +305,108 @@ impl Transaction<'_> {
                 let Some(primary) = primary.filter(|value| pool.contains(value)) else {
                     return self.finish_rule_selector(selector, Vec::new());
                 };
-                let index = self
-                    .state
-                    .units
-                    .get(primary)
+                let index = selector_unit(self.state, snapshot, primary)
                     .expect("candidate exists")
                     .formation
                     .get();
                 pool.into_iter()
                     .filter(|id| {
-                        self.state
-                            .units
-                            .get(*id)
+                        selector_unit(self.state, snapshot, *id)
                             .is_some_and(|unit| unit.formation.get().abs_diff(index) <= 1)
                     })
                     .take(maximum)
                     .collect()
             }
             RuleSelectorChoice::RngUniform => {
-                if pool.is_empty() {
-                    Vec::new()
-                } else {
-                    let purpose = selector
-                        .rng_purpose()
-                        .and_then(rule_draw_purpose)
-                        .ok_or_else(|| action_fault(121))?;
-                    let before = self.state.rng.draw_count();
-                    let selection = self
-                        .state
-                        .rng
-                        .choose_index(
-                            purpose,
-                            u32::try_from(pool.len()).map_err(|_| action_fault(122))?,
-                        )
-                        .map_err(|_| action_fault(123))?
-                        .ok_or_else(|| action_fault(124))?;
-                    for index in before..self.state.rng.draw_count() {
-                        self.journal.rng_draw(index, purpose.code());
-                    }
-                    vec![pool[usize::try_from(selection.value()).map_err(|_| action_fault(125))?]]
+                self.draw_rule_targets(selector, pool, None, maximum)?
+            }
+            RuleSelectorChoice::RngWeighted => {
+                let expression = selector.weight().ok_or_else(|| action_fault(126))?;
+                let weights = pool
+                    .iter()
+                    .map(|id| {
+                        evaluate_value(expression, input, Some(*id))
+                            .map_err(|_| action_fault(130))
+                            .and_then(rule_weight)
+                    })
+                    .collect::<Result<Vec<_>, _>>()?;
+                self.draw_rule_targets(selector, pool, Some(weights), maximum)?
+            }
+        };
+        selected.truncate(maximum);
+        self.finish_rule_selector(selector, selected)
+    }
+
+    fn draw_rule_targets(
+        &mut self,
+        selector: &crate::catalog::selector::RuleUnitSelector,
+        mut pool: Vec<crate::UnitId>,
+        mut weights: Option<Vec<u64>>,
+        maximum: usize,
+    ) -> Result<Vec<crate::UnitId>, BattleFault> {
+        let purpose = selector
+            .rng_purpose()
+            .and_then(rule_draw_purpose)
+            .ok_or_else(|| action_fault(121))?;
+        let mut output = Vec::new();
+        while !pool.is_empty() && output.len() < maximum {
+            let before = self.state.rng.draw_count();
+            let selected = if let Some(values) = weights.as_deref() {
+                self.state
+                    .rng
+                    .choose_weighted(purpose, values)
+                    .map_err(|_| action_fault(123))?
+                    .map(|value| u64::from(value.index()))
+            } else {
+                self.state
+                    .rng
+                    .choose_index(
+                        purpose,
+                        u32::try_from(pool.len()).map_err(|_| action_fault(122))?,
+                    )
+                    .map_err(|_| action_fault(123))?
+                    .map(|value| value.value())
+            };
+            let Some(selected) = selected else {
+                break;
+            };
+            for index in before..self.state.rng.draw_count() {
+                self.journal.rng_draw(index, purpose.code());
+            }
+            let index = usize::try_from(selected).map_err(|_| action_fault(125))?;
+            output.push(pool[index]);
+            if !selector.repeated() {
+                pool.remove(index);
+                if let Some(values) = &mut weights {
+                    values.remove(index);
                 }
             }
-            RuleSelectorChoice::RngWeighted => return Err(action_fault(126)),
-        };
-        if selector.repeated() && selected.len() == 1 {
-            selected.resize(maximum.max(1), selected[0]);
         }
-        self.finish_rule_selector(selector, selected)
+        Ok(output)
     }
 
     fn finish_rule_selector(
         &self,
         selector: &crate::catalog::selector::RuleUnitSelector,
         selected: Vec<crate::UnitId>,
-    ) -> Result<Box<[crate::UnitId]>, BattleFault> {
+    ) -> Result<RuleSelectorResolution, BattleFault> {
         if selected.len() < usize::from(selector.minimum()) {
             match selector.empty_pool() {
                 crate::catalog::selector::RuleEmptyPoolPolicy::Fault => Err(action_fault(127)),
-                _ => Ok(Box::new([])),
+                crate::catalog::selector::RuleEmptyPoolPolicy::NoOp => {
+                    Ok(RuleSelectorResolution::Selected(Box::new([])))
+                }
+                crate::catalog::selector::RuleEmptyPoolPolicy::Skip => {
+                    Ok(RuleSelectorResolution::Skip)
+                }
+                crate::catalog::selector::RuleEmptyPoolPolicy::CancelRemaining => {
+                    Ok(RuleSelectorResolution::CancelRemaining)
+                }
             }
         } else {
-            Ok(selected.into_boxed_slice())
+            Ok(RuleSelectorResolution::Selected(
+                selected.into_boxed_slice(),
+            ))
         }
     }
     pub(super) fn resolve_hit_targets(
@@ -269,6 +466,157 @@ impl Transaction<'_> {
         let index = usize::try_from(selected.value()).map_err(|_| action_fault(38))?;
         pool.get(index).copied().ok_or_else(|| action_fault(39))
     }
+}
+
+fn rule_weight(value: crate::rule::model::RuleValue) -> Result<u64, BattleFault> {
+    match value {
+        crate::rule::model::RuleValue::Integer(value) => {
+            u64::try_from(value).map_err(|_| action_fault(131))
+        }
+        crate::rule::model::RuleValue::Scalar(value) => {
+            u64::try_from(value.scaled()).map_err(|_| action_fault(131))
+        }
+        _ => Err(action_fault(132)),
+    }
+}
+
+#[derive(Clone, Copy)]
+struct SelectorUnitFacts<'a> {
+    id: crate::UnitId,
+    side: crate::TeamSide,
+    formation: crate::FormationIndex,
+    life: crate::LifeState,
+    presence: crate::PresenceState,
+    current_hp: crate::Hp,
+    maximum_hp: crate::Hp,
+    gauge: Option<crate::ActionGauge>,
+    weaknesses: &'a [crate::formula::model::CombatElement],
+}
+
+fn selector_unit<'a>(
+    state: &'a crate::battle::state::BattleState,
+    snapshot: Option<&'a super::selector_snapshot::RuleSelectorSnapshot>,
+    id: crate::UnitId,
+) -> Option<SelectorUnitFacts<'a>> {
+    if let Some(snapshot) = snapshot {
+        let unit = snapshot.units.get(&id)?;
+        return Some(SelectorUnitFacts {
+            id,
+            side: unit.side,
+            formation: unit.formation,
+            life: unit.life,
+            presence: unit.presence,
+            current_hp: unit.current_hp,
+            maximum_hp: unit.maximum_hp,
+            gauge: unit.gauge,
+            weaknesses: &unit.weaknesses,
+        });
+    }
+    let unit = state.units.get(id)?;
+    Some(SelectorUnitFacts {
+        id,
+        side: unit.side,
+        formation: unit.formation,
+        life: unit.life,
+        presence: unit.presence,
+        current_hp: unit.current_hp,
+        maximum_hp: unit.maximum_hp,
+        gauge: state
+            .actors
+            .id_for_owner(id)
+            .and_then(|actor| state.actors.get(actor))
+            .map(|actor| actor.gauge),
+        weaknesses: &unit.weaknesses,
+    })
+}
+
+fn selector_unit_ids(
+    state: &crate::battle::state::BattleState,
+    snapshot: Option<&super::selector_snapshot::RuleSelectorSnapshot>,
+) -> Vec<crate::UnitId> {
+    snapshot.map_or_else(
+        || state.units.iter_by_id().map(|unit| unit.id).collect(),
+        |snapshot| snapshot.units.keys().copied().collect(),
+    )
+}
+
+fn selector_has_effect(
+    state: &crate::battle::state::BattleState,
+    snapshot: Option<&super::selector_snapshot::RuleSelectorSnapshot>,
+    unit: crate::UnitId,
+    definition: crate::EffectDefinitionId,
+) -> bool {
+    snapshot.map_or_else(
+        || {
+            state
+                .effects
+                .iter_by_id()
+                .any(|effect| effect.target == unit && effect.definition == definition)
+        },
+        |snapshot| {
+            snapshot
+                .effects
+                .get(&unit)
+                .is_some_and(|effects| effects.iter().any(|effect| effect.definition == definition))
+        },
+    )
+}
+
+fn selector_has_tag(
+    state: &crate::battle::state::BattleState,
+    snapshot: Option<&super::selector_snapshot::RuleSelectorSnapshot>,
+    unit: crate::UnitId,
+    tag: crate::SourceDefinitionId,
+) -> bool {
+    snapshot.map_or_else(
+        || {
+            state
+                .effects
+                .iter_by_id()
+                .filter(|effect| effect.target == unit)
+                .any(|effect| effect.tags.binary_search(&tag).is_ok())
+        },
+        |snapshot| {
+            snapshot.effects.get(&unit).is_some_and(|effects| {
+                effects
+                    .iter()
+                    .any(|effect| effect.tags.binary_search(&tag).is_ok())
+            })
+        },
+    )
+}
+
+fn selector_owner(
+    state: &crate::battle::state::BattleState,
+    snapshot: Option<&super::selector_snapshot::RuleSelectorSnapshot>,
+    unit: crate::UnitId,
+) -> Option<crate::UnitId> {
+    snapshot.map_or_else(
+        || {
+            state
+                .links
+                .for_unit(unit)
+                .filter(|link| link.active)
+                .map(|link| link.owner)
+        },
+        |snapshot| snapshot.owners.get(&unit).copied(),
+    )
+}
+
+fn fallible_sort<T>(
+    values: &mut [T],
+    mut compare: impl FnMut(&T, &T) -> Result<core::cmp::Ordering, BattleFault>,
+) -> Result<(), BattleFault> {
+    for index in 1..values.len() {
+        let mut current = index;
+        while current > 0
+            && compare(&values[current - 1], &values[current])? == core::cmp::Ordering::Greater
+        {
+            values.swap(current - 1, current);
+            current -= 1;
+        }
+    }
+    Ok(())
 }
 
 fn rule_draw_purpose(key: &str) -> Option<DrawPurpose> {

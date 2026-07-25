@@ -23,6 +23,7 @@ use crate::modifier::{
 mod composition;
 mod lifecycle_validate;
 mod parameter_validate;
+mod selector_validate;
 
 /// Foundational definition family named by catalog diagnostics.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -256,6 +257,7 @@ impl CombatCatalogBuilder {
             trigger_index: super::index::TriggerDefinitionIndex::default(),
         };
         validate_references(&catalog)?;
+        selector_validate::validate(&catalog)?;
         validate_ai_graphs(&catalog)?;
         validate_program_cycles(&catalog)?;
         super::rule_validate::validate(&catalog)?;

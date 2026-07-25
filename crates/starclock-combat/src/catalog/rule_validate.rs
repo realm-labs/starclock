@@ -20,6 +20,9 @@ pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), super::builder::Ca
             continue;
         };
         validate_runtime(runtime).map_err(invalid)?;
+        for selector in rule.selectors() {
+            validate_selector_for_rule(catalog, runtime, *selector).map_err(invalid)?;
+        }
         for trigger in runtime.triggers() {
             if rule.programs().binary_search(&trigger.program).is_err() {
                 return Err(invalid(format!(
@@ -47,6 +50,39 @@ pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), super::builder::Ca
                 &mut visiting,
             )
             .map_err(invalid)?;
+        }
+    }
+    Ok(())
+}
+
+fn validate_selector_for_rule(
+    catalog: &CombatCatalog,
+    runtime: &BattleRuleDefinition,
+    selector: SelectorId,
+) -> Result<(), String> {
+    use crate::catalog::selector::RuleSelectorPredicate;
+    let Some(definition) = catalog
+        .selector(selector)
+        .and_then(super::definition::SelectorDefinition::rule_units)
+    else {
+        return Ok(());
+    };
+    if let Some(weight) = definition.weight()
+        && !matches!(
+            infer_value(catalog, runtime, weight, 0)?,
+            RuleValueKind::Integer | RuleValueKind::Scalar
+        )
+    {
+        return Err(format!("selector {} weight is not numeric", selector.get()));
+    }
+    for predicate in definition.predicates() {
+        if let RuleSelectorPredicate::StatCompare { value, .. } = predicate
+            && infer_value(catalog, runtime, value, 0)? != RuleValueKind::Scalar
+        {
+            return Err(format!(
+                "selector {} stat predicate is not scalar",
+                selector.get()
+            ));
         }
     }
     Ok(())

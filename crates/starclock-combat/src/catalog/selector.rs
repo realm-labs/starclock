@@ -1,5 +1,13 @@
 //! Typed unit-selector plans used by authored Rule IR programs.
 
+use crate::{
+    EffectDefinitionId, SelectorId, SourceDefinitionId,
+    formula::model::CombatElement,
+    modifier::model::StatKind,
+    rule::model::{Comparison, ValueExpr},
+};
+use std::collections::BTreeSet;
+
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum RuleSelectorOrigin {
     Source,
@@ -74,6 +82,25 @@ pub enum RuleEmptyPoolPolicy {
     Fault,
 }
 
+/// One ordered, mutation-free candidate predicate.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum RuleSelectorPredicate {
+    FormationRange {
+        minimum: u8,
+        maximum: u8,
+    },
+    HasMark(EffectDefinitionId),
+    HasWeakness(CombatElement),
+    HasEffect(EffectDefinitionId),
+    HasTag(SourceDefinitionId),
+    OwnedBy(SelectorId),
+    StatCompare {
+        stat: StatKind,
+        comparison: Comparison,
+        value: ValueExpr,
+    },
+}
+
 /// Complete typed selector plan retained in the immutable combat catalog.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RuleUnitSelector {
@@ -89,6 +116,8 @@ pub struct RuleUnitSelector {
     pub(crate) choice: RuleSelectorChoice,
     pub(crate) rng_purpose: Option<Box<str>>,
     pub(crate) repeated: bool,
+    pub(crate) predicates: Box<[RuleSelectorPredicate]>,
+    pub(crate) weight: Option<ValueExpr>,
 }
 
 impl RuleUnitSelector {
@@ -121,7 +150,21 @@ impl RuleUnitSelector {
             choice,
             rng_purpose,
             repeated,
+            predicates: Box::new([]),
+            weight: None,
         })
+    }
+
+    #[must_use]
+    pub fn with_predicates(mut self, predicates: Vec<RuleSelectorPredicate>) -> Self {
+        self.predicates = predicates.into_boxed_slice();
+        self
+    }
+
+    #[must_use]
+    pub fn with_weight(mut self, weight: Option<ValueExpr>) -> Self {
+        self.weight = weight;
+        self
     }
 
     #[must_use]
@@ -171,5 +214,122 @@ impl RuleUnitSelector {
     #[must_use]
     pub const fn repeated(&self) -> bool {
         self.repeated
+    }
+    #[must_use]
+    pub fn predicates(&self) -> &[RuleSelectorPredicate] {
+        &self.predicates
+    }
+    #[must_use]
+    pub const fn weight(&self) -> Option<&ValueExpr> {
+        self.weight.as_ref()
+    }
+
+    pub(crate) fn dependencies(&self) -> BTreeSet<SelectorId> {
+        let mut output = BTreeSet::new();
+        for predicate in &self.predicates {
+            match predicate {
+                RuleSelectorPredicate::OwnedBy(selector) => {
+                    output.insert(*selector);
+                }
+                RuleSelectorPredicate::StatCompare { value, .. } => {
+                    value_dependencies(value, &mut output);
+                }
+                _ => {}
+            }
+        }
+        if let Some(weight) = &self.weight {
+            value_dependencies(weight, &mut output);
+        }
+        output
+    }
+}
+
+impl super::CombatCatalog {
+    pub(crate) fn needs_selector_snapshots(&self) -> bool {
+        self.selectors.values().any(|definition| {
+            definition
+                .rule_units()
+                .is_some_and(|selector| selector.reference() != RuleSelectorReference::CurrentState)
+        })
+    }
+}
+
+fn value_dependencies(expression: &ValueExpr, output: &mut BTreeSet<SelectorId>) {
+    match expression {
+        ValueExpr::ReadResource { selector, .. } | ValueExpr::SelectorCount(selector) => {
+            output.insert(*selector);
+        }
+        ValueExpr::SelectorSum { selector, value } => {
+            output.insert(*selector);
+            value_dependencies(value, output);
+        }
+        ValueExpr::Add(lhs, rhs)
+        | ValueExpr::Subtract(lhs, rhs)
+        | ValueExpr::Minimum(lhs, rhs)
+        | ValueExpr::Maximum(lhs, rhs)
+        | ValueExpr::Multiply { lhs, rhs, .. }
+        | ValueExpr::Divide { lhs, rhs, .. } => {
+            value_dependencies(lhs, output);
+            value_dependencies(rhs, output);
+        }
+        ValueExpr::Clamp {
+            value,
+            minimum,
+            maximum,
+        } => {
+            value_dependencies(value, output);
+            value_dependencies(minimum, output);
+            value_dependencies(maximum, output);
+        }
+        ValueExpr::Negate(value) | ValueExpr::Convert { value, .. } => {
+            value_dependencies(value, output);
+        }
+        ValueExpr::Choose {
+            condition,
+            when_true,
+            when_false,
+        } => {
+            condition_dependencies(condition, output);
+            value_dependencies(when_true, output);
+            value_dependencies(when_false, output);
+        }
+        ValueExpr::Literal(_)
+        | ValueExpr::Slot(_)
+        | ValueExpr::AbilityParameter { .. }
+        | ValueExpr::ReadEventProperty(_)
+        | ValueExpr::EventId
+        | ValueExpr::EventOwner
+        | ValueExpr::EventActor
+        | ValueExpr::EventApplier
+        | ValueExpr::EventTarget
+        | ValueExpr::CurrentTarget
+        | ValueExpr::QueryStat { .. } => {}
+    }
+}
+
+fn condition_dependencies(
+    condition: &crate::rule::model::ConditionExpr,
+    output: &mut BTreeSet<SelectorId>,
+) {
+    use crate::rule::model::ConditionExpr;
+    match condition {
+        ConditionExpr::Not(value) => condition_dependencies(value, output),
+        ConditionExpr::All(values) | ConditionExpr::Any(values) => {
+            for value in values {
+                condition_dependencies(value, output);
+            }
+        }
+        ConditionExpr::Compare { lhs, rhs, .. } => {
+            value_dependencies(lhs, output);
+            value_dependencies(rhs, output);
+        }
+        ConditionExpr::SelectorCardinality { selector, .. }
+        | ConditionExpr::LifePresence { selector, .. }
+        | ConditionExpr::EffectExists { selector, .. }
+        | ConditionExpr::HasWeakness { selector, .. }
+        | ConditionExpr::IsBroken(selector) => {
+            output.insert(*selector);
+        }
+        ConditionExpr::Literal(_) | ConditionExpr::EventKind(_) | ConditionExpr::SourceTag(_) => {}
     }
 }

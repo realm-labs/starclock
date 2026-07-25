@@ -53,28 +53,6 @@ pub(super) fn execute_ability_program(
     context: AbilityProgramContext,
     scratch: &mut HitOperationScratch,
 ) -> Result<crate::EventId, BattleFault> {
-    let mut owned = Vec::new();
-    for id in catalog.selector_ids() {
-        let Some(selector) = catalog.selector(id).and_then(|value| value.rule_units()) else {
-            continue;
-        };
-        let units = txn.resolve_rule_selector(
-            selector,
-            context.owner,
-            context.actor,
-            Some(context.actor),
-            context.primary,
-            None,
-        )?;
-        owned.push((id, units));
-    }
-    let selectors = owned
-        .iter()
-        .map(|(selector, units)| SelectorResult {
-            selector: *selector,
-            units,
-        })
-        .collect::<Vec<_>>();
     let bases = stat_bases(txn)?;
     let modifiers = txn
         .state
@@ -95,32 +73,93 @@ pub(super) fn execute_ability_program(
         has_hit: context.hit.is_some(),
         ..crate::rule::model::RuleEventFacts::default()
     };
+    let rule_cause = RuleCause {
+        parent_event: cause.parent_event(),
+        root_command: Some(cause.root_command()),
+        action: cause.action(),
+        phase: cause.phase(),
+        hit: cause.hit(),
+        owner: Some(context.owner),
+        actor: Some(context.actor),
+        applier: Some(context.actor),
+        target: context.primary,
+        source: cause.source_definition(),
+    };
+    let occurrence = RuleOccurrence {
+        rule_instance: crate::RuleInstanceId::new(context.action.get())
+            .expect("action IDs are nonzero"),
+        event: parent,
+        hit: context.hit,
+        target: context.primary,
+        ability: Some(context.ability),
+        action: Some(context.action),
+        turn_event: None,
+        wave: txn.state.encounter.wave,
+    };
+    let program = catalog
+        .program(context.program)
+        .ok_or_else(|| program_fault(1, i64::from(context.program.get())))?;
+    let event_order = context.primary.into_iter().collect::<Vec<_>>();
+    let mut owned: Vec<(crate::SelectorId, Box<[crate::UnitId]>)> = Vec::new();
+    for id in super::target::ordered_rule_selectors(catalog, program.selectors())? {
+        let Some(selector) = catalog.selector(id).and_then(|value| value.rule_units()) else {
+            continue;
+        };
+        let views = owned
+            .iter()
+            .map(|(selector, units)| SelectorResult {
+                selector: *selector,
+                units,
+            })
+            .collect::<Vec<_>>();
+        let selection_input = RuleEvaluationInput {
+            event_kind: crate::rule::model::RuleEventKind::Phase,
+            event_facts: &event_facts,
+            cause: rule_cause,
+            occurrence,
+            source_tags: &[],
+            slots: &[],
+            selectors: &views,
+            stat_reader: Some(&stat_reader),
+            ability_parameter_reader: Some(catalog),
+            resource_reader: None,
+            battle_query_reader: None,
+        };
+        let selection = txn.resolve_rule_selector(
+            catalog,
+            selector,
+            context.owner,
+            context.actor,
+            Some(context.owner),
+            Some(context.actor),
+            context.primary,
+            None,
+            &event_order,
+            selection_input,
+        )?;
+        match selection {
+            super::target::RuleSelectorResolution::Selected(units) => {
+                let index = owned
+                    .binary_search_by_key(&id, |(selector, _)| *selector)
+                    .unwrap_err();
+                owned.insert(index, (id, units));
+            }
+            super::target::RuleSelectorResolution::Skip
+            | super::target::RuleSelectorResolution::CancelRemaining => return Ok(parent),
+        }
+    }
+    let selectors = owned
+        .iter()
+        .map(|(selector, units)| SelectorResult {
+            selector: *selector,
+            units,
+        })
+        .collect::<Vec<_>>();
     let input = RuleEvaluationInput {
         event_kind: crate::rule::model::RuleEventKind::Phase,
         event_facts: &event_facts,
-        cause: RuleCause {
-            parent_event: cause.parent_event(),
-            root_command: Some(cause.root_command()),
-            action: cause.action(),
-            phase: cause.phase(),
-            hit: cause.hit(),
-            owner: Some(context.owner),
-            actor: Some(context.actor),
-            applier: Some(context.actor),
-            target: context.primary,
-            source: cause.source_definition(),
-        },
-        occurrence: RuleOccurrence {
-            rule_instance: crate::RuleInstanceId::new(context.action.get())
-                .expect("action IDs are nonzero"),
-            event: parent,
-            hit: context.hit,
-            target: context.primary,
-            ability: Some(context.ability),
-            action: Some(context.action),
-            turn_event: None,
-            wave: txn.state.encounter.wave,
-        },
+        cause: rule_cause,
+        occurrence,
         source_tags: &[],
         slots: &[],
         selectors: &selectors,

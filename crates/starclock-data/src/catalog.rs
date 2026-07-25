@@ -44,7 +44,7 @@ const METADATA_TABLES: [&str; 5] = [
     "EvidenceRecord",
     "SourceRecord",
 ];
-const LOWERED_TABLES: [&str; 73] = [
+const LOWERED_TABLES: [&str; 74] = [
     "Ability",
     "AbilityHitPlanBinding",
     "AbilityLevelParameter",
@@ -110,6 +110,7 @@ const LOWERED_TABLES: [&str; 73] = [
     "RuleSourceTag",
     "RuleTrigger",
     "Selector",
+    "SelectorPredicate",
     "StandardProfile",
     "StandardScenario",
     "StateSlot",
@@ -1157,7 +1158,7 @@ fn convert_combat(
     let selectors = config
         .selector()
         .ordered_rows()
-        .map(crate::selector_lower::lower)
+        .map(|row| crate::selector_lower::lower(config, row))
         .collect::<Result<Vec<_>, _>>()?;
     let programs = crate::operation_lower::convert(config, &native_handlers)?;
     let rules = crate::rule_lower::convert(config, mode, identities, &native_handlers)?;

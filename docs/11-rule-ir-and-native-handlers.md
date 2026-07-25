@@ -96,6 +96,11 @@ A selector declares:
 
 Every selector result is a stable ordered vector. A selector may refer to the event snapshot, action snapshot, or current state; the reference point is explicit.
 
+The normative execution details, including dependency order, historical
+projection contents, weighted redraw behavior and the four distinct empty-pool
+controls, are fixed by
+[Selector and target-set runtime boundary](selector-and-target-set-runtime-boundary.md).
+
 ## Programs and operations
 
 A `Program` declares `Battle` or `Activity` execution ownership and is a finite ordered list of operations plus structured `If`/bounded iteration blocks. Battle operations are:

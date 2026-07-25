@@ -328,7 +328,7 @@ fn lower_filter(
     })
 }
 
-fn stat(value: stat_kind::StatKind) -> StatKind {
+pub(super) fn stat(value: stat_kind::StatKind) -> StatKind {
     use stat_kind::StatKind as V;
     match value {
         V::Hp => StatKind::Hp,

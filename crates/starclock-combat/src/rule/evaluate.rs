@@ -3,14 +3,13 @@
 use core::cmp::Ordering;
 use std::collections::BTreeSet;
 
-use crate::modifier::model::{FormulaPurpose, StatKind, StatQuerySubject};
-use crate::{NumericError, ProgramId, RuleId, Scalar, StateSlotDefinitionId, UnitId};
-
 use super::model::{
     CauseAncestry, Comparison, ConditionExpr, EventFilter, EventValueProperty, ProgramStep,
     RuleEmission, RuleEvaluationInput, RuleOperationTemplate, RuleReplacementProposal,
     RuleResourceKind, RuleValue, RuleValueKind, TriggerDef, ValueExpr, once_key,
 };
+use crate::modifier::model::{FormulaPurpose, StatKind, StatQuerySubject};
+use crate::{NumericError, ProgramId, RuleId, Scalar, StateSlotDefinitionId, UnitId};
 
 /// Immutable program lookup used by the evaluator and static handler tests.
 pub trait ProgramLookup {
@@ -1098,7 +1097,7 @@ fn convert(
     }
 }
 
-fn compare(
+pub(crate) fn compare(
     lhs: &RuleValue,
     operator: Comparison,
     rhs: &RuleValue,
@@ -1117,7 +1116,10 @@ fn compare_ordering(ordering: Ordering, operator: Comparison) -> bool {
     }
 }
 
-fn compare_values(lhs: &RuleValue, rhs: &RuleValue) -> Result<Ordering, RuleEvaluationError> {
+pub(crate) fn compare_values(
+    lhs: &RuleValue,
+    rhs: &RuleValue,
+) -> Result<Ordering, RuleEvaluationError> {
     match (lhs, rhs) {
         (RuleValue::Integer(lhs), RuleValue::Integer(rhs)) => Ok(lhs.cmp(rhs)),
         (RuleValue::Scalar(lhs), RuleValue::Scalar(rhs)) => Ok(lhs.cmp(rhs)),

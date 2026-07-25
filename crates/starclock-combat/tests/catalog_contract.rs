@@ -24,6 +24,11 @@ use starclock_combat::{
             EnemyPhaseTransitionModel, LinkOverflowPolicy, LinkedFormationPolicy, PhaseCarryPolicy,
             WaveCarry, WaveSlotDefinition, WaveTransitionPolicy,
         },
+        selector::{
+            RuleEmptyPoolPolicy, RuleLifePredicate, RulePresencePredicate, RuleSelectorChoice,
+            RuleSelectorOrdering, RuleSelectorOrigin, RuleSelectorPredicate, RuleSelectorReference,
+            RuleSelectorSide, RuleUnitSelector,
+        },
     },
     modifier::model::{
         FormulaPurpose, FormulaStage, ModifierAggregation, ModifierDefinition,
@@ -568,5 +573,86 @@ fn phased_actions_accept_the_released_101_hit_envelope_but_remain_finite() {
             ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
         )
         .is_none()
+    );
+}
+
+fn rule_selector(
+    choice: RuleSelectorChoice,
+    ordering: RuleSelectorOrdering,
+    purpose: Option<&str>,
+    weight: Option<ValueExpr>,
+    predicates: Vec<RuleSelectorPredicate>,
+) -> RuleUnitSelector {
+    RuleUnitSelector::new(
+        RuleSelectorOrigin::Encounter,
+        RuleSelectorSide::Any,
+        RuleLifePredicate::Any,
+        RulePresencePredicate::Any,
+        RuleSelectorReference::CurrentState,
+        ordering,
+        0,
+        4,
+        RuleEmptyPoolPolicy::NoOp,
+        choice,
+        purpose.map(Into::into),
+        choice == RuleSelectorChoice::RngWeighted,
+    )
+    .unwrap()
+    .with_predicates(predicates)
+    .with_weight(weight)
+}
+
+#[test]
+fn selector_rng_order_and_dependency_contracts_fail_closed() {
+    let weight = ValueExpr::Literal(RuleValue::Integer(1));
+    let mut valid = CombatCatalogBuilder::new("selector-contract-v1", [0x91; 32]);
+    valid.add_selector(
+        SelectorDefinition::new(id(1)).with_rule_units(rule_selector(
+            RuleSelectorChoice::RngWeighted,
+            RuleSelectorOrdering::StableId,
+            Some("aggro-target"),
+            Some(weight.clone()),
+            Vec::new(),
+        )),
+    );
+    valid.build().unwrap();
+
+    let mut missing_weight = CombatCatalogBuilder::new("selector-contract-v1", [0x92; 32]);
+    missing_weight.add_selector(
+        SelectorDefinition::new(id(1)).with_rule_units(rule_selector(
+            RuleSelectorChoice::RngWeighted,
+            RuleSelectorOrdering::StableId,
+            Some("aggro-target"),
+            None,
+            Vec::new(),
+        )),
+    );
+    assert_eq!(
+        missing_weight.build().unwrap_err().kind(),
+        CatalogBuildErrorKind::InvalidDefinition
+    );
+
+    let mut cycle = CombatCatalogBuilder::new("selector-contract-v1", [0x93; 32]);
+    cycle.add_selector(
+        SelectorDefinition::new(id(1)).with_rule_units(rule_selector(
+            RuleSelectorChoice::All,
+            RuleSelectorOrdering::StableId,
+            None,
+            None,
+            vec![RuleSelectorPredicate::OwnedBy(id(2))],
+        )),
+    );
+    cycle.add_selector(
+        SelectorDefinition::new(id(2)).with_rule_units(rule_selector(
+            RuleSelectorChoice::All,
+            RuleSelectorOrdering::StableId,
+            None,
+            None,
+            vec![RuleSelectorPredicate::OwnedBy(id(1))],
+        )),
+    );
+    assert_eq!(
+        cycle.build().unwrap_err().kind(),
+        CatalogBuildErrorKind::InvalidDefinition
     );
 }

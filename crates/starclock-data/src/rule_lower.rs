@@ -613,7 +613,7 @@ pub(super) fn lower_event_property(
     }
 }
 
-fn lower_comparison(value: comparison_operator::ComparisonOperator) -> Comparison {
+pub(super) fn lower_comparison(value: comparison_operator::ComparisonOperator) -> Comparison {
     use comparison_operator::ComparisonOperator as V;
     match value {
         V::Equal => Comparison::Equal,

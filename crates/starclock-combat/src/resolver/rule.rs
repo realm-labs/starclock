@@ -35,6 +35,11 @@ struct Candidate {
     order: (i16, u8, u8, u64, u32, u32, u64, u32),
 }
 
+enum CandidateResolution {
+    Completed(EventId),
+    CancelRemaining,
+}
+
 pub(super) fn dispatch_pending_after_events(
     catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
@@ -47,7 +52,7 @@ pub(super) fn dispatch_pending_after_events(
         };
         let event_kind = event_point.kind();
         let mut event_parent = event.id();
-        for phase in event_point.runtime_phases() {
+        'phases: for phase in event_point.runtime_phases() {
             let mut candidates = candidates(catalog, txn, event_kind, *phase);
             candidates.sort_unstable_by_key(|candidate| candidate.order);
             for candidate in candidates {
@@ -64,6 +69,9 @@ pub(super) fn dispatch_pending_after_events(
                     event_parent,
                     candidate,
                 )?;
+                let CandidateResolution::Completed(next) = next else {
+                    break 'phases;
+                };
                 if next != event_parent {
                     event_parent = next;
                     parent = next;
@@ -151,7 +159,7 @@ fn evaluate_candidate(
     event_point: RuleEventPoint,
     parent: EventId,
     candidate: Candidate,
-) -> Result<EventId, BattleFault> {
+) -> Result<CandidateResolution, BattleFault> {
     let event_cause = event.cause();
     let event_actor = actor_unit(txn, event_cause.actor());
     let owner = candidate
@@ -163,28 +171,6 @@ fn evaluate_candidate(
     let program = catalog
         .program(candidate.trigger.program)
         .ok_or_else(|| rule_fault(2, i64::from(candidate.trigger.program.get())))?;
-    let mut resolved = Vec::new();
-    for id in program.selectors() {
-        let Some(selector) = catalog.selector(*id).and_then(|value| value.rule_units()) else {
-            continue;
-        };
-        let units = txn.resolve_rule_selector(
-            selector,
-            owner,
-            actor,
-            event_cause.applier(),
-            event_cause.primary_target(),
-            None,
-        )?;
-        resolved.push((*id, units));
-    }
-    let selectors = resolved
-        .iter()
-        .map(|(selector, units)| SelectorResult {
-            selector: *selector,
-            units,
-        })
-        .collect::<Vec<_>>();
     let bases = stat_bases(txn)?;
     let modifiers = txn
         .state
@@ -195,37 +181,99 @@ fn evaluate_candidate(
     let stat_reader = StatResolver::new(catalog.modifier_registry(), &bases, &modifiers);
     let event_facts = event_facts(catalog, txn, event, event_point);
     let battle_queries = BattleQuerySnapshot::new(txn);
+    let rule_cause = RuleCause {
+        parent_event: event_cause.parent_event(),
+        root_command: Some(event_cause.root_command()),
+        action: event_cause.action(),
+        phase: event_cause.phase(),
+        hit: event_cause.hit(),
+        owner: event_cause.owner(),
+        actor: event_actor,
+        applier: event_cause.applier(),
+        target: event_cause.primary_target(),
+        source: event_cause.source_definition(),
+    };
+    let occurrence = RuleOccurrence {
+        rule_instance: candidate.instance,
+        event: event.id(),
+        hit: event_cause.hit(),
+        target: event_cause.primary_target(),
+        ability: event_cause
+            .source_definition()
+            .and_then(|source| crate::AbilityId::new(source.get())),
+        action: event_cause.action(),
+        turn_event: matches!(
+            event_point,
+            RuleEventPoint::TurnStarted | RuleEventPoint::TurnEnded
+        )
+        .then_some(event.id()),
+        wave: txn.state.encounter.wave,
+    };
+    let event_order = event_target_order(event);
+    let mut resolved: Vec<(crate::SelectorId, Box<[crate::UnitId]>)> = Vec::new();
+    for id in super::target::ordered_rule_selectors(catalog, program.selectors())? {
+        let Some(selector) = catalog.selector(id).and_then(|value| value.rule_units()) else {
+            continue;
+        };
+        let views = resolved
+            .iter()
+            .map(|(selector, units)| SelectorResult {
+                selector: *selector,
+                units,
+            })
+            .collect::<Vec<_>>();
+        let selection_input = RuleEvaluationInput {
+            event_kind,
+            event_facts: &event_facts,
+            cause: rule_cause,
+            occurrence,
+            source_tags: &candidate.source_tags,
+            slots: &candidate.slots,
+            selectors: &views,
+            stat_reader: Some(&stat_reader),
+            ability_parameter_reader: Some(catalog),
+            resource_reader: Some(&battle_queries),
+            battle_query_reader: Some(&battle_queries),
+        };
+        let selection = txn.resolve_rule_selector(
+            catalog,
+            selector,
+            owner,
+            actor,
+            event_cause.owner().or(event_cause.applier()),
+            event_cause.applier(),
+            event_cause.primary_target(),
+            None,
+            &event_order,
+            selection_input,
+        )?;
+        match selection {
+            super::target::RuleSelectorResolution::Selected(units) => {
+                let index = resolved
+                    .binary_search_by_key(&id, |(selector, _)| *selector)
+                    .unwrap_err();
+                resolved.insert(index, (id, units));
+            }
+            super::target::RuleSelectorResolution::Skip => {
+                return Ok(CandidateResolution::Completed(parent));
+            }
+            super::target::RuleSelectorResolution::CancelRemaining => {
+                return Ok(CandidateResolution::CancelRemaining);
+            }
+        }
+    }
+    let selectors = resolved
+        .iter()
+        .map(|(selector, units)| SelectorResult {
+            selector: *selector,
+            units,
+        })
+        .collect::<Vec<_>>();
     let input = RuleEvaluationInput {
         event_kind,
         event_facts: &event_facts,
-        cause: RuleCause {
-            parent_event: event_cause.parent_event(),
-            root_command: Some(event_cause.root_command()),
-            action: event_cause.action(),
-            phase: event_cause.phase(),
-            hit: event_cause.hit(),
-            owner: event_cause.owner(),
-            actor: event_actor,
-            applier: event_cause.applier(),
-            target: event_cause.primary_target(),
-            source: event_cause.source_definition(),
-        },
-        occurrence: RuleOccurrence {
-            rule_instance: candidate.instance,
-            event: event.id(),
-            hit: event_cause.hit(),
-            target: event_cause.primary_target(),
-            ability: event_cause
-                .source_definition()
-                .and_then(|source| crate::AbilityId::new(source.get())),
-            action: event_cause.action(),
-            turn_event: matches!(
-                event_point,
-                RuleEventPoint::TurnStarted | RuleEventPoint::TurnEnded
-            )
-            .then_some(event.id()),
-            wave: txn.state.encounter.wave,
-        },
+        cause: rule_cause,
+        occurrence,
         source_tags: &candidate.source_tags,
         slots: &candidate.slots,
         selectors: &selectors,
@@ -240,7 +288,7 @@ fn evaluate_candidate(
         .evaluate_trigger(candidate.instance, catalog, &candidate.trigger, input)
         .map_err(|error| rule_fault(3, i64::from(error.context())))?;
     if emissions.is_empty() {
-        return Ok(parent);
+        return Ok(CandidateResolution::Completed(parent));
     }
     let action = event_cause
         .action()
@@ -279,6 +327,7 @@ fn evaluate_candidate(
         &mut HitOperationScratch::default(),
         &resolved,
     )
+    .map(CandidateResolution::Completed)
 }
 
 fn actor_unit(txn: &Transaction<'_>, actor: Option<CauseActor>) -> Option<UnitId> {
@@ -288,6 +337,22 @@ fn actor_unit(txn: &Transaction<'_>, actor: Option<CauseActor>) -> Option<UnitId
             txn.state.actors.get(actor).map(|state| state.owner)
         }
         None => None,
+    }
+}
+
+fn event_target_order(event: &BattleEvent) -> Vec<UnitId> {
+    match event.kind() {
+        BattleEventKind::Hit(crate::HitEventData::Started { targets, .. })
+        | BattleEventKind::Hit(crate::HitEventData::Ended { targets, .. }) => targets.to_vec(),
+        BattleEventKind::Damage(data) => vec![data.target],
+        BattleEventKind::Heal(data) => vec![data.target],
+        BattleEventKind::HpConsumption(data) => vec![data.target],
+        BattleEventKind::BreakDamage(data) => vec![data.target],
+        _ => event
+            .cause()
+            .primary_target()
+            .into_iter()
+            .collect::<Vec<_>>(),
     }
 }
 

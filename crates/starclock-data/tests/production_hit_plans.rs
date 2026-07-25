@@ -1,6 +1,7 @@
 use starclock_combat::catalog::action::{HitCritPolicy, HitTargetGroup};
 use starclock_combat::catalog::selector::{
-    RuleSelectorChoice, RuleSelectorOrdering, RuleSelectorOrigin, RuleSelectorSide,
+    RuleSelectorChoice, RuleSelectorOrdering, RuleSelectorOrigin, RuleSelectorPredicate,
+    RuleSelectorReference, RuleSelectorSide,
 };
 
 const PRODUCTION_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
@@ -44,4 +45,18 @@ fn production_selector_rows_retain_typed_execution_semantics() {
     assert_eq!(selector.ordering(), RuleSelectorOrdering::Formation);
     assert_eq!(selector.choice(), RuleSelectorChoice::First);
     assert_eq!((selector.minimum(), selector.maximum()), (1, 1));
+
+    let snapshot = catalog
+        .combat_catalog()
+        .selector(starclock_combat::SelectorId::new(24_252).unwrap())
+        .and_then(starclock_combat::catalog::definition::SelectorDefinition::rule_units)
+        .expect("Clara event selector");
+    assert_eq!(snapshot.reference(), RuleSelectorReference::EventSnapshot);
+    assert!(matches!(
+        snapshot.predicates(),
+        [RuleSelectorPredicate::FormationRange {
+            minimum: 0,
+            maximum: 31
+        }]
+    ));
 }

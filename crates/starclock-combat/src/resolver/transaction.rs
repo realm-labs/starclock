@@ -24,6 +24,7 @@ use crate::{
     target::select,
     timeline::state::{InterruptWindowState, NormalTurnState},
 };
+use std::{collections::BTreeMap, sync::Arc};
 
 mod scratch;
 pub(crate) use scratch::ResolutionScratch;
@@ -59,7 +60,11 @@ pub(crate) fn resolve_prepared(
     injection: Option<FaultInjection>,
 ) -> TransactionOutput {
     let (mut events, root_command, failure) = {
-        let mut txn = Transaction::new(&mut scratch.working, &mut scratch.journal);
+        let mut txn = Transaction::new(
+            &mut scratch.working,
+            &mut scratch.journal,
+            catalog.needs_selector_snapshots(),
+        );
         let root = txn.begin_command();
         let failure = execute(catalog, &mut txn, root, command, injection)
             .and_then(|()| {
@@ -92,7 +97,7 @@ pub(crate) fn resolve_prepared(
     if let Some(fault) = committed_fault {
         if fault.policy() == FaultPolicy::Rollback {
             scratch.prepare(before);
-            let mut txn = Transaction::new(&mut scratch.working, &mut scratch.journal);
+            let mut txn = Transaction::new(&mut scratch.working, &mut scratch.journal, false);
             let rollback_root = txn.begin_command();
             debug_assert_eq!(rollback_root, root_command);
             events = txn.commit_fault(rollback_root, fault);
@@ -356,20 +361,32 @@ fn maybe_inject(
 pub(super) struct Transaction<'a> {
     pub(super) state: &'a mut BattleState,
     pub(super) journal: &'a mut MutationJournal,
-    events: Vec<BattleEvent>,
+    pub(super) events: Vec<BattleEvent>,
     next_rule_event: usize,
+    pub(super) selector_event_snapshots:
+        BTreeMap<EventId, Arc<super::selector_snapshot::RuleSelectorSnapshot>>,
+    pub(super) selector_action_snapshots:
+        BTreeMap<ActionId, Arc<super::selector_snapshot::RuleSelectorSnapshot>>,
+    pub(super) capture_selector_snapshots: bool,
     pub(super) reactions: crate::reaction::queue::ReactionQueue,
     resolved_reactions: usize,
     next_reaction: u64,
 }
 
 impl<'a> Transaction<'a> {
-    fn new(state: &'a mut BattleState, journal: &'a mut MutationJournal) -> Self {
+    fn new(
+        state: &'a mut BattleState,
+        journal: &'a mut MutationJournal,
+        capture_selector_snapshots: bool,
+    ) -> Self {
         Self {
             state,
             journal,
             events: Vec::new(),
             next_rule_event: 0,
+            selector_event_snapshots: BTreeMap::new(),
+            selector_action_snapshots: BTreeMap::new(),
+            capture_selector_snapshots,
             reactions: crate::reaction::queue::ReactionQueue::default(),
             resolved_reactions: 0,
             next_reaction: 1,
@@ -386,6 +403,9 @@ impl<'a> Transaction<'a> {
             journal,
             events,
             next_rule_event: 0,
+            selector_event_snapshots: BTreeMap::new(),
+            selector_action_snapshots: BTreeMap::new(),
+            capture_selector_snapshots: false,
             reactions: crate::reaction::queue::ReactionQueue::default(),
             resolved_reactions: 0,
             next_reaction: 1,
@@ -420,7 +440,7 @@ impl<'a> Transaction<'a> {
         decision
     }
 
-    fn allocate_event(&mut self) -> EventId {
+    pub(super) fn allocate_event(&mut self) -> EventId {
         let event = self
             .state
             .sequences
@@ -1071,57 +1091,6 @@ impl<'a> Transaction<'a> {
         self.journal
             .mutation(MutationField::CommittedRevision, before, after);
         Ok(())
-    }
-
-    pub(super) fn emit(&mut self, cause: Cause, kind: BattleEventKind) -> EventId {
-        let id = self.allocate_event();
-        self.events.push(BattleEvent::new(id, cause, kind));
-        self.journal.event(id);
-        id
-    }
-
-    pub(super) fn snapshot(&mut self, operation: OperationId) {
-        self.journal.snapshot(operation.get());
-    }
-
-    pub(super) fn record_shield_change(
-        &mut self,
-        before: crate::ShieldAmount,
-        after: crate::ShieldAmount,
-    ) {
-        if before != after {
-            self.journal.mutation(
-                MutationField::ShieldRemaining,
-                u64::try_from(before.get()).expect("shield is non-negative"),
-                u64::try_from(after.get()).expect("shield is non-negative"),
-            );
-        }
-    }
-
-    pub(super) fn record_effect_change(&mut self, before: u64, after: u64, identity: u64) {
-        let encoded_before = before.checked_mul(2).expect("effect budget is bounded");
-        let mut encoded_after = after.checked_mul(2).expect("effect budget is bounded");
-        if encoded_before == encoded_after {
-            encoded_after = encoded_after
-                .checked_add(identity | 1)
-                .expect("effect identity is bounded");
-        }
-        self.journal
-            .mutation(MutationField::Effect, encoded_before, encoded_after);
-    }
-
-    pub(super) fn record_rule_state_change(
-        &mut self,
-        instance: crate::RuleInstanceId,
-        slot: crate::StateSlotDefinitionId,
-        before: &crate::rule::model::RuleValue,
-        after: &crate::rule::model::RuleValue,
-    ) {
-        if before != after {
-            let key = instance.get().rotate_left(17) ^ u64::from(slot.get());
-            self.journal
-                .mutation(MutationField::RuleState, key, key ^ 1);
-        }
     }
 
     pub(super) fn reset_rule_slots(

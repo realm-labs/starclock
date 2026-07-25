@@ -1,5 +1,7 @@
 //! Generated Sora selector rows to typed combat selector plans.
 
+use std::collections::BTreeSet;
+
 use crate::catalog::{CatalogLoadError, domain_fail, positive};
 
 #[derive(Debug)]
@@ -9,6 +11,7 @@ pub(super) struct SelectorDataDefinition {
 }
 
 pub(super) fn lower(
+    config: &crate::generated::SoraConfig,
     row: &crate::generated::selector::Selector,
 ) -> Result<SelectorDataDefinition, CatalogLoadError> {
     use crate::generated::{
@@ -23,12 +26,20 @@ pub(super) fn lower(
         RuleSelectorOrdering, RuleSelectorOrigin, RuleSelectorReference, RuleSelectorSide,
         RuleUnitSelector,
     };
-    if row.weight_expression_id.is_some() {
-        return Err(domain_fail(format!(
-            "selector {} uses weighted choice before selector expressions are executable",
-            row.id
-        )));
-    }
+    let mut predicate_rows = config
+        .selector_predicate()
+        .iter()
+        .filter(|predicate| predicate.selector_id == row.id)
+        .collect::<Vec<_>>();
+    predicate_rows.sort_unstable_by_key(|predicate| predicate.sequence);
+    let predicates = predicate_rows
+        .into_iter()
+        .map(|predicate| lower_predicate(config, &predicate.predicate))
+        .collect::<Result<Vec<_>, _>>()?;
+    let weight = row
+        .weight_expression_id
+        .map(|id| crate::modifier_lower::expression(config, id, &mut BTreeSet::new()))
+        .transpose()?;
     let units = RuleUnitSelector::new(
         match row.origin {
             G::Source => RuleSelectorOrigin::Source,
@@ -93,10 +104,77 @@ pub(super) fn lower(
         row.rng_purpose_key.as_deref().map(Into::into),
         row.allow_repeated_targets,
     )
-    .ok_or_else(|| domain_fail(format!("selector {} has invalid bounds", row.id)))?;
+    .ok_or_else(|| domain_fail(format!("selector {} has invalid bounds", row.id)))?
+    .with_predicates(predicates)
+    .with_weight(weight);
     Ok(SelectorDataDefinition {
         id: starclock_combat::SelectorId::new(positive(row.id, "Selector.id")?)
             .ok_or_else(|| domain_fail("selector ID is zero"))?,
         units,
     })
+}
+
+fn lower_predicate(
+    config: &crate::generated::SoraConfig,
+    node: &crate::generated::selector_predicate_node::SelectorPredicateNode,
+) -> Result<starclock_combat::catalog::selector::RuleSelectorPredicate, CatalogLoadError> {
+    use crate::generated::selector_predicate_node::SelectorPredicateNode as Node;
+    use starclock_combat::catalog::selector::RuleSelectorPredicate as Predicate;
+    Ok(match node {
+        Node::FormationRange {
+            minimum_index,
+            maximum_index,
+        } => {
+            let minimum = u8::try_from(*minimum_index).map_err(domain_fail)?;
+            let maximum = u8::try_from(*maximum_index).map_err(domain_fail)?;
+            if minimum > maximum {
+                return Err(domain_fail("selector formation range is inverted"));
+            }
+            Predicate::FormationRange { minimum, maximum }
+        }
+        Node::HasMark { effect_id } => Predicate::HasMark(effect(*effect_id)?),
+        Node::HasWeakness { element } => {
+            Predicate::HasWeakness(crate::effect_lower::lower_element(*element))
+        }
+        Node::HasEffect { effect_id } => Predicate::HasEffect(effect(*effect_id)?),
+        Node::HasTag { tag } => {
+            let identity = config
+                .content_identity()
+                .get_by_stable_key(tag)
+                .ok_or_else(|| {
+                    domain_fail(format!("selector tag {tag} has no content identity"))
+                })?;
+            Predicate::HasTag(
+                starclock_combat::SourceDefinitionId::new(positive(
+                    identity.id,
+                    "SelectorPredicate.HasTag",
+                )?)
+                .expect("positive source ID"),
+            )
+        }
+        Node::OwnedBy { owner_selector_id } => Predicate::OwnedBy(selector(*owner_selector_id)?),
+        Node::StatCompare {
+            stat,
+            comparison,
+            value_expression_id,
+        } => Predicate::StatCompare {
+            stat: crate::modifier_lower::stat(*stat),
+            comparison: crate::rule_lower::lower_comparison(*comparison),
+            value: crate::modifier_lower::expression(
+                config,
+                *value_expression_id,
+                &mut BTreeSet::new(),
+            )?,
+        },
+    })
+}
+
+fn selector(raw: i32) -> Result<starclock_combat::SelectorId, CatalogLoadError> {
+    starclock_combat::SelectorId::new(positive(raw, "SelectorPredicate.selector")?)
+        .ok_or_else(|| domain_fail("selector predicate selector ID is zero"))
+}
+
+fn effect(raw: i32) -> Result<starclock_combat::EffectDefinitionId, CatalogLoadError> {
+    starclock_combat::EffectDefinitionId::new(positive(raw, "SelectorPredicate.effect")?)
+        .ok_or_else(|| domain_fail("selector predicate effect ID is zero"))
 }
