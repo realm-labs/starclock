@@ -1,0 +1,101 @@
+{
+  "schema_revision": "starclock.goal07-evidence-and-approximation.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "batch": "G07-P0-B4",
+  "recorded_on": "2026-07-25",
+  "inputs": {
+    "retained_audit": {
+      "path": "content-manifests/standard-universe-mechanics-complete-v1/retained-audit.json",
+      "sha256": "e5b16bb26e56b55c3f0af6f70ea0988c51c9cdc4a87c3269027096cbe3d645f2"
+    },
+    "content_partitions": {
+      "path": "content-manifests/standard-universe-mechanics-complete-v1/content-partitions.json",
+      "sha256": "b9138398851f8c353c762691af4c044a0b5c1ad400cbca0227f013f8545e3237"
+    }
+  },
+  "project_policy_resolution": {
+    "expected_records": 52,
+    "resolution": "RegisteredExternalDecision",
+    "terminal_runtime_disposition": "ExternalDecision",
+    "rationale": "The result depends on player input, an out-of-band minigame, or presentation-space interaction that is outside the headless Activity authority. The simulator must expose the legal outcomes and accept one explicit result command.",
+    "contracts": {
+      "legal_outcomes_are_authored_and_ordered": true,
+      "controller_choice_is_replay_recorded": true,
+      "result_command_is_validated_before_mutation": true,
+      "invalid_or_stale_result_preserves_state_and_rng": true,
+      "external_decision_never_means_opaque_effect_acknowledgement": true,
+      "all_resulting_costs_effects_and_transitions_are_atomic": true
+    }
+  },
+  "enemy_numeric_policy": {
+    "id": "goal07-public-anchor-level-curve-v1",
+    "expected_variants": 73,
+    "status": "ApprovedPolicyPendingPerVariantInputs",
+    "scope": [
+      "base_hp",
+      "base_atk",
+      "base_def",
+      "base_spd",
+      "effect_hit_rate",
+      "effect_resistance"
+    ],
+    "forbidden_scope": [
+      "skill_selection",
+      "skill_program",
+      "ai_graph",
+      "phase_transition",
+      "summon_behavior",
+      "weakness_set",
+      "resistance_override",
+      "toughness",
+      "mechanic_trigger"
+    ],
+    "algorithm": [
+      "Use the exact public enemy identity, authored difficulty level and combat rank.",
+      "Prefer exact public per-level values for each numeric field.",
+      "If a value is absent, select the nearest public anchor for the same mechanically distinct variant; otherwise select the same family and rank; otherwise the same rank.",
+      "Apply the canonical enemy level curve to the anchor in checked six-decimal fixed point and round only at the field boundary.",
+      "Record the anchor, source evidence, inputs, formula revision, confidence and resulting value on the production row.",
+      "Never inherit the anchor's skills, AI, phases, summons, weaknesses, resistances or toughness."
+    ],
+    "anchor_order": [
+      "same-variant",
+      "same-family-and-rank",
+      "same-rank"
+    ],
+    "rounding": "checked fixed-point, six decimal places, nearest ties away from zero at the production field boundary",
+    "required_per_variant_evidence": [
+      "source_monster_id",
+      "authored_level",
+      "combat_rank",
+      "field",
+      "anchor_variant_id",
+      "anchor_value",
+      "level_curve_revision",
+      "computed_value",
+      "source_url_or_committed_evidence_path",
+      "access_date",
+      "game_version",
+      "confidence",
+      "evidence_hash"
+    ],
+    "completion_rule": "A variant may become ApprovedNumericApproximation only after every approximated field has all required evidence and its exact mechanic/AI definition passes targeted production fixtures."
+  },
+  "gap_classification": {
+    "public_evidence_or_policy_gaps_registered_now": [
+      "ProjectPolicyMechanismRequiresReplacementOrJustification",
+      "MissingNamedNumericApproximationPolicy"
+    ],
+    "implementation_gaps_owned_by_generated_partitions": [
+      "TypedPlanNotProductionBehavior",
+      "MissingExecutableLoweringAndNativeAdmissionReview",
+      "MissingGoal07ExactOnceProductionDisposition",
+      "MissingDeterministicSelectionProof",
+      "MissingProductionExecution",
+      "MissingGoal07ProductionEnemyFixture",
+      "MissingMechanismCorrectDefinitionAndAi",
+      "MissingMechanismCorrectEnemyAndCarryFixture"
+    ],
+    "insufficient_mechanic_evidence_policy": "Block the affected content partition and add an evidence record; do not guess behavior or relabel it as a numeric approximation."
+  }
+}

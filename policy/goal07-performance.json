@@ -1,0 +1,61 @@
+{
+  "schema_revision": "starclock.goal07-performance.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "batch": "G07-P0-B4",
+  "recorded_on": "2026-07-25",
+  "focused_wall_budget_seconds": 180,
+  "material_regression_review_percent": 20,
+  "stable_runner_policy": "Reuse the released Goal 01 and Goal 06 stable runner identities; local host results are diagnostic only.",
+  "workloads": [
+    {
+      "id": "content-partition-focused",
+      "kind": "daily-acceptance",
+      "iterations": 1,
+      "measures": ["elapsed_ms", "compiled_targets", "executed_tests", "generated_drift_checks"],
+      "budget": { "maximum_elapsed_ms": 180000 }
+    },
+    {
+      "id": "complete-catalog-load-and-lower",
+      "kind": "catalog",
+      "iterations": 20,
+      "measures": ["elapsed_ns", "allocation_bytes", "peak_live_bytes", "records", "rules"],
+      "expected_denominators": { "records": 2201, "rules": 786 }
+    },
+    {
+      "id": "all-rule-targeted-scenarios",
+      "kind": "mechanic-execution",
+      "iterations": 786,
+      "measures": ["elapsed_ns", "commands", "events", "state_hashes", "allocation_bytes"],
+      "expected_denominators": { "rules": 786 }
+    },
+    {
+      "id": "complete-seeded-universe-matrix",
+      "kind": "end-to-end",
+      "iterations": 33,
+      "measures": ["elapsed_ms", "battles", "commands", "events", "cache_hits", "final_hashes"],
+      "expected_denominators": { "world_difficulties": 33 }
+    },
+    {
+      "id": "concurrent-complete-catalog-sessions",
+      "kind": "service",
+      "iterations": 16,
+      "workers": 4,
+      "measures": ["elapsed_ms", "allocation_bytes", "peak_live_bytes", "catalog_compositions", "final_hashes"]
+    },
+    {
+      "id": "long-run-resource-and-charge-invariants",
+      "kind": "soak",
+      "iterations": 100,
+      "measures": ["elapsed_ms", "commands", "rollback_checks", "rng_draws", "final_hashes"]
+    }
+  ],
+  "terminal_limits": {
+    "focused_gate_max_seconds": 180,
+    "catalog_compositions_per_factory": 1,
+    "catalog_compositions_per_battle": 0,
+    "cache_authoritative_fields": 0,
+    "mechanic_rule_evaluations_missing": 0,
+    "allocation_or_time_regression_requires_review_percent": 20
+  },
+  "baseline_policy": "P6-B4 records measured strict budgets and stable-runner evidence after complete content exists; P0 freezes workload identity and operational ceilings only."
+}

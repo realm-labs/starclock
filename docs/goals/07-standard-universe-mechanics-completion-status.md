@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
-| Active phase | Phase 0 — Freeze truth and execution partitions |
+| Active phase | Phase 1 — Shared mechanic capability closure |
 | Active batch | None |
-| Next unblocked batch | `G07-P0-B4` |
+| Next unblocked batch | `G07-P1-B1` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -18,7 +18,8 @@ Goal 06 immutable snapshot `combat-identity-dynamic-assembly-v1` is registered
 and machine-verified. G07-P0-B1 froze the inherited 2,201/786/78 oracle, the
 17 fixed batches and 15 content milestones. G07-P0-B2 audited every retained
 row, and G07-P0-B3 expanded the milestones into 104 ordered, bounded `Snn`
-commit rows. G07-P0-B4 is the next unblocked batch.
+commit rows. G07-P0-B4 registered all public-evidence and approximation
+boundaries and froze the dependency, performance and release scaffold.
 
 ## Fixed batch ledger
 
@@ -27,7 +28,7 @@ commit rows. G07-P0-B4 is the next unblocked batch.
 | `G07-P0-B1` | `Complete` | `node tools/goal07/verify-foundation.mjs`; Goal 06 immutable snapshot; quick repository gate | Froze the Goal 06 completion commit/tree, Goal 05 2,201/786/78 exact-once oracle, 783 retained rules, 73 enemy proxies, 17 fixed batches, 15 content milestones and Excel/openpyxl/Sora authoring contract. |
 | `G07-P0-B2` | `Complete` | `node tools/goal07/verify-retained-audit.mjs`; generated exact-once audit; quick repository gate | Audited 2,201 content records, 786 rules, 78 fixtures, 86 enemy variants and 173 encounter members. Assigned mechanism family, shared primitive, evidence gaps and terminal runtime/accuracy targets; retained 427 legacy static-handler rule labels as review candidates rather than admissions. |
 | `G07-P0-B3` | `Complete` | `node tools/goal07/verify-partitions.mjs`; generated partition manifest and content ledger; quick repository gate | Froze 104 generated content batches under the declared caps and 121 total Goal 07 batches, with exact-once assignments for all 2,201 records, 786 rules, 78 fixtures, 86 enemy variants and 173 encounter members. |
-| `G07-P0-B4` | `Pending` | — | Freeze research, approximation and release scaffold. |
+| `G07-P0-B4` | `Complete` | `node tools/goal07/verify-phase0.mjs`; generated evidence/approximation register; full repository gate | Registered 52 explicit external decisions and 73 numeric-approximation candidates, prohibited mechanic approximation, froze six performance workloads, a zero-new-dependency baseline and the 121-batch release scaffold. |
 | `G07-P1-B1` | `Pending` | — | Close trigger timing and once-scope capabilities. |
 | `G07-P1-B2` | `Pending` | — | Close selector and target-set capabilities. |
 | `G07-P1-B3` | `Pending` | — | Close modifier, stacking and snapshot capabilities. |
@@ -86,6 +87,8 @@ The milestone summary remains here for orientation.
 | 2026-07-24 | Numeric approximation is allowed; mechanic approximation is not completion. | Public server values may be unavailable, but generic proxy behavior would misrepresent the game. |
 | 2026-07-24 | P0 expands the fifteen inherited milestones into bounded sub-batches. | The 786-rule workload must not be hidden inside path- or curio-sized commits. |
 | 2026-07-24 | Route completion and evaluator output are not executable-rule evidence. | A mechanic is complete only when production state/events/hashes demonstrate it. |
+| 2026-07-25 | Fifty-two presentation/minigame outcomes are explicit external decisions. | Their legal result is supplied by a validated replay-recorded command; all resulting costs/effects still execute atomically. |
+| 2026-07-25 | `goal07-public-anchor-level-curve-v1` may approximate only six enemy numeric fields. | Enemy skills, AI, phases, summons, weakness/resistance, Toughness and triggers remain exact-mechanic requirements. |
 
 ## Terminal record
 
@@ -95,6 +98,6 @@ The milestone summary remains here for orientation.
 | Completion commit | — |
 | Expanded batch denominator | 121 total: 17 fixed + 104 generated content batches |
 | Runtime coverage | 3 / 786 executable starting point |
-| Numeric approximation register | To be generated |
+| Numeric approximation register | 73 candidates under `goal07-public-anchor-level-curve-v1`; per-variant inputs remain partition work |
 | Cross-platform evidence | To be generated |
 | Release evidence | To be generated |

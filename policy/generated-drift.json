@@ -166,6 +166,10 @@
       "command": ["node", "tools/goal07/verify-partitions.mjs"]
     },
     {
+      "name": "Goal 07 Phase 0 evidence and release baseline",
+      "command": ["node", "tools/goal07/verify-phase0.mjs"]
+    },
+    {
       "name": "Standard Universe bundle-loader dependency policy",
       "command": ["node", "tools/universe-bundle-loader/generate-policy.mjs"]
     },

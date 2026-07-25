@@ -1,0 +1,45 @@
+{
+  "schema_revision": "starclock.goal07-release-contract-scaffold.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "state": "Scaffold",
+  "created_on": "2026-07-25",
+  "planned_phases": 8,
+  "planned_fixed_batches": 17,
+  "planned_generated_content_batches": 104,
+  "planned_total_batches": 121,
+  "required_prior_contracts": [
+    "core-combat-v1",
+    "agent-control-mcp-v1",
+    "standard-universe-reference-v1",
+    "standard-universe-runtime-v1",
+    "standard-universe-end-to-end-v1",
+    "combat-identity-dynamic-assembly-v1"
+  ],
+  "terminal_denominators": {
+    "content_records": 2201,
+    "rules": 786,
+    "semantic_fixtures": 78,
+    "enemy_variants": 86,
+    "encounter_members": 173,
+    "generated_content_batches": 104,
+    "total_batches": 121,
+    "numeric_approximation_candidates": 73,
+    "external_decision_records": 52,
+    "world_difficulty_runs": 33
+  },
+  "required_evidence_families": [
+    "exact-once-runtime-and-accuracy",
+    "excel-sora-drift",
+    "rule-targeted-scenarios",
+    "enemy-mechanic-and-ai",
+    "occurrence-and-service-atomicity",
+    "replay-v3-surface-parity",
+    "determinism-rollback-and-concurrency",
+    "performance-and-allocation",
+    "cross-platform-native-matrix",
+    "provenance-bilingual-and-license"
+  ],
+  "release_batch": "G07-P7-B3",
+  "promotion_rule": "Only G07-P7-B3 may change this scaffold to Released after all 121 ledger rows are Complete and clean release verification passes.",
+  "immutable_snapshot_id": "standard-universe-mechanics-complete-v1"
+}

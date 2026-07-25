@@ -57,8 +57,10 @@ assert(Object.values(policy.contracts).every((value) => value === true),
   "Goal 07 audit contains an unaccepted contract");
 const status = text("docs/goals/07-standard-universe-mechanics-completion-status.md");
 assert(status.includes("| `G07-P0-B2` | `Complete` |"), "G07-P0-B2 is incomplete");
-assert(status.includes("| Next unblocked batch | `G07-P0-B3` |"),
-  "Goal 07 next batch drift");
+const nextBatch = status.match(/^\| Next unblocked batch \| (.+) \|$/mu)?.[1];
+assert(nextBatch === "None"
+  || /^`G07-(?:P0-B[34]|P1-B[1-6]|P[2-5]-M\d+-S\d+|P[67]-B\d+)`$/u
+    .test(nextBatch ?? ""), "Goal 07 next batch regressed before G07-P0-B3");
 console.log(
   `Goal 07 retained audit verified (${audit.records.length + audit.rules.length
     + audit.fixtures.length} inherited rows, ${audit.enemy_variants.length} enemies, ` +

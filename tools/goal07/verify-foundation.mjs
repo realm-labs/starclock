@@ -78,8 +78,10 @@ assert((status.match(/^\| `G07-P[2-5]-M\d+` \|/gmu) ?? []).length
   === policy.content_milestones, "Goal 07 milestone ledger drift");
 assert(status.includes("| State | `InProgress` |"), "Goal 07 is not active");
 assert(status.includes("| `G07-P0-B1` | `Complete` |"), "G07-P0-B1 is incomplete");
-assert(status.includes("| Next unblocked batch | `G07-P0-B2` |"),
-  "Goal 07 next batch drift");
+const nextBatch = status.match(/^\| Next unblocked batch \| (.+) \|$/mu)?.[1];
+assert(nextBatch === "None"
+  || /^`G07-(?:P0-B[2-4]|P1-B[1-6]|P[2-5]-M\d+-S\d+|P[67]-B\d+)`$/u
+    .test(nextBatch ?? ""), "Goal 07 next batch regressed before G07-P0-B2");
 for (const document of policy.documents)
   assert(fileExists(document), `Goal 07 document is missing ${document}`);
 assert(Object.values(policy.contracts).every((value) => value === true),

@@ -115,6 +115,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 89. [Goal 07 foundation](goal-07-foundation.md) — Goal 06 prerequisite, inherited 2,201/786/78 denominator and Excel/openpyxl/Sora authoring contract.
 90. [Goal 07 retained-mechanic audit](goal-07-retained-audit.md) — exact-once family, primitive, evidence-gap and terminal-disposition audit for content, rules, fixtures, enemies and encounters.
 91. [Goal 07 content partitions](goal-07-content-partitions.md) — 104 bounded generated content batches and the exact-once 121-batch execution denominator.
+92. [Goal 07 Phase 0 baseline](goal-07-phase0-baseline.md) — external decisions, named enemy numeric approximation, six performance workloads, zero-new-dependency baseline and release scaffold.
 
 ## Execution goals
 

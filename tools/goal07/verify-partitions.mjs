@@ -44,8 +44,10 @@ assert(Object.values(policy.contracts).every((value) => value === true),
   "Goal 07 partition policy contains an unaccepted contract");
 const status = text("docs/goals/07-standard-universe-mechanics-completion-status.md");
 assert(status.includes("| `G07-P0-B3` | `Complete` |"), "G07-P0-B3 is incomplete");
-assert(status.includes("| Next unblocked batch | `G07-P0-B4` |"),
-  "Goal 07 next batch drift");
+const nextBatch = status.match(/^\| Next unblocked batch \| (.+) \|$/mu)?.[1];
+assert(nextBatch === "None"
+  || /^`G07-(?:P0-B4|P1-B[1-6]|P[2-5]-M\d+-S\d+|P[67]-B\d+)`$/u
+    .test(nextBatch ?? ""), "Goal 07 next batch regressed before G07-P0-B4");
 assert(status.includes("| Concrete content sub-batches | 104 frozen"),
   "Goal 07 status omits expanded batch denominator");
 console.log(
