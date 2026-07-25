@@ -112,6 +112,18 @@ fn validate_runtime(runtime: &BattleRuleDefinition) -> Result<(), String> {
                 trigger.id.get()
             ));
         }
+        if !trigger
+            .event_point
+            .runtime_phases()
+            .contains(&trigger.phase)
+        {
+            return Err(format!(
+                "trigger {} phase {:?} is not executable at {:?}",
+                trigger.id.get(),
+                trigger.phase,
+                trigger.event_point
+            ));
+        }
         if !once_scope_constructible(trigger) {
             return Err(format!(
                 "trigger {} once scope cannot be constructed from its event family",

@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Shared mechanic capability closure |
 | Active batch | None |
-| Next unblocked batch | `G07-P1-B1` |
+| Next unblocked batch | `G07-P1-B2` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -29,7 +29,7 @@ boundaries and froze the dependency, performance and release scaffold.
 | `G07-P0-B2` | `Complete` | `node tools/goal07/verify-retained-audit.mjs`; generated exact-once audit; quick repository gate | Audited 2,201 content records, 786 rules, 78 fixtures, 86 enemy variants and 173 encounter members. Assigned mechanism family, shared primitive, evidence gaps and terminal runtime/accuracy targets; retained 427 legacy static-handler rule labels as review candidates rather than admissions. |
 | `G07-P0-B3` | `Complete` | `node tools/goal07/verify-partitions.mjs`; generated partition manifest and content ledger; quick repository gate | Froze 104 generated content batches under the declared caps and 121 total Goal 07 batches, with exact-once assignments for all 2,201 records, 786 rules, 78 fixtures, 86 enemy variants and 173 encounter members. |
 | `G07-P0-B4` | `Complete` | `node tools/goal07/verify-phase0.mjs`; generated evidence/approximation register; full repository gate | Registered 52 explicit external decisions and 73 numeric-approximation candidates, prohibited mechanic approximation, froze six performance workloads, a zero-new-dependency baseline and the 121-batch release scaffold. |
-| `G07-P1-B1` | `Pending` | — | Close trigger timing and once-scope capabilities. |
+| `G07-P1-B1` | `Complete` | `node tools/goal07/verify-phase1-b1.mjs`; `cargo test -p starclock-combat --all-features --locked`; quick repository gate | Replaced AfterEvent-only dispatch with a validated phase/point matrix; added Before/start, AfterMutation, AfterDefeatSettlement, AfterAction and Boundary execution, direct observed-event cause chains, eight bounded once scopes with real turn reset, and typed fail-closed replacement proposals. |
 | `G07-P1-B2` | `Pending` | — | Close selector and target-set capabilities. |
 | `G07-P1-B3` | `Pending` | — | Close modifier, stacking and snapshot capabilities. |
 | `G07-P1-B4` | `Pending` | — | Close effects, state-slot, charge and lifecycle capabilities. |

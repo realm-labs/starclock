@@ -237,6 +237,11 @@ fn evaluation_input<'a>() -> RuleEvaluationInput<'a> {
         event_kind: RuleEventKind::Action,
         event_facts,
         cause: RuleCause {
+            parent_event: None,
+            root_command: None,
+            action: Some(ActionId::new(1).unwrap()),
+            phase: None,
+            hit: None,
             owner: None,
             actor: None,
             applier: None,

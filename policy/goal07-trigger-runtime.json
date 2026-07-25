@@ -1,0 +1,87 @@
+{
+  "schema_revision": "starclock.goal07-trigger-runtime.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "batch": "G07-P1-B1",
+  "recorded_on": "2026-07-25",
+  "post_commit_phase_order": [
+    "BeforeAtStartEnvelope",
+    "AfterMutation",
+    "AfterDefeatSettlement",
+    "AfterEvent",
+    "AfterAction",
+    "Boundary"
+  ],
+  "start_envelope_points": [
+    "BattleStarted",
+    "WaveStarted",
+    "TurnStarted",
+    "ActionDeclared",
+    "ActionStarted",
+    "PhaseStarted",
+    "HitStarted"
+  ],
+  "after_defeat_points": ["UnitDefeated"],
+  "after_action_points": ["ActionResolved"],
+  "boundary_points": [
+    "BattleStarted",
+    "BattleWon",
+    "BattleLost",
+    "WaveStarted",
+    "WaveEnded",
+    "TurnStarted",
+    "TurnEnded",
+    "ActionDeclared",
+    "ActionStarted",
+    "ActionResolved",
+    "PhaseStarted",
+    "PhaseEnded",
+    "HitStarted",
+    "HitEnded",
+    "DecisionRequested",
+    "FaultRaised",
+    "EncounterTransition"
+  ],
+  "currently_unobserved_points": [
+    "BattleFaulted",
+    "DamageCalculated",
+    "TimelineChanged"
+  ],
+  "replacement": {
+    "proposal_api": "evaluate_replacement_program",
+    "ordinary_mutations_allowed": false,
+    "accepted_without_typed_consumer": false,
+    "consumer_integration_batch": "G07-P1-B5"
+  },
+  "once_scopes": [
+    "Event",
+    "Hit",
+    "TargetWithinHit",
+    "Ability",
+    "Action",
+    "Turn",
+    "Wave",
+    "Battle"
+  ],
+  "cause_fields": [
+    "parent_event",
+    "root_command",
+    "action",
+    "phase",
+    "hit",
+    "owner",
+    "actor",
+    "applier",
+    "source",
+    "target"
+  ],
+  "contracts": {
+    "catalog_rejects_unobservable_phase_point_pairs": true,
+    "smaller_priority_executes_first": true,
+    "runtime_order_has_total_tie_breakers": true,
+    "each_rule_emission_parents_the_observed_event_chain": true,
+    "turn_once_scope_resets_before_turn_started_dispatch": true,
+    "event_once_keys_are_removed_after_complete_event_dispatch": true,
+    "replacement_programs_return_only_typed_proposals": true,
+    "rollback_restores_once_ledgers_with_battle_state": true
+  }
+}

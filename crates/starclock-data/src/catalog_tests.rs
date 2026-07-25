@@ -150,6 +150,11 @@ fn production_bundle_builds_standard_v1_and_representative_characters() {
             ..starclock_combat::rule::model::RuleEventFacts::default()
         },
         cause: starclock_combat::rule::model::RuleCause {
+            parent_event: None,
+            root_command: None,
+            action: starclock_combat::ActionId::new(1),
+            phase: None,
+            hit: None,
             owner: None,
             actor: None,
             applier: None,

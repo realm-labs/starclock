@@ -88,7 +88,6 @@ pub enum RuleValue {
     OptionalStableId(Option<u64>),
     OrderedStableIdSet(Box<[u64]>),
 }
-
 impl RuleValue {
     #[must_use]
     pub const fn kind(&self) -> RuleValueKind {
@@ -876,13 +875,17 @@ impl BattleRuleDefinition {
 /// Read-only cause projection supplied to Rule IR and native handlers.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RuleCause {
+    pub parent_event: Option<EventId>,
+    pub root_command: Option<crate::CommandId>,
+    pub action: Option<ActionId>,
+    pub phase: Option<crate::PhaseId>,
+    pub hit: Option<HitId>,
     pub owner: Option<UnitId>,
     pub actor: Option<UnitId>,
     pub applier: Option<UnitId>,
     pub target: Option<UnitId>,
     pub source: Option<SourceDefinitionId>,
 }
-
 /// IDs needed to construct every battle once-scope key without inference.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RuleOccurrence {
@@ -895,14 +898,12 @@ pub struct RuleOccurrence {
     pub turn_event: Option<EventId>,
     pub wave: WaveInstanceId,
 }
-
 /// Canonically ordered selector result exposed read-only to evaluation.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SelectorResult<'a> {
     pub selector: SelectorId,
     pub units: &'a [UnitId],
 }
-
 /// Evaluated operation proposal; the resolver remains the only mutator.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum RuleEmission {
@@ -1088,6 +1089,13 @@ pub enum RuleEmission {
     },
 }
 
+/// Mutation-free proposal produced only by a `Replace` trigger.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RuleReplacementProposal {
+    pub code: u32,
+    pub value: Option<RuleValue>,
+    pub current_target: Option<UnitId>,
+}
 /// Complete read-only input shared by IR evaluation and static handlers.
 #[derive(Clone, Copy)]
 pub struct RuleEvaluationInput<'a> {
@@ -1103,7 +1111,6 @@ pub struct RuleEvaluationInput<'a> {
     pub resource_reader: Option<&'a dyn super::evaluate::ResourceQueryReader>,
     pub battle_query_reader: Option<&'a dyn super::evaluate::BattleQueryReader>,
 }
-
 impl core::fmt::Debug for RuleEvaluationInput<'_> {
     fn fmt(&self, formatter: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         formatter
@@ -1128,7 +1135,6 @@ impl core::fmt::Debug for RuleEvaluationInput<'_> {
             .finish()
     }
 }
-
 /// Stable key used to enforce one trigger occurrence.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct OnceKey {
@@ -1138,7 +1144,6 @@ pub struct OnceKey {
     pub first: u64,
     pub second: u64,
 }
-
 /// Produces a complete deterministic once key or rejects missing scope identity.
 #[must_use]
 pub fn once_key(
@@ -1155,7 +1160,10 @@ pub fn once_key(
             u64::from(occurrence.ability?.get()),
         ),
         OnceScope::Action => (occurrence.action?.get(), 0),
-        OnceScope::Turn => (occurrence.turn_event?.get(), 0),
+        // Turn keys are cleared atomically at every TurnStart boundary. Keeping
+        // the key local to the rule instance avoids persisting a second turn
+        // identity solely for once-scope bookkeeping.
+        OnceScope::Turn => (0, 0),
         OnceScope::Wave => (occurrence.wave.get(), 0),
         OnceScope::Battle => (0, 0),
     };
@@ -1167,7 +1175,6 @@ pub fn once_key(
         second,
     })
 }
-
 /// Stable definition-only order; runtime owner/instance/insertion keys append to it.
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub struct TriggerDefinitionOrder {
@@ -1177,7 +1184,6 @@ pub struct TriggerDefinitionOrder {
     pub rule: RuleId,
     pub trigger: TriggerId,
 }
-
 /// Complete runtime reaction order. No comparison can end without a tie-breaker.
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub struct ReactionOrderKey {

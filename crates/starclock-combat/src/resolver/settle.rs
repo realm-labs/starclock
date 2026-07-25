@@ -151,6 +151,7 @@ fn transition_wave(
     }
     let wave = txn.allocate_wave();
     txn.set_encounter_wave(wave, next);
+    txn.reset_rule_slots(crate::rule::model::SlotResetPoint::WaveStart, None);
     parent = txn.emit(
         cause.with_parent(parent),
         BattleEventKind::Wave(WaveEventData::Started { wave, number: next }),

@@ -11,7 +11,8 @@ use starclock_combat::{
     rule::{
         evaluate::{
             EvaluationBudget, ResourceQueryReader, RuleEvaluationErrorKind, TriggerLedger,
-            evaluate_condition, evaluate_program, evaluate_value, matches_filter,
+            evaluate_condition, evaluate_program, evaluate_replacement_program, evaluate_value,
+            matches_filter,
         },
         model::{
             BattleRuleDefinition, BattleRuleScope, CauseAncestry, Comparison, ConditionExpr,
@@ -75,6 +76,11 @@ fn input<'a>(
         event_kind: RuleEventKind::Action,
         event_facts,
         cause: RuleCause {
+            parent_event: None,
+            root_command: Some(runtime(1)),
+            action: Some(runtime(1)),
+            phase: None,
+            hit: None,
             owner: Some(runtime(1)),
             actor: Some(runtime(2)),
             applier: Some(runtime(3)),
@@ -360,6 +366,78 @@ fn catalog_rejects_mistyped_slots_and_mutating_replacement_programs() {
         builder.build().unwrap_err().kind(),
         CatalogBuildErrorKind::InvalidDefinition
     );
+}
+
+#[test]
+fn replacement_programs_return_typed_mutation_free_proposals() {
+    let program = definition(1);
+    let mut builder = CombatCatalogBuilder::new("replacement-proposal-v1", [0x2a; 32]);
+    builder.add_program(
+        ProgramDefinition::new(program, vec![], vec![], vec![], vec![]).with_steps(vec![
+            ProgramStep::Operation(RuleOperationTemplate::ProposeReplacement {
+                code: 77,
+                value: Some(ValueExpr::Literal(RuleValue::Integer(9))),
+            }),
+        ]),
+    );
+    let catalog = builder.build().unwrap();
+    let proposals = evaluate_replacement_program(
+        &*catalog,
+        program,
+        input(&[], definition(1), &[]),
+        EvaluationBudget::STANDARD,
+    )
+    .unwrap();
+
+    assert_eq!(proposals.len(), 1);
+    assert_eq!(proposals[0].code, 77);
+    assert_eq!(proposals[0].value, Some(RuleValue::Integer(9)));
+    assert_eq!(proposals[0].current_target, None);
+}
+
+#[test]
+fn catalog_rejects_trigger_phases_without_a_runtime_observation_boundary() {
+    for (revision, point, phase, operation) in [
+        (
+            "unobserved-before-damage-v1",
+            RuleEventPoint::DamageApplied,
+            TriggerPhase::Before,
+            RuleOperationTemplate::EmitRuleEvent {
+                code: 1,
+                value: None,
+            },
+        ),
+        (
+            "unbound-replacement-v1",
+            RuleEventPoint::ActionDeclared,
+            TriggerPhase::Replace,
+            RuleOperationTemplate::ProposeReplacement {
+                code: 1,
+                value: None,
+            },
+        ),
+    ] {
+        let program = definition(1);
+        let mut builder = CombatCatalogBuilder::new(revision, [0x2b; 32]);
+        builder.add_program(
+            ProgramDefinition::new(program, vec![], vec![], vec![], vec![])
+                .with_steps(vec![ProgramStep::Operation(operation)]),
+        );
+        let mut authored = trigger(1, program);
+        authored.event = point.kind();
+        authored.event_point = point;
+        authored.phase = phase;
+        builder.add_rule(
+            RuleDefinition::new(definition(1), vec![program], vec![]).with_runtime(
+                BattleRuleDefinition::new(source(1), vec![], vec![authored], None),
+            ),
+        );
+
+        assert_eq!(
+            builder.build().unwrap_err().kind(),
+            CatalogBuildErrorKind::InvalidDefinition
+        );
+    }
 }
 
 #[test]

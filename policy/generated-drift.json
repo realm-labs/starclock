@@ -170,6 +170,10 @@
       "command": ["node", "tools/goal07/verify-phase0.mjs"]
     },
     {
+      "name": "Goal 07 trigger timing and cause runtime",
+      "command": ["node", "tools/goal07/verify-phase1-b1.mjs"]
+    },
+    {
       "name": "Standard Universe bundle-loader dependency policy",
       "command": ["node", "tools/universe-bundle-loader/generate-policy.mjs"]
     },

@@ -244,6 +244,11 @@ impl<'a> StatResolver<'a> {
             event_kind: crate::rule::model::RuleEventKind::Rule,
             event_facts: &event_facts,
             cause: RuleCause {
+                parent_event: None,
+                root_command: None,
+                action: instance.application_action,
+                phase: None,
+                hit: None,
                 owner: Some(instance.owner),
                 actor: None,
                 applier: Some(instance.owner),

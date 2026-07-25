@@ -42,27 +42,35 @@ pub(super) fn dispatch_pending_after_events(
 ) -> Result<EventId, BattleFault> {
     let mut dispatches = 0usize;
     while let Some(event) = txn.next_pending_rule_event() {
-        let Some((event_point, phase)) = rule_event(event.kind()) else {
+        let Some(event_point) = rule_event_point(event.kind()) else {
             continue;
         };
         let event_kind = event_point.kind();
-        let mut candidates = candidates(catalog, txn, event_kind, phase);
-        candidates.sort_unstable_by_key(|candidate| candidate.order);
-        for candidate in candidates {
-            dispatches += 1;
-            if dispatches > MAX_RULE_DISPATCHES_PER_DRAIN {
-                return Err(rule_fault(4, dispatches as i64));
+        let mut event_parent = event.id();
+        for phase in event_point.runtime_phases() {
+            let mut candidates = candidates(catalog, txn, event_kind, *phase);
+            candidates.sort_unstable_by_key(|candidate| candidate.order);
+            for candidate in candidates {
+                dispatches += 1;
+                if dispatches > MAX_RULE_DISPATCHES_PER_DRAIN {
+                    return Err(rule_fault(4, dispatches as i64));
+                }
+                let next = evaluate_candidate(
+                    catalog,
+                    txn,
+                    &event,
+                    event_kind,
+                    event_point,
+                    event_parent,
+                    candidate,
+                )?;
+                if next != event_parent {
+                    event_parent = next;
+                    parent = next;
+                }
             }
-            parent = evaluate_candidate(
-                catalog,
-                txn,
-                &event,
-                event_kind,
-                event_point,
-                parent,
-                candidate,
-            )?;
         }
+        txn.reset_event_once_keys(event.id());
     }
     Ok(parent)
 }
@@ -191,6 +199,11 @@ fn evaluate_candidate(
         event_kind,
         event_facts: &event_facts,
         cause: RuleCause {
+            parent_event: event_cause.parent_event(),
+            root_command: Some(event_cause.root_command()),
+            action: event_cause.action(),
+            phase: event_cause.phase(),
+            hit: event_cause.hit(),
             owner: event_cause.owner(),
             actor: event_actor,
             applier: event_cause.applier(),
@@ -278,7 +291,7 @@ fn actor_unit(txn: &Transaction<'_>, actor: Option<CauseActor>) -> Option<UnitId
     }
 }
 
-fn rule_event(event: &BattleEventKind) -> Option<(RuleEventPoint, TriggerPhase)> {
+fn rule_event_point(event: &BattleEventKind) -> Option<RuleEventPoint> {
     let point = match event {
         BattleEventKind::Battle(crate::BattleEventData::Started) => RuleEventPoint::BattleStarted,
         BattleEventKind::Battle(crate::BattleEventData::Won) => RuleEventPoint::BattleWon,
@@ -356,7 +369,7 @@ fn rule_event(event: &BattleEventKind) -> Option<(RuleEventPoint, TriggerPhase)>
         BattleEventKind::RuleSignal(_) => RuleEventPoint::InformationalRule,
         BattleEventKind::Fault(_) => RuleEventPoint::FaultRaised,
     };
-    Some((point, TriggerPhase::AfterEvent))
+    Some(point)
 }
 
 fn event_facts(

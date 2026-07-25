@@ -99,6 +99,11 @@ pub(super) fn execute_ability_program(
         event_kind: crate::rule::model::RuleEventKind::Phase,
         event_facts: &event_facts,
         cause: RuleCause {
+            parent_event: cause.parent_event(),
+            root_command: Some(cause.root_command()),
+            action: cause.action(),
+            phase: cause.phase(),
+            hit: cause.hit(),
             owner: Some(context.owner),
             actor: Some(context.actor),
             applier: Some(context.actor),

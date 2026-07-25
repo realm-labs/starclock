@@ -111,9 +111,12 @@ assert(
   status.includes("| `G07-P0-B4` | `Complete` |"),
   "G07-P0-B4 is not complete",
 );
+const nextBatch = status.match(/^\| Next unblocked batch \| (.+) \|$/mu)?.[1];
 assert(
-  status.includes("| Next unblocked batch | `G07-P1-B1` |"),
-  "next batch is not G07-P1-B1",
+  nextBatch === "None"
+    || /^`G07-(?:P1-B[1-6]|P[2-5]-M\d+-S\d+|P[67]-B\d+)`$/u
+      .test(nextBatch ?? ""),
+  "next batch regressed before G07-P1-B1",
 );
 console.log(
   "Goal 07 Phase 0 verified "

@@ -8,8 +8,8 @@ use crate::{NumericError, ProgramId, RuleId, Scalar, StateSlotDefinitionId, Unit
 
 use super::model::{
     CauseAncestry, Comparison, ConditionExpr, EventFilter, EventValueProperty, ProgramStep,
-    RuleEmission, RuleEvaluationInput, RuleOperationTemplate, RuleResourceKind, RuleValue,
-    RuleValueKind, TriggerDef, ValueExpr, once_key,
+    RuleEmission, RuleEvaluationInput, RuleOperationTemplate, RuleReplacementProposal,
+    RuleResourceKind, RuleValue, RuleValueKind, TriggerDef, ValueExpr, once_key,
 };
 
 /// Immutable program lookup used by the evaluator and static handler tests.
@@ -166,6 +166,33 @@ pub fn evaluate_program(
     Ok(output)
 }
 
+/// Evaluates one replacement program and rejects every mutating emission.
+pub fn evaluate_replacement_program(
+    programs: &impl ProgramLookup,
+    program: ProgramId,
+    input: RuleEvaluationInput<'_>,
+    budget: EvaluationBudget,
+) -> Result<Vec<RuleReplacementProposal>, RuleEvaluationError> {
+    evaluate_program(programs, program, input, budget)?
+        .into_iter()
+        .map(|emission| match emission {
+            RuleEmission::Replacement {
+                code,
+                value,
+                current_target,
+            } => Ok(RuleReplacementProposal {
+                code,
+                value,
+                current_target,
+            }),
+            _ => Err(RuleEvaluationError {
+                kind: RuleEvaluationErrorKind::TypeMismatch,
+                context: program.get(),
+            }),
+        })
+        .collect()
+}
+
 /// Canonical authoritative once-key ledger owned by a future bound rule store.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct TriggerLedger {
@@ -186,6 +213,19 @@ impl TriggerLedger {
     }
     pub(crate) fn canonical_keys(&self) -> impl ExactSizeIterator<Item = &super::model::OnceKey> {
         self.keys.iter()
+    }
+
+    pub(crate) fn reset_scope(&mut self, scope: super::model::OnceScope) -> usize {
+        let before = self.keys.len();
+        self.keys.retain(|key| key.scope != scope);
+        before - self.keys.len()
+    }
+
+    pub(crate) fn reset_event(&mut self, event: crate::EventId) -> usize {
+        let before = self.keys.len();
+        self.keys
+            .retain(|key| key.scope != super::model::OnceScope::Event || key.first != event.get());
+        before - self.keys.len()
     }
 
     /// Matches, evaluates, and only then commits the trigger's once key.

@@ -167,6 +167,20 @@ impl RuleStateStore {
         }
         count
     }
+
+    pub(crate) fn reset_once_scope(&mut self, scope: super::model::OnceScope) -> usize {
+        self.entries
+            .values_mut()
+            .map(|state| state.ledger.reset_scope(scope))
+            .sum()
+    }
+
+    pub(crate) fn reset_once_event(&mut self, event: crate::EventId) -> usize {
+        self.entries
+            .values_mut()
+            .map(|state| state.ledger.reset_event(event))
+            .sum()
+    }
 }
 
 fn apply_update(

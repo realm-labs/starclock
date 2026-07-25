@@ -45,6 +45,9 @@ use starclock_combat::{
     },
 };
 
+#[path = "ability_program_execution/trigger_phases.rs"]
+mod trigger_phases;
+
 fn id<I: TryFrom<u32>>(raw: u32) -> I
 where
     I::Error: core::fmt::Debug,
@@ -73,6 +76,34 @@ fn catalog(
     with_rule: bool,
     recursive_rule: bool,
     mechanics_rule: bool,
+) -> Arc<CombatCatalog> {
+    catalog_with_trigger(
+        program,
+        with_modifier,
+        with_rule,
+        recursive_rule,
+        mechanics_rule,
+        None,
+        None,
+    )
+}
+
+#[derive(Clone, Copy)]
+struct TestTrigger {
+    event: RuleEventKind,
+    point: RuleEventPoint,
+    phase: TriggerPhase,
+    once: OnceScope,
+}
+
+fn catalog_with_trigger(
+    program: ProgramDefinition,
+    with_modifier: bool,
+    with_rule: bool,
+    recursive_rule: bool,
+    mechanics_rule: bool,
+    trigger_override: Option<TestTrigger>,
+    rule_steps_override: Option<Vec<ProgramStep>>,
 ) -> Arc<CombatCatalog> {
     let mut builder = CombatCatalogBuilder::new("ability-program-v1", [0x43; 32]);
     let authored_effects = program.effects().to_vec();
@@ -192,24 +223,29 @@ fn catalog(
         if mechanics_rule {
             add_mechanics_definitions(&mut builder);
         }
-        let steps = if mechanics_rule {
-            mechanics_steps()
-        } else {
-            vec![ProgramStep::Operation(RuleOperationTemplate::Damage {
-                selector: id(2),
-                amount: ValueExpr::Literal(RuleValue::Scalar(
-                    Scalar::checked_from_integer(if recursive_rule { 0 } else { 50 }).unwrap(),
-                )),
-                class: DamageClass::Additional,
-                element: CombatElement::Physical,
-                can_crit: false,
-            })]
-        };
+        let custom_rule_steps = rule_steps_override.is_some();
+        let steps = rule_steps_override.unwrap_or_else(|| {
+            if mechanics_rule {
+                mechanics_steps()
+            } else {
+                vec![ProgramStep::Operation(RuleOperationTemplate::Damage {
+                    selector: id(2),
+                    amount: ValueExpr::Literal(RuleValue::Scalar(
+                        Scalar::checked_from_integer(if recursive_rule { 0 } else { 50 }).unwrap(),
+                    )),
+                    class: DamageClass::Additional,
+                    element: CombatElement::Physical,
+                    can_crit: false,
+                })]
+            }
+        });
         builder.add_program(
             ProgramDefinition::new(
                 id(3),
                 vec![],
-                if mechanics_rule {
+                if custom_rule_steps {
+                    vec![]
+                } else if mechanics_rule {
                     vec![id(2), id(4)]
                 } else {
                     vec![id(2)]
@@ -240,17 +276,27 @@ fn catalog(
                 mechanics_rule.then(mechanics_slot).into_iter().collect(),
                 vec![TriggerDef {
                     id: id(1),
-                    event: if recursive_rule {
-                        RuleEventKind::Damage
-                    } else {
-                        RuleEventKind::Hit
-                    },
-                    event_point: if recursive_rule {
-                        RuleEventPoint::DamageApplied
-                    } else {
-                        RuleEventPoint::HitEnded
-                    },
-                    phase: TriggerPhase::AfterEvent,
+                    event: trigger_override.map_or_else(
+                        || {
+                            if recursive_rule {
+                                RuleEventKind::Damage
+                            } else {
+                                RuleEventKind::Hit
+                            }
+                        },
+                        |value| value.event,
+                    ),
+                    event_point: trigger_override.map_or_else(
+                        || {
+                            if recursive_rule {
+                                RuleEventPoint::DamageApplied
+                            } else {
+                                RuleEventPoint::HitEnded
+                            }
+                        },
+                        |value| value.point,
+                    ),
+                    phase: trigger_override.map_or(TriggerPhase::AfterEvent, |value| value.phase),
                     filter: if mechanics_rule {
                         EventFilter {
                             source: Some(SourceDefinitionId::new(1).unwrap()),
@@ -260,11 +306,16 @@ fn catalog(
                         EventFilter::default()
                     },
                     condition: ConditionExpr::Literal(true),
-                    once_scope: if recursive_rule {
-                        OnceScope::Event
-                    } else {
-                        OnceScope::Action
-                    },
+                    once_scope: trigger_override.map_or_else(
+                        || {
+                            if recursive_rule {
+                                OnceScope::Event
+                            } else {
+                                OnceScope::Action
+                            }
+                        },
+                        |value| value.once,
+                    ),
                     priority: ReactionPriority::new(0),
                     program: id(3),
                 }],
@@ -901,39 +952,6 @@ fn removing_an_effect_tears_down_its_modifier_attachments() {
             .view()
             .modifier_instances_by_id()
             .all(|modifier| modifier.source_effect().is_none())
-    );
-}
-
-#[test]
-fn selected_rule_bundle_dispatches_once_after_the_authored_hit_event() {
-    let program = ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![], vec![]);
-    let mut battle = battle(
-        catalog(program, false, true, false, false),
-        false,
-        true,
-        false,
-    );
-    let resolution = start_and_use(&mut battle).unwrap();
-    let damage = resolution
-        .events()
-        .iter()
-        .filter_map(|event| match event.kind() {
-            BattleEventKind::Damage(value) => Some(value.applied.get()),
-            _ => None,
-        })
-        .collect::<Vec<_>>();
-
-    assert_eq!(damage, [50]);
-    assert_eq!(battle.view().rule_instances_by_id().count(), 1);
-    assert_eq!(
-        battle
-            .view()
-            .units_by_id()
-            .nth(1)
-            .unwrap()
-            .current_hp()
-            .get(),
-        950
     );
 }
 

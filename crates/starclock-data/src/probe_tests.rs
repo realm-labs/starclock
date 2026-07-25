@@ -647,6 +647,11 @@ fn firefly_input(stats: &FireflyStats) -> RuleEvaluationInput<'_> {
         event_kind: RuleEventKind::Action,
         event_facts,
         cause: RuleCause {
+            parent_event: None,
+            root_command: None,
+            action: Some(ActionId::new(1).unwrap()),
+            phase: None,
+            hit: None,
             owner: Some(unit(1)),
             actor: Some(unit(1)),
             applier: Some(unit(1)),

@@ -26,7 +26,6 @@ use crate::{
 };
 
 mod scratch;
-
 pub(crate) use scratch::ResolutionScratch;
 
 use super::{
@@ -40,13 +39,11 @@ pub(crate) enum FaultInjectionPoint {
     AfterResolvingPhase,
     AfterCommandMutation,
 }
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) struct FaultInjection {
     pub(crate) point: FaultInjectionPoint,
     pub(crate) policy: FaultPolicy,
 }
-
 pub(crate) struct TransactionOutput {
     pub(crate) events: Vec<BattleEvent>,
     pub(crate) state_hash: BattleStateHash,
@@ -1132,10 +1129,24 @@ impl<'a> Transaction<'a> {
         boundary: crate::rule::model::SlotResetPoint,
         owner: Option<crate::UnitId>,
     ) {
-        let count = self.state.rules.reset(boundary, owner);
+        let mut count = self.state.rules.reset(boundary, owner);
+        if boundary == crate::rule::model::SlotResetPoint::TurnStart {
+            count += self
+                .state
+                .rules
+                .reset_once_scope(crate::rule::model::OnceScope::Turn);
+        }
         if count > 0 {
             self.journal
                 .mutation(MutationField::RuleState, 0, count as u64);
+        }
+    }
+
+    pub(super) fn reset_event_once_keys(&mut self, event: EventId) {
+        let count = self.state.rules.reset_once_event(event);
+        if count > 0 {
+            self.journal
+                .mutation(MutationField::RuleState, event.get(), count as u64);
         }
     }
 

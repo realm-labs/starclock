@@ -167,6 +167,10 @@ pub(super) fn execute_action_plan(
         &mut HitOperationScratch::default(),
     )?;
     parent = apply_resource_costs(txn, base, parent, plan)?;
+    txn.reset_rule_slots(
+        crate::rule::model::SlotResetPoint::ActionStart,
+        Some(plan.actor),
+    );
     parent = txn.emit(
         base.with_parent(parent),
         BattleEventKind::Action(ActionEventData::Started {
@@ -178,10 +182,6 @@ pub(super) fn execute_action_plan(
         }),
     );
     parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
-    txn.reset_rule_slots(
-        crate::rule::model::SlotResetPoint::ActionStart,
-        Some(plan.actor),
-    );
     parent = run_programs_at(
         catalog,
         txn,
