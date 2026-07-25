@@ -121,7 +121,12 @@ pub(super) fn execute_heal(
 ) -> Result<EventId, BattleFault> {
     let inputs = FormulaInputs::new(txn)?;
     for target in operation.targets {
-        let calculation = inputs.healing(catalog, txn, cause, operation.formula, target)?;
+        let calculation = if operation.apply_formula_modifiers {
+            inputs.healing(catalog, txn, cause, operation.formula, target)?
+        } else {
+            crate::formula::sustain::healing(operation.formula)
+                .map_err(|_| numeric_fault(11, operation.formula.base_healing().scaled()))?
+        };
         let (hp_before, maximum_hp, life) = txn
             .state
             .units

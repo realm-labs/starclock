@@ -132,7 +132,8 @@ controls, are fixed by
 
 A `Program` declares `Battle` or `Activity` execution ownership and is a finite ordered list of operations plus structured `If`/bounded iteration blocks. Battle operations are:
 
-- damage, true damage, heal, shield, HP consumption, and damage redirection;
+- damage, true damage, heal, exact resolved-HP restoration, shield, HP
+  consumption, and damage redirection;
 - Toughness reduction, layer creation/removal, Break, and Super Break;
 - apply, remove, refresh, transfer, or modify an effect;
 - modify personal/team resources and battle-or-shorter state slots;
@@ -144,6 +145,14 @@ A `Program` declares `Battle` or `Activity` execution ownership and is a finite 
 - invoke a validated native handler.
 
 Programs cannot directly change collections or HP. They produce resolver operations, which enforce target legality, rounding, attribution, events, reactions, and budgets.
+
+`Heal` declares whether its input is pre-modifier or already resolved. The
+ordinary mode runs the outgoing, incoming and reduction stages. The
+exact-resolved mode accepts values such as a percentage of an earlier event's
+effective healing and applies no healing multiplier again. Both use the same
+living-unit, missing-HP, overflow, event and reaction boundaries. Content must
+not select exact-resolved mode to bypass modifiers on an ordinary authored
+heal.
 
 Activity programs use the same expression/condition discipline but emit only the graph, participant, inventory, clock, metric, objective, decision, and BattleSpec operations defined in [Activity core and mode extension](19-activity-core-and-mode-extension.md). Battle programs cannot write activity slots; activity programs cannot mutate live battle state. Cross-boundary values use declared `BattleSpec` bindings and `BattleResultProjection` fields.
 

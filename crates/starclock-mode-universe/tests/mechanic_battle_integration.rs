@@ -35,6 +35,8 @@ const RESONANCE_RESOURCE_RAW: u32 = 0x7630_0004;
 
 #[path = "mechanic_battle_integration/abundance_s01.rs"]
 mod abundance_s01;
+#[path = "mechanic_battle_integration/abundance_s02.rs"]
+mod abundance_s02;
 #[path = "mechanic_battle_integration/nihility_s01.rs"]
 mod nihility_s01;
 #[path = "mechanic_battle_integration/nihility_s02.rs"]

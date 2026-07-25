@@ -24,13 +24,12 @@ use crate::{
     },
 };
 
-use std::collections::BTreeMap;
-
 use super::{operation::execute_operation, transaction::Transaction};
+use std::collections::BTreeMap;
 mod emission;
 pub(super) mod fault;
 mod value;
-use emission::emission_current_target;
+use emission::{emission_current_target, healing_operation};
 use fault::emission_code;
 pub(super) use fault::program_fault;
 pub(super) use value::{non_negative_scalar, probability, ratio};
@@ -412,22 +411,19 @@ fn execute_emission(
             })
         }
         RuleEmission::Heal {
-            selector, amount, ..
-        } => {
-            let amount = non_negative_scalar(amount)?;
-            let formula = crate::catalog::action::HealingDefinition::new(
-                amount,
-                Ratio::ZERO,
-                Ratio::ZERO,
-                Ratio::ZERO,
-            )
-            .map_err(|_| program_fault(3, amount.scaled()))?;
-            Operation::Heal(crate::operation::HealOp {
-                id: operation_id,
-                targets: emission_targets(catalog, resolved, selector, current_target)?,
-                formula,
-            })
-        }
+            selector,
+            amount,
+            apply_formula_modifiers,
+            ..
+        } => healing_operation(
+            catalog,
+            resolved,
+            operation_id,
+            selector,
+            amount,
+            current_target,
+            apply_formula_modifiers,
+        )?,
         RuleEmission::Shield {
             selector,
             amount,
@@ -1175,11 +1171,10 @@ fn toughness_reduction(
 }
 
 fn super_break(
-    context: &AbilityProgramContext,
+    _context: &AbilityProgramContext,
     multiplier: Ratio,
     element: crate::formula::model::CombatElement,
 ) -> crate::formula::toughness::SuperBreakDefinition {
-    let _ = context.crit_policy;
     crate::formula::toughness::SuperBreakDefinition {
         element,
         attacker_level_multiplier: Scalar::ONE,

@@ -232,15 +232,28 @@ fn all_abundance_shares_effective_healing_without_recursion_and_stacks_attack() 
     let shared_heals = resolution
         .events()
         .iter()
-        .filter(|event| {
-            event.cause().source_definition() == Some(source)
-                && matches!(event.kind(), BattleEventKind::Heal(_))
+        .filter_map(|event| {
+            (event.cause().source_definition() == Some(source))
+                .then(|| match event.kind() {
+                    BattleEventKind::Heal(data) => Some(data),
+                    _ => None,
+                })
+                .flatten()
         })
-        .count();
+        .collect::<Vec<_>>();
+    assert_eq!(
+        shared_heals.len(),
+        3,
+        "one rupture heal is shared once with the other three allies: {:?}",
+        resolution.events(),
+    );
     assert!(
-        (1..=12).contains(&shared_heals),
-        "shared healing executes but does not recursively fan out: {shared_heals}; {:?}",
-        resolution.events()
+        shared_heals.iter().all(|heal| {
+            heal.calculated.get() == 4_200
+                && heal.effective.get() == 4_200
+                && heal.overheal.get() == 0
+        }),
+        "already-resolved 14,000 healing is restored at exactly 30% without a second multiplier: {shared_heals:?}"
     );
     let effect =
         starclock_combat::EffectDefinitionId::new(0x7660_0000 + binding.rule().get()).unwrap();

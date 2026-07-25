@@ -11,8 +11,8 @@ const SHARED_HEALING: &str = "StageAbility_612332";
 const RUPTURE_HEALING: &str = "StageAbility_612340";
 const FULL_HP_EFFICIENCY: &str = "StageAbility_612341";
 
-const DEWDROP_CHARGE_SIGNAL: u32 = 0x00ab_0001;
-const DEWDROP_RUPTURE_SIGNAL: u32 = 0x00ab_0002;
+pub(super) const DEWDROP_CHARGE_SIGNAL: u32 = 0x00ab_0001;
+pub(super) const DEWDROP_RUPTURE_SIGNAL: u32 = 0x00ab_0002;
 const LOCAL_PROGRAM_BASE: u32 = 0x7930_0000;
 
 pub(super) fn lower(
@@ -344,6 +344,7 @@ fn rupture_healing_rule(
                 .with_steps(vec![ProgramStep::Operation(RuleOperationTemplate::Heal {
                     selector: owner,
                     amount,
+                    apply_formula_modifiers: true,
                 })]),
         ],
         triggers: vec![trigger(
@@ -472,6 +473,7 @@ fn shared_healing(
     let mut root_steps = vec![ProgramStep::Operation(RuleOperationTemplate::Heal {
         selector: others,
         amount: shared_amount,
+        apply_formula_modifiers: false,
     })];
     let mut effects = Vec::new();
     let mut groups = Vec::new();

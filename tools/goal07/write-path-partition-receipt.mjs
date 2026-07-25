@@ -140,6 +140,18 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612342"))
+    return "Typed Dewdrop rupture signals, fixed-chance effect application and ordered Cleanse express the complete dispel.";
+  if (id.includes("612343"))
+    return "Healing attribution, ordinary ally selectors and a one-turn effect-backed ATK modifier express both target policies.";
+  if (id.includes("612344"))
+    return "Committed action targets, labeled stable selection, live HP queries and event-element damage express both levels.";
+  if (id.includes("612345"))
+    return "HP-change facts maintain one ordinary effect whose shared mitigation and Effect RES modifiers are active only at full HP.";
+  if (id.includes("612346"))
+    return "Effective-heal facts and exact bounded HP restoration express the extra ally healing without repeating healing multipliers.";
+  if (id.includes("612350"))
+    return "The validated contribution compiler supplies the capped selected-Abundance count to an ordinary MaxHP modifier.";
   if (id.includes("612330"))
     return "Typed effective-heal facts, owner-scoped state and event-element additional damage express Dewdrop charge and rupture.";
   if (id.includes("612331"))
@@ -585,6 +597,33 @@ function partitionProfile(id) {
         "goal07_p2_m05_s01_materializes_all_five_assigned_mechanics",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration abundance_s01 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M05-S02") {
+    return {
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/abundance_s02.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s02.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "crates/starclock-combat/src/resolver/program.rs",
+        "crates/starclock-combat/src/resolver/operation/sustain.rs",
+        "crates/starclock-mode-universe/tests/battle_materialization.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-abundance-s02.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/abundance_s02.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s02.rs",
+      fixtureMarker:
+        "enhanced_hp_additional_damage_executes_once_on_an_actual_attack_target",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration abundance_s02 --all-features",
+        "cargo test -p starclock-mode-universe --test battle_materialization --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

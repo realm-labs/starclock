@@ -229,6 +229,7 @@ fn lower_operation(
         } => RuleOperationTemplate::Heal {
             selector: selector()?,
             amount: expression(*amount_expression_id)?,
+            apply_formula_modifiers: true,
         },
         Payload::Shield {
             amount_expression_id,

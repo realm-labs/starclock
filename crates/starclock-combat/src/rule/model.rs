@@ -634,6 +634,8 @@ pub enum RuleOperationTemplate {
     Heal {
         selector: SelectorId,
         amount: ValueExpr,
+        /// False when the amount is already resolved and must not be modified again.
+        apply_formula_modifiers: bool,
     },
     Shield {
         selector: SelectorId,
@@ -942,6 +944,7 @@ pub enum RuleEmission {
     Heal {
         selector: SelectorId,
         amount: RuleValue,
+        apply_formula_modifiers: bool,
         current_target: Option<UnitId>,
     },
     Shield {

@@ -1,6 +1,7 @@
 //! Executable Standard Universe combat slices lowered from validated contributions.
 
 mod abundance_s01;
+mod abundance_s02;
 mod hunt_resonance;
 mod nihility_s01;
 mod nihility_s02;
@@ -91,7 +92,6 @@ pub(crate) const RESONANCE_ENEMY_SELECTOR_ID: SelectorId =
 pub(crate) const RESONANCE_ALLY_SELECTOR_ID: SelectorId =
     SelectorId::new(0x7630_0006).expect("reserved selector ID is non-zero");
 
-const ABUNDANCE_ADDITIONAL_DAMAGE_BINDING: &str = "StageAbility_612344";
 const ENTRY_ENEMY_DAMAGE_BINDING: &str = "8";
 const HUNT_RESONANCE_BINDING: &str = "StageAbility_612420";
 const PRESERVATION_ATTACK_QUAKE_BINDING: &str = "StageAbility_612030";
@@ -310,20 +310,7 @@ pub(crate) fn lower_rules(
     output.extend(nihility_s03::lower(bindings, blessings)?);
     output.extend(nihility_s04::lower_rules(catalog, bindings, blessings)?);
     output.extend(abundance_s01::lower(bindings, blessings)?);
-    if let Some(binding) = bindings.iter().find(|binding| {
-        binding.role() == UniverseBattleRuleRole::BlessingLevel
-            && binding.source_binding_key() == Some(ABUNDANCE_ADDITIONAL_DAMAGE_BINDING)
-    }) {
-        let contribution = blessings
-            .entries()
-            .iter()
-            .find(|entry| entry.level().source_binding_key() == ABUNDANCE_ADDITIONAL_DAMAGE_BINDING)
-            .ok_or(BattleRuleLoweringError::SnapshotMismatch)?;
-        if contribution.level().level() == 2 {
-            let ratio = parameter(contribution.level().parameters(), 0)?;
-            output.push(abundance_additional_damage(binding, ratio)?);
-        }
-    }
+    output.extend(abundance_s02::lower(catalog, bindings, blessings)?);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::CurioState
             && binding.source_binding_key() == Some(ENTRY_ENEMY_DAMAGE_BINDING)
@@ -1023,80 +1010,6 @@ fn executable_damage_rule(
         definition,
         bundle: RuleBundle::new(binding.bundle(), vec![binding.rule()]),
     }
-}
-
-fn abundance_additional_damage(
-    binding: &UniverseBattleRuleBinding,
-    ratio: i64,
-) -> Result<ExecutableBattleRule, BattleRuleLoweringError> {
-    let raw = binding.rule().get();
-    let program = id::<ProgramId>(PROGRAM_ID_BASE, raw)?;
-    let owner = id::<SelectorId>(OWNER_SELECTOR_ID_BASE, raw)?;
-    let target = id::<SelectorId>(TARGET_SELECTOR_ID_BASE, raw)?;
-    let trigger = id::<TriggerId>(TRIGGER_ID_BASE, raw)?;
-    let selectors = vec![
-        SelectorDefinition::new(owner).with_rule_units(owner_selector()?),
-        SelectorDefinition::new(target).with_rule_units(primary_target_selector()?),
-    ];
-    let amount = ValueExpr::Multiply {
-        lhs: Box::new(ValueExpr::QueryStat {
-            subject: StatQuerySubject::Owner,
-            stat: StatKind::Hp,
-            purpose: FormulaPurpose::Stat,
-        }),
-        rhs: Box::new(ValueExpr::Literal(RuleValue::Scalar(
-            starclock_combat::Scalar::from_scaled(ratio),
-        ))),
-        rounding: starclock_combat::Rounding::NearestTiesEven,
-    };
-    let program_definition = ProgramDefinition::new(
-        program,
-        Vec::new(),
-        vec![owner, target],
-        Vec::new(),
-        Vec::new(),
-    )
-    .with_steps(vec![ProgramStep::Operation(
-        RuleOperationTemplate::Damage {
-            selector: target,
-            amount,
-            class: DamageClass::Additional,
-            element: CombatElement::Physical,
-            can_crit: false,
-            can_defeat: true,
-        },
-    )]);
-    let definition = RuleDefinition::new(binding.rule(), vec![program], vec![owner, target])
-        .with_runtime(BattleRuleDefinition::new(
-            binding.source().clone(),
-            Vec::new(),
-            vec![TriggerDef {
-                id: trigger,
-                event: RuleEventKind::Damage,
-                event_point: RuleEventPoint::DamageApplied,
-                phase: TriggerPhase::AfterEvent,
-                filter: EventFilter {
-                    actor_selector: Some(owner),
-                    ability_tag: Some(AbilityTag::Attack),
-                    ..EventFilter::default()
-                },
-                condition: ConditionExpr::Literal(true),
-                once_scope: OnceScope::Action,
-                priority: ReactionPriority::new(0),
-                program,
-            }],
-            None,
-        ));
-    Ok(ExecutableBattleRule {
-        attachment: RuleAttachment::EveryPlayer,
-        modifier_groups: Box::new([]),
-        modifiers: Box::new([]),
-        selectors: selectors.into_boxed_slice(),
-        effects: Box::new([]),
-        programs: vec![program_definition].into_boxed_slice(),
-        definition,
-        bundle: RuleBundle::new(binding.bundle(), vec![binding.rule()]),
-    })
 }
 
 fn entry_enemy_damage(

@@ -233,6 +233,7 @@ pub(crate) struct HealOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
     pub(crate) formula: HealingDefinition,
+    pub(crate) apply_formula_modifiers: bool,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

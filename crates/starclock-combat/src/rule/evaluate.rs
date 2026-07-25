@@ -403,9 +403,14 @@ fn evaluate_operation(
             amount: evaluate_value(amount, input, current_target)?,
             current_target,
         },
-        RuleOperationTemplate::Heal { selector, amount } => RuleEmission::Heal {
+        RuleOperationTemplate::Heal {
+            selector,
+            amount,
+            apply_formula_modifiers,
+        } => RuleEmission::Heal {
             selector: *selector,
             amount: evaluate_value(amount, input, current_target)?,
+            apply_formula_modifiers: *apply_formula_modifiers,
             current_target,
         },
         RuleOperationTemplate::Shield {

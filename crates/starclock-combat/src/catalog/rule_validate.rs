@@ -299,7 +299,9 @@ fn validate_operation(
             selector, amount, ..
         }
         | RuleOperationTemplate::TrueDamage { selector, amount }
-        | RuleOperationTemplate::Heal { selector, amount }
+        | RuleOperationTemplate::Heal {
+            selector, amount, ..
+        }
         | RuleOperationTemplate::ReduceToughness {
             selector, amount, ..
         }

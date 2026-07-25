@@ -266,6 +266,7 @@ fn offerings(
                     },
                     scalar(parameter(parameters, 0)?),
                 ),
+                apply_formula_modifiers: true,
             })],
         );
     Ok(first_player_rule(

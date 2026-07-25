@@ -287,6 +287,7 @@ pub(super) fn execute_action_plan(
                         id: operation.id,
                         targets: targets.clone(),
                         formula: *formula,
+                        apply_formula_modifiers: true,
                     }),
                     HitOperationDefinition::Shield(formula) => Operation::Shield(ShieldOp {
                         id: operation.id,

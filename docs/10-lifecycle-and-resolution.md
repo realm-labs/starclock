@@ -84,6 +84,13 @@ An operation is the smallest journal unit that either completes or faults. The r
 
 Damage and Toughness operations in the same authored hit remain distinct ordered operations. An ability phase must say which comes first when a kit depends on that distinction.
 
+Healing and exact HP restoration share the same bounded HP mutation and
+`HealEventData` contract. Healing calculates outgoing/incoming modifiers before
+the mutation; exact restoration accepts an already-resolved amount and must not
+repeat that formula block. Both floor before the missing-HP bound, report
+effective healing and overheal, and dispatch reactions only after the HP write
+commits.
+
 ## Event causality
 
 Each event has a monotonic `EventId` and one cause record:
