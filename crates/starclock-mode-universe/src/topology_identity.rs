@@ -86,7 +86,7 @@ pub(super) fn occurrence_choice_option(source: u64, room: RoomId, choice: u32) -
     )
 }
 
-pub(super) fn blessing_option(source: u64, blessing: BlessingId) -> ActivityOptionId {
+pub(crate) fn blessing_option(source: u64, blessing: BlessingId) -> ActivityOptionId {
     option(REWARD_OPTION_OFFSET + source * 1_000_000 + u64::from(blessing.get()))
 }
 

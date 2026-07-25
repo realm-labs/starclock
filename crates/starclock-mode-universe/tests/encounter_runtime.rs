@@ -379,38 +379,19 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
         activity.graph().canonical_state_bytes(),
         before_stale_reroll
     );
-    activity
-        .reroll_blessing_offer(reward.state_hash())
-        .expect("one deterministic Blessing reset");
-    let after_reroll_snapshot = activity.battle_start_snapshot().unwrap();
     assert_eq!(
-        before_reroll_snapshot.contributions().digest(),
-        after_reroll_snapshot.contributions().digest()
+        activity.reroll_blessing_offer(reward.state_hash()),
+        Err(starclock_activity::GraphActivityRandomOfferError::RerollDisabled)
     );
     assert_eq!(
-        before_reroll_snapshot.carry_digest(),
-        after_reroll_snapshot.carry_digest()
-    );
-    assert_ne!(
         before_reroll_snapshot.source_state_hash(),
-        after_reroll_snapshot.source_state_hash()
-    );
-    assert_ne!(
-        before_reroll_snapshot.digest(),
-        after_reroll_snapshot.digest()
-    );
-    let before_exhausted_reroll = activity.graph().canonical_state_bytes();
-    assert!(
         activity
-            .reroll_blessing_offer(activity.view().state_hash())
-            .is_err()
-    );
-    assert_eq!(
-        activity.graph().canonical_state_bytes(),
-        before_exhausted_reroll
+            .battle_start_snapshot()
+            .unwrap()
+            .source_state_hash()
     );
     let reward = activity.view();
-    let reward_decision = reward.decision().expect("rerolled reward");
+    let reward_decision = reward.decision().expect("reward");
     assert_eq!(reward_decision.options().len(), 3);
     activity
         .choose_option(
@@ -442,8 +423,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            127, 225, 31, 131, 133, 250, 95, 53, 14, 206, 11, 97, 89, 242, 29, 57, 32, 96, 56, 83,
-            107, 51, 215, 28, 197, 91, 245, 236, 119, 173, 34, 44,
+            175, 222, 183, 150, 78, 11, 133, 169, 188, 126, 215, 239, 111, 3, 61, 49, 42, 198, 166,
+            105, 156, 181, 176, 128, 198, 97, 219, 4, 140, 239, 251, 139,
         ]
     );
     let formation = activity.view();
@@ -466,6 +447,138 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
             .expect("routes after reward")
             .kind(),
         starclock_activity::ActivityDecisionKind::Route
+    );
+}
+
+#[test]
+fn goal07_ability_tree_unlocks_reroll_and_consumes_one_first_battle_bonus_choice() {
+    let catalog = catalog();
+    let lock = participants();
+    let overlay = overlay(&catalog, &lock);
+    let ability_tree = catalog
+        .ability_tree_nodes()
+        .iter()
+        .map(|node| node.id())
+        .collect::<Vec<_>>();
+    let world = &catalog.worlds()[0];
+    let compiled = StandardUniverseProfile::new(Arc::clone(&catalog))
+        .compile(
+            StandardUniverseEntry::new(world.id(), world.difficulties()[0], lock, ability_tree)
+                .with_encounter_overlay(overlay),
+        )
+        .unwrap();
+    let mut activity = compiled
+        .start_standard(
+            ActivityInstanceId::new(78).unwrap(),
+            ActivityMasterSeed::from_u64(8),
+        )
+        .unwrap()
+        .into_activity();
+    choose_first(&mut activity);
+
+    let encounter = loop {
+        let view = activity.view();
+        let decision = view.decision().expect("nonterminal domain decision");
+        match decision.kind() {
+            starclock_activity::ActivityDecisionKind::Encounter => {
+                break (view.state_hash(), decision.id(), decision.options()[0].id());
+            }
+            starclock_activity::ActivityDecisionKind::ExternalOutcome => {
+                activity
+                    .submit_external_outcome(
+                        view.state_hash(),
+                        decision.id(),
+                        starclock_activity::ActivityExternalOutcomeId::new(
+                            decision.options()[0].id().get(),
+                        )
+                        .unwrap(),
+                    )
+                    .unwrap();
+            }
+            starclock_activity::ActivityDecisionKind::Choice
+            | starclock_activity::ActivityDecisionKind::Reward
+            | starclock_activity::ActivityDecisionKind::Route => {
+                activity
+                    .choose_option(view.state_hash(), decision.id(), decision.options()[0].id())
+                    .unwrap();
+            }
+            other => panic!("unexpected domain decision: {other:?}"),
+        }
+    };
+    activity
+        .engage_encounter(encounter.0, encounter.1, encounter.2, 5)
+        .unwrap();
+    let preparation = activity.preparation_view().expect("preparation decision");
+    activity
+        .choose_preparation_option(activity.view().state_hash(), preparation.options()[0].id())
+        .unwrap();
+    let handoff = activity
+        .start_pending_battle(activity.view().state_hash())
+        .unwrap();
+    let valid_result = won_result(handoff.identity());
+    let before_forged = activity.graph().canonical_state_bytes();
+    let forged = BattleResult::new(
+        handoff.identity(),
+        valid_result.values().to_vec(),
+        starclock_activity::BattleResultDigest::new([0xee; 32]).unwrap(),
+    );
+    assert!(
+        activity
+            .submit_pending_battle_result(activity.view().state_hash(), forged)
+            .is_err()
+    );
+    assert_eq!(activity.graph().canonical_state_bytes(), before_forged);
+    activity
+        .submit_pending_battle_result(activity.view().state_hash(), valid_result)
+        .unwrap();
+
+    let reward = activity.view();
+    assert_eq!(
+        reward.decision().expect("first bonus reward").kind(),
+        starclock_activity::ActivityDecisionKind::Reward
+    );
+    activity
+        .reroll_blessing_offer(reward.state_hash())
+        .expect("Ability Tree node 11 unlocks one reroll");
+    assert_eq!(
+        activity.reroll_blessing_offer(activity.view().state_hash()),
+        Err(starclock_activity::GraphActivityRandomOfferError::RerollLimitReached)
+    );
+
+    let bonus = activity.view();
+    activity
+        .choose_option(
+            bonus.state_hash(),
+            bonus.decision().unwrap().id(),
+            bonus.decision().unwrap().options()[0].id(),
+        )
+        .unwrap();
+    assert_eq!(
+        activity.blessing_contributions().unwrap().entries().len(),
+        1
+    );
+    let ordinary = activity.view();
+    assert_eq!(
+        ordinary
+            .decision()
+            .expect("ordinary reward follows bonus")
+            .kind(),
+        starclock_activity::ActivityDecisionKind::Reward
+    );
+    activity
+        .choose_option(
+            ordinary.state_hash(),
+            ordinary.decision().unwrap().id(),
+            ordinary.decision().unwrap().options()[0].id(),
+        )
+        .unwrap();
+    assert_eq!(
+        activity.blessing_contributions().unwrap().entries().len(),
+        2
+    );
+    assert_eq!(
+        activity.view().decision().expect("formation gate").kind(),
+        starclock_activity::ActivityDecisionKind::Choice
     );
 }
 

@@ -98,6 +98,70 @@ fn failed_requirement_rejects_without_changing_any_state() {
 }
 
 #[test]
+fn conditional_executes_one_final_branch_and_preserves_transactionality() {
+    for (initial, expected, expected_node) in [(0, 3, node(1)), (1, 1, node(2))] {
+        let mut state = runtime();
+        if initial != 0 {
+            let initialize = ActivityProgramDefinition::new(
+                program_id(1),
+                vec![ActivityOperation::SetSlot {
+                    slot: slot(1),
+                    value: integer(initial),
+                }],
+            )
+            .unwrap();
+            assert!(matches!(
+                state.apply_program(&initialize, cause(1), &graph()),
+                ActivityTransactionOutcome::Committed(_)
+            ));
+        }
+        let sequence = state.command_sequence() + 1;
+        let program = ActivityProgramDefinition::new(
+            program_id(sequence as u32),
+            vec![ActivityOperation::Conditional {
+                condition: ActivityCondition::Equal(ActivityExpression::Slot(slot(1)), integer(0)),
+                if_true: vec![ActivityOperation::AddToSlot {
+                    slot: slot(1),
+                    delta: integer(3),
+                }]
+                .into_boxed_slice(),
+                if_false: vec![ActivityOperation::Traverse(edge_id(1))].into_boxed_slice(),
+            }],
+        )
+        .unwrap();
+        assert!(matches!(
+            state.apply_program(&program, cause_at(sequence, node(1)), &graph()),
+            ActivityTransactionOutcome::Committed(_)
+        ));
+        assert_eq!(
+            state.slot(slot(1)),
+            Some(&ActivityValue::BoundedInteger(expected))
+        );
+        assert_eq!(state.current_node(), expected_node);
+    }
+
+    let error = ActivityProgramDefinition::new(
+        program_id(9),
+        vec![
+            ActivityOperation::Conditional {
+                condition: boolean(true),
+                if_true: Vec::new().into_boxed_slice(),
+                if_false: Vec::new().into_boxed_slice(),
+            },
+            ActivityOperation::SetSlot {
+                slot: slot(1),
+                value: integer(1),
+            },
+        ],
+    )
+    .unwrap_err();
+    assert_eq!(
+        error,
+        ActivityProgramDefinitionError::OperationAfterBoundary(1)
+    );
+}
+
+#[test]
 fn internal_fault_discards_partial_work_and_commits_only_faulted_settlement() {
     let mut state = runtime();
     let program = ActivityProgramDefinition::new(

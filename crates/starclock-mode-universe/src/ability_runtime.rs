@@ -586,6 +586,51 @@ impl AbilityRuntimeCatalog {
             operations,
         })
     }
+
+    /// Projects only authoritative counter deltas whose desired value differs
+    /// from the current Activity state. This avoids accepting a synthetic
+    /// command boundary when no authored effect changes state.
+    pub fn project_activity_delta_operations(
+        &self,
+        selected: &[AbilityTreeNodeId],
+        context: AbilityExecutionContext,
+        slot: ActivitySlotId,
+        current: &[(u64, i64)],
+    ) -> Result<AbilityActivityProjection, AbilityRuntimeError> {
+        if current.windows(2).any(|pair| pair[0].0 >= pair[1].0) {
+            return Err(AbilityRuntimeError::NonCanonicalActivityState);
+        }
+        let projection = self.project(selected, context)?;
+        let mut operations = Vec::new();
+        for target in AbilityTarget::ALL
+            .into_iter()
+            .filter(|target| target.scope() == context.scope())
+        {
+            let desired = projection
+                .value(target)
+                .unwrap_or(AbilityValue::ZERO)
+                .raw_six_decimal();
+            let existing = current
+                .binary_search_by_key(&target.activity_key(), |entry| entry.0)
+                .ok()
+                .map_or(0, |index| current[index].1);
+            if desired == existing {
+                continue;
+            }
+            let delta = desired
+                .checked_sub(existing)
+                .ok_or(AbilityRuntimeError::Overflow)?;
+            operations.push(ActivityOperation::AddCounter {
+                slot,
+                key: target.activity_key(),
+                delta: ActivityExpression::Literal(ActivityStateValue::BoundedInteger(delta)),
+            });
+        }
+        Ok(AbilityActivityProjection {
+            projection,
+            operations: operations.into_boxed_slice(),
+        })
+    }
 }
 
 fn class_allows(class: AbilityEffectClass, scope: AbilityProjectionScope) -> bool {
@@ -709,4 +754,5 @@ pub enum AbilityRuntimeError {
     InvalidValue,
     Overflow,
     NonCanonicalSelection,
+    NonCanonicalActivityState,
 }

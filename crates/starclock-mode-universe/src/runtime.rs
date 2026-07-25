@@ -1,4 +1,5 @@
 //! Standard Universe runtime facade over the generic graph Activity.
+mod ability_access;
 mod battle_contribution_access;
 mod battle_execution_access;
 
@@ -14,10 +15,7 @@ use starclock_activity::{
 };
 
 use crate::{
-    ability_runtime::{
-        AbilityActivityProjection, AbilityExecutionContext, AbilityRuntimeCatalog,
-        AbilityRuntimeError, AbilityRuntimeProjection,
-    },
+    ability_runtime::{AbilityRuntimeCatalog, AbilityRuntimeError},
     abundance_runtime::AbundanceRuntimeCatalog,
     battle_contribution::{UniverseBattleContributionCompiler, UniverseBattleContributionError},
     battle_overlay::UniverseEncounterOverlay,
@@ -876,24 +874,6 @@ impl StandardUniverseActivity {
         self.service_effect_runtime.execute(service)
     }
 
-    pub fn ability_tree_projection(
-        &self,
-        context: AbilityExecutionContext,
-    ) -> Result<AbilityRuntimeProjection, AbilityRuntimeError> {
-        self.ability_runtime.project(&self.ability_tree, context)
-    }
-
-    pub fn ability_activity_projection(
-        &self,
-        context: AbilityExecutionContext,
-    ) -> Result<AbilityActivityProjection, AbilityRuntimeError> {
-        self.ability_runtime.project_activity_operations(
-            &self.ability_tree,
-            context,
-            self.ability_projection_slot,
-        )
-    }
-
     pub fn cosmic_fragments(&self) -> Result<CosmicFragments, RunRuntimeError> {
         let view = self.graph.player_view();
         let value = view
@@ -906,16 +886,6 @@ impl StandardUniverseActivity {
             })
             .ok_or(RunRuntimeError::InvalidFragmentAmount)?;
         CosmicFragments::new(value)
-    }
-
-    pub fn reroll_blessing_offer(
-        &mut self,
-        expected_state_hash: ActivityStateHash,
-    ) -> Result<
-        Box<[starclock_activity::ActivityTransactionEvent]>,
-        starclock_activity::GraphActivityRandomOfferError,
-    > {
-        self.graph.reroll_random_offer(expected_state_hash)
     }
 
     pub fn choose_option(

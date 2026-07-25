@@ -130,6 +130,14 @@ Activity data is not an unrestricted `HashMap<String, Value>`. Each `ActivitySlo
 
 Runtime storage may use a tagged `ActivityValue` union internally, but catalog validation ensures every read, write, comparison, hash, and projection matches the slot definition.
 
+Activity programs may end with one checked `Conditional` operation containing
+canonical true/false operation lists. The condition and both branches are
+validated against the same state/graph definition, only one branch executes,
+and no enclosing operation may follow the branch. This is a generic
+transaction primitive for state-dependent settlement such as an extra reward;
+it is not an unrestricted scripting hook. Traversal ownership, operation/depth
+limits, checked arithmetic and rollback apply recursively to both branches.
+
 ## Participants, rosters, and loadouts
 
 `ParticipantPool` separates available combat forms from deployed battle units. A roster policy declares:

@@ -229,10 +229,22 @@ difference, so repeated boundary evaluation cannot silently stack the same
 contribution.
 
 The selected RunStart projection is materialized in private Activity state
-during entry compilation. BattleStart, elite/boss entry and post-battle
-projections use the same operation form and remain explicit boundary inputs for
-the P3 combat-contribution and carry compilers. No Ability Tree row type or
-numeric backend becomes part of the public battle API.
+during entry compilation. Post-battle run projection is applied atomically
+after verified nested-battle settlement and before the Reward node is pumped.
+Only values that differ from current authoritative state emit counter
+operations, so a no-op projection consumes no command sequence and preserves
+historical hashes. Validation, rejection and graph-pump errors roll settlement,
+boundary operations and RNG changes back together; an Activity arithmetic or
+state fault enters the ordinary explicit `Faulted` terminal policy.
+
+Ability Tree node 11 gates the production Blessing-reroll command; a profile
+without it receives `RerollDisabled`. Node 21 projects one first-battle bonus
+Blessing count. The existing Reward node consumes that count through a generic
+terminal conditional Activity operation, remains at Reward for the bonus
+selection, then performs the ordinary selection and traversal. BattleStart and
+elite/boss projections remain explicit inputs for combat-contribution and
+carry compilers. No Ability Tree row type or numeric backend becomes part of
+the public battle API.
 
 ## Domain logical scope
 

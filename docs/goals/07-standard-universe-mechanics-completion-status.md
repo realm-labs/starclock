@@ -7,7 +7,7 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M01-S01` |
+| Active batch | `G07-P2-M01-S02` |
 | Next unblocked batch | None |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
@@ -24,7 +24,9 @@ Phase 1 now has executable trigger, selector, modifier, state/effect,
 action/reaction, Break and boundary foundations. P1-B6 freezes a 15-probe
 runtime matrix, six formal Excel rows, zero current native-handler admissions
 and exact ordered completion receipts for every generated content partition.
-The first Ability Tree partition, G07-P2-M01-S01, is active.
+The first Ability Tree partition, `G07-P2-M01-S01`, is complete. Its 16
+records, 16 rules and six semantic fixtures execute from formal Excel/Sora
+definitions. `G07-P2-M01-S02` is active.
 
 ## Fixed batch ledger
 
@@ -40,6 +42,7 @@ The first Ability Tree partition, G07-P2-M01-S01, is active.
 | `G07-P1-B4` | `Complete` | `node tools/goal07/verify-phase1-b4.mjs`; openpyxl author check; production Excel/Sora verification; combat/data tests; quick repository gate | Executed all nine slot reset points, stack-aware DoT ticks/detonations, original-applier formula attribution, effect-stack modifier bindings, action/turn ticks, wave/battle clocks and owner attachment teardown. Kept shields and bounded charges on their dedicated generic stores. |
 | `G07-P1-B5` | `Complete` | `node tools/goal07/verify-phase1-b5.mjs`; openpyxl author checks; production Excel/Sora verification; combat/data/replay tests; quick repository gate | Added persistent selected extra turns, fixed semantic reaction tiers, authoritative action-gauge shifts, forced Break and observed-reduction Super Break. Executed wave/phase entry, exit and explicit carry programs; advanced state/event compatibility while retaining historical event encodings. |
 | `G07-P1-B6` | `Complete` | `node tools/goal07/verify-phase1-b6.mjs`; shared capability matrix; native-handler audit; generated content progress; quick repository gate | Bound all five shared capability families to 15 authoritative runtime probes and six openpyxl/Sora rows. Kept `native-registry-v1` explicitly empty and froze the full admission metadata/equivalence contract. Added ordered, exact-assignment receipts that reject typed/workbook/route-only completion claims and derive progress independently from the frozen 104-row assignment ledger. |
+| `G07-P2-M01-S01` | `Complete` | openpyxl partition check; production Sora verification; Activity/Ability Tree/encounter tests; partition receipt; quick repository gate | Executed Ability Tree nodes 1, 2 and 10–23 with 20 typed effects. Added a generic terminal conditional Activity operation, atomic post-battle delta projection, Ability Tree-gated Blessing reroll and one consumed first-battle bonus Blessing choice. Empty trees preserve historical hashes; rejected settlement preserves exact state bytes. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |
@@ -101,6 +104,7 @@ The milestone summary remains here for orientation.
 | 2026-07-25 | `StrongestByComparator` requires an authored expression and keeps every losing instance live. | Content-specific strength cannot be inferred from absolute modifier magnitude; canonical instance order resolves equal comparator values. |
 | 2026-07-25 | Content completion is derived from ordered exact-assignment receipts, not from the frozen assignment ledger or typed evaluator presence. | Every partition must bind Excel/openpyxl/Sora authoring, terminal dispositions, provenance and production runtime fixtures; this prevents 104 batches of metadata from being mistaken for executable mechanics. |
 | 2026-07-25 | Keep `native-registry-v1` empty until a partition supplies the complete admission and equivalence record. | The 427 inherited static-handler labels are planning candidates; at most one reviewed handler may be admitted per partition and compiled/Sora metadata must match exactly. |
+| 2026-07-25 | Express the first-battle extra Blessing as a terminal conditional Activity operation on the existing Reward node. | This keeps the mechanic data-driven and transactional without adding two nodes to every one of 579 domain hubs or introducing a mode-owned graph mutation path. |
 
 ## Terminal record
 

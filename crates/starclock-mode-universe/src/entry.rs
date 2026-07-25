@@ -375,6 +375,7 @@ impl StandardUniverseProfile {
                 inventory(BLESSING_INVENTORY),
                 slot(BLESSING_REROLL_SLOT),
                 slot(PATH_BLESSING_COUNT_SLOT),
+                slot(ABILITY_PROJECTION_SLOT),
                 inventory(FORMATION_INVENTORY),
                 occurrence_interaction_runtime.as_ref(),
                 service_interaction_runtime.as_ref(),

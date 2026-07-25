@@ -779,22 +779,77 @@ impl GraphActivity {
         expected_state_hash: ActivityStateHash,
         result: BattleResult,
     ) -> Result<GraphActivityBattleResolution, GraphActivityBattleError> {
-        let settlement = self
-            .state
-            .submit_pending_battle_result(
-                self.definition.identity,
-                &self.definition.graph,
-                self.instance,
-                &self.rng,
-                ActivityBattleResultSubmission::new(expected_state_hash, result),
-            )
-            .map_err(GraphActivityBattleError::Settlement)?;
-        let events = self.pump().map_err(GraphActivityBattleError::Runtime)?;
-        Ok(GraphActivityBattleResolution {
-            settlement,
-            events: events.into_boxed_slice(),
-            state_hash: self.state_hash(),
-        })
+        self.submit_pending_battle_result_with_boundary_program(expected_state_hash, result, None)
+    }
+
+    /// Atomically settles one nested battle, applies an optional state-only
+    /// boundary program, then resumes automatic graph execution.
+    ///
+    /// The boundary program observes the post-settlement node and executes
+    /// before that node can offer its next decision. Validation, rejection or
+    /// pumping errors roll settlement, extension operations and RNG back
+    /// together; an Activity fault follows the ordinary explicit `Faulted`
+    /// settlement policy.
+    pub fn submit_pending_battle_result_with_boundary_program(
+        &mut self,
+        expected_state_hash: ActivityStateHash,
+        result: BattleResult,
+        boundary_program: Option<&ActivityProgramDefinition>,
+    ) -> Result<GraphActivityBattleResolution, GraphActivityBattleError> {
+        if boundary_program.is_some_and(|program| {
+            program
+                .validate_against(&self.definition.state, &self.definition.graph)
+                .is_err()
+                || contains_boundary_operation(program.operations())
+        }) {
+            return Err(GraphActivityBattleError::Runtime(
+                GraphActivityRuntimeError::InvalidBoundaryProgram,
+            ));
+        }
+        let original_state = self.state.transaction_copy();
+        let original_rng = self.rng.transaction_copy();
+        let outcome = (|| {
+            let settlement = self
+                .state
+                .submit_pending_battle_result(
+                    self.definition.identity,
+                    &self.definition.graph,
+                    self.instance,
+                    &self.rng,
+                    ActivityBattleResultSubmission::new(expected_state_hash, result),
+                )
+                .map_err(GraphActivityBattleError::Settlement)?;
+            let mut events = Vec::new();
+            if let Some(program) = boundary_program {
+                let cause = ActivityCause::new(
+                    self.state.command_sequence().saturating_add(1),
+                    program.id(),
+                    self.state.current_node(),
+                )
+                .ok_or(GraphActivityBattleError::Runtime(
+                    GraphActivityRuntimeError::InvalidBoundaryProgram,
+                ))?;
+                events.extend(
+                    committed_runtime(self.state.apply_program(
+                        program,
+                        cause,
+                        &self.definition.graph,
+                    ))
+                    .map_err(GraphActivityBattleError::Runtime)?,
+                );
+            }
+            events.extend(self.pump().map_err(GraphActivityBattleError::Runtime)?);
+            Ok(GraphActivityBattleResolution {
+                settlement,
+                events: events.into_boxed_slice(),
+                state_hash: self.state_hash(),
+            })
+        })();
+        if outcome.is_err() {
+            self.state = original_state;
+            self.rng = original_rng;
+        }
+        outcome
     }
 
     fn pump(&mut self) -> Result<Vec<ActivityTransactionEvent>, GraphActivityRuntimeError> {
@@ -1044,10 +1099,28 @@ fn validate_edge_ownership(
                     validate_edge_ownership(node, option.operations(), graph)?;
                 }
             }
+            crate::ActivityOperation::Conditional {
+                if_true, if_false, ..
+            } => {
+                validate_edge_ownership(node, if_true, graph)?;
+                validate_edge_ownership(node, if_false, graph)?;
+            }
             _ => {}
         }
     }
     Ok(())
+}
+
+fn contains_boundary_operation(operations: &[ActivityOperation]) -> bool {
+    operations.iter().any(|operation| match operation {
+        ActivityOperation::Traverse(_)
+        | ActivityOperation::Offer { .. }
+        | ActivityOperation::Terminal(_) => true,
+        ActivityOperation::Conditional {
+            if_true, if_false, ..
+        } => contains_boundary_operation(if_true) || contains_boundary_operation(if_false),
+        _ => false,
+    })
 }
 
 fn committed(

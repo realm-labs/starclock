@@ -717,6 +717,18 @@ impl ActivityTransactionState {
                     ActivityTransactionEventKind::DecisionOffered(id),
                 );
             }
+            Op::Conditional {
+                condition,
+                if_true,
+                if_false,
+            } => {
+                let branch = if self.condition(condition)? {
+                    if_true
+                } else {
+                    if_false
+                };
+                self.execute(branch, cause, graph, events)?;
+            }
             Op::Terminal(outcome) => {
                 self.terminal = Some(*outcome);
                 push(

@@ -144,6 +144,13 @@ pub enum ActivityOperation {
         kind: ActivityDecisionKind,
         options: Box<[ActivityOptionDefinition]>,
     },
+    /// Executes exactly one canonical branch. A branch is a program boundary:
+    /// no operation may follow it in the enclosing operation list.
+    Conditional {
+        condition: ActivityCondition,
+        if_true: Box<[ActivityOperation]>,
+        if_false: Box<[ActivityOperation]>,
+    },
     Terminal(ActivityTerminalOutcome),
     Require(ActivityCondition),
 }
@@ -258,6 +265,17 @@ fn validate_bindings(
                     }
                     validate_bindings(option.operations(), state, graph)?;
                 }
+            }
+            ActivityOperation::Conditional {
+                condition,
+                if_true,
+                if_false,
+            } => {
+                if condition_type(condition, state)? != ActivityValueType::Boolean {
+                    return Err(ActivityProgramBindingError::ConditionNotBoolean);
+                }
+                validate_bindings(if_true, state, graph)?;
+                validate_bindings(if_false, state, graph)?;
             }
             ActivityOperation::Require(condition) => {
                 if condition_type(condition, state)? != ActivityValueType::Boolean {
@@ -433,6 +451,16 @@ fn validate_operations(
                     validate_condition(&option.enabled, 0)?;
                     validate_operations(&option.operations, depth + 1, operation_count)?;
                 }
+                has_boundary = true;
+            }
+            ActivityOperation::Conditional {
+                condition,
+                if_true,
+                if_false,
+            } => {
+                validate_condition(condition, 0)?;
+                validate_operations(if_true, depth + 1, operation_count)?;
+                validate_operations(if_false, depth + 1, operation_count)?;
                 has_boundary = true;
             }
             ActivityOperation::Terminal(_) => has_boundary = true,

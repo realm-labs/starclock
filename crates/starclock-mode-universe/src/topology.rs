@@ -28,10 +28,11 @@ use crate::{
     path_runtime::{FormationSelectionBindings, PathRuntimeCatalog},
     service_interaction::ServiceInteractionRuntimeCatalog,
     topology_identity::{
-        blessing_option, content_option, engage_option, exit_option, formation_option,
-        formation_skip_option, interaction_option, member_option, occurrence_choice_option,
-        path_option, room_option, route_option, service_interaction_option, topology_option,
+        content_option, engage_option, exit_option, formation_option, formation_skip_option,
+        interaction_option, member_option, occurrence_choice_option, path_option, room_option,
+        route_option, service_interaction_option, topology_option,
     },
+    topology_reward::compile_blessing_reward,
     topology_service::{compile_room_services, option_condition as service_option_condition},
     topology_support::{domain_logical_scopes, exact_weight, occurrence_for_source, resolve_rooms},
 };
@@ -274,6 +275,7 @@ pub(crate) fn compile(
     blessing_inventory: ActivityInventoryId,
     blessing_reroll_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
+    ability_projection_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
     service_interactions: &ServiceInteractionRuntimeCatalog,
@@ -392,6 +394,7 @@ pub(crate) fn compile(
         blessing_inventory,
         blessing_reroll_slot,
         path_blessing_count_slot,
+        ability_projection_slot,
         formation_inventory,
         occurrence_interactions,
         service_interactions,
@@ -551,6 +554,7 @@ fn compile_programs(
     blessing_inventory: ActivityInventoryId,
     blessing_reroll_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
+    ability_projection_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
     service_interactions: &ServiceInteractionRuntimeCatalog,
@@ -850,43 +854,23 @@ fn compile_programs(
             ActivityDecisionKind::Encounter,
             battle_options,
         )?);
-        let mut reward_options = Vec::with_capacity(eligible_blessings.len());
-        let mut reward_weights = Vec::with_capacity(eligible_blessings.len());
-        for (priority, blessing) in eligible_blessings.iter().enumerate() {
-            let id = blessing_option(source, blessing.blessing());
-            let settlement = vec![
-                ActivityOperation::AddCounter {
-                    slot: path_blessing_count_slot,
-                    key: u64::from(blessing.path().get()),
-                    delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
-                },
-                ActivityOperation::AddCounter {
-                    slot: hub_clear_slot,
-                    key: source,
-                    delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
-                },
-                ActivityOperation::Traverse(edges.reward_formation),
-            ];
-            reward_options.push(
-                blessing_runtime
-                    .acquisition_option(
-                        blessing.blessing(),
-                        id,
-                        priority as i32,
-                        blessing_inventory,
-                        settlement,
-                    )
-                    .ok_or(UniverseTopologyCompileError::InvalidBlessingRuntime)?,
-            );
-            reward_weights.push((id, 1));
-        }
+        let reward = compile_blessing_reward(
+            source,
+            edges.reward_formation,
+            hub_clear_slot,
+            path_blessing_count_slot,
+            ability_projection_slot,
+            blessing_inventory,
+            blessing_runtime,
+            &eligible_blessings,
+        )?;
         random_offers.push(
             ActivityRandomOffer::new(
                 hub.reward_node,
                 ActivityRngLabel::Reward,
                 BLESSING_DRAW_PURPOSE,
                 3,
-                reward_weights,
+                reward.weights,
                 Some((blessing_reroll_slot, 1)),
             )
             .map_err(UniverseTopologyCompileError::RuntimeDefinition)?,
@@ -895,7 +879,7 @@ fn compile_programs(
             hub.reward_node,
             REWARD_PROGRAM_OFFSET + hub.source_node.get(),
             ActivityDecisionKind::Reward,
-            reward_options,
+            reward.options,
         )?);
         let formation_options = path_runtime.formation_selection_options(
             FormationSelectionBindings {

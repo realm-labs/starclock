@@ -36,6 +36,7 @@ pub enum GraphActivityRuntimeError {
     AutomaticStepLimit,
     InvalidRandomCheckpoint,
     InvalidRandomOffer,
+    InvalidBoundaryProgram,
     Rng(ActivityRngError),
 }
 

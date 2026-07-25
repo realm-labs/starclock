@@ -3,12 +3,16 @@
 use std::sync::Arc;
 
 use starclock_activity::{
-    ActivityBattleHandoff, ActivityBattleResultContract, ActivityStateHash, BattleBinding,
-    BattleResult, GraphActivityBattleError, GraphActivityBattleResolution,
-    TechniqueContributionDigest,
+    ActivityBattleHandoff, ActivityBattleResultContract, ActivityProgramDefinition,
+    ActivityProgramId, ActivityStateHash, BattleBinding, BattleOutcome, BattleResult,
+    GraphActivityBattleError, GraphActivityBattleResolution, GraphActivityRuntimeError,
+    ProjectedValue, TechniqueContributionDigest,
 };
 
+use crate::ability_runtime::{AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope};
+
 use super::{StandardUniverseActivity, StandardUniverseBattleStartError};
+const AFTER_BATTLE_ABILITY_PROGRAM: u32 = 9_700_001;
 
 impl StandardUniverseActivity {
     pub(crate) fn start_assembled_pending_battle(
@@ -50,7 +54,46 @@ impl StandardUniverseActivity {
         expected_state_hash: ActivityStateHash,
         result: BattleResult,
     ) -> Result<GraphActivityBattleResolution, GraphActivityBattleError> {
+        let won = result
+            .values()
+            .iter()
+            .any(|value| matches!(value, ProjectedValue::Outcome(BattleOutcome::Won)));
+        let boundary_program = if won {
+            let first_battle_won = self.view().completed_battle_count() == 0;
+            let chosen_path_blessings = self
+                .path_contributions()
+                .map_err(|_| invalid_boundary())?
+                .selected_path_blessings();
+            let projection = self
+                .ability_activity_delta_projection(AbilityExecutionContext::new(
+                    AbilityProjectionScope::Run,
+                    AbilityBoundary::AfterBattle,
+                    chosen_path_blessings,
+                    first_battle_won,
+                ))
+                .map_err(|_| invalid_boundary())?;
+            (!projection.operations().is_empty())
+                .then(|| {
+                    ActivityProgramDefinition::new(
+                        ActivityProgramId::new(AFTER_BATTLE_ABILITY_PROGRAM)
+                            .expect("static boundary program ID is non-zero"),
+                        projection.operations().to_vec(),
+                    )
+                })
+                .transpose()
+                .map_err(|_| invalid_boundary())?
+        } else {
+            None
+        };
         self.graph
-            .submit_pending_battle_result(expected_state_hash, result)
+            .submit_pending_battle_result_with_boundary_program(
+                expected_state_hash,
+                result,
+                boundary_program.as_ref(),
+            )
     }
+}
+
+const fn invalid_boundary() -> GraphActivityBattleError {
+    GraphActivityBattleError::Runtime(GraphActivityRuntimeError::InvalidBoundaryProgram)
 }

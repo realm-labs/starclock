@@ -61,6 +61,7 @@ pub mod service_effect_runtime;
 pub mod service_interaction;
 pub mod topology;
 mod topology_identity;
+mod topology_reward;
 mod topology_service;
 mod topology_support;
 pub mod universe_replay;
