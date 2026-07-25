@@ -80,7 +80,7 @@ Expressions cannot mutate state, draw RNG, perform unbounded iteration, recurse,
 
 `ConditionExpr` supports typed comparisons, boolean composition, tag membership, life/presence checks, resource bounds, effect/state existence, weakness/broken state, selector cardinality, and event/cause predicates.
 
-An `EventFilter` first narrows by cheap indexed fields such as source, owner, actor, applier, target, action kind, ability tags, element, damage class, and cause ancestry. The condition then evaluates contextual values. This split is an implementation optimization but must not change semantics.
+An `EventFilter` first narrows by cheap indexed fields such as source, owner, actor, applier, target, action kind, ability tags, element, damage class, effect category, Toughness event kind, and cause ancestry. The condition then evaluates contextual values such as pre/post HP from the committed event. This split is an implementation optimization but must not change semantics.
 
 ## Selectors
 

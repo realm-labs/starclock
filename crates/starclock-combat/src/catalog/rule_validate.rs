@@ -621,7 +621,9 @@ fn infer_value(
             EventValueProperty::DamageAmount
             | EventValueProperty::HpChangeAmount
             | EventValueProperty::ResourceDelta
-            | EventValueProperty::ShieldChangeAmount => RuleValueKind::Scalar,
+            | EventValueProperty::ShieldChangeAmount
+            | EventValueProperty::HpBefore
+            | EventValueProperty::HpAfter => RuleValueKind::Scalar,
             EventValueProperty::StackCount | EventValueProperty::HitIndex => RuleValueKind::Integer,
         },
         ValueExpr::SelectorCount(selector) => {

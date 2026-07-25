@@ -339,6 +339,21 @@ pub enum RuleDamageClass {
     TrueDamage,
 }
 
+/// Exact Toughness lifecycle fact accepted by authored event filters.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum RuleToughnessEventKind {
+    WeaknessAdded,
+    WeaknessRemoved,
+    LayerReduced,
+    LayerDepleted,
+    LayerRestored,
+    BaseEffectApplied,
+    BaseEffectResisted,
+    BaseEffectTicked,
+    BaseEffectExpired,
+    SuperBreakSkipped,
+}
+
 /// Explicit relationship between a matched event and its cause envelope.
 #[derive(Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum CauseAncestry {
@@ -365,6 +380,8 @@ pub enum EventValueProperty {
     StackCount,
     HitIndex,
     ShieldChangeAmount,
+    HpBefore,
+    HpAfter,
 }
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -377,6 +394,8 @@ pub struct RuleEventFacts {
     pub ability_tags: crate::catalog::action::AbilityTags,
     pub element: Option<CombatElement>,
     pub damage_class: Option<RuleDamageClass>,
+    pub effect_category: Option<crate::EffectCategory>,
+    pub toughness_kind: Option<RuleToughnessEventKind>,
     pub resource: Option<RuleResourceKind>,
     pub damage_amount: Option<Scalar>,
     pub hp_change_amount: Option<Scalar>,
@@ -384,6 +403,8 @@ pub struct RuleEventFacts {
     pub shield_before: Option<Scalar>,
     /// Signed capacity delta carried by a shield mutation event.
     pub shield_change_amount: Option<Scalar>,
+    pub hp_before: Option<Scalar>,
+    pub hp_after: Option<Scalar>,
     /// Effective Toughness reduction carried by a `Reduced` event.
     pub toughness_reduction: Option<crate::RawToughness>,
     pub resource_delta: Option<Scalar>,
@@ -452,6 +473,8 @@ pub struct EventFilter {
     pub ability_tag: Option<crate::catalog::action::AbilityTag>,
     pub element: Option<CombatElement>,
     pub damage_class: Option<RuleDamageClass>,
+    pub effect_category: Option<crate::EffectCategory>,
+    pub toughness_kind: Option<RuleToughnessEventKind>,
     pub resource: Option<RuleResourceKind>,
     pub cause_ancestry: CauseAncestry,
 }

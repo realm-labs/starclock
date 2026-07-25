@@ -187,7 +187,7 @@ pub(crate) struct DetonateDotsOp {
 pub(crate) struct HitOperationScratch {
     pub(crate) effective_reductions: BTreeMap<UnitId, crate::RawToughness>,
     pub(crate) critical_by_target: BTreeMap<UnitId, bool>,
-    pub(crate) shared_critical: Option<bool>,
+    pub(crate) shared_critical_draw: Option<u32>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

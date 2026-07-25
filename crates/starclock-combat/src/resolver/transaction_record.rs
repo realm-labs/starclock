@@ -3,6 +3,18 @@
 use super::{journal::MutationField, transaction::Transaction};
 
 impl Transaction<'_> {
+    pub(super) fn reset_event_once_keys(&mut self, event: crate::EventId) {
+        let count = self.state.rules.reset_once_event(event);
+        if count > 0 {
+            let before = event.get();
+            self.journal.mutation(
+                MutationField::RuleState,
+                before,
+                before ^ u64::try_from(count).expect("rule-state count is bounded"),
+            );
+        }
+    }
+
     pub(super) fn snapshot(&mut self, operation: crate::OperationId) {
         self.journal.snapshot(operation.get());
     }

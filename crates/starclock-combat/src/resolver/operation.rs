@@ -731,22 +731,22 @@ fn execute_damage(
     scratch: &mut HitOperationScratch,
 ) -> Result<EventId, BattleFault> {
     let inputs = super::operation_formula::FormulaInputs::new(txn)?;
-    let critical = (operation.crit_policy != crate::catalog::action::HitCritPolicy::Never)
-        .then(|| inputs.critical_profile(catalog, txn, cause, operation.formula.class()))
-        .transpose()?;
     for target in operation.targets {
+        let critical = (operation.crit_policy != crate::catalog::action::HitCritPolicy::Never)
+            .then(|| {
+                inputs.critical_profile(catalog, txn, cause, operation.formula.class(), target)
+            })
+            .transpose()?;
         let is_critical = match operation.crit_policy {
             crate::catalog::action::HitCritPolicy::Never => false,
-            crate::catalog::action::HitCritPolicy::Shared => match scratch.shared_critical {
-                Some(value) => value,
-                None => {
-                    let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
-                    let value = txn
-                        .roll_probability(critical.chance, crate::rng::types::DrawPurpose::CRIT)?;
-                    scratch.shared_critical = Some(value);
-                    value
-                }
-            },
+            crate::catalog::action::HitCritPolicy::Shared => {
+                let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
+                txn.roll_shared_probability(
+                    critical.chance,
+                    crate::rng::types::DrawPurpose::CRIT,
+                    &mut scratch.shared_critical_draw,
+                )?
+            }
             crate::catalog::action::HitCritPolicy::PerTarget => {
                 match scratch.critical_by_target.get(&target).copied() {
                     Some(value) => value,

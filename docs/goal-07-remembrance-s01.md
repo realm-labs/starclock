@@ -134,7 +134,8 @@ The production integration fixtures prove:
 - Reticence L2 applies Freeze after five qualifying attacks;
 - Fuli applies Dissociation only to a Frozen target;
 - Dizziness attaches with Dissociation;
-- enhanced natural Dissociation removal deals exactly 36% of target MaxHP;
+- enhanced natural Dissociation removal uses exactly 36% of target MaxHP
+  before target vulnerability; the Dizziness fixture resolves to 55.44%;
 - Melancholia L2 contributes exactly 200% of enhanced removal damage and
   removes exactly one old Dissociation instance;
 - generated Additional damage cannot recursively count as an authored Attack.

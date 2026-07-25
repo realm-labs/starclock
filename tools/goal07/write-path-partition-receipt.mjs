@@ -345,6 +345,32 @@ function partitionProfile(id) {
       ],
     };
   }
+  if (id === "G07-P2-M03-S03") {
+    return {
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/remembrance_s03.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s03.rs",
+        "crates/starclock-combat/src/resolver/operation_formula.rs",
+        "crates/starclock-combat/src/resolver/rule.rs",
+        "crates/starclock-combat/src/resolver/transaction.rs",
+        "crates/starclock-combat/src/resolver/transaction_record.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-remembrance-s03.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/remembrance_s03.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s03.rs",
+      fixtureMarker:
+        "lost_memory_freezes_on_the_first_attack_crossing_below_half_hp",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration remembrance_s03 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
   throw new Error(`${id}: path receipt profile is not implemented`);
 }
 function disposition(planned, runtimeDisposition, workbookEvidence) {

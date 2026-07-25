@@ -48,14 +48,42 @@ impl FormulaInputs {
         let resolver = self.resolver(catalog);
         let purpose = damage_purpose(formula.class());
         let source = formula_source(txn, cause, purpose)?;
-        let source_context = modifier_context(txn, source, target, element, formula.class())?;
-        let target_context = modifier_context(txn, target, target, element, formula.class())?;
+        let source_context = action_modifier_context(
+            catalog,
+            cause,
+            modifier_context(txn, source, target, element, formula.class())?,
+        )
+        .with_formula_subject(FormulaSubject::Source);
+        let incoming_context = IncomingModifierContext {
+            cause,
+            source,
+            target,
+            element,
+            class: formula.class(),
+        };
         for stage in [
             FormulaStage::Crit,
             FormulaStage::DamageBoost,
             FormulaStage::Weaken,
         ] {
-            let value = formula_modifier(&resolver, source, stage, purpose, &source_context)?;
+            let mut value = formula_modifier(&resolver, source, stage, purpose, &source_context)?;
+            if stage == FormulaStage::DamageBoost {
+                let target_value = formula_modifier(
+                    &resolver,
+                    target,
+                    stage,
+                    purpose,
+                    &action_modifier_context(
+                        catalog,
+                        cause,
+                        modifier_context(txn, target, target, element, formula.class())?,
+                    )
+                    .with_formula_subject(FormulaSubject::Target),
+                )?;
+                value = value
+                    .checked_add(target_value)
+                    .map_err(|_| numeric_fault(54, target_value.scaled()))?;
+            }
             formula = formula
                 .with_formula_modifier(stage, value)
                 .map_err(|_| numeric_fault(41, value.scaled()))?;
@@ -67,7 +95,14 @@ impl FormulaInputs {
             FormulaStage::Mitigation,
             FormulaStage::Broken,
         ] {
-            let value = formula_modifier(&resolver, target, stage, purpose, &target_context)?;
+            let value = incoming_formula_modifier(
+                &resolver,
+                catalog,
+                txn,
+                incoming_context,
+                stage,
+                purpose,
+            )?;
             formula = formula
                 .with_formula_modifier(stage, value)
                 .map_err(|_| numeric_fault(42, value.scaled()))?;
@@ -82,31 +117,60 @@ impl FormulaInputs {
         txn: &Transaction<'_>,
         cause: Cause,
         class: formula::model::DamageClass,
+        target: crate::UnitId,
     ) -> Result<CriticalProfile, BattleFault> {
-        use crate::{
-            modifier::model::{StatKind, StatQuerySubject},
-            rule::evaluate::StatQueryReader,
-        };
+        use crate::modifier::model::StatKind;
 
         let purpose = damage_purpose(class);
         let source = formula_source(txn, cause, purpose)?;
         let resolver = self.resolver(catalog);
+        let source_context = action_modifier_context(
+            catalog,
+            cause,
+            modifier_context(txn, source, target, None, class)?,
+        )
+        .with_formula_subject(FormulaSubject::Source);
         let rate = resolver
-            .query_stat(StatQuerySubject::Actor, source, StatKind::CritRate, purpose)
+            .query(
+                crate::modifier::model::StatQuery {
+                    subject: source,
+                    stat: StatKind::CritRate,
+                    purpose,
+                },
+                &source_context,
+            )
             .map_err(|_| numeric_fault(50, i64::from(StatKind::CritRate as u8)))?;
+        let target_bonus = formula_modifier(
+            &resolver,
+            target,
+            FormulaStage::Probability,
+            FormulaPurpose::CriticalChance,
+            &action_modifier_context(
+                catalog,
+                cause,
+                modifier_context(txn, target, target, None, class)?,
+            )
+            .with_formula_subject(FormulaSubject::Target),
+        )?;
         let damage = resolver
-            .query_stat(
-                StatQuerySubject::Actor,
-                source,
-                StatKind::CritDamage,
-                purpose,
+            .query(
+                crate::modifier::model::StatQuery {
+                    subject: source,
+                    stat: StatKind::CritDamage,
+                    purpose,
+                },
+                &source_context,
             )
             .map_err(|_| numeric_fault(51, i64::from(StatKind::CritDamage as u8)))?;
         if damage.scaled() < 0 {
             return Err(numeric_fault(52, damage.scaled()));
         }
         Ok(CriticalProfile {
-            chance: formula::model::clamp_probability(crate::Ratio::from_scaled(rate.scaled())),
+            chance: formula::model::clamp_probability(crate::Ratio::from_scaled(
+                rate.checked_add(target_bonus)
+                    .map_err(|_| numeric_fault(53, target_bonus.scaled()))?
+                    .scaled(),
+            )),
             damage,
         })
     }
@@ -166,14 +230,21 @@ impl FormulaInputs {
                 target,
                 None,
                 formula::model::DamageClass::Direct,
-            )?
+            )
+            .map(|context| action_modifier_context(catalog, cause, context))?
             .with_formula_subject(FormulaSubject::Source),
         )?;
         let incoming = incoming_formula_modifier(
             &resolver,
+            catalog,
             txn,
-            source,
-            target,
+            IncomingModifierContext {
+                cause,
+                source,
+                target,
+                element: None,
+                class: formula::model::DamageClass::Direct,
+            },
             FormulaStage::Healing,
             FormulaPurpose::Healing,
         )?;
@@ -205,14 +276,21 @@ impl FormulaInputs {
                 target,
                 None,
                 formula::model::DamageClass::Direct,
-            )?
+            )
+            .map(|context| action_modifier_context(catalog, cause, context))?
             .with_formula_subject(FormulaSubject::Source),
         )?;
         let incoming = incoming_formula_modifier(
             &resolver,
+            catalog,
             txn,
-            source,
-            target,
+            IncomingModifierContext {
+                cause,
+                source,
+                target,
+                element: None,
+                class: formula::model::DamageClass::Direct,
+            },
             FormulaStage::Shield,
             FormulaPurpose::Shield,
         )?;
@@ -247,6 +325,15 @@ pub(super) struct CriticalProfile {
     pub(super) damage: crate::Scalar,
 }
 
+#[derive(Clone, Copy)]
+struct IncomingModifierContext {
+    cause: Cause,
+    source: crate::UnitId,
+    target: crate::UnitId,
+    element: Option<formula::model::CombatElement>,
+    class: formula::model::DamageClass,
+}
+
 fn formula_modifier(
     resolver: &StatResolver<'_>,
     subject: crate::UnitId,
@@ -268,27 +355,27 @@ fn formula_modifier(
 
 fn incoming_formula_modifier(
     resolver: &StatResolver<'_>,
+    catalog: &crate::catalog::CombatCatalog,
     txn: &Transaction<'_>,
-    source: crate::UnitId,
-    target: crate::UnitId,
+    input: IncomingModifierContext,
     stage: FormulaStage,
     purpose: FormulaPurpose,
 ) -> Result<crate::Scalar, BattleFault> {
-    let context = modifier_context(
-        txn,
-        target,
-        target,
-        None,
-        formula::model::DamageClass::Direct,
-    )?;
-    let unscoped = if source == target {
+    let context = action_modifier_context(
+        catalog,
+        input.cause,
+        modifier_context(txn, input.target, input.target, input.element, input.class)?,
+    );
+    let unscoped = if input.source == input.target
+        && matches!(purpose, FormulaPurpose::Healing | FormulaPurpose::Shield)
+    {
         crate::Scalar::ZERO
     } else {
-        formula_modifier(resolver, target, stage, purpose, &context)?
+        formula_modifier(resolver, input.target, stage, purpose, &context)?
     };
     let directional = formula_modifier(
         resolver,
-        target,
+        input.target,
         stage,
         purpose,
         &context.with_formula_subject(FormulaSubject::Target),
@@ -360,6 +447,50 @@ fn modifier_context(
         target: Some(target),
         ..ModifierQueryContext::default()
     })
+}
+
+fn action_modifier_context(
+    catalog: &crate::catalog::CombatCatalog,
+    cause: Cause,
+    mut context: ModifierQueryContext,
+) -> ModifierQueryContext {
+    let Some(action) = cause
+        .source_definition()
+        .and_then(|source| crate::AbilityId::new(source.get()))
+        .and_then(|ability| catalog.ability(ability))
+        .and_then(crate::catalog::definition::AbilityDefinition::action)
+    else {
+        return context;
+    };
+    let mut tags = [
+        (crate::catalog::action::AbilityTag::Attack, "attack"),
+        (crate::catalog::action::AbilityTag::Basic, "basic"),
+        (crate::catalog::action::AbilityTag::Skill, "skill"),
+        (crate::catalog::action::AbilityTag::Ultimate, "ultimate"),
+        (crate::catalog::action::AbilityTag::FollowUp, "follow_up"),
+        (crate::catalog::action::AbilityTag::Counter, "counter"),
+        (crate::catalog::action::AbilityTag::Summon, "summon"),
+        (crate::catalog::action::AbilityTag::Memosprite, "memosprite"),
+        (
+            crate::catalog::action::AbilityTag::AdditionalDamage,
+            "additional_damage",
+        ),
+        (crate::catalog::action::AbilityTag::Joint, "joint"),
+        (
+            crate::catalog::action::AbilityTag::ElationSkill,
+            "elation_skill",
+        ),
+        (crate::catalog::action::AbilityTag::Assist, "assist"),
+    ]
+    .into_iter()
+    .filter(|(tag, _)| action.tags().contains(*tag))
+    .map(|(_, key)| Box::<str>::from(key))
+    .collect::<Vec<_>>();
+    tags.sort_unstable();
+    context.ability_tags = tags.into_boxed_slice();
+    context.action_kind = Some(action.kind() as u8);
+    context.source_class = Some(crate::rule::model::SourceClass::Ability);
+    context
 }
 
 const fn damage_purpose(class: formula::model::DamageClass) -> FormulaPurpose {

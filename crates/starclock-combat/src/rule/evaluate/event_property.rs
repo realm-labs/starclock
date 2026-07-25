@@ -49,5 +49,15 @@ pub(super) fn event_property(
             .shield_change_amount
             .map(RuleValue::Scalar)
             .ok_or_else(missing),
+        EventValueProperty::HpBefore => input
+            .event_facts
+            .hp_before
+            .map(RuleValue::Scalar)
+            .ok_or_else(missing),
+        EventValueProperty::HpAfter => input
+            .event_facts
+            .hp_after
+            .map(RuleValue::Scalar)
+            .ok_or_else(missing),
     }
 }

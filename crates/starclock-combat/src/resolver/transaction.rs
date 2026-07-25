@@ -907,6 +907,34 @@ impl<'a> Transaction<'a> {
         if threshold == 1_000_000 {
             return Ok(true);
         }
+        Ok(self.probability_draw(purpose)? < threshold)
+    }
+
+    pub(super) fn roll_shared_probability(
+        &mut self,
+        probability: crate::Probability,
+        purpose: DrawPurpose,
+        shared_draw: &mut Option<u32>,
+    ) -> Result<bool, BattleFault> {
+        let threshold = probability.millionths();
+        if threshold == 0 {
+            return Ok(false);
+        }
+        if threshold == 1_000_000 {
+            return Ok(true);
+        }
+        let draw = match *shared_draw {
+            Some(value) => value,
+            None => {
+                let value = self.probability_draw(purpose)?;
+                *shared_draw = Some(value);
+                value
+            }
+        };
+        Ok(draw < threshold)
+    }
+
+    fn probability_draw(&mut self, purpose: DrawPurpose) -> Result<u32, BattleFault> {
         let before = self.state.rng.draw_count();
         let draw = self
             .state
@@ -916,7 +944,7 @@ impl<'a> Transaction<'a> {
         for index in before..self.state.rng.draw_count() {
             self.journal.rng_draw(index, purpose.code());
         }
-        Ok(draw.value() < u64::from(threshold))
+        u32::try_from(draw.value()).map_err(|_| action_fault(51))
     }
 
     pub(super) fn set_skill_points(&mut self, side: crate::TeamSide, value: u16) {
@@ -1113,14 +1141,6 @@ impl<'a> Transaction<'a> {
         if count > 0 {
             self.journal
                 .mutation(MutationField::RuleState, 0, count as u64);
-        }
-    }
-
-    pub(super) fn reset_event_once_keys(&mut self, event: EventId) {
-        let count = self.state.rules.reset_once_event(event);
-        if count > 0 {
-            self.journal
-                .mutation(MutationField::RuleState, event.get(), count as u64);
         }
     }
 

@@ -6,6 +6,7 @@ mod preservation_s03;
 mod preservation_s04;
 mod remembrance_s01;
 mod remembrance_s02;
+mod remembrance_s03;
 mod support;
 
 use preservation_s02::*;
@@ -32,8 +33,9 @@ use starclock_combat::{
     rule::model::{
         BattleRuleDefinition, BattleRuleScope, Comparison, ConditionExpr, EventFilter,
         EventValueProperty, OnceScope, ProgramStep, ReactionPriority, ResourceUpdateKind,
-        RuleEventKind, RuleEventPoint, RuleOperationTemplate, RuleResourceKind, RuleValue,
-        RuleValueKind, ShieldObservation, StateSlotDef, TriggerDef, TriggerPhase, ValueExpr,
+        RuleEventKind, RuleEventPoint, RuleOperationTemplate, RuleResourceKind,
+        RuleToughnessEventKind, RuleValue, RuleValueKind, ShieldObservation, SlotResetPoint,
+        StateSlotDef, TriggerDef, TriggerPhase, ValueExpr,
     },
 };
 use starclock_combat::{
@@ -279,6 +281,7 @@ pub(crate) fn lower_rules(
     output.extend(preservation_s04::lower_rules(catalog, bindings, blessings)?);
     output.extend(remembrance_s01::lower(bindings, blessings)?);
     output.extend(remembrance_s02::lower(catalog, bindings, blessings)?);
+    output.extend(remembrance_s03::lower(bindings, blessings)?);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::BlessingLevel
             && binding.source_binding_key() == Some(ABUNDANCE_ADDITIONAL_DAMAGE_BINDING)

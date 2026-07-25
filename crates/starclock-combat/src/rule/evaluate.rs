@@ -789,6 +789,12 @@ pub fn matches_filter(filter: &EventFilter, input: RuleEvaluationInput<'_>) -> b
             .damage_class
             .is_none_or(|value| input.event_facts.damage_class == Some(value))
         && filter
+            .effect_category
+            .is_none_or(|value| input.event_facts.effect_category == Some(value))
+        && filter
+            .toughness_kind
+            .is_none_or(|value| input.event_facts.toughness_kind == Some(value))
+        && filter
             .resource
             .as_ref()
             .is_none_or(|value| input.event_facts.resource.as_ref() == Some(value))

@@ -502,6 +502,8 @@ fn event_facts(
             let amount = scalar_from_u64(data.applied.get());
             facts.damage_amount = amount;
             facts.hp_change_amount = amount.and_then(|value| value.checked_neg().ok());
+            facts.hp_before = scalar_from_u64(data.hp_before.get());
+            facts.hp_after = scalar_from_u64(data.hp_after.get());
             facts.shield_before = txn
                 .state
                 .shields
@@ -521,6 +523,8 @@ fn event_facts(
             let amount = scalar_from_u64(data.applied.get());
             facts.damage_amount = amount;
             facts.hp_change_amount = amount.and_then(|value| value.checked_neg().ok());
+            facts.hp_before = scalar_from_u64(data.hp_before.get());
+            facts.hp_after = scalar_from_u64(data.hp_after.get());
             facts.shield_before = txn
                 .state
                 .shields
@@ -532,9 +536,13 @@ fn event_facts(
         BattleEventKind::HpConsumption(data) => {
             facts.hp_change_amount =
                 scalar_from_u64(data.effective.get()).and_then(|value| value.checked_neg().ok());
+            facts.hp_before = scalar_from_u64(data.hp_before.get());
+            facts.hp_after = scalar_from_u64(data.hp_after.get());
         }
         BattleEventKind::Heal(data) => {
             facts.hp_change_amount = scalar_from_u64(data.effective.get());
+            facts.hp_before = scalar_from_u64(data.hp_before.get());
+            facts.hp_after = scalar_from_u64(data.hp_after.get());
         }
         BattleEventKind::Shield(data) => {
             facts.shield_change_amount = match data {
@@ -547,6 +555,7 @@ fn event_facts(
         }
         BattleEventKind::Toughness(data) => {
             facts.element = toughness_element(data);
+            facts.toughness_kind = Some(toughness_kind(data));
             if let crate::ToughnessEventData::Reduced { effective, .. } = data {
                 facts.toughness_reduction = Some(*effective);
             }
@@ -562,6 +571,14 @@ fn event_facts(
                 }
                 crate::EffectEventData::Removed { definition, .. } => Some(*definition),
             };
+            facts.effect_category = facts.effect_definition.and_then(|definition| {
+                catalog.effect(definition).and_then(|effect| {
+                    effect
+                        .runtime()
+                        .map(|runtime| runtime.category())
+                        .or_else(|| effect.runtime_template().map(|runtime| runtime.category()))
+                })
+            });
             facts.stack_count = match data {
                 crate::EffectEventData::Applied { stacks, .. } => Some(i64::from(*stacks)),
                 crate::EffectEventData::Refreshed { stacks_after, .. } => {
@@ -684,6 +701,22 @@ fn toughness_element(data: &crate::ToughnessEventData) -> Option<CombatElement> 
         | crate::ToughnessEventData::BaseEffectResisted { element, .. }
         | crate::ToughnessEventData::BaseEffectExpired { element, .. } => Some(*element),
         _ => None,
+    }
+}
+
+fn toughness_kind(data: &crate::ToughnessEventData) -> crate::rule::model::RuleToughnessEventKind {
+    use crate::{ToughnessEventData as Event, rule::model::RuleToughnessEventKind as Kind};
+    match data {
+        Event::WeaknessAdded { .. } => Kind::WeaknessAdded,
+        Event::WeaknessRemoved { .. } => Kind::WeaknessRemoved,
+        Event::Reduced { .. } => Kind::LayerReduced,
+        Event::LayerDepleted { .. } => Kind::LayerDepleted,
+        Event::BaseEffectApplied { .. } => Kind::BaseEffectApplied,
+        Event::BaseEffectResisted { .. } => Kind::BaseEffectResisted,
+        Event::BaseEffectTicked { .. } => Kind::BaseEffectTicked,
+        Event::BaseEffectExpired { .. } => Kind::BaseEffectExpired,
+        Event::Recovered { .. } => Kind::LayerRestored,
+        Event::SuperBreakSkipped { .. } => Kind::SuperBreakSkipped,
     }
 }
 

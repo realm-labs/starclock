@@ -58,6 +58,11 @@ crit_multiplier = if can_crit && crit_roll_succeeds {
 
 Clamp the roll probability to `[0, 1]`. Multi-hit attacks roll CRIT separately per hit. Ordinary DoT does not CRIT unless an authored exception says otherwise.
 
+Target-owned conditional CRIT Rate is added before the final clamp. For a hit
+whose CRIT policy shares one roll across targets, draw one canonical raw
+probability value and compare that same value against each target's final
+threshold. Do not cache one boolean result when target thresholds can differ.
+
 ### DMG Boost
 
 Relevant bonuses within this block are additive:
@@ -71,6 +76,11 @@ damage_boost_multiplier =
 ```
 
 Only tags matched by the damage instance are included. Do not multiply each DMG Boost source separately.
+
+A target-owned conditional modifier may contribute to this same block, for
+example when attacking a Frozen target with a Skill. Direction is explicit in
+modifier metadata; storing the modifier on the target does not turn it into
+Vulnerability.
 
 ### Weaken
 

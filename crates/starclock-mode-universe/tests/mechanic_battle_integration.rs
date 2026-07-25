@@ -43,6 +43,8 @@ mod preservation_s04;
 mod remembrance_s01;
 #[path = "mechanic_battle_integration/remembrance_s02.rs"]
 mod remembrance_s02;
+#[path = "mechanic_battle_integration/remembrance_s03.rs"]
+mod remembrance_s03;
 
 fn catalog() -> Arc<UniverseCatalog> {
     static CATALOG: OnceLock<Arc<UniverseCatalog>> = OnceLock::new();

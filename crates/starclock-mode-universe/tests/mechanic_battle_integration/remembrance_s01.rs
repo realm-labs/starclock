@@ -96,7 +96,7 @@ fn goal07_p2_m03_s01_executes_freeze_dissociation_and_removal_damage() {
                     if data.class == starclock_combat::formula::model::DamageClass::Additional
                         && data.element
                             == Some(starclock_combat::formula::model::CombatElement::Ice)
-                        && data.raw.scaled() == 3_240_000_000_000_000_000 =>
+                        && data.raw.scaled() == 4_989_600_000_000_000_000 =>
                 {
                     Some((data.raw.scaled(), data.applied.get()))
                 }
@@ -117,7 +117,7 @@ fn goal07_p2_m03_s01_executes_freeze_dissociation_and_removal_damage() {
                 .collect::<Vec<_>>()
         )
     });
-    assert_eq!(raw, 3_240_000_000_000_000_000);
+    assert_eq!(raw, 4_989_600_000_000_000_000);
     assert!(applied > 0);
 }
 
@@ -233,7 +233,8 @@ fn remembrance_melancholia_detonates_existing_dissociation_once_per_target_actio
         detonation_complete
             && observed_ice.len() == 2
             && dissociation_removals == 1
-            && observed_ice.iter().copied().sum::<i64>() == 6_480_000_000_000_000_000,
+            && observed_ice.iter().copied().map(i128::from).sum::<i128>()
+                == 9_979_200_000_000_000_000,
         "200% of enhanced removal damage; phase={:?}; units={:?}; presence={dissociation_presence:?}; ice={observed_ice:?}; damage={observed_damage:?}",
         battle.view().phase(),
         battle

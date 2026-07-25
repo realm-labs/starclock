@@ -64,6 +64,8 @@ pub enum FormulaPurpose {
     EffectChance,
     Aggro,
     ActionOrder,
+    /// Target-conditional additions to an attack's CRIT probability.
+    CriticalChance,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
