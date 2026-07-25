@@ -141,9 +141,25 @@ pub(super) fn execute_toughness_reduction(
     operation: ReduceToughnessOp,
     scratch: &mut HitOperationScratch,
 ) -> Result<EventId, BattleFault> {
-    let calculation = formula::toughness::reduction(operation.definition.reduction)
-        .map_err(|_| numeric_fault(11, operation.definition.reduction.base.get()))?;
+    let inputs = super::operation_formula::FormulaInputs::new(txn)?;
     for target in operation.targets {
+        let mut definition = operation.definition;
+        if !definition.ignores_weakness {
+            let efficiency = inputs.weakness_break_efficiency(
+                catalog,
+                txn,
+                cause,
+                target,
+                definition.element,
+            )?;
+            definition.reduction.weakness_break_efficiency = definition
+                .reduction
+                .weakness_break_efficiency
+                .checked_add(efficiency)
+                .map_err(|_| numeric_fault(11, efficiency.scaled()))?;
+        }
+        let calculation = formula::toughness::reduction(definition.reduction)
+            .map_err(|_| numeric_fault(11, definition.reduction.base.get()))?;
         let (mut layers, weaknesses, was_broken, rank, max_hp) = txn
             .state
             .units
@@ -162,9 +178,9 @@ pub(super) fn execute_toughness_reduction(
             &mut layers,
             &weaknesses,
             was_broken,
-            operation.definition.element,
+            definition.element,
             calculation.attempted,
-            operation.definition.ignores_weakness,
+            definition.ignores_weakness,
         );
         let zero = crate::RawToughness::new(0).expect("zero Toughness is valid");
         let (layer_key, effective, before, after) =
@@ -185,7 +201,7 @@ pub(super) fn execute_toughness_reduction(
             BattleEventKind::Toughness(ToughnessEventData::Reduced {
                 operation: operation.id,
                 target,
-                element: operation.definition.element,
+                element: definition.element,
                 layer_key,
                 attempted: calculation.attempted,
                 effective,
@@ -201,17 +217,17 @@ pub(super) fn execute_toughness_reduction(
             crate::BreakCreditPolicy::LayerProvider(source) => cause.with_source_definition(source),
         };
         if value.applies_break_damage {
-            let mut definition = operation.definition.break_damage;
-            definition.mitigation_multiplier = dynamic_mitigation(
+            let mut break_damage = definition.break_damage;
+            break_damage.mitigation_multiplier = dynamic_mitigation(
                 catalog,
                 txn,
                 target,
                 crate::modifier::model::FormulaPurpose::Break,
                 value.break_element,
-                definition.mitigation_multiplier,
+                break_damage.mitigation_multiplier,
             )?;
             let damage = formula::toughness::break_damage(
-                definition,
+                break_damage,
                 value.break_element,
                 value.maximum,
                 was_broken,
@@ -250,7 +266,7 @@ pub(super) fn execute_toughness_reduction(
         );
         if value.applies_break_effect {
             let applied = txn.roll_probability(
-                operation.definition.break_effect_chance,
+                definition.break_effect_chance,
                 crate::rng::types::DrawPurpose::EFFECT_CHANCE,
             )?;
             if applied {
@@ -258,9 +274,9 @@ pub(super) fn execute_toughness_reduction(
                     value.break_element,
                     rank,
                     max_hp,
-                    operation.definition.break_damage.attacker_level_multiplier,
+                    definition.break_damage.attacker_level_multiplier,
                     value.maximum,
-                    operation.definition.break_damage.break_effect,
+                    definition.break_damage.break_effect,
                 )
                 .map_err(|_| numeric_fault(13, value.maximum.get()))?;
                 if plan.additional_delay.scaled() > 0 {
@@ -302,7 +318,7 @@ pub(super) fn execute_toughness_reduction(
                         .source_definition()
                         .ok_or_else(|| invariant_fault(11))?,
                     plan,
-                    damage: operation.definition.break_damage,
+                    damage: definition.break_damage,
                     remaining_turns: plan.duration_turns,
                     stacks: plan.initial_stacks,
                     speed_before,
@@ -1131,13 +1147,16 @@ fn execute_remove_effects(
     operation: RemoveEffectsOp,
 ) -> Result<EventId, BattleFault> {
     for target in operation.targets {
-        let ids = txn.state.effects.removable_for(
+        let mut ids = txn.state.effects.removable_for(
             target,
             operation.definition.category,
             operation.definition.include_cleanseable_control,
             operation.definition.required_definition,
             operation.definition.required_tag,
         );
+        if operation.definition.order == crate::EffectRemovalOrder::NewestFirst {
+            ids.reverse();
+        }
         for effect in ids
             .into_iter()
             .take(usize::from(operation.definition.maximum))

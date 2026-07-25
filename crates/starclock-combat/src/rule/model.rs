@@ -677,6 +677,17 @@ pub enum RuleOperationTemplate {
         base_chance: Option<ValueExpr>,
         rng_purpose: Option<crate::rng::types::DrawPurpose>,
     },
+    /// Chooses one canonically ordered effect definition, then applies it
+    /// through the ordinary effect-chance pipeline.
+    ApplyRandomEffect {
+        selector: SelectorId,
+        effects: Box<[EffectDefinitionId]>,
+        stacks: ValueExpr,
+        choice_rng_purpose: crate::rng::types::DrawPurpose,
+        chance: RuleEffectChancePolicy,
+        base_chance: Option<ValueExpr>,
+        chance_rng_purpose: Option<crate::rng::types::DrawPurpose>,
+    },
     AdjustEffectStacks {
         selector: SelectorId,
         effect: EffectDefinitionId,
@@ -689,11 +700,13 @@ pub enum RuleOperationTemplate {
     Cleanse {
         selector: SelectorId,
         maximum: u16,
+        order: crate::EffectRemovalOrder,
     },
     DetonateDot {
         selector: SelectorId,
         fraction: ValueExpr,
         required_tag: Option<SourceDefinitionId>,
+        selection: RuleDotSelection,
     },
     ModifyStateSlot {
         slot: StateSlotDefinitionId,
@@ -800,6 +813,13 @@ pub enum RuleEffectChancePolicy {
     ResistibleIgnoringSpecificResistance,
 }
 
+/// Stable selection policy for a target's canonically ordered DoT instances.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum RuleDotSelection {
+    All,
+    RandomOne(crate::rng::types::DrawPurpose),
+}
+
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum StateSlotUpdateKind {
     Set,
@@ -838,39 +858,6 @@ pub struct BattleRuleDefinition {
     state_slots: Box<[StateSlotDef]>,
     triggers: Box<[TriggerDef]>,
     native_handler: Option<NativeHandlerId>,
-}
-
-impl BattleRuleDefinition {
-    #[must_use]
-    pub fn new(
-        source: RuleSource,
-        state_slots: Vec<StateSlotDef>,
-        triggers: Vec<TriggerDef>,
-        native_handler: Option<NativeHandlerId>,
-    ) -> Self {
-        Self {
-            source,
-            state_slots: state_slots.into_boxed_slice(),
-            triggers: triggers.into_boxed_slice(),
-            native_handler,
-        }
-    }
-    #[must_use]
-    pub const fn source(&self) -> &RuleSource {
-        &self.source
-    }
-    #[must_use]
-    pub fn state_slots(&self) -> &[StateSlotDef] {
-        &self.state_slots
-    }
-    #[must_use]
-    pub fn triggers(&self) -> &[TriggerDef] {
-        &self.triggers
-    }
-    #[must_use]
-    pub const fn native_handler(&self) -> Option<NativeHandlerId> {
-        self.native_handler
-    }
 }
 
 /// Read-only cause projection supplied to Rule IR and native handlers.
@@ -1010,6 +997,16 @@ pub enum RuleEmission {
         rng_purpose: Option<crate::rng::types::DrawPurpose>,
         current_target: Option<UnitId>,
     },
+    ApplyRandomEffect {
+        selector: SelectorId,
+        effects: Box<[EffectDefinitionId]>,
+        stacks: RuleValue,
+        choice_rng_purpose: crate::rng::types::DrawPurpose,
+        chance: RuleEffectChancePolicy,
+        base_chance: Option<RuleValue>,
+        chance_rng_purpose: Option<crate::rng::types::DrawPurpose>,
+        current_target: Option<UnitId>,
+    },
     AdjustEffectStacks {
         selector: SelectorId,
         effect: EffectDefinitionId,
@@ -1024,12 +1021,14 @@ pub enum RuleEmission {
     Cleanse {
         selector: SelectorId,
         maximum: u16,
+        order: crate::EffectRemovalOrder,
         current_target: Option<UnitId>,
     },
     DetonateDot {
         selector: SelectorId,
         fraction: RuleValue,
         required_tag: Option<SourceDefinitionId>,
+        selection: RuleDotSelection,
         current_target: Option<UnitId>,
     },
     ModifyStateSlot {
@@ -1133,15 +1132,6 @@ pub struct RuleEvaluationInput<'a> {
     pub resource_reader: Option<&'a dyn super::evaluate::ResourceQueryReader>,
     pub battle_query_reader: Option<&'a dyn super::evaluate::BattleQueryReader>,
 }
-/// Stable key used to enforce one trigger occurrence.
-#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub struct OnceKey {
-    pub rule_instance: RuleInstanceId,
-    pub trigger: TriggerId,
-    pub scope: OnceScope,
-    pub first: u64,
-    pub second: u64,
-}
 /// Produces a complete deterministic once key or rejects missing scope identity.
 #[must_use]
 pub fn once_key(
@@ -1150,6 +1140,15 @@ pub fn once_key(
     occurrence: RuleOccurrence,
 ) -> Option<OnceKey> {
     support::once_key(trigger, scope, occurrence)
+}
+/// Stable key used to enforce one trigger occurrence.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct OnceKey {
+    pub rule_instance: RuleInstanceId,
+    pub trigger: TriggerId,
+    pub scope: OnceScope,
+    pub first: u64,
+    pub second: u64,
 }
 /// Stable definition-only order; runtime owner/instance/insertion keys append to it.
 #[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]

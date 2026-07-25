@@ -484,6 +484,49 @@ fn validate_operation(
                 }
             }
         }
+        RuleOperationTemplate::ApplyRandomEffect {
+            selector,
+            effects,
+            stacks,
+            chance,
+            base_chance,
+            chance_rng_purpose,
+            ..
+        } => {
+            require_selector(catalog, *selector)?;
+            if infer_value(catalog, runtime, stacks, 0)? != RuleValueKind::Integer {
+                return Err("effect stack expression must be integer".into());
+            }
+            if effects.is_empty()
+                || effects.windows(2).any(|pair| pair[0] >= pair[1])
+                || effects
+                    .iter()
+                    .any(|effect| catalog.effect(*effect).is_none())
+            {
+                return Err(
+                    "random-effect candidates must be nonempty, unique, sorted and defined".into(),
+                );
+            }
+            match chance {
+                crate::rule::model::RuleEffectChancePolicy::Guaranteed => {
+                    if base_chance.is_some() || chance_rng_purpose.is_some() {
+                        return Err("guaranteed effect cannot declare chance RNG".into());
+                    }
+                }
+                _ => {
+                    require_scalar(
+                        catalog,
+                        runtime,
+                        base_chance
+                            .as_ref()
+                            .ok_or("chance operation requires base chance")?,
+                    )?;
+                    if chance_rng_purpose.is_none() {
+                        return Err("chance operation requires RNG purpose".into());
+                    }
+                }
+            }
+        }
         RuleOperationTemplate::AdjustEffectStacks {
             selector,
             effect,
@@ -509,7 +552,9 @@ fn validate_operation(
                 ));
             }
         }
-        RuleOperationTemplate::Cleanse { selector, maximum } => {
+        RuleOperationTemplate::Cleanse {
+            selector, maximum, ..
+        } => {
             require_selector(catalog, *selector)?;
             if *maximum == 0 {
                 return Err("cleanse maximum must be nonzero".into());

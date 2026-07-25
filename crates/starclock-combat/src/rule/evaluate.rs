@@ -9,7 +9,7 @@ use event_property::event_property;
 pub(crate) use helpers::stat_query_error;
 use helpers::{
     add_values, ancestry_matches, budget_error, numeric_error, optional_unit, query_subject,
-    type_error,
+    selector_matches, selector_units, slot_value, type_error,
 };
 
 use super::model::{
@@ -18,7 +18,7 @@ use super::model::{
     ShieldObservation, TriggerDef, ValueExpr, once_key,
 };
 use crate::modifier::model::{FormulaPurpose, StatKind, StatQuerySubject};
-use crate::{ProgramId, RuleId, Scalar, StateSlotDefinitionId, UnitId};
+use crate::{ProgramId, Scalar, UnitId};
 
 /// Immutable program lookup used by the evaluator and static handler tests.
 pub trait ProgramLookup {
@@ -501,6 +501,27 @@ fn evaluate_operation(
             rng_purpose: *rng_purpose,
             current_target,
         },
+        RuleOperationTemplate::ApplyRandomEffect {
+            selector,
+            effects,
+            stacks,
+            choice_rng_purpose,
+            chance,
+            base_chance,
+            chance_rng_purpose,
+        } => RuleEmission::ApplyRandomEffect {
+            selector: *selector,
+            effects: effects.clone(),
+            stacks: evaluate_value(stacks, input, current_target)?,
+            choice_rng_purpose: *choice_rng_purpose,
+            chance: *chance,
+            base_chance: base_chance
+                .as_ref()
+                .map(|value| evaluate_value(value, input, current_target))
+                .transpose()?,
+            chance_rng_purpose: *chance_rng_purpose,
+            current_target,
+        },
         RuleOperationTemplate::AdjustEffectStacks {
             selector,
             effect,
@@ -516,19 +537,26 @@ fn evaluate_operation(
             effect: *effect,
             current_target,
         },
-        RuleOperationTemplate::Cleanse { selector, maximum } => RuleEmission::Cleanse {
+        RuleOperationTemplate::Cleanse {
+            selector,
+            maximum,
+            order,
+        } => RuleEmission::Cleanse {
             selector: *selector,
             maximum: *maximum,
+            order: *order,
             current_target,
         },
         RuleOperationTemplate::DetonateDot {
             selector,
             fraction,
             required_tag,
+            selection,
         } => RuleEmission::DetonateDot {
             selector: *selector,
             fraction: evaluate_value(fraction, input, current_target)?,
             required_tag: *required_tag,
+            selection: *selection,
             current_target,
         },
         RuleOperationTemplate::ModifyStateSlot {
@@ -821,18 +849,6 @@ pub fn matches_filter(filter: &EventFilter, input: RuleEvaluationInput<'_>) -> b
             .has_action
             .is_none_or(|value| input.event_facts.has_action == value)
         && ancestry_matches(filter.cause_ancestry, input)
-}
-
-fn selector_matches(
-    selector: Option<crate::SelectorId>,
-    unit: Option<UnitId>,
-    input: RuleEvaluationInput<'_>,
-) -> bool {
-    selector.is_none_or(|selector| {
-        unit.is_some_and(|unit| {
-            selector_units(input, selector).is_some_and(|units| units.binary_search(&unit).is_ok())
-        })
-    })
 }
 
 pub fn evaluate_value(
@@ -1167,29 +1183,10 @@ pub(crate) fn compare_values(
     }
 }
 
-fn selector_units(
-    input: RuleEvaluationInput<'_>,
-    selector: crate::SelectorId,
-) -> Option<&[UnitId]> {
-    input
-        .selectors
-        .binary_search_by_key(&selector, |result| result.selector)
-        .ok()
-        .map(|index| input.selectors[index].units)
-}
-
-fn slot_value(input: RuleEvaluationInput<'_>, slot: StateSlotDefinitionId) -> Option<&RuleValue> {
-    input
-        .slots
-        .binary_search_by_key(&slot, |(id, _)| *id)
-        .ok()
-        .map(|index| &input.slots[index].1)
-}
-
 /// Stable definition-only total order for candidate triggers.
 #[must_use]
 pub fn trigger_definition_order(
-    rule: RuleId,
+    rule: crate::RuleId,
     source: crate::SourceDefinitionId,
     trigger: &super::model::TriggerDef,
 ) -> super::model::TriggerDefinitionOrder {

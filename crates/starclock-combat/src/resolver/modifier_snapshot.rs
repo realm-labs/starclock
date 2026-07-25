@@ -406,7 +406,8 @@ fn stat_bases(
     crate::NumericError,
 > {
     use crate::modifier::model::StatKind::{
-        Atk, DebuffDurationMultiplier, Def, FreezeResistance, Hp, Spd,
+        Atk, BreakBaseDamage, DebuffDurationMultiplier, Def, FreezeResistance, Hp, Spd,
+        ToughnessDamage,
     };
 
     let mut bases = std::collections::BTreeMap::new();
@@ -428,6 +429,10 @@ fn stat_bases(
             crate::Scalar::from_scaled(unit.base_speed.scaled()),
         );
         bases.insert((unit.id, FreezeResistance), crate::Scalar::ZERO);
+        bases.insert((unit.id, ToughnessDamage), crate::Scalar::ZERO);
+        if let Some(value) = crate::formula::toughness::attacker_level_multiplier(unit.level) {
+            bases.insert((unit.id, BreakBaseDamage), value);
+        }
         bases.insert((unit.id, DebuffDurationMultiplier), crate::Scalar::ONE);
     }
     Ok(bases)

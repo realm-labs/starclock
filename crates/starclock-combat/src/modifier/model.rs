@@ -25,6 +25,9 @@ pub enum StatKind {
     ShieldStrength,
     Aggro,
     ToughnessDamage,
+    /// Level-derived base Break damage used by mechanics that author a cap
+    /// against the applier's public level multiplier.
+    BreakBaseDamage,
     FreezeResistance,
     /// Multiplier applied to newly attached negative-effect durations.
     ///

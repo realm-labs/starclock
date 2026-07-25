@@ -29,9 +29,12 @@ use std::collections::BTreeMap;
 use super::{operation::execute_operation, transaction::Transaction};
 mod emission;
 pub(super) mod fault;
+mod value;
 use emission::emission_current_target;
 use fault::emission_code;
 pub(super) use fault::program_fault;
+pub(super) use value::{non_negative_scalar, probability, ratio};
+use value::{scale, weakness_duration};
 
 pub(super) struct AbilityProgramContext {
     pub(super) program: crate::ProgramId,
@@ -251,8 +254,8 @@ pub(super) fn stat_bases(
     txn: &Transaction<'_>,
 ) -> Result<BTreeMap<(crate::UnitId, crate::modifier::model::StatKind), Scalar>, BattleFault> {
     use crate::modifier::model::StatKind::{
-        Atk, CritDamage, CritRate, DebuffDurationMultiplier, Def, EffectHitRate, EffectResistance,
-        FreezeResistance, Hp, Spd,
+        Atk, BreakBaseDamage, CritDamage, CritRate, DebuffDurationMultiplier, Def, EffectHitRate,
+        EffectResistance, FreezeResistance, Hp, Spd, ToughnessDamage,
     };
 
     let mut bases = BTreeMap::new();
@@ -286,6 +289,10 @@ pub(super) fn stat_bases(
         bases.insert((unit.id, EffectHitRate), Scalar::ZERO);
         bases.insert((unit.id, EffectResistance), Scalar::ZERO);
         bases.insert((unit.id, FreezeResistance), Scalar::ZERO);
+        bases.insert((unit.id, ToughnessDamage), Scalar::ZERO);
+        if let Some(value) = crate::formula::toughness::attacker_level_multiplier(unit.level) {
+            bases.insert((unit.id, BreakBaseDamage), value);
+        }
         bases.insert((unit.id, DebuffDurationMultiplier), Scalar::ONE);
     }
     Ok(bases)
@@ -550,6 +557,36 @@ fn execute_emission(
             base_chance,
             rng_purpose,
         )?,
+        RuleEmission::ApplyRandomEffect {
+            selector,
+            effects,
+            stacks,
+            choice_rng_purpose,
+            chance,
+            base_chance,
+            chance_rng_purpose,
+            ..
+        } => {
+            let index = txn
+                .choose_index(choice_rng_purpose, effects.len())?
+                .ok_or_else(|| program_fault(68, 0))?;
+            let effect = *effects
+                .get(index)
+                .ok_or_else(|| program_fault(68, i64::try_from(index).unwrap_or(i64::MAX)))?;
+            super::program_effect::apply_effect_operation(
+                catalog,
+                input,
+                operation_id,
+                resolved,
+                selector,
+                current_target,
+                effect,
+                stacks,
+                chance,
+                base_chance,
+                chance_rng_purpose,
+            )?
+        }
         RuleEmission::AdjustEffectStacks {
             selector,
             effect,
@@ -576,23 +613,34 @@ fn execute_emission(
                 .expect("nonzero maximum is valid"),
         }),
         RuleEmission::Cleanse {
-            selector, maximum, ..
+            selector,
+            maximum,
+            order,
+            ..
         } => Operation::RemoveEffects(RemoveEffectsOp {
             id: operation_id,
             targets: emission_targets(catalog, resolved, selector, current_target)?,
             definition: crate::EffectRemovalDefinition::negative(maximum)
-                .ok_or_else(|| program_fault(61, i64::from(maximum)))?,
+                .ok_or_else(|| program_fault(61, i64::from(maximum)))?
+                .with_order(order),
         }),
         RuleEmission::DetonateDot {
             selector,
             fraction,
             required_tag,
+            selection,
             ..
         } => Operation::DetonateDots(DetonateDotsOp {
             id: operation_id,
             targets: emission_targets(catalog, resolved, selector, current_target)?,
             definition: crate::DotDetonationDefinition::new(ratio(fraction)?, required_tag)
-                .ok_or_else(|| program_fault(9, 0))?,
+                .ok_or_else(|| program_fault(9, 0))?
+                .with_selection(match selection {
+                    crate::rule::model::RuleDotSelection::All => crate::DotDetonationSelection::All,
+                    crate::rule::model::RuleDotSelection::RandomOne(purpose) => {
+                        crate::DotDetonationSelection::RandomOne(purpose)
+                    }
+                }),
         }),
         RuleEmission::AdvanceAction {
             selector, amount, ..
@@ -1136,40 +1184,4 @@ fn super_break(
         mitigation_multiplier: Ratio::ONE,
         broken_multiplier: Ratio::ONE,
     }
-}
-
-pub(super) fn non_negative_scalar(value: RuleValue) -> Result<Scalar, BattleFault> {
-    match value {
-        RuleValue::Scalar(value) if value.scaled() >= 0 => Ok(value),
-        _ => Err(program_fault(40, 0)),
-    }
-}
-
-pub(super) fn ratio(value: RuleValue) -> Result<Ratio, BattleFault> {
-    let value = non_negative_scalar(value)?;
-    Ok(Ratio::from_scaled(value.scaled()))
-}
-
-pub(super) fn probability(value: RuleValue) -> Result<crate::Probability, BattleFault> {
-    crate::Probability::from_ratio(ratio(value)?).map_err(|_| program_fault(41, 0))
-}
-
-fn weakness_duration(value: RuleValue) -> Result<u8, BattleFault> {
-    let raw = match value {
-        RuleValue::Integer(value) => value,
-        RuleValue::Scalar(value) => value
-            .rounded_integer(Rounding::NearestTiesEven)
-            .map_err(|_| program_fault(67, value.scaled()))?,
-        _ => return Err(program_fault(67, 0)),
-    };
-    u8::try_from(raw)
-        .ok()
-        .filter(|value| *value > 0)
-        .ok_or_else(|| program_fault(67, raw))
-}
-
-fn scale(value: Scalar, ratio: Ratio) -> Result<Scalar, BattleFault> {
-    ratio
-        .checked_apply(value, Rounding::NearestTiesEven)
-        .map_err(|_| program_fault(42, value.scaled()))
 }

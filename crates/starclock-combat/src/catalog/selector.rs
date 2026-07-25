@@ -70,6 +70,7 @@ pub enum RuleSelectorChoice {
     All,
     First,
     PrimaryPlusAdjacent,
+    AdjacentToPrimary,
     RngUniform,
     RngWeighted,
 }

@@ -209,6 +209,47 @@ impl FormulaInputs {
             .map_err(|_| numeric_fault(48, value.scaled()))
     }
 
+    pub(super) fn weakness_break_efficiency(
+        &self,
+        catalog: &crate::catalog::CombatCatalog,
+        txn: &Transaction<'_>,
+        cause: Cause,
+        target: crate::UnitId,
+        element: formula::model::CombatElement,
+    ) -> Result<crate::Ratio, BattleFault> {
+        let purpose = FormulaPurpose::Break;
+        let source = formula_source(txn, cause, purpose)?;
+        let context = action_modifier_context(
+            catalog,
+            cause,
+            modifier_context(
+                txn,
+                source,
+                target,
+                Some(element),
+                formula::model::DamageClass::Direct,
+            )?,
+        )
+        .with_formula_subject(FormulaSubject::Source);
+        let value = self
+            .resolver(catalog)
+            .query(
+                crate::modifier::model::StatQuery {
+                    subject: source,
+                    stat: crate::modifier::model::StatKind::ToughnessDamage,
+                    purpose,
+                },
+                &context,
+            )
+            .map_err(|_| {
+                numeric_fault(
+                    56,
+                    i64::from(crate::modifier::model::StatKind::ToughnessDamage as u8),
+                )
+            })?;
+        Ok(crate::Ratio::from_scaled(value.scaled()))
+    }
+
     pub(super) fn healing(
         &self,
         catalog: &crate::catalog::CombatCatalog,

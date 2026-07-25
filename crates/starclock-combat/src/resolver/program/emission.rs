@@ -19,6 +19,7 @@ pub(super) const fn emission_current_target(emission: &RuleEmission) -> Option<c
         | RuleEmission::RemoveToughnessLayer { current_target, .. }
         | RuleEmission::ModifyResource { current_target, .. }
         | RuleEmission::ApplyEffect { current_target, .. }
+        | RuleEmission::ApplyRandomEffect { current_target, .. }
         | RuleEmission::AdjustEffectStacks { current_target, .. }
         | RuleEmission::RemoveEffect { current_target, .. }
         | RuleEmission::Cleanse { current_target, .. }

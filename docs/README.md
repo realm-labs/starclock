@@ -127,6 +127,14 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 101. [Goal 07 Ability Tree partition S03](goal-07-ability-tree-s03.md) — generic Formation capacity, Reviver carry and consumable authorization.
 102. [Goal 07 Preservation partition S01](goal-07-preservation-s01.md) — exact Quake composition, Macrosegregation shield lifecycle, splash, Bleed and shared core primitives.
 103. [Goal 07 Preservation partition S02](goal-07-preservation-s02.md) — dynamic shield-to-ATK, turn-end and provider shields, directional shield modifiers and Blessing-count DEF.
+104. [Goal 07 Preservation partition S03](goal-07-preservation-s03.md) — battle-start and action-loss shields, Break-triggered team shields, shield-gated mitigation and bounded cleansing.
+105. [Goal 07 Preservation partition S04](goal-07-preservation-s04.md) — shield-conditioned critical stats, Resonance and all Preservation Formations.
+106. [Goal 07 Remembrance partition S01](goal-07-remembrance-s01.md) — Freeze, Dissociation, effect resistance and duration behavior.
+107. [Goal 07 Remembrance partition S02](goal-07-remembrance-s02.md) — adjacent damage, timed Weakness, resistance reduction and battle-start effects.
+108. [Goal 07 Remembrance partition S03](goal-07-remembrance-s03.md) — HP thresholds, action-scoped modifiers and shared critical draws.
+109. [Goal 07 Remembrance partition S04](goal-07-remembrance-s04.md) — Resonance, Eonian Freeze, Energy and Shield Formations.
+110. [Goal 07 Nihility partition S01](goal-07-nihility-s01.md) — Suspicion lifecycle, DoT detonation/transfer and stack-backed debuffs.
+111. [Goal 07 Nihility partition S02](goal-07-nihility-s02.md) — Break efficiency/propagation, random DoTs, selected detonation and Blessing-count DoT scaling.
 
 ## Execution goals
 

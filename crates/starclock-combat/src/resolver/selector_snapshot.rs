@@ -20,6 +20,7 @@ pub(super) struct SelectorUnitSnapshot {
     pub(super) base_attack: crate::StatValue,
     pub(super) base_defense: crate::StatValue,
     pub(super) base_speed: crate::Speed,
+    pub(super) level: crate::UnitLevel,
     pub(super) gauge: Option<crate::ActionGauge>,
     pub(super) shield: crate::Scalar,
     pub(super) weaknesses: Box<[CombatElement]>,
@@ -57,6 +58,7 @@ impl RuleSelectorSnapshot {
                         base_attack: unit.base_attack,
                         base_defense: unit.base_defense,
                         base_speed: unit.base_speed,
+                        level: unit.level,
                         gauge: state
                             .actors
                             .id_for_owner(unit.id)
@@ -120,7 +122,9 @@ impl RuleSelectorSnapshot {
         BTreeMap<(UnitId, crate::modifier::model::StatKind), crate::Scalar>,
         crate::NumericError,
     > {
-        use crate::modifier::model::StatKind::{Atk, Def, Hp, Spd};
+        use crate::modifier::model::StatKind::{
+            Atk, BreakBaseDamage, Def, Hp, Spd, ToughnessDamage,
+        };
         let mut bases = BTreeMap::new();
         for (id, unit) in &self.units {
             bases.insert(
@@ -139,6 +143,10 @@ impl RuleSelectorSnapshot {
                 (*id, Spd),
                 crate::Scalar::from_scaled(unit.base_speed.scaled()),
             );
+            bases.insert((*id, ToughnessDamage), crate::Scalar::ZERO);
+            if let Some(value) = crate::formula::toughness::attacker_level_multiplier(unit.level) {
+                bases.insert((*id, BreakBaseDamage), value);
+            }
         }
         Ok(bases)
     }

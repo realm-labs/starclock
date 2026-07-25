@@ -89,7 +89,9 @@ impl From<NumericError> for RuleEvaluationError {
     }
 }
 
-pub(super) fn trigger_definition_order(
+/// Stable definition-only total order for candidate triggers.
+#[must_use]
+pub fn trigger_definition_order(
     rule: RuleId,
     source: SourceDefinitionId,
     trigger: &TriggerDef,
@@ -101,4 +103,38 @@ pub(super) fn trigger_definition_order(
         rule,
         trigger: trigger.id,
     }
+}
+
+pub(super) fn selector_units(
+    input: RuleEvaluationInput<'_>,
+    selector: crate::SelectorId,
+) -> Option<&[UnitId]> {
+    input
+        .selectors
+        .binary_search_by_key(&selector, |result| result.selector)
+        .ok()
+        .map(|index| input.selectors[index].units)
+}
+
+pub(super) fn selector_matches(
+    selector: Option<crate::SelectorId>,
+    unit: Option<UnitId>,
+    input: RuleEvaluationInput<'_>,
+) -> bool {
+    selector.is_none_or(|selector| {
+        unit.is_some_and(|unit| {
+            selector_units(input, selector).is_some_and(|units| units.binary_search(&unit).is_ok())
+        })
+    })
+}
+
+pub(super) fn slot_value(
+    input: RuleEvaluationInput<'_>,
+    slot: crate::StateSlotDefinitionId,
+) -> Option<&RuleValue> {
+    input
+        .slots
+        .binary_search_by_key(&slot, |(id, _)| *id)
+        .ok()
+        .map(|index| &input.slots[index].1)
 }

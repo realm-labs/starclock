@@ -152,6 +152,16 @@ function nativeDecision(id) {
     return "Signed stack-delta reads and excluded-source filters express additive or doubled Suspicion without recursive self-reaction.";
   if (id.includes("612242"))
     return "Effect-stack-backed capped stat modifiers express the exact ATK and Effect RES reductions.";
+  if (id.includes("612243"))
+    return "The generic ToughnessDamage modifier is queried per ordinary reduction and expresses exact Weakness Break Efficiency.";
+  if (id.includes("612244"))
+    return "Typed Break-element facts, adjacent/all selectors, forced Break and source exclusion express propagation without recursion.";
+  if (id.includes("612245"))
+    return "Ordered random-effect choice, ordinary effect chance, level-derived Break base, DoT snapshots and newest-first Cleanse express Twilight.";
+  if (id.includes("612246"))
+    return "The generic deterministic one-current-DoT detonation operation expresses All Things without content branching.";
+  if (id.includes("612250"))
+    return "The validated contribution compiler supplies the capped selected-Nihility count to an ordinary DoT modifier.";
   if (id.includes("612156"))
     return "Typed Freeze effect/BaseEffect facts, explicit action context and action once keys express per-applier Energy restoration.";
   if (id.includes("612157"))
@@ -440,6 +450,32 @@ function partitionProfile(id) {
         "enhanced_suspicion_application_doubles_stacks_and_never_decays",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration nihility_s01 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M04-S02") {
+    return {
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/nihility_s02.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s02.rs",
+        "crates/starclock-combat/src/resolver/operation_formula.rs",
+        "crates/starclock-combat/src/resolver/effect_operation.rs",
+        "crates/starclock-combat/src/formula/toughness.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-nihility-s02.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/nihility_s02.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s02.rs",
+      fixtureMarker:
+        "hell_spreads_the_triggering_break_and_random_dot_then_detonation_execute",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration nihility_s02 --all-features",
+        "cargo test -p starclock-combat --test toughness_formula --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

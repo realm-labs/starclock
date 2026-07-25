@@ -567,9 +567,16 @@ impl EffectApplicationDefinition {
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum DotDetonationSelection {
+    All,
+    RandomOne(crate::rng::types::DrawPurpose),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DotDetonationDefinition {
-    pub fraction: Ratio,
-    pub required_tag: Option<SourceDefinitionId>,
+    fraction: Ratio,
+    required_tag: Option<SourceDefinitionId>,
+    selection: DotDetonationSelection,
 }
 
 impl DotDetonationDefinition {
@@ -581,9 +588,37 @@ impl DotDetonationDefinition {
             Some(Self {
                 fraction,
                 required_tag,
+                selection: DotDetonationSelection::All,
             })
         }
     }
+
+    #[must_use]
+    pub const fn with_selection(mut self, selection: DotDetonationSelection) -> Self {
+        self.selection = selection;
+        self
+    }
+
+    #[must_use]
+    pub const fn fraction(self) -> Ratio {
+        self.fraction
+    }
+
+    #[must_use]
+    pub const fn required_tag(self) -> Option<SourceDefinitionId> {
+        self.required_tag
+    }
+
+    #[must_use]
+    pub const fn selection(self) -> DotDetonationSelection {
+        self.selection
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum EffectRemovalOrder {
+    OldestFirst,
+    NewestFirst,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -594,6 +629,7 @@ pub struct EffectRemovalDefinition {
     pub required_definition: Option<EffectDefinitionId>,
     pub required_tag: Option<SourceDefinitionId>,
     pub maximum: u16,
+    pub order: EffectRemovalOrder,
 }
 
 impl EffectRemovalDefinition {
@@ -612,6 +648,7 @@ impl EffectRemovalDefinition {
                 required_definition: None,
                 required_tag,
                 maximum,
+                order: EffectRemovalOrder::OldestFirst,
             })
         }
     }
@@ -627,6 +664,7 @@ impl EffectRemovalDefinition {
                 required_definition: Some(definition),
                 required_tag: None,
                 maximum,
+                order: EffectRemovalOrder::OldestFirst,
             })
         }
     }
@@ -643,7 +681,14 @@ impl EffectRemovalDefinition {
                 required_definition: None,
                 required_tag: None,
                 maximum,
+                order: EffectRemovalOrder::OldestFirst,
             })
         }
+    }
+
+    #[must_use]
+    pub const fn with_order(mut self, order: EffectRemovalOrder) -> Self {
+        self.order = order;
+        self
     }
 }

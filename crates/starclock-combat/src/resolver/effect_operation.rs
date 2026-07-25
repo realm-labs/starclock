@@ -88,11 +88,19 @@ pub(super) fn detonate_dots(
 ) -> Result<EventId, BattleFault> {
     let inputs = super::operation_formula::FormulaInputs::new(txn)?;
     for target in operation.targets {
-        for effect in txn
+        let mut effects = txn
             .state
             .effects
-            .dots_for(target, operation.definition.required_tag)
+            .dots_for(target, operation.definition.required_tag());
+        if let crate::DotDetonationSelection::RandomOne(purpose) = operation.definition.selection()
+            && effects.len() > 1
         {
+            let index = txn
+                .choose_index(purpose, effects.len())?
+                .ok_or_else(|| invariant_fault(43))?;
+            effects = vec![effects.swap_remove(index)];
+        }
+        for effect in effects {
             let dot = effect.dot.ok_or_else(|| invariant_fault(36))?;
             let per_stack = dot.formula();
             let base = per_stack
@@ -118,7 +126,7 @@ pub(super) fn detonate_dots(
             )?;
             let raw = operation
                 .definition
-                .fraction
+                .fraction()
                 .checked_apply(calculation.raw, crate::Rounding::NearestTiesEven)
                 .map_err(|_| numeric_fault(32, calculation.raw.scaled()))?;
             let finalized = crate::DamageAmount::from_scalar(raw, crate::Rounding::Floor)
@@ -145,7 +153,7 @@ pub(super) fn detonate_dots(
                     operation: operation.id,
                     effect: effect.id,
                     target,
-                    fraction: operation.definition.fraction,
+                    fraction: operation.definition.fraction(),
                 }),
             );
         }

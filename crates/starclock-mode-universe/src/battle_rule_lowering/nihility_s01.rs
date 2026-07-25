@@ -195,6 +195,7 @@ fn everything_disappeared(
                     selector: target,
                     fraction: scalar(parameter(parameters, 1)?),
                     required_tag: None,
+                    selection: starclock_combat::rule::model::RuleDotSelection::All,
                 },
             )]);
     Ok(first_player_rule(

@@ -148,6 +148,14 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
                 selectors.insert(*selector);
                 effects.insert(*effect);
             }
+            O::ApplyRandomEffect {
+                selector,
+                effects: candidates,
+                ..
+            } => {
+                selectors.insert(*selector);
+                effects.extend(candidates.iter().copied());
+            }
             O::QueueAction {
                 actor_selector,
                 target_selector,
@@ -356,6 +364,7 @@ fn lower_operation(
                 selector: selector()?,
                 fraction: expression(*fraction_expression_id)?,
                 required_tag: None,
+                selection: starclock_combat::rule::model::RuleDotSelection::All,
             }
         }
         Payload::ModifyStateSlot {

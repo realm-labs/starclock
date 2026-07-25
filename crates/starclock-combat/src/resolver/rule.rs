@@ -554,7 +554,8 @@ fn event_facts(
             };
         }
         BattleEventKind::Toughness(data) => {
-            facts.element = toughness_element(data);
+            facts.element =
+                toughness_element(data).or_else(|| toughness_ancestry_element(txn, event));
             facts.toughness_kind = Some(toughness_kind(data));
             if let crate::ToughnessEventData::Reduced { effective, .. } = data {
                 facts.toughness_reduction = Some(*effective);
@@ -723,6 +724,23 @@ fn toughness_element(data: &crate::ToughnessEventData) -> Option<CombatElement> 
         | crate::ToughnessEventData::BaseEffectExpired { element, .. } => Some(*element),
         _ => None,
     }
+}
+
+fn toughness_ancestry_element(txn: &Transaction<'_>, event: &BattleEvent) -> Option<CombatElement> {
+    let mut parent = event.cause().parent_event();
+    for _ in 0..8 {
+        let ancestor = txn
+            .events
+            .iter()
+            .find(|candidate| Some(candidate.id()) == parent)?;
+        if let BattleEventKind::Toughness(crate::ToughnessEventData::Reduced { element, .. }) =
+            ancestor.kind()
+        {
+            return Some(*element);
+        }
+        parent = ancestor.cause().parent_event();
+    }
+    None
 }
 
 fn toughness_kind(data: &crate::ToughnessEventData) -> crate::rule::model::RuleToughnessEventKind {

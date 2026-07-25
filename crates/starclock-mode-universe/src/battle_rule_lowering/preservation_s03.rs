@@ -420,6 +420,7 @@ fn shield_cleanse(
                 ProgramStep::Operation(RuleOperationTemplate::Cleanse {
                     selector: owner,
                     maximum: 1,
+                    order: starclock_combat::EffectRemovalOrder::OldestFirst,
                 }),
                 ProgramStep::Operation(RuleOperationTemplate::RemoveEffect {
                     selector: owner,

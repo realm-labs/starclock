@@ -3,6 +3,28 @@
 use super::{journal::MutationField, transaction::Transaction};
 
 impl Transaction<'_> {
+    pub(super) fn choose_index(
+        &mut self,
+        purpose: crate::rng::types::DrawPurpose,
+        count: usize,
+    ) -> Result<Option<usize>, crate::battle::fault::BattleFault> {
+        let count = u32::try_from(count).map_err(|_| super::transaction::action_fault(51))?;
+        let before = self.state.rng.draw_count();
+        let selected = self
+            .state
+            .rng
+            .choose_index(purpose, count)
+            .map_err(|_| super::transaction::action_fault(51))?;
+        for index in before..self.state.rng.draw_count() {
+            self.journal.rng_draw(index, purpose.code());
+        }
+        selected
+            .map(|value| {
+                usize::try_from(value.value()).map_err(|_| super::transaction::action_fault(51))
+            })
+            .transpose()
+    }
+
     pub(super) fn reset_event_once_keys(&mut self, event: crate::EventId) {
         let count = self.state.rules.reset_once_event(event);
         if count > 0 {

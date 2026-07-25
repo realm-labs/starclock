@@ -1,5 +1,5 @@
 use starclock_combat::{
-    Hp, Ratio, RawToughness, Scalar,
+    Hp, Ratio, RawToughness, Scalar, UnitLevel,
     formula::{
         model::CombatElement,
         toughness::{
@@ -10,6 +10,27 @@ use starclock_combat::{
 
 fn raw(value: i64) -> RawToughness {
     RawToughness::new(value).unwrap()
+}
+
+#[test]
+fn public_attacker_level_multiplier_table_has_exact_character_boundaries() {
+    assert_eq!(
+        toughness::attacker_level_multiplier(UnitLevel::new(1).unwrap())
+            .unwrap()
+            .scaled(),
+        54_000_000
+    );
+    assert_eq!(
+        toughness::attacker_level_multiplier(UnitLevel::new(80).unwrap())
+            .unwrap()
+            .scaled(),
+        3_767_553_300
+    );
+    assert_eq!(
+        toughness::attacker_level_multiplier(UnitLevel::new(81).unwrap()),
+        None,
+        "enemy-exclusive values remain fail-closed until authored"
+    );
 }
 fn ratio(value: i64) -> Ratio {
     Ratio::from_scaled(value)

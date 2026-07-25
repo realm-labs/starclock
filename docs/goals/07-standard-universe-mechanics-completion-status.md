@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M04-S02` |
-| Next unblocked batch | `G07-P2-M04-S02` |
+| Active batch | `G07-P2-M04-S03` |
+| Next unblocked batch | `G07-P2-M04-S03` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -38,10 +38,12 @@ Melancholia, Dizziness, Insensitivity, Sentimentality, Indelibility, Shudder,
 Maverick, both Unspeakable Shame levels, Torment of Alienation, Lost Memory,
 Stone Cold Hatred, Pain & Suffering, Primordial Hardship, Thrill of Escalation,
 Responsive Excitement, Remembrance Resonance and all three Formations.
-The first Nihility partition is complete: its 17 records, 16 rules and
+The first two Nihility partitions are complete: their 33 records, 32 rules and
 production Kafka fixture execute Suspicion application, amplification,
-enemy-turn decay/persistence, DoT detonation/transfer and stack-backed
-debuffs. `G07-P2-M04-S02` (Nihility) is active.
+enemy-turn decay/persistence, DoT detonation/transfer, stack-backed debuffs,
+Weakness Break Efficiency, same-element Break propagation, stable random DoT
+application, one-current-DoT detonation and Blessing-count DoT scaling.
+`G07-P2-M04-S03` (Nihility) is active.
 
 ## Fixed batch ledger
 
@@ -69,6 +71,7 @@ debuffs. `G07-P2-M04-S02` (Nihility) is active.
 | `G07-P2-M03-S03` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Remembrance/replay tests; partition receipt; quick repository gate | Executed Unspeakable Shame L2 plus both levels of Torment of Alienation, Lost Memory, Stone Cold Hatred, Pain & Suffering and Primordial Hardship. Added typed pre/post-HP and effect/Toughness filters, action-aware source/target modifier contexts, target-specific CRIT thresholds and shared raw CRIT draws. Exact half-HP Freeze, 1.54 Skill-damage, 1.24 vulnerability and two-action CRIT-exposure vectors pass; eleven native candidates close as `IrSufficient`. |
 | `G07-P2-M03-S04` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Remembrance/replay tests; partition receipt; quick repository gate | Executed both levels of Thrill of Escalation and Responsive Excitement, Remembrance Resonance and all three Formations. Added typed specific-resistance event facts, explicit action-context filters, generic negative-effect duration multiplication and ordered multi-program Resonance definitions. Exact 60,000 fixture damage, two-turn Eonian Freeze, 12 Energy, 24,000 Shield, 40 entry Energy and 5 per-Freeze Resonance Energy vectors pass; eight native candidates close as `IrSufficient`. |
 | `G07-P2-M04-S01` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Nihility/replay tests; partition receipt; quick repository gate | Executed Funeral, Man in the Cover, Why Hasn't Everything Already Disappeared, Beginning and End, Café Self-Deceit and Call of the Wilderness. Added expression-backed effect stacks, signed adjustment, aggregate stack queries, typed stack deltas and source exclusion. Kafka production Ultimate proves exact four-to-two ordinary decay and enhanced doubling/persistence; ten native candidates close as `IrSufficient`. |
+| `G07-P2-M04-S02` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Nihility/replay tests; partition receipt; quick repository gate | Executed Call level rows, Night Beyond Pyre, Hell is Other People, Twilight of Existence, All Things are Possible and Ignosticism L1. Added modifier-aware Break efficiency, adjacent-only propagation, ordered random effect application, one-current-DoT detonation, newest-first cleansing and the exact level 1–80 Break-base lookup. Production Kafka proves exact 30% efficiency, same-element adjacent Break and selected DoT execution; eleven native candidates close as `IrSufficient`. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |

@@ -979,6 +979,7 @@ fn expression_backed_dot_runtime_resolves_per_application_target() {
                 selector: id(2),
                 fraction: ValueExpr::Literal(RuleValue::Scalar(Scalar::ONE)),
                 required_tag: None,
+                selection: starclock_combat::rule::model::RuleDotSelection::All,
             }),
         ]);
     let mut battle = battle(

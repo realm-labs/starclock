@@ -15,6 +15,7 @@ fn rule_cleanse_removes_a_dispellable_negative_effect_through_the_resolver() {
             ProgramStep::Operation(RuleOperationTemplate::Cleanse {
                 selector: id(2),
                 maximum: 1,
+                order: starclock_combat::EffectRemovalOrder::OldestFirst,
             }),
         ]);
     let mut battle = battle(

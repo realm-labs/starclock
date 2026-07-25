@@ -137,7 +137,10 @@ impl Transaction<'_> {
                 selector.origin(),
                 RuleSelectorOrigin::PrimaryTarget | RuleSelectorOrigin::CurrentSubject
             )
-            && selector.choice() != RuleSelectorChoice::PrimaryPlusAdjacent
+            && !matches!(
+                selector.choice(),
+                RuleSelectorChoice::PrimaryPlusAdjacent | RuleSelectorChoice::AdjacentToPrimary
+            )
             || direct.is_some()
                 && selector.side() == RuleSelectorSide::Same
                 && selector.choice() == RuleSelectorChoice::First;
@@ -322,6 +325,22 @@ impl Transaction<'_> {
                     .filter(|id| {
                         selector_unit(self.state, snapshot, *id)
                             .is_some_and(|unit| unit.formation.get().abs_diff(index) <= 1)
+                    })
+                    .take(maximum)
+                    .collect()
+            }
+            RuleSelectorChoice::AdjacentToPrimary => {
+                let Some(primary) = primary else {
+                    return self.finish_rule_selector(selector, Vec::new());
+                };
+                let index = selector_unit(self.state, snapshot, primary)
+                    .ok_or_else(|| action_fault(125))?
+                    .formation
+                    .get();
+                pool.into_iter()
+                    .filter(|id| {
+                        selector_unit(self.state, snapshot, *id)
+                            .is_some_and(|unit| unit.formation.get().abs_diff(index) == 1)
                     })
                     .take(maximum)
                     .collect()
