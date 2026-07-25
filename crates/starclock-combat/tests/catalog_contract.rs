@@ -278,6 +278,7 @@ fn complete_catalog(reverse_insertion: bool) -> Arc<CombatCatalog> {
     builder.add_modifier_group(ModifierStackingGroup {
         id: id::<ModifierStackingGroupId>(1),
         aggregation: ModifierAggregation::Sum,
+        comparator: None,
     });
     builder.add_modifier(ModifierDefinition {
         id: id(1),

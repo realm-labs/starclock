@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 1 — Shared mechanic capability closure |
-| Active batch | None |
-| Next unblocked batch | `G07-P1-B3` |
+| Active batch | `G07-P1-B4` |
+| Next unblocked batch | None |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -31,7 +31,7 @@ boundaries and froze the dependency, performance and release scaffold.
 | `G07-P0-B4` | `Complete` | `node tools/goal07/verify-phase0.mjs`; generated evidence/approximation register; full repository gate | Registered 52 explicit external decisions and 73 numeric-approximation candidates, prohibited mechanic approximation, froze six performance workloads, a zero-new-dependency baseline and the 121-batch release scaffold. |
 | `G07-P1-B1` | `Complete` | `node tools/goal07/verify-phase1-b1.mjs`; `cargo test -p starclock-combat --all-features --locked`; quick repository gate | Replaced AfterEvent-only dispatch with a validated phase/point matrix; added Before/start, AfterMutation, AfterDefeatSettlement, AfterAction and Boundary execution, direct observed-event cause chains, eight bounded once scopes with real turn reset, and typed fail-closed replacement proposals. |
 | `G07-P1-B2` | `Complete` | `node tools/goal07/verify-phase1-b2.mjs`; production Excel/Sora verification; combat/data tests; quick repository gate | Lowered formal selector predicates and weights; executed three reference points, seven predicate families, eight total orders, repeated uniform/weighted draws, dependency topology and four distinct empty-pool controls. Production ActionSnapshot, weighted-choice and empty-policy goldens pass. |
-| `G07-P1-B3` | `Pending` | — | Close modifier, stacking and snapshot capabilities. |
+| `G07-P1-B3` | `Complete` | `node tools/goal07/verify-phase1-b3.mjs`; openpyxl author check; production Excel/Sora verification; combat/data tests; quick repository gate | Executed five stat and sixteen formula stages with named-stage bounds, all nine deterministic stacking policies and authored strongest comparators. Damage/healing/shield operations consume formula modifiers. Initial/application/action/phase/hit and partial snapshots capture fixed domain values, fail closed and remain outside content-specific branches. |
 | `G07-P1-B4` | `Pending` | — | Close effects, state-slot, charge and lifecycle capabilities. |
 | `G07-P1-B5` | `Pending` | — | Close action, reaction, break and phase capabilities. |
 | `G07-P1-B6` | `Pending` | — | Freeze shared probes, native handlers and coverage rules. |
@@ -90,6 +90,8 @@ The milestone summary remains here for orientation.
 | 2026-07-25 | Fifty-two presentation/minigame outcomes are explicit external decisions. | Their legal result is supplied by a validated replay-recorded command; all resulting costs/effects still execute atomically. |
 | 2026-07-25 | `goal07-public-anchor-level-curve-v1` may approximate only six enemy numeric fields. | Enemy skills, AI, phases, summons, weakness/resistance, Toughness and triggers remain exact-mechanic requirements. |
 | 2026-07-25 | Historical selector expressions that require uncaptured mutable resources or current-only predicates fail catalog validation. | Event/action selectors must never silently read current state; the later effect/state-slot batch may admit such queries only after adding an explicit snapshot representation. |
+| 2026-07-25 | Formula-stage modifiers remain distinct from derived stats and are queried through one operation-local immutable view. | The view is non-authoritative and hash-excluded, while damage/healing/shield operations receive exact stage inputs without exposing the numeric backend or generated rows. |
+| 2026-07-25 | `StrongestByComparator` requires an authored expression and keeps every losing instance live. | Content-specific strength cannot be inferred from absolute modifier magnitude; canonical instance order resolves equal comparator values. |
 
 ## Terminal record
 

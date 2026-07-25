@@ -637,6 +637,38 @@ impl OrdinaryDamageMultipliers {
             self.broken,
         ]
     }
+
+    fn apply_modifier(
+        &mut self,
+        stage: crate::modifier::model::FormulaStage,
+        value: Scalar,
+    ) -> Result<(), NumericError> {
+        use crate::modifier::model::FormulaStage;
+
+        let value = Ratio::from_scaled(value.scaled());
+        let target = match stage {
+            FormulaStage::Crit => &mut self.crit,
+            FormulaStage::DamageBoost => &mut self.damage_boost,
+            FormulaStage::Weaken => {
+                self.weaken = self.weaken.checked_sub(value)?;
+                return validate_non_negative_ratio(self.weaken);
+            }
+            FormulaStage::Defense => &mut self.defense,
+            FormulaStage::Resistance => &mut self.resistance,
+            FormulaStage::Vulnerability => &mut self.vulnerability,
+            FormulaStage::Mitigation => {
+                self.mitigation = self.mitigation.checked_mul(
+                    Ratio::ONE.checked_sub(value)?,
+                    crate::Rounding::NearestTiesEven,
+                )?;
+                return validate_non_negative_ratio(self.mitigation);
+            }
+            FormulaStage::Broken => &mut self.broken,
+            _ => return Err(NumericError::OutOfDomain),
+        };
+        *target = target.checked_add(value)?;
+        validate_non_negative_ratio(*target)
+    }
 }
 
 /// Fully resolved initial ordinary-damage formula input for one target.
@@ -742,6 +774,16 @@ impl OrdinaryDamageDefinition {
     pub const fn class(self) -> crate::formula::model::DamageClass {
         self.class
     }
+
+    /// Applies one already-filtered and already-stacked formula-stage contribution.
+    pub fn with_formula_modifier(
+        mut self,
+        stage: crate::modifier::model::FormulaStage,
+        value: Scalar,
+    ) -> Result<Self, NumericError> {
+        self.multipliers.apply_modifier(stage, value)?;
+        Ok(self)
+    }
 }
 
 /// Fully resolved initial healing formula input for one target.
@@ -792,6 +834,13 @@ impl ShieldDefinition {
     #[must_use]
     pub const fn policy(self) -> crate::formula::shield::ShieldAbsorptionPolicy {
         self.policy
+    }
+
+    /// Adds an already-filtered Shield-stage contribution.
+    pub fn with_formula_modifier(mut self, value: Scalar) -> Result<Self, NumericError> {
+        self.bonus = self.bonus.checked_add(Ratio::from_scaled(value.scaled()))?;
+        validate_non_negative_ratio(self.bonus)?;
+        Ok(self)
     }
 }
 
@@ -900,6 +949,31 @@ impl HealingDefinition {
     #[must_use]
     pub const fn incoming_reduction(self) -> Ratio {
         self.incoming_reduction
+    }
+
+    /// Adds an already-filtered Healing-stage contribution for one side.
+    pub fn with_formula_modifier(
+        mut self,
+        value: Scalar,
+        outgoing: bool,
+    ) -> Result<Self, NumericError> {
+        let value = Ratio::from_scaled(value.scaled());
+        let target = if outgoing {
+            &mut self.outgoing_boost
+        } else {
+            &mut self.incoming_boost
+        };
+        *target = target.checked_add(value)?;
+        validate_non_negative_ratio(*target)?;
+        Ok(self)
+    }
+}
+
+fn validate_non_negative_ratio(value: Ratio) -> Result<(), NumericError> {
+    if value.scaled() < 0 {
+        Err(NumericError::OutOfDomain)
+    } else {
+        Ok(())
     }
 }
 

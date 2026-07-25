@@ -689,8 +689,10 @@ impl<'a> Transaction<'a> {
 
     pub(super) fn insert_modifier(
         &mut self,
-        state: crate::modifier::model::ActiveModifier,
+        catalog: &CombatCatalog,
+        mut state: crate::modifier::model::ActiveModifier,
     ) -> Result<(), BattleFault> {
+        super::modifier_snapshot::initialize(catalog, self, &mut state)?;
         let id = state.instance;
         if !self.state.modifiers.insert(state) {
             return Err(action_fault(76));

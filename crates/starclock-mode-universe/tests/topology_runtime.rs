@@ -142,8 +142,8 @@ fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state(
     assert_eq!(
         view.state_hash().bytes(),
         [
-            229, 67, 206, 13, 187, 52, 32, 94, 204, 39, 148, 245, 12, 154, 4, 191, 243, 174, 226,
-            49, 199, 146, 114, 147, 144, 111, 180, 245, 129, 209, 10, 145,
+            84, 66, 144, 52, 202, 24, 138, 212, 115, 42, 201, 158, 172, 17, 179, 98, 51, 106, 172,
+            223, 162, 210, 68, 77, 199, 92, 175, 108, 221, 84, 87, 158,
         ]
     );
     let decision = view.decision().expect("Path choice");
@@ -193,7 +193,7 @@ fn room_content_and_reward_nodes_gate_routes_without_spatial_state() {
         .expect("resolved room content hub");
     let decision = content.decision().expect("content interaction");
     assert_eq!(decision.kind(), ActivityDecisionKind::ExternalOutcome);
-    assert_eq!(decision.options().len(), 9);
+    assert_eq!(decision.options().len(), 1);
     activity
         .submit_external_outcome(
             content.state_hash(),

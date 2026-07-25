@@ -338,7 +338,7 @@ pub(super) fn execute_summon(
             active: true,
         })?;
         instantiate_rules(catalog, txn, unit, combatant.rule_bundles())?;
-        instantiate_modifiers(txn, unit, &combatant)?;
+        instantiate_modifiers(catalog, txn, unit, &combatant)?;
         parent = txn.emit(
             cause.with_parent(parent).with_primary_target(Some(unit)),
             BattleEventKind::Unit(UnitEventData::Summoned {
@@ -907,6 +907,7 @@ fn resolve_linked_combatant(
 }
 
 fn instantiate_modifiers(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     unit: UnitId,
     combatant: &crate::ResolvedCombatantSpec,
@@ -919,20 +920,23 @@ fn instantiate_modifiers(
             .map(|index| &combatant.sources()[index])
             .ok_or_else(|| action_fault(95))?;
         let instance = txn.allocate_modifier();
-        txn.insert_modifier(crate::modifier::model::ActiveModifier {
-            instance,
-            definition: binding.definition(),
-            owner: unit,
-            subject: unit,
-            source: binding.source(),
-            source_class: source.class(),
-            insertion_sequence: instance.get(),
-            application_action: None,
-            source_effect: None,
-            slots: Box::new([]),
-            captured_value: None,
-            captured_stats: Box::new([]),
-        })?;
+        txn.insert_modifier(
+            catalog,
+            crate::modifier::model::ActiveModifier {
+                instance,
+                definition: binding.definition(),
+                owner: unit,
+                subject: unit,
+                source: binding.source(),
+                source_class: source.class(),
+                insertion_sequence: instance.get(),
+                application_action: None,
+                source_effect: None,
+                slots: Box::new([]),
+                captured_value: None,
+                captured_stats: Box::new([]),
+            },
+        )?;
     }
     Ok(())
 }

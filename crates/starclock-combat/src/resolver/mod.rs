@@ -1,7 +1,9 @@
 pub(crate) mod action;
 pub(crate) mod journal;
 pub(crate) mod lifecycle;
+pub(crate) mod modifier_snapshot;
 pub(crate) mod operation;
+mod operation_formula;
 pub(crate) mod operation_resource;
 mod program;
 mod rule;

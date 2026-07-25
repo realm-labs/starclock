@@ -21,6 +21,8 @@ pub enum BattleBuildErrorKind {
     MissingModifier,
     /// A selected modifier lacks its exact resolved generic source.
     MissingModifierSource,
+    /// An initial modifier snapshot cannot be captured from the resolved state.
+    InvalidModifierSnapshot,
     /// An encounter enemy source does not exist.
     MissingEnemy,
     /// Player/enemy source kind does not match the formation side.
@@ -53,6 +55,14 @@ impl BattleBuildError {
             kind,
             participant_index: participant_index.and_then(|value| u32::try_from(value).ok()),
             definition_id,
+        }
+    }
+
+    pub(crate) const fn invalid_modifier_snapshot(definition_id: u32) -> Self {
+        Self {
+            kind: BattleBuildErrorKind::InvalidModifierSnapshot,
+            participant_index: None,
+            definition_id: Some(definition_id),
         }
     }
 

@@ -108,6 +108,13 @@ pub struct StatQuery {
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct FormulaModifierQuery {
+    pub subject: UnitId,
+    pub stage: FormulaStage,
+    pub purpose: FormulaPurpose,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum LifeFilter {
     Any,
     Alive,
@@ -142,6 +149,7 @@ pub enum ModifierFilter {
 pub struct ModifierStackingGroup {
     pub id: ModifierStackingGroupId,
     pub aggregation: ModifierAggregation,
+    pub comparator: Option<ValueExpr>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

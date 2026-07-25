@@ -167,6 +167,11 @@ pub(super) fn execute_action_plan(
         &mut HitOperationScratch::default(),
     )?;
     parent = apply_resource_costs(txn, base, parent, plan)?;
+    super::modifier_snapshot::refresh(
+        catalog,
+        txn,
+        crate::modifier::model::SnapshotPolicy::OnActionStart,
+    )?;
     txn.reset_rule_slots(
         crate::rule::model::SlotResetPoint::ActionStart,
         Some(plan.actor),
@@ -196,6 +201,11 @@ pub(super) fn execute_action_plan(
     let phases = plan.phases.clone();
     for phase in &phases {
         let phase_cause = base.with_phase(phase.id);
+        super::modifier_snapshot::refresh(
+            catalog,
+            txn,
+            crate::modifier::model::SnapshotPolicy::OnPhaseStart,
+        )?;
         parent = txn.emit(
             phase_cause.with_parent(parent),
             BattleEventKind::Phase(PhaseEventData::Started {
@@ -214,6 +224,11 @@ pub(super) fn execute_action_plan(
             let selected = txn.resolve_hit_targets(plan.actor, &mut plan.targets)?;
             let targets =
                 project_hit_targets(txn, plan.actor, &plan.targets, hit.target_group, selected)?;
+            super::modifier_snapshot::refresh(
+                catalog,
+                txn,
+                crate::modifier::model::SnapshotPolicy::OnHitStart,
+            )?;
             let hit_cause = phase_cause
                 .with_hit(hit.id)
                 .with_primary_target(plan.targets.primary);

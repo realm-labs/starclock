@@ -39,6 +39,10 @@ pub(super) fn convert(config: &SoraConfig) -> Result<ModifierRegistry, CatalogLo
             Ok(ModifierStackingGroup {
                 id: group_id(row.id)?,
                 aggregation: aggregation(row.aggregation),
+                comparator: row
+                    .comparator_expression_id
+                    .map(|id| expression(config, id, &mut BTreeSet::new()))
+                    .transpose()?,
             })
         })
         .collect::<Result<Vec<_>, CatalogLoadError>>()?;

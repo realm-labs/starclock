@@ -4,9 +4,9 @@ use starclock_combat::{
     ModifierDefinitionId, ModifierInstanceId, ModifierStackingGroupId, Scalar, SourceDefinitionId,
     StateSlotDefinitionId, UnitId,
     modifier::model::{
-        ActiveModifier, FormulaPurpose, FormulaStage, ModifierAggregation, ModifierDefinition,
-        ModifierFilter, ModifierQueryContext, ModifierStackingGroup, SnapshotPolicy, StatKind,
-        StatQuery, StatQuerySubject,
+        ActiveModifier, FormulaModifierQuery, FormulaPurpose, FormulaStage, ModifierAggregation,
+        ModifierDefinition, ModifierFilter, ModifierQueryContext, ModifierStackingGroup,
+        SnapshotPolicy, StatKind, StatQuery, StatQuerySubject,
     },
     modifier::registry::ModifierRegistry,
     modifier::resolve::{ModifierQueryError, StatResolver},
@@ -56,17 +56,56 @@ fn full_stat_pipeline_applies_groups_filters_and_stage_cap() {
 }
 
 #[test]
-fn uncapped_damage_pipeline_modifiers_are_valid_registry_definitions() {
-    let definition = definition(
+fn damage_pipeline_modifiers_execute_group_aggregation_and_stage_cap() {
+    let subject = unit(1);
+    let mut first = definition(
         1,
         1,
         FormulaStage::DamageBoost,
-        literal(Scalar::from_scaled(320_000)),
+        literal(Scalar::from_scaled(200_000)),
     );
+    first.purpose = FormulaPurpose::OrdinaryDamage;
+    first.cap = Some(Scalar::from_scaled(300_000));
+    let mut second = first.clone();
+    second.id = ModifierDefinitionId::new(2).unwrap();
+    let registry = ModifierRegistry::new(
+        vec![group(1, ModifierAggregation::Sum)],
+        vec![first, second],
+    )
+    .expect("damage-stage modifiers and bounds are valid");
+    let instances = vec![instance(1, 1, subject, 1), instance(2, 2, subject, 2)];
+    let actual = StatResolver::new(&registry, &BTreeMap::new(), &instances)
+        .query_formula(
+            FormulaModifierQuery {
+                subject,
+                stage: FormulaStage::DamageBoost,
+                purpose: FormulaPurpose::OrdinaryDamage,
+            },
+            &ModifierQueryContext::default(),
+        )
+        .unwrap();
+    assert_eq!(actual, Scalar::from_scaled(300_000));
+}
+
+#[test]
+fn a_later_stat_stage_applies_one_intersected_bound() {
+    let subject = unit(1);
+    let mut definition = definition(1, 1, FormulaStage::BaseAdd, literal(scalar(50)));
+    definition.cap = Some(scalar(120));
+    definition.cap_stage = FormulaStage::Flat;
     let registry =
-        ModifierRegistry::new(vec![group(1, ModifierAggregation::Sum)], vec![definition])
-            .expect("uncapped damage-stage modifiers are valid");
-    assert_eq!(registry.len(), 1);
+        ModifierRegistry::new(vec![group(1, ModifierAggregation::Sum)], vec![definition]).unwrap();
+    let actual = StatResolver::new(
+        &registry,
+        &BTreeMap::from([((subject, StatKind::Atk), scalar(100))]),
+        &[instance(1, 1, subject, 1)],
+    )
+    .query(
+        stat_query(subject, StatKind::Atk),
+        &ModifierQueryContext::default(),
+    )
+    .unwrap();
+    assert_eq!(actual, scalar(120));
 }
 
 #[test]
@@ -109,6 +148,50 @@ fn every_stacking_policy_has_a_stable_result() {
             .unwrap();
         assert_eq!(actual, scalar(expected), "policy {policy:?}");
     }
+}
+
+#[test]
+fn strongest_comparator_is_authored_and_weaker_instance_remains_available() {
+    let subject = unit(1);
+    let value_slot = StateSlotDefinitionId::new(1).unwrap();
+    let comparator_slot = StateSlotDefinitionId::new(2).unwrap();
+    let registry = ModifierRegistry::new(
+        vec![ModifierStackingGroup {
+            id: ModifierStackingGroupId::new(1).unwrap(),
+            aggregation: ModifierAggregation::StrongestByComparator,
+            comparator: Some(ValueExpr::Slot(comparator_slot)),
+        }],
+        vec![definition(
+            1,
+            1,
+            FormulaStage::Flat,
+            ValueExpr::Slot(value_slot),
+        )],
+    )
+    .unwrap();
+    let mut stronger = instance(1, 1, subject, 1);
+    stronger.slots = vec![
+        (value_slot, RuleValue::Integer(10)),
+        (comparator_slot, RuleValue::Integer(5)),
+    ]
+    .into_boxed_slice();
+    let mut weaker = instance(2, 1, subject, 2);
+    weaker.slots = vec![
+        (value_slot, RuleValue::Integer(20)),
+        (comparator_slot, RuleValue::Integer(3)),
+    ]
+    .into_boxed_slice();
+    let bases = BTreeMap::from([((subject, StatKind::Atk), Scalar::ZERO)]);
+    let resolve = |instances: &[ActiveModifier]| {
+        StatResolver::new(&registry, &bases, instances)
+            .query(
+                stat_query(subject, StatKind::Atk),
+                &ModifierQueryContext::default(),
+            )
+            .unwrap()
+    };
+    assert_eq!(resolve(&[stronger, weaker.clone()]), scalar(10));
+    assert_eq!(resolve(&[weaker]), scalar(20));
 }
 
 #[test]
@@ -255,6 +338,8 @@ fn group(id: u32, aggregation: ModifierAggregation) -> ModifierStackingGroup {
     ModifierStackingGroup {
         id: ModifierStackingGroupId::new(id).unwrap(),
         aggregation,
+        comparator: (aggregation == ModifierAggregation::StrongestByComparator)
+            .then(|| ValueExpr::Slot(StateSlotDefinitionId::new(1).unwrap())),
     }
 }
 fn instance(id: u64, definition: u32, subject: UnitId, sequence: u64) -> ActiveModifier {

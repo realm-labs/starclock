@@ -4,8 +4,9 @@ use starclock_combat::{
     AssemblyDigest, Battle, BattleEventKind, BattlePhase, BattleSeed, BattleSpec,
     CombatantSpecDigest, Command, CommandErrorKind, ConcedePolicy, EncounterWaveId, FormationIndex,
     Hp, LifeState, ParticipantSource, ParticipantSpec, PresenceState, Ratio, ResolvedCombatantSpec,
-    ResolvedDefinitionBindings, Scalar, Speed, StatValue, TeamResourceSpec, TeamSide,
-    ToughnessLayerKind, ToughnessLayerSpec, ToughnessReductionDefinition, UnitLevel,
+    ResolvedDefinitionBindings, ResolvedModifierBinding, Scalar, Speed, StatValue,
+    TeamResourceSpec, TeamSide, ToughnessLayerKind, ToughnessLayerSpec,
+    ToughnessReductionDefinition, UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -29,6 +30,11 @@ use starclock_combat::{
             BreakDamageDefinition, EnemyRank, SuperBreakDefinition, ToughnessReductionContext,
         },
     },
+    modifier::model::{
+        FormulaPurpose, FormulaStage, ModifierAggregation, ModifierDefinition,
+        ModifierStackingGroup, SnapshotPolicy, StatKind,
+    },
+    rule::model::{RuleSource, RuleValue, SourceClass, ValueExpr},
 };
 
 fn definition<I: TryFrom<u32>>(raw: u32) -> I
@@ -85,6 +91,33 @@ fn catalog(waves: u16) -> Arc<CombatCatalog> {
 
 fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<CombatCatalog> {
     let mut builder = CombatCatalogBuilder::new("damage-lifecycle-v1", [0x91; 32]);
+    builder.add_modifier_group(ModifierStackingGroup {
+        id: definition(1),
+        aggregation: ModifierAggregation::Sum,
+        comparator: None,
+    });
+    for (id, value, snapshot) in [
+        (1, 100_000, SnapshotPolicy::OnActionStart),
+        (2, 200_000, SnapshotPolicy::OnPhaseStart),
+        (3, 300_000, SnapshotPolicy::OnHitStart),
+        (4, 400_000, SnapshotPolicy::OnApplication),
+        (5, 500_000, SnapshotPolicy::RecomputeOnStackChange),
+    ] {
+        builder.add_modifier(ModifierDefinition {
+            id: definition(id),
+            stat: StatKind::Atk,
+            stage: FormulaStage::DamageBoost,
+            purpose: FormulaPurpose::OrdinaryDamage,
+            value: ValueExpr::Literal(RuleValue::Scalar(Scalar::from_scaled(value))),
+            stacking_group: definition(1),
+            priority: 0,
+            floor: None,
+            cap: None,
+            cap_stage: FormulaStage::DamageBoost,
+            snapshot,
+            filters: Box::new([]),
+        });
+    }
     for (raw, relation) in [
         (1, TargetRelation::SelfUnit),
         (2, TargetRelation::Opposing),
@@ -322,6 +355,47 @@ fn combatant(
     .unwrap()
 }
 
+fn combatant_with_formula_modifier() -> ResolvedCombatantSpec {
+    let source = definition(90);
+    ResolvedCombatantSpec::new(
+        definition(1),
+        UnitLevel::new(80).unwrap(),
+        Hp::new(1_000).unwrap(),
+        Speed::from_scaled(1_000_000_000).unwrap(),
+        ResolvedDefinitionBindings::new(
+            vec![definition(6)],
+            vec![],
+            vec![
+                definition(1),
+                definition(2),
+                definition(3),
+                definition(4),
+                definition(5),
+            ],
+        )
+        .unwrap(),
+        CombatantSpecDigest::new([0x79; 32]).unwrap(),
+    )
+    .unwrap()
+    .with_base_attack_defense(
+        StatValue::from_scaled(2_000_000_000).unwrap(),
+        StatValue::from_scaled(0).unwrap(),
+    )
+    .with_sources(vec![RuleSource::new(
+        source,
+        SourceClass::Progression,
+        vec![],
+        [0x77; 32],
+    )])
+    .unwrap()
+    .with_modifier_bindings(
+        [1, 2, 3, 4, 5]
+            .map(|id| ResolvedModifierBinding::new(definition(id), source))
+            .to_vec(),
+    )
+    .unwrap()
+}
+
 fn battle(waves: u16, player_speed: i64, enemy_speed: i64) -> Battle {
     battle_with_policy(
         waves,
@@ -548,6 +622,47 @@ fn scaling_hit_damage_resolves_the_actors_live_stat() {
         .expect("scaling operation must emit damage");
     assert_eq!(damage.raw.scaled(), 1_000_000_000);
     assert_eq!(damage.calculated.get(), 1_000);
+}
+
+#[test]
+fn application_action_phase_hit_and_stack_snapshots_change_damage() {
+    let player = combatant_with_formula_modifier();
+    let enemy = combatant(2, vec![3], 2_000, 1_000_000, 0x41);
+    let spec = BattleSpec::new(
+        "formula-modifier-damage-v1",
+        AssemblyDigest::new([0x51; 32]).unwrap(),
+        definition(1),
+        vec![
+            ParticipantSpec::new(
+                TeamSide::Player,
+                FormationIndex::new(0).unwrap(),
+                ParticipantSource::Player,
+                player,
+            ),
+            ParticipantSpec::new(
+                TeamSide::Enemy,
+                FormationIndex::new(4).unwrap(),
+                ParticipantSource::EncounterEnemy(definition(1)),
+                enemy,
+            ),
+        ],
+        TeamResourceSpec::new(0, 5).unwrap(),
+        TeamResourceSpec::new(0, 0).unwrap(),
+        ConcedePolicy::Allowed,
+    )
+    .unwrap();
+    let mut battle = Battle::create(catalog(1), spec, BattleSeed::new([0x7A; 32])).unwrap();
+    start_and_pass(&mut battle);
+    let resolution = use_ability(&mut battle, 6);
+    let damage = resolution
+        .events()
+        .iter()
+        .find_map(|event| match event.kind() {
+            BattleEventKind::Damage(data) => Some(data.calculated),
+            _ => None,
+        })
+        .unwrap_or_else(|| panic!("damage event missing: {:?}", resolution.events()));
+    assert_eq!(damage.get(), 2_500);
 }
 
 #[test]

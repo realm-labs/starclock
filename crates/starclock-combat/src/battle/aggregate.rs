@@ -234,7 +234,7 @@ impl Battle {
                 }
             }
         }
-        let state = BattleState {
+        let mut state = BattleState {
             identity: BattleIdentity {
                 catalog_revision: catalog.revision().clone(),
                 catalog_digest: catalog.digest(),
@@ -275,6 +275,8 @@ impl Battle {
             sequences,
             committed_revision: 0,
         };
+        crate::resolver::modifier_snapshot::initialize_battle(&catalog, &mut state)
+            .map_err(super::build::BattleBuildError::invalid_modifier_snapshot)?;
         Ok(Self {
             _catalog: catalog,
             state,

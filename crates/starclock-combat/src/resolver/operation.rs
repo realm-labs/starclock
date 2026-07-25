@@ -1,3 +1,4 @@
+use super::transaction::Transaction;
 use crate::{
     DamageAmount, HealingAmount, Hp, LifeState,
     battle::fault::BattleFault,
@@ -16,11 +17,7 @@ use crate::{
         HitOperationScratch, Operation, ReduceToughnessOp, RemoveEffectsOp, ShieldOp, SuperBreakOp,
     },
 };
-
-use super::transaction::Transaction;
-
-mod fault;
-
+pub(super) mod fault;
 use fault::{invariant_fault, numeric_fault};
 
 pub(super) fn execute_operation(
@@ -33,9 +30,9 @@ pub(super) fn execute_operation(
 ) -> Result<EventId, BattleFault> {
     txn.snapshot(operation.id());
     match operation {
-        Operation::Damage(operation) => execute_damage(txn, cause, parent, operation),
-        Operation::Heal(operation) => execute_heal(txn, cause, parent, operation),
-        Operation::Shield(operation) => execute_shield(txn, cause, parent, operation),
+        Operation::Damage(operation) => execute_damage(catalog, txn, cause, parent, operation),
+        Operation::Heal(operation) => execute_heal(catalog, txn, cause, parent, operation),
+        Operation::Shield(operation) => execute_shield(catalog, txn, cause, parent, operation),
         Operation::ConsumeHp(operation) => execute_hp_consumption(txn, cause, parent, operation),
         Operation::AddWeakness(operation) => execute_add_weakness(txn, cause, parent, operation),
         Operation::ReduceToughness(operation) => {
@@ -92,7 +89,6 @@ pub(super) fn execute_operation(
         }
     }
 }
-
 fn execute_add_weakness(
     txn: &mut Transaction<'_>,
     cause: Cause,
@@ -685,14 +681,22 @@ fn advance_effect_clock(
 }
 
 fn execute_damage(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
     operation: DamageOp,
 ) -> Result<EventId, BattleFault> {
-    let calculation = formula::ordinary_damage(operation.formula)
-        .map_err(|_| numeric_fault(1, operation.formula.base_damage().scaled()))?;
+    let inputs = super::operation_formula::FormulaInputs::new(txn)?;
     for target in operation.targets {
+        let calculation = inputs.damage(
+            catalog,
+            txn,
+            cause,
+            operation.formula,
+            operation.element,
+            target,
+        )?;
         parent = apply_ordinary_damage(
             txn,
             cause,
@@ -984,20 +988,23 @@ fn instantiate_effect_attachments(
         .ok_or_else(|| invariant_fault(39))?;
     for modifier in definition.modifiers() {
         let instance = txn.allocate_modifier();
-        txn.insert_modifier(crate::modifier::model::ActiveModifier {
-            instance,
-            definition: *modifier,
-            owner: state.applier,
-            subject: state.target,
-            source: state.source_definition,
-            source_class: crate::rule::model::SourceClass::Effect,
-            insertion_sequence: instance.get(),
-            application_action: None,
-            source_effect: Some(effect),
-            slots: Box::new([]),
-            captured_value: None,
-            captured_stats: Box::new([]),
-        })?;
+        txn.insert_modifier(
+            catalog,
+            crate::modifier::model::ActiveModifier {
+                instance,
+                definition: *modifier,
+                owner: state.applier,
+                subject: state.target,
+                source: state.source_definition,
+                source_class: crate::rule::model::SourceClass::Effect,
+                insertion_sequence: instance.get(),
+                application_action: None,
+                source_effect: Some(effect),
+                slots: Box::new([]),
+                captured_value: None,
+                captured_stats: Box::new([]),
+            },
+        )?;
     }
     for rule in definition.rules() {
         let runtime = catalog
@@ -1071,23 +1078,15 @@ fn execute_detonate_dots(
 }
 
 fn execute_shield(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
     operation: ShieldOp,
 ) -> Result<EventId, BattleFault> {
-    let context = formula::model::ShieldContext {
-        scaling_terms: vec![formula::model::ScalingTerm {
-            stat: operation.formula.base_shield(),
-            ratio: crate::Ratio::ONE,
-        }]
-        .into_boxed_slice(),
-        additive_base: crate::Scalar::ZERO,
-        bonuses: vec![operation.formula.bonus()].into_boxed_slice(),
-    };
-    let calculation = formula::shield::calculate(&context)
-        .map_err(|_| numeric_fault(9, operation.formula.base_shield().scaled()))?;
+    let inputs = super::operation_formula::FormulaInputs::new(txn)?;
     for target in operation.targets {
+        let calculation = inputs.shield(catalog, txn, cause, operation.formula, target)?;
         let shield = txn.allocate_shield();
         txn.state
             .shields
@@ -1154,14 +1153,15 @@ fn execute_hp_consumption(
 }
 
 fn execute_heal(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
     operation: HealOp,
 ) -> Result<EventId, BattleFault> {
-    let calculation = formula::healing(operation.formula)
-        .map_err(|_| numeric_fault(4, operation.formula.base_healing().scaled()))?;
+    let inputs = super::operation_formula::FormulaInputs::new(txn)?;
     for target in operation.targets {
+        let calculation = inputs.healing(catalog, txn, cause, operation.formula, target)?;
         let (hp_before, maximum_hp, life) = txn
             .state
             .units

@@ -328,6 +328,7 @@ fn catalog_with_trigger(
         builder.add_modifier_group(ModifierStackingGroup {
             id: id(1),
             aggregation: ModifierAggregation::Sum,
+            comparator: None,
         });
         builder.add_modifier(ModifierDefinition {
             id: id(1),

@@ -1086,6 +1086,7 @@ mod tests {
             builder.add_modifier_group(ModifierStackingGroup {
                 id: ModifierStackingGroupId::new(raw).unwrap(),
                 aggregation: ModifierAggregation::Sum,
+                comparator: None,
             });
             builder.add_modifier(ModifierDefinition {
                 id: modifier(raw),

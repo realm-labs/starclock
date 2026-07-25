@@ -528,6 +528,7 @@ fn modifier_binding(
         group: ModifierStackingGroup {
             id: group_id,
             aggregation: ModifierAggregation::ReplaceGroup,
+            comparator: None,
         },
         definition: ModifierDefinition {
             id: definition_id,

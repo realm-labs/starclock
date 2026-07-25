@@ -317,6 +317,7 @@ fn combat_catalog() -> Arc<CombatCatalog> {
         builder.add_modifier_group(ModifierStackingGroup {
             id: definition(raw),
             aggregation: ModifierAggregation::Sum,
+            comparator: None,
         });
         builder.add_modifier(ModifierDefinition {
             id: modifier(raw),

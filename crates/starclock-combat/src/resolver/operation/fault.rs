@@ -1,6 +1,6 @@
 use crate::battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy};
 
-pub(super) fn numeric_fault(context: u32, value: i64) -> BattleFault {
+pub(crate) fn numeric_fault(context: u32, value: i64) -> BattleFault {
     BattleFault::new(
         FaultKind::Numeric,
         FaultBoundary::Command,
@@ -10,7 +10,7 @@ pub(super) fn numeric_fault(context: u32, value: i64) -> BattleFault {
     )
 }
 
-pub(super) fn invariant_fault(context: u32) -> BattleFault {
+pub(crate) fn invariant_fault(context: u32) -> BattleFault {
     BattleFault::new(
         FaultKind::InvariantViolation,
         FaultBoundary::Command,

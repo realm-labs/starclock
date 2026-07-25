@@ -29,6 +29,16 @@ impl ModifierRegistry {
     ) -> Result<Self, ModifierRegistryError> {
         let groups = collect_unique(groups, |value| value.id, "stacking group")?;
         let definitions = collect_unique(definitions, |value| value.id, "modifier")?;
+        for group in groups.values() {
+            let requires_comparator =
+                group.aggregation == super::model::ModifierAggregation::StrongestByComparator;
+            if requires_comparator != group.comparator.is_some() {
+                return Err(error(format!(
+                    "modifier stacking group {} has an invalid comparator contract",
+                    group.id.get()
+                )));
+            }
+        }
         for definition in definitions.values() {
             if !groups.contains_key(&definition.stacking_group) {
                 return Err(error(format!(
@@ -118,13 +128,19 @@ fn collect_unique<K: Ord + Copy, V>(
 
 fn valid_cap_stage(stage: FormulaStage, cap_stage: FormulaStage) -> bool {
     use FormulaStage::{BaseAdd, FinalAdd, FinalMultiply, Flat, PercentOfBase};
-    matches!(
+    let stat_stage = matches!(
         stage,
         BaseAdd | PercentOfBase | Flat | FinalAdd | FinalMultiply
-    ) && matches!(
+    );
+    let stat_cap = matches!(
         cap_stage,
         BaseAdd | PercentOfBase | Flat | FinalAdd | FinalMultiply
-    ) && cap_stage >= stage
+    );
+    if stat_stage {
+        stat_cap && cap_stage >= stage
+    } else {
+        stage == cap_stage
+    }
 }
 
 fn canonical_filters(definition: &ModifierDefinition) -> bool {

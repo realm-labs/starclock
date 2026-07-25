@@ -11,9 +11,9 @@ use crate::{
 };
 
 use super::model::{
-    ActiveModifier, FormulaPurpose, FormulaStage, LifeFilter, ModifierAggregation,
-    ModifierDefinition, ModifierFilter, ModifierQueryContext, PresenceFilter, SnapshotPolicy,
-    StatKind, StatQuery,
+    ActiveModifier, FormulaModifierQuery, FormulaPurpose, FormulaStage, LifeFilter,
+    ModifierAggregation, ModifierDefinition, ModifierFilter, ModifierQueryContext, PresenceFilter,
+    SnapshotPolicy, StatKind, StatQuery,
 };
 use super::registry::ModifierRegistry;
 
@@ -84,6 +84,64 @@ impl<'a> StatResolver<'a> {
     ) -> Result<Scalar, ModifierQueryError> {
         *self.context.borrow_mut() = context.clone();
         self.resolve(query, context)
+    }
+
+    /// Resolves one non-stat formula stage for one explicitly selected subject.
+    pub fn query_formula(
+        &self,
+        query: FormulaModifierQuery,
+        context: &ModifierQueryContext,
+    ) -> Result<Scalar, ModifierQueryError> {
+        *self.context.borrow_mut() = context.clone();
+        let mut groups = BTreeMap::<_, Vec<_>>::new();
+        for instance in self.instances {
+            let definition = self
+                .registry
+                .definition(instance.definition)
+                .ok_or(ModifierQueryError::MissingDefinition(instance.instance))?;
+            if instance.subject == query.subject
+                && definition.stage == query.stage
+                && definition.purpose == query.purpose
+                && matches_filters(definition, instance, context)
+            {
+                let value = self.value(instance, definition, context)?;
+                groups
+                    .entry(definition.stacking_group)
+                    .or_default()
+                    .push((instance, definition, value));
+            }
+        }
+        let mut group_values = Vec::with_capacity(groups.len());
+        for (group_id, mut values) in groups {
+            sort_group(&mut values);
+            let group = self
+                .registry
+                .group(group_id)
+                .expect("registry checked group");
+            group_values.push(self.aggregate_group(group, &values)?);
+        }
+        let value = sum(group_values.into_iter())?;
+        apply_bounds(
+            value,
+            self.instances.iter().filter_map(|instance| {
+                let definition = self.registry.definition(instance.definition)?;
+                (instance.subject == query.subject
+                    && definition.stage == query.stage
+                    && definition.purpose == query.purpose
+                    && definition.cap_stage == query.stage
+                    && matches_filters(definition, instance, context))
+                .then_some(definition)
+            }),
+        )
+    }
+
+    /// Evaluates one modifier expression against current inputs for snapshot capture.
+    pub(crate) fn capture_value(
+        &self,
+        instance: &ActiveModifier,
+        definition: &ModifierDefinition,
+    ) -> Result<Scalar, ModifierQueryError> {
+        self.evaluate_expression(instance, &definition.value, SnapshotPolicy::Dynamic)
     }
 
     fn resolve(
@@ -157,20 +215,12 @@ impl<'a> StatResolver<'a> {
             }
             let mut stage_values = Vec::new();
             for (group_id, mut values) in groups {
-                values.sort_by_key(|(instance, definition, _)| {
-                    (
-                        definition.priority,
-                        instance.source,
-                        instance.insertion_sequence,
-                        instance.instance,
-                    )
-                });
-                let policy = self
+                sort_group(&mut values);
+                let group = self
                     .registry
                     .group(group_id)
-                    .expect("registry checked group")
-                    .aggregation;
-                stage_values.push(aggregate(policy, &values)?);
+                    .expect("registry checked group");
+                stage_values.push(self.aggregate_group(group, &values)?);
             }
             let combined = combine_stage(stage, &stage_values)?;
             result = match stage {
@@ -189,18 +239,19 @@ impl<'a> StatResolver<'a> {
                 _ => unreachable!(),
             }
             .map_err(|_| ModifierQueryError::Numeric)?;
-            for (_, definition, _) in
-                groups_for_bounds(self.instances, self.registry, query, stage, context)
-            {
-                if definition.cap_stage == stage {
-                    if let Some(floor) = definition.floor {
-                        result = result.max(floor);
-                    }
-                    if let Some(cap) = definition.cap {
-                        result = result.min(cap);
-                    }
-                }
-            }
+            result = apply_bounds(
+                result,
+                self.instances.iter().filter_map(|instance| {
+                    let definition = self.registry.definition(instance.definition)?;
+                    (instance.subject == query.subject
+                        && definition.stat == query.stat
+                        && definition.purpose == query.purpose
+                        && definition.stage <= stage
+                        && definition.cap_stage == stage
+                        && matches_filters(definition, instance, context))
+                    .then_some(definition)
+                }),
+            )?;
         }
         Ok(result)
     }
@@ -226,12 +277,21 @@ impl<'a> StatResolver<'a> {
             | SnapshotPolicy::SourceDynamicTargetSnapshot
             | SnapshotPolicy::ExplicitFields => {}
         }
+        self.evaluate_expression(instance, &definition.value, definition.snapshot)
+    }
+
+    fn evaluate_expression(
+        &self,
+        instance: &ActiveModifier,
+        expression: &crate::rule::model::ValueExpr,
+        policy: SnapshotPolicy,
+    ) -> Result<Scalar, ModifierQueryError> {
         let snapshot_reader = SnapshotReader {
             resolver: self,
             instance,
-            policy: definition.snapshot,
+            policy,
         };
-        let reader: &dyn StatQueryReader = if definition.snapshot == SnapshotPolicy::Dynamic {
+        let reader: &dyn StatQueryReader = if policy == SnapshotPolicy::Dynamic {
             self
         } else {
             &snapshot_reader
@@ -250,7 +310,7 @@ impl<'a> StatResolver<'a> {
                 phase: None,
                 hit: None,
                 owner: Some(instance.owner),
-                actor: None,
+                actor: Some(instance.owner),
                 applier: Some(instance.owner),
                 target: Some(instance.subject),
                 source: Some(instance.source),
@@ -273,7 +333,7 @@ impl<'a> StatResolver<'a> {
             resource_reader: None,
             battle_query_reader: None,
         };
-        let value = evaluate_value(&definition.value, input, Some(instance.subject));
+        let value = evaluate_value(expression, input, Some(instance.subject));
         if let Some(error) = self.deferred_error.borrow_mut().take() {
             return Err(error);
         }
@@ -284,6 +344,28 @@ impl<'a> StatResolver<'a> {
             }
             _ => Err(ModifierQueryError::InvalidValue(instance.instance)),
         }
+    }
+
+    fn aggregate_group(
+        &self,
+        group: &super::model::ModifierStackingGroup,
+        values: &[(&ActiveModifier, &ModifierDefinition, Scalar)],
+    ) -> Result<Scalar, ModifierQueryError> {
+        if group.aggregation != ModifierAggregation::StrongestByComparator {
+            return aggregate(group.aggregation, values);
+        }
+        let comparator = group
+            .comparator
+            .as_ref()
+            .expect("registry checked comparator");
+        let mut winner = None::<(Scalar, usize)>;
+        for (index, (instance, definition, _)) in values.iter().enumerate() {
+            let key = self.evaluate_expression(instance, comparator, definition.snapshot)?;
+            if winner.is_none_or(|current| (key, index) > current) {
+                winner = Some((key, index));
+            }
+        }
+        Ok(values[winner.expect("nonempty").1].2)
     }
 }
 
@@ -376,11 +458,7 @@ fn aggregate(
         Minimum => Ok(values.iter().map(|value| value.2).min().expect("nonempty")),
         Latest | ReplaceGroup => Ok(values.last().expect("nonempty").2),
         Earliest => Ok(values.first().expect("nonempty").2),
-        StrongestByComparator => Ok(values
-            .iter()
-            .max_by_key(|value| (value.2.scaled().unsigned_abs(), value.0.instance))
-            .expect("nonempty")
-            .2),
+        StrongestByComparator => unreachable!("resolved through the authored comparator"),
         UniquePerSource => {
             let mut per_source = BTreeMap::new();
             for value in values {
@@ -389,6 +467,17 @@ fn aggregate(
             sum(per_source.into_values())
         }
     }
+}
+
+fn sort_group(values: &mut [(&ActiveModifier, &ModifierDefinition, Scalar)]) {
+    values.sort_by_key(|(instance, definition, _)| {
+        (
+            definition.priority,
+            instance.source,
+            instance.insertion_sequence,
+            instance.instance,
+        )
+    });
 }
 
 fn sum(mut values: impl Iterator<Item = Scalar>) -> Result<Scalar, ModifierQueryError> {
@@ -413,22 +502,31 @@ fn combine_stage(stage: FormulaStage, values: &[Scalar]) -> Result<Scalar, Modif
     }
 }
 
-fn groups_for_bounds<'a>(
-    instances: &'a [ActiveModifier],
-    registry: &'a ModifierRegistry,
-    query: StatQuery,
-    stage: FormulaStage,
-    context: &'a ModifierQueryContext,
-) -> impl Iterator<Item = (&'a ActiveModifier, &'a ModifierDefinition, ())> {
-    instances.iter().filter_map(move |instance| {
-        let definition = registry.definition(instance.definition)?;
-        (instance.subject == query.subject
-            && definition.stat == query.stat
-            && definition.purpose == query.purpose
-            && definition.stage == stage
-            && matches_filters(definition, instance, context))
-        .then_some((instance, definition, ()))
-    })
+fn apply_bounds<'a>(
+    value: Scalar,
+    definitions: impl Iterator<Item = &'a ModifierDefinition>,
+) -> Result<Scalar, ModifierQueryError> {
+    let mut floor = None::<Scalar>;
+    let mut cap = None::<Scalar>;
+    for definition in definitions {
+        if let Some(value) = definition.floor {
+            floor = Some(floor.map_or(value, |current| current.max(value)));
+        }
+        if let Some(value) = definition.cap {
+            cap = Some(cap.map_or(value, |current| current.min(value)));
+        }
+    }
+    if floor.zip(cap).is_some_and(|(floor, cap)| floor > cap) {
+        return Err(ModifierQueryError::Numeric);
+    }
+    let mut bounded = value;
+    if let Some(floor) = floor {
+        bounded = bounded.max(floor);
+    }
+    if let Some(cap) = cap {
+        bounded = bounded.min(cap);
+    }
+    Ok(bounded)
 }
 
 fn matches_filters(

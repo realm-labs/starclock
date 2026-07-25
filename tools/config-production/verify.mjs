@@ -112,7 +112,7 @@ function verifyGeneratedOutput(directory) {
     Character: 88, CharacterStat: 7568, CharacterResource: 46,
     CharacterAbilityBinding: 583, TraceNode: 1618, TracePatch: 894, Eidolon: 528, EidolonPatch: 412,
     Effect: 4, EffectGrantedAbility: 3, EffectModifierBinding: 1, ModifierDefinition: 1556,
-    ModifierStackingGroup: 24, ModifierFilter: 151,
+    ModifierStackingGroup: 25, ModifierFilter: 151,
     CountdownDefinition: 1, LinkedUnitDefinition: 1,
     Operation: 30, Program: 14, ProgramStep: 35, RuleDefinition: 168, RuleSourceTag: 0, Selector: 62,
     StateSlot: 3, ValueExpression: 1596, LightCone: 165, LightConeStat: 14190,

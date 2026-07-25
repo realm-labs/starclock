@@ -20,6 +20,10 @@ impl ModifierStore {
         self.entries.values()
     }
 
+    pub(crate) fn get_mut(&mut self, id: ModifierInstanceId) -> Option<&mut ActiveModifier> {
+        self.entries.get_mut(&id)
+    }
+
     pub(crate) fn canonical_instances(&self) -> impl ExactSizeIterator<Item = &ActiveModifier> {
         self.entries.values()
     }

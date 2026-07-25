@@ -8,6 +8,8 @@ const REPRESENTATIVE_BUNDLE: &[u8] =
 mod character_partition_tests;
 #[path = "catalog_light_cone_tests.rs"]
 mod light_cone_tests;
+#[path = "catalog_modifier_tests.rs"]
+mod modifier_tests;
 
 #[test]
 fn production_bundle_builds_standard_v1_and_representative_characters() {
