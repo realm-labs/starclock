@@ -9,6 +9,18 @@ assert(policy.schema_revision === "starclock.native-handler-audit.v1", "unsuppor
 assert(policy.registry_revision === "native-registry-v1", "unexpected native-handler registry revision");
 assert(Array.isArray(policy.admitted_handlers), "admitted_handlers must be an array");
 assert(Array.isArray(policy.v1a_reviews), "v1a_reviews must be an array");
+const goal07Admission = policy.goal07_admission_contract;
+assert(goal07Admission && Number.isInteger(goal07Admission.current_admitted_handlers),
+  "Goal 07 native-handler admission contract is missing");
+assert(goal07Admission.current_admitted_handlers === policy.admitted_handlers.length,
+  "Goal 07 admitted-handler denominator differs");
+assert(goal07Admission.maximum_new_handlers_per_partition === 1,
+  "Goal 07 native-handler partition cap differs");
+assert(Array.isArray(goal07Admission.required_fields)
+  && new Set(goal07Admission.required_fields).size === 11,
+"Goal 07 native-handler admission fields differ");
+assert(Object.values(goal07Admission.contracts).every((value) => value === true),
+  "Goal 07 native-handler admission contract is incomplete");
 
 const productionRows = readJson("config/generated/debug-json/NativeHandler.json").table.rows;
 assert(Array.isArray(productionRows), "production NativeHandler diagnostic has no row list");

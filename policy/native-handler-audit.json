@@ -2,6 +2,31 @@
   "schema_revision": "starclock.native-handler-audit.v1",
   "registry_revision": "native-registry-v1",
   "admitted_handlers": [],
+  "goal07_admission_contract": {
+    "current_admitted_handlers": 0,
+    "maximum_new_handlers_per_partition": 1,
+    "required_fields": [
+      "id",
+      "stable_key",
+      "domain",
+      "version",
+      "argument_schema_digest",
+      "determinism_note",
+      "owner",
+      "ir_insufficiency",
+      "removal_condition",
+      "evidence",
+      "equivalence_fixture"
+    ],
+    "contracts": {
+      "candidate_label_is_not_admission": true,
+      "ir_insufficiency_decision_precedes_registration": true,
+      "compiled_and_sora_metadata_match_exactly": true,
+      "handler_emits_typed_operations_only": true,
+      "deterministic_equivalence_fixture_is_required": true,
+      "removal_condition_is_required": true
+    }
+  },
   "v1a_reviews": [
     {
       "probe": "aglaea-memosprite",

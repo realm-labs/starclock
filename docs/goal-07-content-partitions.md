@@ -23,6 +23,12 @@ The authoritative expanded ledger is
 from `content-manifests/standard-universe-mechanics-complete-v1/content-partitions.json`;
 manual row editing is forbidden.
 
+The assignment ledger is intentionally frozen and does not become the mutable
+completion source. Ordered completion receipts generate
+`docs/goals/07-standard-universe-mechanics-content-progress.md`; the receipt
+contract and executable-evidence boundary are defined in
+[Goal 07 shared capability and content gates](goal-07-shared-capability-and-content-gates.md).
+
 ## Batch distribution
 
 | Family | Generated batches |

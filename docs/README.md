@@ -121,6 +121,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 95. [Goal 07 modifier-stage and snapshot runtime](goal-07-modifier-stage-and-snapshot-runtime.md) — executable stat/formula stages, authored stacking comparators, lifecycle snapshots and production Excel/Sora evidence.
 96. [Goal 07 effect, state and lifecycle runtime](goal-07-effect-state-and-lifecycle-runtime.md) — authoritative slot resets, effect stacking, DoT ticks/detonations, duration clocks, teardown and formal Excel/Sora evidence.
 97. [Goal 07 action, reaction, Break and boundary runtime](goal-07-action-reaction-break-and-boundary-runtime.md) — persistent extra turns, semantic reaction ordering, Break hooks, executable wave/phase programs and compatibility revisions.
+98. [Goal 07 shared capability and content gates](goal-07-shared-capability-and-content-gates.md) — executable shared-probe matrix, zero-handler admission contract and ordered exact-coverage receipts for all 104 content batches.
 
 ## Execution goals
 

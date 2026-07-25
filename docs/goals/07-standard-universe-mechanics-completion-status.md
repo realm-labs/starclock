@@ -6,8 +6,8 @@
 |---|---|
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
-| Active phase | Phase 1 — Shared mechanic capability closure |
-| Active batch | `G07-P1-B6` |
+| Active phase | Phase 2 — Ability Tree and nine Paths |
+| Active batch | `G07-P2-M01-S01` |
 | Next unblocked batch | None |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
@@ -20,12 +20,11 @@ and machine-verified. G07-P0-B1 froze the inherited 2,201/786/78 oracle, the
 row, and G07-P0-B3 expanded the milestones into 104 ordered, bounded `Snn`
 commit rows. G07-P0-B4 registered all public-evidence and approximation
 boundaries and froze the dependency, performance and release scaffold.
-Phase 1 now has executable trigger, selector, modifier and state/effect
-foundations. P1-B4 completed authoritative lifecycle resets, stack-aware DoT,
-effect attachment teardown, duration clocks and the formal openpyxl/Sora reset
-probe. P1-B5 added persistent extra turns, semantic reaction ordering,
-action-gauge shifts, Break/Super Break hooks and executable wave/phase
-programs; P1-B6 is the active shared-probe/native-handler coverage batch.
+Phase 1 now has executable trigger, selector, modifier, state/effect,
+action/reaction, Break and boundary foundations. P1-B6 freezes a 15-probe
+runtime matrix, six formal Excel rows, zero current native-handler admissions
+and exact ordered completion receipts for every generated content partition.
+The first Ability Tree partition, G07-P2-M01-S01, is active.
 
 ## Fixed batch ledger
 
@@ -40,7 +39,7 @@ programs; P1-B6 is the active shared-probe/native-handler coverage batch.
 | `G07-P1-B3` | `Complete` | `node tools/goal07/verify-phase1-b3.mjs`; openpyxl author check; production Excel/Sora verification; combat/data tests; quick repository gate | Executed five stat and sixteen formula stages with named-stage bounds, all nine deterministic stacking policies and authored strongest comparators. Damage/healing/shield operations consume formula modifiers. Initial/application/action/phase/hit and partial snapshots capture fixed domain values, fail closed and remain outside content-specific branches. |
 | `G07-P1-B4` | `Complete` | `node tools/goal07/verify-phase1-b4.mjs`; openpyxl author check; production Excel/Sora verification; combat/data tests; quick repository gate | Executed all nine slot reset points, stack-aware DoT ticks/detonations, original-applier formula attribution, effect-stack modifier bindings, action/turn ticks, wave/battle clocks and owner attachment teardown. Kept shields and bounded charges on their dedicated generic stores. |
 | `G07-P1-B5` | `Complete` | `node tools/goal07/verify-phase1-b5.mjs`; openpyxl author checks; production Excel/Sora verification; combat/data/replay tests; quick repository gate | Added persistent selected extra turns, fixed semantic reaction tiers, authoritative action-gauge shifts, forced Break and observed-reduction Super Break. Executed wave/phase entry, exit and explicit carry programs; advanced state/event compatibility while retaining historical event encodings. |
-| `G07-P1-B6` | `Pending` | — | Freeze shared probes, native handlers and coverage rules. |
+| `G07-P1-B6` | `Complete` | `node tools/goal07/verify-phase1-b6.mjs`; shared capability matrix; native-handler audit; generated content progress; quick repository gate | Bound all five shared capability families to 15 authoritative runtime probes and six openpyxl/Sora rows. Kept `native-registry-v1` explicitly empty and froze the full admission metadata/equivalence contract. Added ordered, exact-assignment receipts that reject typed/workbook/route-only completion claims and derive progress independently from the frozen 104-row assignment ledger. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |
@@ -54,6 +53,8 @@ programs; P1-B6 is the active shared-probe/native-handler coverage batch.
 These are coverage milestones, not permission to make one oversized commit.
 The complete 104-row generated ledger is maintained in
 [Goal 07 content ledger](07-standard-universe-mechanics-content-ledger.md).
+Validated completion state is maintained separately in
+[Goal 07 content progress](07-standard-universe-mechanics-content-progress.md).
 The milestone summary remains here for orientation.
 
 | Milestone | State | Rules/content | Completion condition |
@@ -98,6 +99,8 @@ The milestone summary remains here for orientation.
 | 2026-07-25 | Historical selector expressions that require uncaptured mutable resources or current-only predicates fail catalog validation. | Event/action selectors must never silently read current state; the later effect/state-slot batch may admit such queries only after adding an explicit snapshot representation. |
 | 2026-07-25 | Formula-stage modifiers remain distinct from derived stats and are queried through one operation-local immutable view. | The view is non-authoritative and hash-excluded, while damage/healing/shield operations receive exact stage inputs without exposing the numeric backend or generated rows. |
 | 2026-07-25 | `StrongestByComparator` requires an authored expression and keeps every losing instance live. | Content-specific strength cannot be inferred from absolute modifier magnitude; canonical instance order resolves equal comparator values. |
+| 2026-07-25 | Content completion is derived from ordered exact-assignment receipts, not from the frozen assignment ledger or typed evaluator presence. | Every partition must bind Excel/openpyxl/Sora authoring, terminal dispositions, provenance and production runtime fixtures; this prevents 104 batches of metadata from being mistaken for executable mechanics. |
+| 2026-07-25 | Keep `native-registry-v1` empty until a partition supplies the complete admission and equivalence record. | The 427 inherited static-handler labels are planning candidates; at most one reviewed handler may be admitted per partition and compiled/Sora metadata must match exactly. |
 
 ## Terminal record
 
