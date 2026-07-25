@@ -1,0 +1,68 @@
+{
+  "schema_revision": "starclock.goal07-ability-tree-partition-golden.v1",
+  "partition_id": "G07-P2-M01-S03",
+  "record_ids": [
+    "universe.ability-tree.39",
+    "universe.ability-tree.4",
+    "universe.ability-tree.40",
+    "universe.ability-tree.41",
+    "universe.ability-tree.42",
+    "universe.ability-tree.5",
+    "universe.ability-tree.6",
+    "universe.ability-tree.7",
+    "universe.ability-tree.8",
+    "universe.ability-tree.9"
+  ],
+  "rule_ids": [
+    "universe.rule.ability-tree.39",
+    "universe.rule.ability-tree.4",
+    "universe.rule.ability-tree.40",
+    "universe.rule.ability-tree.41",
+    "universe.rule.ability-tree.42",
+    "universe.rule.ability-tree.5",
+    "universe.rule.ability-tree.6",
+    "universe.rule.ability-tree.7",
+    "universe.rule.ability-tree.8",
+    "universe.rule.ability-tree.9"
+  ],
+  "fixture_ids": [
+    "universe.fixture.ability-operation.set",
+    "universe.fixture.ability-operation.unlockformationslot"
+  ],
+  "workbooks": {
+    "Universe.xlsx": "c5121bc5cdb49739e78cd0e709994764bc411c9acd62e9e3996ef744c64358b0",
+    "UniverseBindings.xlsx": "5780e99c7c08d0ed8659ddfd56b37f77e88972ec413940d82f956a56e84c1e4a",
+    "UniverseEvidence.xlsx": "be3ab26158150dda1261f6d58f5520704341b3e09a469202f7a9e651ade95065"
+  },
+  "sora_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+  "tables": {
+    "UniverseAbilityTreeNode": {
+      "rows": 10,
+      "semantic_sha256": "d26bfe60ca5ded6c04bdc75d79cbad0ea109553fc794e35ca79af7fd8101b1f2"
+    },
+    "UniverseAbilityTreeEdge": {
+      "rows": 14,
+      "semantic_sha256": "f69e0dc80ad81db8cc4a8a4debffbf7874c2bc77586e1d089f288a804f7b531b"
+    },
+    "UniverseAbilityTreeCost": {
+      "rows": 10,
+      "semantic_sha256": "09a73e45ab4be7048c24630aa007499f1f4d795340cacb90147a7471302ee01a"
+    },
+    "UniverseAbilityTreeEffect": {
+      "rows": 12,
+      "semantic_sha256": "7d2e3d3d6d0b9dbc5e822f43f9e0a9a32724ea74ae04b28e8df6326f16df9bb7"
+    },
+    "UniverseAbilityTreeParameter": {
+      "rows": 10,
+      "semantic_sha256": "5ca042d633097df98b49e6644ec43c0444aa985ec80753d2d4122b13412dd2ba"
+    },
+    "UniverseMechanicRule": {
+      "rows": 10,
+      "semantic_sha256": "ccd81f52422d0335dabceecd591bab8fb1dd7b7900527adb6695ac3b64a908e4"
+    },
+    "UniverseReviewFixture": {
+      "rows": 2,
+      "semantic_sha256": "10c5476897c56209282a7a1a9917adf4f80bcc512bb4648671eca62f36b0ecbf"
+    }
+  }
+}

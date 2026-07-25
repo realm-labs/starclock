@@ -217,7 +217,7 @@ fn third_formation_requires_the_authored_ability_tree_capability() {
     );
     assert_eq!(
         runtime
-            .contributions_with_formation_capability(path.id(), &blessings, &formations, true)
+            .contributions_with_formation_slots(path.id(), &blessings, &formations, 3)
             .unwrap()
             .formations()
             .len(),
@@ -248,7 +248,7 @@ fn complete_contributions(catalog: &Arc<UniverseCatalog>) -> UniverseBattleContr
         .collect::<Vec<_>>();
     let path_contributions = PathRuntimeCatalog::compile(catalog)
         .unwrap()
-        .contributions_with_formation_capability(path.id(), &blessings, &formations, true)
+        .contributions_with_formation_slots(path.id(), &blessings, &formations, 3)
         .unwrap();
     let curios = CurioRuntimeCatalog::compile(catalog)
         .unwrap()

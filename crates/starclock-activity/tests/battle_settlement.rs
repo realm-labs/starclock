@@ -2,27 +2,29 @@ use std::sync::Arc;
 
 use starclock_activity::{
     ActivityBattlePreparationRequest, ActivityBattleResultContract, ActivityBattleResultSubmission,
-    ActivityBattleSettlementError, ActivityBattleStartRequest, ActivityConfigDigest,
-    ActivityDefinitionDigest, ActivityDefinitionId, ActivityDefinitionIdentity,
-    ActivityEdgeCondition, ActivityEdgeDefinition, ActivityEdgeId, ActivityGraphDefinition,
-    ActivityInstanceId, ActivityMasterSeed, ActivityMetricProjectionBinding,
-    ActivityNodeDefinition, ActivityNodeKind, ActivityOptionId, ActivityParticipantCarryDefinition,
-    ActivityRngContext, ActivityRngStreams, ActivityRosterLock, ActivityScope, ActivityScopePath,
-    ActivitySlotDefinition, ActivitySlotId, ActivityStateDefinition, ActivityStateSource,
-    ActivityStateVisibility, ActivityTransactionState, ActivityValue, BattleBinding, BattleOutcome,
-    BattleResult, BattleResultProjection, BattleSequence, BuildDigest, EncounterInitiativePolicy,
-    EncounterPreparationDefinition, EnergyCarryPolicy, EventDigest, HpCarryPolicy, LifeCarryPolicy,
-    LoadoutLockScope, MetricSettlementPolicy, MetricValue, MetricValueKind, NodeId,
-    OpaqueParticipantBuild, ParticipantBattleState, ParticipantId, ParticipantLock,
-    ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
-    PreparedBattleVariant, PresenceCarryPolicy, ProjectedValue, ProjectionField, ProjectionId,
-    SectionId, SlotCarryPolicy, TechniqueContributionDigest,
+    ActivityBattleSettlementError, ActivityBattleStartRequest, ActivityCause, ActivityCondition,
+    ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
+    ActivityDefinitionIdentity, ActivityEdgeCondition, ActivityEdgeDefinition, ActivityEdgeId,
+    ActivityGraphDefinition, ActivityInstanceId, ActivityMasterSeed,
+    ActivityMetricProjectionBinding, ActivityNodeDefinition, ActivityNodeKind, ActivityOperation,
+    ActivityOptionId, ActivityParticipantCarryDefinition, ActivityProgramDefinition,
+    ActivityProgramId, ActivityRngContext, ActivityRngStreams, ActivityRosterLock, ActivityScope,
+    ActivityScopePath, ActivitySlotDefinition, ActivitySlotId, ActivityStateDefinition,
+    ActivityStateSource, ActivityStateVisibility, ActivityTransactionEventKind,
+    ActivityTransactionOutcome, ActivityTransactionState, ActivityValue, BattleBinding,
+    BattleOutcome, BattleResult, BattleResultProjection, BattleSequence, BuildDigest,
+    EncounterInitiativePolicy, EncounterPreparationDefinition, EnergyCarryPolicy, EventDigest,
+    HpCarryPolicy, LifeCarryPolicy, LoadoutLockScope, MetricSettlementPolicy, MetricValue,
+    MetricValueKind, NodeId, OpaqueParticipantBuild, ParticipantBattleState, ParticipantId,
+    ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
+    ParticipantUniquenessScope, PreparedBattleVariant, PresenceCarryPolicy, ProjectedValue,
+    ProjectionField, ProjectionId, SectionId, SlotCarryPolicy, TechniqueContributionDigest,
 };
 use starclock_combat::{
     AbilityId, AssemblyDigest, BattleSpec, BattleStateHash, CombatantSpecDigest, ConcedePolicy,
     EncounterId, EnemyDefinitionId, Energy, FormationIndex, Hp, LifeState, ParticipantSource,
-    ParticipantSpec, PresenceState, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
-    TeamResourceSpec, TeamSide, UnitDefinitionId, UnitLevel,
+    ParticipantSpec, PresenceState, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings,
+    Speed, TeamResourceSpec, TeamSide, UnitDefinitionId, UnitLevel,
 };
 
 #[test]
@@ -152,6 +154,83 @@ fn loss_preserves_defeat_and_departure_and_selects_failed_transition() {
     assert_eq!(carry.current_hp(), hp(0));
     assert_eq!(carry.life(), LifeState::Defeated);
     assert_eq!(carry.presence(), PresenceState::Departed);
+}
+
+#[test]
+fn defeated_participant_condition_and_restore_operation_mutate_carry_atomically() {
+    let setup = Setup::new(true);
+    let mut state = setup.state();
+    setup.prepare(&mut state, node(20), 1, 1);
+    let handoff = setup.start(&mut state);
+    let awaiting = state.state_hash(setup.identity, &setup.graph, setup.instance, &setup.rng);
+    let result = result(
+        handoff.identity(),
+        BattleOutcome::Won,
+        participant_state(0, 25, LifeState::Defeated, PresenceState::Departed),
+        0,
+    );
+    state
+        .submit_pending_battle_result(
+            setup.identity,
+            &setup.graph,
+            setup.instance,
+            &setup.rng,
+            ActivityBattleResultSubmission::new(awaiting, result),
+        )
+        .unwrap();
+
+    let program = ActivityProgramDefinition::new(
+        ActivityProgramId::new(90).unwrap(),
+        vec![
+            ActivityOperation::Require(ActivityCondition::ParticipantDefeated(participant(1))),
+            ActivityOperation::RestoreParticipant {
+                participant: participant(1),
+                hp_ratio: Ratio::from_scaled(500_000),
+            },
+        ],
+    )
+    .unwrap();
+    let cause = ActivityCause::new(
+        state.command_sequence() + 1,
+        program.id(),
+        state.current_node(),
+    )
+    .unwrap();
+    let ActivityTransactionOutcome::Committed(events) =
+        state.apply_program(&program, cause, &setup.graph)
+    else {
+        panic!("participant restoration must commit");
+    };
+    assert!(matches!(
+        events.last().map(|event| event.kind()),
+        Some(ActivityTransactionEventKind::ParticipantCarryChanged(id)) if *id == participant(1)
+    ));
+    let carry = state
+        .player_view(setup.identity, &setup.graph, setup.instance, &setup.rng)
+        .participant_carry()[0];
+    assert_eq!(carry.current_hp(), hp(500));
+    assert_eq!(carry.current_energy(), energy(25));
+    assert_eq!(carry.life(), LifeState::Alive);
+    assert_eq!(carry.presence(), PresenceState::Present);
+
+    let bytes =
+        state.canonical_state_bytes(setup.identity, &setup.graph, setup.instance, &setup.rng);
+    let retry = ActivityCause::new(
+        state.command_sequence() + 1,
+        program.id(),
+        state.current_node(),
+    )
+    .unwrap();
+    assert_eq!(
+        state.apply_program(&program, retry, &setup.graph),
+        ActivityTransactionOutcome::Rejected(
+            starclock_activity::ActivityTransactionRejection::ConditionNotSatisfied
+        )
+    );
+    assert_eq!(
+        state.canonical_state_bytes(setup.identity, &setup.graph, setup.instance, &setup.rng),
+        bytes
+    );
 }
 
 #[test]

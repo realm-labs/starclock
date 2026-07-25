@@ -22,6 +22,33 @@ use crate::{
 use super::CompiledActivity;
 
 impl CompiledActivity {
+    pub fn initial_run_capabilities(
+        &self,
+    ) -> Result<
+        crate::runtime::ability_access::StandardUniverseRunCapabilities,
+        crate::runtime::ability_access::StandardUniverseRunCapabilityError,
+    > {
+        let projection = self
+            .state
+            .slots()
+            .iter()
+            .find(|slot| slot.id() == self.ability_projection_slot())
+            .map(|slot| slot.initial())
+            .ok_or(
+                crate::runtime::ability_access::StandardUniverseRunCapabilityError::MissingAbilityProjection,
+            )?;
+        let formation_slots = self
+            .state
+            .slots()
+            .iter()
+            .find(|slot| slot.id() == self.formation_capability_slot())
+            .map(|slot| slot.initial())
+            .ok_or(
+                crate::runtime::ability_access::StandardUniverseRunCapabilityError::MissingFormationCapability,
+            )?;
+        crate::runtime::ability_access::capabilities_from_values(projection, formation_slots)
+    }
+
     #[must_use]
     pub const fn blessing_runtime(&self) -> &Arc<BlessingRuntimeCatalog> {
         &self.blessing_runtime

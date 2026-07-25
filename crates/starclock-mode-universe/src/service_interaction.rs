@@ -3,10 +3,12 @@
 use starclock_activity::{
     ActivityCondition, ActivityExpression, ActivityHandlerFault, ActivityHandlerFaultKind,
     ActivityHandlerInput, ActivityHandlerOutput, ActivityInventoryId, ActivityOperation,
-    ActivitySlotId, ActivityValue,
+    ActivitySlotId, ActivityValue, ParticipantId,
 };
+use starclock_combat::Ratio;
 
 use crate::{
+    ability_runtime::AbilityTarget,
     catalog::UniverseCatalog,
     curio_activity::{
         CurioActivityBindings, CurioActivityRecord, acquisition_operations, compile_records,
@@ -21,9 +23,9 @@ use crate::{
 
 pub const SERVICE_INTERACTION_HANDLER_ID: u32 = 3;
 pub const SERVICE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-service-interaction-runtime-v2";
+    "standard-universe-service-interaction-runtime-v3";
 
-const PAYLOAD_REVISION: u8 = 2;
+const PAYLOAD_REVISION: u8 = 3;
 const TAG_SET_FRAGMENTS: u8 = 1;
 const TAG_DEBIT_FRAGMENTS: u8 = 2;
 const TAG_SCHEDULED_DEBIT: u8 = 3;
@@ -34,6 +36,7 @@ const TAG_INCREMENT_USE: u8 = 7;
 const TAG_RANDOM_INVENTORY: u8 = 8;
 const TAG_ADD_CURIO: u8 = 9;
 const TAG_RANDOM_CURIO: u8 = 10;
+const TAG_RESTORE_PARTICIPANT: u8 = 11;
 const MAX_PAYLOAD_OPERATIONS: usize = 32;
 const SERVICE_EFFECT_KEY_BASE: u64 = 1 << 62;
 
@@ -46,6 +49,7 @@ pub enum ServicePurchaseContent {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum ServiceInteractionSelection {
     Activate,
+    ReviveCharacter(ParticipantId),
     RespiteBlessing,
     RespiteCurio,
     RespiteEnhance,
@@ -103,6 +107,7 @@ pub struct ServiceInteractionRuntimeCatalog {
     cosmic_fragments: ActivitySlotId,
     service_uses: ActivitySlotId,
     service_effects: ActivitySlotId,
+    ability_projection: ActivitySlotId,
     blessing_inventory: ActivityInventoryId,
     digest: [u8; 32],
 }
@@ -112,6 +117,7 @@ pub(crate) struct ServiceActivityBindings {
     pub(crate) cosmic_fragments: ActivitySlotId,
     pub(crate) service_uses: ActivitySlotId,
     pub(crate) service_effects: ActivitySlotId,
+    pub(crate) ability_projection: ActivitySlotId,
     pub(crate) blessing_inventory: ActivityInventoryId,
     pub(crate) curio_inventory: ActivityInventoryId,
 }
@@ -166,6 +172,7 @@ impl ServiceInteractionRuntimeCatalog {
             cosmic_fragments: bindings.cosmic_fragments,
             service_uses: bindings.service_uses,
             service_effects: bindings.service_effects,
+            ability_projection: bindings.ability_projection,
             blessing_inventory: bindings.blessing_inventory,
             digest,
         })
@@ -183,6 +190,10 @@ impl ServiceInteractionRuntimeCatalog {
 
     pub(crate) const fn cosmic_fragments_slot(&self) -> ActivitySlotId {
         self.cosmic_fragments
+    }
+
+    pub(crate) const fn ability_projection_slot(&self) -> ActivitySlotId {
+        self.ability_projection
     }
 
     pub fn compile_selection(
@@ -215,11 +226,17 @@ impl ServiceInteractionRuntimeCatalog {
                 operations.push(PayloadOperation::IncrementUse(service));
             }
             (
-                ServiceAction::ReviveCharacter { cost, .. },
-                ServiceInteractionSelection::Activate,
+                ServiceAction::ReviveCharacter {
+                    cost,
+                    restored_hp_percent,
+                },
+                ServiceInteractionSelection::ReviveCharacter(participant),
             ) => {
                 operations.push(PayloadOperation::DebitFragments(*cost));
-                operations.push(PayloadOperation::DeferredEffect(service));
+                operations.push(PayloadOperation::RestoreParticipant {
+                    participant: *participant,
+                    expected_hp_ratio: u32::from(*restored_hp_percent) * 10_000,
+                });
                 operations.push(PayloadOperation::IncrementUse(service));
             }
             (ServiceAction::AddReserveCharacter { .. }, ServiceInteractionSelection::Activate)
@@ -347,6 +364,7 @@ impl ServiceInteractionRuntimeCatalog {
             self.cosmic_fragments,
             self.service_uses,
             self.service_effects,
+            self.ability_projection,
         )
     }
 
@@ -406,6 +424,10 @@ enum PayloadOperation {
         bindings: CurioActivityBindings,
         candidates: Box<[CurioActivityRecord]>,
         quantity: u8,
+    },
+    RestoreParticipant {
+        participant: ParticipantId,
+        expected_hp_ratio: u32,
     },
 }
 
@@ -494,6 +516,14 @@ impl PayloadOperation {
                     encode_curio_record(output, *record);
                 }
             }
+            Self::RestoreParticipant {
+                participant,
+                expected_hp_ratio,
+            } => {
+                output.push(TAG_RESTORE_PARTICIPANT);
+                output.extend_from_slice(&participant.get().to_le_bytes());
+                output.extend_from_slice(&expected_hp_ratio.to_le_bytes());
+            }
         }
         Ok(())
     }
@@ -504,6 +534,7 @@ fn encode_program(
     fragments: ActivitySlotId,
     uses: ActivitySlotId,
     effects: ActivitySlotId,
+    ability_projection: ActivitySlotId,
 ) -> Result<CompiledServiceInteraction, ServiceInteractionError> {
     if operations.is_empty() || operations.len() > MAX_PAYLOAD_OPERATIONS {
         return Err(ServiceInteractionError::TooManyOperations);
@@ -533,6 +564,7 @@ fn encode_program(
     payload.extend_from_slice(&fragments.get().to_le_bytes());
     payload.extend_from_slice(&uses.get().to_le_bytes());
     payload.extend_from_slice(&effects.get().to_le_bytes());
+    payload.extend_from_slice(&ability_projection.get().to_le_bytes());
     payload.push(
         u8::try_from(operations.len()).map_err(|_| ServiceInteractionError::TooManyOperations)?,
     );
@@ -558,6 +590,7 @@ pub(crate) fn execute(
     let fragments = slot(decoder.u32()?)?;
     let uses = slot(decoder.u32()?)?;
     let effects = slot(decoder.u32()?)?;
+    let ability_projection = slot(decoder.u32()?)?;
     let count = usize::from(decoder.u8()?);
     if count == 0 || count > MAX_PAYLOAD_OPERATIONS {
         return Err(invalid_payload());
@@ -693,6 +726,37 @@ pub(crate) fn execute(
                         .ok_or_else(invalid_payload)?;
                     operations.extend(acquisition_operations(record, bindings));
                 }
+            }
+            TAG_RESTORE_PARTICIPANT => {
+                let participant = ParticipantId::new(decoder.u32()?).ok_or_else(invalid_payload)?;
+                let expected_hp_ratio = i64::from(decoder.u32()?);
+                if expected_hp_ratio <= 0
+                    || expected_hp_ratio > 1_000_000
+                    || counter(
+                        input,
+                        ability_projection,
+                        AbilityTarget::ServiceReviver.activity_key(),
+                    )? != 1_000_000
+                    || counter(
+                        input,
+                        ability_projection,
+                        AbilityTarget::ServiceReviverRestoredHpRatio.activity_key(),
+                    )? != expected_hp_ratio
+                    || !input.view().participant_carry().iter().any(|state| {
+                        state.participant() == participant
+                            && state.current_hp().get() == 0
+                            && state.life() != starclock_combat::LifeState::Alive
+                    })
+                {
+                    return Err(invalid_state());
+                }
+                operations.push(ActivityOperation::Require(
+                    ActivityCondition::ParticipantDefeated(participant),
+                ));
+                operations.push(ActivityOperation::RestoreParticipant {
+                    participant,
+                    hp_ratio: Ratio::from_scaled(expected_hp_ratio),
+                });
             }
             _ => return Err(invalid_payload()),
         }
@@ -849,12 +913,13 @@ fn catalog_digest(
     bindings: ServiceActivityBindings,
     curio_bindings: CurioActivityBindings,
 ) -> [u8; 32] {
-    let mut encoder = Encoder::new(b"starclock-standard-universe-service-interaction-v2");
+    let mut encoder = Encoder::new(b"starclock-standard-universe-service-interaction-v3");
     encoder.text(SERVICE_INTERACTION_RUNTIME_REVISION);
     encoder.digest(services.digest());
     encoder.u32(bindings.cosmic_fragments.get());
     encoder.u32(bindings.service_uses.get());
     encoder.u32(bindings.service_effects.get());
+    encoder.u32(bindings.ability_projection.get());
     encoder.u32(bindings.blessing_inventory.get());
     encoder.u32(bindings.curio_inventory.get());
     encoder.u32(curio_bindings.state_slot.get());

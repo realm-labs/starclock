@@ -13,7 +13,7 @@ use crate::{
     path::{ExactParameter, ResonanceDefinition, ResonanceKind},
 };
 
-pub const PATH_RUNTIME_REVISION: &str = "standard-universe-path-runtime-v2";
+pub const PATH_RUNTIME_REVISION: &str = "standard-universe-path-runtime-v3";
 pub const FORMATION_SELECTION_THRESHOLDS: [u8; 3] = [6, 10, 14];
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -314,15 +314,15 @@ impl PathRuntimeCatalog {
         blessings: &BlessingContributionSet,
         formations: &[(ResonanceId, u32)],
     ) -> Result<PathContributionSet, PathRuntimeError> {
-        self.contributions_with_formation_capability(selected, blessings, formations, false)
+        self.contributions_with_formation_slots(selected, blessings, formations, 0)
     }
 
-    pub fn contributions_with_formation_capability(
+    pub fn contributions_with_formation_slots(
         &self,
         selected: PathId,
         blessings: &BlessingContributionSet,
         formations: &[(ResonanceId, u32)],
-        third_formation_capability: bool,
+        formation_slot_capacity: u8,
     ) -> Result<PathContributionSet, PathRuntimeError> {
         let definition = self
             .definition(selected)
@@ -352,7 +352,7 @@ impl PathRuntimeCatalog {
             .any(|pair| pair[0].id == pair[1].id)
             || selected_formations.len() > 3
             || selected_formations.len()
-                > unlocked_formation_slots(blessing_count, third_formation_capability)
+                > unlocked_formation_slots(blessing_count, formation_slot_capacity)
         {
             return Err(PathRuntimeError::InvalidFormationSelection);
         }
@@ -439,7 +439,7 @@ impl PathRuntimeCatalog {
 pub(crate) struct FormationSelectionBindings {
     pub(crate) selected_path_slot: ActivitySlotId,
     pub(crate) path_blessing_count_slot: ActivitySlotId,
-    pub(crate) third_formation_capability_slot: ActivitySlotId,
+    pub(crate) formation_capability_slot: ActivitySlotId,
     pub(crate) formation_inventory: ActivityInventoryId,
 }
 
@@ -470,11 +470,10 @@ fn formation_due(
                 ))),
                 equals(selected_count.clone(), selected as i64),
             ];
-            if selected == 2 {
-                conditions.push(ActivityCondition::Boolean(ActivityExpression::Slot(
-                    bindings.third_formation_capability_slot,
-                )));
-            }
+            conditions.push(ActivityCondition::LessThan(
+                integer(selected as i64),
+                ActivityExpression::Slot(bindings.formation_capability_slot),
+            ));
             ActivityCondition::All(conditions.into_boxed_slice())
         })
         .collect::<Vec<_>>();
@@ -490,12 +489,12 @@ fn formation_due(
     )
 }
 
-fn unlocked_formation_slots(blessings: u8, third_formation_capability: bool) -> usize {
+fn unlocked_formation_slots(blessings: u8, formation_slot_capacity: u8) -> usize {
     FORMATION_SELECTION_THRESHOLDS
         .iter()
         .enumerate()
         .filter(|(index, threshold)| {
-            blessings >= **threshold && (*index < 2 || third_formation_capability)
+            blessings >= **threshold && *index < usize::from(formation_slot_capacity)
         })
         .count()
 }

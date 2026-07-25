@@ -2,9 +2,11 @@
 
 use starclock_activity::{
     ActivityCondition, ActivityExpression, ActivityRngLabel, ActivitySlotId, ActivityValue,
+    ParticipantId, ParticipantLock,
 };
 
 use crate::{
+    ability_runtime::AbilityTarget,
     catalog::UniverseCatalog,
     id::RoomId,
     progression::ServiceKind,
@@ -22,11 +24,22 @@ pub(super) struct RoomServiceBinding {
     pub(super) random_candidate_count: Option<u32>,
     pub(super) random_label: Option<ActivityRngLabel>,
     pub(super) required_fragments: Option<u32>,
+    pub(super) required_ability: Option<AbilityTarget>,
+    pub(super) required_defeated_participant: Option<ParticipantId>,
+}
+
+struct ServiceSelectionSpec {
+    service: crate::id::ServiceId,
+    selection: ServiceInteractionSelection,
+    source_content_id: Box<str>,
+    required_ability: Option<AbilityTarget>,
+    required_defeated_participant: Option<ParticipantId>,
 }
 
 pub(super) fn compile_room_services(
     catalog: &UniverseCatalog,
     runtime: &ServiceInteractionRuntimeCatalog,
+    participants: &ParticipantLock,
     room: RoomId,
 ) -> Result<Option<Vec<RoomServiceBinding>>, UniverseTopologyCompileError> {
     let Some(domain_key) = catalog
@@ -36,24 +49,47 @@ pub(super) fn compile_room_services(
     else {
         return Ok(None);
     };
-    let selections = match domain_key {
-        "universe.domain.respite" => vec![
-            (
-                service_id(catalog, "universe.service.respite-offers")?,
-                ServiceInteractionSelection::RespiteBlessing,
-                "universe.service.respite-offers.one-star-blessing",
-            ),
-            (
-                service_id(catalog, "universe.service.respite-offers")?,
-                ServiceInteractionSelection::RespiteCurio,
-                "universe.service.respite-offers.curio",
-            ),
-            (
-                service_id(catalog, "universe.service.downloader")?,
-                ServiceInteractionSelection::Activate,
-                "universe.service.downloader",
-            ),
-        ],
+    let selections: Vec<ServiceSelectionSpec> = match domain_key {
+        "universe.domain.respite" => {
+            let mut values = vec![
+                ServiceSelectionSpec {
+                    service: service_id(catalog, "universe.service.respite-offers")?,
+                    selection: ServiceInteractionSelection::RespiteBlessing,
+                    source_content_id: "universe.service.respite-offers.one-star-blessing".into(),
+                    required_ability: None,
+                    required_defeated_participant: None,
+                },
+                ServiceSelectionSpec {
+                    service: service_id(catalog, "universe.service.respite-offers")?,
+                    selection: ServiceInteractionSelection::RespiteCurio,
+                    source_content_id: "universe.service.respite-offers.curio".into(),
+                    required_ability: None,
+                    required_defeated_participant: None,
+                },
+                ServiceSelectionSpec {
+                    service: service_id(catalog, "universe.service.downloader")?,
+                    selection: ServiceInteractionSelection::Activate,
+                    source_content_id: "universe.service.downloader".into(),
+                    required_ability: None,
+                    required_defeated_participant: None,
+                },
+            ];
+            let reviver = service_id(catalog, "universe.service.reviver")?;
+            values.extend(participants.entries().iter().map(|entry| {
+                ServiceSelectionSpec {
+                    service: reviver,
+                    selection: ServiceInteractionSelection::ReviveCharacter(entry.participant()),
+                    source_content_id: format!(
+                        "universe.service.reviver.participant.{}",
+                        entry.participant().get()
+                    )
+                    .into(),
+                    required_ability: Some(AbilityTarget::ServiceReviver),
+                    required_defeated_participant: Some(entry.participant()),
+                }
+            }));
+            values
+        }
         "universe.domain.transaction" => catalog
             .services()
             .iter()
@@ -63,24 +99,24 @@ pub(super) fn compile_room_services(
                     ServiceKind::BlessingShop | ServiceKind::CurioShop
                 )
             })
-            .map(|service| {
-                (
-                    service.id(),
-                    ServiceInteractionSelection::Activate,
-                    service.stable_key(),
-                )
+            .map(|service| ServiceSelectionSpec {
+                service: service.id(),
+                selection: ServiceInteractionSelection::Activate,
+                source_content_id: service.stable_key().into(),
+                required_ability: None,
+                required_defeated_participant: None,
             })
             .collect(),
         _ => return Ok(None),
     };
     selections
         .into_iter()
-        .map(|(service, selection, source_content_id)| {
+        .map(|spec| {
             let compiled = runtime
-                .compile_selection(service, &selection)
+                .compile_selection(spec.service, &spec.selection)
                 .map_err(|_| UniverseTopologyCompileError::InvalidServiceInteraction)?;
             Ok(RoomServiceBinding {
-                source_content_id: source_content_id.into(),
+                source_content_id: spec.source_content_id,
                 handler: SERVICE_INTERACTION_HANDLER_ID,
                 payload: compiled.payload().into(),
                 random_candidate_count: compiled.random_candidate_count(),
@@ -88,6 +124,8 @@ pub(super) fn compile_room_services(
                     .random_candidate_count()
                     .map(|_| ActivityRngLabel::Shop),
                 required_fragments: compiled.required_fragments(),
+                required_ability: spec.required_ability,
+                required_defeated_participant: spec.required_defeated_participant,
             })
         })
         .collect::<Result<Vec<_>, _>>()
@@ -98,20 +136,32 @@ pub(super) fn option_condition(
     room: ActivityCondition,
     fragments: ActivitySlotId,
     required: Option<u32>,
+    ability_projection: ActivitySlotId,
+    required_ability: Option<AbilityTarget>,
+    required_defeated_participant: Option<ParticipantId>,
 ) -> ActivityCondition {
-    let Some(amount) = required else {
-        return room;
-    };
-    ActivityCondition::All(
-        vec![
-            room,
-            ActivityCondition::Not(Box::new(ActivityCondition::LessThan(
+    let mut conditions = vec![room];
+    if let Some(amount) = required {
+        conditions.push(ActivityCondition::Not(Box::new(
+            ActivityCondition::LessThan(
                 ActivityExpression::Slot(fragments),
                 ActivityExpression::Literal(ActivityValue::BoundedInteger(i64::from(amount))),
-            ))),
-        ]
-        .into_boxed_slice(),
-    )
+            ),
+        )));
+    }
+    if let Some(target) = required_ability {
+        conditions.push(ActivityCondition::Equal(
+            ActivityExpression::CounterValue {
+                slot: ability_projection,
+                key: target.activity_key(),
+            },
+            ActivityExpression::Literal(ActivityValue::BoundedInteger(1_000_000)),
+        ));
+    }
+    if let Some(participant) = required_defeated_participant {
+        conditions.push(ActivityCondition::ParticipantDefeated(participant));
+    }
+    ActivityCondition::All(conditions.into_boxed_slice())
 }
 
 fn service_id(

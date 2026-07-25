@@ -2,7 +2,7 @@ use std::{collections::BTreeMap, sync::Arc};
 
 use sha2::{Digest, Sha256};
 use starclock_combat::{
-    BattleSeed, BattleSpec, Energy, FormationIndex, Hp, LifeState, PresenceState,
+    BattleSeed, BattleSpec, Energy, FormationIndex, Hp, LifeState, PresenceState, Ratio,
 };
 
 use crate::{
@@ -303,6 +303,14 @@ impl ActivityParticipantCarryState {
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub(crate) struct ActivityCarryLedger(BTreeMap<ParticipantId, ActivityParticipantCarryState>);
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum ActivityCarryMutationError {
+    MissingParticipant,
+    ParticipantNotDefeated,
+    InvalidRestoreRatio,
+    ArithmeticOverflow,
+}
+
 impl ActivityCarryLedger {
     pub(crate) fn encode(&self, writer: &mut ActivityStateEncoder) {
         writer.u32(self.0.len() as u32);
@@ -323,8 +331,41 @@ impl ActivityCarryLedger {
         self.0.insert(state.participant, state);
     }
 
-    fn get(&self, participant: ParticipantId) -> Option<ActivityParticipantCarryState> {
+    pub(crate) fn get(&self, participant: ParticipantId) -> Option<ActivityParticipantCarryState> {
         self.0.get(&participant).copied()
+    }
+
+    pub(crate) fn participant_defeated(&self, participant: ParticipantId) -> bool {
+        self.get(participant)
+            .is_some_and(|state| state.current_hp.get() == 0 && state.life != LifeState::Alive)
+    }
+
+    pub(crate) fn restore_participant(
+        &mut self,
+        participant: ParticipantId,
+        hp_ratio: Ratio,
+    ) -> Result<(), ActivityCarryMutationError> {
+        if hp_ratio <= Ratio::ZERO || hp_ratio > Ratio::ONE {
+            return Err(ActivityCarryMutationError::InvalidRestoreRatio);
+        }
+        let state = self
+            .0
+            .get_mut(&participant)
+            .ok_or(ActivityCarryMutationError::MissingParticipant)?;
+        if state.current_hp.get() != 0 || state.life == LifeState::Alive {
+            return Err(ActivityCarryMutationError::ParticipantNotDefeated);
+        }
+        let restored = i128::from(state.maximum_hp.get())
+            .checked_mul(i128::from(hp_ratio.scaled()))
+            .and_then(|value| value.checked_div(1_000_000))
+            .and_then(|value| i64::try_from(value).ok())
+            .filter(|value| *value > 0 && *value <= state.maximum_hp.get())
+            .ok_or(ActivityCarryMutationError::ArithmeticOverflow)?;
+        state.current_hp =
+            Hp::new(restored).map_err(|_| ActivityCarryMutationError::ArithmeticOverflow)?;
+        state.life = LifeState::Alive;
+        state.presence = PresenceState::Present;
+        Ok(())
     }
 }
 

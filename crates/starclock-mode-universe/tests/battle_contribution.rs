@@ -52,7 +52,7 @@ fn complete_snapshot_compiles_to_canonical_rule_modifier_and_boundary_bindings()
         .map(|id| (*id, 1))
         .collect::<Vec<_>>();
     let path = path_runtime
-        .contributions_with_formation_capability(selected_path, &blessings, &formations, true)
+        .contributions_with_formation_slots(selected_path, &blessings, &formations, 3)
         .unwrap();
 
     let curio_runtime = CurioRuntimeCatalog::compile(&catalog).unwrap();

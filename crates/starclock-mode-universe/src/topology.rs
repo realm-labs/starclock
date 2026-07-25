@@ -38,7 +38,7 @@ use crate::{
     topology_support::{domain_logical_scopes, exact_weight, occurrence_for_source, resolve_rooms},
 };
 
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v6";
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v7";
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 
 const PATH_NODE: u32 = 1;
@@ -294,7 +294,7 @@ pub(crate) fn compile(
     blessing_reroll_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     ability_projection_slot: ActivitySlotId,
-    third_formation_capability_slot: ActivitySlotId,
+    formation_capability_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
     service_interactions: &ServiceInteractionRuntimeCatalog,
@@ -403,6 +403,7 @@ pub(crate) fn compile(
         interactions,
     } = compile_programs(
         catalog,
+        participants.as_ref(),
         path_slot,
         topology_slot,
         hub_clear_slot,
@@ -414,7 +415,7 @@ pub(crate) fn compile(
         blessing_reroll_slot,
         path_blessing_count_slot,
         ability_projection_slot,
-        third_formation_capability_slot,
+        formation_capability_slot,
         formation_inventory,
         occurrence_interactions,
         service_interactions,
@@ -564,6 +565,7 @@ struct CompiledPrograms {
 #[allow(clippy::too_many_arguments)]
 fn compile_programs(
     catalog: &UniverseCatalog,
+    participants: &ParticipantLock,
     path_slot: ActivitySlotId,
     topology_slot: ActivitySlotId,
     hub_clear_slot: ActivitySlotId,
@@ -575,7 +577,7 @@ fn compile_programs(
     blessing_reroll_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     ability_projection_slot: ActivitySlotId,
-    third_formation_capability_slot: ActivitySlotId,
+    formation_capability_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
     service_interactions: &ServiceInteractionRuntimeCatalog,
@@ -728,7 +730,7 @@ fn compile_programs(
                     vec![ActivityOperation::Traverse(edges.content_member)],
                 ));
             } else if let Some(service_options) =
-                compile_room_services(catalog, service_interactions, room.room)?
+                compile_room_services(catalog, service_interactions, participants, room.room)?
             {
                 for (service_priority, compiled) in service_options.into_iter().enumerate() {
                     let id = service_interaction_option(
@@ -746,6 +748,9 @@ fn compile_programs(
                             room_condition.clone(),
                             service_interactions.cosmic_fragments_slot(),
                             compiled.required_fragments,
+                            service_interactions.ability_projection_slot(),
+                            compiled.required_ability,
+                            compiled.required_defeated_participant,
                         ),
                         interaction_completion(
                             hub_clear_slot,
@@ -881,10 +886,8 @@ fn compile_programs(
             source,
             edges.reward_formation,
             hub_clear_slot,
-            path_slot,
             path_blessing_count_slot,
             ability_projection_slot,
-            third_formation_capability_slot,
             blessing_inventory,
             blessing_runtime,
             &eligible_blessings,
@@ -910,7 +913,7 @@ fn compile_programs(
             FormationSelectionBindings {
                 selected_path_slot: path_slot,
                 path_blessing_count_slot,
-                third_formation_capability_slot,
+                formation_capability_slot,
                 formation_inventory,
             },
             formation_skip_option(source),

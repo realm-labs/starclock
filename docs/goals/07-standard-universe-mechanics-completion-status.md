@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M01-S03` |
-| Next unblocked batch | None |
+| Active batch | `G07-P2-M02-S01` |
+| Next unblocked batch | `G07-P2-M02-S01` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -24,10 +24,9 @@ Phase 1 now has executable trigger, selector, modifier, state/effect,
 action/reaction, Break and boundary foundations. P1-B6 freezes a 15-probe
 runtime matrix, six formal Excel rows, zero current native-handler admissions
 and exact ordered completion receipts for every generated content partition.
-The first two Ability Tree partitions, `G07-P2-M01-S01` and
-`G07-P2-M01-S02`, are complete. Their 32 records, 32 rules and eight semantic
-fixtures execute from formal Excel/Sora definitions. `G07-P2-M01-S03` is
-active.
+All three Ability Tree partitions are complete. Their 42 records, 42 rules and
+ten semantic fixtures execute from formal Excel/Sora definitions.
+`G07-P2-M02-S01`, the first Preservation partition, is active.
 
 ## Fixed batch ledger
 
@@ -45,6 +44,7 @@ active.
 | `G07-P1-B6` | `Complete` | `node tools/goal07/verify-phase1-b6.mjs`; shared capability matrix; native-handler audit; generated content progress; quick repository gate | Bound all five shared capability families to 15 authoritative runtime probes and six openpyxl/Sora rows. Kept `native-registry-v1` explicitly empty and froze the full admission metadata/equivalence contract. Added ordered, exact-assignment receipts that reject typed/workbook/route-only completion claims and derive progress independently from the frozen 104-row assignment ledger. |
 | `G07-P2-M01-S01` | `Complete` | openpyxl partition check; production Sora verification; Activity/Ability Tree/encounter tests; partition receipt; quick repository gate | Executed Ability Tree nodes 1, 2 and 10–23 with 20 typed effects. Added a generic terminal conditional Activity operation, atomic post-battle delta projection, Ability Tree-gated Blessing reroll and one consumed first-battle bonus Blessing choice. Empty trees preserve historical hashes; rejected settlement preserves exact state bytes. |
 | `G07-P2-M01-S02` | `Complete` | openpyxl partition check; production Sora verification; Ability Tree/materialization/path tests; partition receipt; quick repository gate | Executed Ability Tree nodes 3 and 24–38 with 18 typed effects. Materialized full-Energy boundaries, generic six-purpose damage mitigation, checked Path Resonance Energy/damage bonuses and an Ability Tree-gated third Formation slot. Elite/Boss encounters now select a composite battle-start boundary from spatial-free room/domain bindings. |
+| `G07-P2-M01-S03` | `Complete` | openpyxl partition check; production Sora verification; Ability Tree/path/service/carry tests; partition receipt; quick repository gate | Executed Ability Tree nodes 4–9 and 39–42. Replaced the Formation special case with generic 0–3 Ability Tree capacity, added participant-specific Reviver options backed by atomic cross-battle carry restoration, exposed the consumable-use authorization seam, and made topology template reuse participant-lock-safe. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |
@@ -64,7 +64,7 @@ The milestone summary remains here for orientation.
 
 | Milestone | State | Rules/content | Completion condition |
 |---|---|---:|---|
-| `G07-P2-M01` | `Expanded` | 42 / 42 | Ability Tree and shared Activity mechanics executable. |
+| `G07-P2-M01` | `Complete` | 42 / 42 | Ability Tree and shared Activity mechanics executable. |
 | `G07-P2-M02` | `Expanded` | 58 / 59 | Preservation complete. |
 | `G07-P2-M03` | `Expanded` | 58 / 59 | Remembrance complete. |
 | `G07-P2-M04` | `Expanded` | 58 / 59 | Nihility complete. |
@@ -107,6 +107,7 @@ The milestone summary remains here for orientation.
 | 2026-07-25 | Content completion is derived from ordered exact-assignment receipts, not from the frozen assignment ledger or typed evaluator presence. | Every partition must bind Excel/openpyxl/Sora authoring, terminal dispositions, provenance and production runtime fixtures; this prevents 104 batches of metadata from being mistaken for executable mechanics. |
 | 2026-07-25 | Keep `native-registry-v1` empty until a partition supplies the complete admission and equivalence record. | The 427 inherited static-handler labels are planning candidates; at most one reviewed handler may be admitted per partition and compiled/Sora metadata must match exactly. |
 | 2026-07-25 | Express the first-battle extra Blessing as a terminal conditional Activity operation on the existing Reward node. | This keeps the mechanic data-driven and transactional without adding two nodes to every one of 579 domain hubs or introducing a mode-owned graph mutation path. |
+| 2026-07-25 | Model Ability Tree Formation capacity, Reviver and consumable use as run capabilities rather than service- or item-specific battle branches. | Formation and restoration consume generic Activity state/operations; account consumable inventory remains external and can be attached later without changing combat. |
 
 ## Terminal record
 

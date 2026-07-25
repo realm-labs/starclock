@@ -1,8 +1,9 @@
 use crate::{
     ActivityEdgeId, ActivityGraphDefinition, ActivityInventoryId, ActivityModifierId,
     ActivityOptionId, ActivityProgramId, ActivitySlotId, ActivityStateDefinition,
-    ActivityTerminalOutcome, ActivityValue, SlotValueKind,
+    ActivityTerminalOutcome, ActivityValue, ParticipantId, SlotValueKind,
 };
+use starclock_combat::Ratio;
 
 pub const MAX_ACTIVITY_PROGRAM_OPERATIONS: usize = 4_096;
 pub const MAX_ACTIVITY_PROGRAM_DEPTH: usize = 16;
@@ -44,6 +45,8 @@ pub enum ActivityCondition {
     Boolean(ActivityExpression),
     Equal(ActivityExpression, ActivityExpression),
     LessThan(ActivityExpression, ActivityExpression),
+    /// Matches zero-HP, non-alive state in the cross-battle carry ledger.
+    ParticipantDefeated(ParticipantId),
     Not(Box<ActivityCondition>),
     All(Box<[ActivityCondition]>),
     Any(Box<[ActivityCondition]>),
@@ -138,6 +141,11 @@ pub enum ActivityOperation {
     },
     RemoveModifier {
         modifier: ActivityModifierId,
+    },
+    /// Restores one defeated participant in the run-owned carry ledger.
+    RestoreParticipant {
+        participant: ParticipantId,
+        hp_ratio: Ratio,
     },
     Traverse(ActivityEdgeId),
     Offer {
@@ -253,6 +261,7 @@ fn validate_bindings(
                     return Err(ActivityProgramBindingError::MissingModifier(*modifier));
                 }
             }
+            ActivityOperation::RestoreParticipant { .. } => {}
             ActivityOperation::Traverse(edge) => {
                 if !graph.edges().iter().any(|item| item.id() == *edge) {
                     return Err(ActivityProgramBindingError::MissingEdge(*edge));
@@ -392,6 +401,7 @@ fn condition_type(
                 return Err(ActivityProgramBindingError::ExpressionTypeMismatch);
             }
         }
+        ActivityCondition::ParticipantDefeated(_) => {}
         ActivityCondition::Not(value) => {
             condition_type(value, state)?;
         }
@@ -473,6 +483,11 @@ fn validate_operations(
             | ActivityOperation::AddModifier { stacks: value, .. } => {
                 validate_expression(value, 0)?;
             }
+            ActivityOperation::RestoreParticipant { hp_ratio, .. } => {
+                if *hp_ratio <= Ratio::ZERO || *hp_ratio > Ratio::ONE {
+                    return Err(ActivityProgramDefinitionError::InvalidParticipantRestoration);
+                }
+            }
             ActivityOperation::RemoveModifier { .. } | ActivityOperation::Traverse(_) => {}
         }
     }
@@ -528,6 +543,7 @@ fn validate_condition(
             validate_expression(left, 0)?;
             validate_expression(right, 0)?;
         }
+        ActivityCondition::ParticipantDefeated(_) => {}
         ActivityCondition::Not(value) => validate_condition(value, depth + 1)?,
         ActivityCondition::All(values) | ActivityCondition::Any(values) => {
             if values.is_empty() {
@@ -551,6 +567,7 @@ pub enum ActivityProgramDefinitionError {
     CollectionLiteralNotScalar,
     InvalidOptionCount,
     NonCanonicalOptions,
+    InvalidParticipantRestoration,
     OperationAfterBoundary(usize),
 }
 

@@ -35,12 +35,22 @@ const provenanceEvidence = [{ path: "content-reference/standard-universe-v1/abil
 const slice = partitionId.match(/-S(\d+)$/)?.[1];
 assert(slice, `${partitionId}: missing slice suffix`);
 const testStem = `goal07_ability_tree_s${slice}`;
-const supportTest = slice === "01" ? "encounter_runtime" : "battle_materialization";
+const supportTest = slice === "01"
+  ? "encounter_runtime"
+  : slice === "03"
+    ? "service_interaction_runtime"
+    : "battle_materialization";
 const combatExecution = slice === "02"
   ? [
       { path: "crates/starclock-combat/tests/damage_lifecycle.rs" },
       { path: "crates/starclock-combat/tests/damage_lifecycle/damage_mitigation.rs" },
     ]
+  : [];
+const activityExecution = slice === "03"
+  ? [{ path: "crates/starclock-activity/tests/battle_settlement.rs" }]
+  : [];
+const additionalModeExecution = slice === "03"
+  ? [{ path: "crates/starclock-mode-universe/tests/path_runtime.rs" }]
   : [];
 const ruleExecution = [
   {
@@ -49,6 +59,8 @@ const ruleExecution = [
   {
     path: `crates/starclock-mode-universe/tests/${supportTest}.rs`,
   },
+  ...additionalModeExecution,
+  ...activityExecution,
   ...combatExecution,
 ];
 const fixtureMarker = `${partitionId.toLowerCase().replace(/^g07/, "goal07").replaceAll("-", "_")}` +
@@ -126,6 +138,12 @@ const receipt = {
       "cargo test -p starclock-activity --test activity_transaction --all-features",
       `cargo test -p starclock-mode-universe --test ${testStem} --all-features`,
       `cargo test -p starclock-mode-universe --test ${supportTest} --all-features`,
+      ...(slice === "03"
+        ? [
+            "cargo test -p starclock-mode-universe --test path_runtime --all-features",
+            "cargo test -p starclock-activity --test battle_settlement --all-features",
+          ]
+        : []),
       ...(slice === "02"
         ? ["cargo test -p starclock-combat --test damage_lifecycle --all-features"]
         : []),

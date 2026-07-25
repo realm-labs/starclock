@@ -72,7 +72,7 @@ fn all_service_families_compile_to_concrete_checked_payloads() {
     let runtime = compiled.service_interaction_runtime();
     assert_eq!(
         SERVICE_INTERACTION_RUNTIME_REVISION,
-        "standard-universe-service-interaction-runtime-v2"
+        "standard-universe-service-interaction-runtime-v3"
     );
     assert_eq!(runtime.service_count(), 94);
     assert_ne!(runtime.digest(), [0; 32]);
@@ -88,7 +88,7 @@ fn all_service_families_compile_to_concrete_checked_payloads() {
         ),
         (
             service("universe.service.reviver"),
-            ServiceInteractionSelection::Activate,
+            ServiceInteractionSelection::ReviveCharacter(ParticipantId::new(1).unwrap()),
         ),
         (
             service("universe.service.downloader"),

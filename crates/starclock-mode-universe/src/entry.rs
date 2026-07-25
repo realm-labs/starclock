@@ -6,8 +6,8 @@ use starclock_activity::{
     ActivityInventoryId, ActivityMasterSeed, ActivityScope, ActivitySlotDefinition, ActivitySlotId,
     ActivityStateDefinition, ActivityStateSource, ActivityStateVisibility, ActivityValue,
     GraphActivity, GraphActivityDefinition, GraphActivityResolution, GraphActivityStartError,
-    LoadoutLockScope, ParticipantLock, ParticipantPolicy, ParticipantUniquenessScope,
-    SlotCarryPolicy, SlotResetPoint,
+    LoadoutLockScope, ParticipantLock, ParticipantLockDigest, ParticipantPolicy,
+    ParticipantUniquenessScope, SlotCarryPolicy, SlotResetPoint,
 };
 use std::sync::{Arc, OnceLock};
 
@@ -44,7 +44,7 @@ use crate::{
     service_interaction::{ServiceActivityBindings, ServiceInteractionRuntimeCatalog},
 };
 
-pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v5";
+pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v6";
 
 const WORLD_SLOT: u32 = 1;
 const DIFFICULTY_SLOT: u32 = 2;
@@ -65,7 +65,7 @@ const SERVICE_USE_SLOT: u32 = 16;
 const SERVICE_EFFECT_SLOT: u32 = 17;
 const CURIO_EVENT_SLOT: u32 = 18;
 const ABILITY_PROJECTION_SLOT: u32 = 19;
-const THIRD_FORMATION_CAPABILITY_SLOT: u32 = 20;
+const FORMATION_CAPABILITY_SLOT: u32 = 20;
 const BLESSING_INVENTORY: u32 = 1;
 const FORMATION_INVENTORY: u32 = 2;
 const CURIO_INVENTORY: u32 = 3;
@@ -88,7 +88,7 @@ const SERVICE_USE_SOURCE: u64 = 0x5355_0010;
 const SERVICE_EFFECT_SOURCE: u64 = 0x5355_0011;
 const CURIO_EVENT_SOURCE: u64 = 0x5355_0012;
 const ABILITY_PROJECTION_SOURCE: u64 = 0x5355_0013;
-const THIRD_FORMATION_CAPABILITY_SOURCE: u64 = 0x5355_0014;
+const FORMATION_CAPABILITY_SOURCE: u64 = 0x5355_0014;
 const BLESSING_INVENTORY_SOURCE: u64 = 0x5355_1001;
 const FORMATION_INVENTORY_SOURCE: u64 = 0x5355_1002;
 const CURIO_INVENTORY_SOURCE: u64 = 0x5355_1003;
@@ -159,7 +159,13 @@ impl StandardUniverseEntry {
 #[derive(Clone, Debug)]
 pub struct StandardUniverseProfile {
     catalog: Arc<UniverseCatalog>,
-    topology_template: Arc<OnceLock<crate::topology::CompiledUniverseTopology>>,
+    topology_template: Arc<OnceLock<ParticipantTopologyTemplate>>,
+}
+
+#[derive(Clone, Debug)]
+struct ParticipantTopologyTemplate {
+    participant_lock: ParticipantLockDigest,
+    topology: crate::topology::CompiledUniverseTopology,
 }
 
 impl StandardUniverseProfile {
@@ -219,7 +225,7 @@ impl StandardUniverseProfile {
                     .integral()
                     .ok_or(StandardUniverseCompileError::InvalidAbilityRuntime)
             })?;
-        let third_formation_capability = ability_runtime
+        let formation_slot_capacity = ability_runtime
             .project(
                 &ability_tree,
                 AbilityExecutionContext::new(
@@ -231,7 +237,13 @@ impl StandardUniverseProfile {
             )
             .map_err(|_| StandardUniverseCompileError::InvalidAbilityRuntime)?
             .value(AbilityTarget::RunPathResonance)
-            .is_some_and(|value| value.raw_six_decimal() > 0);
+            .map_or(Ok(0), |value| {
+                value
+                    .integral()
+                    .and_then(|value| u8::try_from(value).ok())
+                    .filter(|value| *value <= 3)
+                    .ok_or(StandardUniverseCompileError::InvalidAbilityRuntime)
+            })?;
         let blessing_runtime = Arc::new(
             BlessingRuntimeCatalog::compile(&self.catalog)
                 .map_err(|_| StandardUniverseCompileError::InvalidBlessingRuntime)?,
@@ -329,6 +341,7 @@ impl StandardUniverseProfile {
                     cosmic_fragments: slot(COSMIC_FRAGMENTS_SLOT),
                     service_uses: slot(SERVICE_USE_SLOT),
                     service_effects: slot(SERVICE_EFFECT_SLOT),
+                    ability_projection: slot(ABILITY_PROJECTION_SLOT),
                     blessing_inventory: inventory(BLESSING_INVENTORY),
                     curio_inventory: inventory(CURIO_INVENTORY),
                 },
@@ -360,7 +373,7 @@ impl StandardUniverseProfile {
             &ability_tree,
             initial_cosmic_fragments,
             &run_start,
-            third_formation_capability,
+            formation_slot_capacity,
         )?;
         let participant_digest = entry.participants.digest();
         let identity = compile_identity(
@@ -373,9 +386,18 @@ impl StandardUniverseProfile {
             entry.encounter_overlay.as_deref(),
         )?;
         let participants = Arc::new(entry.participants);
-        let topology = if let Some(template) = self.topology_template.get() {
-            crate::topology::rebind(template, identity, state.clone(), Arc::clone(&participants))
-                .map_err(StandardUniverseCompileError::Topology)?
+        let topology = if let Some(template) = self
+            .topology_template
+            .get()
+            .filter(|template| template.participant_lock == participant_digest)
+        {
+            crate::topology::rebind(
+                &template.topology,
+                identity,
+                state.clone(),
+                Arc::clone(&participants),
+            )
+            .map_err(StandardUniverseCompileError::Topology)?
         } else {
             let compiled = crate::topology::compile(
                 &self.catalog,
@@ -393,14 +415,17 @@ impl StandardUniverseProfile {
                 slot(BLESSING_REROLL_SLOT),
                 slot(PATH_BLESSING_COUNT_SLOT),
                 slot(ABILITY_PROJECTION_SLOT),
-                slot(THIRD_FORMATION_CAPABILITY_SLOT),
+                slot(FORMATION_CAPABILITY_SLOT),
                 inventory(FORMATION_INVENTORY),
                 occurrence_interaction_runtime.as_ref(),
                 service_interaction_runtime.as_ref(),
                 slot(EXTERNAL_OUTCOME_SLOT),
             )
             .map_err(StandardUniverseCompileError::Topology)?;
-            let _ = self.topology_template.set(compiled.clone());
+            let _ = self.topology_template.set(ParticipantTopologyTemplate {
+                participant_lock: participant_digest,
+                topology: compiled.clone(),
+            });
             compiled
         };
 
@@ -614,7 +639,7 @@ impl CompiledActivity {
                     selected_path_slot: self.selected_path_slot(),
                     ability_projection_slot: self.ability_projection_slot(),
                     selected_room_slot: self.selected_room_slot(),
-                    third_formation_capability_slot: self.third_formation_capability_slot(),
+                    formation_capability_slot: self.formation_capability_slot(),
                 }
             }),
         )
@@ -716,8 +741,8 @@ impl CompiledActivity {
     }
 
     #[must_use]
-    pub const fn third_formation_capability_slot(&self) -> ActivitySlotId {
-        slot(THIRD_FORMATION_CAPABILITY_SLOT)
+    pub const fn formation_capability_slot(&self) -> ActivitySlotId {
+        slot(FORMATION_CAPABILITY_SLOT)
     }
 
     #[must_use]
@@ -788,7 +813,7 @@ fn compile_state(
     ability_tree: &[AbilityTreeNodeId],
     initial_cosmic_fragments: i64,
     run_start: &AbilityRuntimeProjection,
-    third_formation_capability: bool,
+    formation_slot_capacity: u8,
 ) -> Result<ActivityStateDefinition, StandardUniverseCompileError> {
     let slots = vec![
         activity_slot(
@@ -950,11 +975,12 @@ fn compile_state(
             ABILITY_PROJECTION_SOURCE,
             ActivityStateVisibility::Private,
         )?,
-        activity_slot(
-            THIRD_FORMATION_CAPABILITY_SLOT,
-            ActivityValue::Boolean(third_formation_capability),
-            None,
-            THIRD_FORMATION_CAPABILITY_SOURCE,
+        integer_slot(
+            FORMATION_CAPABILITY_SLOT,
+            i64::from(formation_slot_capacity),
+            0,
+            3,
+            FORMATION_CAPABILITY_SOURCE,
             ActivityStateVisibility::Private,
         )?,
     ];

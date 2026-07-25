@@ -1,5 +1,5 @@
 //! Standard Universe runtime facade over the generic graph Activity.
-mod ability_access;
+pub mod ability_access;
 mod battle_contribution_access;
 mod battle_execution_access;
 
@@ -91,7 +91,7 @@ pub struct StandardUniverseActivity {
     selected_path_slot: ActivitySlotId,
     ability_projection_slot: ActivitySlotId,
     selected_room_slot: ActivitySlotId,
-    third_formation_capability_slot: ActivitySlotId,
+    formation_capability_slot: ActivitySlotId,
 }
 
 pub(crate) struct StandardUniverseRuntimeContext {
@@ -128,7 +128,7 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) selected_path_slot: ActivitySlotId,
     pub(crate) ability_projection_slot: ActivitySlotId,
     pub(crate) selected_room_slot: ActivitySlotId,
-    pub(crate) third_formation_capability_slot: ActivitySlotId,
+    pub(crate) formation_capability_slot: ActivitySlotId,
 }
 
 impl StandardUniverseActivity {
@@ -168,7 +168,7 @@ impl StandardUniverseActivity {
             selected_path_slot: context.selected_path_slot,
             ability_projection_slot: context.ability_projection_slot,
             selected_room_slot: context.selected_room_slot,
-            third_formation_capability_slot: context.third_formation_capability_slot,
+            formation_capability_slot: context.formation_capability_slot,
         }
     }
 
@@ -235,23 +235,23 @@ impl StandardUniverseActivity {
                 Ok((id, *stacks))
             })
             .collect::<Result<Vec<_>, StandardUniversePathContributionError>>()?;
-        let third_formation_capability = self
+        let formation_slot_capacity = self
             .graph
             .debug_view()
             .all_slots()
             .iter()
-            .find(|slot| slot.id() == self.third_formation_capability_slot)
+            .find(|slot| slot.id() == self.formation_capability_slot)
             .and_then(|slot| match slot.value() {
-                ActivityValue::Boolean(value) => Some(*value),
+                ActivityValue::BoundedInteger(value) => u8::try_from(*value).ok(),
                 _ => None,
             })
             .ok_or(StandardUniversePathContributionError::MissingFormationCapability)?;
         self.path_runtime
-            .contributions_with_formation_capability(
+            .contributions_with_formation_slots(
                 selected,
                 &blessings,
                 &formations,
-                third_formation_capability,
+                formation_slot_capacity,
             )
             .map_err(StandardUniversePathContributionError::Path)
     }

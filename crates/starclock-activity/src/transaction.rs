@@ -3,6 +3,7 @@ use std::collections::BTreeMap;
 use sha2::{Digest, Sha256};
 
 mod decision;
+mod participant_carry;
 
 use crate::{
     ACTIVITY_RNG_REVISION, ACTIVITY_STATE_CODEC_REVISION, ACTIVITY_STATE_HASH_REVISION,
@@ -11,7 +12,7 @@ use crate::{
     ActivityInventoryId, ActivityModifierId, ActivityOptionDefinition, ActivityOptionId,
     ActivityProgramDefinition, ActivityProgramId, ActivityRngStreams, ActivitySlotId,
     ActivityStateDefinition, ActivityStateHash, ActivityStateVisibility, ActivityTerminalOutcome,
-    ActivityValue, LogicalScopeInstance, NodeId,
+    ActivityValue, LogicalScopeInstance, NodeId, ParticipantId,
     battle_preparation::ActivityAttemptState,
     battle_settlement::{ActivityAwaitingBattle, ActivityCarryLedger, MetricSettlementPolicy},
     codec::ActivityStateEncoder,
@@ -83,6 +84,7 @@ pub enum ActivityTransactionEventKind {
         content: u64,
     },
     ModifierChanged(ActivityModifierId),
+    ParticipantCarryChanged(ParticipantId),
     EdgeTraversed(ActivityEdgeId),
     DecisionOffered(ActivityDecisionId),
     Terminal(ActivityTerminalOutcome),
@@ -116,6 +118,8 @@ pub enum ActivityFault {
     InventoryBounds(ActivityInventoryId),
     MissingModifier(ActivityModifierId),
     ModifierBounds(ActivityModifierId),
+    MissingParticipant(ParticipantId),
+    InvalidParticipantState(ParticipantId),
     InvalidGraphEdge(ActivityEdgeId),
     VisitLimitExceeded,
     LogicalScopeLimitExceeded,
@@ -685,6 +689,17 @@ impl ActivityTransactionState {
             Op::RemoveModifier { modifier } => {
                 self.change_modifier(*modifier, i64::MIN, cause, events)?
             }
+            Op::RestoreParticipant {
+                participant,
+                hp_ratio,
+            } => {
+                participant_carry::restore(&mut self.carry, *participant, *hp_ratio)?;
+                push(
+                    events,
+                    cause,
+                    ActivityTransactionEventKind::ParticipantCarryChanged(*participant),
+                );
+            }
             Op::Traverse(edge) => {
                 self.traverse_edge(*edge, graph)?;
                 push(
@@ -825,6 +840,9 @@ impl ActivityTransactionState {
                 | (ActivityValue::FixedScalar(a), ActivityValue::FixedScalar(b)) => Ok(a < b),
                 _ => Err(ActivityFault::TypeMismatch),
             },
+            ActivityCondition::ParticipantDefeated(participant) => {
+                Ok(self.carry.participant_defeated(*participant))
+            }
             ActivityCondition::Not(value) => Ok(!self.condition(value)?),
             ActivityCondition::All(values) => {
                 for value in values.iter() {

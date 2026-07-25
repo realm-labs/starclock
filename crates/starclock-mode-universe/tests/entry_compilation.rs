@@ -113,7 +113,7 @@ fn every_world_and_difficulty_compiles_the_same_generic_entry_contract() {
     assert_eq!(compiled, 33);
     assert_eq!(
         STANDARD_UNIVERSE_ENTRY_REVISION,
-        "standard-universe-entry-v5"
+        "standard-universe-entry-v6"
     );
 }
 
@@ -260,8 +260,8 @@ fn world_difficulty_roster_and_ability_input_are_definition_identity() {
     assert_eq!(
         base.identity().definition_digest().bytes(),
         [
-            85, 8, 253, 164, 20, 250, 30, 245, 31, 47, 98, 31, 150, 1, 30, 219, 94, 167, 87, 254,
-            151, 73, 141, 53, 87, 163, 55, 37, 105, 98, 244, 135,
+            86, 180, 248, 81, 92, 226, 222, 174, 203, 239, 71, 249, 166, 196, 187, 41, 230, 210,
+            171, 152, 128, 101, 89, 193, 89, 49, 106, 37, 183, 55, 239, 94,
         ]
     );
     assert_eq!(

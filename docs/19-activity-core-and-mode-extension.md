@@ -168,6 +168,16 @@ Every projected value between scopes or battles selects one policy:
 
 Policies apply independently to HP, Energy, resources, effects, cooldowns, roster state, clocks, metrics, mode modifiers, and custom slots. No mode receives a blanket “persist battle state” switch.
 
+Participant HP, Energy, life and battlefield presence are projected into a
+typed cross-battle carry ledger. Activity programs may inspect
+`ParticipantDefeated(participant)` and may apply
+`RestoreParticipant { participant, hp_ratio }`. Restoration is a checked,
+atomic core operation: the participant must already exist and be defeated;
+HP uses fixed-point floor rounding against carried maximum HP; Energy is
+retained; life becomes `Alive`; and presence becomes `Present`. A mode handler
+may authorize and parameterize restoration, but cannot mutate carry directly.
+Invalid restoration faults the enclosing transaction without partial state.
+
 ## Clocks, metrics, scores, and objectives
 
 `ActivityClock` supports cycles, remaining/elapsed Action Value, action counts, turn counts, wave counts, and bounded authored counters. It declares scope, initialization, decrement observations, reset/carry, expiry timing, and terminal/tick program.

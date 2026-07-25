@@ -4,9 +4,9 @@
   "generated_on": "2026-07-25",
   "result": "in-progress",
   "total_partitions": 104,
-  "completed_partitions": 2,
-  "pending_partitions": 102,
-  "next_partition": "G07-P2-M01-S03",
+  "completed_partitions": 3,
+  "pending_partitions": 101,
+  "next_partition": "G07-P2-M02-S01",
   "rows": [
     {
       "id": "G07-P2-M01-S01",
@@ -28,9 +28,9 @@
       "id": "G07-P2-M01-S03",
       "ordinal": 2,
       "milestone": "G07-P2-M01",
-      "state": "Pending",
-      "receipt": null,
-      "receipt_sha256": null
+      "state": "Complete",
+      "receipt": "evidence/standard-universe-mechanics-complete-v1/partitions/G07-P2-M01-S03.json",
+      "receipt_sha256": "b5997585236eb2dea4fd4344895dfa0017cbfdea38e2c430b601ea3b45784091"
     },
     {
       "id": "G07-P2-M02-S01",

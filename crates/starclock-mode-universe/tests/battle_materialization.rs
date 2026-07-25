@@ -155,7 +155,7 @@ fn contributions_with_ability_limit(
         .collect::<Vec<_>>();
     let path = PathRuntimeCatalog::compile(catalog)
         .unwrap()
-        .contributions_with_formation_capability(selected_path, &blessings, &formations, true)
+        .contributions_with_formation_slots(selected_path, &blessings, &formations, 3)
         .unwrap();
     let curio_runtime = CurioRuntimeCatalog::compile(catalog).unwrap();
     let selected_curios = curio_runtime
@@ -509,27 +509,27 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(executor.reports().len(), 4);
+    assert_eq!(executor.reports().len(), 2);
     assert_eq!(
         executor
             .reports()
             .iter()
             .map(|battle| battle.trace().len())
             .sum::<usize>(),
-        22
+        14
     );
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            26, 230, 26, 10, 0, 126, 38, 78, 202, 77, 248, 248, 196, 70, 139, 107, 20, 177, 149,
-            127, 124, 87, 45, 79, 250, 123, 252, 170, 120, 171, 177, 136,
+            8, 22, 147, 58, 244, 245, 3, 117, 61, 34, 59, 106, 160, 128, 140, 155, 241, 240, 66,
+            133, 103, 189, 159, 225, 132, 244, 196, 88, 187, 27, 242, 198,
         ]
     );
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
         [
-            210, 113, 255, 93, 177, 129, 149, 108, 214, 238, 151, 102, 150, 70, 145, 199, 3, 199,
-            200, 74, 230, 253, 240, 205, 232, 0, 210, 189, 121, 94, 40, 74,
+            226, 236, 223, 99, 191, 208, 36, 183, 80, 95, 79, 211, 191, 120, 7, 68, 202, 154, 83,
+            221, 225, 18, 236, 118, 18, 94, 220, 190, 57, 230, 186, 68,
         ]
     );
     assert!(executor.reports().iter().all(|battle| {
