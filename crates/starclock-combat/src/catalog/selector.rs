@@ -18,6 +18,8 @@ pub enum RuleSelectorOrigin {
     CurrentSubject,
     Team,
     Encounter,
+    /// Restricts the candidate pool to the ordered targets carried by the event.
+    EventTargets,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -96,6 +98,8 @@ pub enum RuleSelectorPredicate {
     HasEffect(EffectDefinitionId),
     HasTag(SourceDefinitionId),
     OwnedBy(SelectorId),
+    /// Removes every unit selected by the referenced selector.
+    Excludes(SelectorId),
     StatCompare {
         stat: StatKind,
         comparison: Comparison,
@@ -230,7 +234,8 @@ impl RuleUnitSelector {
         let mut output = BTreeSet::new();
         for predicate in &self.predicates {
             match predicate {
-                RuleSelectorPredicate::OwnedBy(selector) => {
+                RuleSelectorPredicate::OwnedBy(selector)
+                | RuleSelectorPredicate::Excludes(selector) => {
                     output.insert(*selector);
                 }
                 RuleSelectorPredicate::StatCompare { value, .. } => {
@@ -308,6 +313,7 @@ fn value_dependencies(expression: &ValueExpr, output: &mut BTreeSet<SelectorId>)
         | ValueExpr::QueryStat { .. }
         | ValueExpr::QueryBaseStat { .. }
         | ValueExpr::QueryShield { .. }
+        | ValueExpr::QueryHp { .. }
         | ValueExpr::QueryEffectStacks { .. }
         | ValueExpr::QueryEffectCategoryStacks { .. } => {}
     }

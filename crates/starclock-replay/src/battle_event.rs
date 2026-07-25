@@ -27,10 +27,12 @@ pub const BATTLE_EVENT_PAYLOAD_VERSION_V2: u16 = 2;
 pub const BATTLE_EVENT_PAYLOAD_VERSION_V3: u16 = 3;
 /// Historical payload with shield-removal source identity.
 pub const BATTLE_EVENT_PAYLOAD_VERSION_V4: u16 = 4;
-/// Current event payload. Activity provenance belongs to assembly identity,
+/// Historical payload with effect-removal definition identity.
+pub const BATTLE_EVENT_PAYLOAD_VERSION_V5: u16 = 5;
+/// Current event payload with committed targets on resolved actions. Activity provenance belongs to assembly identity,
 /// while battle events attribute executable definitions through
 /// [`starclock_combat::Cause::source_definition`].
-pub const BATTLE_EVENT_PAYLOAD_VERSION: u16 = 5;
+pub const BATTLE_EVENT_PAYLOAD_VERSION: u16 = 6;
 
 /// Canonically encodes one event identity, cause chain and complete typed data.
 pub fn encode_battle_event_payload(
@@ -49,6 +51,7 @@ pub fn encode_battle_event_payload_for_version(
         BATTLE_EVENT_PAYLOAD_VERSION_V2,
         BATTLE_EVENT_PAYLOAD_VERSION_V3,
         BATTLE_EVENT_PAYLOAD_VERSION_V4,
+        BATTLE_EVENT_PAYLOAD_VERSION_V5,
         BATTLE_EVENT_PAYLOAD_VERSION,
     ]
     .contains(&version)
@@ -83,7 +86,7 @@ fn encode_kind(
         }
         BattleEventKind::Action(value) => {
             encoder.u8(3);
-            encode_action(encoder, *value);
+            encode_action(encoder, value, version)?;
         }
         BattleEventKind::Phase(value) => {
             encoder.u8(4);
@@ -249,7 +252,11 @@ fn encode_turn(
     Ok(())
 }
 
-fn encode_action(encoder: &mut Encoder<Vec<u8>>, value: ActionEventData) {
+fn encode_action(
+    encoder: &mut Encoder<Vec<u8>>,
+    value: &ActionEventData,
+    version: u16,
+) -> Result<(), BattleEventPayloadError> {
     match value {
         ActionEventData::Queued {
             insertion,
@@ -259,11 +266,11 @@ fn encode_action(encoder: &mut Encoder<Vec<u8>>, value: ActionEventData) {
             boundary,
         } => {
             encoder.u8(0);
-            encoder.u64(insertion);
+            encoder.u64(*insertion);
             encoder.u64(actor.get());
             encoder.u32(ability.get());
-            encoder.u8(origin as u8);
-            encoder.u8(boundary as u8);
+            encoder.u8(*origin as u8);
+            encoder.u8(*boundary as u8);
         }
         ActionEventData::Declared {
             action,
@@ -277,8 +284,8 @@ fn encode_action(encoder: &mut Encoder<Vec<u8>>, value: ActionEventData) {
             action.get(),
             actor.get(),
             ability.get(),
-            origin as u8,
-            tags,
+            *origin as u8,
+            *tags,
         ),
         ActionEventData::Started {
             action,
@@ -292,8 +299,8 @@ fn encode_action(encoder: &mut Encoder<Vec<u8>>, value: ActionEventData) {
             action.get(),
             actor.get(),
             ability.get(),
-            origin as u8,
-            tags,
+            *origin as u8,
+            *tags,
         ),
         ActionEventData::Resolved {
             action,
@@ -301,15 +308,24 @@ fn encode_action(encoder: &mut Encoder<Vec<u8>>, value: ActionEventData) {
             ability,
             origin,
             tags,
-        } => action_lifecycle(
-            encoder,
-            3,
-            action.get(),
-            actor.get(),
-            ability.get(),
-            origin as u8,
-            tags,
-        ),
+            targets,
+        } => {
+            action_lifecycle(
+                encoder,
+                3,
+                action.get(),
+                actor.get(),
+                ability.get(),
+                *origin as u8,
+                *tags,
+            );
+            if version >= BATTLE_EVENT_PAYLOAD_VERSION {
+                encoder.u32(u32::try_from(targets.len()).map_err(|_| CodecError::LengthOverflow)?);
+                for target in targets {
+                    encoder.u64(target.get());
+                }
+            }
+        }
         ActionEventData::Cancelled {
             insertion,
             actor,
@@ -317,12 +333,13 @@ fn encode_action(encoder: &mut Encoder<Vec<u8>>, value: ActionEventData) {
             origin,
         } => {
             encoder.u8(4);
-            encoder.u64(insertion);
+            encoder.u64(*insertion);
             encoder.u64(actor.get());
             encoder.u32(ability.get());
-            encoder.u8(origin as u8);
+            encoder.u8(*origin as u8);
         }
     }
+    Ok(())
 }
 
 fn action_lifecycle(
@@ -535,7 +552,7 @@ fn encode_effect(encoder: &mut Encoder<Vec<u8>>, value: EffectEventData, version
         } => {
             encoder.u8(3);
             operation_effect_target(encoder, operation.get(), effect.get(), target.get());
-            if version >= BATTLE_EVENT_PAYLOAD_VERSION {
+            if version >= BATTLE_EVENT_PAYLOAD_VERSION_V5 {
                 encoder.u32(definition.get());
             }
         }

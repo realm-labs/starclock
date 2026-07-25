@@ -801,7 +801,13 @@ fn execute_emission(
                     .definition(),
             })
         }
-        RuleEmission::Informational { code, value, .. } => {
+        RuleEmission::Informational {
+            code,
+            value,
+            current_target,
+        } => {
+            let cause =
+                current_target.map_or(cause, |target| cause.with_primary_target(Some(target)));
             return Ok(txn.emit(
                 cause.with_parent(parent),
                 BattleEventKind::RuleSignal(crate::RuleSignalEventData {

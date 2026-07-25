@@ -352,6 +352,9 @@ fn event_target_order(event: &BattleEvent) -> Vec<UnitId> {
     match event.kind() {
         BattleEventKind::Hit(crate::HitEventData::Started { targets, .. })
         | BattleEventKind::Hit(crate::HitEventData::Ended { targets, .. }) => targets.to_vec(),
+        BattleEventKind::Action(crate::ActionEventData::Resolved { targets, .. }) => {
+            targets.to_vec()
+        }
         BattleEventKind::Damage(data) => vec![data.target],
         BattleEventKind::Heal(data) => vec![data.target],
         BattleEventKind::HpConsumption(data) => vec![data.target],
@@ -490,6 +493,7 @@ fn event_facts(
             };
             facts.action_kind = Some(action_kind_from_origin(origin, facts.action_kind));
             facts.ability_tags = tags;
+            facts.element = action.and_then(action_element);
         }
         BattleEventKind::Damage(data) => {
             facts.element = data.element;
@@ -645,9 +649,28 @@ fn event_facts(
                 facts.resource_delta = signed_scalar(i64::from(*after) - i64::from(*before));
             }
         },
+        BattleEventKind::RuleSignal(data) => {
+            facts.rule_signal_code = Some(data.code);
+            facts.rule_signal_value = data.value.clone();
+        }
         _ => {}
     }
     facts
+}
+
+fn action_element(
+    action: &crate::catalog::action::AbilityActionDefinition,
+) -> Option<CombatElement> {
+    action.hits().iter().find_map(|hit| {
+        hit.operations()
+            .iter()
+            .find_map(|operation| match operation {
+                crate::catalog::action::HitOperationDefinition::ScalingDamage(definition) => {
+                    Some(definition.element())
+                }
+                _ => None,
+            })
+    })
 }
 
 fn source_class(
@@ -765,6 +788,7 @@ struct UnitQuerySnapshot {
     life: crate::LifeState,
     presence: crate::PresenceState,
     energy: crate::Scalar,
+    hp: crate::Scalar,
     shield: crate::Scalar,
     resources: BTreeMap<Box<str>, crate::Scalar>,
     weaknesses: BTreeSet<CombatElement>,
@@ -794,6 +818,8 @@ impl BattleQuerySnapshot {
                         life: unit.life,
                         presence: unit.presence,
                         energy: crate::Scalar::from_scaled(unit.current_energy.scaled()),
+                        hp: crate::Scalar::checked_from_integer(unit.current_hp.get())
+                            .expect("HP fits the authoritative scalar domain"),
                         shield: txn
                             .state
                             .shields
@@ -921,8 +947,14 @@ impl crate::rule::evaluate::BattleQueryReader for BattleQuerySnapshot {
         self.units.get(&subject).map(|unit| unit.shield)
     }
 
+    fn current_hp(&self, subject: UnitId) -> Option<crate::Scalar> {
+        self.units.get(&subject).map(|unit| unit.hp)
+    }
+
     fn effect_stacks(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> Option<i64> {
-        self.effects.get(&(subject, effect)).copied()
+        self.units
+            .contains_key(&subject)
+            .then(|| self.effects.get(&(subject, effect)).copied().unwrap_or(0))
     }
 
     fn effect_category_stacks(

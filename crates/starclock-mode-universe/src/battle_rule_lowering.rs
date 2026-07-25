@@ -1,5 +1,6 @@
 //! Executable Standard Universe combat slices lowered from validated contributions.
 
+mod abundance_s01;
 mod hunt_resonance;
 mod nihility_s01;
 mod nihility_s02;
@@ -308,6 +309,7 @@ pub(crate) fn lower_rules(
     output.extend(nihility_s02::lower(catalog, bindings, blessings)?);
     output.extend(nihility_s03::lower(bindings, blessings)?);
     output.extend(nihility_s04::lower_rules(catalog, bindings, blessings)?);
+    output.extend(abundance_s01::lower(bindings, blessings)?);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::BlessingLevel
             && binding.source_binding_key() == Some(ABUNDANCE_ADDITIONAL_DAMAGE_BINDING)

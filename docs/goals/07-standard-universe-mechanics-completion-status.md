@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M05-S01` |
-| Next unblocked batch | `G07-P2-M05-S01` |
+| Active batch | `G07-P2-M05-S02` |
+| Next unblocked batch | `G07-P2-M05-S02` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -47,8 +47,11 @@ damage, Effect RES reduction, DoT vulnerability and duration, and dynamic
 total-DoT-stack vulnerability. Offerings of Deception, Before Sunrise,
 Nihility Resonance and all three Formations additionally execute exact team
 healing, stable random Energy restoration, four ordinary DoTs, Confusion
-detonation, Devoid Toughness recovery and Resonance Energy. `G07-P2-M05-S01`
-(Abundance) is active.
+detonation, Devoid Toughness recovery and Resonance Energy. Abundance S01 is
+complete: effective-heal and turn-start Dewdrop charging, full-HP efficiency,
+stable random event-target rupture, bounded rupture healing, nonrecursive team
+healing and capped healing-derived ATK all execute from production
+materialization. `G07-P2-M05-S02` (Abundance) is active.
 
 ## Fixed batch ledger
 
@@ -79,6 +82,7 @@ detonation, Devoid Toughness recovery and Resonance Energy. `G07-P2-M05-S01`
 | `G07-P2-M04-S02` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Nihility/replay tests; partition receipt; quick repository gate | Executed Call level rows, Night Beyond Pyre, Hell is Other People, Twilight of Existence, All Things are Possible and Ignosticism L1. Added modifier-aware Break efficiency, adjacent-only propagation, ordered random effect application, one-current-DoT detonation, newest-first cleansing and the exact level 1–80 Break-base lookup. Production Kafka proves exact 30% efficiency, same-element adjacent Break and selected DoT execution; eleven native candidates close as `IrSufficient`. |
 | `G07-P2-M04-S03` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Nihility/replay tests; partition receipt; quick repository gate | Executed Ignosticism L2 and both levels of Questioning of Purpose, Blind Vision, Tragic Lecture, Sensory Labyrinth and Emotional Decluttering. Added dynamic effect-category stack queries, integral DoT duration and modifier-aware Break-family formula preparation. Production Kafka proves exact 50% initial-Break gain and two-turn Shock extension; enhanced Ignosticism and Emotional Decluttering cap at 72% and 20%; eleven native candidates close as `IrSufficient`. |
 | `G07-P2-M04-S04` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Nihility/replay tests; partition receipt; quick repository gate | Executed both levels of Offerings of Deception and Before Sunrise, Nihility Resonance and all three Formations. Added modifier-aware Toughness recovery, effect-stack-backed Devoid, no-op-safe modifier refresh journals and non-applicable once-scope handling. Production Kafka proves exact four-per-DoT 1,500 heals, stable random Energy restoration, 40/2 Resonance Energy, 90% three-stack Confusion detonation and 7-of-10 Devoid recovery; eight native candidates close as `IrSufficient`. |
+| `G07-P2-M05-S01` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Abundance/replay tests; partition receipt; quick repository gate | Executed both levels of Perennial Prosperity, Mudra, All Abundance, Sin Dead and The Blessed Many. Added current-HP and rule-signal reads, event-element damage, selector exclusion and stable random selection from committed action targets. Production Bailu proves exact 70% turn charge, capped 120% full-HP efficiency, 20% bounded rupture healing and nonrecursive shared healing with capped flat ATK; ten native candidates close as `IrSufficient`. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |
@@ -148,6 +152,7 @@ The milestone summary remains here for orientation.
 | 2026-07-25 | Keep authored base-stat reads distinct from derived stat reads, and make `FormulaPurpose::Stat` a global stat modifier purpose. | Safe Load's cap must not recurse through its own ATK bonus, while ordinary stat bonuses must remain visible from damage-, DoT-, healing- and rule-specific stat-query contexts. |
 | 2026-07-25 | Represent generated-shield and received-shield bonuses with generic source/target formula-subject filters. | A self-shield must apply exactly one authored direction, and no Preservation-specific branch belongs in the sustain formula. |
 | 2026-07-25 | Advance the current battle-event payload to v5 while retaining v1–v4 encoders. | `EffectRemoved` now carries the removed definition identity required by generic lifecycle rules; changing released v4 bytes in place would invalidate historical replay verification. |
+| 2026-07-25 | Advance the current battle-event payload to v6 while retaining v1–v5 encoders. | `ActionResolved` now commits its ordered target list for deterministic post-action selectors; released v5 bytes continue to omit that additive field. |
 
 ## Terminal record
 

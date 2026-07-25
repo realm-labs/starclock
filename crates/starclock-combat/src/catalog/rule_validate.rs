@@ -295,6 +295,9 @@ fn validate_operation(
         RuleOperationTemplate::Damage {
             selector, amount, ..
         }
+        | RuleOperationTemplate::DamageFromEventElement {
+            selector, amount, ..
+        }
         | RuleOperationTemplate::TrueDamage { selector, amount }
         | RuleOperationTemplate::Heal { selector, amount }
         | RuleOperationTemplate::ReduceToughness {
@@ -691,7 +694,9 @@ fn infer_value(
             | EventValueProperty::HpAfter => RuleValueKind::Scalar,
             EventValueProperty::StackCount
             | EventValueProperty::StackDelta
-            | EventValueProperty::HitIndex => RuleValueKind::Integer,
+            | EventValueProperty::HitIndex
+            | EventValueProperty::RuleSignalCode => RuleValueKind::Integer,
+            EventValueProperty::RuleSignalValue => RuleValueKind::Scalar,
         },
         ValueExpr::SelectorCount(selector) => {
             require_selector(catalog, *selector)?;
@@ -713,7 +718,8 @@ fn infer_value(
         | ValueExpr::CurrentTarget => RuleValueKind::OptionalStableId,
         ValueExpr::QueryStat { .. }
         | ValueExpr::QueryBaseStat { .. }
-        | ValueExpr::QueryShield { .. } => RuleValueKind::Scalar,
+        | ValueExpr::QueryShield { .. }
+        | ValueExpr::QueryHp { .. } => RuleValueKind::Scalar,
         ValueExpr::QueryEffectStacks { .. } | ValueExpr::QueryEffectCategoryStacks { .. } => {
             RuleValueKind::Integer
         }

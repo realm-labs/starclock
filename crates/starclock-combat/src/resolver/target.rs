@@ -121,7 +121,9 @@ impl Transaction<'_> {
             RuleSelectorOrigin::Applier => applier,
             RuleSelectorOrigin::PrimaryTarget => primary,
             RuleSelectorOrigin::CurrentSubject => current_subject.or(primary),
-            RuleSelectorOrigin::Team | RuleSelectorOrigin::Encounter => None,
+            RuleSelectorOrigin::Team
+            | RuleSelectorOrigin::Encounter
+            | RuleSelectorOrigin::EventTargets => None,
         };
         let on_selected_side = |side| match selector.side() {
             RuleSelectorSide::Same => side == owner_side,
@@ -144,7 +146,9 @@ impl Transaction<'_> {
             || direct.is_some()
                 && selector.side() == RuleSelectorSide::Same
                 && selector.choice() == RuleSelectorChoice::First;
-        let mut pool = if use_direct {
+        let mut pool = if selector.origin() == RuleSelectorOrigin::EventTargets {
+            event_order.to_vec()
+        } else if use_direct {
             direct.into_iter().collect::<Vec<_>>()
         } else {
             selector_unit_ids(self.state, snapshot)
@@ -215,6 +219,15 @@ impl Transaction<'_> {
                         .unwrap_or_default();
                     selector_owner(self.state, snapshot, *id)
                         .is_some_and(|owner| owners.contains(&owner))
+                }
+                RuleSelectorPredicate::Excludes(excluded_selector) => {
+                    let excluded = input
+                        .selectors
+                        .binary_search_by_key(excluded_selector, |result| result.selector)
+                        .ok()
+                        .map(|index| input.selectors[index].units)
+                        .unwrap_or_default();
+                    !excluded.contains(id)
                 }
                 RuleSelectorPredicate::StatCompare {
                     stat,

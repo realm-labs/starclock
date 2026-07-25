@@ -19,7 +19,8 @@ use starclock_replay::{
     },
     battle_event::{
         BATTLE_EVENT_PAYLOAD_VERSION, BATTLE_EVENT_PAYLOAD_VERSION_V1,
-        BATTLE_EVENT_PAYLOAD_VERSION_V2, BattleEventPayloadError,
+        BATTLE_EVENT_PAYLOAD_VERSION_V2, BATTLE_EVENT_PAYLOAD_VERSION_V3,
+        BATTLE_EVENT_PAYLOAD_VERSION_V4, BATTLE_EVENT_PAYLOAD_VERSION_V5, BattleEventPayloadError,
         encode_battle_event_payload_for_version,
     },
     component::{
@@ -664,6 +665,9 @@ fn compare_events(
         if ![
             BATTLE_EVENT_PAYLOAD_VERSION_V1,
             BATTLE_EVENT_PAYLOAD_VERSION_V2,
+            BATTLE_EVENT_PAYLOAD_VERSION_V3,
+            BATTLE_EVENT_PAYLOAD_VERSION_V4,
+            BATTLE_EVENT_PAYLOAD_VERSION_V5,
             BATTLE_EVENT_PAYLOAD_VERSION,
         ]
         .contains(&version)

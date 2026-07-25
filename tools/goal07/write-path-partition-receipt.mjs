@@ -140,6 +140,16 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612330"))
+    return "Typed effective-heal facts, owner-scoped state and event-element additional damage express Dewdrop charge and rupture.";
+  if (id.includes("612331"))
+    return "Turn-start triggers and generic current/max-HP queries feed the shared capped Dewdrop state.";
+  if (id.includes("612332"))
+    return "Source exclusion, effective-heal reads and effect-stack-backed flat ATK express team healing without recursion.";
+  if (id.includes("612340"))
+    return "The typed rupture signal preserves consumed charge for checked minimum/maximum healing expressions.";
+  if (id.includes("612341"))
+    return "Full-HP conditions and additive charge signals express level-specific Dewdrop efficiency under the shared cap.";
   if (id.includes("612230"))
     return "Typed DoT damage facts and generic effect-stack application express Suspicion gain and its persistent enhanced policy.";
   if (id.includes("612231"))
@@ -549,6 +559,32 @@ function partitionProfile(id) {
         "enemy_dot_ticks_heal_the_team_restore_random_energy_and_charge_resonance",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration nihility_s04 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M05-S01") {
+    return {
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/abundance_s01.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s01.rs",
+        "crates/starclock-combat/src/resolver/target.rs",
+        "crates/starclock-combat/src/resolver/rule.rs",
+        "crates/starclock-replay/src/battle_event.rs",
+        "crates/starclock-replay/tests/battle_property_contract.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-abundance-s01.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/abundance_s01.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s01.rs",
+      fixtureMarker:
+        "goal07_p2_m05_s01_materializes_all_five_assigned_mechanics",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration abundance_s01 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

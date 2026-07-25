@@ -333,6 +333,8 @@ pub enum EventValueProperty {
     ShieldChangeAmount,
     HpBefore,
     HpAfter,
+    RuleSignalCode,
+    RuleSignalValue,
 }
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -364,6 +366,8 @@ pub struct RuleEventFacts {
     pub stack_count: Option<i64>,
     pub stack_delta: Option<i64>,
     pub hit_index: Option<i64>,
+    pub rule_signal_code: Option<u32>,
+    pub rule_signal_value: Option<RuleValue>,
     pub has_parent: bool,
     pub has_action: bool,
     pub has_phase: bool,
@@ -477,6 +481,10 @@ pub enum ValueExpr {
     QueryShield {
         subject: StatQuerySubject,
         observation: ShieldObservation,
+    },
+    /// Reads current HP from the immutable battle-query snapshot.
+    QueryHp {
+        subject: StatQuerySubject,
     },
     /// Reads the current aggregate stack count of one effect on the active subject.
     QueryEffectStacks {
@@ -608,6 +616,14 @@ pub enum RuleOperationTemplate {
         amount: ValueExpr,
         class: DamageClass,
         element: CombatElement,
+        can_crit: bool,
+        can_defeat: bool,
+    },
+    /// Ordinary damage whose element is inherited from the observed event.
+    DamageFromEventElement {
+        selector: SelectorId,
+        amount: ValueExpr,
+        class: DamageClass,
         can_crit: bool,
         can_defeat: bool,
     },

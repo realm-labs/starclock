@@ -136,7 +136,7 @@ fn validate_predicates(
                     ),
                 ));
             }
-            RuleSelectorPredicate::OwnedBy(owner)
+            RuleSelectorPredicate::OwnedBy(owner) | RuleSelectorPredicate::Excludes(owner)
                 if catalog
                     .selectors
                     .get(*owner)
@@ -163,6 +163,7 @@ fn historical_value_safe(expression: &crate::rule::model::ValueExpr) -> bool {
 
     match expression {
         ValueExpr::ReadResource { .. }
+        | ValueExpr::QueryHp { .. }
         | ValueExpr::QueryShield { .. }
         | ValueExpr::QueryEffectStacks { .. }
         | ValueExpr::QueryEffectCategoryStacks { .. } => false,

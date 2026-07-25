@@ -64,5 +64,15 @@ pub(super) fn event_property(
             .hp_after
             .map(RuleValue::Scalar)
             .ok_or_else(missing),
+        EventValueProperty::RuleSignalCode => input
+            .event_facts
+            .rule_signal_code
+            .map(|value| RuleValue::Integer(i64::from(value)))
+            .ok_or_else(missing),
+        EventValueProperty::RuleSignalValue => input
+            .event_facts
+            .rule_signal_value
+            .clone()
+            .ok_or_else(missing),
     }
 }

@@ -520,6 +520,7 @@ pub(super) fn execute_action_plan(
             ability: plan.ability,
             origin: plan.origin,
             tags: plan.tags,
+            targets: plan.targets.targets.clone(),
         }),
     );
     super::rule::dispatch_pending_after_events(catalog, txn, parent)

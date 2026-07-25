@@ -3,8 +3,10 @@
 use core::cmp::Ordering;
 use std::collections::BTreeSet;
 
+mod arithmetic;
 mod event_property;
 mod helpers;
+use arithmetic::{Arithmetic, arithmetic, convert, extremum};
 use event_property::event_property;
 pub(crate) use helpers::stat_query_error;
 use helpers::{
@@ -67,6 +69,9 @@ pub trait BattleQueryReader {
     fn has_weakness(&self, subject: UnitId, element: crate::formula::model::CombatElement) -> bool;
     fn is_broken(&self, subject: UnitId) -> bool;
     fn current_shield(&self, subject: UnitId) -> Option<Scalar>;
+    fn current_hp(&self, _subject: UnitId) -> Option<Scalar> {
+        None
+    }
     fn effect_stacks(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> Option<i64>;
     fn effect_category_stacks(
         &self,
@@ -371,6 +376,24 @@ fn evaluate_operation(
             amount: evaluate_value(amount, input, current_target)?,
             class: *class,
             element: *element,
+            can_crit: *can_crit,
+            can_defeat: *can_defeat,
+            current_target,
+        },
+        RuleOperationTemplate::DamageFromEventElement {
+            selector,
+            amount,
+            class,
+            can_crit,
+            can_defeat,
+        } => RuleEmission::Damage {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            class: *class,
+            element: input.event_facts.element.ok_or(RuleEvaluationError {
+                kind: RuleEvaluationErrorKind::MissingValue,
+                context: 0x21d,
+            })?,
             can_crit: *can_crit,
             can_defeat: *can_defeat,
             current_target,
@@ -980,6 +1003,17 @@ pub fn evaluate_value(
             };
             Ok(RuleValue::Scalar(value))
         }
+        ValueExpr::QueryHp { subject } => {
+            let subject = query_subject(*subject, input, current_target)?;
+            input
+                .battle_query_reader
+                .and_then(|reader| reader.current_hp(subject))
+                .map(RuleValue::Scalar)
+                .ok_or(RuleEvaluationError {
+                    kind: RuleEvaluationErrorKind::MissingValue,
+                    context: 0x21e,
+                })
+        }
         ValueExpr::QueryEffectStacks { subject, effect } => {
             let subject = query_subject(*subject, input, current_target)?;
             input
@@ -1065,93 +1099,6 @@ pub fn evaluate_value(
             *target,
             *rounding,
         ),
-    }
-}
-
-#[derive(Clone, Copy)]
-enum Arithmetic {
-    Add,
-    Subtract,
-    Multiply(crate::Rounding),
-    Divide(crate::Rounding),
-}
-
-fn arithmetic(
-    lhs: &ValueExpr,
-    rhs: &ValueExpr,
-    input: RuleEvaluationInput<'_>,
-    current_target: Option<UnitId>,
-    operation: Arithmetic,
-) -> Result<RuleValue, RuleEvaluationError> {
-    let lhs = evaluate_value(lhs, input, current_target)?;
-    let rhs = evaluate_value(rhs, input, current_target)?;
-    match (lhs, rhs) {
-        (RuleValue::Integer(lhs), RuleValue::Integer(rhs)) => {
-            let value = match operation {
-                Arithmetic::Add => lhs.checked_add(rhs),
-                Arithmetic::Subtract => lhs.checked_sub(rhs),
-                Arithmetic::Multiply(_) => lhs.checked_mul(rhs),
-                Arithmetic::Divide(_) if rhs == 0 => None,
-                Arithmetic::Divide(_) => lhs.checked_div(rhs),
-            };
-            value.map(RuleValue::Integer).ok_or(numeric_error(0x110))
-        }
-        (RuleValue::Scalar(lhs), RuleValue::Scalar(rhs)) => {
-            let value = match operation {
-                Arithmetic::Add => lhs.checked_add(rhs),
-                Arithmetic::Subtract => lhs.checked_sub(rhs),
-                Arithmetic::Multiply(rounding) => lhs.checked_mul(rhs, rounding),
-                Arithmetic::Divide(rounding) => lhs.checked_div(rhs, rounding),
-            };
-            value
-                .map(RuleValue::Scalar)
-                .map_err(|_| numeric_error(0x111))
-        }
-        _ => Err(type_error(0x112)),
-    }
-}
-
-fn extremum(
-    lhs: &ValueExpr,
-    rhs: &ValueExpr,
-    input: RuleEvaluationInput<'_>,
-    current_target: Option<UnitId>,
-    minimum: bool,
-) -> Result<RuleValue, RuleEvaluationError> {
-    let lhs = evaluate_value(lhs, input, current_target)?;
-    let rhs = evaluate_value(rhs, input, current_target)?;
-    let ordering = compare_values(&lhs, &rhs)?;
-    Ok(
-        if (minimum && ordering != Ordering::Greater) || (!minimum && ordering != Ordering::Less) {
-            lhs
-        } else {
-            rhs
-        },
-    )
-}
-
-fn convert(
-    value: RuleValue,
-    target: RuleValueKind,
-    rounding: crate::Rounding,
-) -> Result<RuleValue, RuleEvaluationError> {
-    if value.kind() == target {
-        return Ok(value);
-    }
-    match (value, target) {
-        (RuleValue::Integer(value), RuleValueKind::Scalar) => {
-            crate::Scalar::checked_from_integer(value)
-                .map(RuleValue::Scalar)
-                .map_err(|_| numeric_error(0x120))
-        }
-        (RuleValue::Scalar(value), RuleValueKind::Integer) => value
-            .rounded_integer(rounding)
-            .map(RuleValue::Integer)
-            .map_err(|_| numeric_error(0x121)),
-        _ => Err(RuleEvaluationError {
-            kind: RuleEvaluationErrorKind::InvalidConversion,
-            context: 0x122,
-        }),
     }
 }
 

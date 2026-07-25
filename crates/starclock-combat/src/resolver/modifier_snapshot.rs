@@ -350,7 +350,8 @@ fn collect_value_queries(
         | ValueExpr::EventActor
         | ValueExpr::EventApplier
         | ValueExpr::EventTarget
-        | ValueExpr::CurrentTarget => {}
+        | ValueExpr::CurrentTarget
+        | ValueExpr::QueryHp { .. } => {}
     }
 }
 

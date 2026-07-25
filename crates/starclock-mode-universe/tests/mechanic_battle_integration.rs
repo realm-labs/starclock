@@ -33,6 +33,8 @@ const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../config/universe-generate
 const RESONANCE_ABILITY_RAW: u32 = 0x7630_0001;
 const RESONANCE_RESOURCE_RAW: u32 = 0x7630_0004;
 
+#[path = "mechanic_battle_integration/abundance_s01.rs"]
+mod abundance_s01;
 #[path = "mechanic_battle_integration/nihility_s01.rs"]
 mod nihility_s01;
 #[path = "mechanic_battle_integration/nihility_s02.rs"]
@@ -661,9 +663,9 @@ fn real_blessing_and_curio_change_authoritative_combat_events() {
         Some("universe.curio.8"),
         true,
     );
-    assert_eq!(without.materialized_rule_binding_count(), 0);
-    assert_eq!(with_blessing.materialized_rule_binding_count(), 1);
-    assert_eq!(with_curio.materialized_rule_binding_count(), 1);
+    assert_eq!(without.materialized_rule_binding_count(), 3);
+    assert_eq!(with_blessing.materialized_rule_binding_count(), 3);
+    assert_eq!(with_curio.materialized_rule_binding_count(), 4);
 
     let without = materialize(&catalog, &without);
     let with_blessing = materialize(&catalog, &with_blessing);

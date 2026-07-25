@@ -439,7 +439,7 @@ pub enum TurnEventData {
 }
 
 /// Common action envelope facts independent from operation payloads.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub enum ActionEventData {
     Queued {
         insertion: u64,
@@ -468,6 +468,8 @@ pub enum ActionEventData {
         ability: AbilityId,
         origin: ActionOrigin,
         tags: crate::catalog::action::AbilityTags,
+        /// Stable committed target order for rules that react after the action.
+        targets: Box<[UnitId]>,
     },
     Cancelled {
         insertion: u64,
