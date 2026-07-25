@@ -39,6 +39,8 @@ mod abundance_s01;
 mod abundance_s02;
 #[path = "mechanic_battle_integration/abundance_s03.rs"]
 mod abundance_s03;
+#[path = "mechanic_battle_integration/abundance_s04.rs"]
+mod abundance_s04;
 #[path = "mechanic_battle_integration/nihility_s01.rs"]
 mod nihility_s01;
 #[path = "mechanic_battle_integration/nihility_s02.rs"]
@@ -667,9 +669,9 @@ fn real_blessing_and_curio_change_authoritative_combat_events() {
         Some("universe.curio.8"),
         true,
     );
-    assert_eq!(without.materialized_rule_binding_count(), 3);
-    assert_eq!(with_blessing.materialized_rule_binding_count(), 3);
-    assert_eq!(with_curio.materialized_rule_binding_count(), 4);
+    assert_eq!(without.materialized_rule_binding_count(), 4);
+    assert_eq!(with_blessing.materialized_rule_binding_count(), 4);
+    assert_eq!(with_curio.materialized_rule_binding_count(), 5);
 
     let without = materialize(&catalog, &without);
     let with_blessing = materialize(&catalog, &with_blessing);

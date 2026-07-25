@@ -129,14 +129,22 @@ Life state and battlefield presence are independent:
 
 At zero HP, resolve in this order:
 
-1. clamp HP and emit the HP change;
-2. collect prevention/replacement candidates;
-3. select replacements by priority and stable source ID;
-4. if unreplaced, enter `Downed` and invalidate ordinary actions/targets;
-5. resolve immediate revival or transformation rules;
-6. if still downed, enter `Defeated`, emit defeat credit, and remove timeline eligibility;
-7. resolve defeat triggers;
-8. recompute battle terminal candidates.
+1. calculate incoming damage and shield absorption without mutation;
+2. collect prospective damage guards and replacement candidates;
+3. select guards/replacements by policy, priority and stable source ID;
+4. apply the guarded/clamped damage and emit HP/shield/effect changes;
+5. if HP is zero, enter `Downed` and invalidate ordinary actions/targets;
+6. resolve immediate revival or transformation rules;
+7. if still downed, enter `Defeated`, emit defeat credit, and remove timeline eligibility;
+8. resolve defeat triggers;
+9. recompute battle terminal candidates.
+
+One-shot lethal-damage guards are prospective damage policies, not revival.
+`TeamDefeatOnce` clamps an otherwise-lethal active ally to one HP before
+`Downed`, then consumes all matching same-definition, same-source instances on
+that side. It must not consume unrelated guards or emit a transient
+Downed/Defeated event. Shield-overflow guards retain higher precedence when a
+positive effective shield exists.
 
 Revival explicitly declares restored HP, effect cleanup, timeline position, presence, action cancellation, and per-battle usage. Summon-owner defeat and memosprite teardown are authored links, not universal deletion.
 

@@ -109,6 +109,15 @@ action context; catalog validation then permits `Ability`, `Action`, and
 `TargetWithinAction` once scopes on Effect or Toughness events, while runtime
 matching rejects events that do not actually carry an action identity.
 
+Effect definitions may declare source-agnostic one-shot application guards.
+`NegativeEffectOnce` consumes one stack before the chance roll of an incoming
+Debuff, Control or DoT, emits the normal resisted event, and emits the stable
+`NEGATIVE_EFFECT_GUARDED_SIGNAL` informational fact whose value identifies the
+attempted effect definition. Rules may heal, charge resources or update slots
+from that fact. They must not compare a Blessing, Formation or equipment ID in
+the resolver. A guaranteed negative effect is still an application and is
+therefore guardable.
+
 ## Selectors
 
 A selector declares:
@@ -145,6 +154,12 @@ A `Program` declares `Battle` or `Activity` execution ownership and is a finite 
 - invoke a validated native handler.
 
 Programs cannot directly change collections or HP. They produce resolver operations, which enforce target legality, rounding, attribution, events, reactions, and budgets.
+
+An executable mode ability may own additional validated ability and countdown
+definitions. Materialization inserts these definitions into the immutable
+combat catalog before battle creation. A rule can then create the recurring
+timeline actor through the ordinary bounded countdown operation; no mode
+callback is retained by the battle.
 
 `Heal` declares whether its input is pre-modifier or already resolved. The
 ordinary mode runs the outgoing, incoming and reduction stages. The

@@ -549,6 +549,12 @@ impl UniverseBattleMaterializer {
                 builder.add_program(program.clone());
             }
             builder.add_ability(resonance.ability().clone());
+            for ability in resonance.auxiliary_abilities() {
+                builder.add_ability(ability.clone());
+            }
+            for countdown in resonance.countdowns() {
+                builder.add_countdown(*countdown);
+            }
         }
         if let Some(technique) = &technique {
             builder.add_selector(technique.actor_selector().clone());

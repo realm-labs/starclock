@@ -75,6 +75,8 @@ pub(super) fn lower(
         effects: Box::new([]),
         programs: vec![program].into_boxed_slice(),
         ability,
+        auxiliary_abilities: Box::new([]),
+        countdowns: Box::new([]),
         initial_energy: initial_energy.min(100),
         maximum_energy: 100,
     })

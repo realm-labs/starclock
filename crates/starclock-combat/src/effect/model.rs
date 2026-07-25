@@ -98,7 +98,21 @@ pub enum EffectDamageGuard {
     /// If positive shield capacity would be exceeded, cap that damage to the
     /// current effective shield and consume the effect.
     ShieldOverflowOnce,
+    /// If lethal damage would reach any active ally of the effect holder,
+    /// clamp that target to one HP and consume every matching team instance.
+    TeamDefeatOnce,
 }
+
+/// Generic one-shot guards checked before a negative effect chance roll.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum EffectApplicationGuard {
+    None,
+    /// Consume one stack to reject one incoming debuff, control, or DoT.
+    NegativeEffectOnce,
+}
+
+/// Informational rule signal emitted whenever `NegativeEffectOnce` consumes a stack.
+pub const NEGATIVE_EFFECT_GUARDED_SIGNAL: u32 = 0x0001_0001;
 
 /// Named action families that a control effect may suppress.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -165,6 +179,7 @@ mod tests {
         )
         .unwrap()
         .with_damage_guard(EffectDamageGuard::ShieldOverflowOnce)
+        .with_application_guard(EffectApplicationGuard::NegativeEffectOnce)
         .with_specific_resistance(StatKind::FreezeResistance);
         let runtime = template.resolve(Some(2), Scalar::ZERO).unwrap();
         assert_eq!(
@@ -174,6 +189,10 @@ mod tests {
         assert_eq!(
             runtime.specific_resistance_stat(),
             Some(StatKind::FreezeResistance)
+        );
+        assert_eq!(
+            runtime.application_guard(),
+            EffectApplicationGuard::NegativeEffectOnce
         );
     }
 }
@@ -196,6 +215,7 @@ pub struct EffectRuntimeDefinition {
     controlled_actions: Box<[ControlledAction]>,
     dot: Option<DotDefinition>,
     damage_guard: EffectDamageGuard,
+    application_guard: EffectApplicationGuard,
     specific_resistance_stat: Option<StatKind>,
 }
 
@@ -215,6 +235,7 @@ pub struct EffectRuntimeTemplate {
     application_priority: i32,
     dot: Option<(CombatElement, Option<SourceDefinitionId>)>,
     damage_guard: EffectDamageGuard,
+    application_guard: EffectApplicationGuard,
     specific_resistance_stat: Option<StatKind>,
 }
 
@@ -246,6 +267,7 @@ impl EffectRuntimeTemplate {
             application_priority: 0,
             dot: None,
             damage_guard: EffectDamageGuard::None,
+            application_guard: EffectApplicationGuard::None,
             specific_resistance_stat: None,
         })
     }
@@ -280,6 +302,11 @@ impl EffectRuntimeTemplate {
         self
     }
     #[must_use]
+    pub const fn with_application_guard(mut self, guard: EffectApplicationGuard) -> Self {
+        self.application_guard = guard;
+        self
+    }
+    #[must_use]
     pub const fn with_specific_resistance(mut self, stat: StatKind) -> Self {
         self.specific_resistance_stat = Some(stat);
         self
@@ -288,6 +315,10 @@ impl EffectRuntimeTemplate {
     #[must_use]
     pub const fn damage_guard(&self) -> EffectDamageGuard {
         self.damage_guard
+    }
+    #[must_use]
+    pub const fn application_guard(&self) -> EffectApplicationGuard {
+        self.application_guard
     }
     #[must_use]
     pub const fn specific_resistance_stat(&self) -> Option<StatKind> {
@@ -341,7 +372,8 @@ impl EffectRuntimeTemplate {
         .with_comparison(magnitude, self.application_priority)
         .with_snapshot(self.snapshot_policy)
         .with_teardown(self.teardown_policy)
-        .with_damage_guard(self.damage_guard);
+        .with_damage_guard(self.damage_guard)
+        .with_application_guard(self.application_guard);
         if let Some(stat) = self.specific_resistance_stat {
             runtime = runtime.with_specific_resistance(stat);
         }
@@ -392,6 +424,7 @@ impl EffectRuntimeDefinition {
             controlled_actions: Box::new([]),
             dot: None,
             damage_guard: EffectDamageGuard::None,
+            application_guard: EffectApplicationGuard::None,
             specific_resistance_stat: None,
         })
     }
@@ -433,6 +466,11 @@ impl EffectRuntimeDefinition {
     #[must_use]
     pub const fn with_damage_guard(mut self, guard: EffectDamageGuard) -> Self {
         self.damage_guard = guard;
+        self
+    }
+    #[must_use]
+    pub const fn with_application_guard(mut self, guard: EffectApplicationGuard) -> Self {
+        self.application_guard = guard;
         self
     }
     #[must_use]
@@ -517,6 +555,10 @@ impl EffectRuntimeDefinition {
     #[must_use]
     pub const fn damage_guard(&self) -> EffectDamageGuard {
         self.damage_guard
+    }
+    #[must_use]
+    pub const fn application_guard(&self) -> EffectApplicationGuard {
+        self.application_guard
     }
     #[must_use]
     pub const fn specific_resistance_stat(&self) -> Option<StatKind> {

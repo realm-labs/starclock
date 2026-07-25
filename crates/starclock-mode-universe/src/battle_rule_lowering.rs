@@ -3,6 +3,7 @@
 mod abundance_s01;
 mod abundance_s02;
 mod abundance_s03;
+mod abundance_s04;
 mod hunt_resonance;
 mod nihility_s01;
 mod nihility_s02;
@@ -161,6 +162,8 @@ pub(crate) struct ExecutableResonance {
     effects: Box<[EffectDefinition]>,
     programs: Box<[ProgramDefinition]>,
     ability: AbilityDefinition,
+    auxiliary_abilities: Box<[AbilityDefinition]>,
+    countdowns: Box<[starclock_combat::CountdownCatalogDefinition]>,
     initial_energy: u16,
     maximum_energy: u16,
 }
@@ -183,6 +186,12 @@ impl ExecutableResonance {
     }
     pub(crate) const fn ability(&self) -> &AbilityDefinition {
         &self.ability
+    }
+    pub(crate) fn auxiliary_abilities(&self) -> &[AbilityDefinition] {
+        &self.auxiliary_abilities
+    }
+    pub(crate) fn countdowns(&self) -> &[starclock_combat::CountdownCatalogDefinition] {
+        &self.countdowns
     }
     pub(crate) const fn initial_energy(&self) -> u16 {
         self.initial_energy
@@ -313,6 +322,7 @@ pub(crate) fn lower_rules(
     output.extend(abundance_s01::lower(bindings, blessings)?);
     output.extend(abundance_s02::lower(catalog, bindings, blessings)?);
     output.extend(abundance_s03::lower(bindings, blessings)?);
+    output.extend(abundance_s04::lower_rules(catalog, bindings, blessings)?);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::CurioState
             && binding.source_binding_key() == Some(ENTRY_ENEMY_DAMAGE_BINDING)
@@ -337,6 +347,7 @@ pub(crate) fn lower_rules(
                         | Some(preservation_s04::RESONANCE)
                         | Some(remembrance_s04::RESONANCE)
                         | Some(nihility_s04::RESONANCE)
+                        | Some(abundance_s04::RESONANCE)
                 )
         })
         .map(|binding| match binding.source_binding_key() {
@@ -356,6 +367,9 @@ pub(crate) fn lower_rules(
             ),
             Some(nihility_s04::RESONANCE) => {
                 nihility_s04::resonance(catalog, bindings, binding, initial_resonance_energy)
+            }
+            Some(abundance_s04::RESONANCE) => {
+                abundance_s04::resonance(catalog, bindings, binding, initial_resonance_energy)
             }
             _ => hunt_resonance::lower(
                 catalog,

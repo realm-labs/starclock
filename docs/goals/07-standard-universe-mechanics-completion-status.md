@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M05-S04` |
-| Next unblocked batch | `G07-P2-M05-S04` |
+| Active batch | `G07-P2-M06-S01` |
+| Next unblocked batch | `G07-P2-M06-S01` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -57,7 +57,13 @@ and Effect RES, exact effective-heal restoration and capped Blessing-count
 MaxHP all execute without a native handler. Abundance S03 is complete:
 target-directional Incoming Healing, battle-entry healing, breaking-actor
 healing, one-turn healed DEF and once-per-action provider self-healing execute
-from production Rule IR. `G07-P2-M05-S04` (Abundance) is active.
+from production Rule IR. Abundance S04 is complete: healing-triggered SPD and
+Skill Points, the manual team-healing/MaxHP Resonance, prospective
+lethal-damage prevention, full
+Resonance activation, cleanse, stackable negative-effect guards and one
+recurring Resonance action execute from production Rule IR. The generic
+effect-guard and auxiliary countdown seams require no native handler.
+`G07-P2-M06-S01` (Hunt) is active.
 
 ## Fixed batch ledger
 
@@ -91,6 +97,7 @@ from production Rule IR. `G07-P2-M05-S04` (Abundance) is active.
 | `G07-P2-M05-S01` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Abundance/replay tests; partition receipt; quick repository gate | Executed both levels of Perennial Prosperity, Mudra, All Abundance, Sin Dead and The Blessed Many. Added current-HP and rule-signal reads, event-element damage, selector exclusion and stable random selection from committed action targets. Production Bailu proves exact 70% turn charge, capped 120% full-HP efficiency, 20% bounded rupture healing and nonrecursive shared healing with capped flat ATK; ten native candidates close as `IrSufficient`. |
 | `G07-P2-M05-S02` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Abundance/materialization/replay tests; partition receipt; quick repository gate | Executed both levels of Salvation From Damnation, Candlelight Radiance, Bitter Is the Bane, Corporeal Pellucidity and Prajna Voyage plus Dharma Rain L1. Added exact already-resolved HP restoration and replaced the legacy enhanced-only HP-damage slice with committed-target, event-element L1/L2 Rule IR. Production materialization proves 65%/100% Cleanse, one-turn 50% ATK, 36%/42% HP damage, 36% mitigation, 27% Effect RES, 30%/45% extra healing and six-stack 30% MaxHP; eleven native candidates close as `IrSufficient`. |
 | `G07-P2-M05-S03` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Abundance/materialization/replay tests; partition receipt; quick repository gate | Executed Dharma Rain L2 and both levels of Dew Delight, Extended Life, Mudra, Peril Parry and Back to Life. Added target-directional incoming healing, actor-credited Break healing and ability-source once-per-action provider healing. Production execution proves the 63% nine-Blessing cap, 12%/18% Incoming Healing, 24%/36% entry healing, 16%/24% breaking-actor healing, one-turn 24%/36% DEF and 12%/18% provider healing; eleven native candidates close as `IrSufficient`. |
+| `G07-P2-M05-S04` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Abundance/materialization/replay tests; partition receipt; quick repository gate | Executed both levels of Force Victoire and Empower, Abundance Resonance and all three Formations. Added generic negative-effect and team-defeat guards plus auxiliary Resonance abilities/countdowns. Production execution proves one-turn 10%/15% SPD, once-per-action 30%/45% Skill Point chance, 50% healing, 15% MaxHP, first-lethal prevention, five-stack Subduing Evils, 10% guard healing and recurring 70%-effective Resonance; eight native candidates close as `IrSufficient`. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |
@@ -114,7 +121,7 @@ The milestone summary remains here for orientation.
 | `G07-P2-M02` | `Complete` | 58 / 59 | Preservation complete. |
 | `G07-P2-M03` | `Complete` | 58 / 59 | Remembrance complete. |
 | `G07-P2-M04` | `Complete` | 58 / 59 | Nihility complete. |
-| `G07-P2-M05` | `Expanded` | 58 / 59 | Abundance complete. |
+| `G07-P2-M05` | `Complete` | 58 / 59 | Abundance complete. |
 | `G07-P2-M06` | `Expanded` | 58 / 59 | Hunt complete. |
 | `G07-P2-M07` | `Expanded` | 58 / 59 | Destruction complete. |
 | `G07-P2-M08` | `Expanded` | 58 / 59 | Elation complete. |
@@ -161,6 +168,8 @@ The milestone summary remains here for orientation.
 | 2026-07-25 | Represent generated-shield and received-shield bonuses with generic source/target formula-subject filters. | A self-shield must apply exactly one authored direction, and no Preservation-specific branch belongs in the sustain formula. |
 | 2026-07-25 | Advance the current battle-event payload to v5 while retaining v1–v4 encoders. | `EffectRemoved` now carries the removed definition identity required by generic lifecycle rules; changing released v4 bytes in place would invalidate historical replay verification. |
 | 2026-07-25 | Advance the current battle-event payload to v6 while retaining v1–v5 encoders. | `ActionResolved` now commits its ordered target list for deterministic post-action selectors; released v5 bytes continue to omit that additive field. |
+| 2026-07-26 | Model Abundance prevention and immunity as generic effect guards and recurring Resonance as an auxiliary countdown actor. | Prospective damage policy prevents transient defeat events, guarded negative effects retain ordinary resisted attribution, and mode content enters battle only through immutable catalog definitions. |
+| 2026-07-26 | Use SPD 200 for the Anatta recurring actor as an explicit replaceable numeric approximation. | Released structured/public descriptions specify the recurring action and 30% healing reduction but do not expose its action-order speed; the generic countdown contract remains unchanged when stronger evidence is registered. |
 
 ## Terminal record
 

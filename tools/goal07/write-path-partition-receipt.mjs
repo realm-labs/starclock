@@ -45,7 +45,7 @@ const receipt = {
   goal_id: "standard-universe-mechanics-complete-v1",
   partition_id: partitionId,
   state: "Complete",
-  completed_on: "2026-07-25",
+  completed_on: profile.completedOn ?? "2026-07-25",
   authoring: {
     workbooks: [
       {
@@ -112,6 +112,7 @@ const receipt = {
     decision: nativeDecision(id),
     evidence: reviewEvidence,
   })),
+  numeric_approximations: profile.numericApproximations ?? [],
   execution: {
     result: "pass",
     commands: [
@@ -140,6 +141,18 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612356"))
+    return "Positive-heal facts and a refreshable target-turn percent-of-base SPD effect express Force Victoire.";
+  if (id.includes("612357"))
+    return "Ability-source healing, action occurrence keys, fixed effect chance and checked Skill Point mutation express Empower.";
+  if (id.includes("612320"))
+    return "A keyed team-resource cost and ordered all-ally MaxHP-effect/heal program express the complete manual Resonance.";
+  if (id.includes("612321"))
+    return "The generic prospective team-defeat guard, battle once scope and queued no-cost auxiliary ability express Terminal Nirvana.";
+  if (id.includes("612322"))
+    return "Ordered Cleanse, stackable negative-effect guards and their generic informational signal express Anicca and Subduing Evils.";
+  if (id.includes("612323"))
+    return "The generic first-use trigger, auxiliary countdown definition and recurring timeline action express Anatta.";
   if (id.includes("612351"))
     return "A target-directional Healing-stage modifier expresses Incoming Healing exactly once for allied and self-healing.";
   if (id.includes("612352"))
@@ -660,6 +673,47 @@ function partitionProfile(id) {
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration abundance_s03 --all-features",
         "cargo test -p starclock-mode-universe --test battle_materialization --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M05-S04") {
+    return {
+      completedOn: "2026-07-26",
+      numericApproximations: [
+        {
+          id: "goal07-abundance-anatta-action-speed-v1",
+          record_id: "universe.resonance.612323",
+          field: "recurring_action_speed",
+          value: "200.000000",
+          confidence: "Medium",
+          rationale:
+            "Released structured and public prose specifies a recurring action-order actor but omits its speed.",
+          replacement_condition:
+            "Replace when an authoritative public row exposes the Anatta action-order speed; retain the generic countdown contract.",
+        },
+      ],
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/abundance_s04.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s04.rs",
+        "crates/starclock-combat/src/resolver/effect_operation.rs",
+        "crates/starclock-combat/tests/effect_guards.rs",
+        "crates/starclock-mode-universe/src/battle_materialization.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-abundance-s04.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/abundance_s04.rs",
+        "crates/starclock-combat/src/effect/model.rs",
+        "docs/10-lifecycle-and-resolution.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s04.rs",
+      fixtureMarker:
+        "goal07_p2_m05_s04_materializes_every_assigned_mechanic_without_native_handlers",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration abundance_s04 --all-features",
+        "cargo test -p starclock-combat --test effect_guards --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

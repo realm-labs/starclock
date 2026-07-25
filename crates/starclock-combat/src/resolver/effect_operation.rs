@@ -1,7 +1,7 @@
 //! Effect attachment and DoT operations.
 
 use crate::{
-    DamageKind,
+    DamageAmount, DamageKind,
     battle::fault::BattleFault,
     event::{
         cause::Cause,
@@ -15,6 +15,217 @@ use super::{
     operation::fault::{invariant_fault, numeric_fault},
     transaction::Transaction,
 };
+
+#[allow(clippy::too_many_arguments)]
+pub(super) fn apply_damage_guard(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: crate::OperationId,
+    target: crate::UnitId,
+    calculated: DamageAmount,
+) -> Result<(EventId, DamageAmount), BattleFault> {
+    let shield = txn
+        .state
+        .shields
+        .effective_remaining(target)
+        .map_err(|_| numeric_fault(53, i64::try_from(target.get()).unwrap_or(i64::MAX)))?;
+    if calculated.get() <= shield.get() {
+        return Ok((parent, calculated));
+    }
+    if shield.get() > 0
+        && let Some(effect) = find_damage_guard(
+            catalog,
+            txn,
+            target,
+            crate::EffectDamageGuard::ShieldOverflowOnce,
+        )
+    {
+        let removed = txn
+            .state
+            .effects
+            .remove(effect)
+            .ok_or_else(|| invariant_fault(54))?;
+        txn.remove_effect_attachments(effect);
+        txn.record_effect_change(u64::from(removed.stacks), 0, effect.get());
+        parent = txn.emit(
+            cause.with_parent(parent).with_primary_target(Some(target)),
+            BattleEventKind::Effect(EffectEventData::Removed {
+                operation,
+                effect,
+                definition: removed.definition,
+                target,
+            }),
+        );
+        let guarded =
+            DamageAmount::new(shield.get()).map_err(|_| numeric_fault(55, shield.get()))?;
+        return Ok((parent, guarded));
+    }
+    let (hp, side) = txn
+        .state
+        .units
+        .get(target)
+        .map(|unit| (unit.current_hp, unit.side))
+        .ok_or_else(|| invariant_fault(61))?;
+    if calculated.get().saturating_sub(shield.get()) < hp.get() {
+        return Ok((parent, calculated));
+    }
+    let guard_key = txn
+        .state
+        .effects
+        .iter_by_id()
+        .find(|effect| {
+            txn.state
+                .units
+                .get(effect.target)
+                .is_some_and(|unit| unit.side == side)
+                && has_damage_guard(
+                    catalog,
+                    effect.definition,
+                    crate::EffectDamageGuard::TeamDefeatOnce,
+                )
+        })
+        .map(|effect| (effect.definition, effect.source_definition));
+    let Some((guard_definition, guard_source)) = guard_key else {
+        return Ok((parent, calculated));
+    };
+    let team_guards = txn
+        .state
+        .effects
+        .iter_by_id()
+        .filter(|effect| {
+            effect.definition == guard_definition
+                && effect.source_definition == guard_source
+                && txn
+                    .state
+                    .units
+                    .get(effect.target)
+                    .is_some_and(|unit| unit.side == side)
+        })
+        .map(|effect| effect.id)
+        .collect::<Vec<_>>();
+    for effect in team_guards {
+        let removed = txn
+            .state
+            .effects
+            .remove(effect)
+            .ok_or_else(|| invariant_fault(62))?;
+        txn.remove_effect_attachments(effect);
+        txn.record_effect_change(u64::from(removed.stacks), 0, effect.get());
+        parent = txn.emit(
+            cause
+                .with_parent(parent)
+                .with_primary_target(Some(removed.target)),
+            BattleEventKind::Effect(EffectEventData::Removed {
+                operation,
+                effect,
+                definition: removed.definition,
+                target: removed.target,
+            }),
+        );
+    }
+    let guarded_raw = shield
+        .get()
+        .checked_add(hp.get().saturating_sub(1))
+        .ok_or_else(|| numeric_fault(56, calculated.get()))?;
+    let guarded = DamageAmount::new(guarded_raw).map_err(|_| numeric_fault(56, guarded_raw))?;
+    Ok((parent, guarded))
+}
+
+fn find_damage_guard(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &Transaction<'_>,
+    target: crate::UnitId,
+    guard: crate::EffectDamageGuard,
+) -> Option<crate::EffectInstanceId> {
+    txn.state.effects.iter_by_id().find_map(|effect| {
+        (effect.target == target && has_damage_guard(catalog, effect.definition, guard))
+            .then_some(effect.id)
+    })
+}
+
+fn has_damage_guard(
+    catalog: &crate::catalog::CombatCatalog,
+    effect: crate::EffectDefinitionId,
+    guard: crate::EffectDamageGuard,
+) -> bool {
+    catalog.effect(effect).is_some_and(|definition| {
+        definition
+            .runtime()
+            .is_some_and(|runtime| runtime.damage_guard() == guard)
+            || definition
+                .runtime_template()
+                .is_some_and(|runtime| runtime.damage_guard() == guard)
+    })
+}
+
+#[allow(clippy::too_many_arguments)]
+pub(super) fn consume_negative_effect_guard(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: crate::OperationId,
+    target: crate::UnitId,
+) -> Result<(EventId, bool), BattleFault> {
+    let guard = txn.state.effects.iter_by_id().find_map(|effect| {
+        (effect.target == target
+            && catalog.effect(effect.definition).is_some_and(|definition| {
+                definition.runtime().is_some_and(|runtime| {
+                    runtime.application_guard() == crate::EffectApplicationGuard::NegativeEffectOnce
+                }) || definition.runtime_template().is_some_and(|runtime| {
+                    runtime.application_guard() == crate::EffectApplicationGuard::NegativeEffectOnce
+                })
+            }))
+        .then_some((effect.id, effect.definition))
+    });
+    let Some((effect, definition)) = guard else {
+        return Ok((parent, false));
+    };
+    let (before, after, remaining) = {
+        let state = txn
+            .state
+            .effects
+            .get_mut(effect)
+            .ok_or_else(|| invariant_fault(60))?;
+        let before = state.stacks;
+        let after = before.saturating_sub(1);
+        state.stacks = after;
+        (before, after, state.remaining)
+    };
+    txn.record_effect_change(u64::from(before), u64::from(after), effect.get());
+    if after == 0 {
+        txn.state
+            .effects
+            .remove(effect)
+            .ok_or_else(|| invariant_fault(60))?;
+        txn.remove_effect_attachments(effect);
+        parent = txn.emit(
+            cause.with_parent(parent).with_primary_target(Some(target)),
+            BattleEventKind::Effect(EffectEventData::Removed {
+                operation,
+                effect,
+                definition,
+                target,
+            }),
+        );
+    } else {
+        super::modifier_snapshot::refresh_effect_stacks(catalog, txn, effect, after)?;
+        parent = txn.emit(
+            cause.with_parent(parent).with_primary_target(Some(target)),
+            BattleEventKind::Effect(EffectEventData::Refreshed {
+                operation,
+                effect,
+                target,
+                stacks_before: before,
+                stacks_after: after,
+                remaining,
+            }),
+        );
+    }
+    Ok((parent, true))
+}
 
 pub(super) fn instantiate_attachments(
     catalog: &crate::catalog::CombatCatalog,

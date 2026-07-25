@@ -232,6 +232,8 @@ pub(super) fn resonance(
         effects: all_effects.into_boxed_slice(),
         programs: vec![main, before].into_boxed_slice(),
         ability,
+        auxiliary_abilities: Box::new([]),
+        countdowns: Box::new([]),
         initial_energy: initial_energy.min(100),
         maximum_energy: 100,
     })

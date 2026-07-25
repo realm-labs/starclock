@@ -441,8 +441,9 @@ fn apply_break_damage(
         .get(target)
         .map(|unit| (unit.current_hp, unit.life))
         .ok_or_else(|| invariant_fault(9))?;
-    (parent, calculated) =
-        apply_damage_guard(catalog, txn, cause, parent, operation, target, calculated)?;
+    (parent, calculated) = super::effect_operation::apply_damage_guard(
+        catalog, txn, cause, parent, operation, target, calculated,
+    )?;
     let (absorbed, changes) = txn
         .state
         .shields
@@ -843,8 +844,9 @@ fn apply_ordinary_damage_with_floor(
         .get(target)
         .map(|unit| (unit.current_hp, unit.life))
         .ok_or_else(|| invariant_fault(1))?;
-    (parent, calculated) =
-        apply_damage_guard(catalog, txn, cause, parent, operation, target, calculated)?;
+    (parent, calculated) = super::effect_operation::apply_damage_guard(
+        catalog, txn, cause, parent, operation, target, calculated,
+    )?;
     let (absorbed, shield_changes) = txn
         .state
         .shields
@@ -905,58 +907,6 @@ fn apply_ordinary_damage_with_floor(
     Ok(parent)
 }
 
-#[allow(clippy::too_many_arguments)]
-fn apply_damage_guard(
-    catalog: &crate::catalog::CombatCatalog,
-    txn: &mut Transaction<'_>,
-    cause: Cause,
-    mut parent: EventId,
-    operation: crate::OperationId,
-    target: crate::UnitId,
-    calculated: DamageAmount,
-) -> Result<(EventId, DamageAmount), BattleFault> {
-    let shield = txn
-        .state
-        .shields
-        .effective_remaining(target)
-        .map_err(|_| numeric_fault(53, i64::try_from(target.get()).unwrap_or(i64::MAX)))?;
-    if shield.get() == 0 || calculated.get() <= shield.get() {
-        return Ok((parent, calculated));
-    }
-    let guard = txn.state.effects.iter_by_id().find_map(|effect| {
-        (effect.target == target
-            && catalog.effect(effect.definition).is_some_and(|definition| {
-                definition.runtime().is_some_and(|runtime| {
-                    runtime.damage_guard() == crate::EffectDamageGuard::ShieldOverflowOnce
-                }) || definition.runtime_template().is_some_and(|runtime| {
-                    runtime.damage_guard() == crate::EffectDamageGuard::ShieldOverflowOnce
-                })
-            }))
-        .then_some(effect.id)
-    });
-    let Some(effect) = guard else {
-        return Ok((parent, calculated));
-    };
-    let removed = txn
-        .state
-        .effects
-        .remove(effect)
-        .ok_or_else(|| invariant_fault(54))?;
-    txn.remove_effect_attachments(effect);
-    txn.record_effect_change(1, 0, effect.get());
-    parent = txn.emit(
-        cause.with_parent(parent).with_primary_target(Some(target)),
-        BattleEventKind::Effect(EffectEventData::Removed {
-            operation,
-            effect,
-            definition: removed.definition,
-            target,
-        }),
-    );
-    let guarded = DamageAmount::new(shield.get()).map_err(|_| numeric_fault(55, shield.get()))?;
-    Ok((parent, guarded))
-}
-
 fn execute_apply_effect(
     catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
@@ -1015,6 +965,44 @@ fn execute_apply_effect(
                 (value.pre_clamp, value.probability)
             }
         };
+        if matches!(
+            runtime.category(),
+            crate::EffectCategory::Debuff
+                | crate::EffectCategory::Control
+                | crate::EffectCategory::Dot
+        ) {
+            let (next, guarded) = super::effect_operation::consume_negative_effect_guard(
+                catalog,
+                txn,
+                cause,
+                parent,
+                operation.id,
+                target,
+            )?;
+            parent = next;
+            if guarded {
+                parent = txn.emit(
+                    cause.with_parent(parent).with_primary_target(Some(target)),
+                    BattleEventKind::RuleSignal(crate::RuleSignalEventData {
+                        operation: operation.id,
+                        code: crate::NEGATIVE_EFFECT_GUARDED_SIGNAL,
+                        value: Some(crate::rule::model::RuleValue::StableId(u64::from(
+                            operation.definition.effect.get(),
+                        ))),
+                    }),
+                );
+                parent = txn.emit(
+                    cause.with_parent(parent).with_primary_target(Some(target)),
+                    BattleEventKind::Effect(EffectEventData::Resisted {
+                        operation: operation.id,
+                        definition: operation.definition.effect,
+                        target,
+                        pre_clamp_chance: pre_clamp,
+                    }),
+                );
+                continue;
+            }
+        }
         if !txn.roll_probability(
             probability,
             operation

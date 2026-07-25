@@ -79,10 +79,10 @@ pub use command::model::{
 };
 pub use effect::model::{
     ControlledAction, DispelCategory, DotDefinition, DotDetonationDefinition,
-    DotDetonationSelection, DurationClock, EffectApplicationDefinition, EffectCategory,
-    EffectChancePolicy, EffectDamageGuard, EffectRemovalDefinition, EffectRemovalOrder,
-    EffectRuntimeDefinition, EffectRuntimeTemplate, EffectSnapshotPolicy, EffectStackPolicy,
-    EffectTeardownPolicy, EffectTickPhase,
+    DotDetonationSelection, DurationClock, EffectApplicationDefinition, EffectApplicationGuard,
+    EffectCategory, EffectChancePolicy, EffectDamageGuard, EffectRemovalDefinition,
+    EffectRemovalOrder, EffectRuntimeDefinition, EffectRuntimeTemplate, EffectSnapshotPolicy,
+    EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase, NEGATIVE_EFFECT_GUARDED_SIGNAL,
 };
 pub use event::cause::{Cause, CauseActor};
 pub use event::model::{
