@@ -91,17 +91,21 @@ impl Transaction<'_> {
             .map(super::selector_snapshot::RuleSelectorSnapshot::stat_bases)
             .transpose()
             .map_err(|_| action_fault(136))?;
-        let snapshot_reader =
-            snapshot_bases
-                .as_ref()
-                .zip(snapshot.as_deref())
-                .map(|(bases, snapshot)| {
-                    crate::modifier::resolve::StatResolver::new(
-                        catalog.modifier_registry(),
-                        bases,
-                        &snapshot.modifiers,
-                    )
-                });
+        let snapshot_shields = snapshot
+            .as_deref()
+            .map(super::selector_snapshot::RuleSelectorSnapshot::shield_values);
+        let snapshot_reader = snapshot_bases
+            .as_ref()
+            .zip(snapshot.as_deref())
+            .zip(snapshot_shields.as_ref())
+            .map(|((bases, snapshot), shields)| {
+                crate::modifier::resolve::StatResolver::new(
+                    catalog.modifier_registry(),
+                    bases,
+                    &snapshot.modifiers,
+                )
+                .with_shields(shields)
+            });
         let mut input = input;
         if let Some(reader) = &snapshot_reader {
             input.stat_reader = Some(reader);

@@ -178,7 +178,9 @@ fn evaluate_candidate(
         .iter_by_id()
         .cloned()
         .collect::<Vec<_>>();
-    let stat_reader = StatResolver::new(catalog.modifier_registry(), &bases, &modifiers);
+    let shields = super::stat_input::shield_values(txn);
+    let stat_reader =
+        StatResolver::new(catalog.modifier_registry(), &bases, &modifiers).with_shields(&shields);
     let event_facts = event_facts(catalog, txn, event, event_point);
     let battle_queries = BattleQuerySnapshot::new(txn);
     let rule_cause = RuleCause {
@@ -316,12 +318,16 @@ fn evaluate_candidate(
         toughness_share: crate::Ratio::ONE,
         crit_policy: crate::catalog::action::HitCritPolicy::PerTarget,
     };
+    let mut operation_cause = event_cause
+        .with_owner(owner)
+        .with_source_definition(candidate.source);
+    if event_cause.applier().is_none() {
+        operation_cause = operation_cause.with_applier(actor);
+    }
     execute_emissions(
         catalog,
         txn,
-        event_cause
-            .with_owner(owner)
-            .with_source_definition(candidate.source),
+        operation_cause,
         parent,
         &context,
         input,

@@ -514,6 +514,12 @@ impl UniverseBattleMaterializer {
             builder.add_modifier(modifier.definition().clone());
         }
         for executable in contributions.executable_rules() {
+            for group in executable.modifier_groups() {
+                builder.add_modifier_group(group.clone());
+            }
+            for modifier in executable.modifiers() {
+                builder.add_modifier(modifier.clone());
+            }
             for selector in executable.selectors() {
                 builder.add_selector(selector.clone());
             }

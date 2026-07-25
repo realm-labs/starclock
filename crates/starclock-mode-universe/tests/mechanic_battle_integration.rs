@@ -33,6 +33,9 @@ const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../config/universe-generate
 const RESONANCE_ABILITY_RAW: u32 = 0x7630_0001;
 const RESONANCE_RESOURCE_RAW: u32 = 0x7630_0004;
 
+#[path = "mechanic_battle_integration/preservation_s02.rs"]
+mod preservation_s02;
+
 fn catalog() -> Arc<UniverseCatalog> {
     static CATALOG: OnceLock<Arc<UniverseCatalog>> = OnceLock::new();
     Arc::clone(CATALOG.get_or_init(|| {
@@ -874,7 +877,7 @@ fn goal07_p2_m02_s01_executes_every_assigned_rule_and_operation_fixture() {
         None,
         false,
     );
-    assert_eq!(defense.materialized_rule_binding_count(), 2);
+    assert_eq!(defense.materialized_rule_binding_count(), 3);
     let defense = materialize(&catalog, &defense);
     let (defense_battle, defense_start) = start(
         &defense,

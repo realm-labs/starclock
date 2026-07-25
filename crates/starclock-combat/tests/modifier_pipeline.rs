@@ -1,16 +1,16 @@
 use std::collections::BTreeMap;
 
 use starclock_combat::{
-    ModifierDefinitionId, ModifierInstanceId, ModifierStackingGroupId, Scalar, SourceDefinitionId,
-    StateSlotDefinitionId, UnitId,
+    ModifierDefinitionId, ModifierInstanceId, ModifierStackingGroupId, Rounding, Scalar,
+    SourceDefinitionId, StateSlotDefinitionId, UnitId,
     modifier::model::{
-        ActiveModifier, FormulaModifierQuery, FormulaPurpose, FormulaStage, ModifierAggregation,
-        ModifierDefinition, ModifierFilter, ModifierQueryContext, ModifierStackingGroup,
-        SnapshotPolicy, StatKind, StatQuery, StatQuerySubject,
+        ActiveModifier, FormulaModifierQuery, FormulaPurpose, FormulaStage, FormulaSubject,
+        ModifierAggregation, ModifierDefinition, ModifierFilter, ModifierQueryContext,
+        ModifierStackingGroup, SnapshotPolicy, StatKind, StatQuery, StatQuerySubject,
     },
     modifier::registry::ModifierRegistry,
     modifier::resolve::{ModifierQueryError, StatResolver},
-    rule::model::{RuleValue, SourceClass, ValueExpr},
+    rule::model::{RuleValue, ShieldObservation, SourceClass, ValueExpr},
 };
 
 #[test]
@@ -291,6 +291,123 @@ fn recursive_stat_queries_report_the_ordered_cycle_path() {
             stat_query(subject, StatKind::Def),
             stat_query(subject, StatKind::Atk),
         ]
+    );
+}
+
+#[test]
+fn dynamic_modifier_can_read_current_shield_and_uncycled_authored_base_stat() {
+    let subject = unit(10);
+    let current_shield = ValueExpr::QueryShield {
+        subject: StatQuerySubject::Owner,
+        observation: ShieldObservation::Current,
+    };
+    let authored_attack = ValueExpr::QueryBaseStat {
+        subject: StatQuerySubject::Owner,
+        stat: StatKind::Atk,
+    };
+    let value = ValueExpr::Minimum(
+        Box::new(ValueExpr::Multiply {
+            lhs: Box::new(current_shield),
+            rhs: Box::new(literal(Scalar::from_scaled(400_000))),
+            rounding: Rounding::NearestTiesEven,
+        }),
+        Box::new(ValueExpr::Multiply {
+            lhs: Box::new(authored_attack),
+            rhs: Box::new(literal(Scalar::from_scaled(1_200_000))),
+            rounding: Rounding::NearestTiesEven,
+        }),
+    );
+    let registry = ModifierRegistry::new(
+        vec![group(1, ModifierAggregation::Sum)],
+        vec![definition(1, 1, FormulaStage::Flat, value)],
+    )
+    .unwrap();
+    let bases = BTreeMap::from([((subject, StatKind::Atk), scalar(100))]);
+    let active = [instance(1, 1, subject, 1)];
+    let query = stat_query(subject, StatKind::Atk);
+
+    let below_cap = StatResolver::new(&registry, &bases, &active)
+        .with_shields(&BTreeMap::from([(subject, scalar(100))]))
+        .query(query, &ModifierQueryContext::default())
+        .unwrap();
+    assert_eq!(below_cap, scalar(140));
+
+    let at_cap = StatResolver::new(&registry, &bases, &active)
+        .with_shields(&BTreeMap::from([(subject, scalar(1_000))]))
+        .query(query, &ModifierQueryContext::default())
+        .unwrap();
+    assert_eq!(at_cap, scalar(220));
+
+    let shields = BTreeMap::from([(subject, scalar(1_000))]);
+    let contextual = StatResolver::new(&registry, &bases, &active)
+        .with_shields(&shields)
+        .query(
+            StatQuery {
+                purpose: FormulaPurpose::OrdinaryDamage,
+                ..query
+            },
+            &ModifierQueryContext::default(),
+        )
+        .unwrap();
+    assert_eq!(contextual, at_cap);
+}
+
+#[test]
+fn formula_subject_filters_keep_outgoing_and_incoming_shield_bonuses_distinct() {
+    let subject = unit(11);
+    let mut outgoing = definition_for_stat(
+        1,
+        1,
+        StatKind::ShieldStrength,
+        FormulaStage::Shield,
+        literal(Scalar::from_scaled(300_000)),
+    );
+    outgoing.purpose = FormulaPurpose::Shield;
+    outgoing.filters =
+        vec![ModifierFilter::FormulaSubject(FormulaSubject::Source)].into_boxed_slice();
+    let mut incoming = definition_for_stat(
+        2,
+        2,
+        StatKind::ShieldStrength,
+        FormulaStage::Shield,
+        literal(Scalar::from_scaled(350_000)),
+    );
+    incoming.purpose = FormulaPurpose::Shield;
+    incoming.filters =
+        vec![ModifierFilter::FormulaSubject(FormulaSubject::Target)].into_boxed_slice();
+    let registry = ModifierRegistry::new(
+        vec![
+            group(1, ModifierAggregation::Sum),
+            group(2, ModifierAggregation::Sum),
+        ],
+        vec![outgoing, incoming],
+    )
+    .unwrap();
+    let active = [instance(1, 1, subject, 1), instance(2, 2, subject, 2)];
+    let query = FormulaModifierQuery {
+        subject,
+        stage: FormulaStage::Shield,
+        purpose: FormulaPurpose::Shield,
+    };
+    let bases = BTreeMap::new();
+    let resolver = StatResolver::new(&registry, &bases, &active);
+    assert_eq!(
+        resolver
+            .query_formula(
+                query,
+                &ModifierQueryContext::default().with_formula_subject(FormulaSubject::Source),
+            )
+            .unwrap(),
+        Scalar::from_scaled(300_000)
+    );
+    assert_eq!(
+        resolver
+            .query_formula(
+                query,
+                &ModifierQueryContext::default().with_formula_subject(FormulaSubject::Target),
+            )
+            .unwrap(),
+        Scalar::from_scaled(350_000)
     );
 }
 

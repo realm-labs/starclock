@@ -621,7 +621,9 @@ fn infer_value(
         | ValueExpr::EventApplier
         | ValueExpr::EventTarget
         | ValueExpr::CurrentTarget => RuleValueKind::OptionalStableId,
-        ValueExpr::QueryStat { .. } | ValueExpr::QueryShield { .. } => RuleValueKind::Scalar,
+        ValueExpr::QueryStat { .. }
+        | ValueExpr::QueryBaseStat { .. }
+        | ValueExpr::QueryShield { .. } => RuleValueKind::Scalar,
         ValueExpr::Add(lhs, rhs)
         | ValueExpr::Subtract(lhs, rhs)
         | ValueExpr::Minimum(lhs, rhs)

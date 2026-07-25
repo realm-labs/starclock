@@ -18,6 +18,7 @@ pub(crate) fn initialize_battle(
     state: &mut crate::battle::state::BattleState,
 ) -> Result<(), u32> {
     let bases = stat_bases(state).map_err(|_| 0_u32)?;
+    let shields = state_shield_values(state);
     let active = state.modifiers.iter_by_id().cloned().collect::<Vec<_>>();
     for source in &active {
         let definition = catalog
@@ -42,7 +43,8 @@ pub(crate) fn initialize_battle(
             catalog.modifier_registry(),
             &bases,
             &peers,
-        );
+        )
+        .with_shields(&shields);
         let mut captured_value = None;
         let mut captured_stats = None;
         match definition.snapshot {
@@ -87,6 +89,7 @@ pub(super) fn initialize(
         .modifier(instance.definition)
         .ok_or_else(|| action_fault(135))?;
     let bases = super::program::stat_bases(txn)?;
+    let shields = super::stat_input::shield_values(txn);
     let active = txn
         .state
         .modifiers
@@ -94,7 +97,8 @@ pub(super) fn initialize(
         .cloned()
         .collect::<Vec<_>>();
     let resolver =
-        crate::modifier::resolve::StatResolver::new(catalog.modifier_registry(), &bases, &active);
+        crate::modifier::resolve::StatResolver::new(catalog.modifier_registry(), &bases, &active)
+            .with_shields(&shields);
     match definition.snapshot {
         SnapshotPolicy::OnApplication | SnapshotPolicy::RecomputeOnStackChange => {
             instance.captured_value = Some(
@@ -127,6 +131,7 @@ pub(super) fn refresh(
         SnapshotPolicy::OnActionStart | SnapshotPolicy::OnPhaseStart | SnapshotPolicy::OnHitStart
     ));
     let bases = super::program::stat_bases(txn)?;
+    let shields = super::stat_input::shield_values(txn);
     let active = txn
         .state
         .modifiers
@@ -134,7 +139,8 @@ pub(super) fn refresh(
         .cloned()
         .collect::<Vec<_>>();
     let resolver =
-        crate::modifier::resolve::StatResolver::new(catalog.modifier_registry(), &bases, &active);
+        crate::modifier::resolve::StatResolver::new(catalog.modifier_registry(), &bases, &active)
+            .with_shields(&shields);
     let mut updates = Vec::new();
     for instance in &active {
         let definition = catalog
@@ -204,6 +210,7 @@ pub(super) fn refresh_effect_stacks(
         );
     }
     let bases = super::program::stat_bases(txn)?;
+    let shields = super::stat_input::shield_values(txn);
     let active = txn
         .state
         .modifiers
@@ -230,7 +237,8 @@ pub(super) fn refresh_effect_stacks(
             catalog.modifier_registry(),
             &bases,
             &peers,
-        );
+        )
+        .with_shields(&shields);
         let value = resolver
             .capture_value(current, definition)
             .map_err(|_| action_fault(145))?;
@@ -287,6 +295,7 @@ fn collect_value_queries(
                 purpose: *purpose,
             });
         }
+        ValueExpr::QueryBaseStat { .. } => {}
         ValueExpr::SelectorSum { value, .. }
         | ValueExpr::Negate(value)
         | ValueExpr::Convert { value, .. } => {
@@ -416,4 +425,22 @@ fn stat_bases(
         );
     }
     Ok(bases)
+}
+
+fn state_shield_values(
+    state: &crate::battle::state::BattleState,
+) -> std::collections::BTreeMap<crate::UnitId, crate::Scalar> {
+    state
+        .units
+        .iter_by_id()
+        .map(|unit| {
+            let value = state
+                .shields
+                .effective_remaining(unit.id)
+                .ok()
+                .and_then(|value| crate::Scalar::checked_from_integer(value.get()).ok())
+                .unwrap_or(crate::Scalar::ZERO);
+            (unit.id, value)
+        })
+        .collect()
 }

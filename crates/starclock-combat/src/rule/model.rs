@@ -519,6 +519,11 @@ pub enum ValueExpr {
         stat: StatKind,
         purpose: FormulaPurpose,
     },
+    /// Reads the authored pre-modifier value for one stat.
+    QueryBaseStat {
+        subject: StatQuerySubject,
+        stat: StatKind,
+    },
     /// Reads effective visible shield capacity from the dedicated shield store.
     QueryShield {
         subject: StatQuerySubject,

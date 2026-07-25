@@ -44,6 +44,7 @@ struct CacheKey {
 pub struct StatResolver<'a> {
     registry: &'a ModifierRegistry,
     bases: &'a BTreeMap<(UnitId, StatKind), Scalar>,
+    shields: Option<&'a BTreeMap<UnitId, Scalar>>,
     instances: &'a [ActiveModifier],
     context: RefCell<ModifierQueryContext>,
     stack: RefCell<Vec<StatQuery>>,
@@ -62,6 +63,7 @@ impl<'a> StatResolver<'a> {
         Self {
             registry,
             bases,
+            shields: None,
             instances,
             context: RefCell::default(),
             stack: RefCell::default(),
@@ -74,6 +76,13 @@ impl<'a> StatResolver<'a> {
     #[must_use]
     pub const fn without_cache(mut self) -> Self {
         self.cache_enabled = false;
+        self
+    }
+
+    /// Supplies current effective shield values for dynamic modifier expressions.
+    #[must_use]
+    pub const fn with_shields(mut self, shields: &'a BTreeMap<UnitId, Scalar>) -> Self {
+        self.shields = Some(shields);
         self
     }
 
@@ -202,7 +211,8 @@ impl<'a> StatResolver<'a> {
                     .ok_or(ModifierQueryError::MissingDefinition(instance.instance))?;
                 if instance.subject == query.subject
                     && definition.stat == query.stat
-                    && definition.purpose == query.purpose
+                    && (definition.purpose == FormulaPurpose::Stat
+                        || definition.purpose == query.purpose)
                     && definition.stage == stage
                     && matches_filters(definition, instance, context)
                 {
@@ -245,7 +255,8 @@ impl<'a> StatResolver<'a> {
                     let definition = self.registry.definition(instance.definition)?;
                     (instance.subject == query.subject
                         && definition.stat == query.stat
-                        && definition.purpose == query.purpose
+                        && (definition.purpose == FormulaPurpose::Stat
+                            || definition.purpose == query.purpose)
                         && definition.stage <= stage
                         && definition.cap_stage == stage
                         && matches_filters(definition, instance, context))
@@ -300,6 +311,7 @@ impl<'a> StatResolver<'a> {
             point: Some(crate::rule::model::RuleEventPoint::RuleStateChanged),
             ..crate::rule::model::RuleEventFacts::default()
         };
+        let shield_reader = self.shields.map(|values| ShieldReader { values });
         let input = RuleEvaluationInput {
             event_kind: crate::rule::model::RuleEventKind::Rule,
             event_facts: &event_facts,
@@ -332,7 +344,9 @@ impl<'a> StatResolver<'a> {
             stat_reader: Some(reader),
             ability_parameter_reader: None,
             resource_reader: None,
-            battle_query_reader: None,
+            battle_query_reader: shield_reader
+                .as_ref()
+                .map(|reader| reader as &dyn crate::rule::evaluate::BattleQueryReader),
         };
         let value = evaluate_value(expression, input, Some(instance.subject));
         if let Some(error) = self.deferred_error.borrow_mut().take() {
@@ -389,6 +403,18 @@ impl StatQueryReader for StatResolver<'_> {
             stat_query_error(0x203)
         })
     }
+
+    fn query_base_stat(
+        &self,
+        _origin: crate::modifier::model::StatQuerySubject,
+        subject: UnitId,
+        stat: StatKind,
+    ) -> Result<Scalar, RuleEvaluationError> {
+        self.bases
+            .get(&(subject, stat))
+            .copied()
+            .ok_or_else(|| stat_query_error(0x205))
+    }
 }
 
 struct SnapshotReader<'a, 'b> {
@@ -444,6 +470,45 @@ impl StatQueryReader for SnapshotReader<'_, '_> {
                 });
         }
         self.resolver.query_stat(origin, subject, stat, purpose)
+    }
+
+    fn query_base_stat(
+        &self,
+        origin: crate::modifier::model::StatQuerySubject,
+        subject: UnitId,
+        stat: StatKind,
+    ) -> Result<Scalar, RuleEvaluationError> {
+        self.resolver.query_base_stat(origin, subject, stat)
+    }
+}
+
+struct ShieldReader<'a> {
+    values: &'a BTreeMap<UnitId, Scalar>,
+}
+
+impl crate::rule::evaluate::BattleQueryReader for ShieldReader<'_> {
+    fn life_presence(&self, _subject: UnitId) -> Option<(crate::LifeState, crate::PresenceState)> {
+        None
+    }
+
+    fn has_effect(&self, _subject: UnitId, _effect: crate::EffectDefinitionId) -> bool {
+        false
+    }
+
+    fn has_weakness(
+        &self,
+        _subject: UnitId,
+        _element: crate::formula::model::CombatElement,
+    ) -> bool {
+        false
+    }
+
+    fn is_broken(&self, _subject: UnitId) -> bool {
+        false
+    }
+
+    fn current_shield(&self, subject: UnitId) -> Option<Scalar> {
+        self.values.get(&subject).copied()
     }
 }
 
@@ -535,6 +600,16 @@ fn matches_filters(
     instance: &ActiveModifier,
     context: &ModifierQueryContext,
 ) -> bool {
+    if context.formula_subject == Some(super::model::FormulaSubject::Target)
+        && !definition.filters.iter().any(|filter| {
+            matches!(
+                filter,
+                ModifierFilter::FormulaSubject(super::model::FormulaSubject::Target)
+            )
+        })
+    {
+        return false;
+    }
     definition.filters.iter().all(|filter| match filter {
         ModifierFilter::AbilityTag(tag) => context.ability_tags.binary_search(tag).is_ok(),
         ModifierFilter::DamageTag(tag) => context.damage_tags.binary_search(tag).is_ok(),
@@ -553,5 +628,6 @@ fn matches_filters(
             .matched_target_selectors
             .binary_search(value)
             .is_ok(),
+        ModifierFilter::FormulaSubject(value) => context.formula_subject == Some(*value),
     })
 }

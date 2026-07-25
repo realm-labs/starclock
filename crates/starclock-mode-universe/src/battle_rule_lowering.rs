@@ -1,10 +1,12 @@
 //! Executable Standard Universe combat slices lowered from validated contributions.
 
+mod preservation_s02;
 mod support;
 
+use preservation_s02::*;
 use starclock_combat::{
-    AbilityId, EffectDefinitionId, ProgramId, Ratio, SelectorId, SourceDefinitionId,
-    StateSlotDefinitionId, TriggerId,
+    AbilityId, EffectDefinitionId, ModifierDefinitionId, ModifierStackingGroupId, ProgramId, Ratio,
+    SelectorId, SourceDefinitionId, StateSlotDefinitionId, TriggerId,
     catalog::{
         action::{
             AbilityActionDefinition, AbilityKind, AbilityTag, ActionHitDefinition,
@@ -18,7 +20,10 @@ use starclock_combat::{
         },
     },
     formula::model::{CombatElement, DamageClass},
-    modifier::model::{FormulaPurpose, StatKind, StatQuerySubject},
+    modifier::model::{
+        FormulaPurpose, FormulaStage, FormulaSubject, ModifierAggregation, ModifierDefinition,
+        ModifierFilter, ModifierStackingGroup, SnapshotPolicy, StatKind, StatQuerySubject,
+    },
     rule::model::{
         BattleRuleDefinition, BattleRuleScope, Comparison, ConditionExpr, EventFilter,
         EventValueProperty, OnceScope, ProgramStep, ReactionPriority, RuleEventKind,
@@ -56,6 +61,8 @@ const COUNTER_SLOT_ID_BASE: u32 = 0x7680_0000;
 const SECOND_TRIGGER_ID_BASE: u32 = 0x7690_0000;
 const THIRD_TRIGGER_ID_BASE: u32 = 0x76a0_0000;
 const FOURTH_TRIGGER_ID_BASE: u32 = 0x76b0_0000;
+const MODIFIER_ID_BASE: u32 = 0x76c0_0000;
+const MODIFIER_GROUP_ID_BASE: u32 = 0x76d0_0000;
 
 pub(crate) const RESONANCE_ABILITY_ID: AbilityId =
     AbilityId::new(0x7630_0001).expect("reserved ability ID is non-zero");
@@ -76,6 +83,11 @@ const PRESERVATION_MACROSEGREGATION_BINDING: &str = "StageAbility_612032";
 const PRESERVATION_QUAKE_SPLASH_BINDING: &str = "StageAbility_612040";
 const PRESERVATION_QUAKE_BLEED_BINDING: &str = "StageAbility_612041";
 const PRESERVATION_SHIELD_STRENGTH_BINDING: &str = "StageAbility_612042";
+const PRESERVATION_SAFE_LOAD_BINDING: &str = "StageAbility_612043";
+const PRESERVATION_SANCTUARY_BINDING: &str = "StageAbility_612044";
+const PRESERVATION_SHIELD_CAPACITY_BINDING: &str = "StageAbility_612045";
+const PRESERVATION_PROVIDER_SHIELD_BINDING: &str = "StageAbility_612046";
+const PRESERVATION_ASSEMBLE_BINDING: &str = "StageAbility_612050";
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum RuleAttachment {
@@ -86,6 +98,8 @@ pub(crate) enum RuleAttachment {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct ExecutableBattleRule {
     attachment: RuleAttachment,
+    modifier_groups: Box<[ModifierStackingGroup]>,
+    modifiers: Box<[ModifierDefinition]>,
     selectors: Box<[SelectorDefinition]>,
     effects: Box<[EffectDefinition]>,
     programs: Box<[ProgramDefinition]>,
@@ -96,6 +110,12 @@ pub(crate) struct ExecutableBattleRule {
 impl ExecutableBattleRule {
     pub(crate) const fn attachment(&self) -> RuleAttachment {
         self.attachment
+    }
+    pub(crate) fn modifier_groups(&self) -> &[ModifierStackingGroup] {
+        &self.modifier_groups
+    }
+    pub(crate) fn modifiers(&self) -> &[ModifierDefinition] {
+        &self.modifiers
     }
     pub(crate) fn selectors(&self) -> &[SelectorDefinition] {
         &self.selectors
@@ -219,6 +239,35 @@ pub(crate) fn lower_rules(
         if !sources.is_empty() {
             output.push(preservation_quake_bleed(binding, parameters, &sources)?);
         }
+    }
+    for key in [
+        PRESERVATION_SAFE_LOAD_BINDING,
+        PRESERVATION_SANCTUARY_BINDING,
+        PRESERVATION_SHIELD_CAPACITY_BINDING,
+        PRESERVATION_PROVIDER_SHIELD_BINDING,
+        PRESERVATION_ASSEMBLE_BINDING,
+    ] {
+        let Some(binding) = level_binding(bindings, key) else {
+            continue;
+        };
+        let parameters = selected_level_parameters(blessings, key)
+            .ok_or(BattleRuleLoweringError::SnapshotMismatch)?;
+        output.push(match key {
+            PRESERVATION_SAFE_LOAD_BINDING => preservation_safe_load(binding, parameters)?,
+            PRESERVATION_SANCTUARY_BINDING => preservation_sanctuary(binding, parameters)?,
+            PRESERVATION_SHIELD_CAPACITY_BINDING => {
+                preservation_shield_capacity(binding, parameters)?
+            }
+            PRESERVATION_PROVIDER_SHIELD_BINDING => {
+                preservation_provider_shield(binding, parameters)?
+            }
+            PRESERVATION_ASSEMBLE_BINDING => preservation_assemble(
+                binding,
+                parameters,
+                preservation_blessing_count(catalog, blessings)?,
+            )?,
+            _ => unreachable!("closed Preservation S02 binding set"),
+        });
     }
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::BlessingLevel
@@ -549,6 +598,8 @@ fn preservation_macrosegregation(
     ));
     Ok(ExecutableBattleRule {
         attachment: RuleAttachment::EveryPlayer,
+        modifier_groups: Box::new([]),
+        modifiers: Box::new([]),
         selectors: selectors.into_boxed_slice(),
         effects: vec![EffectDefinition::new(effect, Vec::new(), Vec::new())].into_boxed_slice(),
         programs: programs.into_boxed_slice(),
@@ -774,6 +825,8 @@ fn executable_rule(
     );
     ExecutableBattleRule {
         attachment: RuleAttachment::EveryPlayer,
+        modifier_groups: Box::new([]),
+        modifiers: Box::new([]),
         selectors: selectors.into_boxed_slice(),
         effects: effects.into_boxed_slice(),
         programs: programs.into_boxed_slice(),
@@ -897,6 +950,8 @@ fn executable_damage_rule(
     );
     ExecutableBattleRule {
         attachment: RuleAttachment::EveryPlayer,
+        modifier_groups: Box::new([]),
+        modifiers: Box::new([]),
         selectors: selectors.into_boxed_slice(),
         effects: Box::new([]),
         programs: vec![program_definition].into_boxed_slice(),
@@ -969,6 +1024,8 @@ fn abundance_additional_damage(
         ));
     Ok(ExecutableBattleRule {
         attachment: RuleAttachment::EveryPlayer,
+        modifier_groups: Box::new([]),
+        modifiers: Box::new([]),
         selectors: selectors.into_boxed_slice(),
         effects: Box::new([]),
         programs: vec![program_definition].into_boxed_slice(),
@@ -1045,6 +1102,8 @@ fn entry_enemy_damage(
     ));
     Ok(ExecutableBattleRule {
         attachment: RuleAttachment::FirstPlayer,
+        modifier_groups: Box::new([]),
+        modifiers: Box::new([]),
         selectors: selectors.into_boxed_slice(),
         effects: Box::new([]),
         programs: vec![root_definition, body_definition].into_boxed_slice(),

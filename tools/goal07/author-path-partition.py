@@ -161,22 +161,32 @@ def build_golden(partition_id: str) -> dict[str, Any]:
     )
 
     record_ids = set(assigned["record_ids"])
-    path_keys = {item for item in record_ids if item.startswith("universe.path.")}
-    blessing_keys = {
+    assigned_path_keys = {
+        item for item in record_ids if item.startswith("universe.path.")
+    }
+    assigned_blessing_keys = {
         item
         for item in record_ids
         if item.startswith("universe.blessing.") and ".level." not in item
     }
     level_keys = {item for item in record_ids if ".level." in item}
-    if len(path_keys) != 1 or not blessing_keys or not level_keys:
+    if len(assigned_path_keys) > 1 or not level_keys:
         raise ValueError(f"{partition_id}: path/blessing/level assignment is incomplete")
 
     paths = keyed(rows(workbook["UniversePath"]), "stable_key")
+    path_keys = assigned_path_keys or {
+        f"universe.path.{str(assigned['mechanic_family']).removeprefix('path-')}"
+    }
     selected_paths = [paths[key] for key in sorted(path_keys)]
     blessings = keyed(rows(workbook["UniverseBlessing"]), "stable_key")
-    selected_blessings = [blessings[key] for key in sorted(blessing_keys)]
     levels = keyed(rows(workbook["UniverseBlessingLevel"]), "stable_key")
     selected_levels = [levels[key] for key in sorted(level_keys)]
+    blessing_by_id = {int(row["id"]): row for row in blessings.values()}
+    blessing_keys = assigned_blessing_keys | {
+        blessing_by_id[int(level["blessing_id"])]["stable_key"]
+        for level in selected_levels
+    }
+    selected_blessings = [blessings[key] for key in sorted(blessing_keys)]
     blessing_ids = {int(row["id"]) for row in selected_blessings}
     level_ids = {int(row["id"]) for row in selected_levels}
     path_links = [
@@ -196,7 +206,10 @@ def build_golden(partition_id: str) -> dict[str, Any]:
     if {int(row["blessing_level_id"]) for row in parameters} != level_ids:
         raise ValueError(f"{partition_id}: one or more levels have no exact parameters")
     for blessing in selected_blessings:
-        if blessing["rule_stable_key"] not in assigned["rule_ids"]:
+        if (
+            blessing["stable_key"] in assigned_blessing_keys
+            and blessing["rule_stable_key"] not in assigned["rule_ids"]
+        ):
             raise ValueError(f"{blessing['stable_key']}: assigned rule link differs")
     for level in selected_levels:
         if level["rule_stable_key"] not in assigned["rule_ids"]:

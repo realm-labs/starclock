@@ -9,8 +9,8 @@ use crate::{
     formula,
     modifier::{
         model::{
-            ActiveModifier, FormulaModifierQuery, FormulaPurpose, FormulaStage, LifeFilter,
-            ModifierQueryContext, PresenceFilter,
+            ActiveModifier, FormulaModifierQuery, FormulaPurpose, FormulaStage, FormulaSubject,
+            LifeFilter, ModifierQueryContext, PresenceFilter,
         },
         resolve::StatResolver,
     },
@@ -23,6 +23,7 @@ use super::{
 
 pub(super) struct FormulaInputs {
     bases: BTreeMap<(crate::UnitId, crate::modifier::model::StatKind), crate::Scalar>,
+    shields: BTreeMap<crate::UnitId, crate::Scalar>,
     modifiers: Vec<ActiveModifier>,
 }
 
@@ -30,6 +31,7 @@ impl FormulaInputs {
     pub(super) fn new(txn: &Transaction<'_>) -> Result<Self, BattleFault> {
         Ok(Self {
             bases: super::program::stat_bases(txn)?,
+            shields: super::stat_input::shield_values(txn),
             modifiers: txn.state.modifiers.iter_by_id().cloned().collect(),
         })
     }
@@ -129,25 +131,17 @@ impl FormulaInputs {
                 target,
                 None,
                 formula::model::DamageClass::Direct,
-            )?,
-        )?;
-        let incoming = if source == target {
-            crate::Scalar::ZERO
-        } else {
-            formula_modifier(
-                &resolver,
-                target,
-                FormulaStage::Healing,
-                FormulaPurpose::Healing,
-                &modifier_context(
-                    txn,
-                    target,
-                    target,
-                    None,
-                    formula::model::DamageClass::Direct,
-                )?,
             )?
-        };
+            .with_formula_subject(FormulaSubject::Source),
+        )?;
+        let incoming = incoming_formula_modifier(
+            &resolver,
+            txn,
+            source,
+            target,
+            FormulaStage::Healing,
+            FormulaPurpose::Healing,
+        )?;
         let formula = formula
             .with_formula_modifier(outgoing, true)
             .and_then(|formula| formula.with_formula_modifier(incoming, false))
@@ -176,25 +170,17 @@ impl FormulaInputs {
                 target,
                 None,
                 formula::model::DamageClass::Direct,
-            )?,
-        )?;
-        let incoming = if source == target {
-            crate::Scalar::ZERO
-        } else {
-            formula_modifier(
-                &resolver,
-                target,
-                FormulaStage::Shield,
-                FormulaPurpose::Shield,
-                &modifier_context(
-                    txn,
-                    target,
-                    target,
-                    None,
-                    formula::model::DamageClass::Direct,
-                )?,
             )?
-        };
+            .with_formula_subject(FormulaSubject::Source),
+        )?;
+        let incoming = incoming_formula_modifier(
+            &resolver,
+            txn,
+            source,
+            target,
+            FormulaStage::Shield,
+            FormulaPurpose::Shield,
+        )?;
         let formula = formula
             .with_formula_modifier(
                 outgoing
@@ -217,6 +203,7 @@ impl FormulaInputs {
 
     fn resolver<'a>(&'a self, catalog: &'a crate::catalog::CombatCatalog) -> StatResolver<'a> {
         StatResolver::new(catalog.modifier_registry(), &self.bases, &self.modifiers)
+            .with_shields(&self.shields)
     }
 }
 
@@ -237,6 +224,38 @@ fn formula_modifier(
             context,
         )
         .map_err(|_| numeric_fault(46, i64::from(stage as u8)))
+}
+
+fn incoming_formula_modifier(
+    resolver: &StatResolver<'_>,
+    txn: &Transaction<'_>,
+    source: crate::UnitId,
+    target: crate::UnitId,
+    stage: FormulaStage,
+    purpose: FormulaPurpose,
+) -> Result<crate::Scalar, BattleFault> {
+    let context = modifier_context(
+        txn,
+        target,
+        target,
+        None,
+        formula::model::DamageClass::Direct,
+    )?;
+    let unscoped = if source == target {
+        crate::Scalar::ZERO
+    } else {
+        formula_modifier(resolver, target, stage, purpose, &context)?
+    };
+    let directional = formula_modifier(
+        resolver,
+        target,
+        stage,
+        purpose,
+        &context.with_formula_subject(FormulaSubject::Target),
+    )?;
+    unscoped
+        .checked_add(directional)
+        .map_err(|_| numeric_fault(49, unscoped.scaled()))
 }
 
 fn formula_source(

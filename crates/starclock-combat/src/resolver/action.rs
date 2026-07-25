@@ -538,11 +538,13 @@ fn resolve_scaling_damage(
         .iter_by_id()
         .cloned()
         .collect::<Vec<_>>();
+    let shields = super::stat_input::shield_values(txn);
     let reader = crate::modifier::resolve::StatResolver::new(
         catalog.modifier_registry(),
         &bases,
         &modifiers,
-    );
+    )
+    .with_shields(&shields);
     let purpose = match definition.class() {
         crate::formula::model::DamageClass::Direct => FormulaPurpose::OrdinaryDamage,
         crate::formula::model::DamageClass::Dot => FormulaPurpose::Dot,

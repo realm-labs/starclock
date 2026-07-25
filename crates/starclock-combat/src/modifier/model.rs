@@ -133,6 +133,13 @@ pub enum PresenceFilter {
     Transformed,
 }
 
+/// Direction of a formula-stage contribution relative to the operation.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum FormulaSubject {
+    Source,
+    Target,
+}
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum ModifierFilter {
     AbilityTag(Box<str>),
@@ -143,6 +150,7 @@ pub enum ModifierFilter {
     Presence(PresenceFilter),
     Source(SourceClass),
     Target(SelectorId),
+    FormulaSubject(FormulaSubject),
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -248,5 +256,14 @@ pub struct ModifierQueryContext {
     pub presence: Option<PresenceFilter>,
     pub source_class: Option<SourceClass>,
     pub target: Option<UnitId>,
+    pub formula_subject: Option<FormulaSubject>,
     pub matched_target_selectors: Box<[SelectorId]>,
+}
+
+impl ModifierQueryContext {
+    #[must_use]
+    pub const fn with_formula_subject(mut self, subject: FormulaSubject) -> Self {
+        self.formula_subject = Some(subject);
+        self
+    }
 }

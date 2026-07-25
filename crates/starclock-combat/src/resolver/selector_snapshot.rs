@@ -21,6 +21,7 @@ pub(super) struct SelectorUnitSnapshot {
     pub(super) base_defense: crate::StatValue,
     pub(super) base_speed: crate::Speed,
     pub(super) gauge: Option<crate::ActionGauge>,
+    pub(super) shield: crate::Scalar,
     pub(super) weaknesses: Box<[CombatElement]>,
 }
 
@@ -61,6 +62,12 @@ impl RuleSelectorSnapshot {
                             .id_for_owner(unit.id)
                             .and_then(|actor| state.actors.get(actor))
                             .map(|actor| actor.gauge),
+                        shield: state
+                            .shields
+                            .effective_remaining(unit.id)
+                            .ok()
+                            .and_then(|value| crate::Scalar::checked_from_integer(value.get()).ok())
+                            .unwrap_or(crate::Scalar::ZERO),
                         weaknesses: unit.weaknesses.clone().into_boxed_slice(),
                     },
                 )
@@ -134,6 +141,13 @@ impl RuleSelectorSnapshot {
             );
         }
         Ok(bases)
+    }
+
+    pub(super) fn shield_values(&self) -> BTreeMap<UnitId, crate::Scalar> {
+        self.units
+            .iter()
+            .map(|(id, unit)| (*id, unit.shield))
+            .collect()
     }
 }
 

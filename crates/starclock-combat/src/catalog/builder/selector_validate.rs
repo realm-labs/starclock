@@ -203,7 +203,8 @@ fn historical_value_safe(expression: &crate::rule::model::ValueExpr) -> bool {
         | ValueExpr::EventApplier
         | ValueExpr::EventTarget
         | ValueExpr::CurrentTarget
-        | ValueExpr::QueryStat { .. } => true,
+        | ValueExpr::QueryStat { .. }
+        | ValueExpr::QueryBaseStat { .. } => true,
     }
 }
 

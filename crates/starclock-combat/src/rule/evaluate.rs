@@ -4,7 +4,7 @@ use core::cmp::Ordering;
 use std::collections::BTreeSet;
 
 mod helpers;
-use helpers::{budget_error, numeric_error, optional_unit, type_error};
+use helpers::{add_values, budget_error, numeric_error, optional_unit, query_subject, type_error};
 
 use super::model::{
     CauseAncestry, Comparison, ConditionExpr, EventFilter, EventValueProperty, ProgramStep,
@@ -29,6 +29,16 @@ pub trait StatQueryReader {
         stat: StatKind,
         purpose: FormulaPurpose,
     ) -> Result<Scalar, RuleEvaluationError>;
+
+    /// Reads the authored stat base without applying any modifier stage.
+    fn query_base_stat(
+        &self,
+        origin: StatQuerySubject,
+        subject: UnitId,
+        stat: StatKind,
+    ) -> Result<Scalar, RuleEvaluationError> {
+        self.query_stat(origin, subject, stat, FormulaPurpose::Stat)
+    }
 }
 
 /// Read-only bridge used by the Rule IR `AbilityParameter` leaf.
@@ -871,6 +881,18 @@ pub fn evaluate_value(
                 .query_stat(origin, subject, *stat, *purpose)
                 .map(RuleValue::Scalar)
         }
+        ValueExpr::QueryBaseStat { subject, stat } => {
+            let origin = *subject;
+            let subject = query_subject(origin, input, current_target)?;
+            input
+                .stat_reader
+                .ok_or(RuleEvaluationError {
+                    kind: RuleEvaluationErrorKind::MissingValue,
+                    context: 0x203,
+                })?
+                .query_base_stat(origin, subject, *stat)
+                .map(RuleValue::Scalar)
+        }
         ValueExpr::QueryShield {
             subject,
             observation,
@@ -1013,38 +1035,6 @@ fn event_property(
             .map(RuleValue::Scalar)
             .ok_or_else(missing),
     }
-}
-
-fn add_values(lhs: RuleValue, rhs: RuleValue) -> Result<RuleValue, RuleEvaluationError> {
-    match (lhs, rhs) {
-        (RuleValue::Integer(lhs), RuleValue::Integer(rhs)) => lhs
-            .checked_add(rhs)
-            .map(RuleValue::Integer)
-            .ok_or_else(|| numeric_error(0x114)),
-        (RuleValue::Scalar(lhs), RuleValue::Scalar(rhs)) => lhs
-            .checked_add(rhs)
-            .map(RuleValue::Scalar)
-            .map_err(|_| numeric_error(0x115)),
-        _ => Err(type_error(0x116)),
-    }
-}
-
-fn query_subject(
-    subject: StatQuerySubject,
-    input: RuleEvaluationInput<'_>,
-    current_target: Option<UnitId>,
-) -> Result<UnitId, RuleEvaluationError> {
-    let value = match subject {
-        StatQuerySubject::Owner => input.rule_owner.or(input.cause.owner),
-        StatQuerySubject::Actor => input.cause.actor,
-        StatQuerySubject::Applier => input.cause.applier,
-        StatQuerySubject::EventTarget => input.cause.target,
-        StatQuerySubject::CurrentTarget => current_target,
-    };
-    value.ok_or(RuleEvaluationError {
-        kind: RuleEvaluationErrorKind::MissingValue,
-        context: 0x202,
-    })
 }
 
 #[derive(Clone, Copy)]

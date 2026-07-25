@@ -15,6 +15,7 @@ mod rule;
 pub(crate) mod schedule;
 mod selector_snapshot;
 pub(crate) mod settle;
+mod stat_input;
 mod target;
 pub(crate) mod toughness;
 pub(crate) mod transaction;

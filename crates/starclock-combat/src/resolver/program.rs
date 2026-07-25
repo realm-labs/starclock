@@ -125,11 +125,13 @@ fn execute_program(
         .iter_by_id()
         .cloned()
         .collect::<Vec<_>>();
+    let shields = super::stat_input::shield_values(txn);
     let stat_reader = crate::modifier::resolve::StatResolver::new(
         catalog.modifier_registry(),
         &bases,
         &modifiers,
-    );
+    )
+    .with_shields(&shields);
     let event_facts = crate::rule::model::RuleEventFacts {
         point: Some(event_point),
         has_parent: true,

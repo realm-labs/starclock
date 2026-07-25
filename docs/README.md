@@ -126,6 +126,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 100. [Goal 07 Ability Tree partition S02](goal-07-ability-tree-s02.md) — battle modifiers, Resonance resources and Formation-boundary execution.
 101. [Goal 07 Ability Tree partition S03](goal-07-ability-tree-s03.md) — generic Formation capacity, Reviver carry and consumable authorization.
 102. [Goal 07 Preservation partition S01](goal-07-preservation-s01.md) — exact Quake composition, Macrosegregation shield lifecycle, splash, Bleed and shared core primitives.
+103. [Goal 07 Preservation partition S02](goal-07-preservation-s02.md) — dynamic shield-to-ATK, turn-end and provider shields, directional shield modifiers and Blessing-count DEF.
 
 ## Execution goals
 
