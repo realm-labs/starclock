@@ -714,7 +714,9 @@ fn infer_value(
         ValueExpr::QueryStat { .. }
         | ValueExpr::QueryBaseStat { .. }
         | ValueExpr::QueryShield { .. } => RuleValueKind::Scalar,
-        ValueExpr::QueryEffectStacks { .. } => RuleValueKind::Integer,
+        ValueExpr::QueryEffectStacks { .. } | ValueExpr::QueryEffectCategoryStacks { .. } => {
+            RuleValueKind::Integer
+        }
         ValueExpr::Add(lhs, rhs)
         | ValueExpr::Subtract(lhs, rhs)
         | ValueExpr::Minimum(lhs, rhs)

@@ -8,8 +8,9 @@ mod helpers;
 use event_property::event_property;
 pub(crate) use helpers::stat_query_error;
 use helpers::{
-    add_values, ancestry_matches, budget_error, numeric_error, optional_unit, query_subject,
-    selector_matches, selector_units, slot_value, type_error,
+    add_values, ancestry_matches, budget_error, compare_ordering, numeric_error, optional_unit,
+    query_effect_category_stacks, query_subject, selector_matches, selector_units, slot_value,
+    type_error,
 };
 
 use super::model::{
@@ -67,6 +68,13 @@ pub trait BattleQueryReader {
     fn is_broken(&self, subject: UnitId) -> bool;
     fn current_shield(&self, subject: UnitId) -> Option<Scalar>;
     fn effect_stacks(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> Option<i64>;
+    fn effect_category_stacks(
+        &self,
+        _subject: UnitId,
+        _category: crate::EffectCategory,
+    ) -> Option<i64> {
+        Some(0)
+    }
 }
 
 /// Stable evaluation failure category.
@@ -986,6 +994,9 @@ pub fn evaluate_value(
                     context: effect.get(),
                 })
         }
+        ValueExpr::QueryEffectCategoryStacks { subject, category } => {
+            query_effect_category_stacks(*subject, *category, input, current_target)
+        }
         ValueExpr::Add(lhs, rhs) => arithmetic(lhs, rhs, input, current_target, Arithmetic::Add),
         ValueExpr::Subtract(lhs, rhs) => {
             arithmetic(lhs, rhs, input, current_target, Arithmetic::Subtract)
@@ -1153,17 +1164,6 @@ pub(crate) fn compare(
     rhs: &RuleValue,
 ) -> Result<bool, RuleEvaluationError> {
     Ok(compare_ordering(compare_values(lhs, rhs)?, operator))
-}
-
-fn compare_ordering(ordering: Ordering, operator: Comparison) -> bool {
-    match operator {
-        Comparison::Equal => ordering == Ordering::Equal,
-        Comparison::NotEqual => ordering != Ordering::Equal,
-        Comparison::Less => ordering == Ordering::Less,
-        Comparison::LessOrEqual => ordering != Ordering::Greater,
-        Comparison::Greater => ordering == Ordering::Greater,
-        Comparison::GreaterOrEqual => ordering != Ordering::Less,
-    }
 }
 
 pub(crate) fn compare_values(

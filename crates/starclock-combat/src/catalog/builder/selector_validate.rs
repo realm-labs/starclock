@@ -164,7 +164,8 @@ fn historical_value_safe(expression: &crate::rule::model::ValueExpr) -> bool {
     match expression {
         ValueExpr::ReadResource { .. }
         | ValueExpr::QueryShield { .. }
-        | ValueExpr::QueryEffectStacks { .. } => false,
+        | ValueExpr::QueryEffectStacks { .. }
+        | ValueExpr::QueryEffectCategoryStacks { .. } => false,
         ValueExpr::SelectorSum { value, .. }
         | ValueExpr::Negate(value)
         | ValueExpr::Convert { value, .. } => historical_value_safe(value),

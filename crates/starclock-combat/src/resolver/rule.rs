@@ -776,6 +776,7 @@ pub(super) struct BattleQuerySnapshot {
     skill_points: [crate::Scalar; 2],
     team_resources: [BTreeMap<Box<str>, crate::Scalar>; 2],
     effects: BTreeMap<(UnitId, crate::EffectDefinitionId), i64>,
+    effect_category_stacks: BTreeMap<(UnitId, crate::EffectCategory), i64>,
     frozen: BTreeSet<UnitId>,
 }
 
@@ -833,9 +834,14 @@ impl BattleQuerySnapshot {
                 .collect();
         }
         let mut effects = BTreeMap::<_, i64>::new();
+        let mut effect_category_stacks = BTreeMap::<_, i64>::new();
         for effect in txn.state.effects.iter_by_id() {
             effects
                 .entry((effect.target, effect.definition))
+                .and_modify(|stacks| *stacks += i64::from(effect.stacks))
+                .or_insert(i64::from(effect.stacks));
+            effect_category_stacks
+                .entry((effect.target, effect.category))
                 .and_modify(|stacks| *stacks += i64::from(effect.stacks))
                 .or_insert(i64::from(effect.stacks));
         }
@@ -865,6 +871,7 @@ impl BattleQuerySnapshot {
             skill_points,
             team_resources,
             effects,
+            effect_category_stacks,
             frozen,
         }
     }
@@ -916,6 +923,19 @@ impl crate::rule::evaluate::BattleQueryReader for BattleQuerySnapshot {
 
     fn effect_stacks(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> Option<i64> {
         self.effects.get(&(subject, effect)).copied()
+    }
+
+    fn effect_category_stacks(
+        &self,
+        subject: UnitId,
+        category: crate::EffectCategory,
+    ) -> Option<i64> {
+        Some(
+            self.effect_category_stacks
+                .get(&(subject, category))
+                .copied()
+                .unwrap_or(0),
+        )
     }
 }
 

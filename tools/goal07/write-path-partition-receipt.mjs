@@ -162,6 +162,16 @@ function nativeDecision(id) {
     return "The generic deterministic one-current-DoT detonation operation expresses All Things without content branching.";
   if (id.includes("612250"))
     return "The validated contribution compiler supplies the capped selected-Nihility count to an ordinary DoT modifier.";
+  if (id.includes("612251"))
+    return "A generic Break-purpose source modifier is consumed by initial and base Break-effect formula preparation.";
+  if (id.includes("612252"))
+    return "A signed enemy Effect RES modifier flows through the shared resistible-effect chance pipeline.";
+  if (id.includes("612253"))
+    return "A target-subject DoT vulnerability modifier is filtered and stacked by the ordinary formula pipeline.";
+  if (id.includes("612254"))
+    return "The generic integral DoT-duration stat adjusts newly applied DoT lifetimes before duration multiplication.";
+  if (id.includes("612255"))
+    return "Dynamic effect-category stack queries and capped target vulnerability express the current total DoT-stack scaling.";
   if (id.includes("612156"))
     return "Typed Freeze effect/BaseEffect facts, explicit action context and action once keys express per-applier Energy restoration.";
   if (id.includes("612157"))
@@ -477,6 +487,32 @@ function partitionProfile(id) {
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration nihility_s02 --all-features",
         "cargo test -p starclock-combat --test toughness_formula --all-features",
         "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M04-S03") {
+    return {
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/nihility_s03.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s03.rs",
+        "crates/starclock-combat/src/resolver/operation_formula.rs",
+        "crates/starclock-combat/src/resolver/program_effect.rs",
+        "crates/starclock-combat/src/modifier/resolve.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-nihility-s03.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/nihility_s03.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s03.rs",
+      fixtureMarker:
+        "questioning_of_purpose_increases_a_production_initial_break_by_exactly_half",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration nihility_s03 --all-features",
+        "cargo test -p starclock-combat --test modifier_pipeline --all-features",
+        "cargo test -p starclock-combat --test damage_lifecycle --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
     };

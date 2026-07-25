@@ -289,6 +289,25 @@ fn resolve_negative_effect_duration(
         return Ok(runtime);
     };
     let reader = input.stat_reader.ok_or_else(|| program_fault(68, 0))?;
+    let duration = if runtime.category() == crate::EffectCategory::Dot {
+        let addition = reader
+            .query_stat(
+                crate::modifier::model::StatQuerySubject::CurrentTarget,
+                target,
+                crate::modifier::model::StatKind::DotDurationAddition,
+                crate::modifier::model::FormulaPurpose::Dot,
+            )
+            .map_err(|error| program_fault(73, i64::from(error.context())))?
+            .rounded_integer(Rounding::NearestTiesEven)
+            .map_err(|_| program_fault(73, 0))?;
+        i64::from(duration)
+            .checked_add(addition)
+            .and_then(|value| u16::try_from(value).ok())
+            .filter(|value| *value > 0)
+            .ok_or_else(|| program_fault(73, addition))?
+    } else {
+        duration
+    };
     let multiplier = reader
         .query_stat(
             crate::modifier::model::StatQuerySubject::CurrentTarget,

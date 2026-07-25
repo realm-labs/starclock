@@ -4,6 +4,22 @@ use crate::{
     modifier::model::StatQuerySubject,
     rule::model::{RuleEvaluationInput, RuleValue, TriggerDef, TriggerDefinitionOrder},
 };
+use core::cmp::Ordering;
+
+pub(super) fn compare_ordering(
+    ordering: Ordering,
+    operator: crate::rule::model::Comparison,
+) -> bool {
+    use crate::rule::model::Comparison;
+    match operator {
+        Comparison::Equal => ordering == Ordering::Equal,
+        Comparison::NotEqual => ordering != Ordering::Equal,
+        Comparison::Less => ordering == Ordering::Less,
+        Comparison::LessOrEqual => ordering != Ordering::Greater,
+        Comparison::Greater => ordering == Ordering::Greater,
+        Comparison::GreaterOrEqual => ordering != Ordering::Less,
+    }
+}
 
 pub(super) fn ancestry_matches(
     value: crate::rule::model::CauseAncestry,
@@ -81,6 +97,23 @@ pub(super) fn query_subject(
         kind: RuleEvaluationErrorKind::MissingValue,
         context: 0x202,
     })
+}
+
+pub(super) fn query_effect_category_stacks(
+    subject: StatQuerySubject,
+    category: crate::EffectCategory,
+    input: RuleEvaluationInput<'_>,
+    current_target: Option<UnitId>,
+) -> Result<RuleValue, RuleEvaluationError> {
+    let subject = query_subject(subject, input, current_target)?;
+    input
+        .battle_query_reader
+        .and_then(|reader| reader.effect_category_stacks(subject, category))
+        .map(RuleValue::Integer)
+        .ok_or(RuleEvaluationError {
+            kind: RuleEvaluationErrorKind::MissingValue,
+            context: 0x21c,
+        })
 }
 
 impl From<NumericError> for RuleEvaluationError {

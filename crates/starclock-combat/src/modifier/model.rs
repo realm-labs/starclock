@@ -28,6 +28,9 @@ pub enum StatKind {
     /// Level-derived base Break damage used by mechanics that author a cap
     /// against the applier's public level multiplier.
     BreakBaseDamage,
+    /// Integral turns added to newly attached DoT effects before the generic
+    /// negative-effect duration multiplier is applied.
+    DotDurationAddition,
     FreezeResistance,
     /// Multiplier applied to newly attached negative-effect durations.
     ///

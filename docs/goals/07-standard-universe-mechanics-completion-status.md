@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M04-S03` |
-| Next unblocked batch | `G07-P2-M04-S03` |
+| Active batch | `G07-P2-M04-S04` |
+| Next unblocked batch | `G07-P2-M04-S04` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -38,12 +38,13 @@ Melancholia, Dizziness, Insensitivity, Sentimentality, Indelibility, Shudder,
 Maverick, both Unspeakable Shame levels, Torment of Alienation, Lost Memory,
 Stone Cold Hatred, Pain & Suffering, Primordial Hardship, Thrill of Escalation,
 Responsive Excitement, Remembrance Resonance and all three Formations.
-The first two Nihility partitions are complete: their 33 records, 32 rules and
+The first three Nihility partitions are complete: their 49 records, 48 rules and
 production Kafka fixture execute Suspicion application, amplification,
 enemy-turn decay/persistence, DoT detonation/transfer, stack-backed debuffs,
 Weakness Break Efficiency, same-element Break propagation, stable random DoT
-application, one-current-DoT detonation and Blessing-count DoT scaling.
-`G07-P2-M04-S03` (Nihility) is active.
+application, one-current-DoT detonation, Blessing-count DoT scaling, Break
+damage, Effect RES reduction, DoT vulnerability and duration, and dynamic
+total-DoT-stack vulnerability. `G07-P2-M04-S04` (Nihility) is active.
 
 ## Fixed batch ledger
 
@@ -72,6 +73,7 @@ application, one-current-DoT detonation and Blessing-count DoT scaling.
 | `G07-P2-M03-S04` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Remembrance/replay tests; partition receipt; quick repository gate | Executed both levels of Thrill of Escalation and Responsive Excitement, Remembrance Resonance and all three Formations. Added typed specific-resistance event facts, explicit action-context filters, generic negative-effect duration multiplication and ordered multi-program Resonance definitions. Exact 60,000 fixture damage, two-turn Eonian Freeze, 12 Energy, 24,000 Shield, 40 entry Energy and 5 per-Freeze Resonance Energy vectors pass; eight native candidates close as `IrSufficient`. |
 | `G07-P2-M04-S01` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Nihility/replay tests; partition receipt; quick repository gate | Executed Funeral, Man in the Cover, Why Hasn't Everything Already Disappeared, Beginning and End, Café Self-Deceit and Call of the Wilderness. Added expression-backed effect stacks, signed adjustment, aggregate stack queries, typed stack deltas and source exclusion. Kafka production Ultimate proves exact four-to-two ordinary decay and enhanced doubling/persistence; ten native candidates close as `IrSufficient`. |
 | `G07-P2-M04-S02` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Nihility/replay tests; partition receipt; quick repository gate | Executed Call level rows, Night Beyond Pyre, Hell is Other People, Twilight of Existence, All Things are Possible and Ignosticism L1. Added modifier-aware Break efficiency, adjacent-only propagation, ordered random effect application, one-current-DoT detonation, newest-first cleansing and the exact level 1–80 Break-base lookup. Production Kafka proves exact 30% efficiency, same-element adjacent Break and selected DoT execution; eleven native candidates close as `IrSufficient`. |
+| `G07-P2-M04-S03` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Nihility/replay tests; partition receipt; quick repository gate | Executed Ignosticism L2 and both levels of Questioning of Purpose, Blind Vision, Tragic Lecture, Sensory Labyrinth and Emotional Decluttering. Added dynamic effect-category stack queries, integral DoT duration and modifier-aware Break-family formula preparation. Production Kafka proves exact 50% initial-Break gain and two-turn Shock extension; enhanced Ignosticism and Emotional Decluttering cap at 72% and 20%; eleven native candidates close as `IrSufficient`. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |

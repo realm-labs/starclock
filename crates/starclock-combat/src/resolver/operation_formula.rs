@@ -24,6 +24,7 @@ use super::{
 pub(super) struct FormulaInputs {
     bases: BTreeMap<(crate::UnitId, crate::modifier::model::StatKind), crate::Scalar>,
     shields: BTreeMap<crate::UnitId, crate::Scalar>,
+    effect_category_stacks: BTreeMap<(crate::UnitId, crate::EffectCategory), i64>,
     modifiers: Vec<ActiveModifier>,
 }
 
@@ -32,6 +33,7 @@ impl FormulaInputs {
         Ok(Self {
             bases: super::program::stat_bases(txn)?,
             shields: super::stat_input::shield_values(txn),
+            effect_category_stacks: effect_category_stacks(txn)?,
             modifiers: txn.state.modifiers.iter_by_id().cloned().collect(),
         })
     }
@@ -175,38 +177,151 @@ impl FormulaInputs {
         })
     }
 
-    pub(super) fn target_mitigation(
+    pub(super) fn break_damage(
         &self,
         catalog: &crate::catalog::CombatCatalog,
         txn: &Transaction<'_>,
+        cause: Cause,
+        mut formula: formula::toughness::BreakDamageDefinition,
+        element: formula::model::CombatElement,
+        target: crate::UnitId,
+    ) -> Result<formula::toughness::BreakDamageDefinition, BattleFault> {
+        let modifiers = self.break_formula_modifiers(
+            catalog,
+            txn,
+            cause,
+            target,
+            FormulaPurpose::Break,
+            element,
+        )?;
+        formula.break_damage_increase = formula
+            .break_damage_increase
+            .checked_add(crate::Ratio::from_scaled(modifiers.damage_boost.scaled()))
+            .map_err(|_| numeric_fault(57, modifiers.damage_boost.scaled()))?;
+        formula.vulnerability_multiplier = formula
+            .vulnerability_multiplier
+            .checked_add(crate::Ratio::from_scaled(modifiers.vulnerability.scaled()))
+            .map_err(|_| numeric_fault(58, modifiers.vulnerability.scaled()))?;
+        formula.mitigation_multiplier = formula
+            .mitigation_multiplier
+            .checked_mul(modifiers.mitigation, crate::Rounding::NearestTiesEven)
+            .map_err(|_| numeric_fault(59, modifiers.mitigation.scaled()))?;
+        Ok(formula)
+    }
+
+    pub(super) fn super_break_damage(
+        &self,
+        catalog: &crate::catalog::CombatCatalog,
+        txn: &Transaction<'_>,
+        cause: Cause,
+        mut formula: formula::toughness::SuperBreakDefinition,
+        target: crate::UnitId,
+    ) -> Result<formula::toughness::SuperBreakDefinition, BattleFault> {
+        let modifiers = self.break_formula_modifiers(
+            catalog,
+            txn,
+            cause,
+            target,
+            FormulaPurpose::SuperBreak,
+            formula.element,
+        )?;
+        formula.break_damage_increase = formula
+            .break_damage_increase
+            .checked_add(crate::Ratio::from_scaled(modifiers.damage_boost.scaled()))
+            .map_err(|_| numeric_fault(60, modifiers.damage_boost.scaled()))?;
+        formula.vulnerability_multiplier = formula
+            .vulnerability_multiplier
+            .checked_add(crate::Ratio::from_scaled(modifiers.vulnerability.scaled()))
+            .map_err(|_| numeric_fault(61, modifiers.vulnerability.scaled()))?;
+        formula.mitigation_multiplier = formula
+            .mitigation_multiplier
+            .checked_mul(modifiers.mitigation, crate::Rounding::NearestTiesEven)
+            .map_err(|_| numeric_fault(62, modifiers.mitigation.scaled()))?;
+        Ok(formula)
+    }
+
+    fn break_formula_modifiers(
+        &self,
+        catalog: &crate::catalog::CombatCatalog,
+        txn: &Transaction<'_>,
+        cause: Cause,
         target: crate::UnitId,
         purpose: FormulaPurpose,
         element: formula::model::CombatElement,
-    ) -> Result<crate::Ratio, BattleFault> {
+    ) -> Result<BreakFormulaModifiers, BattleFault> {
+        let source = formula_source(txn, cause, purpose)?;
         let resolver = self.resolver(catalog);
-        let mut context = modifier_context(
-            txn,
-            target,
-            target,
-            Some(element),
-            formula::model::DamageClass::Direct,
+        let source_context = action_modifier_context(
+            catalog,
+            cause,
+            break_modifier_context(txn, source, target, element, purpose)?,
+        )
+        .with_formula_subject(FormulaSubject::Source);
+        let mut damage_boost = formula_modifier(
+            &resolver,
+            source,
+            FormulaStage::DamageBoost,
+            purpose,
+            &source_context,
         )?;
-        context.damage_tags = vec![match purpose {
-            FormulaPurpose::Break => "break".into(),
-            FormulaPurpose::SuperBreak => "super_break".into(),
-            _ => return Err(invariant_fault(47)),
-        }]
-        .into_boxed_slice();
-        let value = formula_modifier(
+        let target_context = action_modifier_context(
+            catalog,
+            cause,
+            break_modifier_context(txn, target, target, element, purpose)?,
+        );
+        damage_boost = damage_boost
+            .checked_add(formula_modifier(
+                &resolver,
+                target,
+                FormulaStage::DamageBoost,
+                purpose,
+                &target_context
+                    .clone()
+                    .with_formula_subject(FormulaSubject::Target),
+            )?)
+            .map_err(|_| numeric_fault(63, damage_boost.scaled()))?;
+        let vulnerability = formula_modifier(
+            &resolver,
+            target,
+            FormulaStage::Vulnerability,
+            purpose,
+            &target_context.clone(),
+        )?
+        .checked_add(formula_modifier(
+            &resolver,
+            target,
+            FormulaStage::Vulnerability,
+            purpose,
+            &target_context
+                .clone()
+                .with_formula_subject(FormulaSubject::Target),
+        )?)
+        .map_err(|_| numeric_fault(64, i64::from(FormulaStage::Vulnerability as u8)))?;
+        let mitigation_value = formula_modifier(
             &resolver,
             target,
             FormulaStage::Mitigation,
             purpose,
-            &context,
-        )?;
-        crate::Ratio::ONE
-            .checked_sub(crate::Ratio::from_scaled(value.scaled()))
-            .map_err(|_| numeric_fault(48, value.scaled()))
+            &target_context,
+        )?
+        .checked_add(formula_modifier(
+            &resolver,
+            target,
+            FormulaStage::Mitigation,
+            purpose,
+            &target_context
+                .clone()
+                .with_formula_subject(FormulaSubject::Target),
+        )?)
+        .map_err(|_| numeric_fault(65, i64::from(FormulaStage::Mitigation as u8)))?;
+        let mitigation = crate::Ratio::ONE
+            .checked_sub(crate::Ratio::from_scaled(mitigation_value.scaled()))
+            .map_err(|_| numeric_fault(65, i64::from(FormulaStage::Mitigation as u8)))?;
+        Ok(BreakFormulaModifiers {
+            damage_boost,
+            vulnerability,
+            mitigation,
+        })
     }
 
     pub(super) fn weakness_break_efficiency(
@@ -358,12 +473,34 @@ impl FormulaInputs {
     fn resolver<'a>(&'a self, catalog: &'a crate::catalog::CombatCatalog) -> StatResolver<'a> {
         StatResolver::new(catalog.modifier_registry(), &self.bases, &self.modifiers)
             .with_shields(&self.shields)
+            .with_effect_category_stacks(&self.effect_category_stacks)
     }
+}
+
+fn effect_category_stacks(
+    txn: &Transaction<'_>,
+) -> Result<BTreeMap<(crate::UnitId, crate::EffectCategory), i64>, BattleFault> {
+    let mut output = BTreeMap::new();
+    for effect in txn.state.effects.iter_by_id() {
+        let stacks = output
+            .entry((effect.target, effect.category))
+            .or_insert(0_i64);
+        *stacks = stacks
+            .checked_add(i64::from(effect.stacks))
+            .ok_or_else(|| numeric_fault(66, *stacks))?;
+    }
+    Ok(output)
 }
 
 pub(super) struct CriticalProfile {
     pub(super) chance: crate::Probability,
     pub(super) damage: crate::Scalar,
+}
+
+struct BreakFormulaModifiers {
+    damage_boost: crate::Scalar,
+    vulnerability: crate::Scalar,
+    mitigation: crate::Ratio,
 }
 
 #[derive(Clone, Copy)]
@@ -488,6 +625,29 @@ fn modifier_context(
         target: Some(target),
         ..ModifierQueryContext::default()
     })
+}
+
+fn break_modifier_context(
+    txn: &Transaction<'_>,
+    subject: crate::UnitId,
+    target: crate::UnitId,
+    element: formula::model::CombatElement,
+    purpose: FormulaPurpose,
+) -> Result<ModifierQueryContext, BattleFault> {
+    let mut context = modifier_context(
+        txn,
+        subject,
+        target,
+        Some(element),
+        formula::model::DamageClass::Direct,
+    )?;
+    context.damage_tags = vec![match purpose {
+        FormulaPurpose::Break => "break".into(),
+        FormulaPurpose::SuperBreak => "super_break".into(),
+        _ => return Err(invariant_fault(47)),
+    }]
+    .into_boxed_slice();
+    Ok(context)
 }
 
 fn action_modifier_context(

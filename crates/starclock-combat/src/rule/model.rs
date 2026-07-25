@@ -483,6 +483,10 @@ pub enum ValueExpr {
         subject: StatQuerySubject,
         effect: EffectDefinitionId,
     },
+    QueryEffectCategoryStacks {
+        subject: StatQuerySubject,
+        category: crate::EffectCategory,
+    },
     Add(Box<ValueExpr>, Box<ValueExpr>),
     Subtract(Box<ValueExpr>, Box<ValueExpr>),
     Multiply {

@@ -245,7 +245,7 @@ fn hell_spreads_the_triggering_break_and_random_dot_then_detonation_execute() {
     panic!("the bounded deterministic fixture did not pass Twilight's 75% effect check");
 }
 
-fn kafka_roster(catalog: &UniverseCatalog) -> UniverseBattleRoster {
+pub(super) fn kafka_roster(catalog: &UniverseCatalog) -> UniverseBattleRoster {
     roster_for_forms_with_ability_kinds_and_energy(
         catalog,
         [KAFKA_FORM, 1, 2, 3],
@@ -282,7 +282,7 @@ fn kafka_ultimate_reduction(
         .expect("Kafka Ultimate attempts Lightning Toughness reduction")
 }
 
-fn use_kafka_ultimate(battle: &mut Battle) -> starclock_combat::Resolution {
+pub(super) fn use_kafka_ultimate(battle: &mut Battle) -> starclock_combat::Resolution {
     for _ in 0..12 {
         let decision = battle.decision().expect("interrupt decision").clone();
         if let Some(command) = decision.legal_commands().iter().find(|command| {
@@ -425,7 +425,10 @@ fn expression_has_stat(value: &ValueExpr, expected: StatKind) -> bool {
     }
 }
 
-fn two_enemy_break_spec(materialization: &UniverseBattleMaterialization, marker: u8) -> BattleSpec {
+pub(super) fn two_enemy_break_spec(
+    materialization: &UniverseBattleMaterialization,
+    marker: u8,
+) -> BattleSpec {
     let original = durable_spec_with_two_enemy_hp(
         materialization,
         marker,

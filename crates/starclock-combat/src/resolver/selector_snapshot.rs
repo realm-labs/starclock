@@ -123,7 +123,7 @@ impl RuleSelectorSnapshot {
         crate::NumericError,
     > {
         use crate::modifier::model::StatKind::{
-            Atk, BreakBaseDamage, Def, Hp, Spd, ToughnessDamage,
+            Atk, BreakBaseDamage, Def, DotDurationAddition, Hp, Spd, ToughnessDamage,
         };
         let mut bases = BTreeMap::new();
         for (id, unit) in &self.units {
@@ -147,6 +147,7 @@ impl RuleSelectorSnapshot {
             if let Some(value) = crate::formula::toughness::attacker_level_multiplier(unit.level) {
                 bases.insert((*id, BreakBaseDamage), value);
             }
+            bases.insert((*id, DotDurationAddition), crate::Scalar::ZERO);
         }
         Ok(bases)
     }

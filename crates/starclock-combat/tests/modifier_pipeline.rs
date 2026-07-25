@@ -1,8 +1,8 @@
 use std::collections::BTreeMap;
 
 use starclock_combat::{
-    ModifierDefinitionId, ModifierInstanceId, ModifierStackingGroupId, Rounding, Scalar,
-    SourceDefinitionId, StateSlotDefinitionId, UnitId,
+    EffectCategory, ModifierDefinitionId, ModifierInstanceId, ModifierStackingGroupId, Rounding,
+    Scalar, SourceDefinitionId, StateSlotDefinitionId, UnitId,
     modifier::model::{
         ActiveModifier, FormulaModifierQuery, FormulaPurpose, FormulaStage, FormulaSubject,
         ModifierAggregation, ModifierDefinition, ModifierFilter, ModifierQueryContext,
@@ -10,7 +10,7 @@ use starclock_combat::{
     },
     modifier::registry::ModifierRegistry,
     modifier::resolve::{ModifierQueryError, StatResolver},
-    rule::model::{RuleValue, ShieldObservation, SourceClass, ValueExpr},
+    rule::model::{RuleValue, RuleValueKind, ShieldObservation, SourceClass, ValueExpr},
 };
 
 #[test]
@@ -85,6 +85,51 @@ fn damage_pipeline_modifiers_execute_group_aggregation_and_stage_cap() {
         )
         .unwrap();
     assert_eq!(actual, Scalar::from_scaled(300_000));
+}
+
+#[test]
+fn dynamic_formula_modifier_reads_current_dot_category_stacks_and_caps() {
+    let subject = unit(1);
+    let stacks = ValueExpr::Convert {
+        value: Box::new(ValueExpr::QueryEffectCategoryStacks {
+            subject: StatQuerySubject::CurrentTarget,
+            category: EffectCategory::Dot,
+        }),
+        target: RuleValueKind::Scalar,
+        rounding: Rounding::NearestTiesEven,
+    };
+    let value = ValueExpr::Minimum(
+        Box::new(ValueExpr::Multiply {
+            lhs: Box::new(stacks),
+            rhs: Box::new(literal(Scalar::from_scaled(30_000))),
+            rounding: Rounding::NearestTiesEven,
+        }),
+        Box::new(literal(Scalar::from_scaled(120_000))),
+    );
+    let mut definition = definition(1, 1, FormulaStage::Vulnerability, value);
+    definition.purpose = FormulaPurpose::OrdinaryDamage;
+    definition.filters =
+        vec![ModifierFilter::FormulaSubject(FormulaSubject::Target)].into_boxed_slice();
+    let registry = ModifierRegistry::new(
+        vec![group(1, ModifierAggregation::UniquePerSource)],
+        vec![definition],
+    )
+    .unwrap();
+    let active = [instance(1, 1, subject, 1)];
+    let query = FormulaModifierQuery {
+        subject,
+        stage: FormulaStage::Vulnerability,
+        purpose: FormulaPurpose::OrdinaryDamage,
+    };
+    let context = ModifierQueryContext::default().with_formula_subject(FormulaSubject::Target);
+    for (stacks, expected) in [(2, 60_000), (9, 120_000)] {
+        let categories = BTreeMap::from([((subject, EffectCategory::Dot), stacks)]);
+        let actual = StatResolver::new(&registry, &BTreeMap::new(), &active)
+            .with_effect_category_stacks(&categories)
+            .query_formula(query, &context)
+            .unwrap();
+        assert_eq!(actual.scaled(), expected);
+    }
 }
 
 #[test]
