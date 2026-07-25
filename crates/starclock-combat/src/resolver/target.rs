@@ -137,6 +137,7 @@ impl Transaction<'_> {
                 selector.origin(),
                 RuleSelectorOrigin::PrimaryTarget | RuleSelectorOrigin::CurrentSubject
             )
+            && selector.choice() != RuleSelectorChoice::PrimaryPlusAdjacent
             || direct.is_some()
                 && selector.side() == RuleSelectorSide::Same
                 && selector.choice() == RuleSelectorChoice::First;
@@ -194,6 +195,10 @@ impl Transaction<'_> {
                 RuleSelectorPredicate::HasWeakness(element) => {
                     selector_unit(self.state, snapshot, *id)
                         .is_some_and(|unit| unit.weaknesses.binary_search(element).is_ok())
+                }
+                RuleSelectorPredicate::LacksWeakness(element) => {
+                    selector_unit(self.state, snapshot, *id)
+                        .is_some_and(|unit| unit.weaknesses.binary_search(element).is_err())
                 }
                 RuleSelectorPredicate::HasTag(tag) => {
                     selector_has_tag(self.state, snapshot, *id, *tag)

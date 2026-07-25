@@ -16,7 +16,7 @@ pub fn resistible_chance(
     target_specific_resistance: Ratio,
 ) -> Result<EffectChanceCalculation, NumericError> {
     for resistance in [target_effect_resistance, target_specific_resistance] {
-        if !(0..=1_000_000).contains(&resistance.scaled()) {
+        if !(-1_000_000..=1_000_000).contains(&resistance.scaled()) {
             return Err(NumericError::OutOfDomain);
         }
     }

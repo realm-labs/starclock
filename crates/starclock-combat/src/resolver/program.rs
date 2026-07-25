@@ -463,11 +463,21 @@ fn execute_emission(
             })
         }
         RuleEmission::AddWeakness {
-            selector, element, ..
+            selector,
+            element,
+            duration_turns,
+            ..
         } => Operation::AddWeakness(AddWeaknessOp {
             id: operation_id,
             targets: emission_targets(catalog, resolved, selector, current_target)?,
-            definition: crate::catalog::action::WeaknessApplicationDefinition::permanent(element),
+            definition: match duration_turns {
+                None => crate::catalog::action::WeaknessApplicationDefinition::permanent(element),
+                Some(value) => crate::catalog::action::WeaknessApplicationDefinition::timed(
+                    element,
+                    weakness_duration(value)?,
+                )
+                .ok_or_else(|| program_fault(67, 0))?,
+            },
         }),
         RuleEmission::ReduceToughness {
             selector,
@@ -1121,6 +1131,20 @@ pub(super) fn ratio(value: RuleValue) -> Result<Ratio, BattleFault> {
 
 pub(super) fn probability(value: RuleValue) -> Result<crate::Probability, BattleFault> {
     crate::Probability::from_ratio(ratio(value)?).map_err(|_| program_fault(41, 0))
+}
+
+fn weakness_duration(value: RuleValue) -> Result<u8, BattleFault> {
+    let raw = match value {
+        RuleValue::Integer(value) => value,
+        RuleValue::Scalar(value) => value
+            .rounded_integer(Rounding::NearestTiesEven)
+            .map_err(|_| program_fault(67, value.scaled()))?,
+        _ => return Err(program_fault(67, 0)),
+    };
+    u8::try_from(raw)
+        .ok()
+        .filter(|value| *value > 0)
+        .ok_or_else(|| program_fault(67, raw))
 }
 
 fn scale(value: Scalar, ratio: Ratio) -> Result<Scalar, BattleFault> {

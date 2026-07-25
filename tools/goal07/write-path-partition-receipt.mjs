@@ -151,7 +151,17 @@ function nativeDecision(id) {
   if (id.includes("612141"))
     return "Effect-definition event filters and effect-scoped vulnerability modifiers express Dizziness across all damage purposes.";
   if (id.includes("612142"))
-    return "The definition-only Insensitivity record introduces no executable level behavior in this partition.";
+    return "Typed Dissociation-removal facts and ordinary resistible control-effect application express Insensitivity.";
+  if (id.includes("612143"))
+    return "Applied-damage event reads, formation selectors and source comparisons express Sentimentality without recursive generated damage.";
+  if (id.includes("612144"))
+    return "Per-damage effect-chance draws and signed target-specific resistance modifiers express Indelibility.";
+  if (id.includes("612145"))
+    return "Ultimate tags, weakness predicates, labeled random selection and target-turn weakness lifetime express Shudder.";
+  if (id.includes("612146"))
+    return "Battle-start triggers and effect-scoped percent-of-base SPD modifiers express Maverick.";
+  if (id.includes("612150"))
+    return "The validated contribution compiler supplies the capped owned-Remembrance count to a target-specific resistance modifier.";
   if (id.includes("612051"))
     return "Battle-start triggers, current MaxHP queries and bounded owner-turn counters express Sentinel.";
   if (id.includes("612052"))
@@ -306,6 +316,31 @@ function partitionProfile(id) {
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration remembrance_ --all-features",
         "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M03-S02") {
+    return {
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/remembrance_s02.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s02.rs",
+        "crates/starclock-combat/src/resolver/toughness.rs",
+        "crates/starclock-combat/src/resolver/target.rs",
+        "crates/starclock-combat/src/resolver/program.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-remembrance-s02.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/remembrance_s02.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s02.rs",
+      fixtureMarker:
+        "remembrance_shudder_selects_an_eligible_enemy_and_expires_after_two_target_turns",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration remembrance_s02 --all-features",
+        "cargo test -p starclock-combat --test effect_resource_pipeline --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
     };

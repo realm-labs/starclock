@@ -255,6 +255,7 @@ fn lower_operation(
         Payload::AddWeakness { element, .. } => RuleOperationTemplate::AddWeakness {
             selector: selector()?,
             element: lower_element(*element),
+            duration_turns: None,
         },
         Payload::RemoveWeakness { element } => RuleOperationTemplate::RemoveWeakness {
             selector: selector()?,

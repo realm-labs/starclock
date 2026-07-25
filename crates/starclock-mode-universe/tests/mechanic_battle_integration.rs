@@ -41,6 +41,8 @@ mod preservation_s03;
 mod preservation_s04;
 #[path = "mechanic_battle_integration/remembrance_s01.rs"]
 mod remembrance_s01;
+#[path = "mechanic_battle_integration/remembrance_s02.rs"]
+mod remembrance_s02;
 
 fn catalog() -> Arc<UniverseCatalog> {
     static CATALOG: OnceLock<Arc<UniverseCatalog>> = OnceLock::new();
@@ -58,6 +60,16 @@ fn roster_for_forms(
     catalog: &UniverseCatalog,
     forms: [u32; 4],
     technique: Option<(u32, u32)>,
+) -> UniverseBattleRoster {
+    roster_for_forms_with_ability_kinds(catalog, forms, technique, &[], false)
+}
+
+fn roster_for_forms_with_ability_kinds(
+    catalog: &UniverseCatalog,
+    forms: [u32; 4],
+    technique: Option<(u32, u32)>,
+    extra_kinds: &[AbilityKind],
+    full_energy: bool,
 ) -> UniverseBattleRoster {
     let policy = ParticipantPolicy::new(
         1,
@@ -91,12 +103,30 @@ fn roster_for_forms(
             })
             .unwrap();
         let mut abilities = vec![basic];
+        for kind in extra_kinds {
+            let ability = unit
+                .abilities()
+                .iter()
+                .copied()
+                .find(|ability| {
+                    catalog
+                        .simulation_catalog()
+                        .combat_catalog()
+                        .ability(*ability)
+                        .and_then(|definition| definition.action())
+                        .is_some_and(|action| action.kind() == *kind)
+                })
+                .expect("requested ability kind is available on fixture form");
+            abilities.push(ability);
+        }
         if let Some((technique_form, technique_ability)) = technique
             && technique_form == form_raw
         {
             abilities.push(AbilityId::new(technique_ability).unwrap());
-            abilities.sort_unstable();
         }
+        abilities.sort_unstable();
+        abilities.dedup();
+        let maximum_energy = Energy::from_scaled(100_000_000).unwrap();
         let combatant = ResolvedCombatantSpec::new(
             form,
             UnitLevel::new(80).unwrap(),
@@ -110,7 +140,14 @@ fn roster_for_forms(
             StatValue::from_scaled(100_000_000).unwrap(),
             StatValue::from_scaled(100_000_000).unwrap(),
         )
-        .with_energy(Energy::ZERO, Energy::from_scaled(100_000_000).unwrap())
+        .with_energy(
+            if full_energy {
+                maximum_energy
+            } else {
+                Energy::ZERO
+            },
+            maximum_energy,
+        )
         .unwrap();
         let participant = ParticipantId::new(u32::from(index) + 1).unwrap();
         lock_entries.push(

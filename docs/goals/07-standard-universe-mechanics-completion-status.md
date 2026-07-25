@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M03-S02` |
-| Next unblocked batch | `G07-P2-M03-S02` |
+| Active batch | `G07-P2-M03-S03` |
+| Next unblocked batch | `G07-P2-M03-S03` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -31,9 +31,10 @@ execute exact Quake, shield cycles, dynamic stat conversion, directional
 shield strength, provider-shield behavior, action-scoped HP-loss shields,
 Break-triggered team shields, shield-gated mitigation, bounded negative-effect
 cleansing, deterministic critical hits and all three Resonance Formations
-without a native handler. Remembrance S01 adds 17 records, 16 rules and two
-fixtures for Freeze, Dissociation, Fuli, Innocence, Reticence, Melancholia and
-Dizziness. `G07-P2-M03-S02` is active.
+without a native handler. Remembrance S01–S02 add 33 records, 32 rules and
+four fixtures for Freeze, Dissociation, Fuli, Innocence, Reticence,
+Melancholia, Dizziness, Insensitivity, Sentimentality, Indelibility, Shudder,
+Maverick and Unspeakable Shame L1. `G07-P2-M03-S03` is active.
 
 ## Fixed batch ledger
 
@@ -57,6 +58,7 @@ Dizziness. `G07-P2-M03-S02` is active.
 | `G07-P2-M02-S03` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Preservation/replay tests; partition receipt; quick repository gate | Executed Assemble L2 plus both levels of Sentinel, Patch, Compensation, Firmness and Rotation. Added a generic bounded negative-effect Cleanse operation, action-scoped effective HP-loss accumulation and dynamic shield-gated mitigation. Exact 16,000/24,000 battle-start shields, 18% action-loss recovery shields, 18% Break-triggered team shields and 16% mitigation vectors pass; eleven native candidates close as `IrSufficient`. |
 | `G07-P2-M02-S04` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Preservation/replay tests; partition receipt; quick repository gate | Executed both levels of Burst and Concentration, Preservation Resonance and all three Formations. Added deterministic per-target/shared CRIT execution, ability-program battle queries and a generic one-shot shield-overflow guard. Exact 97.5 critical, 160,000/336,000 Resonance, 40-point entry Energy and four 1,000-Shield Eutectic vectors pass; eight native candidates close as `IrSufficient`. |
 | `G07-P2-M03-S01` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Remembrance/replay tests; partition receipt; quick repository gate | Executed both levels of Fuli, Innocence, Reticence, Melancholia and Dizziness plus the Insensitivity and Path definitions. Added generic Freeze control, typed effect-definition events, target-specific resistance policy and every-enemy rule attachment. Exact 36% enhanced natural removal and 200% Melancholia vectors pass; ten native candidates close as `IrSufficient`. |
+| `G07-P2-M03-S02` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Remembrance/replay tests; partition receipt; quick repository gate | Executed both levels of Insensitivity, Sentimentality, Indelibility, Shudder and Maverick plus Unspeakable Shame L1. Added timed Rule IR Weakness, lacks-weakness and complete adjacent selectors, signed resistance reduction and source-safe generated damage. Exact 24% all-other Ice damage and two-target-turn Shudder expiry vectors pass; eleven native candidates close as `IrSufficient`. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |

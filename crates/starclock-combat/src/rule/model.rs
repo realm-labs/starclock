@@ -659,6 +659,8 @@ pub enum RuleOperationTemplate {
     AddWeakness {
         selector: SelectorId,
         element: CombatElement,
+        /// Optional target-turn lifetime. `None` denotes a permanent weakness.
+        duration_turns: Option<ValueExpr>,
     },
     RemoveWeakness {
         selector: SelectorId,
@@ -979,6 +981,7 @@ pub enum RuleEmission {
     AddWeakness {
         selector: SelectorId,
         element: CombatElement,
+        duration_turns: Option<RuleValue>,
         current_target: Option<UnitId>,
     },
     RemoveWeakness {

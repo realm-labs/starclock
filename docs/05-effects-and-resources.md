@@ -35,6 +35,11 @@ This is documented by the [Effect Hit Rate reference](https://honkai-star-rail.f
 Effect definitions name the applicable typed resistance stat, such as
 `FreezeResistance`. A rule may explicitly ignore only that specific channel
 while still applying general Effect RES; this is distinct from fixed chance.
+Both resistance channels are signed ratios at this formula boundary. A
+negative value means an authored resistance reduction and therefore increases
+the corresponding `(1 - resistance)` multiplier. The authoritative supported
+domain is `[-1, 1]`; the final probability, rather than either resistance
+input, is clamped to `[0, 1]`.
 
 Fixed chance is different: it ignores Effect Hit Rate and resistances unless an authored rule explicitly modifies it. Guaranteed/unconditional application should bypass RNG rather than use an arbitrarily large base chance.
 

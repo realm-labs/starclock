@@ -1,0 +1,80 @@
+{
+  "schema_revision": "starclock.goal07-path-partition-golden.v1",
+  "partition_id": "G07-P2-M03-S02",
+  "record_ids": [
+    "universe.blessing.612142.level.1",
+    "universe.blessing.612142.level.2",
+    "universe.blessing.612143",
+    "universe.blessing.612143.level.1",
+    "universe.blessing.612143.level.2",
+    "universe.blessing.612144",
+    "universe.blessing.612144.level.1",
+    "universe.blessing.612144.level.2",
+    "universe.blessing.612145",
+    "universe.blessing.612145.level.1",
+    "universe.blessing.612145.level.2",
+    "universe.blessing.612146",
+    "universe.blessing.612146.level.1",
+    "universe.blessing.612146.level.2",
+    "universe.blessing.612150",
+    "universe.blessing.612150.level.1"
+  ],
+  "rule_ids": [
+    "universe.rule.blessing.612142.level.1",
+    "universe.rule.blessing.612142.level.2",
+    "universe.rule.blessing.612143",
+    "universe.rule.blessing.612143.level.1",
+    "universe.rule.blessing.612143.level.2",
+    "universe.rule.blessing.612144",
+    "universe.rule.blessing.612144.level.1",
+    "universe.rule.blessing.612144.level.2",
+    "universe.rule.blessing.612145",
+    "universe.rule.blessing.612145.level.1",
+    "universe.rule.blessing.612145.level.2",
+    "universe.rule.blessing.612146",
+    "universe.rule.blessing.612146.level.1",
+    "universe.rule.blessing.612146.level.2",
+    "universe.rule.blessing.612150",
+    "universe.rule.blessing.612150.level.1"
+  ],
+  "fixture_ids": [
+    "universe.fixture.blessing-tag.effect-res",
+    "universe.fixture.blessing-tag.ultimate"
+  ],
+  "workbooks": {
+    "Universe.xlsx": "c5121bc5cdb49739e78cd0e709994764bc411c9acd62e9e3996ef744c64358b0",
+    "UniverseBindings.xlsx": "5780e99c7c08d0ed8659ddfd56b37f77e88972ec413940d82f956a56e84c1e4a",
+    "UniverseEvidence.xlsx": "be3ab26158150dda1261f6d58f5520704341b3e09a469202f7a9e651ade95065"
+  },
+  "sora_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+  "tables": {
+    "UniversePath": {
+      "rows": 1,
+      "semantic_sha256": "a00454e05b2a916d46155a956b7dd13934caba5a472f9198a9bbce3dabc00331"
+    },
+    "UniversePathBlessing": {
+      "rows": 6,
+      "semantic_sha256": "a65966d7b89b89c158a587bdbe51660074fe8f7715883cd273eb316c1e5e2973"
+    },
+    "UniverseBlessing": {
+      "rows": 6,
+      "semantic_sha256": "faa75e3bcae6146f96ea2c008133c9068bb0f9f8b1995706894c5f62efee2766"
+    },
+    "UniverseBlessingLevel": {
+      "rows": 11,
+      "semantic_sha256": "f7f94b56f837319a63fb3e6f597a0aa2fafc136589fe91c795852058a29dda75"
+    },
+    "UniverseBlessingParameter": {
+      "rows": 30,
+      "semantic_sha256": "a2a0632b49b2156f3fd46d1293a1ba7bdeae55db8f9e32db81d2f25f854fba6a"
+    },
+    "UniverseMechanicRule": {
+      "rows": 16,
+      "semantic_sha256": "4182624c3b439fc1617cb1c5c986aa0d4b9612494742a49862220ef30eeb504a"
+    },
+    "UniverseReviewFixture": {
+      "rows": 2,
+      "semantic_sha256": "1d9f2d0558324cbff36be06f983bb6712e5795e748a84e762f13f7fdaba3cdaf"
+    }
+  }
+}

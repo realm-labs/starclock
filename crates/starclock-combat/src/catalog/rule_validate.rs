@@ -382,8 +382,22 @@ fn validate_operation(
                 return Err("ability replacement refers to a missing ability".into());
             }
         }
+        RuleOperationTemplate::AddWeakness {
+            selector,
+            duration_turns,
+            ..
+        } => {
+            require_selector(catalog, *selector)?;
+            if let Some(duration) = duration_turns
+                && !matches!(
+                    infer_value(catalog, runtime, duration, 0)?,
+                    RuleValueKind::Integer | RuleValueKind::Scalar
+                )
+            {
+                return Err("weakness duration must be numeric".into());
+            }
+        }
         RuleOperationTemplate::Break { selector, .. }
-        | RuleOperationTemplate::AddWeakness { selector, .. }
         | RuleOperationTemplate::RemoveWeakness { selector, .. }
         | RuleOperationTemplate::RemoveToughnessLayer { selector, .. } => {
             require_selector(catalog, *selector)?;

@@ -3,7 +3,9 @@
 use core::cmp::Ordering;
 use std::collections::BTreeSet;
 
+mod event_property;
 mod helpers;
+use event_property::event_property;
 pub(crate) use helpers::stat_query_error;
 use helpers::{
     add_values, ancestry_matches, budget_error, numeric_error, optional_unit, query_subject,
@@ -11,9 +13,9 @@ use helpers::{
 };
 
 use super::model::{
-    Comparison, ConditionExpr, EventFilter, EventValueProperty, ProgramStep, RuleEmission,
-    RuleEvaluationInput, RuleOperationTemplate, RuleReplacementProposal, RuleResourceKind,
-    RuleValue, RuleValueKind, ShieldObservation, TriggerDef, ValueExpr, once_key,
+    Comparison, ConditionExpr, EventFilter, ProgramStep, RuleEmission, RuleEvaluationInput,
+    RuleOperationTemplate, RuleReplacementProposal, RuleResourceKind, RuleValue, RuleValueKind,
+    ShieldObservation, TriggerDef, ValueExpr, once_key,
 };
 use crate::modifier::model::{FormulaPurpose, StatKind, StatQuerySubject};
 use crate::{ProgramId, RuleId, Scalar, StateSlotDefinitionId, UnitId};
@@ -425,9 +427,17 @@ fn evaluate_operation(
             multiplier: evaluate_value(multiplier, input, current_target)?,
             current_target,
         },
-        RuleOperationTemplate::AddWeakness { selector, element } => RuleEmission::AddWeakness {
+        RuleOperationTemplate::AddWeakness {
+            selector,
+            element,
+            duration_turns,
+        } => RuleEmission::AddWeakness {
             selector: *selector,
             element: *element,
+            duration_turns: duration_turns
+                .as_ref()
+                .map(|value| evaluate_value(value, input, current_target))
+                .transpose()?,
             current_target,
         },
         RuleOperationTemplate::RemoveWeakness { selector, element } => {
@@ -992,55 +1002,6 @@ pub fn evaluate_value(
             *target,
             *rounding,
         ),
-    }
-}
-
-fn event_property(
-    property: EventValueProperty,
-    input: RuleEvaluationInput<'_>,
-) -> Result<RuleValue, RuleEvaluationError> {
-    let missing = || RuleEvaluationError {
-        kind: RuleEvaluationErrorKind::MissingValue,
-        context: 0x205 + property as u32,
-    };
-    match property {
-        EventValueProperty::OwnerId => optional_unit(input.cause.owner),
-        EventValueProperty::ActorId => optional_unit(input.cause.actor),
-        EventValueProperty::ApplierId => optional_unit(input.cause.applier),
-        EventValueProperty::SourceDefinitionId => Ok(RuleValue::OptionalStableId(
-            input.cause.source.map(|value| u64::from(value.get())),
-        )),
-        EventValueProperty::PrimaryTargetId => optional_unit(input.cause.target),
-        EventValueProperty::DamageAmount => input
-            .event_facts
-            .damage_amount
-            .map(RuleValue::Scalar)
-            .ok_or_else(missing),
-        EventValueProperty::HpChangeAmount => input
-            .event_facts
-            .hp_change_amount
-            .map(RuleValue::Scalar)
-            .ok_or_else(missing),
-        EventValueProperty::ResourceDelta => input
-            .event_facts
-            .resource_delta
-            .map(RuleValue::Scalar)
-            .ok_or_else(missing),
-        EventValueProperty::StackCount => input
-            .event_facts
-            .stack_count
-            .map(RuleValue::Integer)
-            .ok_or_else(missing),
-        EventValueProperty::HitIndex => input
-            .event_facts
-            .hit_index
-            .map(RuleValue::Integer)
-            .ok_or_else(missing),
-        EventValueProperty::ShieldChangeAmount => input
-            .event_facts
-            .shield_change_amount
-            .map(RuleValue::Scalar)
-            .ok_or_else(missing),
     }
 }
 

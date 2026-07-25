@@ -386,6 +386,20 @@ fn chance_energy_and_aggro_goldens_use_checked_fixed_point() {
         ),
         (1_620_000, 1_000_000)
     );
+    let reduced_freeze_resistance = starclock_combat::formula::effect::resistible_chance(
+        Ratio::ONE,
+        Ratio::ZERO,
+        Ratio::ZERO,
+        Ratio::from_scaled(-560_000),
+    )
+    .unwrap();
+    assert_eq!(
+        (
+            reduced_freeze_resistance.pre_clamp.scaled(),
+            reduced_freeze_resistance.probability.millionths()
+        ),
+        (1_560_000, 1_000_000)
+    );
     assert_eq!(
         starclock_combat::formula::effect::energy_gain(
             Energy::from_scaled(30_000_000).unwrap(),

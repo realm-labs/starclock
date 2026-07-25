@@ -91,6 +91,7 @@ pub enum RuleSelectorPredicate {
     },
     HasMark(EffectDefinitionId),
     HasWeakness(CombatElement),
+    LacksWeakness(CombatElement),
     HasEffect(EffectDefinitionId),
     HasTag(SourceDefinitionId),
     OwnedBy(SelectorId),
