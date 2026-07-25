@@ -580,6 +580,8 @@ pub enum ConditionExpr {
         element: CombatElement,
     },
     IsBroken(SelectorId),
+    /// Every selected unit has the authored encounter rank.
+    EnemyRank(SelectorId, crate::formula::toughness::EnemyRank),
     /// Every selected unit is currently in a Freeze-compatible control state.
     IsFrozen(SelectorId),
 }

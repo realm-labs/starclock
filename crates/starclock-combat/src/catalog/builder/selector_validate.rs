@@ -220,7 +220,8 @@ fn historical_condition_safe(condition: &crate::rule::model::ConditionExpr) -> b
         | ConditionExpr::EffectExists { .. }
         | ConditionExpr::IsFrozen(_)
         | ConditionExpr::HasWeakness { .. }
-        | ConditionExpr::IsBroken(_) => false,
+        | ConditionExpr::IsBroken(_)
+        | ConditionExpr::EnemyRank { .. } => false,
         ConditionExpr::Not(value) => historical_condition_safe(value),
         ConditionExpr::All(values) | ConditionExpr::Any(values) => {
             values.iter().all(historical_condition_safe)

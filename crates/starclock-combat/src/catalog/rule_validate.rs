@@ -653,7 +653,8 @@ fn validate_condition(
         ConditionExpr::LifePresence { selector, .. }
         | ConditionExpr::IsFrozen(selector)
         | ConditionExpr::HasWeakness { selector, .. }
-        | ConditionExpr::IsBroken(selector) => require_selector(catalog, *selector)?,
+        | ConditionExpr::IsBroken(selector)
+        | ConditionExpr::EnemyRank(selector, _) => require_selector(catalog, *selector)?,
         ConditionExpr::EffectExists { selector, effect } => {
             require_selector(catalog, *selector)?;
             if catalog.effect(*effect).is_none() {

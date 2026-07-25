@@ -380,6 +380,7 @@ fn collect_condition_queries(
         | ConditionExpr::IsFrozen(_)
         | ConditionExpr::HasWeakness { .. }
         | ConditionExpr::IsBroken(_)
+        | ConditionExpr::EnemyRank { .. }
         | ConditionExpr::SelectorCardinality { .. } => {}
     }
 }

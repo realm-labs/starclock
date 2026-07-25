@@ -161,6 +161,7 @@ pub(super) fn begin_turn(
             catalog, txn, turn_cause, parent, turn.unit,
         )?;
         txn.reset_rule_slots(crate::rule::model::SlotResetPoint::TurnEnd, Some(turn.unit));
+        parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
         txn.set_active_turn(None);
         return begin_next_turn(catalog, txn, root, parent);
     }
@@ -275,6 +276,7 @@ fn execute_automatic_turn(
     );
     parent = super::operation::settle_effects_at_turn_end(catalog, txn, cause, parent, turn.unit)?;
     txn.reset_rule_slots(crate::rule::model::SlotResetPoint::TurnEnd, Some(turn.unit));
+    parent = super::rule::dispatch_pending_after_events(catalog, txn, parent)?;
     txn.set_active_turn(None);
     if let ActionBoundary::Continue(parent) = settle_after_action(catalog, txn, cause, parent)? {
         let parent = drain_reactions(

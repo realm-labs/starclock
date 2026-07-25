@@ -1,0 +1,1511 @@
+{
+  "schema_revision": "starclock.goal07-content-partition-receipt.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "partition_id": "G07-P2-M06-S01",
+  "state": "Complete",
+  "completed_on": "2026-07-26",
+  "authoring": {
+    "workbooks": [
+      {
+        "path": "config/data/Universe.xlsx",
+        "tables": [
+          "UniversePath",
+          "UniversePathBlessing",
+          "UniverseBlessing",
+          "UniverseBlessingLevel",
+          "UniverseBlessingParameter"
+        ]
+      },
+      {
+        "path": "config/data/UniverseBindings.xlsx",
+        "tables": [
+          "UniverseMechanicRule"
+        ]
+      },
+      {
+        "path": "config/data/UniverseEvidence.xlsx",
+        "tables": [
+          "UniverseContentAudit",
+          "UniverseReviewFixture",
+          "UniverseSourceRecord"
+        ]
+      }
+    ],
+    "openpyxl_commands": [
+      "python -c \"import openpyxl\" && python tools/goal07/author-path-partition.py --partition G07-P2-M06-S01 --check"
+    ],
+    "sora_bundle": {
+      "path": "config/universe-generated/config.sora",
+      "sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04"
+    },
+    "sora_golden": {
+      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P2-M06-S01.json",
+      "sha256": "9c9d9e0d04a31e8619ef8776b87cfeffba90c3894c3dff711a0b27a1daf56279"
+    }
+  },
+  "records": [
+    {
+      "id": "universe.blessing.612430",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612430.level.1",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612430.level.2",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612431",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612431.level.1",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612431.level.2",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612432",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612432.level.1",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612432.level.2",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612440",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612440.level.1",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612440.level.2",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612441",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612441.level.1",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612441.level.2",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.blessing.612442",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.path.hunt",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "universe.rule.blessing.612430",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612430",
+        "universe.blessing.612430"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612430.level.1",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612430.level.1",
+        "universe.blessing.612430.level.1"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612430.level.2",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612430.level.2",
+        "universe.blessing.612430.level.2"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612431",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612431",
+        "universe.blessing.612431"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612431.level.1",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612431.level.1",
+        "universe.blessing.612431.level.1"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612431.level.2",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612431.level.2",
+        "universe.blessing.612431.level.2"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612432",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612432",
+        "universe.blessing.612432"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612432.level.1",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612432.level.1",
+        "universe.blessing.612432.level.1"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612432.level.2",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612432.level.2",
+        "universe.blessing.612432.level.2"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612440",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612440",
+        "universe.blessing.612440"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612440.level.1",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612440.level.1",
+        "universe.blessing.612440.level.1"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612440.level.2",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612440.level.2",
+        "universe.blessing.612440.level.2"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612441",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612441",
+        "universe.blessing.612441"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612441.level.1",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612441.level.1",
+        "universe.blessing.612441.level.1"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612441.level.2",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612441.level.2",
+        "universe.blessing.612441.level.2"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612442",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "implementation_kind": "RuleIr",
+      "definition_keys": [
+        "universe.rule.blessing.612442",
+        "universe.blessing.612442"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/evaluate.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/transaction.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        }
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "universe.fixture.blessing-tag.action",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseEvidence.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs",
+      "test_marker": "enhanced_radiant_advances_the_killer_and_grants_seven_stacks_next_turn"
+    },
+    {
+      "id": "universe.fixture.path.hunt",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseEvidence.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/blessings.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/blessing-levels.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/paths.json"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs",
+      "test_marker": "enhanced_radiant_advances_the_killer_and_grants_seven_stacks_next_turn"
+    }
+  ],
+  "enemy_variants": [],
+  "encounter_members": [],
+  "native_handler_reviews": [
+    {
+      "id": "universe.rule.blessing.612430.level.1",
+      "outcome": "IrSufficient",
+      "decision": "Owner-turn triggers and one shared effect-stack definition express Critical Boost gain and its enhanced twelve-stack cap.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-hunt-s01.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "docs/10-lifecycle-and-resolution.md"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612430.level.2",
+      "outcome": "IrSufficient",
+      "decision": "Owner-turn triggers and one shared effect-stack definition express Critical Boost gain and its enhanced twelve-stack cap.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-hunt-s01.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "docs/10-lifecycle-and-resolution.md"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612431.level.1",
+      "outcome": "IrSufficient",
+      "decision": "Credited defeat facts, bounded owner state and turn-end timeline mutation express the normal-turn advance before next-turn stack gain.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-hunt-s01.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "docs/10-lifecycle-and-resolution.md"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612431.level.2",
+      "outcome": "IrSufficient",
+      "decision": "Credited defeat facts, bounded owner state and turn-end timeline mutation express the normal-turn advance before next-turn stack gain.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-hunt-s01.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "docs/10-lifecycle-and-resolution.md"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612432.level.1",
+      "outcome": "IrSufficient",
+      "decision": "Weakness Break facts, enemy-rank predicates, deferred owner advance and one-action damage effects express both levels.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-hunt-s01.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "docs/10-lifecycle-and-resolution.md"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612432.level.2",
+      "outcome": "IrSufficient",
+      "decision": "Weakness Break facts, enemy-rank predicates, deferred owner advance and one-action damage effects express both levels.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-hunt-s01.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "docs/10-lifecycle-and-resolution.md"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612440.level.1",
+      "outcome": "IrSufficient",
+      "decision": "Dynamic CRIT Rate queries, Critical Boost stack bindings and an exact capped fixed-point expression implement overflow conversion.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-hunt-s01.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "docs/10-lifecycle-and-resolution.md"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612440.level.2",
+      "outcome": "IrSufficient",
+      "decision": "Dynamic CRIT Rate queries, Critical Boost stack bindings and an exact capped fixed-point expression implement overflow conversion.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-hunt-s01.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "docs/10-lifecycle-and-resolution.md"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612441.level.1",
+      "outcome": "IrSufficient",
+      "decision": "Owner-turn and Ultimate action facts combine live MaxHP with shared Critical Boost stacks through ordinary healing.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-hunt-s01.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "docs/10-lifecycle-and-resolution.md"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612441.level.2",
+      "outcome": "IrSufficient",
+      "decision": "Owner-turn and Ultimate action facts combine live MaxHP with shared Critical Boost stacks through ordinary healing.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-hunt-s01.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/rule/model.rs"
+        },
+        {
+          "path": "docs/10-lifecycle-and-resolution.md"
+        }
+      ]
+    }
+  ],
+  "numeric_approximations": [],
+  "execution": {
+    "result": "pass",
+    "commands": [
+      "python tools/goal07/author-path-partition.py --partition G07-P2-M06-S01 --check",
+      "node tools/universe-reference/verify_production_workbooks.mjs .",
+      "cargo test -p starclock-combat --all-features --no-fail-fast",
+      "cargo test -p starclock-mode-universe --test mechanic_battle_integration hunt_s01 --all-features",
+      "cargo test -p starclock-combat --all-features",
+      "cargo test -p starclock-replay --all-features",
+      "cargo test -p starclock-replay --all-features --no-fail-fast"
+    ],
+    "goldens": [
+      {
+        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P2-M06-S01.json",
+        "sha256": "9c9d9e0d04a31e8619ef8776b87cfeffba90c3894c3dff711a0b27a1daf56279"
+      }
+    ]
+  }
+}

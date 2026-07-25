@@ -340,7 +340,8 @@ fn condition_dependencies(
         | ConditionExpr::EffectExists { selector, .. }
         | ConditionExpr::IsFrozen(selector)
         | ConditionExpr::HasWeakness { selector, .. }
-        | ConditionExpr::IsBroken(selector) => {
+        | ConditionExpr::IsBroken(selector)
+        | ConditionExpr::EnemyRank(selector, _) => {
             output.insert(*selector);
         }
         ConditionExpr::Literal(_) | ConditionExpr::EventKind(_) | ConditionExpr::SourceTag(_) => {}

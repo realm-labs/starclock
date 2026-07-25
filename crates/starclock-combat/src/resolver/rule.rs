@@ -793,6 +793,7 @@ struct UnitQuerySnapshot {
     resources: BTreeMap<Box<str>, crate::Scalar>,
     weaknesses: BTreeSet<CombatElement>,
     broken: bool,
+    rank: crate::formula::toughness::EnemyRank,
 }
 
 pub(super) struct BattleQuerySnapshot {
@@ -834,6 +835,7 @@ impl BattleQuerySnapshot {
                             .collect(),
                         weaknesses: unit.weaknesses.iter().copied().collect(),
                         broken: unit.weakness_broken,
+                        rank: unit.rank,
                     },
                 )
             })
@@ -941,6 +943,10 @@ impl crate::rule::evaluate::BattleQueryReader for BattleQuerySnapshot {
 
     fn is_broken(&self, subject: UnitId) -> bool {
         self.units.get(&subject).is_some_and(|unit| unit.broken)
+    }
+
+    fn enemy_rank(&self, subject: UnitId) -> Option<crate::formula::toughness::EnemyRank> {
+        self.units.get(&subject).map(|unit| unit.rank)
     }
 
     fn current_shield(&self, subject: UnitId) -> Option<crate::Scalar> {

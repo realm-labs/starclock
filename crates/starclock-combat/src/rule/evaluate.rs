@@ -68,6 +68,9 @@ pub trait BattleQueryReader {
     fn is_frozen(&self, subject: UnitId) -> bool;
     fn has_weakness(&self, subject: UnitId, element: crate::formula::model::CombatElement) -> bool;
     fn is_broken(&self, subject: UnitId) -> bool;
+    fn enemy_rank(&self, _subject: UnitId) -> Option<crate::formula::toughness::EnemyRank> {
+        None
+    }
     fn current_shield(&self, subject: UnitId) -> Option<Scalar>;
     fn current_hp(&self, _subject: UnitId) -> Option<Scalar> {
         None
@@ -818,6 +821,19 @@ pub fn evaluate_condition(
                 input
                     .battle_query_reader
                     .is_some_and(|reader| reader.is_broken(unit))
+            }),
+        ConditionExpr::EnemyRank(selector, rank) => selector_units(input, *selector)
+            .ok_or(RuleEvaluationError {
+                kind: RuleEvaluationErrorKind::MissingValue,
+                context: selector.get(),
+            })?
+            .iter()
+            .copied()
+            .all(|unit| {
+                input
+                    .battle_query_reader
+                    .and_then(|reader| reader.enemy_rank(unit))
+                    == Some(*rank)
             }),
     })
 }

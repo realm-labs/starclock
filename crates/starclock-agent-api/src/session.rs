@@ -998,7 +998,8 @@ fn static_condition(condition: &ConditionExpr) -> Option<bool> {
         | ConditionExpr::EffectExists { .. }
         | ConditionExpr::IsFrozen(_)
         | ConditionExpr::HasWeakness { .. }
-        | ConditionExpr::IsBroken(_) => None,
+        | ConditionExpr::IsBroken(_)
+        | ConditionExpr::EnemyRank { .. } => None,
     }
 }
 

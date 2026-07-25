@@ -278,6 +278,11 @@ impl EffectRuntimeTemplate {
     }
 
     #[must_use]
+    pub const fn stack_limit(&self) -> u16 {
+        self.stack_limit
+    }
+
+    #[must_use]
     pub fn with_comparison(mut self, magnitude: Option<ValueExpr>, priority: i32) -> Self {
         self.magnitude = magnitude;
         self.application_priority = priority;

@@ -233,6 +233,7 @@ fn execute(
             } else {
                 ended
             };
+            let ended = super::rule::dispatch_pending_after_events(catalog, txn, ended)?;
             txn.set_active_turn(None);
             if let ActionBoundary::Continue(parent) =
                 settle_after_action(catalog, txn, boundary_cause, ended)?

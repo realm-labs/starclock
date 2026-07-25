@@ -41,6 +41,8 @@ mod abundance_s02;
 mod abundance_s03;
 #[path = "mechanic_battle_integration/abundance_s04.rs"]
 mod abundance_s04;
+#[path = "mechanic_battle_integration/hunt_s01.rs"]
+mod hunt_s01;
 #[path = "mechanic_battle_integration/nihility_s01.rs"]
 mod nihility_s01;
 #[path = "mechanic_battle_integration/nihility_s02.rs"]
@@ -868,7 +870,7 @@ fn selected_asta_technique_executes_before_the_first_timeline_turn() {
 fn hunt_resonance_is_a_legal_shared_resource_transition() {
     let catalog = catalog();
     let contributions = contributions(&catalog, "universe.path.hunt", None, None, true);
-    assert_eq!(contributions.materialized_rule_binding_count(), 1);
+    assert_eq!(contributions.materialized_rule_binding_count(), 4);
     let materialization = materialize(&catalog, &contributions);
     let (mut battle, _) = start(
         &materialization,

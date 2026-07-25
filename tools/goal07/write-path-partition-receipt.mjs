@@ -153,6 +153,16 @@ function nativeDecision(id) {
     return "Ordered Cleanse, stackable negative-effect guards and their generic informational signal express Anicca and Subduing Evils.";
   if (id.includes("612323"))
     return "The generic first-use trigger, auxiliary countdown definition and recurring timeline action express Anatta.";
+  if (id.includes("612430"))
+    return "Owner-turn triggers and one shared effect-stack definition express Critical Boost gain and its enhanced twelve-stack cap.";
+  if (id.includes("612431"))
+    return "Credited defeat facts, bounded owner state and turn-end timeline mutation express the normal-turn advance before next-turn stack gain.";
+  if (id.includes("612432"))
+    return "Weakness Break facts, enemy-rank predicates, deferred owner advance and one-action damage effects express both levels.";
+  if (id.includes("612440"))
+    return "Dynamic CRIT Rate queries, Critical Boost stack bindings and an exact capped fixed-point expression implement overflow conversion.";
+  if (id.includes("612441"))
+    return "Owner-turn and Ultimate action facts combine live MaxHP with shared Critical Boost stacks through ordinary healing.";
   if (id.includes("612351"))
     return "A target-directional Healing-stage modifier expresses Incoming Healing exactly once for allied and self-healing.";
   if (id.includes("612352"))
@@ -714,6 +724,34 @@ function partitionProfile(id) {
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration abundance_s04 --all-features",
         "cargo test -p starclock-combat --test effect_guards --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M06-S01") {
+    return {
+      completedOn: "2026-07-26",
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "crates/starclock-combat/src/rule/evaluate.rs",
+        "crates/starclock-combat/src/resolver/transaction.rs",
+        "crates/starclock-combat/src/resolver/turn.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-hunt-s01.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "docs/10-lifecycle-and-resolution.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs",
+      fixtureMarker:
+        "enhanced_radiant_advances_the_killer_and_grants_seven_stacks_next_turn",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration hunt_s01 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

@@ -517,7 +517,8 @@ fn static_condition(condition: &ConditionExpr) -> bool {
         | ConditionExpr::EffectExists { .. }
         | ConditionExpr::IsFrozen(_)
         | ConditionExpr::HasWeakness { .. }
-        | ConditionExpr::IsBroken(_) => false,
+        | ConditionExpr::IsBroken(_)
+        | ConditionExpr::EnemyRank { .. } => false,
     }
 }
 
