@@ -69,8 +69,11 @@ pub(super) fn lower(
     )
     .with_action(action);
     Ok(ExecutableResonance {
+        modifier_groups: Box::new([]),
+        modifiers: Box::new([]),
         selectors: vec![selector].into_boxed_slice(),
-        program,
+        effects: Box::new([]),
+        programs: vec![program].into_boxed_slice(),
         ability,
         initial_energy: initial_energy.min(100),
         maximum_energy: 100,

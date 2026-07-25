@@ -792,12 +792,18 @@ pub fn matches_filter(filter: &EventFilter, input: RuleEvaluationInput<'_>) -> b
             .effect_category
             .is_none_or(|value| input.event_facts.effect_category == Some(value))
         && filter
+            .effect_specific_resistance
+            .is_none_or(|value| input.event_facts.effect_specific_resistance == Some(value))
+        && filter
             .toughness_kind
             .is_none_or(|value| input.event_facts.toughness_kind == Some(value))
         && filter
             .resource
             .as_ref()
             .is_none_or(|value| input.event_facts.resource.as_ref() == Some(value))
+        && filter
+            .has_action
+            .is_none_or(|value| input.event_facts.has_action == value)
         && ancestry_matches(filter.cause_ancestry, input)
 }
 

@@ -533,10 +533,21 @@ impl UniverseBattleMaterializer {
             builder.add_rule_bundle(executable.bundle().clone());
         }
         if let Some(resonance) = contributions.resonance() {
+            for group in resonance.modifier_groups() {
+                builder.add_modifier_group(group.clone());
+            }
+            for modifier in resonance.modifiers() {
+                builder.add_modifier(modifier.clone());
+            }
             for selector in resonance.selectors() {
                 builder.add_selector(selector.clone());
             }
-            builder.add_program(resonance.program().clone());
+            for effect in resonance.effects() {
+                builder.add_effect(effect.clone());
+            }
+            for program in resonance.programs() {
+                builder.add_program(program.clone());
+            }
             builder.add_ability(resonance.ability().clone());
         }
         if let Some(technique) = &technique {

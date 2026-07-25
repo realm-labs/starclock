@@ -404,7 +404,9 @@ fn stat_bases(
     std::collections::BTreeMap<(crate::UnitId, crate::modifier::model::StatKind), crate::Scalar>,
     crate::NumericError,
 > {
-    use crate::modifier::model::StatKind::{Atk, Def, FreezeResistance, Hp, Spd};
+    use crate::modifier::model::StatKind::{
+        Atk, DebuffDurationMultiplier, Def, FreezeResistance, Hp, Spd,
+    };
 
     let mut bases = std::collections::BTreeMap::new();
     for unit in state.units.iter_by_id() {
@@ -425,6 +427,7 @@ fn stat_bases(
             crate::Scalar::from_scaled(unit.base_speed.scaled()),
         );
         bases.insert((unit.id, FreezeResistance), crate::Scalar::ZERO);
+        bases.insert((unit.id, DebuffDurationMultiplier), crate::Scalar::ONE);
     }
     Ok(bases)
 }

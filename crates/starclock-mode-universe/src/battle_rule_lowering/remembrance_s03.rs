@@ -418,6 +418,7 @@ fn freeze_lifecycle_triggers(
             EventFilter {
                 target_selector: Some(owner),
                 effect_category: Some(EffectCategory::Control),
+                effect_specific_resistance: Some(StatKind::FreezeResistance),
                 ..EventFilter::default()
             },
             frozen.clone(),
@@ -443,6 +444,7 @@ fn freeze_lifecycle_triggers(
             EventFilter {
                 target_selector: Some(owner),
                 effect_category: Some(EffectCategory::Control),
+                effect_specific_resistance: Some(StatKind::FreezeResistance),
                 ..EventFilter::default()
             },
             thawed.clone(),

@@ -140,6 +140,18 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612156"))
+    return "Typed Freeze effect/BaseEffect facts, explicit action context and action once keys express per-applier Energy restoration.";
+  if (id.includes("612157"))
+    return "Typed Freeze facts, dynamic applier MaxHP queries, dedicated Shields and bounded owner-turn counters express the complete Shield lifetime.";
+  if (id.includes("612120"))
+    return "A team-resource-gated executable ability with ordered programs expresses all-enemy Ice damage followed by resistible Freeze.";
+  if (id.includes("612121"))
+    return "A pre-hit resistible effect and bounded signed Freeze-resistance modifier affect the same Resonance Freeze without a source branch.";
+  if (id.includes("612122"))
+    return "The generic negative-effect duration multiplier and ordered pre-/post-hit programs express Eonian River.";
+  if (id.includes("612123"))
+    return "Battle-start and typed per-Freeze triggers use the checked keyed team-resource service.";
   if (id.includes("612130"))
     return "Frozen-state predicates, resistible effect application and effect-removal facts express Fuli and its enhanced Dissociation damage.";
   if (id.includes("612131"))
@@ -366,6 +378,31 @@ function partitionProfile(id) {
         "lost_memory_freezes_on_the_first_attack_crossing_below_half_hp",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration remembrance_s03 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M03-S04") {
+    return {
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/remembrance_s04.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s04.rs",
+        "crates/starclock-combat/src/resolver/program_effect.rs",
+        "crates/starclock-combat/src/resolver/rule.rs",
+        "crates/starclock-combat/src/catalog/rule_validate.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-remembrance-s04.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/remembrance_s04.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s04.rs",
+      fixtureMarker:
+        "remembrance_resonance_orders_total_eonian_damage_and_freeze",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration remembrance_s04 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

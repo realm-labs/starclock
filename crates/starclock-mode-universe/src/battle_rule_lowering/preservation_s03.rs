@@ -57,6 +57,7 @@ fn timed_max_hp_shield(
         Vec::new(),
         Vec::new(),
         Vec::new(),
+        Vec::new(),
     )
 }
 
@@ -116,6 +117,7 @@ fn lost_hp_shield(
         RuleEventPoint::ActionResolved,
         EventFilter::default(),
         has_loss,
+        Vec::new(),
         vec![accumulate_program],
         vec![slot],
         vec![ProgramStep::Operation(RuleOperationTemplate::SetSlot {
@@ -127,13 +129,14 @@ fn lost_hp_shield(
 }
 
 #[allow(clippy::too_many_arguments)]
-fn timed_shield_rule(
+pub(super) fn timed_shield_rule(
     binding: &UniverseBattleRuleBinding,
     amount: ValueExpr,
     duration: u16,
     event: RuleEventPoint,
     event_filter: EventFilter,
     event_condition: ConditionExpr,
+    mut extra_selectors: Vec<SelectorDefinition>,
     mut extra_programs: Vec<ProgramDefinition>,
     mut extra_slots: Vec<StateSlotDef>,
     mut after_apply_steps: Vec<ProgramStep>,
@@ -168,8 +171,38 @@ fn timed_shield_rule(
         }),
     ];
     apply_steps.append(&mut after_apply_steps);
+    let mut apply_selectors = vec![owner];
+    for selector in [
+        event_filter.owner_selector,
+        event_filter.actor_selector,
+        event_filter.applier_selector,
+        event_filter.target_selector,
+    ]
+    .into_iter()
+    .flatten()
+    {
+        apply_selectors.push(selector);
+    }
+    for trigger in extra_triggers
+        .iter()
+        .filter(|trigger| trigger.program == apply)
+    {
+        for selector in [
+            trigger.filter.owner_selector,
+            trigger.filter.actor_selector,
+            trigger.filter.applier_selector,
+            trigger.filter.target_selector,
+        ]
+        .into_iter()
+        .flatten()
+        {
+            apply_selectors.push(selector);
+        }
+    }
+    apply_selectors.sort_unstable();
+    apply_selectors.dedup();
     let apply_definition =
-        ProgramDefinition::new(apply, Vec::new(), vec![owner], vec![effect], Vec::new())
+        ProgramDefinition::new(apply, Vec::new(), apply_selectors, vec![effect], Vec::new())
             .with_steps(apply_steps);
     let advance_definition =
         ProgramDefinition::new(advance, Vec::new(), vec![owner], Vec::new(), Vec::new())
@@ -202,7 +235,9 @@ fn timed_shield_rule(
             RuleValue::Integer(i64::from(duration)),
         ),
     );
-    let selectors = vec![SelectorDefinition::new(owner).with_rule_units(owner_selector()?)];
+    extra_selectors.push(SelectorDefinition::new(owner).with_rule_units(owner_selector()?));
+    extra_selectors.sort_unstable_by_key(SelectorDefinition::id);
+    extra_selectors.dedup_by_key(|selector| selector.id());
     let effects = vec![EffectDefinition::new(effect, Vec::new(), Vec::new())];
     let mut triggers = vec![
         trigger(
@@ -249,7 +284,7 @@ fn timed_shield_rule(
     triggers.append(&mut extra_triggers);
     Ok(executable_rule(
         binding,
-        selectors,
+        extra_selectors,
         effects,
         extra_programs,
         extra_slots,

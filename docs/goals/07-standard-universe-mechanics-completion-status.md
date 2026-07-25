@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M03-S04` |
-| Next unblocked batch | `G07-P2-M03-S04` |
+| Active batch | `G07-P2-M04-S01` |
+| Next unblocked batch | `G07-P2-M04-S01` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -31,12 +31,14 @@ execute exact Quake, shield cycles, dynamic stat conversion, directional
 shield strength, provider-shield behavior, action-scoped HP-loss shields,
 Break-triggered team shields, shield-gated mitigation, bounded negative-effect
 cleansing, deterministic critical hits and all three Resonance Formations
-without a native handler. Remembrance S01–S03 add 49 records, 48 rules and
-five fixtures for Freeze, Dissociation, Fuli, Innocence, Reticence,
+without a native handler. All four Remembrance partitions are complete: 59
+records, 58 rules and five fixtures execute Freeze, Dissociation, Fuli,
+Innocence, Reticence,
 Melancholia, Dizziness, Insensitivity, Sentimentality, Indelibility, Shudder,
 Maverick, both Unspeakable Shame levels, Torment of Alienation, Lost Memory,
-Stone Cold Hatred, Pain & Suffering and Primordial Hardship.
-`G07-P2-M03-S04` is active.
+Stone Cold Hatred, Pain & Suffering, Primordial Hardship, Thrill of Escalation,
+Responsive Excitement, Remembrance Resonance and all three Formations.
+`G07-P2-M04-S01` (Nihility) is active.
 
 ## Fixed batch ledger
 
@@ -62,6 +64,7 @@ Stone Cold Hatred, Pain & Suffering and Primordial Hardship.
 | `G07-P2-M03-S01` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Remembrance/replay tests; partition receipt; quick repository gate | Executed both levels of Fuli, Innocence, Reticence, Melancholia and Dizziness plus the Insensitivity and Path definitions. Added generic Freeze control, typed effect-definition events, target-specific resistance policy and every-enemy rule attachment. Exact 36% enhanced natural removal before vulnerability, 55.44% with Dizziness and 200% Melancholia vectors pass; ten native candidates close as `IrSufficient`. |
 | `G07-P2-M03-S02` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Remembrance/replay tests; partition receipt; quick repository gate | Executed both levels of Insensitivity, Sentimentality, Indelibility, Shudder and Maverick plus Unspeakable Shame L1. Added timed Rule IR Weakness, lacks-weakness and complete adjacent selectors, signed resistance reduction and source-safe generated damage. Exact 24% all-other Ice damage and two-target-turn Shudder expiry vectors pass; eleven native candidates close as `IrSufficient`. |
 | `G07-P2-M03-S03` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Remembrance/replay tests; partition receipt; quick repository gate | Executed Unspeakable Shame L2 plus both levels of Torment of Alienation, Lost Memory, Stone Cold Hatred, Pain & Suffering and Primordial Hardship. Added typed pre/post-HP and effect/Toughness filters, action-aware source/target modifier contexts, target-specific CRIT thresholds and shared raw CRIT draws. Exact half-HP Freeze, 1.54 Skill-damage, 1.24 vulnerability and two-action CRIT-exposure vectors pass; eleven native candidates close as `IrSufficient`. |
+| `G07-P2-M03-S04` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Remembrance/replay tests; partition receipt; quick repository gate | Executed both levels of Thrill of Escalation and Responsive Excitement, Remembrance Resonance and all three Formations. Added typed specific-resistance event facts, explicit action-context filters, generic negative-effect duration multiplication and ordered multi-program Resonance definitions. Exact 60,000 fixture damage, two-turn Eonian Freeze, 12 Energy, 24,000 Shield, 40 entry Energy and 5 per-Freeze Resonance Energy vectors pass; eight native candidates close as `IrSufficient`. |
 | `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
 | `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |
@@ -83,7 +86,7 @@ The milestone summary remains here for orientation.
 |---|---|---:|---|
 | `G07-P2-M01` | `Complete` | 42 / 42 | Ability Tree and shared Activity mechanics executable. |
 | `G07-P2-M02` | `Complete` | 58 / 59 | Preservation complete. |
-| `G07-P2-M03` | `Expanded` | 58 / 59 | Remembrance complete. |
+| `G07-P2-M03` | `Complete` | 58 / 59 | Remembrance complete. |
 | `G07-P2-M04` | `Expanded` | 58 / 59 | Nihility complete. |
 | `G07-P2-M05` | `Expanded` | 58 / 59 | Abundance complete. |
 | `G07-P2-M06` | `Expanded` | 58 / 59 | Hunt complete. |

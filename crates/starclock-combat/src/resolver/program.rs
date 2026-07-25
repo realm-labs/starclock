@@ -251,7 +251,8 @@ pub(super) fn stat_bases(
     txn: &Transaction<'_>,
 ) -> Result<BTreeMap<(crate::UnitId, crate::modifier::model::StatKind), Scalar>, BattleFault> {
     use crate::modifier::model::StatKind::{
-        Atk, CritDamage, CritRate, Def, EffectHitRate, EffectResistance, FreezeResistance, Hp, Spd,
+        Atk, CritDamage, CritRate, DebuffDurationMultiplier, Def, EffectHitRate, EffectResistance,
+        FreezeResistance, Hp, Spd,
     };
 
     let mut bases = BTreeMap::new();
@@ -285,6 +286,7 @@ pub(super) fn stat_bases(
         bases.insert((unit.id, EffectHitRate), Scalar::ZERO);
         bases.insert((unit.id, EffectResistance), Scalar::ZERO);
         bases.insert((unit.id, FreezeResistance), Scalar::ZERO);
+        bases.insert((unit.id, DebuffDurationMultiplier), Scalar::ONE);
     }
     Ok(bases)
 }

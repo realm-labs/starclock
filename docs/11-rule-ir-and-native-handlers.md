@@ -82,6 +82,13 @@ Expressions cannot mutate state, draw RNG, perform unbounded iteration, recurse,
 
 An `EventFilter` first narrows by cheap indexed fields such as source, owner, actor, applier, target, action kind, ability tags, element, damage class, effect category, Toughness event kind, and cause ancestry. The condition then evaluates contextual values such as pre/post HP from the committed event. This split is an implementation optimization but must not change semantics.
 
+Effect lifecycle facts additionally carry the effect definition's optional
+specific-resistance stat. This distinguishes Freeze-class control from another
+Control effect without comparing content IDs. A filter may explicitly require
+action context; catalog validation then permits `Ability`, `Action`, and
+`TargetWithinAction` once scopes on Effect or Toughness events, while runtime
+matching rejects events that do not actually carry an action identity.
+
 ## Selectors
 
 A selector declares:

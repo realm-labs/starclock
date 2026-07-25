@@ -10,7 +10,6 @@ use crate::{
     modifier::model::{FormulaPurpose, StatKind, StatQuerySubject},
 };
 mod support;
-
 /// Stable generic semantic class for rule attribution and filtering.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum SourceClass {
@@ -25,7 +24,6 @@ pub enum SourceClass {
     Mode,
     Synthetic,
 }
-
 /// Immutable generic source identity retained by a rule definition.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RuleSource {
@@ -34,7 +32,6 @@ pub struct RuleSource {
     tags: Box<[SourceDefinitionId]>,
     digest: [u8; 32],
 }
-
 impl RuleSource {
     #[must_use]
     pub fn new(
@@ -67,7 +64,6 @@ impl RuleSource {
         self.digest
     }
 }
-
 /// Runtime value kind declared by a state slot or expression.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum RuleValueKind {
@@ -78,7 +74,6 @@ pub enum RuleValueKind {
     OptionalStableId,
     OrderedStableIdSet,
 }
-
 /// Closed value carried by typed expressions and state-slot emissions.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum RuleValue {
@@ -395,6 +390,8 @@ pub struct RuleEventFacts {
     pub element: Option<CombatElement>,
     pub damage_class: Option<RuleDamageClass>,
     pub effect_category: Option<crate::EffectCategory>,
+    /// Specific-resistance stat declared by the observed effect definition.
+    pub effect_specific_resistance: Option<StatKind>,
     pub toughness_kind: Option<RuleToughnessEventKind>,
     pub resource: Option<RuleResourceKind>,
     pub damage_amount: Option<Scalar>,
@@ -474,8 +471,11 @@ pub struct EventFilter {
     pub element: Option<CombatElement>,
     pub damage_class: Option<RuleDamageClass>,
     pub effect_category: Option<crate::EffectCategory>,
+    pub effect_specific_resistance: Option<StatKind>,
     pub toughness_kind: Option<RuleToughnessEventKind>,
     pub resource: Option<RuleResourceKind>,
+    /// Optional requirement for an observed event to belong to an action.
+    pub has_action: Option<bool>,
     pub cause_ancestry: CauseAncestry,
 }
 

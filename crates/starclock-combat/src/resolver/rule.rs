@@ -579,6 +579,18 @@ fn event_facts(
                         .or_else(|| effect.runtime_template().map(|runtime| runtime.category()))
                 })
             });
+            facts.effect_specific_resistance = facts.effect_definition.and_then(|definition| {
+                catalog.effect(definition).and_then(|effect| {
+                    effect
+                        .runtime()
+                        .and_then(crate::EffectRuntimeDefinition::specific_resistance_stat)
+                        .or_else(|| {
+                            effect
+                                .runtime_template()
+                                .and_then(crate::EffectRuntimeTemplate::specific_resistance_stat)
+                        })
+                })
+            });
             facts.stack_count = match data {
                 crate::EffectEventData::Applied { stacks, .. } => Some(i64::from(*stacks)),
                 crate::EffectEventData::Refreshed { stacks_after, .. } => {

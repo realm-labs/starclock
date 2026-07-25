@@ -7,11 +7,6 @@ const CRITICAL: &str = "StageAbility_612021";
 const EUTECTIC: &str = "StageAbility_612022";
 const ISOMORPHOUS: &str = "StageAbility_612023";
 const SECOND_EFFECT_ID_BASE: u32 = 0x76e0_0000;
-const RESONANCE_ENEMY_SELECTOR_ID: SelectorId =
-    SelectorId::new(0x7630_0005).expect("reserved selector ID is non-zero");
-const RESONANCE_ALLY_SELECTOR_ID: SelectorId =
-    SelectorId::new(0x7630_0006).expect("reserved selector ID is non-zero");
-
 pub(super) fn lower_rules(
     catalog: &UniverseCatalog,
     bindings: &[UniverseBattleRuleBinding],
@@ -176,8 +171,11 @@ pub(super) fn resonance(
             .expect("non-zero sequence"),
     ]);
     Ok(ExecutableResonance {
+        modifier_groups: Box::new([]),
+        modifiers: Box::new([]),
         selectors: vec![ability_selector, enemy_selector, ally_selector].into_boxed_slice(),
-        program,
+        effects: Box::new([]),
+        programs: vec![program].into_boxed_slice(),
         ability,
         initial_energy: initial_energy.min(100),
         maximum_energy: 100,

@@ -464,6 +464,16 @@ impl EffectRuntimeDefinition {
     pub const fn duration(&self) -> Option<u16> {
         self.duration
     }
+    /// Replaces one finite authored duration after generic duration modifiers
+    /// have been resolved.
+    #[must_use]
+    pub fn with_duration(mut self, duration: u16) -> Option<Self> {
+        if duration == 0 || self.duration_clock == DurationClock::Permanent {
+            return None;
+        }
+        self.duration = Some(duration);
+        Some(self)
+    }
     #[must_use]
     pub const fn duration_clock(&self) -> DurationClock {
         self.duration_clock

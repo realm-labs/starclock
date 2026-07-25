@@ -745,14 +745,17 @@ fn once_scope_constructible(trigger: &TriggerDef) -> bool {
                 | crate::rule::model::RuleEventKind::Damage
                 | crate::rule::model::RuleEventKind::Heal
         ),
-        OnceScope::Ability | OnceScope::Action | OnceScope::TargetWithinAction => matches!(
-            trigger.event,
-            crate::rule::model::RuleEventKind::Action
-                | crate::rule::model::RuleEventKind::Phase
-                | crate::rule::model::RuleEventKind::Hit
-                | crate::rule::model::RuleEventKind::Damage
-                | crate::rule::model::RuleEventKind::Heal
-        ),
+        OnceScope::Ability | OnceScope::Action | OnceScope::TargetWithinAction => {
+            trigger.filter.has_action == Some(true)
+                || matches!(
+                    trigger.event,
+                    crate::rule::model::RuleEventKind::Action
+                        | crate::rule::model::RuleEventKind::Phase
+                        | crate::rule::model::RuleEventKind::Hit
+                        | crate::rule::model::RuleEventKind::Damage
+                        | crate::rule::model::RuleEventKind::Heal
+                )
+        }
         OnceScope::Turn => matches!(
             trigger.event,
             crate::rule::model::RuleEventKind::Turn

@@ -41,11 +41,18 @@ pub(super) fn apply_effect_operation(
     let resolved_chances = resolve_chances(catalog, input, effect, chance, base_chance, &targets)?;
     let resolved_runtime = catalog
         .effect(effect)
-        .and_then(|definition| definition.runtime_template())
-        .map(|template| {
+        .map(|definition| {
             targets
                 .iter()
-                .map(|target| resolve_effect_runtime(template, input, *target))
+                .map(|target| {
+                    if let Some(template) = definition.runtime_template() {
+                        resolve_effect_runtime(template, input, *target)
+                    } else if let Some(runtime) = definition.runtime() {
+                        resolve_negative_effect_duration(runtime.clone(), input, *target)
+                    } else {
+                        Err(program_fault(71, i64::from(effect.get())))
+                    }
+                })
                 .collect::<Result<Vec<_>, _>>()
                 .map(Vec::into_boxed_slice)
         })
@@ -165,9 +172,46 @@ fn resolve_effect_runtime(
         })
         .transpose()?
         .unwrap_or(Scalar::ZERO);
-    template
+    let runtime = template
         .resolve(duration, magnitude)
-        .ok_or_else(|| program_fault(47, i64::try_from(target.get()).unwrap_or(i64::MAX)))
+        .ok_or_else(|| program_fault(47, i64::try_from(target.get()).unwrap_or(i64::MAX)))?;
+    resolve_negative_effect_duration(runtime, input, target)
+}
+
+fn resolve_negative_effect_duration(
+    runtime: crate::EffectRuntimeDefinition,
+    input: RuleEvaluationInput<'_>,
+    target: crate::UnitId,
+) -> Result<crate::EffectRuntimeDefinition, BattleFault> {
+    if !matches!(
+        runtime.dispel(),
+        crate::DispelCategory::DispellableDebuff | crate::DispelCategory::CleanseableControl
+    ) {
+        return Ok(runtime);
+    }
+    let Some(duration) = runtime.duration() else {
+        return Ok(runtime);
+    };
+    let reader = input.stat_reader.ok_or_else(|| program_fault(68, 0))?;
+    let multiplier = reader
+        .query_stat(
+            crate::modifier::model::StatQuerySubject::CurrentTarget,
+            target,
+            crate::modifier::model::StatKind::DebuffDurationMultiplier,
+            crate::modifier::model::FormulaPurpose::Stat,
+        )
+        .map_err(|error| program_fault(69, i64::from(error.context())))?;
+    let scaled = Scalar::checked_from_integer(i64::from(duration))
+        .and_then(|value| value.checked_mul(multiplier, Rounding::NearestTiesEven))
+        .and_then(|value| value.rounded_integer(Rounding::NearestTiesEven))
+        .map_err(|_| program_fault(70, multiplier.scaled()))?;
+    let duration = u16::try_from(scaled)
+        .ok()
+        .filter(|value| *value > 0)
+        .ok_or_else(|| program_fault(70, scaled))?;
+    runtime
+        .with_duration(duration)
+        .ok_or_else(|| program_fault(70, i64::from(duration)))
 }
 
 fn effect_duration(value: RuleValue) -> Result<u16, BattleFault> {

@@ -45,6 +45,20 @@ Fixed chance is different: it ignores Effect Hit Rate and resistances unless an 
 
 Use one RNG draw per independently worded application. A multi-hit ability that states one chance for the whole attack should not roll on every hit.
 
+Negative-effect duration is also a derived application boundary. Its authored
+base multiplier is `1.0`; active target modifiers may change it before the new
+effect instance is created:
+
+```text
+resolved_duration = round(authored_duration * debuff_duration_multiplier)
+```
+
+This applies to dispellable debuffs and cleanseable control effects, including
+both static and expression-backed effect definitions. Permanent and positive
+effects bypass this multiplier. The resolved positive integer duration is
+stored in authoritative effect state and therefore participates in hashes and
+replays.
+
 ## Stack and refresh policies
 
 Support these policies explicitly:

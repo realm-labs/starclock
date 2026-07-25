@@ -26,6 +26,11 @@ pub enum StatKind {
     Aggro,
     ToughnessDamage,
     FreezeResistance,
+    /// Multiplier applied to newly attached negative-effect durations.
+    ///
+    /// The authored base is `1.0`; ordinary stat modifiers can increase or
+    /// decrease it without introducing content identities into effect code.
+    DebuffDurationMultiplier,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]

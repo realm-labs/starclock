@@ -7,6 +7,7 @@ mod preservation_s04;
 mod remembrance_s01;
 mod remembrance_s02;
 mod remembrance_s03;
+mod remembrance_s04;
 mod support;
 
 use preservation_s02::*;
@@ -80,6 +81,10 @@ pub(crate) const RESONANCE_SELECTOR_ID: SelectorId =
 pub(crate) const RESONANCE_RESOURCE_ID: SourceDefinitionId =
     SourceDefinitionId::new(0x7630_0004).expect("reserved resource ID is non-zero");
 pub(crate) const RESONANCE_RESOURCE_KEY: &str = "standard-universe.path-resonance-energy";
+pub(crate) const RESONANCE_ENEMY_SELECTOR_ID: SelectorId =
+    SelectorId::new(0x7630_0005).expect("reserved selector ID is non-zero");
+pub(crate) const RESONANCE_ALLY_SELECTOR_ID: SelectorId =
+    SelectorId::new(0x7630_0006).expect("reserved selector ID is non-zero");
 
 const ABUNDANCE_ADDITIONAL_DAMAGE_BINDING: &str = "StageAbility_612344";
 const ENTRY_ENEMY_DAMAGE_BINDING: &str = "8";
@@ -144,19 +149,31 @@ impl ExecutableBattleRule {
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct ExecutableResonance {
+    modifier_groups: Box<[ModifierStackingGroup]>,
+    modifiers: Box<[ModifierDefinition]>,
     selectors: Box<[SelectorDefinition]>,
-    program: ProgramDefinition,
+    effects: Box<[EffectDefinition]>,
+    programs: Box<[ProgramDefinition]>,
     ability: AbilityDefinition,
     initial_energy: u16,
     maximum_energy: u16,
 }
 
 impl ExecutableResonance {
+    pub(crate) fn modifier_groups(&self) -> &[ModifierStackingGroup] {
+        &self.modifier_groups
+    }
+    pub(crate) fn modifiers(&self) -> &[ModifierDefinition] {
+        &self.modifiers
+    }
     pub(crate) fn selectors(&self) -> &[SelectorDefinition] {
         &self.selectors
     }
-    pub(crate) const fn program(&self) -> &ProgramDefinition {
-        &self.program
+    pub(crate) fn effects(&self) -> &[EffectDefinition] {
+        &self.effects
+    }
+    pub(crate) fn programs(&self) -> &[ProgramDefinition] {
+        &self.programs
     }
     pub(crate) const fn ability(&self) -> &AbilityDefinition {
         &self.ability
@@ -282,6 +299,7 @@ pub(crate) fn lower_rules(
     output.extend(remembrance_s01::lower(bindings, blessings)?);
     output.extend(remembrance_s02::lower(catalog, bindings, blessings)?);
     output.extend(remembrance_s03::lower(bindings, blessings)?);
+    output.extend(remembrance_s04::lower_rules(catalog, bindings, blessings)?);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::BlessingLevel
             && binding.source_binding_key() == Some(ABUNDANCE_ADDITIONAL_DAMAGE_BINDING)
@@ -316,26 +334,32 @@ pub(crate) fn lower_rules(
             binding.role() == UniverseBattleRuleRole::Resonance
                 && matches!(
                     binding.source_binding_key(),
-                    Some(HUNT_RESONANCE_BINDING) | Some(preservation_s04::RESONANCE)
+                    Some(HUNT_RESONANCE_BINDING)
+                        | Some(preservation_s04::RESONANCE)
+                        | Some(remembrance_s04::RESONANCE)
                 )
         })
-        .map(|binding| {
-            if binding.source_binding_key() == Some(preservation_s04::RESONANCE) {
-                preservation_s04::resonance(
-                    catalog,
-                    bindings,
-                    binding,
-                    initial_resonance_energy,
-                    resonance_damage_ratio,
-                )
-            } else {
-                hunt_resonance::lower(
-                    catalog,
-                    binding,
-                    initial_resonance_energy,
-                    resonance_damage_ratio,
-                )
-            }
+        .map(|binding| match binding.source_binding_key() {
+            Some(preservation_s04::RESONANCE) => preservation_s04::resonance(
+                catalog,
+                bindings,
+                binding,
+                initial_resonance_energy,
+                resonance_damage_ratio,
+            ),
+            Some(remembrance_s04::RESONANCE) => remembrance_s04::resonance(
+                catalog,
+                bindings,
+                binding,
+                initial_resonance_energy,
+                resonance_damage_ratio,
+            ),
+            _ => hunt_resonance::lower(
+                catalog,
+                binding,
+                initial_resonance_energy,
+                resonance_damage_ratio,
+            ),
         })
         .transpose()?;
     Ok((output, resonance))
