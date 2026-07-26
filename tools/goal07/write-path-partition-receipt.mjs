@@ -153,6 +153,16 @@ function nativeDecision(id) {
     return "Per-owner Skill state and an Attack-tagged HitStarted clear distinguish non-attacking Skills, then an all-ally owner-turn stack effect supplies the released DamageBoost.";
   if (id.includes("612750"))
     return "The validated selected-Propagation-blessing count is capped and compiled into a permanent Basic-tag-filtered DamageBoost effect installed for every character.";
+  if (id.includes("612751"))
+    return "An ordinary source-side CRIT Rate stat modifier filtered by the generic Basic ability tag expresses both Spinal Spur levels.";
+  if (id.includes("612752"))
+    return "An ordinary source-side CRIT DMG stat modifier filtered by the generic Basic ability tag expresses both Channeled Needle levels.";
+  if (id.includes("612753"))
+    return "A Basic ActionResolved trigger and a replace-stacking owner-turn percent-of-base DEF effect express both Conjunctiva levels.";
+  if (id.includes("612754"))
+    return "A Basic ActionResolved trigger and a replace-stacking owner-turn percent-of-base SPD effect express both Scaled Wing levels.";
+  if (id.includes("612755"))
+    return "One FirstPlayer rule, an ally TurnEnded selector, a battle-scoped bounded counter and checked team Skill Point gain express the shared Compound Eye cap.";
   if (id.includes("612730"))
     return "Skill Point resource deltas, stable all-enemy selection and ordinary effect stacking express Spore Discharge; the enhanced empty-resource branch uses an owner-turn SPD effect.";
   if (id.includes("612731"))
@@ -1425,6 +1435,37 @@ function partitionProfile(id) {
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration propagation_s02 --all-features",
         "cargo test -p starclock-mode-universe --lib battle_rule_lowering::support::tests --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M09-S03") {
+    return {
+      completedOn: "2026-07-26",
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s03.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s02.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/support.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s03.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-propagation-s03.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s03.rs",
+        "crates/starclock-mode-universe/src/propagation_runtime.rs",
+        "docs/05-effects-and-resources.md",
+        "docs/09-determinism-and-numerics.md",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/11-rule-ir-and-native-handlers.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s03.rs",
+      fixtureMarker:
+        "compound_eye_recovers_one_extra_team_skill_point_after_an_ally_turn",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration propagation_s03 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
