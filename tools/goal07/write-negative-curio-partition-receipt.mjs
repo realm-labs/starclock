@@ -14,8 +14,9 @@ assert(args.every((value, offset) =>
   value === "--partition" || value === "--write" || offset === index + 1),
 "unsupported argument");
 const partitionId = args[index + 1];
-assert(partitionId === "G07-P3-M12-S01",
+assert(["G07-P3-M12-S01", "G07-P3-M12-S02"].includes(partitionId),
   `${partitionId}: negative Curio receipt profile is not implemented`);
+const slice = partitionId.endsWith("S01") ? "s01" : "s02";
 
 const manifest = json(
   "content-manifests/standard-universe-mechanics-complete-v1/content-partitions.json",
@@ -42,12 +43,12 @@ const executionEvidence = [
   { path: "crates/starclock-mode-universe/src/curio_activity/negative.rs" },
   { path: "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs" },
   { path: "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs" },
-  { path: "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs" },
-  { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs" },
+  { path: `crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_${slice}.rs` },
+  { path: `crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_${slice}.rs` },
 ];
 const reviewEvidence = [
-  { path: "docs/goal-07-negative-curio-s01.md" },
-  { path: "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs" },
+  { path: `docs/goal-07-negative-curio-${slice}.md` },
+  { path: `crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_${slice}.rs` },
   { path: "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs" },
 ];
 
@@ -105,7 +106,7 @@ const receipt = {
     decision: nativeDecision(id),
     evidence: reviewEvidence,
   })),
-  numeric_approximations: [
+  numeric_approximations: partitionId.endsWith("S01") ? [
     {
       id: "universe.curio.108.fission-chance",
       disposition: "ExternalDecision",
@@ -118,14 +119,14 @@ const receipt = {
       rationale:
         "Released evidence confirms a chance for higher-rarity Blessings but publishes no probability. The replay command records and validates the complete replacement mapping.",
     },
-  ],
+  ] : [],
   execution: {
     result: "pass",
     commands: [
       `python tools/goal07/author-curio-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify_production_workbooks.mjs .",
       "cargo test -p starclock-mode-universe --lib runtime::negative_curio_commands::tests --all-features",
-      "cargo test -p starclock-mode-universe --test mechanic_battle_integration curio_negative_s01 --all-features",
+      `cargo test -p starclock-mode-universe --test mechanic_battle_integration curio_negative_${slice} --all-features`,
       "cargo test -p starclock-mode-universe --all-features",
     ],
     goldens: [evidence(golden)],
@@ -149,7 +150,7 @@ if (write) {
 function fixtureEvidence(id) {
   const runtime = "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs";
   const combat =
-    "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs";
+    `crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_${slice}.rs`;
   return {
     "universe.fixture.curio-state.fixed": {
       test_path: combat,
@@ -175,11 +176,18 @@ function fixtureEvidence(id) {
       test_path: runtime,
       test_marker: "shining_die_replaces_every_owned_curio_in_one_atomic_random_boundary",
     },
+    "universe.fixture.curio-tag.skill-points": {
+      test_path: combat,
+      test_marker: "fixed_recursive_code_makes_basic_attack_recover_two_total_skill_points",
+    },
   }[id] ?? fail(`${id}: no fixture evidence`);
 }
 
 function nativeDecision(id) {
   const stable = id.split(".")[3];
+  if (stable === "49" && partitionId.endsWith("S02")) {
+    return "Eight dynamic damage-purpose modifiers read current and maximum HP and apply the exact 35% vulnerability only below half HP.";
+  }
   return {
     "108": "A bounded Activity copy counter, immutable battle contribution and ordinary ATK modifier express the exact stack and three-copy cap; the unpublished split chance remains a replay decision.",
     "115": "A complete replay-recorded mapping plus generic inventory operations preserves enhancement and validates same-or-higher rarity without an unpublished distribution.",
@@ -188,6 +196,12 @@ function nativeDecision(id) {
     "45": "Generic repair charges transition after three won battles, while typed WeaknessBroken Rule IR sets Energy to zero or maximum by state.",
     "47": "Generic repair charges transition after three won battles, while typed post-Ultimate Rule IR consumes or heals 30% current HP by state.",
     "49": "Eight ordinary mitigation modifiers express the fixed state's exact 50% reduction; the repairing state is assigned to M12-S02.",
+    "51": "ActionResolved Rule IR advances one stable random enemy by 35% while repairing and advances the acting ally by 25% after repair.",
+    "53": "A typed defeat trigger applies one permanent Replace effect carrying eight exact damage-purpose modifiers to enemies or allies according to state.",
+    "55": "Generic Skill Point resource operations spend one extra point after Skill use with a zero floor or gain one extra point after Basic ATK.",
+    "57": "Generic post-action action-gauge advancement executes the combat effect; map movement speed is spatial-only and intentionally has no combat projection.",
+    "59": "A permanent typed ATK effect, current-HP consumption and deterministic random transfer express Parasitized without Curio-specific resolver logic.",
+    "60": "Generic won-battle settlement suppresses five fragment grants, doubles the committed fragment balance and destroys the Curio on the fifth win.",
   }[stable] ?? "Generic Activity and Rule IR primitives express the assigned negative Curio state.";
 }
 

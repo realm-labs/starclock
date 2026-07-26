@@ -1,10 +1,6 @@
 use std::sync::{Arc, OnceLock};
 
-use starclock_activity::{
-    ActivityOptionId, BuildDigest, LoadoutLockScope, OpaqueParticipantBuild, ParticipantId,
-    ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
-    ParticipantUniquenessScope, TechniqueEngagement,
-};
+use starclock_activity::*;
 use starclock_combat::{
     AbilityId, AssemblyDigest, Battle, BattleEventKind, BattleSeed, BattleSpec,
     CombatantSpecDigest, Command, Energy, Hp, KeyedTeamResourceSpec, ParticipantSource,
@@ -42,6 +38,8 @@ mod abundance_s03;
 mod abundance_s04;
 #[path = "mechanic_battle_integration/curio_negative_s01.rs"]
 mod curio_negative_s01;
+#[path = "mechanic_battle_integration/curio_negative_s02.rs"]
+mod curio_negative_s02;
 #[path = "mechanic_battle_integration/curio_s01.rs"]
 mod curio_s01;
 #[path = "mechanic_battle_integration/curio_s02.rs"]

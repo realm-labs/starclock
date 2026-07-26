@@ -89,6 +89,24 @@ impl StandardUniverseActivity {
                 .map_err(|_| invalid_boundary())?;
             let mut operations = projection.operations().to_vec();
             let contributions = self.curio_contributions().map_err(|_| invalid_boundary())?;
+            let fragment_debt = contributions.entries().iter().find_map(|contribution| {
+                let effects = self
+                    .negative_curio_runtime
+                    .execute(
+                        contribution,
+                        crate::negative_curio_runtime::NegativeCurioEvent::BattleWon,
+                    )
+                    .ok()?;
+                effects.iter().find_map(|effect| match effect.effect() {
+                    CurioEffect::SuppressBattleFragmentsThenDoubleCurrent { triggers } => {
+                        Some((contribution.curio(), *triggers))
+                    }
+                    _ => None,
+                })
+            });
+            if fragment_debt.is_some() {
+                operations = without_fragment_gains(operations, self.cosmic_fragments_slot);
+            }
             if let Some(curio) = laurel {
                 operations.push(starclock_activity::ActivityOperation::AddCounter {
                     slot: self.curio_event_slot,
@@ -176,6 +194,7 @@ impl StandardUniverseActivity {
                 .entries()
                 .iter()
                 .find(|entry| entry.state().source_effect_id() == "76")
+                .filter(|_| fragment_debt.is_none())
             {
                 let full_hp_allies = result
                     .values()
@@ -258,6 +277,30 @@ impl StandardUniverseActivity {
                     }
                     operations.extend(crate::curio_activity::destroy_and_count_operations(
                         contribution.curio(),
+                        self.curio_activity_bindings(),
+                    ));
+                }
+            }
+            if let Some((curio, triggers)) = fragment_debt {
+                let key = event_key(curio, CurioEvent::BattleWon);
+                let completed = self.curio_event_count(key).ok_or_else(invalid_boundary)?;
+                if completed < 0 || completed >= i64::from(triggers) {
+                    return Err(invalid_boundary());
+                }
+                operations.push(starclock_activity::ActivityOperation::AddCounter {
+                    slot: self.curio_event_slot,
+                    key,
+                    delta: integer(1),
+                });
+                if completed + 1 == i64::from(triggers) {
+                    operations.push(starclock_activity::ActivityOperation::AddToSlot {
+                        slot: self.cosmic_fragments_slot,
+                        delta: starclock_activity::ActivityExpression::Slot(
+                            self.cosmic_fragments_slot,
+                        ),
+                    });
+                    operations.extend(crate::curio_activity::destroy_and_count_operations(
+                        curio,
                         self.curio_activity_bindings(),
                     ));
                 }
@@ -346,6 +389,45 @@ impl StandardUniverseActivity {
             .map(|binding| binding.domain_kind())
             .ok_or_else(invalid_boundary)
     }
+
+    fn curio_event_count(&self, key: u64) -> Option<i64> {
+        self.graph
+            .debug_view()
+            .all_slots()
+            .iter()
+            .find(|slot| slot.id() == self.curio_event_slot)
+            .and_then(|slot| match slot.value() {
+                starclock_activity::ActivityValue::BoundedCounterMap(entries) => entries
+                    .iter()
+                    .find(|(candidate, _)| *candidate == key)
+                    .map_or(Some(0), |(_, value)| Some(*value)),
+                _ => None,
+            })
+    }
+}
+
+fn without_fragment_gains(
+    operations: Vec<starclock_activity::ActivityOperation>,
+    fragments: starclock_activity::ActivitySlotId,
+) -> Vec<starclock_activity::ActivityOperation> {
+    operations
+        .into_iter()
+        .filter_map(|operation| match operation {
+            starclock_activity::ActivityOperation::AddToSlot { slot, .. } if slot == fragments => {
+                None
+            }
+            starclock_activity::ActivityOperation::Conditional {
+                condition,
+                if_true,
+                if_false,
+            } => Some(starclock_activity::ActivityOperation::Conditional {
+                condition,
+                if_true: without_fragment_gains(if_true.into_vec(), fragments).into_boxed_slice(),
+                if_false: without_fragment_gains(if_false.into_vec(), fragments).into_boxed_slice(),
+            }),
+            operation => Some(operation),
+        })
+        .collect()
 }
 
 const fn invalid_boundary() -> GraphActivityBattleError {

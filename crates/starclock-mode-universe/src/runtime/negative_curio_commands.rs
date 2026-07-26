@@ -711,6 +711,37 @@ mod tests {
         );
     }
 
+    #[test]
+    fn iou_dispenser_suppresses_five_battle_rewards_then_doubles_and_destroys() {
+        let mut activity = activity();
+        let debt = curio(&activity, "universe.curio.60");
+        let full_hp_reward = curio(&activity, "universe.curio.106");
+        acquire_curios(&mut activity, &[debt, full_hp_reward]);
+        let initial = activity.cosmic_fragments().unwrap().get();
+        for _ in 0..4 {
+            run_one_battle(&mut activity);
+            assert_eq!(activity.cosmic_fragments().unwrap().get(), initial);
+            assert!(
+                activity
+                    .curio_contributions()
+                    .unwrap()
+                    .entries()
+                    .iter()
+                    .any(|entry| entry.curio() == debt)
+            );
+        }
+        run_one_battle(&mut activity);
+        assert_eq!(activity.cosmic_fragments().unwrap().get(), initial * 2);
+        assert!(
+            activity
+                .curio_contributions()
+                .unwrap()
+                .entries()
+                .iter()
+                .all(|entry| entry.curio() != debt)
+        );
+    }
+
     fn acquire_curios(activity: &mut StandardUniverseActivity, curios: &[CurioId]) {
         let records = compile_records(&activity.curio_runtime).unwrap();
         let bindings = activity.curio_activity_bindings();

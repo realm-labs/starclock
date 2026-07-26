@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 3 — Curios |
-| Active batch | `G07-P3-M12-S02` |
-| Next unblocked batch | `G07-P3-M12-S02` |
+| Active batch | `G07-P3-M12-S03` |
+| Next unblocked batch | `G07-P3-M12-S03` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -127,7 +127,12 @@ three settlements, and Fission uses a bounded three-copy contribution. Typed
 Rule IR executes state-specific Energy, Ultimate HP, ATK and eight-purpose
 mitigation effects. Unpublished Fission and higher-rarity chances remain
 explicit replay decisions; all nine native candidates close as
-`IrSufficient`. `G07-P3-M12-S02` is active.
+`IrSufficient`. Negative Curio S02 is complete: repairing Normal Code,
+Elegant, Mysterious and Recursive Code, Star Bait, Insect Web and I.O.U.
+Dispenser execute exact HP, damage, action-gauge, Skill Point, Parasitized and
+five-battle fragment-debt semantics. The corrected fixed Code values are
+authoritative in Excel/Sora, and all ten native candidates close as
+`IrSufficient`. `G07-P3-M12-S03` is active.
 
 ## Fixed batch ledger
 

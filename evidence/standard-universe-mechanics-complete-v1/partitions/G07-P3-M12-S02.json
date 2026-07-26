@@ -1,7 +1,7 @@
 {
   "schema_revision": "starclock.goal07-content-partition-receipt.v1",
   "goal_id": "standard-universe-mechanics-complete-v1",
-  "partition_id": "G07-P3-M12-S01",
+  "partition_id": "G07-P3-M12-S02",
   "state": "Complete",
   "completed_on": "2026-07-27",
   "authoring": {
@@ -30,20 +30,20 @@
       }
     ],
     "openpyxl_commands": [
-      "python -c \"import openpyxl\" && python tools/goal07/author-curio-partition.py --partition G07-P3-M12-S01 --check"
+      "python -c \"import openpyxl\" && python tools/goal07/author-curio-partition.py --partition G07-P3-M12-S02 --check"
     ],
     "sora_bundle": {
       "path": "config/universe-generated/config.sora",
       "sha256": "3275e9b02c089e6f97ac952569083a9b95f9bd6315ac5800663a562f83f348ef"
     },
     "sora_golden": {
-      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P3-M12-S01.json",
-      "sha256": "57c3f5b44ef27875f9d44024f709eaac073a3e825e24a3ef6e9ef225bdb60b77"
+      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P3-M12-S02.json",
+      "sha256": "e34b57ad901d6d89aae44afb1356b957f344e0946bcf3d827c724faff0e60c49"
     }
   },
   "records": [
     {
-      "id": "universe.curio.108",
+      "id": "universe.curio.49.state.repairing",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "id": "universe.curio.108.state.active",
+      "id": "universe.curio.51",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -85,7 +85,7 @@
       ]
     },
     {
-      "id": "universe.curio.115",
+      "id": "universe.curio.51.state.fixed",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -106,7 +106,7 @@
       ]
     },
     {
-      "id": "universe.curio.115.state.active",
+      "id": "universe.curio.51.state.repairing",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -127,7 +127,7 @@
       ]
     },
     {
-      "id": "universe.curio.17",
+      "id": "universe.curio.53",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -148,7 +148,7 @@
       ]
     },
     {
-      "id": "universe.curio.17.state.active",
+      "id": "universe.curio.53.state.fixed",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -169,7 +169,7 @@
       ]
     },
     {
-      "id": "universe.curio.21",
+      "id": "universe.curio.53.state.repairing",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -190,7 +190,7 @@
       ]
     },
     {
-      "id": "universe.curio.21.state.active",
+      "id": "universe.curio.55",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -211,7 +211,7 @@
       ]
     },
     {
-      "id": "universe.curio.45",
+      "id": "universe.curio.55.state.fixed",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -232,7 +232,7 @@
       ]
     },
     {
-      "id": "universe.curio.45.state.fixed",
+      "id": "universe.curio.55.state.repairing",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -253,7 +253,7 @@
       ]
     },
     {
-      "id": "universe.curio.45.state.repairing",
+      "id": "universe.curio.57",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -274,7 +274,7 @@
       ]
     },
     {
-      "id": "universe.curio.47",
+      "id": "universe.curio.57.state.active",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -295,7 +295,7 @@
       ]
     },
     {
-      "id": "universe.curio.47.state.fixed",
+      "id": "universe.curio.59",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -316,7 +316,7 @@
       ]
     },
     {
-      "id": "universe.curio.47.state.repairing",
+      "id": "universe.curio.59.state.active",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -337,7 +337,7 @@
       ]
     },
     {
-      "id": "universe.curio.49",
+      "id": "universe.curio.60",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -358,7 +358,7 @@
       ]
     },
     {
-      "id": "universe.curio.49.state.fixed",
+      "id": "universe.curio.60.state.active",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -381,7 +381,7 @@
   ],
   "rules": [
     {
-      "id": "universe.rule.curio.108",
+      "id": "universe.rule.curio.49.state.repairing",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -402,8 +402,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.108",
-        "universe.curio.108"
+        "universe.rule.curio.49.state.repairing",
+        "universe.curio.49.state.repairing"
       ],
       "execution_evidence": [
         {
@@ -416,15 +416,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.108.state.active",
+      "id": "universe.rule.curio.51",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -445,8 +445,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.108.state.active",
-        "universe.curio.108.state.active"
+        "universe.rule.curio.51",
+        "universe.curio.51"
       ],
       "execution_evidence": [
         {
@@ -459,15 +459,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.115",
+      "id": "universe.rule.curio.51.state.fixed",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -488,8 +488,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.115",
-        "universe.curio.115"
+        "universe.rule.curio.51.state.fixed",
+        "universe.curio.51.state.fixed"
       ],
       "execution_evidence": [
         {
@@ -502,15 +502,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.115.state.active",
+      "id": "universe.rule.curio.51.state.repairing",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -531,8 +531,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.115.state.active",
-        "universe.curio.115.state.active"
+        "universe.rule.curio.51.state.repairing",
+        "universe.curio.51.state.repairing"
       ],
       "execution_evidence": [
         {
@@ -545,15 +545,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.17",
+      "id": "universe.rule.curio.53",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -574,8 +574,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.17",
-        "universe.curio.17"
+        "universe.rule.curio.53",
+        "universe.curio.53"
       ],
       "execution_evidence": [
         {
@@ -588,15 +588,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.17.state.active",
+      "id": "universe.rule.curio.53.state.fixed",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -617,8 +617,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.17.state.active",
-        "universe.curio.17.state.active"
+        "universe.rule.curio.53.state.fixed",
+        "universe.curio.53.state.fixed"
       ],
       "execution_evidence": [
         {
@@ -631,15 +631,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.21",
+      "id": "universe.rule.curio.53.state.repairing",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -660,8 +660,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.21",
-        "universe.curio.21"
+        "universe.rule.curio.53.state.repairing",
+        "universe.curio.53.state.repairing"
       ],
       "execution_evidence": [
         {
@@ -674,15 +674,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.21.state.active",
+      "id": "universe.rule.curio.55",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -703,8 +703,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.21.state.active",
-        "universe.curio.21.state.active"
+        "universe.rule.curio.55",
+        "universe.curio.55"
       ],
       "execution_evidence": [
         {
@@ -717,15 +717,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.45",
+      "id": "universe.rule.curio.55.state.fixed",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -746,8 +746,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.45",
-        "universe.curio.45"
+        "universe.rule.curio.55.state.fixed",
+        "universe.curio.55.state.fixed"
       ],
       "execution_evidence": [
         {
@@ -760,15 +760,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.45.state.fixed",
+      "id": "universe.rule.curio.55.state.repairing",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -789,8 +789,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.45.state.fixed",
-        "universe.curio.45.state.fixed"
+        "universe.rule.curio.55.state.repairing",
+        "universe.curio.55.state.repairing"
       ],
       "execution_evidence": [
         {
@@ -803,15 +803,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.45.state.repairing",
+      "id": "universe.rule.curio.57",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -832,8 +832,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.45.state.repairing",
-        "universe.curio.45.state.repairing"
+        "universe.rule.curio.57",
+        "universe.curio.57"
       ],
       "execution_evidence": [
         {
@@ -846,15 +846,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.47",
+      "id": "universe.rule.curio.57.state.active",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -875,8 +875,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.47",
-        "universe.curio.47"
+        "universe.rule.curio.57.state.active",
+        "universe.curio.57.state.active"
       ],
       "execution_evidence": [
         {
@@ -889,15 +889,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.47.state.fixed",
+      "id": "universe.rule.curio.59",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -918,8 +918,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.47.state.fixed",
-        "universe.curio.47.state.fixed"
+        "universe.rule.curio.59",
+        "universe.curio.59"
       ],
       "execution_evidence": [
         {
@@ -932,15 +932,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.47.state.repairing",
+      "id": "universe.rule.curio.59.state.active",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -961,8 +961,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.47.state.repairing",
-        "universe.curio.47.state.repairing"
+        "universe.rule.curio.59.state.active",
+        "universe.curio.59.state.active"
       ],
       "execution_evidence": [
         {
@@ -975,15 +975,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.49",
+      "id": "universe.rule.curio.60",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -1004,8 +1004,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.49",
-        "universe.curio.49"
+        "universe.rule.curio.60",
+        "universe.curio.60"
       ],
       "execution_evidence": [
         {
@@ -1018,15 +1018,15 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.curio.49.state.fixed",
+      "id": "universe.rule.curio.60.state.active",
       "runtime_disposition": "ExecutableSharedPrimitive",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -1047,8 +1047,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.curio.49.state.fixed",
-        "universe.curio.49.state.fixed"
+        "universe.rule.curio.60.state.active",
+        "universe.curio.60.state.active"
       ],
       "execution_evidence": [
         {
@@ -1061,17 +1061,17 @@
           "path": "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs"
         }
       ]
     }
   ],
   "fixtures": [
     {
-      "id": "universe.fixture.curio-state.fixed",
+      "id": "universe.fixture.curio-tag.skill-points",
       "runtime_disposition": "ProductionExecuted",
       "accuracy_disposition": "NotApplicable",
       "workbook_evidence": [
@@ -1091,143 +1091,23 @@
         }
       ],
       "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs",
-      "test_marker": "code_state_rules_retain_exact_repairing_and_fixed_operations"
-    },
-    {
-      "id": "universe.fixture.curio-state.repairing",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/curios.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/curio-states.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs",
-      "test_marker": "repairing_codes_transition_only_after_three_won_battles"
-    },
-    {
-      "id": "universe.fixture.curio-tag.enhance",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/curios.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/curio-states.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs",
-      "test_marker": "fools_mask_preserves_enhancement_levels_and_validates_complete_mapping"
-    },
-    {
-      "id": "universe.fixture.curio-tag.negative",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/curios.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/curio-states.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s01.rs",
-      "test_marker": "goal07_p3_m12_s01_executes_assigned_states_without_native_handlers"
-    },
-    {
-      "id": "universe.fixture.curio-tag.repair",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/curios.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/curio-states.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs",
-      "test_marker": "void_wick_repairs_two_tracked_destroyed_curios_on_reward_rng"
-    },
-    {
-      "id": "universe.fixture.curio-tag.replacement",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/curios.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/curio-states.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs",
-      "test_marker": "shining_die_replaces_every_owned_curio_in_one_atomic_random_boundary"
+      "test_path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_s02.rs",
+      "test_marker": "fixed_recursive_code_makes_basic_attack_recover_two_total_skill_points"
     }
   ],
   "enemy_variants": [],
   "encounter_members": [],
   "native_handler_reviews": [
     {
-      "id": "universe.rule.curio.108.state.active",
+      "id": "universe.rule.curio.49.state.repairing",
       "outcome": "IrSufficient",
-      "decision": "A bounded Activity copy counter, immutable battle contribution and ordinary ATK modifier express the exact stack and three-copy cap; the unpublished split chance remains a replay decision.",
+      "decision": "Eight dynamic damage-purpose modifiers read current and maximum HP and apply the exact 35% vulnerability only below half HP.",
       "evidence": [
         {
-          "path": "docs/goal-07-negative-curio-s01.md"
+          "path": "docs/goal-07-negative-curio-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs"
@@ -1235,15 +1115,15 @@
       ]
     },
     {
-      "id": "universe.rule.curio.115.state.active",
+      "id": "universe.rule.curio.51.state.fixed",
       "outcome": "IrSufficient",
-      "decision": "A complete replay-recorded mapping plus generic inventory operations preserves enhancement and validates same-or-higher rarity without an unpublished distribution.",
+      "decision": "ActionResolved Rule IR advances one stable random enemy by 35% while repairing and advances the acting ally by 25% after repair.",
       "evidence": [
         {
-          "path": "docs/goal-07-negative-curio-s01.md"
+          "path": "docs/goal-07-negative-curio-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs"
@@ -1251,15 +1131,15 @@
       ]
     },
     {
-      "id": "universe.rule.curio.17.state.active",
+      "id": "universe.rule.curio.51.state.repairing",
       "outcome": "IrSufficient",
-      "decision": "Destroyed-Curio identity counters and the generic Reward-stream random boundary restore up to two distinct Curios atomically.",
+      "decision": "ActionResolved Rule IR advances one stable random enemy by 35% while repairing and advances the acting ally by 25% after repair.",
       "evidence": [
         {
-          "path": "docs/goal-07-negative-curio-s01.md"
+          "path": "docs/goal-07-negative-curio-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs"
@@ -1267,15 +1147,15 @@
       ]
     },
     {
-      "id": "universe.rule.curio.21.state.active",
+      "id": "universe.rule.curio.53.state.fixed",
       "outcome": "IrSufficient",
-      "decision": "A generic random boundary tears down all owned Curios and acquires the same number of distinct unowned replacements atomically.",
+      "decision": "A typed defeat trigger applies one permanent Replace effect carrying eight exact damage-purpose modifiers to enemies or allies according to state.",
       "evidence": [
         {
-          "path": "docs/goal-07-negative-curio-s01.md"
+          "path": "docs/goal-07-negative-curio-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs"
@@ -1283,15 +1163,15 @@
       ]
     },
     {
-      "id": "universe.rule.curio.45.state.fixed",
+      "id": "universe.rule.curio.53.state.repairing",
       "outcome": "IrSufficient",
-      "decision": "Generic repair charges transition after three won battles, while typed WeaknessBroken Rule IR sets Energy to zero or maximum by state.",
+      "decision": "A typed defeat trigger applies one permanent Replace effect carrying eight exact damage-purpose modifiers to enemies or allies according to state.",
       "evidence": [
         {
-          "path": "docs/goal-07-negative-curio-s01.md"
+          "path": "docs/goal-07-negative-curio-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs"
@@ -1299,15 +1179,15 @@
       ]
     },
     {
-      "id": "universe.rule.curio.45.state.repairing",
+      "id": "universe.rule.curio.55.state.fixed",
       "outcome": "IrSufficient",
-      "decision": "Generic repair charges transition after three won battles, while typed WeaknessBroken Rule IR sets Energy to zero or maximum by state.",
+      "decision": "Generic Skill Point resource operations spend one extra point after Skill use with a zero floor or gain one extra point after Basic ATK.",
       "evidence": [
         {
-          "path": "docs/goal-07-negative-curio-s01.md"
+          "path": "docs/goal-07-negative-curio-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs"
@@ -1315,15 +1195,15 @@
       ]
     },
     {
-      "id": "universe.rule.curio.47.state.fixed",
+      "id": "universe.rule.curio.55.state.repairing",
       "outcome": "IrSufficient",
-      "decision": "Generic repair charges transition after three won battles, while typed post-Ultimate Rule IR consumes or heals 30% current HP by state.",
+      "decision": "Generic Skill Point resource operations spend one extra point after Skill use with a zero floor or gain one extra point after Basic ATK.",
       "evidence": [
         {
-          "path": "docs/goal-07-negative-curio-s01.md"
+          "path": "docs/goal-07-negative-curio-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs"
@@ -1331,15 +1211,15 @@
       ]
     },
     {
-      "id": "universe.rule.curio.47.state.repairing",
+      "id": "universe.rule.curio.57.state.active",
       "outcome": "IrSufficient",
-      "decision": "Generic repair charges transition after three won battles, while typed post-Ultimate Rule IR consumes or heals 30% current HP by state.",
+      "decision": "Generic post-action action-gauge advancement executes the combat effect; map movement speed is spatial-only and intentionally has no combat projection.",
       "evidence": [
         {
-          "path": "docs/goal-07-negative-curio-s01.md"
+          "path": "docs/goal-07-negative-curio-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs"
@@ -1347,15 +1227,31 @@
       ]
     },
     {
-      "id": "universe.rule.curio.49.state.fixed",
+      "id": "universe.rule.curio.59.state.active",
       "outcome": "IrSufficient",
-      "decision": "Eight ordinary mitigation modifiers express the fixed state's exact 50% reduction; the repairing state is assigned to M12-S02.",
+      "decision": "A permanent typed ATK effect, current-HP consumption and deterministic random transfer express Parasitized without Curio-specific resolver logic.",
       "evidence": [
         {
-          "path": "docs/goal-07-negative-curio-s01.md"
+          "path": "docs/goal-07-negative-curio-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.curio.60.state.active",
+      "outcome": "IrSufficient",
+      "decision": "Generic won-battle settlement suppresses five fragment grants, doubles the committed fragment balance and destroys the Curio on the fifth win.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-negative-curio-s02.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs"
@@ -1363,31 +1259,20 @@
       ]
     }
   ],
-  "numeric_approximations": [
-    {
-      "id": "universe.curio.108.fission-chance",
-      "disposition": "ExternalDecision",
-      "rationale": "Released evidence confirms a split chance but publishes no probability. The replay command records NoSplit or Split and enforces the exact three-copy cap."
-    },
-    {
-      "id": "universe.curio.115.higher-rarity-chance",
-      "disposition": "ExternalDecision",
-      "rationale": "Released evidence confirms a chance for higher-rarity Blessings but publishes no probability. The replay command records and validates the complete replacement mapping."
-    }
-  ],
+  "numeric_approximations": [],
   "execution": {
     "result": "pass",
     "commands": [
-      "python tools/goal07/author-curio-partition.py --partition G07-P3-M12-S01 --check",
+      "python tools/goal07/author-curio-partition.py --partition G07-P3-M12-S02 --check",
       "node tools/universe-reference/verify_production_workbooks.mjs .",
       "cargo test -p starclock-mode-universe --lib runtime::negative_curio_commands::tests --all-features",
-      "cargo test -p starclock-mode-universe --test mechanic_battle_integration curio_negative_s01 --all-features",
+      "cargo test -p starclock-mode-universe --test mechanic_battle_integration curio_negative_s02 --all-features",
       "cargo test -p starclock-mode-universe --all-features"
     ],
     "goldens": [
       {
-        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P3-M12-S01.json",
-        "sha256": "57c3f5b44ef27875f9d44024f709eaac073a3e825e24a3ef6e9ef225bdb60b77"
+        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P3-M12-S02.json",
+        "sha256": "e34b57ad901d6d89aae44afb1356b957f344e0946bcf3d827c724faff0e60c49"
       }
     ]
   }
