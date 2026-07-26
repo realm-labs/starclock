@@ -247,7 +247,7 @@ fn literal_scalar(value: &ValueExpr) -> Option<i64> {
     }
 }
 
-fn player_duel_spec(
+pub(super) fn player_duel_spec(
     materialization: &UniverseBattleMaterialization,
     protected_hp: i64,
     marker: u8,
@@ -317,6 +317,118 @@ fn player_duel_spec(
         original.concede_policy(),
     )
     .unwrap()
+}
+
+pub(super) fn enemy_duel_spec(
+    materialization: &UniverseBattleMaterialization,
+    protected_hp: i64,
+    marker: u8,
+) -> BattleSpec {
+    let original = durable_spec(materialization, marker, false);
+    let players = original
+        .participants()
+        .iter()
+        .filter(|participant| participant.side() == TeamSide::Player)
+        .take(2)
+        .collect::<Vec<_>>();
+    let protected = players[0];
+    let attacker = players[1];
+    let enemy = original
+        .participants()
+        .iter()
+        .find(|participant| participant.side() == TeamSide::Enemy)
+        .expect("production encounter enemy");
+    let enemy_source = match enemy.source() {
+        ParticipantSource::EncounterEnemy(source) => source,
+        _ => panic!("production encounter enemy source"),
+    };
+    let attacker = ParticipantSpec::new(
+        TeamSide::Enemy,
+        enemy.formation(),
+        ParticipantSource::EncounterEnemy(enemy_source),
+        clone_enemy_attacker(
+            enemy.combatant(),
+            attacker.combatant(),
+            Speed::from_scaled(500_000_000).unwrap(),
+            marker,
+        ),
+    )
+    .with_wave(enemy.wave())
+    .unwrap();
+    let protected = ParticipantSpec::new(
+        TeamSide::Player,
+        protected.formation(),
+        ParticipantSource::Player,
+        clone_combatant(
+            protected.combatant(),
+            Speed::from_scaled(100_000_000).unwrap(),
+            marker.wrapping_add(1),
+        ),
+    )
+    .with_initial_state(
+        ParticipantInitialState::new(
+            Hp::new(protected_hp).unwrap(),
+            protected.combatant().maximum_hp(),
+            protected.combatant().current_energy(),
+            protected.combatant().maximum_energy(),
+            starclock_combat::LifeState::Alive,
+            starclock_combat::PresenceState::Present,
+        )
+        .unwrap(),
+    )
+    .unwrap();
+    BattleSpec::new(
+        original.rules_revision(),
+        AssemblyDigest::new([marker; 32]).unwrap(),
+        original.encounter(),
+        vec![protected, attacker],
+        original.resources(TeamSide::Player).clone(),
+        original.resources(TeamSide::Enemy).clone(),
+        original.concede_policy(),
+    )
+    .unwrap()
+}
+
+fn clone_enemy_attacker(
+    enemy: &ResolvedCombatantSpec,
+    ability_source: &ResolvedCombatantSpec,
+    speed: Speed,
+    marker: u8,
+) -> ResolvedCombatantSpec {
+    let mut combatant = ResolvedCombatantSpec::new(
+        enemy.form(),
+        enemy.level(),
+        enemy.maximum_hp(),
+        speed,
+        ResolvedDefinitionBindings::new(
+            ability_source.abilities().to_vec(),
+            enemy.rule_bundles().to_vec(),
+            enemy.modifiers().to_vec(),
+        )
+        .unwrap(),
+        CombatantSpecDigest::new([marker; 32]).unwrap(),
+    )
+    .unwrap()
+    .with_base_attack_defense(ability_source.base_attack(), enemy.base_defense())
+    .with_energy(
+        ability_source.current_energy(),
+        ability_source.maximum_energy(),
+    )
+    .unwrap()
+    .with_sources(enemy.sources().to_vec())
+    .unwrap()
+    .with_modifier_bindings(enemy.modifier_bindings().to_vec())
+    .unwrap();
+    if !enemy.toughness_layers().is_empty() {
+        combatant = combatant
+            .with_toughness(
+                enemy.rank(),
+                enemy.weaknesses().to_vec(),
+                enemy.toughness_layers().to_vec(),
+            )
+            .unwrap();
+    }
+    combatant
 }
 
 fn clone_combatant(

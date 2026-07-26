@@ -41,7 +41,16 @@ pub(super) fn lower(
             .ok_or(BattleRuleLoweringError::SnapshotMismatch)?;
         output.push(match key {
             GRIT_MITIGATION_NORMAL | GRIT_MITIGATION_ENHANCED => empty_rule(binding),
-            LOST_HP_STATS_NORMAL | LOST_HP_STATS_ENHANCED => lost_hp_stats(binding, parameters)?,
+            LOST_HP_STATS_NORMAL | LOST_HP_STATS_ENHANCED => {
+                let mut stats = vec![(
+                    StatKind::Atk,
+                    destruction_s01::parameter_six(parameters, 0)?,
+                )];
+                if parameters.len() == 2 {
+                    stats.push((StatKind::Def, parameter(parameters, 1)?));
+                }
+                missing_hp_stat_rule(binding, &stats)?
+            }
             LOW_HP_DAMAGE => low_hp_damage(binding, parameters)?,
             LOW_HP_HEALING_NORMAL | LOW_HP_HEALING_ENHANCED => low_hp_healing(binding, parameters)?,
             ULTIMATE_SHIELD_NORMAL | ULTIMATE_SHIELD_ENHANCED => {
@@ -376,20 +385,19 @@ fn destruction_blessing_count(
     .map_err(|_| BattleRuleLoweringError::InvalidParameter)
 }
 
-fn lost_hp_stats(
+pub(super) fn missing_hp_stat_rule(
     binding: &UniverseBattleRuleBinding,
-    parameters: &[ExactParameter],
+    stats: &[(StatKind, i64)],
 ) -> Result<ExecutableBattleRule, BattleRuleLoweringError> {
+    if stats.is_empty() {
+        return Err(BattleRuleLoweringError::InvalidParameter);
+    }
     let raw = binding.rule().get();
     let owner = id::<SelectorId>(OWNER_SELECTOR_ID_BASE, raw)?;
     let root = id::<ProgramId>(PROGRAM_ID_BASE, raw)?;
     let apply = id::<ProgramId>(BODY_PROGRAM_ID_BASE, raw)?;
     let clear = id::<ProgramId>(AUX_PROGRAM_ID_BASE, raw)?;
     let effect = id::<EffectDefinitionId>(EFFECT_ID_BASE, raw)?;
-    let attack_group = id::<ModifierStackingGroupId>(MODIFIER_GROUP_ID_BASE, raw)?;
-    let defense_group = id::<ModifierStackingGroupId>(0x79d3_0000, raw)?;
-    let attack_modifier = id::<ModifierDefinitionId>(MODIFIER_ID_BASE, raw)?;
-    let defense_modifier = id::<ModifierDefinitionId>(0x79d4_0000, raw)?;
     let missing_percent = missing_hp_percent();
     let root_program = ProgramDefinition::new(
         root,
@@ -431,30 +439,38 @@ fn lost_hp_stats(
                     effect,
                 },
             )]);
-    let mut groups = vec![ModifierStackingGroup {
-        id: attack_group,
-        aggregation: ModifierAggregation::UniquePerSource,
-        comparator: None,
-    }];
-    let mut modifiers = vec![stack_stat_modifier(
-        attack_modifier,
-        attack_group,
-        StatKind::Atk,
-        destruction_s01::parameter_six(parameters, 0)?,
-    )];
-    if parameters.len() == 2 {
-        groups.push(ModifierStackingGroup {
-            id: defense_group,
-            aggregation: ModifierAggregation::UniquePerSource,
-            comparator: None,
-        });
-        modifiers.push(stack_stat_modifier(
-            defense_modifier,
-            defense_group,
-            StatKind::Def,
-            parameter(parameters, 1)?,
-        ));
-    }
+    let groups = stats
+        .iter()
+        .enumerate()
+        .map(|(index, _)| {
+            let base = [MODIFIER_GROUP_ID_BASE, 0x79d3_0000]
+                .get(index)
+                .copied()
+                .ok_or(BattleRuleLoweringError::InvalidDefinition)?;
+            Ok(ModifierStackingGroup {
+                id: id::<ModifierStackingGroupId>(base, raw)?,
+                aggregation: ModifierAggregation::UniquePerSource,
+                comparator: None,
+            })
+        })
+        .collect::<Result<Vec<_>, BattleRuleLoweringError>>()?;
+    let modifiers = stats
+        .iter()
+        .zip(&groups)
+        .enumerate()
+        .map(|(index, ((stat, ratio), group))| {
+            let base = [MODIFIER_ID_BASE, 0x79d4_0000]
+                .get(index)
+                .copied()
+                .ok_or(BattleRuleLoweringError::InvalidDefinition)?;
+            Ok(stack_stat_modifier(
+                id::<ModifierDefinitionId>(base, raw)?,
+                group.id,
+                *stat,
+                *ratio,
+            ))
+        })
+        .collect::<Result<Vec<_>, BattleRuleLoweringError>>()?;
     let modifier_ids = modifiers.iter().map(|modifier| modifier.id).collect();
     let runtime = EffectRuntimeTemplate::new(
         EffectCategory::Buff,

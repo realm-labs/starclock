@@ -141,6 +141,18 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612556"))
+    return "The shared complete-missing-HP-percent stack effect and a dynamic percent-of-base DEF modifier express both released levels.";
+  if (id.includes("612557"))
+    return "The shared complete-missing-HP-percent stack effect and a dynamic Effect RES modifier express both released levels.";
+  if (id.includes("612520"))
+    return "Ordered ally missing-HP aggregation, a keyed team-resource cost and an all-enemy Additional-DMG program express the base Destruction Resonance.";
+  if (id.includes("612521"))
+    return "Deterministic ally iteration, floored HP consumption, ordinary timed shields and an authored damage multiplier express Cataclysmic Variable.";
+  if (id.includes("612522"))
+    return "Resistible timed effects, an effect-scoped DEF modifier and turn-start live party missing-HP queries express Extreme Helium Flash.";
+  if (id.includes("612523"))
+    return "Opposing-attack facts, action once scope, a bounded battle counter and a no-cost forced queued ability express Event Horizon.";
   if (id.includes("612356"))
     return "Positive-heal facts and a refreshable target-turn percent-of-base SPD effect express Force Victoire.";
   if (id.includes("612357"))
@@ -1036,6 +1048,72 @@ function partitionProfile(id) {
       testCommands: [
         "cargo test -p starclock-combat --test effect_guards --all-features",
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration destruction_s03 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M07-S04") {
+    return {
+      completedOn: "2026-07-26",
+      numericApproximations: [
+        {
+          id: "goal07-destruction-612556-l1-six-decimal-v1",
+          record_id: "universe.blessing.612556.level.1",
+          field: "parameter_values[0]",
+          value: "0.004000",
+          confidence: "High",
+          rationale:
+            "The released structured value 0.0039999997 is quantized with nearest rounding to Starclock's authoritative six-decimal scalar domain.",
+          replacement_condition:
+            "Replace only if an authoritative public source establishes a materially different released value or the numeric-policy revision changes.",
+        },
+        {
+          id: "goal07-destruction-612556-l2-six-decimal-v1",
+          record_id: "universe.blessing.612556.level.2",
+          field: "parameter_values[0]",
+          value: "0.006000",
+          confidence: "High",
+          rationale:
+            "The released structured value 0.0059999996 is quantized with nearest rounding to Starclock's authoritative six-decimal scalar domain.",
+          replacement_condition:
+            "Replace only if an authoritative public source establishes a materially different released value or the numeric-policy revision changes.",
+        },
+        {
+          id: "goal07-destruction-612557-l1-six-decimal-v1",
+          record_id: "universe.blessing.612557.level.1",
+          field: "parameter_values[0]",
+          value: "0.003000",
+          confidence: "High",
+          rationale:
+            "The released structured value 0.0029999998 is quantized with nearest rounding to Starclock's authoritative six-decimal scalar domain.",
+          replacement_condition:
+            "Replace only if an authoritative public source establishes a materially different released value or the numeric-policy revision changes.",
+        },
+      ],
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s04.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s02.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/src/battle_materialization/player.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s04.rs",
+        "crates/starclock-mode-universe/tests/battle_materialization.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-destruction-s04.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s04.rs",
+        "crates/starclock-mode-universe/src/destruction_runtime.rs",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/11-rule-ir-and-native-handlers.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s04.rs",
+      fixtureMarker:
+        "event_horizon_queues_a_free_resonance_after_a_low_hp_ally_is_attacked",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration destruction_s04 --all-features",
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

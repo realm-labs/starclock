@@ -121,8 +121,14 @@ fn apply_party_modifiers(
         return Err(UniverseBattleMaterializationError::ContributionCollision);
     }
     let mut abilities = base.abilities().to_vec();
-    if first_player && contributions.resonance().is_some() {
+    if first_player && let Some(resonance) = contributions.resonance() {
         abilities.push(RESONANCE_ABILITY_ID);
+        abilities.extend(
+            resonance
+                .auxiliary_abilities()
+                .iter()
+                .map(starclock_combat::catalog::definition::AbilityDefinition::id),
+        );
     }
     abilities.sort_unstable();
     if abilities.windows(2).any(|pair| pair[0] == pair[1]) {

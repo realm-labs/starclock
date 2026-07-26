@@ -7,6 +7,7 @@ mod abundance_s04;
 mod destruction_s01;
 mod destruction_s02;
 mod destruction_s03;
+mod destruction_s04;
 mod hunt_resonance;
 mod hunt_s01;
 mod hunt_s02;
@@ -333,6 +334,7 @@ pub(crate) fn lower_rules(
     let mut destruction_rules = destruction_s01::lower(bindings, blessings)?;
     destruction_rules.extend(destruction_s02::lower(catalog, bindings, blessings)?);
     destruction_rules.extend(destruction_s03::lower(bindings, blessings)?);
+    destruction_rules.extend(destruction_s04::lower_rules(catalog, bindings, blessings)?);
     if let Some(first) = destruction_rules.first_mut() {
         destruction_s01::add_grit_engine(first, blessings)?;
     }
@@ -370,6 +372,7 @@ pub(crate) fn lower_rules(
                         | Some(remembrance_s04::RESONANCE)
                         | Some(nihility_s04::RESONANCE)
                         | Some(abundance_s04::RESONANCE)
+                        | Some(destruction_s04::RESONANCE)
                 )
         })
         .map(|binding| match binding.source_binding_key() {
@@ -393,6 +396,13 @@ pub(crate) fn lower_rules(
             Some(abundance_s04::RESONANCE) => {
                 abundance_s04::resonance(catalog, bindings, binding, initial_resonance_energy)
             }
+            Some(destruction_s04::RESONANCE) => destruction_s04::resonance(
+                catalog,
+                bindings,
+                binding,
+                initial_resonance_energy,
+                resonance_damage_ratio,
+            ),
             _ => hunt_resonance::lower(
                 catalog,
                 bindings,
