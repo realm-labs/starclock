@@ -27,6 +27,7 @@ mod preservation_s04;
 mod propagation_s01;
 mod propagation_s02;
 mod propagation_s03;
+mod propagation_s04;
 mod remembrance_s01;
 mod remembrance_s02;
 mod remembrance_s03;
@@ -361,8 +362,13 @@ pub(crate) fn lower_rules(
     let mut propagation_rules = propagation_s01::lower(bindings, blessings)?;
     propagation_rules.extend(propagation_s02::lower(catalog, bindings, blessings)?);
     propagation_rules.extend(propagation_s03::lower(bindings, blessings)?);
+    propagation_rules.extend(propagation_s04::lower_rules(catalog, bindings, blessings)?);
     if let Some(first) = propagation_rules.first_mut() {
-        propagation_s01::add_spore_engine(first, blessings)?;
+        propagation_s01::add_spore_engine(
+            first,
+            blessings,
+            propagation_s04::crystal_pincers_selected(bindings),
+        )?;
     }
     output.extend(propagation_rules);
     if let Some(binding) = bindings.iter().find(|binding| {
@@ -392,6 +398,7 @@ pub(crate) fn lower_rules(
                         | Some(abundance_s04::RESONANCE)
                         | Some(destruction_s04::RESONANCE)
                         | Some(elation_s04::RESONANCE)
+                        | Some(propagation_s04::RESONANCE)
                 )
         })
         .map(|binding| match binding.source_binding_key() {
@@ -430,6 +437,9 @@ pub(crate) fn lower_rules(
                 initial_resonance_energy,
                 resonance_damage_ratio,
             ),
+            Some(propagation_s04::RESONANCE) => {
+                propagation_s04::resonance(catalog, bindings, binding, initial_resonance_energy)
+            }
             _ => hunt_resonance::lower(
                 catalog,
                 bindings,

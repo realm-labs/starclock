@@ -564,6 +564,15 @@ pub enum RuleOperationTemplate {
         can_crit: bool,
         can_defeat: bool,
     },
+    /// Ordinary damage whose element is inherited from the acting unit's
+    /// canonical Basic ability without changing the current action family.
+    DamageFromActorBasicElement {
+        selector: SelectorId,
+        amount: ValueExpr,
+        class: DamageClass,
+        can_crit: bool,
+        can_defeat: bool,
+    },
     /// Repeats one damage operation a uniformly selected number of times and
     /// chooses one authored element independently for every emitted instance.
     RandomRepeatedDamage {
@@ -898,6 +907,14 @@ pub enum RuleEmission {
         amount: RuleValue,
         class: DamageClass,
         element: CombatElement,
+        can_crit: bool,
+        can_defeat: bool,
+        current_target: Option<UnitId>,
+    },
+    DamageFromActorBasicElement {
+        selector: SelectorId,
+        amount: RuleValue,
+        class: DamageClass,
         can_crit: bool,
         can_defeat: bool,
         current_target: Option<UnitId>,

@@ -75,6 +75,7 @@ pub(super) fn lower(
 pub(super) fn add_spore_engine(
     rule: &mut ExecutableBattleRule,
     blessings: &BlessingContributionSet,
+    metamorphosis_required: bool,
 ) -> Result<(), BattleRuleLoweringError> {
     let maximum = selected_level_parameters(blessings, FUNGAL_PUSTULE)
         .map(|parameters| whole(parameter(parameters, 2)?))
@@ -221,7 +222,14 @@ pub(super) fn add_spore_engine(
             excluded_source: Some(source),
             ..EventFilter::default()
         },
-        condition: ConditionExpr::Literal(true),
+        condition: if metamorphosis_required {
+            ConditionExpr::EffectExists {
+                selector: ENGINE_ACTOR,
+                effect: super::propagation_s04::METAMORPHOSIS_EFFECT,
+            }
+        } else {
+            ConditionExpr::Literal(true)
+        },
         once_scope: OnceScope::TargetWithinAction,
         priority: ReactionPriority::new(0),
         program: ENGINE_PROGRAM,

@@ -163,6 +163,18 @@ function nativeDecision(id) {
     return "A Basic ActionResolved trigger and a replace-stacking owner-turn percent-of-base SPD effect express both Scaled Wing levels.";
   if (id.includes("612755"))
     return "One FirstPlayer rule, an ally TurnEnded selector, a battle-scoped bounded counter and checked team Skill Point gain express the shared Compound Eye cap.";
+  if (id.includes("612756"))
+    return "A signed Skill Point resource delta is converted through ordinary checked fixed-point arithmetic into exact per-point Energy for the character that spent it.";
+  if (id.includes("612757"))
+    return "A signed Skill Point resource delta and the owner's live maximum HP feed the generic healing operation with the exact per-point percentage.";
+  if (id.includes("612720"))
+    return "A targeted allied resonance ability, latest-only replace effect, ordinary Skill Point gain and full action advance express Metamorphosis without a path-specific resolver.";
+  if (id.includes("612721"))
+    return "The shared Metamorphosis effect duration and a defeat-settlement trigger with keyed team-resource gain express Proboscis.";
+  if (id.includes("612722"))
+    return "The keyed resource definition raises the maximum to 200 while signed Skill Point changes deterministically regenerate one percent of that maximum per point.";
+  if (id.includes("612723"))
+    return "Metamorphosis-scoped modifiers, the generic Spore burst signal, a capped transient marker and an auxiliary Basic-tagged damage action express Crystal Pincers without replay-opaque native state.";
   if (id.includes("612730"))
     return "Skill Point resource deltas, stable all-enemy selection and ordinary effect stacking express Spore Discharge; the enhanced empty-resource branch uses an owner-turn SPD effect.";
   if (id.includes("612731"))
@@ -881,6 +893,7 @@ function partitionProfile(id) {
         "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs",
         "crates/starclock-combat/src/rule/model.rs",
         "crates/starclock-combat/src/rule/evaluate.rs",
+        "crates/starclock-combat/src/rule/evaluate/helpers.rs",
         "crates/starclock-combat/src/resolver/transaction.rs",
         "crates/starclock-combat/src/resolver/turn.rs",
       ],
@@ -1466,6 +1479,42 @@ function partitionProfile(id) {
         "compound_eye_recovers_one_extra_team_skill_point_after_an_ally_turn",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration propagation_s03 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M09-S04") {
+    return {
+      completedOn: "2026-07-26",
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s04.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s01.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s04.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "crates/starclock-combat/src/rule/evaluate.rs",
+        "crates/starclock-combat/src/resolver/program.rs",
+        "crates/starclock-combat/src/resolver/program/emission.rs",
+        "crates/starclock-combat/src/catalog/rule_validate.rs",
+        "crates/starclock-data/src/operation_lower.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-propagation-s04.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s04.rs",
+        "crates/starclock-mode-universe/src/propagation_runtime.rs",
+        "docs/05-effects-and-resources.md",
+        "docs/09-determinism-and-numerics.md",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/11-rule-ir-and-native-handlers.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s04.rs",
+      fixtureMarker:
+        "charged_resonance_advances_one_ally_applies_latest_metamorphosis_and_recharges_from_sp_gain",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration propagation_s04 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

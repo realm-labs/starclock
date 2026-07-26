@@ -1,24 +1,23 @@
 //! Deterministic, budgeted and mutation-free Rule IR evaluation.
-use core::cmp::Ordering;
 use std::collections::BTreeSet;
 mod arithmetic;
 mod event_property;
 mod helpers;
 use super::model::{
-    Comparison, ConditionExpr, ProgramStep, RuleEmission, RuleEvaluationInput,
-    RuleOperationTemplate, RuleReplacementProposal, RuleResourceKind, RuleValue, RuleValueKind,
-    ShieldObservation, TriggerDef, ValueExpr, once_key,
+    ConditionExpr, ProgramStep, RuleEmission, RuleEvaluationInput, RuleOperationTemplate,
+    RuleReplacementProposal, RuleResourceKind, RuleValue, RuleValueKind, ShieldObservation,
+    TriggerDef, ValueExpr, once_key,
 };
 use crate::modifier::model::{FormulaPurpose, StatKind, StatQuerySubject};
 use crate::{ProgramId, Scalar, UnitId};
 use arithmetic::{Arithmetic, arithmetic, convert, extremum};
 use event_property::event_property;
-pub(crate) use helpers::stat_query_error;
 use helpers::{
     add_values, budget_error, compare_ordering, numeric_error, optional_unit,
     query_effect_category_stacks, query_subject, require_current_target_broken, selector_units,
     slot_value, type_error,
 };
+pub(crate) use helpers::{compare, compare_values, stat_query_error};
 
 /// Applies the cheap indexed cause filter without inferring cause roles.
 #[must_use]
@@ -433,6 +432,20 @@ fn evaluate_operation(
                 kind: RuleEvaluationErrorKind::MissingValue,
                 context: 0x21d,
             })?,
+            can_crit: *can_crit,
+            can_defeat: *can_defeat,
+            current_target,
+        },
+        RuleOperationTemplate::DamageFromActorBasicElement {
+            selector,
+            amount,
+            class,
+            can_crit,
+            can_defeat,
+        } => RuleEmission::DamageFromActorBasicElement {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            class: *class,
             can_crit: *can_crit,
             can_defeat: *can_defeat,
             current_target,
@@ -1116,12 +1129,12 @@ pub fn evaluate_value(
             let value = evaluate_value(value, input, current_target)?;
             let minimum = evaluate_value(minimum, input, current_target)?;
             let maximum = evaluate_value(maximum, input, current_target)?;
-            if compare_values(&minimum, &maximum)? == Ordering::Greater {
+            if compare_values(&minimum, &maximum)? == core::cmp::Ordering::Greater {
                 return Err(type_error(0x103));
             }
-            if compare_values(&value, &minimum)? == Ordering::Less {
+            if compare_values(&value, &minimum)? == core::cmp::Ordering::Less {
                 Ok(minimum)
-            } else if compare_values(&value, &maximum)? == Ordering::Greater {
+            } else if compare_values(&value, &maximum)? == core::cmp::Ordering::Greater {
                 Ok(maximum)
             } else {
                 Ok(value)
@@ -1159,31 +1172,6 @@ pub fn evaluate_value(
             *target,
             *rounding,
         ),
-    }
-}
-
-pub(crate) fn compare(
-    lhs: &RuleValue,
-    operator: Comparison,
-    rhs: &RuleValue,
-) -> Result<bool, RuleEvaluationError> {
-    Ok(compare_ordering(compare_values(lhs, rhs)?, operator))
-}
-
-pub(crate) fn compare_values(
-    lhs: &RuleValue,
-    rhs: &RuleValue,
-) -> Result<Ordering, RuleEvaluationError> {
-    match (lhs, rhs) {
-        (RuleValue::Integer(lhs), RuleValue::Integer(rhs)) => Ok(lhs.cmp(rhs)),
-        (RuleValue::Scalar(lhs), RuleValue::Scalar(rhs)) => Ok(lhs.cmp(rhs)),
-        (RuleValue::Boolean(lhs), RuleValue::Boolean(rhs)) => Ok(lhs.cmp(rhs)),
-        (RuleValue::StableId(lhs), RuleValue::StableId(rhs)) => Ok(lhs.cmp(rhs)),
-        (RuleValue::OptionalStableId(lhs), RuleValue::OptionalStableId(rhs)) => Ok(lhs.cmp(rhs)),
-        (RuleValue::OrderedStableIdSet(lhs), RuleValue::OrderedStableIdSet(rhs)) => {
-            Ok(lhs.cmp(rhs))
-        }
-        _ => Err(type_error(0x130)),
     }
 }
 

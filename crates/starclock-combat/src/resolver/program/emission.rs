@@ -84,6 +84,7 @@ pub(super) const fn emission_current_target(emission: &RuleEmission) -> Option<c
         RuleEmission::SetSlot { current_target, .. }
         | RuleEmission::AddSlot { current_target, .. }
         | RuleEmission::Damage { current_target, .. }
+        | RuleEmission::DamageFromActorBasicElement { current_target, .. }
         | RuleEmission::UnboostedDamage { current_target, .. }
         | RuleEmission::RandomRepeatedDamage { current_target, .. }
         | RuleEmission::TrueDamage { current_target, .. }

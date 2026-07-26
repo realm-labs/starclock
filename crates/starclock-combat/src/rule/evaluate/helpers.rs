@@ -23,6 +23,31 @@ pub(super) fn compare_ordering(
     }
 }
 
+pub(crate) fn compare(
+    lhs: &RuleValue,
+    operator: crate::rule::model::Comparison,
+    rhs: &RuleValue,
+) -> Result<bool, RuleEvaluationError> {
+    Ok(compare_ordering(compare_values(lhs, rhs)?, operator))
+}
+
+pub(crate) fn compare_values(
+    lhs: &RuleValue,
+    rhs: &RuleValue,
+) -> Result<Ordering, RuleEvaluationError> {
+    match (lhs, rhs) {
+        (RuleValue::Integer(lhs), RuleValue::Integer(rhs)) => Ok(lhs.cmp(rhs)),
+        (RuleValue::Scalar(lhs), RuleValue::Scalar(rhs)) => Ok(lhs.cmp(rhs)),
+        (RuleValue::Boolean(lhs), RuleValue::Boolean(rhs)) => Ok(lhs.cmp(rhs)),
+        (RuleValue::StableId(lhs), RuleValue::StableId(rhs)) => Ok(lhs.cmp(rhs)),
+        (RuleValue::OptionalStableId(lhs), RuleValue::OptionalStableId(rhs)) => Ok(lhs.cmp(rhs)),
+        (RuleValue::OrderedStableIdSet(lhs), RuleValue::OrderedStableIdSet(rhs)) => {
+            Ok(lhs.cmp(rhs))
+        }
+        _ => Err(type_error(0x130)),
+    }
+}
+
 pub(super) fn require_current_target_broken(
     input: RuleEvaluationInput<'_>,
     current_target: Option<UnitId>,

@@ -85,6 +85,8 @@ mod propagation_s01;
 mod propagation_s02;
 #[path = "mechanic_battle_integration/propagation_s03.rs"]
 mod propagation_s03;
+#[path = "mechanic_battle_integration/propagation_s04.rs"]
+mod propagation_s04;
 #[path = "mechanic_battle_integration/remembrance_s01.rs"]
 mod remembrance_s01;
 #[path = "mechanic_battle_integration/remembrance_s02.rs"]

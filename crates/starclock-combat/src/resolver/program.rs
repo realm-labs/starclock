@@ -471,6 +471,36 @@ fn execute_emission(
                 minimum_hp: i64::from(!can_defeat),
             })
         }
+        RuleEmission::DamageFromActorBasicElement {
+            selector,
+            amount,
+            class,
+            can_crit,
+            can_defeat,
+            ..
+        } => {
+            let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
+            let formula = OrdinaryDamageDefinition::new(
+                amount,
+                OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
+                    .expect("neutral multipliers are valid"),
+            )
+            .map_err(|_| program_fault(83, amount.scaled()))?
+            .with_class(class);
+            Operation::Damage(DamageOp {
+                id: operation_id,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
+                formula,
+                element: Some(actor_basic_element(catalog, txn, context.actor)?),
+                crit_policy: if can_crit {
+                    context.crit_policy
+                } else {
+                    HitCritPolicy::Never
+                },
+                apply_source_modifiers: true,
+                minimum_hp: i64::from(!can_defeat),
+            })
+        }
         RuleEmission::UnboostedDamage {
             selector,
             amount,
@@ -932,6 +962,39 @@ fn execute_emission(
         unsupported => return Err(program_fault(12, emission_code(&unsupported))),
     };
     execute_operation(catalog, txn, cause, parent, request, scratch)
+}
+
+fn actor_basic_element(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &Transaction<'_>,
+    actor: crate::UnitId,
+) -> Result<crate::formula::model::CombatElement, BattleFault> {
+    let unit = txn
+        .state
+        .units
+        .get(actor)
+        .ok_or_else(|| program_fault(84, 0))?;
+    let mut element = None;
+    for ability in unit.abilities.iter().filter_map(|id| catalog.ability(*id)) {
+        let Some(action) = ability.action() else {
+            continue;
+        };
+        if action.kind() != crate::catalog::action::AbilityKind::Basic {
+            continue;
+        }
+        for authored in action.hits().iter().flat_map(|hit| hit.operations()) {
+            let crate::catalog::action::HitOperationDefinition::ScalingDamage(damage) = authored
+            else {
+                continue;
+            };
+            match element {
+                None => element = Some(damage.element()),
+                Some(current) if current == damage.element() => {}
+                Some(_) => return Err(program_fault(85, i64::from(ability.id().get()))),
+            }
+        }
+    }
+    element.ok_or_else(|| program_fault(86, i64::try_from(actor.get()).unwrap_or(i64::MAX)))
 }
 
 fn queue_owner(

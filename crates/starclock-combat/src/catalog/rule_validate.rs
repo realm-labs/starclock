@@ -210,7 +210,8 @@ fn validate_program_for_rule(
     for step in program.steps() {
         match step {
             ProgramStep::Operation(operation) => {
-                validate_operation(catalog, runtime, operation)?;
+                validate_operation(catalog, runtime, operation)
+                    .map_err(|error| format!("program {}: {error}", program_id.get()))?;
                 let replacement =
                     matches!(operation, RuleOperationTemplate::ProposeReplacement { .. });
                 if (trigger.phase == TriggerPhase::Replace) != replacement {
@@ -302,6 +303,9 @@ fn validate_operation(
             selector, amount, ..
         }
         | RuleOperationTemplate::DamageFromEventElement {
+            selector, amount, ..
+        }
+        | RuleOperationTemplate::DamageFromActorBasicElement {
             selector, amount, ..
         }
         | RuleOperationTemplate::TrueDamage { selector, amount }
