@@ -549,6 +549,13 @@ pub enum RuleOperationTemplate {
         element: CombatElement,
         can_defeat: bool,
     },
+    /// Source-unboosted damage whose element is inherited from the observed event.
+    UnboostedDamageFromEventElement {
+        selector: SelectorId,
+        amount: ValueExpr,
+        class: DamageClass,
+        can_defeat: bool,
+    },
     /// Ordinary damage whose element is inherited from the observed event.
     DamageFromEventElement {
         selector: SelectorId,

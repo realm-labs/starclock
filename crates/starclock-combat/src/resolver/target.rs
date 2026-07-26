@@ -135,17 +135,17 @@ impl Transaction<'_> {
                 .is_some_and(|state| on_selected_side(state.side))
         });
         let use_direct = direct.is_some()
-            && matches!(
+            && (matches!(
                 selector.origin(),
                 RuleSelectorOrigin::PrimaryTarget | RuleSelectorOrigin::CurrentSubject
-            )
-            && !matches!(
+            ) && !matches!(
                 selector.choice(),
                 RuleSelectorChoice::PrimaryPlusAdjacent | RuleSelectorChoice::AdjacentToPrimary
-            )
-            || direct.is_some()
-                && selector.side() == RuleSelectorSide::Same
-                && selector.choice() == RuleSelectorChoice::First;
+            ) && !selector
+                .predicates()
+                .contains(&RuleSelectorPredicate::AdjacentToPrimary)
+                || selector.side() == RuleSelectorSide::Same
+                    && selector.choice() == RuleSelectorChoice::First);
         let mut pool = if selector.origin() == RuleSelectorOrigin::EventTargets {
             event_order.to_vec()
         } else if use_direct {
@@ -195,6 +195,12 @@ impl Transaction<'_> {
                     selector_unit(self.state, snapshot, *id)
                         .is_some_and(|unit| (*minimum..=*maximum).contains(&unit.formation.get()))
                 }
+                RuleSelectorPredicate::AdjacentToPrimary => primary
+                    .and_then(|primary| selector_unit(self.state, snapshot, primary))
+                    .zip(selector_unit(self.state, snapshot, *id))
+                    .is_some_and(|(primary, candidate)| {
+                        primary.formation.get().abs_diff(candidate.formation.get()) == 1
+                    }),
                 RuleSelectorPredicate::HasMark(effect)
                 | RuleSelectorPredicate::HasEffect(effect) => {
                     selector_has_effect(self.state, snapshot, *id, *effect)

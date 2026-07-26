@@ -25,6 +25,7 @@ mod preservation_s02;
 mod preservation_s03;
 mod preservation_s04;
 mod propagation_s01;
+mod propagation_s02;
 mod remembrance_s01;
 mod remembrance_s02;
 mod remembrance_s03;
@@ -357,6 +358,7 @@ pub(crate) fn lower_rules(
     output.extend(elation_s03::lower(bindings, blessings)?);
     output.extend(elation_s04::lower_rules(catalog, bindings, blessings)?);
     let mut propagation_rules = propagation_s01::lower(bindings, blessings)?;
+    propagation_rules.extend(propagation_s02::lower(catalog, bindings, blessings)?);
     if let Some(first) = propagation_rules.first_mut() {
         propagation_s01::add_spore_engine(first, blessings)?;
     }

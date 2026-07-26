@@ -115,6 +115,36 @@ pub(super) fn parameter(
         .ok_or(BattleRuleLoweringError::InvalidParameter)
 }
 
+/// Converts an authored decimal atom to six places with nearest-ties-even rounding.
+///
+/// Some upstream values retain binary-float transcription tails beyond six
+/// decimal places. Formula lowering owns this explicit deterministic boundary.
+pub(super) fn parameter_six(
+    parameters: &[ExactParameter],
+    index: usize,
+) -> Result<i64, BattleRuleLoweringError> {
+    let value = *parameters
+        .get(index)
+        .ok_or(BattleRuleLoweringError::InvalidParameter)?;
+    if value.scale() <= 6 {
+        return parameter(parameters, index);
+    }
+    let divisor = 10_i64
+        .checked_pow(u32::from(value.scale() - 6))
+        .ok_or(BattleRuleLoweringError::InvalidParameter)?;
+    let quotient = value.coefficient() / divisor;
+    let remainder = value.coefficient() % divisor;
+    let doubled = i128::from(remainder).abs() * 2;
+    let divisor = i128::from(divisor);
+    if doubled > divisor || doubled == divisor && quotient % 2 != 0 {
+        quotient
+            .checked_add(value.coefficient().signum())
+            .ok_or(BattleRuleLoweringError::InvalidParameter)
+    } else {
+        Ok(quotient)
+    }
+}
+
 pub(super) fn selected_level_parameters<'a>(
     blessings: &'a BlessingContributionSet,
     binding_key: &str,
@@ -164,4 +194,23 @@ where
     base.checked_add(raw)
         .and_then(|value| T::try_from(value).ok())
         .ok_or(BattleRuleLoweringError::InvalidDefinition)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn parameter_six_rounds_upstream_decimal_tails_with_ties_even() {
+        let values = [
+            ExactParameter::new(7_999_999, 9),
+            ExactParameter::new(8_000_500, 9),
+            ExactParameter::new(8_001_500, 9),
+            ExactParameter::new(-8_001_500, 9),
+        ];
+        assert_eq!(parameter_six(&values, 0), Ok(8_000));
+        assert_eq!(parameter_six(&values, 1), Ok(8_000));
+        assert_eq!(parameter_six(&values, 2), Ok(8_002));
+        assert_eq!(parameter_six(&values, 3), Ok(-8_002));
+    }
 }

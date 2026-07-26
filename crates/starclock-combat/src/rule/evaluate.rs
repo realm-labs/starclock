@@ -403,6 +403,22 @@ fn evaluate_operation(
             can_defeat: *can_defeat,
             current_target,
         },
+        RuleOperationTemplate::UnboostedDamageFromEventElement {
+            selector,
+            amount,
+            class,
+            can_defeat,
+        } => RuleEmission::UnboostedDamage {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            class: *class,
+            element: input.event_facts.element.ok_or(RuleEvaluationError {
+                kind: RuleEvaluationErrorKind::MissingValue,
+                context: 0x220,
+            })?,
+            can_defeat: *can_defeat,
+            current_target,
+        },
         RuleOperationTemplate::DamageFromEventElement {
             selector,
             amount,

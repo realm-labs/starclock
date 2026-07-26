@@ -92,6 +92,8 @@ pub enum RuleSelectorPredicate {
         minimum: u8,
         maximum: u8,
     },
+    /// Keeps candidates exactly one formation slot from the event primary target.
+    AdjacentToPrimary,
     HasMark(EffectDefinitionId),
     HasWeakness(CombatElement),
     LacksWeakness(CombatElement),

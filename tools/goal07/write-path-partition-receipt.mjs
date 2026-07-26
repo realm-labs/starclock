@@ -141,6 +141,18 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612742"))
+    return "The shared Spore burst signal supplies the consumed stack snapshot for healing, while generic Spore-effect observations mirror the global enemy count into stack-backed ally Mitigation effects.";
+  if (id.includes("612743"))
+    return "Per-owner ActionStarted state, an exact zero-Skill-Point resource read, ordinary checked recovery and a fixed-chance transient marker express both Excitatory Gland levels.";
+  if (id.includes("612744"))
+    return "A composable adjacent-primary predicate, stable uniform selection, raw event-damage reads and event-element unboosted Additional damage express both Exposed Brain Matter levels without recursion.";
+  if (id.includes("612745"))
+    return "Signed Skill Point deltas directly supply stacks to an owner-turn effect whose target-side Mitigation modifiers express both Intersegmental Membrane levels.";
+  if (id.includes("612746"))
+    return "Per-owner Skill state and an Attack-tagged HitStarted clear distinguish non-attacking Skills, then an all-ally owner-turn stack effect supplies the released DamageBoost.";
+  if (id.includes("612750"))
+    return "The validated selected-Propagation-blessing count is capped and compiled into a permanent Basic-tag-filtered DamageBoost effect installed for every character.";
   if (id.includes("612730"))
     return "Skill Point resource deltas, stable all-enemy selection and ordinary effect stacking express Spore Discharge; the enhanced empty-resource branch uses an owner-turn SPD effect.";
   if (id.includes("612731"))
@@ -1363,6 +1375,56 @@ function partitionProfile(id) {
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration propagation_s01 --all-features",
         "cargo test -p starclock-combat --test ability_program_execution random_grouped_effect::selects_without_replacement_inside_each_group --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M09-S02") {
+    return {
+      completedOn: "2026-07-26",
+      numericApproximations: [
+        {
+          id: "goal07-metabolic-cavity-float-tail-v1",
+          record_id: "universe.blessing.612742.level.2",
+          field: "damage_reduction_per_global_spore",
+          value: "0.008000",
+          confidence: "High",
+          rationale:
+            "The pinned upstream parameter retains a binary-float transcription tail of 0.007999999 while both released localized descriptions specify 0.8%; the formula boundary rounds deterministically to six places.",
+          replacement_condition:
+            "Replace only if an authoritative exact decimal source contradicts the released 0.8% description; retain nearest-ties-even conversion for other upstream tails.",
+        },
+      ],
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s02.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s01.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/support.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s02.rs",
+        "crates/starclock-combat/src/catalog/selector.rs",
+        "crates/starclock-combat/src/resolver/target.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "crates/starclock-combat/src/rule/evaluate.rs",
+        "crates/starclock-data/src/operation_lower.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-propagation-s02.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s02.rs",
+        "crates/starclock-mode-universe/src/propagation_runtime.rs",
+        "docs/05-effects-and-resources.md",
+        "docs/09-determinism-and-numerics.md",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/11-rule-ir-and-native-handlers.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s02.rs",
+      fixtureMarker:
+        "basic_attack_executes_one_random_adjacent_additional_damage_event",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration propagation_s02 --all-features",
+        "cargo test -p starclock-mode-universe --lib battle_rule_lowering::support::tests --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

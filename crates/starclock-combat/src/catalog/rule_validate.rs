@@ -298,6 +298,9 @@ fn validate_operation(
         | RuleOperationTemplate::UnboostedDamage {
             selector, amount, ..
         }
+        | RuleOperationTemplate::UnboostedDamageFromEventElement {
+            selector, amount, ..
+        }
         | RuleOperationTemplate::DamageFromEventElement {
             selector, amount, ..
         }

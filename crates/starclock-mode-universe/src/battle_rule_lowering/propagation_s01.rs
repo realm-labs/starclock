@@ -38,6 +38,7 @@ const SPORE_SNAPSHOT_SLOT: StateSlotDefinitionId =
 const CRIT_STACK_SLOT_BASE: u32 = 0x7b10_0000;
 const SPENT_ACCOUNTING_SIGNAL: u32 = 0x6127_3201;
 const RECOVERED_ACCOUNTING_SIGNAL: u32 = 0x6127_3202;
+pub(super) const SPORE_BURST_SIGNAL: u32 = 0x6127_4001;
 
 pub(super) fn lower(
     bindings: &[UniverseBattleRuleBinding],
@@ -157,6 +158,10 @@ pub(super) fn add_spore_engine(
             class: DamageClass::Additional,
             element: CombatElement::Wind,
             can_defeat: true,
+        }),
+        ProgramStep::Operation(RuleOperationTemplate::EmitRuleEvent {
+            code: SPORE_BURST_SIGNAL,
+            value: Some(ValueExpr::Slot(SPORE_SNAPSHOT_SLOT)),
         }),
         ProgramStep::Operation(RuleOperationTemplate::RemoveEffect {
             selector: ENGINE_TARGET,
@@ -738,7 +743,7 @@ fn passive_rule(binding: &UniverseBattleRuleBinding) -> ExecutableBattleRule {
 }
 
 #[allow(clippy::too_many_arguments)]
-fn finish_rule(
+pub(super) fn finish_rule(
     binding: &UniverseBattleRuleBinding,
     attachment: RuleAttachment,
     mut groups: Vec<ModifierStackingGroup>,
