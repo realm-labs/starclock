@@ -83,6 +83,7 @@ pub use effect::model::{
     EffectCategory, EffectChancePolicy, EffectDamageGuard, EffectRemovalDefinition,
     EffectRemovalOrder, EffectRuntimeDefinition, EffectRuntimeTemplate, EffectSnapshotPolicy,
     EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase, NEGATIVE_EFFECT_GUARDED_SIGNAL,
+    TEAM_DEFEAT_GUARDED_SIGNAL,
 };
 pub use event::cause::{Cause, CauseActor};
 pub use event::model::{

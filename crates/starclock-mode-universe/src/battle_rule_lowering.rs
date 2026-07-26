@@ -6,6 +6,7 @@ mod abundance_s03;
 mod abundance_s04;
 mod destruction_s01;
 mod destruction_s02;
+mod destruction_s03;
 mod hunt_resonance;
 mod hunt_s01;
 mod hunt_s02;
@@ -331,6 +332,7 @@ pub(crate) fn lower_rules(
     output.extend(abundance_s04::lower_rules(catalog, bindings, blessings)?);
     let mut destruction_rules = destruction_s01::lower(bindings, blessings)?;
     destruction_rules.extend(destruction_s02::lower(catalog, bindings, blessings)?);
+    destruction_rules.extend(destruction_s03::lower(bindings, blessings)?);
     if let Some(first) = destruction_rules.first_mut() {
         destruction_s01::add_grit_engine(first, blessings)?;
     }

@@ -113,6 +113,11 @@ pub enum EffectApplicationGuard {
 
 /// Informational rule signal emitted whenever `NegativeEffectOnce` consumes a stack.
 pub const NEGATIVE_EFFECT_GUARDED_SIGNAL: u32 = 0x0001_0001;
+/// Informational signal emitted after a team defeat guard clamps lethal damage.
+///
+/// The event target is the unit whose lethal damage was prevented. The value
+/// carries the consumed guard definition ID.
+pub const TEAM_DEFEAT_GUARDED_SIGNAL: u32 = 0x0001_0002;
 
 /// Named action families that a control effect may suppress.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]

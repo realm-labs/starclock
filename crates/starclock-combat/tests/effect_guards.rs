@@ -7,7 +7,7 @@ use starclock_combat::{
     EffectDefinitionId, EffectEventData, EffectRuntimeDefinition, EffectStackPolicy,
     EffectTickPhase, FormationIndex, Hp, LifeState, NEGATIVE_EFFECT_GUARDED_SIGNAL,
     ParticipantSource, ParticipantSpec, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings,
-    Scalar, Speed, TeamResourceSpec, TeamSide, UnitLevel,
+    Scalar, Speed, TEAM_DEFEAT_GUARDED_SIGNAL, TeamResourceSpec, TeamSide, UnitLevel,
     catalog::{
         CombatCatalog,
         action::{
@@ -266,6 +266,14 @@ fn one_shot_effect_guards_reject_a_debuff_and_prevent_team_defeat() {
         BattleEventKind::RuleSignal(signal)
             if signal.code == NEGATIVE_EFFECT_GUARDED_SIGNAL
     )));
+    assert!(events.iter().any(|event| {
+        matches!(
+            event.kind(),
+            BattleEventKind::RuleSignal(signal)
+                if signal.code == TEAM_DEFEAT_GUARDED_SIGNAL
+                    && event.cause().primary_target() == Some(player.id())
+        )
+    }));
     assert!(events.iter().any(|event| matches!(
         event.kind(),
         BattleEventKind::Effect(EffectEventData::Resisted { definition, .. })

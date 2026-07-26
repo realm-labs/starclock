@@ -125,6 +125,16 @@ pub(super) fn apply_damage_guard(
             }),
         );
     }
+    parent = txn.emit(
+        cause.with_parent(parent).with_primary_target(Some(target)),
+        BattleEventKind::RuleSignal(crate::RuleSignalEventData {
+            operation,
+            code: crate::TEAM_DEFEAT_GUARDED_SIGNAL,
+            value: Some(crate::rule::model::RuleValue::StableId(u64::from(
+                guard_definition.get(),
+            ))),
+        }),
+    );
     let guarded_raw = shield
         .get()
         .checked_add(hp.get().saturating_sub(1))

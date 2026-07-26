@@ -207,6 +207,16 @@ function nativeDecision(id) {
     return "Ultimate action facts, current/maximum HP expressions and the shared owner-turn timed-shield primitive express both released shield formulas.";
   if (id.includes("612550"))
     return "The validated contribution compiler supplies the capped selected-Destruction count to an ordinary percent-of-base ATK modifier.";
+  if (id.includes("612551"))
+    return "The generic one-shot team defeat guard emits the actual protected target, and ordinary Rule IR heals that target by the selected MaxHP ratio.";
+  if (id.includes("612552"))
+    return "One permanent percent-of-base MaxHP modifier expresses both released levels.";
+  if (id.includes("612553"))
+    return "Incoming-damage and self-HP-loss facts share an action-reset slot before an ordinary personal-Energy gain operation.";
+  if (id.includes("612554"))
+    return "Battle-start missing-HP expressions feed the shared two-owner-turn timed-shield primitive.";
+  if (id.includes("612555"))
+    return "Incoming-damage facts, a low-HP condition and a bounded battle slot feed the shared timed-shield primitive exactly once per character.";
   if (id.includes("612450"))
     return "The validated contribution compiler supplies the capped selected-Hunt count to an ordinary percent-of-base SPD modifier.";
   if (id.includes("612451"))
@@ -996,6 +1006,36 @@ function partitionProfile(id) {
         "s02_rules_execute_without_fault_in_a_wounded_production_battle",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration destruction_s02 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M07-S03") {
+    return {
+      completedOn: "2026-07-26",
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s03.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s02.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s03.rs",
+        "crates/starclock-combat/src/resolver/effect_operation.rs",
+        "crates/starclock-combat/tests/effect_guards.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-destruction-s03.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s03.rs",
+        "crates/starclock-mode-universe/src/destruction_runtime.rs",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s03.rs",
+      fixtureMarker:
+        "defeat_guard_signals_and_heals_the_actual_lethal_target",
+      testCommands: [
+        "cargo test -p starclock-combat --test effect_guards --all-features",
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration destruction_s03 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
