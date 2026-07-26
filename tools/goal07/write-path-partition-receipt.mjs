@@ -163,6 +163,16 @@ function nativeDecision(id) {
     return "Every-enemy attachment, Weakness-Break reset, target-within-action once scope and bounded timeline delay express three triggers per broken period.";
   if (id.includes("612850"))
     return "The validated selected-Erudition-blessing count is capped and compiled into a permanent Ultimate-tag-filtered DamageBoost modifier.";
+  if (id.includes("612851"))
+    return "An ordinary source-side CRIT Rate stat modifier filtered by the generic Ultimate ability tag expresses both released levels.";
+  if (id.includes("612852"))
+    return "An ordinary source-side CRIT DMG stat modifier filtered by the generic Ultimate ability tag expresses both released levels.";
+  if (id.includes("612853"))
+    return "A non-dispellable marker, Attack-source DamageBoost and ordered action-end consume/arm triggers express the complete next-Attack lifetime.";
+  if (id.includes("612854"))
+    return "The catalog-authored All target pattern and a replace-stacking owner-turn percent-of-base ATK effect express both released AoE levels.";
+  if (id.includes("612855"))
+    return "The catalog-authored All target pattern and a replace-stacking owner-turn percent-of-base DEF effect express both released AoE levels.";
   if (id.includes("612742"))
     return "The shared Spore burst signal supplies the consumed stack snapshot for healing, while generic Spore-effect observations mirror the global enemy count into stack-backed ally Mitigation effects.";
   if (id.includes("612743"))
@@ -1619,6 +1629,38 @@ function partitionProfile(id) {
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration erudition_s02 --all-features",
         "cargo test -p starclock-combat --test rule_ir_contract --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M10-S03") {
+    return {
+      completedOn: "2026-07-26",
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/erudition_s03.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s03.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "crates/starclock-combat/src/resolver/rule.rs",
+        "crates/starclock-combat/src/effect/model.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-erudition-s03.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/erudition_s03.rs",
+        "crates/starclock-mode-universe/src/erudition_runtime.rs",
+        "docs/05-effects-and-resources.md",
+        "docs/09-determinism-and-numerics.md",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/11-rule-ir-and-native-handlers.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s03.rs",
+      fixtureMarker:
+        "ultimate_arms_exact_next_attack_boost_and_the_attack_consumes_it",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration erudition_s03 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

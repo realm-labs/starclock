@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M10-S02` |
-| Next unblocked batch | `G07-P2-M10-S02` |
+| Active batch | `G07-P2-M10-S04` |
+| Next unblocked batch | `G07-P2-M10-S04` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -70,7 +70,11 @@ Brain-Ultimate CRIT DMG, overflow-Energy charge and MaxHP shields execute from
 production Rule IR. Erudition S02 is complete: target-count Additional DMG,
 first-Ultimate and entry-Energy policy, AoE single-target original-damage
 conversion, broken-enemy Ultimate delay and capped Blessing-count Ultimate
-damage execute from generic Rule IR. `G07-P2-M10-S03` (Erudition) is active.
+damage execute from generic Rule IR. Erudition S03 is complete: exact
+Ultimate-only CRIT Rate and CRIT DMG, the ordered next-Attack damage marker,
+enhanced capped Blessing-count Ultimate damage, and catalog-authored AoE
+Attack/DEF timed effects execute from generic Rule IR.
+`G07-P2-M10-S04` (Erudition) is active.
 
 ## Fixed batch ledger
 

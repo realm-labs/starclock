@@ -61,6 +61,8 @@ mod elation_s04;
 mod erudition_s01;
 #[path = "mechanic_battle_integration/erudition_s02.rs"]
 mod erudition_s02;
+#[path = "mechanic_battle_integration/erudition_s03.rs"]
+mod erudition_s03;
 #[path = "mechanic_battle_integration/hunt_s01.rs"]
 mod hunt_s01;
 #[path = "mechanic_battle_integration/hunt_s02.rs"]
