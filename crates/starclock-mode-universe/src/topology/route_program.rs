@@ -36,12 +36,23 @@ pub(super) fn compile_route_program(
             vec![ActivityOperation::Traverse(edge)]
         };
         let operations = if route.target.is_some() {
-            let with_cogwheel =
-                crate::curio_activity::cogwheel_domain_entry_settlement(curio_bindings, &finish);
-            vec![ActivityOperation::Conditional {
-                condition: crate::curio_activity::cogwheel_condition(curio_bindings),
-                if_true: with_cogwheel.into_boxed_slice(),
+            let with_gold = crate::curio_activity::domain::gold_coin_domain_entry_settlement(
+                curio_bindings,
+                &finish,
+            );
+            let gold_boundary = vec![ActivityOperation::Conditional {
+                condition: crate::curio_activity::domain::gold_coin_condition(curio_bindings),
+                if_true: with_gold.into_boxed_slice(),
                 if_false: finish.into_boxed_slice(),
+            }];
+            let with_cogwheel = crate::curio_activity::domain::cogwheel_domain_entry_settlement(
+                curio_bindings,
+                &gold_boundary,
+            );
+            vec![ActivityOperation::Conditional {
+                condition: crate::curio_activity::domain::cogwheel_condition(curio_bindings),
+                if_true: with_cogwheel.into_boxed_slice(),
+                if_false: gold_boundary.into_boxed_slice(),
             }]
         } else {
             finish

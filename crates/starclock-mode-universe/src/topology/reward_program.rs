@@ -55,7 +55,7 @@ pub(super) fn reward_node_program_id(
         ActivityProgramDefinition::new(
             ActivityProgramId::new(program_id).ok_or(UniverseTopologyCompileError::InvalidGraph)?,
             vec![ActivityOperation::Conditional {
-                condition: crate::curio_activity::gossip_condition(curio_bindings),
+                condition: crate::curio_activity::domain::gossip_condition(curio_bindings),
                 if_true: skip.into_boxed_slice(),
                 if_false: vec![offer].into_boxed_slice(),
             }],

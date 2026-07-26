@@ -121,9 +121,8 @@ impl StandardUniverseActivity {
         Box<[starclock_activity::ActivityTransactionEvent]>,
         starclock_activity::GraphActivityRandomOfferError,
     > {
-        let unlocked = self
-            .graph
-            .debug_view()
+        let debug = self.graph.debug_view();
+        let ability_rerolls = debug
             .all_slots()
             .iter()
             .find(|slot| slot.id() == self.ability_projection_slot)
@@ -134,12 +133,41 @@ impl StandardUniverseActivity {
                         |entry| entry.0,
                     )
                     .ok()
-                    .map(|index| entries[index].1 > 0),
+                    .map(|index| entries[index].1 / 1_000_000),
                 _ => None,
             })
-            .unwrap_or(false);
-        if !unlocked {
+            .unwrap_or(0);
+        let curio_rerolls = debug
+            .all_inventories()
+            .iter()
+            .find(|inventory| inventory.id() == self.curio_inventory)
+            .and_then(|inventory| {
+                inventory
+                    .entries()
+                    .binary_search_by_key(&24, |entry| entry.0)
+                    .ok()
+                    .map(|index| i64::from(inventory.entries()[index].1 > 0))
+            })
+            .unwrap_or(0);
+        let maximum = ability_rerolls.saturating_add(curio_rerolls);
+        if maximum == 0 {
             return Err(starclock_activity::GraphActivityRandomOfferError::RerollDisabled);
+        }
+        let node = self.graph.player_view().current_node();
+        let used = debug
+            .all_slots()
+            .iter()
+            .find(|slot| slot.id() == self.blessing_reroll_slot)
+            .and_then(|slot| match slot.value() {
+                ActivityValue::BoundedCounterMap(entries) => entries
+                    .binary_search_by_key(&u64::from(node.get()), |entry| entry.0)
+                    .ok()
+                    .map(|index| entries[index].1),
+                _ => None,
+            })
+            .unwrap_or(0);
+        if used >= maximum {
+            return Err(starclock_activity::GraphActivityRandomOfferError::RerollLimitReached);
         }
         self.graph.reroll_random_offer(expected_state_hash)
     }

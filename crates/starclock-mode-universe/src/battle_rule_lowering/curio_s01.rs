@@ -99,7 +99,7 @@ fn tonic(
     permanent_team_modifiers(binding, 2, modifiers)
 }
 
-fn damage_modifiers(
+pub(super) fn damage_modifiers(
     raw: u32,
     value: ValueExpr,
     extra_filters: &[ModifierFilter],

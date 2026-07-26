@@ -1,22 +1,8 @@
 //! Spatial-free Standard Universe topology, room and encounter compilation.
 mod reward_program;
 mod route_program;
-
 use self::reward_program::node_program_id;
 use self::route_program::compile_route_program;
-use std::sync::Arc;
-
-use starclock_activity::{
-    ActivityBootstrapSelection, ActivityCondition, ActivityDecisionKind, ActivityEdgeCondition,
-    ActivityEdgeDefinition, ActivityEdgeId, ActivityExpression, ActivityExternalOutcomeId,
-    ActivityGraphDefinition, ActivityInteractionBinding, ActivityInteractionRandomPolicy,
-    ActivityInventoryId, ActivityNodeDefinition, ActivityNodeKind, ActivityOperation,
-    ActivityOptionDefinition, ActivityOptionId, ActivityRandomCheckpoint, ActivityRandomOffer,
-    ActivityRandomPolicies, ActivityRngLabel, ActivitySlotId, ActivityStateDefinition,
-    ActivityTerminalOutcome, ActivityValue, GraphActivityDefinition, GraphActivityDefinitionError,
-    GraphActivityNodeProgram, NodeId, ParticipantLock, SectionId, TerminalOutcome,
-};
-
 use crate::{
     blessing_runtime::{BlessingOfferEligibility, BlessingRuntimeCatalog},
     catalog::UniverseCatalog,
@@ -40,8 +26,18 @@ use crate::{
     topology_service::{compile_room_services, option_condition as service_option_condition},
     topology_support::{domain_logical_scopes, exact_weight, occurrence_for_source, resolve_rooms},
 };
-
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v8";
+use starclock_activity::{
+    ActivityBootstrapSelection, ActivityCondition, ActivityDecisionKind, ActivityEdgeCondition,
+    ActivityEdgeDefinition, ActivityEdgeId, ActivityExpression, ActivityExternalOutcomeId,
+    ActivityGraphDefinition, ActivityInteractionBinding, ActivityInteractionRandomPolicy,
+    ActivityInventoryId, ActivityNodeDefinition, ActivityNodeKind, ActivityOperation,
+    ActivityOptionDefinition, ActivityOptionId, ActivityRandomCheckpoint, ActivityRandomOffer,
+    ActivityRandomPolicies, ActivityRngLabel, ActivitySlotId, ActivityStateDefinition,
+    ActivityTerminalOutcome, ActivityValue, GraphActivityDefinition, GraphActivityDefinitionError,
+    GraphActivityNodeProgram, NodeId, ParticipantLock, SectionId, TerminalOutcome,
+};
+use std::sync::Arc;
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v9";
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 
 const PATH_NODE: u32 = 1;
@@ -646,6 +642,18 @@ fn compile_programs(
         .find(|path| path.stable_key() == "universe.path.propagation")
         .map(|path| path.id())
         .ok_or(UniverseTopologyCompileError::InvalidBlessingRuntime)?;
+    let erudition_path = catalog
+        .paths()
+        .iter()
+        .find(|path| path.stable_key() == "universe.path.erudition")
+        .map(|path| path.id())
+        .ok_or(UniverseTopologyCompileError::InvalidBlessingRuntime)?;
+    let preservation_path = catalog
+        .paths()
+        .iter()
+        .find(|path| path.stable_key() == "universe.path.preservation")
+        .map(|path| path.id())
+        .ok_or(UniverseTopologyCompileError::InvalidBlessingRuntime)?;
     let mut interactions = Vec::new();
     let blessing_eligibility = BlessingOfferEligibility::fully_unlocked(vec![1, 2, 3])
         .map_err(|_| UniverseTopologyCompileError::InvalidBlessingRuntime)?;
@@ -910,6 +918,16 @@ fn compile_programs(
             .filter(|blessing| blessing.path() == propagation_path)
             .map(|blessing| blessing_option(source, blessing.blessing()))
             .collect::<Vec<_>>();
+        let erudition_options = eligible_blessings
+            .iter()
+            .filter(|blessing| blessing.path() == erudition_path)
+            .map(|blessing| blessing_option(source, blessing.blessing()))
+            .collect::<Vec<_>>();
+        let preservation_options = eligible_blessings
+            .iter()
+            .filter(|blessing| blessing.path() == preservation_path)
+            .map(|blessing| blessing_option(source, blessing.blessing()))
+            .collect::<Vec<_>>();
         // The public Curio text specifies an increased appearance rate but no
         // numeric multiplier. Standard Universe v1 freezes the explicit x2
         // project policy until stronger public evidence is available.
@@ -919,7 +937,7 @@ fn compile_programs(
             BLESSING_DRAW_PURPOSE,
             3,
             reward.weights,
-            Some((blessing_reroll_slot, 1)),
+            Some((blessing_reroll_slot, 2)),
         )
         .map_err(UniverseTopologyCompileError::RuntimeDefinition)?
         .with_maximum_options_reduction(
@@ -927,10 +945,24 @@ fn compile_programs(
             1,
         )
         .ok_or(UniverseTopologyCompileError::InvalidProgram)?
-        .with_inactive_condition(crate::curio_activity::gossip_condition(curio_bindings))
+        .with_inactive_condition(crate::curio_activity::domain::gossip_condition(
+            curio_bindings,
+        ))
         .with_conditional_weight_multiplier(
-            crate::curio_activity::propagation_sealing_wax_condition(curio_bindings),
+            crate::curio_activity::domain::propagation_sealing_wax_condition(curio_bindings),
             propagation_options,
+            2,
+        )
+        .ok_or(UniverseTopologyCompileError::InvalidProgram)?
+        .with_conditional_weight_multiplier(
+            crate::curio_activity::domain::erudition_sealing_wax_condition(curio_bindings),
+            erudition_options,
+            2,
+        )
+        .ok_or(UniverseTopologyCompileError::InvalidProgram)?
+        .with_conditional_weight_multiplier(
+            crate::curio_activity::domain::preservation_sealing_wax_condition(curio_bindings),
+            preservation_options,
             2,
         )
         .ok_or(UniverseTopologyCompileError::InvalidProgram)?;

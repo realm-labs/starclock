@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 3 — Curios |
-| Active batch | `G07-P3-M11-S03` |
-| Next unblocked batch | `G07-P3-M11-S03` |
+| Active batch | `G07-P3-M11-S04` |
+| Next unblocked batch | `G07-P3-M11-S04` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -92,7 +92,13 @@ transactional Activity boundaries and generic Rule IR. Canonically ordered
 weighted offers use the authoritative Reward RNG stream, acquisition-time
 state is committed atomically, and the partition adds no native handler.
 Sealing Wax's unpublished appearance multiplier is frozen as an explicit
-replaceable x2 project-policy approximation. `G07-P3-M11-S03` is active.
+replaceable x2 project-policy approximation. Curio S03 is complete: Faith
+Bond, Robe of The Beauty, Gold Coin of Discord, Record from Beyond the Sky,
+Chaos Trametes, Entropic Die and both Erudition and Preservation Sealing Waxes
+execute through checked service settlement, deterministic domain-entry
+ordering, authoritative Reward RNG and generic Rule IR. The partition adds no
+native handler. Publicly unspecified discount rounding and offer weights are
+isolated as replaceable project policies. `G07-P3-M11-S04` is active.
 
 ## Fixed batch ledger
 

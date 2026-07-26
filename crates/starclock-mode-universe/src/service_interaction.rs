@@ -23,12 +23,11 @@ use crate::{
 
 pub const SERVICE_INTERACTION_HANDLER_ID: u32 = 3;
 pub const SERVICE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-service-interaction-runtime-v3";
+    "standard-universe-service-interaction-runtime-v4";
 
-const PAYLOAD_REVISION: u8 = 3;
+const PAYLOAD_REVISION: u8 = 4;
 const TAG_SET_FRAGMENTS: u8 = 1;
 const TAG_DEBIT_FRAGMENTS: u8 = 2;
-const TAG_SCHEDULED_DEBIT: u8 = 3;
 const TAG_ADD_INVENTORY: u8 = 4;
 const TAG_ENHANCE_INVENTORY: u8 = 5;
 const TAG_DEFERRED_EFFECT: u8 = 6;
@@ -37,6 +36,9 @@ const TAG_RANDOM_INVENTORY: u8 = 8;
 const TAG_ADD_CURIO: u8 = 9;
 const TAG_RANDOM_CURIO: u8 = 10;
 const TAG_RESTORE_PARTICIPANT: u8 = 11;
+const TAG_DISCOUNTED_DEBIT_FRAGMENTS: u8 = 12;
+const TAG_DISCOUNTED_SCHEDULED_DEBIT: u8 = 13;
+const FAITH_BOND_CURIO_CONTENT: u64 = 19;
 const MAX_PAYLOAD_OPERATIONS: usize = 32;
 const SERVICE_EFFECT_KEY_BASE: u64 = 1 << 62;
 
@@ -214,7 +216,7 @@ impl ServiceInteractionRuntimeCatalog {
                 ServiceAction::ResetBlessingOffer { cost_schedule, .. },
                 ServiceInteractionSelection::Activate,
             ) => {
-                operations.push(PayloadOperation::ScheduledDebit {
+                operations.push(PayloadOperation::DiscountedScheduledDebit {
                     service,
                     schedule: cost_schedule
                         .iter()
@@ -232,7 +234,7 @@ impl ServiceInteractionRuntimeCatalog {
                 },
                 ServiceInteractionSelection::ReviveCharacter(participant),
             ) => {
-                operations.push(PayloadOperation::DebitFragments(*cost));
+                operations.push(PayloadOperation::DiscountedDebitFragments(*cost));
                 operations.push(PayloadOperation::RestoreParticipant {
                     participant: *participant,
                     expected_hp_ratio: u32::from(*restored_hp_percent) * 10_000,
@@ -350,7 +352,7 @@ impl ServiceInteractionRuntimeCatalog {
                 let cost = *rarity_costs
                     .get(usize::from(rarity.saturating_sub(1)))
                     .ok_or(ServiceInteractionError::InvalidSelection)?;
-                operations.push(PayloadOperation::DebitFragments(cost));
+                operations.push(PayloadOperation::DiscountedDebitFragments(cost));
                 operations.push(PayloadOperation::EnhanceInventory {
                     inventory: self.blessing_inventory,
                     content: u64::from(blessing.get()),
@@ -365,6 +367,7 @@ impl ServiceInteractionRuntimeCatalog {
             self.service_uses,
             self.service_effects,
             self.ability_projection,
+            self.curio_bindings.inventory,
         )
     }
 
@@ -396,7 +399,8 @@ impl ServiceInteractionRuntimeCatalog {
 enum PayloadOperation {
     SetFragments(u32),
     DebitFragments(u32),
-    ScheduledDebit {
+    DiscountedDebitFragments(u32),
+    DiscountedScheduledDebit {
         service: ServiceId,
         schedule: Box<[u32]>,
     },
@@ -446,8 +450,12 @@ impl PayloadOperation {
                 output.push(TAG_DEBIT_FRAGMENTS);
                 output.extend_from_slice(&amount.to_le_bytes());
             }
-            Self::ScheduledDebit { service, schedule } => {
-                output.push(TAG_SCHEDULED_DEBIT);
+            Self::DiscountedDebitFragments(amount) => {
+                output.push(TAG_DISCOUNTED_DEBIT_FRAGMENTS);
+                output.extend_from_slice(&amount.to_le_bytes());
+            }
+            Self::DiscountedScheduledDebit { service, schedule } => {
+                output.push(TAG_DISCOUNTED_SCHEDULED_DEBIT);
                 output.extend_from_slice(&service.get().to_le_bytes());
                 output.push(
                     u8::try_from(schedule.len())
@@ -535,6 +543,7 @@ fn encode_program(
     uses: ActivitySlotId,
     effects: ActivitySlotId,
     ability_projection: ActivitySlotId,
+    curio_inventory: ActivityInventoryId,
 ) -> Result<CompiledServiceInteraction, ServiceInteractionError> {
     if operations.is_empty() || operations.len() > MAX_PAYLOAD_OPERATIONS {
         return Err(ServiceInteractionError::TooManyOperations);
@@ -558,6 +567,7 @@ fn encode_program(
     });
     let required_fragments = operations.iter().find_map(|operation| match operation {
         PayloadOperation::DebitFragments(amount) => Some(*amount),
+        PayloadOperation::DiscountedDebitFragments(amount) => Some(*amount),
         _ => None,
     });
     let mut payload = vec![PAYLOAD_REVISION];
@@ -565,6 +575,7 @@ fn encode_program(
     payload.extend_from_slice(&uses.get().to_le_bytes());
     payload.extend_from_slice(&effects.get().to_le_bytes());
     payload.extend_from_slice(&ability_projection.get().to_le_bytes());
+    payload.extend_from_slice(&curio_inventory.get().to_le_bytes());
     payload.push(
         u8::try_from(operations.len()).map_err(|_| ServiceInteractionError::TooManyOperations)?,
     );
@@ -591,6 +602,7 @@ pub(crate) fn execute(
     let uses = slot(decoder.u32()?)?;
     let effects = slot(decoder.u32()?)?;
     let ability_projection = slot(decoder.u32()?)?;
+    let curio_inventory = inventory(decoder.u32()?)?;
     let count = usize::from(decoder.u8()?);
     if count == 0 || count > MAX_PAYLOAD_OPERATIONS {
         return Err(invalid_payload());
@@ -605,7 +617,11 @@ pub(crate) fn execute(
             TAG_DEBIT_FRAGMENTS => {
                 debit(&mut operations, fragments, decoder.u32()?)?;
             }
-            TAG_SCHEDULED_DEBIT => {
+            TAG_DISCOUNTED_DEBIT_FRAGMENTS => {
+                let amount = discounted_amount(input, curio_inventory, decoder.u32()?)?;
+                debit(&mut operations, fragments, amount)?;
+            }
+            TAG_DISCOUNTED_SCHEDULED_DEBIT => {
                 let service = u64::from(decoder.u32()?);
                 let schedule_count = usize::from(decoder.u8()?);
                 if schedule_count == 0 {
@@ -621,6 +637,7 @@ pub(crate) fn execute(
                     .get(index.min(schedule.len().saturating_sub(1)))
                     .copied()
                     .ok_or_else(invalid_payload)?;
+                let amount = discounted_amount(input, curio_inventory, amount)?;
                 debit(&mut operations, fragments, amount)?;
             }
             TAG_ADD_INVENTORY => operations.push(ActivityOperation::AddInventory {
@@ -785,6 +802,36 @@ fn debit(
         delta: integer(-amount),
     });
     Ok(())
+}
+
+fn discounted_amount(
+    input: ActivityHandlerInput<'_>,
+    inventory: ActivityInventoryId,
+    amount: u32,
+) -> Result<u32, ActivityHandlerFault> {
+    if amount == 0 {
+        return Err(invalid_payload());
+    }
+    let faith_bond = input
+        .view()
+        .inventories()
+        .iter()
+        .find(|view| view.id() == inventory)
+        .map(|view| {
+            view.entries()
+                .binary_search_by_key(&FAITH_BOND_CURIO_CONTENT, |entry| entry.0)
+                .ok()
+                .is_some_and(|index| view.entries()[index].1 > 0)
+        })
+        .ok_or_else(invalid_state)?;
+    if !faith_bond {
+        return Ok(amount);
+    }
+    amount
+        .checked_mul(70)
+        .map(|value| value / 100)
+        .filter(|value| *value != 0)
+        .ok_or_else(invalid_state)
 }
 
 fn counter(

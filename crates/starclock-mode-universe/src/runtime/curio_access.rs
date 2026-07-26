@@ -29,18 +29,37 @@ impl StandardUniverseActivity {
         let cavity_stacks = event_value
             .and_then(crate::curio_activity::cavity_critical_stacks)
             .unwrap_or(0);
+        let fragments = view
+            .slots()
+            .iter()
+            .find(|slot| slot.id() == self.cosmic_fragments_slot)
+            .and_then(|slot| match slot.value() {
+                ActivityValue::BoundedInteger(value) => Some(*value),
+                _ => None,
+            })
+            .ok_or(CurioRuntimeError::InvalidStateSlot)?;
         self.curio_runtime
             .contributions(inventory, state, charges)
             .map(|contributions| {
-                let contributions = contributions.with_destroyed_curios(destroyed);
-                if cavity_stacks == 0 {
-                    contributions
-                } else {
-                    contributions.with_runtime_value(
+                let mut contributions = contributions.with_destroyed_curios(destroyed);
+                if cavity_stacks != 0 {
+                    contributions = contributions.with_runtime_value(
                         crate::curio_activity::CAVITY_CRITICAL_STACK_KEY,
                         cavity_stacks,
-                    )
+                    );
                 }
+                if fragments != 0
+                    && contributions
+                        .entries()
+                        .iter()
+                        .any(|entry| entry.state().source_effect_id() == "14")
+                {
+                    contributions = contributions.with_runtime_value(
+                        crate::curio_activity::ROBE_FRAGMENT_SNAPSHOT_KEY,
+                        fragments,
+                    );
+                }
+                contributions
             })
     }
 

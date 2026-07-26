@@ -88,6 +88,37 @@ fn random_option_boundary_is_atomic_replayable_and_without_replacement() {
     assert_eq!(left.debug_view().rng(), draws);
 }
 
+#[test]
+fn zero_selection_random_boundary_commits_prefix_without_rng_draws() {
+    let definition = definition();
+    let mut activity = start(definition, 2);
+    let initial = activity.state_hash();
+    let draws = activity.debug_view().rng().to_vec();
+    let prefix = [ActivityOperation::AddCounter {
+        slot: slot(1),
+        key: 77,
+        delta: integer(1),
+    }];
+
+    let result = activity
+        .apply_random_option_boundary(
+            initial,
+            program(2),
+            ActivityRngLabel::Reward,
+            101,
+            102,
+            0,
+            0,
+            &prefix,
+            &candidates(),
+        )
+        .unwrap();
+
+    assert!(result.selected_options().is_empty());
+    assert_eq!(activity.debug_view().rng(), draws);
+    assert!(visible_counters(&activity).contains(&(77, 1)));
+}
+
 fn candidates() -> Vec<(ActivityOptionDefinition, u64)> {
     (1_u64..=5)
         .map(|raw| {

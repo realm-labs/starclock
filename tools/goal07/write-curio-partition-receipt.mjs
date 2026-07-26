@@ -23,9 +23,10 @@ const audit = json(
 const partition = manifest.partitions.find(({ id }) => id === partitionId);
 assert(partition?.mechanic_family?.startsWith("curio-"),
   `${partitionId}: not a Curio partition`);
-assert(["G07-P3-M11-S01", "G07-P3-M11-S02"].includes(partitionId),
+assert(["G07-P3-M11-S01", "G07-P3-M11-S02", "G07-P3-M11-S03"].includes(partitionId),
   `${partitionId}: Curio receipt profile is not implemented`);
 const s02 = partitionId === "G07-P3-M11-S02";
+const s03 = partitionId === "G07-P3-M11-S03";
 const golden =
   `evidence/standard-universe-mechanics-complete-v1/goldens/${partitionId}.json`;
 assert(exists(golden), `${partitionId}: golden is missing`);
@@ -37,7 +38,18 @@ const sourceEvidence = [
   { path: "content-reference/standard-universe-v1/curio-states.json" },
   { path: "content-reference/standard-universe-v1/mechanic-rules.json" },
 ];
-const executionEvidence = s02 ? [
+const executionEvidence = s03 ? [
+  { path: "crates/starclock-activity/src/graph_activity/boundary.rs" },
+  { path: "crates/starclock-mode-universe/src/curio_activity.rs" },
+  { path: "crates/starclock-mode-universe/src/curio_activity/domain.rs" },
+  { path: "crates/starclock-mode-universe/src/service_interaction.rs" },
+  { path: "crates/starclock-mode-universe/src/runtime/ability_access.rs" },
+  { path: "crates/starclock-mode-universe/src/runtime/curio_commands.rs" },
+  { path: "crates/starclock-mode-universe/src/topology/route_program.rs" },
+  { path: "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s03.rs" },
+  { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s03.rs" },
+  { path: "crates/starclock-mode-universe/tests/service_interaction_runtime.rs" },
+] : s02 ? [
   { path: "crates/starclock-activity/src/graph_activity/boundary.rs" },
   { path: "crates/starclock-activity/src/random_policy.rs" },
   { path: "crates/starclock-mode-universe/src/curio_activity.rs" },
@@ -54,9 +66,13 @@ const executionEvidence = s02 ? [
   { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s01.rs" },
 ];
 const reviewEvidence = [
-  { path: s02 ? "docs/goal-07-curio-s02.md" : "docs/goal-07-curio-s01.md" },
+  { path: s03
+    ? "docs/goal-07-curio-s03.md"
+    : s02 ? "docs/goal-07-curio-s02.md" : "docs/goal-07-curio-s01.md" },
   { path: "crates/starclock-mode-universe/src/curio_activity.rs" },
-  { path: s02
+  { path: s03
+    ? "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s03.rs"
+    : s02
     ? "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s02.rs"
     : "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s01.rs" },
 ];
@@ -105,10 +121,16 @@ const receipt = {
       { path: "config/data/UniverseEvidence.xlsx" },
     ]),
     execution_kind: "RustTest",
-    test_path: s02
+    test_path: s03
+      ? id === "universe.fixture.curio-tag.blessing"
+        ? "crates/starclock-mode-universe/src/runtime/curio_commands.rs"
+        : "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s03.rs"
+      : s02
       ? "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s02.rs"
       : "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s01.rs",
-    test_marker: s02
+    test_marker: s03
+      ? fixtureMarkerS03(id)
+      : s02
       ? fixtureMarker(id)
       : "goal07_p3_m11_s01_executes_every_assigned_curio_and_fixture_family",
   })),
@@ -120,7 +142,26 @@ const receipt = {
     decision: nativeDecision(id),
     evidence: reviewEvidence,
   })),
-  numeric_approximations: s02 ? [
+  numeric_approximations: s03 ? [
+    {
+      id: "universe.curio.13.discount-rounding",
+      disposition: "ProjectPolicyApproximate",
+      rationale:
+        "The exact 30% discount is public, but its fractional-fragment rounding is not. Runtime v1 uses checked integer floor after applying the retained 70% price.",
+    },
+    {
+      id: "universe.curio.211.erudition-offer-weight",
+      disposition: "ProjectPolicyApproximate",
+      rationale:
+        "Public evidence says the appearance rate greatly increases but supplies no multiplier. Runtime v1 freezes x2 and records the approximation explicitly.",
+    },
+    {
+      id: "universe.curio.22.preservation-offer-weight",
+      disposition: "ProjectPolicyApproximate",
+      rationale:
+        "Public evidence says the appearance rate greatly increases but supplies no multiplier. Runtime v1 freezes x2 and records the approximation explicitly.",
+    },
+  ] : s02 ? [
     {
       id: "universe.curio.123.propagation-offer-weight",
       disposition: "ProjectPolicyApproximate",
@@ -140,8 +181,14 @@ const receipt = {
     commands: [
       `python tools/goal07/author-curio-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify_production_workbooks.mjs .",
-      `cargo test -p starclock-mode-universe --test mechanic_battle_integration ${s02 ? "curio_s02" : "curio_s01"} --all-features`,
+      `cargo test -p starclock-mode-universe --test mechanic_battle_integration ${s03 ? "curio_s03" : s02 ? "curio_s02" : "curio_s01"} --all-features`,
       "cargo test -p starclock-mode-universe --lib curio_activity::tests --all-features",
+      ...(s03 ? [
+        "cargo test -p starclock-activity --test random_boundary --all-features",
+        "cargo test -p starclock-mode-universe --lib runtime::curio_commands::tests --all-features",
+        "cargo test -p starclock-mode-universe --test service_interaction_runtime --all-features",
+        "cargo test -p starclock-mode-universe --test topology_runtime --all-features",
+      ] : []),
       ...(s02 ? [
         "cargo test -p starclock-activity --test random_boundary --all-features",
         "cargo test -p starclock-mode-universe --test topology_runtime --all-features",
@@ -185,6 +232,14 @@ function nativeDecision(id) {
     "121": "Highest-ATK selection, a permanent mark, HP consumption and a bounded stacking SPD effect are all typed Rule IR.",
     "122": "Battle assembly counts distinct Path IDs in the immutable Blessing snapshot and lowers one ordinary Break Effect modifier.",
     "123": "The generic random-option boundary grants one Propagation Blessing and the conditional offer-weight primitive biases later Propagation options.",
+    "13": "The shared service debit operation applies the authored discount to Blessing enhancement, offer reset and participant revival without changing unrelated shop prices.",
+    "14": "Battle assembly snapshots complete fragment hundreds and lowers the exact per-hundred damage ratio through ordinary source modifiers.",
+    "15": "A checked Domain-entry settlement derives six percent from current fragments and credits it through the shared fragment-gain pipeline.",
+    "19": "Typed mitigation, Effect RES, duration and first-attack removal operations express damage nullification and the three-turn debuff guard.",
+    "2": "The generic bounded reroll counter composes one acquisition-scoped free Blessing reset with Ability Tree authorization.",
+    "20": "The generic Reward-stream random boundary selects up to two owned unenhanced Blessings without replacement and atomically upgrades their inventory values.",
+    "211": "The generic acquisition boundary grants one Erudition Blessing and the conditional offer-weight primitive biases later Erudition options.",
+    "22": "The generic acquisition boundary grants one Preservation Blessing and the conditional offer-weight primitive biases later Preservation options.",
   }[stable] ?? "Generic Activity and Rule IR primitives express the assigned Curio state.";
 }
 function fixtureMarker(id) {
@@ -196,6 +251,16 @@ function fixtureMarker(id) {
     "universe.fixture.curio-tag.speed":
       "thalan_toxi_flame_uses_highest_attack_marker_hp_cost_and_five_stack_speed",
   }[id] ?? "goal07_p3_m11_s02_executes_every_assigned_curio_without_native_handlers";
+}
+function fixtureMarkerS03(id) {
+  return {
+    "universe.fixture.curio-state.active":
+      "goal07_p3_m11_s03_executes_every_assigned_curio_without_native_handlers",
+    "universe.fixture.curio-tag.blessing":
+      "erudition_sealing_wax_grants_one_erudition_blessing",
+    "universe.fixture.curio-tag.curio":
+      "goal07_p3_m11_s03_executes_every_assigned_curio_without_native_handlers",
+  }[id] ?? "goal07_p3_m11_s03_executes_every_assigned_curio_without_native_handlers";
 }
 function disposition(planned, runtimeDisposition, workbookEvidence) {
   assert(planned, "retained-audit entry is missing");

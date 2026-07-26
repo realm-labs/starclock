@@ -72,7 +72,7 @@ fn all_service_families_compile_to_concrete_checked_payloads() {
     let runtime = compiled.service_interaction_runtime();
     assert_eq!(
         SERVICE_INTERACTION_RUNTIME_REVISION,
-        "standard-universe-service-interaction-runtime-v3"
+        "standard-universe-service-interaction-runtime-v4"
     );
     assert_eq!(runtime.service_count(), 94);
     assert_ne!(runtime.digest(), [0; 32]);
@@ -345,12 +345,75 @@ fn curio_purchase_initializes_lifecycle_charge_and_boundary_event_atomically() {
     );
 }
 
+#[test]
+fn faith_bond_discounts_only_authored_blessing_service_costs() {
+    let compiled = compiled();
+    let blessing = first_blessing();
+    let interaction = compiled
+        .service_interaction_runtime()
+        .compile_selection(
+            service("universe.service.enhance-blessing"),
+            &ServiceInteractionSelection::EnhanceBlessing(blessing),
+        )
+        .expect("enhancement selection");
+    let raw = interaction.required_fragments().expect("authored cost");
+    let outcome = ActivityExternalOutcomeId::new(90_034).unwrap();
+    let mut activity = harness_with_inventory(
+        &compiled,
+        outcome,
+        interaction.payload(),
+        interaction.random_candidate_count(),
+        1_000,
+        Some(CurioId::new(19).unwrap()),
+        Some(blessing),
+    );
+    let before = activity.player_view();
+    activity
+        .submit_external_outcome(
+            before.state_hash(),
+            before.decision().unwrap().id(),
+            outcome,
+        )
+        .expect("discounted enhancement");
+    let expected = 1_000 - i64::from(raw * 70 / 100);
+    assert_eq!(
+        activity
+            .player_view()
+            .slots()
+            .iter()
+            .find(|slot| slot.id() == compiled.cosmic_fragments_slot())
+            .map(|slot| slot.value()),
+        Some(&ActivityValue::BoundedInteger(expected))
+    );
+}
+
 fn harness(
     compiled: &CompiledActivity,
     outcome: ActivityExternalOutcomeId,
     payload: &[u8],
     random_candidate_count: Option<u32>,
     fragments: i64,
+) -> GraphActivity {
+    harness_with_inventory(
+        compiled,
+        outcome,
+        payload,
+        random_candidate_count,
+        fragments,
+        None,
+        None,
+    )
+}
+
+#[allow(clippy::too_many_arguments)]
+fn harness_with_inventory(
+    compiled: &CompiledActivity,
+    outcome: ActivityExternalOutcomeId,
+    payload: &[u8],
+    random_candidate_count: Option<u32>,
+    fragments: i64,
+    curio: Option<CurioId>,
+    blessing: Option<BlessingId>,
 ) -> GraphActivity {
     let graph = ActivityGraphDefinition::new(
         node(1),
@@ -379,24 +442,41 @@ fn harness(
         2,
     )
     .unwrap();
+    let mut start_operations = Vec::new();
+    if let Some(curio) = curio {
+        start_operations.push(ActivityOperation::AddInventory {
+            inventory: compiled.curio_inventory(),
+            content: u64::from(curio.get()),
+            count: starclock_activity::ActivityExpression::Literal(ActivityValue::BoundedInteger(
+                1,
+            )),
+        });
+    }
+    if let Some(blessing) = blessing {
+        start_operations.push(ActivityOperation::AddInventory {
+            inventory: compiled.blessing_inventory(),
+            content: u64::from(blessing.get()),
+            count: starclock_activity::ActivityExpression::Literal(ActivityValue::BoundedInteger(
+                1,
+            )),
+        });
+    }
+    start_operations.push(ActivityOperation::Offer {
+        kind: ActivityDecisionKind::ExternalOutcome,
+        options: vec![ActivityOptionDefinition::new(
+            starclock_activity::ActivityOptionId::new(outcome.get()).unwrap(),
+            0,
+            ActivityCondition::Boolean(starclock_activity::ActivityExpression::Literal(
+                ActivityValue::Boolean(true),
+            )),
+            vec![ActivityOperation::Traverse(ActivityEdgeId::new(1).unwrap())],
+        )]
+        .into_boxed_slice(),
+    });
     let program = GraphActivityNodeProgram::new(
         node(1),
-        ActivityProgramDefinition::new(
-            ActivityProgramId::new(1).unwrap(),
-            vec![ActivityOperation::Offer {
-                kind: ActivityDecisionKind::ExternalOutcome,
-                options: vec![ActivityOptionDefinition::new(
-                    starclock_activity::ActivityOptionId::new(outcome.get()).unwrap(),
-                    0,
-                    ActivityCondition::Boolean(starclock_activity::ActivityExpression::Literal(
-                        ActivityValue::Boolean(true),
-                    )),
-                    vec![ActivityOperation::Traverse(ActivityEdgeId::new(1).unwrap())],
-                )]
-                .into_boxed_slice(),
-            }],
-        )
-        .unwrap(),
+        ActivityProgramDefinition::new(ActivityProgramId::new(1).unwrap(), start_operations)
+            .unwrap(),
     );
     let state = ActivityStateDefinition::new(
         vec![

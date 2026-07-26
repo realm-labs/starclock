@@ -71,12 +71,7 @@ impl GraphActivity {
         if expected_state_hash != self.state_hash() {
             return Err(GraphActivityCommandError::StaleStateHash);
         }
-        if minimum == 0
-            || minimum > maximum
-            || count_purpose == 0
-            || choice_purpose == 0
-            || candidates.is_empty()
-        {
+        if minimum > maximum || count_purpose == 0 || choice_purpose == 0 || candidates.is_empty() {
             return Err(invalid_random_boundary());
         }
         let mut candidates = candidates.to_vec();
@@ -108,7 +103,7 @@ impl GraphActivity {
                 .checked_sub(minimum)
                 .and_then(|value| value.checked_add(1))
                 .ok_or_else(invalid_random_boundary)?;
-            let sampled_count = if range == 1 {
+            let sampled_count = if maximum == 0 || range == 1 {
                 minimum
             } else {
                 let draw = self
@@ -128,10 +123,13 @@ impl GraphActivity {
                 .iter()
                 .map(|candidate| candidate.1)
                 .collect::<Vec<_>>();
-            let selected = self
-                .rng
-                .choose_weighted_without_replacement(label, choice_purpose, &weights, count)
-                .map_err(GraphActivityCommandError::Rng)?;
+            let selected = if count == 0 {
+                Vec::new().into_boxed_slice()
+            } else {
+                self.rng
+                    .choose_weighted_without_replacement(label, choice_purpose, &weights, count)
+                    .map_err(GraphActivityCommandError::Rng)?
+            };
             let mut selected_options = Vec::with_capacity(selected.len());
             let mut operations = prefix.to_vec();
             for index in selected {

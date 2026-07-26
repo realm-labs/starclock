@@ -1,5 +1,7 @@
 //! Activity-owned Curio lifecycle records and checked mutation operations.
 
+pub(crate) mod domain;
+
 use starclock_activity::{
     ActivityCondition, ActivityExpression, ActivityInventoryId, ActivityOperation, ActivitySlotId,
     ActivityValue,
@@ -16,6 +18,7 @@ const SIX_DECIMAL_SCALE: i128 = 1_000_000;
 pub(crate) const DESTROYED_CURIO_COUNT_KEY: u64 = u64::MAX - 1;
 pub(crate) const DIMENSION_REWARD_PENDING_KEY: u64 = u64::MAX - 2;
 pub(crate) const CAVITY_CRITICAL_STACK_KEY: u64 = u64::MAX - 3;
+pub(crate) const ROBE_FRAGMENT_SNAPSHOT_KEY: u64 = u64::MAX - 4;
 pub(crate) const GOSSIP_CURIO_CONTENT: u64 = 8;
 pub(crate) const SOCIETY_TICKET_CURIO_CONTENT: u64 = 14;
 
@@ -297,55 +300,6 @@ pub(crate) fn dimension_reward_condition(bindings: CurioActivityBindings) -> Act
         ]
         .into_boxed_slice(),
     )
-}
-
-pub(crate) fn gossip_condition(bindings: CurioActivityBindings) -> ActivityCondition {
-    owned(bindings.inventory, 110)
-}
-
-pub(crate) fn cogwheel_condition(bindings: CurioActivityBindings) -> ActivityCondition {
-    owned(bindings.inventory, 10)
-}
-
-pub(crate) fn propagation_sealing_wax_condition(
-    bindings: CurioActivityBindings,
-) -> ActivityCondition {
-    owned(bindings.inventory, 18)
-}
-
-pub(crate) fn cogwheel_domain_entry_settlement(
-    bindings: CurioActivityBindings,
-    finish: &[ActivityOperation],
-) -> Vec<ActivityOperation> {
-    let id = CurioId::new(10).expect("Cogwheel Curio ID is non-zero");
-    let mut operations = vec![
-        fragment_gain(bindings, integer(50)),
-        ActivityOperation::AddCounter {
-            slot: bindings.event_slot,
-            key: event_key(id, CurioEvent::DomainEntered),
-            delta: integer(1),
-        },
-    ];
-    let mut destroy = teardown_operations(id, bindings);
-    destroy.push(ActivityOperation::AddCounter {
-        slot: bindings.event_slot,
-        key: DESTROYED_CURIO_COUNT_KEY,
-        delta: integer(1),
-    });
-    destroy.push(ActivityOperation::SetSlot {
-        slot: bindings.fragments_slot,
-        value: integer(0),
-    });
-    destroy.extend_from_slice(finish);
-    operations.push(ActivityOperation::Conditional {
-        condition: ActivityCondition::LessThan(
-            integer(500),
-            ActivityExpression::Slot(bindings.fragments_slot),
-        ),
-        if_true: destroy.into_boxed_slice(),
-        if_false: finish.to_vec().into_boxed_slice(),
-    });
-    operations
 }
 
 pub(crate) fn dimension_reward_settlement(
@@ -666,6 +620,12 @@ mod tests {
     }
 
     #[test]
+    fn gold_coin_domain_entry_credits_six_percent_through_fragment_pipeline() {
+        assert_eq!(settle_gold_coin_domain(250, false), 265);
+        assert_eq!(settle_gold_coin_domain(250, true), 280);
+    }
+
+    #[test]
     fn dimension_dice_grants_two_extra_choices_then_destroys_itself() {
         let fragments = ActivitySlotId::new(1).unwrap();
         let states = ActivitySlotId::new(2).unwrap();
@@ -942,14 +902,16 @@ mod tests {
             ),
             bindings,
         );
-        operations.extend(cogwheel_domain_entry_settlement(bindings, &[]));
+        operations.extend(domain::cogwheel_domain_entry_settlement(bindings, &[]));
         let program =
             ActivityProgramDefinition::new(ActivityProgramId::new(16).unwrap(), operations)
                 .unwrap();
         program.validate_against(&definition, &graph).unwrap();
         let ownership_check = ActivityProgramDefinition::new(
             ActivityProgramId::new(17).unwrap(),
-            vec![ActivityOperation::Require(cogwheel_condition(bindings))],
+            vec![ActivityOperation::Require(domain::cogwheel_condition(
+                bindings,
+            ))],
         )
         .unwrap();
         ownership_check
@@ -980,6 +942,37 @@ mod tests {
             .map(i64::from)
             .unwrap_or(0);
         (fragments, owned, destroyed)
+    }
+
+    fn settle_gold_coin_domain(initial_fragments: i64, with_gossip: bool) -> i64 {
+        let (definition, graph, bindings) = activity_fixture(initial_fragments);
+        let mut operations = acquisition_operations(
+            CurioActivityRecord::new(
+                CurioId::new(21).unwrap(),
+                CurioStateId::new(1).unwrap(),
+                0,
+                None,
+            ),
+            bindings,
+        );
+        if with_gossip {
+            operations.push(ActivityOperation::AddInventory {
+                inventory: bindings.inventory,
+                content: GOSSIP_CURIO_CONTENT,
+                count: integer(1),
+            });
+        }
+        operations.extend(domain::gold_coin_domain_entry_settlement(bindings, &[]));
+        let program =
+            ActivityProgramDefinition::new(ActivityProgramId::new(18).unwrap(), operations)
+                .unwrap();
+        program.validate_against(&definition, &graph).unwrap();
+        let mut state = ActivityTransactionState::new(definition, graph.entry());
+        apply(&mut state, &program, &graph);
+        match state.slot(bindings.fragments_slot) {
+            Some(ActivityValue::BoundedInteger(value)) => *value,
+            _ => panic!("fragment slot"),
+        }
     }
 
     fn activity_fixture(
