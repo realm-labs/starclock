@@ -3,7 +3,7 @@ use crate::{
     ActivityOptionId, ActivityProgramId, ActivitySlotId, ActivityStateDefinition,
     ActivityTerminalOutcome, ActivityValue, ParticipantId, SlotValueKind,
 };
-use starclock_combat::{Energy, Ratio};
+use starclock_combat::{Energy, Hp, Ratio};
 
 pub const MAX_ACTIVITY_PROGRAM_OPERATIONS: usize = 4_096;
 pub const MAX_ACTIVITY_PROGRAM_DEPTH: usize = 16;
@@ -149,6 +149,20 @@ pub enum ActivityOperation {
         participant: ParticipantId,
         hp_ratio: Ratio,
     },
+    /// Heals one living participant by a ratio of maximum HP without reviving it.
+    HealParticipantMaximumHpRatio {
+        participant: ParticipantId,
+        hp_ratio: Ratio,
+    },
+    /// Removes a ratio of current HP from one living participant.
+    ///
+    /// `minimum_hp` makes non-lethal run effects explicit instead of relying on
+    /// content-specific clamping in the caller.
+    LoseParticipantCurrentHpRatio {
+        participant: ParticipantId,
+        hp_ratio: Ratio,
+        minimum_hp: Hp,
+    },
     /// Replaces one participant's carried Energy without changing HP/life state.
     SetParticipantEnergy {
         participant: ParticipantId,
@@ -269,6 +283,8 @@ fn validate_bindings(
                 }
             }
             ActivityOperation::RestoreParticipant { .. }
+            | ActivityOperation::HealParticipantMaximumHpRatio { .. }
+            | ActivityOperation::LoseParticipantCurrentHpRatio { .. }
             | ActivityOperation::SetParticipantEnergy { .. } => {}
             ActivityOperation::Traverse(edge) => {
                 if !graph.edges().iter().any(|item| item.id() == *edge) {
@@ -493,7 +509,9 @@ fn validate_operations(
             | ActivityOperation::AddModifier { stacks: value, .. } => {
                 validate_expression(value, 0)?;
             }
-            ActivityOperation::RestoreParticipant { hp_ratio, .. } => {
+            ActivityOperation::RestoreParticipant { hp_ratio, .. }
+            | ActivityOperation::HealParticipantMaximumHpRatio { hp_ratio, .. }
+            | ActivityOperation::LoseParticipantCurrentHpRatio { hp_ratio, .. } => {
                 if *hp_ratio <= Ratio::ZERO || *hp_ratio > Ratio::ONE {
                     return Err(ActivityProgramDefinitionError::InvalidParticipantRestoration);
                 }

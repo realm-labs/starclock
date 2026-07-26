@@ -4,10 +4,14 @@ use starclock_activity::{
     ActivityRandomBoundaryResolution, ActivityRngLabel, ActivityStateHash, ActivityValue,
     GraphActivityCommandError,
 };
-use starclock_combat::Energy;
+use starclock_combat::{Energy, Hp, LifeState, Ratio};
 
 use crate::{
-    curio_effect_runtime::{CurioEffect, CurioEffectFacts, CurioEffectRuntimeError, CurioEvent},
+    curio_activity::{CurioActivityBindings, acquisition_operations, compile_records},
+    curio_effect_runtime::{
+        CurioBlessingGrantPool, CurioDestructibleReward, CurioEffect, CurioEffectFacts,
+        CurioEffectRuntimeError, CurioEvent,
+    },
     curio_runtime::{CurioRuntimeBindings, CurioRuntimeError},
     id::{BlessingId, CurioId},
     run_runtime::RunRuntimeError,
@@ -27,7 +31,25 @@ const CURIO_ENHANCE_CHOICE_PURPOSE: u16 = 0x7c04;
 pub enum CurioDestructibleOutcome {
     NoEffect,
     Blessing(BlessingId),
+    Curio(CurioId),
     Failure,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CurioDestructiblePolicy {
+    more_frequent: bool,
+    reward_multiplier: u8,
+}
+
+impl CurioDestructiblePolicy {
+    #[must_use]
+    pub const fn more_frequent(self) -> bool {
+        self.more_frequent
+    }
+    #[must_use]
+    pub const fn reward_multiplier(self) -> u8 {
+        self.reward_multiplier
+    }
 }
 
 impl StandardUniverseActivity {
@@ -106,6 +128,107 @@ impl StandardUniverseActivity {
         StandardUniverseCurioCommandError,
     > {
         let curio = CurioId::new(5).expect("Interastral Big Lotto ID is non-zero");
+        self.resolve_destructible_event(expected_state_hash, &[(curio, outcome)])
+    }
+
+    /// Resolves one destructible-object lottery from an owned Curio.
+    ///
+    /// Released data does not publish the small-chance probabilities. The
+    /// trusted host therefore supplies the closed outcome as a replay command;
+    /// this boundary validates the configured reward family and applies the
+    /// resulting Activity transaction atomically.
+    pub fn resolve_curio_destructible_lottery(
+        &mut self,
+        expected_state_hash: ActivityStateHash,
+        curio: CurioId,
+        outcome: CurioDestructibleOutcome,
+    ) -> Result<
+        Box<[starclock_activity::ActivityTransactionEvent]>,
+        StandardUniverseCurioCommandError,
+    > {
+        self.resolve_destructible_event(expected_state_hash, &[(curio, outcome)])
+    }
+
+    /// Commits one physical destructible event and all of its Curio lotteries.
+    ///
+    /// `lotteries` must contain each triggered Curio at most once in ascending
+    /// ID order. This makes simultaneous Lotto Curios one atomic event and
+    /// increments the shared destructible count exactly once.
+    pub fn resolve_destructible_event(
+        &mut self,
+        expected_state_hash: ActivityStateHash,
+        lotteries: &[(CurioId, CurioDestructibleOutcome)],
+    ) -> Result<
+        Box<[starclock_activity::ActivityTransactionEvent]>,
+        StandardUniverseCurioCommandError,
+    > {
+        if lotteries.windows(2).any(|pair| pair[0].0 >= pair[1].0) {
+            return Err(StandardUniverseCurioCommandError::NonCanonicalOutcomes);
+        }
+        let mut operations = vec![ActivityOperation::AddCounter {
+            slot: self.curio_event_slot,
+            key: crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY,
+            delta: integer(1),
+        }];
+        for (curio, outcome) in lotteries {
+            operations.extend(self.destructible_lottery_operations(*curio, *outcome)?);
+        }
+        let program = ActivityProgramDefinition::new(
+            ActivityProgramId::new(CURIO_DESTRUCTIBLE_PROGRAM)
+                .expect("static Curio program ID is non-zero"),
+            operations,
+        )
+        .map_err(|_| StandardUniverseCurioCommandError::InvalidProgram)?;
+        self.graph
+            .apply_boundary_program(expected_state_hash, &program)
+            .map_err(StandardUniverseCurioCommandError::Activity)
+    }
+
+    /// Returns the exact destructible-generation/reward policy visible to the
+    /// spatial-free encounter host. “More frequent” remains qualitative because
+    /// released data publishes no scalar; reward doubling is exact.
+    pub fn destructible_policy(
+        &self,
+    ) -> Result<CurioDestructiblePolicy, StandardUniverseCurioCommandError> {
+        let mut policy = CurioDestructiblePolicy {
+            more_frequent: false,
+            reward_multiplier: 1,
+        };
+        for contribution in self
+            .curio_contributions()
+            .map_err(StandardUniverseCurioCommandError::Curio)?
+            .entries()
+        {
+            for applied in self
+                .curio_effect_runtime
+                .execute(
+                    contribution.curio(),
+                    CurioEvent::DestructibleDestroyed,
+                    CurioEffectFacts::default(),
+                )
+                .map_err(StandardUniverseCurioCommandError::Effect)?
+            {
+                if let CurioEffect::ConfigureDestructibles {
+                    more_frequent,
+                    reward_multiplier,
+                } = applied.effect()
+                {
+                    policy.more_frequent |= *more_frequent;
+                    policy.reward_multiplier = policy
+                        .reward_multiplier
+                        .checked_mul(*reward_multiplier)
+                        .ok_or(StandardUniverseCurioCommandError::InvalidEffectValue)?;
+                }
+            }
+        }
+        Ok(policy)
+    }
+
+    fn destructible_lottery_operations(
+        &self,
+        curio: CurioId,
+        outcome: CurioDestructibleOutcome,
+    ) -> Result<Vec<ActivityOperation>, StandardUniverseCurioCommandError> {
         if !self
             .curio_contributions()
             .map_err(StandardUniverseCurioCommandError::Curio)?
@@ -115,6 +238,30 @@ impl StandardUniverseActivity {
         {
             return Err(StandardUniverseCurioCommandError::NotOwned);
         }
+        let effects = self
+            .curio_effect_runtime
+            .execute(
+                curio,
+                CurioEvent::DestructibleDestroyed,
+                CurioEffectFacts::default(),
+            )
+            .map_err(StandardUniverseCurioCommandError::Effect)?;
+        let (reward, hp_loss_ratio, loses_resources) = effects
+            .iter()
+            .find_map(|applied| match applied.effect() {
+                CurioEffect::ConfigureDestructibleLottery {
+                    reward,
+                    failure_current_hp_loss_ratio,
+                    failure_loses_energy_and_technique_points,
+                    ..
+                } => Some((
+                    *reward,
+                    failure_current_hp_loss_ratio.raw_six_decimal(),
+                    *failure_loses_energy_and_technique_points,
+                )),
+                _ => None,
+            })
+            .ok_or(StandardUniverseCurioCommandError::NoDestructibleLottery)?;
         let mut operations = vec![ActivityOperation::AddCounter {
             slot: self.curio_event_slot,
             key: crate::curio_activity::event_key(curio, CurioEvent::DestructibleDestroyed),
@@ -123,6 +270,9 @@ impl StandardUniverseActivity {
         match outcome {
             CurioDestructibleOutcome::NoEffect => {}
             CurioDestructibleOutcome::Blessing(blessing) => {
+                if reward != CurioDestructibleReward::Blessing {
+                    return Err(StandardUniverseCurioCommandError::OutcomeMismatch);
+                }
                 let option = self
                     .blessing_runtime
                     .acquisition_option(
@@ -136,6 +286,27 @@ impl StandardUniverseActivity {
                     .ok_or(StandardUniverseCurioCommandError::UnknownBlessing)?;
                 operations.push(ActivityOperation::Require(option.enabled().clone()));
                 operations.extend_from_slice(option.operations());
+            }
+            CurioDestructibleOutcome::Curio(acquired) => {
+                if reward != CurioDestructibleReward::Curio {
+                    return Err(StandardUniverseCurioCommandError::OutcomeMismatch);
+                }
+                let record = compile_records(&self.curio_runtime)
+                    .map_err(StandardUniverseCurioCommandError::Curio)?
+                    .iter()
+                    .copied()
+                    .find(|record| record.id() == acquired)
+                    .ok_or(StandardUniverseCurioCommandError::UnknownCurio)?;
+                operations.extend(acquisition_operations(
+                    record,
+                    CurioActivityBindings {
+                        inventory: self.curio_inventory,
+                        state_slot: self.curio_state_slot,
+                        charge_slot: self.curio_charge_slot,
+                        event_slot: self.curio_event_slot,
+                        fragments_slot: self.cosmic_fragments_slot,
+                    },
+                ));
             }
             CurioDestructibleOutcome::Failure => {
                 operations.extend(
@@ -155,27 +326,38 @@ impl StandardUniverseActivity {
                     key: crate::curio_activity::DESTROYED_CURIO_COUNT_KEY,
                     delta: integer(1),
                 });
-                operations.push(ActivityOperation::SetSlot {
-                    slot: self.technique_points_slot,
-                    value: integer(0),
-                });
-                operations.extend(self.participants.entries().iter().map(|participant| {
-                    ActivityOperation::SetParticipantEnergy {
-                        participant: participant.participant(),
-                        energy: Energy::ZERO,
+                if hp_loss_ratio != 0 {
+                    if !(1..=1_000_000).contains(&hp_loss_ratio) {
+                        return Err(StandardUniverseCurioCommandError::InvalidEffectValue);
                     }
-                }));
+                    let ratio = Ratio::from_scaled(hp_loss_ratio);
+                    operations.extend(
+                        self.view()
+                            .participant_carry()
+                            .iter()
+                            .filter(|state| state.life() == LifeState::Alive)
+                            .map(|state| ActivityOperation::LoseParticipantCurrentHpRatio {
+                                participant: state.participant(),
+                                hp_ratio: ratio,
+                                minimum_hp: Hp::new(1).expect("one HP is valid"),
+                            }),
+                    );
+                }
+                if loses_resources {
+                    operations.push(ActivityOperation::SetSlot {
+                        slot: self.technique_points_slot,
+                        value: integer(0),
+                    });
+                    operations.extend(self.participants.entries().iter().map(|participant| {
+                        ActivityOperation::SetParticipantEnergy {
+                            participant: participant.participant(),
+                            energy: Energy::ZERO,
+                        }
+                    }));
+                }
             }
         }
-        let program = ActivityProgramDefinition::new(
-            ActivityProgramId::new(CURIO_DESTRUCTIBLE_PROGRAM)
-                .expect("static Curio program ID is non-zero"),
-            operations,
-        )
-        .map_err(|_| StandardUniverseCurioCommandError::InvalidProgram)?;
-        self.graph
-            .apply_boundary_program(expected_state_hash, &program)
-            .map_err(StandardUniverseCurioCommandError::Activity)
+        Ok(operations)
     }
 
     /// Resolves the hidden random Blessing grant recorded by an acquired Curio.
@@ -202,25 +384,33 @@ impl StandardUniverseActivity {
             .curio_effect_runtime
             .execute(curio, CurioEvent::Acquired, CurioEffectFacts::default())
             .map_err(StandardUniverseCurioCommandError::Effect)?;
-        let (path, minimum, maximum) = effects
+        let (pool, path, minimum, maximum) = effects
             .iter()
             .find_map(|applied| match applied.effect() {
                 CurioEffect::GrantRandomBlessings {
+                    pool,
                     path,
                     minimum,
                     maximum,
-                } => Some((*path, *minimum, *maximum)),
+                } => Some((*pool, *path, *minimum, *maximum)),
                 _ => None,
             })
             .ok_or(StandardUniverseCurioCommandError::NoRandomBlessingGrant)?;
-        let path = path
-            .or_else(|| self.selected_path())
-            .ok_or(StandardUniverseCurioCommandError::MissingSelectedPath)?;
+        let selected_path = match pool {
+            CurioBlessingGrantPool::AllEligible => None,
+            CurioBlessingGrantPool::SelectedPath => Some(
+                self.selected_path()
+                    .ok_or(StandardUniverseCurioCommandError::MissingSelectedPath)?,
+            ),
+            CurioBlessingGrantPool::AuthoredPath => {
+                Some(path.ok_or(StandardUniverseCurioCommandError::NoRandomBlessingGrant)?)
+            }
+        };
         let candidates = self
             .blessing_runtime
             .definitions()
             .iter()
-            .filter(|definition| definition.path() == path)
+            .filter(|definition| selected_path.is_none_or(|path| definition.path() == path))
             .enumerate()
             .map(|(priority, definition)| {
                 let blessing = definition.blessing();
@@ -234,7 +424,7 @@ impl StandardUniverseActivity {
                         self.blessing_inventory,
                         vec![ActivityOperation::AddCounter {
                             slot: self.path_blessing_count_slot,
-                            key: u64::from(path.get()),
+                            key: u64::from(definition.path().get()),
                             delta: integer(1),
                         }],
                     )
@@ -448,6 +638,11 @@ pub enum StandardUniverseCurioCommandError {
     MissingSelectedPath,
     NoRandomBlessingGrant,
     NoRandomBlessingEnhancement,
+    NoDestructibleLottery,
+    OutcomeMismatch,
+    UnknownCurio,
+    InvalidEffectValue,
+    NonCanonicalOutcomes,
     InvalidEventState,
     InvalidProgram,
     Effect(CurioEffectRuntimeError),
@@ -472,8 +667,8 @@ mod tests {
 
     use crate::{
         baseline_runner::{
-            StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner,
-            StandardUniverseBaselineStep,
+            NestedBattleExecutionError, StandardUniverseBaselinePolicy,
+            StandardUniverseBaselineRunner, StandardUniverseBaselineStep,
         },
         catalog::UniverseCatalog,
         curio_activity::{CurioActivityBindings, acquisition_operations, compile_records},
@@ -582,6 +777,134 @@ mod tests {
                 .id();
             assert_eq!(catalog.blessing(selected).unwrap().path(), expected);
         }
+    }
+
+    #[test]
+    fn casket_samples_one_or_two_blessings_from_the_complete_eligible_pool() {
+        let (mut activity, catalog) = activity();
+        let casket = CurioId::new(40).unwrap();
+        acquire_with_blessings(&mut activity, casket, &[]);
+        let resolution = activity
+            .resolve_curio_acquisition_blessings(activity.view().state_hash(), casket)
+            .unwrap();
+        assert!((1..=2).contains(&resolution.selected_options().len()));
+        assert!(resolution.selected_options().iter().all(|option| {
+            let blessing = u32::try_from(option.get())
+                .ok()
+                .and_then(BlessingId::new)
+                .unwrap();
+            catalog.blessing(blessing).is_some()
+        }));
+    }
+
+    #[test]
+    fn destructible_event_counts_once_and_capsule_exposes_exact_spatial_free_policy() {
+        let (mut activity, _) = activity();
+        let wick = CurioId::new(45).unwrap();
+        let capsule = CurioId::new(52).unwrap();
+        acquire_with_blessings(&mut activity, wick, &[]);
+        acquire_with_blessings(&mut activity, capsule, &[]);
+        let policy = activity.destructible_policy().unwrap();
+        assert!(policy.more_frequent());
+        assert_eq!(policy.reward_multiplier(), 2);
+        activity
+            .resolve_destructible_event(activity.view().state_hash(), &[])
+            .unwrap();
+        assert_eq!(
+            activity
+                .curio_contributions()
+                .unwrap()
+                .destructibles_destroyed(),
+            1
+        );
+    }
+
+    #[test]
+    fn cosmic_lotto_failure_destroys_itself_and_leaves_living_allies_at_one_percent() {
+        let (mut activity, _) = activity();
+        let lotto = CurioId::new(51).unwrap();
+        acquire_with_blessings(&mut activity, lotto, &[]);
+        activity
+            .resolve_curio_destructible_lottery(
+                activity.view().state_hash(),
+                lotto,
+                CurioDestructibleOutcome::Failure,
+            )
+            .unwrap();
+        assert!(
+            activity
+                .curio_contributions()
+                .unwrap()
+                .entries()
+                .iter()
+                .all(|entry| entry.curio() != lotto)
+        );
+        assert!(activity.view().participant_carry().iter().all(|state| {
+            state.life() != LifeState::Alive
+                || state.current_hp().get() == state.maximum_hp().get() / 100
+        }));
+    }
+
+    #[test]
+    fn cosmic_lotto_curio_reward_uses_the_ordinary_acquisition_lifecycle() {
+        let (mut activity, _) = activity();
+        let lotto = CurioId::new(51).unwrap();
+        let reward = CurioId::new(40).unwrap();
+        acquire_with_blessings(&mut activity, lotto, &[]);
+        activity
+            .resolve_curio_destructible_lottery(
+                activity.view().state_hash(),
+                lotto,
+                CurioDestructibleOutcome::Curio(reward),
+            )
+            .unwrap();
+        assert!(
+            activity
+                .curio_contributions()
+                .unwrap()
+                .entries()
+                .iter()
+                .any(|entry| entry.curio() == reward)
+        );
+    }
+
+    #[test]
+    fn ambergris_cheese_heals_thirty_percent_of_maximum_hp_after_victory() {
+        let (mut activity, _) = activity();
+        acquire_with_blessings(&mut activity, CurioId::new(47).unwrap(), &[]);
+        let mut executor = |handoff: &starclock_activity::ActivityBattleHandoff| {
+            Ok(alive_result(handoff, BattleOutcome::Won, 1, 2))
+        };
+        run_until_battle(&mut activity, &mut executor);
+        assert!(
+            activity
+                .view()
+                .participant_carry()
+                .iter()
+                .all(|state| { state.current_hp().get() == state.maximum_hp().get() * 4 / 5 })
+        );
+    }
+
+    #[test]
+    fn laurel_crown_converts_non_boss_defeat_to_full_restore_and_destroys_itself() {
+        let (mut activity, _) = activity();
+        let crown = CurioId::new(49).unwrap();
+        acquire_with_blessings(&mut activity, crown, &[]);
+        let mut executor = |handoff: &starclock_activity::ActivityBattleHandoff| {
+            Ok(alive_result(handoff, BattleOutcome::Lost, 0, 1))
+        };
+        run_until_battle(&mut activity, &mut executor);
+        assert!(activity.view().participant_carry().iter().all(|state| {
+            state.life() == LifeState::Alive && state.current_hp() == state.maximum_hp()
+        }));
+        assert!(
+            activity
+                .curio_contributions()
+                .unwrap()
+                .entries()
+                .iter()
+                .all(|entry| entry.curio() != crown)
+        );
     }
 
     #[test]
@@ -710,6 +1033,104 @@ mod tests {
             })
             .collect();
         BattleResult::seal(handoff.identity(), values)
+    }
+
+    fn alive_result(
+        handoff: &starclock_activity::ActivityBattleHandoff,
+        outcome: BattleOutcome,
+        numerator: i64,
+        denominator: i64,
+    ) -> BattleResult {
+        let values = handoff
+            .projection()
+            .fields()
+            .iter()
+            .map(|field| match field {
+                ProjectionField::Outcome => ProjectedValue::Outcome(outcome),
+                ProjectionField::FinalStateHash => {
+                    ProjectedValue::FinalStateHash(BattleStateHash::from_bytes([0x73; 32]))
+                }
+                ProjectionField::EventDigest => {
+                    ProjectedValue::EventDigest(EventDigest::new([0x74; 32]).unwrap())
+                }
+                ProjectionField::TerminalFault => ProjectedValue::TerminalFault(None),
+                ProjectionField::ParticipantState(participant) => {
+                    let carry = handoff
+                        .participant_carry()
+                        .iter()
+                        .find(|carry| carry.participant() == *participant)
+                        .unwrap();
+                    let hp = if numerator == 0 {
+                        Hp::new(0).unwrap()
+                    } else {
+                        Hp::new(carry.maximum_hp().get() * numerator / denominator).unwrap()
+                    };
+                    ProjectedValue::ParticipantState(
+                        ParticipantBattleState::new(
+                            *participant,
+                            hp,
+                            carry.maximum_hp(),
+                            carry.current_energy(),
+                            carry.maximum_energy(),
+                            if numerator == 0 {
+                                LifeState::Defeated
+                            } else {
+                                LifeState::Alive
+                            },
+                            if numerator == 0 {
+                                PresenceState::Departed
+                            } else {
+                                PresenceState::Present
+                            },
+                        )
+                        .unwrap(),
+                    )
+                }
+                ProjectionField::Metric { key, kind } => ProjectedValue::Metric {
+                    key: key.clone(),
+                    value: match kind {
+                        starclock_activity::MetricValueKind::BoundedInteger => {
+                            starclock_activity::MetricValue::BoundedInteger(0)
+                        }
+                        starclock_activity::MetricValueKind::FixedScalar => {
+                            starclock_activity::MetricValue::FixedScalar(0)
+                        }
+                        starclock_activity::MetricValueKind::Ratio => {
+                            starclock_activity::MetricValue::Ratio(0)
+                        }
+                        starclock_activity::MetricValueKind::Probability => {
+                            starclock_activity::MetricValue::Probability(0)
+                        }
+                        starclock_activity::MetricValueKind::ActionValue => {
+                            starclock_activity::MetricValue::ActionValue(0)
+                        }
+                    },
+                },
+            })
+            .collect();
+        BattleResult::seal(handoff.identity(), values)
+    }
+
+    fn run_until_battle(
+        activity: &mut StandardUniverseActivity,
+        executor: &mut impl FnMut(
+            &starclock_activity::ActivityBattleHandoff,
+        ) -> Result<BattleResult, NestedBattleExecutionError>,
+    ) {
+        let runner = StandardUniverseBaselineRunner::default();
+        for _ in 0..64 {
+            let step = runner
+                .advance(
+                    activity,
+                    &StandardUniverseBaselinePolicy::default(),
+                    executor,
+                )
+                .unwrap();
+            if matches!(step, StandardUniverseBaselineStep::Battle { .. }) {
+                return;
+            }
+        }
+        panic!("baseline runner did not reach a battle");
     }
 
     fn activity() -> (StandardUniverseActivity, Arc<UniverseCatalog>) {

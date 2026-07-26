@@ -439,6 +439,16 @@ fn validate_operation(
                 return Err("weakness duration must be numeric".into());
             }
         }
+        RuleOperationTemplate::AddWeaknessFromAlliedElements {
+            selector,
+            count,
+            duration_turns,
+        } => {
+            require_selector(catalog, *selector)?;
+            if *count == 0 || *count > 7 || *duration_turns == 0 {
+                return Err("allied-element weakness parameters are invalid".into());
+            }
+        }
         RuleOperationTemplate::Break { selector, .. }
         | RuleOperationTemplate::RemoveWeakness { selector, .. }
         | RuleOperationTemplate::RemoveToughnessLayer { selector, .. } => {

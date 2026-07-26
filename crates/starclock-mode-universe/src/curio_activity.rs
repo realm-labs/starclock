@@ -19,6 +19,8 @@ pub(crate) const DESTROYED_CURIO_COUNT_KEY: u64 = u64::MAX - 1;
 pub(crate) const DIMENSION_REWARD_PENDING_KEY: u64 = u64::MAX - 2;
 pub(crate) const CAVITY_CRITICAL_STACK_KEY: u64 = u64::MAX - 3;
 pub(crate) const ROBE_FRAGMENT_SNAPSHOT_KEY: u64 = u64::MAX - 4;
+pub(crate) const DESTRUCTIBLE_DESTROYED_COUNT_KEY: u64 = u64::MAX - 5;
+pub(crate) const EIDOLON_RESONANCE_LEVELS_KEY: u64 = u64::MAX - 6;
 pub(crate) const GOSSIP_CURIO_CONTENT: u64 = 8;
 pub(crate) const SOCIETY_TICKET_CURIO_CONTENT: u64 = 14;
 
@@ -215,6 +217,17 @@ pub(crate) fn destroyed_curio_count(value: &ActivityValue) -> Option<u32> {
     entries
         .iter()
         .find(|(key, _)| *key == DESTROYED_CURIO_COUNT_KEY)
+        .and_then(|(_, value)| u32::try_from(*value).ok())
+        .or(Some(0))
+}
+
+pub(crate) fn destructible_destroyed_count(value: &ActivityValue) -> Option<u32> {
+    let ActivityValue::BoundedCounterMap(entries) = value else {
+        return None;
+    };
+    entries
+        .iter()
+        .find(|(key, _)| *key == DESTRUCTIBLE_DESTROYED_COUNT_KEY)
         .and_then(|(_, value)| u32::try_from(*value).ok())
         .or(Some(0))
 }

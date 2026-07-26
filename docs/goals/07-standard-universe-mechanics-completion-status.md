@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 3 — Curios |
-| Active batch | `G07-P3-M11-S05` |
-| Next unblocked batch | `G07-P3-M11-S05` |
+| Active batch | `G07-P3-M11-S06` |
+| Next unblocked batch | `G07-P3-M11-S06` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -104,7 +104,15 @@ policy, Warping Compound Eye enhances offered one-star Blessings in the
 ordinary reward transaction, and Fruit of the Alien Tree restores defeated
 participant carry and destroys itself in one won-battle settlement. The
 partition adds no native handler; the shared Wax x2 policy remains explicitly
-replaceable. `G07-P3-M11-S05` is active.
+replaceable. Curio S05 is complete: Casket uses the complete Blessing pool,
+Wick Trimmer snapshots the generic destructible counter, Ambergris and Laurel
+settle participant carry atomically, and Space-Time Prism recompiles an exact
+locked build at one additional Eidolon level. Cosmic Lotto and Capsule use
+spatial-free destructible commands and policy, while Punklorde implants one
+shared allied element through generic Rule IR. The partition adds no native
+handler; unpublished lottery chances, destructible frequency and mixed-team
+element selection remain explicit external or replaceable project policies.
+`G07-P3-M11-S06` is active.
 
 ## Fixed batch ledger
 

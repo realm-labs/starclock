@@ -12,12 +12,13 @@ use crate::{
     formula,
     id::EventId,
     operation::{
-        AddWeaknessOp, ApplyEffectOp, DamageOp, HitOperationScratch, Operation, ReduceToughnessOp,
+        ApplyEffectOp, DamageOp, HitOperationScratch, Operation, ReduceToughnessOp,
         RemoveEffectsOp, SuperBreakOp,
     },
 };
 pub(super) mod fault;
 mod sustain;
+mod weakness;
 use fault::{invariant_fault, numeric_fault};
 
 pub(super) fn execute_operation(
@@ -43,7 +44,12 @@ pub(super) fn execute_operation(
         Operation::ConsumeHp(operation) => {
             sustain::execute_hp_consumption(txn, cause, parent, operation)
         }
-        Operation::AddWeakness(operation) => execute_add_weakness(txn, cause, parent, operation),
+        Operation::AddWeakness(operation) => {
+            weakness::execute_add_weakness(txn, cause, parent, operation)
+        }
+        Operation::AddWeaknessFromAlliedElements(operation) => {
+            weakness::execute_allied_element_weakness(catalog, txn, cause, parent, operation)
+        }
         Operation::ReduceToughness(operation) => {
             execute_toughness_reduction(catalog, txn, cause, parent, operation, scratch)
         }
@@ -102,35 +108,6 @@ pub(super) fn execute_operation(
             super::lifecycle::execute_enemy_phase(catalog, txn, cause, parent, operation)
         }
     }
-}
-
-fn execute_add_weakness(
-    txn: &mut Transaction<'_>,
-    cause: Cause,
-    mut parent: EventId,
-    operation: AddWeaknessOp,
-) -> Result<EventId, BattleFault> {
-    for target in operation.targets {
-        let element = operation.definition.element();
-        let added = txn.add_weakness(
-            target,
-            element,
-            operation.definition.duration_turns(),
-            cause.applier().ok_or_else(|| invariant_fault(11))?,
-            operation.id,
-        )?;
-        parent = txn.emit(
-            cause.with_parent(parent).with_primary_target(Some(target)),
-            BattleEventKind::Toughness(ToughnessEventData::WeaknessAdded {
-                operation: operation.id,
-                target,
-                element,
-                already_present: !added,
-                duration_turns: operation.definition.duration_turns(),
-            }),
-        );
-    }
-    Ok(parent)
 }
 
 pub(super) fn execute_toughness_reduction(

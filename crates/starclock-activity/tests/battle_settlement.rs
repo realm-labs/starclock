@@ -234,6 +234,62 @@ fn defeated_participant_condition_and_restore_operation_mutate_carry_atomically(
 }
 
 #[test]
+fn participant_ratio_carry_operations_heal_from_maximum_and_lose_from_current() {
+    let setup = Setup::new(true);
+    let mut state = setup.state();
+    setup.prepare(&mut state, node(20), 1, 1);
+    let handoff = setup.start(&mut state);
+    let awaiting = state.state_hash(setup.identity, &setup.graph, setup.instance, &setup.rng);
+    state
+        .submit_pending_battle_result(
+            setup.identity,
+            &setup.graph,
+            setup.instance,
+            &setup.rng,
+            ActivityBattleResultSubmission::new(
+                awaiting,
+                result(
+                    handoff.identity(),
+                    BattleOutcome::Won,
+                    participant_state(400, 25, LifeState::Alive, PresenceState::Present),
+                    0,
+                ),
+            ),
+        )
+        .unwrap();
+    let program = ActivityProgramDefinition::new(
+        ActivityProgramId::new(91).unwrap(),
+        vec![
+            ActivityOperation::HealParticipantMaximumHpRatio {
+                participant: participant(1),
+                hp_ratio: Ratio::from_scaled(300_000),
+            },
+            ActivityOperation::LoseParticipantCurrentHpRatio {
+                participant: participant(1),
+                hp_ratio: Ratio::from_scaled(990_000),
+                minimum_hp: hp(1),
+            },
+        ],
+    )
+    .unwrap();
+    let cause = ActivityCause::new(
+        state.command_sequence() + 1,
+        program.id(),
+        state.current_node(),
+    )
+    .unwrap();
+    assert!(matches!(
+        state.apply_program(&program, cause, &setup.graph),
+        ActivityTransactionOutcome::Committed(_)
+    ));
+    let carry = state
+        .player_view(setup.identity, &setup.graph, setup.instance, &setup.rng)
+        .participant_carry()[0];
+    assert_eq!(carry.current_hp(), hp(7));
+    assert_eq!(carry.life(), LifeState::Alive);
+}
+
+#[test]
 fn stale_forged_and_incompatible_results_preserve_bytes_and_rng() {
     let setup = Setup::new(false);
     let mut state = setup.state();

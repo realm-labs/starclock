@@ -11,14 +11,16 @@ use crate::{
     battle_contribution::UniverseBattleContributionSet,
     battle_rule_lowering::{RESONANCE_ABILITY_ID, RuleAttachment},
     battle_technique::CompiledUniverseBattleTechnique,
+    catalog::UniverseCatalog,
 };
 
 use super::{
-    UniverseBattleMaterializationError, UniverseBattleRoster,
+    UniverseBattleMaterializationError, UniverseBattleRoster, UniverseBattleRosterEntry,
     materialization_digest::combatant_digest,
 };
 
 pub(super) fn player_participants(
+    universe: &UniverseCatalog,
     roster: &UniverseBattleRoster,
     contributions: &UniverseBattleContributionSet,
     technique: Option<&CompiledUniverseBattleTechnique>,
@@ -29,13 +31,14 @@ pub(super) fn player_participants(
         .iter()
         .enumerate()
         .map(|(index, entry)| {
-            let projected_energy = projected_party_energy(entry.combatant(), contributions)?;
+            let base = projected_eidolon_combatant(universe, entry, contributions)?;
+            let projected_energy = projected_party_energy(&base, contributions)?;
             let mut participant = ParticipantSpec::new(
                 TeamSide::Player,
                 entry.formation(),
                 ParticipantSource::Player,
                 apply_party_modifiers(
-                    entry.combatant(),
+                    &base,
                     contributions,
                     index == 0,
                     technique.filter(|technique| {
@@ -64,6 +67,42 @@ pub(super) fn player_participants(
             Ok(participant)
         })
         .collect()
+}
+
+fn projected_eidolon_combatant(
+    universe: &UniverseCatalog,
+    entry: &UniverseBattleRosterEntry,
+    contributions: &UniverseBattleContributionSet,
+) -> Result<ResolvedCombatantSpec, UniverseBattleMaterializationError> {
+    let levels = contributions.eidolon_resonance_levels();
+    if levels == 0 {
+        return Ok(entry.combatant().clone());
+    }
+    let spec = entry
+        .build_spec()
+        .ok_or(UniverseBattleMaterializationError::MissingBuildSelection)?;
+    let core = universe.simulation_catalog();
+    let compiled = starclock_build::compiler::LoadoutCompiler
+        .compile(core.build_catalog(), core.combat_catalog(), spec)
+        .map_err(|_| UniverseBattleMaterializationError::InvalidBuildSelection)?;
+    if compiled.combatant().digest() != entry.combatant().digest()
+        || compiled.build_digest().bytes() != entry.build_digest().bytes()
+    {
+        return Err(UniverseBattleMaterializationError::InvalidBuildSelection);
+    }
+    let effective = spec
+        .eidolon()
+        .get()
+        .saturating_add(levels)
+        .min(starclock_build::spec::EidolonLevel::MAX);
+    let enhanced = spec.clone().with_eidolon(
+        starclock_build::spec::EidolonLevel::new(effective)
+            .expect("clamped Eidolon level is valid"),
+    );
+    starclock_build::compiler::LoadoutCompiler
+        .compile(core.build_catalog(), core.combat_catalog(), &enhanced)
+        .map(|compiled| compiled.combatant().clone())
+        .map_err(|_| UniverseBattleMaterializationError::InvalidBuildSelection)
 }
 
 fn apply_party_modifiers(

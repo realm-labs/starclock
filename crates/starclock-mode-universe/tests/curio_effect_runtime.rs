@@ -3,8 +3,8 @@ use std::sync::{Arc, OnceLock};
 use starclock_mode_universe::{
     catalog::UniverseCatalog,
     curio_effect_runtime::{
-        CURIO_EFFECT_RUNTIME_REVISION, CurioEffect, CurioEffectFacts, CurioEffectRuntimeCatalog,
-        CurioEvent,
+        CURIO_EFFECT_RUNTIME_REVISION, CurioBlessingGrantPool, CurioEffect, CurioEffectFacts,
+        CurioEffectRuntimeCatalog, CurioEvent,
     },
     curio_runtime::CurioRuntimeCatalog,
     id::CurioId,
@@ -104,7 +104,8 @@ fn sealing_wax_and_blessing_reward_policies_are_typed() {
         CurioEffect::GrantRandomBlessings {
             path: Some(_),
             minimum: 1,
-            maximum: 1
+            maximum: 1,
+            pool: CurioBlessingGrantPool::AuthoredPath,
         }
     ));
     assert!(matches!(

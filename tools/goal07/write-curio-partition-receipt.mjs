@@ -23,11 +23,12 @@ const audit = json(
 const partition = manifest.partitions.find(({ id }) => id === partitionId);
 assert(partition?.mechanic_family?.startsWith("curio-"),
   `${partitionId}: not a Curio partition`);
-assert(["G07-P3-M11-S01", "G07-P3-M11-S02", "G07-P3-M11-S03", "G07-P3-M11-S04"].includes(partitionId),
+assert(["G07-P3-M11-S01", "G07-P3-M11-S02", "G07-P3-M11-S03", "G07-P3-M11-S04", "G07-P3-M11-S05"].includes(partitionId),
   `${partitionId}: Curio receipt profile is not implemented`);
 const s02 = partitionId === "G07-P3-M11-S02";
 const s03 = partitionId === "G07-P3-M11-S03";
 const s04 = partitionId === "G07-P3-M11-S04";
+const s05 = partitionId === "G07-P3-M11-S05";
 const golden =
   `evidence/standard-universe-mechanics-complete-v1/goldens/${partitionId}.json`;
 assert(exists(golden), `${partitionId}: golden is missing`);
@@ -39,7 +40,17 @@ const sourceEvidence = [
   { path: "content-reference/standard-universe-v1/curio-states.json" },
   { path: "content-reference/standard-universe-v1/mechanic-rules.json" },
 ];
-const executionEvidence = s04 ? [
+const executionEvidence = s05 ? [
+  { path: "crates/starclock-activity/src/program.rs" },
+  { path: "crates/starclock-activity/src/transaction/participant_carry.rs" },
+  { path: "crates/starclock-combat/src/rule/model.rs" },
+  { path: "crates/starclock-combat/src/resolver/operation.rs" },
+  { path: "crates/starclock-mode-universe/src/runtime/curio_commands.rs" },
+  { path: "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs" },
+  { path: "crates/starclock-mode-universe/src/battle_materialization/player.rs" },
+  { path: "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s05.rs" },
+  { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s05.rs" },
+] : s04 ? [
   { path: "crates/starclock-mode-universe/src/curio_activity/domain.rs" },
   { path: "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs" },
   { path: "crates/starclock-mode-universe/src/runtime/curio_commands.rs" },
@@ -75,13 +86,15 @@ const executionEvidence = s04 ? [
   { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s01.rs" },
 ];
 const reviewEvidence = [
-  { path: s04
-    ? "docs/goal-07-curio-s04.md"
+  { path: s05
+    ? "docs/goal-07-curio-s05.md"
+    : s04 ? "docs/goal-07-curio-s04.md"
     : s03 ? "docs/goal-07-curio-s03.md"
     : s02 ? "docs/goal-07-curio-s02.md" : "docs/goal-07-curio-s01.md" },
   { path: "crates/starclock-mode-universe/src/curio_activity.rs" },
-  { path: s04
-    ? "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
+  { path: s05
+    ? "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s05.rs"
+    : s04 ? "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
     : s03 ? "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s03.rs"
     : s02
     ? "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s02.rs"
@@ -93,7 +106,7 @@ const receipt = {
   goal_id: "standard-universe-mechanics-complete-v1",
   partition_id: partitionId,
   state: "Complete",
-  completed_on: "2026-07-26",
+  completed_on: s05 ? "2026-07-27" : "2026-07-26",
   authoring: {
     workbooks: [
       {
@@ -132,8 +145,11 @@ const receipt = {
       { path: "config/data/UniverseEvidence.xlsx" },
     ]),
     execution_kind: "RustTest",
-    test_path: s04
-      ? "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s04.rs"
+    test_path: s05
+      ? id === "universe.fixture.curio-tag.destructible"
+        ? "crates/starclock-mode-universe/src/runtime/curio_commands.rs"
+        : "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s05.rs"
+      : s04 ? "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s04.rs"
       : s03
       ? id === "universe.fixture.curio-tag.blessing"
         ? "crates/starclock-mode-universe/src/runtime/curio_commands.rs"
@@ -141,8 +157,11 @@ const receipt = {
       : s02
       ? "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s02.rs"
       : "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s01.rs",
-    test_marker: s04
-      ? "goal07_p3_m11_s04_executes_every_assigned_curio_without_native_handlers"
+    test_marker: s05
+      ? id === "universe.fixture.curio-tag.destructible"
+        ? "destructible_event_counts_once_and_capsule_exposes_exact_spatial_free_policy"
+        : "goal07_p3_m11_s05_keeps_all_assigned_curios_out_of_native_handlers"
+      : s04 ? "goal07_p3_m11_s04_executes_every_assigned_curio_without_native_handlers"
       : s03
       ? fixtureMarkerS03(id)
       : s02
@@ -157,7 +176,26 @@ const receipt = {
     decision: nativeDecision(id),
     evidence: reviewEvidence,
   })),
-  numeric_approximations: s04 ? [
+  numeric_approximations: s05 ? [
+    {
+      id: "universe.curio.63.destructible-lottery-chances",
+      disposition: "ExternalDecision",
+      rationale:
+        "Public evidence confirms two small chances but publishes neither probability. The replayable command records NoEffect, Curio or Failure without inventing a number.",
+    },
+    {
+      id: "universe.curio.64.destructible-frequency",
+      disposition: "ExternalDecision",
+      rationale:
+        "Public evidence only says destructible objects appear more frequently. Runtime exposes a qualitative policy flag to the spatial-free host and does not invent a spawn multiplier.",
+    },
+    {
+      id: "universe.curio.68.allied-element-selection",
+      disposition: "ProjectPolicyApproximate",
+      rationale:
+        "The source defines the allied-element candidate set and one selected weakness but no mixed-team selection distribution. Runtime v1 freezes deterministic uniform battle-RNG selection.",
+    },
+  ] : s04 ? [
     ...[
       ["23", "elation"],
       ["24", "hunt"],
@@ -210,8 +248,12 @@ const receipt = {
     commands: [
       `python tools/goal07/author-curio-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify_production_workbooks.mjs .",
-      `cargo test -p starclock-mode-universe --test mechanic_battle_integration ${s04 ? "curio_s04" : s03 ? "curio_s03" : s02 ? "curio_s02" : "curio_s01"} --all-features`,
+      `cargo test -p starclock-mode-universe --test mechanic_battle_integration ${s05 ? "curio_s05" : s04 ? "curio_s04" : s03 ? "curio_s03" : s02 ? "curio_s02" : "curio_s01"} --all-features`,
       "cargo test -p starclock-mode-universe --lib curio_activity::tests --all-features",
+      ...(s05 ? [
+        "cargo test -p starclock-activity --test battle_settlement --all-features",
+        "cargo test -p starclock-mode-universe --lib runtime::curio_commands::tests --all-features",
+      ] : []),
       ...(s04 ? [
         "cargo test -p starclock-mode-universe --lib runtime::curio_commands::tests --all-features",
         "cargo test -p starclock-mode-universe --test topology_runtime --all-features",
@@ -281,6 +323,14 @@ function nativeDecision(id) {
     "28": "The table-driven Sealing Wax boundary grants one Abundance Blessing and applies the shared conditional Path-offer weight policy.",
     "3": "The ordinary Blessing acquisition expression adds the owned Curio count only for one-star options, preserving one atomic reward transaction.",
     "4": "The generic post-battle participant projection, full-ratio restore operation and Curio teardown express the one-use party revival atomically.",
+    "5": "The generic Reward-stream boundary samples one or two unowned Blessings without replacement from the complete eligible catalog.",
+    "58": "The generic destructible Activity counter is captured in immutable battle contributions and lowered to ordinary all-character damage modifiers.",
+    "6": "The generic won-battle projection and checked maximum-HP carry operation heal all living participants without combat inventory knowledge.",
+    "61": "The result adapter validates and converts non-Boss defeat, restores participant carry and tears down the one-use Curio atomically.",
+    "62": "The mode adapter verifies the exact locked build selection and recompiles one additional Eidolon level before ordinary combat materialization.",
+    "63": "The atomic external destructible outcome uses ordinary Curio acquisition or generic current-HP loss and Curio teardown operations.",
+    "64": "The spatial-free destructible policy exposes the qualitative frequency flag and exact doubled reward without scene dependencies.",
+    "68": "A generic BattleStarted Rule IR operation samples one present allied Basic element and applies the same timed weakness to every enemy.",
   }[stable] ?? "Generic Activity and Rule IR primitives express the assigned Curio state.";
 }
 function fixtureMarker(id) {

@@ -71,6 +71,7 @@ fn cavity_capture_materializes_exact_critical_damage_fixture() {
         Some("universe.curio.113"),
         false,
         0,
+        0,
         &[(CAVITY_RUNTIME_KEY, 2)],
     );
     let materialization = materialize(&catalog, &contributions);

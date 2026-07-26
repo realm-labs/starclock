@@ -140,6 +140,37 @@ impl CurioContributionSet {
         self.destroyed_curios
     }
     #[must_use]
+    pub fn destructibles_destroyed(&self) -> u32 {
+        self.runtime_value(crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY)
+            .and_then(|value| u32::try_from(value).ok())
+            .unwrap_or(0)
+    }
+    #[must_use]
+    pub fn eidolon_resonance_levels(&self) -> u8 {
+        self.runtime_value(crate::curio_activity::EIDOLON_RESONANCE_LEVELS_KEY)
+            .and_then(|value| u8::try_from(value).ok())
+            .or_else(|| {
+                let parameter = self
+                    .entries
+                    .iter()
+                    .find(|entry| entry.state.source_effect_id.as_ref() == "62")?
+                    .state
+                    .parameters
+                    .first()?;
+                if parameter.scale() > 6 {
+                    return None;
+                }
+                let value = parameter
+                    .coefficient()
+                    .checked_mul(10_i64.pow(u32::from(6 - parameter.scale())))?;
+                if value < 0 || value % 1_000_000 != 0 {
+                    return None;
+                }
+                u8::try_from(value / 1_000_000).ok()
+            })
+            .unwrap_or(0)
+    }
+    #[must_use]
     pub fn runtime_value(&self, key: u64) -> Option<i64> {
         self.runtime_values
             .binary_search_by_key(&key, |entry| entry.0)
@@ -158,6 +189,23 @@ impl CurioContributionSet {
         self.destroyed_curios = destroyed_curios;
         self.digest = contribution_digest(&self.entries, destroyed_curios, &self.runtime_values);
         self
+    }
+
+    /// Captures the run-wide destructible count at a battle boundary.
+    #[must_use]
+    pub fn with_destructibles_destroyed(self, count: u32) -> Self {
+        self.with_runtime_value(
+            crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY,
+            i64::from(count),
+        )
+    }
+
+    #[must_use]
+    pub fn with_eidolon_resonance_levels(self, levels: u8) -> Self {
+        self.with_runtime_value(
+            crate::curio_activity::EIDOLON_RESONANCE_LEVELS_KEY,
+            i64::from(levels),
+        )
     }
 
     /// Captures one Activity-owned scalar at the immutable battle boundary.

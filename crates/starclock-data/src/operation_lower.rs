@@ -126,6 +126,7 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
             | O::Break { selector, .. }
             | O::SuperBreak { selector, .. }
             | O::AddWeakness { selector, .. }
+            | O::AddWeaknessFromAlliedElements { selector, .. }
             | O::RemoveWeakness { selector, .. }
             | O::CreateToughnessLayer { selector, .. }
             | O::RemoveToughnessLayer { selector, .. }

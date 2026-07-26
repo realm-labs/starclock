@@ -71,6 +71,7 @@ fn robe_of_the_beauty_snapshots_complete_fragment_hundreds() {
         Some("universe.curio.14"),
         false,
         0,
+        0,
         &[(ROBE_RUNTIME_KEY, 250)],
     );
     let materialization = materialize(&catalog, &contributions);

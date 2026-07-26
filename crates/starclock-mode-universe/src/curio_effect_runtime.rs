@@ -66,6 +66,14 @@ pub enum CurioDestructibleReward {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 #[repr(u8)]
+pub enum CurioBlessingGrantPool {
+    AllEligible = 0,
+    SelectedPath = 1,
+    AuthoredPath = 2,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(u8)]
 pub enum CurioHpChange {
     Consume = 0,
     Restore = 1,
@@ -82,6 +90,7 @@ pub enum CurioEnergyChange {
 pub enum CurioEffect {
     Battle(PathEffect),
     GrantRandomBlessings {
+        pool: CurioBlessingGrantPool,
         path: Option<PathId>,
         minimum: u8,
         maximum: u8,
@@ -441,6 +450,7 @@ fn execute(
                 .path
                 .ok_or(CurioEffectRuntimeError::InvalidDefinition)?;
             effects.push(CurioEffect::GrantRandomBlessings {
+                pool: CurioBlessingGrantPool::AuthoredPath,
                 path: Some(path),
                 minimum: 1,
                 maximum: 1,
@@ -486,6 +496,7 @@ fn execute(
             ratio: p[0],
         })),
         T::SelectedPathBlessings => effects.push(CurioEffect::GrantRandomBlessings {
+            pool: CurioBlessingGrantPool::SelectedPath,
             path: None,
             minimum: turns(p[0])?,
             maximum: turns(p[1])?,
@@ -528,6 +539,7 @@ fn execute(
             });
         }
         T::RandomBlessings => effects.push(CurioEffect::GrantRandomBlessings {
+            pool: CurioBlessingGrantPool::AllEligible,
             path: None,
             minimum: turns(p[0])?,
             maximum: turns(p[1])?,

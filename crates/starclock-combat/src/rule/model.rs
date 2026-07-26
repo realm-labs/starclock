@@ -650,6 +650,11 @@ pub enum RuleOperationTemplate {
         /// Optional target-turn lifetime. `None` denotes a permanent weakness.
         duration_turns: Option<ValueExpr>,
     },
+    AddWeaknessFromAlliedElements {
+        selector: SelectorId,
+        count: u8,
+        duration_turns: u8,
+    },
     RemoveWeakness {
         selector: SelectorId,
         element: CombatElement,
@@ -1016,6 +1021,12 @@ pub enum RuleEmission {
         selector: SelectorId,
         element: CombatElement,
         duration_turns: Option<RuleValue>,
+        current_target: Option<UnitId>,
+    },
+    AddWeaknessFromAlliedElements {
+        selector: SelectorId,
+        count: u8,
+        duration_turns: u8,
         current_target: Option<UnitId>,
     },
     RemoveWeakness {

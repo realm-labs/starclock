@@ -6,15 +6,17 @@ use starclock_activity::{
     ActivityBattleHandoff, ActivityBattleResultContract, ActivityProgramDefinition,
     ActivityProgramId, ActivityStateHash, BattleBinding, BattleOutcome, BattleResult,
     GraphActivityBattleError, GraphActivityBattleResolution, GraphActivityRuntimeError,
-    ProjectedValue, TechniqueContributionDigest,
+    ParticipantBattleState, ProjectedValue, TechniqueContributionDigest,
 };
-use starclock_combat::{LifeState, Ratio};
+use starclock_combat::{LifeState, PresenceState, Ratio};
 
 use crate::ability_runtime::{AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope};
 use crate::{
     curio_activity::event_key,
     curio_effect_runtime::{CurioEffect, CurioEffectFacts, CurioEvent},
     curio_runtime::CurioRuntimeBindings,
+    definition::DomainKind,
+    path_effect_runtime::{PathEffect, PathEffectTarget},
 };
 
 use super::{StandardUniverseActivity, StandardUniverseBattleStartError};
@@ -58,8 +60,12 @@ impl StandardUniverseActivity {
     pub fn submit_pending_battle_result(
         &mut self,
         expected_state_hash: ActivityStateHash,
-        result: BattleResult,
+        mut result: BattleResult,
     ) -> Result<GraphActivityBattleResolution, GraphActivityBattleError> {
+        let laurel = self.non_final_defeat_laurel(&result)?;
+        if laurel.is_some() {
+            result = full_restore_victory(&result)?;
+        }
         let won = result
             .values()
             .iter()
@@ -80,6 +86,68 @@ impl StandardUniverseActivity {
                 .map_err(|_| invalid_boundary())?;
             let mut operations = projection.operations().to_vec();
             let contributions = self.curio_contributions().map_err(|_| invalid_boundary())?;
+            if let Some(curio) = laurel {
+                operations.push(starclock_activity::ActivityOperation::AddCounter {
+                    slot: self.curio_event_slot,
+                    key: event_key(curio, CurioEvent::RunDefeated),
+                    delta: integer(1),
+                });
+                operations.extend(
+                    self.curio_runtime
+                        .teardown_operations(
+                            curio,
+                            CurioRuntimeBindings {
+                                inventory: self.curio_inventory,
+                                state_slot: self.curio_state_slot,
+                                charge_slot: self.curio_charge_slot,
+                            },
+                        )
+                        .map_err(|_| invalid_boundary())?,
+                );
+                operations.push(starclock_activity::ActivityOperation::AddCounter {
+                    slot: self.curio_event_slot,
+                    key: crate::curio_activity::DESTROYED_CURIO_COUNT_KEY,
+                    delta: integer(1),
+                });
+            }
+            for contribution in contributions.entries() {
+                let effects = self
+                    .curio_effect_runtime
+                    .execute(
+                        contribution.curio(),
+                        CurioEvent::BattleWon,
+                        CurioEffectFacts::default(),
+                    )
+                    .map_err(|_| invalid_boundary())?;
+                let Some(ratio) = effects.iter().find_map(|applied| match applied.effect() {
+                    CurioEffect::Battle(PathEffect::HealMaximumHpRatio {
+                        target: PathEffectTarget::AllAllies,
+                        ratio,
+                    }) => Some(ratio.raw_six_decimal()),
+                    _ => None,
+                }) else {
+                    continue;
+                };
+                if !(1..=1_000_000).contains(&ratio) {
+                    return Err(invalid_boundary());
+                }
+                operations.extend(result.values().iter().filter_map(|value| match value {
+                    ProjectedValue::ParticipantState(state) if state.life() == LifeState::Alive => {
+                        Some(
+                            starclock_activity::ActivityOperation::HealParticipantMaximumHpRatio {
+                                participant: state.participant(),
+                                hp_ratio: Ratio::from_scaled(ratio),
+                            },
+                        )
+                    }
+                    _ => None,
+                }));
+                operations.push(starclock_activity::ActivityOperation::AddCounter {
+                    slot: self.curio_event_slot,
+                    key: event_key(contribution.curio(), CurioEvent::BattleWon),
+                    delta: integer(1),
+                });
+            }
             if let Some(curio) = contributions
                 .entries()
                 .iter()
@@ -199,8 +267,105 @@ impl StandardUniverseActivity {
                 boundary_program.as_ref(),
             )
     }
+
+    fn non_final_defeat_laurel(
+        &self,
+        result: &BattleResult,
+    ) -> Result<Option<crate::id::CurioId>, GraphActivityBattleError> {
+        if result.actual_digest() != result.claimed_digest()
+            || !result
+                .values()
+                .iter()
+                .any(|value| matches!(value, ProjectedValue::Outcome(BattleOutcome::Lost)))
+            || self.pending_domain_kind()? == DomainKind::Boss
+        {
+            return Ok(None);
+        }
+        let contributions = self.curio_contributions().map_err(|_| invalid_boundary())?;
+        for contribution in contributions.entries() {
+            let effects = self
+                .curio_effect_runtime
+                .execute(
+                    contribution.curio(),
+                    CurioEvent::RunDefeated,
+                    CurioEffectFacts {
+                        final_domain: false,
+                        ..CurioEffectFacts::default()
+                    },
+                )
+                .map_err(|_| invalid_boundary())?;
+            if effects.iter().any(|effect| {
+                matches!(
+                    effect.effect(),
+                    CurioEffect::TreatNonFinalDefeatAsVictoryAndRestoreFullHp
+                )
+            }) {
+                return Ok(Some(contribution.curio()));
+            }
+        }
+        Ok(None)
+    }
+
+    fn pending_domain_kind(&self) -> Result<DomainKind, GraphActivityBattleError> {
+        let pending = self.graph.pending_battle().ok_or_else(invalid_boundary)?;
+        let member = self
+            .overlay
+            .binding_for_spec(pending.battle_spec_digest().bytes())
+            .ok_or_else(invalid_boundary)?
+            .member();
+        let room = self
+            .graph
+            .debug_view()
+            .all_slots()
+            .iter()
+            .find(|slot| slot.id() == self.selected_room_slot)
+            .and_then(|slot| match slot.value() {
+                starclock_activity::ActivityValue::OptionalId(Some(value)) => Some(*value),
+                _ => None,
+            })
+            .and_then(|value| u32::try_from(value).ok())
+            .and_then(crate::id::RoomId::new)
+            .ok_or_else(invalid_boundary)?;
+        self.encounter_options
+            .iter()
+            .find(|binding| binding.member() == member && binding.room() == room)
+            .map(|binding| binding.domain_kind())
+            .ok_or_else(invalid_boundary)
+    }
 }
 
 const fn invalid_boundary() -> GraphActivityBattleError {
     GraphActivityBattleError::Runtime(GraphActivityRuntimeError::InvalidBoundaryProgram)
+}
+
+fn full_restore_victory(result: &BattleResult) -> Result<BattleResult, GraphActivityBattleError> {
+    if result.actual_digest() != result.claimed_digest() {
+        return Err(invalid_boundary());
+    }
+    let values = result
+        .values()
+        .iter()
+        .map(|value| match value {
+            ProjectedValue::Outcome(_) => Ok(ProjectedValue::Outcome(BattleOutcome::Won)),
+            ProjectedValue::ParticipantState(state) => ParticipantBattleState::new(
+                state.participant(),
+                state.maximum_hp(),
+                state.maximum_hp(),
+                state.current_energy(),
+                state.maximum_energy(),
+                LifeState::Alive,
+                PresenceState::Present,
+            )
+            .map(ProjectedValue::ParticipantState)
+            .ok_or_else(invalid_boundary),
+            value => Ok(value.clone()),
+        })
+        .collect::<Result<Vec<_>, _>>()?;
+    Ok(BattleResult::seal(result.identity(), values))
+}
+
+fn integer(value: i64) -> starclock_activity::ActivityExpression {
+    starclock_activity::ActivityExpression::Literal(
+        starclock_activity::ActivityValue::BoundedInteger(value),
+    )
 }

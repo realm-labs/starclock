@@ -27,13 +27,14 @@ use crate::{
 use super::{operation::execute_operation, transaction::Transaction};
 use std::collections::BTreeMap;
 mod emission;
+pub(super) use emission::actor_basic_element;
 pub(super) mod fault;
 mod random_damage;
 mod random_grouped_effect;
 mod resource;
 mod value;
 pub(super) use emission::emission_targets;
-use emission::{actor_basic_element, emission_current_target, healing_operation, slot_operation};
+use emission::{emission_current_target, healing_operation, slot_operation};
 use fault::emission_code;
 pub(super) use fault::program_fault;
 use random_damage::execute_random_repeated_damage;
@@ -663,6 +664,19 @@ fn execute_emission(
                 .ok_or_else(|| program_fault(67, 0))?,
             },
         }),
+        RuleEmission::AddWeaknessFromAlliedElements {
+            selector,
+            count,
+            duration_turns,
+            ..
+        } => Operation::AddWeaknessFromAlliedElements(
+            crate::operation::AddWeaknessFromAlliedElementsOp {
+                id: operation_id,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
+                count,
+                duration_turns,
+            },
+        ),
         RuleEmission::ReduceToughness {
             selector,
             amount,

@@ -164,6 +164,7 @@ pub struct UniverseBattleContributionSet {
     rules: Box<[UniverseBattleRuleBinding]>,
     modifiers: Box<[UniverseBattleModifierBinding]>,
     boundary_values: Box<[UniverseBattleBoundaryValue]>,
+    eidolon_resonance_levels: u8,
     executable_rules: Box<[ExecutableBattleRule]>,
     resonance: Option<ExecutableResonance>,
     digest: [u8; 32],
@@ -198,6 +199,11 @@ impl UniverseBattleContributionSet {
     #[must_use]
     pub fn boundary_values(&self) -> &[UniverseBattleBoundaryValue] {
         &self.boundary_values
+    }
+
+    #[must_use]
+    pub const fn eidolon_resonance_levels(&self) -> u8 {
+        self.eidolon_resonance_levels
     }
 
     pub(crate) fn executable_rules(&self) -> &[ExecutableBattleRule] {
@@ -437,6 +443,7 @@ impl UniverseBattleContributionCompiler {
             rules: rules.into_boxed_slice(),
             modifiers: modifiers.into_boxed_slice(),
             boundary_values: boundary_values.into_boxed_slice(),
+            eidolon_resonance_levels: curios.eidolon_resonance_levels(),
             executable_rules: executable_rules.into_boxed_slice(),
             resonance,
             digest,

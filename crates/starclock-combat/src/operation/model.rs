@@ -15,6 +15,7 @@ pub(crate) enum Operation {
     RemoveShields(RemoveShieldsOp),
     ConsumeHp(ConsumeHpOp),
     AddWeakness(AddWeaknessOp),
+    AddWeaknessFromAlliedElements(AddWeaknessFromAlliedElementsOp),
     ReduceToughness(ReduceToughnessOp),
     ForceBreak(ForceBreakOp),
     SuperBreak(SuperBreakOp),
@@ -45,6 +46,7 @@ impl Operation {
             Self::RemoveShields(operation) => operation.id,
             Self::ConsumeHp(operation) => operation.id,
             Self::AddWeakness(operation) => operation.id,
+            Self::AddWeaknessFromAlliedElements(operation) => operation.id,
             Self::ReduceToughness(operation) => operation.id,
             Self::ForceBreak(operation) => operation.id,
             Self::SuperBreak(operation) => operation.id,
@@ -195,6 +197,14 @@ pub(crate) struct AddWeaknessOp {
     pub(crate) id: OperationId,
     pub(crate) targets: Box<[UnitId]>,
     pub(crate) definition: crate::catalog::action::WeaknessApplicationDefinition,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct AddWeaknessFromAlliedElementsOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) count: u8,
+    pub(crate) duration_turns: u8,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

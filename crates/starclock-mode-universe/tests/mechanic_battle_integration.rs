@@ -49,6 +49,8 @@ mod curio_s02;
 mod curio_s03;
 #[path = "mechanic_battle_integration/curio_s04.rs"]
 mod curio_s04;
+#[path = "mechanic_battle_integration/curio_s05.rs"]
+mod curio_s05;
 #[path = "mechanic_battle_integration/destruction_s01.rs"]
 mod destruction_s01;
 #[path = "mechanic_battle_integration/destruction_s02.rs"]
@@ -339,6 +341,7 @@ fn contributions_many_with_formations_and_destroyed(
         curio_key,
         ability_tree,
         destroyed_curios,
+        0,
         &[],
     )
 }
@@ -352,6 +355,7 @@ fn contributions_many_with_curio_runtime(
     curio_key: Option<&str>,
     ability_tree: bool,
     destroyed_curios: u32,
+    destructibles_destroyed: u32,
     runtime_values: &[(u64, i64)],
 ) -> UniverseBattleContributionSet {
     let path_definition = catalog
@@ -444,7 +448,8 @@ fn contributions_many_with_curio_runtime(
     let mut curios = curio_runtime
         .contributions_from_owned(&inventory, &states, &charges)
         .unwrap()
-        .with_destroyed_curios(destroyed_curios);
+        .with_destroyed_curios(destroyed_curios)
+        .with_destructibles_destroyed(destructibles_destroyed);
     for (key, value) in runtime_values {
         curios = curios.with_runtime_value(*key, *value);
     }

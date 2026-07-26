@@ -3,7 +3,8 @@ use crate::{
     NumericError, RuleId, SourceDefinitionId, UnitId,
     modifier::model::StatQuerySubject,
     rule::model::{
-        EventFilter, RuleEvaluationInput, RuleValue, TriggerDef, TriggerDefinitionOrder,
+        EventFilter, RuleEmission, RuleEvaluationInput, RuleOperationTemplate, RuleValue,
+        TriggerDef, TriggerDefinitionOrder,
     },
 };
 use core::cmp::Ordering;
@@ -20,6 +21,32 @@ pub(super) fn compare_ordering(
         Comparison::LessOrEqual => ordering != Ordering::Greater,
         Comparison::Greater => ordering == Ordering::Greater,
         Comparison::GreaterOrEqual => ordering != Ordering::Less,
+    }
+}
+
+pub(super) fn weakness_emission(
+    operation: &RuleOperationTemplate,
+    current_target: Option<UnitId>,
+) -> RuleEmission {
+    match operation {
+        RuleOperationTemplate::AddWeaknessFromAlliedElements {
+            selector,
+            count,
+            duration_turns,
+        } => RuleEmission::AddWeaknessFromAlliedElements {
+            selector: *selector,
+            count: *count,
+            duration_turns: *duration_turns,
+            current_target,
+        },
+        RuleOperationTemplate::RemoveWeakness { selector, element } => {
+            RuleEmission::RemoveWeakness {
+                selector: *selector,
+                element: *element,
+                current_target,
+            }
+        }
+        _ => unreachable!("weakness emission helper received another operation"),
     }
 }
 

@@ -111,6 +111,8 @@ pub struct UniverseBattleRosterEntry {
     participant: ParticipantId,
     formation: FormationIndex,
     combatant: ResolvedCombatantSpec,
+    build_digest: starclock_activity::BuildDigest,
+    build_spec: Option<starclock_build::spec::CombatantBuildSpec>,
 }
 
 impl UniverseBattleRosterEntry {
@@ -126,6 +128,14 @@ impl UniverseBattleRosterEntry {
     pub const fn combatant(&self) -> &ResolvedCombatantSpec {
         &self.combatant
     }
+    #[must_use]
+    pub const fn build_digest(&self) -> starclock_activity::BuildDigest {
+        self.build_digest
+    }
+    #[must_use]
+    pub const fn build_spec(&self) -> Option<&starclock_build::spec::CombatantBuildSpec> {
+        self.build_spec.as_ref()
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -139,18 +149,53 @@ impl UniverseBattleRoster {
         lock: &ParticipantLock,
         combatants: Vec<(ParticipantId, ResolvedCombatantSpec)>,
     ) -> Result<Self, UniverseBattleMaterializationError> {
+        let combatants = combatants
+            .into_iter()
+            .map(|(participant, combatant)| (participant, combatant, None))
+            .collect();
+        Self::new_inner(lock, combatants)
+    }
+
+    /// Binds exact upstream build selections for mode effects that recompile a
+    /// loadout, such as temporary Eidolon Resonance increases.
+    pub fn new_with_build_specs(
+        lock: &ParticipantLock,
+        combatants: Vec<(
+            ParticipantId,
+            starclock_build::spec::CombatantBuildSpec,
+            ResolvedCombatantSpec,
+        )>,
+    ) -> Result<Self, UniverseBattleMaterializationError> {
+        let combatants = combatants
+            .into_iter()
+            .map(|(participant, build, combatant)| (participant, combatant, Some(build)))
+            .collect();
+        Self::new_inner(lock, combatants)
+    }
+
+    fn new_inner(
+        lock: &ParticipantLock,
+        combatants: Vec<(
+            ParticipantId,
+            ResolvedCombatantSpec,
+            Option<starclock_build::spec::CombatantBuildSpec>,
+        )>,
+    ) -> Result<Self, UniverseBattleMaterializationError> {
         if combatants.len() != lock.entries().len() {
             return Err(UniverseBattleMaterializationError::RosterMismatch);
         }
         let mut entries = Vec::with_capacity(combatants.len());
         for locked in lock.entries() {
-            let (_, combatant) = combatants
+            let (_, combatant, build_spec) = combatants
                 .iter()
-                .find(|(participant, _)| *participant == locked.participant())
+                .find(|(participant, _, _)| *participant == locked.participant())
                 .ok_or(UniverseBattleMaterializationError::RosterMismatch)?;
             if locked.team_index() != 0
                 || locked.character() != combatant.form()
                 || locked.build().resolved_spec_digest() != combatant.digest()
+                || build_spec
+                    .as_ref()
+                    .is_some_and(|build| build.form() != combatant.form())
             {
                 return Err(UniverseBattleMaterializationError::RosterMismatch);
             }
@@ -159,6 +204,8 @@ impl UniverseBattleRoster {
                 formation: FormationIndex::new(locked.formation_index())
                     .ok_or(UniverseBattleMaterializationError::RosterMismatch)?,
                 combatant: combatant.clone(),
+                build_digest: locked.build().build_digest(),
+                build_spec: build_spec.clone(),
             });
         }
         entries.sort_by_key(|entry| entry.formation);
@@ -584,10 +631,12 @@ impl UniverseBattleMaterializer {
             .build()
             .map_err(|_| UniverseBattleMaterializationError::InvalidCompositeCatalog)?;
         let carry = snapshot.map_or(&[][..], StandardUniverseBattleSnapshot::participant_carry);
-        let players = player_participants(roster, contributions, None, carry)?;
+        let players = player_participants(universe, roster, contributions, None, carry)?;
         let technique_players = technique
             .as_ref()
-            .map(|technique| player_participants(roster, contributions, Some(technique), carry))
+            .map(|technique| {
+                player_participants(universe, roster, contributions, Some(technique), carry)
+            })
             .transpose()?;
         let contract = settlement_contract(roster)?;
         let mut overlay_bindings = Vec::with_capacity(MEMBER_COUNT);
@@ -1038,6 +1087,8 @@ pub enum UniverseBattleMaterializationError {
     InvalidEncounter,
     InvalidLevel,
     InvalidCombatant,
+    MissingBuildSelection,
+    InvalidBuildSelection,
     InvalidCarry,
     InvalidBattleSpec,
     NonExecutableBattleSpec,

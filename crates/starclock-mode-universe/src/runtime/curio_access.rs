@@ -18,8 +18,9 @@ impl StandardUniverseActivity {
             .iter()
             .find(|slot| slot.id() == self.curio_charge_slot)
             .ok_or(CurioRuntimeError::InvalidChargeSlot)?;
-        let event_value = view
-            .slots()
+        let debug = self.graph.debug_view();
+        let event_value = debug
+            .all_slots()
             .iter()
             .find(|slot| slot.id() == self.curio_event_slot)
             .map(|slot| slot.value());
@@ -28,6 +29,9 @@ impl StandardUniverseActivity {
             .unwrap_or(0);
         let cavity_stacks = event_value
             .and_then(crate::curio_activity::cavity_critical_stacks)
+            .unwrap_or(0);
+        let destructibles = event_value
+            .and_then(crate::curio_activity::destructible_destroyed_count)
             .unwrap_or(0);
         let fragments = view
             .slots()
@@ -57,6 +61,17 @@ impl StandardUniverseActivity {
                     contributions = contributions.with_runtime_value(
                         crate::curio_activity::ROBE_FRAGMENT_SNAPSHOT_KEY,
                         fragments,
+                    );
+                }
+                if destructibles != 0
+                    && contributions
+                        .entries()
+                        .iter()
+                        .any(|entry| entry.state().source_effect_id() == "58")
+                {
+                    contributions = contributions.with_runtime_value(
+                        crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY,
+                        i64::from(destructibles),
                     );
                 }
                 contributions

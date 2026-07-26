@@ -18,7 +18,6 @@ use helpers::{
     slot_value, type_error,
 };
 pub(crate) use helpers::{compare, compare_values, stat_query_error};
-
 /// Applies the cheap indexed cause filter without inferring cause roles.
 #[must_use]
 pub fn matches_filter(filter: &super::model::EventFilter, input: RuleEvaluationInput<'_>) -> bool {
@@ -566,12 +565,9 @@ fn evaluate_operation(
                 .transpose()?,
             current_target,
         },
-        RuleOperationTemplate::RemoveWeakness { selector, element } => {
-            RuleEmission::RemoveWeakness {
-                selector: *selector,
-                element: *element,
-                current_target,
-            }
+        operation @ (RuleOperationTemplate::AddWeaknessFromAlliedElements { .. }
+        | RuleOperationTemplate::RemoveWeakness { .. }) => {
+            helpers::weakness_emission(operation, current_target)
         }
         RuleOperationTemplate::CreateToughnessLayer {
             selector,
@@ -820,6 +816,16 @@ fn evaluate_operation(
             current_target,
         },
     })
+}
+
+/// Stable definition-only total order for candidate triggers.
+#[must_use]
+pub fn trigger_definition_order(
+    rule: crate::RuleId,
+    source: crate::SourceDefinitionId,
+    trigger: &super::model::TriggerDef,
+) -> super::model::TriggerDefinitionOrder {
+    helpers::trigger_definition_order(rule, source, trigger)
 }
 
 /// Evaluates a condition through the same read-only context used by programs.
@@ -1187,14 +1193,4 @@ pub fn evaluate_value(
             *rounding,
         ),
     }
-}
-
-/// Stable definition-only total order for candidate triggers.
-#[must_use]
-pub fn trigger_definition_order(
-    rule: crate::RuleId,
-    source: crate::SourceDefinitionId,
-    trigger: &super::model::TriggerDef,
-) -> super::model::TriggerDefinitionOrder {
-    helpers::trigger_definition_order(rule, source, trigger)
 }

@@ -307,7 +307,9 @@ pub(crate) struct ActivityCarryLedger(BTreeMap<ParticipantId, ActivityParticipan
 pub(crate) enum ActivityCarryMutationError {
     MissingParticipant,
     ParticipantNotDefeated,
+    ParticipantNotAlive,
     InvalidRestoreRatio,
+    InvalidMinimumHp,
     ArithmeticOverflow,
 }
 
@@ -383,6 +385,72 @@ impl ActivityCarryLedger {
         state.current_energy = energy;
         Ok(())
     }
+
+    pub(crate) fn heal_participant_maximum_hp_ratio(
+        &mut self,
+        participant: ParticipantId,
+        hp_ratio: Ratio,
+    ) -> Result<(), ActivityCarryMutationError> {
+        if hp_ratio <= Ratio::ZERO || hp_ratio > Ratio::ONE {
+            return Err(ActivityCarryMutationError::InvalidRestoreRatio);
+        }
+        let state = self
+            .0
+            .get_mut(&participant)
+            .ok_or(ActivityCarryMutationError::MissingParticipant)?;
+        if state.life != LifeState::Alive || state.current_hp.get() == 0 {
+            return Err(ActivityCarryMutationError::ParticipantNotAlive);
+        }
+        let healing = ratio_of_hp(state.maximum_hp, hp_ratio)?;
+        let healed = state
+            .current_hp
+            .get()
+            .checked_add(healing)
+            .ok_or(ActivityCarryMutationError::ArithmeticOverflow)?
+            .min(state.maximum_hp.get());
+        state.current_hp =
+            Hp::new(healed).map_err(|_| ActivityCarryMutationError::ArithmeticOverflow)?;
+        Ok(())
+    }
+
+    pub(crate) fn lose_participant_current_hp_ratio(
+        &mut self,
+        participant: ParticipantId,
+        hp_ratio: Ratio,
+        minimum_hp: Hp,
+    ) -> Result<(), ActivityCarryMutationError> {
+        if hp_ratio <= Ratio::ZERO || hp_ratio > Ratio::ONE {
+            return Err(ActivityCarryMutationError::InvalidRestoreRatio);
+        }
+        let state = self
+            .0
+            .get_mut(&participant)
+            .ok_or(ActivityCarryMutationError::MissingParticipant)?;
+        if state.life != LifeState::Alive || state.current_hp.get() == 0 {
+            return Err(ActivityCarryMutationError::ParticipantNotAlive);
+        }
+        if minimum_hp.get() == 0 || minimum_hp > state.current_hp {
+            return Err(ActivityCarryMutationError::InvalidMinimumHp);
+        }
+        let loss = ratio_of_hp(state.current_hp, hp_ratio)?;
+        let remaining = state
+            .current_hp
+            .get()
+            .checked_sub(loss)
+            .ok_or(ActivityCarryMutationError::ArithmeticOverflow)?
+            .max(minimum_hp.get());
+        state.current_hp =
+            Hp::new(remaining).map_err(|_| ActivityCarryMutationError::ArithmeticOverflow)?;
+        Ok(())
+    }
+}
+
+fn ratio_of_hp(value: Hp, ratio: Ratio) -> Result<i64, ActivityCarryMutationError> {
+    i128::from(value.get())
+        .checked_mul(i128::from(ratio.scaled()))
+        .and_then(|scaled| scaled.checked_div(1_000_000))
+        .and_then(|scaled| i64::try_from(scaled).ok())
+        .ok_or(ActivityCarryMutationError::ArithmeticOverflow)
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

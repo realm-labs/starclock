@@ -2,7 +2,7 @@ use crate::rule::model::RuleEmission;
 
 use super::{AbilityProgramContext, non_negative_scalar, program_fault};
 
-pub(super) fn actor_basic_element(
+pub(in crate::resolver) fn actor_basic_element(
     catalog: &crate::catalog::CombatCatalog,
     txn: &crate::resolver::transaction::Transaction<'_>,
     actor: crate::UnitId,
@@ -130,6 +130,7 @@ pub(super) const fn emission_current_target(emission: &RuleEmission) -> Option<c
         | RuleEmission::Break { current_target, .. }
         | RuleEmission::SuperBreak { current_target, .. }
         | RuleEmission::AddWeakness { current_target, .. }
+        | RuleEmission::AddWeaknessFromAlliedElements { current_target, .. }
         | RuleEmission::RemoveWeakness { current_target, .. }
         | RuleEmission::CreateToughnessLayer { current_target, .. }
         | RuleEmission::RemoveToughnessLayer { current_target, .. }

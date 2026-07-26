@@ -1,0 +1,71 @@
+{
+  "schema_revision": "starclock.goal07-curio-partition-golden.v1",
+  "partition_id": "G07-P3-M11-S05",
+  "record_ids": [
+    "universe.curio.5",
+    "universe.curio.5.state.active",
+    "universe.curio.58",
+    "universe.curio.58.state.active",
+    "universe.curio.6",
+    "universe.curio.6.state.active",
+    "universe.curio.61",
+    "universe.curio.61.state.active",
+    "universe.curio.62",
+    "universe.curio.62.state.active",
+    "universe.curio.63",
+    "universe.curio.63.state.active",
+    "universe.curio.64",
+    "universe.curio.64.state.active",
+    "universe.curio.68",
+    "universe.curio.68.state.active"
+  ],
+  "rule_ids": [
+    "universe.rule.curio.5",
+    "universe.rule.curio.5.state.active",
+    "universe.rule.curio.58",
+    "universe.rule.curio.58.state.active",
+    "universe.rule.curio.6",
+    "universe.rule.curio.6.state.active",
+    "universe.rule.curio.61",
+    "universe.rule.curio.61.state.active",
+    "universe.rule.curio.62",
+    "universe.rule.curio.62.state.active",
+    "universe.rule.curio.63",
+    "universe.rule.curio.63.state.active",
+    "universe.rule.curio.64",
+    "universe.rule.curio.64.state.active",
+    "universe.rule.curio.68",
+    "universe.rule.curio.68.state.active"
+  ],
+  "fixture_ids": [
+    "universe.fixture.curio-tag.destructible"
+  ],
+  "workbooks": {
+    "Universe.xlsx": "c5121bc5cdb49739e78cd0e709994764bc411c9acd62e9e3996ef744c64358b0",
+    "UniverseBindings.xlsx": "5780e99c7c08d0ed8659ddfd56b37f77e88972ec413940d82f956a56e84c1e4a",
+    "UniverseEvidence.xlsx": "be3ab26158150dda1261f6d58f5520704341b3e09a469202f7a9e651ade95065"
+  },
+  "sora_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+  "tables": {
+    "UniverseCurio": {
+      "rows": 8,
+      "semantic_sha256": "adf3095a36a99e9d1372db486cde5279d712dedf8b092efa698a805d4ab12134"
+    },
+    "UniverseCurioState": {
+      "rows": 8,
+      "semantic_sha256": "4eeaec0ed6b421271f1581802cb1928521a3b30d93e5679888b5f8169f180351"
+    },
+    "UniverseCurioParameter": {
+      "rows": 12,
+      "semantic_sha256": "d19f0000a13275f8e66319f71c41aae7ee579d30deebb8b45219d40e5d699dc8"
+    },
+    "UniverseMechanicRule": {
+      "rows": 16,
+      "semantic_sha256": "fd28eef373341ebdb52d5a5e62db30dd9f372f4e330ec7a52c6ec2e68a31e6b6"
+    },
+    "UniverseReviewFixture": {
+      "rows": 1,
+      "semantic_sha256": "c088b5ef5cf2b68f48b24c8455c699c6c7dd5f8d966d59c2154c566ae220a631"
+    }
+  }
+}
