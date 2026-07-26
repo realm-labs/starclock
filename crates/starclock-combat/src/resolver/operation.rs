@@ -760,6 +760,31 @@ fn execute_damage(
                     }
                 }
             }
+            crate::catalog::action::HitCritPolicy::GuaranteedBelowHpRatio(threshold) => {
+                let unit = txn
+                    .state
+                    .units
+                    .get(target)
+                    .ok_or_else(|| invariant_fault(57))?;
+                let below = i128::from(unit.current_hp.get()) * 1_000_000
+                    < i128::from(unit.maximum_hp.get()) * i128::from(threshold.scaled());
+                if below {
+                    true
+                } else {
+                    match scratch.critical_by_target.get(&target).copied() {
+                        Some(value) => value,
+                        None => {
+                            let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
+                            let value = txn.roll_probability(
+                                critical.chance,
+                                crate::rng::types::DrawPurpose::CRIT,
+                            )?;
+                            scratch.critical_by_target.insert(target, value);
+                            value
+                        }
+                    }
+                }
+            }
         };
         let formula = if is_critical {
             let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;

@@ -365,6 +365,10 @@ pub enum HitCritPolicy {
     Shared = 1,
     /// This hit cannot CRIT.
     Never = 2,
+    /// The target is guaranteed to receive a CRIT while its current HP ratio is
+    /// strictly below the authored threshold; otherwise it owns an ordinary
+    /// independent CRIT sample.
+    GuaranteedBelowHpRatio(Ratio),
 }
 
 /// Target semantics attached to one catalog selector definition.

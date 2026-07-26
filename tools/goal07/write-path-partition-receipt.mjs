@@ -173,6 +173,18 @@ function nativeDecision(id) {
     return "A bounded battle counter, previous-beneficiary guard and ordinary turn-end timeline mutation express the six-allied-turn advance cycle.";
   if (id.includes("612446"))
     return "Credited defeat and Weakness Break facts feed ordinary live-MaxHP healing operations for the exact actor.";
+  if (id.includes("612456"))
+    return "Owner turn-start facts and ordinary personal-Energy mutation express both exact fixed restoration values.";
+  if (id.includes("612457"))
+    return "Owner-local last-actor election plus application snapshots express the exact previous ally ATK transfer without global content state.";
+  if (id.includes("612420"))
+    return "A team-resource-gated ability program selects the highest current ally ATK and applies all-enemy Wind damage through ordinary formula stages.";
+  if (id.includes("612421"))
+    return "Stat-ordered ally selection, effect-backed dynamic CRIT DMG and the generic extra-turn operation express Star Hunter and its one-defeat limit.";
+  if (id.includes("612422"))
+    return "A reusable target-HP conditional CRIT policy, an action-local CRIT DMG effect and typed defeat resource gain express Bow and Arrow.";
+  if (id.includes("612423"))
+    return "The keyed team-resource definition accepts the authored 200-point capacity and ally turn-start rules restore exactly 3% of that capacity.";
   if (id.includes("612450"))
     return "The validated contribution compiler supplies the capped selected-Hunt count to an ordinary percent-of-base SPD modifier.";
   if (id.includes("612451"))
@@ -829,6 +841,35 @@ function partitionProfile(id) {
         "thundering_chariot_and_astral_menace_use_exact_timeline_operations",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration hunt_s03 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M06-S04") {
+    return {
+      completedOn: "2026-07-26",
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s04.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_resonance.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s04.rs",
+        "crates/starclock-combat/src/catalog/action.rs",
+        "crates/starclock-combat/src/resolver/operation.rs",
+        "crates/starclock-combat/src/resolver/program.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-hunt-s04.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s04.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_resonance.rs",
+        "docs/02-action-order-and-turns.md",
+        "docs/10-lifecycle-and-resolution.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s04.rs",
+      fixtureMarker:
+        "complete_hunt_resonance_executes_without_fault_and_spends_one_charge",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration hunt_s04 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

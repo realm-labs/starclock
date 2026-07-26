@@ -47,6 +47,8 @@ mod hunt_s01;
 mod hunt_s02;
 #[path = "mechanic_battle_integration/hunt_s03.rs"]
 mod hunt_s03;
+#[path = "mechanic_battle_integration/hunt_s04.rs"]
+mod hunt_s04;
 #[path = "mechanic_battle_integration/nihility_s01.rs"]
 mod nihility_s01;
 #[path = "mechanic_battle_integration/nihility_s02.rs"]

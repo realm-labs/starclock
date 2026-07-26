@@ -10,8 +10,9 @@ use starclock_activity::{
 use starclock_combat::{
     CombatantSpecDigest, Energy, Hp, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
     StatValue, TeamSide, UnitDefinitionId, UnitLevel,
-    catalog::action::{AbilityKind, HitOperationDefinition},
+    catalog::action::AbilityKind,
     modifier::model::{FormulaPurpose, FormulaStage},
+    rule::model::{ProgramStep, RuleOperationTemplate, RuleValue, ValueExpr},
 };
 use starclock_mode_universe::{
     ability_runtime::{
@@ -182,11 +183,18 @@ fn s02_values_materialize_into_energy_damage_mitigation_and_resonance_damage() {
                 .is_some_and(|action| action.kind() == AbilityKind::Ultimate)
         })
         .expect("materialized Path Resonance");
-    let operation = &resonance.action().unwrap().hits()[0].operations()[0];
-    let HitOperationDefinition::ScalingDamage(damage) = operation else {
-        panic!("Path Resonance must lower to scaling damage");
+    let program = materialized
+        .combat_catalog()
+        .program(resonance.program())
+        .expect("materialized Resonance program");
+    let ProgramStep::Operation(RuleOperationTemplate::Damage { amount, .. }) = &program.steps()[0]
+    else {
+        panic!("Path Resonance must lower to an executable damage program");
     };
-    assert!(damage.coefficient().scaled() > 1_000_000);
+    assert!(
+        expression_has_scalar(amount, 9_900_000),
+        "550% base Resonance damage receives the complete selected tree's exact 80% increase: {amount:?}"
+    );
 }
 
 #[test]
@@ -285,6 +293,21 @@ fn complete_contributions(catalog: &Arc<UniverseCatalog>) -> UniverseBattleContr
             &projection,
         )
         .unwrap()
+}
+
+fn expression_has_scalar(value: &ValueExpr, expected: i64) -> bool {
+    match value {
+        ValueExpr::Literal(RuleValue::Scalar(value)) => value.scaled() == expected,
+        ValueExpr::Multiply { lhs, rhs, .. }
+        | ValueExpr::Add(lhs, rhs)
+        | ValueExpr::Subtract(lhs, rhs)
+        | ValueExpr::Divide { lhs, rhs, .. }
+        | ValueExpr::Minimum(lhs, rhs)
+        | ValueExpr::Maximum(lhs, rhs) => {
+            expression_has_scalar(lhs, expected) || expression_has_scalar(rhs, expected)
+        }
+        _ => false,
+    }
 }
 
 fn roster(catalog: &UniverseCatalog) -> UniverseBattleRoster {
