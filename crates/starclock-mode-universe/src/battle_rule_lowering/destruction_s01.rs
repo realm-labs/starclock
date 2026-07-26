@@ -15,6 +15,8 @@ const GRIT_RETALIATION_NORMAL: &str = "StageAbility_61254001";
 const GRIT_RETALIATION_ENHANCED: &str = "StageAbility_61254002";
 const HP_CONSUMPTION_NORMAL: &str = "StageAbility_61254101";
 const HP_CONSUMPTION_ENHANCED: &str = "StageAbility_61254102";
+const GRIT_MITIGATION_NORMAL: &str = "StageAbility_61254201";
+const GRIT_MITIGATION_ENHANCED: &str = "StageAbility_61254202";
 
 pub(super) const GRIT_EFFECT: EffectDefinitionId =
     EffectDefinitionId::new(0x79d0_0001).expect("reserved effect ID");
@@ -28,6 +30,8 @@ const GRIT_ATTACK_GROUP: ModifierStackingGroupId =
     ModifierStackingGroupId::new(0x79d0_0005).expect("reserved group ID");
 const GRIT_DEFENSE_GROUP: ModifierStackingGroupId =
     ModifierStackingGroupId::new(0x79d0_0006).expect("reserved group ID");
+const GRIT_MITIGATION_GROUP: ModifierStackingGroupId =
+    ModifierStackingGroupId::new(0x79d0_0007).expect("reserved group ID");
 const GRIT_ATTACK_MODIFIER: ModifierDefinitionId =
     ModifierDefinitionId::new(0x79d0_0008).expect("reserved modifier ID");
 const GRIT_DEFENSE_MODIFIER: ModifierDefinitionId =
@@ -652,7 +656,11 @@ pub(super) fn add_grit_engine(
     rule: &mut ExecutableBattleRule,
     blessings: &BlessingContributionSet,
 ) -> Result<(), BattleRuleLoweringError> {
-    let maximum = 35;
+    let maximum = if selected_level_parameters(blessings, GRIT_MITIGATION_ENHANCED).is_some() {
+        45
+    } else {
+        35
+    };
     let grit_ratio = [
         VIRTUAL_GRIT_NORMAL,
         VIRTUAL_GRIT_ENHANCED,
@@ -663,6 +671,10 @@ pub(super) fn add_grit_engine(
     .find_map(|key| selected_level_parameters(blessings, key))
     .map(|parameters| Ok((parameter(parameters, 0)?, parameter(parameters, 1)?)))
     .transpose()?;
+    let mitigation = selected_level_parameters(blessings, GRIT_MITIGATION_NORMAL)
+        .or_else(|| selected_level_parameters(blessings, GRIT_MITIGATION_ENHANCED))
+        .map(|parameters| parameter_six(parameters, 0))
+        .transpose()?;
     let mut groups = Vec::new();
     let mut modifiers = Vec::new();
     if let Some((attack, defense)) = grit_ratio {
@@ -692,6 +704,35 @@ pub(super) fn add_grit_engine(
                 defense,
             ),
         ]);
+    }
+    if let Some(ratio) = mitigation {
+        groups.push(ModifierStackingGroup {
+            id: GRIT_MITIGATION_GROUP,
+            aggregation: ModifierAggregation::UniquePerSource,
+            comparator: None,
+        });
+        for (index, purpose) in damage_purposes().into_iter().enumerate() {
+            modifiers.push(ModifierDefinition {
+                id: ModifierDefinitionId::new(
+                    0x79d1_0000
+                        + u32::try_from(index)
+                            .map_err(|_| BattleRuleLoweringError::InvalidDefinition)?,
+                )
+                .ok_or(BattleRuleLoweringError::InvalidDefinition)?,
+                stat: StatKind::Hp,
+                stage: FormulaStage::Mitigation,
+                purpose,
+                value: multiply(stack_slot_scalar(), scalar(ratio)),
+                stacking_group: GRIT_MITIGATION_GROUP,
+                priority: 0,
+                floor: Some(starclock_combat::Scalar::ZERO),
+                cap: Some(starclock_combat::Scalar::ONE),
+                cap_stage: FormulaStage::Mitigation,
+                snapshot: SnapshotPolicy::Dynamic,
+                source_stack_slot: Some(GRIT_STACK_SLOT),
+                filters: Box::new([]),
+            });
+        }
     }
     let stack_runtime = EffectRuntimeTemplate::new(
         EffectCategory::Buff,
@@ -973,6 +1014,36 @@ fn whole(value: i64) -> Result<i64, BattleRuleLoweringError> {
         return Err(BattleRuleLoweringError::InvalidParameter);
     }
     Ok(value / 1_000_000)
+}
+
+pub(super) fn parameter_six(
+    parameters: &[ExactParameter],
+    index: usize,
+) -> Result<i64, BattleRuleLoweringError> {
+    let value = *parameters
+        .get(index)
+        .ok_or(BattleRuleLoweringError::InvalidParameter)?;
+    if value.scale() <= 6 {
+        return parameter(parameters, index);
+    }
+    if value.coefficient() < 0 {
+        return Err(BattleRuleLoweringError::InvalidParameter);
+    }
+    let divisor = 10_i64
+        .checked_pow(u32::from(value.scale() - 6))
+        .ok_or(BattleRuleLoweringError::InvalidParameter)?;
+    let quotient = value.coefficient() / divisor;
+    let remainder = value.coefficient() % divisor;
+    let doubled = remainder
+        .checked_mul(2)
+        .ok_or(BattleRuleLoweringError::InvalidParameter)?;
+    if doubled > divisor || doubled == divisor && quotient % 2 != 0 {
+        quotient
+            .checked_add(1)
+            .ok_or(BattleRuleLoweringError::InvalidParameter)
+    } else {
+        Ok(quotient)
+    }
 }
 
 fn local_id<T>(raw: u32, index: u32) -> Result<T, BattleRuleLoweringError>

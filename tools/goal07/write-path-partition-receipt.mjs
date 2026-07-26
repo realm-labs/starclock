@@ -197,6 +197,16 @@ function nativeDecision(id) {
     return "Action-start HP consumption, a battle slot and per-target event-element Additional damage express both released damage formulas.";
   if (id.includes("612542"))
     return "A synchronized Fighting Spirit stack slot drives ordinary Mitigation-stage modifiers and the enhanced 45-stack cap.";
+  if (id.includes("612543"))
+    return "HP-change facts synchronize floor-rounded missing-HP percentage points into an effect stack that drives ordinary ATK and DEF modifiers.";
+  if (id.includes("612544"))
+    return "A synchronized two-tier HP state effect and seven ordinary DamageBoost modifiers express both thresholds without live stat-resolver HP queries.";
+  if (id.includes("612545"))
+    return "Incoming-damage and self-HP-loss facts, an action-reset scalar slot and bounded Heal operations express the per-action recovery cap.";
+  if (id.includes("612546"))
+    return "Ultimate action facts, current/maximum HP expressions and the shared owner-turn timed-shield primitive express both released shield formulas.";
+  if (id.includes("612550"))
+    return "The validated contribution compiler supplies the capped selected-Destruction count to an ordinary percent-of-base ATK modifier.";
   if (id.includes("612450"))
     return "The validated contribution compiler supplies the capped selected-Hunt count to an ordinary percent-of-base SPD modifier.";
   if (id.includes("612451"))
@@ -911,6 +921,81 @@ function partitionProfile(id) {
         "enhanced_virtual_grit_and_hp_consumption_execute_in_a_real_battle",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration destruction_s01 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M07-S02") {
+    return {
+      completedOn: "2026-07-26",
+      numericApproximations: [
+        {
+          id: "goal07-destruction-612542-l1-six-decimal-v1",
+          record_id: "universe.blessing.612542.level.1",
+          field: "parameter_values[0]",
+          value: "0.008000",
+          confidence: "High",
+          rationale:
+            "The released structured value 0.007999999 is quantized with nearest rounding to Starclock's authoritative six-decimal scalar domain.",
+          replacement_condition:
+            "Replace only if an authoritative public source establishes a materially different released value or the numeric-policy revision changes.",
+        },
+        {
+          id: "goal07-destruction-612542-l2-six-decimal-v1",
+          record_id: "universe.blessing.612542.level.2",
+          field: "parameter_values[0]",
+          value: "0.008000",
+          confidence: "High",
+          rationale:
+            "The released structured value 0.007999999 is quantized with nearest rounding to Starclock's authoritative six-decimal scalar domain.",
+          replacement_condition:
+            "Replace only if an authoritative public source establishes a materially different released value or the numeric-policy revision changes.",
+        },
+        {
+          id: "goal07-destruction-612543-l1-six-decimal-v1",
+          record_id: "universe.blessing.612543.level.1",
+          field: "parameter_values[0]",
+          value: "0.008000",
+          confidence: "High",
+          rationale:
+            "The released structured value 0.007999999 is quantized with nearest rounding to Starclock's authoritative six-decimal scalar domain.",
+          replacement_condition:
+            "Replace only if an authoritative public source establishes a materially different released value or the numeric-policy revision changes.",
+        },
+        {
+          id: "goal07-destruction-612543-l2-six-decimal-v1",
+          record_id: "universe.blessing.612543.level.2",
+          field: "parameter_values[0]",
+          value: "0.008000",
+          confidence: "High",
+          rationale:
+            "The released structured value 0.007999999 is quantized with nearest rounding to Starclock's authoritative six-decimal scalar domain.",
+          replacement_condition:
+            "Replace only if an authoritative public source establishes a materially different released value or the numeric-policy revision changes.",
+        },
+      ],
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s02.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s01.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s02.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "crates/starclock-combat/src/modifier/model.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-destruction-s02.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s02.rs",
+        "crates/starclock-mode-universe/src/destruction_runtime.rs",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s02.rs",
+      fixtureMarker:
+        "s02_rules_execute_without_fault_in_a_wounded_production_battle",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration destruction_s02 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
