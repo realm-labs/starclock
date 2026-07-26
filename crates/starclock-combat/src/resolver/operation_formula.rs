@@ -177,6 +177,38 @@ impl FormulaInputs {
         })
     }
 
+    pub(super) fn energy_regeneration_rate(
+        &self,
+        catalog: &crate::catalog::CombatCatalog,
+        txn: &Transaction<'_>,
+        cause: Cause,
+        subject: crate::UnitId,
+    ) -> Result<crate::Scalar, BattleFault> {
+        use crate::modifier::model::StatKind;
+
+        self.resolver(catalog)
+            .query(
+                crate::modifier::model::StatQuery {
+                    subject,
+                    stat: StatKind::EnergyRegenerationRate,
+                    purpose: FormulaPurpose::Stat,
+                },
+                &action_modifier_context(
+                    catalog,
+                    cause,
+                    modifier_context(
+                        txn,
+                        subject,
+                        subject,
+                        None,
+                        formula::model::DamageClass::Direct,
+                    )?,
+                )
+                .with_formula_subject(FormulaSubject::Source),
+            )
+            .map_err(|_| numeric_fault(69, i64::from(StatKind::EnergyRegenerationRate as u8)))
+    }
+
     pub(super) fn break_damage(
         &self,
         catalog: &crate::catalog::CombatCatalog,

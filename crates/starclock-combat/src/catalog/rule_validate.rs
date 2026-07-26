@@ -463,6 +463,7 @@ fn validate_operation(
         RuleOperationTemplate::ModifyResource {
             selector,
             resource,
+            update,
             amount,
             scales_with_regeneration,
             ..
@@ -470,9 +471,10 @@ fn validate_operation(
             require_selector(catalog, *selector)?;
             require_scalar(catalog, runtime, amount)?;
             if *scales_with_regeneration
-                && !matches!(resource, crate::rule::model::RuleResourceKind::Energy)
+                && (!matches!(resource, crate::rule::model::RuleResourceKind::Energy)
+                    || *update != crate::rule::model::ResourceUpdateKind::Gain)
             {
-                return Err("only Energy can scale with energy regeneration".into());
+                return Err("only gained Energy can scale with energy regeneration".into());
             }
         }
         RuleOperationTemplate::ApplyEffect {

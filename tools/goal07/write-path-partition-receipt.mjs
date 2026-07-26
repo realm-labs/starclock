@@ -1216,6 +1216,41 @@ function partitionProfile(id) {
       ],
     };
   }
+  if (id === "G07-P2-M08-S03") {
+    return {
+      completedOn: "2026-07-26",
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s03.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s03.rs",
+        "crates/starclock-combat/src/catalog/rule_validate.rs",
+        "crates/starclock-combat/src/resolver/action.rs",
+        "crates/starclock-combat/src/resolver/operation_formula.rs",
+        "crates/starclock-combat/src/resolver/program.rs",
+        "crates/starclock-combat/src/resolver/program/resource.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-elation-s03.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s03.rs",
+        "crates/starclock-mode-universe/src/elation_runtime.rs",
+        "docs/05-effects-and-resources.md",
+        "docs/09-determinism-and-numerics.md",
+        "docs/11-rule-ir-and-native-handlers.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s03.rs",
+      fixtureMarker:
+        "doctor_heals_and_lighthouse_scales_production_ultimate_energy_at_action_boundary",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration elation_s03 --all-features",
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
   throw new Error(`${id}: path receipt profile is not implemented`);
 }
 function disposition(planned, runtimeDisposition, workbookEvidence) {

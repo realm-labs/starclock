@@ -512,7 +512,7 @@ pub(super) fn execute_action_plan(
             },
         )?;
     }
-    parent = apply_resource_gains(txn, base, parent, plan)?;
+    parent = apply_resource_gains(catalog, txn, base, parent, plan)?;
     parent = txn.emit(
         base.with_parent(parent),
         BattleEventKind::Action(ActionEventData::Resolved {
@@ -788,6 +788,7 @@ fn apply_resource_costs(
 }
 
 fn apply_resource_gains(
+    catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
     mut parent: EventId,
@@ -824,6 +825,14 @@ fn apply_resource_gains(
         );
     }
     if policy.energy_gain() > crate::Energy::ZERO {
+        let rate = super::operation_formula::FormulaInputs::new(txn)?
+            .energy_regeneration_rate(catalog, txn, cause, plan.actor)?;
+        let gain = crate::Scalar::from_scaled(policy.energy_gain().scaled())
+            .checked_mul(rate, crate::Rounding::NearestTiesEven)
+            .map_err(|_| action_fault(77))?;
+        if gain.scaled() < 0 {
+            return Err(action_fault(78));
+        }
         let unit = txn
             .state
             .units
@@ -833,7 +842,7 @@ fn apply_resource_gains(
         let maximum = unit.maximum_energy;
         let uncapped = before
             .scaled()
-            .checked_add(policy.energy_gain().scaled())
+            .checked_add(gain.scaled())
             .ok_or_else(|| action_fault(28))?;
         let after_scaled = uncapped.min(maximum.scaled());
         let overflow =

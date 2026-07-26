@@ -138,7 +138,14 @@ Affected Energy gain uses:
 real_energy_gain = base_energy_gain * energy_regeneration_rate
 ```
 
-Represent `energy_regeneration_rate` with a base value of `1.0`. Some fixed Energy effects explicitly ignore this multiplier, so every gain operation needs a `scales_with_err` flag. Preserve fractional Energy internally if the chosen numeric model supports it.
+Represent `energy_regeneration_rate` with a base value of `1.0`. Authored
+action-boundary Energy gains always query this stat with the committed action
+tags, so tag-filtered modifiers apply before the `ActionResolved` fact.
+Rule-IR resource operations opt in with `scales_with_regeneration`; validation
+accepts that flag only for `Gain(Energy)`. The selected operation rounding
+policy is applied once after multiplying the fixed-point base gain by the
+rate. Fixed Energy effects set the flag to `false`. Fractional Energy remains
+authoritative internally.
 
 ## Aggro and enemy targeting
 
