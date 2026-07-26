@@ -84,6 +84,7 @@ pub(super) const fn emission_current_target(emission: &RuleEmission) -> Option<c
         RuleEmission::SetSlot { current_target, .. }
         | RuleEmission::AddSlot { current_target, .. }
         | RuleEmission::Damage { current_target, .. }
+        | RuleEmission::UnboostedDamage { current_target, .. }
         | RuleEmission::RandomRepeatedDamage { current_target, .. }
         | RuleEmission::TrueDamage { current_target, .. }
         | RuleEmission::Heal { current_target, .. }
@@ -100,6 +101,7 @@ pub(super) const fn emission_current_target(emission: &RuleEmission) -> Option<c
         | RuleEmission::ModifyResource { current_target, .. }
         | RuleEmission::ApplyEffect { current_target, .. }
         | RuleEmission::ApplyRandomEffect { current_target, .. }
+        | RuleEmission::RandomGroupedEffect { current_target, .. }
         | RuleEmission::AdjustEffectStacks { current_target, .. }
         | RuleEmission::RemoveEffect { current_target, .. }
         | RuleEmission::Cleanse { current_target, .. }

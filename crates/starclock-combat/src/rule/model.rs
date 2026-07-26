@@ -8,6 +8,7 @@ use crate::{
     formula::model::{CombatElement, DamageClass},
     modifier::model::{FormulaPurpose, StatKind, StatQuerySubject},
 };
+mod state_slot;
 mod support;
 include!("model/runtime.rs");
 /// Stable generic semantic class for rule attribution and filtering.
@@ -106,95 +107,6 @@ pub struct StateSlotDef {
     visibility: SlotVisibility,
     persistence: SlotPersistence,
     reset_points: Box<[SlotResetPoint]>,
-}
-
-impl StateSlotDef {
-    #[must_use]
-    pub fn new(
-        id: StateSlotDefinitionId,
-        kind: RuleValueKind,
-        scope: BattleRuleScope,
-        initial: RuleValue,
-    ) -> Self {
-        Self {
-            id,
-            kind,
-            scope,
-            initial,
-            minimum: None,
-            maximum: None,
-            visibility: SlotVisibility::Owner,
-            persistence: SlotPersistence::ScopeLifetime,
-            reset_points: Box::new([]),
-        }
-    }
-    #[must_use]
-    pub fn with_bounds(mut self, minimum: RuleValue, maximum: RuleValue) -> Self {
-        self.minimum = Some(minimum);
-        self.maximum = Some(maximum);
-        self
-    }
-    #[must_use]
-    pub fn with_optional_bounds(
-        mut self,
-        minimum: Option<RuleValue>,
-        maximum: Option<RuleValue>,
-    ) -> Self {
-        self.minimum = minimum;
-        self.maximum = maximum;
-        self
-    }
-    #[must_use]
-    pub fn with_reset_points(mut self, reset_points: Vec<SlotResetPoint>) -> Self {
-        self.reset_points = reset_points.into_boxed_slice();
-        self
-    }
-    #[must_use]
-    pub const fn with_policy(
-        mut self,
-        visibility: SlotVisibility,
-        persistence: SlotPersistence,
-    ) -> Self {
-        self.visibility = visibility;
-        self.persistence = persistence;
-        self
-    }
-    #[must_use]
-    pub const fn id(&self) -> StateSlotDefinitionId {
-        self.id
-    }
-    #[must_use]
-    pub const fn kind(&self) -> RuleValueKind {
-        self.kind
-    }
-    #[must_use]
-    pub const fn scope(&self) -> BattleRuleScope {
-        self.scope
-    }
-    #[must_use]
-    pub const fn initial(&self) -> &RuleValue {
-        &self.initial
-    }
-    #[must_use]
-    pub const fn minimum(&self) -> Option<&RuleValue> {
-        self.minimum.as_ref()
-    }
-    #[must_use]
-    pub const fn maximum(&self) -> Option<&RuleValue> {
-        self.maximum.as_ref()
-    }
-    #[must_use]
-    pub const fn visibility(&self) -> SlotVisibility {
-        self.visibility
-    }
-    #[must_use]
-    pub const fn persistence(&self) -> SlotPersistence {
-        self.persistence
-    }
-    #[must_use]
-    pub fn reset_points(&self) -> &[SlotResetPoint] {
-        &self.reset_points
-    }
 }
 
 /// Event family indexed before contextual trigger evaluation.
@@ -627,6 +539,16 @@ pub enum RuleOperationTemplate {
         can_crit: bool,
         can_defeat: bool,
     },
+    /// Elemental damage that skips source-side Crit, DMG Boost and Weaken
+    /// modifiers while retaining target-side defense, resistance,
+    /// vulnerability, mitigation and broken-state stages.
+    UnboostedDamage {
+        selector: SelectorId,
+        amount: ValueExpr,
+        class: DamageClass,
+        element: CombatElement,
+        can_defeat: bool,
+    },
     /// Ordinary damage whose element is inherited from the observed event.
     DamageFromEventElement {
         selector: SelectorId,
@@ -727,6 +649,20 @@ pub enum RuleOperationTemplate {
     ApplyRandomEffect {
         selector: SelectorId,
         effects: Box<[EffectDefinitionId]>,
+        stacks: ValueExpr,
+        choice_rng_purpose: crate::rng::types::DrawPurpose,
+        chance: RuleEffectChancePolicy,
+        base_chance: Option<ValueExpr>,
+        chance_rng_purpose: Option<crate::rng::types::DrawPurpose>,
+    },
+    /// Applies one effect to a fresh random target group for every evaluated
+    /// group. Candidates are selected without replacement inside a group and
+    /// become eligible again for the next group.
+    RandomGroupedEffect {
+        selector: SelectorId,
+        effect: EffectDefinitionId,
+        groups: ValueExpr,
+        applications_per_group: u16,
         stacks: ValueExpr,
         choice_rng_purpose: crate::rng::types::DrawPurpose,
         chance: RuleEffectChancePolicy,
@@ -959,6 +895,14 @@ pub enum RuleEmission {
         can_defeat: bool,
         current_target: Option<UnitId>,
     },
+    UnboostedDamage {
+        selector: SelectorId,
+        amount: RuleValue,
+        class: DamageClass,
+        element: CombatElement,
+        can_defeat: bool,
+        current_target: Option<UnitId>,
+    },
     RandomRepeatedDamage {
         selector: SelectorId,
         amount: RuleValue,
@@ -1060,6 +1004,18 @@ pub enum RuleEmission {
     ApplyRandomEffect {
         selector: SelectorId,
         effects: Box<[EffectDefinitionId]>,
+        stacks: RuleValue,
+        choice_rng_purpose: crate::rng::types::DrawPurpose,
+        chance: RuleEffectChancePolicy,
+        base_chance: Option<RuleValue>,
+        chance_rng_purpose: Option<crate::rng::types::DrawPurpose>,
+        current_target: Option<UnitId>,
+    },
+    RandomGroupedEffect {
+        selector: SelectorId,
+        effect: EffectDefinitionId,
+        groups: RuleValue,
+        applications_per_group: u16,
         stacks: RuleValue,
         choice_rng_purpose: crate::rng::types::DrawPurpose,
         chance: RuleEffectChancePolicy,

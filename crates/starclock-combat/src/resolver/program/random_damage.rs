@@ -80,6 +80,7 @@ pub(super) fn execute_random_repeated_damage(
             } else {
                 HitCritPolicy::Never
             },
+            apply_source_modifiers: true,
             minimum_hp: i64::from(!can_defeat),
         });
         parent = execute_operation(catalog, txn, cause, parent, request, scratch)?;

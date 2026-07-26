@@ -50,6 +50,8 @@ mod cleanse;
 
 #[path = "ability_program_execution/action_break.rs"]
 mod action_break;
+#[path = "ability_program_execution/random_grouped_effect.rs"]
+mod random_grouped_effect;
 #[path = "ability_program_execution/trigger_phases.rs"]
 mod trigger_phases;
 

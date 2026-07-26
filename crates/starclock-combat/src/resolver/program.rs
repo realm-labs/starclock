@@ -29,6 +29,7 @@ use std::collections::BTreeMap;
 mod emission;
 pub(super) mod fault;
 mod random_damage;
+mod random_grouped_effect;
 mod resource;
 mod value;
 pub(super) use emission::emission_targets;
@@ -36,6 +37,7 @@ use emission::{emission_current_target, healing_operation, slot_operation};
 use fault::emission_code;
 pub(super) use fault::program_fault;
 use random_damage::execute_random_repeated_damage;
+use random_grouped_effect::execute_random_grouped_effect;
 use resource::modify_resource;
 pub(super) use value::{non_negative_scalar, probability, ratio};
 use value::{scale, weakness_duration};
@@ -388,6 +390,38 @@ fn execute_emission(
                 scratch,
             );
         }
+        RuleEmission::RandomGroupedEffect {
+            selector,
+            effect,
+            groups,
+            applications_per_group,
+            stacks,
+            choice_rng_purpose,
+            chance,
+            base_chance,
+            chance_rng_purpose,
+            ..
+        } => {
+            return execute_random_grouped_effect(
+                catalog,
+                txn,
+                cause,
+                parent,
+                input,
+                resolved,
+                selector,
+                effect,
+                groups,
+                applications_per_group,
+                stacks,
+                choice_rng_purpose,
+                chance,
+                base_chance,
+                chance_rng_purpose,
+                current_target,
+                scratch,
+            );
+        }
         emission => emission,
     };
     let operation_id = txn.allocate_operation();
@@ -433,6 +467,33 @@ fn execute_emission(
                 } else {
                     HitCritPolicy::Never
                 },
+                apply_source_modifiers: true,
+                minimum_hp: i64::from(!can_defeat),
+            })
+        }
+        RuleEmission::UnboostedDamage {
+            selector,
+            amount,
+            class,
+            element,
+            can_defeat,
+            ..
+        } => {
+            let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
+            let formula = OrdinaryDamageDefinition::new(
+                amount,
+                OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
+                    .expect("neutral multipliers are valid"),
+            )
+            .map_err(|_| program_fault(79, amount.scaled()))?
+            .with_class(class);
+            Operation::Damage(DamageOp {
+                id: operation_id,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
+                formula,
+                element: Some(element),
+                crit_policy: HitCritPolicy::Never,
+                apply_source_modifiers: false,
                 minimum_hp: i64::from(!can_defeat),
             })
         }
@@ -453,6 +514,7 @@ fn execute_emission(
                 formula,
                 element: None,
                 crit_policy: HitCritPolicy::Never,
+                apply_source_modifiers: false,
                 minimum_hp: 0,
             })
         }

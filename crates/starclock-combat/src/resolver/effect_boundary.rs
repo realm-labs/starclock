@@ -45,6 +45,7 @@ pub(super) fn tick(
             formula,
             Some(dot.element()),
             owner,
+            true,
         )?;
         parent = super::operation::apply_ordinary_damage(
             catalog,

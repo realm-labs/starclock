@@ -24,6 +24,7 @@ mod nihility_s04;
 mod preservation_s02;
 mod preservation_s03;
 mod preservation_s04;
+mod propagation_s01;
 mod remembrance_s01;
 mod remembrance_s02;
 mod remembrance_s03;
@@ -355,6 +356,11 @@ pub(crate) fn lower_rules(
     output.extend(elation_s02::lower(catalog, bindings, blessings)?);
     output.extend(elation_s03::lower(bindings, blessings)?);
     output.extend(elation_s04::lower_rules(catalog, bindings, blessings)?);
+    let mut propagation_rules = propagation_s01::lower(bindings, blessings)?;
+    if let Some(first) = propagation_rules.first_mut() {
+        propagation_s01::add_spore_engine(first, blessings)?;
+    }
+    output.extend(propagation_rules);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::CurioState
             && binding.source_binding_key() == Some(ENTRY_ENEMY_DAMAGE_BINDING)

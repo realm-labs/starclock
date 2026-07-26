@@ -802,7 +802,15 @@ fn execute_damage(
         } else {
             operation.formula
         };
-        let calculation = inputs.damage(catalog, txn, cause, formula, operation.element, target)?;
+        let calculation = inputs.damage(
+            catalog,
+            txn,
+            cause,
+            formula,
+            operation.element,
+            target,
+            operation.apply_source_modifiers,
+        )?;
         parent = apply_ordinary_damage_with_floor(
             catalog,
             txn,

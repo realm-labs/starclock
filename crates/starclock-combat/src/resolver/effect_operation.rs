@@ -344,6 +344,7 @@ pub(super) fn detonate_dots(
                 formula,
                 Some(dot.element()),
                 target,
+                true,
             )?;
             let raw = operation
                 .definition

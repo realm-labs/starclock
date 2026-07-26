@@ -295,6 +295,9 @@ fn validate_operation(
         RuleOperationTemplate::Damage {
             selector, amount, ..
         }
+        | RuleOperationTemplate::UnboostedDamage {
+            selector, amount, ..
+        }
         | RuleOperationTemplate::DamageFromEventElement {
             selector, amount, ..
         }
@@ -537,6 +540,54 @@ fn validate_operation(
                 return Err(
                     "random-effect candidates must be nonempty, unique, sorted and defined".into(),
                 );
+            }
+            match chance {
+                crate::rule::model::RuleEffectChancePolicy::Guaranteed => {
+                    if base_chance.is_some() || chance_rng_purpose.is_some() {
+                        return Err("guaranteed effect cannot declare chance RNG".into());
+                    }
+                }
+                _ => {
+                    require_scalar(
+                        catalog,
+                        runtime,
+                        base_chance
+                            .as_ref()
+                            .ok_or("chance operation requires base chance")?,
+                    )?;
+                    if chance_rng_purpose.is_none() {
+                        return Err("chance operation requires RNG purpose".into());
+                    }
+                }
+            }
+        }
+        RuleOperationTemplate::RandomGroupedEffect {
+            selector,
+            effect,
+            groups,
+            applications_per_group,
+            stacks,
+            chance,
+            base_chance,
+            chance_rng_purpose,
+            ..
+        } => {
+            require_selector(catalog, *selector)?;
+            if infer_value(catalog, runtime, groups, 0)? != RuleValueKind::Integer
+                || infer_value(catalog, runtime, stacks, 0)? != RuleValueKind::Integer
+            {
+                return Err("random grouped effect groups and stacks must be integer".into());
+            }
+            if *applications_per_group == 0 || *applications_per_group > 16 {
+                return Err(
+                    "random grouped effect applications per group must be within 1..=16".into(),
+                );
+            }
+            if catalog.effect(*effect).is_none() {
+                return Err(format!(
+                    "operation refers to missing effect {}",
+                    effect.get()
+                ));
             }
             match chance {
                 crate::rule::model::RuleEffectChancePolicy::Guaranteed => {

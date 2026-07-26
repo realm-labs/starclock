@@ -137,7 +137,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
     assert_eq!(observation["status"], "completed");
     assert_eq!(
         observation["state_hash"],
-        "49dd16c854da0db40e17d18f3e92fccda4ef53fbf7e807dfb5f5eb60866cfcd1"
+        "55d7df4d224851f75df247f9ba0a4b559ddc906763d47942fefd140b8cdea7d0"
     );
 
     let exported = client
@@ -155,7 +155,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
     assert_eq!(export["complete"], true);
     assert_eq!(
         export["sha256"],
-        "67273e03d533308a85ae59135be0a5beef26e8bfddcf8aa29a3379c6ad822648"
+        "576c49a74a2c846966bd6b7a32f26cdd340442b27d18b21b0484a13a5f015313"
     );
 
     let verified = client

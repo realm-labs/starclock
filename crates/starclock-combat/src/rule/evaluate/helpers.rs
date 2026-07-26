@@ -2,7 +2,9 @@ use super::{RuleEvaluationError, RuleEvaluationErrorKind};
 use crate::{
     NumericError, RuleId, SourceDefinitionId, UnitId,
     modifier::model::StatQuerySubject,
-    rule::model::{RuleEvaluationInput, RuleValue, TriggerDef, TriggerDefinitionOrder},
+    rule::model::{
+        EventFilter, RuleEvaluationInput, RuleValue, TriggerDef, TriggerDefinitionOrder,
+    },
 };
 use core::cmp::Ordering;
 
@@ -46,6 +48,68 @@ pub(super) fn ancestry_matches(
         crate::rule::model::CauseAncestry::SamePhase => input.event_facts.has_phase,
         crate::rule::model::CauseAncestry::SameHit => input.event_facts.has_hit,
     }
+}
+
+/// Applies the cheap indexed cause filter without inferring cause roles.
+#[must_use]
+pub(super) fn matches_filter(filter: &EventFilter, input: RuleEvaluationInput<'_>) -> bool {
+    filter
+        .owner
+        .is_none_or(|value| input.cause.owner == Some(value))
+        && filter
+            .actor
+            .is_none_or(|value| input.cause.actor == Some(value))
+        && filter
+            .applier
+            .is_none_or(|value| input.cause.applier == Some(value))
+        && filter
+            .target
+            .is_none_or(|value| input.cause.target == Some(value))
+        && filter
+            .source
+            .is_none_or(|value| input.cause.source == Some(value))
+        && filter
+            .excluded_source
+            .is_none_or(|value| input.cause.source != Some(value))
+        && filter
+            .effect_definition
+            .is_none_or(|value| input.event_facts.effect_definition == Some(value))
+        && filter
+            .source_class
+            .is_none_or(|value| input.event_facts.source_class == Some(value))
+        && selector_matches(filter.owner_selector, input.cause.owner, input)
+        && selector_matches(filter.actor_selector, input.cause.actor, input)
+        && selector_matches(filter.applier_selector, input.cause.applier, input)
+        && selector_matches(filter.target_selector, input.cause.target, input)
+        && filter
+            .action_kind
+            .is_none_or(|value| input.event_facts.action_kind == Some(value))
+        && filter
+            .ability_tag
+            .is_none_or(|value| input.event_facts.ability_tags.contains(value))
+        && filter
+            .element
+            .is_none_or(|value| input.event_facts.element == Some(value))
+        && filter
+            .damage_class
+            .is_none_or(|value| input.event_facts.damage_class == Some(value))
+        && filter
+            .effect_category
+            .is_none_or(|value| input.event_facts.effect_category == Some(value))
+        && filter
+            .effect_specific_resistance
+            .is_none_or(|value| input.event_facts.effect_specific_resistance == Some(value))
+        && filter
+            .toughness_kind
+            .is_none_or(|value| input.event_facts.toughness_kind == Some(value))
+        && filter
+            .resource
+            .as_ref()
+            .is_none_or(|value| input.event_facts.resource.as_ref() == Some(value))
+        && filter
+            .has_action
+            .is_none_or(|value| input.event_facts.has_action == value)
+        && ancestry_matches(filter.cause_ancestry, input)
 }
 
 pub(crate) const fn stat_query_error(context: u32) -> RuleEvaluationError {

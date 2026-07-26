@@ -141,6 +141,16 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612730"))
+    return "Skill Point resource deltas, stable all-enemy selection and ordinary effect stacking express Spore Discharge; the enhanced empty-resource branch uses an owner-turn SPD effect.";
+  if (id.includes("612731"))
+    return "The generic grouped random-target effect operation applies one Spore to two distinct enemies for every recovered Skill Point and resets candidates between point groups.";
+  if (id.includes("612732"))
+    return "Per-owner Rule IR state, Ultimate and resource triggers, capped stack-backed CRIT DMG and Attack-tag expiry express both Scythe Limbs levels.";
+  if (id.includes("612740"))
+    return "The shared Spore engine accepts exact spread counts and an include-primary selector; deterministic grouped selection expresses both Putrefaction Ulcer levels.";
+  if (id.includes("612741"))
+    return "A snapshotted Spore count, unboosted elemental damage and an AfterDefeatSettlement spread trigger express both Lytic Enzyme levels.";
   if (id.includes("612656"))
     return "Action-once character follow-up routes and an ordinary replace-by-source owner-turn DEF effect express both Platinum Age levels.";
   if (id.includes("612657"))
@@ -1307,6 +1317,52 @@ function partitionProfile(id) {
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration elation_s04 --all-features",
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M09-S01") {
+    return {
+      completedOn: "2026-07-26",
+      numericApproximations: [
+        {
+          id: "goal07-propagation-spore-level-base-v1",
+          record_id: "universe.blessing.612730",
+          field: "spore_burst_level_base_factor",
+          value: "actor_break_base_damage",
+          confidence: "Medium",
+          rationale:
+            "The released modifier graph exposes the exact stack, threshold, bonus and spread behavior but derives the neutral Spore BattleEvent base from a private event-level stat table.",
+          replacement_condition:
+            "Replace when an authoritative public row exposes the neutral Spore BattleEvent level-stat construction; retain the exact stack multiplier and all lifecycle behavior.",
+        },
+      ],
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s01.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s01.rs",
+        "crates/starclock-combat/src/resolver/program/random_grouped_effect.rs",
+        "crates/starclock-combat/src/resolver/operation_formula.rs",
+        "crates/starclock-combat/tests/ability_program_execution.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-propagation-s01.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s01.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "docs/05-effects-and-resources.md",
+        "docs/09-determinism-and-numerics.md",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/11-rule-ir-and-native-handlers.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s01.rs",
+      fixtureMarker:
+        "recovered_skill_point_applies_one_spore_to_each_of_two_random_enemies",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration propagation_s01 --all-features",
+        "cargo test -p starclock-combat --test ability_program_execution random_grouped_effect::selects_without_replacement_inside_each_group --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

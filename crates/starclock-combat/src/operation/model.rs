@@ -225,6 +225,7 @@ pub(crate) struct DamageOp {
     pub(crate) formula: OrdinaryDamageDefinition,
     pub(crate) element: Option<crate::formula::model::CombatElement>,
     pub(crate) crit_policy: crate::catalog::action::HitCritPolicy,
+    pub(crate) apply_source_modifiers: bool,
     pub(crate) minimum_hp: i64,
 }
 

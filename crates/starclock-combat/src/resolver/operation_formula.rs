@@ -38,6 +38,7 @@ impl FormulaInputs {
         })
     }
 
+    #[allow(clippy::too_many_arguments)]
     pub(super) fn damage(
         &self,
         catalog: &crate::catalog::CombatCatalog,
@@ -46,6 +47,7 @@ impl FormulaInputs {
         mut formula: OrdinaryDamageDefinition,
         element: Option<formula::model::CombatElement>,
         target: crate::UnitId,
+        apply_source_modifiers: bool,
     ) -> Result<crate::formula::sustain::DamageCalculation, BattleFault> {
         let resolver = self.resolver(catalog);
         let purpose = damage_purpose(formula.class());
@@ -63,32 +65,35 @@ impl FormulaInputs {
             element,
             class: formula.class(),
         };
-        for stage in [
-            FormulaStage::Crit,
-            FormulaStage::DamageBoost,
-            FormulaStage::Weaken,
-        ] {
-            let mut value = formula_modifier(&resolver, source, stage, purpose, &source_context)?;
-            if stage == FormulaStage::DamageBoost {
-                let target_value = formula_modifier(
-                    &resolver,
-                    target,
-                    stage,
-                    purpose,
-                    &action_modifier_context(
-                        catalog,
-                        cause,
-                        modifier_context(txn, target, target, element, formula.class())?,
-                    )
-                    .with_formula_subject(FormulaSubject::Target),
-                )?;
-                value = value
-                    .checked_add(target_value)
-                    .map_err(|_| numeric_fault(54, target_value.scaled()))?;
+        if apply_source_modifiers {
+            for stage in [
+                FormulaStage::Crit,
+                FormulaStage::DamageBoost,
+                FormulaStage::Weaken,
+            ] {
+                let mut value =
+                    formula_modifier(&resolver, source, stage, purpose, &source_context)?;
+                if stage == FormulaStage::DamageBoost {
+                    let target_value = formula_modifier(
+                        &resolver,
+                        target,
+                        stage,
+                        purpose,
+                        &action_modifier_context(
+                            catalog,
+                            cause,
+                            modifier_context(txn, target, target, element, formula.class())?,
+                        )
+                        .with_formula_subject(FormulaSubject::Target),
+                    )?;
+                    value = value
+                        .checked_add(target_value)
+                        .map_err(|_| numeric_fault(54, target_value.scaled()))?;
+                }
+                formula = formula
+                    .with_formula_modifier(stage, value)
+                    .map_err(|_| numeric_fault(41, value.scaled()))?;
             }
-            formula = formula
-                .with_formula_modifier(stage, value)
-                .map_err(|_| numeric_fault(41, value.scaled()))?;
         }
         for stage in [
             FormulaStage::Defense,

@@ -113,6 +113,7 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
         };
         match operation {
             O::Damage { selector, .. }
+            | O::UnboostedDamage { selector, .. }
             | O::DamageFromEventElement { selector, .. }
             | O::RandomRepeatedDamage { selector, .. }
             | O::TrueDamage { selector, .. }
@@ -142,6 +143,9 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
             }
             | O::RemoveShield { selector, effect }
             | O::ApplyEffect {
+                selector, effect, ..
+            }
+            | O::RandomGroupedEffect {
                 selector, effect, ..
             }
             | O::AdjustEffectStacks {

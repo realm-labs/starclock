@@ -8,6 +8,7 @@ pub(super) const fn emission_code(emission: &RuleEmission) -> i64 {
         RuleEmission::SetSlot { .. } => 1,
         RuleEmission::AddSlot { .. } => 2,
         RuleEmission::TrueDamage { .. } => 3,
+        RuleEmission::UnboostedDamage { .. } => 20,
         RuleEmission::Shield { .. } => 4,
         RuleEmission::RemoveShield { .. } => 18,
         RuleEmission::Break { .. } => 5,

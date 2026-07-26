@@ -5,7 +5,7 @@ mod arithmetic;
 mod event_property;
 mod helpers;
 use super::model::{
-    Comparison, ConditionExpr, EventFilter, ProgramStep, RuleEmission, RuleEvaluationInput,
+    Comparison, ConditionExpr, ProgramStep, RuleEmission, RuleEvaluationInput,
     RuleOperationTemplate, RuleReplacementProposal, RuleResourceKind, RuleValue, RuleValueKind,
     ShieldObservation, TriggerDef, ValueExpr, once_key,
 };
@@ -15,10 +15,16 @@ use arithmetic::{Arithmetic, arithmetic, convert, extremum};
 use event_property::event_property;
 pub(crate) use helpers::stat_query_error;
 use helpers::{
-    add_values, ancestry_matches, budget_error, compare_ordering, numeric_error, optional_unit,
-    query_effect_category_stacks, query_subject, require_current_target_broken, selector_matches,
-    selector_units, slot_value, type_error,
+    add_values, budget_error, compare_ordering, numeric_error, optional_unit,
+    query_effect_category_stacks, query_subject, require_current_target_broken, selector_units,
+    slot_value, type_error,
 };
+
+/// Applies the cheap indexed cause filter without inferring cause roles.
+#[must_use]
+pub fn matches_filter(filter: &super::model::EventFilter, input: RuleEvaluationInput<'_>) -> bool {
+    helpers::matches_filter(filter, input)
+}
 
 /// Immutable program lookup used by the evaluator and static handler tests.
 pub trait ProgramLookup {
@@ -383,6 +389,20 @@ fn evaluate_operation(
             can_defeat: *can_defeat,
             current_target,
         },
+        RuleOperationTemplate::UnboostedDamage {
+            selector,
+            amount,
+            class,
+            element,
+            can_defeat,
+        } => RuleEmission::UnboostedDamage {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            class: *class,
+            element: *element,
+            can_defeat: *can_defeat,
+            current_target,
+        },
         RuleOperationTemplate::DamageFromEventElement {
             selector,
             amount,
@@ -574,6 +594,31 @@ fn evaluate_operation(
         } => RuleEmission::ApplyRandomEffect {
             selector: *selector,
             effects: effects.clone(),
+            stacks: evaluate_value(stacks, input, current_target)?,
+            choice_rng_purpose: *choice_rng_purpose,
+            chance: *chance,
+            base_chance: base_chance
+                .as_ref()
+                .map(|value| evaluate_value(value, input, current_target))
+                .transpose()?,
+            chance_rng_purpose: *chance_rng_purpose,
+            current_target,
+        },
+        RuleOperationTemplate::RandomGroupedEffect {
+            selector,
+            effect,
+            groups,
+            applications_per_group,
+            stacks,
+            choice_rng_purpose,
+            chance,
+            base_chance,
+            chance_rng_purpose,
+        } => RuleEmission::RandomGroupedEffect {
+            selector: *selector,
+            effect: *effect,
+            groups: evaluate_value(groups, input, current_target)?,
+            applications_per_group: *applications_per_group,
             stacks: evaluate_value(stacks, input, current_target)?,
             choice_rng_purpose: *choice_rng_purpose,
             chance: *chance,
@@ -865,68 +910,6 @@ pub fn evaluate_condition(
                     == Some(*rank)
             }),
     })
-}
-
-/// Applies the cheap indexed cause filter without inferring cause roles.
-#[must_use]
-pub fn matches_filter(filter: &EventFilter, input: RuleEvaluationInput<'_>) -> bool {
-    filter
-        .owner
-        .is_none_or(|value| input.cause.owner == Some(value))
-        && filter
-            .actor
-            .is_none_or(|value| input.cause.actor == Some(value))
-        && filter
-            .applier
-            .is_none_or(|value| input.cause.applier == Some(value))
-        && filter
-            .target
-            .is_none_or(|value| input.cause.target == Some(value))
-        && filter
-            .source
-            .is_none_or(|value| input.cause.source == Some(value))
-        && filter
-            .excluded_source
-            .is_none_or(|value| input.cause.source != Some(value))
-        && filter
-            .effect_definition
-            .is_none_or(|value| input.event_facts.effect_definition == Some(value))
-        && filter
-            .source_class
-            .is_none_or(|value| input.event_facts.source_class == Some(value))
-        && selector_matches(filter.owner_selector, input.cause.owner, input)
-        && selector_matches(filter.actor_selector, input.cause.actor, input)
-        && selector_matches(filter.applier_selector, input.cause.applier, input)
-        && selector_matches(filter.target_selector, input.cause.target, input)
-        && filter
-            .action_kind
-            .is_none_or(|value| input.event_facts.action_kind == Some(value))
-        && filter
-            .ability_tag
-            .is_none_or(|value| input.event_facts.ability_tags.contains(value))
-        && filter
-            .element
-            .is_none_or(|value| input.event_facts.element == Some(value))
-        && filter
-            .damage_class
-            .is_none_or(|value| input.event_facts.damage_class == Some(value))
-        && filter
-            .effect_category
-            .is_none_or(|value| input.event_facts.effect_category == Some(value))
-        && filter
-            .effect_specific_resistance
-            .is_none_or(|value| input.event_facts.effect_specific_resistance == Some(value))
-        && filter
-            .toughness_kind
-            .is_none_or(|value| input.event_facts.toughness_kind == Some(value))
-        && filter
-            .resource
-            .as_ref()
-            .is_none_or(|value| input.event_facts.resource.as_ref() == Some(value))
-        && filter
-            .has_action
-            .is_none_or(|value| input.event_facts.has_action == value)
-        && ancestry_matches(filter.cause_ancestry, input)
 }
 
 pub fn evaluate_value(
