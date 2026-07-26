@@ -44,7 +44,7 @@ use crate::{
     service_interaction::{ServiceActivityBindings, ServiceInteractionRuntimeCatalog},
 };
 
-pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v6";
+pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v7";
 
 const WORLD_SLOT: u32 = 1;
 const DIFFICULTY_SLOT: u32 = 2;
@@ -66,6 +66,7 @@ const SERVICE_EFFECT_SLOT: u32 = 17;
 const CURIO_EVENT_SLOT: u32 = 18;
 const ABILITY_PROJECTION_SLOT: u32 = 19;
 const FORMATION_CAPABILITY_SLOT: u32 = 20;
+const TECHNIQUE_POINTS_SLOT: u32 = 21;
 const BLESSING_INVENTORY: u32 = 1;
 const FORMATION_INVENTORY: u32 = 2;
 const CURIO_INVENTORY: u32 = 3;
@@ -79,6 +80,7 @@ const ROOM_SOURCE: u64 = 0x5355_0007;
 const ENCOUNTER_MEMBER_SOURCE: u64 = 0x5355_0008;
 const BLESSING_REROLL_SOURCE: u64 = 0x5355_0009;
 const PATH_BLESSING_COUNT_SOURCE: u64 = 0x5355_000A;
+const TECHNIQUE_POINTS_SOURCE: u64 = 0x5355_0015;
 const CURIO_STATE_SOURCE: u64 = 0x5355_000B;
 const CURIO_CHARGE_SOURCE: u64 = 0x5355_000C;
 const COSMIC_FRAGMENTS_SOURCE: u64 = 0x5355_000D;
@@ -299,6 +301,7 @@ impl StandardUniverseProfile {
             state_slot: slot(CURIO_STATE_SLOT),
             charge_slot: slot(CURIO_CHARGE_SLOT),
             event_slot: slot(CURIO_EVENT_SLOT),
+            fragments_slot: slot(COSMIC_FRAGMENTS_SLOT),
         };
         let curio_effect_runtime = Arc::new(
             CurioEffectRuntimeCatalog::compile(&self.catalog, &curio_runtime)
@@ -415,6 +418,7 @@ impl StandardUniverseProfile {
                 slot(BLESSING_REROLL_SLOT),
                 slot(PATH_BLESSING_COUNT_SLOT),
                 slot(ABILITY_PROJECTION_SLOT),
+                curio_activity_bindings,
                 slot(FORMATION_CAPABILITY_SLOT),
                 inventory(FORMATION_INVENTORY),
                 occurrence_interaction_runtime.as_ref(),
@@ -640,6 +644,7 @@ impl CompiledActivity {
                     ability_projection_slot: self.ability_projection_slot(),
                     selected_room_slot: self.selected_room_slot(),
                     formation_capability_slot: self.formation_capability_slot(),
+                    technique_points_slot: self.technique_points_slot(),
                 }
             }),
         )
@@ -743,6 +748,11 @@ impl CompiledActivity {
     #[must_use]
     pub const fn formation_capability_slot(&self) -> ActivitySlotId {
         slot(FORMATION_CAPABILITY_SLOT)
+    }
+
+    #[must_use]
+    pub const fn technique_points_slot(&self) -> ActivitySlotId {
+        slot(TECHNIQUE_POINTS_SLOT)
     }
 
     #[must_use]
@@ -974,6 +984,14 @@ fn compile_state(
             i64::MAX,
             ABILITY_PROJECTION_SOURCE,
             ActivityStateVisibility::Private,
+        )?,
+        integer_slot(
+            TECHNIQUE_POINTS_SLOT,
+            5,
+            0,
+            5,
+            TECHNIQUE_POINTS_SOURCE,
+            ActivityStateVisibility::Player,
         )?,
         integer_slot(
             FORMATION_CAPABILITY_SLOT,

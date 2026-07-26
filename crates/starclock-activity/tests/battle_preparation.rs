@@ -4,13 +4,13 @@ use starclock_activity::{
     ActivityBattlePreparationRequest, ActivityConfigDigest, ActivityDefinitionDigest,
     ActivityDefinitionId, ActivityDefinitionIdentity, ActivityInstanceId, ActivityMasterSeed,
     ActivityOptionId, ActivityPreparationBoundary, ActivityPreparationError, ActivityRngContext,
-    ActivityRngStreams, ActivityRosterLock, ActivityScopePath, ActivityStateDefinition,
-    ActivityTransactionState, BattleBinding, BattleSequence, BuildDigest,
-    EncounterInitiativePolicy, EncounterPreparationDefinition, EncounterPreparationDefinitionError,
-    LoadoutLockScope, OneBattleFlow, OpaqueParticipantBuild, ParticipantId, ParticipantLock,
-    ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
-    PreparedBattleVariant, TechniqueContributionDigest, TechniqueEngagement,
-    TechniqueOptionDefinition,
+    ActivityRngStreams, ActivityRosterLock, ActivityScopePath, ActivitySlotDefinition,
+    ActivitySlotId, ActivityStateDefinition, ActivityTransactionState, ActivityValue,
+    BattleBinding, BattleSequence, BuildDigest, EncounterInitiativePolicy,
+    EncounterPreparationDefinition, EncounterPreparationDefinitionError, LoadoutLockScope,
+    OneBattleFlow, OpaqueParticipantBuild, ParticipantId, ParticipantLock, ParticipantLockEntry,
+    ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope, PreparedBattleVariant,
+    SlotResetPoint, TechniqueContributionDigest, TechniqueEngagement, TechniqueOptionDefinition,
 };
 use starclock_combat::{
     AbilityId, AssemblyDigest, BattleSpec, CombatantSpecDigest, ConcedePolicy, EncounterId,
@@ -259,6 +259,57 @@ fn preparation_definition_requires_prefix_closed_reachable_sequences() {
     );
 }
 
+#[test]
+fn preparation_spend_updates_the_bound_authoritative_resource_slot_atomically() {
+    let graph = graph();
+    let instance = instance();
+    let roster = roster_lock(instance, participants());
+    let lock_digest = roster.digest();
+    let definition = Arc::new(definition(
+        lock_digest,
+        EncounterInitiativePolicy::PlayerControlled,
+        vec![
+            technique(11, 1, TechniqueEngagement::Accumulate),
+            technique(12, 2, TechniqueEngagement::Engage),
+        ],
+        vec![
+            variant(lock_digest, &[], 0x91),
+            variant(lock_digest, &[11], 0x92),
+            variant(lock_digest, &[12], 0x93),
+            variant(lock_digest, &[11, 12], 0x94),
+        ],
+    ));
+    let points = ActivitySlotId::new(1).unwrap();
+    let mut state = state_with_technique_points(points, 5);
+    state
+        .begin_battle_preparation(
+            instance,
+            &graph,
+            request(instance, roster, definition, 3).with_technique_points_slot(points),
+        )
+        .unwrap();
+
+    state.choose_preparation_option(option(11)).unwrap();
+    assert_eq!(state.slot(points), Some(&ActivityValue::BoundedInteger(4)));
+    let before_rejection = state.state_hash(identity(), &graph, instance, &rng());
+    assert_eq!(
+        state.choose_preparation_option(option(11)),
+        Err(ActivityPreparationError::DecisionNotOffered)
+    );
+    assert_eq!(
+        state.state_hash(identity(), &graph, instance, &rng()),
+        before_rejection
+    );
+    assert_eq!(state.slot(points), Some(&ActivityValue::BoundedInteger(4)));
+
+    state.choose_preparation_option(option(12)).unwrap();
+    assert_eq!(state.slot(points), Some(&ActivityValue::BoundedInteger(3)));
+    assert_eq!(
+        state.pending_battle().unwrap().remaining_technique_points(),
+        1
+    );
+}
+
 fn request(
     instance: ActivityInstanceId,
     roster: ActivityRosterLock,
@@ -432,6 +483,27 @@ fn graph() -> starclock_activity::ActivityGraphDefinition {
 fn state() -> ActivityTransactionState {
     ActivityTransactionState::new(
         ActivityStateDefinition::new(vec![], vec![], vec![]).unwrap(),
+        node(),
+    )
+}
+
+fn state_with_technique_points(slot: ActivitySlotId, initial: i64) -> ActivityTransactionState {
+    ActivityTransactionState::new(
+        ActivityStateDefinition::new(
+            vec![
+                ActivitySlotDefinition::new(
+                    slot,
+                    starclock_activity::ActivityScope::Activity,
+                    ActivityValue::BoundedInteger(initial),
+                    Some((0, 5)),
+                    vec![SlotResetPoint::ActivityStart],
+                )
+                .unwrap(),
+            ],
+            vec![],
+            vec![],
+        )
+        .unwrap(),
         node(),
     )
 }

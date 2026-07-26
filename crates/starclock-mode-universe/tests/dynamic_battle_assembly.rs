@@ -405,7 +405,7 @@ fn production_baseline_records_and_verifies_dynamic_replay_v3() {
 
 #[test]
 fn dynamic_replay_reconstructs_each_snapshot_and_reports_first_divergence() {
-    const SEED: u64 = 0x6028;
+    const SEED: u64 = 0x6029;
     let controller = StandardUniverseControllerIdentity {
         id: "dynamic-replay-corruption-test",
         revision: StandardUniverseBaselineRunner::REVISION,
@@ -546,7 +546,7 @@ fn v3_payload_offset(bytes: &[u8], kind: RecordKind, ordinal: usize) -> usize {
         .iter()
         .filter(|record| record.kind() == kind)
         .nth(ordinal)
-        .unwrap()
+        .unwrap_or_else(|| panic!("missing replay-v3 record {kind:?} at ordinal {ordinal}"))
         .payload();
     payload.as_ptr() as usize - bytes.as_ptr() as usize
 }

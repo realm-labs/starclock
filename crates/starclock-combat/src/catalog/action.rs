@@ -1,5 +1,5 @@
+mod extensions;
 use crate::{Energy, NumericError, Ratio, Scalar};
-
 /// Shared semantic family used by legality, resources and event filters.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]
@@ -97,6 +97,8 @@ pub enum AbilityTag {
     Assist = 11,
     /// Mode-owned Path Resonance action; never a character Ultimate/attack.
     PathResonance = 12,
+    /// Explicitly selected pre-battle Technique action.
+    Technique = 13,
 }
 
 /// Compact, canonically encoded set of generic ability tags.
@@ -104,7 +106,7 @@ pub enum AbilityTag {
 pub struct AbilityTags(u32);
 
 impl AbilityTags {
-    const ALL_BITS: u32 = (1_u32 << 13) - 1;
+    const ALL_BITS: u32 = (1_u32 << 14) - 1;
     #[must_use]
     pub fn new(tags: &[AbilityTag]) -> Self {
         Self(
@@ -725,11 +727,6 @@ impl ScalingDamageDefinition {
     }
 
     #[must_use]
-    pub const fn class(self) -> crate::formula::model::DamageClass {
-        self.class
-    }
-
-    #[must_use]
     pub const fn element(self) -> crate::formula::model::CombatElement {
         self.element
     }
@@ -776,11 +773,6 @@ impl OrdinaryDamageDefinition {
         self.class = class;
         self
     }
-    #[must_use]
-    pub const fn class(self) -> crate::formula::model::DamageClass {
-        self.class
-    }
-
     /// Applies one already-filtered and already-stacked formula-stage contribution.
     pub fn with_formula_modifier(
         mut self,

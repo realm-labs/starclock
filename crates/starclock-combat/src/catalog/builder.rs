@@ -1,5 +1,5 @@
 //! Deterministic `CombatCatalog` construction and cross-reference validation.
-
+mod replacement;
 use std::collections::{BTreeMap, BTreeSet};
 use std::sync::Arc;
 
@@ -181,10 +181,6 @@ impl CombatCatalogBuilder {
     /// Adds one timeline-only Rule IR countdown template.
     pub fn add_countdown(&mut self, definition: crate::CountdownCatalogDefinition) {
         self.countdowns.push(definition);
-    }
-    /// Adds an ability definition.
-    pub fn add_ability(&mut self, definition: AbilityDefinition) {
-        self.abilities.push(definition);
     }
     /// Adds one value for an exact effective-level ability definition.
     pub fn add_ability_parameter(&mut self, definition: AbilityParameterDefinition) {

@@ -858,12 +858,19 @@ fn encode_curio_bindings(output: &mut Vec<u8>, bindings: CurioActivityBindings) 
     output.extend_from_slice(&bindings.state_slot.get().to_le_bytes());
     output.extend_from_slice(&bindings.charge_slot.get().to_le_bytes());
     output.extend_from_slice(&bindings.event_slot.get().to_le_bytes());
+    output.extend_from_slice(&bindings.fragments_slot.get().to_le_bytes());
 }
 
 fn encode_curio_record(output: &mut Vec<u8>, record: CurioActivityRecord) {
     output.extend_from_slice(&record.id().get().to_le_bytes());
     output.extend_from_slice(&record.initial_state().get().to_le_bytes());
     output.push(record.initial_charges());
+    output.extend_from_slice(
+        &record
+            .acquisition_fragment_divisor()
+            .unwrap_or(0)
+            .to_le_bytes(),
+    );
 }
 
 fn decode_curio_bindings(
@@ -874,6 +881,7 @@ fn decode_curio_bindings(
         state_slot: slot(decoder.u32()?)?,
         charge_slot: slot(decoder.u32()?)?,
         event_slot: slot(decoder.u32()?)?,
+        fragments_slot: slot(decoder.u32()?)?,
     })
 }
 
@@ -884,6 +892,10 @@ fn decode_curio_record(
         CurioId::new(decoder.u32()?).ok_or_else(invalid_payload)?,
         crate::id::CurioStateId::new(decoder.u32()?).ok_or_else(invalid_payload)?,
         decoder.u8()?,
+        match decoder.i64()? {
+            0 => None,
+            value => Some(value),
+        },
     ))
 }
 
@@ -981,6 +993,10 @@ impl<'a> Decoder<'a> {
 
     fn u64(&mut self) -> Result<u64, ActivityHandlerFault> {
         Ok(u64::from_le_bytes(self.take(8)?.try_into().unwrap()))
+    }
+
+    fn i64(&mut self) -> Result<i64, ActivityHandlerFault> {
+        Ok(i64::from_le_bytes(self.take(8)?.try_into().unwrap()))
     }
 
     fn finish(self) -> Result<(), ActivityHandlerFault> {

@@ -2,6 +2,7 @@
 pub mod ability_access;
 mod battle_contribution_access;
 mod battle_execution_access;
+pub mod curio_commands;
 
 use std::sync::Arc;
 
@@ -92,6 +93,7 @@ pub struct StandardUniverseActivity {
     ability_projection_slot: ActivitySlotId,
     selected_room_slot: ActivitySlotId,
     formation_capability_slot: ActivitySlotId,
+    technique_points_slot: ActivitySlotId,
 }
 
 pub(crate) struct StandardUniverseRuntimeContext {
@@ -129,6 +131,7 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) ability_projection_slot: ActivitySlotId,
     pub(crate) selected_room_slot: ActivitySlotId,
     pub(crate) formation_capability_slot: ActivitySlotId,
+    pub(crate) technique_points_slot: ActivitySlotId,
 }
 
 impl StandardUniverseActivity {
@@ -169,6 +172,7 @@ impl StandardUniverseActivity {
             ability_projection_slot: context.ability_projection_slot,
             selected_room_slot: context.selected_room_slot,
             formation_capability_slot: context.formation_capability_slot,
+            technique_points_slot: context.technique_points_slot,
         }
     }
 
@@ -787,7 +791,15 @@ impl StandardUniverseActivity {
             .iter()
             .find(|slot| slot.id() == self.curio_charge_slot)
             .ok_or(CurioRuntimeError::InvalidChargeSlot)?;
-        self.curio_runtime.contributions(inventory, state, charges)
+        let destroyed = view
+            .slots()
+            .iter()
+            .find(|slot| slot.id() == self.curio_event_slot)
+            .and_then(|slot| crate::curio_activity::destroyed_curio_count(slot.value()))
+            .unwrap_or(0);
+        self.curio_runtime
+            .contributions(inventory, state, charges)
+            .map(|contributions| contributions.with_destroyed_curios(destroyed))
     }
 
     pub fn curio_effects(
@@ -846,8 +858,13 @@ impl StandardUniverseActivity {
             event,
             &effects,
             facts.cosmic_fragments,
-            self.cosmic_fragments_slot,
-            self.curio_event_slot,
+            crate::curio_activity::CurioActivityBindings {
+                inventory: self.curio_inventory,
+                state_slot: self.curio_state_slot,
+                charge_slot: self.curio_charge_slot,
+                event_slot: self.curio_event_slot,
+                fragments_slot: self.cosmic_fragments_slot,
+            },
         )
         .map_err(StandardUniverseCurioActivityError::Projection)
     }
@@ -972,6 +989,10 @@ impl StandardUniverseActivity {
         .map_err(|_| StandardUniverseEncounterError::InvalidScope)?;
         let sequence = BattleSequence::new(current.get())
             .ok_or(StandardUniverseEncounterError::InvalidScope)?;
+        let technique_points = technique_points.min(
+            self.technique_points()
+                .map_err(|_| StandardUniverseEncounterError::InvalidScope)?,
+        );
         self.graph
             .engage_encounter(
                 expected_state_hash,
@@ -983,7 +1004,8 @@ impl StandardUniverseActivity {
                     sequence,
                     technique_points,
                     Arc::clone(binding.preparation()),
-                ),
+                )
+                .with_technique_points_slot(self.technique_points_slot),
             )
             .map_err(StandardUniverseEncounterError::Activity)
     }

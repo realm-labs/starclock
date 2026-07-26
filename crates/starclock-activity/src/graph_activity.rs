@@ -1,3 +1,5 @@
+mod boundary;
+
 use std::sync::Arc;
 
 use crate::{
@@ -158,6 +160,16 @@ impl GraphActivityDefinition {
                 if !valid {
                     return Err(GraphActivityDefinitionError::InvalidRandomOffer);
                 }
+            }
+            if let Some((condition, _)) = &offer.maximum_options_reduction
+                && crate::program::condition_type(condition, &state).is_err()
+            {
+                return Err(GraphActivityDefinitionError::InvalidRandomOffer);
+            }
+            if let Some(condition) = &offer.inactive_condition
+                && crate::program::condition_type(condition, &state).is_err()
+            {
+                return Err(GraphActivityDefinitionError::InvalidRandomOffer);
             }
         }
         Ok(Self {
@@ -977,6 +989,9 @@ fn player_offer_options(operations: &[ActivityOperation]) -> Option<Vec<Activity
         ActivityOperation::Offer { kind, options } if *kind != ActivityDecisionKind::Checkpoint => {
             Some(options.iter().map(ActivityOptionDefinition::id).collect())
         }
+        ActivityOperation::Conditional {
+            if_true, if_false, ..
+        } => player_offer_options(if_true).or_else(|| player_offer_options(if_false)),
         _ => None,
     }
 }
@@ -988,7 +1003,18 @@ fn restrict_random_offer(
 ) -> Result<(), GraphActivityRuntimeError> {
     let offered = state
         .pending_option_ids()
+        .or_else(|| {
+            policy
+                .inactive_condition
+                .as_ref()
+                .and_then(|condition| state.condition(condition).ok())
+                .filter(|inactive| *inactive)
+                .map(|_| Vec::new().into_boxed_slice())
+        })
         .ok_or(GraphActivityRuntimeError::InvalidRandomOffer)?;
+    if offered.is_empty() {
+        return Ok(());
+    }
     let mut weights = Vec::with_capacity(offered.len());
     for option in &offered {
         let weight = policy
@@ -999,12 +1025,36 @@ fn restrict_random_offer(
             .ok_or(GraphActivityRuntimeError::InvalidRandomOffer)?;
         weights.push(weight);
     }
+    let reduce_options = policy
+        .maximum_options_reduction
+        .as_ref()
+        .map(|(condition, _)| {
+            state
+                .condition(condition)
+                .map_err(|_| GraphActivityRuntimeError::InvalidRandomOffer)
+        })
+        .transpose()?
+        .unwrap_or(false);
+    let maximum_options = if reduce_options {
+        policy
+            .maximum_options
+            .checked_sub(
+                policy
+                    .maximum_options_reduction
+                    .as_ref()
+                    .expect("reduction condition was evaluated")
+                    .1,
+            )
+            .ok_or(GraphActivityRuntimeError::InvalidRandomOffer)?
+    } else {
+        policy.maximum_options
+    };
     let selected = rng
         .choose_weighted_without_replacement(
             policy.label,
             policy.purpose,
             &weights,
-            policy.maximum_options,
+            maximum_options,
         )
         .map_err(GraphActivityRuntimeError::Rng)?;
     let ids = selected

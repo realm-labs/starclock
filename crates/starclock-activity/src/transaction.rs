@@ -2,6 +2,7 @@ use std::collections::BTreeMap;
 
 use sha2::{Digest, Sha256};
 
+mod condition;
 mod decision;
 mod participant_carry;
 
@@ -700,6 +701,17 @@ impl ActivityTransactionState {
                     ActivityTransactionEventKind::ParticipantCarryChanged(*participant),
                 );
             }
+            Op::SetParticipantEnergy {
+                participant,
+                energy,
+            } => {
+                participant_carry::set_energy(&mut self.carry, *participant, *energy)?;
+                push(
+                    events,
+                    cause,
+                    ActivityTransactionEventKind::ParticipantCarryChanged(*participant),
+                );
+            }
             Op::Traverse(edge) => {
                 self.traverse_edge(*edge, graph)?;
                 push(
@@ -808,6 +820,14 @@ impl ActivityTransactionState {
             ActivityExpression::Subtract(a, b) => {
                 numeric_binary(self.evaluate(a)?, self.evaluate(b)?, i64::checked_sub)
             }
+            ActivityExpression::Multiply(a, b) => {
+                numeric_binary(self.evaluate(a)?, self.evaluate(b)?, i64::checked_mul)
+            }
+            ActivityExpression::Divide(a, b) => {
+                numeric_binary(self.evaluate(a)?, self.evaluate(b)?, |a, b| {
+                    (b != 0).then(|| a / b)
+                })
+            }
             ActivityExpression::Minimum(a, b) => {
                 numeric_binary(self.evaluate(a)?, self.evaluate(b)?, |a, b| Some(a.min(b)))
             }
@@ -828,41 +848,6 @@ impl ActivityTransactionState {
         }
     }
 
-    fn condition(&self, condition: &ActivityCondition) -> Result<bool, ActivityFault> {
-        match condition {
-            ActivityCondition::Boolean(value) => match self.evaluate(value)? {
-                ActivityValue::Boolean(value) => Ok(value),
-                _ => Err(ActivityFault::TypeMismatch),
-            },
-            ActivityCondition::Equal(a, b) => Ok(self.evaluate(a)? == self.evaluate(b)?),
-            ActivityCondition::LessThan(a, b) => match (self.evaluate(a)?, self.evaluate(b)?) {
-                (ActivityValue::BoundedInteger(a), ActivityValue::BoundedInteger(b))
-                | (ActivityValue::FixedScalar(a), ActivityValue::FixedScalar(b)) => Ok(a < b),
-                _ => Err(ActivityFault::TypeMismatch),
-            },
-            ActivityCondition::ParticipantDefeated(participant) => {
-                Ok(self.carry.participant_defeated(*participant))
-            }
-            ActivityCondition::Not(value) => Ok(!self.condition(value)?),
-            ActivityCondition::All(values) => {
-                for value in values.iter() {
-                    if !self.condition(value)? {
-                        return Ok(false);
-                    }
-                }
-                Ok(true)
-            }
-            ActivityCondition::Any(values) => {
-                for value in values.iter() {
-                    if self.condition(value)? {
-                        return Ok(true);
-                    }
-                }
-                Ok(false)
-            }
-        }
-    }
-
     fn set_slot(&mut self, id: ActivitySlotId, value: ActivityValue) -> Result<(), ActivityFault> {
         let definition = self
             .definition
@@ -875,6 +860,22 @@ impl ActivityTransactionState {
         }
         self.slots.insert(id, value);
         Ok(())
+    }
+
+    pub(crate) fn consume_bounded_integer_slot(
+        &mut self,
+        id: ActivitySlotId,
+        amount: u16,
+    ) -> Result<(), ActivityFault> {
+        let current = match self.slot(id) {
+            Some(ActivityValue::BoundedInteger(value)) => *value,
+            Some(_) => return Err(ActivityFault::TypeMismatch),
+            None => return Err(ActivityFault::MissingSlot(id)),
+        };
+        let next = current
+            .checked_sub(i64::from(amount))
+            .ok_or(ActivityFault::ArithmeticOverflow)?;
+        self.set_slot(id, ActivityValue::BoundedInteger(next))
     }
 
     pub(crate) fn settle_metric(

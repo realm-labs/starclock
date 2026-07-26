@@ -453,6 +453,7 @@ fn encode_parameter(encoder: &mut Encoder, value: ExactParameter) {
 pub enum RunRuntimeError {
     InvalidDenominator,
     InvalidFragmentAmount,
+    InvalidTechniquePoints,
     UnknownAbilityTreeNode(AbilityTreeNodeId),
     DuplicateAbilityTreeNode,
 }

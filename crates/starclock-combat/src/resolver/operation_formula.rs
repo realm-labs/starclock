@@ -69,6 +69,16 @@ impl FormulaInputs {
             ultimate_semantics,
         };
         if apply_source_modifiers {
+            let flat = formula_modifier(
+                &resolver,
+                source,
+                FormulaStage::Flat,
+                purpose,
+                &source_context,
+            )?;
+            formula = formula
+                .with_flat_base(flat)
+                .map_err(|_| numeric_fault(55, flat.scaled()))?;
             for stage in [
                 FormulaStage::Crit,
                 FormulaStage::DamageBoost,
@@ -765,6 +775,7 @@ fn action_modifier_context(
             crate::catalog::action::AbilityTag::PathResonance,
             "path_resonance",
         ),
+        (crate::catalog::action::AbilityTag::Technique, "technique"),
     ]
     .into_iter()
     .filter(|(tag, _)| action.tags().contains(*tag))

@@ -509,6 +509,23 @@ impl UniverseBattleMaterializer {
         let revision = composition.revision();
         let mut builder =
             CombatCatalogBuilder::from_catalog(composition.combat_catalog(), revision, digest);
+        if let Some(technique) = &technique {
+            let definition = composition
+                .combat_catalog()
+                .ability(technique.definition().ability())
+                .cloned()
+                .and_then(|definition| {
+                    definition.action().cloned().map(|action| {
+                        definition.with_action(action.with_added_tag(
+                            starclock_combat::catalog::action::AbilityTag::Technique,
+                        ))
+                    })
+                })
+                .ok_or(UniverseBattleMaterializationError::InvalidTechnique)?;
+            if !builder.replace_ability(definition) {
+                return Err(UniverseBattleMaterializationError::InvalidTechnique);
+            }
+        }
         for modifier in contributions.modifiers() {
             builder.add_modifier_group(modifier.group().clone());
             builder.add_modifier(modifier.definition().clone());

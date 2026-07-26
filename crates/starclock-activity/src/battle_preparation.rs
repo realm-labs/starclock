@@ -7,9 +7,10 @@ use starclock_combat::{
 
 use crate::{
     ActivityGraphDefinition, ActivityInstanceId, ActivityOptionId, ActivityScope,
-    ActivityScopePath, ActivityTransactionState, BattleBinding, BattleSequence,
-    EncounterPreparationDigest, LoadoutLockScope, NodeId, ParticipantId, ParticipantLock,
-    ParticipantLockDigest, TechniqueContributionDigest, codec::ActivityStateEncoder,
+    ActivityScopePath, ActivitySlotId, ActivityTransactionState, ActivityValue, BattleBinding,
+    BattleSequence, EncounterPreparationDigest, LoadoutLockScope, NodeId, ParticipantId,
+    ParticipantLock, ParticipantLockDigest, TechniqueContributionDigest,
+    codec::ActivityStateEncoder,
 };
 
 pub const MAX_PREPARATION_TECHNIQUES: usize = 8;
@@ -480,6 +481,7 @@ pub enum ActivityPreparationError {
     PendingAssemblyMismatch,
     DecisionNotOffered,
     TechniquePointsInsufficient,
+    TechniquePointSlotMismatch,
     MissingPreparedVariant,
     BattleAlreadyPending,
 }
@@ -490,6 +492,7 @@ pub struct ActivityBattlePreparationRequest {
     roster: ActivityRosterLock,
     battle_sequence: BattleSequence,
     technique_points: u16,
+    technique_points_slot: Option<ActivitySlotId>,
     definition: Arc<EncounterPreparationDefinition>,
 }
 
@@ -507,8 +510,25 @@ impl ActivityBattlePreparationRequest {
             roster,
             battle_sequence,
             technique_points,
+            technique_points_slot: None,
             definition,
         }
+    }
+
+    #[must_use]
+    pub const fn with_technique_points_slot(mut self, slot: ActivitySlotId) -> Self {
+        self.technique_points_slot = Some(slot);
+        self
+    }
+
+    #[must_use]
+    const fn technique_points(&self) -> u16 {
+        self.technique_points
+    }
+
+    #[must_use]
+    const fn technique_points_slot(&self) -> Option<ActivitySlotId> {
+        self.technique_points_slot
     }
 }
 
@@ -519,6 +539,7 @@ pub(crate) struct ActivityAttemptState {
     battle_sequence: BattleSequence,
     initial_points: u16,
     remaining_points: u16,
+    technique_points_slot: Option<ActivitySlotId>,
     selected: Vec<ActivityOptionId>,
     definition: Arc<EncounterPreparationDefinition>,
     pending: Option<PendingBattleSpec>,
@@ -537,6 +558,7 @@ impl ActivityAttemptState {
             roster,
             battle_sequence,
             technique_points,
+            technique_points_slot,
             definition,
         } = request;
         let attempt = path
@@ -562,6 +584,7 @@ impl ActivityAttemptState {
             battle_sequence,
             initial_points: technique_points,
             remaining_points: technique_points,
+            technique_points_slot,
             selected: Vec::new(),
             definition,
             pending: None,
@@ -667,6 +690,10 @@ impl ActivityAttemptState {
         writer.u32(self.battle_sequence.get());
         writer.u32(u32::from(self.initial_points));
         writer.u32(u32::from(self.remaining_points));
+        if let Some(slot) = self.technique_points_slot {
+            writer.bool(true);
+            writer.u32(slot.get());
+        }
         writer.digest(self.definition.digest.bytes());
         writer.u32(self.selected.len() as u32);
         for option in &self.selected {
@@ -782,6 +809,16 @@ impl ActivityTransactionState {
         if self.terminal().is_some() {
             return Err(ActivityPreparationError::BattleAlreadyPending);
         }
+        if let Some(slot) = request.technique_points_slot() {
+            let available = match self.slot(slot) {
+                Some(ActivityValue::BoundedInteger(value)) => u16::try_from(*value)
+                    .map_err(|_| ActivityPreparationError::TechniquePointSlotMismatch)?,
+                _ => return Err(ActivityPreparationError::TechniquePointSlotMismatch),
+            };
+            if available < request.technique_points() {
+                return Err(ActivityPreparationError::TechniquePointSlotMismatch);
+            }
+        }
         let (attempt, boundary) =
             ActivityAttemptState::begin(instance, self.current_node(), graph, request)?;
         self.attempt = Some(attempt);
@@ -796,7 +833,15 @@ impl ActivityTransactionState {
             .attempt
             .clone()
             .ok_or(ActivityPreparationError::MissingAttempt)?;
+        let before = working.remaining_points;
         let boundary = working.apply_option(option)?;
+        let spent = before.saturating_sub(working.remaining_points);
+        if spent > 0
+            && let Some(slot) = working.technique_points_slot
+        {
+            self.consume_bounded_integer_slot(slot, spent)
+                .map_err(|_| ActivityPreparationError::TechniquePointSlotMismatch)?;
+        }
         self.attempt = Some(working);
         Ok(boundary)
     }

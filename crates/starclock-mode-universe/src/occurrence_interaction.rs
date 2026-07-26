@@ -305,11 +305,12 @@ fn decode_fragment_scalar(
     operations: &mut Vec<ActivityOperation>,
 ) -> Result<(), ActivityHandlerFault> {
     let slot = slot(decoder.u32()?)?;
+    let gain_inventory = inventory(decoder.u32()?)?;
     let delta = decoder.i64()?;
     if delta < 0 {
         operations.push(require_at_least(slot, delta.unsigned_abs())?);
     }
-    operations.push(add_slot(slot, delta));
+    operations.push(fragment_delta(slot, gain_inventory, delta));
     Ok(())
 }
 
@@ -319,6 +320,7 @@ fn decode_fragment_percent(
     operations: &mut Vec<ActivityOperation>,
 ) -> Result<(), ActivityHandlerFault> {
     let slot = slot(decoder.u32()?)?;
+    let gain_inventory = inventory(decoder.u32()?)?;
     let coefficient = decoder.i64()?;
     let scale = decoder.u8()?;
     let sign = decoder.i8()?;
@@ -337,7 +339,7 @@ fn decode_fragment_percent(
     if delta < 0 {
         operations.push(require_at_least(slot, delta.unsigned_abs())?);
     }
-    operations.push(add_slot(slot, delta));
+    operations.push(fragment_delta(slot, gain_inventory, delta));
     Ok(())
 }
 
@@ -429,6 +431,7 @@ fn decode_curio_inventory(
         state_slot: slot(decoder.u32()?)?,
         charge_slot: slot(decoder.u32()?)?,
         event_slot: slot(decoder.u32()?)?,
+        fragments_slot: slot(decoder.u32()?)?,
     };
     let delta = decoder.i8()?;
     let quantity = usize::from(decoder.u16()?);
@@ -443,6 +446,10 @@ fn decode_curio_inventory(
             CurioId::new(decoder.u32()?).ok_or_else(invalid_payload)?,
             CurioStateId::new(decoder.u32()?).ok_or_else(invalid_payload)?,
             decoder.u8()?,
+            match decoder.i64()? {
+                0 => None,
+                value => Some(value),
+            },
         ));
     }
     if records.windows(2).any(|pair| pair[0].id() >= pair[1].id()) {
@@ -496,10 +503,12 @@ fn decode_deferred_effect(
 enum PayloadOperation {
     FragmentScalar {
         slot: ActivitySlotId,
+        gain_inventory: ActivityInventoryId,
         delta: i64,
     },
     FragmentPercent {
         slot: ActivitySlotId,
+        gain_inventory: ActivityInventoryId,
         coefficient: i64,
         scale: u8,
         sign: i8,
@@ -539,19 +548,26 @@ impl PayloadOperation {
 
     fn encode(self, output: &mut Vec<u8>) -> Result<(), OccurrenceInteractionError> {
         match self {
-            Self::FragmentScalar { slot, delta } => {
+            Self::FragmentScalar {
+                slot,
+                gain_inventory,
+                delta,
+            } => {
                 output.push(TAG_FRAGMENT_SCALAR);
                 output.extend_from_slice(&slot.get().to_le_bytes());
+                output.extend_from_slice(&gain_inventory.get().to_le_bytes());
                 output.extend_from_slice(&delta.to_le_bytes());
             }
             Self::FragmentPercent {
                 slot,
+                gain_inventory,
                 coefficient,
                 scale,
                 sign,
             } => {
                 output.push(TAG_FRAGMENT_PERCENT);
                 output.extend_from_slice(&slot.get().to_le_bytes());
+                output.extend_from_slice(&gain_inventory.get().to_le_bytes());
                 output.extend_from_slice(&coefficient.to_le_bytes());
                 output.push(scale);
                 output.push(sign as u8);
@@ -604,6 +620,7 @@ impl PayloadOperation {
                 output.extend_from_slice(&bindings.state_slot.get().to_le_bytes());
                 output.extend_from_slice(&bindings.charge_slot.get().to_le_bytes());
                 output.extend_from_slice(&bindings.event_slot.get().to_le_bytes());
+                output.extend_from_slice(&bindings.fragments_slot.get().to_le_bytes());
                 output.push(delta as u8);
                 output.extend_from_slice(&quantity.to_le_bytes());
                 output.push(u8::from(owned_only));
@@ -616,6 +633,12 @@ impl PayloadOperation {
                     output.extend_from_slice(&candidate.id().get().to_le_bytes());
                     output.extend_from_slice(&candidate.initial_state().get().to_le_bytes());
                     output.push(candidate.initial_charges());
+                    output.extend_from_slice(
+                        &candidate
+                            .acquisition_fragment_divisor()
+                            .unwrap_or(0)
+                            .to_le_bytes(),
+                    );
                 }
             }
             Self::DeferredEffect { slot, key } => {
@@ -664,12 +687,14 @@ fn lower_pairs(
                             .ok_or(OccurrenceInteractionError::Arithmetic)?;
                         output.push(PayloadOperation::FragmentScalar {
                             slot: cosmic_fragments,
+                            gain_inventory: curio_bindings.inventory,
                             delta,
                         });
                     }
                     AuthoredScalarUnit::Percent => {
                         output.push(PayloadOperation::FragmentPercent {
                             slot: cosmic_fragments,
+                            gain_inventory: curio_bindings.inventory,
                             coefficient: scalar.value().coefficient(),
                             scale: scalar.value().scale(),
                             sign,
@@ -935,6 +960,33 @@ fn add_slot(slot: ActivitySlotId, delta: i64) -> ActivityOperation {
     ActivityOperation::AddToSlot {
         slot,
         delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(delta)),
+    }
+}
+
+fn fragment_delta(
+    slot: ActivitySlotId,
+    gain_inventory: ActivityInventoryId,
+    delta: i64,
+) -> ActivityOperation {
+    if delta <= 0 {
+        return add_slot(slot, delta);
+    }
+    ActivityOperation::AddToSlot {
+        slot,
+        delta: ActivityExpression::Multiply(
+            Box::new(ActivityExpression::Literal(ActivityValue::BoundedInteger(
+                delta,
+            ))),
+            Box::new(ActivityExpression::Add(
+                Box::new(ActivityExpression::Literal(ActivityValue::BoundedInteger(
+                    1,
+                ))),
+                Box::new(ActivityExpression::InventoryCount {
+                    inventory: gain_inventory,
+                    content: crate::curio_activity::GOSSIP_CURIO_CONTENT,
+                }),
+            )),
+        ),
     }
 }
 

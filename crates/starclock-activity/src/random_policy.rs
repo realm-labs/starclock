@@ -1,7 +1,8 @@
 //! Authored deterministic bootstrap, checkpoint and visible-offer policies.
 
 use crate::{
-    ActivityOptionId, ActivityRngLabel, ActivitySlotId, GraphActivityDefinitionError, NodeId,
+    ActivityCondition, ActivityOptionId, ActivityRngLabel, ActivitySlotId,
+    GraphActivityDefinitionError, NodeId,
 };
 
 /// Deterministic weighted settlement policy for one internal checkpoint.
@@ -24,6 +25,8 @@ pub struct ActivityRandomOffer {
     pub(crate) maximum_options: u16,
     pub(crate) weights: Box<[(ActivityOptionId, u64)]>,
     pub(crate) reroll_counter: Option<(ActivitySlotId, u32)>,
+    pub(crate) maximum_options_reduction: Option<(ActivityCondition, u16)>,
+    pub(crate) inactive_condition: Option<ActivityCondition>,
 }
 
 impl ActivityRandomOffer {
@@ -54,7 +57,31 @@ impl ActivityRandomOffer {
             maximum_options,
             weights: weights.into_boxed_slice(),
             reroll_counter,
+            maximum_options_reduction: None,
+            inactive_condition: None,
         })
+    }
+
+    /// Reduces the visible offer width when an authored runtime condition is true.
+    #[must_use]
+    pub fn with_maximum_options_reduction(
+        mut self,
+        condition: ActivityCondition,
+        reduction: u16,
+    ) -> Option<Self> {
+        if reduction == 0 || reduction >= self.maximum_options {
+            None
+        } else {
+            self.maximum_options_reduction = Some((condition, reduction));
+            Some(self)
+        }
+    }
+
+    /// Allows the owning node program to bypass the offer under one condition.
+    #[must_use]
+    pub fn with_inactive_condition(mut self, condition: ActivityCondition) -> Self {
+        self.inactive_condition = Some(condition);
+        self
     }
     #[must_use]
     pub const fn node(&self) -> NodeId {
@@ -79,6 +106,16 @@ impl ActivityRandomOffer {
     #[must_use]
     pub const fn reroll_counter(&self) -> Option<(ActivitySlotId, u32)> {
         self.reroll_counter
+    }
+
+    #[must_use]
+    pub const fn maximum_options_reduction(&self) -> Option<&(ActivityCondition, u16)> {
+        self.maximum_options_reduction.as_ref()
+    }
+
+    #[must_use]
+    pub const fn inactive_condition(&self) -> Option<&ActivityCondition> {
+        self.inactive_condition.as_ref()
     }
 }
 

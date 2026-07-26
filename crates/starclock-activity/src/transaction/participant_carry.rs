@@ -1,6 +1,6 @@
 //! Participant carry mutations lowered by generic Activity operations.
 
-use starclock_combat::Ratio;
+use starclock_combat::{Energy, Ratio};
 
 use crate::{
     ActivityFault, ParticipantId,
@@ -23,5 +23,22 @@ pub(super) fn restore(
             }
             ActivityCarryMutationError::InvalidRestoreRatio => ActivityFault::TypeMismatch,
             ActivityCarryMutationError::ArithmeticOverflow => ActivityFault::ArithmeticOverflow,
+        })
+}
+
+pub(super) fn set_energy(
+    carry: &mut ActivityCarryLedger,
+    participant: ParticipantId,
+    energy: Energy,
+) -> Result<(), ActivityFault> {
+    carry
+        .set_participant_energy(participant, energy)
+        .map_err(|error| match error {
+            ActivityCarryMutationError::MissingParticipant => {
+                ActivityFault::MissingParticipant(participant)
+            }
+            ActivityCarryMutationError::ArithmeticOverflow => ActivityFault::ArithmeticOverflow,
+            ActivityCarryMutationError::ParticipantNotDefeated
+            | ActivityCarryMutationError::InvalidRestoreRatio => ActivityFault::TypeMismatch,
         })
 }

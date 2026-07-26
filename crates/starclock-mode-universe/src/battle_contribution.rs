@@ -388,12 +388,28 @@ impl UniverseBattleContributionCompiler {
             .iter()
             .find(|value| value.target == AbilityTarget::PathResonanceInitialEnergy)
             .map_or(0, |value| value.value.raw_six_decimal() / 1_000_000);
-        let initial_resonance_energy = u16::try_from(initial_resonance_energy)
+        let mut initial_resonance_energy = u16::try_from(initial_resonance_energy)
             .map_err(|_| UniverseBattleContributionError::InvalidExecutableRule)?;
-        let resonance_damage_ratio = boundary_values
+        let mut resonance_damage_ratio = boundary_values
             .iter()
             .find(|value| value.target == AbilityTarget::PathResonanceDamageRatio)
             .map_or(0, |value| value.value.raw_six_decimal());
+        if let Some(robe) = curios
+            .entries()
+            .iter()
+            .find(|entry| entry.state().source_effect_id() == "11")
+        {
+            initial_resonance_energy = 200;
+            resonance_damage_ratio = resonance_damage_ratio
+                .checked_add(exact_six(
+                    *robe
+                        .state()
+                        .parameters()
+                        .first()
+                        .ok_or(UniverseBattleContributionError::InvalidExecutableRule)?,
+                )?)
+                .ok_or(UniverseBattleContributionError::InvalidExecutableRule)?;
+        }
         let (executable_rules, resonance) = lower_rules(
             &self.catalog,
             &rules,
@@ -464,6 +480,16 @@ impl UniverseBattleContributionCompiler {
         output.push(binding(rule, role)?);
         Ok(())
     }
+}
+
+fn exact_six(value: crate::path::ExactParameter) -> Result<i64, UniverseBattleContributionError> {
+    let exponent = 6_u8
+        .checked_sub(value.scale())
+        .ok_or(UniverseBattleContributionError::InvalidExecutableRule)?;
+    value
+        .coefficient()
+        .checked_mul(10_i64.pow(u32::from(exponent)))
+        .ok_or(UniverseBattleContributionError::InvalidExecutableRule)
 }
 
 fn binding(

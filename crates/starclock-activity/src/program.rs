@@ -3,7 +3,7 @@ use crate::{
     ActivityOptionId, ActivityProgramId, ActivitySlotId, ActivityStateDefinition,
     ActivityTerminalOutcome, ActivityValue, ParticipantId, SlotValueKind,
 };
-use starclock_combat::Ratio;
+use starclock_combat::{Energy, Ratio};
 
 pub const MAX_ACTIVITY_PROGRAM_OPERATIONS: usize = 4_096;
 pub const MAX_ACTIVITY_PROGRAM_DEPTH: usize = 16;
@@ -35,6 +35,8 @@ pub enum ActivityExpression {
     },
     Add(Box<ActivityExpression>, Box<ActivityExpression>),
     Subtract(Box<ActivityExpression>, Box<ActivityExpression>),
+    Multiply(Box<ActivityExpression>, Box<ActivityExpression>),
+    Divide(Box<ActivityExpression>, Box<ActivityExpression>),
     Minimum(Box<ActivityExpression>, Box<ActivityExpression>),
     Maximum(Box<ActivityExpression>, Box<ActivityExpression>),
     Negate(Box<ActivityExpression>),
@@ -146,6 +148,11 @@ pub enum ActivityOperation {
     RestoreParticipant {
         participant: ParticipantId,
         hp_ratio: Ratio,
+    },
+    /// Replaces one participant's carried Energy without changing HP/life state.
+    SetParticipantEnergy {
+        participant: ParticipantId,
+        energy: Energy,
     },
     Traverse(ActivityEdgeId),
     Offer {
@@ -261,7 +268,8 @@ fn validate_bindings(
                     return Err(ActivityProgramBindingError::MissingModifier(*modifier));
                 }
             }
-            ActivityOperation::RestoreParticipant { .. } => {}
+            ActivityOperation::RestoreParticipant { .. }
+            | ActivityOperation::SetParticipantEnergy { .. } => {}
             ActivityOperation::Traverse(edge) => {
                 if !graph.edges().iter().any(|item| item.id() == *edge) {
                     return Err(ActivityProgramBindingError::MissingEdge(*edge));
@@ -346,6 +354,8 @@ fn expression_type(
         }
         ActivityExpression::Add(left, right)
         | ActivityExpression::Subtract(left, right)
+        | ActivityExpression::Multiply(left, right)
+        | ActivityExpression::Divide(left, right)
         | ActivityExpression::Minimum(left, right)
         | ActivityExpression::Maximum(left, right) => {
             let left = expression_type(left, state)?;
@@ -375,7 +385,7 @@ fn expression_type(
     }
 }
 
-fn condition_type(
+pub(crate) fn condition_type(
     condition: &ActivityCondition,
     state: &ActivityStateDefinition,
 ) -> Result<ActivityValueType, ActivityProgramBindingError> {
@@ -488,7 +498,9 @@ fn validate_operations(
                     return Err(ActivityProgramDefinitionError::InvalidParticipantRestoration);
                 }
             }
-            ActivityOperation::RemoveModifier { .. } | ActivityOperation::Traverse(_) => {}
+            ActivityOperation::SetParticipantEnergy { .. }
+            | ActivityOperation::RemoveModifier { .. }
+            | ActivityOperation::Traverse(_) => {}
         }
     }
     Ok(())
@@ -520,6 +532,8 @@ fn validate_expression(
         }
         ActivityExpression::Add(left, right)
         | ActivityExpression::Subtract(left, right)
+        | ActivityExpression::Multiply(left, right)
+        | ActivityExpression::Divide(left, right)
         | ActivityExpression::Minimum(left, right)
         | ActivityExpression::Maximum(left, right) => {
             validate_expression(left, depth + 1)?;

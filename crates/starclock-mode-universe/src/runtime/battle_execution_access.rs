@@ -10,6 +10,10 @@ use starclock_activity::{
 };
 
 use crate::ability_runtime::{AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope};
+use crate::{
+    curio_activity::event_key,
+    curio_effect_runtime::{CurioEffectFacts, CurioEvent},
+};
 
 use super::{StandardUniverseActivity, StandardUniverseBattleStartError};
 const AFTER_BATTLE_ABILITY_PROGRAM: u32 = 9_700_001;
@@ -72,12 +76,50 @@ impl StandardUniverseActivity {
                     first_battle_won,
                 ))
                 .map_err(|_| invalid_boundary())?;
-            (!projection.operations().is_empty())
+            let mut operations = projection.operations().to_vec();
+            let contributions = self.curio_contributions().map_err(|_| invalid_boundary())?;
+            if let Some(curio) = contributions
+                .entries()
+                .iter()
+                .find(|entry| entry.state().source_effect_id() == "76")
+            {
+                let full_hp_allies = result
+                    .values()
+                    .iter()
+                    .filter_map(|value| match value {
+                        ProjectedValue::ParticipantState(state) => Some(*state),
+                        _ => None,
+                    })
+                    .filter(|state| state.current_hp() == state.maximum_hp())
+                    .count();
+                let event = CurioEvent::BattleWon;
+                let projection = self
+                    .curio_activity_projection(
+                        curio.curio(),
+                        event,
+                        CurioEffectFacts {
+                            full_hp_allies: u32::try_from(full_hp_allies)
+                                .map_err(|_| invalid_boundary())?,
+                            destroyed_curios: contributions.destroyed_curios(),
+                            ..CurioEffectFacts::default()
+                        },
+                    )
+                    .map_err(|_| invalid_boundary())?;
+                operations.push(starclock_activity::ActivityOperation::AddCounter {
+                    slot: self.curio_event_slot,
+                    key: event_key(curio.curio(), event),
+                    delta: starclock_activity::ActivityExpression::Literal(
+                        starclock_activity::ActivityValue::BoundedInteger(1),
+                    ),
+                });
+                operations.extend_from_slice(projection.operations());
+            }
+            (!operations.is_empty())
                 .then(|| {
                     ActivityProgramDefinition::new(
                         ActivityProgramId::new(AFTER_BATTLE_ABILITY_PROGRAM)
                             .expect("static boundary program ID is non-zero"),
-                        projection.operations().to_vec(),
+                        operations,
                     )
                 })
                 .transpose()

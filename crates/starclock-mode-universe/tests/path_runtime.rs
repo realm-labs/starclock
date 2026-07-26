@@ -227,8 +227,22 @@ fn every_reward_routes_through_a_generic_formation_gate() {
             .iter()
             .find(|program| program.node() == hub.reward_node())
             .expect("reward program");
-        let [ActivityOperation::Offer { options, .. }] = reward.program().operations() else {
-            panic!("reward must be one offer");
+        let [
+            ActivityOperation::Conditional {
+                if_true, if_false, ..
+            },
+        ] = reward.program().operations()
+        else {
+            panic!("reward must be one conditional reward policy");
+        };
+        assert!(
+            if_true
+                .iter()
+                .any(|operation| matches!(operation, ActivityOperation::Traverse { .. })),
+            "Gossip must bypass the postcombat Blessing offer"
+        );
+        let [ActivityOperation::Offer { options, .. }] = if_false.as_ref() else {
+            panic!("normal reward branch must be one offer");
         };
         assert!(options.iter().all(|option| option.operations().iter().any(
             |operation| matches!(operation, ActivityOperation::AddCounter { slot, .. } if *slot == compiled.path_blessing_count_slot())

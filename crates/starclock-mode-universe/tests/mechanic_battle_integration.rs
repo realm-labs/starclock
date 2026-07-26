@@ -41,6 +41,8 @@ mod abundance_s02;
 mod abundance_s03;
 #[path = "mechanic_battle_integration/abundance_s04.rs"]
 mod abundance_s04;
+#[path = "mechanic_battle_integration/curio_s01.rs"]
+mod curio_s01;
 #[path = "mechanic_battle_integration/destruction_s01.rs"]
 mod destruction_s01;
 #[path = "mechanic_battle_integration/destruction_s02.rs"]
@@ -286,6 +288,43 @@ fn contributions_many_with_formations(
     curio_key: Option<&str>,
     ability_tree: bool,
 ) -> UniverseBattleContributionSet {
+    contributions_many_with_formations_and_destroyed(
+        catalog,
+        path_key,
+        required_blessings,
+        formation_keys,
+        curio_key,
+        ability_tree,
+        0,
+    )
+}
+
+fn contributions_with_destroyed_curios(
+    catalog: &Arc<UniverseCatalog>,
+    path_key: &str,
+    curio_key: &str,
+    destroyed_curios: u32,
+) -> UniverseBattleContributionSet {
+    contributions_many_with_formations_and_destroyed(
+        catalog,
+        path_key,
+        &[],
+        &[],
+        Some(curio_key),
+        false,
+        destroyed_curios,
+    )
+}
+
+fn contributions_many_with_formations_and_destroyed(
+    catalog: &Arc<UniverseCatalog>,
+    path_key: &str,
+    required_blessings: &[(&str, u32)],
+    formation_keys: &[&str],
+    curio_key: Option<&str>,
+    ability_tree: bool,
+    destroyed_curios: u32,
+) -> UniverseBattleContributionSet {
     let path_definition = catalog
         .paths()
         .iter()
@@ -375,7 +414,8 @@ fn contributions_many_with_formations(
         .collect::<Vec<_>>();
     let curios = curio_runtime
         .contributions_from_owned(&inventory, &states, &charges)
-        .unwrap();
+        .unwrap()
+        .with_destroyed_curios(destroyed_curios);
 
     let selected_abilities = if ability_tree {
         catalog

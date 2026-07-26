@@ -1,5 +1,7 @@
 //! Spatial-free Standard Universe topology, room and encounter compilation.
+mod reward_program;
 
+use self::reward_program::node_program_id;
 use std::sync::Arc;
 
 use starclock_activity::{
@@ -7,11 +9,10 @@ use starclock_activity::{
     ActivityEdgeDefinition, ActivityEdgeId, ActivityExpression, ActivityExternalOutcomeId,
     ActivityGraphDefinition, ActivityInteractionBinding, ActivityInteractionRandomPolicy,
     ActivityInventoryId, ActivityNodeDefinition, ActivityNodeKind, ActivityOperation,
-    ActivityOptionDefinition, ActivityOptionId, ActivityProgramDefinition, ActivityProgramId,
-    ActivityRandomCheckpoint, ActivityRandomOffer, ActivityRandomPolicies, ActivityRngLabel,
-    ActivitySlotId, ActivityStateDefinition, ActivityTerminalOutcome, ActivityValue,
-    GraphActivityDefinition, GraphActivityDefinitionError, GraphActivityNodeProgram, NodeId,
-    ParticipantLock, SectionId, TerminalOutcome,
+    ActivityOptionDefinition, ActivityOptionId, ActivityRandomCheckpoint, ActivityRandomOffer,
+    ActivityRandomPolicies, ActivityRngLabel, ActivitySlotId, ActivityStateDefinition,
+    ActivityTerminalOutcome, ActivityValue, GraphActivityDefinition, GraphActivityDefinitionError,
+    GraphActivityNodeProgram, NodeId, ParticipantLock, SectionId, TerminalOutcome,
 };
 
 use crate::{
@@ -294,6 +295,7 @@ pub(crate) fn compile(
     blessing_reroll_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     ability_projection_slot: ActivitySlotId,
+    curio_bindings: crate::curio_activity::CurioActivityBindings,
     formation_capability_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
@@ -415,6 +417,7 @@ pub(crate) fn compile(
         blessing_reroll_slot,
         path_blessing_count_slot,
         ability_projection_slot,
+        curio_bindings,
         formation_capability_slot,
         formation_inventory,
         occurrence_interactions,
@@ -577,6 +580,7 @@ fn compile_programs(
     blessing_reroll_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     ability_projection_slot: ActivitySlotId,
+    curio_bindings: crate::curio_activity::CurioActivityBindings,
     formation_capability_slot: ActivitySlotId,
     formation_inventory: ActivityInventoryId,
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
@@ -888,26 +892,35 @@ fn compile_programs(
             hub_clear_slot,
             path_blessing_count_slot,
             ability_projection_slot,
+            curio_bindings,
             blessing_inventory,
             blessing_runtime,
             &eligible_blessings,
         )?;
-        random_offers.push(
-            ActivityRandomOffer::new(
-                hub.reward_node,
-                ActivityRngLabel::Reward,
-                BLESSING_DRAW_PURPOSE,
-                3,
-                reward.weights,
-                Some((blessing_reroll_slot, 1)),
-            )
-            .map_err(UniverseTopologyCompileError::RuntimeDefinition)?,
-        );
-        programs.push(node_program_id(
+        let random_offer = ActivityRandomOffer::new(
+            hub.reward_node,
+            ActivityRngLabel::Reward,
+            BLESSING_DRAW_PURPOSE,
+            3,
+            reward.weights,
+            Some((blessing_reroll_slot, 1)),
+        )
+        .map_err(UniverseTopologyCompileError::RuntimeDefinition)?
+        .with_maximum_options_reduction(
+            crate::curio_activity::dimension_reward_condition(curio_bindings),
+            1,
+        )
+        .ok_or(UniverseTopologyCompileError::InvalidProgram)?
+        .with_inactive_condition(crate::curio_activity::gossip_condition(curio_bindings));
+        random_offers.push(random_offer);
+        programs.push(reward_program::reward_node_program_id(
             hub.reward_node,
             REWARD_PROGRAM_OFFSET + hub.source_node.get(),
-            ActivityDecisionKind::Reward,
             reward.options,
+            curio_bindings,
+            hub_clear_slot,
+            source,
+            edges.reward_formation,
         )?);
         let formation_options = path_runtime.formation_selection_options(
             FormationSelectionBindings {
@@ -1046,26 +1059,6 @@ fn node_program(
     options: Vec<ActivityOptionDefinition>,
 ) -> Result<GraphActivityNodeProgram, UniverseTopologyCompileError> {
     node_program_id(node(node_id), program_id, kind, options)
-}
-
-fn node_program_id(
-    node_id: NodeId,
-    program_id: u32,
-    kind: ActivityDecisionKind,
-    mut options: Vec<ActivityOptionDefinition>,
-) -> Result<GraphActivityNodeProgram, UniverseTopologyCompileError> {
-    options.sort_by_key(|option| (option.priority(), option.id()));
-    Ok(GraphActivityNodeProgram::new(
-        node_id,
-        ActivityProgramDefinition::new(
-            ActivityProgramId::new(program_id).ok_or(UniverseTopologyCompileError::InvalidGraph)?,
-            vec![ActivityOperation::Offer {
-                kind,
-                options: options.into_boxed_slice(),
-            }],
-        )
-        .map_err(|_| UniverseTopologyCompileError::InvalidProgram)?,
-    ))
 }
 
 fn optional_equals(slot: ActivitySlotId, value: u64) -> ActivityCondition {

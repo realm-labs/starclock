@@ -125,6 +125,7 @@ impl CurioContribution {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CurioContributionSet {
     entries: Box<[CurioContribution]>,
+    destroyed_curios: u32,
     digest: [u8; 32],
 }
 
@@ -134,8 +135,21 @@ impl CurioContributionSet {
         &self.entries
     }
     #[must_use]
+    pub const fn destroyed_curios(&self) -> u32 {
+        self.destroyed_curios
+    }
+    #[must_use]
     pub const fn digest(&self) -> [u8; 32] {
         self.digest
+    }
+
+    /// Returns this owned-Curio snapshot with the authoritative destroyed
+    /// Curio counter captured at the battle boundary.
+    #[must_use]
+    pub fn with_destroyed_curios(mut self, destroyed_curios: u32) -> Self {
+        self.destroyed_curios = destroyed_curios;
+        self.digest = contribution_digest(&self.entries, destroyed_curios);
+        self
     }
 }
 
@@ -509,9 +523,10 @@ impl CurioRuntimeCatalog {
             return Err(CurioRuntimeError::DuplicateInventoryEntry);
         }
         self.validate_no_orphans(&entries, &state_map, &charge_map)?;
-        let digest = contribution_digest(&entries);
+        let digest = contribution_digest(&entries, 0);
         Ok(CurioContributionSet {
             entries: entries.into_boxed_slice(),
+            destroyed_curios: 0,
             digest,
         })
     }
@@ -754,8 +769,12 @@ fn catalog_digest(definitions: &[CurioRuntimeDefinition]) -> [u8; 32] {
     encoder.finish()
 }
 
-fn contribution_digest(entries: &[CurioContribution]) -> [u8; 32] {
+fn contribution_digest(entries: &[CurioContribution], destroyed_curios: u32) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-curio-contribution-set-v1");
+    if destroyed_curios != 0 {
+        encoder.text("destroyed-curios-v1");
+        encoder.u32(destroyed_curios);
+    }
     encoder.u32(entries.len() as u32);
     for entry in entries {
         encoder.u32(entry.curio.get());

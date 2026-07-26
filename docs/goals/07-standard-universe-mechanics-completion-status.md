@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
-| Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P3-M11-S01` |
-| Next unblocked batch | `G07-P3-M11-S01` |
+| Active phase | Phase 3 — Curios |
+| Active batch | `G07-P3-M11-S02` |
+| Next unblocked batch | `G07-P3-M11-S02` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -80,8 +80,12 @@ damage, Melt Core, non-consuming Chain Contagion propagation and enemy-
 appearance Resonance Energy execute from generic Rule IR. The dedicated Path
 Resonance action tag and generic `UnitSummoned` event point keep mode content
 outside character-action and encounter-specific branches. All four Erudition
-partitions are complete. `G07-P3-M11-S01` (positive, neutral and special
-Curios) is active.
+partitions are complete. Curio S01 is complete: Dimension Reduction Dice,
+Silver Coin, Family Ties, Black Hole Trap, Interastral Big Lotto, Doctor's
+Robe, Gossip and Tonic execute through generic Activity transactions, battle
+contributions and Rule IR. The partition adds no native handler; Big Lotto's
+unpublished probability remains an explicit replayable external outcome.
+`G07-P3-M11-S02` (positive, neutral and special Curios) is active.
 
 ## Fixed batch ledger
 

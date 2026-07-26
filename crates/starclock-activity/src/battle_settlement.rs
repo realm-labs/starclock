@@ -367,6 +367,22 @@ impl ActivityCarryLedger {
         state.presence = PresenceState::Present;
         Ok(())
     }
+
+    pub(crate) fn set_participant_energy(
+        &mut self,
+        participant: ParticipantId,
+        energy: Energy,
+    ) -> Result<(), ActivityCarryMutationError> {
+        let state = self
+            .0
+            .get_mut(&participant)
+            .ok_or(ActivityCarryMutationError::MissingParticipant)?;
+        if energy > state.maximum_energy {
+            return Err(ActivityCarryMutationError::ArithmeticOverflow);
+        }
+        state.current_energy = energy;
+        Ok(())
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
