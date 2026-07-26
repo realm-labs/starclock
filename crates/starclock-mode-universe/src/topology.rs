@@ -38,7 +38,7 @@ use starclock_activity::{
     GraphActivityNodeProgram, NodeId, ParticipantLock, SectionId, TerminalOutcome,
 };
 use std::sync::Arc;
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v11";
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v12";
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 
 const PATH_NODE: u32 = 1;
@@ -66,6 +66,7 @@ const TOPOLOGY_DRAW_PURPOSE: u16 = 1;
 const ROOM_DRAW_PURPOSE: u16 = 2;
 const MEMBER_DRAW_PURPOSE: u16 = 3;
 const BLESSING_DRAW_PURPOSE: u16 = 4;
+const BLESSING_ENHANCEMENT_DRAW_PURPOSE: u16 = 5;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DomainRouteDefinition {
@@ -292,6 +293,7 @@ pub(crate) fn compile(
     member_slot: ActivitySlotId,
     blessing_inventory: ActivityInventoryId,
     blessing_reroll_slot: ActivitySlotId,
+    blessing_offer_marker_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     ability_projection_slot: ActivitySlotId,
     curio_bindings: crate::curio_activity::CurioActivityBindings,
@@ -414,6 +416,7 @@ pub(crate) fn compile(
         path_runtime,
         blessing_inventory,
         blessing_reroll_slot,
+        blessing_offer_marker_slot,
         path_blessing_count_slot,
         ability_projection_slot,
         curio_bindings,
@@ -577,6 +580,7 @@ fn compile_programs(
     path_runtime: &PathRuntimeCatalog,
     blessing_inventory: ActivityInventoryId,
     blessing_reroll_slot: ActivitySlotId,
+    blessing_offer_marker_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     ability_projection_slot: ActivitySlotId,
     curio_bindings: crate::curio_activity::CurioActivityBindings,
@@ -891,6 +895,7 @@ fn compile_programs(
             hub_clear_slot,
             path_blessing_count_slot,
             ability_projection_slot,
+            blessing_offer_marker_slot,
             curio_bindings,
             blessing_inventory,
             &eligible_blessings,
@@ -901,6 +906,7 @@ fn compile_programs(
             source,
             reward.weights,
             blessing_reroll_slot,
+            blessing_offer_marker_slot,
             curio_bindings,
             &eligible_blessings,
         )?;

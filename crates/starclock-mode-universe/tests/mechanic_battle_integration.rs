@@ -32,7 +32,6 @@ const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora
 const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../config/universe-generated/config.sora");
 const RESONANCE_ABILITY_RAW: u32 = 0x7630_0001;
 const RESONANCE_RESOURCE_RAW: u32 = 0x7630_0004;
-
 #[path = "mechanic_battle_integration/abundance_s01.rs"]
 mod abundance_s01;
 #[path = "mechanic_battle_integration/abundance_s02.rs"]
@@ -51,6 +50,8 @@ mod curio_s03;
 mod curio_s04;
 #[path = "mechanic_battle_integration/curio_s05.rs"]
 mod curio_s05;
+#[path = "mechanic_battle_integration/curio_s06.rs"]
+mod curio_s06;
 #[path = "mechanic_battle_integration/destruction_s01.rs"]
 mod destruction_s01;
 #[path = "mechanic_battle_integration/destruction_s02.rs"]
@@ -113,7 +114,6 @@ mod remembrance_s02;
 mod remembrance_s03;
 #[path = "mechanic_battle_integration/remembrance_s04.rs"]
 mod remembrance_s04;
-
 fn catalog() -> Arc<UniverseCatalog> {
     static CATALOG: OnceLock<Arc<UniverseCatalog>> = OnceLock::new();
     Arc::clone(CATALOG.get_or_init(|| {
@@ -121,7 +121,6 @@ fn catalog() -> Arc<UniverseCatalog> {
         UniverseCatalog::load(UNIVERSE_BUNDLE, core).expect("Universe catalog")
     }))
 }
-
 fn roster(catalog: &UniverseCatalog) -> UniverseBattleRoster {
     roster_for_forms(catalog, [1, 2, 3, 4], None)
 }

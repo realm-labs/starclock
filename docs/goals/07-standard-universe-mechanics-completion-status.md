@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 3 — Curios |
-| Active batch | `G07-P3-M11-S06` |
-| Next unblocked batch | `G07-P3-M11-S06` |
+| Active batch | `G07-P3-M12-S01` |
+| Next unblocked batch | `G07-P3-M12-S01` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -112,7 +112,15 @@ spatial-free destructible commands and policy, while Punklorde implants one
 shared allied element through generic Rule IR. The partition adds no native
 handler; unpublished lottery chances, destructible frequency and mixed-team
 element selection remain explicit external or replaceable project policies.
-`G07-P3-M11-S06` is active.
+Curio S06 is complete: Fortune Glue filters the complete visible offer to
+three-star Blessings and consumes only after selection, Beacon Coloring Paste
+marks exactly one final visible option through an isolated Reward RNG draw,
+and Parchment applies exact per-enemy 30% maximum-HP entry damage. Reward
+rerolls replace private marker state and capped acquisition composes with
+Warping Compound Eye. All three mechanics use generic Activity or Rule IR
+primitives without a native handler. The retained unpublished Parchment
+parameter remains evidence-only rather than receiving guessed semantics.
+`G07-P3-M12-S01` is active.
 
 ## Fixed batch ledger
 
@@ -176,7 +184,7 @@ The milestone summary remains here for orientation.
 | `G07-P2-M08` | `Expanded` | 58 / 59 | Elation complete. |
 | `G07-P2-M09` | `Expanded` | 58 / 59 | Propagation complete. |
 | `G07-P2-M10` | `Expanded` | 58 / 59 | Erudition complete. |
-| `G07-P3-M11` | `Expanded` | 86 / 86 | Positive/neutral/special Curios complete. |
+| `G07-P3-M11` | `Complete` | 86 / 86 | Positive/neutral/special Curios complete. |
 | `G07-P3-M12` | `Expanded` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
 | `G07-P4-M13` | `Expanded` | 0 / 447 | Occurrence choices and effects complete. |
 | `G07-P4-M14` | `Expanded` | 94 / 94 | Services, shops, roster and interactables complete. |

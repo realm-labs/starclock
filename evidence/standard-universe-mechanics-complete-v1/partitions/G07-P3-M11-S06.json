@@ -1,0 +1,558 @@
+{
+  "schema_revision": "starclock.goal07-content-partition-receipt.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "partition_id": "G07-P3-M11-S06",
+  "state": "Complete",
+  "completed_on": "2026-07-27",
+  "authoring": {
+    "workbooks": [
+      {
+        "path": "config/data/Universe.xlsx",
+        "tables": [
+          "UniverseCurio",
+          "UniverseCurioState",
+          "UniverseCurioParameter"
+        ]
+      },
+      {
+        "path": "config/data/UniverseBindings.xlsx",
+        "tables": [
+          "UniverseMechanicRule"
+        ]
+      },
+      {
+        "path": "config/data/UniverseEvidence.xlsx",
+        "tables": [
+          "UniverseContentAudit",
+          "UniverseReviewFixture",
+          "UniverseSourceRecord"
+        ]
+      }
+    ],
+    "openpyxl_commands": [
+      "python -c \"import openpyxl\" && python tools/goal07/author-curio-partition.py --partition G07-P3-M11-S06 --check"
+    ],
+    "sora_bundle": {
+      "path": "config/universe-generated/config.sora",
+      "sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04"
+    },
+    "sora_golden": {
+      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P3-M11-S06.json",
+      "sha256": "4b1de68a9541f7744779268995eec443b18a0cb830c7195b01c9b2306434c2c8"
+    }
+  },
+  "records": [
+    {
+      "id": "universe.curio.69",
+      "runtime_disposition": "ExecutableSharedPrimitive",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/curios.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/curio-states.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.curio.69.state.active",
+      "runtime_disposition": "ExecutableSharedPrimitive",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/curios.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/curio-states.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.curio.7",
+      "runtime_disposition": "ExecutableSharedPrimitive",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/curios.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/curio-states.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.curio.7.state.active",
+      "runtime_disposition": "ExecutableSharedPrimitive",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/curios.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/curio-states.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.curio.8",
+      "runtime_disposition": "ExecutableSharedPrimitive",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/curios.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/curio-states.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.curio.8.state.active",
+      "runtime_disposition": "ExecutableSharedPrimitive",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/curios.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/curio-states.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "universe.rule.curio.69",
+      "runtime_disposition": "ExecutableSharedPrimitive",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/curios.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/curio-states.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.curio.69",
+        "universe.curio.69"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-activity/src/random_policy.rs"
+        },
+        {
+          "path": "crates/starclock-activity/src/graph_activity/random_offer.rs"
+        },
+        {
+          "path": "crates/starclock-activity/src/graph_activity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/blessing_offer.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_reward.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s06.rs"
+        },
+        {
+          "path": "crates/starclock-activity/tests/random_offer_policy.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s06.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.curio.69.state.active",
+      "runtime_disposition": "ExecutableSharedPrimitive",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/curios.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/curio-states.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.curio.69.state.active",
+        "universe.curio.69.state.active"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-activity/src/random_policy.rs"
+        },
+        {
+          "path": "crates/starclock-activity/src/graph_activity/random_offer.rs"
+        },
+        {
+          "path": "crates/starclock-activity/src/graph_activity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/blessing_offer.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_reward.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s06.rs"
+        },
+        {
+          "path": "crates/starclock-activity/tests/random_offer_policy.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s06.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.curio.7",
+      "runtime_disposition": "ExecutableSharedPrimitive",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/curios.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/curio-states.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.curio.7",
+        "universe.curio.7"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-activity/src/random_policy.rs"
+        },
+        {
+          "path": "crates/starclock-activity/src/graph_activity/random_offer.rs"
+        },
+        {
+          "path": "crates/starclock-activity/src/graph_activity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/blessing_offer.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_reward.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s06.rs"
+        },
+        {
+          "path": "crates/starclock-activity/tests/random_offer_policy.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s06.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.curio.7.state.active",
+      "runtime_disposition": "ExecutableSharedPrimitive",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/curios.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/curio-states.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.curio.7.state.active",
+        "universe.curio.7.state.active"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-activity/src/random_policy.rs"
+        },
+        {
+          "path": "crates/starclock-activity/src/graph_activity/random_offer.rs"
+        },
+        {
+          "path": "crates/starclock-activity/src/graph_activity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/blessing_offer.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_reward.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s06.rs"
+        },
+        {
+          "path": "crates/starclock-activity/tests/random_offer_policy.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s06.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.curio.8",
+      "runtime_disposition": "ExecutableSharedPrimitive",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/curios.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/curio-states.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.curio.8",
+        "universe.curio.8"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-activity/src/random_policy.rs"
+        },
+        {
+          "path": "crates/starclock-activity/src/graph_activity/random_offer.rs"
+        },
+        {
+          "path": "crates/starclock-activity/src/graph_activity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/blessing_offer.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_reward.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s06.rs"
+        },
+        {
+          "path": "crates/starclock-activity/tests/random_offer_policy.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s06.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.curio.8.state.active",
+      "runtime_disposition": "ExecutableSharedPrimitive",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/curios.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/curio-states.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.curio.8.state.active",
+        "universe.curio.8.state.active"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-activity/src/random_policy.rs"
+        },
+        {
+          "path": "crates/starclock-activity/src/graph_activity/random_offer.rs"
+        },
+        {
+          "path": "crates/starclock-activity/src/graph_activity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/blessing_offer.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_reward.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s06.rs"
+        },
+        {
+          "path": "crates/starclock-activity/tests/random_offer_policy.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s06.rs"
+        }
+      ]
+    }
+  ],
+  "fixtures": [],
+  "enemy_variants": [],
+  "encounter_members": [],
+  "native_handler_reviews": [
+    {
+      "id": "universe.rule.curio.69.state.active",
+      "outcome": "IrSufficient",
+      "decision": "A generic Reward-stream marker selects one visible option, replaces stale reroll state and caps ordinary Blessing acquisition at enhancement level two.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-curio-s06.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/curio_activity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s06.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.curio.7.state.active",
+      "outcome": "IrSufficient",
+      "decision": "A conditional three-star candidate filter persists across rerolls, while an atomic selection prefix performs ordinary Curio teardown only after selection.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-curio-s06.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/curio_activity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s06.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.curio.8.state.active",
+      "outcome": "IrSufficient",
+      "decision": "A BattleStarted Rule IR selector queries each enemy's maximum HP and applies the exact 30% true-damage operation once per battle.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-curio-s06.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/curio_activity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s06.rs"
+        }
+      ]
+    }
+  ],
+  "numeric_approximations": [],
+  "execution": {
+    "result": "pass",
+    "commands": [
+      "python tools/goal07/author-curio-partition.py --partition G07-P3-M11-S06 --check",
+      "node tools/universe-reference/verify_production_workbooks.mjs .",
+      "cargo test -p starclock-mode-universe --test mechanic_battle_integration curio_s06 --all-features",
+      "cargo test -p starclock-mode-universe --lib curio_activity::tests --all-features",
+      "cargo test -p starclock-activity --test random_offer_policy --all-features",
+      "cargo test -p starclock-mode-universe --test topology_runtime --all-features",
+      "cargo test -p starclock-mode-universe --all-features"
+    ],
+    "goldens": [
+      {
+        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P3-M11-S06.json",
+        "sha256": "4b1de68a9541f7744779268995eec443b18a0cb830c7195b01c9b2306434c2c8"
+      }
+    ]
+  }
+}

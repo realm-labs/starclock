@@ -291,6 +291,23 @@ impl ActivityTransactionState {
             .into_boxed_slice();
         Ok(())
     }
+    pub(crate) fn replace_counter_keys(
+        &mut self,
+        slot: ActivitySlotId,
+        mut keys: Vec<ActivityOptionId>,
+    ) -> Result<(), ActivityFault> {
+        keys.sort_unstable();
+        keys.dedup();
+        self.set_slot(
+            slot,
+            ActivityValue::BoundedCounterMap(
+                keys.into_iter()
+                    .map(|key| (key.get(), 1))
+                    .collect::<Vec<_>>()
+                    .into_boxed_slice(),
+            ),
+        )
+    }
     #[must_use]
     pub const fn current_node(&self) -> NodeId {
         self.current_node

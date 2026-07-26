@@ -315,6 +315,30 @@ pub(crate) fn dimension_reward_condition(bindings: CurioActivityBindings) -> Act
     )
 }
 
+pub(crate) fn active_condition(id: CurioId, bindings: CurioActivityBindings) -> ActivityCondition {
+    let content = u64::from(id.get());
+    ActivityCondition::All(
+        vec![
+            owned(bindings.inventory, content),
+            ActivityCondition::LessThan(integer(0), counter(bindings.state_slot, content)),
+        ]
+        .into_boxed_slice(),
+    )
+}
+
+pub(crate) fn destroy_and_count_operations(
+    id: CurioId,
+    bindings: CurioActivityBindings,
+) -> Vec<ActivityOperation> {
+    let mut operations = teardown_operations(id, bindings);
+    operations.push(ActivityOperation::AddCounter {
+        slot: bindings.event_slot,
+        key: DESTROYED_CURIO_COUNT_KEY,
+        delta: integer(1),
+    });
+    operations
+}
+
 pub(crate) fn dimension_reward_settlement(
     bindings: CurioActivityBindings,
     ordinary_finish: Vec<ActivityOperation>,
@@ -369,13 +393,7 @@ pub(crate) fn dimension_reward_settlement(
 
 fn destroy_dimension(bindings: CurioActivityBindings) -> Vec<ActivityOperation> {
     let id = CurioId::new(1).expect("Dimension Reduction Dice ID is non-zero");
-    let mut operations = teardown_operations(id, bindings);
-    operations.push(ActivityOperation::AddCounter {
-        slot: bindings.event_slot,
-        key: DESTROYED_CURIO_COUNT_KEY,
-        delta: integer(1),
-    });
-    operations
+    destroy_and_count_operations(id, bindings)
 }
 
 fn with_finish(

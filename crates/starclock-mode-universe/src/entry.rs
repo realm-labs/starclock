@@ -44,7 +44,7 @@ use crate::{
     service_interaction::{ServiceActivityBindings, ServiceInteractionRuntimeCatalog},
 };
 
-pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v11";
+pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v12";
 
 const WORLD_SLOT: u32 = 1;
 const DIFFICULTY_SLOT: u32 = 2;
@@ -67,6 +67,7 @@ const CURIO_EVENT_SLOT: u32 = 18;
 const ABILITY_PROJECTION_SLOT: u32 = 19;
 const FORMATION_CAPABILITY_SLOT: u32 = 20;
 const TECHNIQUE_POINTS_SLOT: u32 = 21;
+const BLESSING_OFFER_MARKER_SLOT: u32 = 22;
 const BLESSING_INVENTORY: u32 = 1;
 const FORMATION_INVENTORY: u32 = 2;
 const CURIO_INVENTORY: u32 = 3;
@@ -91,6 +92,7 @@ const SERVICE_EFFECT_SOURCE: u64 = 0x5355_0011;
 const CURIO_EVENT_SOURCE: u64 = 0x5355_0012;
 const ABILITY_PROJECTION_SOURCE: u64 = 0x5355_0013;
 const FORMATION_CAPABILITY_SOURCE: u64 = 0x5355_0014;
+const BLESSING_OFFER_MARKER_SOURCE: u64 = 0x5355_0016;
 const BLESSING_INVENTORY_SOURCE: u64 = 0x5355_1001;
 const FORMATION_INVENTORY_SOURCE: u64 = 0x5355_1002;
 const CURIO_INVENTORY_SOURCE: u64 = 0x5355_1003;
@@ -416,6 +418,7 @@ impl StandardUniverseProfile {
                 slot(ENCOUNTER_MEMBER_SLOT),
                 inventory(BLESSING_INVENTORY),
                 slot(BLESSING_REROLL_SLOT),
+                slot(BLESSING_OFFER_MARKER_SLOT),
                 slot(PATH_BLESSING_COUNT_SLOT),
                 slot(ABILITY_PROJECTION_SLOT),
                 curio_activity_bindings,
@@ -895,6 +898,14 @@ fn compile_state(
             ActivityValue::BoundedCounterMap(Box::new([])),
             Some(4_096),
             BLESSING_REROLL_SOURCE,
+            ActivityStateVisibility::Private,
+        )?,
+        counter_slot(
+            BLESSING_OFFER_MARKER_SLOT,
+            3,
+            0,
+            1,
+            BLESSING_OFFER_MARKER_SOURCE,
             ActivityStateVisibility::Private,
         )?,
         counter_slot(

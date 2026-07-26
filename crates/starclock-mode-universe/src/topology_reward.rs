@@ -13,6 +13,8 @@ use crate::{
     topology_identity::blessing_option,
 };
 
+const WARPING_COMPOUND_EYE_CURIO: u64 = 35;
+
 pub(crate) struct CompiledBlessingReward {
     pub(crate) options: Vec<ActivityOptionDefinition>,
     pub(crate) weights: Vec<(ActivityOptionId, u64)>,
@@ -25,6 +27,7 @@ pub(crate) fn compile_blessing_reward(
     hub_clear_slot: ActivitySlotId,
     path_blessing_count_slot: ActivitySlotId,
     ability_projection_slot: ActivitySlotId,
+    blessing_offer_marker_slot: ActivitySlotId,
     curio_bindings: CurioActivityBindings,
     blessing_inventory: ActivityInventoryId,
     eligible_blessings: &[&BlessingRuntimeDefinition],
@@ -66,17 +69,27 @@ pub(crate) fn compile_blessing_reward(
         }];
         settlement.extend(dimension_reward_settlement(curio_bindings, ordinary_finish));
         let content = u64::from(blessing.blessing().get());
-        let acquisition_count = if blessing.rarity() == 1 {
-            ActivityExpression::Add(
-                Box::new(integer(1)),
-                Box::new(ActivityExpression::InventoryCount {
-                    inventory: curio_bindings.inventory,
-                    content: 35,
-                }),
-            )
+        let one_star_bonus = if blessing.rarity() == 1 {
+            ActivityExpression::InventoryCount {
+                inventory: curio_bindings.inventory,
+                content: WARPING_COMPOUND_EYE_CURIO,
+            }
         } else {
-            integer(1)
+            integer(0)
         };
+        let acquisition_count = ActivityExpression::Minimum(
+            Box::new(ActivityExpression::Add(
+                Box::new(integer(1)),
+                Box::new(ActivityExpression::Add(
+                    Box::new(one_star_bonus),
+                    Box::new(ActivityExpression::CounterValue {
+                        slot: blessing_offer_marker_slot,
+                        key: id.get(),
+                    }),
+                )),
+            )),
+            Box::new(integer(2)),
+        );
         settlement.insert(
             0,
             ActivityOperation::AddInventory {

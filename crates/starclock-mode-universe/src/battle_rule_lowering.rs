@@ -8,6 +8,7 @@ mod curio_s01;
 mod curio_s02;
 mod curio_s03;
 mod curio_s05;
+mod curio_s06;
 mod destruction_s01;
 mod destruction_s02;
 mod destruction_s03;
@@ -118,7 +119,6 @@ pub(crate) const RESONANCE_ENEMY_SELECTOR_ID: SelectorId =
 pub(crate) const RESONANCE_ALLY_SELECTOR_ID: SelectorId =
     SelectorId::new(0x7630_0006).expect("reserved selector ID is non-zero");
 
-const ENTRY_ENEMY_DAMAGE_BINDING: &str = "8";
 const HUNT_RESONANCE_BINDING: &str = "StageAbility_612420";
 const PRESERVATION_ATTACK_QUAKE_BINDING: &str = "StageAbility_612030";
 const PRESERVATION_RETALIATORY_QUAKE_BINDING: &str = "StageAbility_612031";
@@ -391,18 +391,7 @@ pub(crate) fn lower_rules(
     output.extend(curio_s02::lower(bindings, blessings, curios)?);
     output.extend(curio_s03::lower(bindings, curios)?);
     output.extend(curio_s05::lower(bindings, curios)?);
-    if let Some(binding) = bindings.iter().find(|binding| {
-        binding.role() == UniverseBattleRuleRole::CurioState
-            && binding.source_binding_key() == Some(ENTRY_ENEMY_DAMAGE_BINDING)
-    }) {
-        let contribution = curios
-            .entries()
-            .iter()
-            .find(|entry| entry.state().source_effect_id() == ENTRY_ENEMY_DAMAGE_BINDING)
-            .ok_or(BattleRuleLoweringError::SnapshotMismatch)?;
-        let ratio = parameter(contribution.state().parameters(), 0)?;
-        output.push(entry_enemy_damage(binding, ratio)?);
-    }
+    output.extend(curio_s06::lower(bindings, curios)?);
     output.sort_unstable_by_key(|rule| rule.bundle().id());
 
     let energy = initial_resonance_energy;
@@ -1099,84 +1088,6 @@ fn executable_damage_rule(
         definition,
         bundle: RuleBundle::new(binding.bundle(), vec![binding.rule()]),
     }
-}
-
-fn entry_enemy_damage(
-    binding: &UniverseBattleRuleBinding,
-    ratio: i64,
-) -> Result<ExecutableBattleRule, BattleRuleLoweringError> {
-    let raw = binding.rule().get();
-    let root = id::<ProgramId>(PROGRAM_ID_BASE, raw)?;
-    let body = id::<ProgramId>(BODY_PROGRAM_ID_BASE, raw)?;
-    let all_targets = id::<SelectorId>(ALL_TARGET_SELECTOR_ID_BASE, raw)?;
-    let current_target = id::<SelectorId>(CURRENT_TARGET_SELECTOR_ID_BASE, raw)?;
-    let trigger = id::<TriggerId>(TRIGGER_ID_BASE, raw)?;
-    let selectors = vec![
-        SelectorDefinition::new(all_targets).with_rule_units(all_enemy_selector()?),
-        SelectorDefinition::new(current_target).with_rule_units(current_subject_selector()?),
-    ];
-    let root_definition =
-        ProgramDefinition::new(root, Vec::new(), vec![all_targets], Vec::new(), Vec::new())
-            .with_steps(vec![ProgramStep::ForEach {
-                selector: all_targets,
-                body,
-                maximum: 16,
-            }]);
-    let amount = ValueExpr::Multiply {
-        lhs: Box::new(ValueExpr::QueryStat {
-            subject: StatQuerySubject::CurrentTarget,
-            stat: StatKind::Hp,
-            purpose: FormulaPurpose::Stat,
-        }),
-        rhs: Box::new(ValueExpr::Literal(RuleValue::Scalar(
-            starclock_combat::Scalar::from_scaled(ratio),
-        ))),
-        rounding: starclock_combat::Rounding::NearestTiesEven,
-    };
-    let body_definition = ProgramDefinition::new(
-        body,
-        Vec::new(),
-        vec![current_target],
-        Vec::new(),
-        Vec::new(),
-    )
-    .with_steps(vec![ProgramStep::Operation(
-        RuleOperationTemplate::TrueDamage {
-            selector: current_target,
-            amount,
-        },
-    )]);
-    let definition = RuleDefinition::new(
-        binding.rule(),
-        vec![root, body],
-        vec![all_targets, current_target],
-    )
-    .with_runtime(BattleRuleDefinition::new(
-        binding.source().clone(),
-        Vec::new(),
-        vec![TriggerDef {
-            id: trigger,
-            event: RuleEventKind::Battle,
-            event_point: RuleEventPoint::BattleStarted,
-            phase: TriggerPhase::AfterEvent,
-            filter: EventFilter::default(),
-            condition: ConditionExpr::Literal(true),
-            once_scope: OnceScope::Battle,
-            priority: ReactionPriority::new(-100),
-            program: root,
-        }],
-        None,
-    ));
-    Ok(ExecutableBattleRule {
-        attachment: RuleAttachment::FirstPlayer,
-        modifier_groups: Box::new([]),
-        modifiers: Box::new([]),
-        selectors: selectors.into_boxed_slice(),
-        effects: Box::new([]),
-        programs: vec![root_definition, body_definition].into_boxed_slice(),
-        definition,
-        bundle: RuleBundle::new(binding.bundle(), vec![binding.rule()]),
-    })
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -1,7 +1,7 @@
 //! Authored deterministic bootstrap, checkpoint and visible-offer policies.
 
 use crate::{
-    ActivityCondition, ActivityOptionId, ActivityRngLabel, ActivitySlotId,
+    ActivityCondition, ActivityOperation, ActivityOptionId, ActivityRngLabel, ActivitySlotId,
     GraphActivityDefinitionError, NodeId,
 };
 
@@ -29,6 +29,20 @@ pub struct ActivityRandomOffer {
     pub(crate) inactive_condition: Option<ActivityCondition>,
     pub(crate) conditional_weight_multipliers:
         Vec<(ActivityCondition, Box<[ActivityOptionId]>, u64)>,
+    pub(crate) conditional_candidate_filters: Vec<(ActivityCondition, Box<[ActivityOptionId]>)>,
+    pub(crate) selected_option_marker: Option<ActivitySelectedOptionMarker>,
+    pub(crate) selection_prefix: Box<[ActivityOperation]>,
+}
+
+/// Records a deterministic subset of the visible offer in a private counter
+/// map so option settlement can consume authored per-offer state.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct ActivitySelectedOptionMarker {
+    pub(crate) condition: ActivityCondition,
+    pub(crate) slot: ActivitySlotId,
+    pub(crate) label: ActivityRngLabel,
+    pub(crate) purpose: u16,
+    pub(crate) count: u16,
 }
 
 impl ActivityRandomOffer {
@@ -62,6 +76,9 @@ impl ActivityRandomOffer {
             maximum_options_reduction: None,
             inactive_condition: None,
             conditional_weight_multipliers: Vec::new(),
+            conditional_candidate_filters: Vec::new(),
+            selected_option_marker: None,
+            selection_prefix: Box::new([]),
         })
     }
 
@@ -116,6 +133,66 @@ impl ActivityRandomOffer {
         ));
         Some(self)
     }
+
+    /// Intersects the candidate pool with one authored option subset when the
+    /// condition is true.
+    #[must_use]
+    pub fn with_conditional_candidate_filter(
+        mut self,
+        condition: ActivityCondition,
+        mut options: Vec<ActivityOptionId>,
+    ) -> Option<Self> {
+        options.sort_unstable();
+        options.dedup();
+        if options.is_empty()
+            || options.iter().any(|option| {
+                self.weights
+                    .binary_search_by_key(option, |item| item.0)
+                    .is_err()
+            })
+        {
+            return None;
+        }
+        self.conditional_candidate_filters
+            .push((condition, options.into_boxed_slice()));
+        Some(self)
+    }
+
+    /// Marks a random subset of the final visible offer when the condition is
+    /// true. A new offer replaces the complete marker map, including on reroll.
+    #[must_use]
+    pub fn with_selected_option_marker(
+        mut self,
+        condition: ActivityCondition,
+        slot: ActivitySlotId,
+        label: ActivityRngLabel,
+        purpose: u16,
+        count: u16,
+    ) -> Option<Self> {
+        if purpose == 0 || count == 0 || count > self.maximum_options {
+            return None;
+        }
+        self.selected_option_marker = Some(ActivitySelectedOptionMarker {
+            condition,
+            slot,
+            label,
+            purpose,
+            count,
+        });
+        Some(self)
+    }
+
+    /// Applies checked state operations atomically before the selected option.
+    /// Boundary operations are rejected when the graph definition is built.
+    #[must_use]
+    pub fn with_selection_prefix(mut self, operations: Vec<ActivityOperation>) -> Option<Self> {
+        if operations.is_empty() {
+            return None;
+        }
+        self.selection_prefix = operations.into_boxed_slice();
+        Some(self)
+    }
+
     #[must_use]
     pub const fn node(&self) -> NodeId {
         self.node
@@ -156,6 +233,24 @@ impl ActivityRandomOffer {
         &self,
     ) -> &[(ActivityCondition, Box<[ActivityOptionId]>, u64)] {
         &self.conditional_weight_multipliers
+    }
+
+    #[must_use]
+    pub fn conditional_candidate_filters(&self) -> &[(ActivityCondition, Box<[ActivityOptionId]>)] {
+        &self.conditional_candidate_filters
+    }
+
+    /// Returns stable metadata for the optional per-offer marker policy.
+    #[must_use]
+    pub fn selected_option_marker(&self) -> Option<(ActivitySlotId, ActivityRngLabel, u16, u16)> {
+        self.selected_option_marker
+            .as_ref()
+            .map(|marker| (marker.slot, marker.label, marker.purpose, marker.count))
+    }
+
+    #[must_use]
+    pub fn selection_prefix(&self) -> &[ActivityOperation] {
+        &self.selection_prefix
     }
 }
 
