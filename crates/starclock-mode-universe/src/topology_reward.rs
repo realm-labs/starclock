@@ -7,7 +7,7 @@ use starclock_activity::{
 
 use crate::{
     ability_runtime::AbilityTarget,
-    blessing_runtime::{BlessingRuntimeCatalog, BlessingRuntimeDefinition},
+    blessing_runtime::BlessingRuntimeDefinition,
     curio_activity::{CurioActivityBindings, dimension_reward_settlement},
     topology::UniverseTopologyCompileError,
     topology_identity::blessing_option,
@@ -27,7 +27,6 @@ pub(crate) fn compile_blessing_reward(
     ability_projection_slot: ActivitySlotId,
     curio_bindings: CurioActivityBindings,
     blessing_inventory: ActivityInventoryId,
-    blessing_runtime: &BlessingRuntimeCatalog,
     eligible_blessings: &[&BlessingRuntimeDefinition],
 ) -> Result<CompiledBlessingReward, UniverseTopologyCompileError> {
     let first_battle_bonus = ActivityExpression::CounterValue {
@@ -66,17 +65,38 @@ pub(crate) fn compile_blessing_reward(
             delta: integer(1),
         }];
         settlement.extend(dimension_reward_settlement(curio_bindings, ordinary_finish));
-        options.push(
-            blessing_runtime
-                .acquisition_option(
-                    blessing.blessing(),
-                    id,
-                    priority as i32,
-                    blessing_inventory,
-                    settlement,
-                )
-                .ok_or(UniverseTopologyCompileError::InvalidBlessingRuntime)?,
+        let content = u64::from(blessing.blessing().get());
+        let acquisition_count = if blessing.rarity() == 1 {
+            ActivityExpression::Add(
+                Box::new(integer(1)),
+                Box::new(ActivityExpression::InventoryCount {
+                    inventory: curio_bindings.inventory,
+                    content: 35,
+                }),
+            )
+        } else {
+            integer(1)
+        };
+        settlement.insert(
+            0,
+            ActivityOperation::AddInventory {
+                inventory: blessing_inventory,
+                content,
+                count: acquisition_count,
+            },
         );
+        options.push(ActivityOptionDefinition::new(
+            id,
+            priority as i32,
+            ActivityCondition::Equal(
+                ActivityExpression::InventoryCount {
+                    inventory: blessing_inventory,
+                    content,
+                },
+                integer(0),
+            ),
+            settlement,
+        ));
         weights.push((id, 1));
     }
     Ok(CompiledBlessingReward { options, weights })

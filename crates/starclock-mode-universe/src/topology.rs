@@ -1,8 +1,9 @@
 //! Spatial-free Standard Universe topology, room and encounter compilation.
+mod blessing_offer;
 mod reward_program;
 mod route_program;
-use self::reward_program::node_program_id;
 use self::route_program::compile_route_program;
+use self::{blessing_offer::compile_blessing_offer_policy, reward_program::node_program_id};
 use crate::{
     blessing_runtime::{BlessingOfferEligibility, BlessingRuntimeCatalog},
     catalog::UniverseCatalog,
@@ -37,7 +38,7 @@ use starclock_activity::{
     GraphActivityNodeProgram, NodeId, ParticipantLock, SectionId, TerminalOutcome,
 };
 use std::sync::Arc;
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v9";
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v10";
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 
 const PATH_NODE: u32 = 1;
@@ -636,24 +637,6 @@ fn compile_programs(
     let mut random_checkpoints = Vec::new();
     let mut random_offers = Vec::new();
     let mut encounter_options = Vec::new();
-    let propagation_path = catalog
-        .paths()
-        .iter()
-        .find(|path| path.stable_key() == "universe.path.propagation")
-        .map(|path| path.id())
-        .ok_or(UniverseTopologyCompileError::InvalidBlessingRuntime)?;
-    let erudition_path = catalog
-        .paths()
-        .iter()
-        .find(|path| path.stable_key() == "universe.path.erudition")
-        .map(|path| path.id())
-        .ok_or(UniverseTopologyCompileError::InvalidBlessingRuntime)?;
-    let preservation_path = catalog
-        .paths()
-        .iter()
-        .find(|path| path.stable_key() == "universe.path.preservation")
-        .map(|path| path.id())
-        .ok_or(UniverseTopologyCompileError::InvalidBlessingRuntime)?;
     let mut interactions = Vec::new();
     let blessing_eligibility = BlessingOfferEligibility::fully_unlocked(vec![1, 2, 3])
         .map_err(|_| UniverseTopologyCompileError::InvalidBlessingRuntime)?;
@@ -910,62 +893,17 @@ fn compile_programs(
             ability_projection_slot,
             curio_bindings,
             blessing_inventory,
-            blessing_runtime,
             &eligible_blessings,
         )?;
-        let propagation_options = eligible_blessings
-            .iter()
-            .filter(|blessing| blessing.path() == propagation_path)
-            .map(|blessing| blessing_option(source, blessing.blessing()))
-            .collect::<Vec<_>>();
-        let erudition_options = eligible_blessings
-            .iter()
-            .filter(|blessing| blessing.path() == erudition_path)
-            .map(|blessing| blessing_option(source, blessing.blessing()))
-            .collect::<Vec<_>>();
-        let preservation_options = eligible_blessings
-            .iter()
-            .filter(|blessing| blessing.path() == preservation_path)
-            .map(|blessing| blessing_option(source, blessing.blessing()))
-            .collect::<Vec<_>>();
-        // The public Curio text specifies an increased appearance rate but no
-        // numeric multiplier. Standard Universe v1 freezes the explicit x2
-        // project policy until stronger public evidence is available.
-        let random_offer = ActivityRandomOffer::new(
+        let random_offer = compile_blessing_offer_policy(
+            catalog,
             hub.reward_node,
-            ActivityRngLabel::Reward,
-            BLESSING_DRAW_PURPOSE,
-            3,
+            source,
             reward.weights,
-            Some((blessing_reroll_slot, 2)),
-        )
-        .map_err(UniverseTopologyCompileError::RuntimeDefinition)?
-        .with_maximum_options_reduction(
-            crate::curio_activity::dimension_reward_condition(curio_bindings),
-            1,
-        )
-        .ok_or(UniverseTopologyCompileError::InvalidProgram)?
-        .with_inactive_condition(crate::curio_activity::domain::gossip_condition(
+            blessing_reroll_slot,
             curio_bindings,
-        ))
-        .with_conditional_weight_multiplier(
-            crate::curio_activity::domain::propagation_sealing_wax_condition(curio_bindings),
-            propagation_options,
-            2,
-        )
-        .ok_or(UniverseTopologyCompileError::InvalidProgram)?
-        .with_conditional_weight_multiplier(
-            crate::curio_activity::domain::erudition_sealing_wax_condition(curio_bindings),
-            erudition_options,
-            2,
-        )
-        .ok_or(UniverseTopologyCompileError::InvalidProgram)?
-        .with_conditional_weight_multiplier(
-            crate::curio_activity::domain::preservation_sealing_wax_condition(curio_bindings),
-            preservation_options,
-            2,
-        )
-        .ok_or(UniverseTopologyCompileError::InvalidProgram)?;
+            &eligible_blessings,
+        )?;
         random_offers.push(random_offer);
         programs.push(reward_program::reward_node_program_id(
             hub.reward_node,

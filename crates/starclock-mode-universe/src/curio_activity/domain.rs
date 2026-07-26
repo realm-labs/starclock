@@ -20,22 +20,11 @@ pub(crate) fn gold_coin_condition(bindings: CurioActivityBindings) -> ActivityCo
     owned(bindings.inventory, 21)
 }
 
-pub(crate) fn propagation_sealing_wax_condition(
+pub(crate) fn sealing_wax_condition(
     bindings: CurioActivityBindings,
+    content: u64,
 ) -> ActivityCondition {
-    owned(bindings.inventory, 18)
-}
-
-pub(crate) fn erudition_sealing_wax_condition(
-    bindings: CurioActivityBindings,
-) -> ActivityCondition {
-    owned(bindings.inventory, 27)
-}
-
-pub(crate) fn preservation_sealing_wax_condition(
-    bindings: CurioActivityBindings,
-) -> ActivityCondition {
-    owned(bindings.inventory, 28)
+    owned(bindings.inventory, content)
 }
 
 pub(crate) fn gold_coin_domain_entry_settlement(

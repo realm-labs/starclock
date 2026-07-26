@@ -47,6 +47,8 @@ mod curio_s01;
 mod curio_s02;
 #[path = "mechanic_battle_integration/curio_s03.rs"]
 mod curio_s03;
+#[path = "mechanic_battle_integration/curio_s04.rs"]
+mod curio_s04;
 #[path = "mechanic_battle_integration/destruction_s01.rs"]
 mod destruction_s01;
 #[path = "mechanic_battle_integration/destruction_s02.rs"]

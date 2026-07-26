@@ -8,11 +8,13 @@ use starclock_activity::{
     GraphActivityBattleError, GraphActivityBattleResolution, GraphActivityRuntimeError,
     ProjectedValue, TechniqueContributionDigest,
 };
+use starclock_combat::{LifeState, Ratio};
 
 use crate::ability_runtime::{AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope};
 use crate::{
     curio_activity::event_key,
-    curio_effect_runtime::{CurioEffectFacts, CurioEvent},
+    curio_effect_runtime::{CurioEffect, CurioEffectFacts, CurioEvent},
+    curio_runtime::CurioRuntimeBindings,
 };
 
 use super::{StandardUniverseActivity, StandardUniverseBattleStartError};
@@ -113,6 +115,69 @@ impl StandardUniverseActivity {
                     ),
                 });
                 operations.extend_from_slice(projection.operations());
+            }
+            let defeated = result
+                .values()
+                .iter()
+                .filter_map(|value| match value {
+                    ProjectedValue::ParticipantState(state)
+                        if state.life() != LifeState::Alive && state.current_hp().get() == 0 =>
+                    {
+                        Some(state.participant())
+                    }
+                    _ => None,
+                })
+                .collect::<Vec<_>>();
+            if !defeated.is_empty() {
+                for contribution in contributions.entries() {
+                    let effects = self
+                        .curio_effect_runtime
+                        .execute(
+                            contribution.curio(),
+                            CurioEvent::BattleWon,
+                            CurioEffectFacts::default(),
+                        )
+                        .map_err(|_| invalid_boundary())?;
+                    if !effects.iter().any(|effect| {
+                        matches!(effect.effect(), CurioEffect::RevivePartyAndRestoreFullHp)
+                    }) {
+                        continue;
+                    }
+                    operations.extend(defeated.iter().map(|participant| {
+                        starclock_activity::ActivityOperation::RestoreParticipant {
+                            participant: *participant,
+                            hp_ratio: Ratio::ONE,
+                        }
+                    }));
+                    operations.push(starclock_activity::ActivityOperation::AddCounter {
+                        slot: self.curio_event_slot,
+                        key: event_key(contribution.curio(), CurioEvent::BattleWon),
+                        delta: starclock_activity::ActivityExpression::Literal(
+                            starclock_activity::ActivityValue::BoundedInteger(1),
+                        ),
+                    });
+                    let destroys_once = effects.iter().any(|effect| {
+                        matches!(
+                            effect.effect(),
+                            CurioEffect::DestroyAfterTriggers { triggers: 1 }
+                        )
+                    });
+                    if !destroys_once {
+                        return Err(invalid_boundary());
+                    }
+                    operations.extend(
+                        self.curio_runtime
+                            .teardown_operations(
+                                contribution.curio(),
+                                CurioRuntimeBindings {
+                                    inventory: self.curio_inventory,
+                                    state_slot: self.curio_state_slot,
+                                    charge_slot: self.curio_charge_slot,
+                                },
+                            )
+                            .map_err(|_| invalid_boundary())?,
+                    );
+                }
             }
             (!operations.is_empty())
                 .then(|| {

@@ -23,10 +23,11 @@ const audit = json(
 const partition = manifest.partitions.find(({ id }) => id === partitionId);
 assert(partition?.mechanic_family?.startsWith("curio-"),
   `${partitionId}: not a Curio partition`);
-assert(["G07-P3-M11-S01", "G07-P3-M11-S02", "G07-P3-M11-S03"].includes(partitionId),
+assert(["G07-P3-M11-S01", "G07-P3-M11-S02", "G07-P3-M11-S03", "G07-P3-M11-S04"].includes(partitionId),
   `${partitionId}: Curio receipt profile is not implemented`);
 const s02 = partitionId === "G07-P3-M11-S02";
 const s03 = partitionId === "G07-P3-M11-S03";
+const s04 = partitionId === "G07-P3-M11-S04";
 const golden =
   `evidence/standard-universe-mechanics-complete-v1/goldens/${partitionId}.json`;
 assert(exists(golden), `${partitionId}: golden is missing`);
@@ -38,7 +39,15 @@ const sourceEvidence = [
   { path: "content-reference/standard-universe-v1/curio-states.json" },
   { path: "content-reference/standard-universe-v1/mechanic-rules.json" },
 ];
-const executionEvidence = s03 ? [
+const executionEvidence = s04 ? [
+  { path: "crates/starclock-mode-universe/src/curio_activity/domain.rs" },
+  { path: "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs" },
+  { path: "crates/starclock-mode-universe/src/runtime/curio_commands.rs" },
+  { path: "crates/starclock-mode-universe/src/topology/blessing_offer.rs" },
+  { path: "crates/starclock-mode-universe/src/topology_reward.rs" },
+  { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s04.rs" },
+  { path: "crates/starclock-mode-universe/tests/topology_runtime.rs" },
+] : s03 ? [
   { path: "crates/starclock-activity/src/graph_activity/boundary.rs" },
   { path: "crates/starclock-mode-universe/src/curio_activity.rs" },
   { path: "crates/starclock-mode-universe/src/curio_activity/domain.rs" },
@@ -66,12 +75,14 @@ const executionEvidence = s03 ? [
   { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s01.rs" },
 ];
 const reviewEvidence = [
-  { path: s03
-    ? "docs/goal-07-curio-s03.md"
+  { path: s04
+    ? "docs/goal-07-curio-s04.md"
+    : s03 ? "docs/goal-07-curio-s03.md"
     : s02 ? "docs/goal-07-curio-s02.md" : "docs/goal-07-curio-s01.md" },
   { path: "crates/starclock-mode-universe/src/curio_activity.rs" },
-  { path: s03
-    ? "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s03.rs"
+  { path: s04
+    ? "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs"
+    : s03 ? "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s03.rs"
     : s02
     ? "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s02.rs"
     : "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s01.rs" },
@@ -121,14 +132,18 @@ const receipt = {
       { path: "config/data/UniverseEvidence.xlsx" },
     ]),
     execution_kind: "RustTest",
-    test_path: s03
+    test_path: s04
+      ? "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s04.rs"
+      : s03
       ? id === "universe.fixture.curio-tag.blessing"
         ? "crates/starclock-mode-universe/src/runtime/curio_commands.rs"
         : "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s03.rs"
       : s02
       ? "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s02.rs"
       : "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s01.rs",
-    test_marker: s03
+    test_marker: s04
+      ? "goal07_p3_m11_s04_executes_every_assigned_curio_without_native_handlers"
+      : s03
       ? fixtureMarkerS03(id)
       : s02
       ? fixtureMarker(id)
@@ -142,7 +157,21 @@ const receipt = {
     decision: nativeDecision(id),
     evidence: reviewEvidence,
   })),
-  numeric_approximations: s03 ? [
+  numeric_approximations: s04 ? [
+    ...[
+      ["23", "elation"],
+      ["24", "hunt"],
+      ["25", "destruction"],
+      ["26", "remembrance"],
+      ["27", "nihility"],
+      ["28", "abundance"],
+    ].map(([id, pathName]) => ({
+      id: `universe.curio.${id}.${pathName}-offer-weight`,
+      disposition: "ProjectPolicyApproximate",
+      rationale:
+        "Public evidence says the appearance rate greatly increases but supplies no multiplier. Runtime v1 freezes the shared x2 policy and records the approximation explicitly.",
+    })),
+  ] : s03 ? [
     {
       id: "universe.curio.13.discount-rounding",
       disposition: "ProjectPolicyApproximate",
@@ -181,8 +210,12 @@ const receipt = {
     commands: [
       `python tools/goal07/author-curio-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify_production_workbooks.mjs .",
-      `cargo test -p starclock-mode-universe --test mechanic_battle_integration ${s03 ? "curio_s03" : s02 ? "curio_s02" : "curio_s01"} --all-features`,
+      `cargo test -p starclock-mode-universe --test mechanic_battle_integration ${s04 ? "curio_s04" : s03 ? "curio_s03" : s02 ? "curio_s02" : "curio_s01"} --all-features`,
       "cargo test -p starclock-mode-universe --lib curio_activity::tests --all-features",
+      ...(s04 ? [
+        "cargo test -p starclock-mode-universe --lib runtime::curio_commands::tests --all-features",
+        "cargo test -p starclock-mode-universe --test topology_runtime --all-features",
+      ] : []),
       ...(s03 ? [
         "cargo test -p starclock-activity --test random_boundary --all-features",
         "cargo test -p starclock-mode-universe --lib runtime::curio_commands::tests --all-features",
@@ -240,6 +273,14 @@ function nativeDecision(id) {
     "20": "The generic Reward-stream random boundary selects up to two owned unenhanced Blessings without replacement and atomically upgrades their inventory values.",
     "211": "The generic acquisition boundary grants one Erudition Blessing and the conditional offer-weight primitive biases later Erudition options.",
     "22": "The generic acquisition boundary grants one Preservation Blessing and the conditional offer-weight primitive biases later Preservation options.",
+    "23": "The table-driven Sealing Wax boundary grants one Elation Blessing and applies the shared conditional Path-offer weight policy.",
+    "24": "The table-driven Sealing Wax boundary grants one Hunt Blessing and applies the shared conditional Path-offer weight policy.",
+    "25": "The table-driven Sealing Wax boundary grants one Destruction Blessing and applies the shared conditional Path-offer weight policy.",
+    "26": "The table-driven Sealing Wax boundary grants one Remembrance Blessing and applies the shared conditional Path-offer weight policy.",
+    "27": "The table-driven Sealing Wax boundary grants one Nihility Blessing and applies the shared conditional Path-offer weight policy.",
+    "28": "The table-driven Sealing Wax boundary grants one Abundance Blessing and applies the shared conditional Path-offer weight policy.",
+    "3": "The ordinary Blessing acquisition expression adds the owned Curio count only for one-star options, preserving one atomic reward transaction.",
+    "4": "The generic post-battle participant projection, full-ratio restore operation and Curio teardown express the one-use party revival atomically.",
   }[stable] ?? "Generic Activity and Rule IR primitives express the assigned Curio state.";
 }
 function fixtureMarker(id) {

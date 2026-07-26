@@ -1,0 +1,69 @@
+{
+  "schema_revision": "starclock.goal07-curio-partition-golden.v1",
+  "partition_id": "G07-P3-M11-S04",
+  "record_ids": [
+    "universe.curio.23",
+    "universe.curio.23.state.active",
+    "universe.curio.24",
+    "universe.curio.24.state.active",
+    "universe.curio.25",
+    "universe.curio.25.state.active",
+    "universe.curio.26",
+    "universe.curio.26.state.active",
+    "universe.curio.27",
+    "universe.curio.27.state.active",
+    "universe.curio.28",
+    "universe.curio.28.state.active",
+    "universe.curio.3",
+    "universe.curio.3.state.active",
+    "universe.curio.4",
+    "universe.curio.4.state.active"
+  ],
+  "rule_ids": [
+    "universe.rule.curio.23",
+    "universe.rule.curio.23.state.active",
+    "universe.rule.curio.24",
+    "universe.rule.curio.24.state.active",
+    "universe.rule.curio.25",
+    "universe.rule.curio.25.state.active",
+    "universe.rule.curio.26",
+    "universe.rule.curio.26.state.active",
+    "universe.rule.curio.27",
+    "universe.rule.curio.27.state.active",
+    "universe.rule.curio.28",
+    "universe.rule.curio.28.state.active",
+    "universe.rule.curio.3",
+    "universe.rule.curio.3.state.active",
+    "universe.rule.curio.4",
+    "universe.rule.curio.4.state.active"
+  ],
+  "fixture_ids": [],
+  "workbooks": {
+    "Universe.xlsx": "c5121bc5cdb49739e78cd0e709994764bc411c9acd62e9e3996ef744c64358b0",
+    "UniverseBindings.xlsx": "5780e99c7c08d0ed8659ddfd56b37f77e88972ec413940d82f956a56e84c1e4a",
+    "UniverseEvidence.xlsx": "be3ab26158150dda1261f6d58f5520704341b3e09a469202f7a9e651ade95065"
+  },
+  "sora_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+  "tables": {
+    "UniverseCurio": {
+      "rows": 8,
+      "semantic_sha256": "46d70e323a5f87a573e83e69f28615268549733e6bcaa9a0a92cbfed1b7dba44"
+    },
+    "UniverseCurioState": {
+      "rows": 8,
+      "semantic_sha256": "61aa1cca3be062bb024daf6dfac2654373a79b918f75ce62cfad67eed3067d39"
+    },
+    "UniverseCurioParameter": {
+      "rows": 8,
+      "semantic_sha256": "889c6318f645fc22f3b14fb420aeed68883bc4bc285f83d7cc38d595dd8778de"
+    },
+    "UniverseMechanicRule": {
+      "rows": 16,
+      "semantic_sha256": "158a48405a178ebf58e9980df8daf87978d0ddecc0b89f70c28816065364c438"
+    },
+    "UniverseReviewFixture": {
+      "rows": 0,
+      "semantic_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  }
+}

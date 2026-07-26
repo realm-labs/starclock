@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 3 — Curios |
-| Active batch | `G07-P3-M11-S04` |
-| Next unblocked batch | `G07-P3-M11-S04` |
+| Active batch | `G07-P3-M11-S05` |
+| Next unblocked batch | `G07-P3-M11-S05` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -98,7 +98,13 @@ Chaos Trametes, Entropic Die and both Erudition and Preservation Sealing Waxes
 execute through checked service settlement, deterministic domain-entry
 ordering, authoritative Reward RNG and generic Rule IR. The partition adds no
 native handler. Publicly unspecified discount rounding and offer weights are
-isolated as replaceable project policies. `G07-P3-M11-S04` is active.
+isolated as replaceable project policies. Curio S04 is complete: the six
+remaining Sealing Waxes share a table-driven Path acquisition and offer
+policy, Warping Compound Eye enhances offered one-star Blessings in the
+ordinary reward transaction, and Fruit of the Alien Tree restores defeated
+participant carry and destroys itself in one won-battle settlement. The
+partition adds no native handler; the shared Wax x2 policy remains explicitly
+replaceable. `G07-P3-M11-S05` is active.
 
 ## Fixed batch ledger
 

@@ -1,10 +1,11 @@
 use std::sync::{Arc, OnceLock};
 
 use starclock_activity::{
-    ActivityDecisionKind, ActivityInstanceId, ActivityMasterSeed, ActivityOptionId,
-    ActivityRngLabel, ActivityStateHash, ActivityTransactionRejection, ActivityValue, BuildDigest,
-    GraphActivity, GraphActivityCommandError, LoadoutLockScope, OpaqueParticipantBuild,
-    ParticipantId, ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
+    ActivityDecisionKind, ActivityExpression, ActivityInstanceId, ActivityMasterSeed,
+    ActivityOperation, ActivityOptionDefinition, ActivityOptionId, ActivityRngLabel,
+    ActivityStateHash, ActivityTransactionRejection, ActivityValue, BuildDigest, GraphActivity,
+    GraphActivityCommandError, LoadoutLockScope, OpaqueParticipantBuild, ParticipantId,
+    ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
     ParticipantUniquenessScope,
 };
 use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
@@ -95,7 +96,7 @@ fn all_topologies_compile_to_bounded_spatial_free_hubs() {
             .conditional_weight_multipliers()
             .iter()
             .all(|(_, options, multiplier)| !options.is_empty() && *multiplier == 2)
-            && offer.conditional_weight_multipliers().len() == 3
+            && offer.conditional_weight_multipliers().len() == 9
     }));
     assert!(runtime.random_offers().iter().all(|offer| {
         offer
@@ -125,7 +126,7 @@ fn all_topologies_compile_to_bounded_spatial_free_hubs() {
     );
     assert_eq!(
         STANDARD_UNIVERSE_TOPOLOGY_REVISION,
-        "standard-universe-topology-v9"
+        "standard-universe-topology-v10"
     );
 
     for hub in compiled.domain_hubs() {
@@ -143,6 +144,56 @@ fn all_topologies_compile_to_bounded_spatial_free_hubs() {
 }
 
 #[test]
+fn one_star_reward_acquisition_compiles_the_warping_eye_level_delta() {
+    let (_, compiled) = compiled();
+    let runtime = compiled.runtime_definition();
+    let mut conditional = 0_usize;
+    let mut ordinary = 0_usize;
+    for offer in runtime.random_offers() {
+        let program = runtime
+            .programs()
+            .iter()
+            .find(|program| program.node() == offer.node())
+            .unwrap();
+        let options = offered_options(program.program().operations()).unwrap();
+        for option in options {
+            match option.operations().first().unwrap() {
+                ActivityOperation::AddInventory {
+                    count: ActivityExpression::Add(base, owned),
+                    ..
+                } if matches!(
+                    (&**base, &**owned),
+                    (
+                        ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
+                        ActivityExpression::InventoryCount { content: 35, .. }
+                    )
+                ) =>
+                {
+                    conditional += 1
+                }
+                ActivityOperation::AddInventory {
+                    count: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
+                    ..
+                } => ordinary += 1,
+                operation => panic!("unexpected Blessing acquisition operation: {operation:?}"),
+            }
+        }
+    }
+    assert!(conditional > 0);
+    assert!(ordinary > 0);
+}
+
+fn offered_options(operations: &[ActivityOperation]) -> Option<&[ActivityOptionDefinition]> {
+    operations.iter().find_map(|operation| match operation {
+        ActivityOperation::Offer { options, .. } => Some(options.as_ref()),
+        ActivityOperation::Conditional {
+            if_true, if_false, ..
+        } => offered_options(if_true).or_else(|| offered_options(if_false)),
+        _ => None,
+    })
+}
+
+#[test]
 fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state() {
     let (_, compiled) = compiled();
     let started = compiled
@@ -155,8 +206,8 @@ fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state(
     assert_eq!(
         view.state_hash().bytes(),
         [
-            47, 171, 52, 208, 207, 74, 33, 47, 139, 28, 224, 131, 74, 170, 240, 168, 187, 60, 92,
-            255, 210, 126, 14, 154, 77, 121, 111, 75, 114, 157, 23, 119,
+            148, 79, 22, 32, 153, 31, 2, 147, 194, 215, 6, 135, 205, 199, 159, 70, 220, 114, 20,
+            115, 120, 15, 24, 22, 150, 234, 59, 159, 191, 93, 95, 124,
         ]
     );
     let decision = view.decision().expect("Path choice");

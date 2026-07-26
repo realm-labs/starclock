@@ -461,9 +461,20 @@ fn integer(value: i64) -> ActivityExpression {
 
 #[cfg(test)]
 mod tests {
+    use std::cell::Cell;
     use std::sync::Arc;
 
+    use starclock_activity::{
+        BattleOutcome, BattleResult, EventDigest, ParticipantBattleState, ProjectedValue,
+        ProjectionField,
+    };
+    use starclock_combat::{BattleStateHash, Hp, LifeState, PresenceState};
+
     use crate::{
+        baseline_runner::{
+            StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner,
+            StandardUniverseBaselineStep,
+        },
         catalog::UniverseCatalog,
         curio_activity::{CurioActivityBindings, acquisition_operations, compile_records},
         production_runtime::{StandardUniverseControllerIdentity, StandardUniverseRuntimeFactory},
@@ -543,6 +554,78 @@ mod tests {
         assert_eq!(catalog.blessing(selected).unwrap().path(), erudition);
     }
 
+    #[test]
+    fn remaining_sealing_waxes_grant_their_authored_path_blessing() {
+        for (curio_raw, path_key) in [
+            (29, "universe.path.elation"),
+            (30, "universe.path.hunt"),
+            (31, "universe.path.destruction"),
+            (32, "universe.path.remembrance"),
+            (33, "universe.path.nihility"),
+            (34, "universe.path.abundance"),
+        ] {
+            let (mut activity, catalog) = activity();
+            let curio = CurioId::new(curio_raw).unwrap();
+            acquire_with_blessings(&mut activity, curio, &[]);
+            let resolution = activity
+                .resolve_curio_acquisition_blessings(activity.view().state_hash(), curio)
+                .unwrap();
+            let selected = u32::try_from(resolution.selected_options()[0].get())
+                .ok()
+                .and_then(BlessingId::new)
+                .unwrap();
+            let expected = catalog
+                .paths()
+                .iter()
+                .find(|path| path.stable_key() == path_key)
+                .unwrap()
+                .id();
+            assert_eq!(catalog.blessing(selected).unwrap().path(), expected);
+        }
+    }
+
+    #[test]
+    fn alien_tree_revives_defeated_carry_and_destroys_itself_after_victory() {
+        let (mut activity, _) = activity();
+        let fruit = CurioId::new(36).unwrap();
+        acquire_with_blessings(&mut activity, fruit, &[]);
+        let invoked = Cell::new(false);
+        let mut executor = |handoff: &starclock_activity::ActivityBattleHandoff| {
+            invoked.set(true);
+            Ok(defeated_victory(handoff))
+        };
+        let runner = StandardUniverseBaselineRunner::default();
+        for _ in 0..64 {
+            let step = runner
+                .advance(
+                    &mut activity,
+                    &StandardUniverseBaselinePolicy::default(),
+                    &mut executor,
+                )
+                .unwrap();
+            if matches!(step, StandardUniverseBaselineStep::Battle { .. }) {
+                break;
+            }
+        }
+        assert!(invoked.get());
+        let view = activity.view();
+        let restored = view
+            .participant_carry()
+            .iter()
+            .find(|state| state.participant().get() == 1)
+            .unwrap();
+        assert_eq!(restored.life(), LifeState::Alive);
+        assert_eq!(restored.current_hp(), restored.maximum_hp());
+        assert!(
+            activity
+                .curio_contributions()
+                .unwrap()
+                .entries()
+                .iter()
+                .all(|entry| entry.curio() != fruit)
+        );
+    }
+
     fn acquire_with_blessings(
         activity: &mut StandardUniverseActivity,
         curio: CurioId,
@@ -579,6 +662,54 @@ mod tests {
             .graph
             .apply_boundary_program(activity.view().state_hash(), &program)
             .unwrap();
+    }
+
+    fn defeated_victory(handoff: &starclock_activity::ActivityBattleHandoff) -> BattleResult {
+        let values = handoff
+            .projection()
+            .fields()
+            .iter()
+            .map(|field| match field {
+                ProjectionField::Outcome => ProjectedValue::Outcome(BattleOutcome::Won),
+                ProjectionField::FinalStateHash => {
+                    ProjectedValue::FinalStateHash(BattleStateHash::from_bytes([0x71; 32]))
+                }
+                ProjectionField::EventDigest => {
+                    ProjectedValue::EventDigest(EventDigest::new([0x72; 32]).unwrap())
+                }
+                ProjectionField::TerminalFault => ProjectedValue::TerminalFault(None),
+                ProjectionField::ParticipantState(participant) => {
+                    let defeated = participant.get() == 1;
+                    let carry = handoff
+                        .participant_carry()
+                        .iter()
+                        .find(|carry| carry.participant() == *participant)
+                        .unwrap();
+                    ProjectedValue::ParticipantState(
+                        ParticipantBattleState::new(
+                            *participant,
+                            if defeated {
+                                Hp::new(0).unwrap()
+                            } else {
+                                carry.maximum_hp()
+                            },
+                            carry.maximum_hp(),
+                            carry.current_energy(),
+                            carry.maximum_energy(),
+                            if defeated {
+                                LifeState::Defeated
+                            } else {
+                                LifeState::Alive
+                            },
+                            PresenceState::Present,
+                        )
+                        .unwrap(),
+                    )
+                }
+                ProjectionField::Metric { .. } => panic!("fixture has no metric projection"),
+            })
+            .collect();
+        BattleResult::seal(handoff.identity(), values)
     }
 
     fn activity() -> (StandardUniverseActivity, Arc<UniverseCatalog>) {
