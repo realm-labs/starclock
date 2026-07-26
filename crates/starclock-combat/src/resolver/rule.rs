@@ -505,6 +505,7 @@ fn event_facts(
             });
             let amount = scalar_from_u64(data.applied.get());
             facts.damage_amount = amount;
+            facts.damage_raw_amount = Some(data.raw);
             facts.hp_change_amount = amount.and_then(|value| value.checked_neg().ok());
             facts.hp_before = scalar_from_u64(data.hp_before.get());
             facts.hp_after = scalar_from_u64(data.hp_after.get());

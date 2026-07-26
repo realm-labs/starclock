@@ -24,6 +24,11 @@ pub(super) fn event_property(
             .damage_amount
             .map(RuleValue::Scalar)
             .ok_or_else(missing),
+        EventValueProperty::DamageRawAmount => input
+            .event_facts
+            .damage_raw_amount
+            .map(RuleValue::Scalar)
+            .ok_or_else(missing),
         EventValueProperty::HpChangeAmount => input
             .event_facts
             .hp_change_amount

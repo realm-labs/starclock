@@ -9,6 +9,7 @@ use crate::{
     modifier::model::{FormulaPurpose, StatKind, StatQuerySubject},
 };
 mod support;
+include!("model/runtime.rs");
 /// Stable generic semantic class for rule attribution and filtering.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum SourceClass {
@@ -324,6 +325,8 @@ pub enum EventValueProperty {
     SourceDefinitionId,
     PrimaryTargetId,
     DamageAmount,
+    /// Pre-mitigation raw amount carried by a committed damage event.
+    DamageRawAmount,
     HpChangeAmount,
     ResourceDelta,
     StackCount,
@@ -352,6 +355,7 @@ pub struct RuleEventFacts {
     pub toughness_kind: Option<RuleToughnessEventKind>,
     pub resource: Option<RuleResourceKind>,
     pub damage_amount: Option<Scalar>,
+    pub damage_raw_amount: Option<Scalar>,
     pub hp_change_amount: Option<Scalar>,
     /// Effective visible shield on the event target immediately before mutation.
     pub shield_before: Option<Scalar>,
@@ -626,6 +630,21 @@ pub enum RuleOperationTemplate {
         selector: SelectorId,
         amount: ValueExpr,
         class: DamageClass,
+        can_crit: bool,
+        can_defeat: bool,
+    },
+    /// Repeats one damage operation a uniformly selected number of times and
+    /// chooses one authored element independently for every emitted instance.
+    RandomRepeatedDamage {
+        selector: SelectorId,
+        amount: ValueExpr,
+        class: DamageClass,
+        elements: Box<[CombatElement]>,
+        minimum_hits: u16,
+        maximum_hits: u16,
+        count_rng_purpose: crate::rng::types::DrawPurpose,
+        element_rng_purpose: crate::rng::types::DrawPurpose,
+        exclude_event_element: bool,
         can_crit: bool,
         can_defeat: bool,
     },
@@ -938,6 +957,20 @@ pub enum RuleEmission {
         can_defeat: bool,
         current_target: Option<UnitId>,
     },
+    RandomRepeatedDamage {
+        selector: SelectorId,
+        amount: RuleValue,
+        class: DamageClass,
+        elements: Box<[CombatElement]>,
+        minimum_hits: u16,
+        maximum_hits: u16,
+        count_rng_purpose: crate::rng::types::DrawPurpose,
+        element_rng_purpose: crate::rng::types::DrawPurpose,
+        exclude_event_element: bool,
+        can_crit: bool,
+        can_defeat: bool,
+        current_target: Option<UnitId>,
+    },
     TrueDamage {
         selector: SelectorId,
         amount: RuleValue,
@@ -1133,30 +1166,6 @@ pub enum RuleEmission {
     },
 }
 
-/// Mutation-free proposal produced only by a `Replace` trigger.
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct RuleReplacementProposal {
-    pub code: u32,
-    pub value: Option<RuleValue>,
-    pub current_target: Option<UnitId>,
-}
-/// Complete read-only input shared by IR evaluation and static handlers.
-#[derive(Clone, Copy)]
-pub struct RuleEvaluationInput<'a> {
-    pub event_kind: RuleEventKind,
-    pub event_facts: &'a RuleEventFacts,
-    pub cause: RuleCause,
-    pub occurrence: RuleOccurrence,
-    /// Owner of the rule/program currently being evaluated, distinct from the observed cause.
-    pub rule_owner: Option<UnitId>,
-    pub source_tags: &'a [SourceDefinitionId],
-    pub slots: &'a [(StateSlotDefinitionId, RuleValue)],
-    pub selectors: &'a [SelectorResult<'a>],
-    pub stat_reader: Option<&'a dyn super::evaluate::StatQueryReader>,
-    pub ability_parameter_reader: Option<&'a dyn super::evaluate::AbilityParameterReader>,
-    pub resource_reader: Option<&'a dyn super::evaluate::ResourceQueryReader>,
-    pub battle_query_reader: Option<&'a dyn super::evaluate::BattleQueryReader>,
-}
 /// Produces a complete deterministic once key or rejects missing scope identity.
 #[must_use]
 pub fn once_key(
@@ -1165,36 +1174,4 @@ pub fn once_key(
     occurrence: RuleOccurrence,
 ) -> Option<OnceKey> {
     support::once_key(trigger, scope, occurrence)
-}
-/// Stable key used to enforce one trigger occurrence.
-#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub struct OnceKey {
-    pub rule_instance: RuleInstanceId,
-    pub trigger: TriggerId,
-    pub scope: OnceScope,
-    pub first: u64,
-    pub second: u64,
-}
-/// Stable definition-only order; runtime owner/instance/insertion keys append to it.
-#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub struct TriggerDefinitionOrder {
-    pub phase: TriggerPhase,
-    pub priority: ReactionPriority,
-    pub source: SourceDefinitionId,
-    pub rule: RuleId,
-    pub trigger: TriggerId,
-}
-/// Complete runtime reaction order. No comparison can end without a tie-breaker.
-#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub struct ReactionOrderKey {
-    pub phase: TriggerPhase,
-    pub priority: ReactionPriority,
-    pub side_order: u8,
-    pub formation_order: u16,
-    pub spawn_sequence: u64,
-    pub source: SourceDefinitionId,
-    pub rule: RuleId,
-    pub rule_instance: RuleInstanceId,
-    pub trigger: TriggerId,
-    pub insertion_sequence: u64,
 }

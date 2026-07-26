@@ -1,6 +1,50 @@
 use crate::rule::model::RuleEmission;
 
-use super::{emission_targets, non_negative_scalar, program_fault};
+use super::{AbilityProgramContext, non_negative_scalar, program_fault};
+
+pub(in crate::resolver) fn emission_targets(
+    catalog: &crate::catalog::CombatCatalog,
+    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
+    selector: crate::SelectorId,
+    current_target: Option<crate::UnitId>,
+) -> Result<Box<[crate::UnitId]>, crate::BattleFault> {
+    let is_current_subject = catalog
+        .selector(selector)
+        .and_then(crate::catalog::definition::SelectorDefinition::rule_units)
+        .is_some_and(|definition| {
+            definition.origin() == crate::catalog::selector::RuleSelectorOrigin::CurrentSubject
+        });
+    if is_current_subject && let Some(target) = current_target {
+        return Ok(vec![target].into_boxed_slice());
+    }
+    resolved
+        .binary_search_by_key(&selector, |(id, _)| *id)
+        .ok()
+        .map(|index| resolved[index].1.clone())
+        .ok_or_else(|| program_fault(20, i64::from(selector.get())))
+}
+
+pub(super) fn slot_operation(
+    context: &AbilityProgramContext,
+    id: crate::OperationId,
+    slot: crate::StateSlotDefinitionId,
+    update: crate::rule::model::StateSlotUpdateKind,
+    value: crate::rule::model::RuleValue,
+) -> Result<crate::operation::ModifyStateSlotOp, crate::BattleFault> {
+    let rule = context.rule.ok_or_else(|| program_fault(52, 0))?;
+    let instance = context.rule_instance.ok_or_else(|| program_fault(53, 0))?;
+    Ok(crate::operation::ModifyStateSlotOp {
+        id,
+        owner: context.owner,
+        instance: Some(instance),
+        definition: crate::rule::model::RuleSlotMutationDefinition {
+            rule,
+            slot,
+            update,
+            value,
+        },
+    })
+}
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn healing_operation(
@@ -40,6 +84,7 @@ pub(super) const fn emission_current_target(emission: &RuleEmission) -> Option<c
         RuleEmission::SetSlot { current_target, .. }
         | RuleEmission::AddSlot { current_target, .. }
         | RuleEmission::Damage { current_target, .. }
+        | RuleEmission::RandomRepeatedDamage { current_target, .. }
         | RuleEmission::TrueDamage { current_target, .. }
         | RuleEmission::Heal { current_target, .. }
         | RuleEmission::Shield { current_target, .. }

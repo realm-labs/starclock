@@ -684,12 +684,19 @@ pub(super) fn settle_effects_at_action_end(
         crate::rule::model::SlotResetPoint::ActionEnd,
         cause.applier(),
     );
-    super::effect_duration::advance_effect_clock(
+    let parent = super::effect_duration::advance_effect_clock(
         txn,
         cause,
         parent,
         crate::DurationClock::ActionEnd,
         None,
+    )?;
+    super::effect_duration::advance_effect_clock(
+        txn,
+        cause,
+        parent,
+        crate::DurationClock::TargetActionEnd,
+        Some(owner),
     )
 }
 

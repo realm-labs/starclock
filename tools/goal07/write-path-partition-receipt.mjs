@@ -141,6 +141,16 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612630"))
+    return "Stable inclusive-count and per-hit element draws plus sequential generic Elation damage and an ordinary global modifier express both Auto-Harmonica levels.";
+  if (id.includes("612631"))
+    return "A generic broken-state condition selects fixed repeated Elation hit counts while stable per-hit element draws express both Slaughterhouse levels.";
+  if (id.includes("612632"))
+    return "Additional Ultimate trigger routes and ordinary follow-up, counter and Ultimate tag-filtered damage modifiers express Champion's Dinner without rewriting action identity.";
+  if (id.includes("612640"))
+    return "Raw-damage event reads, same-target selection, event-element exclusion and an excluded source express one nonrecursive Portrait hit without applying formula stages twice.";
+  if (id.includes("612641"))
+    return "Seven element-filtered refreshable target-action effects and additive ordinary Vulnerability modifiers express distinct Aftertaste-type accumulation.";
   if (id.includes("612556"))
     return "The shared complete-missing-HP-percent stack effect and a dynamic percent-of-base DEF modifier express both released levels.";
   if (id.includes("612557"))
@@ -1113,6 +1123,45 @@ function partitionProfile(id) {
         "event_horizon_queues_a_free_resonance_after_a_low_hp_ally_is_attacked",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration destruction_s04 --all-features",
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M08-S01") {
+    return {
+      completedOn: "2026-07-26",
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "crates/starclock-combat/src/rule/evaluate.rs",
+        "crates/starclock-combat/src/rule/evaluate/event_property.rs",
+        "crates/starclock-combat/src/resolver/program.rs",
+        "crates/starclock-combat/src/resolver/rule.rs",
+        "crates/starclock-combat/src/resolver/target.rs",
+        "crates/starclock-combat/src/resolver/effect_duration.rs",
+        "crates/starclock-combat/src/resolver/operation.rs",
+        "crates/starclock-combat/src/effect/model.rs",
+        "crates/starclock-combat/src/rng/types.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-elation-s01.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs",
+        "crates/starclock-mode-universe/src/elation_runtime.rs",
+        "docs/09-determinism-and-numerics.md",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/11-rule-ir-and-native-handlers.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs",
+      fixtureMarker:
+        "random_repeated_damage_and_aftertaste_chain_execute_in_a_production_ultimate",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration elation_s01 --all-features",
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",

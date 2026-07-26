@@ -33,6 +33,12 @@ impl DrawPurpose {
     pub const AGGRO_TARGET: Self = Self(4);
     /// Authored enemy behavior choice.
     pub const BEHAVIOR_CHOICE: Self = Self(5);
+    /// Uniform repeat count for one authored Rule IR damage emission.
+    pub const REPEATED_DAMAGE_COUNT: Self = Self(6);
+    /// Uniform element choice for one authored Rule IR damage emission.
+    pub const DAMAGE_ELEMENT: Self = Self(7);
+    /// Uniform target selection for one authored damage emission.
+    pub const DAMAGE_TARGET: Self = Self(8);
 
     /// Creates a stable non-zero extension purpose code.
     #[must_use]

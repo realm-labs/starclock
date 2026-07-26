@@ -319,6 +319,30 @@ fn validate_operation(
             require_selector(catalog, *selector)?;
             require_scalar(catalog, runtime, amount)?;
         }
+        RuleOperationTemplate::RandomRepeatedDamage {
+            selector,
+            amount,
+            elements,
+            minimum_hits,
+            maximum_hits,
+            exclude_event_element,
+            ..
+        } => {
+            require_selector(catalog, *selector)?;
+            require_scalar(catalog, runtime, amount)?;
+            if *minimum_hits == 0 || maximum_hits < minimum_hits || *maximum_hits > 64 {
+                return Err("random repeated damage hit bounds must be within 1..=64".into());
+            }
+            if elements.is_empty()
+                || elements.windows(2).any(|pair| pair[0] >= pair[1])
+                || (*exclude_event_element && elements.len() < 2)
+            {
+                return Err(
+                    "random repeated damage elements must be nonempty, canonical and exclusion-safe"
+                        .into(),
+                );
+            }
+        }
         RuleOperationTemplate::QueueAction {
             actor_selector,
             target_selector,
@@ -690,6 +714,7 @@ fn infer_value(
             | EventValueProperty::SourceDefinitionId
             | EventValueProperty::PrimaryTargetId => RuleValueKind::OptionalStableId,
             EventValueProperty::DamageAmount
+            | EventValueProperty::DamageRawAmount
             | EventValueProperty::HpChangeAmount
             | EventValueProperty::ResourceDelta
             | EventValueProperty::ShieldChangeAmount

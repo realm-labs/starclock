@@ -27,7 +27,7 @@ pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             != selector.rng_purpose().is_some_and(|purpose| {
                 matches!(
                     purpose,
-                    "bounce-target" | "aggro-target" | "behavior-choice"
+                    "bounce-target" | "aggro-target" | "behavior-choice" | "damage-target"
                 )
             })
             || selector.repeated() && !random

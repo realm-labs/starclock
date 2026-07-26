@@ -665,6 +665,7 @@ fn rule_draw_purpose(key: &str) -> Option<DrawPurpose> {
         "bounce-target" => Some(DrawPurpose::BOUNCE_TARGET),
         "aggro-target" => Some(DrawPurpose::AGGRO_TARGET),
         "behavior-choice" => Some(DrawPurpose::BEHAVIOR_CHOICE),
+        "damage-target" => Some(DrawPurpose::DAMAGE_TARGET),
         _ => None,
     }
 }

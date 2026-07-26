@@ -54,6 +54,8 @@ pub enum DurationClock {
     ActionEnd,
     WaveEnd,
     BattleEnd,
+    /// Advances only when the affected target completes an action.
+    TargetActionEnd,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -351,6 +353,11 @@ impl EffectRuntimeTemplate {
     #[must_use]
     pub const fn duration_expression(&self) -> Option<&ValueExpr> {
         self.duration.as_ref()
+    }
+
+    #[must_use]
+    pub const fn duration_clock(&self) -> DurationClock {
+        self.duration_clock
     }
 
     #[must_use]

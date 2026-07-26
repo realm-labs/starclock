@@ -10,16 +10,16 @@ use crate::{
     },
     operation::{
         AddWeaknessOp, ChangePresenceOp, ConsumeHpOp, CreateCountdownOp, DamageOp, DetonateDotsOp,
-        ForceBreakOp, HitOperationScratch, ModifyStateSlotOp, Operation, QueueRuleActionOp,
-        ReduceToughnessOp, RemoveEffectsOp, RemoveShieldsOp, ShieldOp, SummonLinkedOp,
-        SuperBreakOp, TransformOp, UnitLifecycleOp,
+        ForceBreakOp, HitOperationScratch, Operation, QueueRuleActionOp, ReduceToughnessOp,
+        RemoveEffectsOp, RemoveShieldsOp, ShieldOp, SummonLinkedOp, SuperBreakOp, TransformOp,
+        UnitLifecycleOp,
     },
     rule::{
         evaluate::{EvaluationBudget, evaluate_program},
         model::{
             ResourceUpdateKind, RuleActionOwner, RuleActionPaymentPolicy, RuleCause, RuleEmission,
-            RuleEvaluationInput, RuleOccurrence, RuleResourceKind, RuleSlotMutationDefinition,
-            RuleValue, SelectorResult, StateSlotUpdateKind,
+            RuleEvaluationInput, RuleOccurrence, RuleResourceKind, RuleValue, SelectorResult,
+            StateSlotUpdateKind,
         },
     },
 };
@@ -28,10 +28,13 @@ use super::{operation::execute_operation, transaction::Transaction};
 use std::collections::BTreeMap;
 mod emission;
 pub(super) mod fault;
+mod random_damage;
 mod value;
-use emission::{emission_current_target, healing_operation};
+pub(super) use emission::emission_targets;
+use emission::{emission_current_target, healing_operation, slot_operation};
 use fault::emission_code;
 pub(super) use fault::program_fault;
+use random_damage::execute_random_repeated_damage;
 pub(super) use value::{non_negative_scalar, probability, ratio};
 use value::{scale, weakness_duration};
 
@@ -343,8 +346,48 @@ fn execute_emission(
     toughness_element: &mut Option<crate::formula::model::CombatElement>,
     resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
 ) -> Result<crate::EventId, BattleFault> {
-    let operation_id = txn.allocate_operation();
     let current_target = emission_current_target(&emission);
+    let emission = match emission {
+        RuleEmission::RandomRepeatedDamage {
+            selector,
+            amount,
+            class,
+            elements,
+            minimum_hits,
+            maximum_hits,
+            count_rng_purpose,
+            element_rng_purpose,
+            exclude_event_element,
+            can_crit,
+            can_defeat,
+            ..
+        } => {
+            return execute_random_repeated_damage(
+                catalog,
+                txn,
+                cause,
+                parent,
+                context,
+                input,
+                resolved,
+                selector,
+                amount,
+                class,
+                &elements,
+                minimum_hits,
+                maximum_hits,
+                count_rng_purpose,
+                element_rng_purpose,
+                exclude_event_element,
+                can_crit,
+                can_defeat,
+                current_target,
+                scratch,
+            );
+        }
+        emission => emission,
+    };
+    let operation_id = txn.allocate_operation();
     let request = match emission {
         RuleEmission::SetSlot { slot, value, .. } => Operation::ModifyStateSlot(slot_operation(
             context,
@@ -816,57 +859,6 @@ fn execute_emission(
         unsupported => return Err(program_fault(12, emission_code(&unsupported))),
     };
     execute_operation(catalog, txn, cause, parent, request, scratch)
-}
-
-fn targets(
-    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
-    selector: crate::SelectorId,
-) -> Result<Box<[crate::UnitId]>, BattleFault> {
-    resolved
-        .binary_search_by_key(&selector, |(id, _)| *id)
-        .ok()
-        .map(|index| resolved[index].1.clone())
-        .ok_or_else(|| program_fault(20, i64::from(selector.get())))
-}
-
-pub(super) fn emission_targets(
-    catalog: &crate::catalog::CombatCatalog,
-    resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
-    selector: crate::SelectorId,
-    current_target: Option<crate::UnitId>,
-) -> Result<Box<[crate::UnitId]>, BattleFault> {
-    let is_current_subject = catalog
-        .selector(selector)
-        .and_then(crate::catalog::definition::SelectorDefinition::rule_units)
-        .is_some_and(|definition| {
-            definition.origin() == crate::catalog::selector::RuleSelectorOrigin::CurrentSubject
-        });
-    if is_current_subject && let Some(target) = current_target {
-        return Ok(vec![target].into_boxed_slice());
-    }
-    targets(resolved, selector)
-}
-
-fn slot_operation(
-    context: &AbilityProgramContext,
-    id: crate::OperationId,
-    slot: crate::StateSlotDefinitionId,
-    update: StateSlotUpdateKind,
-    value: RuleValue,
-) -> Result<ModifyStateSlotOp, BattleFault> {
-    let rule = context.rule.ok_or_else(|| program_fault(52, 0))?;
-    let instance = context.rule_instance.ok_or_else(|| program_fault(53, 0))?;
-    Ok(ModifyStateSlotOp {
-        id,
-        owner: context.owner,
-        instance: Some(instance),
-        definition: RuleSlotMutationDefinition {
-            rule,
-            slot,
-            update,
-            value,
-        },
-    })
 }
 
 fn queue_owner(

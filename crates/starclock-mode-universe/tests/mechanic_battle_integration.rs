@@ -49,6 +49,8 @@ mod destruction_s02;
 mod destruction_s03;
 #[path = "mechanic_battle_integration/destruction_s04.rs"]
 mod destruction_s04;
+#[path = "mechanic_battle_integration/elation_s01.rs"]
+mod elation_s01;
 #[path = "mechanic_battle_integration/hunt_s01.rs"]
 mod hunt_s01;
 #[path = "mechanic_battle_integration/hunt_s02.rs"]

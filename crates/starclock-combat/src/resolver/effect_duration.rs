@@ -24,9 +24,9 @@ pub(super) fn advance_effect_clock(
                     DurationClock::OwnerTurnStart | DurationClock::OwnerTurnEnd => {
                         owner == Some(effect.applier)
                     }
-                    DurationClock::TargetTurnStart | DurationClock::TargetTurnEnd => {
-                        owner == Some(effect.target)
-                    }
+                    DurationClock::TargetTurnStart
+                    | DurationClock::TargetTurnEnd
+                    | DurationClock::TargetActionEnd => owner == Some(effect.target),
                     _ => true,
                 }
         })
