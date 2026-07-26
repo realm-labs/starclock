@@ -67,7 +67,10 @@ Destruction, Elation and Propagation are complete. Erudition S01 is complete:
 per-character Brain in a Vat charge, one nonrecursive Brain-powered Ultimate,
 entry/Break/defeat/broken-target charge, full-charge SPD, Ultimate RES PEN,
 Brain-Ultimate CRIT DMG, overflow-Energy charge and MaxHP shields execute from
-production Rule IR. `G07-P2-M10-S02` (Erudition) is active.
+production Rule IR. Erudition S02 is complete: target-count Additional DMG,
+first-Ultimate and entry-Energy policy, AoE single-target original-damage
+conversion, broken-enemy Ultimate delay and capped Blessing-count Ultimate
+damage execute from generic Rule IR. `G07-P2-M10-S03` (Erudition) is active.
 
 ## Fixed batch ledger
 

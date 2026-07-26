@@ -470,11 +470,16 @@ fn event_facts(
         .and_then(|source| crate::AbilityId::new(source.get()))
         .and_then(|id| catalog.ability(id));
     let action = ability.and_then(crate::catalog::definition::AbilityDefinition::action);
+    let target_pattern = ability
+        .and_then(|ability| catalog.selector(ability.selector()))
+        .and_then(crate::catalog::definition::SelectorDefinition::unit_targets)
+        .map(crate::catalog::action::UnitTargetSelector::pattern);
     let mut facts = RuleEventFacts {
         point: Some(point),
         source_class: source_class(catalog, cause.source_definition()),
         action_kind: action.map(|action| lower_action_kind(action.kind())),
         ability_tags: action.map_or_else(Default::default, |action| action.tags()),
+        target_pattern,
         has_parent: cause.parent_event().is_some(),
         has_action: cause.action().is_some(),
         has_phase: cause.phase().is_some(),

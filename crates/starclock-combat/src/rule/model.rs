@@ -261,6 +261,8 @@ pub struct RuleEventFacts {
     pub source_class: Option<SourceClass>,
     pub action_kind: Option<RuleActionKind>,
     pub ability_tags: crate::catalog::action::AbilityTags,
+    /// Authored target shape of the observed ability selector.
+    pub target_pattern: Option<crate::catalog::action::TargetPattern>,
     pub element: Option<CombatElement>,
     pub damage_class: Option<RuleDamageClass>,
     pub effect_category: Option<crate::EffectCategory>,
@@ -348,6 +350,8 @@ pub struct EventFilter {
     pub target_selector: Option<SelectorId>,
     pub action_kind: Option<RuleActionKind>,
     pub ability_tag: Option<crate::catalog::action::AbilityTag>,
+    /// Optional authored target-shape requirement for the observed ability.
+    pub target_pattern: Option<crate::catalog::action::TargetPattern>,
     pub element: Option<CombatElement>,
     pub damage_class: Option<RuleDamageClass>,
     pub effect_category: Option<crate::EffectCategory>,

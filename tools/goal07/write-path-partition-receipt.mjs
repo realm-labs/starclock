@@ -151,6 +151,18 @@ function nativeDecision(id) {
     return "The shared Brain-powered marker, Ultimate action boundaries and one bounded Attack-expiry slot express both Vestibular System lifetimes.";
   if (id.includes("612841"))
     return "The typed Energy-overflow event property and checked fixed-point effect-stack conversion express exact per-overflow Brain charge.";
+  if (id.includes("612842"))
+    return "The shared Brain-powered Ultimate marker, live MaxHP query and dedicated owner-turn Shield operation express both Explicit Memory levels.";
+  if (id.includes("612843"))
+    return "Committed action targets, a bounded defeated-enemy slot and a checked five-target cap express Tactile Pathway without target-ID branching.";
+  if (id.includes("612844"))
+    return "Battle-start Energy restoration plus an effect-backed Ultimate DamageBoost removed after the first resolved Ultimate express both lifetimes.";
+  if (id.includes("612845"))
+    return "The generic authored target-pattern fact, an action-reset raw-damage accumulator and one already-resolved fixed-damage operation express the AoE single-target conversion.";
+  if (id.includes("612846"))
+    return "Every-enemy attachment, Weakness-Break reset, target-within-action once scope and bounded timeline delay express three triggers per broken period.";
+  if (id.includes("612850"))
+    return "The validated selected-Erudition-blessing count is capped and compiled into a permanent Ultimate-tag-filtered DamageBoost modifier.";
   if (id.includes("612742"))
     return "The shared Spore burst signal supplies the consumed stack snapshot for healing, while generic Spore-effect observations mirror the global enemy count into stack-backed ally Mitigation effects.";
   if (id.includes("612743"))
@@ -1573,6 +1585,40 @@ function partitionProfile(id) {
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration erudition_s01 --all-features",
         "cargo test -p starclock-combat --test damage_lifecycle source_resistance_stage_is_applied_as_ordinary_damage_penetration --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M10-S02") {
+    return {
+      completedOn: "2026-07-26",
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/erudition_s02.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s02.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "crates/starclock-combat/src/rule/evaluate/helpers.rs",
+        "crates/starclock-combat/src/resolver/rule.rs",
+        "crates/starclock-combat/tests/rule_ir_contract.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-erudition-s02.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/erudition_s02.rs",
+        "crates/starclock-mode-universe/src/erudition_runtime.rs",
+        "docs/05-effects-and-resources.md",
+        "docs/09-determinism-and-numerics.md",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/11-rule-ir-and-native-handlers.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s02.rs",
+      fixtureMarker:
+        "goal07_p2_m10_s02_materializes_all_assigned_rules_without_native_handlers",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration erudition_s02 --all-features",
+        "cargo test -p starclock-combat --test rule_ir_contract --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

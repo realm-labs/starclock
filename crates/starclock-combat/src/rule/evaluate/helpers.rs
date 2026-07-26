@@ -113,6 +113,9 @@ pub(super) fn matches_filter(filter: &EventFilter, input: RuleEvaluationInput<'_
             .ability_tag
             .is_none_or(|value| input.event_facts.ability_tags.contains(value))
         && filter
+            .target_pattern
+            .is_none_or(|value| input.event_facts.target_pattern == Some(value))
+        && filter
             .element
             .is_none_or(|value| input.event_facts.element == Some(value))
         && filter

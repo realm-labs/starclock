@@ -194,6 +194,7 @@ fn exact_event_points_filters_and_observed_values_fail_closed() {
         actor_selector: Some(selector),
         action_kind: Some(RuleActionKind::Skill),
         ability_tag: Some(AbilityTag::Basic),
+        target_pattern: Some(starclock_combat::catalog::action::TargetPattern::Single),
         resource: Some(RuleResourceKind::SkillPoints),
         cause_ancestry: CauseAncestry::SameAction,
         ..EventFilter::default()
@@ -209,6 +210,7 @@ fn exact_event_points_filters_and_observed_values_fail_closed() {
         point: Some(RuleEventPoint::ActionStarted),
         action_kind: Some(RuleActionKind::Skill),
         ability_tags: starclock_combat::catalog::action::AbilityTags::new(&[AbilityTag::Basic]),
+        target_pattern: Some(starclock_combat::catalog::action::TargetPattern::Single),
         resource: Some(RuleResourceKind::SkillPoints),
         resource_delta: Some(starclock_combat::Scalar::from_scaled(-1_000_000)),
         has_action: true,

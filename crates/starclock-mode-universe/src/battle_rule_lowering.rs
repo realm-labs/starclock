@@ -13,6 +13,7 @@ mod elation_s02;
 mod elation_s03;
 mod elation_s04;
 mod erudition_s01;
+mod erudition_s02;
 mod hunt_resonance;
 mod hunt_s01;
 mod hunt_s02;
@@ -61,7 +62,7 @@ use starclock_combat::{
         EventValueProperty, OnceScope, ProgramStep, ReactionPriority, ResourceUpdateKind,
         RuleEventKind, RuleEventPoint, RuleOperationTemplate, RuleResourceKind,
         RuleToughnessEventKind, RuleValue, RuleValueKind, ShieldObservation, SlotResetPoint,
-        StateSlotDef, TriggerDef, TriggerPhase, ValueExpr,
+        SourceClass, StateSlotDef, TriggerDef, TriggerPhase, ValueExpr,
     },
 };
 use starclock_combat::{
@@ -361,6 +362,7 @@ pub(crate) fn lower_rules(
     output.extend(elation_s03::lower(bindings, blessings)?);
     output.extend(elation_s04::lower_rules(catalog, bindings, blessings)?);
     let mut erudition_rules = erudition_s01::lower(bindings, blessings)?;
+    erudition_rules.extend(erudition_s02::lower(catalog, bindings, blessings)?);
     if let Some(first) = erudition_rules.first_mut() {
         erudition_s01::add_brain_engine(first)?;
     }
