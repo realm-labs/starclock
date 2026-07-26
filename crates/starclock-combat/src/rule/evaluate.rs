@@ -1,20 +1,9 @@
 //! Deterministic, budgeted and mutation-free Rule IR evaluation.
-
 use core::cmp::Ordering;
 use std::collections::BTreeSet;
-
 mod arithmetic;
 mod event_property;
 mod helpers;
-use arithmetic::{Arithmetic, arithmetic, convert, extremum};
-use event_property::event_property;
-pub(crate) use helpers::stat_query_error;
-use helpers::{
-    add_values, ancestry_matches, budget_error, compare_ordering, numeric_error, optional_unit,
-    query_effect_category_stacks, query_subject, selector_matches, selector_units, slot_value,
-    type_error,
-};
-
 use super::model::{
     Comparison, ConditionExpr, EventFilter, ProgramStep, RuleEmission, RuleEvaluationInput,
     RuleOperationTemplate, RuleReplacementProposal, RuleResourceKind, RuleValue, RuleValueKind,
@@ -22,6 +11,14 @@ use super::model::{
 };
 use crate::modifier::model::{FormulaPurpose, StatKind, StatQuerySubject};
 use crate::{ProgramId, Scalar, UnitId};
+use arithmetic::{Arithmetic, arithmetic, convert, extremum};
+use event_property::event_property;
+pub(crate) use helpers::stat_query_error;
+use helpers::{
+    add_values, ancestry_matches, budget_error, compare_ordering, numeric_error, optional_unit,
+    query_effect_category_stacks, query_subject, require_current_target_broken, selector_matches,
+    selector_units, slot_value, type_error,
+};
 
 /// Immutable program lookup used by the evaluator and static handler tests.
 pub trait ProgramLookup {
@@ -851,6 +848,9 @@ pub fn evaluate_condition(
                     .battle_query_reader
                     .is_some_and(|reader| reader.is_broken(unit))
             }),
+        ConditionExpr::CurrentTargetIsBroken => {
+            require_current_target_broken(input, current_target)?
+        }
         ConditionExpr::EnemyRank(selector, rank) => selector_units(input, *selector)
             .ok_or(RuleEvaluationError {
                 kind: RuleEvaluationErrorKind::MissingValue,

@@ -222,6 +222,7 @@ fn historical_condition_safe(condition: &crate::rule::model::ConditionExpr) -> b
         | ConditionExpr::IsFrozen(_)
         | ConditionExpr::HasWeakness { .. }
         | ConditionExpr::IsBroken(_)
+        | ConditionExpr::CurrentTargetIsBroken
         | ConditionExpr::EnemyRank { .. } => false,
         ConditionExpr::Not(value) => historical_condition_safe(value),
         ConditionExpr::All(values) | ConditionExpr::Any(values) => {

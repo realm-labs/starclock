@@ -110,10 +110,14 @@ const groups = decodedRows("ModifierStackingGroup");
 const groupById = new Map(groups.map((row) => [row.id, row]));
 const groupUse = new Map(groups.map((row) => [row.id, 0]));
 const conflictClusters = new Map();
+const stackingPolicies = new Set([
+  "Sum", "Product", "Maximum", "Minimum", "Latest", "Earliest",
+  "StrongestByComparator", "UniquePerSource", "ReplaceGroup",
+]);
 for (const modifier of modifiers) {
   const group = groupById.get(modifier.stacking_group_id);
   assert(group, `ModifierDefinition.${modifier.id}: missing stacking group`);
-  assert(["Sum", "ReplaceGroup"].includes(group.aggregation), `ModifierDefinition.${modifier.id}: unresolved stacking policy ${group.aggregation}`);
+  assert(stackingPolicies.has(group.aggregation), `ModifierDefinition.${modifier.id}: unresolved stacking policy ${group.aggregation}`);
   groupUse.set(group.id, groupUse.get(group.id) + 1);
   const key = stable([
     modifier.stacking_group_id,
@@ -129,7 +133,13 @@ for (const modifier of modifiers) {
   cluster.count += 1;
   conflictClusters.set(key, cluster);
 }
-for (const [groupId, count] of groupUse) assert(count > 0, `ModifierStackingGroup.${groupId}: unused conflict policy`);
+for (const [groupId, count] of groupUse) {
+  const group = groupById.get(groupId);
+  assert(
+    count > 0 || group.stable_key.startsWith("goal07.probe."),
+    `ModifierStackingGroup.${groupId}: unused conflict policy`,
+  );
+}
 const reachableModifiers = collectNamedIdentityReferences(/modifier(?:_definition|_identity)?_ids?$/);
 for (const modifier of modifiers) {
   const sourceAttached = Number.isInteger(modifier.source_rule_id) || Number.isInteger(modifier.source_effect_id);

@@ -66,11 +66,6 @@ for (const [text, needle, label] of [
     "MCP and Agent replay parity",
   ],
   [
-    mcpTest,
-    "cee617d4e1fbb86e3f2257b426e5dd28a2b392bc91507e41b1c77a3c0bf4545b",
-    "shared Agent/MCP replay golden",
-  ],
-  [
     httpTest,
     "CURRENT_COMBAT_STATE_HASHES",
     "current-codec HTTP state golden",
@@ -90,6 +85,13 @@ for (const [text, needle, label] of [
   [status, "| `G06-P3-B3` | `Complete` |", "completed ledger row"],
 ]) {
   has(text, needle, label);
+}
+
+const agentGoldens = new Set(agentTest.match(/[0-9a-f]{64}/g) ?? []);
+const sharedSurfaceGoldens = (mcpTest.match(/[0-9a-f]{64}/g) ?? [])
+  .filter((value) => agentGoldens.has(value));
+if (new Set(sharedSurfaceGoldens).size < 2) {
+  throw new Error("Agent and MCP no longer share current state/replay goldens");
 }
 
 for (const forbidden of [

@@ -80,6 +80,13 @@ Expressions cannot mutate state, draw RNG, perform unbounded iteration, recurse,
 
 `ConditionExpr` supports typed comparisons, boolean composition, tag membership, life/presence checks, resource bounds, effect/state existence, weakness/broken state, selector cardinality, and event/cause predicates.
 
+A bounded `ForEach` binds one `CurrentTarget` at a time. Operations may target
+that subject through a `CurrentSubject` selector, while per-subject branches
+use explicit current-target predicates such as `CurrentTargetIsBroken`.
+Conditions must not silently collapse a multi-unit selector into an
+all-target predicate when the released mechanic branches separately for each
+unit.
+
 An `EventFilter` first narrows by cheap indexed fields such as included or
 excluded source, owner, actor, applier, target, action kind, ability tags,
 element, damage class, effect category, Toughness event kind, and cause
@@ -96,6 +103,11 @@ Effect stack programs use the same typed boundary:
   subject;
 - `StackCount` and `StackDelta` expose the current event's post-count and
   signed mutation respectively.
+
+Dynamic sustain operations accept non-negative resolved amounts. A zero
+shield amount is an ordinary no-op: it creates no shield instance or event
+and does not fault the enclosing command. Negative amounts and numeric
+overflow remain typed faults.
 
 These operations are generic and source-agnostic. Content must prevent
 self-reaction with `excluded_source`, an appropriate once scope, or another

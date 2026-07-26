@@ -653,7 +653,9 @@ fn validate_condition(
 ) -> Result<(), String> {
     check_depth(depth)?;
     match condition {
-        ConditionExpr::Literal(_) | ConditionExpr::EventKind(_) => {}
+        ConditionExpr::Literal(_)
+        | ConditionExpr::EventKind(_)
+        | ConditionExpr::CurrentTargetIsBroken => {}
         ConditionExpr::Not(value) => validate_condition(catalog, runtime, value, depth + 1)?,
         ConditionExpr::All(values) | ConditionExpr::Any(values) => {
             if values.is_empty() {

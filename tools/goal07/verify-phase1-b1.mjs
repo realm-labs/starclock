@@ -29,7 +29,8 @@ assert(
 
 const model =
   text("crates/starclock-combat/src/rule/model.rs")
-  + text("crates/starclock-combat/src/rule/model/support.rs");
+  + text("crates/starclock-combat/src/rule/model/support.rs")
+  + text("crates/starclock-combat/src/rule/model/runtime.rs");
 for (const marker of [
   "pub struct RuleReplacementProposal",
   "pub parent_event: Option<EventId>",

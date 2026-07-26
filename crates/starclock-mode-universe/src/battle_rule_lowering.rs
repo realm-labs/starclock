@@ -9,6 +9,7 @@ mod destruction_s02;
 mod destruction_s03;
 mod destruction_s04;
 mod elation_s01;
+mod elation_s02;
 mod hunt_resonance;
 mod hunt_s01;
 mod hunt_s02;
@@ -349,6 +350,7 @@ pub(crate) fn lower_rules(
     }
     output.extend(hunt_rules);
     output.extend(elation_s01::lower(bindings, blessings)?);
+    output.extend(elation_s02::lower(catalog, bindings, blessings)?);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::CurioState
             && binding.source_binding_key() == Some(ENTRY_ENEMY_DAMAGE_BINDING)

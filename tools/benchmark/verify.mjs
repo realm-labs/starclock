@@ -7,10 +7,10 @@ import { execFileSync } from "node:child_process";
 const root = path.resolve(import.meta.dirname, "../..");
 const policy = JSON.parse(fs.readFileSync(path.join(root, "policy/benchmark-workloads.json"), "utf8"));
 const currentHashes = JSON.parse(
-  fs.readFileSync(path.join(root, "policy/goal06-benchmark-hashes.json"), "utf8"),
+  fs.readFileSync(path.join(root, "policy/current-benchmark-hashes.json"), "utf8"),
 );
 assert(policy.budget_stage === "phase8-final", "benchmark budget stage differs");
-assert(currentHashes.schema_revision === "starclock.goal06-benchmark-hashes.v1"
+assert(currentHashes.schema_revision === "starclock.current-benchmark-hashes.v1"
   && currentHashes.workload_revision === policy.workload_revision,
 "current benchmark hash policy differs");
 assert(JSON.stringify(Object.keys(currentHashes.final_hashes))

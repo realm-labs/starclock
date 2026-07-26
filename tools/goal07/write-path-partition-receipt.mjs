@@ -142,15 +142,27 @@ if (write) {
 
 function nativeDecision(id) {
   if (id.includes("612630"))
-    return "Stable inclusive-count and per-hit element draws plus sequential generic Elation damage and an ordinary global modifier express both Auto-Harmonica levels.";
+    return "Randomized without-replacement committed-target traversal, independent inclusive-count and per-hit element draws, sequential generic Elation damage and an ordinary global modifier express both Auto-Harmonica levels.";
   if (id.includes("612631"))
-    return "A generic broken-state condition selects fixed repeated Elation hit counts while stable per-hit element draws express both Slaughterhouse levels.";
+    return "Randomized without-replacement committed-target traversal and a per-target broken-state condition select fixed repeated Elation hit counts while stable per-hit element draws express both Slaughterhouse levels.";
   if (id.includes("612632"))
     return "Additional Ultimate trigger routes and ordinary follow-up, counter and Ultimate tag-filtered damage modifiers express Champion's Dinner without rewriting action identity.";
   if (id.includes("612640"))
     return "Raw-damage event reads, same-target selection, event-element exclusion and an excluded source express one nonrecursive Portrait hit without applying formula stages twice.";
   if (id.includes("612641"))
     return "Seven element-filtered refreshable target-action effects and additive ordinary Vulnerability modifiers express distinct Aftertaste-type accumulation.";
+  if (id.includes("612642"))
+    return "Seven element-filtered refreshable target-action effects share one additive percent-of-base ATK reduction modifier, preserving distinct Aftertaste types without native state.";
+  if (id.includes("612643"))
+    return "Stable committed-target iteration repeats ordinary event-element Additional DMG over the complete hit-target list once for each hit enemy.";
+  if (id.includes("612644"))
+    return "A generic action-end effect increments at each HitStarted boundary and its stack-backed DamageBoost modifiers preserve the released per-hit follow-up ramp.";
+  if (id.includes("612645"))
+    return "A labeled without-replacement committed-target traversal, per-target timeline delay, resistible control effect, SPD modifier and successful-application delay express both Aiden levels.";
+  if (id.includes("612646"))
+    return "An action-once trigger, fixed-chance transient Rule IR effect and ordinary checked team Skill Point mutation express the complete recovery roll.";
+  if (id.includes("612650"))
+    return "The validated contribution compiler supplies the capped selected-Elation count to ordinary follow-up, counter and Champion-enabled Ultimate DamageBoost modifiers.";
   if (id.includes("612556"))
     return "The shared complete-missing-HP-percent stack effect and a dynamic percent-of-base DEF modifier express both released levels.";
   if (id.includes("612557"))
@@ -1162,6 +1174,42 @@ function partitionProfile(id) {
         "random_repeated_damage_and_aftertaste_chain_execute_in_a_production_ultimate",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration elation_s01 --all-features",
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M08-S02") {
+    return {
+      completedOn: "2026-07-26",
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "crates/starclock-combat/src/rule/evaluate.rs",
+        "crates/starclock-combat/src/resolver/rule.rs",
+        "crates/starclock-combat/src/resolver/target.rs",
+        "crates/starclock-combat/src/resolver/effect_duration.rs",
+        "crates/starclock-combat/src/resolver/program_effect.rs",
+        "crates/starclock-combat/src/resolver/operation.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-elation-s02.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs",
+        "crates/starclock-mode-universe/src/elation_runtime.rs",
+        "docs/09-determinism-and-numerics.md",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/11-rule-ir-and-native-handlers.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs",
+      fixtureMarker:
+        "production_kafka_ultimate_drives_repeated_aoe_ramp_delay_and_skill_point_rules",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration elation_s02 --all-features",
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",

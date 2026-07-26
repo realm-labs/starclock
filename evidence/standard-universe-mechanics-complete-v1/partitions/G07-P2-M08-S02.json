@@ -1,7 +1,7 @@
 {
   "schema_revision": "starclock.goal07-content-partition-receipt.v1",
   "goal_id": "standard-universe-mechanics-complete-v1",
-  "partition_id": "G07-P2-M08-S01",
+  "partition_id": "G07-P2-M08-S02",
   "state": "Complete",
   "completed_on": "2026-07-26",
   "authoring": {
@@ -32,20 +32,20 @@
       }
     ],
     "openpyxl_commands": [
-      "python -c \"import openpyxl\" && python tools/goal07/author-path-partition.py --partition G07-P2-M08-S01 --check"
+      "python -c \"import openpyxl\" && python tools/goal07/author-path-partition.py --partition G07-P2-M08-S02 --check"
     ],
     "sora_bundle": {
       "path": "config/universe-generated/config.sora",
       "sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04"
     },
     "sora_golden": {
-      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P2-M08-S01.json",
-      "sha256": "b8ba0b91dbb3fc1db154e71e998c6f3f91f91522312b7ee208fd8b7b1ccd336b"
+      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P2-M08-S02.json",
+      "sha256": "dc37493a214246027df5130f4d134e7f556bef729ef776c157575d44564e3207"
     }
   },
   "records": [
     {
-      "id": "universe.blessing.612630",
+      "id": "universe.blessing.612642.level.1",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -69,7 +69,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612630.level.1",
+      "id": "universe.blessing.612642.level.2",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -93,7 +93,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612630.level.2",
+      "id": "universe.blessing.612643",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -117,7 +117,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612631",
+      "id": "universe.blessing.612643.level.1",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -141,7 +141,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612631.level.1",
+      "id": "universe.blessing.612643.level.2",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -165,7 +165,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612631.level.2",
+      "id": "universe.blessing.612644",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -189,7 +189,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612632",
+      "id": "universe.blessing.612644.level.1",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -213,7 +213,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612632.level.1",
+      "id": "universe.blessing.612644.level.2",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -237,7 +237,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612632.level.2",
+      "id": "universe.blessing.612645",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -261,7 +261,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612640",
+      "id": "universe.blessing.612645.level.1",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -285,7 +285,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612640.level.1",
+      "id": "universe.blessing.612645.level.2",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -309,7 +309,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612640.level.2",
+      "id": "universe.blessing.612646",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -333,7 +333,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612641",
+      "id": "universe.blessing.612646.level.1",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -357,7 +357,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612641.level.1",
+      "id": "universe.blessing.612646.level.2",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -381,7 +381,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612641.level.2",
+      "id": "universe.blessing.612650",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -405,31 +405,7 @@
       ]
     },
     {
-      "id": "universe.blessing.612642",
-      "runtime_disposition": "ExecutableRuleIr",
-      "accuracy_disposition": "ExactPublic",
-      "workbook_evidence": [
-        {
-          "path": "config/data/Universe.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/blessings.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/blessing-levels.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/paths.json"
-        }
-      ]
-    },
-    {
-      "id": "universe.path.elation",
+      "id": "universe.blessing.612650.level.1",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -455,7 +431,7 @@
   ],
   "rules": [
     {
-      "id": "universe.rule.blessing.612630",
+      "id": "universe.rule.blessing.612642.level.1",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -479,30 +455,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612630",
-        "universe.blessing.612630"
+        "universe.rule.blessing.612642.level.1",
+        "universe.blessing.612642.level.1"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -514,18 +484,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612630.level.1",
+      "id": "universe.rule.blessing.612642.level.2",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -549,30 +516,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612630.level.1",
-        "universe.blessing.612630.level.1"
+        "universe.rule.blessing.612642.level.2",
+        "universe.blessing.612642.level.2"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -584,18 +545,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612630.level.2",
+      "id": "universe.rule.blessing.612643",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -619,30 +577,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612630.level.2",
-        "universe.blessing.612630.level.2"
+        "universe.rule.blessing.612643",
+        "universe.blessing.612643"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -654,18 +606,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612631",
+      "id": "universe.rule.blessing.612643.level.1",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -689,30 +638,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612631",
-        "universe.blessing.612631"
+        "universe.rule.blessing.612643.level.1",
+        "universe.blessing.612643.level.1"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -724,18 +667,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612631.level.1",
+      "id": "universe.rule.blessing.612643.level.2",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -759,30 +699,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612631.level.1",
-        "universe.blessing.612631.level.1"
+        "universe.rule.blessing.612643.level.2",
+        "universe.blessing.612643.level.2"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -794,18 +728,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612631.level.2",
+      "id": "universe.rule.blessing.612644",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -829,30 +760,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612631.level.2",
-        "universe.blessing.612631.level.2"
+        "universe.rule.blessing.612644",
+        "universe.blessing.612644"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -864,18 +789,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612632",
+      "id": "universe.rule.blessing.612644.level.1",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -899,30 +821,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612632",
-        "universe.blessing.612632"
+        "universe.rule.blessing.612644.level.1",
+        "universe.blessing.612644.level.1"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -934,18 +850,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612632.level.1",
+      "id": "universe.rule.blessing.612644.level.2",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -969,30 +882,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612632.level.1",
-        "universe.blessing.612632.level.1"
+        "universe.rule.blessing.612644.level.2",
+        "universe.blessing.612644.level.2"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -1004,18 +911,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612632.level.2",
+      "id": "universe.rule.blessing.612645",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -1039,30 +943,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612632.level.2",
-        "universe.blessing.612632.level.2"
+        "universe.rule.blessing.612645",
+        "universe.blessing.612645"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -1074,18 +972,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612640",
+      "id": "universe.rule.blessing.612645.level.1",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -1109,30 +1004,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612640",
-        "universe.blessing.612640"
+        "universe.rule.blessing.612645.level.1",
+        "universe.blessing.612645.level.1"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -1144,18 +1033,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612640.level.1",
+      "id": "universe.rule.blessing.612645.level.2",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -1179,30 +1065,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612640.level.1",
-        "universe.blessing.612640.level.1"
+        "universe.rule.blessing.612645.level.2",
+        "universe.blessing.612645.level.2"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -1214,18 +1094,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612640.level.2",
+      "id": "universe.rule.blessing.612646",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -1249,30 +1126,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612640.level.2",
-        "universe.blessing.612640.level.2"
+        "universe.rule.blessing.612646",
+        "universe.blessing.612646"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -1284,18 +1155,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612641",
+      "id": "universe.rule.blessing.612646.level.1",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -1319,30 +1187,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612641",
-        "universe.blessing.612641"
+        "universe.rule.blessing.612646.level.1",
+        "universe.blessing.612646.level.1"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -1354,18 +1216,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612641.level.1",
+      "id": "universe.rule.blessing.612646.level.2",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -1389,30 +1248,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612641.level.1",
-        "universe.blessing.612641.level.1"
+        "universe.rule.blessing.612646.level.2",
+        "universe.blessing.612646.level.2"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -1424,18 +1277,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612641.level.2",
+      "id": "universe.rule.blessing.612650",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -1459,30 +1309,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612641.level.2",
-        "universe.blessing.612641.level.2"
+        "universe.rule.blessing.612650",
+        "universe.blessing.612650"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -1494,18 +1338,15 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     },
     {
-      "id": "universe.rule.blessing.612642",
+      "id": "universe.rule.blessing.612650.level.1",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -1529,30 +1370,24 @@
       ],
       "implementation_kind": "RuleIr",
       "definition_keys": [
-        "universe.rule.blessing.612642",
-        "universe.blessing.612642"
+        "universe.rule.blessing.612650.level.1",
+        "universe.blessing.612650.level.1"
       ],
       "execution_evidence": [
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/battle_rule_lowering.rs"
         },
         {
-          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/model.rs"
         },
         {
           "path": "crates/starclock-combat/src/rule/evaluate.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rule/evaluate/event_property.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/resolver/program.rs"
         },
         {
           "path": "crates/starclock-combat/src/resolver/rule.rs"
@@ -1564,86 +1399,28 @@
           "path": "crates/starclock-combat/src/resolver/effect_duration.rs"
         },
         {
+          "path": "crates/starclock-combat/src/resolver/program_effect.rs"
+        },
+        {
           "path": "crates/starclock-combat/src/resolver/operation.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/effect/model.rs"
-        },
-        {
-          "path": "crates/starclock-combat/src/rng/types.rs"
         }
       ]
     }
   ],
-  "fixtures": [
-    {
-      "id": "universe.fixture.blessing-tag.follow-up",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/blessings.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/blessing-levels.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/paths.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs",
-      "test_marker": "random_repeated_damage_and_aftertaste_chain_execute_in_a_production_ultimate"
-    },
-    {
-      "id": "universe.fixture.path.elation",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/blessings.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/blessing-levels.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/paths.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs",
-      "test_marker": "random_repeated_damage_and_aftertaste_chain_execute_in_a_production_ultimate"
-    }
-  ],
+  "fixtures": [],
   "enemy_variants": [],
   "encounter_members": [],
   "native_handler_reviews": [
     {
-      "id": "universe.rule.blessing.612630.level.1",
+      "id": "universe.rule.blessing.612642.level.1",
       "outcome": "IrSufficient",
-      "decision": "Randomized without-replacement committed-target traversal, independent inclusive-count and per-hit element draws, sequential generic Elation damage and an ordinary global modifier express both Auto-Harmonica levels.",
+      "decision": "Seven element-filtered refreshable target-action effects share one additive percent-of-base ATK reduction modifier, preserving distinct Aftertaste types without native state.",
       "evidence": [
         {
-          "path": "docs/goal-07-elation-s01.md"
+          "path": "docs/goal-07-elation-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/elation_runtime.rs"
@@ -1663,15 +1440,15 @@
       ]
     },
     {
-      "id": "universe.rule.blessing.612630.level.2",
+      "id": "universe.rule.blessing.612642.level.2",
       "outcome": "IrSufficient",
-      "decision": "Randomized without-replacement committed-target traversal, independent inclusive-count and per-hit element draws, sequential generic Elation damage and an ordinary global modifier express both Auto-Harmonica levels.",
+      "decision": "Seven element-filtered refreshable target-action effects share one additive percent-of-base ATK reduction modifier, preserving distinct Aftertaste types without native state.",
       "evidence": [
         {
-          "path": "docs/goal-07-elation-s01.md"
+          "path": "docs/goal-07-elation-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/elation_runtime.rs"
@@ -1691,15 +1468,15 @@
       ]
     },
     {
-      "id": "universe.rule.blessing.612631.level.1",
+      "id": "universe.rule.blessing.612643.level.1",
       "outcome": "IrSufficient",
-      "decision": "Randomized without-replacement committed-target traversal and a per-target broken-state condition select fixed repeated Elation hit counts while stable per-hit element draws express both Slaughterhouse levels.",
+      "decision": "Stable committed-target iteration repeats ordinary event-element Additional DMG over the complete hit-target list once for each hit enemy.",
       "evidence": [
         {
-          "path": "docs/goal-07-elation-s01.md"
+          "path": "docs/goal-07-elation-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/elation_runtime.rs"
@@ -1719,15 +1496,15 @@
       ]
     },
     {
-      "id": "universe.rule.blessing.612631.level.2",
+      "id": "universe.rule.blessing.612643.level.2",
       "outcome": "IrSufficient",
-      "decision": "Randomized without-replacement committed-target traversal and a per-target broken-state condition select fixed repeated Elation hit counts while stable per-hit element draws express both Slaughterhouse levels.",
+      "decision": "Stable committed-target iteration repeats ordinary event-element Additional DMG over the complete hit-target list once for each hit enemy.",
       "evidence": [
         {
-          "path": "docs/goal-07-elation-s01.md"
+          "path": "docs/goal-07-elation-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/elation_runtime.rs"
@@ -1747,15 +1524,15 @@
       ]
     },
     {
-      "id": "universe.rule.blessing.612632.level.1",
+      "id": "universe.rule.blessing.612644.level.1",
       "outcome": "IrSufficient",
-      "decision": "Additional Ultimate trigger routes and ordinary follow-up, counter and Ultimate tag-filtered damage modifiers express Champion's Dinner without rewriting action identity.",
+      "decision": "A generic action-end effect increments at each HitStarted boundary and its stack-backed DamageBoost modifiers preserve the released per-hit follow-up ramp.",
       "evidence": [
         {
-          "path": "docs/goal-07-elation-s01.md"
+          "path": "docs/goal-07-elation-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/elation_runtime.rs"
@@ -1775,15 +1552,15 @@
       ]
     },
     {
-      "id": "universe.rule.blessing.612632.level.2",
+      "id": "universe.rule.blessing.612644.level.2",
       "outcome": "IrSufficient",
-      "decision": "Additional Ultimate trigger routes and ordinary follow-up, counter and Ultimate tag-filtered damage modifiers express Champion's Dinner without rewriting action identity.",
+      "decision": "A generic action-end effect increments at each HitStarted boundary and its stack-backed DamageBoost modifiers preserve the released per-hit follow-up ramp.",
       "evidence": [
         {
-          "path": "docs/goal-07-elation-s01.md"
+          "path": "docs/goal-07-elation-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/elation_runtime.rs"
@@ -1803,15 +1580,15 @@
       ]
     },
     {
-      "id": "universe.rule.blessing.612640.level.1",
+      "id": "universe.rule.blessing.612645.level.1",
       "outcome": "IrSufficient",
-      "decision": "Raw-damage event reads, same-target selection, event-element exclusion and an excluded source express one nonrecursive Portrait hit without applying formula stages twice.",
+      "decision": "A labeled without-replacement committed-target traversal, per-target timeline delay, resistible control effect, SPD modifier and successful-application delay express both Aiden levels.",
       "evidence": [
         {
-          "path": "docs/goal-07-elation-s01.md"
+          "path": "docs/goal-07-elation-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/elation_runtime.rs"
@@ -1831,15 +1608,15 @@
       ]
     },
     {
-      "id": "universe.rule.blessing.612640.level.2",
+      "id": "universe.rule.blessing.612645.level.2",
       "outcome": "IrSufficient",
-      "decision": "Raw-damage event reads, same-target selection, event-element exclusion and an excluded source express one nonrecursive Portrait hit without applying formula stages twice.",
+      "decision": "A labeled without-replacement committed-target traversal, per-target timeline delay, resistible control effect, SPD modifier and successful-application delay express both Aiden levels.",
       "evidence": [
         {
-          "path": "docs/goal-07-elation-s01.md"
+          "path": "docs/goal-07-elation-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/elation_runtime.rs"
@@ -1859,15 +1636,15 @@
       ]
     },
     {
-      "id": "universe.rule.blessing.612641.level.1",
+      "id": "universe.rule.blessing.612646.level.1",
       "outcome": "IrSufficient",
-      "decision": "Seven element-filtered refreshable target-action effects and additive ordinary Vulnerability modifiers express distinct Aftertaste-type accumulation.",
+      "decision": "An action-once trigger, fixed-chance transient Rule IR effect and ordinary checked team Skill Point mutation express the complete recovery roll.",
       "evidence": [
         {
-          "path": "docs/goal-07-elation-s01.md"
+          "path": "docs/goal-07-elation-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/elation_runtime.rs"
@@ -1887,15 +1664,43 @@
       ]
     },
     {
-      "id": "universe.rule.blessing.612641.level.2",
+      "id": "universe.rule.blessing.612646.level.2",
       "outcome": "IrSufficient",
-      "decision": "Seven element-filtered refreshable target-action effects and additive ordinary Vulnerability modifiers express distinct Aftertaste-type accumulation.",
+      "decision": "An action-once trigger, fixed-chance transient Rule IR effect and ordinary checked team Skill Point mutation express the complete recovery roll.",
       "evidence": [
         {
-          "path": "docs/goal-07-elation-s01.md"
+          "path": "docs/goal-07-elation-s02.md"
         },
         {
-          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs"
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/elation_runtime.rs"
+        },
+        {
+          "path": "docs/09-determinism-and-numerics.md"
+        },
+        {
+          "path": "docs/10-lifecycle-and-resolution.md"
+        },
+        {
+          "path": "docs/11-rule-ir-and-native-handlers.md"
+        },
+        {
+          "path": "docs/12-modifier-and-snapshot-pipeline.md"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.blessing.612650.level.1",
+      "outcome": "IrSufficient",
+      "decision": "The validated contribution compiler supplies the capped selected-Elation count to ordinary follow-up, counter and Champion-enabled Ultimate DamageBoost modifiers.",
+      "evidence": [
+        {
+          "path": "docs/goal-07-elation-s02.md"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs"
         },
         {
           "path": "crates/starclock-mode-universe/src/elation_runtime.rs"
@@ -1919,10 +1724,10 @@
   "execution": {
     "result": "pass",
     "commands": [
-      "python tools/goal07/author-path-partition.py --partition G07-P2-M08-S01 --check",
+      "python tools/goal07/author-path-partition.py --partition G07-P2-M08-S02 --check",
       "node tools/universe-reference/verify_production_workbooks.mjs .",
       "cargo test -p starclock-combat --all-features --no-fail-fast",
-      "cargo test -p starclock-mode-universe --test mechanic_battle_integration elation_s01 --all-features",
+      "cargo test -p starclock-mode-universe --test mechanic_battle_integration elation_s02 --all-features",
       "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
       "cargo test -p starclock-combat --all-features",
       "cargo test -p starclock-replay --all-features",
@@ -1930,8 +1735,8 @@
     ],
     "goldens": [
       {
-        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P2-M08-S01.json",
-        "sha256": "b8ba0b91dbb3fc1db154e71e998c6f3f91f91522312b7ee208fd8b7b1ccd336b"
+        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P2-M08-S02.json",
+        "sha256": "dc37493a214246027df5130f4d134e7f556bef729ef776c157575d44564e3207"
       }
     ]
   }

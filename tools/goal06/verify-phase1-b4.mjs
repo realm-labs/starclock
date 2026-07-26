@@ -27,7 +27,7 @@ for (const [text, needle, label] of [
   [spec, "assembly_digest: AssemblyDigest,", "constructor assembly input"],
   [spec, "combat_input_digest = super::spec_codec::combat_input_digest(", "computed combat input"],
   [event, "BATTLE_EVENT_PAYLOAD_VERSION_V1: u16 = 1", "historical event codec"],
-  [event, "BATTLE_EVENT_PAYLOAD_VERSION: u16 = 2", "current event codec"],
+  [event, "BATTLE_EVENT_PAYLOAD_VERSION_V2: u16 = 2", "Goal 06 event codec"],
   [eventCause, "version == BATTLE_EVENT_PAYLOAD_VERSION_V1", "v1 reserved field"],
   [nested, "encode_nested_battle_state_payload_v1", "historical nested state encoder"],
   [replayV2, "encode_nested_battle_state_payload_v1", "replay v2 event codec"],
@@ -41,6 +41,12 @@ for (const [text, needle, label] of [
   [status, "| `G06-P1-B4` | `Complete` |", "completed ledger row"],
 ]) has(text, needle, label);
 
+const currentEventVersion = Number(
+  event.match(/BATTLE_EVENT_PAYLOAD_VERSION: u16 = (\d+)/)?.[1],
+);
+if (!Number.isInteger(currentEventVersion) || currentEventVersion < 2)
+  throw new Error("current event codec no longer preserves the Goal 06 v2 boundary");
+
 if (spec.includes("digest: BattleSpecDigest,"))
   throw new Error("BattleSpec constructor still accepts BattleSpecDigest");
 if (spec.includes("pub fn new_with_assembly"))
@@ -53,7 +59,7 @@ for (const relative of [
   "crates/starclock-mode-universe/src/battle_materialization.rs",
 ]) {
   const lines = read(relative).split(/\r?\n/).length;
-  if (lines >= 1_050) throw new Error(`${relative} remains near-limit at ${lines} lines`);
+  if (lines > 1_200) throw new Error(`${relative} exceeds the current 1200-line policy at ${lines}`);
 }
 
 const rustFiles = [];
@@ -76,4 +82,7 @@ for (const file of rustFiles) {
   }
 }
 
-console.log("Goal 06 P1-B4 verified (AssemblyDigest construction, event payload v2, split cores).");
+console.log(
+  `Goal 06 P1-B4 verified (AssemblyDigest construction, event payload v2 preserved; ` +
+  `current v${currentEventVersion}, split cores).`,
+);

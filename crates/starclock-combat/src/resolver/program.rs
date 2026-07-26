@@ -477,6 +477,9 @@ fn execute_emission(
                 return Err(program_fault(59, i64::from(effect.get())));
             }
             let amount = non_negative_scalar(amount)?;
+            if amount == crate::Scalar::ZERO {
+                return Ok(parent);
+            }
             let formula = crate::catalog::action::ShieldDefinition::new(
                 amount,
                 Ratio::ZERO,

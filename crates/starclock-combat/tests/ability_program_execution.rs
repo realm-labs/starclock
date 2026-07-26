@@ -484,6 +484,11 @@ fn mechanics_steps() -> Vec<ProgramStep> {
             base_chance: None,
             rng_purpose: None,
         }),
+        ProgramStep::Operation(RuleOperationTemplate::Shield {
+            selector: id(2),
+            amount: ValueExpr::Literal(RuleValue::Scalar(Scalar::ZERO)),
+            effect: id(1),
+        }),
         ProgramStep::Operation(RuleOperationTemplate::RemoveEffect {
             selector: id(2),
             effect: id(1),

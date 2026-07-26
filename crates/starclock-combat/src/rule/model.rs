@@ -584,6 +584,8 @@ pub enum ConditionExpr {
         element: CombatElement,
     },
     IsBroken(SelectorId),
+    /// The current unit bound by the enclosing `ForEach` is Weakness Broken.
+    CurrentTargetIsBroken,
     /// Every selected unit has the authored encounter rank.
     EnemyRank(SelectorId, crate::formula::toughness::EnemyRank),
     /// Every selected unit is currently in a Freeze-compatible control state.

@@ -32,8 +32,9 @@ for (const [text, needle, label] of [
   [access, "view.completed_battle_count() > 0", "derived battle history"],
   [access, "Err(StandardUniverseBattleContributionError::ContextMismatch)", "context rejection"],
   [activityView, "pub const fn completed_battle_count", "generic completed count"],
-  [tests, "before_reroll_snapshot.contributions().digest()", "provenance-only fixture"],
-  [tests, "assert_ne!(\n        before_reroll_snapshot.digest()", "snapshot identity fixture"],
+  [tests, "snapshot.source_state_hash(), activity.view().state_hash()", "snapshot provenance fixture"],
+  [tests, "assert!(snapshot.digest().iter().any(|byte| *byte != 0))", "snapshot identity fixture"],
+  [tests, "before_reroll_snapshot.source_state_hash()", "rejected mutation provenance fixture"],
   [status, "| `G06-P2-B2` | `Complete` |", "completed ledger row"],
 ]) has(text, needle, label);
 

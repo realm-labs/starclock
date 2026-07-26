@@ -38,14 +38,21 @@ const codec = text("crates/starclock-combat/src/codec/state.rs");
 const replay = text("crates/starclock-replay/src/battle_event.rs");
 assert(combat.includes('STATE_HASH_REVISION: &str = "sha256-v6"'), "current combat hash revision differs");
 assert(codec.includes("STATE_CODEC_VERSION: u16 = 5"), "current combat state codec differs");
-assert(replay.includes("BATTLE_EVENT_PAYLOAD_VERSION: u16 = 4"), "current event payload differs");
 for (const version of [
   "BATTLE_EVENT_PAYLOAD_VERSION_V1",
   "BATTLE_EVENT_PAYLOAD_VERSION_V2",
   "BATTLE_EVENT_PAYLOAD_VERSION_V3",
+  "BATTLE_EVENT_PAYLOAD_VERSION_V4",
 ]) {
   assert(replay.includes(version), `historical event codec is missing: ${version}`);
 }
+const currentEventVersion = Number(
+  replay.match(/BATTLE_EVENT_PAYLOAD_VERSION: u16 = (\d+)/)?.[1],
+);
+assert(
+  Number.isInteger(currentEventVersion) && currentEventVersion >= 4,
+  "current event payload no longer preserves the Goal 07 P1-B5 v4 boundary",
+);
 const runtime = [
   "crates/starclock-combat/src/resolver/program_timeline.rs",
   "crates/starclock-combat/src/resolver/operation_break.rs",

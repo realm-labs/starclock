@@ -518,6 +518,7 @@ fn static_condition(condition: &ConditionExpr) -> bool {
         | ConditionExpr::IsFrozen(_)
         | ConditionExpr::HasWeakness { .. }
         | ConditionExpr::IsBroken(_)
+        | ConditionExpr::CurrentTargetIsBroken
         | ConditionExpr::EnemyRank { .. } => false,
     }
 }

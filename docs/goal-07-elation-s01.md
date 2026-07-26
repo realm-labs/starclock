@@ -27,8 +27,8 @@ Aftertaste is represented as ordinary typed damage with
 `DamageClass::Elation`. It is not a character callback. The reusable
 `RandomRepeatedDamage` operation:
 
-- selects one target from the originating action's committed target list with
-  a labeled stable selector draw;
+- receives one target at a time from a labeled, without-replacement randomized
+  traversal of the originating action's committed target list;
 - draws an inclusive hit count with a dedicated stable RNG purpose;
 - draws each hit's element independently from a canonical seven-element list;
 - can exclude the triggering event's element;
@@ -41,9 +41,9 @@ hit-count variants do not consume a count draw.
 
 ## Auto-Harmonica: Whitest Night
 
-After each follow-up attack or counter, Auto-Harmonica selects one opposing
-unit from the action's committed target list and deals a random number of
-Aftertaste hits to it:
+After each follow-up attack or counter, Auto-Harmonica traverses every
+opposing unit hit by the action in deterministic randomized order and deals
+an independently rolled number of Aftertaste hits to each:
 
 ```text
 L1: random hit count = 1..3; each hit = 55% of the owner's ATK
@@ -57,9 +57,10 @@ Quantum or Imaginary.
 
 ## Slaughterhouse No. 4: Rest in Peace
 
-After each follow-up attack or counter, Slaughterhouse deals Aftertaste equal
-to 80% of the owner's ATK. It emits one normal hit, plus additional hits when
-the committed target is Weakness Broken:
+After each follow-up attack or counter, Slaughterhouse traverses every enemy
+hit by that action and deals Aftertaste equal to 80% of the owner's ATK to
+each. It emits one normal hit per target, plus additional hits for each target
+that is individually Weakness Broken:
 
 ```text
 L1: 1 hit normally; 2 hits while broken
@@ -126,8 +127,9 @@ Production tests prove:
 - every selected level materializes without a native handler;
 - follow-up attacks, counters and Champion-enabled Ultimates expose the
   expected triggers and exact damage modifiers;
-- a production Kafka Ultimate produces deterministic 1–3 hit Auto-Harmonica
-  damage and the normal unbroken Slaughterhouse hit;
+- a production Kafka Ultimate proves every committed target is visited,
+  receives an independent deterministic 1–3 hit Auto-Harmonica roll, and
+  receives the normal unbroken Slaughterhouse hit;
 - Portrait emits exactly one nonrecursive, different-element hit per original
   Aftertaste instance while preserving the cause chain;
 - Just Keep on Crying installs seven independent one-target-turn effects and

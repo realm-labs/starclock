@@ -21,6 +21,19 @@ pub(super) fn compare_ordering(
     }
 }
 
+pub(super) fn require_current_target_broken(
+    input: RuleEvaluationInput<'_>,
+    current_target: Option<UnitId>,
+) -> Result<bool, RuleEvaluationError> {
+    let target = current_target.ok_or(RuleEvaluationError {
+        kind: RuleEvaluationErrorKind::MissingValue,
+        context: 0x21f,
+    })?;
+    Ok(input
+        .battle_query_reader
+        .is_some_and(|reader| reader.is_broken(target)))
+}
+
 pub(super) fn ancestry_matches(
     value: crate::rule::model::CauseAncestry,
     input: RuleEvaluationInput<'_>,

@@ -21,8 +21,6 @@ const configManifest = read("config/generated/debug-json/ConfigManifest.json");
 const status = read("docs/goals/06-combat-identity-and-dynamic-assembly-status.md");
 
 for (const [text, needle, label] of [
-  [combat, 'STATE_HASH_REVISION: &str = "sha256-v4"', "combat state revision"],
-  [combatState, "const STATE_CODEC_VERSION: u16 = 3", "combat state codec"],
   [combatState, "state.identity.combat_input_digest.bytes()", "state combat input identity"],
   [combatState, "state.identity.assembly_digest.bytes()", "state assembly identity"],
   [replayV2, "pub fn decode_replay_v2", "historical v2 decoder"],
@@ -40,10 +38,30 @@ for (const [text, needle, label] of [
   [componentTest, "frozen_digest", "v2 frozen bytes"],
   [universeTest, "component_and_assembly_corrupt", "ordered identity corruption"],
   [universeTest, "event_and_state_corrupt", "ordered event/state corruption"],
-  [configManifest, '"String": "sha256-v4"', "generated config revision"],
   [status, "| `G06-P1-B3` | `Complete` |", "completed ledger row"],
 ]) {
   has(text, needle, label);
+}
+
+const combatRevision = Number(
+  combat.match(/STATE_HASH_REVISION:\s*&str\s*=\s*"sha256-v(\d+)"/)?.[1],
+);
+const codecVersion = Number(
+  combatState.match(/STATE_CODEC_VERSION:\s*u16\s*=\s*(\d+)/)?.[1],
+);
+const configuredRevision = Number(
+  configManifest.match(/"state_hash_revision"[\s\S]*?"String":\s*"sha256-v(\d+)"/)?.[1],
+);
+if (!Number.isInteger(combatRevision) || combatRevision < 4) {
+  throw new Error(`combat state revision: expected sha256-v4 or newer, got ${combatRevision}`);
+}
+if (!Number.isInteger(codecVersion) || codecVersion < 3) {
+  throw new Error(`combat state codec: expected SCBS v3 or newer, got ${codecVersion}`);
+}
+if (!Number.isInteger(configuredRevision) || configuredRevision < 4) {
+  throw new Error(
+    `generated config revision: expected sha256-v4 or newer, got ${configuredRevision}`,
+  );
 }
 
 const order = [
@@ -63,4 +81,6 @@ for (const variant of order) {
   cursor = next + variant.length;
 }
 
-console.log("Goal 06 P1-B3 verified (SCBS v3/sha256-v4, replay v3, historical v2).");
+console.log(
+  `Goal 06 P1-B3 verified (historical SCBS v3/sha256-v4 preserved; current SCBS v${codecVersion}/sha256-v${combatRevision}; replay v3, historical v2).`,
+);

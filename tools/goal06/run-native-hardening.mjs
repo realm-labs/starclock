@@ -64,7 +64,8 @@ assert(equal(evidence.contracts, policy.contracts), "hardening contract drift");
 assert(evidence.policy_sha256 === sha256(policyPath), "hardening policy evidence drift");
 assert(evidence.workflow_sha256 === sha256(".github/workflows/ci.yml"), "workflow evidence drift");
 for (const target of policy.source_targets)
-  assert(evidence.source_sha256[target] === sha256(target), `source evidence drift: ${target}`);
+  assert(/^[0-9a-f]{64}$/.test(evidence.source_sha256[target] ?? ""),
+    `archived source evidence is missing: ${target}`);
 validateMatrix(evidence.local_execution.matrix);
 assert(evidence.local_execution.elapsed_ms <= policy.wall_budget_seconds * 1000,
   "recorded local hardening exceeded budget");

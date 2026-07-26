@@ -345,6 +345,9 @@ fn condition_dependencies(
         | ConditionExpr::EnemyRank(selector, _) => {
             output.insert(*selector);
         }
-        ConditionExpr::Literal(_) | ConditionExpr::EventKind(_) | ConditionExpr::SourceTag(_) => {}
+        ConditionExpr::Literal(_)
+        | ConditionExpr::EventKind(_)
+        | ConditionExpr::SourceTag(_)
+        | ConditionExpr::CurrentTargetIsBroken => {}
     }
 }

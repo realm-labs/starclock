@@ -87,7 +87,28 @@ fn goal07_p2_m08_s01_materializes_every_selected_level_without_native_handlers()
                 combat
                     .selector(*selector)
                     .and_then(|definition| definition.rule_units())
-                    .is_some_and(|selector| selector.choice() == RuleSelectorChoice::RngUniform)
+                    .is_some_and(|selector| {
+                        selector.choice() == RuleSelectorChoice::RngUniform
+                            && selector.maximum() == 16
+                            && !selector.repeated()
+                    })
+            })
+        })
+    }));
+    let broken = combat
+        .rule(binding(&contributions, "StageAbility_612631").rule())
+        .unwrap();
+    assert!(broken.programs().iter().any(|program| {
+        combat.program(*program).is_some_and(|program| {
+            program.steps().iter().any(|step| {
+                matches!(
+                    step,
+                    ProgramStep::If {
+                        condition:
+                            starclock_combat::rule::model::ConditionExpr::CurrentTargetIsBroken,
+                        ..
+                    }
+                )
             })
         })
     }));
@@ -127,11 +148,13 @@ fn random_repeated_damage_and_aftertaste_chain_execute_in_a_production_ultimate(
     let contributions = full_contributions(&catalog);
     let roster = super::nihility_s02::kafka_roster(&catalog);
     let materialization = materialize_with_roster(&catalog, &roster, &contributions);
-    let spec = durable_spec_with_enemy_hp(
+    let spec = durable_spec_with_two_enemy_hp(
         &materialization,
         0xea,
-        false,
-        Hp::new(2_000_000_000).unwrap(),
+        [
+            Hp::new(2_000_000_000).unwrap(),
+            Hp::new(2_000_000_000).unwrap(),
+        ],
     );
     let (mut battle, started) = start(&materialization, spec, 0xeb);
     assert!(started.fault().is_none(), "{:?}", started.fault());
@@ -177,11 +200,14 @@ fn random_repeated_damage_and_aftertaste_chain_execute_in_a_production_ultimate(
         ));
     }
     assert!(
-        (1..=3).contains(&source_counts[0]),
+        (2..=6).contains(&source_counts[0]),
         "{source_counts:?} {:#?}",
         resolution.events()
     );
-    assert_eq!(source_counts[1], 1, "unbroken target adds no extra hit");
+    assert_eq!(
+        source_counts[1], 2,
+        "each unbroken committed target receives one normal hit"
+    );
     assert_eq!(
         source_counts[2],
         source_counts[0] + source_counts[1],

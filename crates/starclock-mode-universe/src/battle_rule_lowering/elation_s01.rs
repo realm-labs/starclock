@@ -65,8 +65,10 @@ fn random_aftertaste(
 ) -> Result<ExecutableBattleRule, BattleRuleLoweringError> {
     let raw = binding.rule().get();
     let program = id::<ProgramId>(PROGRAM_ID_BASE, raw)?;
+    let body = id::<ProgramId>(BODY_PROGRAM_ID_BASE, raw)?;
     let owner = id::<SelectorId>(OWNER_SELECTOR_ID_BASE, raw)?;
     let target = id::<SelectorId>(TARGET_SELECTOR_ID_BASE, raw)?;
+    let current = id::<SelectorId>(CURRENT_TARGET_SELECTOR_ID_BASE, raw)?;
     let mut modifier_groups = Vec::new();
     let mut modifiers = Vec::new();
     if parameter(parameters, 3)? != 0 {
@@ -96,27 +98,36 @@ fn random_aftertaste(
                 .into_boxed_slice(),
         });
     }
-    let program_definition = ProgramDefinition::new(
-        program,
-        Vec::new(),
-        vec![owner, target],
-        Vec::new(),
-        Vec::new(),
-    )
-    .with_steps(vec![ProgramStep::Operation(random_elation_damage(
-        target,
-        multiply(
-            ValueExpr::QueryStat {
-                subject: StatQuerySubject::Owner,
-                stat: StatKind::Atk,
-                purpose: FormulaPurpose::Stat,
-            },
-            scalar(parameter(parameters, 2)?),
+    let programs = vec![
+        ProgramDefinition::new(
+            program,
+            vec![body],
+            vec![owner, target],
+            Vec::new(),
+            Vec::new(),
+        )
+        .with_steps(vec![ProgramStep::ForEach {
+            selector: target,
+            body,
+            maximum: 16,
+        }]),
+        ProgramDefinition::new(body, Vec::new(), vec![current], Vec::new(), Vec::new()).with_steps(
+            vec![ProgramStep::Operation(random_elation_damage(
+                current,
+                multiply(
+                    ValueExpr::QueryStat {
+                        subject: StatQuerySubject::Owner,
+                        stat: StatKind::Atk,
+                        purpose: FormulaPurpose::Stat,
+                    },
+                    scalar(parameter(parameters, 2)?),
+                ),
+                whole(parameter(parameters, 0)?)?,
+                whole(parameter(parameters, 1)?)?,
+                false,
+            ))],
         ),
-        whole(parameter(parameters, 0)?)?,
-        whole(parameter(parameters, 1)?)?,
-        false,
-    ))]);
+    ];
     Ok(executable_with_attachment(
         binding,
         RuleAttachment::EveryPlayer,
@@ -124,10 +135,11 @@ fn random_aftertaste(
         modifiers,
         vec![
             SelectorDefinition::new(owner).with_rule_units(owner_selector()?),
-            SelectorDefinition::new(target).with_rule_units(random_event_target_selector()?),
+            SelectorDefinition::new(target).with_rule_units(randomized_event_targets_selector()?),
+            SelectorDefinition::new(current).with_rule_units(current_subject_selector()?),
         ],
         Vec::new(),
-        vec![program_definition],
+        programs,
         Vec::new(),
         follow_up_triggers(raw, owner, program, ultimate_as_follow_up)?,
     ))
@@ -140,10 +152,12 @@ fn broken_aftertaste(
 ) -> Result<ExecutableBattleRule, BattleRuleLoweringError> {
     let raw = binding.rule().get();
     let root = id::<ProgramId>(PROGRAM_ID_BASE, raw)?;
-    let ordinary = id::<ProgramId>(BODY_PROGRAM_ID_BASE, raw)?;
-    let broken = id::<ProgramId>(AUX_PROGRAM_ID_BASE, raw)?;
+    let body = id::<ProgramId>(BODY_PROGRAM_ID_BASE, raw)?;
+    let ordinary = id::<ProgramId>(AUX_PROGRAM_ID_BASE, raw)?;
+    let broken = id::<ProgramId>(SECOND_AUX_PROGRAM_ID_BASE, raw)?;
     let owner = id::<SelectorId>(OWNER_SELECTOR_ID_BASE, raw)?;
     let target = id::<SelectorId>(TARGET_SELECTOR_ID_BASE, raw)?;
+    let current = id::<SelectorId>(CURRENT_TARGET_SELECTOR_ID_BASE, raw)?;
     let amount = multiply(
         ValueExpr::QueryStat {
             subject: StatQuerySubject::Owner,
@@ -155,20 +169,32 @@ fn broken_aftertaste(
     let extra = whole(parameter(parameters, 1)?)?;
     let root_program = ProgramDefinition::new(
         root,
-        vec![ordinary, broken],
+        vec![body],
         vec![owner, target],
         Vec::new(),
         Vec::new(),
     )
+    .with_steps(vec![ProgramStep::ForEach {
+        selector: target,
+        body,
+        maximum: 16,
+    }]);
+    let body_program = ProgramDefinition::new(
+        body,
+        vec![ordinary, broken],
+        vec![current],
+        Vec::new(),
+        Vec::new(),
+    )
     .with_steps(vec![ProgramStep::If {
-        condition: ConditionExpr::IsBroken(target),
+        condition: ConditionExpr::CurrentTargetIsBroken,
         then_program: broken,
         else_program: Some(ordinary),
     }]);
     let ordinary_program =
-        ProgramDefinition::new(ordinary, Vec::new(), vec![target], Vec::new(), Vec::new())
+        ProgramDefinition::new(ordinary, Vec::new(), vec![current], Vec::new(), Vec::new())
             .with_steps(vec![ProgramStep::Operation(random_elation_damage(
-                target,
+                current,
                 amount.clone(),
                 1,
                 1,
@@ -178,9 +204,9 @@ fn broken_aftertaste(
         .checked_add(extra)
         .ok_or(BattleRuleLoweringError::InvalidParameter)?;
     let broken_program =
-        ProgramDefinition::new(broken, Vec::new(), vec![target], Vec::new(), Vec::new())
+        ProgramDefinition::new(broken, Vec::new(), vec![current], Vec::new(), Vec::new())
             .with_steps(vec![ProgramStep::Operation(random_elation_damage(
-                target,
+                current,
                 amount,
                 broken_hits,
                 broken_hits,
@@ -193,10 +219,11 @@ fn broken_aftertaste(
         Vec::new(),
         vec![
             SelectorDefinition::new(owner).with_rule_units(owner_selector()?),
-            SelectorDefinition::new(target).with_rule_units(random_event_target_selector()?),
+            SelectorDefinition::new(target).with_rule_units(randomized_event_targets_selector()?),
+            SelectorDefinition::new(current).with_rule_units(current_subject_selector()?),
         ],
         Vec::new(),
-        vec![root_program, ordinary_program, broken_program],
+        vec![root_program, body_program, ordinary_program, broken_program],
         Vec::new(),
         follow_up_triggers(raw, owner, root, ultimate_as_follow_up)?,
     ))
@@ -479,7 +506,7 @@ fn random_elation_damage(
     }
 }
 
-fn random_event_target_selector() -> Result<RuleUnitSelector, BattleRuleLoweringError> {
+fn randomized_event_targets_selector() -> Result<RuleUnitSelector, BattleRuleLoweringError> {
     RuleUnitSelector::new(
         RuleSelectorOrigin::EventTargets,
         RuleSelectorSide::Opposing,
@@ -488,7 +515,7 @@ fn random_event_target_selector() -> Result<RuleUnitSelector, BattleRuleLowering
         RuleSelectorReference::CurrentState,
         RuleSelectorOrdering::EventOrder,
         1,
-        1,
+        16,
         RuleEmptyPoolPolicy::NoOp,
         RuleSelectorChoice::RngUniform,
         Some("damage-target".into()),
