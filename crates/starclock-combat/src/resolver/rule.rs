@@ -788,6 +788,7 @@ struct UnitQuerySnapshot {
     life: crate::LifeState,
     presence: crate::PresenceState,
     energy: crate::Scalar,
+    maximum_energy: crate::Scalar,
     hp: crate::Scalar,
     shield: crate::Scalar,
     resources: BTreeMap<Box<str>, crate::Scalar>,
@@ -819,6 +820,7 @@ impl BattleQuerySnapshot {
                         life: unit.life,
                         presence: unit.presence,
                         energy: crate::Scalar::from_scaled(unit.current_energy.scaled()),
+                        maximum_energy: crate::Scalar::from_scaled(unit.maximum_energy.scaled()),
                         hp: crate::Scalar::checked_from_integer(unit.current_hp.get())
                             .expect("HP fits the authoritative scalar domain"),
                         shield: txn
@@ -955,6 +957,10 @@ impl crate::rule::evaluate::BattleQueryReader for BattleQuerySnapshot {
 
     fn current_hp(&self, subject: UnitId) -> Option<crate::Scalar> {
         self.units.get(&subject).map(|unit| unit.hp)
+    }
+
+    fn maximum_energy(&self, subject: UnitId) -> Option<crate::Scalar> {
+        self.units.get(&subject).map(|unit| unit.maximum_energy)
     }
 
     fn effect_stacks(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> Option<i64> {

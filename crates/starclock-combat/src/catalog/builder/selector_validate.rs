@@ -164,6 +164,7 @@ fn historical_value_safe(expression: &crate::rule::model::ValueExpr) -> bool {
     match expression {
         ValueExpr::ReadResource { .. }
         | ValueExpr::QueryHp { .. }
+        | ValueExpr::QueryMaximumEnergy(_)
         | ValueExpr::QueryShield { .. }
         | ValueExpr::QueryEffectStacks { .. }
         | ValueExpr::QueryEffectCategoryStacks { .. } => false,

@@ -1,5 +1,4 @@
 //! Closed battle-domain Rule IR values accepted after data lowering.
-
 use crate::{
     AbilityId, ActionId, EffectDefinitionId, EventId, HitId, NativeHandlerId, ProgramId, Rounding,
     RuleId, RuleInstanceId, Scalar, SelectorId, SourceDefinitionId, StateSlotDefinitionId,
@@ -486,6 +485,7 @@ pub enum ValueExpr {
     QueryHp {
         subject: StatQuerySubject,
     },
+    QueryMaximumEnergy(StatQuerySubject),
     /// Reads the current aggregate stack count of one effect on the active subject.
     QueryEffectStacks {
         subject: StatQuerySubject,

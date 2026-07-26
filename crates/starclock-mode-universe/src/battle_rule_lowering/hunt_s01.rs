@@ -10,7 +10,7 @@ const SKYWARD_VENDETTA_ENHANCED: &str = "StageAbility_61244002";
 const ARCHERY_DUEL: &str = "StageAbility_61244101";
 const ARCHERY_DUEL_ENHANCED: &str = "StageAbility_61244102";
 
-const CRITICAL_BOOST: EffectDefinitionId =
+pub(super) const CRITICAL_BOOST: EffectDefinitionId =
     EffectDefinitionId::new(0x7940_0001).expect("reserved effect ID");
 const CRITICAL_BOOST_STACK_SLOT: StateSlotDefinitionId =
     StateSlotDefinitionId::new(0x7940_0002).expect("reserved slot ID");
@@ -36,6 +36,16 @@ const SECOND_MODIFIER_ID_BASE: u32 = 0x7946_0000;
 const SECOND_GROUP_ID_BASE: u32 = 0x7947_0000;
 const ADVANCE_PROGRAM_ID_BASE: u32 = 0x7948_0000;
 const ADVANCE_TRIGGER_ID_BASE: u32 = 0x7949_0000;
+const CRITICAL_TRANSFER_PROGRAM: ProgramId =
+    ProgramId::new(0x794a_0001).expect("reserved program ID");
+const CRITICAL_RESET_PROGRAM: ProgramId = ProgramId::new(0x794a_0002).expect("reserved program ID");
+const CRITICAL_OWNER_SELECTOR: SelectorId =
+    SelectorId::new(0x794b_0001).expect("reserved selector ID");
+const CRITICAL_ALLIES_SELECTOR: SelectorId =
+    SelectorId::new(0x794b_0002).expect("reserved selector ID");
+const CRITICAL_TRANSFER_TRIGGER: TriggerId =
+    TriggerId::new(0x794c_0001).expect("reserved trigger ID");
+const CRITICAL_RESET_TRIGGER: TriggerId = TriggerId::new(0x794c_0002).expect("reserved trigger ID");
 
 pub(super) fn lower(
     bindings: &[UniverseBattleRuleBinding],
@@ -67,9 +77,6 @@ pub(super) fn lower(
             ARCHERY_DUEL | ARCHERY_DUEL_ENHANCED => archery_duel(binding, parameters)?,
             _ => unreachable!("closed Hunt S01 binding set"),
         });
-    }
-    if let Some(first) = output.first_mut() {
-        add_critical_boost(first, blessings)?;
     }
     Ok(output)
 }
@@ -490,7 +497,7 @@ fn archery_duel(
     )
 }
 
-fn add_critical_boost(
+pub(super) fn add_critical_boost(
     rule: &mut ExecutableBattleRule,
     blessings: &BlessingContributionSet,
 ) -> Result<(), BattleRuleLoweringError> {
@@ -564,6 +571,114 @@ fn add_critical_boost(
     effects.sort_unstable_by_key(EffectDefinition::id);
     effects.dedup_by_key(|effect| effect.id());
     rule.effects = effects.into_boxed_slice();
+    if rule.attachment == RuleAttachment::EveryPlayer {
+        add_critical_boost_lifecycle(rule)?;
+    }
+    Ok(())
+}
+
+fn add_critical_boost_lifecycle(
+    rule: &mut ExecutableBattleRule,
+) -> Result<(), BattleRuleLoweringError> {
+    let total_stacks = ValueExpr::SelectorSum {
+        selector: CRITICAL_ALLIES_SELECTOR,
+        value: Box::new(ValueExpr::QueryEffectStacks {
+            subject: StatQuerySubject::CurrentTarget,
+            effect: CRITICAL_BOOST,
+        }),
+    };
+    let transfer = ProgramDefinition::new(
+        CRITICAL_TRANSFER_PROGRAM,
+        Vec::new(),
+        vec![CRITICAL_OWNER_SELECTOR, CRITICAL_ALLIES_SELECTOR],
+        vec![CRITICAL_BOOST],
+        Vec::new(),
+    )
+    .with_steps(vec![
+        ProgramStep::Operation(RuleOperationTemplate::RemoveEffect {
+            selector: CRITICAL_ALLIES_SELECTOR,
+            effect: CRITICAL_BOOST,
+        }),
+        ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
+            selector: CRITICAL_OWNER_SELECTOR,
+            effect: CRITICAL_BOOST,
+            stacks: total_stacks.clone(),
+            chance: RuleEffectChancePolicy::Guaranteed,
+            base_chance: None,
+            rng_purpose: None,
+        }),
+    ]);
+    let reset = ProgramDefinition::new(
+        CRITICAL_RESET_PROGRAM,
+        Vec::new(),
+        vec![CRITICAL_ALLIES_SELECTOR],
+        Vec::new(),
+        Vec::new(),
+    )
+    .with_steps(vec![ProgramStep::Operation(
+        RuleOperationTemplate::RemoveEffect {
+            selector: CRITICAL_ALLIES_SELECTOR,
+            effect: CRITICAL_BOOST,
+        },
+    )]);
+    let mut transfer_trigger = trigger(
+        CRITICAL_TRANSFER_TRIGGER,
+        RuleEventPoint::TurnStarted,
+        OnceScope::Turn,
+        EventFilter {
+            owner_selector: Some(CRITICAL_OWNER_SELECTOR),
+            ..EventFilter::default()
+        },
+        ConditionExpr::Compare {
+            lhs: Box::new(total_stacks),
+            operator: Comparison::Greater,
+            rhs: Box::new(ValueExpr::Literal(RuleValue::Integer(0))),
+        },
+        CRITICAL_TRANSFER_PROGRAM,
+    );
+    transfer_trigger.priority = ReactionPriority::new(-200);
+    let mut reset_trigger = trigger(
+        CRITICAL_RESET_TRIGGER,
+        RuleEventPoint::DamageApplied,
+        OnceScope::Event,
+        EventFilter {
+            target_selector: Some(CRITICAL_OWNER_SELECTOR),
+            ..EventFilter::default()
+        },
+        ConditionExpr::Literal(true),
+        CRITICAL_RESET_PROGRAM,
+    );
+    reset_trigger.priority = ReactionPriority::new(-200);
+
+    let mut selectors = rule.selectors.to_vec();
+    selectors.extend([
+        SelectorDefinition::new(CRITICAL_OWNER_SELECTOR).with_rule_units(owner_selector()?),
+        SelectorDefinition::new(CRITICAL_ALLIES_SELECTOR).with_rule_units(all_ally_selector()?),
+    ]);
+    selectors.sort_unstable_by_key(SelectorDefinition::id);
+    selectors.dedup_by_key(|selector| selector.id());
+    rule.selectors = selectors.into_boxed_slice();
+    let mut programs = rule.programs.to_vec();
+    programs.extend([transfer, reset]);
+    programs.sort_unstable_by_key(ProgramDefinition::id);
+    programs.dedup_by_key(|program| program.id());
+    rule.programs = programs.into_boxed_slice();
+
+    let runtime = rule
+        .definition
+        .runtime()
+        .ok_or(BattleRuleLoweringError::InvalidDefinition)?;
+    let mut triggers = runtime.triggers().to_vec();
+    triggers.extend([transfer_trigger, reset_trigger]);
+    triggers.sort_unstable_by_key(|trigger| trigger.id);
+    let source = runtime.source().clone();
+    let slots = runtime.state_slots().to_vec();
+    rule.definition = RuleDefinition::new(
+        rule.definition.id(),
+        rule.programs.iter().map(ProgramDefinition::id).collect(),
+        rule.selectors.iter().map(SelectorDefinition::id).collect(),
+    )
+    .with_runtime(BattleRuleDefinition::new(source, slots, triggers, None));
     Ok(())
 }
 

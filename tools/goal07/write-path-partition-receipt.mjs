@@ -163,6 +163,18 @@ function nativeDecision(id) {
     return "Dynamic CRIT Rate queries, Critical Boost stack bindings and an exact capped fixed-point expression implement overflow conversion.";
   if (id.includes("612441"))
     return "Owner-turn and Ultimate action facts combine live MaxHP with shared Critical Boost stacks through ordinary healing.";
+  if (id.includes("612442"))
+    return "Action-kind filters, aggregate effect-stack reads and ordered removal/application express Critical Boost inheritance for Ultimates and follow-up attacks.";
+  if (id.includes("612443"))
+    return "Battle-scoped previous-actor state, an effect-stack ATK modifier and one labeled fixed-chance marker express consecutive actions and Skill Point recovery.";
+  if (id.includes("612444"))
+    return "Credited-defeat facts and the generic maximum-Energy query express exact percentage Energy restoration without character-specific limits.";
+  if (id.includes("612445"))
+    return "A bounded battle counter, previous-beneficiary guard and ordinary turn-end timeline mutation express the six-allied-turn advance cycle.";
+  if (id.includes("612446"))
+    return "Credited defeat and Weakness Break facts feed ordinary live-MaxHP healing operations for the exact actor.";
+  if (id.includes("612450"))
+    return "The validated contribution compiler supplies the capped selected-Hunt count to an ordinary percent-of-base SPD modifier.";
   if (id.includes("612351"))
     return "A target-directional Healing-stage modifier expresses Incoming Healing exactly once for allied and self-healing.";
   if (id.includes("612352"))
@@ -752,6 +764,34 @@ function partitionProfile(id) {
         "enhanced_radiant_advances_the_killer_and_grants_seven_stacks_next_turn",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration hunt_s01 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M06-S02") {
+    return {
+      completedOn: "2026-07-26",
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s02.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s02.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "crates/starclock-combat/src/rule/evaluate.rs",
+        "crates/starclock-combat/src/resolver/rule.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-hunt-s02.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s02.rs",
+        "docs/05-effects-and-resources.md",
+        "docs/10-lifecycle-and-resolution.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s02.rs",
+      fixtureMarker:
+        "enhanced_starlit_and_rainbow_execute_exact_kill_energy_and_healing",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration hunt_s02 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

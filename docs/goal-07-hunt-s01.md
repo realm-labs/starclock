@@ -44,6 +44,12 @@ Effect attachment slots drive both modifiers through the generic
 `RecomputeOnStackChange` policy. Blessing rules never copy Critical Boost into
 private per-content counters.
 
+At every allied turn start, the complete existing stack count transfers to
+the acting ally before turn-start Blessings add new stacks. When an ally is
+attacked, the shared effect is removed from the party. Both transitions use
+ordinary effect operations and event filters; there is no detached mode-side
+Critical Boost store.
+
 Empyrean Imperium (`612430`) grants one stack at the beginning of each
 character turn. Its enhanced level changes the shared catalog cap rather than
 installing a second effect.

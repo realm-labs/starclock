@@ -75,6 +75,9 @@ pub trait BattleQueryReader {
     fn current_hp(&self, _subject: UnitId) -> Option<Scalar> {
         None
     }
+    fn maximum_energy(&self, _subject: UnitId) -> Option<Scalar> {
+        None
+    }
     fn effect_stacks(&self, subject: UnitId, effect: crate::EffectDefinitionId) -> Option<i64>;
     fn effect_category_stacks(
         &self,
@@ -1033,6 +1036,17 @@ pub fn evaluate_value(
                 .ok_or(RuleEvaluationError {
                     kind: RuleEvaluationErrorKind::MissingValue,
                     context: 0x21e,
+                })
+        }
+        ValueExpr::QueryMaximumEnergy(subject) => {
+            let subject = query_subject(*subject, input, current_target)?;
+            input
+                .battle_query_reader
+                .and_then(|reader| reader.maximum_energy(subject))
+                .map(RuleValue::Scalar)
+                .ok_or(RuleEvaluationError {
+                    kind: RuleEvaluationErrorKind::MissingValue,
+                    context: 0x21f,
                 })
         }
         ValueExpr::QueryEffectStacks { subject, effect } => {
