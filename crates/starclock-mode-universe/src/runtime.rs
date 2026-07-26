@@ -4,6 +4,7 @@ mod battle_contribution_access;
 mod battle_execution_access;
 mod curio_access;
 pub mod curio_commands;
+pub mod negative_curio_commands;
 
 use std::sync::Arc;
 

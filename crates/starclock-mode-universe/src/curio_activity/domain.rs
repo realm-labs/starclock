@@ -3,8 +3,7 @@
 use starclock_activity::{ActivityCondition, ActivityExpression, ActivityOperation};
 
 use super::{
-    CurioActivityBindings, DESTROYED_CURIO_COUNT_KEY, event_key, fragment_gain, integer, owned,
-    teardown_operations,
+    CurioActivityBindings, destroy_and_count_operations, event_key, fragment_gain, integer, owned,
 };
 use crate::{curio_effect_runtime::CurioEvent, id::CurioId};
 
@@ -67,12 +66,7 @@ pub(crate) fn cogwheel_domain_entry_settlement(
             delta: integer(1),
         },
     ];
-    let mut destroy = teardown_operations(id, bindings);
-    destroy.push(ActivityOperation::AddCounter {
-        slot: bindings.event_slot,
-        key: DESTROYED_CURIO_COUNT_KEY,
-        delta: integer(1),
-    });
+    let mut destroy = destroy_and_count_operations(id, bindings);
     destroy.push(ActivityOperation::SetSlot {
         slot: bindings.fragments_slot,
         value: integer(0),

@@ -1,6 +1,7 @@
 //! Activity-owned Curio lifecycle records and checked mutation operations.
 
 pub(crate) mod domain;
+pub(crate) mod negative;
 
 use starclock_activity::{
     ActivityCondition, ActivityExpression, ActivityInventoryId, ActivityOperation, ActivitySlotId,
@@ -214,11 +215,21 @@ pub(crate) fn destroyed_curio_count(value: &ActivityValue) -> Option<u32> {
     let ActivityValue::BoundedCounterMap(entries) = value else {
         return None;
     };
-    entries
+    if let Some(value) = entries
         .iter()
         .find(|(key, _)| *key == DESTROYED_CURIO_COUNT_KEY)
         .and_then(|(_, value)| u32::try_from(*value).ok())
-        .or(Some(0))
+    {
+        return Some(value);
+    }
+    entries
+        .iter()
+        .filter(|(key, _)| key & 0xffff_0000_0000_0000 == negative::DESTROYED_CURIO_ID_KEY_BASE)
+        .try_fold(0_u32, |total, (_, count)| {
+            u32::try_from(*count)
+                .ok()
+                .and_then(|count| total.checked_add(count))
+        })
 }
 
 pub(crate) fn destructible_destroyed_count(value: &ActivityValue) -> Option<u32> {
@@ -331,11 +342,7 @@ pub(crate) fn destroy_and_count_operations(
     bindings: CurioActivityBindings,
 ) -> Vec<ActivityOperation> {
     let mut operations = teardown_operations(id, bindings);
-    operations.push(ActivityOperation::AddCounter {
-        slot: bindings.event_slot,
-        key: DESTROYED_CURIO_COUNT_KEY,
-        delta: integer(1),
-    });
+    operations.extend(negative::record_destroyed_operations(id, bindings));
     operations
 }
 
@@ -715,14 +722,13 @@ mod tests {
         .unwrap();
         destroyed.validate_against(&definition, &graph).unwrap();
         apply(&mut state, &destroyed, &graph);
+        let event_state = state.slot(events).expect("event slot exists");
         assert!(matches!(
-            state.slot(events),
-            Some(ActivityValue::BoundedCounterMap(values))
+            event_state,
+            ActivityValue::BoundedCounterMap(values)
                 if values.iter().any(|(key, count)| *key == 42 && *count == 2)
-                    && values.iter().any(|(key, count)| {
-                        *key == DESTROYED_CURIO_COUNT_KEY && *count == 1
-                    })
         ));
+        assert_eq!(destroyed_curio_count(event_state), Some(1));
     }
 
     #[test]

@@ -155,13 +155,14 @@ def build_golden(partition_id: str) -> dict[str, Any]:
     selected_curios = [curios[key] for key in sorted(curio_keys)]
     selected_states = [states[key] for key in sorted(state_keys)]
     curio_ids = {int(row["id"]) for row in selected_curios}
+    all_curio_ids = {int(row["id"]) for row in curios.values()}
     state_ids = {int(row["id"]) for row in selected_states}
-    if {int(row["curio_id"]) for row in selected_states} != curio_ids:
+    if any(int(row["curio_id"]) not in all_curio_ids for row in selected_states):
         raise ValueError(f"{partition_id}: Curio state ownership differs")
-    if {
-        row["initial_state_stable_key"] for row in selected_curios
-    } != state_keys:
-        raise ValueError(f"{partition_id}: initial state links differ")
+    for row in selected_curios:
+        initial = states.get(row["initial_state_stable_key"])
+        if initial is None or int(initial["curio_id"]) != int(row["id"]):
+            raise ValueError(f"{partition_id}: initial state links differ")
     parameters = [
         row
         for row in sheet_rows(universe["UniverseCurioParameter"])

@@ -1,0 +1,76 @@
+{
+  "schema_revision": "starclock.goal07-curio-partition-golden.v1",
+  "partition_id": "G07-P3-M12-S01",
+  "record_ids": [
+    "universe.curio.108",
+    "universe.curio.108.state.active",
+    "universe.curio.115",
+    "universe.curio.115.state.active",
+    "universe.curio.17",
+    "universe.curio.17.state.active",
+    "universe.curio.21",
+    "universe.curio.21.state.active",
+    "universe.curio.45",
+    "universe.curio.45.state.fixed",
+    "universe.curio.45.state.repairing",
+    "universe.curio.47",
+    "universe.curio.47.state.fixed",
+    "universe.curio.47.state.repairing",
+    "universe.curio.49",
+    "universe.curio.49.state.fixed"
+  ],
+  "rule_ids": [
+    "universe.rule.curio.108",
+    "universe.rule.curio.108.state.active",
+    "universe.rule.curio.115",
+    "universe.rule.curio.115.state.active",
+    "universe.rule.curio.17",
+    "universe.rule.curio.17.state.active",
+    "universe.rule.curio.21",
+    "universe.rule.curio.21.state.active",
+    "universe.rule.curio.45",
+    "universe.rule.curio.45.state.fixed",
+    "universe.rule.curio.45.state.repairing",
+    "universe.rule.curio.47",
+    "universe.rule.curio.47.state.fixed",
+    "universe.rule.curio.47.state.repairing",
+    "universe.rule.curio.49",
+    "universe.rule.curio.49.state.fixed"
+  ],
+  "fixture_ids": [
+    "universe.fixture.curio-state.fixed",
+    "universe.fixture.curio-state.repairing",
+    "universe.fixture.curio-tag.enhance",
+    "universe.fixture.curio-tag.negative",
+    "universe.fixture.curio-tag.repair",
+    "universe.fixture.curio-tag.replacement"
+  ],
+  "workbooks": {
+    "Universe.xlsx": "c5121bc5cdb49739e78cd0e709994764bc411c9acd62e9e3996ef744c64358b0",
+    "UniverseBindings.xlsx": "5780e99c7c08d0ed8659ddfd56b37f77e88972ec413940d82f956a56e84c1e4a",
+    "UniverseEvidence.xlsx": "be3ab26158150dda1261f6d58f5520704341b3e09a469202f7a9e651ade95065"
+  },
+  "sora_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+  "tables": {
+    "UniverseCurio": {
+      "rows": 7,
+      "semantic_sha256": "5e18090e65aa230fe96fbce34bb015f7993fcd8d9db02d8c6df01a2d999e5343"
+    },
+    "UniverseCurioState": {
+      "rows": 9,
+      "semantic_sha256": "49bc717caa3afe9a12252be96fc9cf60f2d84f93590bc571b3027c3f4d4d09e8"
+    },
+    "UniverseCurioParameter": {
+      "rows": 11,
+      "semantic_sha256": "0d1d7238af26aa7b26a1b602388b434b288d647ae90ed441b44de5b1a3756ce8"
+    },
+    "UniverseMechanicRule": {
+      "rows": 16,
+      "semantic_sha256": "bdbbe7edf13728b094b640acdb8ea2381901589df7f771de8339ffa07d14f487"
+    },
+    "UniverseReviewFixture": {
+      "rows": 6,
+      "semantic_sha256": "3f8e40f4bedb71bd11c611648f4cfd073a89bb14d3f80f80df24d95b736d9f2a"
+    }
+  }
+}

@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 3 — Curios |
-| Active batch | `G07-P3-M12-S01` |
-| Next unblocked batch | `G07-P3-M12-S01` |
+| Active batch | `G07-P3-M12-S02` |
+| Next unblocked batch | `G07-P3-M12-S02` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -120,7 +120,14 @@ rerolls replace private marker state and capped acquisition composes with
 Warping Compound Eye. All three mechanics use generic Activity or Rule IR
 primitives without a native handler. The retained unpublished Parchment
 parameter remains evidence-only rather than receiving guessed semantics.
-`G07-P3-M12-S01` is active.
+Negative Curio S01 is complete: destroyed Curios retain deterministic identity
+for Void Wick repair, Shining Die and Fool's Mask execute atomic complete
+replacement commands, won battles repair Corrupted and Odd Code after exactly
+three settlements, and Fission uses a bounded three-copy contribution. Typed
+Rule IR executes state-specific Energy, Ultimate HP, ATK and eight-purpose
+mitigation effects. Unpublished Fission and higher-rarity chances remain
+explicit replay decisions; all nine native candidates close as
+`IrSufficient`. `G07-P3-M12-S02` is active.
 
 ## Fixed batch ledger
 

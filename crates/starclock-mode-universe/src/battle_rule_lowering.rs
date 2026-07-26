@@ -4,6 +4,7 @@ mod abundance_s01;
 mod abundance_s02;
 mod abundance_s03;
 mod abundance_s04;
+mod curio_negative_s01;
 mod curio_s01;
 mod curio_s02;
 mod curio_s03;
@@ -392,6 +393,7 @@ pub(crate) fn lower_rules(
     output.extend(curio_s03::lower(bindings, curios)?);
     output.extend(curio_s05::lower(bindings, curios)?);
     output.extend(curio_s06::lower(bindings, curios)?);
+    output.extend(curio_negative_s01::lower(bindings, curios)?);
     output.sort_unstable_by_key(|rule| rule.bundle().id());
 
     let energy = initial_resonance_energy;

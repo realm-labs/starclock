@@ -40,6 +40,8 @@ mod abundance_s02;
 mod abundance_s03;
 #[path = "mechanic_battle_integration/abundance_s04.rs"]
 mod abundance_s04;
+#[path = "mechanic_battle_integration/curio_negative_s01.rs"]
+mod curio_negative_s01;
 #[path = "mechanic_battle_integration/curio_s01.rs"]
 mod curio_s01;
 #[path = "mechanic_battle_integration/curio_s02.rs"]
@@ -452,7 +454,6 @@ fn contributions_many_with_curio_runtime(
     for (key, value) in runtime_values {
         curios = curios.with_runtime_value(*key, *value);
     }
-
     let selected_abilities = if ability_tree {
         catalog
             .ability_tree_nodes()

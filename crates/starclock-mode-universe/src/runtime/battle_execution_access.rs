@@ -12,8 +12,11 @@ use starclock_combat::{LifeState, PresenceState, Ratio};
 
 use crate::ability_runtime::{AbilityBoundary, AbilityExecutionContext, AbilityProjectionScope};
 use crate::{
+    curio::CurioStateKind,
     curio_activity::event_key,
-    curio_effect_runtime::{CurioEffect, CurioEffectFacts, CurioEvent},
+    curio_effect_runtime::{
+        AppliedCurioEffect, CurioEffect, CurioEffectFacts, CurioEffectRuntimeError, CurioEvent,
+    },
     curio_runtime::CurioRuntimeBindings,
     definition::DomainKind,
     path_effect_runtime::{PathEffect, PathEffectTarget},
@@ -92,33 +95,19 @@ impl StandardUniverseActivity {
                     key: event_key(curio, CurioEvent::RunDefeated),
                     delta: integer(1),
                 });
-                operations.extend(
-                    self.curio_runtime
-                        .teardown_operations(
-                            curio,
-                            CurioRuntimeBindings {
-                                inventory: self.curio_inventory,
-                                state_slot: self.curio_state_slot,
-                                charge_slot: self.curio_charge_slot,
-                            },
-                        )
-                        .map_err(|_| invalid_boundary())?,
-                );
-                operations.push(starclock_activity::ActivityOperation::AddCounter {
-                    slot: self.curio_event_slot,
-                    key: crate::curio_activity::DESTROYED_CURIO_COUNT_KEY,
-                    delta: integer(1),
-                });
+                operations.extend(crate::curio_activity::destroy_and_count_operations(
+                    curio,
+                    self.curio_activity_bindings(),
+                ));
             }
             for contribution in contributions.entries() {
-                let effects = self
-                    .curio_effect_runtime
-                    .execute(
-                        contribution.curio(),
-                        CurioEvent::BattleWon,
-                        CurioEffectFacts::default(),
-                    )
-                    .map_err(|_| invalid_boundary())?;
+                let effects = optional_curio_effects(
+                    &self.curio_effect_runtime,
+                    contribution.curio(),
+                    CurioEvent::BattleWon,
+                    CurioEffectFacts::default(),
+                )
+                .map_err(|_| invalid_boundary())?;
                 let Some(ratio) = effects.iter().find_map(|applied| match applied.effect() {
                     CurioEffect::Battle(PathEffect::HealMaximumHpRatio {
                         target: PathEffectTarget::AllAllies,
@@ -145,6 +134,41 @@ impl StandardUniverseActivity {
                 operations.push(starclock_activity::ActivityOperation::AddCounter {
                     slot: self.curio_event_slot,
                     key: event_key(contribution.curio(), CurioEvent::BattleWon),
+                    delta: integer(1),
+                });
+            }
+            for contribution in contributions
+                .entries()
+                .iter()
+                .filter(|entry| entry.state().kind() == CurioStateKind::Repairing)
+            {
+                let remaining = contribution
+                    .state()
+                    .charge()
+                    .ok_or_else(invalid_boundary)?
+                    .remaining();
+                operations.extend(
+                    self.curio_runtime
+                        .consume_charge_operations(
+                            contribution.curio(),
+                            remaining,
+                            CurioRuntimeBindings {
+                                inventory: self.curio_inventory,
+                                state_slot: self.curio_state_slot,
+                                charge_slot: self.curio_charge_slot,
+                            },
+                        )
+                        .map_err(|_| invalid_boundary())?,
+                );
+            }
+            if let Some(fission) = contributions
+                .entries()
+                .iter()
+                .find(|entry| entry.state().source_effect_id() == "78")
+            {
+                operations.push(starclock_activity::ActivityOperation::AddCounter {
+                    slot: self.curio_event_slot,
+                    key: event_key(fission.curio(), CurioEvent::BattleWon),
                     delta: integer(1),
                 });
             }
@@ -198,14 +222,13 @@ impl StandardUniverseActivity {
                 .collect::<Vec<_>>();
             if !defeated.is_empty() {
                 for contribution in contributions.entries() {
-                    let effects = self
-                        .curio_effect_runtime
-                        .execute(
-                            contribution.curio(),
-                            CurioEvent::BattleWon,
-                            CurioEffectFacts::default(),
-                        )
-                        .map_err(|_| invalid_boundary())?;
+                    let effects = optional_curio_effects(
+                        &self.curio_effect_runtime,
+                        contribution.curio(),
+                        CurioEvent::BattleWon,
+                        CurioEffectFacts::default(),
+                    )
+                    .map_err(|_| invalid_boundary())?;
                     if !effects.iter().any(|effect| {
                         matches!(effect.effect(), CurioEffect::RevivePartyAndRestoreFullHp)
                     }) {
@@ -233,18 +256,10 @@ impl StandardUniverseActivity {
                     if !destroys_once {
                         return Err(invalid_boundary());
                     }
-                    operations.extend(
-                        self.curio_runtime
-                            .teardown_operations(
-                                contribution.curio(),
-                                CurioRuntimeBindings {
-                                    inventory: self.curio_inventory,
-                                    state_slot: self.curio_state_slot,
-                                    charge_slot: self.curio_charge_slot,
-                                },
-                            )
-                            .map_err(|_| invalid_boundary())?,
-                    );
+                    operations.extend(crate::curio_activity::destroy_and_count_operations(
+                        contribution.curio(),
+                        self.curio_activity_bindings(),
+                    ));
                 }
             }
             (!operations.is_empty())
@@ -283,17 +298,16 @@ impl StandardUniverseActivity {
         }
         let contributions = self.curio_contributions().map_err(|_| invalid_boundary())?;
         for contribution in contributions.entries() {
-            let effects = self
-                .curio_effect_runtime
-                .execute(
-                    contribution.curio(),
-                    CurioEvent::RunDefeated,
-                    CurioEffectFacts {
-                        final_domain: false,
-                        ..CurioEffectFacts::default()
-                    },
-                )
-                .map_err(|_| invalid_boundary())?;
+            let effects = optional_curio_effects(
+                &self.curio_effect_runtime,
+                contribution.curio(),
+                CurioEvent::RunDefeated,
+                CurioEffectFacts {
+                    final_domain: false,
+                    ..CurioEffectFacts::default()
+                },
+            )
+            .map_err(|_| invalid_boundary())?;
             if effects.iter().any(|effect| {
                 matches!(
                     effect.effect(),
@@ -336,6 +350,18 @@ impl StandardUniverseActivity {
 
 const fn invalid_boundary() -> GraphActivityBattleError {
     GraphActivityBattleError::Runtime(GraphActivityRuntimeError::InvalidBoundaryProgram)
+}
+
+fn optional_curio_effects(
+    runtime: &crate::curio_effect_runtime::CurioEffectRuntimeCatalog,
+    curio: crate::id::CurioId,
+    event: CurioEvent,
+    facts: CurioEffectFacts,
+) -> Result<Box<[AppliedCurioEffect]>, CurioEffectRuntimeError> {
+    match runtime.execute(curio, event, facts) {
+        Err(CurioEffectRuntimeError::UnknownCurio) => Ok(Box::new([])),
+        outcome => outcome,
+    }
 }
 
 fn full_restore_victory(result: &BattleResult) -> Result<BattleResult, GraphActivityBattleError> {

@@ -33,6 +33,9 @@ impl StandardUniverseActivity {
         let destructibles = event_value
             .and_then(crate::curio_activity::destructible_destroyed_count)
             .unwrap_or(0);
+        let fission_extra_copies = event_value
+            .and_then(crate::curio_activity::negative::fission_extra_copies)
+            .unwrap_or(0);
         let fragments = view
             .slots()
             .iter()
@@ -72,6 +75,12 @@ impl StandardUniverseActivity {
                     contributions = contributions.with_runtime_value(
                         crate::curio_activity::DESTRUCTIBLE_DESTROYED_COUNT_KEY,
                         i64::from(destructibles),
+                    );
+                }
+                if fission_extra_copies != 0 {
+                    contributions = contributions.with_runtime_value(
+                        crate::curio_activity::negative::FISSION_EXTRA_COPY_KEY,
+                        i64::from(fission_extra_copies),
                     );
                 }
                 contributions

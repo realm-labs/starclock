@@ -12,7 +12,7 @@ use crate::{
         CurioBlessingGrantPool, CurioDestructibleReward, CurioEffect, CurioEffectFacts,
         CurioEffectRuntimeError, CurioEvent,
     },
-    curio_runtime::{CurioRuntimeBindings, CurioRuntimeError},
+    curio_runtime::CurioRuntimeError,
     id::{BlessingId, CurioId},
     run_runtime::RunRuntimeError,
 };
@@ -309,23 +309,16 @@ impl StandardUniverseActivity {
                 ));
             }
             CurioDestructibleOutcome::Failure => {
-                operations.extend(
-                    self.curio_runtime
-                        .teardown_operations(
-                            curio,
-                            CurioRuntimeBindings {
-                                inventory: self.curio_inventory,
-                                state_slot: self.curio_state_slot,
-                                charge_slot: self.curio_charge_slot,
-                            },
-                        )
-                        .map_err(StandardUniverseCurioCommandError::Curio)?,
-                );
-                operations.push(ActivityOperation::AddCounter {
-                    slot: self.curio_event_slot,
-                    key: crate::curio_activity::DESTROYED_CURIO_COUNT_KEY,
-                    delta: integer(1),
-                });
+                operations.extend(crate::curio_activity::destroy_and_count_operations(
+                    curio,
+                    CurioActivityBindings {
+                        inventory: self.curio_inventory,
+                        state_slot: self.curio_state_slot,
+                        charge_slot: self.curio_charge_slot,
+                        event_slot: self.curio_event_slot,
+                        fragments_slot: self.cosmic_fragments_slot,
+                    },
+                ));
                 if hp_loss_ratio != 0 {
                     if !(1..=1_000_000).contains(&hp_loss_ratio) {
                         return Err(StandardUniverseCurioCommandError::InvalidEffectValue);
