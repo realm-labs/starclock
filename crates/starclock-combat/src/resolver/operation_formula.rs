@@ -70,6 +70,7 @@ impl FormulaInputs {
                 FormulaStage::Crit,
                 FormulaStage::DamageBoost,
                 FormulaStage::Weaken,
+                FormulaStage::Resistance,
             ] {
                 let mut value =
                     formula_modifier(&resolver, source, stage, purpose, &source_context)?;

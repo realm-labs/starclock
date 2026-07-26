@@ -39,6 +39,11 @@ pub(super) fn event_property(
             .resource_delta
             .map(RuleValue::Scalar)
             .ok_or_else(missing),
+        EventValueProperty::ResourceOverflow => input
+            .event_facts
+            .resource_overflow
+            .map(RuleValue::Scalar)
+            .ok_or_else(missing),
         EventValueProperty::StackCount => input
             .event_facts
             .stack_count

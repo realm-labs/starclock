@@ -615,14 +615,26 @@ fn event_facts(
             };
         }
         BattleEventKind::Resource(data) => match data {
-            crate::ResourceEventData::SkillPoints { before, after, .. } => {
+            crate::ResourceEventData::SkillPoints {
+                before,
+                after,
+                overflow,
+                ..
+            } => {
                 facts.resource = Some(RuleResourceKind::SkillPoints);
                 facts.resource_delta = signed_scalar(i64::from(*after) - i64::from(*before));
+                facts.resource_overflow = signed_scalar(i64::from(*overflow));
             }
-            crate::ResourceEventData::Energy { before, after, .. } => {
+            crate::ResourceEventData::Energy {
+                before,
+                after,
+                overflow,
+                ..
+            } => {
                 facts.resource = Some(RuleResourceKind::Energy);
                 facts.resource_delta =
                     Some(crate::Scalar::from_scaled(after.scaled() - before.scaled()));
+                facts.resource_overflow = Some(crate::Scalar::from_scaled(overflow.scaled()));
             }
             crate::ResourceEventData::CharacterResource {
                 resource,
@@ -632,12 +644,14 @@ fn event_facts(
             } => {
                 facts.resource = Some(RuleResourceKind::Character(resource.clone()));
                 facts.resource_delta = after.checked_sub(*before).ok();
+                facts.resource_overflow = Some(crate::Scalar::ZERO);
             }
             crate::ResourceEventData::TeamResource {
                 side,
                 resource,
                 before,
                 after,
+                overflow,
                 ..
             } => {
                 facts.resource = txn
@@ -648,6 +662,7 @@ fn event_facts(
                     .and_then(|state| state.stable_key.clone())
                     .map(RuleResourceKind::Team);
                 facts.resource_delta = signed_scalar(i64::from(*after) - i64::from(*before));
+                facts.resource_overflow = signed_scalar(i64::from(*overflow));
             }
         },
         BattleEventKind::RuleSignal(data) => {

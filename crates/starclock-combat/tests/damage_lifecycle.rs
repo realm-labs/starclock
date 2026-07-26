@@ -37,6 +37,9 @@ use starclock_combat::{
     rule::model::{RuleSource, RuleValue, SourceClass, ValueExpr},
 };
 
+#[path = "damage_lifecycle/source_resistance.rs"]
+mod source_resistance;
+
 fn definition<I: TryFrom<u32>>(raw: u32) -> I
 where
     I::Error: core::fmt::Debug,
@@ -151,6 +154,24 @@ fn catalog_with_policy(waves: u16, transition: WaveTransitionPolicy) -> Arc<Comb
             .into_boxed_slice(),
         });
     }
+    builder.add_modifier(ModifierDefinition {
+        id: definition(8),
+        stat: StatKind::Atk,
+        stage: FormulaStage::Resistance,
+        purpose: FormulaPurpose::OrdinaryDamage,
+        value: ValueExpr::Literal(RuleValue::Scalar(Scalar::from_scaled(250_000))),
+        stacking_group: definition(1),
+        priority: 0,
+        floor: None,
+        cap: None,
+        cap_stage: FormulaStage::Resistance,
+        snapshot: SnapshotPolicy::Dynamic,
+        source_stack_slot: None,
+        filters: vec![ModifierFilter::FormulaSubject(
+            starclock_combat::modifier::model::FormulaSubject::Source,
+        )]
+        .into_boxed_slice(),
+    });
     for (raw, relation) in [
         (1, TargetRelation::SelfUnit),
         (2, TargetRelation::Opposing),

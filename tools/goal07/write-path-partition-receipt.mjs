@@ -141,6 +141,16 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612830"))
+    return "Battle-start, Weakness Break and broken-target attack facts feed capped per-owner Brain-effect stacks; target-within-action once scope expresses the enhanced gain.";
+  if (id.includes("612831"))
+    return "Defeat attribution, generic Brain stack changes and a two-owner-turn percent-of-base SPD effect express both Amygdala levels.";
+  if (id.includes("612832"))
+    return "Committed Ultimate target counts, a permanent max-count effect and source-filtered Resistance-stage modifiers express both Occipital Lobe policies.";
+  if (id.includes("612840"))
+    return "The shared Brain-powered marker, Ultimate action boundaries and one bounded Attack-expiry slot express both Vestibular System lifetimes.";
+  if (id.includes("612841"))
+    return "The typed Energy-overflow event property and checked fixed-point effect-stack conversion express exact per-overflow Brain charge.";
   if (id.includes("612742"))
     return "The shared Spore burst signal supplies the consumed stack snapshot for healing, while generic Spore-effect observations mirror the global enemy count into stack-backed ally Mitigation effects.";
   if (id.includes("612743"))
@@ -1515,6 +1525,54 @@ function partitionProfile(id) {
         "charged_resonance_advances_one_ally_applies_latest_metamorphosis_and_recharges_from_sp_gain",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration propagation_s04 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M10-S01") {
+    return {
+      completedOn: "2026-07-26",
+      numericApproximations: [
+        {
+          id: "goal07-transmitter-synthesis-float-tail-v1",
+          record_id: "universe.blessing.612841.level.1",
+          field: "brain_charge_ratio_per_overflow_energy",
+          value: "0.008000",
+          confidence: "High",
+          rationale:
+            "The pinned upstream parameter retains a binary-float transcription tail of 0.007999999 while both released localized descriptions specify 0.8%; the formula boundary normalizes deterministically to six places.",
+          replacement_condition:
+            "Replace only if an authoritative exact decimal source contradicts the released 0.8% description; retain nearest-ties-even conversion for other upstream tails.",
+        },
+      ],
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/erudition_s01.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s01.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "crates/starclock-combat/src/rule/evaluate/event_property.rs",
+        "crates/starclock-combat/src/resolver/rule.rs",
+        "crates/starclock-combat/src/resolver/operation_formula.rs",
+        "crates/starclock-combat/tests/damage_lifecycle.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-erudition-s01.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/erudition_s01.rs",
+        "crates/starclock-mode-universe/src/erudition_runtime.rs",
+        "docs/05-effects-and-resources.md",
+        "docs/09-determinism-and-numerics.md",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/11-rule-ir-and-native-handlers.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s01.rs",
+      fixtureMarker:
+        "gray_matter_grants_full_entry_charge_and_one_non_recursive_extra_ultimate",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration erudition_s01 --all-features",
+        "cargo test -p starclock-combat --test damage_lifecycle source_resistance_stage_is_applied_as_ordinary_damage_penetration --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

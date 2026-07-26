@@ -241,6 +241,8 @@ pub enum EventValueProperty {
     DamageRawAmount,
     HpChangeAmount,
     ResourceDelta,
+    /// Resource gain discarded by the authoritative cap.
+    ResourceOverflow,
     StackCount,
     StackDelta,
     HitIndex,
@@ -278,6 +280,7 @@ pub struct RuleEventFacts {
     /// Effective Toughness reduction carried by a `Reduced` event.
     pub toughness_reduction: Option<crate::RawToughness>,
     pub resource_delta: Option<Scalar>,
+    pub resource_overflow: Option<Scalar>,
     pub stack_count: Option<i64>,
     pub stack_delta: Option<i64>,
     pub hit_index: Option<i64>,

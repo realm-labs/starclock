@@ -779,6 +779,7 @@ fn infer_value(
             | EventValueProperty::DamageRawAmount
             | EventValueProperty::HpChangeAmount
             | EventValueProperty::ResourceDelta
+            | EventValueProperty::ResourceOverflow
             | EventValueProperty::ShieldChangeAmount
             | EventValueProperty::HpBefore
             | EventValueProperty::HpAfter => RuleValueKind::Scalar,

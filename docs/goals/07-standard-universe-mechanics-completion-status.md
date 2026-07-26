@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M06-S01` |
-| Next unblocked batch | `G07-P2-M06-S01` |
+| Active batch | `G07-P2-M10-S02` |
+| Next unblocked batch | `G07-P2-M10-S02` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -62,8 +62,12 @@ Skill Points, the manual team-healing/MaxHP Resonance, prospective
 lethal-damage prevention, full
 Resonance activation, cleanse, stackable negative-effect guards and one
 recurring Resonance action execute from production Rule IR. The generic
-effect-guard and auxiliary countdown seams require no native handler.
-`G07-P2-M06-S01` (Hunt) is active.
+effect-guard and auxiliary countdown seams require no native handler. Hunt,
+Destruction, Elation and Propagation are complete. Erudition S01 is complete:
+per-character Brain in a Vat charge, one nonrecursive Brain-powered Ultimate,
+entry/Break/defeat/broken-target charge, full-charge SPD, Ultimate RES PEN,
+Brain-Ultimate CRIT DMG, overflow-Energy charge and MaxHP shields execute from
+production Rule IR. `G07-P2-M10-S02` (Erudition) is active.
 
 ## Fixed batch ledger
 
