@@ -757,6 +757,7 @@ fn ability_tags(tags: starclock_combat::catalog::action::AbilityTags) -> Vec<Abi
         AbilityTag::Joint,
         AbilityTag::ElationSkill,
         AbilityTag::Assist,
+        AbilityTag::PathResonance,
     ]
     .into_iter()
     .filter(|tag| tags.contains(*tag))

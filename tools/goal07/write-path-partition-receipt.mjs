@@ -141,6 +141,18 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612856"))
+    return "Ultimate ActionResolved facts, a source exclusion and the owner's live MaxHP feed the ordinary healing operation for both released levels.";
+  if (id.includes("612857"))
+    return "The generic team-once defeat guard, typed guard signal, live current/maximum Energy and ordered heal-then-zero operations express the complete lethal recovery contract.";
+  if (id.includes("612820"))
+    return "A typed Path Resonance action, an all-enemy permanent stack effect, target MaxHP damage and attack-triggered stable selectors express Synapse without impersonating a character Ultimate.";
+  if (id.includes("612821"))
+    return "Ultimate action facts and the generic highest-live-MaxHP linked selector add the exact Melt Core share to ordinary and Chain Synapse damage.";
+  if (id.includes("612822"))
+    return "Defeat attribution, the linked-effect predicate and two ordered Ultimate-semantic actor-element damage operations express Chain Contagion without consuming shared Synapse charges.";
+  if (id.includes("612823"))
+    return "Battle, wave and generic unit-summoned facts combine the player roster's maximum Energy and enemy appearance count into checked Resonance Energy changes.";
   if (id.includes("612830"))
     return "Battle-start, Weakness Break and broken-target attack facts feed capped per-owner Brain-effect stacks; target-within-action once scope expresses the enhanced gain.";
   if (id.includes("612831"))
@@ -1661,6 +1673,39 @@ function partitionProfile(id) {
         "ultimate_arms_exact_next_attack_boost_and_the_attack_consumes_it",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration erudition_s03 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M10-S04") {
+    return {
+      completedOn: "2026-07-26",
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/erudition_s04.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s04.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "crates/starclock-combat/src/resolver/rule.rs",
+        "crates/starclock-combat/src/resolver/program.rs",
+        "crates/starclock-combat/src/resolver/operation_formula.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-erudition-s04.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/erudition_s04.rs",
+        "crates/starclock-mode-universe/src/erudition_runtime.rs",
+        "docs/05-effects-and-resources.md",
+        "docs/09-determinism-and-numerics.md",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/11-rule-ir-and-native-handlers.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s04.rs",
+      fixtureMarker:
+        "complete_erudition_resonance_applies_fifteen_shared_synapse_triggers",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration erudition_s04 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

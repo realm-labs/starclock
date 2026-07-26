@@ -48,14 +48,16 @@ impl FormulaInputs {
         element: Option<formula::model::CombatElement>,
         target: crate::UnitId,
         apply_source_modifiers: bool,
+        ultimate_semantics: bool,
     ) -> Result<crate::formula::sustain::DamageCalculation, BattleFault> {
         let resolver = self.resolver(catalog);
         let purpose = damage_purpose(formula.class());
         let source = formula_source(txn, cause, purpose)?;
-        let source_context = action_modifier_context(
+        let source_context = damage_modifier_context(
             catalog,
             cause,
             modifier_context(txn, source, target, element, formula.class())?,
+            ultimate_semantics,
         )
         .with_formula_subject(FormulaSubject::Source);
         let incoming_context = IncomingModifierContext {
@@ -64,6 +66,7 @@ impl FormulaInputs {
             target,
             element,
             class: formula.class(),
+            ultimate_semantics,
         };
         if apply_source_modifiers {
             for stage in [
@@ -80,10 +83,11 @@ impl FormulaInputs {
                         target,
                         stage,
                         purpose,
-                        &action_modifier_context(
+                        &damage_modifier_context(
                             catalog,
                             cause,
                             modifier_context(txn, target, target, element, formula.class())?,
+                            ultimate_semantics,
                         )
                         .with_formula_subject(FormulaSubject::Target),
                     )?;
@@ -126,16 +130,18 @@ impl FormulaInputs {
         cause: Cause,
         class: formula::model::DamageClass,
         target: crate::UnitId,
+        ultimate_semantics: bool,
     ) -> Result<CriticalProfile, BattleFault> {
         use crate::modifier::model::StatKind;
 
         let purpose = damage_purpose(class);
         let source = formula_source(txn, cause, purpose)?;
         let resolver = self.resolver(catalog);
-        let source_context = action_modifier_context(
+        let source_context = damage_modifier_context(
             catalog,
             cause,
             modifier_context(txn, source, target, None, class)?,
+            ultimate_semantics,
         )
         .with_formula_subject(FormulaSubject::Source);
         let rate = resolver
@@ -153,10 +159,11 @@ impl FormulaInputs {
             target,
             FormulaStage::Probability,
             FormulaPurpose::CriticalChance,
-            &action_modifier_context(
+            &damage_modifier_context(
                 catalog,
                 cause,
                 modifier_context(txn, target, target, None, class)?,
+                ultimate_semantics,
             )
             .with_formula_subject(FormulaSubject::Target),
         )?;
@@ -468,6 +475,7 @@ impl FormulaInputs {
                 target,
                 element: None,
                 class: formula::model::DamageClass::Direct,
+                ultimate_semantics: false,
             },
             FormulaStage::Healing,
             FormulaPurpose::Healing,
@@ -514,6 +522,7 @@ impl FormulaInputs {
                 target,
                 element: None,
                 class: formula::model::DamageClass::Direct,
+                ultimate_semantics: false,
             },
             FormulaStage::Shield,
             FormulaPurpose::Shield,
@@ -578,6 +587,7 @@ struct IncomingModifierContext {
     target: crate::UnitId,
     element: Option<formula::model::CombatElement>,
     class: formula::model::DamageClass,
+    ultimate_semantics: bool,
 }
 
 fn formula_modifier(
@@ -607,10 +617,11 @@ fn incoming_formula_modifier(
     stage: FormulaStage,
     purpose: FormulaPurpose,
 ) -> Result<crate::Scalar, BattleFault> {
-    let context = action_modifier_context(
+    let context = damage_modifier_context(
         catalog,
         input.cause,
         modifier_context(txn, input.target, input.target, input.element, input.class)?,
+        input.ultimate_semantics,
     );
     let unscoped = if input.source == input.target
         && matches!(purpose, FormulaPurpose::Healing | FormulaPurpose::Shield)
@@ -750,6 +761,10 @@ fn action_modifier_context(
             "elation_skill",
         ),
         (crate::catalog::action::AbilityTag::Assist, "assist"),
+        (
+            crate::catalog::action::AbilityTag::PathResonance,
+            "path_resonance",
+        ),
     ]
     .into_iter()
     .filter(|(tag, _)| action.tags().contains(*tag))
@@ -758,6 +773,21 @@ fn action_modifier_context(
     tags.sort_unstable();
     context.ability_tags = tags.into_boxed_slice();
     context.action_kind = Some(action.kind() as u8);
+    context.source_class = Some(crate::rule::model::SourceClass::Ability);
+    context
+}
+
+fn damage_modifier_context(
+    catalog: &crate::catalog::CombatCatalog,
+    cause: Cause,
+    mut context: ModifierQueryContext,
+    ultimate_semantics: bool,
+) -> ModifierQueryContext {
+    if !ultimate_semantics {
+        return action_modifier_context(catalog, cause, context);
+    }
+    context.ability_tags = vec!["attack".into(), "ultimate".into()].into_boxed_slice();
+    context.action_kind = Some(crate::catalog::action::AbilityKind::Ultimate as u8);
     context.source_class = Some(crate::rule::model::SourceClass::Ability);
     context
 }

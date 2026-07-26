@@ -2,6 +2,39 @@ use crate::rule::model::RuleEmission;
 
 use super::{AbilityProgramContext, non_negative_scalar, program_fault};
 
+pub(super) fn actor_basic_element(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &crate::resolver::transaction::Transaction<'_>,
+    actor: crate::UnitId,
+) -> Result<crate::formula::model::CombatElement, crate::BattleFault> {
+    let unit = txn
+        .state
+        .units
+        .get(actor)
+        .ok_or_else(|| program_fault(84, 0))?;
+    let mut element = None;
+    for ability in unit.abilities.iter().filter_map(|id| catalog.ability(*id)) {
+        let Some(action) = ability.action() else {
+            continue;
+        };
+        if action.kind() != crate::catalog::action::AbilityKind::Basic {
+            continue;
+        }
+        for authored in action.hits().iter().flat_map(|hit| hit.operations()) {
+            let crate::catalog::action::HitOperationDefinition::ScalingDamage(damage) = authored
+            else {
+                continue;
+            };
+            match element {
+                None => element = Some(damage.element()),
+                Some(current) if current == damage.element() => {}
+                Some(_) => return Err(program_fault(85, i64::from(ability.id().get()))),
+            }
+        }
+    }
+    element.ok_or_else(|| program_fault(86, i64::try_from(actor.get()).unwrap_or(i64::MAX)))
+}
+
 pub(in crate::resolver) fn emission_targets(
     catalog: &crate::catalog::CombatCatalog,
     resolved: &[(crate::SelectorId, Box<[crate::UnitId]>)],
@@ -85,6 +118,7 @@ pub(super) const fn emission_current_target(emission: &RuleEmission) -> Option<c
         | RuleEmission::AddSlot { current_target, .. }
         | RuleEmission::Damage { current_target, .. }
         | RuleEmission::DamageFromActorBasicElement { current_target, .. }
+        | RuleEmission::UltimateDamageFromActorBasicElement { current_target, .. }
         | RuleEmission::UnboostedDamage { current_target, .. }
         | RuleEmission::RandomRepeatedDamage { current_target, .. }
         | RuleEmission::TrueDamage { current_target, .. }

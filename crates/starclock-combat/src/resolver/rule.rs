@@ -423,6 +423,9 @@ fn rule_event_point(event: &BattleEventKind) -> Option<RuleEventPoint> {
         BattleEventKind::Unit(crate::UnitEventData::Defeated { .. }) => {
             RuleEventPoint::UnitDefeated
         }
+        BattleEventKind::Unit(crate::UnitEventData::Summoned { .. }) => {
+            RuleEventPoint::UnitSummoned
+        }
         BattleEventKind::Unit(crate::UnitEventData::Revived { .. }) => RuleEventPoint::UnitRevived,
         BattleEventKind::Unit(crate::UnitEventData::Transformed { .. })
         | BattleEventKind::Unit(crate::UnitEventData::TransformationEnded { .. }) => {
@@ -477,7 +480,16 @@ fn event_facts(
     let mut facts = RuleEventFacts {
         point: Some(point),
         source_class: source_class(catalog, cause.source_definition()),
-        action_kind: action.map(|action| lower_action_kind(action.kind())),
+        action_kind: action.map(|action| {
+            if action
+                .tags()
+                .contains(crate::catalog::action::AbilityTag::PathResonance)
+            {
+                RuleActionKind::PathResonance
+            } else {
+                lower_action_kind(action.kind())
+            }
+        }),
         ability_tags: action.map_or_else(Default::default, |action| action.tags()),
         target_pattern,
         has_parent: cause.parent_event().is_some(),
@@ -498,6 +510,9 @@ fn event_facts(
             };
             facts.action_kind = Some(action_kind_from_origin(origin, facts.action_kind));
             facts.ability_tags = tags;
+            if tags.contains(crate::catalog::action::AbilityTag::PathResonance) {
+                facts.action_kind = Some(RuleActionKind::PathResonance);
+            }
             facts.element = action.and_then(action_element);
         }
         BattleEventKind::Damage(data) => {

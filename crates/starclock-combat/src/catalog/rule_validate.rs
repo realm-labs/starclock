@@ -308,6 +308,9 @@ fn validate_operation(
         | RuleOperationTemplate::DamageFromActorBasicElement {
             selector, amount, ..
         }
+        | RuleOperationTemplate::UltimateDamageFromActorBasicElement {
+            selector, amount, ..
+        }
         | RuleOperationTemplate::TrueDamage { selector, amount }
         | RuleOperationTemplate::Heal {
             selector, amount, ..

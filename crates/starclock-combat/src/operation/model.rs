@@ -226,6 +226,9 @@ pub(crate) struct DamageOp {
     pub(crate) element: Option<crate::formula::model::CombatElement>,
     pub(crate) crit_policy: crate::catalog::action::HitCritPolicy,
     pub(crate) apply_source_modifiers: bool,
+    /// Replaces inherited action tags with Attack + Ultimate for formula
+    /// modifier queries without creating a new action lifecycle.
+    pub(crate) ultimate_semantics: bool,
     pub(crate) minimum_hp: i64,
 }
 

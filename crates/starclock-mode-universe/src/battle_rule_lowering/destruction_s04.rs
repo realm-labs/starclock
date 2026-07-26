@@ -528,7 +528,7 @@ fn resonance_action(
         resources,
     )
     .ok_or(BattleRuleLoweringError::InvalidDefinition)?
-    .with_tags(&[AbilityTag::Attack, AbilityTag::Ultimate, AbilityTag::Assist])
+    .with_tags(&[AbilityTag::Assist, AbilityTag::PathResonance])
     .with_hits(vec![ActionHitDefinition::new(Vec::new()).with_profile(
         HitTargetGroup::Selected,
         Ratio::ONE,

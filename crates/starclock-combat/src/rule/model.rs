@@ -169,6 +169,8 @@ pub enum RuleEventPoint {
     DecisionRequested,
     FaultRaised,
     InformationalRule,
+    /// A linked combat unit entered the battlefield after battle start.
+    UnitSummoned,
 }
 
 /// Generic action family accepted by authored event filters.
@@ -186,6 +188,7 @@ pub enum RuleActionKind {
     Enemy,
     ExtraTurn,
     Scripted,
+    PathResonance,
 }
 
 /// Complete semantic damage family accepted by event filters.
@@ -580,6 +583,15 @@ pub enum RuleOperationTemplate {
         can_crit: bool,
         can_defeat: bool,
     },
+    /// Uses the actor's Basic element and Attack + Ultimate modifier tags
+    /// without creating an Ultimate action lifecycle.
+    UltimateDamageFromActorBasicElement {
+        selector: SelectorId,
+        amount: ValueExpr,
+        class: DamageClass,
+        can_crit: bool,
+        can_defeat: bool,
+    },
     /// Repeats one damage operation a uniformly selected number of times and
     /// chooses one authored element independently for every emitted instance.
     RandomRepeatedDamage {
@@ -919,6 +931,14 @@ pub enum RuleEmission {
         current_target: Option<UnitId>,
     },
     DamageFromActorBasicElement {
+        selector: SelectorId,
+        amount: RuleValue,
+        class: DamageClass,
+        can_crit: bool,
+        can_defeat: bool,
+        current_target: Option<UnitId>,
+    },
+    UltimateDamageFromActorBasicElement {
         selector: SelectorId,
         amount: RuleValue,
         class: DamageClass,

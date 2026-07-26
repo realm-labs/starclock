@@ -15,6 +15,7 @@ mod elation_s04;
 mod erudition_s01;
 mod erudition_s02;
 mod erudition_s03;
+mod erudition_s04;
 mod hunt_resonance;
 mod hunt_s01;
 mod hunt_s02;
@@ -365,6 +366,7 @@ pub(crate) fn lower_rules(
     let mut erudition_rules = erudition_s01::lower(bindings, blessings)?;
     erudition_rules.extend(erudition_s02::lower(catalog, bindings, blessings)?);
     erudition_rules.extend(erudition_s03::lower(bindings, blessings)?);
+    erudition_rules.extend(erudition_s04::lower_rules(catalog, bindings, blessings)?);
     if let Some(first) = erudition_rules.first_mut() {
         erudition_s01::add_brain_engine(first)?;
     }
@@ -395,6 +397,8 @@ pub(crate) fn lower_rules(
     }
     output.sort_unstable_by_key(|rule| rule.bundle().id());
 
+    let energy = initial_resonance_energy;
+    let damage = resonance_damage_ratio;
     let resonance = bindings
         .iter()
         .find(|binding| {
@@ -408,55 +412,36 @@ pub(crate) fn lower_rules(
                         | Some(abundance_s04::RESONANCE)
                         | Some(destruction_s04::RESONANCE)
                         | Some(elation_s04::RESONANCE)
+                        | Some(erudition_s04::RESONANCE)
                         | Some(propagation_s04::RESONANCE)
                 )
         })
         .map(|binding| match binding.source_binding_key() {
-            Some(preservation_s04::RESONANCE) => preservation_s04::resonance(
-                catalog,
-                bindings,
-                binding,
-                initial_resonance_energy,
-                resonance_damage_ratio,
-            ),
-            Some(remembrance_s04::RESONANCE) => remembrance_s04::resonance(
-                catalog,
-                bindings,
-                binding,
-                initial_resonance_energy,
-                resonance_damage_ratio,
-            ),
+            Some(preservation_s04::RESONANCE) => {
+                preservation_s04::resonance(catalog, bindings, binding, energy, damage)
+            }
+            Some(remembrance_s04::RESONANCE) => {
+                remembrance_s04::resonance(catalog, bindings, binding, energy, damage)
+            }
             Some(nihility_s04::RESONANCE) => {
-                nihility_s04::resonance(catalog, bindings, binding, initial_resonance_energy)
+                nihility_s04::resonance(catalog, bindings, binding, energy)
             }
             Some(abundance_s04::RESONANCE) => {
-                abundance_s04::resonance(catalog, bindings, binding, initial_resonance_energy)
+                abundance_s04::resonance(catalog, bindings, binding, energy)
             }
-            Some(destruction_s04::RESONANCE) => destruction_s04::resonance(
-                catalog,
-                bindings,
-                binding,
-                initial_resonance_energy,
-                resonance_damage_ratio,
-            ),
-            Some(elation_s04::RESONANCE) => elation_s04::resonance(
-                catalog,
-                bindings,
-                blessings,
-                binding,
-                initial_resonance_energy,
-                resonance_damage_ratio,
-            ),
+            Some(destruction_s04::RESONANCE) => {
+                destruction_s04::resonance(catalog, bindings, binding, energy, damage)
+            }
+            Some(elation_s04::RESONANCE) => {
+                elation_s04::resonance(catalog, bindings, blessings, binding, energy, damage)
+            }
+            Some(erudition_s04::RESONANCE) => {
+                erudition_s04::resonance(catalog, binding, energy, damage)
+            }
             Some(propagation_s04::RESONANCE) => {
-                propagation_s04::resonance(catalog, bindings, binding, initial_resonance_energy)
+                propagation_s04::resonance(catalog, bindings, binding, energy)
             }
-            _ => hunt_resonance::lower(
-                catalog,
-                bindings,
-                binding,
-                initial_resonance_energy,
-                resonance_damage_ratio,
-            ),
+            _ => hunt_resonance::lower(catalog, bindings, binding, energy, damage),
         })
         .transpose()?;
     Ok((output, resonance))

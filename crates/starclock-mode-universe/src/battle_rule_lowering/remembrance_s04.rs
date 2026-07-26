@@ -140,7 +140,7 @@ pub(super) fn resonance(
         .ok_or(BattleRuleLoweringError::InvalidDefinition)?,
     )
     .ok_or(BattleRuleLoweringError::InvalidDefinition)?
-    .with_tags(&[AbilityTag::Attack, AbilityTag::Ultimate, AbilityTag::Assist])
+    .with_tags(&[AbilityTag::Assist, AbilityTag::PathResonance])
     .with_hits(vec![
         ActionHitDefinition::new(vec![HitOperationDefinition::ScalingDamage(
             ScalingDamageDefinition::new(

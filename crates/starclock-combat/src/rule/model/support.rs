@@ -167,6 +167,7 @@ impl RuleEventPoint {
             Self::ResourceChanged => RuleEventKind::Resource,
             Self::UnitDowned
             | Self::UnitDefeated
+            | Self::UnitSummoned
             | Self::UnitRevived
             | Self::UnitTransformed
             | Self::PresenceChanged => RuleEventKind::Unit,

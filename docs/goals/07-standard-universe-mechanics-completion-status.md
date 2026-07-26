@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Ability Tree and nine Paths |
-| Active batch | `G07-P2-M10-S04` |
-| Next unblocked batch | `G07-P2-M10-S04` |
+| Active batch | `G07-P3-M11-S01` |
+| Next unblocked batch | `G07-P3-M11-S01` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -74,7 +74,14 @@ damage execute from generic Rule IR. Erudition S03 is complete: exact
 Ultimate-only CRIT Rate and CRIT DMG, the ordered next-Attack damage marker,
 enhanced capped Blessing-count Ultimate damage, and catalog-authored AoE
 Attack/DEF timed effects execute from generic Rule IR.
-`G07-P2-M10-S04` (Erudition) is active.
+Erudition S04 is complete: exact Ultimate healing, the team-once lethal
+Energy recovery, 15-charge Synapse, actor-element Ultimate-semantic linked
+damage, Melt Core, non-consuming Chain Contagion propagation and enemy-
+appearance Resonance Energy execute from generic Rule IR. The dedicated Path
+Resonance action tag and generic `UnitSummoned` event point keep mode content
+outside character-action and encounter-specific branches. All four Erudition
+partitions are complete. `G07-P3-M11-S01` (positive, neutral and special
+Curios) is active.
 
 ## Fixed batch ledger
 
@@ -181,6 +188,7 @@ The milestone summary remains here for orientation.
 | 2026-07-25 | Advance the current battle-event payload to v6 while retaining v1–v5 encoders. | `ActionResolved` now commits its ordered target list for deterministic post-action selectors; released v5 bytes continue to omit that additive field. |
 | 2026-07-26 | Model Abundance prevention and immunity as generic effect guards and recurring Resonance as an auxiliary countdown actor. | Prospective damage policy prevents transient defeat events, guarded negative effects retain ordinary resisted attribution, and mode content enters battle only through immutable catalog definitions. |
 | 2026-07-26 | Use SPD 200 for the Anatta recurring actor as an explicit replaceable numeric approximation. | Released structured/public descriptions specify the recurring action and 30% healing reduction but do not expose its action-order speed; the generic countdown contract remains unchanged when stronger evidence is registered. |
+| 2026-07-26 | Give Path Resonance actions a dedicated semantic tag and expose linked-unit summons as a generic Rule IR event point. | Resonance remains interrupt-legal without impersonating a character Ultimate, while enemy-appearance mechanics observe authored summons without encounter-ID branches. |
 
 ## Terminal record
 

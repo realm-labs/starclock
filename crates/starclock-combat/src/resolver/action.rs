@@ -273,6 +273,7 @@ pub(super) fn execute_action_plan(
                             element: Some(definition.element()),
                             crit_policy: hit.crit_policy,
                             apply_source_modifiers: true,
+                            ultimate_semantics: false,
                             minimum_hp: 0,
                         })
                     }
@@ -283,6 +284,7 @@ pub(super) fn execute_action_plan(
                         element: None,
                         crit_policy: hit.crit_policy,
                         apply_source_modifiers: true,
+                        ultimate_semantics: false,
                         minimum_hp: 0,
                     }),
                     HitOperationDefinition::Heal(formula) => Operation::Heal(HealOp {

@@ -33,7 +33,7 @@ mod random_grouped_effect;
 mod resource;
 mod value;
 pub(super) use emission::emission_targets;
-use emission::{emission_current_target, healing_operation, slot_operation};
+use emission::{actor_basic_element, emission_current_target, healing_operation, slot_operation};
 use fault::emission_code;
 pub(super) use fault::program_fault;
 use random_damage::execute_random_repeated_damage;
@@ -468,6 +468,7 @@ fn execute_emission(
                     HitCritPolicy::Never
                 },
                 apply_source_modifiers: true,
+                ultimate_semantics: false,
                 minimum_hp: i64::from(!can_defeat),
             })
         }
@@ -498,6 +499,38 @@ fn execute_emission(
                     HitCritPolicy::Never
                 },
                 apply_source_modifiers: true,
+                ultimate_semantics: false,
+                minimum_hp: i64::from(!can_defeat),
+            })
+        }
+        RuleEmission::UltimateDamageFromActorBasicElement {
+            selector,
+            amount,
+            class,
+            can_crit,
+            can_defeat,
+            ..
+        } => {
+            let amount = scale(non_negative_scalar(amount)?, context.damage_share)?;
+            let formula = OrdinaryDamageDefinition::new(
+                amount,
+                OrdinaryDamageMultipliers::new([Ratio::ONE; 9])
+                    .expect("neutral multipliers are valid"),
+            )
+            .map_err(|_| program_fault(83, amount.scaled()))?
+            .with_class(class);
+            Operation::Damage(DamageOp {
+                id: operation_id,
+                targets: emission_targets(catalog, resolved, selector, current_target)?,
+                formula,
+                element: Some(actor_basic_element(catalog, txn, context.actor)?),
+                crit_policy: if can_crit {
+                    context.crit_policy
+                } else {
+                    HitCritPolicy::Never
+                },
+                apply_source_modifiers: true,
+                ultimate_semantics: true,
                 minimum_hp: i64::from(!can_defeat),
             })
         }
@@ -524,6 +557,7 @@ fn execute_emission(
                 element: Some(element),
                 crit_policy: HitCritPolicy::Never,
                 apply_source_modifiers: false,
+                ultimate_semantics: false,
                 minimum_hp: i64::from(!can_defeat),
             })
         }
@@ -545,6 +579,7 @@ fn execute_emission(
                 element: None,
                 crit_policy: HitCritPolicy::Never,
                 apply_source_modifiers: false,
+                ultimate_semantics: false,
                 minimum_hp: 0,
             })
         }
@@ -962,39 +997,6 @@ fn execute_emission(
         unsupported => return Err(program_fault(12, emission_code(&unsupported))),
     };
     execute_operation(catalog, txn, cause, parent, request, scratch)
-}
-
-fn actor_basic_element(
-    catalog: &crate::catalog::CombatCatalog,
-    txn: &Transaction<'_>,
-    actor: crate::UnitId,
-) -> Result<crate::formula::model::CombatElement, BattleFault> {
-    let unit = txn
-        .state
-        .units
-        .get(actor)
-        .ok_or_else(|| program_fault(84, 0))?;
-    let mut element = None;
-    for ability in unit.abilities.iter().filter_map(|id| catalog.ability(*id)) {
-        let Some(action) = ability.action() else {
-            continue;
-        };
-        if action.kind() != crate::catalog::action::AbilityKind::Basic {
-            continue;
-        }
-        for authored in action.hits().iter().flat_map(|hit| hit.operations()) {
-            let crate::catalog::action::HitOperationDefinition::ScalingDamage(damage) = authored
-            else {
-                continue;
-            };
-            match element {
-                None => element = Some(damage.element()),
-                Some(current) if current == damage.element() => {}
-                Some(_) => return Err(program_fault(85, i64::from(ability.id().get()))),
-            }
-        }
-    }
-    element.ok_or_else(|| program_fault(86, i64::try_from(actor.get()).unwrap_or(i64::MAX)))
 }
 
 fn queue_owner(

@@ -737,11 +737,11 @@ fn execute_damage(
     scratch: &mut HitOperationScratch,
 ) -> Result<EventId, BattleFault> {
     let inputs = super::operation_formula::FormulaInputs::new(txn)?;
+    let class = operation.formula.class();
+    let semantics = operation.ultimate_semantics;
     for target in operation.targets {
         let critical = (operation.crit_policy != crate::catalog::action::HitCritPolicy::Never)
-            .then(|| {
-                inputs.critical_profile(catalog, txn, cause, operation.formula.class(), target)
-            })
+            .then(|| inputs.critical_profile(catalog, txn, cause, class, target, semantics))
             .transpose()?;
         let is_critical = match operation.crit_policy {
             crate::catalog::action::HitCritPolicy::Never => false,
@@ -810,6 +810,7 @@ fn execute_damage(
             operation.element,
             target,
             operation.apply_source_modifiers,
+            semantics,
         )?;
         parent = apply_ordinary_damage_with_floor(
             catalog,

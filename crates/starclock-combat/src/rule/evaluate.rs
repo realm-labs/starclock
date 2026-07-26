@@ -450,6 +450,20 @@ fn evaluate_operation(
             can_defeat: *can_defeat,
             current_target,
         },
+        RuleOperationTemplate::UltimateDamageFromActorBasicElement {
+            selector,
+            amount,
+            class,
+            can_crit,
+            can_defeat,
+        } => RuleEmission::UltimateDamageFromActorBasicElement {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            class: *class,
+            can_crit: *can_crit,
+            can_defeat: *can_defeat,
+            current_target,
+        },
         RuleOperationTemplate::RandomRepeatedDamage {
             selector,
             amount,

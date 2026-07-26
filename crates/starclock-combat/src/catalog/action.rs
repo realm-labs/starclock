@@ -95,6 +95,8 @@ pub enum AbilityTag {
     ElationSkill = 10,
     /// Skill temporarily offered by an authored provider effect.
     Assist = 11,
+    /// Mode-owned Path Resonance action; never a character Ultimate/attack.
+    PathResonance = 12,
 }
 
 /// Compact, canonically encoded set of generic ability tags.
@@ -102,7 +104,7 @@ pub enum AbilityTag {
 pub struct AbilityTags(u32);
 
 impl AbilityTags {
-    const ALL_BITS: u32 = (1_u32 << 12) - 1;
+    const ALL_BITS: u32 = (1_u32 << 13) - 1;
     #[must_use]
     pub fn new(tags: &[AbilityTag]) -> Self {
         Self(

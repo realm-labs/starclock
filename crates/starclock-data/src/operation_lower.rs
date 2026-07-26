@@ -117,6 +117,7 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
             | O::UnboostedDamageFromEventElement { selector, .. }
             | O::DamageFromEventElement { selector, .. }
             | O::DamageFromActorBasicElement { selector, .. }
+            | O::UltimateDamageFromActorBasicElement { selector, .. }
             | O::RandomRepeatedDamage { selector, .. }
             | O::TrueDamage { selector, .. }
             | O::Heal { selector, .. }

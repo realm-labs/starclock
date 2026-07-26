@@ -590,7 +590,7 @@ fn resonance_action(
     }
     AbilityActionDefinition::new(kind, 1, TargetInvalidationPolicy::KeepIfPresent, resources)
         .ok_or(BattleRuleLoweringError::InvalidDefinition)?
-        .with_tags(&[AbilityTag::Ultimate, AbilityTag::Assist])
+        .with_tags(&[AbilityTag::Assist, AbilityTag::PathResonance])
         .with_hits(vec![ActionHitDefinition::new(Vec::new()).with_profile(
             starclock_combat::catalog::action::HitTargetGroup::Selected,
             Ratio::ONE,
