@@ -185,6 +185,18 @@ function nativeDecision(id) {
     return "A reusable target-HP conditional CRIT policy, an action-local CRIT DMG effect and typed defeat resource gain express Bow and Arrow.";
   if (id.includes("612423"))
     return "The keyed team-resource definition accepts the authored 200-point capacity and ally turn-start rules restore exactly 3% of that capacity.";
+  if (id.includes("612530"))
+    return "HP-ratio expressions, ordinary effect lifecycle events and a synchronized maximum-stack effect express virtual Fighting Spirit without a native state machine.";
+  if (id.includes("612531"))
+    return "Incoming-damage and self-HP-loss facts, action once scopes and generic stack operations express real Fighting Spirit gain, adjacent gain and turn-end decay.";
+  if (id.includes("612532"))
+    return "A stack-backed living-party divisor, mitigation modifiers and source-excluded True Damage express deterministic equal damage distribution.";
+  if (id.includes("612540"))
+    return "Incoming-damage facts, base-stat and missing-HP expressions, and non-defeating event-element damage express the complete retaliation.";
+  if (id.includes("612541"))
+    return "Action-start HP consumption, a battle slot and per-target event-element Additional damage express both released damage formulas.";
+  if (id.includes("612542"))
+    return "A synchronized Fighting Spirit stack slot drives ordinary Mitigation-stage modifiers and the enhanced 45-stack cap.";
   if (id.includes("612450"))
     return "The validated contribution compiler supplies the capped selected-Hunt count to an ordinary percent-of-base SPD modifier.";
   if (id.includes("612451"))
@@ -870,6 +882,35 @@ function partitionProfile(id) {
         "complete_hunt_resonance_executes_without_fault_and_spends_one_charge",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration hunt_s04 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M07-S01") {
+    return {
+      completedOn: "2026-07-26",
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s01.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s01.rs",
+        "crates/starclock-combat/src/rule/model.rs",
+        "crates/starclock-combat/src/modifier/model.rs",
+        "crates/starclock-combat/src/resolver/effect_operation.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-destruction-s01.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s01.rs",
+        "crates/starclock-mode-universe/src/destruction_runtime.rs",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s01.rs",
+      fixtureMarker:
+        "enhanced_virtual_grit_and_hp_consumption_execute_in_a_real_battle",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration destruction_s01 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

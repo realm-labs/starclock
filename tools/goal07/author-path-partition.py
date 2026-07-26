@@ -28,6 +28,9 @@ PARTITION_MANIFEST = (
 DATA = ROOT / "config" / "data"
 DEBUG = ROOT / "config" / "universe-generated" / "debug-json"
 BUNDLE = ROOT / "config" / "universe-generated" / "config.sora"
+REFERENCE_LEVELS = (
+    ROOT / "content-reference" / "standard-universe-v1" / "blessing-levels.json"
+)
 
 
 def sha256(path: Path) -> str:
@@ -203,8 +206,21 @@ def build_golden(partition_id: str) -> dict[str, Any]:
         raise ValueError(f"{partition_id}: assigned level has no assigned blessing")
     if {row["blessing_stable_key"] for row in path_links} != blessing_keys:
         raise ValueError(f"{partition_id}: path-to-blessing links are incomplete")
-    if {int(row["blessing_level_id"]) for row in parameters} != level_ids:
-        raise ValueError(f"{partition_id}: one or more levels have no exact parameters")
+    parameter_level_ids = {int(row["blessing_level_id"]) for row in parameters}
+    missing_parameter_levels = level_ids - parameter_level_ids
+    if missing_parameter_levels:
+        reference_levels = keyed(
+            json.loads(REFERENCE_LEVELS.read_text(encoding="utf-8")),
+            "id",
+        )
+        selected_by_id = {int(row["id"]): row for row in selected_levels}
+        for level_id in sorted(missing_parameter_levels):
+            stable_key = selected_by_id[level_id]["stable_key"]
+            reference = reference_levels.get(stable_key)
+            if reference is None or reference.get("parameter_values") != []:
+                raise ValueError(
+                    f"{partition_id}: {stable_key} has no exact parameter rows"
+                )
     for blessing in selected_blessings:
         if (
             blessing["stable_key"] in assigned_blessing_keys
