@@ -7,6 +7,7 @@ mod abundance_s04;
 mod hunt_resonance;
 mod hunt_s01;
 mod hunt_s02;
+mod hunt_s03;
 mod nihility_s01;
 mod nihility_s02;
 mod nihility_s03;
@@ -327,6 +328,7 @@ pub(crate) fn lower_rules(
     output.extend(abundance_s04::lower_rules(catalog, bindings, blessings)?);
     let mut hunt_rules = hunt_s01::lower(bindings, blessings)?;
     hunt_rules.extend(hunt_s02::lower(catalog, bindings, blessings)?);
+    hunt_rules.extend(hunt_s03::lower(bindings, blessings)?);
     if let Some(first) = hunt_rules.first_mut() {
         hunt_s01::add_critical_boost(first, blessings)?;
     }

@@ -175,6 +175,16 @@ function nativeDecision(id) {
     return "Credited defeat and Weakness Break facts feed ordinary live-MaxHP healing operations for the exact actor.";
   if (id.includes("612450"))
     return "The validated contribution compiler supplies the capped selected-Hunt count to an ordinary percent-of-base SPD modifier.";
+  if (id.includes("612451"))
+    return "A permanent ordinary flat-stat modifier expresses both released CRIT Rate values.";
+  if (id.includes("612452"))
+    return "A permanent ordinary flat-stat modifier expresses both released CRIT DMG values.";
+  if (id.includes("612453"))
+    return "Credited Weakness Break facts and the generic timeline delay operation express both action-delay values.";
+  if (id.includes("612454"))
+    return "Battle entry applies one SPD effect and the first damage event removes it through ordinary effect lifecycle operations.";
+  if (id.includes("612455"))
+    return "Owner turn-end facts and the generic post-reset timeline advance operation express both advance values.";
   if (id.includes("612351"))
     return "A target-directional Healing-stage modifier expresses Incoming Healing exactly once for allied and self-healing.";
   if (id.includes("612352"))
@@ -792,6 +802,33 @@ function partitionProfile(id) {
         "enhanced_starlit_and_rainbow_execute_exact_kill_energy_and_healing",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration hunt_s02 --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M06-S03") {
+    return {
+      completedOn: "2026-07-26",
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s02.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s03.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s03.rs",
+        "crates/starclock-combat/src/resolver/turn.rs",
+        "crates/starclock-combat/src/resolver/program.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-hunt-s03.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s03.rs",
+        "docs/02-action-order-and-turns.md",
+        "docs/10-lifecycle-and-resolution.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s03.rs",
+      fixtureMarker:
+        "thundering_chariot_and_astral_menace_use_exact_timeline_operations",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration hunt_s03 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
