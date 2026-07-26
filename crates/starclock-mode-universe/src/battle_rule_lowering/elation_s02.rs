@@ -691,6 +691,7 @@ fn follow_up_triggers(
                 EventFilter {
                     actor_selector: Some(owner),
                     ability_tag: Some(tag),
+                    excluded_source: Some(resonance_source()),
                     ..EventFilter::default()
                 },
                 ConditionExpr::Literal(true),

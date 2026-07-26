@@ -11,6 +11,7 @@ mod destruction_s04;
 mod elation_s01;
 mod elation_s02;
 mod elation_s03;
+mod elation_s04;
 mod hunt_resonance;
 mod hunt_s01;
 mod hunt_s02;
@@ -353,6 +354,7 @@ pub(crate) fn lower_rules(
     output.extend(elation_s01::lower(bindings, blessings)?);
     output.extend(elation_s02::lower(catalog, bindings, blessings)?);
     output.extend(elation_s03::lower(bindings, blessings)?);
+    output.extend(elation_s04::lower_rules(catalog, bindings, blessings)?);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::CurioState
             && binding.source_binding_key() == Some(ENTRY_ENEMY_DAMAGE_BINDING)
@@ -379,6 +381,7 @@ pub(crate) fn lower_rules(
                         | Some(nihility_s04::RESONANCE)
                         | Some(abundance_s04::RESONANCE)
                         | Some(destruction_s04::RESONANCE)
+                        | Some(elation_s04::RESONANCE)
                 )
         })
         .map(|binding| match binding.source_binding_key() {
@@ -405,6 +408,14 @@ pub(crate) fn lower_rules(
             Some(destruction_s04::RESONANCE) => destruction_s04::resonance(
                 catalog,
                 bindings,
+                binding,
+                initial_resonance_energy,
+                resonance_damage_ratio,
+            ),
+            Some(elation_s04::RESONANCE) => elation_s04::resonance(
+                catalog,
+                bindings,
+                blessings,
                 binding,
                 initial_resonance_energy,
                 resonance_damage_ratio,

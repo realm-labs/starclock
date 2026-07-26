@@ -55,6 +55,8 @@ mod elation_s01;
 mod elation_s02;
 #[path = "mechanic_battle_integration/elation_s03.rs"]
 mod elation_s03;
+#[path = "mechanic_battle_integration/elation_s04.rs"]
+mod elation_s04;
 #[path = "mechanic_battle_integration/hunt_s01.rs"]
 mod hunt_s01;
 #[path = "mechanic_battle_integration/hunt_s02.rs"]

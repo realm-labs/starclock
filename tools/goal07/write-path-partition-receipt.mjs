@@ -141,6 +141,18 @@ if (write) {
 }
 
 function nativeDecision(id) {
+  if (id.includes("612656"))
+    return "Action-once character follow-up routes and an ordinary replace-by-source owner-turn DEF effect express both Platinum Age levels.";
+  if (id.includes("612657"))
+    return "Action-once character follow-up routes and an ordinary replace-by-source owner-turn SPD effect express both Clockwork Apple levels.";
+  if (id.includes("612620"))
+    return "A keyed team resource, stable highest-ATK selector and generic repeated random-element Elation damage operation express the base Resonance.";
+  if (id.includes("612621"))
+    return "Per-damage resistible effect application and stack-backed target Vulnerability modifiers express Sensory Pursuit.";
+  if (id.includes("612622"))
+    return "A 200-point keyed resource, current-resource branch, checked overflow spend and exact extra-hit range express Dance of Growth.";
+  if (id.includes("612623"))
+    return "Materialized percentage entry Energy and source-filtered character action triggers express both Instant Win gains.";
   if (id.includes("612630"))
     return "Randomized without-replacement committed-target traversal, independent inclusive-count and per-hit element draws, sequential generic Elation damage and an ordinary global modifier express both Auto-Harmonica levels.";
   if (id.includes("612631"))
@@ -1245,6 +1257,55 @@ function partitionProfile(id) {
         "doctor_heals_and_lighthouse_scales_production_ultimate_energy_at_action_boundary",
       testCommands: [
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration elation_s03 --all-features",
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
+        "cargo test -p starclock-combat --all-features",
+        "cargo test -p starclock-replay --all-features",
+      ],
+    };
+  }
+  if (id === "G07-P2-M08-S04") {
+    return {
+      completedOn: "2026-07-26",
+      numericApproximations: [
+        {
+          id: "goal07-elation-resonance-scale-v1",
+          record_id: "universe.resonance.612620",
+          field: "battle_event_damage_scale",
+          value: "highest_current_allied_atk",
+          confidence: "Medium",
+          rationale:
+            "The released BattleEvent uses a private event-level MaxHP/ATK conversion while the public content row exposes only the exact 25% coefficient.",
+          replacement_condition:
+            "Replace when an authoritative public row exposes the neutral BattleEvent level-stat construction; retain the exact coefficient, hit and element streams.",
+        },
+      ],
+      executionEvidence: [
+        "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s04.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s03.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/support.rs",
+        "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s04.rs",
+        "crates/starclock-combat/src/resolver/program/random_damage.rs",
+        "crates/starclock-combat/src/resolver/program/resource.rs",
+      ],
+      reviewEvidence: [
+        "docs/goal-07-elation-s04.md",
+        "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s04.rs",
+        "crates/starclock-mode-universe/src/elation_runtime.rs",
+        "docs/05-effects-and-resources.md",
+        "docs/09-determinism-and-numerics.md",
+        "docs/10-lifecycle-and-resolution.md",
+        "docs/11-rule-ir-and-native-handlers.md",
+        "docs/12-modifier-and-snapshot-pipeline.md",
+      ],
+      fixturePath:
+        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s04.rs",
+      fixtureMarker:
+        "charged_complete_resonance_spends_all_energy_and_emits_repeated_elation_damage",
+      testCommands: [
+        "cargo test -p starclock-mode-universe --test mechanic_battle_integration elation_s04 --all-features",
         "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",

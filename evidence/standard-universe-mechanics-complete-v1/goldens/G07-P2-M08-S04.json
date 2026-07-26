@@ -1,0 +1,65 @@
+{
+  "schema_revision": "starclock.goal07-path-partition-golden.v1",
+  "partition_id": "G07-P2-M08-S04",
+  "record_ids": [
+    "universe.blessing.612656",
+    "universe.blessing.612656.level.1",
+    "universe.blessing.612656.level.2",
+    "universe.blessing.612657",
+    "universe.blessing.612657.level.1",
+    "universe.blessing.612657.level.2",
+    "universe.resonance.612620",
+    "universe.resonance.612621",
+    "universe.resonance.612622",
+    "universe.resonance.612623"
+  ],
+  "rule_ids": [
+    "universe.rule.blessing.612656",
+    "universe.rule.blessing.612656.level.1",
+    "universe.rule.blessing.612656.level.2",
+    "universe.rule.blessing.612657",
+    "universe.rule.blessing.612657.level.1",
+    "universe.rule.blessing.612657.level.2",
+    "universe.rule.resonance.612620",
+    "universe.rule.resonance.612621",
+    "universe.rule.resonance.612622",
+    "universe.rule.resonance.612623"
+  ],
+  "fixture_ids": [],
+  "workbooks": {
+    "Universe.xlsx": "c5121bc5cdb49739e78cd0e709994764bc411c9acd62e9e3996ef744c64358b0",
+    "UniverseBindings.xlsx": "5780e99c7c08d0ed8659ddfd56b37f77e88972ec413940d82f956a56e84c1e4a",
+    "UniverseEvidence.xlsx": "be3ab26158150dda1261f6d58f5520704341b3e09a469202f7a9e651ade95065"
+  },
+  "sora_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+  "tables": {
+    "UniversePath": {
+      "rows": 1,
+      "semantic_sha256": "1872b089a0ac0ecc85cb1d0263c8b7d28fb0dbe889b1ee5f8bde371f927fb01e"
+    },
+    "UniversePathBlessing": {
+      "rows": 2,
+      "semantic_sha256": "72344cb022341ca1bdaf61a4bfeee2937cac4b380f2a49fb07a62879dbc1de24"
+    },
+    "UniverseBlessing": {
+      "rows": 2,
+      "semantic_sha256": "d2bb01fc27e4ad24b2bcc6c3c30d81815a673a359d98ffb79d9481d6469ae9f7"
+    },
+    "UniverseBlessingLevel": {
+      "rows": 4,
+      "semantic_sha256": "e8ecd7b0e6d70d8d31e3e857ae5ba34c636d3f6c1fb33d5f5d91afcdf65d4f26"
+    },
+    "UniverseBlessingParameter": {
+      "rows": 8,
+      "semantic_sha256": "d9f18c78a66954896c804e85d638de5769101eadca871116b4ecdf6e9097cf20"
+    },
+    "UniverseMechanicRule": {
+      "rows": 10,
+      "semantic_sha256": "1097a8246da0bd069b7767923ea06671fb2aa72f73cbd8cac2a914a87b23affa"
+    },
+    "UniverseReviewFixture": {
+      "rows": 0,
+      "semantic_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  }
+}

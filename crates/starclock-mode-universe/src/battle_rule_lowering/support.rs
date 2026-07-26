@@ -17,6 +17,11 @@ use crate::{
 
 use super::BattleRuleLoweringError;
 
+pub(super) fn resonance_source() -> starclock_combat::SourceDefinitionId {
+    starclock_combat::SourceDefinitionId::new(super::RESONANCE_ABILITY_ID.get())
+        .expect("resonance ability ID is non-zero")
+}
+
 pub(super) fn owner_selector() -> Result<RuleUnitSelector, BattleRuleLoweringError> {
     selector(
         RuleSelectorOrigin::Owner,

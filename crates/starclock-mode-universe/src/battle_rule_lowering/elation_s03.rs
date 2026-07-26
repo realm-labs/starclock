@@ -228,6 +228,7 @@ fn follow_up_triggers(
                 EventFilter {
                     ability_tag: Some(tag),
                     owner_selector: Some(owner),
+                    excluded_source: Some(resonance_source()),
                     ..EventFilter::default()
                 },
                 ConditionExpr::Literal(true),

@@ -450,6 +450,7 @@ fn follow_up_triggers(
         EventFilter {
             actor_selector: Some(owner),
             ability_tag: Some(AbilityTag::FollowUp),
+            excluded_source: Some(resonance_source()),
             ..EventFilter::default()
         },
         ConditionExpr::Literal(true),
@@ -462,6 +463,7 @@ fn follow_up_triggers(
         EventFilter {
             actor_selector: Some(owner),
             ability_tag: Some(AbilityTag::Counter),
+            excluded_source: Some(resonance_source()),
             ..EventFilter::default()
         },
         ConditionExpr::Literal(true),
@@ -475,6 +477,7 @@ fn follow_up_triggers(
             EventFilter {
                 actor_selector: Some(owner),
                 ability_tag: Some(AbilityTag::Ultimate),
+                excluded_source: Some(resonance_source()),
                 ..EventFilter::default()
             },
             ConditionExpr::Literal(true),
