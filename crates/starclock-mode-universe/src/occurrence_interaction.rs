@@ -442,7 +442,7 @@ fn decode_curio_inventory(
     }
     let mut records = Vec::with_capacity(count);
     for _ in 0..count {
-        records.push(CurioActivityRecord::new(
+        let record = CurioActivityRecord::new(
             CurioId::new(decoder.u32()?).ok_or_else(invalid_payload)?,
             CurioStateId::new(decoder.u32()?).ok_or_else(invalid_payload)?,
             decoder.u8()?,
@@ -450,7 +450,11 @@ fn decode_curio_inventory(
                 0 => None,
                 value => Some(value),
             },
-        ));
+        );
+        records.push(match decoder.i64()? {
+            0 => record,
+            value => record.with_fragment_stack_capture(value),
+        });
     }
     if records.windows(2).any(|pair| pair[0].id() >= pair[1].id()) {
         return Err(invalid_payload());
@@ -636,6 +640,12 @@ impl PayloadOperation {
                     output.extend_from_slice(
                         &candidate
                             .acquisition_fragment_divisor()
+                            .unwrap_or(0)
+                            .to_le_bytes(),
+                    );
+                    output.extend_from_slice(
+                        &candidate
+                            .acquisition_fragment_stack_divisor()
                             .unwrap_or(0)
                             .to_le_bytes(),
                     );

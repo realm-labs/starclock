@@ -1,0 +1,73 @@
+{
+  "schema_revision": "starclock.goal07-curio-partition-golden.v1",
+  "partition_id": "G07-P3-M11-S02",
+  "record_ids": [
+    "universe.curio.112",
+    "universe.curio.112.state.active",
+    "universe.curio.113",
+    "universe.curio.113.state.active",
+    "universe.curio.118",
+    "universe.curio.118.state.active",
+    "universe.curio.12",
+    "universe.curio.12.state.active",
+    "universe.curio.120",
+    "universe.curio.120.state.active",
+    "universe.curio.121",
+    "universe.curio.121.state.active",
+    "universe.curio.122",
+    "universe.curio.122.state.active",
+    "universe.curio.123",
+    "universe.curio.123.state.active"
+  ],
+  "rule_ids": [
+    "universe.rule.curio.112",
+    "universe.rule.curio.112.state.active",
+    "universe.rule.curio.113",
+    "universe.rule.curio.113.state.active",
+    "universe.rule.curio.118",
+    "universe.rule.curio.118.state.active",
+    "universe.rule.curio.12",
+    "universe.rule.curio.12.state.active",
+    "universe.rule.curio.120",
+    "universe.rule.curio.120.state.active",
+    "universe.rule.curio.121",
+    "universe.rule.curio.121.state.active",
+    "universe.rule.curio.122",
+    "universe.rule.curio.122.state.active",
+    "universe.rule.curio.123",
+    "universe.rule.curio.123.state.active"
+  ],
+  "fixture_ids": [
+    "universe.fixture.curio-tag.critical",
+    "universe.fixture.curio-tag.healing",
+    "universe.fixture.curio-tag.speed"
+  ],
+  "workbooks": {
+    "Universe.xlsx": "c5121bc5cdb49739e78cd0e709994764bc411c9acd62e9e3996ef744c64358b0",
+    "UniverseBindings.xlsx": "5780e99c7c08d0ed8659ddfd56b37f77e88972ec413940d82f956a56e84c1e4a",
+    "UniverseEvidence.xlsx": "be3ab26158150dda1261f6d58f5520704341b3e09a469202f7a9e651ade95065"
+  },
+  "sora_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+  "tables": {
+    "UniverseCurio": {
+      "rows": 8,
+      "semantic_sha256": "ebfc23463dac2603714547504cd1f1ed70d804791946f7082c195c8352849d5c"
+    },
+    "UniverseCurioState": {
+      "rows": 8,
+      "semantic_sha256": "e77c4ceca5b8c8c629beb888d2f2d76fd967c37be62da5b2e2e532d3398805c3"
+    },
+    "UniverseCurioParameter": {
+      "rows": 11,
+      "semantic_sha256": "3a401aa32d184ed78ae436ca7a5127e12fcfc8da4f7e7a75cefd0d69d38c2bb3"
+    },
+    "UniverseMechanicRule": {
+      "rows": 16,
+      "semantic_sha256": "4c724a0a1eead984c5a010d11271b8c2820e41b6ea8db1713f715c904da9c5e8"
+    },
+    "UniverseReviewFixture": {
+      "rows": 3,
+      "semantic_sha256": "7a8b257ce979b7df79470cf0240bba8d95036c68b8aa88b14c00b23890a8e281"
+    }
+  }
+}

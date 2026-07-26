@@ -44,7 +44,7 @@ use crate::{
     service_interaction::{ServiceActivityBindings, ServiceInteractionRuntimeCatalog},
 };
 
-pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v7";
+pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v8";
 
 const WORLD_SLOT: u32 = 1;
 const DIFFICULTY_SLOT: u32 = 2;
@@ -641,6 +641,7 @@ impl CompiledActivity {
                     curio_event_slot: self.curio_event_slot(),
                     cosmic_fragments_slot: self.cosmic_fragments_slot(),
                     selected_path_slot: self.selected_path_slot(),
+                    path_blessing_count_slot: self.path_blessing_count_slot(),
                     ability_projection_slot: self.ability_projection_slot(),
                     selected_room_slot: self.selected_room_slot(),
                     formation_capability_slot: self.formation_capability_slot(),

@@ -126,6 +126,7 @@ impl CurioContribution {
 pub struct CurioContributionSet {
     entries: Box<[CurioContribution]>,
     destroyed_curios: u32,
+    runtime_values: Box<[(u64, i64)]>,
     digest: [u8; 32],
 }
 
@@ -139,6 +140,13 @@ impl CurioContributionSet {
         self.destroyed_curios
     }
     #[must_use]
+    pub fn runtime_value(&self, key: u64) -> Option<i64> {
+        self.runtime_values
+            .binary_search_by_key(&key, |entry| entry.0)
+            .ok()
+            .map(|index| self.runtime_values[index].1)
+    }
+    #[must_use]
     pub const fn digest(&self) -> [u8; 32] {
         self.digest
     }
@@ -148,7 +156,25 @@ impl CurioContributionSet {
     #[must_use]
     pub fn with_destroyed_curios(mut self, destroyed_curios: u32) -> Self {
         self.destroyed_curios = destroyed_curios;
-        self.digest = contribution_digest(&self.entries, destroyed_curios);
+        self.digest = contribution_digest(&self.entries, destroyed_curios, &self.runtime_values);
+        self
+    }
+
+    /// Captures one Activity-owned scalar at the immutable battle boundary.
+    ///
+    /// Runtime values are sorted stable keys rather than Curio-specific fields,
+    /// so later Curios can contribute acquisition or run-scoped state without
+    /// coupling the combat snapshot to Activity storage.
+    #[must_use]
+    pub fn with_runtime_value(mut self, key: u64, value: i64) -> Self {
+        let mut values = self.runtime_values.into_vec();
+        match values.binary_search_by_key(&key, |entry| entry.0) {
+            Ok(index) => values[index].1 = value,
+            Err(index) => values.insert(index, (key, value)),
+        }
+        self.runtime_values = values.into_boxed_slice();
+        self.digest =
+            contribution_digest(&self.entries, self.destroyed_curios, &self.runtime_values);
         self
     }
 }
@@ -523,10 +549,11 @@ impl CurioRuntimeCatalog {
             return Err(CurioRuntimeError::DuplicateInventoryEntry);
         }
         self.validate_no_orphans(&entries, &state_map, &charge_map)?;
-        let digest = contribution_digest(&entries, 0);
+        let digest = contribution_digest(&entries, 0, &[]);
         Ok(CurioContributionSet {
             entries: entries.into_boxed_slice(),
             destroyed_curios: 0,
+            runtime_values: Box::new([]),
             digest,
         })
     }
@@ -769,7 +796,11 @@ fn catalog_digest(definitions: &[CurioRuntimeDefinition]) -> [u8; 32] {
     encoder.finish()
 }
 
-fn contribution_digest(entries: &[CurioContribution], destroyed_curios: u32) -> [u8; 32] {
+fn contribution_digest(
+    entries: &[CurioContribution],
+    destroyed_curios: u32,
+    runtime_values: &[(u64, i64)],
+) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-curio-contribution-set-v1");
     if destroyed_curios != 0 {
         encoder.text("destroyed-curios-v1");
@@ -789,6 +820,14 @@ fn contribution_digest(entries: &[CurioContribution], destroyed_curios: u32) -> 
         encode_parameters(&mut encoder, &entry.state.parameters);
         encoder.u8(entry.state.charge.map_or(0, |charge| charge.remaining));
         encoder.u8(entry.state.charge.map_or(0, |charge| charge.maximum));
+    }
+    if !runtime_values.is_empty() {
+        encoder.text("runtime-values-v1");
+        encoder.u32(runtime_values.len() as u32);
+        for (key, value) in runtime_values {
+            encoder.u64(*key);
+            encoder.i64(*value);
+        }
     }
     encoder.finish()
 }

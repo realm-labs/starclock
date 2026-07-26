@@ -43,6 +43,8 @@ mod abundance_s03;
 mod abundance_s04;
 #[path = "mechanic_battle_integration/curio_s01.rs"]
 mod curio_s01;
+#[path = "mechanic_battle_integration/curio_s02.rs"]
+mod curio_s02;
 #[path = "mechanic_battle_integration/destruction_s01.rs"]
 mod destruction_s01;
 #[path = "mechanic_battle_integration/destruction_s02.rs"]
@@ -325,6 +327,29 @@ fn contributions_many_with_formations_and_destroyed(
     ability_tree: bool,
     destroyed_curios: u32,
 ) -> UniverseBattleContributionSet {
+    contributions_many_with_curio_runtime(
+        catalog,
+        path_key,
+        required_blessings,
+        formation_keys,
+        curio_key,
+        ability_tree,
+        destroyed_curios,
+        &[],
+    )
+}
+
+#[allow(clippy::too_many_arguments)]
+fn contributions_many_with_curio_runtime(
+    catalog: &Arc<UniverseCatalog>,
+    path_key: &str,
+    required_blessings: &[(&str, u32)],
+    formation_keys: &[&str],
+    curio_key: Option<&str>,
+    ability_tree: bool,
+    destroyed_curios: u32,
+    runtime_values: &[(u64, i64)],
+) -> UniverseBattleContributionSet {
     let path_definition = catalog
         .paths()
         .iter()
@@ -412,10 +437,13 @@ fn contributions_many_with_formations_and_destroyed(
             (definition.curio(), state.maximum_charges().unwrap_or(0))
         })
         .collect::<Vec<_>>();
-    let curios = curio_runtime
+    let mut curios = curio_runtime
         .contributions_from_owned(&inventory, &states, &charges)
         .unwrap()
         .with_destroyed_curios(destroyed_curios);
+    for (key, value) in runtime_values {
+        curios = curios.with_runtime_value(*key, *value);
+    }
 
     let selected_abilities = if ability_tree {
         catalog

@@ -5,6 +5,7 @@ mod abundance_s02;
 mod abundance_s03;
 mod abundance_s04;
 mod curio_s01;
+mod curio_s02;
 mod destruction_s01;
 mod destruction_s02;
 mod destruction_s03;
@@ -385,6 +386,7 @@ pub(crate) fn lower_rules(
     }
     output.extend(propagation_rules);
     output.extend(curio_s01::lower(bindings, curios)?);
+    output.extend(curio_s02::lower(bindings, blessings, curios)?);
     if let Some(binding) = bindings.iter().find(|binding| {
         binding.role() == UniverseBattleRuleRole::CurioState
             && binding.source_binding_key() == Some(ENTRY_ENEMY_DAMAGE_BINDING)

@@ -67,8 +67,9 @@ pub use graph::{
     MAX_EDGE_TRAVERSALS, MAX_NODE_VISITS,
 };
 pub use graph_activity::{
-    GraphActivity, GraphActivityBattleResolution, GraphActivityDefinition,
-    GraphActivityNodeProgram, GraphActivityPreparationResolution, GraphActivityResolution,
+    ActivityRandomBoundaryResolution, GraphActivity, GraphActivityBattleResolution,
+    GraphActivityDefinition, GraphActivityNodeProgram, GraphActivityPreparationResolution,
+    GraphActivityResolution,
 };
 pub use graph_command::{
     GRAPH_ACTIVITY_API_REVISION, GraphActivityCommand, GraphActivityCommandKind,

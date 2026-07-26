@@ -1,4 +1,7 @@
 mod boundary;
+mod random_offer;
+
+use random_offer::restrict_random_offer;
 
 use std::sync::Arc;
 
@@ -11,12 +14,13 @@ use crate::{
     ActivityInteractionBinding, ActivityInteractionBindings, ActivityMasterSeed, ActivityOperation,
     ActivityOptionDefinition, ActivityOptionId, ActivityPendingBattleView, ActivityPlayerView,
     ActivityPreparationBoundary, ActivityPreparationView, ActivityProgramDefinition,
-    ActivityRandomCheckpoint, ActivityRandomOffer, ActivityRandomPolicies, ActivityRngContext,
-    ActivityRngStreams, ActivityStateDefinition, ActivityStateHash, ActivityTransactionEvent,
-    ActivityTransactionOutcome, ActivityTransactionState, ActivityValue, BattleResult,
-    GraphActivityBattleError, GraphActivityCommandError, GraphActivityDefinitionError,
-    GraphActivityEncounterError, GraphActivityRandomOfferError, GraphActivityRuntimeError,
-    GraphActivityStartError, NodeId, ParticipantLock, PendingBattleSpec, SlotValueKind,
+    ActivityProgramId, ActivityRandomCheckpoint, ActivityRandomOffer, ActivityRandomPolicies,
+    ActivityRngContext, ActivityRngStreams, ActivityStateDefinition, ActivityStateHash,
+    ActivityTransactionEvent, ActivityTransactionOutcome, ActivityTransactionState, ActivityValue,
+    BattleResult, GraphActivityBattleError, GraphActivityCommandError,
+    GraphActivityDefinitionError, GraphActivityEncounterError, GraphActivityRandomOfferError,
+    GraphActivityRuntimeError, GraphActivityStartError, NodeId, ParticipantLock, PendingBattleSpec,
+    SlotValueKind,
 };
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -168,6 +172,13 @@ impl GraphActivityDefinition {
             }
             if let Some(condition) = &offer.inactive_condition
                 && crate::program::condition_type(condition, &state).is_err()
+            {
+                return Err(GraphActivityDefinitionError::InvalidRandomOffer);
+            }
+            if offer
+                .conditional_weight_multipliers
+                .iter()
+                .any(|(condition, _, _)| crate::program::condition_type(condition, &state).is_err())
             {
                 return Err(GraphActivityDefinitionError::InvalidRandomOffer);
             }
@@ -996,79 +1007,31 @@ fn player_offer_options(operations: &[ActivityOperation]) -> Option<Vec<Activity
     }
 }
 
-fn restrict_random_offer(
-    state: &mut ActivityTransactionState,
-    rng: &mut ActivityRngStreams,
-    policy: &ActivityRandomOffer,
-) -> Result<(), GraphActivityRuntimeError> {
-    let offered = state
-        .pending_option_ids()
-        .or_else(|| {
-            policy
-                .inactive_condition
-                .as_ref()
-                .and_then(|condition| state.condition(condition).ok())
-                .filter(|inactive| *inactive)
-                .map(|_| Vec::new().into_boxed_slice())
-        })
-        .ok_or(GraphActivityRuntimeError::InvalidRandomOffer)?;
-    if offered.is_empty() {
-        return Ok(());
-    }
-    let mut weights = Vec::with_capacity(offered.len());
-    for option in &offered {
-        let weight = policy
-            .weights
-            .binary_search_by_key(option, |item| item.0)
-            .ok()
-            .map(|index| policy.weights[index].1)
-            .ok_or(GraphActivityRuntimeError::InvalidRandomOffer)?;
-        weights.push(weight);
-    }
-    let reduce_options = policy
-        .maximum_options_reduction
-        .as_ref()
-        .map(|(condition, _)| {
-            state
-                .condition(condition)
-                .map_err(|_| GraphActivityRuntimeError::InvalidRandomOffer)
-        })
-        .transpose()?
-        .unwrap_or(false);
-    let maximum_options = if reduce_options {
-        policy
-            .maximum_options
-            .checked_sub(
-                policy
-                    .maximum_options_reduction
-                    .as_ref()
-                    .expect("reduction condition was evaluated")
-                    .1,
-            )
-            .ok_or(GraphActivityRuntimeError::InvalidRandomOffer)?
-    } else {
-        policy.maximum_options
-    };
-    let selected = rng
-        .choose_weighted_without_replacement(
-            policy.label,
-            policy.purpose,
-            &weights,
-            maximum_options,
-        )
-        .map_err(GraphActivityRuntimeError::Rng)?;
-    let ids = selected
-        .iter()
-        .map(|index| offered[*index as usize])
-        .collect::<Vec<_>>();
-    state
-        .restrict_pending_options(ids)
-        .map_err(|_| GraphActivityRuntimeError::InvalidRandomOffer)
-}
-
 pub struct GraphActivityResolution {
     activity: GraphActivity,
     events: Box<[ActivityTransactionEvent]>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ActivityRandomBoundaryResolution {
+    selected_options: Box<[ActivityOptionId]>,
+    events: Box<[ActivityTransactionEvent]>,
+    state_hash: ActivityStateHash,
+}
+
+impl ActivityRandomBoundaryResolution {
+    #[must_use]
+    pub fn selected_options(&self) -> &[ActivityOptionId] {
+        &self.selected_options
+    }
+    #[must_use]
+    pub fn events(&self) -> &[ActivityTransactionEvent] {
+        &self.events
+    }
+    #[must_use]
+    pub const fn state_hash(&self) -> ActivityStateHash {
+        self.state_hash
+    }
 }
 
 pub struct GraphActivityPreparationResolution {

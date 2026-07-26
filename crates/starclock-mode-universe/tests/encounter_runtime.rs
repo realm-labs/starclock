@@ -352,8 +352,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            208, 196, 21, 93, 36, 42, 171, 31, 160, 16, 214, 76, 62, 115, 75, 151, 50, 30, 199,
-            203, 178, 226, 139, 111, 53, 201, 192, 133, 148, 92, 128, 154,
+            174, 16, 20, 24, 61, 36, 97, 11, 67, 39, 64, 229, 2, 164, 141, 122, 129, 40, 60, 22,
+            52, 118, 208, 70, 48, 87, 115, 206, 22, 3, 159, 91,
         ]
     );
     let reward = activity.view();
@@ -423,8 +423,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            77, 143, 46, 141, 240, 180, 184, 58, 99, 176, 193, 19, 72, 195, 174, 133, 197, 161, 15,
-            25, 220, 231, 72, 167, 221, 236, 177, 209, 229, 39, 83, 135,
+            29, 175, 23, 155, 239, 115, 220, 183, 199, 3, 176, 45, 186, 116, 53, 196, 199, 65, 88,
+            64, 60, 128, 74, 126, 222, 173, 115, 220, 144, 127, 152, 71,
         ]
     );
     let formation = activity.view();
@@ -619,8 +619,8 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            149, 43, 91, 146, 109, 98, 114, 126, 167, 53, 79, 57, 109, 137, 126, 152, 85, 218, 7,
-            224, 173, 6, 231, 3, 13, 23, 124, 109, 175, 225, 170, 203,
+            164, 126, 163, 2, 165, 125, 131, 91, 179, 241, 89, 104, 125, 158, 11, 20, 232, 39, 36,
+            165, 26, 68, 184, 151, 196, 76, 24, 19, 51, 149, 227, 143,
         ]
     );
     assert_eq!(report.final_state_hash(), activity.view().state_hash());
@@ -698,8 +698,8 @@ fn complete_run_replay_verifies_and_reports_the_first_divergence() {
     assert_eq!(
         sha2::Sha256::digest(&bytes).as_slice(),
         [
-            6, 3, 156, 167, 254, 125, 37, 53, 9, 10, 87, 215, 100, 163, 181, 235, 237, 113, 195,
-            222, 210, 219, 110, 6, 216, 248, 201, 249, 221, 102, 42, 154,
+            68, 80, 101, 225, 221, 110, 28, 200, 199, 22, 121, 44, 90, 146, 86, 213, 96, 91, 98,
+            63, 201, 148, 15, 216, 112, 89, 73, 111, 159, 59, 60, 231,
         ]
     );
     let fresh = compiled

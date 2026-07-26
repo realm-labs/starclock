@@ -871,6 +871,12 @@ fn encode_curio_record(output: &mut Vec<u8>, record: CurioActivityRecord) {
             .unwrap_or(0)
             .to_le_bytes(),
     );
+    output.extend_from_slice(
+        &record
+            .acquisition_fragment_stack_divisor()
+            .unwrap_or(0)
+            .to_le_bytes(),
+    );
 }
 
 fn decode_curio_bindings(
@@ -888,7 +894,7 @@ fn decode_curio_bindings(
 fn decode_curio_record(
     decoder: &mut Decoder<'_>,
 ) -> Result<CurioActivityRecord, ActivityHandlerFault> {
-    Ok(CurioActivityRecord::new(
+    let record = CurioActivityRecord::new(
         CurioId::new(decoder.u32()?).ok_or_else(invalid_payload)?,
         crate::id::CurioStateId::new(decoder.u32()?).ok_or_else(invalid_payload)?,
         decoder.u8()?,
@@ -896,7 +902,11 @@ fn decode_curio_record(
             0 => None,
             value => Some(value),
         },
-    ))
+    );
+    Ok(match decoder.i64()? {
+        0 => record,
+        value => record.with_fragment_stack_capture(value),
+    })
 }
 
 fn validate_external_offer(cost: u32, digest: [u8; 32]) -> Result<(), ServiceInteractionError> {

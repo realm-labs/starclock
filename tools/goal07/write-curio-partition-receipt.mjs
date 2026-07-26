@@ -23,8 +23,9 @@ const audit = json(
 const partition = manifest.partitions.find(({ id }) => id === partitionId);
 assert(partition?.mechanic_family?.startsWith("curio-"),
   `${partitionId}: not a Curio partition`);
-assert(partitionId === "G07-P3-M11-S01",
+assert(["G07-P3-M11-S01", "G07-P3-M11-S02"].includes(partitionId),
   `${partitionId}: Curio receipt profile is not implemented`);
+const s02 = partitionId === "G07-P3-M11-S02";
 const golden =
   `evidence/standard-universe-mechanics-complete-v1/goldens/${partitionId}.json`;
 assert(exists(golden), `${partitionId}: golden is missing`);
@@ -36,7 +37,15 @@ const sourceEvidence = [
   { path: "content-reference/standard-universe-v1/curio-states.json" },
   { path: "content-reference/standard-universe-v1/mechanic-rules.json" },
 ];
-const executionEvidence = [
+const executionEvidence = s02 ? [
+  { path: "crates/starclock-activity/src/graph_activity/boundary.rs" },
+  { path: "crates/starclock-activity/src/random_policy.rs" },
+  { path: "crates/starclock-mode-universe/src/curio_activity.rs" },
+  { path: "crates/starclock-mode-universe/src/runtime/curio_commands.rs" },
+  { path: "crates/starclock-mode-universe/src/topology.rs" },
+  { path: "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s02.rs" },
+  { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s02.rs" },
+] : [
   { path: "crates/starclock-mode-universe/src/curio_activity.rs" },
   { path: "crates/starclock-mode-universe/src/runtime.rs" },
   { path: "crates/starclock-mode-universe/src/topology_reward.rs" },
@@ -45,9 +54,11 @@ const executionEvidence = [
   { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s01.rs" },
 ];
 const reviewEvidence = [
-  { path: "docs/goal-07-curio-s01.md" },
+  { path: s02 ? "docs/goal-07-curio-s02.md" : "docs/goal-07-curio-s01.md" },
   { path: "crates/starclock-mode-universe/src/curio_activity.rs" },
-  { path: "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s01.rs" },
+  { path: s02
+    ? "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s02.rs"
+    : "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s01.rs" },
 ];
 
 const receipt = {
@@ -94,10 +105,12 @@ const receipt = {
       { path: "config/data/UniverseEvidence.xlsx" },
     ]),
     execution_kind: "RustTest",
-    test_path:
-      "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s01.rs",
-    test_marker:
-      "goal07_p3_m11_s01_executes_every_assigned_curio_and_fixture_family",
+    test_path: s02
+      ? "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s02.rs"
+      : "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s01.rs",
+    test_marker: s02
+      ? fixtureMarker(id)
+      : "goal07_p3_m11_s01_executes_every_assigned_curio_and_fixture_family",
   })),
   enemy_variants: [],
   encounter_members: [],
@@ -107,7 +120,14 @@ const receipt = {
     decision: nativeDecision(id),
     evidence: reviewEvidence,
   })),
-  numeric_approximations: [
+  numeric_approximations: s02 ? [
+    {
+      id: "universe.curio.123.propagation-offer-weight",
+      disposition: "ProjectPolicyApproximate",
+      rationale:
+        "Public evidence says the appearance rate increases but supplies no multiplier. Runtime v1 freezes x2 and records the approximation explicitly.",
+    },
+  ] : [
     {
       id: "universe.curio.107.destructible-success-chance",
       disposition: "ExternalDecision",
@@ -120,8 +140,12 @@ const receipt = {
     commands: [
       `python tools/goal07/author-curio-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify_production_workbooks.mjs .",
-      "cargo test -p starclock-mode-universe --test mechanic_battle_integration curio_s01 --all-features",
+      `cargo test -p starclock-mode-universe --test mechanic_battle_integration ${s02 ? "curio_s02" : "curio_s01"} --all-features`,
       "cargo test -p starclock-mode-universe --lib curio_activity::tests --all-features",
+      ...(s02 ? [
+        "cargo test -p starclock-activity --test random_boundary --all-features",
+        "cargo test -p starclock-mode-universe --test topology_runtime --all-features",
+      ] : []),
       "cargo test -p starclock-mode-universe --all-features",
     ],
     goldens: [evidence(golden)],
@@ -153,7 +177,25 @@ function nativeDecision(id) {
     "11": "Initial keyed Resonance Energy and the ordinary Resonance damage ratio are compiled from the Curio contribution at battle assembly.",
     "110": "A conditional reward-node bypass and the shared checked fragment multiplier express both Gossip clauses.",
     "111": "A Technique ability tag, ordinary DamageBoost and flat pre-multiplier damage stage express both released Technique damage terms.",
+    "112": "A checked Domain-entry settlement grants fragments, evaluates the post-grant threshold and atomically tears down the Curio through ordinary Activity operations.",
+    "113": "Acquisition captures complete fragment hundreds into an immutable generic contribution value and ordinary stat modifiers apply the exact CRIT DMG result.",
+    "118": "An actor selector, TurnStarted trigger and ordinary maximum-HP Heal operation express the complete effect.",
+    "12": "The checked post-battle fragment-gain category composes the exact 175% multiplier with other generic gain modifiers.",
+    "120": "The generic random-option boundary samples count and selected-Path Blessings without replacement and executes ordinary acquisition operations.",
+    "121": "Highest-ATK selection, a permanent mark, HP consumption and a bounded stacking SPD effect are all typed Rule IR.",
+    "122": "Battle assembly counts distinct Path IDs in the immutable Blessing snapshot and lowers one ordinary Break Effect modifier.",
+    "123": "The generic random-option boundary grants one Propagation Blessing and the conditional offer-weight primitive biases later Propagation options.",
   }[stable] ?? "Generic Activity and Rule IR primitives express the assigned Curio state.";
+}
+function fixtureMarker(id) {
+  return {
+    "universe.fixture.curio-tag.critical":
+      "cavity_capture_materializes_exact_critical_damage_fixture",
+    "universe.fixture.curio-tag.healing":
+      "illusory_automaton_heals_the_current_actor_for_twenty_percent_maximum_hp",
+    "universe.fixture.curio-tag.speed":
+      "thalan_toxi_flame_uses_highest_attack_marker_hp_cost_and_five_stack_speed",
+  }[id] ?? "goal07_p3_m11_s02_executes_every_assigned_curio_without_native_handlers";
 }
 function disposition(planned, runtimeDisposition, workbookEvidence) {
   assert(planned, "retained-audit entry is missing");

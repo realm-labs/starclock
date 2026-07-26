@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 3 — Curios |
-| Active batch | `G07-P3-M11-S02` |
-| Next unblocked batch | `G07-P3-M11-S02` |
+| Active batch | `G07-P3-M11-S03` |
+| Next unblocked batch | `G07-P3-M11-S03` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -85,7 +85,14 @@ Silver Coin, Family Ties, Black Hole Trap, Interastral Big Lotto, Doctor's
 Robe, Gossip and Tonic execute through generic Activity transactions, battle
 contributions and Rule IR. The partition adds no native handler; Big Lotto's
 unpublished probability remains an explicit replayable external outcome.
-`G07-P3-M11-S02` (positive, neutral and special Curios) is active.
+Curio S02 is complete: Rubert Empire Mechanical Cogwheel, Cavity System Model,
+Illusory Automaton, Society Ticket, Man-Made Meteorite, Thalan Toxi-Flame,
+The Pinkest Collision and Sealing Wax of Propagation execute through
+transactional Activity boundaries and generic Rule IR. Canonically ordered
+weighted offers use the authoritative Reward RNG stream, acquisition-time
+state is committed atomically, and the partition adds no native handler.
+Sealing Wax's unpublished appearance multiplier is frozen as an explicit
+replaceable x2 project-policy approximation. `G07-P3-M11-S03` is active.
 
 ## Fixed batch ledger
 
@@ -193,6 +200,8 @@ The milestone summary remains here for orientation.
 | 2026-07-26 | Model Abundance prevention and immunity as generic effect guards and recurring Resonance as an auxiliary countdown actor. | Prospective damage policy prevents transient defeat events, guarded negative effects retain ordinary resisted attribution, and mode content enters battle only through immutable catalog definitions. |
 | 2026-07-26 | Use SPD 200 for the Anatta recurring actor as an explicit replaceable numeric approximation. | Released structured/public descriptions specify the recurring action and 30% healing reduction but do not expose its action-order speed; the generic countdown contract remains unchanged when stronger evidence is registered. |
 | 2026-07-26 | Give Path Resonance actions a dedicated semantic tag and expose linked-unit summons as a generic Rule IR event point. | Resonance remains interrupt-legal without impersonating a character Ultimate, while enemy-appearance mechanics observe authored summons without encounter-ID branches. |
+| 2026-07-26 | Advance Standard Universe entry and topology identity to v8 for Curio S02. | Domain-entry fragment effects and conditional weighted reward offers change authoritative state and RNG behavior; v7 replays must fail identity checks rather than silently adopt the new semantics. |
+| 2026-07-26 | Freeze Sealing Wax of Propagation's offer multiplier at x2 as a replaceable project-policy approximation. | Public evidence specifies an increased appearance rate but exposes no exact multiplier; the approximation is recorded without weakening the mechanic or deterministic selection contract. |
 
 ## Terminal record
 

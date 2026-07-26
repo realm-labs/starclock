@@ -1,7 +1,9 @@
 //! Spatial-free Standard Universe topology, room and encounter compilation.
 mod reward_program;
+mod route_program;
 
 use self::reward_program::node_program_id;
+use self::route_program::compile_route_program;
 use std::sync::Arc;
 
 use starclock_activity::{
@@ -30,16 +32,16 @@ use crate::{
     path_runtime::{FormationSelectionBindings, PathRuntimeCatalog},
     service_interaction::ServiceInteractionRuntimeCatalog,
     topology_identity::{
-        content_option, engage_option, exit_option, formation_option, formation_skip_option,
-        interaction_option, member_option, occurrence_choice_option, path_option, room_option,
-        route_option, service_interaction_option, topology_option,
+        blessing_option, content_option, engage_option, exit_option, formation_option,
+        formation_skip_option, interaction_option, member_option, occurrence_choice_option,
+        path_option, room_option, route_option, service_interaction_option, topology_option,
     },
     topology_reward::compile_blessing_reward,
     topology_service::{compile_room_services, option_condition as service_option_condition},
     topology_support::{domain_logical_scopes, exact_weight, occurrence_for_source, resolve_rooms},
 };
 
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v7";
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v8";
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 
 const PATH_NODE: u32 = 1;
@@ -638,6 +640,12 @@ fn compile_programs(
     let mut random_checkpoints = Vec::new();
     let mut random_offers = Vec::new();
     let mut encounter_options = Vec::new();
+    let propagation_path = catalog
+        .paths()
+        .iter()
+        .find(|path| path.stable_key() == "universe.path.propagation")
+        .map(|path| path.id())
+        .ok_or(UniverseTopologyCompileError::InvalidBlessingRuntime)?;
     let mut interactions = Vec::new();
     let blessing_eligibility = BlessingOfferEligibility::fully_unlocked(vec![1, 2, 3])
         .map_err(|_| UniverseTopologyCompileError::InvalidBlessingRuntime)?;
@@ -897,6 +905,14 @@ fn compile_programs(
             blessing_runtime,
             &eligible_blessings,
         )?;
+        let propagation_options = eligible_blessings
+            .iter()
+            .filter(|blessing| blessing.path() == propagation_path)
+            .map(|blessing| blessing_option(source, blessing.blessing()))
+            .collect::<Vec<_>>();
+        // The public Curio text specifies an increased appearance rate but no
+        // numeric multiplier. Standard Universe v1 freezes the explicit x2
+        // project policy until stronger public evidence is available.
         let random_offer = ActivityRandomOffer::new(
             hub.reward_node,
             ActivityRngLabel::Reward,
@@ -911,7 +927,13 @@ fn compile_programs(
             1,
         )
         .ok_or(UniverseTopologyCompileError::InvalidProgram)?
-        .with_inactive_condition(crate::curio_activity::gossip_condition(curio_bindings));
+        .with_inactive_condition(crate::curio_activity::gossip_condition(curio_bindings))
+        .with_conditional_weight_multiplier(
+            crate::curio_activity::propagation_sealing_wax_condition(curio_bindings),
+            propagation_options,
+            2,
+        )
+        .ok_or(UniverseTopologyCompileError::InvalidProgram)?;
         random_offers.push(random_offer);
         programs.push(reward_program::reward_node_program_id(
             hub.reward_node,
@@ -944,6 +966,7 @@ fn compile_programs(
             hub_clear_slot,
             topology_edges,
             exit_edges,
+            curio_bindings,
         )?);
     }
     encounter_options.sort_by_key(|item| item.option);
@@ -954,53 +977,6 @@ fn compile_programs(
         encounter_options,
         interactions,
     })
-}
-
-fn compile_route_program(
-    hub: &DomainHubDefinition,
-    hub_clear_slot: ActivitySlotId,
-    topology_edges: &[(TopologyNodeId, TopologyNodeId, ActivityEdgeId)],
-    exit_edges: &[(TopologyNodeId, ActivityEdgeId)],
-) -> Result<GraphActivityNodeProgram, UniverseTopologyCompileError> {
-    let cleared = ActivityCondition::Equal(
-        ActivityExpression::CounterValue {
-            slot: hub_clear_slot,
-            key: u64::from(hub.source_node.get()),
-        },
-        ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
-    );
-    let mut options = Vec::new();
-    for (priority, route) in hub.routes.iter().enumerate() {
-        let edge = match route.target {
-            Some(target) => topology_edges
-                .iter()
-                .find(|(source, candidate, _)| *source == hub.source_node && *candidate == target)
-                .map(|(_, _, edge)| *edge),
-            None => exit_edges
-                .iter()
-                .find(|(source, _)| *source == hub.source_node)
-                .map(|(_, edge)| *edge),
-        }
-        .ok_or(UniverseTopologyCompileError::InvalidGraph)?;
-        let mut operations = vec![ActivityOperation::Traverse(edge)];
-        if route.target.is_none() {
-            operations.push(ActivityOperation::Terminal(
-                ActivityTerminalOutcome::Completed,
-            ));
-        }
-        options.push(ActivityOptionDefinition::new(
-            route.option,
-            priority as i32,
-            cleared.clone(),
-            operations,
-        ));
-    }
-    node_program_id(
-        hub.route_node,
-        ROUTE_PROGRAM_OFFSET + hub.source_node.get(),
-        ActivityDecisionKind::Route,
-        options,
-    )
 }
 
 fn terminal_nodes() -> Result<Vec<ActivityNodeDefinition>, UniverseTopologyCompileError> {

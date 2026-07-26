@@ -15,7 +15,9 @@ const DEFERRED_EFFECT_KEY_BASE: u64 = 1 << 63;
 const SIX_DECIMAL_SCALE: i128 = 1_000_000;
 pub(crate) const DESTROYED_CURIO_COUNT_KEY: u64 = u64::MAX - 1;
 pub(crate) const DIMENSION_REWARD_PENDING_KEY: u64 = u64::MAX - 2;
+pub(crate) const CAVITY_CRITICAL_STACK_KEY: u64 = u64::MAX - 3;
 pub(crate) const GOSSIP_CURIO_CONTENT: u64 = 8;
+pub(crate) const SOCIETY_TICKET_CURIO_CONTENT: u64 = 14;
 
 /// Checked Activity projection for one recorded Curio event.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -57,6 +59,7 @@ pub(crate) struct CurioActivityRecord {
     initial_state: CurioStateId,
     initial_charges: u8,
     acquisition_fragment_divisor: Option<i64>,
+    acquisition_fragment_stack_divisor: Option<i64>,
 }
 
 impl CurioActivityRecord {
@@ -71,7 +74,13 @@ impl CurioActivityRecord {
             initial_state,
             initial_charges,
             acquisition_fragment_divisor,
+            acquisition_fragment_stack_divisor: None,
         }
+    }
+
+    pub(crate) const fn with_fragment_stack_capture(mut self, divisor: i64) -> Self {
+        self.acquisition_fragment_stack_divisor = Some(divisor);
+        self
     }
 
     pub(crate) const fn id(self) -> CurioId {
@@ -88,6 +97,10 @@ impl CurioActivityRecord {
 
     pub(crate) const fn acquisition_fragment_divisor(self) -> Option<i64> {
         self.acquisition_fragment_divisor
+    }
+
+    pub(crate) const fn acquisition_fragment_stack_divisor(self) -> Option<i64> {
+        self.acquisition_fragment_stack_divisor
     }
 }
 
@@ -107,6 +120,10 @@ pub(crate) fn compile_records(
             initial_charges: state.maximum_charges().unwrap_or(0),
             acquisition_fragment_divisor: match state.source_effect_id() {
                 "74" => Some(2),
+                _ => None,
+            },
+            acquisition_fragment_stack_divisor: match state.source_effect_id() {
+                "85" => Some(100),
                 _ => None,
             },
         });
@@ -166,6 +183,20 @@ pub(crate) fn acquisition_operations(
             ),
         ));
     }
+    if let Some(divisor) = record.acquisition_fragment_stack_divisor {
+        operations.push(ActivityOperation::AddCounter {
+            slot: bindings.event_slot,
+            key: CAVITY_CRITICAL_STACK_KEY,
+            delta: ActivityExpression::Divide(
+                Box::new(ActivityExpression::Slot(bindings.fragments_slot)),
+                Box::new(integer(divisor)),
+            ),
+        });
+        operations.push(ActivityOperation::SetSlot {
+            slot: bindings.fragments_slot,
+            value: integer(0),
+        });
+    }
     operations.push(ActivityOperation::AddCounter {
         slot: bindings.event_slot,
         key: event_key(record.id, CurioEvent::Acquired),
@@ -185,6 +216,16 @@ pub(crate) fn destroyed_curio_count(value: &ActivityValue) -> Option<u32> {
         .or(Some(0))
 }
 
+pub(crate) fn cavity_critical_stacks(value: &ActivityValue) -> Option<i64> {
+    let ActivityValue::BoundedCounterMap(entries) = value else {
+        return None;
+    };
+    entries
+        .iter()
+        .find(|(key, _)| *key == CAVITY_CRITICAL_STACK_KEY)
+        .map_or(Some(0), |(_, value)| (*value >= 0).then_some(*value))
+}
+
 pub(crate) fn fragment_gain(
     bindings: CurioActivityBindings,
     amount: ActivityExpression,
@@ -199,6 +240,46 @@ pub(crate) fn fragment_gain(
     ActivityOperation::AddToSlot {
         slot: bindings.fragments_slot,
         delta: ActivityExpression::Multiply(Box::new(amount), Box::new(multiplier)),
+    }
+}
+
+/// Applies modifiers that are explicitly limited to post-battle fragment
+/// rewards. Gossip first doubles every fragment gain; Society Ticket then
+/// scales only this reward category by 175%, with fixed-point-free integer
+/// arithmetic and the Activity transaction's checked overflow behavior.
+pub(crate) fn battle_fragment_gain(
+    bindings: CurioActivityBindings,
+    amount: ActivityExpression,
+) -> ActivityOperation {
+    let gossip = ActivityExpression::Add(
+        Box::new(integer(1)),
+        Box::new(ActivityExpression::InventoryCount {
+            inventory: bindings.inventory,
+            content: GOSSIP_CURIO_CONTENT,
+        }),
+    );
+    let society_quarters = ActivityExpression::Add(
+        Box::new(integer(4)),
+        Box::new(ActivityExpression::Multiply(
+            Box::new(ActivityExpression::InventoryCount {
+                inventory: bindings.inventory,
+                content: SOCIETY_TICKET_CURIO_CONTENT,
+            }),
+            Box::new(integer(3)),
+        )),
+    );
+    ActivityOperation::AddToSlot {
+        slot: bindings.fragments_slot,
+        delta: ActivityExpression::Divide(
+            Box::new(ActivityExpression::Multiply(
+                Box::new(ActivityExpression::Multiply(
+                    Box::new(amount),
+                    Box::new(gossip),
+                )),
+                Box::new(society_quarters),
+            )),
+            Box::new(integer(4)),
+        ),
     }
 }
 
@@ -220,6 +301,51 @@ pub(crate) fn dimension_reward_condition(bindings: CurioActivityBindings) -> Act
 
 pub(crate) fn gossip_condition(bindings: CurioActivityBindings) -> ActivityCondition {
     owned(bindings.inventory, 110)
+}
+
+pub(crate) fn cogwheel_condition(bindings: CurioActivityBindings) -> ActivityCondition {
+    owned(bindings.inventory, 10)
+}
+
+pub(crate) fn propagation_sealing_wax_condition(
+    bindings: CurioActivityBindings,
+) -> ActivityCondition {
+    owned(bindings.inventory, 18)
+}
+
+pub(crate) fn cogwheel_domain_entry_settlement(
+    bindings: CurioActivityBindings,
+    finish: &[ActivityOperation],
+) -> Vec<ActivityOperation> {
+    let id = CurioId::new(10).expect("Cogwheel Curio ID is non-zero");
+    let mut operations = vec![
+        fragment_gain(bindings, integer(50)),
+        ActivityOperation::AddCounter {
+            slot: bindings.event_slot,
+            key: event_key(id, CurioEvent::DomainEntered),
+            delta: integer(1),
+        },
+    ];
+    let mut destroy = teardown_operations(id, bindings);
+    destroy.push(ActivityOperation::AddCounter {
+        slot: bindings.event_slot,
+        key: DESTROYED_CURIO_COUNT_KEY,
+        delta: integer(1),
+    });
+    destroy.push(ActivityOperation::SetSlot {
+        slot: bindings.fragments_slot,
+        value: integer(0),
+    });
+    destroy.extend_from_slice(finish);
+    operations.push(ActivityOperation::Conditional {
+        condition: ActivityCondition::LessThan(
+            integer(500),
+            ActivityExpression::Slot(bindings.fragments_slot),
+        ),
+        if_true: destroy.into_boxed_slice(),
+        if_false: finish.to_vec().into_boxed_slice(),
+    });
+    operations
 }
 
 pub(crate) fn dimension_reward_settlement(
@@ -371,7 +497,11 @@ pub(crate) fn lower_effects(
                 let amount = amount_per_ally
                     .checked_mul(u32::from(*allies))
                     .ok_or(CurioActivityProjectionError::Arithmetic)?;
-                operations.push(fragment_gain(bindings, integer(i64::from(amount))));
+                operations.push(if event == CurioEvent::BattleWon {
+                    battle_fragment_gain(bindings, integer(i64::from(amount)))
+                } else {
+                    fragment_gain(bindings, integer(i64::from(amount)))
+                });
                 immediate_effects = immediate_effects.saturating_add(1);
             }
             CurioEffect::GrantFragmentsFromCurrent { ratio } => {
@@ -490,8 +620,49 @@ mod tests {
 
     #[test]
     fn black_hole_trap_counts_full_hp_allies_and_uses_the_gossip_multiplier() {
-        assert_eq!(settle_black_hole(false), 140);
-        assert_eq!(settle_black_hole(true), 180);
+        assert_eq!(settle_black_hole(false, false), 140);
+        assert_eq!(settle_black_hole(true, false), 180);
+        assert_eq!(settle_black_hole(false, true), 170);
+        assert_eq!(settle_black_hole(true, true), 240);
+    }
+
+    #[test]
+    fn cavity_acquisition_spends_all_fragments_and_captures_complete_hundreds() {
+        let (definition, graph, bindings) = activity_fixture(250);
+        let program = ActivityProgramDefinition::new(
+            ActivityProgramId::new(15).unwrap(),
+            acquisition_operations(
+                CurioActivityRecord::new(
+                    CurioId::new(11).unwrap(),
+                    CurioStateId::new(1).unwrap(),
+                    0,
+                    None,
+                )
+                .with_fragment_stack_capture(100),
+                bindings,
+            ),
+        )
+        .unwrap();
+        program.validate_against(&definition, &graph).unwrap();
+        let mut state = ActivityTransactionState::new(definition, graph.entry());
+        apply(&mut state, &program, &graph);
+        assert_eq!(
+            state.slot(bindings.fragments_slot),
+            Some(&ActivityValue::BoundedInteger(0))
+        );
+        assert!(matches!(
+            state.slot(bindings.event_slot),
+            Some(ActivityValue::BoundedCounterMap(values))
+                if values.iter().any(|(key, count)| {
+                    *key == CAVITY_CRITICAL_STACK_KEY && *count == 2
+                })
+        ));
+    }
+
+    #[test]
+    fn cogwheel_domain_entry_is_atomic_on_both_threshold_sides() {
+        assert_eq!(settle_cogwheel_domain(400), (450, true, 0));
+        assert_eq!(settle_cogwheel_domain(460), (0, false, 1));
     }
 
     #[test]
@@ -690,7 +861,7 @@ mod tests {
         }
     }
 
-    fn settle_black_hole(with_gossip: bool) -> i64 {
+    fn settle_black_hole(with_gossip: bool, with_society: bool) -> i64 {
         let fragments = ActivitySlotId::new(1).unwrap();
         let events = ActivitySlotId::new(2).unwrap();
         let inventory = ActivityInventoryId::new(1).unwrap();
@@ -740,6 +911,13 @@ mod tests {
                 count: integer(1),
             });
         }
+        if with_society {
+            operations.push(ActivityOperation::AddInventory {
+                inventory,
+                content: SOCIETY_TICKET_CURIO_CONTENT,
+                count: integer(1),
+            });
+        }
         operations.extend_from_slice(projection.operations());
         let program =
             ActivityProgramDefinition::new(ActivityProgramId::new(14).unwrap(), operations)
@@ -751,6 +929,104 @@ mod tests {
             Some(ActivityValue::BoundedInteger(value)) => *value,
             _ => panic!("fragment slot"),
         }
+    }
+
+    fn settle_cogwheel_domain(initial_fragments: i64) -> (i64, bool, i64) {
+        let (definition, graph, bindings) = activity_fixture(initial_fragments);
+        let mut operations = acquisition_operations(
+            CurioActivityRecord::new(
+                CurioId::new(10).unwrap(),
+                CurioStateId::new(1).unwrap(),
+                0,
+                None,
+            ),
+            bindings,
+        );
+        operations.extend(cogwheel_domain_entry_settlement(bindings, &[]));
+        let program =
+            ActivityProgramDefinition::new(ActivityProgramId::new(16).unwrap(), operations)
+                .unwrap();
+        program.validate_against(&definition, &graph).unwrap();
+        let ownership_check = ActivityProgramDefinition::new(
+            ActivityProgramId::new(17).unwrap(),
+            vec![ActivityOperation::Require(cogwheel_condition(bindings))],
+        )
+        .unwrap();
+        ownership_check
+            .validate_against(&definition, &graph)
+            .unwrap();
+        let mut state = ActivityTransactionState::new(definition, graph.entry());
+        apply(&mut state, &program, &graph);
+        let fragments = match state.slot(bindings.fragments_slot) {
+            Some(ActivityValue::BoundedInteger(value)) => *value,
+            _ => panic!("fragment slot"),
+        };
+        let owned = matches!(
+            state.apply_program(
+                &ownership_check,
+                ActivityCause::new(
+                    state.command_sequence().saturating_add(1),
+                    ownership_check.id(),
+                    graph.entry(),
+                )
+                .unwrap(),
+                &graph,
+            ),
+            ActivityTransactionOutcome::Committed(_)
+        );
+        let destroyed = state
+            .slot(bindings.event_slot)
+            .and_then(destroyed_curio_count)
+            .map(i64::from)
+            .unwrap_or(0);
+        (fragments, owned, destroyed)
+    }
+
+    fn activity_fixture(
+        initial_fragments: i64,
+    ) -> (
+        ActivityStateDefinition,
+        ActivityGraphDefinition,
+        CurioActivityBindings,
+    ) {
+        let fragments = ActivitySlotId::new(1).unwrap();
+        let states = ActivitySlotId::new(2).unwrap();
+        let charges = ActivitySlotId::new(3).unwrap();
+        let events = ActivitySlotId::new(4).unwrap();
+        let inventory = ActivityInventoryId::new(1).unwrap();
+        let definition = ActivityStateDefinition::new(
+            vec![
+                integer_slot(fragments, initial_fragments, 0, i64::from(u32::MAX), 1),
+                empty_counter_slot(states, 2),
+                empty_counter_slot(charges, 3),
+                empty_counter_slot(events, 4),
+            ],
+            vec![
+                ActivityInventoryDefinition::new(
+                    inventory,
+                    ActivityScope::Activity,
+                    64,
+                    1,
+                    SlotCarryPolicy::CarryExact,
+                    ActivityStateVisibility::Private,
+                    ActivityStateSource::new(5).unwrap(),
+                )
+                .unwrap(),
+            ],
+            vec![],
+        )
+        .unwrap();
+        (
+            definition,
+            graph(),
+            CurioActivityBindings {
+                inventory,
+                state_slot: states,
+                charge_slot: charges,
+                event_slot: events,
+                fragments_slot: fragments,
+            },
+        )
     }
 
     fn apply(

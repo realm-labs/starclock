@@ -133,7 +133,7 @@ fn damage_modifiers(
     .collect()
 }
 
-fn permanent_team_modifiers(
+pub(super) fn permanent_team_modifiers(
     binding: &UniverseBattleRuleBinding,
     identity: u32,
     modifiers: Vec<ModifierDefinition>,

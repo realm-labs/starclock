@@ -4,6 +4,7 @@ use sha2::{Digest, Sha256};
 
 mod condition;
 mod decision;
+mod extension;
 mod participant_carry;
 
 use crate::{

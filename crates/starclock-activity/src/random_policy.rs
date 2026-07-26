@@ -27,6 +27,8 @@ pub struct ActivityRandomOffer {
     pub(crate) reroll_counter: Option<(ActivitySlotId, u32)>,
     pub(crate) maximum_options_reduction: Option<(ActivityCondition, u16)>,
     pub(crate) inactive_condition: Option<ActivityCondition>,
+    pub(crate) conditional_weight_multipliers:
+        Vec<(ActivityCondition, Box<[ActivityOptionId]>, u64)>,
 }
 
 impl ActivityRandomOffer {
@@ -59,6 +61,7 @@ impl ActivityRandomOffer {
             reroll_counter,
             maximum_options_reduction: None,
             inactive_condition: None,
+            conditional_weight_multipliers: Vec::new(),
         })
     }
 
@@ -82,6 +85,36 @@ impl ActivityRandomOffer {
     pub fn with_inactive_condition(mut self, condition: ActivityCondition) -> Self {
         self.inactive_condition = Some(condition);
         self
+    }
+
+    /// Multiplies the authored weights of one stable option subset while a
+    /// runtime condition is true. Multiple modifiers compose in insertion
+    /// order through checked integer multiplication.
+    #[must_use]
+    pub fn with_conditional_weight_multiplier(
+        mut self,
+        condition: ActivityCondition,
+        mut options: Vec<ActivityOptionId>,
+        multiplier: u64,
+    ) -> Option<Self> {
+        options.sort_unstable();
+        if multiplier == 0
+            || options.is_empty()
+            || options.windows(2).any(|pair| pair[0] == pair[1])
+            || options.iter().any(|option| {
+                self.weights
+                    .binary_search_by_key(option, |item| item.0)
+                    .is_err()
+            })
+        {
+            return None;
+        }
+        self.conditional_weight_multipliers.push((
+            condition,
+            options.into_boxed_slice(),
+            multiplier,
+        ));
+        Some(self)
     }
     #[must_use]
     pub const fn node(&self) -> NodeId {
@@ -116,6 +149,13 @@ impl ActivityRandomOffer {
     #[must_use]
     pub const fn inactive_condition(&self) -> Option<&ActivityCondition> {
         self.inactive_condition.as_ref()
+    }
+
+    #[must_use]
+    pub fn conditional_weight_multipliers(
+        &self,
+    ) -> &[(ActivityCondition, Box<[ActivityOptionId]>, u64)] {
+        &self.conditional_weight_multipliers
     }
 }
 
