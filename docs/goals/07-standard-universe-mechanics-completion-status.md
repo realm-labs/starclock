@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M14-S03` |
-| Next unblocked batch | `G07-P4-M14-S03` |
+| Active batch | `G07-P4-M14-S04` |
+| Next unblocked batch | `G07-P4-M14-S04` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -157,10 +157,16 @@ semantics. The production entry graph offers ordinary IDs 1–3 or enhanced
 IDs 4–6, composes configured initial currency with Ability Tree
 contributions, and records the choice across Activity, dynamic battles and
 replay v3. No native handler or numeric approximation was added.
-`G07-P4-M14-S03` is active.
+Service S03 is complete. Its 16 Divergent Universe Trailblaze Bonus rows,
+source IDs 403–418, retain exact formal ownership while closing as
+`ProfileExcluded` in the frozen Goal 07 denominator. Exhaustive definition
+and compiled-interaction tests prove that expansion-owned rows never enter a
+Standard offer pool and fail before payload validation, RNG or authoritative
+mutation. No expansion behavior, native handler or numeric approximation was
+added. `G07-P4-M14-S04` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 50 completed partitions use scoped Excel/Sora semantic
+model. The first 51 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
@@ -225,11 +231,11 @@ The milestone summary remains here for orientation.
 | `G07-P2-M03` | `Complete` | 58 / 59 | Remembrance complete. |
 | `G07-P2-M04` | `Complete` | 58 / 59 | Nihility complete. |
 | `G07-P2-M05` | `Complete` | 58 / 59 | Abundance complete. |
-| `G07-P2-M06` | `Expanded` | 58 / 59 | Hunt complete. |
-| `G07-P2-M07` | `Expanded` | 58 / 59 | Destruction complete. |
-| `G07-P2-M08` | `Expanded` | 58 / 59 | Elation complete. |
-| `G07-P2-M09` | `Expanded` | 58 / 59 | Propagation complete. |
-| `G07-P2-M10` | `Expanded` | 58 / 59 | Erudition complete. |
+| `G07-P2-M06` | `Complete` | 58 / 59 | Hunt complete. |
+| `G07-P2-M07` | `Complete` | 58 / 59 | Destruction complete. |
+| `G07-P2-M08` | `Complete` | 58 / 59 | Elation complete. |
+| `G07-P2-M09` | `Complete` | 58 / 59 | Propagation complete. |
+| `G07-P2-M10` | `Complete` | 58 / 59 | Erudition complete. |
 | `G07-P3-M11` | `Complete` | 86 / 86 | Positive/neutral/special Curios complete. |
 | `G07-P3-M12` | `Complete` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
 | `G07-P4-M13` | `Expanded` | 0 / 447 | Occurrence choices and effects complete. |

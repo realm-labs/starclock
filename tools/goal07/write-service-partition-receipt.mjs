@@ -15,7 +15,14 @@ assert(args.every((value, offset) =>
   value === "--partition" || value === "--write" || offset === index + 1),
 "unsupported argument");
 const partitionId = args[index + 1];
-assert(["G07-P4-M14-S01", "G07-P4-M14-S02"].includes(partitionId),
+assert([
+  "G07-P4-M14-S01",
+  "G07-P4-M14-S02",
+  "G07-P4-M14-S03",
+  "G07-P4-M14-S04",
+  "G07-P4-M14-S05",
+  "G07-P4-M14-S06",
+].includes(partitionId),
   `${partitionId}: service receipt profile is not implemented`);
 
 const manifest = json(

@@ -187,16 +187,29 @@ fn all_shop_and_trailblaze_rows_retain_authored_external_bindings() {
             effect: TrailblazeBonusEffect::AddFragments { amount: 100 },
         } if offer_pool_key.as_ref() == "universe.pool.trailblaze-bonuses"
     ));
-    let excluded = runtime
-        .execute(service("universe.service.trailblaze-bonus.101"))
-        .unwrap();
-    assert_eq!(
-        excluded.action(),
-        &ServiceAction::ProfileExcluded {
-            owner: ServiceProfileOwner::SwarmDisaster,
-            source_event_id: 1010,
-        }
-    );
+    for suffix in (101_u32..=106)
+        .chain(201..=205)
+        .chain(401..=432)
+        .chain(501..=530)
+    {
+        let key = format!("universe.service.trailblaze-bonus.{suffix}");
+        let definition = catalog().service(service(&key)).unwrap();
+        let owner = match suffix {
+            101..=106 => ServiceProfileOwner::SwarmDisaster,
+            201..=205 => ServiceProfileOwner::GoldAndGears,
+            401..=432 | 501..=530 => ServiceProfileOwner::DivergentUniverse,
+            _ => unreachable!("closed expansion suffix set"),
+        };
+        assert_eq!(definition.profile_owner(), owner, "{key}");
+        assert_eq!(
+            runtime.execute(definition.id()).unwrap().action(),
+            &ServiceAction::ProfileExcluded {
+                owner,
+                source_event_id: definition.source_event_id().unwrap(),
+            },
+            "{key}"
+        );
+    }
 }
 
 #[test]

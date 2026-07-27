@@ -210,9 +210,11 @@ fn standard_trailblaze_bonuses_execute_exact_activity_effects() {
 #[test]
 fn nonstandard_bonus_profiles_fail_closed_before_payload_or_rng() {
     let compiled = compiled();
-    for suffix in [
-        101_u32, 102, 103, 104, 105, 106, 201, 202, 203, 204, 205, 401, 402,
-    ] {
+    for suffix in (101_u32..=106)
+        .chain(201..=205)
+        .chain(401..=432)
+        .chain(501..=530)
+    {
         let key = format!("universe.service.trailblaze-bonus.{suffix}");
         assert_eq!(
             compiled
