@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
-| Active phase | Phase 3 — Curios |
-| Active batch | `G07-P3-M12-S03` |
-| Next unblocked batch | `G07-P3-M12-S03` |
+| Active phase | Phase 4 — Services and occurrences |
+| Active batch | `G07-P4-M14-S01` |
+| Next unblocked batch | `G07-P4-M14-S01` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -132,7 +132,14 @@ Elegant, Mysterious and Recursive Code, Star Bait, Insect Web and I.O.U.
 Dispenser execute exact HP, damage, action-gauge, Skill Point, Parasitized and
 five-battle fragment-debt semantics. The corrected fixed Code values are
 authoritative in Excel/Sora, and all ten native candidates close as
-`IrSufficient`. `G07-P3-M12-S03` is active.
+`IrSufficient`. Negative Curio S03 is complete: Divination offer-width
+reduction composes with Dimension Dice, Perpetual Motion debits 5% current
+fragments on domain entry, IPC inflates Blessing service costs by 25%, Black
+Forest applies one seeded five-turn Aggro effect and Mechanical spends two
+Skill Points without underflow. All five native candidates close as
+`IrSufficient`; Black Forest's unpublished Aggro scalar is isolated as one
+replaceable +500% base-Aggro project policy. All three negative Curio
+partitions and Phase 3 Curios are complete. `G07-P4-M14-S01` is active.
 
 ## Fixed batch ledger
 
@@ -197,7 +204,7 @@ The milestone summary remains here for orientation.
 | `G07-P2-M09` | `Expanded` | 58 / 59 | Propagation complete. |
 | `G07-P2-M10` | `Expanded` | 58 / 59 | Erudition complete. |
 | `G07-P3-M11` | `Complete` | 86 / 86 | Positive/neutral/special Curios complete. |
-| `G07-P3-M12` | `Expanded` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
+| `G07-P3-M12` | `Complete` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
 | `G07-P4-M13` | `Expanded` | 0 / 447 | Occurrence choices and effects complete. |
 | `G07-P4-M14` | `Expanded` | 94 / 94 | Services, shops, roster and interactables complete. |
 | `G07-P5-M15` | `Expanded` | 0 / 959 | Enemy, encounter, World/difficulty and carry complete. |
@@ -242,6 +249,8 @@ The milestone summary remains here for orientation.
 | 2026-07-26 | Give Path Resonance actions a dedicated semantic tag and expose linked-unit summons as a generic Rule IR event point. | Resonance remains interrupt-legal without impersonating a character Ultimate, while enemy-appearance mechanics observe authored summons without encounter-ID branches. |
 | 2026-07-26 | Advance Standard Universe entry and topology identity to v8 for Curio S02. | Domain-entry fragment effects and conditional weighted reward offers change authoritative state and RNG behavior; v7 replays must fail identity checks rather than silently adopt the new semantics. |
 | 2026-07-26 | Freeze Sealing Wax of Propagation's offer multiplier at x2 as a replaceable project-policy approximation. | Public evidence specifies an increased appearance rate but exposes no exact multiplier; the approximation is recorded without weakening the mechanic or deterministic selection contract. |
+| 2026-07-27 | Advance Standard Universe entry/topology identity to v15 and service interaction to v5 for Negative Curio S03. | Composed offer-width reductions, domain-entry fragment loss and IPC Blessing-cost inflation alter authoritative state, RNG derivation and payload bytes; old identities must reject the new behavior. |
+| 2026-07-27 | Freeze Black Forest Cuckoo Clock at +500% base Aggro as a replaceable project-policy approximation. | Public descriptions specify one random ally, five turns and a greatly increased attack likelihood but publish no coefficient; the isolated Rule IR constant can be replaced without changing lifecycle semantics. |
 
 ## Terminal record
 

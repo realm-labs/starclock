@@ -40,7 +40,7 @@ fn candidate_filter_and_selected_marker_are_atomic_deterministic_and_reroll_safe
 
 fn assert_offer_and_marker(activity: &GraphActivity) {
     let visible = offered(activity);
-    assert_eq!(visible.len(), 2);
+    assert_eq!(visible.len(), 1);
     assert!(visible.iter().all(|id| (2..=4).contains(&id.get())));
     let marked = markers(activity);
     assert_eq!(marked.len(), 1);
@@ -133,10 +133,14 @@ fn definition() -> Arc<GraphActivityDefinition> {
         node(1),
         ActivityRngLabel::Reward,
         101,
-        2,
+        3,
         (1_u64..=5).map(|raw| (option(raw), 1)).collect(),
         Some((slot(1), 2)),
     )
+    .unwrap()
+    .with_maximum_options_reduction(always(), 1)
+    .unwrap()
+    .with_maximum_options_reduction(always(), 1)
     .unwrap()
     .with_conditional_candidate_filter(always(), vec![option(2), option(3), option(4)])
     .unwrap()

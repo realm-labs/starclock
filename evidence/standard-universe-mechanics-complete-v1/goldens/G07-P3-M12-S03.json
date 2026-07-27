@@ -1,0 +1,57 @@
+{
+  "schema_revision": "starclock.goal07-curio-partition-golden.v1",
+  "partition_id": "G07-P3-M12-S03",
+  "record_ids": [
+    "universe.curio.65",
+    "universe.curio.65.state.active",
+    "universe.curio.66",
+    "universe.curio.66.state.active",
+    "universe.curio.67",
+    "universe.curio.67.state.active",
+    "universe.curio.70",
+    "universe.curio.70.state.active",
+    "universe.curio.71",
+    "universe.curio.71.state.active"
+  ],
+  "rule_ids": [
+    "universe.rule.curio.65",
+    "universe.rule.curio.65.state.active",
+    "universe.rule.curio.66",
+    "universe.rule.curio.66.state.active",
+    "universe.rule.curio.67",
+    "universe.rule.curio.67.state.active",
+    "universe.rule.curio.70",
+    "universe.rule.curio.70.state.active",
+    "universe.rule.curio.71",
+    "universe.rule.curio.71.state.active"
+  ],
+  "fixture_ids": [],
+  "workbooks": {
+    "Universe.xlsx": "0d6de9931d721dc3ce93542f132e6abb4364287ba5c5b2361436d3b1b879f939",
+    "UniverseBindings.xlsx": "c6dad348b981f12fbc88681d0369e1ad68be834b1bc4180b91dfa9d0674f9d9e",
+    "UniverseEvidence.xlsx": "be3ab26158150dda1261f6d58f5520704341b3e09a469202f7a9e651ade95065"
+  },
+  "sora_bundle_sha256": "3275e9b02c089e6f97ac952569083a9b95f9bd6315ac5800663a562f83f348ef",
+  "tables": {
+    "UniverseCurio": {
+      "rows": 5,
+      "semantic_sha256": "33c860c80ffab25c16338f2c2489ec1ae185a6aa3699a750380e247e6ac40599"
+    },
+    "UniverseCurioState": {
+      "rows": 5,
+      "semantic_sha256": "dbd7624aee0f1017cd6a637adb88e160a5473ccccc1b65719d0ed5857a0f6272"
+    },
+    "UniverseCurioParameter": {
+      "rows": 6,
+      "semantic_sha256": "19491721e78232dd7fc44c53bb2a0d9180b7e004fd541fdc263c4587b7051532"
+    },
+    "UniverseMechanicRule": {
+      "rows": 10,
+      "semantic_sha256": "d20ca185071b43b7093a8653ca761d18f76ebf58d59c9b060114c3b77a2f9227"
+    },
+    "UniverseReviewFixture": {
+      "rows": 0,
+      "semantic_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  }
+}

@@ -14,9 +14,9 @@ assert(args.every((value, offset) =>
   value === "--partition" || value === "--write" || offset === index + 1),
 "unsupported argument");
 const partitionId = args[index + 1];
-assert(["G07-P3-M12-S01", "G07-P3-M12-S02"].includes(partitionId),
+assert(["G07-P3-M12-S01", "G07-P3-M12-S02", "G07-P3-M12-S03"].includes(partitionId),
   `${partitionId}: negative Curio receipt profile is not implemented`);
-const slice = partitionId.endsWith("S01") ? "s01" : "s02";
+const slice = partitionId.slice(-3).toLowerCase();
 
 const manifest = json(
   "content-manifests/standard-universe-mechanics-complete-v1/content-partitions.json",
@@ -39,7 +39,15 @@ const provenanceEvidence = [
   { path: "content-reference/standard-universe-v1/curio-states.json" },
   { path: "content-reference/standard-universe-v1/mechanic-rules.json" },
 ];
-const executionEvidence = [
+const executionEvidence = partitionId.endsWith("S03") ? [
+  { path: "crates/starclock-activity/src/random_policy.rs" },
+  { path: "crates/starclock-mode-universe/src/curio_activity/domain.rs" },
+  { path: "crates/starclock-mode-universe/src/topology/blessing_offer.rs" },
+  { path: "crates/starclock-mode-universe/src/topology/route_program.rs" },
+  { path: "crates/starclock-mode-universe/src/service_interaction.rs" },
+  { path: `crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_${slice}.rs` },
+  { path: `crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_${slice}.rs` },
+] : [
   { path: "crates/starclock-mode-universe/src/curio_activity/negative.rs" },
   { path: "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs" },
   { path: "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs" },
@@ -49,7 +57,9 @@ const executionEvidence = [
 const reviewEvidence = [
   { path: `docs/goal-07-negative-curio-${slice}.md` },
   { path: `crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_${slice}.rs` },
-  { path: "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs" },
+  { path: partitionId.endsWith("S03")
+    ? "crates/starclock-mode-universe/src/curio_activity/domain.rs"
+    : "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs" },
 ];
 
 const receipt = {
@@ -119,13 +129,27 @@ const receipt = {
       rationale:
         "Released evidence confirms a chance for higher-rarity Blessings but publishes no probability. The replay command records and validates the complete replacement mapping.",
     },
+  ] : partitionId.endsWith("S03") ? [
+    {
+      id: "universe.curio.66.major-aggro-ratio",
+      disposition: "ProjectPolicyApproximate",
+      rationale:
+        "Released evidence says the selected character is greatly more likely to be attacked but publishes no scalar. The project freezes +500% base Aggro (x6 total) behind one replaceable Rule IR constant.",
+    },
   ] : [],
   execution: {
     result: "pass",
     commands: [
       `python tools/goal07/author-curio-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify_production_workbooks.mjs .",
-      "cargo test -p starclock-mode-universe --lib runtime::negative_curio_commands::tests --all-features",
+      ...(partitionId.endsWith("S03") ? [
+        "cargo test -p starclock-activity --test random_offer_policy --all-features",
+        "cargo test -p starclock-mode-universe --lib curio_activity::domain::tests --all-features",
+        "cargo test -p starclock-mode-universe --test topology_runtime --all-features",
+        "cargo test -p starclock-mode-universe --test service_interaction_runtime --all-features",
+      ] : [
+        "cargo test -p starclock-mode-universe --lib runtime::negative_curio_commands::tests --all-features",
+      ]),
       `cargo test -p starclock-mode-universe --test mechanic_battle_integration curio_negative_${slice} --all-features`,
       "cargo test -p starclock-mode-universe --all-features",
     ],
@@ -202,6 +226,11 @@ function nativeDecision(id) {
     "57": "Generic post-action action-gauge advancement executes the combat effect; map movement speed is spatial-only and intentionally has no combat projection.",
     "59": "A permanent typed ATK effect, current-HP consumption and deterministic random transfer express Parasitized without Curio-specific resolver logic.",
     "60": "Generic won-battle settlement suppresses five fragment grants, doubles the committed fragment balance and destroys the Curio on the fifth win.",
+    "65": "The generic visible-offer policy composes one active-Curio width reduction with every other authored reduction through checked arithmetic.",
+    "66": "A seeded random ally selector applies one five-turn ordinary Aggro modifier; the unpublished scalar is isolated as a replaceable project policy.",
+    "67": "A checked domain-entry Activity transaction debits floor(current fragments times 5%) before recording the Curio event and traversing.",
+    "70": "Generic service debit payloads apply the exact 125% Blessing enhancement/reset cost multiplier before any independent discount.",
+    "71": "A battle-entry Skill Point operation spends the minimum of two and the current shared balance, preserving a zero floor.",
   }[stable] ?? "Generic Activity and Rule IR primitives express the assigned negative Curio state.";
 }
 

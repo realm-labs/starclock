@@ -19,6 +19,13 @@ pub(crate) fn gold_coin_condition(bindings: CurioActivityBindings) -> ActivityCo
     owned(bindings.inventory, 21)
 }
 
+pub(crate) fn perpetual_motion_condition(bindings: CurioActivityBindings) -> ActivityCondition {
+    super::active_condition(
+        CurioId::new(67).expect("Perpetual Motion Cuckoo Clock ID is non-zero"),
+        bindings,
+    )
+}
+
 pub(crate) fn sealing_wax_condition(
     bindings: CurioActivityBindings,
     content: u64,
@@ -81,4 +88,68 @@ pub(crate) fn cogwheel_domain_entry_settlement(
         if_false: finish.to_vec().into_boxed_slice(),
     });
     operations
+}
+
+pub(crate) fn perpetual_motion_domain_entry_settlement(
+    bindings: CurioActivityBindings,
+    finish: &[ActivityOperation],
+) -> Vec<ActivityOperation> {
+    let id = CurioId::new(67).expect("Perpetual Motion Cuckoo Clock ID is non-zero");
+    vec![
+        ActivityOperation::AddToSlot {
+            slot: bindings.fragments_slot,
+            delta: ActivityExpression::Negate(Box::new(ActivityExpression::Divide(
+                Box::new(ActivityExpression::Multiply(
+                    Box::new(ActivityExpression::Slot(bindings.fragments_slot)),
+                    Box::new(integer(5)),
+                )),
+                Box::new(integer(100)),
+            ))),
+        },
+        ActivityOperation::AddCounter {
+            slot: bindings.event_slot,
+            key: event_key(id, CurioEvent::DomainEntered),
+            delta: integer(1),
+        },
+    ]
+    .into_iter()
+    .chain(finish.iter().cloned())
+    .collect()
+}
+
+#[cfg(test)]
+mod tests {
+    use starclock_activity::{ActivityInventoryId, ActivitySlotId};
+
+    use super::*;
+
+    #[test]
+    fn perpetual_motion_debits_five_percent_before_recording_domain_entry() {
+        let bindings = CurioActivityBindings {
+            inventory: ActivityInventoryId::new(1).unwrap(),
+            state_slot: ActivitySlotId::new(1).unwrap(),
+            charge_slot: ActivitySlotId::new(2).unwrap(),
+            event_slot: ActivitySlotId::new(3).unwrap(),
+            fragments_slot: ActivitySlotId::new(4).unwrap(),
+        };
+        let operations = perpetual_motion_domain_entry_settlement(bindings, &[]);
+        assert_eq!(operations.len(), 2);
+        assert_eq!(
+            operations[0],
+            ActivityOperation::AddToSlot {
+                slot: bindings.fragments_slot,
+                delta: ActivityExpression::Negate(Box::new(ActivityExpression::Divide(
+                    Box::new(ActivityExpression::Multiply(
+                        Box::new(ActivityExpression::Slot(bindings.fragments_slot)),
+                        Box::new(integer(5)),
+                    )),
+                    Box::new(integer(100)),
+                ))),
+            }
+        );
+        assert!(matches!(
+            operations[1],
+            ActivityOperation::AddCounter { slot, .. } if slot == bindings.event_slot
+        ));
+    }
 }

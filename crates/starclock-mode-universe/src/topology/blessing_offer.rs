@@ -16,6 +16,7 @@ const SEALING_WAX_POLICIES: [(&str, u64); 9] = [
 ];
 const FORTUNE_GLUE_CURIO: u32 = 7;
 const BEACON_COLORING_PASTE_CURIO: u32 = 69;
+const DIVINATION_CUCKOO_CLOCK_CURIO: u32 = 65;
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn compile_blessing_offer_policy(
@@ -39,6 +40,15 @@ pub(super) fn compile_blessing_offer_policy(
     .map_err(UniverseTopologyCompileError::RuntimeDefinition)?
     .with_maximum_options_reduction(
         crate::curio_activity::dimension_reward_condition(curio_bindings),
+        1,
+    )
+    .ok_or(UniverseTopologyCompileError::InvalidProgram)?
+    .with_maximum_options_reduction(
+        crate::curio_activity::active_condition(
+            CurioId::new(DIVINATION_CUCKOO_CLOCK_CURIO)
+                .expect("Divination Cuckoo Clock ID is non-zero"),
+            curio_bindings,
+        ),
         1,
     )
     .ok_or(UniverseTopologyCompileError::InvalidProgram)?

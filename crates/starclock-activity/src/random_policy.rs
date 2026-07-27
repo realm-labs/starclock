@@ -25,7 +25,7 @@ pub struct ActivityRandomOffer {
     pub(crate) maximum_options: u16,
     pub(crate) weights: Box<[(ActivityOptionId, u64)]>,
     pub(crate) reroll_counter: Option<(ActivitySlotId, u32)>,
-    pub(crate) maximum_options_reduction: Option<(ActivityCondition, u16)>,
+    pub(crate) maximum_options_reductions: Vec<(ActivityCondition, u16)>,
     pub(crate) inactive_condition: Option<ActivityCondition>,
     pub(crate) conditional_weight_multipliers:
         Vec<(ActivityCondition, Box<[ActivityOptionId]>, u64)>,
@@ -73,7 +73,7 @@ impl ActivityRandomOffer {
             maximum_options,
             weights: weights.into_boxed_slice(),
             reroll_counter,
-            maximum_options_reduction: None,
+            maximum_options_reductions: Vec::new(),
             inactive_condition: None,
             conditional_weight_multipliers: Vec::new(),
             conditional_candidate_filters: Vec::new(),
@@ -89,10 +89,16 @@ impl ActivityRandomOffer {
         condition: ActivityCondition,
         reduction: u16,
     ) -> Option<Self> {
-        if reduction == 0 || reduction >= self.maximum_options {
+        let maximum_reduction = self
+            .maximum_options_reductions
+            .iter()
+            .try_fold(reduction, |total, (_, authored)| {
+                total.checked_add(*authored)
+            });
+        if reduction == 0 || maximum_reduction.is_none_or(|total| total >= self.maximum_options) {
             None
         } else {
-            self.maximum_options_reduction = Some((condition, reduction));
+            self.maximum_options_reductions.push((condition, reduction));
             Some(self)
         }
     }
@@ -219,8 +225,8 @@ impl ActivityRandomOffer {
     }
 
     #[must_use]
-    pub const fn maximum_options_reduction(&self) -> Option<&(ActivityCondition, u16)> {
-        self.maximum_options_reduction.as_ref()
+    pub fn maximum_options_reductions(&self) -> &[(ActivityCondition, u16)] {
+        &self.maximum_options_reductions
     }
 
     #[must_use]

@@ -38,7 +38,7 @@ use starclock_activity::{
     GraphActivityNodeProgram, NodeId, ParticipantLock, SectionId, TerminalOutcome,
 };
 use std::sync::Arc;
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v14";
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v15";
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 
 const PATH_NODE: u32 = 1;

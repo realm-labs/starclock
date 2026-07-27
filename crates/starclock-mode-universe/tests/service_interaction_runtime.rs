@@ -72,7 +72,7 @@ fn all_service_families_compile_to_concrete_checked_payloads() {
     let runtime = compiled.service_interaction_runtime();
     assert_eq!(
         SERVICE_INTERACTION_RUNTIME_REVISION,
-        "standard-universe-service-interaction-runtime-v4"
+        "standard-universe-service-interaction-runtime-v5"
     );
     assert_eq!(runtime.service_count(), 94);
     assert_ne!(runtime.digest(), [0; 32]);
@@ -384,6 +384,87 @@ fn faith_bond_discounts_only_authored_blessing_service_costs() {
             .find(|slot| slot.id() == compiled.cosmic_fragments_slot())
             .map(|slot| slot.value()),
         Some(&ActivityValue::BoundedInteger(expected))
+    );
+}
+
+#[test]
+fn ipc_cuckoo_clock_inflates_authored_blessing_enhancement_cost_by_twenty_five_percent() {
+    let compiled = compiled();
+    let blessing = first_blessing();
+    let interaction = compiled
+        .service_interaction_runtime()
+        .compile_selection(
+            service("universe.service.enhance-blessing"),
+            &ServiceInteractionSelection::EnhanceBlessing(blessing),
+        )
+        .expect("enhancement selection");
+    let raw = interaction.required_fragments().expect("authored cost");
+    let outcome = ActivityExternalOutcomeId::new(90_035).unwrap();
+    let mut activity = harness_with_inventory(
+        &compiled,
+        outcome,
+        interaction.payload(),
+        interaction.random_candidate_count(),
+        1_000,
+        Some(CurioId::new(70).unwrap()),
+        Some(blessing),
+    );
+    let before = activity.player_view();
+    activity
+        .submit_external_outcome(
+            before.state_hash(),
+            before.decision().unwrap().id(),
+            outcome,
+        )
+        .expect("inflated enhancement");
+    let expected = 1_000 - i64::from(raw * 125 / 100);
+    assert_eq!(
+        activity
+            .player_view()
+            .slots()
+            .iter()
+            .find(|slot| slot.id() == compiled.cosmic_fragments_slot())
+            .map(|slot| slot.value()),
+        Some(&ActivityValue::BoundedInteger(expected))
+    );
+}
+
+#[test]
+fn ipc_cuckoo_clock_inflates_the_first_blessing_reset_cost() {
+    let compiled = compiled();
+    let interaction = compiled
+        .service_interaction_runtime()
+        .compile_selection(
+            service("universe.service.reset-blessing-choice"),
+            &ServiceInteractionSelection::Activate,
+        )
+        .expect("reset selection");
+    let outcome = ActivityExternalOutcomeId::new(90_036).unwrap();
+    let mut activity = harness_with_inventory(
+        &compiled,
+        outcome,
+        interaction.payload(),
+        interaction.random_candidate_count(),
+        1_000,
+        Some(CurioId::new(70).unwrap()),
+        None,
+    );
+    let before = activity.player_view();
+    activity
+        .submit_external_outcome(
+            before.state_hash(),
+            before.decision().unwrap().id(),
+            outcome,
+        )
+        .expect("inflated reset");
+    assert_eq!(
+        activity
+            .player_view()
+            .slots()
+            .iter()
+            .find(|slot| slot.id() == compiled.cosmic_fragments_slot())
+            .map(|slot| slot.value()),
+        Some(&ActivityValue::BoundedInteger(963))
     );
 }
 

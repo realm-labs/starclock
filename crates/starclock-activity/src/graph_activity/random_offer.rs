@@ -57,30 +57,24 @@ pub(super) fn restrict_random_offer(
     for option in &offered {
         weights.push(random_offer_weight(state, policy, *option)?);
     }
-    let reduce_options = policy
-        .maximum_options_reduction
-        .as_ref()
-        .map(|(condition, _)| {
+    let reduction = policy.maximum_options_reductions.iter().try_fold(
+        0_u16,
+        |total, (condition, reduction)| {
             state
                 .condition(condition)
                 .map_err(|_| GraphActivityRuntimeError::InvalidRandomOffer)
-        })
-        .transpose()?
-        .unwrap_or(false);
-    let maximum_options = if reduce_options {
-        policy
-            .maximum_options
-            .checked_sub(
-                policy
-                    .maximum_options_reduction
-                    .as_ref()
-                    .expect("reduction condition was evaluated")
-                    .1,
-            )
-            .ok_or(GraphActivityRuntimeError::InvalidRandomOffer)?
-    } else {
-        policy.maximum_options
-    };
+                .and_then(|active| {
+                    total
+                        .checked_add(if active { *reduction } else { 0 })
+                        .ok_or(GraphActivityRuntimeError::InvalidRandomOffer)
+                })
+        },
+    )?;
+    let maximum_options = policy
+        .maximum_options
+        .checked_sub(reduction)
+        .filter(|maximum| *maximum != 0)
+        .ok_or(GraphActivityRuntimeError::InvalidRandomOffer)?;
     let maximum_options = maximum_options.min(
         u16::try_from(offered.len()).map_err(|_| GraphActivityRuntimeError::InvalidRandomOffer)?,
     );

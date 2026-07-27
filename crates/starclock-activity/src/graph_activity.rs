@@ -165,8 +165,10 @@ impl GraphActivityDefinition {
                     return Err(GraphActivityDefinitionError::InvalidRandomOffer);
                 }
             }
-            if let Some((condition, _)) = &offer.maximum_options_reduction
-                && crate::program::condition_type(condition, &state).is_err()
+            if offer
+                .maximum_options_reductions
+                .iter()
+                .any(|(condition, _)| crate::program::condition_type(condition, &state).is_err())
             {
                 return Err(GraphActivityDefinitionError::InvalidRandomOffer);
             }

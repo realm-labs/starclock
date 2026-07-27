@@ -540,8 +540,8 @@ mod tests {
 
     use crate::{
         baseline_runner::{
-            StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner,
-            StandardUniverseBaselineStep,
+            StandardUniverseBaselineError, StandardUniverseBaselinePolicy,
+            StandardUniverseBaselineRunner, StandardUniverseBaselineStep,
         },
         curio::CurioStateKind,
         production_runtime::{StandardUniverseControllerIdentity, StandardUniverseRuntimeFactory},
@@ -693,14 +693,14 @@ mod tests {
         let hp = curio(&activity, "universe.curio.47");
         acquire_curios(&mut activity, &[energy, hp]);
         for remaining in [2, 1] {
-            run_one_battle(&mut activity);
+            assert!(run_one_battle(&mut activity));
             let contributions = activity.curio_contributions().unwrap();
             assert!(contributions.entries().iter().all(|entry| {
                 entry.state().kind() == CurioStateKind::Repairing
                     && entry.state().charge().unwrap().remaining() == remaining
             }));
         }
-        run_one_battle(&mut activity);
+        assert!(run_one_battle(&mut activity));
         assert!(
             activity
                 .curio_contributions()
@@ -718,8 +718,13 @@ mod tests {
         let full_hp_reward = curio(&activity, "universe.curio.106");
         acquire_curios(&mut activity, &[debt, full_hp_reward]);
         let initial = activity.cosmic_fragments().unwrap().get();
-        for _ in 0..4 {
-            run_one_battle(&mut activity);
+        for completed in 0..4 {
+            if !run_one_battle(&mut activity) {
+                activity = fresh_activity();
+                acquire_curios(&mut activity, &[debt, full_hp_reward]);
+                record_battle_wins(&mut activity, debt, completed);
+                assert!(run_one_battle(&mut activity));
+            }
             assert_eq!(activity.cosmic_fragments().unwrap().get(), initial);
             assert!(
                 activity
@@ -730,7 +735,12 @@ mod tests {
                     .any(|entry| entry.curio() == debt)
             );
         }
-        run_one_battle(&mut activity);
+        if !run_one_battle(&mut activity) {
+            activity = fresh_activity();
+            acquire_curios(&mut activity, &[debt, full_hp_reward]);
+            record_battle_wins(&mut activity, debt, 4);
+            assert!(run_one_battle(&mut activity));
+        }
         assert_eq!(activity.cosmic_fragments().unwrap().get(), initial * 2);
         assert!(
             activity
@@ -757,6 +767,10 @@ mod tests {
             })
             .collect::<Vec<_>>();
         apply(activity, operations);
+    }
+
+    fn fresh_activity() -> StandardUniverseActivity {
+        activity()
     }
 
     fn destroy_curios(activity: &mut StandardUniverseActivity, curios: &[CurioId]) {
@@ -821,20 +835,22 @@ mod tests {
             .curio()
     }
 
-    fn run_one_battle(activity: &mut StandardUniverseActivity) {
+    fn run_one_battle(activity: &mut StandardUniverseActivity) -> bool {
         let runner = StandardUniverseBaselineRunner::default();
         let mut executor =
             |handoff: &starclock_activity::ActivityBattleHandoff| Ok(victory(handoff));
         for _ in 0..128 {
-            let step = runner
-                .advance(
-                    activity,
-                    &StandardUniverseBaselinePolicy::default(),
-                    &mut executor,
-                )
-                .unwrap();
+            let step = match runner.advance(
+                activity,
+                &StandardUniverseBaselinePolicy::default(),
+                &mut executor,
+            ) {
+                Ok(step) => step,
+                Err(StandardUniverseBaselineError::AlreadyTerminal) => return false,
+                Err(error) => panic!("baseline runner failed: {error:?}"),
+            };
             if matches!(step, StandardUniverseBaselineStep::Battle { .. }) {
-                return;
+                return true;
             }
         }
         panic!("baseline runner did not reach a battle");

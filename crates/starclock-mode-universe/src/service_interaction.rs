@@ -23,9 +23,9 @@ use crate::{
 
 pub const SERVICE_INTERACTION_HANDLER_ID: u32 = 3;
 pub const SERVICE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-service-interaction-runtime-v4";
+    "standard-universe-service-interaction-runtime-v5";
 
-const PAYLOAD_REVISION: u8 = 4;
+const PAYLOAD_REVISION: u8 = 5;
 const TAG_SET_FRAGMENTS: u8 = 1;
 const TAG_DEBIT_FRAGMENTS: u8 = 2;
 const TAG_ADD_INVENTORY: u8 = 4;
@@ -38,7 +38,11 @@ const TAG_RANDOM_CURIO: u8 = 10;
 const TAG_RESTORE_PARTICIPANT: u8 = 11;
 const TAG_DISCOUNTED_DEBIT_FRAGMENTS: u8 = 12;
 const TAG_DISCOUNTED_SCHEDULED_DEBIT: u8 = 13;
+const TAG_INFLATED_BLESSING_DEBIT: u8 = 14;
+const TAG_ADJUSTED_BLESSING_DEBIT: u8 = 15;
+const TAG_ADJUSTED_BLESSING_SCHEDULED_DEBIT: u8 = 16;
 const FAITH_BOND_CURIO_CONTENT: u64 = 19;
+const IPC_CUCKOO_CLOCK_CURIO_CONTENT: u64 = 70;
 const MAX_PAYLOAD_OPERATIONS: usize = 32;
 const SERVICE_EFFECT_KEY_BASE: u64 = 1 << 62;
 
@@ -216,7 +220,7 @@ impl ServiceInteractionRuntimeCatalog {
                 ServiceAction::ResetBlessingOffer { cost_schedule, .. },
                 ServiceInteractionSelection::Activate,
             ) => {
-                operations.push(PayloadOperation::DiscountedScheduledDebit {
+                operations.push(PayloadOperation::AdjustedBlessingScheduledDebit {
                     service,
                     schedule: cost_schedule
                         .iter()
@@ -327,7 +331,7 @@ impl ServiceInteractionRuntimeCatalog {
                 ServiceAction::OfferRespiteChoices { offers },
                 ServiceInteractionSelection::RespiteEnhance,
             ) => {
-                operations.push(PayloadOperation::DebitFragments(respite_cost(
+                operations.push(PayloadOperation::InflatedBlessingDebit(respite_cost(
                     offers,
                     RespiteOfferKind::EnhanceRandomBlessings,
                 )?));
@@ -352,7 +356,7 @@ impl ServiceInteractionRuntimeCatalog {
                 let cost = *rarity_costs
                     .get(usize::from(rarity.saturating_sub(1)))
                     .ok_or(ServiceInteractionError::InvalidSelection)?;
-                operations.push(PayloadOperation::DiscountedDebitFragments(cost));
+                operations.push(PayloadOperation::AdjustedBlessingDebit(cost));
                 operations.push(PayloadOperation::EnhanceInventory {
                     inventory: self.blessing_inventory,
                     content: u64::from(blessing.get()),
@@ -400,7 +404,9 @@ enum PayloadOperation {
     SetFragments(u32),
     DebitFragments(u32),
     DiscountedDebitFragments(u32),
-    DiscountedScheduledDebit {
+    InflatedBlessingDebit(u32),
+    AdjustedBlessingDebit(u32),
+    AdjustedBlessingScheduledDebit {
         service: ServiceId,
         schedule: Box<[u32]>,
     },
@@ -454,8 +460,16 @@ impl PayloadOperation {
                 output.push(TAG_DISCOUNTED_DEBIT_FRAGMENTS);
                 output.extend_from_slice(&amount.to_le_bytes());
             }
-            Self::DiscountedScheduledDebit { service, schedule } => {
-                output.push(TAG_DISCOUNTED_SCHEDULED_DEBIT);
+            Self::InflatedBlessingDebit(amount) => {
+                output.push(TAG_INFLATED_BLESSING_DEBIT);
+                output.extend_from_slice(&amount.to_le_bytes());
+            }
+            Self::AdjustedBlessingDebit(amount) => {
+                output.push(TAG_ADJUSTED_BLESSING_DEBIT);
+                output.extend_from_slice(&amount.to_le_bytes());
+            }
+            Self::AdjustedBlessingScheduledDebit { service, schedule } => {
+                output.push(TAG_ADJUSTED_BLESSING_SCHEDULED_DEBIT);
                 output.extend_from_slice(&service.get().to_le_bytes());
                 output.push(
                     u8::try_from(schedule.len())
@@ -568,6 +582,8 @@ fn encode_program(
     let required_fragments = operations.iter().find_map(|operation| match operation {
         PayloadOperation::DebitFragments(amount) => Some(*amount),
         PayloadOperation::DiscountedDebitFragments(amount) => Some(*amount),
+        PayloadOperation::InflatedBlessingDebit(amount)
+        | PayloadOperation::AdjustedBlessingDebit(amount) => Some(*amount),
         _ => None,
     });
     let mut payload = vec![PAYLOAD_REVISION];
@@ -638,6 +654,33 @@ pub(crate) fn execute(
                     .copied()
                     .ok_or_else(invalid_payload)?;
                 let amount = discounted_amount(input, curio_inventory, amount)?;
+                debit(&mut operations, fragments, amount)?;
+            }
+            TAG_INFLATED_BLESSING_DEBIT => {
+                let amount = inflated_blessing_amount(input, curio_inventory, decoder.u32()?)?;
+                debit(&mut operations, fragments, amount)?;
+            }
+            TAG_ADJUSTED_BLESSING_DEBIT => {
+                let amount = adjusted_blessing_amount(input, curio_inventory, decoder.u32()?)?;
+                debit(&mut operations, fragments, amount)?;
+            }
+            TAG_ADJUSTED_BLESSING_SCHEDULED_DEBIT => {
+                let service = u64::from(decoder.u32()?);
+                let schedule_count = usize::from(decoder.u8()?);
+                if schedule_count == 0 {
+                    return Err(invalid_payload());
+                }
+                let mut schedule = Vec::with_capacity(schedule_count);
+                for _ in 0..schedule_count {
+                    schedule.push(decoder.u32()?);
+                }
+                let use_count = counter(input, uses, service)?;
+                let index = usize::try_from(use_count).map_err(|_| invalid_state())?;
+                let amount = schedule
+                    .get(index.min(schedule.len().saturating_sub(1)))
+                    .copied()
+                    .ok_or_else(invalid_payload)?;
+                let amount = adjusted_blessing_amount(input, curio_inventory, amount)?;
                 debit(&mut operations, fragments, amount)?;
             }
             TAG_ADD_INVENTORY => operations.push(ActivityOperation::AddInventory {
@@ -812,18 +855,7 @@ fn discounted_amount(
     if amount == 0 {
         return Err(invalid_payload());
     }
-    let faith_bond = input
-        .view()
-        .inventories()
-        .iter()
-        .find(|view| view.id() == inventory)
-        .map(|view| {
-            view.entries()
-                .binary_search_by_key(&FAITH_BOND_CURIO_CONTENT, |entry| entry.0)
-                .ok()
-                .is_some_and(|index| view.entries()[index].1 > 0)
-        })
-        .ok_or_else(invalid_state)?;
+    let faith_bond = inventory_contains(input, inventory, FAITH_BOND_CURIO_CONTENT)?;
     if !faith_bond {
         return Ok(amount);
     }
@@ -831,6 +863,53 @@ fn discounted_amount(
         .checked_mul(70)
         .map(|value| value / 100)
         .filter(|value| *value != 0)
+        .ok_or_else(invalid_state)
+}
+
+fn inflated_blessing_amount(
+    input: ActivityHandlerInput<'_>,
+    inventory: ActivityInventoryId,
+    amount: u32,
+) -> Result<u32, ActivityHandlerFault> {
+    if amount == 0 {
+        return Err(invalid_payload());
+    }
+    let inflated = inventory_contains(input, inventory, IPC_CUCKOO_CLOCK_CURIO_CONTENT)?;
+    if !inflated {
+        return Ok(amount);
+    }
+    amount
+        .checked_mul(125)
+        .map(|value| value / 100)
+        .filter(|value| *value != 0)
+        .ok_or_else(invalid_state)
+}
+
+fn adjusted_blessing_amount(
+    input: ActivityHandlerInput<'_>,
+    inventory: ActivityInventoryId,
+    amount: u32,
+) -> Result<u32, ActivityHandlerFault> {
+    let inflated = inflated_blessing_amount(input, inventory, amount)?;
+    discounted_amount(input, inventory, inflated)
+}
+
+fn inventory_contains(
+    input: ActivityHandlerInput<'_>,
+    inventory: ActivityInventoryId,
+    content: u64,
+) -> Result<bool, ActivityHandlerFault> {
+    input
+        .view()
+        .inventories()
+        .iter()
+        .find(|view| view.id() == inventory)
+        .map(|view| {
+            view.entries()
+                .binary_search_by_key(&content, |entry| entry.0)
+                .ok()
+                .is_some_and(|index| view.entries()[index].1 > 0)
+        })
         .ok_or_else(invalid_state)
 }
 
