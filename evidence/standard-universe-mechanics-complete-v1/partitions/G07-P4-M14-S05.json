@@ -1,0 +1,1323 @@
+{
+  "schema_revision": "starclock.goal07-content-partition-receipt.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "partition_id": "G07-P4-M14-S05",
+  "state": "Complete",
+  "completed_on": "2026-07-27",
+  "authoring": {
+    "workbooks": [
+      {
+        "path": "config/data/Universe.xlsx",
+        "tables": [
+          "UniverseService",
+          "UniverseServiceParameter"
+        ]
+      },
+      {
+        "path": "config/data/UniverseBindings.xlsx",
+        "tables": [
+          "UniverseMechanicRule"
+        ]
+      },
+      {
+        "path": "config/data/UniverseEvidence.xlsx",
+        "tables": [
+          "UniverseContentAudit",
+          "UniverseReviewFixture",
+          "UniverseSourceRecord"
+        ]
+      }
+    ],
+    "openpyxl_commands": [
+      "python -c \"import openpyxl\" && python tools/goal07/author-service-partition.py --partition G07-P4-M14-S05 --check"
+    ],
+    "sora_bundle": {
+      "path": "config/universe-generated/config.sora",
+      "sha256": "2c9992d9b5654142ec03759705101b89b47c6b92b460d548e7d59847478e1994",
+      "git_blob_sha1": "92aeae6a65e863f36ebdd8ef8820d16e9db71950"
+    },
+    "sora_golden": {
+      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P4-M14-S05.json",
+      "sha256": "bc7ce7e95c5550c8ebab804c7945c45f008d30b09a63b40792f08cdbcd0f1cb9",
+      "git_blob_sha1": "c3bef0f16c98c5e57d77c748e8d3207392237b8a"
+    }
+  },
+  "records": [
+    {
+      "id": "universe.service.trailblaze-bonus.502",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.503",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.504",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.505",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.506",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.507",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.508",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.509",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.510",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.511",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.512",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.513",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.514",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.515",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.516",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.517",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse"
+    }
+  ],
+  "rules": [
+    {
+      "id": "universe.rule.service.trailblaze-bonus.502",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.502",
+        "universe.service.trailblaze-bonus.502"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.503",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.503",
+        "universe.service.trailblaze-bonus.503"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.504",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.504",
+        "universe.service.trailblaze-bonus.504"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.505",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.505",
+        "universe.service.trailblaze-bonus.505"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.506",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.506",
+        "universe.service.trailblaze-bonus.506"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.507",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.507",
+        "universe.service.trailblaze-bonus.507"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.508",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.508",
+        "universe.service.trailblaze-bonus.508"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.509",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.509",
+        "universe.service.trailblaze-bonus.509"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.510",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.510",
+        "universe.service.trailblaze-bonus.510"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.511",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.511",
+        "universe.service.trailblaze-bonus.511"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.512",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.512",
+        "universe.service.trailblaze-bonus.512"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.513",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.513",
+        "universe.service.trailblaze-bonus.513"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.514",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.514",
+        "universe.service.trailblaze-bonus.514"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.515",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.515",
+        "universe.service.trailblaze-bonus.515"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.516",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.516",
+        "universe.service.trailblaze-bonus.516"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.517",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.517",
+        "universe.service.trailblaze-bonus.517"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/progression_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v2.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/universe_replay_v3.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    }
+  ],
+  "fixtures": [],
+  "enemy_variants": [],
+  "encounter_members": [],
+  "native_handler_reviews": [],
+  "numeric_approximations": [],
+  "execution": {
+    "result": "pass",
+    "commands": [
+      "python tools/goal07/author-service-partition.py --partition G07-P4-M14-S05 --check",
+      "node tools/universe-reference/verify_production_workbooks.mjs .",
+      "cargo test -p starclock-mode-universe --test service_effect_runtime --all-features",
+      "cargo test -p starclock-mode-universe --test service_interaction_runtime --all-features",
+      "cargo test -p starclock-mode-universe --test service_reviver_runtime --all-features",
+      "cargo test -p starclock-mode-universe --all-features",
+      "cargo test -p starclock-agent-api --test activity_session_loop --all-features",
+      "cargo test -p starclock-cli --test universe_cli --all-features",
+      "cargo test -p starclock-mcp --test universe_surface_parity --all-features"
+    ],
+    "goldens": [
+      {
+        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P4-M14-S05.json",
+        "sha256": "bc7ce7e95c5550c8ebab804c7945c45f008d30b09a63b40792f08cdbcd0f1cb9",
+        "git_blob_sha1": "c3bef0f16c98c5e57d77c748e8d3207392237b8a"
+      }
+    ]
+  }
+}

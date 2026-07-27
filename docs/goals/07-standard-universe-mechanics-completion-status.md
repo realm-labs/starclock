@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M14-S05` |
-| Next unblocked batch | `G07-P4-M14-S05` |
+| Active batch | `G07-P4-M14-S06` |
+| Next unblocked batch | `G07-P4-M14-S06` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -169,10 +169,15 @@ stable-random one- or two-star Blessing grant through the ordinary checked
 Reward RNG and Activity inventory boundary. Divergent Universe IDs 419–432
 and 501 retain exact ownership and close as `ProfileExcluded`, failing before
 payload, RNG or mutation. No native handler or numeric approximation was
-added. `G07-P4-M14-S05` is active.
+added.
+Service S05 is complete. Divergent Universe IDs 502–517 retain exact profile
+ownership and close as `ProfileExcluded`; exhaustive definition and compiled
+interaction tests reject them before payload, RNG or mutation. No expansion
+behavior, native handler or numeric approximation was added.
+`G07-P4-M14-S06` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 52 completed partitions use scoped Excel/Sora semantic
+model. The first 53 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
