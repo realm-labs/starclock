@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M13-S01` |
-| Next unblocked batch | `G07-P4-M13-S01` |
+| Active batch | `G07-P4-M13-S02` |
+| Next unblocked batch | `G07-P4-M13-S02` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -179,10 +179,15 @@ stable-random Curio grant through checked Reward RNG and the complete Curio
 lifecycle transaction. Divergent Universe IDs 518–530 close as
 `ProfileExcluded`. All 94 service records and rules now have terminal
 dispositions with no native handler or numeric approximation.
-`G07-P4-M13-S01` is active.
+Occurrence S01 is complete. Its 24 choices execute exact 150/100 Cosmic
+Fragment grants, stable-key-selected Angel-type I.O.U. Dispenser lifecycle,
+target-free graph transitions and 162 explicit Blessing results without
+hidden Activity RNG. All 32 records have terminal dispositions, with no
+deferred counter, native handler or numeric approximation.
+`G07-P4-M13-S02` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 54 completed partitions use scoped Excel/Sora semantic
+model. The first 55 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
@@ -254,7 +259,7 @@ The milestone summary remains here for orientation.
 | `G07-P2-M10` | `Complete` | 58 / 59 | Erudition complete. |
 | `G07-P3-M11` | `Complete` | 86 / 86 | Positive/neutral/special Curios complete. |
 | `G07-P3-M12` | `Complete` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
-| `G07-P4-M13` | `Expanded` | 0 / 447 | Occurrence choices and effects complete. |
+| `G07-P4-M13` | `Expanded` | 32 / 447 | Occurrence choices and effects complete. |
 | `G07-P4-M14` | `Complete` | 94 / 94 | Services, shops, roster and interactables complete. |
 | `G07-P5-M15` | `Expanded` | 0 / 959 | Enemy, encounter, World/difficulty and carry complete. |
 

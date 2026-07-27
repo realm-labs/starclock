@@ -1,7 +1,11 @@
 //! Spatial-free Standard Universe topology, room and encounter compilation.
 mod blessing_offer;
+mod occurrence_binding;
 mod reward_program;
 mod route_program;
+use self::occurrence_binding::{
+    interaction_completion, occurrence_random_purpose, push_occurrence_interaction,
+};
 use self::route_program::compile_route_program;
 use self::{blessing_offer::compile_blessing_offer_policy, reward_program::node_program_id};
 use crate::{
@@ -24,8 +28,8 @@ use crate::{
     topology_identity::{
         blessing_option, content_option, engage_option, exit_option, formation_option,
         formation_skip_option, interaction_option, member_option, occurrence_choice_option,
-        path_option, room_option, route_option, service_interaction_option, topology_option,
-        trailblaze_bonus_option,
+        occurrence_external_result_option, path_option, room_option, route_option,
+        service_interaction_option, topology_option, trailblaze_bonus_option,
     },
     topology_reward::compile_blessing_reward,
     topology_service::{
@@ -869,37 +873,59 @@ fn compile_programs(
                         .iter()
                         .find(|value| value.id() == *choice_id)
                         .ok_or(UniverseTopologyCompileError::InvalidOccurrence)?;
-                    let id = occurrence_choice_option(source, room.room, choice.id().get());
-                    content_options.push(ActivityOptionDefinition::new(
-                        id,
-                        room_priority
-                            .saturating_mul(256)
-                            .saturating_add(choice_priority) as i32,
-                        room_condition.clone(),
-                        interaction_completion(
-                            hub_clear_slot,
-                            external_outcome_slot,
-                            source,
-                            edges.content_formation,
-                        ),
-                    ));
                     let compiled = occurrence_interactions
                         .compile_choice(choice.id())
                         .ok_or(UniverseTopologyCompileError::InvalidOccurrenceInteraction)?;
-                    interactions.push(AbstractInteractionBinding {
-                        node: hub.content_node,
-                        outcome: ActivityExternalOutcomeId::new(id.get())
-                            .expect("derived interaction option is non-zero"),
-                        room: Some(room.room),
-                        kind: Some(room.kind),
-                        source_content_id: choice.stable_key().into(),
-                        handler: OCCURRENCE_INTERACTION_HANDLER_ID,
-                        payload: compiled.payload().into(),
-                        random_candidate_count: compiled.random_candidate_count(),
-                        random_label: compiled
-                            .random_candidate_count()
-                            .map(|_| ActivityRngLabel::Occurrence),
-                    });
+                    if compiled.external_results().is_empty() {
+                        let id = occurrence_choice_option(source, room.room, choice.id().get());
+                        push_occurrence_interaction(
+                            &mut content_options,
+                            &mut interactions,
+                            id,
+                            room_priority,
+                            choice_priority,
+                            room_condition.clone(),
+                            hub,
+                            room,
+                            source,
+                            edges.content_formation,
+                            hub_clear_slot,
+                            external_outcome_slot,
+                            choice.stable_key(),
+                            compiled.payload(),
+                            compiled.random_candidate_count(),
+                        );
+                    } else {
+                        for (result_priority, result) in
+                            compiled.external_results().iter().enumerate()
+                        {
+                            let id = occurrence_external_result_option(
+                                source,
+                                room.room,
+                                choice.id().get(),
+                                result.content(),
+                            );
+                            push_occurrence_interaction(
+                                &mut content_options,
+                                &mut interactions,
+                                id,
+                                room_priority,
+                                choice_priority
+                                    .saturating_mul(1_024)
+                                    .saturating_add(result_priority),
+                                room_condition.clone(),
+                                hub,
+                                room,
+                                source,
+                                edges.content_formation,
+                                hub_clear_slot,
+                                external_outcome_slot,
+                                choice.stable_key(),
+                                result.payload(),
+                                None,
+                            );
+                        }
+                    }
                 }
             } else {
                 let id = interaction_option(source, room.room);
@@ -1137,32 +1163,6 @@ const fn formation_node(source: TopologyNodeId) -> NodeId {
 }
 const fn route_node(source: TopologyNodeId) -> NodeId {
     node(ROUTE_NODE_OFFSET + source.get())
-}
-
-fn interaction_completion(
-    hub_clear_slot: ActivitySlotId,
-    external_outcome_slot: ActivitySlotId,
-    source: u64,
-    edge: ActivityEdgeId,
-) -> Vec<ActivityOperation> {
-    vec![
-        ActivityOperation::AddCounter {
-            slot: hub_clear_slot,
-            key: source,
-            delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
-        },
-        ActivityOperation::AddCounter {
-            slot: external_outcome_slot,
-            key: source,
-            delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
-        },
-        ActivityOperation::Traverse(edge),
-    ]
-}
-
-fn occurrence_random_purpose(node: NodeId, outcome: ActivityExternalOutcomeId) -> u16 {
-    let mixed = u64::from(node.get()) ^ outcome.get().rotate_left(17);
-    u16::try_from(mixed % u64::from(u16::MAX) + 1).expect("modulo fits non-zero u16")
 }
 
 const fn node(raw: u32) -> NodeId {

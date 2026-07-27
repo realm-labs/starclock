@@ -19,6 +19,13 @@ use crate::{
     },
 };
 
+mod support;
+
+use support::{
+    Decoder, arithmetic, checked_lcm, exact_integer, fragment_delta, invalid_payload,
+    invalid_state, inventory, require_at_least, select_candidates, slot, slot_integer,
+};
+
 pub const OCCURRENCE_INTERACTION_HANDLER_ID: u32 = 2;
 pub const OCCURRENCE_INTERACTION_RUNTIME_REVISION: &str =
     "standard-universe-occurrence-interaction-runtime-v2";
@@ -30,6 +37,7 @@ const TAG_REQUIRE_INVENTORY: u8 = 4;
 const TAG_DEFERRED_EFFECT: u8 = 5;
 const TAG_REQUIRE_FRAGMENT: u8 = 6;
 const TAG_CURIO_INVENTORY: u8 = 7;
+const TAG_TRANSITION: u8 = 8;
 const MAX_PAYLOAD_OPERATIONS: usize = 128;
 const DEFERRED_EFFECT_KEY_BASE: u64 = 1 << 63;
 
@@ -40,6 +48,7 @@ struct CompiledOccurrenceProgram {
     random_candidate_count: Option<u32>,
     immediate_operations: u16,
     deferred_operations: u16,
+    external_results: Box<[OccurrenceExternalResult]>,
 }
 
 /// Immutable executable payload catalog for the complete authored Occurrence
@@ -78,6 +87,7 @@ impl OccurrenceInteractionRuntimeCatalog {
                     random_candidate_count: compiled.random_candidate_count,
                     immediate_operations: compiled.immediate_operations,
                     deferred_operations: compiled.deferred_operations,
+                    external_results: compiled.external_results,
                 })
             })
             .collect::<Result<Vec<_>, _>>()?;
@@ -121,6 +131,14 @@ impl OccurrenceInteractionRuntimeCatalog {
     }
 
     #[must_use]
+    pub fn external_result_count(&self) -> usize {
+        self.programs
+            .iter()
+            .map(|program| program.external_results.len())
+            .sum()
+    }
+
+    #[must_use]
     pub const fn digest(&self) -> [u8; 32] {
         self.digest
     }
@@ -138,7 +156,48 @@ impl OccurrenceInteractionRuntimeCatalog {
                 random_candidate_count: program.random_candidate_count,
                 immediate_operations: program.immediate_operations,
                 deferred_operations: program.deferred_operations,
+                external_results: program
+                    .external_results
+                    .iter()
+                    .map(|result| OccurrenceExternalResult {
+                        content: result.content,
+                        payload: result.payload.clone(),
+                        immediate_operations: result.immediate_operations,
+                        deferred_operations: result.deferred_operations,
+                    })
+                    .collect::<Vec<_>>()
+                    .into_boxed_slice(),
             })
+    }
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct OccurrenceExternalResult {
+    content: u64,
+    payload: Box<[u8]>,
+    immediate_operations: u16,
+    deferred_operations: u16,
+}
+
+impl OccurrenceExternalResult {
+    #[must_use]
+    pub const fn content(&self) -> u64 {
+        self.content
+    }
+
+    #[must_use]
+    pub fn payload(&self) -> &[u8] {
+        &self.payload
+    }
+
+    #[must_use]
+    pub const fn immediate_operations(&self) -> u16 {
+        self.immediate_operations
+    }
+
+    #[must_use]
+    pub const fn deferred_operations(&self) -> u16 {
+        self.deferred_operations
     }
 }
 
@@ -147,6 +206,7 @@ pub struct CompiledOccurrenceInteraction {
     random_candidate_count: Option<u32>,
     immediate_operations: u16,
     deferred_operations: u16,
+    external_results: Box<[OccurrenceExternalResult]>,
 }
 
 impl CompiledOccurrenceInteraction {
@@ -169,6 +229,11 @@ impl CompiledOccurrenceInteraction {
     pub const fn deferred_operations(&self) -> u16 {
         self.deferred_operations
     }
+
+    #[must_use]
+    pub fn external_results(&self) -> &[OccurrenceExternalResult] {
+        &self.external_results
+    }
 }
 
 pub(crate) fn compile(
@@ -180,19 +245,12 @@ pub(crate) fn compile(
     curio_bindings: CurioActivityBindings,
     deferred_effects: ActivitySlotId,
 ) -> Result<CompiledOccurrenceInteraction, OccurrenceInteractionError> {
-    let blessing_ids = catalog
-        .blessings()
-        .iter()
-        .map(|value| u64::from(value.id().get()))
-        .collect::<Vec<_>>();
-    let curio_ids = curio_records
-        .iter()
-        .map(|value| u64::from(value.id().get()))
-        .collect::<Vec<_>>();
     let outcome = choice
         .outcomes()
         .first()
         .ok_or(OccurrenceInteractionError::InvalidChoice)?;
+    let blessing_ids = referenced_blessings(outcome, catalog)?;
+    let curio_ids = referenced_curios(outcome, catalog, curio_records)?;
     let mut operations = Vec::new();
     lower_costs(
         &mut operations,
@@ -201,7 +259,10 @@ pub(crate) fn compile(
         blessing_inventory,
         curio_bindings.inventory,
         &blessing_ids,
-        &curio_ids,
+        &curio_ids
+            .iter()
+            .map(|value| u64::from(value.id().get()))
+            .collect::<Vec<_>>(),
     )?;
     lower_pairs(
         &mut operations,
@@ -212,53 +273,42 @@ pub(crate) fn compile(
         curio_bindings,
         deferred_effects,
         &blessing_ids,
-        curio_records,
+        &curio_ids,
     )?;
     if operations.len() > MAX_PAYLOAD_OPERATIONS {
         return Err(OccurrenceInteractionError::TooManyOperations);
     }
-    let random_candidate_count =
+    let external_results =
         if outcome.random_policy() == Some(RandomOutcomePolicy::StableUniformOrderedCandidates) {
-            operations
-                .iter()
-                .filter_map(|operation| match operation {
-                    PayloadOperation::Inventory { candidates, .. } => {
-                        u32::try_from(candidates.len()).ok()
-                    }
-                    PayloadOperation::CurioInventory { candidates, .. } => {
-                        u32::try_from(candidates.len()).ok()
-                    }
-                    _ => None,
-                })
-                .try_fold(1_u32, checked_lcm)
+            externalize_single_selection(&operations)?
         } else {
-            None
+            Vec::new()
         };
-    let mut payload = Vec::new();
-    payload.push(PAYLOAD_REVISION);
-    payload.extend_from_slice(
-        &u16::try_from(operations.len())
-            .map_err(|_| OccurrenceInteractionError::TooManyOperations)?
-            .to_le_bytes(),
-    );
-    let deferred_operations = u16::try_from(
+    let random_candidate_count = if external_results.is_empty()
+        && outcome.random_policy() == Some(RandomOutcomePolicy::StableUniformOrderedCandidates)
+    {
         operations
             .iter()
-            .filter(|operation| operation.is_deferred())
-            .count(),
-    )
-    .map_err(|_| OccurrenceInteractionError::TooManyOperations)?;
-    let immediate_operations = u16::try_from(operations.len())
-        .map_err(|_| OccurrenceInteractionError::TooManyOperations)?
-        .saturating_sub(deferred_operations);
-    for operation in operations {
-        operation.encode(&mut payload)?;
-    }
+            .filter_map(|operation| match operation {
+                PayloadOperation::Inventory { candidates, .. } => {
+                    u32::try_from(candidates.len()).ok()
+                }
+                PayloadOperation::CurioInventory { candidates, .. } => {
+                    u32::try_from(candidates.len()).ok()
+                }
+                _ => None,
+            })
+            .try_fold(1_u32, checked_lcm)
+    } else {
+        None
+    };
+    let (payload, immediate_operations, deferred_operations) = encode_operations(operations)?;
     Ok(CompiledOccurrenceInteraction {
         payload,
         random_candidate_count,
         immediate_operations,
         deferred_operations,
+        external_results: external_results.into_boxed_slice(),
     })
 }
 
@@ -293,6 +343,7 @@ pub(crate) fn execute(
             TAG_CURIO_INVENTORY => {
                 decode_curio_inventory(input, &mut decoder, &mut operations)?;
             }
+            TAG_TRANSITION => {}
             _ => return Err(invalid_payload()),
         }
     }
@@ -504,6 +555,7 @@ fn decode_deferred_effect(
     Ok(())
 }
 
+#[derive(Clone)]
 enum PayloadOperation {
     FragmentScalar {
         slot: ActivitySlotId,
@@ -543,6 +595,7 @@ enum PayloadOperation {
         slot: ActivitySlotId,
         amount: u64,
     },
+    Transition,
 }
 
 impl PayloadOperation {
@@ -661,6 +714,7 @@ impl PayloadOperation {
                 output.extend_from_slice(&slot.get().to_le_bytes());
                 output.extend_from_slice(&amount.to_le_bytes());
             }
+            Self::Transition => output.push(TAG_TRANSITION),
         }
         Ok(())
     }
@@ -746,6 +800,9 @@ fn lower_pairs(
                     candidates: curio_records.to_vec(),
                 });
             }
+            None if operation == OccurrenceOperation::Special => {
+                output.push(PayloadOperation::Transition);
+            }
             _ => output.push(PayloadOperation::DeferredEffect {
                 slot: deferred_effects,
                 key: deferred_effect_key(choice, index, operation, target)?,
@@ -753,6 +810,165 @@ fn lower_pairs(
         }
     }
     Ok(())
+}
+
+fn referenced_blessings(
+    outcome: &OccurrenceOutcome,
+    catalog: &UniverseCatalog,
+) -> Result<Vec<u64>, OccurrenceInteractionError> {
+    referenced_ids(
+        outcome,
+        "universe.blessing.",
+        catalog
+            .blessings()
+            .iter()
+            .map(|value| (value.stable_key(), u64::from(value.id().get()))),
+    )
+}
+
+fn referenced_curios(
+    outcome: &OccurrenceOutcome,
+    catalog: &UniverseCatalog,
+    records: &[CurioActivityRecord],
+) -> Result<Vec<CurioActivityRecord>, OccurrenceInteractionError> {
+    let references = outcome
+        .parameter_refs()
+        .iter()
+        .filter(|value| value.starts_with("universe.curio."))
+        .map(AsRef::as_ref)
+        .collect::<Vec<_>>();
+    if references.is_empty() {
+        return Ok(records.to_vec());
+    }
+    let mut selected = Vec::with_capacity(references.len());
+    for reference in references {
+        let id = catalog
+            .curios()
+            .iter()
+            .find(|value| value.stable_key() == reference)
+            .map(|value| value.id())
+            .ok_or(OccurrenceInteractionError::InvalidChoice)?;
+        let record = records
+            .iter()
+            .copied()
+            .find(|value| value.id() == id)
+            .ok_or(OccurrenceInteractionError::InvalidChoice)?;
+        selected.push(record);
+    }
+    selected.sort_unstable_by_key(|value| value.id());
+    selected.dedup_by_key(|value| value.id());
+    Ok(selected)
+}
+
+fn referenced_ids<'a>(
+    outcome: &OccurrenceOutcome,
+    prefix: &str,
+    available: impl IntoIterator<Item = (&'a str, u64)>,
+) -> Result<Vec<u64>, OccurrenceInteractionError> {
+    let references = outcome
+        .parameter_refs()
+        .iter()
+        .filter(|value| value.starts_with(prefix))
+        .map(AsRef::as_ref)
+        .collect::<Vec<_>>();
+    let available = available.into_iter().collect::<Vec<_>>();
+    if references.is_empty() {
+        return Ok(available.into_iter().map(|(_, id)| id).collect());
+    }
+    let mut selected = Vec::with_capacity(references.len());
+    for reference in references {
+        selected.push(
+            available
+                .iter()
+                .find(|(stable_key, _)| *stable_key == reference)
+                .map(|(_, id)| *id)
+                .ok_or(OccurrenceInteractionError::InvalidChoice)?,
+        );
+    }
+    selected.sort_unstable();
+    selected.dedup();
+    Ok(selected)
+}
+
+fn externalize_single_selection(
+    operations: &[PayloadOperation],
+) -> Result<Vec<OccurrenceExternalResult>, OccurrenceInteractionError> {
+    let selection = operations
+        .iter()
+        .enumerate()
+        .filter_map(|(index, operation)| match operation {
+            PayloadOperation::Inventory {
+                quantity: 1,
+                candidates,
+                ..
+            } => Some((index, candidates.clone())),
+            PayloadOperation::CurioInventory {
+                quantity: 1,
+                candidates,
+                ..
+            } => Some((
+                index,
+                candidates
+                    .iter()
+                    .map(|value| u64::from(value.id().get()))
+                    .collect(),
+            )),
+            _ => None,
+        })
+        .collect::<Vec<_>>();
+    if selection.len() != 1 {
+        return Ok(Vec::new());
+    }
+    let (selection_index, candidates) = &selection[0];
+    candidates
+        .iter()
+        .map(|candidate| {
+            let mut concrete = operations.to_vec();
+            match &mut concrete[*selection_index] {
+                PayloadOperation::Inventory { candidates, .. } => {
+                    candidates.clear();
+                    candidates.push(*candidate);
+                }
+                PayloadOperation::CurioInventory { candidates, .. } => {
+                    candidates.retain(|value| u64::from(value.id().get()) == *candidate);
+                }
+                _ => return Err(OccurrenceInteractionError::InvalidChoice),
+            }
+            let (payload, immediate_operations, deferred_operations) = encode_operations(concrete)?;
+            Ok(OccurrenceExternalResult {
+                content: *candidate,
+                payload: payload.into_boxed_slice(),
+                immediate_operations,
+                deferred_operations,
+            })
+        })
+        .collect()
+}
+
+fn encode_operations(
+    operations: Vec<PayloadOperation>,
+) -> Result<(Vec<u8>, u16, u16), OccurrenceInteractionError> {
+    let deferred_operations = u16::try_from(
+        operations
+            .iter()
+            .filter(|operation| operation.is_deferred())
+            .count(),
+    )
+    .map_err(|_| OccurrenceInteractionError::TooManyOperations)?;
+    let immediate_operations = u16::try_from(operations.len())
+        .map_err(|_| OccurrenceInteractionError::TooManyOperations)?
+        .saturating_sub(deferred_operations);
+    let mut payload = Vec::new();
+    payload.push(PAYLOAD_REVISION);
+    payload.extend_from_slice(
+        &u16::try_from(operations.len())
+            .map_err(|_| OccurrenceInteractionError::TooManyOperations)?
+            .to_le_bytes(),
+    );
+    for operation in operations {
+        operation.encode(&mut payload)?;
+    }
+    Ok((payload, immediate_operations, deferred_operations))
 }
 
 fn lower_costs(
@@ -873,6 +1089,16 @@ fn runtime_catalog_digest(programs: &[CompiledOccurrenceProgram]) -> [u8; 32] {
         encoder.u32(program.random_candidate_count.unwrap_or(0));
         encoder.u32(u32::from(program.immediate_operations));
         encoder.u32(u32::from(program.deferred_operations));
+        encoder.u32(program.external_results.len() as u32);
+        for result in &program.external_results {
+            encoder.u64(result.content);
+            encoder.u32(result.payload.len() as u32);
+            for byte in &result.payload {
+                encoder.u8(*byte);
+            }
+            encoder.u32(u32::from(result.immediate_operations));
+            encoder.u32(u32::from(result.deferred_operations));
+        }
     }
     encoder.finish()
 }
@@ -885,205 +1111,6 @@ const fn operation_sign(operation: OccurrenceOperation) -> i8 {
         }
         _ => 0,
     }
-}
-
-fn exact_integer(value: AuthoredScalar) -> Result<i64, OccurrenceInteractionError> {
-    let divisor = 10_i64
-        .checked_pow(u32::from(value.value().scale()))
-        .ok_or(OccurrenceInteractionError::Arithmetic)?;
-    if value.value().coefficient() % divisor != 0 {
-        return Err(OccurrenceInteractionError::NonIntegerScalar);
-    }
-    Ok(value.value().coefficient() / divisor)
-}
-
-fn checked_lcm(left: u32, right: u32) -> Option<u32> {
-    let gcd = gcd(left, right);
-    left.checked_div(gcd)?
-        .checked_mul(right)
-        .filter(|value| *value <= 65_536)
-}
-
-const fn gcd(mut left: u32, mut right: u32) -> u32 {
-    while right != 0 {
-        let remainder = left % right;
-        left = right;
-        right = remainder;
-    }
-    left
-}
-
-fn select_candidates(
-    input: ActivityHandlerInput<'_>,
-    inventory: ActivityInventoryId,
-    candidates: &[u64],
-    owned_only: bool,
-    random_index: Option<u32>,
-    quantity: usize,
-) -> Result<Vec<u64>, ActivityHandlerFault> {
-    let eligible = if owned_only {
-        let entries = input
-            .view()
-            .inventories()
-            .iter()
-            .find(|value| value.id() == inventory)
-            .ok_or_else(invalid_state)?
-            .entries();
-        candidates
-            .iter()
-            .copied()
-            .filter(|candidate| {
-                entries
-                    .iter()
-                    .any(|entry| entry.0 == *candidate && entry.1 > 0)
-            })
-            .collect::<Vec<_>>()
-    } else {
-        candidates.to_vec()
-    };
-    if eligible.len() < quantity {
-        return Err(invalid_state());
-    }
-    let start = random_index.map_or(0, |index| index as usize % eligible.len());
-    Ok((0..quantity)
-        .map(|offset| eligible[(start + offset) % eligible.len()])
-        .collect())
-}
-
-fn slot_integer(
-    input: ActivityHandlerInput<'_>,
-    id: ActivitySlotId,
-) -> Result<i64, ActivityHandlerFault> {
-    input
-        .view()
-        .slots()
-        .iter()
-        .find(|value| value.id() == id)
-        .and_then(|value| match value.value() {
-            ActivityValue::BoundedInteger(value) => Some(*value),
-            _ => None,
-        })
-        .ok_or_else(invalid_state)
-}
-
-fn add_slot(slot: ActivitySlotId, delta: i64) -> ActivityOperation {
-    ActivityOperation::AddToSlot {
-        slot,
-        delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(delta)),
-    }
-}
-
-fn fragment_delta(
-    slot: ActivitySlotId,
-    gain_inventory: ActivityInventoryId,
-    delta: i64,
-) -> ActivityOperation {
-    if delta <= 0 {
-        return add_slot(slot, delta);
-    }
-    ActivityOperation::AddToSlot {
-        slot,
-        delta: ActivityExpression::Multiply(
-            Box::new(ActivityExpression::Literal(ActivityValue::BoundedInteger(
-                delta,
-            ))),
-            Box::new(ActivityExpression::Add(
-                Box::new(ActivityExpression::Literal(ActivityValue::BoundedInteger(
-                    1,
-                ))),
-                Box::new(ActivityExpression::InventoryCount {
-                    inventory: gain_inventory,
-                    content: crate::curio_activity::GOSSIP_CURIO_CONTENT,
-                }),
-            )),
-        ),
-    }
-}
-
-fn require_at_least(
-    slot: ActivitySlotId,
-    amount: u64,
-) -> Result<ActivityOperation, ActivityHandlerFault> {
-    let amount = i64::try_from(amount).map_err(|_| arithmetic())?;
-    Ok(ActivityOperation::Require(ActivityCondition::Not(
-        Box::new(ActivityCondition::LessThan(
-            ActivityExpression::Slot(slot),
-            ActivityExpression::Literal(ActivityValue::BoundedInteger(amount)),
-        )),
-    )))
-}
-
-fn slot(value: u32) -> Result<ActivitySlotId, ActivityHandlerFault> {
-    ActivitySlotId::new(value).ok_or_else(invalid_payload)
-}
-
-fn inventory(value: u32) -> Result<ActivityInventoryId, ActivityHandlerFault> {
-    ActivityInventoryId::new(value).ok_or_else(invalid_payload)
-}
-
-struct Decoder<'a> {
-    bytes: &'a [u8],
-    cursor: usize,
-}
-
-impl<'a> Decoder<'a> {
-    const fn new(bytes: &'a [u8]) -> Self {
-        Self { bytes, cursor: 0 }
-    }
-
-    fn take(&mut self, count: usize) -> Result<&'a [u8], ActivityHandlerFault> {
-        let end = self.cursor.checked_add(count).ok_or_else(invalid_payload)?;
-        let value = self
-            .bytes
-            .get(self.cursor..end)
-            .ok_or_else(invalid_payload)?;
-        self.cursor = end;
-        Ok(value)
-    }
-
-    fn u8(&mut self) -> Result<u8, ActivityHandlerFault> {
-        Ok(self.take(1)?[0])
-    }
-
-    fn i8(&mut self) -> Result<i8, ActivityHandlerFault> {
-        Ok(i8::from_le_bytes([self.u8()?]))
-    }
-
-    fn u16(&mut self) -> Result<u16, ActivityHandlerFault> {
-        Ok(u16::from_le_bytes(self.take(2)?.try_into().unwrap()))
-    }
-
-    fn u32(&mut self) -> Result<u32, ActivityHandlerFault> {
-        Ok(u32::from_le_bytes(self.take(4)?.try_into().unwrap()))
-    }
-
-    fn u64(&mut self) -> Result<u64, ActivityHandlerFault> {
-        Ok(u64::from_le_bytes(self.take(8)?.try_into().unwrap()))
-    }
-
-    fn i64(&mut self) -> Result<i64, ActivityHandlerFault> {
-        Ok(i64::from_le_bytes(self.take(8)?.try_into().unwrap()))
-    }
-
-    fn finish(self) -> Result<(), ActivityHandlerFault> {
-        if self.cursor == self.bytes.len() {
-            Ok(())
-        } else {
-            Err(invalid_payload())
-        }
-    }
-}
-
-fn invalid_payload() -> ActivityHandlerFault {
-    ActivityHandlerFault::new(ActivityHandlerFaultKind::InvalidPayload)
-}
-
-fn invalid_state() -> ActivityHandlerFault {
-    ActivityHandlerFault::new(ActivityHandlerFaultKind::InvalidState)
-}
-
-fn arithmetic() -> ActivityHandlerFault {
-    ActivityHandlerFault::new(ActivityHandlerFaultKind::Arithmetic)
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

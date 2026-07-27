@@ -13,6 +13,7 @@ const MEMBER_OPTION_OFFSET: u64 = 3_000_000_000_000;
 const ENGAGE_OPTION_OFFSET: u64 = 4_000_000_000_000;
 const INTERACTION_OPTION_OFFSET: u64 = 4_500_000_000_000;
 const SERVICE_INTERACTION_OPTION_OFFSET: u64 = 4_600_000_000_000;
+const OCCURRENCE_EXTERNAL_RESULT_OPTION_OFFSET: u64 = 4_700_000_000_000;
 const REWARD_OPTION_OFFSET: u64 = 5_000_000_000_000;
 const FORMATION_OPTION_OFFSET: u64 = 5_500_000_000_000;
 const FORMATION_SKIP_OPTION_OFFSET: u64 = 5_900_000_000_000;
@@ -88,6 +89,21 @@ pub(super) fn occurrence_choice_option(source: u64, room: RoomId, choice: u32) -
             + source * 10_000_000
             + u64::from(room.get()) * 1_000
             + u64::from(choice),
+    )
+}
+
+pub(super) fn occurrence_external_result_option(
+    source: u64,
+    room: RoomId,
+    choice: u32,
+    result: u64,
+) -> ActivityOptionId {
+    option(
+        OCCURRENCE_EXTERNAL_RESULT_OPTION_OFFSET
+            + source * 100_000_000
+            + u64::from(room.get()) * 1_000_000
+            + u64::from(choice) * 1_000
+            + result,
     )
 }
 
