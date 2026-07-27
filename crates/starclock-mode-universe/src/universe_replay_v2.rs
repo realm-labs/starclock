@@ -35,7 +35,7 @@ use starclock_replay::{
     nested_battle::{
         NestedBattleCommandPayload, NestedBattlePayloadError, decode_nested_battle_command_payload,
         decode_nested_battle_state_payload, encode_nested_battle_command_payload,
-        encode_nested_battle_state_payload_v1,
+        encode_nested_battle_state_payload, encode_nested_battle_state_payload_v1,
     },
     record::{MAX_REPLAY_RECORDS, RecordKind, RecordRef, ReplayFormatError},
 };
@@ -255,6 +255,39 @@ pub fn encode_standard_universe_trace_parts_v2(
     trace: &[StandardUniverseTraceEntry],
     battles: &[NestedBattleExecutionReport],
 ) -> Result<Vec<u8>, StandardUniverseReplayV2Error> {
+    encode_standard_universe_trace_parts_with_event_payload(
+        header_template,
+        trace,
+        battles,
+        NestedEventPayload::ReleasedV2,
+    )
+}
+
+pub(crate) fn encode_standard_universe_trace_parts_v3_bridge(
+    header_template: &ReplayHeaderV2,
+    trace: &[StandardUniverseTraceEntry],
+    battles: &[NestedBattleExecutionReport],
+) -> Result<Vec<u8>, StandardUniverseReplayV2Error> {
+    encode_standard_universe_trace_parts_with_event_payload(
+        header_template,
+        trace,
+        battles,
+        NestedEventPayload::Current,
+    )
+}
+
+#[derive(Clone, Copy)]
+enum NestedEventPayload {
+    ReleasedV2,
+    Current,
+}
+
+fn encode_standard_universe_trace_parts_with_event_payload(
+    header_template: &ReplayHeaderV2,
+    trace: &[StandardUniverseTraceEntry],
+    battles: &[NestedBattleExecutionReport],
+    event_payload: NestedEventPayload,
+) -> Result<Vec<u8>, StandardUniverseReplayV2Error> {
     let count = standard_universe_record_count_parts_v2(trace, battles)?;
     let header = ReplayHeaderV2::new(
         header_template.compatibility().clone(),
@@ -301,7 +334,14 @@ pub fn encode_standard_universe_trace_parts_v2(
                 ));
                 payloads.push((
                     RecordKind::ExpectedBattleState,
-                    encode_nested_battle_state_payload_v1(step.state_hash(), step.events())?,
+                    match event_payload {
+                        NestedEventPayload::ReleasedV2 => {
+                            encode_nested_battle_state_payload_v1(step.state_hash(), step.events())?
+                        }
+                        NestedEventPayload::Current => {
+                            encode_nested_battle_state_payload(step.state_hash(), step.events())?
+                        }
+                    },
                 ));
             }
             let result = match entry.action() {

@@ -111,7 +111,7 @@ impl EncounterContentRuntimeCatalog {
             || catalog.difficulty_enemy_bindings().len() != 182
             || catalog.room_content().len() != 380
             || catalog.content_pools().len() != 23
-            || content_pool_entry_count != 1_651
+            || content_pool_entry_count != 1_578
             || enemy_variant_keys.len() != 86
             || member_ids.windows(2).any(|pair| pair[0] == pair[1])
         {

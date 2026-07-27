@@ -3,11 +3,11 @@ use std::sync::{Arc, OnceLock};
 use starclock_mode_universe::{
     catalog::UniverseCatalog,
     id::ServiceId,
-    progression::ServiceKind,
+    progression::{ServiceKind, ServiceProfileOwner},
     run_runtime::RunRuntimeCatalog,
     service_effect_runtime::{
         RespiteOfferKind, SERVICE_EFFECT_RUNTIME_REVISION, ServiceAction,
-        ServiceEffectRuntimeCatalog,
+        ServiceEffectRuntimeCatalog, TrailblazeBonusEffect, TrailblazeBonusTier,
     },
 };
 
@@ -43,7 +43,7 @@ fn complete_service_partition_compiles() {
     let runtime = runtime();
     assert_eq!(
         SERVICE_EFFECT_RUNTIME_REVISION,
-        "standard-universe-service-effect-runtime-v1"
+        "standard-universe-service-effect-runtime-v2"
     );
     assert_eq!(
         (
@@ -57,8 +57,8 @@ fn complete_service_partition_compiles() {
     assert_eq!(
         runtime.digest(),
         [
-            78, 82, 111, 239, 161, 29, 188, 122, 202, 235, 16, 119, 217, 43, 116, 145, 165, 139,
-            251, 147, 78, 78, 23, 236, 214, 17, 135, 92, 216, 38, 136, 171,
+            121, 232, 229, 140, 133, 193, 178, 65, 109, 57, 62, 72, 105, 64, 5, 74, 69, 170, 255,
+            172, 0, 161, 242, 198, 144, 155, 195, 157, 182, 121, 193, 123,
         ]
     );
 }
@@ -177,10 +177,24 @@ fn all_shop_and_trailblaze_rows_retain_authored_external_bindings() {
     let bonus = runtime
         .execute(service("universe.service.trailblaze-bonus.1"))
         .unwrap();
-    assert_eq!(
+    assert!(matches!(
         bonus.action(),
-        &ServiceAction::GrantTrailblazeBonus {
-            offer_pool_key: "universe.pool.trailblaze-bonuses".into()
+        ServiceAction::GrantTrailblazeBonus {
+            offer_pool_key,
+            source_event_id: 100001,
+            tier: TrailblazeBonusTier::Ordinary,
+            position: 1,
+            effect: TrailblazeBonusEffect::AddFragments { amount: 100 },
+        } if offer_pool_key.as_ref() == "universe.pool.trailblaze-bonuses"
+    ));
+    let excluded = runtime
+        .execute(service("universe.service.trailblaze-bonus.101"))
+        .unwrap();
+    assert_eq!(
+        excluded.action(),
+        &ServiceAction::ProfileExcluded {
+            owner: ServiceProfileOwner::SwarmDisaster,
+            source_event_id: 1010,
         }
     );
 }

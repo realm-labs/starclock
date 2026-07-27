@@ -48,10 +48,12 @@ then validates and atomically debits currency, grants the Blessing or Curio,
 initializes Curio lifecycle state, increments service usage and consumes the
 offer. Invalid or stale commands preserve exact state bytes.
 
-Downloader and the retained Trailblaze Bonus use the same external-outcome
-boundary because the caller must choose or provide information outside the
-combat resolver. Their configured effects still settle as deterministic
-Activity operations and are replay-recorded.
+Downloader and Trailblaze Bonus ID `1` use the same external-outcome boundary
+because the caller must choose or provide information outside the combat
+resolver. ID `1` is the first of the six Standard entry choices: it grants
+exactly 100 Cosmic Fragments. The grant composes with the configured
+50-fragment initial balance and any Ability Tree contribution, settles as a
+checked Activity operation and is replay-recorded.
 
 ## Cross-battle revival
 

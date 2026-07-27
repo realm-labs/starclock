@@ -69,12 +69,13 @@ pub mod universe_selection_policy;
 pub mod universe_service;
 pub mod universe_service_kind;
 pub mod universe_service_parameter;
+pub mod universe_service_profile_owner;
 pub mod universe_source_record;
 pub mod universe_wave_policy;
 pub mod universe_world;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "b9059e02cd1908b8";
+pub const SCHEMA_FINGERPRINT: &str = "a9cf52766c2e44f2";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {

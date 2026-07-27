@@ -18,6 +18,15 @@ pub enum ServiceKind {
     TrailblazeBonus = 8,
 }
 
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum ServiceProfileOwner {
+    Standard = 0,
+    SwarmDisaster = 1,
+    GoldAndGears = 2,
+    DivergentUniverse = 3,
+}
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ServiceParameter {
     key: Box<str>,
@@ -46,6 +55,8 @@ pub struct ServiceDefinition {
     id: ServiceId,
     stable_key: Box<str>,
     kind: ServiceKind,
+    profile_owner: ServiceProfileOwner,
+    source_event_id: Option<u32>,
     currency_key: Option<Box<str>>,
     price_formula_key: Option<Box<str>>,
     offer_pool_key: Option<Box<str>>,
@@ -60,6 +71,8 @@ impl ServiceDefinition {
         id: ServiceId,
         stable_key: &str,
         kind: ServiceKind,
+        profile_owner: ServiceProfileOwner,
+        source_event_id: Option<u32>,
         currency_key: Option<Box<str>>,
         price_formula_key: Option<Box<str>>,
         offer_pool_key: Option<Box<str>>,
@@ -71,6 +84,8 @@ impl ServiceDefinition {
             id,
             stable_key: stable_key.into(),
             kind,
+            profile_owner,
+            source_event_id,
             currency_key,
             price_formula_key,
             offer_pool_key,
@@ -90,6 +105,14 @@ impl ServiceDefinition {
     #[must_use]
     pub const fn kind(&self) -> ServiceKind {
         self.kind
+    }
+    #[must_use]
+    pub const fn profile_owner(&self) -> ServiceProfileOwner {
+        self.profile_owner
+    }
+    #[must_use]
+    pub const fn source_event_id(&self) -> Option<u32> {
+        self.source_event_id
     }
     #[must_use]
     pub fn currency_key(&self) -> Option<&str> {

@@ -15,7 +15,7 @@ assert(args.every((value, offset) =>
   value === "--partition" || value === "--write" || offset === index + 1),
 "unsupported argument");
 const partitionId = args[index + 1];
-assert(partitionId === "G07-P4-M14-S01",
+assert(["G07-P4-M14-S01", "G07-P4-M14-S02"].includes(partitionId),
   `${partitionId}: service receipt profile is not implemented`);
 
 const manifest = json(
@@ -30,6 +30,10 @@ assert(partition?.mechanic_family === "services-shops-roster-interactables",
 const records = new Map(audit.records.map((entry) => [entry.id, entry]));
 const rules = new Map(audit.rules.map((entry) => [entry.id, entry]));
 const fixtures = new Map(audit.fixtures.map((entry) => [entry.id, entry]));
+const services = new Map(
+  json("content-reference/standard-universe-v1/services.json")
+    .map((entry) => [entry.id, entry]),
+);
 const golden =
   `evidence/standard-universe-mechanics-complete-v1/goldens/${partitionId}.json`;
 assert(exists(golden), `${partitionId}: golden is missing`);
@@ -40,9 +44,12 @@ const provenanceEvidence = [
   { path: "content-reference/standard-universe-v1/review-fixtures.json" },
 ];
 const executionEvidence = [
+  { path: "crates/starclock-mode-universe/src/progression_lowering.rs" },
   { path: "crates/starclock-mode-universe/src/service_effect_runtime.rs" },
   { path: "crates/starclock-mode-universe/src/service_interaction.rs" },
-  { path: "crates/starclock-mode-universe/src/topology_service.rs" },
+  { path: "crates/starclock-mode-universe/src/topology.rs" },
+  { path: "crates/starclock-mode-universe/src/universe_replay_v2.rs" },
+  { path: "crates/starclock-mode-universe/src/universe_replay_v3.rs" },
   { path: "crates/starclock-mode-universe/tests/service_effect_runtime.rs" },
   { path: "crates/starclock-mode-universe/tests/service_interaction_runtime.rs" },
   { path: "crates/starclock-mode-universe/tests/service_reviver_runtime.rs" },
@@ -77,13 +84,30 @@ const receipt = {
     sora_bundle: evidence("config/universe-generated/config.sora"),
     sora_golden: evidence(golden),
   },
-  records: partition.record_ids.map((id) =>
-    disposition(records.get(id), "ExecutableRuleIr", "Universe.xlsx")),
+  records: partition.record_ids.map((id) => {
+    const service = services.get(id);
+    const excluded = profileExcluded(service);
+    return {
+      ...disposition(
+        records.get(id),
+        excluded ? "ProfileExcluded" : "ExecutableRuleIr",
+        "Universe.xlsx",
+      ),
+      ...(excluded ? { profile_owner: service.profile_owner } : {}),
+    };
+  }),
   rules: partition.rule_ids.map((id) => {
     const planned = rules.get(id);
+    const service = services.get(planned.source_record_id);
+    const excluded = profileExcluded(service);
     return {
-      ...disposition(planned, "ExecutableRuleIr", "UniverseBindings.xlsx"),
-      implementation_kind: "SharedPrimitive",
+      ...disposition(
+        planned,
+        excluded ? "ProfileExcluded" : "ExecutableRuleIr",
+        "UniverseBindings.xlsx",
+      ),
+      ...(excluded ? { profile_owner: service.profile_owner } : {}),
+      implementation_kind: excluded ? "ProfileBoundary" : "SharedPrimitive",
       definition_keys: [id, planned.source_record_id],
       execution_evidence: executionEvidence,
     };
@@ -106,6 +130,9 @@ const receipt = {
       "cargo test -p starclock-mode-universe --test service_interaction_runtime --all-features",
       "cargo test -p starclock-mode-universe --test service_reviver_runtime --all-features",
       "cargo test -p starclock-mode-universe --all-features",
+      "cargo test -p starclock-agent-api --test activity_session_loop --all-features",
+      "cargo test -p starclock-cli --test universe_cli --all-features",
+      "cargo test -p starclock-mcp --test universe_surface_parity --all-features",
     ],
     goldens: [evidence(golden)],
   },
@@ -148,6 +175,11 @@ function disposition(planned, runtimeDisposition, workbook) {
     workbook_evidence: [{ path: `config/data/${workbook}` }],
     provenance_evidence: provenanceEvidence,
   };
+}
+function profileExcluded(service) {
+  return service?.kind === "TrailblazeBonus"
+    && service.mode_owner === "EvidenceOnly"
+    && service.profile_owner !== "Standard";
 }
 function evidence(relative) {
   return {

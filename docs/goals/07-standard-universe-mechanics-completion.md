@@ -58,6 +58,14 @@ The inherited Goal 04 mechanism partitions are:
 from these exact identities. It expands milestone rows into concrete
 `G07-Pn-Mnn-Snn` sub-batches before broad implementation begins.
 
+Goal 07 source review corrected an inherited classification error without
+changing this frozen denominator. `RogueBonus` IDs `1`–`6` are the six
+Standard Trailblaze Bonuses. IDs `101`–`106` belong to Swarm Disaster,
+`201`–`205` to Gold and Gears, and `401`–`432` plus `501`–`530` to Divergent
+Universe. The expansion-owned rows remain assigned exactly once for audit
+continuity, but they are not Standard content and must use the
+`ProfileExcluded` disposition below.
+
 ## Completion dispositions
 
 Goal 07 replaces the ambiguous `RetainedApproximation` state with explicit
@@ -73,6 +81,7 @@ Runtime disposition:
 | `SelectionPolicy` | Row only controls deterministic eligibility/selection and has no effect body. |
 | `ExternalDecision` | Noncombat outcome is supplied by an explicit command and then applied atomically. |
 | `Metadata` | Row is descriptive/test metadata and makes no runtime claim. |
+| `ProfileExcluded` | A row inherited by the frozen denominator belongs to another named mode profile. It is preserved as evidence, omitted from Standard eligibility and rejected before payload or RNG consumption. |
 
 Accuracy disposition:
 
@@ -82,14 +91,19 @@ Accuracy disposition:
 | `ApprovedNumericApproximation` | Mechanic is correct; unavailable numeric input uses a named formula/value range with provenance and confidence. |
 | `NotApplicable` | The row has no authoritative numeric behavior. |
 
-No enabled rule may finish as metadata, policy or external decision. No row
-may use a retained approximation to mean “the implementation is missing.”
+No Standard-owned enabled rule may finish as metadata, policy, external
+decision or profile-excluded. `ProfileExcluded` is valid only for a formally
+owned non-Standard Trailblaze Bonus inherited from the Goal 05 denominator;
+its owner and fail-closed profile boundary are mandatory receipt evidence. No
+row may use a retained approximation to mean “the implementation is missing.”
 Insufficient public evidence for mechanic behavior blocks the affected
 partition and must be escalated rather than guessed.
 
 ## Terminal outcome
 
-- all 786 rule bindings have executable runtime dispositions;
+- all Standard-owned rule bindings have executable runtime dispositions, and
+  every expansion-owned binding inherited by the fixed 786-row denominator
+  has an exact `ProfileExcluded` disposition;
 - all 78 semantic fixtures execute against production definitions and values;
 - all 2,201 content rows are consumed exactly once by runtime, selection,
   external-decision or metadata paths;

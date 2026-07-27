@@ -10,6 +10,7 @@ use crate::{
     catalog::UniverseCatalog,
     id::RoomId,
     progression::ServiceKind,
+    service_effect_runtime::TrailblazeBonusTier,
     service_interaction::{
         SERVICE_INTERACTION_HANDLER_ID, ServiceInteractionRuntimeCatalog,
         ServiceInteractionSelection,
@@ -160,6 +161,34 @@ pub(super) fn option_condition(
     }
     if let Some(participant) = required_defeated_participant {
         conditions.push(ActivityCondition::ParticipantDefeated(participant));
+    }
+    ActivityCondition::All(conditions.into_boxed_slice())
+}
+
+pub(super) fn trailblaze_bonus_condition(
+    fragments: ActivitySlotId,
+    required_fragments: Option<u32>,
+    ability_projection: ActivitySlotId,
+    tier: TrailblazeBonusTier,
+) -> ActivityCondition {
+    let enhanced = ActivityCondition::Equal(
+        ActivityExpression::CounterValue {
+            slot: ability_projection,
+            key: AbilityTarget::EnhancedTrailblazeBonus.activity_key(),
+        },
+        ActivityExpression::Literal(ActivityValue::BoundedInteger(1_000_000)),
+    );
+    let mut conditions = vec![match tier {
+        TrailblazeBonusTier::Ordinary => ActivityCondition::Not(Box::new(enhanced)),
+        TrailblazeBonusTier::Enhanced => enhanced,
+    }];
+    if let Some(required) = required_fragments {
+        conditions.push(ActivityCondition::Not(Box::new(
+            ActivityCondition::LessThan(
+                ActivityExpression::Slot(fragments),
+                ActivityExpression::Literal(ActivityValue::BoundedInteger(i64::from(required))),
+            ),
+        )));
     }
     ActivityCondition::All(conditions.into_boxed_slice())
 }

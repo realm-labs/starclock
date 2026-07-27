@@ -8,6 +8,7 @@ use crate::generated::{
     universe_ability_operation::UniverseAbilityOperation,
     universe_ability_value_unit::UniverseAbilityValueUnit,
     universe_service_kind::UniverseServiceKind,
+    universe_service_profile_owner::UniverseServiceProfileOwner,
 };
 use crate::id::{AbilityTreeNodeId, ServiceId};
 use crate::lowering::{checked_key, checked_source, invalid, localized, reference};
@@ -15,6 +16,7 @@ use crate::path_lowering::{parameter_groups, parse_decimal, validate_rule};
 use crate::progression::{
     AbilityEffectClass, AbilityOperation, AbilityTreeCost, AbilityTreeEffect,
     AbilityTreeNodeDefinition, AbilityValueUnit, ServiceDefinition, ServiceKind, ServiceParameter,
+    ServiceProfileOwner,
 };
 
 pub(crate) struct ProgressionDefinitions {
@@ -47,6 +49,17 @@ fn lower_services(
     for row in config.universe_service().ordered_rows() {
         validate_rule(config, &row.rule_stable_key)?;
         let kind = service_kind(row.kind);
+        let profile_owner = service_profile_owner(row.profile_owner);
+        let source_event_id = row
+            .source_event_id
+            .map(|value| positive_sequence(value, "Service source event"))
+            .transpose()?;
+        if (kind == ServiceKind::TrailblazeBonus) != source_event_id.is_some()
+            || (kind != ServiceKind::TrailblazeBonus
+                && profile_owner != ServiceProfileOwner::Standard)
+        {
+            return Err(invalid("Service profile/source-event contract is invalid"));
+        }
         let currency_key =
             optional_key(row.currency_stable_key.as_deref(), "Service currency key")?;
         if currency_key
@@ -67,6 +80,8 @@ fn lower_services(
             service_id(row.id, "Service")?,
             checked_key(&row.stable_key, "Service stable key")?,
             kind,
+            profile_owner,
+            source_event_id,
             currency_key,
             optional_key(
                 row.price_formula_stable_key.as_deref(),
@@ -89,7 +104,7 @@ fn lower_services(
         ));
     }
     definitions.sort_by_key(ServiceDefinition::id);
-    if definitions.len() != 94 || config.universe_service_parameter().len() != 12 {
+    if definitions.len() != 94 || config.universe_service_parameter().len() != 41 {
         return Err(reference("Service/parameter denominator differs"));
     }
     Ok(definitions.into_boxed_slice())
@@ -351,6 +366,14 @@ fn service_kind(value: UniverseServiceKind) -> ServiceKind {
         UniverseServiceKind::BlessingShop => ServiceKind::BlessingShop,
         UniverseServiceKind::CurioShop => ServiceKind::CurioShop,
         UniverseServiceKind::TrailblazeBonus => ServiceKind::TrailblazeBonus,
+    }
+}
+fn service_profile_owner(value: UniverseServiceProfileOwner) -> ServiceProfileOwner {
+    match value {
+        UniverseServiceProfileOwner::Standard => ServiceProfileOwner::Standard,
+        UniverseServiceProfileOwner::SwarmDisaster => ServiceProfileOwner::SwarmDisaster,
+        UniverseServiceProfileOwner::GoldAndGears => ServiceProfileOwner::GoldAndGears,
+        UniverseServiceProfileOwner::DivergentUniverse => ServiceProfileOwner::DivergentUniverse,
     }
 }
 fn ability_operation(value: UniverseAbilityOperation) -> AbilityOperation {

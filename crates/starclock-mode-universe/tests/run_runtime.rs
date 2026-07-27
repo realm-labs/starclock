@@ -40,7 +40,7 @@ fn catalog() -> Arc<UniverseCatalog> {
 fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
     let catalog = catalog();
     let runtime = RunRuntimeCatalog::compile(&catalog).expect("run runtime");
-    assert_eq!(RUN_RUNTIME_REVISION, "standard-universe-run-runtime-v1");
+    assert_eq!(RUN_RUNTIME_REVISION, "standard-universe-run-runtime-v2");
     assert_eq!(runtime.occurrence_choices().len(), 321);
     assert_eq!(runtime.services().len(), 94);
     assert_eq!(
@@ -79,8 +79,8 @@ fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
     assert_eq!(
         runtime.digest(),
         [
-            89, 238, 195, 56, 168, 128, 97, 229, 35, 51, 141, 234, 207, 222, 143, 105, 9, 121, 206,
-            115, 18, 218, 86, 217, 131, 255, 115, 83, 218, 202, 129, 107,
+            109, 73, 120, 78, 24, 14, 224, 31, 80, 83, 242, 243, 12, 62, 192, 130, 91, 3, 219, 222,
+            86, 159, 34, 20, 146, 194, 219, 103, 136, 97, 58, 48,
         ]
     );
     assert_eq!(
@@ -166,7 +166,7 @@ fn noncombat_rooms_accept_only_offered_external_outcomes_without_granting_battle
         compiled
             .abstract_interactions()
             .iter()
-            .all(|binding| binding.kind() != RoomContentKind::EncounterGroup)
+            .all(|binding| binding.kind() != Some(RoomContentKind::EncounterGroup))
     );
     let bound = compiled
         .runtime_definition()
@@ -204,6 +204,20 @@ fn noncombat_rooms_accept_only_offered_external_outcomes_without_granting_battle
                 path_decision.options()[0].id(),
             )
             .unwrap();
+        let trailblaze = activity.player_view();
+        let trailblaze_decision = trailblaze.decision().expect("Trailblaze Bonus decision");
+        assert_eq!(
+            trailblaze_decision.kind(),
+            ActivityDecisionKind::ExternalOutcome
+        );
+        activity
+            .submit_external_outcome(
+                trailblaze.state_hash(),
+                trailblaze_decision.id(),
+                ActivityExternalOutcomeId::new(trailblaze_decision.options()[0].id().get())
+                    .expect("Trailblaze Bonus outcome"),
+            )
+            .expect("Trailblaze Bonus");
         let content = activity.player_view();
         let decision = content.decision().expect("resolved room content");
         assert_eq!(decision.kind(), ActivityDecisionKind::ExternalOutcome);

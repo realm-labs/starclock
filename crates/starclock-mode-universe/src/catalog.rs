@@ -33,7 +33,7 @@ use crate::path::{
 use crate::progression::{AbilityTreeNodeDefinition, ServiceDefinition};
 use crate::rule::MechanicRuleDefinition;
 
-pub const UNIVERSE_CATALOG_REVISION: &str = "standard-universe-v4.4-runtime-v2";
+pub const UNIVERSE_CATALOG_REVISION: &str = "standard-universe-v4.4-runtime-v3";
 pub const STANDARD_UNIVERSE_PROFILE_REVISION: &str = "standard-universe-main-world-v1";
 pub const ACTIVITY_CONFIGURATION_REVISION: &str = "starclock-activity-config-v1";
 
@@ -43,7 +43,7 @@ const EXPECTED_SNAPSHOT_DATE: &str = "2026-07-22";
 const EXPECTED_CONTENT_MANIFEST: &str =
     "1dac0f8102a8c2a77717a37d206e2288f38fda8d428e490cdd91177190bce216";
 const EXPECTED_PACK_DIGEST: &str =
-    "8a6ea40d777be0c007290dc4af82080c6bc8abd56d5b3e133309dea66e9eb5dd";
+    "1d115ff29ee1d6aa0b4b35a9ab717cf46e62343a0d4aa882b8ec978dfee26cf5";
 const EXPECTED_CORE_DATA_REVISION: &str = "core-combat-v1-phase7-l11";
 const EXPECTED_CORE_RULES_REVISION: &str = "core-combat-rules-v1";
 const EXPECTED_NUMERIC_REVISION: &str = "fixed-i64-6dp-v1";
@@ -55,8 +55,8 @@ const EXPECTED_CORE_BUNDLE: [u8; 32] = [
     0x33, 0x4b, 0xdb, 0x14, 0xd8, 0x5a, 0x3e, 0x7f, 0xfb, 0x9f, 0xb0, 0xdc, 0xc0, 0x18, 0x95, 0x3b,
 ];
 const EXPECTED_UNIVERSE_BUNDLE: UniverseBundleDigest = UniverseBundleDigest::new([
-    0x32, 0x75, 0xe9, 0xb0, 0x2c, 0x08, 0x9e, 0x6f, 0x97, 0xac, 0x95, 0x25, 0x69, 0x08, 0x3a, 0x9b,
-    0x95, 0xf9, 0xbd, 0x63, 0x15, 0xac, 0x58, 0x00, 0x66, 0x3a, 0x56, 0x2f, 0x83, 0xf3, 0x48, 0xef,
+    0x2c, 0x99, 0x92, 0xd9, 0xb5, 0x65, 0x41, 0x42, 0xec, 0x03, 0x75, 0x97, 0x05, 0x10, 0x1b, 0x89,
+    0xb4, 0x7c, 0x6b, 0x92, 0xb4, 0x60, 0xd5, 0x48, 0xe7, 0xd5, 0x98, 0x47, 0x47, 0x8e, 0x19, 0x94,
 ]);
 
 /// Generated-row-free compatibility identity for one catalog composition.
@@ -174,7 +174,7 @@ impl UniverseCatalog {
         if actual_digest != EXPECTED_UNIVERSE_BUNDLE {
             return Err(error(
                 UniverseCatalogLoadErrorKind::UniverseBundleDigest,
-                "Universe bundle SHA-256 does not match the frozen Goal 03 release",
+                "Universe bundle SHA-256 does not match the reviewed Goal 07 catalog revision",
             ));
         }
         validate_core(&core)?;
@@ -818,7 +818,7 @@ mod tests {
                 .iter()
                 .map(|value| value.parameters().len())
                 .sum::<usize>(),
-            12
+            41
         );
         assert_eq!(catalog.ability_tree_nodes().len(), 42);
         assert_eq!(
@@ -890,7 +890,7 @@ mod tests {
                 .iter()
                 .map(|value| value.entries().len())
                 .sum::<usize>(),
-            1_651
+            1_578
         );
         assert_eq!(catalog.mechanic_rules().len(), 786);
         assert_eq!(
@@ -899,7 +899,7 @@ mod tests {
                 .iter()
                 .map(|value| value.parameters().len())
                 .sum::<usize>(),
-            1_020
+            1_049
         );
         assert_eq!(
             catalog
@@ -956,40 +956,36 @@ mod tests {
         assert_eq!(
             catalog.identity().run_definitions_digest().bytes(),
             [
-                0x90, 0x1a, 0x6d, 0xa7, 0xea, 0x7a, 0xfe, 0x8a, 0x77, 0x3d, 0x81, 0x12, 0xdf, 0x1a,
-                0x6f, 0x75, 0x54, 0x56, 0x18, 0x93, 0x1d, 0x01, 0x8a, 0x78, 0xf0, 0xff, 0x3d, 0xff,
-                0x2b, 0x23, 0xaa, 0xeb,
+                40, 1, 244, 107, 216, 87, 101, 238, 104, 65, 89, 45, 119, 69, 197, 41, 224, 84,
+                103, 186, 224, 79, 76, 184, 195, 61, 182, 10, 125, 170, 179, 93,
             ]
         );
         assert_eq!(
             catalog.identity().encounter_definitions_digest().bytes(),
             [
-                0x95, 0x52, 0xa6, 0xd8, 0x6f, 0x67, 0x4c, 0x0d, 0xfb, 0xb1, 0xbc, 0xfa, 0xbd, 0xe1,
-                0x50, 0x5a, 0x1c, 0xbe, 0xf8, 0x55, 0x57, 0x62, 0xd1, 0xb1, 0x8d, 0x02, 0x5e, 0xda,
-                0xe0, 0x3d, 0xad, 0xdd,
+                24, 8, 19, 18, 29, 124, 171, 245, 125, 174, 194, 92, 122, 235, 253, 2, 66, 246,
+                175, 124, 80, 75, 49, 186, 24, 229, 17, 171, 29, 178, 35, 26,
             ]
         );
         assert_eq!(
             catalog.identity().definitions_digest().bytes(),
             [
-                0xf9, 0xb8, 0x7e, 0xfb, 0x14, 0xe0, 0xa3, 0x76, 0xce, 0xa1, 0x83, 0x79, 0xde, 0x7f,
-                0x87, 0xed, 0x93, 0x9a, 0xce, 0xa4, 0x17, 0xa7, 0x33, 0x4e, 0x7e, 0xa9, 0x3c, 0x7e,
-                0x33, 0xb0, 0xb4, 0x30,
+                77, 195, 197, 26, 252, 73, 117, 172, 97, 241, 29, 214, 187, 60, 26, 235, 57, 197,
+                246, 216, 180, 42, 46, 226, 178, 255, 153, 168, 228, 59, 178, 153,
             ]
         );
         assert_eq!(
             catalog.identity().configuration_digest().bytes(),
             [
-                237, 210, 160, 124, 121, 101, 102, 116, 28, 206, 40, 171, 225, 77, 57, 182, 86,
-                187, 218, 69, 86, 227, 166, 245, 177, 230, 123, 35, 138, 31, 207, 206,
+                103, 171, 24, 41, 255, 240, 74, 103, 111, 144, 226, 27, 100, 58, 162, 166, 187,
+                248, 56, 176, 224, 60, 211, 179, 90, 74, 60, 201, 112, 20, 21, 234,
             ]
         );
         assert_eq!(
             catalog.identity().profile_digest().bytes(),
             [
-                0xf8, 0xce, 0x0a, 0xfe, 0xa3, 0x91, 0xaa, 0x3a, 0x12, 0xe9, 0x8a, 0x82, 0x0a, 0xf3,
-                0xd5, 0x1e, 0xb8, 0x57, 0x23, 0x38, 0x7b, 0x31, 0x5f, 0xa6, 0xb7, 0xf4, 0x8d, 0x56,
-                0xd9, 0x10, 0xca, 0xf3,
+                183, 104, 188, 233, 254, 46, 124, 77, 243, 71, 173, 106, 170, 117, 10, 124, 94, 55,
+                25, 89, 1, 86, 148, 227, 81, 126, 224, 49, 128, 27, 184, 245,
             ]
         );
     }

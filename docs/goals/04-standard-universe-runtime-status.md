@@ -1,5 +1,11 @@
 # Goal 04 Status — Standard Simulated Universe Runtime
 
+> Goal 07 correction (2026-07-27): only `RogueBonus` IDs 1–6 belong to
+> Standard Universe. The historical Goal 04 ledger compiled all 79 inherited
+> rows before profile ownership was available. Current runtime lowering keeps
+> expansion-owned rows as evidence and rejects them at the Standard profile
+> boundary before payload or RNG use.
+
 ## Goal state
 
 | Field | Value |

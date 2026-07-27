@@ -1,5 +1,12 @@
 # Goal 03 Status — Standard Simulated Universe Reference Data
 
+> Goal 07 correction (2026-07-27): the inherited 79-row `RogueBonus`
+> source table spans multiple modes. Only IDs 1–6 are Standard Trailblaze
+> Bonuses; the remaining IDs belong to Swarm Disaster, Gold and Gears or
+> Divergent Universe. Goal 03's completed ledger below is historical. Current
+> Excel/Sora rows carry formal profile ownership and exclude those expansion
+> rows from Standard eligibility.
+
 ## Goal state
 
 | Field | Value |

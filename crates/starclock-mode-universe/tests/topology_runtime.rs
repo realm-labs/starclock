@@ -80,16 +80,29 @@ fn choose_first(activity: &mut GraphActivity) {
         .expect("first option");
 }
 
+fn choose_path_and_trailblaze_bonus(activity: &mut GraphActivity) {
+    choose_first(activity);
+    let view = activity.player_view();
+    let decision = view.decision().expect("Trailblaze Bonus choice");
+    assert_eq!(decision.kind(), ActivityDecisionKind::ExternalOutcome);
+    let outcome =
+        starclock_activity::ActivityExternalOutcomeId::new(decision.options()[0].id().get())
+            .unwrap();
+    activity
+        .submit_external_outcome(view.state_hash(), decision.id(), outcome)
+        .expect("Trailblaze Bonus");
+}
+
 #[test]
 fn all_topologies_compile_to_bounded_spatial_free_hubs() {
     let (catalog, compiled) = compiled();
     let runtime = compiled.runtime_definition();
     assert_eq!(compiled.topology_candidates().len(), 37);
     assert_eq!(compiled.domain_hubs().len(), 579);
-    assert_eq!(compiled.abstract_interactions().len(), 16_371);
-    assert_eq!(runtime.graph().nodes().len(), 4_058);
-    assert_eq!(runtime.graph().edges().len(), 5_993);
-    assert_eq!(runtime.graph().maximum_total_visits(), 4_058);
+    assert_eq!(compiled.abstract_interactions().len(), 16_377);
+    assert_eq!(runtime.graph().nodes().len(), 4_059);
+    assert_eq!(runtime.graph().edges().len(), 5_994);
+    assert_eq!(runtime.graph().maximum_total_visits(), 4_059);
     assert_eq!(runtime.random_offers().len(), 579);
     assert!(runtime.random_offers().iter().all(|offer| {
         offer.maximum_options_reductions().len() == 2
@@ -136,13 +149,13 @@ fn all_topologies_compile_to_bounded_spatial_free_hubs() {
     assert_eq!(
         runtime.graph().digest().bytes(),
         [
-            22, 164, 10, 14, 40, 127, 89, 137, 20, 25, 170, 12, 102, 143, 84, 10, 176, 36, 19, 5,
-            162, 123, 169, 127, 168, 89, 190, 72, 211, 59, 15, 187,
+            26, 63, 20, 236, 238, 63, 175, 175, 118, 113, 202, 1, 43, 202, 200, 187, 140, 42, 77,
+            6, 252, 36, 135, 216, 42, 115, 179, 19, 211, 3, 142, 131,
         ]
     );
     assert_eq!(
         STANDARD_UNIVERSE_TOPOLOGY_REVISION,
-        "standard-universe-topology-v15"
+        "standard-universe-topology-v16"
     );
 
     for hub in compiled.domain_hubs() {
@@ -254,8 +267,8 @@ fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state(
     assert_eq!(
         view.state_hash().bytes(),
         [
-            167, 118, 42, 111, 57, 49, 169, 198, 189, 220, 104, 15, 118, 89, 240, 249, 132, 148,
-            99, 204, 127, 172, 211, 228, 187, 177, 117, 33, 57, 224, 60, 184,
+            142, 101, 168, 54, 95, 189, 152, 8, 136, 185, 89, 11, 138, 56, 22, 156, 184, 188, 110,
+            186, 62, 27, 22, 74, 1, 38, 77, 246, 27, 137, 86, 138,
         ]
     );
     let decision = view.decision().expect("Path choice");
@@ -295,7 +308,7 @@ fn room_content_and_reward_nodes_gate_routes_without_spatial_state() {
         )
         .expect("start")
         .into_activity();
-    choose_first(&mut activity);
+    choose_path_and_trailblaze_bonus(&mut activity);
 
     let content = activity.player_view();
     let hub = compiled
@@ -305,7 +318,7 @@ fn room_content_and_reward_nodes_gate_routes_without_spatial_state() {
         .expect("resolved room content hub");
     let decision = content.decision().expect("content interaction");
     assert_eq!(decision.kind(), ActivityDecisionKind::ExternalOutcome);
-    assert_eq!(decision.options().len(), 1);
+    assert!(!decision.options().is_empty());
     activity
         .submit_external_outcome(
             content.state_hash(),

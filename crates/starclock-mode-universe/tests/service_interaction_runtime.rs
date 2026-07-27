@@ -5,14 +5,15 @@ use starclock_activity::{
     ActivityDefinitionId, ActivityDefinitionIdentity, ActivityEdgeCondition,
     ActivityEdgeDefinition, ActivityEdgeId, ActivityExternalOutcomeId, ActivityGraphDefinition,
     ActivityInstanceId, ActivityInteractionBinding, ActivityInteractionRandomPolicy,
-    ActivityMasterSeed, ActivityNodeDefinition, ActivityNodeKind, ActivityOperation,
-    ActivityOptionDefinition, ActivityProgramDefinition, ActivityProgramId, ActivityRandomPolicies,
-    ActivityRngLabel, ActivityScope, ActivitySlotDefinition, ActivityStateDefinition,
-    ActivityStateHash, ActivityStateSource, ActivityStateVisibility, ActivityTerminalOutcome,
-    ActivityValue, BuildDigest, GraphActivity, GraphActivityDefinition, GraphActivityNodeProgram,
-    LoadoutLockScope, NodeId, OpaqueParticipantBuild, ParticipantId, ParticipantLock,
-    ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
-    SectionId, SlotCarryPolicy, SlotResetPoint,
+    ActivityInventoryId, ActivityMasterSeed, ActivityNodeDefinition, ActivityNodeKind,
+    ActivityOperation, ActivityOptionDefinition, ActivityPlayerView, ActivityProgramDefinition,
+    ActivityProgramId, ActivityRandomPolicies, ActivityRngLabel, ActivityScope,
+    ActivitySlotDefinition, ActivityStateDefinition, ActivityStateHash, ActivityStateSource,
+    ActivityStateVisibility, ActivityTerminalOutcome, ActivityValue, BuildDigest, GraphActivity,
+    GraphActivityDefinition, GraphActivityNodeProgram, LoadoutLockScope, NodeId,
+    OpaqueParticipantBuild, ParticipantId, ParticipantLock, ParticipantLockEntry,
+    ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope, SectionId,
+    SlotCarryPolicy, SlotResetPoint,
 };
 use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
 use starclock_mode_universe::{
@@ -21,7 +22,7 @@ use starclock_mode_universe::{
     id::{BlessingId, CurioId, ServiceId},
     service_interaction::{
         SERVICE_INTERACTION_HANDLER_ID, SERVICE_INTERACTION_RUNTIME_REVISION,
-        ServiceInteractionSelection, ServicePurchaseContent,
+        ServiceInteractionError, ServiceInteractionSelection, ServicePurchaseContent,
     },
 };
 
@@ -37,6 +38,12 @@ fn catalog() -> Arc<UniverseCatalog> {
 }
 
 fn compiled() -> CompiledActivity {
+    compiled_with_ability(Vec::new())
+}
+
+fn compiled_with_ability(
+    ability_tree: Vec<starclock_mode_universe::id::AbilityTreeNodeId>,
+) -> CompiledActivity {
     let catalog = catalog();
     let world = &catalog.worlds()[0];
     StandardUniverseProfile::new(Arc::clone(&catalog))
@@ -44,7 +51,7 @@ fn compiled() -> CompiledActivity {
             world.id(),
             world.difficulties()[0],
             participants(),
-            vec![],
+            ability_tree,
         ))
         .expect("compiled Standard Universe")
 }
@@ -66,13 +73,24 @@ fn first_curio() -> CurioId {
     catalog().curios()[0].id()
 }
 
+fn inventory_total(view: &ActivityPlayerView, inventory: ActivityInventoryId) -> u32 {
+    view.inventories()
+        .iter()
+        .find(|value| value.id() == inventory)
+        .expect("inventory")
+        .entries()
+        .iter()
+        .map(|(_, count)| *count)
+        .sum()
+}
+
 #[test]
 fn all_service_families_compile_to_concrete_checked_payloads() {
     let compiled = compiled();
     let runtime = compiled.service_interaction_runtime();
     assert_eq!(
         SERVICE_INTERACTION_RUNTIME_REVISION,
-        "standard-universe-service-interaction-runtime-v5"
+        "standard-universe-service-interaction-runtime-v6"
     );
     assert_eq!(runtime.service_count(), 94);
     assert_ne!(runtime.digest(), [0; 32]);
@@ -129,6 +147,175 @@ fn all_service_families_compile_to_concrete_checked_payloads() {
             .expect("concrete service selection");
         assert!(!interaction.payload().is_empty());
         assert!(interaction.immediate_operations() + interaction.deferred_operations() > 0);
+    }
+}
+
+#[test]
+fn standard_trailblaze_bonuses_execute_exact_activity_effects() {
+    let compiled = compiled();
+    let cases = [
+        ("universe.service.trailblaze-bonus.1", 50, 150, 0, 0),
+        ("universe.service.trailblaze-bonus.2", 50, 50, 1, 0),
+        ("universe.service.trailblaze-bonus.3", 50, 0, 0, 1),
+        ("universe.service.trailblaze-bonus.4", 50, 200, 0, 0),
+        ("universe.service.trailblaze-bonus.5", 50, 50, 1, 0),
+        ("universe.service.trailblaze-bonus.6", 50, 50, 0, 1),
+    ];
+    for (index, (key, before_fragments, after_fragments, blessings, curios)) in
+        cases.into_iter().enumerate()
+    {
+        let interaction = compiled
+            .service_interaction_runtime()
+            .compile_selection(service(key), &ServiceInteractionSelection::Activate)
+            .unwrap();
+        let outcome = ActivityExternalOutcomeId::new(92_000 + index as u64).unwrap();
+        let mut activity = harness(
+            &compiled,
+            outcome,
+            interaction.payload(),
+            interaction.random_candidate_count(),
+            before_fragments,
+        );
+        let before = activity.player_view();
+        activity
+            .submit_external_outcome(
+                before.state_hash(),
+                before.decision().unwrap().id(),
+                outcome,
+            )
+            .unwrap_or_else(|error| panic!("{key}: {error:?}"));
+        let after = activity.player_view();
+        assert_eq!(
+            after
+                .slots()
+                .iter()
+                .find(|slot| slot.id() == compiled.cosmic_fragments_slot())
+                .map(|slot| slot.value()),
+            Some(&ActivityValue::BoundedInteger(after_fragments)),
+            "{key}"
+        );
+        assert_eq!(
+            inventory_total(&after, compiled.blessing_inventory()),
+            blessings,
+            "{key}"
+        );
+        assert_eq!(
+            inventory_total(&after, compiled.curio_inventory()),
+            curios,
+            "{key}"
+        );
+    }
+}
+
+#[test]
+fn nonstandard_bonus_profiles_fail_closed_before_payload_or_rng() {
+    let compiled = compiled();
+    for suffix in [
+        101_u32, 102, 103, 104, 105, 106, 201, 202, 203, 204, 205, 401, 402,
+    ] {
+        let key = format!("universe.service.trailblaze-bonus.{suffix}");
+        assert_eq!(
+            compiled
+                .service_interaction_runtime()
+                .compile_selection(service(&key), &ServiceInteractionSelection::Activate),
+            Err(ServiceInteractionError::ProfileUnavailable),
+            "{key}"
+        );
+    }
+}
+
+#[test]
+fn production_entry_replaces_three_ordinary_bonuses_with_three_enhanced_bonuses() {
+    let ordinary = compiled();
+    let all_nodes = catalog()
+        .ability_tree_nodes()
+        .iter()
+        .map(|node| node.id())
+        .collect();
+    let enhanced = compiled_with_ability(all_nodes);
+    for (index, (compiled, expected, selected, fragments)) in [
+        (
+            ordinary,
+            [
+                "universe.service.trailblaze-bonus.1",
+                "universe.service.trailblaze-bonus.2",
+                "universe.service.trailblaze-bonus.3",
+            ],
+            "universe.service.trailblaze-bonus.1",
+            150,
+        ),
+        (
+            enhanced,
+            [
+                "universe.service.trailblaze-bonus.4",
+                "universe.service.trailblaze-bonus.5",
+                "universe.service.trailblaze-bonus.6",
+            ],
+            "universe.service.trailblaze-bonus.4",
+            250,
+        ),
+    ]
+    .into_iter()
+    .enumerate()
+    {
+        let mut activity = compiled
+            .start(
+                ActivityInstanceId::new(93_000 + index as u64).unwrap(),
+                ActivityMasterSeed::from_u64(93_000 + index as u64),
+            )
+            .unwrap()
+            .into_activity();
+        let path = activity.player_view();
+        activity
+            .choose_option(
+                path.state_hash(),
+                path.decision().unwrap().id(),
+                path.decision().unwrap().options()[0].id(),
+            )
+            .unwrap();
+        let bonus = activity.player_view();
+        assert_eq!(
+            bonus.decision().unwrap().kind(),
+            ActivityDecisionKind::ExternalOutcome
+        );
+        let offered = bonus
+            .decision()
+            .unwrap()
+            .options()
+            .iter()
+            .map(|option| {
+                compiled
+                    .abstract_interactions()
+                    .iter()
+                    .find(|binding| {
+                        binding.node() == bonus.current_node()
+                            && binding.outcome().get() == option.id().get()
+                    })
+                    .expect("production Trailblaze Bonus binding")
+                    .source_content_id()
+            })
+            .collect::<Vec<_>>();
+        assert_eq!(offered, expected);
+        let outcome = compiled
+            .abstract_interactions()
+            .iter()
+            .find(|binding| {
+                binding.node() == bonus.current_node() && binding.source_content_id() == selected
+            })
+            .unwrap()
+            .outcome();
+        activity
+            .submit_external_outcome(bonus.state_hash(), bonus.decision().unwrap().id(), outcome)
+            .unwrap();
+        assert_eq!(
+            activity
+                .player_view()
+                .slots()
+                .iter()
+                .find(|slot| slot.id() == compiled.cosmic_fragments_slot())
+                .map(|slot| slot.value()),
+            Some(&ActivityValue::BoundedInteger(fragments))
+        );
     }
 }
 

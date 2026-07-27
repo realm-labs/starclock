@@ -45,8 +45,13 @@ for (const category of coverage.categories) {
     assert(!contentById.has(row.id), `${category.file}/${row.id}: duplicate global stable ID`);
     contentById.set(row.id, { file: category.file, row });
     for (const field of commonFields) assert(Object.hasOwn(row, field), `${category.file}/${row.id}: missing ${field}`);
-    assert(row.enabled === true, `${category.file}/${row.id}: released Standard row disabled`);
-    assert(["Standard", "Shared"].includes(row.mode_owner), `${category.file}/${row.id}: non-Standard owner leaked`);
+    assert(row.enabled === true, `${category.file}/${row.id}: retained public row disabled`);
+    const profileExcluded = category.file === "services.json"
+      && row.kind === "TrailblazeBonus"
+      && row.profile_owner !== "Standard"
+      && row.mode_owner === "EvidenceOnly";
+    assert(["Standard", "Shared"].includes(row.mode_owner) || profileExcluded,
+      `${category.file}/${row.id}: non-Standard owner leaked without a profile exclusion`);
     assert(row.coverage_state === "DataReady", `${category.file}/${row.id}: not DataReady`);
     assert(quality.has(row.quality) && quality.has(row.mechanism_quality), `${category.file}/${row.id}: invalid quality`);
     for (const field of ["name_en", "name_zh_cn", "summary_en", "summary_zh_cn"])
@@ -163,7 +168,13 @@ for (const row of rows("encounter-groups.json"))
 
 const allReleaseIds = new Set([...contentById.keys(), ...ruleIds]);
 for (const row of rules) {
-  assert(row.enabled && ["Standard", "Shared"].includes(row.mode_owner), `${row.id}: invalid rule ownership`);
+  const source = contentById.get(row.source_record_id)?.row;
+  const profileExcluded = row.mode_owner === "EvidenceOnly"
+    && source?.mode_owner === "EvidenceOnly"
+    && source?.kind === "TrailblazeBonus"
+    && source?.profile_owner !== "Standard";
+  assert(row.enabled && (["Standard", "Shared"].includes(row.mode_owner) || profileExcluded),
+    `${row.id}: invalid rule ownership`);
   requireId(row.id, row.source_record_id, new Set(contentById.keys()), "source record");
   if (["ProjectPolicy", "ApproximateFromReleasedText"].includes(row.mechanism_quality))
     assert(row.approximation_replacement_condition.trim(), `${row.id}: approximation replacement condition missing`);

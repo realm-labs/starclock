@@ -28546,7 +28546,24 @@
     "triggers": [],
     "native_handler_id": "",
     "source_binding_key": "",
-    "parameter_values": [],
+    "parameter_values": [
+      {
+        "key": "effect_kind",
+        "value": "AddFragments"
+      },
+      {
+        "key": "amount",
+        "value": "100"
+      },
+      {
+        "key": "offer_tier",
+        "value": "Ordinary"
+      },
+      {
+        "key": "offer_position",
+        "value": "1"
+      }
+    ],
     "mechanic_tags": [
       "fragments"
     ],
@@ -28555,7 +28572,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.101",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Fragmented Universe Rule",
     "name_zh_cn": "破碎宇宙规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -28571,7 +28588,7 @@
       "101",
       "1010"
     ],
-    "note": "",
+    "note": "Owned by SwarmDisaster; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.101",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -28588,7 +28605,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.102",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Blessing Universe Rule",
     "name_zh_cn": "祝福宇宙规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -28604,7 +28621,7 @@
       "102",
       "1020"
     ],
-    "note": "",
+    "note": "Owned by SwarmDisaster; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.102",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -28621,7 +28638,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.103",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Miracle Universe Rule",
     "name_zh_cn": "神奇宇宙规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -28637,7 +28654,7 @@
       "103",
       "1030"
     ],
-    "note": "",
+    "note": "Owned by SwarmDisaster; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.103",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -28654,7 +28671,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.104",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Orderly Universe Rule",
     "name_zh_cn": "有序宇宙规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -28670,7 +28687,7 @@
       "104",
       "1040"
     ],
-    "note": "",
+    "note": "Owned by SwarmDisaster; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.104",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -28688,7 +28705,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.105",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Hungry Universe Rule",
     "name_zh_cn": "巨胃宇宙规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -28704,7 +28721,7 @@
       "105",
       "1050"
     ],
-    "note": "",
+    "note": "Owned by SwarmDisaster; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.105",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -28721,7 +28738,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.106",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Bloodthirsty Universe Rule",
     "name_zh_cn": "嗜血宇宙规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -28737,7 +28754,7 @@
       "106",
       "1060"
     ],
-    "note": "",
+    "note": "Owned by SwarmDisaster; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.106",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -28778,7 +28795,32 @@
     "triggers": [],
     "native_handler_id": "",
     "source_binding_key": "",
-    "parameter_values": [],
+    "parameter_values": [
+      {
+        "key": "effect_kind",
+        "value": "RandomBlessing"
+      },
+      {
+        "key": "quantity",
+        "value": "1"
+      },
+      {
+        "key": "minimum_rarity",
+        "value": "1"
+      },
+      {
+        "key": "maximum_rarity",
+        "value": "1"
+      },
+      {
+        "key": "offer_tier",
+        "value": "Ordinary"
+      },
+      {
+        "key": "offer_position",
+        "value": "2"
+      }
+    ],
     "mechanic_tags": [
       "blessing"
     ],
@@ -28787,7 +28829,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.201",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Fragmented Universe Rule",
     "name_zh_cn": "破碎宇宙规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -28803,7 +28845,7 @@
       "201",
       "3010"
     ],
-    "note": "",
+    "note": "Owned by GoldAndGears; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.201",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -28820,7 +28862,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.202",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Blessing Universe Rule",
     "name_zh_cn": "祝福宇宙规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -28836,7 +28878,7 @@
       "202",
       "3020"
     ],
-    "note": "",
+    "note": "Owned by GoldAndGears; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.202",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -28853,7 +28895,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.203",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Miracle Universe Rule",
     "name_zh_cn": "神奇宇宙规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -28869,7 +28911,7 @@
       "203",
       "3030"
     ],
-    "note": "",
+    "note": "Owned by GoldAndGears; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.203",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -28886,7 +28928,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.204",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Inorganic Universe Rule",
     "name_zh_cn": "无机宇宙规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -28902,7 +28944,7 @@
       "204",
       "3040"
     ],
-    "note": "",
+    "note": "Owned by GoldAndGears; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.204",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -28917,7 +28959,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.205",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Equilibrium Universe Rule",
     "name_zh_cn": "均衡宇宙规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -28933,7 +28975,7 @@
       "205",
       "3050"
     ],
-    "note": "",
+    "note": "Owned by GoldAndGears; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.205",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -28974,7 +29016,28 @@
     "triggers": [],
     "native_handler_id": "",
     "source_binding_key": "",
-    "parameter_values": [],
+    "parameter_values": [
+      {
+        "key": "effect_kind",
+        "value": "RandomCurioWithCost"
+      },
+      {
+        "key": "cost",
+        "value": "50"
+      },
+      {
+        "key": "quantity",
+        "value": "1"
+      },
+      {
+        "key": "offer_tier",
+        "value": "Ordinary"
+      },
+      {
+        "key": "offer_position",
+        "value": "3"
+      }
+    ],
     "mechanic_tags": [
       "fragments",
       "curio"
@@ -29008,7 +29071,24 @@
     "triggers": [],
     "native_handler_id": "",
     "source_binding_key": "",
-    "parameter_values": [],
+    "parameter_values": [
+      {
+        "key": "effect_kind",
+        "value": "AddFragments"
+      },
+      {
+        "key": "amount",
+        "value": "150"
+      },
+      {
+        "key": "offer_tier",
+        "value": "Enhanced"
+      },
+      {
+        "key": "offer_position",
+        "value": "1"
+      }
+    ],
     "mechanic_tags": [
       "fragments"
     ],
@@ -29017,7 +29097,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.401",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Mechanic Rule",
     "name_zh_cn": "机修工规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29033,7 +29113,7 @@
       "401",
       "4010"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.401",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29050,7 +29130,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.402",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Surveyor Rule",
     "name_zh_cn": "测绘师规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29066,7 +29146,7 @@
       "402",
       "4020"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.402",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29083,7 +29163,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.403",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Adventurer Rule",
     "name_zh_cn": "冒险家规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29099,7 +29179,7 @@
       "403",
       "4030"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.403",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29116,7 +29196,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.404",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Path of Abundance Rule",
     "name_zh_cn": "丰饶之路规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29132,7 +29212,7 @@
       "404",
       "4040"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.404",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29149,7 +29229,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.405",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Path of The Hunt Rule",
     "name_zh_cn": "巡猎之路规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29165,7 +29245,7 @@
       "405",
       "4050"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.405",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29182,7 +29262,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.406",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Path of Destruction Rule",
     "name_zh_cn": "毁灭之路规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29198,7 +29278,7 @@
       "406",
       "4060"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.406",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29215,7 +29295,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.407",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Path of Elation Rule",
     "name_zh_cn": "欢愉之路规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29231,7 +29311,7 @@
       "407",
       "4070"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.407",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29248,7 +29328,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.408",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Path of Propagation Rule",
     "name_zh_cn": "繁育之路规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29264,7 +29344,7 @@
       "408",
       "4080"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.408",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29281,7 +29361,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.409",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Path of Erudition Rule",
     "name_zh_cn": "智识之路规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29297,7 +29377,7 @@
       "409",
       "4090"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.409",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29314,7 +29394,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.410",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Coronal Sea Rule",
     "name_zh_cn": "日冕海规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29330,7 +29410,7 @@
       "410",
       "4100"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.410",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29347,7 +29427,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.411",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Skycruiser Rule",
     "name_zh_cn": "巡天舰规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29363,7 +29443,7 @@
       "411",
       "4110"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.411",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29380,7 +29460,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.412",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Diamond Precipitation Rule",
     "name_zh_cn": "钻石雨规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29396,7 +29476,7 @@
       "412",
       "4120"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.412",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29411,7 +29491,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.413",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Ivory Tower Rule",
     "name_zh_cn": "象牙塔规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29427,7 +29507,7 @@
       "413",
       "4130"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.413",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29444,7 +29524,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.414",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Fool's Play Rule",
     "name_zh_cn": "愚人戏规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29460,7 +29540,7 @@
       "414",
       "4140"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.414",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29477,7 +29557,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.415",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Fountain of Youth Rule",
     "name_zh_cn": "不老泉规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29493,7 +29573,7 @@
       "415",
       "4150"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.415",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29510,7 +29590,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.416",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Reimbursement Form Rule",
     "name_zh_cn": "报销单规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29526,7 +29606,7 @@
       "416",
       "4160"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.416",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29543,7 +29623,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.417",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Sea of Forgetfulness Rule",
     "name_zh_cn": "遗忘海规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29559,7 +29639,7 @@
       "417",
       "4170"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.417",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29576,7 +29656,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.418",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Phenomenal Field Rule",
     "name_zh_cn": "现象场规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29592,7 +29672,7 @@
       "418",
       "4180"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.418",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29609,7 +29689,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.419",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Lying Cap Rule",
     "name_zh_cn": "说谎帽规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29625,7 +29705,7 @@
       "419",
       "4190"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.419",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29642,7 +29722,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.420",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Case Folder Rule",
     "name_zh_cn": "案件簿规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29658,7 +29738,7 @@
       "420",
       "4200"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.420",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29675,7 +29755,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.421",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Bloodguilt Tome Rule",
     "name_zh_cn": "血罪书规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29691,7 +29771,7 @@
       "421",
       "4210"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.421",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29708,7 +29788,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.422",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Shuttle Boat Rule",
     "name_zh_cn": "梭子船规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29724,7 +29804,7 @@
       "422",
       "4220"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.422",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29741,7 +29821,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.423",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Consciousness Cluster Rule",
     "name_zh_cn": "意识群规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29757,7 +29837,7 @@
       "423",
       "4230"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.423",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29774,7 +29854,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.424",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Oscillating Stars Rule",
     "name_zh_cn": "振荡星规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29790,7 +29870,7 @@
       "424",
       "4240"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.424",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29807,7 +29887,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.425",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Boundless Sea Rule",
     "name_zh_cn": "无涯海规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29823,7 +29903,7 @@
       "425",
       "4250"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.425",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29840,7 +29920,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.426",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Aether Well Rule",
     "name_zh_cn": "以太井规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29856,7 +29936,7 @@
       "426",
       "4260"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.426",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29873,7 +29953,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.427",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Silent Orifice Rule",
     "name_zh_cn": "静默孔规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29889,7 +29969,7 @@
       "427",
       "4270"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.427",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29906,7 +29986,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.428",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Water-Mirrored Moon Rule",
     "name_zh_cn": "水中月规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29922,7 +30002,7 @@
       "428",
       "4280"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.428",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29939,7 +30019,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.429",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Stardust Rule",
     "name_zh_cn": "星之尘规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29955,7 +30035,7 @@
       "429",
       "4290"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.429",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -29973,7 +30053,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.430",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Praisesong Rule",
     "name_zh_cn": "赞美诗规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -29989,7 +30069,7 @@
       "430",
       "4300"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.430",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30007,7 +30087,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.431",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Data Hole Rule",
     "name_zh_cn": "数据孔规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30023,7 +30103,7 @@
       "431",
       "4310"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.431",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30041,7 +30121,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.432",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Butterfly Adores Flower Rule",
     "name_zh_cn": "蝶恋花规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30057,7 +30137,7 @@
       "432",
       "4320"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.432",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30098,7 +30178,32 @@
     "triggers": [],
     "native_handler_id": "",
     "source_binding_key": "",
-    "parameter_values": [],
+    "parameter_values": [
+      {
+        "key": "effect_kind",
+        "value": "RandomBlessing"
+      },
+      {
+        "key": "quantity",
+        "value": "1"
+      },
+      {
+        "key": "minimum_rarity",
+        "value": "1"
+      },
+      {
+        "key": "maximum_rarity",
+        "value": "2"
+      },
+      {
+        "key": "offer_tier",
+        "value": "Enhanced"
+      },
+      {
+        "key": "offer_position",
+        "value": "2"
+      }
+    ],
     "mechanic_tags": [
       "blessing"
     ],
@@ -30107,7 +30212,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.501",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Guard Rule",
     "name_zh_cn": "守卫规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30123,7 +30228,7 @@
       "501",
       "5010"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.501",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30140,7 +30245,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.502",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Teacher Rule",
     "name_zh_cn": "导师规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30156,7 +30261,7 @@
       "502",
       "5020"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.502",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30173,7 +30278,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.503",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Messenger Rule",
     "name_zh_cn": "信使规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30189,7 +30294,7 @@
       "503",
       "5030"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.503",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30206,7 +30311,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.504",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Dream Oracles Rule",
     "name_zh_cn": "梦的谕示规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30222,7 +30327,7 @@
       "504",
       "5040"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.504",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30239,7 +30344,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.505",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Lightning Residues Rule",
     "name_zh_cn": "雷的残骸规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30255,7 +30360,7 @@
       "505",
       "5050"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.505",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30272,7 +30377,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.506",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Sword Fragments Rule",
     "name_zh_cn": "剑的碎片规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30288,7 +30393,7 @@
       "506",
       "5060"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.506",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30305,7 +30410,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.507",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Heart Embers Rule",
     "name_zh_cn": "心的余火规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30321,7 +30426,7 @@
       "507",
       "5070"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.507",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30338,7 +30443,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.508",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Sweet Dreams of Flowers Rule",
     "name_zh_cn": "花的美梦规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30354,7 +30459,7 @@
       "508",
       "5080"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.508",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30371,7 +30476,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.509",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Endless Verse of the Night Rule",
     "name_zh_cn": "夜的长诗规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30387,7 +30492,7 @@
       "509",
       "5090"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.509",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30404,7 +30509,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.510",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Budding of Knowledge Rule",
     "name_zh_cn": "知的萌芽规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30420,7 +30525,7 @@
       "510",
       "5100"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.510",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30437,7 +30542,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.511",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Lingering Whispers of Love Rule",
     "name_zh_cn": "爱的残语规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30453,7 +30558,7 @@
       "511",
       "5110"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.511",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30470,7 +30575,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.512",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Scattered Poems Rule",
     "name_zh_cn": "零落诗篇规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30486,7 +30591,7 @@
       "512",
       "5120"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.512",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30503,7 +30608,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.513",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Rusted Gold Coin Rule",
     "name_zh_cn": "锈蚀金币规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30519,7 +30624,7 @@
       "513",
       "5130"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.513",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30536,7 +30641,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.514",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Golden Short Sword Rule",
     "name_zh_cn": "黄金短剑规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30552,7 +30657,7 @@
       "514",
       "5140"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.514",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30569,7 +30674,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.515",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Mirage In The Water Rule",
     "name_zh_cn": "水中影规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30585,7 +30690,7 @@
       "515",
       "5150"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.515",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30602,7 +30707,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.516",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Gift of Creation Rule",
     "name_zh_cn": "创生之赐规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30618,7 +30723,7 @@
       "516",
       "5160"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.516",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30635,7 +30740,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.517",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Final Spear Rule",
     "name_zh_cn": "最后的枪规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30651,7 +30756,7 @@
       "517",
       "5170"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.517",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30668,7 +30773,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.518",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Poem of the Stars Rule",
     "name_zh_cn": "星的诗篇规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30684,7 +30789,7 @@
       "518",
       "5180"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.518",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30701,7 +30806,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.519",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Data Collection Rule",
     "name_zh_cn": "集群数据规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30717,7 +30822,7 @@
       "519",
       "5190"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.519",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30734,7 +30839,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.520",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Recursion Rule",
     "name_zh_cn": "递归规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30750,7 +30855,7 @@
       "520",
       "5200"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.520",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30767,7 +30872,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.521",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Dream of Flowers Rule",
     "name_zh_cn": "花之梦规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30783,7 +30888,7 @@
       "521",
       "5210"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.521",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30800,7 +30905,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.522",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Bedtime Story Rule",
     "name_zh_cn": "睡前故事规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30816,7 +30921,7 @@
       "522",
       "5220"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.522",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30833,7 +30938,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.523",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Happy Heart Rule",
     "name_zh_cn": "快乐的心规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30849,7 +30954,7 @@
       "523",
       "5230"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.523",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30867,7 +30972,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.524",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Enkindled Dreams Rule",
     "name_zh_cn": "焚烧的梦规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30883,7 +30988,7 @@
       "524",
       "5240"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.524",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30900,7 +31005,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.525",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "A New Beginning Rule",
     "name_zh_cn": "新的开始规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30916,7 +31021,7 @@
       "525",
       "5250"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.525",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30933,7 +31038,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.526",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Melodious Strings Rule",
     "name_zh_cn": "袅袅弦音规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30949,7 +31054,7 @@
       "526",
       "5260"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.526",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30966,7 +31071,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.527",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Rousing War Song Rule",
     "name_zh_cn": "昂扬战歌规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -30982,7 +31087,7 @@
       "527",
       "5270"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.527",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -30999,7 +31104,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.528",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Condensed Heart Rule",
     "name_zh_cn": "凝结的心规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -31015,7 +31120,7 @@
       "528",
       "5280"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.528",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -31032,7 +31137,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.529",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Spore Ball Rule",
     "name_zh_cn": "孢子团规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -31048,7 +31153,7 @@
       "529",
       "5290"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.529",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -31065,7 +31170,7 @@
   {
     "id": "universe.rule.service.trailblaze-bonus.530",
     "enabled": true,
-    "mode_owner": "Standard",
+    "mode_owner": "EvidenceOnly",
     "name_en": "Mini Meme Rule",
     "name_zh_cn": "迷你模因规则",
     "summary_en": "RunService rule contribution backed by normalized policy data.",
@@ -31081,7 +31186,7 @@
       "530",
       "5300"
     ],
-    "note": "",
+    "note": "Owned by DivergentUniverse; retained to preserve the inherited frozen denominator and rejected by the Standard profile.",
     "source_record_id": "universe.service.trailblaze-bonus.530",
     "source_file": "services.json",
     "rule_kind": "RunService",
@@ -31122,7 +31227,24 @@
     "triggers": [],
     "native_handler_id": "",
     "source_binding_key": "",
-    "parameter_values": [],
+    "parameter_values": [
+      {
+        "key": "effect_kind",
+        "value": "RandomCurio"
+      },
+      {
+        "key": "quantity",
+        "value": "1"
+      },
+      {
+        "key": "offer_tier",
+        "value": "Enhanced"
+      },
+      {
+        "key": "offer_position",
+        "value": "3"
+      }
+    ],
     "mechanic_tags": [
       "curio"
     ],

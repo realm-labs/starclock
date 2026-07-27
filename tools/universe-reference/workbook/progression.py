@@ -29,6 +29,8 @@ def build_rows(root: Path) -> dict[str, list[dict]]:
             "id": service_id,
             "stable_key": record["id"],
             "kind": record["kind"],
+            "profile_owner": record.get("profile_owner", "Standard"),
+            "source_event_id": record.get("source_event_id"),
             "currency_stable_key": record["currency_id"] or None,
             "price_formula_stable_key": record["price_formula_id"] or None,
             "offer_pool_stable_key": record["offer_pool_id"] or None,

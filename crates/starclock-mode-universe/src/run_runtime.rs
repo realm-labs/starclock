@@ -10,10 +10,12 @@ use crate::{
     id::{AbilityTreeNodeId, OccurrenceChoiceId, OccurrenceVariantId, ServiceId},
     occurrence::{OccurrenceCost, OccurrenceOutcome, OccurrenceParameterVector},
     path::ExactParameter,
-    progression::{AbilityEffectClass, AbilityTreeEffect, ServiceKind, ServiceParameter},
+    progression::{
+        AbilityEffectClass, AbilityTreeEffect, ServiceKind, ServiceParameter, ServiceProfileOwner,
+    },
 };
 
-pub const RUN_RUNTIME_REVISION: &str = "standard-universe-run-runtime-v1";
+pub const RUN_RUNTIME_REVISION: &str = "standard-universe-run-runtime-v2";
 pub const MAX_COSMIC_FRAGMENTS: i64 = 4_294_967_295;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -84,6 +86,8 @@ pub struct ServiceRuntimeDefinition {
     id: ServiceId,
     stable_key: Box<str>,
     kind: ServiceKind,
+    profile_owner: ServiceProfileOwner,
+    source_event_id: Option<u32>,
     currency_key: Option<Box<str>>,
     price_formula_key: Option<Box<str>>,
     offer_pool_key: Option<Box<str>>,
@@ -103,6 +107,14 @@ impl ServiceRuntimeDefinition {
     #[must_use]
     pub const fn kind(&self) -> ServiceKind {
         self.kind
+    }
+    #[must_use]
+    pub const fn profile_owner(&self) -> ServiceProfileOwner {
+        self.profile_owner
+    }
+    #[must_use]
+    pub const fn source_event_id(&self) -> Option<u32> {
+        self.source_event_id
     }
     #[must_use]
     pub fn currency_key(&self) -> Option<&str> {
@@ -217,6 +229,8 @@ impl RunRuntimeCatalog {
                 id: service.id(),
                 stable_key: service.stable_key().into(),
                 kind: service.kind(),
+                profile_owner: service.profile_owner(),
+                source_event_id: service.source_event_id(),
                 currency_key: service.currency_key().map(Into::into),
                 price_formula_key: service.price_formula_key().map(Into::into),
                 offer_pool_key: service.offer_pool_key().map(Into::into),
@@ -368,6 +382,8 @@ fn catalog_digest(
         encoder.u32(service.id.get());
         encoder.text(&service.stable_key);
         encoder.u8(service.kind as u8);
+        encoder.u8(service.profile_owner as u8);
+        encoder.u32(service.source_event_id.unwrap_or_default());
         encoder.text(service.currency_key.as_deref().unwrap_or(""));
         encoder.text(service.price_formula_key.as_deref().unwrap_or(""));
         encoder.text(service.offer_pool_key.as_deref().unwrap_or(""));

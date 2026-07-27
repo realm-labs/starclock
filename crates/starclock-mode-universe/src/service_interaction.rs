@@ -1,11 +1,14 @@
 //! Canonical lowering of concrete Standard Universe service selections.
+mod codec;
 
 use starclock_activity::{
-    ActivityCondition, ActivityExpression, ActivityHandlerFault, ActivityHandlerFaultKind,
-    ActivityHandlerInput, ActivityHandlerOutput, ActivityInventoryId, ActivityOperation,
-    ActivitySlotId, ActivityValue, ParticipantId,
+    ActivityCondition, ActivityExpression, ActivityHandlerFault, ActivityHandlerInput,
+    ActivityHandlerOutput, ActivityInventoryId, ActivityOperation, ActivitySlotId, ActivityValue,
+    ParticipantId,
 };
 use starclock_combat::Ratio;
+
+use codec::{Decoder, invalid_payload, invalid_state, inventory, slot};
 
 use crate::{
     ability_runtime::AbilityTarget,
@@ -18,14 +21,15 @@ use crate::{
     id::{BlessingId, CurioId, ServiceId},
     service_effect_runtime::{
         RespiteOfferKind, ServiceAction, ServiceEffectRuntimeCatalog, ServiceEffectRuntimeError,
+        TrailblazeBonusEffect, TrailblazeBonusTier,
     },
 };
 
 pub const SERVICE_INTERACTION_HANDLER_ID: u32 = 3;
 pub const SERVICE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-service-interaction-runtime-v5";
+    "standard-universe-service-interaction-runtime-v6";
 
-const PAYLOAD_REVISION: u8 = 5;
+const PAYLOAD_REVISION: u8 = 6;
 const TAG_SET_FRAGMENTS: u8 = 1;
 const TAG_DEBIT_FRAGMENTS: u8 = 2;
 const TAG_ADD_INVENTORY: u8 = 4;
@@ -41,6 +45,7 @@ const TAG_DISCOUNTED_SCHEDULED_DEBIT: u8 = 13;
 const TAG_INFLATED_BLESSING_DEBIT: u8 = 14;
 const TAG_ADJUSTED_BLESSING_DEBIT: u8 = 15;
 const TAG_ADJUSTED_BLESSING_SCHEDULED_DEBIT: u8 = 16;
+const TAG_ADD_FRAGMENTS: u8 = 17;
 const FAITH_BOND_CURIO_CONTENT: u64 = 19;
 const IPC_CUCKOO_CLOCK_CURIO_CONTENT: u64 = 70;
 const MAX_PAYLOAD_OPERATIONS: usize = 32;
@@ -115,6 +120,7 @@ pub struct ServiceInteractionRuntimeCatalog {
     service_effects: ActivitySlotId,
     ability_projection: ActivitySlotId,
     blessing_inventory: ActivityInventoryId,
+    trailblaze_bonuses: Box<[(ServiceId, TrailblazeBonusTier, u8)]>,
     digest: [u8; 32],
 }
 
@@ -152,8 +158,22 @@ impl ServiceInteractionRuntimeCatalog {
             .collect::<Vec<_>>();
         let curio_records =
             compile_records(curio_runtime).map_err(|_| ServiceInteractionError::InvalidCatalog)?;
+        let mut trailblaze_bonuses = services.trailblaze_bonuses().collect::<Vec<_>>();
+        trailblaze_bonuses.sort_by_key(|(_, tier, position)| (*tier as u8, *position));
         if blessing_ids.len() != 162
             || curio_ids.len() != 61
+            || trailblaze_bonuses.len() != 6
+            || trailblaze_bonuses
+                .iter()
+                .map(|(_, tier, position)| (*tier as u8, *position))
+                .ne([
+                    (TrailblazeBonusTier::Ordinary as u8, 1),
+                    (TrailblazeBonusTier::Ordinary as u8, 2),
+                    (TrailblazeBonusTier::Ordinary as u8, 3),
+                    (TrailblazeBonusTier::Enhanced as u8, 1),
+                    (TrailblazeBonusTier::Enhanced as u8, 2),
+                    (TrailblazeBonusTier::Enhanced as u8, 3),
+                ])
             || blessing_rarities
                 .windows(2)
                 .any(|pair| pair[0].0 >= pair[1].0)
@@ -180,6 +200,7 @@ impl ServiceInteractionRuntimeCatalog {
             service_effects: bindings.service_effects,
             ability_projection: bindings.ability_projection,
             blessing_inventory: bindings.blessing_inventory,
+            trailblaze_bonuses: trailblaze_bonuses.into_boxed_slice(),
             digest,
         })
     }
@@ -200,6 +221,10 @@ impl ServiceInteractionRuntimeCatalog {
 
     pub(crate) const fn ability_projection_slot(&self) -> ActivitySlotId {
         self.ability_projection
+    }
+
+    pub(crate) fn trailblaze_bonuses(&self) -> &[(ServiceId, TrailblazeBonusTier, u8)] {
+        &self.trailblaze_bonuses
     }
 
     pub fn compile_selection(
@@ -245,11 +270,53 @@ impl ServiceInteractionRuntimeCatalog {
                 });
                 operations.push(PayloadOperation::IncrementUse(service));
             }
-            (ServiceAction::AddReserveCharacter { .. }, ServiceInteractionSelection::Activate)
-            | (ServiceAction::GrantTrailblazeBonus { .. }, ServiceInteractionSelection::Activate) =>
-            {
+            (ServiceAction::AddReserveCharacter { .. }, ServiceInteractionSelection::Activate) => {
                 operations.push(PayloadOperation::DeferredEffect(service));
                 operations.push(PayloadOperation::IncrementUse(service));
+            }
+            (
+                ServiceAction::GrantTrailblazeBonus { effect, .. },
+                ServiceInteractionSelection::Activate,
+            ) => {
+                match effect {
+                    TrailblazeBonusEffect::AddFragments { amount } => {
+                        operations.push(PayloadOperation::AddFragments(*amount));
+                    }
+                    TrailblazeBonusEffect::RandomBlessing {
+                        quantity,
+                        minimum_rarity,
+                        maximum_rarity,
+                    } => {
+                        operations.push(PayloadOperation::RandomInventory {
+                            inventory: self.blessing_inventory,
+                            candidates: self
+                                .blessing_rarities
+                                .iter()
+                                .filter(|(_, rarity)| {
+                                    *rarity >= *minimum_rarity && *rarity <= *maximum_rarity
+                                })
+                                .map(|(id, _)| u64::from(id.get()))
+                                .collect::<Vec<_>>()
+                                .into_boxed_slice(),
+                            quantity: *quantity,
+                            enhance_owned: false,
+                        });
+                    }
+                    TrailblazeBonusEffect::RandomCurio { quantity, cost } => {
+                        if let Some(cost) = cost {
+                            operations.push(PayloadOperation::DebitFragments(*cost));
+                        }
+                        operations.push(PayloadOperation::RandomCurio {
+                            bindings: self.curio_bindings,
+                            candidates: self.curio_records.clone(),
+                            quantity: *quantity,
+                        });
+                    }
+                }
+                operations.push(PayloadOperation::IncrementUse(service));
+            }
+            (ServiceAction::ProfileExcluded { .. }, _) => {
+                return Err(ServiceInteractionError::ProfileUnavailable);
             }
             (ServiceAction::OpenBlessingShop { .. }, ServiceInteractionSelection::Activate)
             | (ServiceAction::OpenCurioShop { .. }, ServiceInteractionSelection::Activate) => {
@@ -402,6 +469,7 @@ impl ServiceInteractionRuntimeCatalog {
 #[derive(Clone, Debug, Eq, PartialEq)]
 enum PayloadOperation {
     SetFragments(u32),
+    AddFragments(u32),
     DebitFragments(u32),
     DiscountedDebitFragments(u32),
     InflatedBlessingDebit(u32),
@@ -450,6 +518,10 @@ impl PayloadOperation {
         match self {
             Self::SetFragments(amount) => {
                 output.push(TAG_SET_FRAGMENTS);
+                output.extend_from_slice(&amount.to_le_bytes());
+            }
+            Self::AddFragments(amount) => {
+                output.push(TAG_ADD_FRAGMENTS);
                 output.extend_from_slice(&amount.to_le_bytes());
             }
             Self::DebitFragments(amount) => {
@@ -629,6 +701,10 @@ pub(crate) fn execute(
             TAG_SET_FRAGMENTS => operations.push(ActivityOperation::SetSlot {
                 slot: fragments,
                 value: integer(i64::from(decoder.u32()?)),
+            }),
+            TAG_ADD_FRAGMENTS => operations.push(ActivityOperation::AddToSlot {
+                slot: fragments,
+                delta: integer(i64::from(decoder.u32()?)),
             }),
             TAG_DEBIT_FRAGMENTS => {
                 debit(&mut operations, fragments, decoder.u32()?)?;
@@ -1087,76 +1163,12 @@ fn catalog_digest(
     encoder.finish()
 }
 
-fn slot(value: u32) -> Result<ActivitySlotId, ActivityHandlerFault> {
-    ActivitySlotId::new(value).ok_or_else(invalid_payload)
-}
-
-fn inventory(value: u32) -> Result<ActivityInventoryId, ActivityHandlerFault> {
-    ActivityInventoryId::new(value).ok_or_else(invalid_payload)
-}
-
-struct Decoder<'a> {
-    bytes: &'a [u8],
-    cursor: usize,
-}
-
-impl<'a> Decoder<'a> {
-    const fn new(bytes: &'a [u8]) -> Self {
-        Self { bytes, cursor: 0 }
-    }
-
-    fn take(&mut self, count: usize) -> Result<&'a [u8], ActivityHandlerFault> {
-        let end = self.cursor.checked_add(count).ok_or_else(invalid_payload)?;
-        let value = self
-            .bytes
-            .get(self.cursor..end)
-            .ok_or_else(invalid_payload)?;
-        self.cursor = end;
-        Ok(value)
-    }
-
-    fn u8(&mut self) -> Result<u8, ActivityHandlerFault> {
-        Ok(self.take(1)?[0])
-    }
-
-    fn u32(&mut self) -> Result<u32, ActivityHandlerFault> {
-        Ok(u32::from_le_bytes(self.take(4)?.try_into().unwrap()))
-    }
-
-    fn u16(&mut self) -> Result<u16, ActivityHandlerFault> {
-        Ok(u16::from_le_bytes(self.take(2)?.try_into().unwrap()))
-    }
-
-    fn u64(&mut self) -> Result<u64, ActivityHandlerFault> {
-        Ok(u64::from_le_bytes(self.take(8)?.try_into().unwrap()))
-    }
-
-    fn i64(&mut self) -> Result<i64, ActivityHandlerFault> {
-        Ok(i64::from_le_bytes(self.take(8)?.try_into().unwrap()))
-    }
-
-    fn finish(self) -> Result<(), ActivityHandlerFault> {
-        if self.cursor == self.bytes.len() {
-            Ok(())
-        } else {
-            Err(invalid_payload())
-        }
-    }
-}
-
-fn invalid_payload() -> ActivityHandlerFault {
-    ActivityHandlerFault::new(ActivityHandlerFaultKind::InvalidPayload)
-}
-
-fn invalid_state() -> ActivityHandlerFault {
-    ActivityHandlerFault::new(ActivityHandlerFaultKind::InvalidState)
-}
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ServiceInteractionError {
     InvalidCatalog,
     InvalidSelection,
     InvalidExternalOffer,
+    ProfileUnavailable,
     TooManyOperations,
     ServiceRuntime(ServiceEffectRuntimeError),
 }

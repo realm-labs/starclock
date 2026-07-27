@@ -150,7 +150,8 @@ def main() -> None:
     encoded = json.dumps(build(args.partition), ensure_ascii=False, indent=2) + "\n"
     if args.write:
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(encoded, encoding="utf-8")
+        with target.open("w", encoding="utf-8", newline="\n") as stream:
+            stream.write(encoded)
         print(f"Wrote {target.relative_to(ROOT)}.")
     elif not target.is_file() or target.read_text(encoding="utf-8") != encoded:
         raise ValueError(f"{args.partition}: service partition golden drifted")

@@ -13,6 +13,83 @@ function tags(text) {
   return candidates.filter(([, pattern]) => pattern.test(text)).map(([tag]) => tag);
 }
 
+function bonusProfile(id) {
+  if (id >= 1 && id <= 6) return "Standard";
+  if (id >= 101 && id <= 106) return "SwarmDisaster";
+  if (id >= 201 && id <= 205) return "GoldAndGears";
+  if ((id >= 401 && id <= 432) || (id >= 501 && id <= 530))
+    return "DivergentUniverse";
+  throw new Error(`RogueBonus ${id} has no reviewed profile owner`);
+}
+
+function standardBonus(id) {
+  const effects = new Map([
+    [1, {
+      summaryEn: "Adds exactly 100 Cosmic Fragments to the run.",
+      summaryZh: "为本次运行增加100宇宙碎片。",
+      parameters: [
+        { key: "effect_kind", value: "AddFragments" },
+        { key: "amount", value: "100" },
+      ],
+    }],
+    [2, {
+      summaryEn: "Grants one uniformly selected unowned 1-star Blessing.",
+      summaryZh: "从未持有的1星祝福中等概率获得1个。",
+      parameters: [
+        { key: "effect_kind", value: "RandomBlessing" },
+        { key: "quantity", value: "1" },
+        { key: "minimum_rarity", value: "1" },
+        { key: "maximum_rarity", value: "1" },
+      ],
+    }],
+    [3, {
+      summaryEn: "Consumes exactly 50 Cosmic Fragments and grants one uniformly selected unowned Curio.",
+      summaryZh: "消耗50宇宙碎片，并从未持有的奇物中等概率获得1个。",
+      parameters: [
+        { key: "effect_kind", value: "RandomCurioWithCost" },
+        { key: "cost", value: "50" },
+        { key: "quantity", value: "1" },
+      ],
+    }],
+    [4, {
+      summaryEn: "Enhanced entry option that adds exactly 150 Cosmic Fragments to the run.",
+      summaryZh: "强化后的开局选项，为本次运行增加150宇宙碎片。",
+      parameters: [
+        { key: "effect_kind", value: "AddFragments" },
+        { key: "amount", value: "150" },
+      ],
+    }],
+    [5, {
+      summaryEn: "Enhanced entry option that grants one uniformly selected unowned 1- or 2-star Blessing.",
+      summaryZh: "强化后的开局选项，从未持有的1星或2星祝福中等概率获得1个。",
+      parameters: [
+        { key: "effect_kind", value: "RandomBlessing" },
+        { key: "quantity", value: "1" },
+        { key: "minimum_rarity", value: "1" },
+        { key: "maximum_rarity", value: "2" },
+      ],
+    }],
+    [6, {
+      summaryEn: "Enhanced entry option that grants one uniformly selected unowned Curio without consuming Cosmic Fragments.",
+      summaryZh: "强化后的开局选项，不消耗宇宙碎片并从未持有的奇物中等概率获得1个。",
+      parameters: [
+        { key: "effect_kind", value: "RandomCurio" },
+        { key: "quantity", value: "1" },
+      ],
+    }],
+  ]);
+  const effect = effects.get(id);
+  if (!effect) return undefined;
+  return {
+    ...effect,
+    parameters: [
+      ...effect.parameters,
+      { key: "offer_tier", value: id <= 3 ? "Ordinary" : "Enhanced" },
+      { key: "offer_position", value: String(((id - 1) % 3) + 1) },
+    ],
+  };
+}
+
 function publicService(ctx, id, nameEn, nameZh, summaryEn, summaryZh, kind, parameters, fact, url = WORLD_PAGE) {
   const record = {
     ...ctx.envelope({
@@ -130,28 +207,40 @@ export async function services(ctx) {
   }
 
   for (const entry of bonuses.sort((left, right) => left.row.BonusID - right.row.BonusID)) {
+    const bonusId = entry.row.BonusID;
+    const profileOwner = bonusProfile(bonusId);
+    const standard = standardBonus(bonusId);
     const nameEn = ctx.text(entry.row.BonusTitle, "en");
     const nameZh = ctx.text(entry.row.BonusTitle, "zh_cn");
     const descriptionEn = ctx.text(entry.row.BonusDesc, "en");
     const descriptionZh = ctx.text(entry.row.BonusDesc, "zh_cn");
     rows.push({
       ...ctx.envelope({
-        id: `universe.service.trailblaze-bonus.${entry.row.BonusID}`,
+        id: `universe.service.trailblaze-bonus.${bonusId}`,
         nameEn,
         nameZh,
-        summaryEn: `Run-entry bonus with ${tags(descriptionEn).join(", ") || "special"} effects; exact event binding is retained.`,
-        summaryZh: `运行入口增益，包含${tags(descriptionZh).join("、") || "特殊"}效果并保留精确事件绑定。`,
+        summaryEn: standard?.summaryEn
+          ?? `${profileOwner} entry bonus retained as profile-scoped evidence and excluded from Standard Universe eligibility.`,
+        summaryZh: standard?.summaryZh
+          ?? `${profileOwner}玩法的入口增益，仅作为所属玩法证据保留，不进入标准模拟宇宙候选池。`,
         entry,
-        sourceIds: [entry.row.BonusID, entry.row.BonusEvent],
+        sourceIds: [bonusId, entry.row.BonusEvent],
+        modeOwner: profileOwner === "Standard" ? "Standard" : "EvidenceOnly",
+        note: profileOwner === "Standard"
+          ? ""
+          : `Owned by ${profileOwner}; retained to preserve the inherited frozen denominator and rejected by the Standard profile.`,
       }),
       kind: "TrailblazeBonus",
+      profile_owner: profileOwner,
       currency_id: "",
       price_formula_id: "",
-      offer_pool_id: "universe.pool.trailblaze-bonuses",
-      rule_ids: [`universe.rule.service.trailblaze-bonus.${entry.row.BonusID}`],
-      parameters: [],
+      offer_pool_id: profileOwner === "Standard"
+        ? "universe.pool.trailblaze-bonuses"
+        : "",
+      rule_ids: [`universe.rule.service.trailblaze-bonus.${bonusId}`],
+      parameters: standard?.parameters ?? [],
       mechanic_tags: tags(descriptionEn),
-      source_event_id: String(entry.row.BonusEvent),
+      source_event_id: entry.row.BonusEvent,
       source_description_sha256_en: sha256(descriptionEn),
       source_description_sha256_zh_cn: sha256(descriptionZh),
     });

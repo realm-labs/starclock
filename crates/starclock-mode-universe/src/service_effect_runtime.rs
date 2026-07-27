@@ -3,11 +3,11 @@
 use crate::{
     digest::Encoder,
     id::ServiceId,
-    progression::ServiceKind,
+    progression::{ServiceKind, ServiceProfileOwner},
     run_runtime::{RunRuntimeCatalog, ServiceRuntimeDefinition},
 };
 
-pub const SERVICE_EFFECT_RUNTIME_REVISION: &str = "standard-universe-service-effect-runtime-v1";
+pub const SERVICE_EFFECT_RUNTIME_REVISION: &str = "standard-universe-service-effect-runtime-v2";
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ServicePriceStep {
@@ -55,6 +55,28 @@ impl RespiteOffer {
     }
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum TrailblazeBonusEffect {
+    AddFragments {
+        amount: u32,
+    },
+    RandomBlessing {
+        quantity: u8,
+        minimum_rarity: u8,
+        maximum_rarity: u8,
+    },
+    RandomCurio {
+        quantity: u8,
+        cost: Option<u32>,
+    },
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum TrailblazeBonusTier {
+    Ordinary,
+    Enhanced,
+}
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum ServiceAction {
     InitializeCurrency {
@@ -88,6 +110,14 @@ pub enum ServiceAction {
     },
     GrantTrailblazeBonus {
         offer_pool_key: Box<str>,
+        source_event_id: u32,
+        tier: TrailblazeBonusTier,
+        position: u8,
+        effect: TrailblazeBonusEffect,
+    },
+    ProfileExcluded {
+        owner: ServiceProfileOwner,
+        source_event_id: u32,
     },
 }
 
@@ -163,7 +193,7 @@ impl ServiceEffectRuntimeCatalog {
             .sum::<usize>();
         if programs.len() != 94
             || rule_count != 94
-            || parameter_count != 12
+            || parameter_count != 41
             || programs
                 .windows(2)
                 .any(|pair| pair[0].service == pair[1].service)
@@ -197,6 +227,18 @@ impl ServiceEffectRuntimeCatalog {
     pub fn service_ids(&self) -> impl ExactSizeIterator<Item = ServiceId> + '_ {
         self.programs.iter().map(|program| program.service)
     }
+    pub fn trailblaze_bonuses(
+        &self,
+    ) -> impl Iterator<Item = (ServiceId, TrailblazeBonusTier, u8)> + '_ {
+        self.programs
+            .iter()
+            .filter_map(|program| match program.action {
+                ServiceAction::GrantTrailblazeBonus { tier, position, .. } => {
+                    Some((program.service, tier, position))
+                }
+                _ => None,
+            })
+    }
 
     pub fn execute(
         &self,
@@ -217,6 +259,17 @@ impl ServiceEffectRuntimeCatalog {
             action: program.action.clone(),
         })
     }
+    pub fn initial_currency_amount(&self) -> Option<u32> {
+        let mut values = self
+            .programs
+            .iter()
+            .filter_map(|program| match program.action {
+                ServiceAction::InitializeCurrency { amount } => Some(amount),
+                _ => None,
+            });
+        let value = values.next()?;
+        values.next().is_none().then_some(value)
+    }
 }
 
 fn compile_service(
@@ -225,60 +278,91 @@ fn compile_service(
     if service.rule_key().is_empty() {
         return Err(ServiceEffectRuntimeError::InvalidService);
     }
-    let action = match service.kind() {
-        ServiceKind::Currency => ServiceAction::InitializeCurrency {
-            amount: parameter_u32(service, "initial_amount")?,
-        },
-        ServiceKind::ResetBlessing => ServiceAction::ResetBlessingOffer {
-            cost_schedule: parse_cost_schedule(parameter(service, "source_cost_schedule")?)?,
-            offer_pool_key: required(service.offer_pool_key())?.into(),
-        },
-        ServiceKind::Reviver => ServiceAction::ReviveCharacter {
-            cost: parameter_u32(service, "cost")?,
-            restored_hp_percent: percentage(service, "restored_hp_percent")?,
-        },
-        ServiceKind::Downloader => ServiceAction::AddReserveCharacter {
-            amount: parameter_u8(service, "characters_per_device")?,
-        },
-        ServiceKind::RespiteOffers => ServiceAction::OfferRespiteChoices {
-            offers: [
-                RespiteOffer {
-                    kind: RespiteOfferKind::OneStarBlessing,
-                    amount: 1,
-                    cost: parameter_u32(service, "one_star_blessing_cost")?,
+    let action = if service.profile_owner() != ServiceProfileOwner::Standard {
+        if service.kind() != ServiceKind::TrailblazeBonus
+            || service.offer_pool_key().is_some()
+            || !service.parameters().is_empty()
+        {
+            return Err(ServiceEffectRuntimeError::InvalidService);
+        }
+        ServiceAction::ProfileExcluded {
+            owner: service.profile_owner(),
+            source_event_id: service
+                .source_event_id()
+                .ok_or(ServiceEffectRuntimeError::InvalidService)?,
+        }
+    } else {
+        match service.kind() {
+            ServiceKind::Currency => ServiceAction::InitializeCurrency {
+                amount: parameter_u32(service, "initial_amount")?,
+            },
+            ServiceKind::ResetBlessing => ServiceAction::ResetBlessingOffer {
+                cost_schedule: parse_cost_schedule(parameter(service, "source_cost_schedule")?)?,
+                offer_pool_key: required(service.offer_pool_key())?.into(),
+            },
+            ServiceKind::Reviver => ServiceAction::ReviveCharacter {
+                cost: parameter_u32(service, "cost")?,
+                restored_hp_percent: percentage(service, "restored_hp_percent")?,
+            },
+            ServiceKind::Downloader => ServiceAction::AddReserveCharacter {
+                amount: parameter_u8(service, "characters_per_device")?,
+            },
+            ServiceKind::RespiteOffers => ServiceAction::OfferRespiteChoices {
+                offers: [
+                    RespiteOffer {
+                        kind: RespiteOfferKind::OneStarBlessing,
+                        amount: 1,
+                        cost: parameter_u32(service, "one_star_blessing_cost")?,
+                    },
+                    RespiteOffer {
+                        kind: RespiteOfferKind::Curio,
+                        amount: 1,
+                        cost: parameter_u32(service, "curio_cost")?,
+                    },
+                    RespiteOffer {
+                        kind: RespiteOfferKind::EnhanceRandomBlessings,
+                        amount: 2,
+                        cost: parameter_u32(service, "two_random_enhancements_cost")?,
+                    },
+                ]
+                .into(),
+            },
+            ServiceKind::EnhanceBlessing => ServiceAction::EnhanceBlessing {
+                maximum_enhancements: parameter_u8(service, "max_enhancements")?,
+                rarity_costs: [
+                    parameter_u32(service, "rarity_1_cost")?,
+                    parameter_u32(service, "rarity_2_cost")?,
+                    parameter_u32(service, "rarity_3_cost")?,
+                ],
+            },
+            ServiceKind::BlessingShop => ServiceAction::OpenBlessingShop {
+                price_formula_key: required(service.price_formula_key())?.into(),
+                offer_pool_key: required(service.offer_pool_key())?.into(),
+            },
+            ServiceKind::CurioShop => ServiceAction::OpenCurioShop {
+                price_formula_key: required(service.price_formula_key())?.into(),
+                offer_pool_key: required(service.offer_pool_key())?.into(),
+            },
+            ServiceKind::TrailblazeBonus => ServiceAction::GrantTrailblazeBonus {
+                offer_pool_key: required(service.offer_pool_key())?.into(),
+                source_event_id: service
+                    .source_event_id()
+                    .ok_or(ServiceEffectRuntimeError::InvalidService)?,
+                tier: match parameter(service, "offer_tier")? {
+                    "Ordinary" => TrailblazeBonusTier::Ordinary,
+                    "Enhanced" => TrailblazeBonusTier::Enhanced,
+                    _ => return Err(ServiceEffectRuntimeError::InvalidParameter),
                 },
-                RespiteOffer {
-                    kind: RespiteOfferKind::Curio,
-                    amount: 1,
-                    cost: parameter_u32(service, "curio_cost")?,
+                position: {
+                    let value = positive_u8(service, "offer_position")?;
+                    if value > 3 {
+                        return Err(ServiceEffectRuntimeError::InvalidParameter);
+                    }
+                    value
                 },
-                RespiteOffer {
-                    kind: RespiteOfferKind::EnhanceRandomBlessings,
-                    amount: 2,
-                    cost: parameter_u32(service, "two_random_enhancements_cost")?,
-                },
-            ]
-            .into(),
-        },
-        ServiceKind::EnhanceBlessing => ServiceAction::EnhanceBlessing {
-            maximum_enhancements: parameter_u8(service, "max_enhancements")?,
-            rarity_costs: [
-                parameter_u32(service, "rarity_1_cost")?,
-                parameter_u32(service, "rarity_2_cost")?,
-                parameter_u32(service, "rarity_3_cost")?,
-            ],
-        },
-        ServiceKind::BlessingShop => ServiceAction::OpenBlessingShop {
-            price_formula_key: required(service.price_formula_key())?.into(),
-            offer_pool_key: required(service.offer_pool_key())?.into(),
-        },
-        ServiceKind::CurioShop => ServiceAction::OpenCurioShop {
-            price_formula_key: required(service.price_formula_key())?.into(),
-            offer_pool_key: required(service.offer_pool_key())?.into(),
-        },
-        ServiceKind::TrailblazeBonus => ServiceAction::GrantTrailblazeBonus {
-            offer_pool_key: required(service.offer_pool_key())?.into(),
-        },
+                effect: trailblaze_bonus_effect(service)?,
+            },
+        }
     };
     Ok(CompiledServiceEffect {
         service: service.id(),
@@ -288,6 +372,37 @@ fn compile_service(
         price_formula_key: service.price_formula_key().map(Into::into),
         action,
     })
+}
+
+fn trailblaze_bonus_effect(
+    service: &ServiceRuntimeDefinition,
+) -> Result<TrailblazeBonusEffect, ServiceEffectRuntimeError> {
+    match parameter(service, "effect_kind")? {
+        "AddFragments" => Ok(TrailblazeBonusEffect::AddFragments {
+            amount: positive_u32(service, "amount")?,
+        }),
+        "RandomBlessing" => {
+            let minimum_rarity = parameter_u8(service, "minimum_rarity")?;
+            let maximum_rarity = parameter_u8(service, "maximum_rarity")?;
+            if minimum_rarity == 0 || minimum_rarity > maximum_rarity || maximum_rarity > 3 {
+                return Err(ServiceEffectRuntimeError::InvalidParameter);
+            }
+            Ok(TrailblazeBonusEffect::RandomBlessing {
+                quantity: positive_u8(service, "quantity")?,
+                minimum_rarity,
+                maximum_rarity,
+            })
+        }
+        "RandomCurio" => Ok(TrailblazeBonusEffect::RandomCurio {
+            quantity: positive_u8(service, "quantity")?,
+            cost: None,
+        }),
+        "RandomCurioWithCost" => Ok(TrailblazeBonusEffect::RandomCurio {
+            quantity: positive_u8(service, "quantity")?,
+            cost: Some(positive_u32(service, "cost")?),
+        }),
+        _ => Err(ServiceEffectRuntimeError::InvalidParameter),
+    }
 }
 
 fn required(value: Option<&str>) -> Result<&str, ServiceEffectRuntimeError> {
@@ -324,6 +439,26 @@ fn parameter_u8(
     parameter(service, key)?
         .parse::<u8>()
         .map_err(|_| ServiceEffectRuntimeError::InvalidParameter)
+}
+
+fn positive_u32(
+    service: &ServiceRuntimeDefinition,
+    key: &str,
+) -> Result<u32, ServiceEffectRuntimeError> {
+    parameter_u32(service, key)?
+        .checked_sub(1)
+        .map(|value| value + 1)
+        .ok_or(ServiceEffectRuntimeError::InvalidParameter)
+}
+
+fn positive_u8(
+    service: &ServiceRuntimeDefinition,
+    key: &str,
+) -> Result<u8, ServiceEffectRuntimeError> {
+    parameter_u8(service, key)?
+        .checked_sub(1)
+        .map(|value| value + 1)
+        .ok_or(ServiceEffectRuntimeError::InvalidParameter)
 }
 
 fn percentage(
@@ -438,9 +573,47 @@ fn encode_action(encoder: &mut Encoder, action: &ServiceAction) {
             encoder.text(price_formula_key);
             encoder.text(offer_pool_key);
         }
-        ServiceAction::GrantTrailblazeBonus { offer_pool_key } => {
+        ServiceAction::GrantTrailblazeBonus {
+            offer_pool_key,
+            source_event_id,
+            tier,
+            position,
+            effect,
+        } => {
             encoder.u8(8);
             encoder.text(offer_pool_key);
+            encoder.u32(*source_event_id);
+            encoder.u8(*tier as u8);
+            encoder.u8(*position);
+            match effect {
+                TrailblazeBonusEffect::AddFragments { amount } => {
+                    encoder.u8(0);
+                    encoder.u32(*amount);
+                }
+                TrailblazeBonusEffect::RandomBlessing {
+                    quantity,
+                    minimum_rarity,
+                    maximum_rarity,
+                } => {
+                    encoder.u8(1);
+                    encoder.u8(*quantity);
+                    encoder.u8(*minimum_rarity);
+                    encoder.u8(*maximum_rarity);
+                }
+                TrailblazeBonusEffect::RandomCurio { quantity, cost } => {
+                    encoder.u8(2);
+                    encoder.u8(*quantity);
+                    encoder.u32(cost.unwrap_or_default());
+                }
+            }
+        }
+        ServiceAction::ProfileExcluded {
+            owner,
+            source_event_id,
+        } => {
+            encoder.u8(9);
+            encoder.u8(*owner as u8);
+            encoder.u32(*source_event_id);
         }
     }
 }

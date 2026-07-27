@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_universe_reference_config",
-  "fingerprint": "b9059e02cd1908b8",
+  "fingerprint": "a9cf52766c2e44f2",
   "schema": {
     "package": "starclock_universe_reference_config",
     "enums": [
@@ -115,6 +115,20 @@
           "BlessingShop",
           "CurioShop",
           "TrailblazeBonus"
+        ]
+      },
+      {
+        "name": "UniverseServiceProfileOwner",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Standard",
+          "SwarmDisaster",
+          "GoldAndGears",
+          "DivergentUniverse"
         ]
       },
       {
@@ -5020,6 +5034,42 @@
             "name": "kind",
             "ty": {
               "Enum": "UniverseServiceKind"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "profile_owner",
+            "ty": {
+              "Enum": "UniverseServiceProfileOwner"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_event_id",
+            "ty": {
+              "Optional": "I32"
             },
             "scope": {
               "values": [

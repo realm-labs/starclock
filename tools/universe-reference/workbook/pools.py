@@ -22,7 +22,12 @@ def build_rows(root: Path) -> dict[str, list[dict]]:
         (
             "universe.pool.trailblaze-bonuses",
             "TrailblazeBonus",
-            [row["id"] for row in services if row["kind"] == "TrailblazeBonus"],
+            [
+                row["id"]
+                for row in services
+                if row["kind"] == "TrailblazeBonus"
+                and row.get("profile_owner", "Standard") == "Standard"
+            ],
             None,
         ),
     ]

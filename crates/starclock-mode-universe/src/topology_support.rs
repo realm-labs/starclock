@@ -1,8 +1,9 @@
 //! Focused lookup, weighting and logical-scope helpers for topology lowering.
 
 use starclock_activity::{
-    ActivityGraphDefinition, LogicalScopeAddress, LogicalScopeClassDefinition, LogicalScopeClassId,
-    LogicalScopeDefinitions, LogicalScopeNodeBinding,
+    ActivityCondition, ActivityExpression, ActivityGraphDefinition, ActivityOperation,
+    ActivitySlotId, ActivityValue, LogicalScopeAddress, LogicalScopeClassDefinition,
+    LogicalScopeClassId, LogicalScopeDefinitions, LogicalScopeNodeBinding,
 };
 
 use crate::{
@@ -116,6 +117,20 @@ pub(super) fn occurrence_for_source<'a>(
                 .is_some_and(|(_, suffix)| suffix == source)
     })?;
     catalog.occurrence(variant.occurrence())
+}
+
+pub(super) fn optional_equals(slot: ActivitySlotId, value: u64) -> ActivityCondition {
+    ActivityCondition::Equal(
+        ActivityExpression::Slot(slot),
+        ActivityExpression::Literal(ActivityValue::OptionalId(Some(value))),
+    )
+}
+
+pub(super) fn set_optional(slot: ActivitySlotId, value: u64) -> ActivityOperation {
+    ActivityOperation::SetSlot {
+        slot,
+        value: ActivityExpression::Literal(ActivityValue::OptionalId(Some(value))),
+    }
 }
 
 fn room_is_eligible(section_ids: &[u32], source_node: u32) -> bool {

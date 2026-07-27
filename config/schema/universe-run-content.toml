@@ -3,6 +3,10 @@ name = "UniverseServiceKind"
 values = ["Currency", "ResetBlessing", "Reviver", "Downloader", "RespiteOffers", "EnhanceBlessing", "BlessingShop", "CurioShop", "TrailblazeBonus"]
 
 [[enums]]
+name = "UniverseServiceProfileOwner"
+values = ["Standard", "SwarmDisaster", "GoldAndGears", "DivergentUniverse"]
+
+[[enums]]
 name = "UniverseAbilityEffectClass"
 values = ["Run", "Battle", "RunAndBattle"]
 
@@ -278,6 +282,12 @@ length = [1, 180]
 [[tables.fields]]
 name = "kind"
 type = "enum<UniverseServiceKind>"
+[[tables.fields]]
+name = "profile_owner"
+type = "enum<UniverseServiceProfileOwner>"
+[[tables.fields]]
+name = "source_event_id"
+type = "optional<i32>"
 [[tables.fields]]
 name = "currency_stable_key"
 type = "optional<string>"

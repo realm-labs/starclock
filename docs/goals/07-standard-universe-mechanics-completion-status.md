@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M14-S02` |
-| Next unblocked batch | `G07-P4-M14-S02` |
+| Active batch | `G07-P4-M14-S03` |
+| Next unblocked batch | `G07-P4-M14-S03` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -146,10 +146,21 @@ checked Activity service transactions. The dedicated Reviver fixture settles
 a defeated participant from a real nested-battle result, then atomically
 debits 80 fragments and restores full-HP alive/present carry. All 16 records,
 16 rules and nine fixtures are exact public behavior with no numeric
-approximation or native content handler. `G07-P4-M14-S02` is active.
+approximation or native content handler.
+Service S02 is complete. Formal `profile_owner` and `source_event_id` fields
+correct the inherited assumption that all 79 `RogueBonus` rows belonged to
+Standard Universe. IDs 1–6 are Standard; the Swarm Disaster, Gold and Gears
+and Divergent Universe rows remain in the frozen denominator as
+`ProfileExcluded` evidence and fail before payload or RNG use. Standard IDs
+2, 3 and 4 execute exact random Blessing, paid Curio and fragment-grant
+semantics. The production entry graph offers ordinary IDs 1–3 or enhanced
+IDs 4–6, composes configured initial currency with Ability Tree
+contributions, and records the choice across Activity, dynamic battles and
+replay v3. No native handler or numeric approximation was added.
+`G07-P4-M14-S03` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 49 completed partitions use scoped Excel/Sora semantic
+model. The first 50 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
@@ -267,6 +278,8 @@ The milestone summary remains here for orientation.
 | 2026-07-26 | Freeze Sealing Wax of Propagation's offer multiplier at x2 as a replaceable project-policy approximation. | Public evidence specifies an increased appearance rate but exposes no exact multiplier; the approximation is recorded without weakening the mechanic or deterministic selection contract. |
 | 2026-07-27 | Advance Standard Universe entry/topology identity to v15 and service interaction to v5 for Negative Curio S03. | Composed offer-width reductions, domain-entry fragment loss and IPC Blessing-cost inflation alter authoritative state, RNG derivation and payload bytes; old identities must reject the new behavior. |
 | 2026-07-27 | Freeze Black Forest Cuckoo Clock at +500% base Aggro as a replaceable project-policy approximation. | Public descriptions specify one random ally, five turns and a greatly increased attack likelihood but publish no coefficient; the isolated Rule IR constant can be replaced without changing lifecycle semantics. |
+| 2026-07-27 | Treat only `RogueBonus` IDs 1–6 as Standard and retain all expansion IDs as profile-excluded evidence. | The earlier 79-row Standard classification mixed four mode profiles. Formal ownership and fail-closed lowering preserve the frozen exact-once denominator without exposing expansion mechanics in Standard runs. |
+| 2026-07-27 | Let replay v3 use the current nested event codec while keeping the released replay-v2 encoder on event payload v1. | New legal entry rewards can select battle mechanics that old payload v1 cannot encode; the v3 bridge must not mutate or weaken historical v2 bytes. |
 
 ## Terminal record
 

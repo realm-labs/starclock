@@ -260,8 +260,8 @@ fn world_difficulty_roster_and_ability_input_are_definition_identity() {
     assert_eq!(
         base.identity().definition_digest().bytes(),
         [
-            95, 224, 9, 133, 139, 79, 38, 139, 227, 38, 75, 253, 227, 57, 71, 164, 200, 202, 24,
-            15, 105, 216, 203, 163, 184, 61, 179, 229, 45, 135, 111, 215,
+            196, 240, 106, 192, 221, 153, 245, 29, 217, 249, 51, 6, 206, 66, 108, 81, 153, 81, 135,
+            164, 35, 29, 120, 211, 184, 13, 28, 8, 30, 114, 133, 131,
         ]
     );
     assert_eq!(
@@ -293,7 +293,7 @@ fn ability_tree_run_start_currency_is_materialized_into_activity_state() {
         .iter()
         .find(|slot| slot.id() == compiled.cosmic_fragments_slot())
         .expect("Cosmic Fragment slot");
-    assert_eq!(fragments.initial(), &ActivityValue::BoundedInteger(50));
+    assert_eq!(fragments.initial(), &ActivityValue::BoundedInteger(100));
     let projection = compiled
         .state_definition()
         .slots()

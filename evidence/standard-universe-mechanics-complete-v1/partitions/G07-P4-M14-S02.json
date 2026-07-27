@@ -1,7 +1,7 @@
 {
   "schema_revision": "starclock.goal07-content-partition-receipt.v1",
   "goal_id": "standard-universe-mechanics-complete-v1",
-  "partition_id": "G07-P4-M14-S01",
+  "partition_id": "G07-P4-M14-S02",
   "state": "Complete",
   "completed_on": "2026-07-27",
   "authoring": {
@@ -29,7 +29,7 @@
       }
     ],
     "openpyxl_commands": [
-      "python -c \"import openpyxl\" && python tools/goal07/author-service-partition.py --partition G07-P4-M14-S01 --check"
+      "python -c \"import openpyxl\" && python tools/goal07/author-service-partition.py --partition G07-P4-M14-S02 --check"
     ],
     "sora_bundle": {
       "path": "config/universe-generated/config.sora",
@@ -37,14 +37,146 @@
       "git_blob_sha1": "92aeae6a65e863f36ebdd8ef8820d16e9db71950"
     },
     "sora_golden": {
-      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P4-M14-S01.json",
-      "sha256": "7e87b3f8601e13e56bc44d8a0d1a0acc412bfcb39f17239a1a82013b2883e8fb",
-      "git_blob_sha1": "82e139af6b8004782c165507d5bacf7884bc4ed3"
+      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P4-M14-S02.json",
+      "sha256": "8fea40ce41506008653a917032b14af70161202d0c45601d022e28c4f67872b3",
+      "git_blob_sha1": "726a55b7f5792d73206a151502601b84437f71d3"
     }
   },
   "records": [
     {
-      "id": "universe.currency.cosmic-fragments",
+      "id": "universe.service.trailblaze-bonus.101",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "SwarmDisaster"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.102",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "SwarmDisaster"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.103",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "SwarmDisaster"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.104",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "SwarmDisaster"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.105",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "SwarmDisaster"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.106",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "SwarmDisaster"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.2",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -65,7 +197,117 @@
       ]
     },
     {
-      "id": "universe.service.downloader",
+      "id": "universe.service.trailblaze-bonus.201",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "GoldAndGears"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.202",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "GoldAndGears"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.203",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "GoldAndGears"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.204",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "GoldAndGears"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.205",
+      "runtime_disposition": "ProfileExcluded",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "profile_owner": "GoldAndGears"
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.3",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -86,7 +328,7 @@
       ]
     },
     {
-      "id": "universe.service.enhance-blessing",
+      "id": "universe.service.trailblaze-bonus.4",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -107,8 +349,8 @@
       ]
     },
     {
-      "id": "universe.service.reset-blessing-choice",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.service.trailblaze-bonus.401",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -125,11 +367,12 @@
         {
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
-      ]
+      ],
+      "profile_owner": "DivergentUniverse"
     },
     {
-      "id": "universe.service.respite-offers",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.service.trailblaze-bonus.402",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -146,244 +389,14 @@
         {
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
-      ]
-    },
-    {
-      "id": "universe.service.reviver",
-      "runtime_disposition": "ExecutableRuleIr",
-      "accuracy_disposition": "ExactPublic",
-      "workbook_evidence": [
-        {
-          "path": "config/data/Universe.xlsx"
-        }
       ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ]
-    },
-    {
-      "id": "universe.service.shop.100011",
-      "runtime_disposition": "ExecutableRuleIr",
-      "accuracy_disposition": "ExactPublic",
-      "workbook_evidence": [
-        {
-          "path": "config/data/Universe.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ]
-    },
-    {
-      "id": "universe.service.shop.100021",
-      "runtime_disposition": "ExecutableRuleIr",
-      "accuracy_disposition": "ExactPublic",
-      "workbook_evidence": [
-        {
-          "path": "config/data/Universe.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ]
-    },
-    {
-      "id": "universe.service.shop.101010",
-      "runtime_disposition": "ExecutableRuleIr",
-      "accuracy_disposition": "ExactPublic",
-      "workbook_evidence": [
-        {
-          "path": "config/data/Universe.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ]
-    },
-    {
-      "id": "universe.service.shop.101011",
-      "runtime_disposition": "ExecutableRuleIr",
-      "accuracy_disposition": "ExactPublic",
-      "workbook_evidence": [
-        {
-          "path": "config/data/Universe.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ]
-    },
-    {
-      "id": "universe.service.shop.101012",
-      "runtime_disposition": "ExecutableRuleIr",
-      "accuracy_disposition": "ExactPublic",
-      "workbook_evidence": [
-        {
-          "path": "config/data/Universe.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ]
-    },
-    {
-      "id": "universe.service.shop.101020",
-      "runtime_disposition": "ExecutableRuleIr",
-      "accuracy_disposition": "ExactPublic",
-      "workbook_evidence": [
-        {
-          "path": "config/data/Universe.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ]
-    },
-    {
-      "id": "universe.service.shop.101021",
-      "runtime_disposition": "ExecutableRuleIr",
-      "accuracy_disposition": "ExactPublic",
-      "workbook_evidence": [
-        {
-          "path": "config/data/Universe.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ]
-    },
-    {
-      "id": "universe.service.shop.102011",
-      "runtime_disposition": "ExecutableRuleIr",
-      "accuracy_disposition": "ExactPublic",
-      "workbook_evidence": [
-        {
-          "path": "config/data/Universe.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ]
-    },
-    {
-      "id": "universe.service.shop.102021",
-      "runtime_disposition": "ExecutableRuleIr",
-      "accuracy_disposition": "ExactPublic",
-      "workbook_evidence": [
-        {
-          "path": "config/data/Universe.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ]
-    },
-    {
-      "id": "universe.service.trailblaze-bonus.1",
-      "runtime_disposition": "ExecutableRuleIr",
-      "accuracy_disposition": "ExactPublic",
-      "workbook_evidence": [
-        {
-          "path": "config/data/Universe.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ]
+      "profile_owner": "DivergentUniverse"
     }
   ],
   "rules": [
     {
-      "id": "universe.rule.currency.cosmic-fragments",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.rule.service.trailblaze-bonus.101",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -401,10 +414,11 @@
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
       ],
-      "implementation_kind": "SharedPrimitive",
+      "profile_owner": "SwarmDisaster",
+      "implementation_kind": "ProfileBoundary",
       "definition_keys": [
-        "universe.rule.currency.cosmic-fragments",
-        "universe.currency.cosmic-fragments"
+        "universe.rule.service.trailblaze-bonus.101",
+        "universe.service.trailblaze-bonus.101"
       ],
       "execution_evidence": [
         {
@@ -437,8 +451,8 @@
       ]
     },
     {
-      "id": "universe.rule.service.downloader",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.rule.service.trailblaze-bonus.102",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -456,10 +470,11 @@
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
       ],
-      "implementation_kind": "SharedPrimitive",
+      "profile_owner": "SwarmDisaster",
+      "implementation_kind": "ProfileBoundary",
       "definition_keys": [
-        "universe.rule.service.downloader",
-        "universe.service.downloader"
+        "universe.rule.service.trailblaze-bonus.102",
+        "universe.service.trailblaze-bonus.102"
       ],
       "execution_evidence": [
         {
@@ -492,8 +507,8 @@
       ]
     },
     {
-      "id": "universe.rule.service.enhance-blessing",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.rule.service.trailblaze-bonus.103",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -511,10 +526,11 @@
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
       ],
-      "implementation_kind": "SharedPrimitive",
+      "profile_owner": "SwarmDisaster",
+      "implementation_kind": "ProfileBoundary",
       "definition_keys": [
-        "universe.rule.service.enhance-blessing",
-        "universe.service.enhance-blessing"
+        "universe.rule.service.trailblaze-bonus.103",
+        "universe.service.trailblaze-bonus.103"
       ],
       "execution_evidence": [
         {
@@ -547,8 +563,8 @@
       ]
     },
     {
-      "id": "universe.rule.service.reset-blessing",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.rule.service.trailblaze-bonus.104",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -566,10 +582,11 @@
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
       ],
-      "implementation_kind": "SharedPrimitive",
+      "profile_owner": "SwarmDisaster",
+      "implementation_kind": "ProfileBoundary",
       "definition_keys": [
-        "universe.rule.service.reset-blessing",
-        "universe.service.reset-blessing-choice"
+        "universe.rule.service.trailblaze-bonus.104",
+        "universe.service.trailblaze-bonus.104"
       ],
       "execution_evidence": [
         {
@@ -602,8 +619,8 @@
       ]
     },
     {
-      "id": "universe.rule.service.respite-offers",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.rule.service.trailblaze-bonus.105",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -621,10 +638,11 @@
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
       ],
-      "implementation_kind": "SharedPrimitive",
+      "profile_owner": "SwarmDisaster",
+      "implementation_kind": "ProfileBoundary",
       "definition_keys": [
-        "universe.rule.service.respite-offers",
-        "universe.service.respite-offers"
+        "universe.rule.service.trailblaze-bonus.105",
+        "universe.service.trailblaze-bonus.105"
       ],
       "execution_evidence": [
         {
@@ -657,8 +675,8 @@
       ]
     },
     {
-      "id": "universe.rule.service.reviver",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.rule.service.trailblaze-bonus.106",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -676,10 +694,11 @@
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
       ],
-      "implementation_kind": "SharedPrimitive",
+      "profile_owner": "SwarmDisaster",
+      "implementation_kind": "ProfileBoundary",
       "definition_keys": [
-        "universe.rule.service.reviver",
-        "universe.service.reviver"
+        "universe.rule.service.trailblaze-bonus.106",
+        "universe.service.trailblaze-bonus.106"
       ],
       "execution_evidence": [
         {
@@ -712,7 +731,7 @@
       ]
     },
     {
-      "id": "universe.rule.service.shop.100011",
+      "id": "universe.rule.service.trailblaze-bonus.2",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -733,8 +752,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.service.shop.100011",
-        "universe.service.shop.100011"
+        "universe.rule.service.trailblaze-bonus.2",
+        "universe.service.trailblaze-bonus.2"
       ],
       "execution_evidence": [
         {
@@ -767,8 +786,8 @@
       ]
     },
     {
-      "id": "universe.rule.service.shop.100021",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.rule.service.trailblaze-bonus.201",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -786,10 +805,11 @@
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
       ],
-      "implementation_kind": "SharedPrimitive",
+      "profile_owner": "GoldAndGears",
+      "implementation_kind": "ProfileBoundary",
       "definition_keys": [
-        "universe.rule.service.shop.100021",
-        "universe.service.shop.100021"
+        "universe.rule.service.trailblaze-bonus.201",
+        "universe.service.trailblaze-bonus.201"
       ],
       "execution_evidence": [
         {
@@ -822,8 +842,8 @@
       ]
     },
     {
-      "id": "universe.rule.service.shop.101010",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.rule.service.trailblaze-bonus.202",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -841,10 +861,11 @@
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
       ],
-      "implementation_kind": "SharedPrimitive",
+      "profile_owner": "GoldAndGears",
+      "implementation_kind": "ProfileBoundary",
       "definition_keys": [
-        "universe.rule.service.shop.101010",
-        "universe.service.shop.101010"
+        "universe.rule.service.trailblaze-bonus.202",
+        "universe.service.trailblaze-bonus.202"
       ],
       "execution_evidence": [
         {
@@ -877,8 +898,8 @@
       ]
     },
     {
-      "id": "universe.rule.service.shop.101011",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.rule.service.trailblaze-bonus.203",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -896,10 +917,11 @@
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
       ],
-      "implementation_kind": "SharedPrimitive",
+      "profile_owner": "GoldAndGears",
+      "implementation_kind": "ProfileBoundary",
       "definition_keys": [
-        "universe.rule.service.shop.101011",
-        "universe.service.shop.101011"
+        "universe.rule.service.trailblaze-bonus.203",
+        "universe.service.trailblaze-bonus.203"
       ],
       "execution_evidence": [
         {
@@ -932,8 +954,8 @@
       ]
     },
     {
-      "id": "universe.rule.service.shop.101012",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.rule.service.trailblaze-bonus.204",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -951,10 +973,11 @@
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
       ],
-      "implementation_kind": "SharedPrimitive",
+      "profile_owner": "GoldAndGears",
+      "implementation_kind": "ProfileBoundary",
       "definition_keys": [
-        "universe.rule.service.shop.101012",
-        "universe.service.shop.101012"
+        "universe.rule.service.trailblaze-bonus.204",
+        "universe.service.trailblaze-bonus.204"
       ],
       "execution_evidence": [
         {
@@ -987,8 +1010,8 @@
       ]
     },
     {
-      "id": "universe.rule.service.shop.101020",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.rule.service.trailblaze-bonus.205",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -1006,10 +1029,11 @@
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
       ],
-      "implementation_kind": "SharedPrimitive",
+      "profile_owner": "GoldAndGears",
+      "implementation_kind": "ProfileBoundary",
       "definition_keys": [
-        "universe.rule.service.shop.101020",
-        "universe.service.shop.101020"
+        "universe.rule.service.trailblaze-bonus.205",
+        "universe.service.trailblaze-bonus.205"
       ],
       "execution_evidence": [
         {
@@ -1042,7 +1066,7 @@
       ]
     },
     {
-      "id": "universe.rule.service.shop.101021",
+      "id": "universe.rule.service.trailblaze-bonus.3",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -1063,8 +1087,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.service.shop.101021",
-        "universe.service.shop.101021"
+        "universe.rule.service.trailblaze-bonus.3",
+        "universe.service.trailblaze-bonus.3"
       ],
       "execution_evidence": [
         {
@@ -1097,7 +1121,7 @@
       ]
     },
     {
-      "id": "universe.rule.service.shop.102011",
+      "id": "universe.rule.service.trailblaze-bonus.4",
       "runtime_disposition": "ExecutableRuleIr",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
@@ -1118,8 +1142,8 @@
       ],
       "implementation_kind": "SharedPrimitive",
       "definition_keys": [
-        "universe.rule.service.shop.102011",
-        "universe.service.shop.102011"
+        "universe.rule.service.trailblaze-bonus.4",
+        "universe.service.trailblaze-bonus.4"
       ],
       "execution_evidence": [
         {
@@ -1152,8 +1176,8 @@
       ]
     },
     {
-      "id": "universe.rule.service.shop.102021",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.rule.service.trailblaze-bonus.401",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -1171,10 +1195,11 @@
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
       ],
-      "implementation_kind": "SharedPrimitive",
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
       "definition_keys": [
-        "universe.rule.service.shop.102021",
-        "universe.service.shop.102021"
+        "universe.rule.service.trailblaze-bonus.401",
+        "universe.service.trailblaze-bonus.401"
       ],
       "execution_evidence": [
         {
@@ -1207,8 +1232,8 @@
       ]
     },
     {
-      "id": "universe.rule.service.trailblaze-bonus.1",
-      "runtime_disposition": "ExecutableRuleIr",
+      "id": "universe.rule.service.trailblaze-bonus.402",
+      "runtime_disposition": "ProfileExcluded",
       "accuracy_disposition": "ExactPublic",
       "workbook_evidence": [
         {
@@ -1226,10 +1251,11 @@
           "path": "content-reference/standard-universe-v1/review-fixtures.json"
         }
       ],
-      "implementation_kind": "SharedPrimitive",
+      "profile_owner": "DivergentUniverse",
+      "implementation_kind": "ProfileBoundary",
       "definition_keys": [
-        "universe.rule.service.trailblaze-bonus.1",
-        "universe.service.trailblaze-bonus.1"
+        "universe.rule.service.trailblaze-bonus.402",
+        "universe.service.trailblaze-bonus.402"
       ],
       "execution_evidence": [
         {
@@ -1262,224 +1288,7 @@
       ]
     }
   ],
-  "fixtures": [
-    {
-      "id": "universe.fixture.service.blessingshop",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
-      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
-    },
-    {
-      "id": "universe.fixture.service.curioshop",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
-      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
-    },
-    {
-      "id": "universe.fixture.service.currency",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
-      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
-    },
-    {
-      "id": "universe.fixture.service.downloader",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
-      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
-    },
-    {
-      "id": "universe.fixture.service.enhanceblessing",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
-      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
-    },
-    {
-      "id": "universe.fixture.service.resetblessing",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
-      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
-    },
-    {
-      "id": "universe.fixture.service.respiteoffers",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
-      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
-    },
-    {
-      "id": "universe.fixture.service.reviver",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs",
-      "test_marker": "goal07_p4_m14_s01_reviver_restores_defeated_battle_carry_atomically"
-    },
-    {
-      "id": "universe.fixture.service.trailblazebonus",
-      "runtime_disposition": "ProductionExecuted",
-      "accuracy_disposition": "NotApplicable",
-      "workbook_evidence": [
-        {
-          "path": "config/data/UniverseEvidence.xlsx"
-        }
-      ],
-      "provenance_evidence": [
-        {
-          "path": "content-reference/standard-universe-v1/services.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
-        },
-        {
-          "path": "content-reference/standard-universe-v1/review-fixtures.json"
-        }
-      ],
-      "execution_kind": "RustTest",
-      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
-      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
-    }
-  ],
+  "fixtures": [],
   "enemy_variants": [],
   "encounter_members": [],
   "native_handler_reviews": [],
@@ -1487,7 +1296,7 @@
   "execution": {
     "result": "pass",
     "commands": [
-      "python tools/goal07/author-service-partition.py --partition G07-P4-M14-S01 --check",
+      "python tools/goal07/author-service-partition.py --partition G07-P4-M14-S02 --check",
       "node tools/universe-reference/verify_production_workbooks.mjs .",
       "cargo test -p starclock-mode-universe --test service_effect_runtime --all-features",
       "cargo test -p starclock-mode-universe --test service_interaction_runtime --all-features",
@@ -1499,9 +1308,9 @@
     ],
     "goldens": [
       {
-        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P4-M14-S01.json",
-        "sha256": "7e87b3f8601e13e56bc44d8a0d1a0acc412bfcb39f17239a1a82013b2883e8fb",
-        "git_blob_sha1": "82e139af6b8004782c165507d5bacf7884bc4ed3"
+        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P4-M14-S02.json",
+        "sha256": "8fea40ce41506008653a917032b14af70161202d0c45601d022e28c4f67872b3",
+        "git_blob_sha1": "726a55b7f5792d73206a151502601b84437f71d3"
       }
     ]
   }

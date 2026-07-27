@@ -6,6 +6,7 @@ use crate::id::{BlessingId, EncounterMemberId, ResonanceId, RoomId};
 
 const PATH_OPTION_OFFSET: u64 = 1_000_000;
 const TOPOLOGY_OPTION_OFFSET: u64 = 2_000_000;
+const TRAILBLAZE_BONUS_OPTION_OFFSET: u64 = 3_000_000;
 const ROOM_OPTION_OFFSET: u64 = 1_000_000_000_000;
 const CONTENT_OPTION_OFFSET: u64 = 2_000_000_000_000;
 const MEMBER_OPTION_OFFSET: u64 = 3_000_000_000_000;
@@ -24,6 +25,10 @@ pub(super) fn path_option(path: u32) -> ActivityOptionId {
 
 pub(super) fn topology_option(topology: u32) -> ActivityOptionId {
     option(TOPOLOGY_OPTION_OFFSET + u64::from(topology))
+}
+
+pub(super) fn trailblaze_bonus_option(service: u32) -> ActivityOptionId {
+    option(TRAILBLAZE_BONUS_OPTION_OFFSET + u64::from(service))
 }
 
 pub(super) fn room_option(source: u64, room: RoomId) -> ActivityOptionId {

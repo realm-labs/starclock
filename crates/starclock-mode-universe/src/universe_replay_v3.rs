@@ -42,7 +42,7 @@ use crate::{
     },
     universe_replay_v2::{
         RecordedStandardUniverseRunV2, StandardUniverseReplayReportV2,
-        StandardUniverseReplayV2Error, encode_standard_universe_trace_parts_v2,
+        StandardUniverseReplayV2Error, encode_standard_universe_trace_parts_v3_bridge,
         standard_universe_header_v2, verify_standard_universe_replay_v2,
         verify_standard_universe_replay_v2_dynamic,
     },
@@ -140,8 +140,9 @@ pub fn encode_standard_universe_trace_parts_v3(
     trace: &[StandardUniverseTraceEntry],
     battles: &[NestedBattleExecutionReport],
 ) -> Result<Vec<u8>, StandardUniverseReplayV3Error> {
-    let historical = encode_standard_universe_trace_parts_v2(header_template, trace, battles)
-        .map_err(StandardUniverseReplayV3Error::Historical)?;
+    let historical =
+        encode_standard_universe_trace_parts_v3_bridge(header_template, trace, battles)
+            .map_err(StandardUniverseReplayV3Error::Historical)?;
     let decoded = decode_replay_v2(&historical).map_err(StandardUniverseReplayV3Error::Envelope)?;
     let mut payloads = Vec::with_capacity(decoded.records().len());
     let mut open_identity = None;

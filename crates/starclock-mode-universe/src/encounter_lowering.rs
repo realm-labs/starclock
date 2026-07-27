@@ -16,7 +16,9 @@ use crate::generated::{
     universe_coverage_state::UniverseCoverageState, universe_domain_kind::UniverseDomainKind,
     universe_enemy_role::UniverseEnemyRole, universe_mode_owner::UniverseModeOwner,
     universe_pool_kind::UniversePoolKind, universe_room_content_kind::UniverseRoomContentKind,
-    universe_selection_policy::UniverseSelectionPolicy, universe_wave_policy::UniverseWavePolicy,
+    universe_selection_policy::UniverseSelectionPolicy, universe_service_kind::UniverseServiceKind,
+    universe_service_profile_owner::UniverseServiceProfileOwner,
+    universe_wave_policy::UniverseWavePolicy,
 };
 use crate::id::{
     ContentPoolId, DifficultyId, EncounterGroupId, EncounterMemberId, EncounterPoolId,
@@ -51,13 +53,21 @@ pub(crate) fn lower(config: &SoraConfig) -> Result<EncounterDefinitions, Univers
 
 fn validate_evidence(config: &SoraConfig) -> Result<(), UniverseCatalogLoadError> {
     for row in config.universe_content_audit().ordered_rows() {
+        let profile_excluded = row.mode_owner == UniverseModeOwner::EvidenceOnly
+            && config
+                .universe_service()
+                .get_by_stable_key(&row.content_stable_key)
+                .is_some_and(|service| {
+                    service.kind == UniverseServiceKind::TrailblazeBonus
+                        && service.profile_owner != UniverseServiceProfileOwner::Standard
+                });
         if !row.enabled
-            || row.mode_owner != UniverseModeOwner::Standard
+            || (row.mode_owner != UniverseModeOwner::Standard && !profile_excluded)
             || row.coverage_state != UniverseCoverageState::DataReady
             || row.provenance_ids.is_empty()
         {
             return Err(invalid(
-                "Universe content evidence is not enabled Standard DataReady content",
+                "Universe content evidence is not enabled Standard or profile-excluded DataReady content",
             ));
         }
         checked_key(&row.content_stable_key, "Content evidence stable key")?;
@@ -459,7 +469,7 @@ fn lower_content_pools(
         ));
     }
     definitions.sort_by_key(ContentPoolDefinition::id);
-    if definitions.len() != 23 || config.universe_content_pool_entry().len() != 1_651 {
+    if definitions.len() != 23 || config.universe_content_pool_entry().len() != 1_578 {
         return Err(reference("Content pool/entry denominator differs"));
     }
     Ok(definitions.into_boxed_slice())

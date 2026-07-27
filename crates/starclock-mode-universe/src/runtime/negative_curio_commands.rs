@@ -533,8 +533,8 @@ pub enum StandardUniverseNegativeCurioCommandError {
 #[cfg(test)]
 mod tests {
     use starclock_activity::{
-        BattleOutcome, BattleResult, EventDigest, ParticipantBattleState, ProjectedValue,
-        ProjectionField,
+        ActivityExternalOutcomeId, BattleOutcome, BattleResult, EventDigest,
+        ParticipantBattleState, ProjectedValue, ProjectionField,
     };
     use starclock_combat::{BattleStateHash, LifeState, PresenceState};
 
@@ -929,7 +929,24 @@ mod tests {
                 },
             )
             .unwrap();
-        let (_, activity, _, _, _) = instance.into_dynamic_parts();
+        let (_, mut activity, _, _, _) = instance.into_dynamic_parts();
+        let path = activity.view();
+        activity
+            .choose_option(
+                path.state_hash(),
+                path.decision().unwrap().id(),
+                path.decision().unwrap().options()[0].id(),
+            )
+            .unwrap();
+        let bonus = activity.view();
+        activity
+            .submit_external_outcome(
+                bonus.state_hash(),
+                bonus.decision().unwrap().id(),
+                ActivityExternalOutcomeId::new(bonus.decision().unwrap().options()[0].id().get())
+                    .unwrap(),
+            )
+            .unwrap();
         activity
     }
 }

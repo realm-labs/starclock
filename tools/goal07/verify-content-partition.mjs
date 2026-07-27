@@ -24,6 +24,10 @@ const manifest = json(
 const audit = json(
   "content-manifests/standard-universe-mechanics-complete-v1/retained-audit.json",
 );
+const services = new Map(
+  json("content-reference/standard-universe-v1/services.json")
+    .map((entry) => [entry.id, entry]),
+);
 const partition = manifest.partitions.find(({ id }) => id === partitionId);
 assert(partition, `unknown Goal 07 partition ${partitionId}`);
 const receiptRelative = `${gate.partition_receipt.root}/${partitionId}.json`;
@@ -102,8 +106,13 @@ function verifyEntries(label, expectedIds, entries, sourceEntries) {
 function verifyRules(expectedIds, entries, sourceEntries) {
   verifyEntries("rules", expectedIds, entries, sourceEntries);
   for (const entry of entries) {
-    assert(["RuleIr", "SharedPrimitive", "NativeHandler"].includes(entry.implementation_kind),
-      `${partitionId}: rule ${entry.id} has no executable implementation`);
+    if (entry.runtime_disposition === "ProfileExcluded") {
+      assert(entry.implementation_kind === "ProfileBoundary",
+        `${partitionId}: profile-excluded rule ${entry.id} has no profile boundary`);
+    } else {
+      assert(["RuleIr", "SharedPrimitive", "NativeHandler"].includes(entry.implementation_kind),
+        `${partitionId}: rule ${entry.id} has no executable implementation`);
+    }
     assert(Array.isArray(entry.definition_keys) && entry.definition_keys.length > 0,
       `${partitionId}: rule ${entry.id} has no formal definition key`);
     assert(Array.isArray(entry.execution_evidence) && entry.execution_evidence.length > 0,
@@ -131,6 +140,20 @@ function verifyDisposition(entry, planned, label) {
     ), `${partitionId}: ${label} ${entry.id} retains a nonterminal runtime claim`);
   assert(entry.accuracy_disposition === planned.intended_accuracy_disposition,
     `${partitionId}: ${label} ${entry.id} accuracy disposition differs`);
+  const service = services.get(planned.source_record_id ?? planned.id);
+  const profileExcluded = service?.kind === "TrailblazeBonus"
+    && service.mode_owner === "EvidenceOnly"
+    && service.profile_owner !== "Standard";
+  assert((entry.runtime_disposition === "ProfileExcluded") === profileExcluded,
+    `${partitionId}: ${label} ${entry.id} profile disposition differs`);
+  if (profileExcluded) {
+    assert(
+      ["SwarmDisaster", "GoldAndGears", "DivergentUniverse"].includes(
+        entry.profile_owner,
+      ) && entry.profile_owner === service.profile_owner,
+      `${partitionId}: ${label} ${entry.id} profile owner differs`,
+    );
+  }
   assert(Array.isArray(entry.workbook_evidence) && entry.workbook_evidence.length > 0,
     `${partitionId}: ${label} ${entry.id} has no workbook evidence`);
   assert(Array.isArray(entry.provenance_evidence)
@@ -195,6 +218,7 @@ function fileDigest(entry) {
     const bytes = execFileSync("git", ["cat-file", "blob", entry.git_blob_sha1], {
       cwd: root,
       encoding: "buffer",
+      maxBuffer: 128 * 1024 * 1024,
     });
     return crypto.createHash("sha256").update(bytes).digest("hex") === entry.sha256;
   } catch {

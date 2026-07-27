@@ -2,6 +2,9 @@ import { decimal, sha256 } from "./common.mjs";
 
 const NEGATIVE_NAME = /code|cuckoo clock|insect web|i\.o\.u\.|rotting|broken|shattered/iu;
 const ERROR_CODE_IDS = new Set([45, 47, 49, 51, 53, 55]);
+// RogueMiracle reuses the repairing effect vector for these fixed Code states.
+// Their released fixed descriptions and the reviewed Goal 07 runtime use 25%.
+const FIXED_CODE_PARAMETER_OVERRIDES = new Map([[51, "0.25"], [53, "0.25"]]);
 
 function tags(name, description) {
   const candidates = [
@@ -124,6 +127,10 @@ export async function curios(ctx) {
     record.provenance_ids.push(ctx.provenance(effect));
     if (effectDisplay) record.provenance_ids.push(ctx.provenance(effectDisplay));
     if (!isErrorCode) return [record];
+    const fixedParameter = FIXED_CODE_PARAMETER_OVERRIDES.get(state.row.MiracleID);
+    const fixedParameters = fixedParameter
+      ? [{ index: 1, value: fixedParameter }]
+      : record.parameter_values;
     const fixed = {
       ...ctx.envelope({
         id: `universe.curio.${handbookId}.state.fixed`,
@@ -142,8 +149,8 @@ export async function curios(ctx) {
       repair_state_id: "",
       replacement_curio_id: "",
       rule_ids: [`universe.rule.curio.${handbookId}.state.fixed`],
-      parameter_values: record.parameter_values,
-      display_parameter_values: record.display_parameter_values,
+      parameter_values: fixedParameters,
+      display_parameter_values: fixedParameters,
       extra_effect_source_ids: record.extra_effect_source_ids,
       source_effect_id: record.source_effect_id,
       source_description_sha256_en: record.source_description_sha256_en,

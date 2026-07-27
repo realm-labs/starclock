@@ -17,15 +17,25 @@ use crate::{
         OCCURRENCE_INTERACTION_HANDLER_ID, OccurrenceInteractionRuntimeCatalog,
     },
     path_runtime::{FormationSelectionBindings, PathRuntimeCatalog},
-    service_interaction::ServiceInteractionRuntimeCatalog,
+    service_interaction::{
+        SERVICE_INTERACTION_HANDLER_ID, ServiceInteractionRuntimeCatalog,
+        ServiceInteractionSelection,
+    },
     topology_identity::{
         blessing_option, content_option, engage_option, exit_option, formation_option,
         formation_skip_option, interaction_option, member_option, occurrence_choice_option,
         path_option, room_option, route_option, service_interaction_option, topology_option,
+        trailblaze_bonus_option,
     },
     topology_reward::compile_blessing_reward,
-    topology_service::{compile_room_services, option_condition as service_option_condition},
-    topology_support::{domain_logical_scopes, exact_weight, occurrence_for_source, resolve_rooms},
+    topology_service::{
+        compile_room_services, option_condition as service_option_condition,
+        trailblaze_bonus_condition,
+    },
+    topology_support::{
+        domain_logical_scopes, exact_weight, occurrence_for_source, optional_equals, resolve_rooms,
+        set_optional,
+    },
 };
 use starclock_activity::{
     ActivityBootstrapSelection, ActivityCondition, ActivityDecisionKind, ActivityEdgeCondition,
@@ -38,7 +48,7 @@ use starclock_activity::{
     GraphActivityNodeProgram, NodeId, ParticipantLock, SectionId, TerminalOutcome,
 };
 use std::sync::Arc;
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v15";
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v16";
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 
 const PATH_NODE: u32 = 1;
@@ -46,6 +56,7 @@ const TOPOLOGY_SELECTOR_NODE: u32 = 2;
 const COMPLETED_NODE: u32 = 3;
 const FAILED_NODE: u32 = 4;
 const FAULTED_NODE: u32 = 6;
+const TRAILBLAZE_BONUS_NODE: u32 = 7;
 const RESOLUTION_NODE_OFFSET: u32 = 10_000;
 const CONTENT_NODE_OFFSET: u32 = 20_000;
 const MEMBER_NODE_OFFSET: u32 = 30_000;
@@ -55,6 +66,7 @@ const FORMATION_NODE_OFFSET: u32 = 55_000;
 const ROUTE_NODE_OFFSET: u32 = 60_000;
 const PATH_PROGRAM: u32 = 1;
 const TOPOLOGY_PROGRAM: u32 = 2;
+const TRAILBLAZE_BONUS_PROGRAM: u32 = 3;
 const RESOLUTION_PROGRAM_OFFSET: u32 = 10_000;
 const CONTENT_PROGRAM_OFFSET: u32 = 20_000;
 const MEMBER_PROGRAM_OFFSET: u32 = 30_000;
@@ -237,8 +249,8 @@ impl EncounterOptionBinding {
 pub struct AbstractInteractionBinding {
     node: NodeId,
     outcome: ActivityExternalOutcomeId,
-    room: RoomId,
-    kind: RoomContentKind,
+    room: Option<RoomId>,
+    kind: Option<RoomContentKind>,
     source_content_id: Box<str>,
     handler: u32,
     payload: Box<[u8]>,
@@ -256,11 +268,11 @@ impl AbstractInteractionBinding {
         self.outcome
     }
     #[must_use]
-    pub const fn room(&self) -> RoomId {
+    pub const fn room(&self) -> Option<RoomId> {
         self.room
     }
     #[must_use]
-    pub const fn kind(&self) -> RoomContentKind {
+    pub const fn kind(&self) -> Option<RoomContentKind> {
         self.kind
     }
     #[must_use]
@@ -306,12 +318,22 @@ pub(crate) fn compile(
     let mut nodes = terminal_nodes()?;
     nodes.push(activity_node(PATH_NODE, 1, ActivityNodeKind::Choice)?);
     nodes.push(activity_node(
+        TRAILBLAZE_BONUS_NODE,
+        1,
+        ActivityNodeKind::ExternalOutcome,
+    )?);
+    nodes.push(activity_node(
         TOPOLOGY_SELECTOR_NODE,
         1,
         ActivityNodeKind::Checkpoint,
     )?);
     let mut edges = Vec::new();
-    let path_edge = push_edge(&mut edges, node(PATH_NODE), node(TOPOLOGY_SELECTOR_NODE))?;
+    let path_edge = push_edge(&mut edges, node(PATH_NODE), node(TRAILBLAZE_BONUS_NODE))?;
+    let trailblaze_bonus_edge = push_edge(
+        &mut edges,
+        node(TRAILBLAZE_BONUS_NODE),
+        node(TOPOLOGY_SELECTOR_NODE),
+    )?;
     let mut topology_entry_edges = Vec::new();
     let mut topology_edges = Vec::new();
     let mut exit_edges = Vec::new();
@@ -393,7 +415,7 @@ pub(crate) fn compile(
         node(PATH_NODE),
         nodes,
         edges,
-        u32::try_from(hubs.len().saturating_mul(7).saturating_add(5))
+        u32::try_from(hubs.len().saturating_mul(7).saturating_add(6))
             .map_err(|_| UniverseTopologyCompileError::InvalidGraph)?,
     )
     .map_err(|_| UniverseTopologyCompileError::InvalidGraph)?;
@@ -426,6 +448,7 @@ pub(crate) fn compile(
         service_interactions,
         external_outcome_slot,
         path_edge,
+        trailblaze_bonus_edge,
         &topology_entry_edges,
         &topology_edges,
         &exit_edges,
@@ -590,6 +613,7 @@ fn compile_programs(
     service_interactions: &ServiceInteractionRuntimeCatalog,
     external_outcome_slot: ActivitySlotId,
     path_edge: ActivityEdgeId,
+    trailblaze_bonus_edge: ActivityEdgeId,
     topology_entry_edges: &[(TopologyId, ActivityEdgeId)],
     topology_edges: &[(TopologyNodeId, TopologyNodeId, ActivityEdgeId)],
     exit_edges: &[(TopologyNodeId, ActivityEdgeId)],
@@ -624,12 +648,55 @@ fn compile_programs(
             )
         })
         .collect();
+    let mut trailblaze_bonus_options = Vec::new();
+    let mut interactions = Vec::new();
+    for (service, tier, position) in service_interactions.trailblaze_bonuses() {
+        let compiled = service_interactions
+            .compile_selection(*service, &ServiceInteractionSelection::Activate)
+            .map_err(|_| UniverseTopologyCompileError::InvalidServiceInteraction)?;
+        let id = trailblaze_bonus_option(service.get());
+        trailblaze_bonus_options.push(ActivityOptionDefinition::new(
+            id,
+            i32::from((*tier as u8) * 3 + *position),
+            trailblaze_bonus_condition(
+                service_interactions.cosmic_fragments_slot(),
+                compiled.required_fragments(),
+                ability_projection_slot,
+                *tier,
+            ),
+            vec![ActivityOperation::Traverse(trailblaze_bonus_edge)],
+        ));
+        interactions.push(AbstractInteractionBinding {
+            node: node(TRAILBLAZE_BONUS_NODE),
+            outcome: ActivityExternalOutcomeId::new(id.get())
+                .expect("Trailblaze Bonus option is non-zero"),
+            room: None,
+            kind: None,
+            source_content_id: catalog
+                .service(*service)
+                .ok_or(UniverseTopologyCompileError::InvalidServiceInteraction)?
+                .stable_key()
+                .into(),
+            handler: SERVICE_INTERACTION_HANDLER_ID,
+            payload: compiled.payload().into(),
+            random_candidate_count: compiled.random_candidate_count(),
+            random_label: compiled
+                .random_candidate_count()
+                .map(|_| ActivityRngLabel::Reward),
+        });
+    }
     let mut programs = vec![
         node_program(
             PATH_NODE,
             PATH_PROGRAM,
             ActivityDecisionKind::Choice,
             path_options,
+        )?,
+        node_program(
+            TRAILBLAZE_BONUS_NODE,
+            TRAILBLAZE_BONUS_PROGRAM,
+            ActivityDecisionKind::ExternalOutcome,
+            trailblaze_bonus_options,
         )?,
         node_program(
             TOPOLOGY_SELECTOR_NODE,
@@ -641,7 +708,6 @@ fn compile_programs(
     let mut random_checkpoints = Vec::new();
     let mut random_offers = Vec::new();
     let mut encounter_options = Vec::new();
-    let mut interactions = Vec::new();
     let blessing_eligibility = BlessingOfferEligibility::fully_unlocked(vec![1, 2, 3])
         .map_err(|_| UniverseTopologyCompileError::InvalidBlessingRuntime)?;
     let eligible_blessings = blessing_runtime
@@ -770,8 +836,8 @@ fn compile_programs(
                         node: hub.content_node,
                         outcome: ActivityExternalOutcomeId::new(id.get())
                             .expect("derived service option is non-zero"),
-                        room: room.room,
-                        kind: room.kind,
+                        room: Some(room.room),
+                        kind: Some(room.kind),
                         source_content_id: compiled.source_content_id,
                         handler: compiled.handler,
                         payload: compiled.payload,
@@ -824,8 +890,8 @@ fn compile_programs(
                         node: hub.content_node,
                         outcome: ActivityExternalOutcomeId::new(id.get())
                             .expect("derived interaction option is non-zero"),
-                        room: room.room,
-                        kind: room.kind,
+                        room: Some(room.room),
+                        kind: Some(room.kind),
                         source_content_id: choice.stable_key().into(),
                         handler: OCCURRENCE_INTERACTION_HANDLER_ID,
                         payload: compiled.payload().into(),
@@ -852,8 +918,8 @@ fn compile_programs(
                     node: hub.content_node,
                     outcome: ActivityExternalOutcomeId::new(id.get())
                         .expect("derived interaction option is non-zero"),
-                    room: room.room,
-                    kind: room.kind,
+                    room: Some(room.room),
+                    kind: Some(room.kind),
                     source_content_id: room.source_content_id.clone(),
                     handler: STANDARD_UNIVERSE_EXTERNAL_INTERACTION_HANDLER_ID,
                     payload: room.source_content_id.as_bytes().into(),
@@ -1011,20 +1077,6 @@ fn node_program(
     options: Vec<ActivityOptionDefinition>,
 ) -> Result<GraphActivityNodeProgram, UniverseTopologyCompileError> {
     node_program_id(node(node_id), program_id, kind, options)
-}
-
-fn optional_equals(slot: ActivitySlotId, value: u64) -> ActivityCondition {
-    ActivityCondition::Equal(
-        ActivityExpression::Slot(slot),
-        ActivityExpression::Literal(ActivityValue::OptionalId(Some(value))),
-    )
-}
-
-fn set_optional(slot: ActivitySlotId, value: u64) -> ActivityOperation {
-    ActivityOperation::SetSlot {
-        slot,
-        value: ActivityExpression::Literal(ActivityValue::OptionalId(Some(value))),
-    }
 }
 
 fn always() -> ActivityCondition {

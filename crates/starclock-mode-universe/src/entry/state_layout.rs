@@ -1,0 +1,54 @@
+//! Stable slot, inventory and source identities for the Standard entry state.
+
+pub(super) const WORLD_SLOT: u32 = 1;
+pub(super) const DIFFICULTY_SLOT: u32 = 2;
+pub(super) const PATH_SLOT: u32 = 3;
+pub(super) const ABILITY_TREE_SLOT: u32 = 4;
+pub(super) const TOPOLOGY_SLOT: u32 = 5;
+pub(super) const HUB_CLEAR_SLOT: u32 = 6;
+pub(super) const ROOM_SLOT: u32 = 7;
+pub(super) const ENCOUNTER_MEMBER_SLOT: u32 = 8;
+pub(super) const BLESSING_REROLL_SLOT: u32 = 9;
+pub(super) const PATH_BLESSING_COUNT_SLOT: u32 = 10;
+pub(super) const CURIO_STATE_SLOT: u32 = 11;
+pub(super) const CURIO_CHARGE_SLOT: u32 = 12;
+pub(super) const COSMIC_FRAGMENTS_SLOT: u32 = 13;
+pub(super) const EXTERNAL_OUTCOME_SLOT: u32 = 14;
+pub(super) const OCCURRENCE_EFFECT_SLOT: u32 = 15;
+pub(super) const SERVICE_USE_SLOT: u32 = 16;
+pub(super) const SERVICE_EFFECT_SLOT: u32 = 17;
+pub(super) const CURIO_EVENT_SLOT: u32 = 18;
+pub(super) const ABILITY_PROJECTION_SLOT: u32 = 19;
+pub(super) const FORMATION_CAPABILITY_SLOT: u32 = 20;
+pub(super) const TECHNIQUE_POINTS_SLOT: u32 = 21;
+pub(super) const BLESSING_OFFER_MARKER_SLOT: u32 = 22;
+
+pub(super) const BLESSING_INVENTORY: u32 = 1;
+pub(super) const FORMATION_INVENTORY: u32 = 2;
+pub(super) const CURIO_INVENTORY: u32 = 3;
+
+pub(super) const WORLD_SOURCE: u64 = 0x5355_0001;
+pub(super) const DIFFICULTY_SOURCE: u64 = 0x5355_0002;
+pub(super) const PATH_SOURCE: u64 = 0x5355_0003;
+pub(super) const ABILITY_TREE_SOURCE: u64 = 0x5355_0004;
+pub(super) const TOPOLOGY_SOURCE: u64 = 0x5355_0005;
+pub(super) const HUB_CLEAR_SOURCE: u64 = 0x5355_0006;
+pub(super) const ROOM_SOURCE: u64 = 0x5355_0007;
+pub(super) const ENCOUNTER_MEMBER_SOURCE: u64 = 0x5355_0008;
+pub(super) const BLESSING_REROLL_SOURCE: u64 = 0x5355_0009;
+pub(super) const PATH_BLESSING_COUNT_SOURCE: u64 = 0x5355_000A;
+pub(super) const CURIO_STATE_SOURCE: u64 = 0x5355_000B;
+pub(super) const CURIO_CHARGE_SOURCE: u64 = 0x5355_000C;
+pub(super) const COSMIC_FRAGMENTS_SOURCE: u64 = 0x5355_000D;
+pub(super) const EXTERNAL_OUTCOME_SOURCE: u64 = 0x5355_000E;
+pub(super) const OCCURRENCE_EFFECT_SOURCE: u64 = 0x5355_000F;
+pub(super) const SERVICE_USE_SOURCE: u64 = 0x5355_0010;
+pub(super) const SERVICE_EFFECT_SOURCE: u64 = 0x5355_0011;
+pub(super) const CURIO_EVENT_SOURCE: u64 = 0x5355_0012;
+pub(super) const ABILITY_PROJECTION_SOURCE: u64 = 0x5355_0013;
+pub(super) const FORMATION_CAPABILITY_SOURCE: u64 = 0x5355_0014;
+pub(super) const TECHNIQUE_POINTS_SOURCE: u64 = 0x5355_0015;
+pub(super) const BLESSING_OFFER_MARKER_SOURCE: u64 = 0x5355_0016;
+pub(super) const BLESSING_INVENTORY_SOURCE: u64 = 0x5355_1001;
+pub(super) const FORMATION_INVENTORY_SOURCE: u64 = 0x5355_1002;
+pub(super) const CURIO_INVENTORY_SOURCE: u64 = 0x5355_1003;

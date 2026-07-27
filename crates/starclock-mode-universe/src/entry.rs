@@ -1,5 +1,6 @@
 //! Standard Universe entry validation and generic Activity-state compilation.
 mod runtime_access;
+mod state_layout;
 
 use starclock_activity::{
     ActivityDefinitionIdentity, ActivityInstanceId, ActivityInventoryDefinition,
@@ -10,6 +11,22 @@ use starclock_activity::{
     ParticipantUniquenessScope, SlotCarryPolicy, SlotResetPoint,
 };
 use std::sync::{Arc, OnceLock};
+
+use state_layout::{
+    ABILITY_PROJECTION_SLOT, ABILITY_PROJECTION_SOURCE, ABILITY_TREE_SLOT, ABILITY_TREE_SOURCE,
+    BLESSING_INVENTORY, BLESSING_INVENTORY_SOURCE, BLESSING_OFFER_MARKER_SLOT,
+    BLESSING_OFFER_MARKER_SOURCE, BLESSING_REROLL_SLOT, BLESSING_REROLL_SOURCE,
+    COSMIC_FRAGMENTS_SLOT, COSMIC_FRAGMENTS_SOURCE, CURIO_CHARGE_SLOT, CURIO_CHARGE_SOURCE,
+    CURIO_EVENT_SLOT, CURIO_EVENT_SOURCE, CURIO_INVENTORY, CURIO_INVENTORY_SOURCE,
+    CURIO_STATE_SLOT, CURIO_STATE_SOURCE, DIFFICULTY_SLOT, DIFFICULTY_SOURCE,
+    ENCOUNTER_MEMBER_SLOT, ENCOUNTER_MEMBER_SOURCE, EXTERNAL_OUTCOME_SLOT, EXTERNAL_OUTCOME_SOURCE,
+    FORMATION_CAPABILITY_SLOT, FORMATION_CAPABILITY_SOURCE, FORMATION_INVENTORY,
+    FORMATION_INVENTORY_SOURCE, HUB_CLEAR_SLOT, HUB_CLEAR_SOURCE, OCCURRENCE_EFFECT_SLOT,
+    OCCURRENCE_EFFECT_SOURCE, PATH_BLESSING_COUNT_SLOT, PATH_BLESSING_COUNT_SOURCE, PATH_SLOT,
+    PATH_SOURCE, ROOM_SLOT, ROOM_SOURCE, SERVICE_EFFECT_SLOT, SERVICE_EFFECT_SOURCE,
+    SERVICE_USE_SLOT, SERVICE_USE_SOURCE, TECHNIQUE_POINTS_SLOT, TECHNIQUE_POINTS_SOURCE,
+    TOPOLOGY_SLOT, TOPOLOGY_SOURCE, WORLD_SLOT, WORLD_SOURCE,
+};
 
 use crate::{
     ability_runtime::{
@@ -45,57 +62,6 @@ use crate::{
 };
 
 pub const STANDARD_UNIVERSE_ENTRY_REVISION: &str = "standard-universe-entry-v15";
-
-const WORLD_SLOT: u32 = 1;
-const DIFFICULTY_SLOT: u32 = 2;
-const PATH_SLOT: u32 = 3;
-const ABILITY_TREE_SLOT: u32 = 4;
-const TOPOLOGY_SLOT: u32 = 5;
-const HUB_CLEAR_SLOT: u32 = 6;
-const ROOM_SLOT: u32 = 7;
-const ENCOUNTER_MEMBER_SLOT: u32 = 8;
-const BLESSING_REROLL_SLOT: u32 = 9;
-const PATH_BLESSING_COUNT_SLOT: u32 = 10;
-const CURIO_STATE_SLOT: u32 = 11;
-const CURIO_CHARGE_SLOT: u32 = 12;
-const COSMIC_FRAGMENTS_SLOT: u32 = 13;
-const EXTERNAL_OUTCOME_SLOT: u32 = 14;
-const OCCURRENCE_EFFECT_SLOT: u32 = 15;
-const SERVICE_USE_SLOT: u32 = 16;
-const SERVICE_EFFECT_SLOT: u32 = 17;
-const CURIO_EVENT_SLOT: u32 = 18;
-const ABILITY_PROJECTION_SLOT: u32 = 19;
-const FORMATION_CAPABILITY_SLOT: u32 = 20;
-const TECHNIQUE_POINTS_SLOT: u32 = 21;
-const BLESSING_OFFER_MARKER_SLOT: u32 = 22;
-const BLESSING_INVENTORY: u32 = 1;
-const FORMATION_INVENTORY: u32 = 2;
-const CURIO_INVENTORY: u32 = 3;
-const WORLD_SOURCE: u64 = 0x5355_0001;
-const DIFFICULTY_SOURCE: u64 = 0x5355_0002;
-const PATH_SOURCE: u64 = 0x5355_0003;
-const ABILITY_TREE_SOURCE: u64 = 0x5355_0004;
-const TOPOLOGY_SOURCE: u64 = 0x5355_0005;
-const HUB_CLEAR_SOURCE: u64 = 0x5355_0006;
-const ROOM_SOURCE: u64 = 0x5355_0007;
-const ENCOUNTER_MEMBER_SOURCE: u64 = 0x5355_0008;
-const BLESSING_REROLL_SOURCE: u64 = 0x5355_0009;
-const PATH_BLESSING_COUNT_SOURCE: u64 = 0x5355_000A;
-const TECHNIQUE_POINTS_SOURCE: u64 = 0x5355_0015;
-const CURIO_STATE_SOURCE: u64 = 0x5355_000B;
-const CURIO_CHARGE_SOURCE: u64 = 0x5355_000C;
-const COSMIC_FRAGMENTS_SOURCE: u64 = 0x5355_000D;
-const EXTERNAL_OUTCOME_SOURCE: u64 = 0x5355_000E;
-const OCCURRENCE_EFFECT_SOURCE: u64 = 0x5355_000F;
-const SERVICE_USE_SOURCE: u64 = 0x5355_0010;
-const SERVICE_EFFECT_SOURCE: u64 = 0x5355_0011;
-const CURIO_EVENT_SOURCE: u64 = 0x5355_0012;
-const ABILITY_PROJECTION_SOURCE: u64 = 0x5355_0013;
-const FORMATION_CAPABILITY_SOURCE: u64 = 0x5355_0014;
-const BLESSING_OFFER_MARKER_SOURCE: u64 = 0x5355_0016;
-const BLESSING_INVENTORY_SOURCE: u64 = 0x5355_1001;
-const FORMATION_INVENTORY_SOURCE: u64 = 0x5355_1002;
-const CURIO_INVENTORY_SOURCE: u64 = 0x5355_1003;
 
 /// Validated caller-owned inputs for one Standard Universe run.
 ///
@@ -222,7 +188,7 @@ impl StandardUniverseProfile {
         let run_start = ability_runtime
             .project(&ability_tree, AbilityExecutionContext::run_start())
             .map_err(|_| StandardUniverseCompileError::InvalidAbilityRuntime)?;
-        let initial_cosmic_fragments = run_start
+        let initial_cosmic_fragment_bonus = run_start
             .value(AbilityTarget::InitialCosmicFragments)
             .map_or(Ok(0), |value| {
                 value
@@ -336,6 +302,14 @@ impl StandardUniverseProfile {
             ServiceEffectRuntimeCatalog::compile(&run_runtime)
                 .map_err(|_| StandardUniverseCompileError::InvalidRunRuntime)?,
         );
+        let initial_cosmic_fragments = i64::from(
+            service_effect_runtime
+                .initial_currency_amount()
+                .ok_or(StandardUniverseCompileError::InvalidRunRuntime)?,
+        )
+        .checked_add(initial_cosmic_fragment_bonus)
+        .filter(|value| *value <= crate::run_runtime::MAX_COSMIC_FRAGMENTS)
+        .ok_or(StandardUniverseCompileError::InvalidRunRuntime)?;
         let service_interaction_runtime = Arc::new(
             ServiceInteractionRuntimeCatalog::compile(
                 &self.catalog,
