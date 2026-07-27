@@ -148,6 +148,15 @@ debits 80 fragments and restores full-HP alive/present carry. All 16 records,
 16 rules and nine fixtures are exact public behavior with no numeric
 approximation or native content handler. `G07-P4-M14-S02` is active.
 
+Partition evidence is incrementally stable under the shared-workbook authoring
+model. The first 49 completed partitions use scoped Excel/Sora semantic
+goldens, while their receipts retain exact accepted artifact bytes through Git
+blob identities. Later authoritative workbook and bundle regeneration can no
+longer invalidate unrelated completed partitions; any change to a partition's
+assigned rows still fails its authoring check. The normative policy and
+verification commands are recorded in
+`docs/goal-07-incremental-partition-evidence.md`.
+
 ## Fixed batch ledger
 
 | Batch | State | Evidence | Result |

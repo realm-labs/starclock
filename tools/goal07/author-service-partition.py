@@ -16,11 +16,6 @@ GOAL = "standard-universe-mechanics-complete-v1"
 MANIFEST = ROOT / "content-manifests" / GOAL / "content-partitions.json"
 DATA = ROOT / "config" / "data"
 DEBUG = ROOT / "config" / "universe-generated" / "debug-json"
-BUNDLE = ROOT / "config" / "universe-generated" / "config.sora"
-
-
-def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def rows(sheet: Any) -> list[dict[str, Any]]:
@@ -132,16 +127,11 @@ def build(partition_id: str) -> dict[str, Any]:
         if digest(table, selected_rows) != digest(table, exported):
             raise ValueError(f"{partition_id}: Sora {table} rows differ from Excel")
     return {
-        "schema_revision": "starclock.goal07-service-partition-golden.v1",
+        "schema_revision": "starclock.goal07-service-partition-golden.v2",
         "partition_id": partition_id,
         "record_ids": partition["record_ids"],
         "rule_ids": partition["rule_ids"],
         "fixture_ids": partition["fixture_ids"],
-        "workbooks": {
-            name: sha256(DATA / name)
-            for name in ("Universe.xlsx", "UniverseBindings.xlsx", "UniverseEvidence.xlsx")
-        },
-        "sora_bundle_sha256": sha256(BUNDLE),
         "tables": {
             table: {"rows": len(values), "semantic_sha256": digest(table, values)}
             for table, values in selected.items()

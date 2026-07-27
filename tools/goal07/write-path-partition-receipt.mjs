@@ -3,6 +3,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
@@ -1724,12 +1725,22 @@ function disposition(planned, runtimeDisposition, workbookEvidence) {
   };
 }
 function evidence(relative) {
-  return { path: relative, sha256: sha256(relative) };
+  return {
+    path: relative,
+    sha256: sha256(relative),
+    git_blob_sha1: gitBlob(relative),
+  };
 }
 function sha256(relative) {
   return crypto.createHash("sha256").update(fs.readFileSync(absolute(relative))).digest("hex");
 }
 function absolute(relative) { return path.join(root, relative); }
+function gitBlob(relative) {
+  return execFileSync("git", ["hash-object", relative], {
+    cwd: root,
+    encoding: "utf8",
+  }).trim();
+}
 function exists(relative) {
   return fs.statSync(absolute(relative), { throwIfNoEntry: false })?.isFile();
 }

@@ -27,11 +27,6 @@ PARTITION_MANIFEST = (
 )
 DATA = ROOT / "config" / "data"
 DEBUG = ROOT / "config" / "universe-generated" / "debug-json"
-BUNDLE = ROOT / "config" / "universe-generated" / "config.sora"
-
-
-def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def fields(sheet: Any) -> dict[str, int]:
@@ -217,20 +212,11 @@ def build_golden(partition_id: str) -> dict[str, Any]:
         "UniverseReviewFixture": selected_fixtures,
     }
     return {
-        "schema_revision": "starclock.goal07-ability-tree-partition-golden.v1",
+        "schema_revision": "starclock.goal07-ability-tree-partition-golden.v2",
         "partition_id": partition_id,
         "record_ids": assigned["record_ids"],
         "rule_ids": assigned["rule_ids"],
         "fixture_ids": assigned["fixture_ids"],
-        "workbooks": {
-            name: sha256(DATA / name)
-            for name in (
-                "Universe.xlsx",
-                "UniverseBindings.xlsx",
-                "UniverseEvidence.xlsx",
-            )
-        },
-        "sora_bundle_sha256": sha256(BUNDLE),
         "tables": {
             name: {
                 "rows": len(table_rows),

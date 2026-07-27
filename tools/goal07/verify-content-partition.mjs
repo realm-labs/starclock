@@ -3,6 +3,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
@@ -185,8 +186,20 @@ function exactIds(label, expected, entries) {
     `${partitionId}: ${label} do not exactly cover the frozen assignment`);
 }
 function fileDigest(entry) {
-  return entry && typeof entry.path === "string" && /^[0-9a-f]{64}$/u.test(entry.sha256)
-    && exists(entry.path) && sha256(entry.path) === entry.sha256;
+  if (!entry || typeof entry.path !== "string" || !/^[0-9a-f]{64}$/u.test(entry.sha256)
+    || !exists(entry.path))
+    return false;
+  if (sha256(entry.path) === entry.sha256) return true;
+  if (!/^[0-9a-f]{40}$/u.test(entry.git_blob_sha1 ?? "")) return false;
+  try {
+    const bytes = execFileSync("git", ["cat-file", "blob", entry.git_blob_sha1], {
+      cwd: root,
+      encoding: "buffer",
+    });
+    return crypto.createHash("sha256").update(bytes).digest("hex") === entry.sha256;
+  } catch {
+    return false;
+  }
 }
 function sha256(relative) {
   return crypto.createHash("sha256").update(fs.readFileSync(absolute(relative))).digest("hex");

@@ -36,11 +36,13 @@
     ],
     "sora_bundle": {
       "path": "config/universe-generated/config.sora",
-      "sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04"
+      "sha256": "3275e9b02c089e6f97ac952569083a9b95f9bd6315ac5800663a562f83f348ef",
+      "git_blob_sha1": "1e5ed3e98d9c28054f47af031381bea7c9cc24c1"
     },
     "sora_golden": {
       "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P2-M04-S01.json",
-      "sha256": "b1c33095006de77a8d76d9977ee1284585e152c09aa41d68f236dc878a0b6443"
+      "sha256": "917aecd64f95210d63d343f1343e73c45e9e3dfc3626cfc51fa4aa4475298842",
+      "git_blob_sha1": "d1c0dc5f09eb1821de5af899e64152087b2d29cd"
     }
   },
   "records": [
@@ -1384,6 +1386,7 @@
       ]
     }
   ],
+  "numeric_approximations": [],
   "execution": {
     "result": "pass",
     "commands": [
@@ -1398,7 +1401,8 @@
     "goldens": [
       {
         "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P2-M04-S01.json",
-        "sha256": "b1c33095006de77a8d76d9977ee1284585e152c09aa41d68f236dc878a0b6443"
+        "sha256": "917aecd64f95210d63d343f1343e73c45e9e3dfc3626cfc51fa4aa4475298842",
+        "git_blob_sha1": "d1c0dc5f09eb1821de5af899e64152087b2d29cd"
       }
     ]
   }
