@@ -1,6 +1,6 @@
 use super::*;
 
-pub(super) fn exact_integer(value: AuthoredScalar) -> Result<i64, OccurrenceInteractionError> {
+pub(crate) fn exact_integer(value: AuthoredScalar) -> Result<i64, OccurrenceInteractionError> {
     let divisor = 10_i64
         .checked_pow(u32::from(value.value().scale()))
         .ok_or(OccurrenceInteractionError::Arithmetic)?;

@@ -20,48 +20,66 @@ pub(crate) struct CompiledBlessingReward {
     pub(crate) weights: Vec<(ActivityOptionId, u64)>,
 }
 
+#[derive(Clone, Copy)]
+pub(crate) enum BlessingRewardCompletion {
+    Inline {
+        reward_formation: ActivityEdgeId,
+        hub_clear_slot: ActivitySlotId,
+        ability_projection_slot: ActivitySlotId,
+    },
+    Resolution(ActivityEdgeId),
+}
+
 #[allow(clippy::too_many_arguments)]
 pub(crate) fn compile_blessing_reward(
     source: u64,
-    reward_formation: ActivityEdgeId,
-    hub_clear_slot: ActivitySlotId,
+    completion: BlessingRewardCompletion,
     path_blessing_count_slot: ActivitySlotId,
-    ability_projection_slot: ActivitySlotId,
     blessing_offer_marker_slot: ActivitySlotId,
     curio_bindings: CurioActivityBindings,
     blessing_inventory: ActivityInventoryId,
     eligible_blessings: &[&BlessingRuntimeDefinition],
 ) -> Result<CompiledBlessingReward, UniverseTopologyCompileError> {
-    let first_battle_bonus = ActivityExpression::CounterValue {
-        slot: ability_projection_slot,
-        key: AbilityTarget::FirstBattleBlessingCount.activity_key(),
-    };
-    let bonus_available = ActivityCondition::LessThan(
-        ActivityExpression::Literal(ActivityValue::BoundedInteger(0)),
-        first_battle_bonus,
-    );
     let mut options = Vec::with_capacity(eligible_blessings.len());
     let mut weights = Vec::with_capacity(eligible_blessings.len());
     for (priority, blessing) in eligible_blessings.iter().enumerate() {
         let id = blessing_option(source, blessing.blessing());
-        let ordinary_finish = vec![ActivityOperation::Conditional {
-            condition: bonus_available.clone(),
-            if_true: vec![ActivityOperation::AddCounter {
-                slot: ability_projection_slot,
-                key: AbilityTarget::FirstBattleBlessingCount.activity_key(),
-                delta: integer(-1_000_000),
-            }]
-            .into_boxed_slice(),
-            if_false: vec![
-                ActivityOperation::AddCounter {
-                    slot: hub_clear_slot,
-                    key: source,
-                    delta: integer(1),
-                },
-                ActivityOperation::Traverse(reward_formation),
-            ]
-            .into_boxed_slice(),
-        }];
+        let ordinary_finish = match completion {
+            BlessingRewardCompletion::Inline {
+                reward_formation,
+                hub_clear_slot,
+                ability_projection_slot,
+            } => {
+                let bonus_available = ActivityCondition::LessThan(
+                    integer(0),
+                    ActivityExpression::CounterValue {
+                        slot: ability_projection_slot,
+                        key: AbilityTarget::FirstBattleBlessingCount.activity_key(),
+                    },
+                );
+                vec![ActivityOperation::Conditional {
+                    condition: bonus_available,
+                    if_true: vec![ActivityOperation::AddCounter {
+                        slot: ability_projection_slot,
+                        key: AbilityTarget::FirstBattleBlessingCount.activity_key(),
+                        delta: integer(-1_000_000),
+                    }]
+                    .into_boxed_slice(),
+                    if_false: vec![
+                        ActivityOperation::AddCounter {
+                            slot: hub_clear_slot,
+                            key: source,
+                            delta: integer(1),
+                        },
+                        ActivityOperation::Traverse(reward_formation),
+                    ]
+                    .into_boxed_slice(),
+                }]
+            }
+            BlessingRewardCompletion::Resolution(edge) => {
+                vec![ActivityOperation::Traverse(edge)]
+            }
+        };
         let mut settlement = vec![ActivityOperation::AddCounter {
             slot: path_blessing_count_slot,
             key: u64::from(blessing.path().get()),

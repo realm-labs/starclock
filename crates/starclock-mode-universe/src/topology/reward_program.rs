@@ -1,5 +1,5 @@
 use starclock_activity::{
-    ActivityDecisionKind, ActivityEdgeId, ActivityExpression, ActivityOperation,
+    ActivityCondition, ActivityDecisionKind, ActivityEdgeId, ActivityExpression, ActivityOperation,
     ActivityOptionDefinition, ActivityProgramDefinition, ActivityProgramId, ActivitySlotId,
     ActivityValue, GraphActivityNodeProgram, NodeId,
 };
@@ -28,6 +28,7 @@ pub(super) fn node_program_id(
     ))
 }
 
+#[allow(clippy::too_many_arguments)]
 pub(super) fn reward_node_program_id(
     node_id: NodeId,
     program_id: u32,
@@ -36,6 +37,8 @@ pub(super) fn reward_node_program_id(
     hub_clear_slot: ActivitySlotId,
     source: u64,
     reward_formation: ActivityEdgeId,
+    occurrence_battle_active_slot: ActivitySlotId,
+    occurrence_battle_reward_count_slot: ActivitySlotId,
 ) -> Result<GraphActivityNodeProgram, UniverseTopologyCompileError> {
     options.sort_by_key(|option| (option.priority(), option.id()));
     let offer = ActivityOperation::Offer {
@@ -43,6 +46,14 @@ pub(super) fn reward_node_program_id(
         options: options.into_boxed_slice(),
     };
     let skip = vec![
+        ActivityOperation::SetSlot {
+            slot: occurrence_battle_active_slot,
+            value: ActivityExpression::Literal(ActivityValue::BoundedInteger(0)),
+        },
+        ActivityOperation::SetSlot {
+            slot: occurrence_battle_reward_count_slot,
+            value: ActivityExpression::Literal(ActivityValue::BoundedInteger(0)),
+        },
         ActivityOperation::AddCounter {
             slot: hub_clear_slot,
             key: source,
@@ -50,12 +61,31 @@ pub(super) fn reward_node_program_id(
         },
         ActivityOperation::Traverse(reward_formation),
     ];
+    let occurrence_battle_without_reward = ActivityCondition::All(
+        vec![
+            ActivityCondition::Equal(
+                ActivityExpression::Slot(occurrence_battle_active_slot),
+                ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
+            ),
+            ActivityCondition::Equal(
+                ActivityExpression::Slot(occurrence_battle_reward_count_slot),
+                ActivityExpression::Literal(ActivityValue::BoundedInteger(0)),
+            ),
+        ]
+        .into_boxed_slice(),
+    );
     Ok(GraphActivityNodeProgram::new(
         node_id,
         ActivityProgramDefinition::new(
             ActivityProgramId::new(program_id).ok_or(UniverseTopologyCompileError::InvalidGraph)?,
             vec![ActivityOperation::Conditional {
-                condition: crate::curio_activity::domain::gossip_condition(curio_bindings),
+                condition: ActivityCondition::Any(
+                    vec![
+                        crate::curio_activity::domain::gossip_condition(curio_bindings),
+                        occurrence_battle_without_reward,
+                    ]
+                    .into_boxed_slice(),
+                ),
                 if_true: skip.into_boxed_slice(),
                 if_false: vec![offer].into_boxed_slice(),
             }],

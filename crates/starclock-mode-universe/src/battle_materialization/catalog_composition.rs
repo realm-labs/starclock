@@ -34,10 +34,31 @@ impl UniverseBattleCatalogComposition {
             .map_err(|_| UniverseBattleMaterializationError::InvalidEncounterContent)?;
         let enemies = materialize_enemies(universe, &content)?;
         validate_denominators(universe, &enemies)?;
-        let enemy_map = enemies
+        let occurrence_battles = crate::occurrence_battle::compile(universe)
+            .map_err(|_| UniverseBattleMaterializationError::InvalidEncounterContent)?;
+        let mut enemy_map = enemies
             .iter()
             .map(|enemy| (enemy.stable_key(), enemy.combat_enemy()))
             .collect::<BTreeMap<_, _>>();
+        for battle in &occurrence_battles {
+            for slot in battle
+                .member()
+                .waves()
+                .iter()
+                .flat_map(|wave| wave.enemies())
+            {
+                let enemy = universe
+                    .simulation_catalog()
+                    .enemy_by_stable_key(slot.enemy_variant_key())
+                    .or_else(|| {
+                        universe
+                            .simulation_catalog()
+                            .enemy_by_stable_key(super::proxy_key(slot.enemy_variant_key()))
+                    })
+                    .ok_or(UniverseBattleMaterializationError::MissingEnemyMapping)?;
+                enemy_map.insert(slot.enemy_variant_key(), enemy.id());
+            }
+        }
         let digest = catalog_composition_digest(universe, content.digest(), &enemies);
         let revision = format!(
             "{}+{}",
@@ -55,6 +76,9 @@ impl UniverseBattleCatalogComposition {
         );
         for member in members(universe) {
             builder.add_encounter(member_encounter(member, &enemy_map)?);
+        }
+        for battle in &occurrence_battles {
+            builder.add_encounter(member_encounter(battle.member(), &enemy_map)?);
         }
         for (index, binding) in universe.difficulty_enemy_bindings().iter().enumerate() {
             builder.add_encounter(difficulty_encounter(index, binding, &enemy_map)?);

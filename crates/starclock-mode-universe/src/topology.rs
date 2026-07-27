@@ -1,14 +1,19 @@
 //! Spatial-free Standard Universe topology, room and encounter compilation.
 mod blessing_offer;
+mod error;
+mod graph_layout;
 mod occurrence_binding;
 mod reward_program;
 mod route_program;
+pub type UniverseTopologyCompileError = error::UniverseTopologyCompileError;
+use self::graph_layout::*;
 use self::occurrence_binding::{
     interaction_completion, occurrence_random_purpose, push_occurrence_interaction,
 };
 use self::route_program::compile_route_program;
 use self::{blessing_offer::compile_blessing_offer_policy, reward_program::node_program_id};
 use crate::{
+    ability_runtime::AbilityTarget,
     blessing_runtime::{BlessingOfferEligibility, BlessingRuntimeCatalog},
     catalog::UniverseCatalog,
     definition::DomainKind,
@@ -31,7 +36,7 @@ use crate::{
         occurrence_external_result_option, path_option, room_option, route_option,
         service_interaction_option, topology_option, trailblaze_bonus_option,
     },
-    topology_reward::compile_blessing_reward,
+    topology_reward::{BlessingRewardCompletion, compile_blessing_reward},
     topology_service::{
         compile_room_services, option_condition as service_option_condition,
         trailblaze_bonus_condition,
@@ -46,13 +51,14 @@ use starclock_activity::{
     ActivityEdgeDefinition, ActivityEdgeId, ActivityExpression, ActivityExternalOutcomeId,
     ActivityGraphDefinition, ActivityInteractionBinding, ActivityInteractionRandomPolicy,
     ActivityInventoryId, ActivityNodeDefinition, ActivityNodeKind, ActivityOperation,
-    ActivityOptionDefinition, ActivityOptionId, ActivityRandomCheckpoint, ActivityRandomOffer,
-    ActivityRandomPolicies, ActivityRngLabel, ActivitySlotId, ActivityStateDefinition,
-    ActivityTerminalOutcome, ActivityValue, GraphActivityDefinition, GraphActivityDefinitionError,
-    GraphActivityNodeProgram, NodeId, ParticipantLock, SectionId, TerminalOutcome,
+    ActivityOptionDefinition, ActivityOptionId, ActivityProgramDefinition, ActivityProgramId,
+    ActivityRandomCheckpoint, ActivityRandomOffer, ActivityRandomPolicies, ActivityRngLabel,
+    ActivitySlotId, ActivityStateDefinition, ActivityTerminalOutcome, ActivityValue,
+    GraphActivityDefinition, GraphActivityNodeProgram, NodeId, ParticipantLock, SectionId,
+    TerminalOutcome,
 };
-use std::sync::Arc;
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v16";
+use std::{collections::BTreeSet, sync::Arc};
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v17";
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 
 const PATH_NODE: u32 = 1;
@@ -66,6 +72,7 @@ const CONTENT_NODE_OFFSET: u32 = 20_000;
 const MEMBER_NODE_OFFSET: u32 = 30_000;
 const BATTLE_NODE_OFFSET: u32 = 40_000;
 const REWARD_NODE_OFFSET: u32 = 50_000;
+const REWARD_RESOLUTION_NODE_OFFSET: u32 = 52_500;
 const FORMATION_NODE_OFFSET: u32 = 55_000;
 const ROUTE_NODE_OFFSET: u32 = 60_000;
 const PATH_PROGRAM: u32 = 1;
@@ -76,6 +83,7 @@ const CONTENT_PROGRAM_OFFSET: u32 = 20_000;
 const MEMBER_PROGRAM_OFFSET: u32 = 30_000;
 const BATTLE_PROGRAM_OFFSET: u32 = 40_000;
 const REWARD_PROGRAM_OFFSET: u32 = 50_000;
+const REWARD_RESOLUTION_PROGRAM_OFFSET: u32 = 52_500;
 const FORMATION_PROGRAM_OFFSET: u32 = 55_000;
 const ROUTE_PROGRAM_OFFSET: u32 = 60_000;
 const TOPOLOGY_DRAW_PURPOSE: u16 = 1;
@@ -160,6 +168,7 @@ pub struct DomainHubDefinition {
     member_node: NodeId,
     battle_node: NodeId,
     reward_node: NodeId,
+    reward_resolution_node: Option<NodeId>,
     formation_node: NodeId,
     route_node: NodeId,
     eligible_rooms: Box<[RoomId]>,
@@ -199,6 +208,10 @@ impl DomainHubDefinition {
     #[must_use]
     pub const fn reward_node(&self) -> NodeId {
         self.reward_node
+    }
+    #[must_use]
+    pub const fn reward_resolution_node(&self) -> Option<NodeId> {
+        self.reward_resolution_node
     }
     #[must_use]
     pub const fn formation_node(&self) -> NodeId {
@@ -318,7 +331,21 @@ pub(crate) fn compile(
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
     service_interactions: &ServiceInteractionRuntimeCatalog,
     external_outcome_slot: ActivitySlotId,
+    occurrence_battle_active_slot: ActivitySlotId,
+    occurrence_battle_reward_count_slot: ActivitySlotId,
 ) -> Result<CompiledUniverseTopology, UniverseTopologyCompileError> {
+    let mut occurrence_battle_hubs = BTreeSet::new();
+    for topology in catalog.topologies() {
+        for source in topology.nodes() {
+            let rooms = resolve_rooms(catalog, source.source_node_id())?;
+            if rooms
+                .iter()
+                .any(|room| room_has_occurrence_battle(catalog, room, occurrence_interactions))
+            {
+                occurrence_battle_hubs.insert(source.id());
+            }
+        }
+    }
     let mut nodes = terminal_nodes()?;
     nodes.push(activity_node(PATH_NODE, 1, ActivityNodeKind::Choice)?);
     nodes.push(activity_node(
@@ -356,9 +383,33 @@ pub(crate) fn compile(
                 (formation_node(source.id()), ActivityNodeKind::Choice),
                 (route_node(source.id()), ActivityNodeKind::Choice),
             ] {
-                nodes.push(activity_node(node_id.get(), section_id, kind)?);
+                let maximum_visits = if node_id == reward_node(source.id())
+                    && occurrence_battle_hubs.contains(&source.id())
+                {
+                    8
+                } else {
+                    1
+                };
+                nodes.push(activity_node_with_visits(
+                    node_id.get(),
+                    section_id,
+                    kind,
+                    maximum_visits,
+                )?);
             }
-            hub_edges.push(build_hub_edges(&mut edges, source.id())?);
+            if occurrence_battle_hubs.contains(&source.id()) {
+                nodes.push(activity_node_with_visits(
+                    reward_resolution_node(source.id()).get(),
+                    section_id,
+                    ActivityNodeKind::Choice,
+                    8,
+                )?);
+            }
+            hub_edges.push(build_hub_edges(
+                &mut edges,
+                source.id(),
+                occurrence_battle_hubs.contains(&source.id()),
+            )?);
         }
         topology_entry_edges.push((
             topology.id(),
@@ -406,6 +457,9 @@ pub(crate) fn compile(
                 member_node: member_node(source.id()),
                 battle_node: battle_node(source.id()),
                 reward_node: reward_node(source.id()),
+                reward_resolution_node: occurrence_battle_hubs
+                    .contains(&source.id())
+                    .then(|| reward_resolution_node(source.id())),
                 formation_node: formation_node(source.id()),
                 route_node: route_node(source.id()),
                 eligible_rooms,
@@ -419,8 +473,13 @@ pub(crate) fn compile(
         node(PATH_NODE),
         nodes,
         edges,
-        u32::try_from(hubs.len().saturating_mul(7).saturating_add(6))
-            .map_err(|_| UniverseTopologyCompileError::InvalidGraph)?,
+        u32::try_from(
+            hubs.len()
+                .saturating_mul(7)
+                .saturating_add(occurrence_battle_hubs.len())
+                .saturating_add(6),
+        )
+        .map_err(|_| UniverseTopologyCompileError::InvalidGraph)?,
     )
     .map_err(|_| UniverseTopologyCompileError::InvalidGraph)?;
     let state = state.with_logical_scopes(domain_logical_scopes(&graph, &hubs)?);
@@ -451,6 +510,8 @@ pub(crate) fn compile(
         occurrence_interactions,
         service_interactions,
         external_outcome_slot,
+        occurrence_battle_active_slot,
+        occurrence_battle_reward_count_slot,
         path_edge,
         trailblaze_bonus_edge,
         &topology_entry_edges,
@@ -576,16 +637,6 @@ pub(crate) fn rebind(
     })
 }
 
-#[derive(Clone, Copy)]
-struct HubEdges {
-    resolution_content: ActivityEdgeId,
-    content_member: ActivityEdgeId,
-    content_formation: ActivityEdgeId,
-    member_battle: ActivityEdgeId,
-    reward_formation: ActivityEdgeId,
-    formation_route: ActivityEdgeId,
-}
-
 struct CompiledPrograms {
     programs: Vec<GraphActivityNodeProgram>,
     random_checkpoints: Vec<ActivityRandomCheckpoint>,
@@ -616,6 +667,8 @@ fn compile_programs(
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
     service_interactions: &ServiceInteractionRuntimeCatalog,
     external_outcome_slot: ActivitySlotId,
+    occurrence_battle_active_slot: ActivitySlotId,
+    occurrence_battle_reward_count_slot: ActivitySlotId,
     path_edge: ActivityEdgeId,
     trailblaze_bonus_edge: ActivityEdgeId,
     topology_entry_edges: &[(TopologyId, ActivityEdgeId)],
@@ -878,6 +931,62 @@ fn compile_programs(
                         .ok_or(UniverseTopologyCompileError::InvalidOccurrenceInteraction)?;
                     if compiled.external_results().is_empty() {
                         let id = occurrence_choice_option(source, room.room, choice.id().get());
+                        let completion = if let Some(member) = compiled.battle_member() {
+                            let member_id = member_option(source, room.room, member);
+                            member_options.push(ActivityOptionDefinition::new(
+                                member_id,
+                                choice_priority as i32,
+                                room_condition.clone(),
+                                vec![
+                                    set_optional(member_slot, u64::from(member.get())),
+                                    ActivityOperation::Traverse(edges.member_battle),
+                                ],
+                            ));
+                            member_weights.push((member_id, 1));
+                            let engage = engage_option(source, room.room, member);
+                            battle_options.push(ActivityOptionDefinition::new(
+                                engage,
+                                choice_priority as i32,
+                                ActivityCondition::All(
+                                    vec![
+                                        room_condition.clone(),
+                                        optional_equals(member_slot, u64::from(member.get())),
+                                    ]
+                                    .into_boxed_slice(),
+                                ),
+                                Vec::new(),
+                            ));
+                            encounter_options.push(EncounterOptionBinding {
+                                option: engage,
+                                member,
+                                room: room.room,
+                                domain_kind: room.domain_kind,
+                            });
+                            vec![
+                                ActivityOperation::AddCounter {
+                                    slot: external_outcome_slot,
+                                    key: source,
+                                    delta: integer(1),
+                                },
+                                set_optional(member_slot, u64::from(member.get())),
+                                ActivityOperation::SetSlot {
+                                    slot: occurrence_battle_active_slot,
+                                    value: integer(1),
+                                },
+                                ActivityOperation::SetSlot {
+                                    slot: occurrence_battle_reward_count_slot,
+                                    value: integer(0),
+                                },
+                                ActivityOperation::Traverse(edges.content_member),
+                            ]
+                        } else {
+                            interaction_completion(
+                                hub_clear_slot,
+                                external_outcome_slot,
+                                source,
+                                edges.content_formation,
+                            )
+                        };
                         push_occurrence_interaction(
                             &mut content_options,
                             &mut interactions,
@@ -887,10 +996,7 @@ fn compile_programs(
                             room_condition.clone(),
                             hub,
                             room,
-                            source,
-                            edges.content_formation,
-                            hub_clear_slot,
-                            external_outcome_slot,
+                            completion,
                             choice.stable_key(),
                             compiled.payload(),
                             compiled.random_candidate_count(),
@@ -916,10 +1022,12 @@ fn compile_programs(
                                 room_condition.clone(),
                                 hub,
                                 room,
-                                source,
-                                edges.content_formation,
-                                hub_clear_slot,
-                                external_outcome_slot,
+                                interaction_completion(
+                                    hub_clear_slot,
+                                    external_outcome_slot,
+                                    source,
+                                    edges.content_formation,
+                                ),
                                 choice.stable_key(),
                                 result.payload(),
                                 None,
@@ -981,12 +1089,18 @@ fn compile_programs(
             ActivityDecisionKind::Encounter,
             battle_options,
         )?);
+        let reward_completion = edges.reward_resolution.map_or(
+            BlessingRewardCompletion::Inline {
+                reward_formation: edges.reward_formation,
+                hub_clear_slot,
+                ability_projection_slot,
+            },
+            BlessingRewardCompletion::Resolution,
+        );
         let reward = compile_blessing_reward(
             source,
-            edges.reward_formation,
-            hub_clear_slot,
+            reward_completion,
             path_blessing_count_slot,
-            ability_projection_slot,
             blessing_offer_marker_slot,
             curio_bindings,
             blessing_inventory,
@@ -1011,7 +1125,26 @@ fn compile_programs(
             hub_clear_slot,
             source,
             edges.reward_formation,
+            occurrence_battle_active_slot,
+            occurrence_battle_reward_count_slot,
         )?);
+        if let (Some(node), Some(repeat), Some(finish)) = (
+            hub.reward_resolution_node,
+            edges.resolution_reward,
+            edges.resolution_formation,
+        ) {
+            programs.push(compile_reward_resolution_program(
+                node,
+                REWARD_RESOLUTION_PROGRAM_OFFSET + hub.source_node.get(),
+                source,
+                hub_clear_slot,
+                ability_projection_slot,
+                occurrence_battle_active_slot,
+                occurrence_battle_reward_count_slot,
+                repeat,
+                finish,
+            )?);
+        }
         let formation_options = path_runtime.formation_selection_options(
             FormationSelectionBindings {
                 selected_path_slot: path_slot,
@@ -1021,7 +1154,17 @@ fn compile_programs(
             },
             formation_skip_option(source),
             |formation| formation_option(source, formation),
-            &[ActivityOperation::Traverse(edges.formation_route)],
+            &[
+                ActivityOperation::SetSlot {
+                    slot: occurrence_battle_active_slot,
+                    value: integer(0),
+                },
+                ActivityOperation::SetSlot {
+                    slot: occurrence_battle_reward_count_slot,
+                    value: integer(0),
+                },
+                ActivityOperation::Traverse(edges.formation_route),
+            ],
         );
         programs.push(node_program_id(
             hub.formation_node,
@@ -1045,150 +1188,4 @@ fn compile_programs(
         encounter_options,
         interactions,
     })
-}
-
-fn terminal_nodes() -> Result<Vec<ActivityNodeDefinition>, UniverseTopologyCompileError> {
-    [
-        (COMPLETED_NODE, ActivityTerminalOutcome::Completed),
-        (FAILED_NODE, ActivityTerminalOutcome::Failed),
-        (FAULTED_NODE, ActivityTerminalOutcome::Faulted),
-    ]
-    .into_iter()
-    .map(|(id, outcome)| activity_node(id, 1, ActivityNodeKind::Terminal(outcome)))
-    .collect()
-}
-
-fn build_hub_edges(
-    edges: &mut Vec<ActivityEdgeDefinition>,
-    source: TopologyNodeId,
-) -> Result<HubEdges, UniverseTopologyCompileError> {
-    let resolution_content = push_edge(edges, resolution_node(source), content_node(source))?;
-    let content_member = push_edge(edges, content_node(source), member_node(source))?;
-    let content_formation = push_edge(edges, content_node(source), formation_node(source))?;
-    let member_battle = push_edge(edges, member_node(source), battle_node(source))?;
-    push_condition_edge(
-        edges,
-        battle_node(source),
-        reward_node(source),
-        ActivityEdgeCondition::BattleOutcome(TerminalOutcome::Complete),
-    )?;
-    push_condition_edge(
-        edges,
-        battle_node(source),
-        node(FAILED_NODE),
-        ActivityEdgeCondition::BattleOutcome(TerminalOutcome::Failed),
-    )?;
-    push_condition_edge(
-        edges,
-        battle_node(source),
-        node(FAULTED_NODE),
-        ActivityEdgeCondition::BattleOutcome(TerminalOutcome::Faulted),
-    )?;
-    let reward_formation = push_edge(edges, reward_node(source), formation_node(source))?;
-    let formation_route = push_edge(edges, formation_node(source), route_node(source))?;
-    Ok(HubEdges {
-        resolution_content,
-        content_member,
-        content_formation,
-        member_battle,
-        reward_formation,
-        formation_route,
-    })
-}
-
-fn node_program(
-    node_id: u32,
-    program_id: u32,
-    kind: ActivityDecisionKind,
-    options: Vec<ActivityOptionDefinition>,
-) -> Result<GraphActivityNodeProgram, UniverseTopologyCompileError> {
-    node_program_id(node(node_id), program_id, kind, options)
-}
-
-fn always() -> ActivityCondition {
-    ActivityCondition::Boolean(ActivityExpression::Literal(ActivityValue::Boolean(true)))
-}
-
-fn activity_node(
-    id: u32,
-    section_id: u32,
-    kind: ActivityNodeKind,
-) -> Result<ActivityNodeDefinition, UniverseTopologyCompileError> {
-    ActivityNodeDefinition::new(node(id), section(section_id), kind, 1)
-        .map_err(|_| UniverseTopologyCompileError::InvalidGraph)
-}
-
-fn push_edge(
-    edges: &mut Vec<ActivityEdgeDefinition>,
-    from: NodeId,
-    to: NodeId,
-) -> Result<ActivityEdgeId, UniverseTopologyCompileError> {
-    push_condition_edge(edges, from, to, ActivityEdgeCondition::Always)
-}
-
-fn push_condition_edge(
-    edges: &mut Vec<ActivityEdgeDefinition>,
-    from: NodeId,
-    to: NodeId,
-    condition: ActivityEdgeCondition,
-) -> Result<ActivityEdgeId, UniverseTopologyCompileError> {
-    let id = ActivityEdgeId::new(
-        u32::try_from(edges.len() + 1).map_err(|_| UniverseTopologyCompileError::InvalidGraph)?,
-    )
-    .ok_or(UniverseTopologyCompileError::InvalidGraph)?;
-    edges.push(
-        ActivityEdgeDefinition::new(id, from, to, condition, 0, 1)
-            .map_err(|_| UniverseTopologyCompileError::InvalidGraph)?,
-    );
-    Ok(id)
-}
-
-const fn resolution_node(source: TopologyNodeId) -> NodeId {
-    node(RESOLUTION_NODE_OFFSET + source.get())
-}
-const fn content_node(source: TopologyNodeId) -> NodeId {
-    node(CONTENT_NODE_OFFSET + source.get())
-}
-const fn member_node(source: TopologyNodeId) -> NodeId {
-    node(MEMBER_NODE_OFFSET + source.get())
-}
-const fn battle_node(source: TopologyNodeId) -> NodeId {
-    node(BATTLE_NODE_OFFSET + source.get())
-}
-const fn reward_node(source: TopologyNodeId) -> NodeId {
-    node(REWARD_NODE_OFFSET + source.get())
-}
-const fn formation_node(source: TopologyNodeId) -> NodeId {
-    node(FORMATION_NODE_OFFSET + source.get())
-}
-const fn route_node(source: TopologyNodeId) -> NodeId {
-    node(ROUTE_NODE_OFFSET + source.get())
-}
-
-const fn node(raw: u32) -> NodeId {
-    match NodeId::new(raw) {
-        Some(value) => value,
-        None => panic!("static node ID must be non-zero"),
-    }
-}
-const fn section(raw: u32) -> SectionId {
-    match SectionId::new(raw) {
-        Some(value) => value,
-        None => panic!("static section ID must be non-zero"),
-    }
-}
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum UniverseTopologyCompileError {
-    InvalidGraph,
-    InvalidProgram,
-    InvalidEncounterWeight,
-    InvalidBlessingRuntime,
-    InvalidOccurrence,
-    NoEligibleRoom(TopologyNodeId),
-    MissingPrimaryRoomContent(RoomId),
-    AmbiguousPrimaryRoomContent(RoomId),
-    MissingEncounterGroup(EncounterGroupId),
-    RuntimeDefinition(GraphActivityDefinitionError),
-    InvalidOccurrenceInteraction,
-    InvalidServiceInteraction,
 }

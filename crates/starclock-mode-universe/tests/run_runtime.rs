@@ -50,7 +50,7 @@ fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
             .flat_map(|choice| choice.outcomes())
             .filter(|outcome| outcome.random_policy().is_some())
             .count(),
-        52
+        60
     );
     assert_eq!(
         runtime
@@ -79,8 +79,8 @@ fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
     assert_eq!(
         runtime.digest(),
         [
-            97, 32, 51, 113, 175, 116, 230, 105, 87, 19, 178, 53, 29, 220, 36, 67, 148, 218, 53,
-            219, 137, 148, 99, 201, 105, 79, 236, 77, 58, 103, 237, 244,
+            161, 76, 62, 75, 230, 0, 216, 39, 22, 243, 183, 238, 19, 74, 222, 124, 134, 60, 187,
+            72, 14, 252, 62, 29, 48, 88, 170, 184, 76, 1, 47, 128,
         ]
     );
     assert_eq!(
@@ -313,8 +313,8 @@ fn occurrence_choices_compile_and_exact_room_sources_bind_executable_handlers() 
     let interaction_catalog = compiled.occurrence_interaction_runtime();
     assert_eq!(interaction_catalog.choice_count(), 321);
     assert_eq!(interaction_catalog.immediate_operation_count(), 392);
-    assert_eq!(interaction_catalog.deferred_operation_count(), 78);
-    assert_eq!(interaction_catalog.external_result_count(), 3_345);
+    assert_eq!(interaction_catalog.deferred_operation_count(), 75);
+    assert_eq!(interaction_catalog.external_result_count(), 3_559);
     assert!(catalog.occurrence_choices().iter().any(|choice| {
         let outcome = &choice.outcomes()[0];
         outcome.operations().contains(&OccurrenceOperation::Obtain)
@@ -626,6 +626,136 @@ fn goal07_p4_m13_s01_executes_exact_fragments_named_curio_transitions_and_extern
             .draw_count(),
         0
     );
+}
+
+#[test]
+fn goal07_p4_m13_s02_executes_exact_hp_path_curio_fragment_and_occurrence_battle_outcomes() {
+    let catalog = catalog();
+    let world = &catalog.worlds()[0];
+    let compiled = StandardUniverseProfile::new(Arc::clone(&catalog))
+        .compile(StandardUniverseEntry::new(
+            world.id(),
+            world.difficulties()[0],
+            participants(),
+            vec![],
+        ))
+        .unwrap();
+    let runtime = compiled.occurrence_interaction_runtime();
+    let s02_choices = catalog
+        .occurrence_choices()
+        .iter()
+        .filter(|choice| {
+            matches!(
+                choice.stable_key(),
+                "universe.occurrence.12.variant.10901.choice.07"
+                    | "universe.occurrence.12.variant.10901.choice.08"
+                    | "universe.occurrence.12.variant.10901.choice.09"
+            ) || (13..=18).any(|occurrence| {
+                choice
+                    .stable_key()
+                    .starts_with(&format!("universe.occurrence.{occurrence}."))
+            })
+        })
+        .collect::<Vec<_>>();
+    assert_eq!(s02_choices.len(), 18);
+    assert!(s02_choices.iter().all(|choice| {
+        runtime
+            .compile_choice(choice.id())
+            .is_some_and(|interaction| interaction.deferred_operations() == 0)
+    }));
+
+    let choice = |key: &str| {
+        let choice = catalog
+            .occurrence_choices()
+            .iter()
+            .find(|choice| choice.stable_key() == key)
+            .unwrap();
+        runtime.compile_choice(choice.id()).unwrap()
+    };
+    let fragments = choice("universe.occurrence.12.variant.10901.choice.07");
+    let activity = execute_occurrence_payload(&compiled, fragments.payload(), 99_201);
+    assert_eq!(
+        activity
+            .player_view()
+            .slots()
+            .iter()
+            .find(|slot| slot.id() == compiled.cosmic_fragments_slot())
+            .map(|slot| slot.value()),
+        Some(&ActivityValue::BoundedInteger(150))
+    );
+
+    let path = choice("universe.occurrence.15.variant.11201.choice.01");
+    assert_eq!(path.random_candidate_count(), Some(9));
+    assert!(path.external_results().is_empty());
+    let activity = execute_occurrence_payload(&compiled, path.payload(), 99_202);
+    let blessings = activity
+        .player_view()
+        .inventories()
+        .iter()
+        .find(|inventory| inventory.id() == compiled.blessing_inventory())
+        .unwrap()
+        .entries()
+        .to_vec();
+    assert_eq!(blessings.len(), 18);
+    assert!(blessings.iter().all(|(_, count)| *count == 1));
+
+    let insect = choice("universe.occurrence.14.variant.11101.choice.03");
+    assert_eq!(insect.random_candidate_count(), Some(27));
+    assert!(insect.external_results().is_empty());
+    let activity = execute_occurrence_payload(&compiled, insect.payload(), 99_203);
+    let player = activity.player_view();
+    assert_eq!(
+        player
+            .inventories()
+            .iter()
+            .find(|inventory| inventory.id() == compiled.blessing_inventory())
+            .unwrap()
+            .entries()
+            .len(),
+        1
+    );
+    let insect_web = catalog
+        .curios()
+        .iter()
+        .find(|curio| curio.stable_key() == "universe.curio.59")
+        .unwrap();
+    assert_eq!(
+        player
+            .inventories()
+            .iter()
+            .find(|inventory| inventory.id() == compiled.curio_inventory())
+            .unwrap()
+            .entries(),
+        &[(u64::from(insect_web.id().get()), 1)]
+    );
+
+    assert_eq!(
+        choice("universe.occurrence.13.variant.11001.choice.01")
+            .external_results()
+            .len(),
+        63
+    );
+    assert_eq!(
+        choice("universe.occurrence.13.variant.11001.choice.02")
+            .external_results()
+            .len(),
+        27
+    );
+    assert_eq!(
+        choice("universe.occurrence.17.variant.11401.choice.01")
+            .external_results()
+            .len(),
+        15
+    );
+    assert_eq!(
+        choice("universe.occurrence.18.variant.11501.choice.01")
+            .external_results()
+            .len(),
+        46
+    );
+    let pigs = choice("universe.occurrence.16.variant.11301.choice.01");
+    assert!(pigs.battle_member().is_some());
+    assert_eq!(pigs.immediate_operations(), 1);
 }
 
 fn execute_occurrence_payload(

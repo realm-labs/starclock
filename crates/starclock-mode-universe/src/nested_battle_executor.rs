@@ -4,11 +4,11 @@ use std::sync::Arc;
 
 use starclock_activity::{
     ActivityBattleHandoff, BattleOutcome, BattleResult, EventDigest, GraphActivityBattleError,
-    ParticipantBattleState, ProjectedValue, ProjectionField,
+    MetricValue, MetricValueKind, ParticipantBattleState, ProjectedValue, ProjectionField,
 };
 use starclock_ai::EnemyController;
 use starclock_combat::{
-    Battle, BattlePhase, BattleStateHash, Command, DecisionKind, DecisionOwner,
+    Battle, BattlePhase, BattleStateHash, Command, DecisionKind, DecisionOwner, LifeState,
     ParticipantInitialState, ParticipantSpec, TeamSide,
     catalog::{CombatCatalog, encounter::AiTransitionTiming},
     rng::types::RngSeed,
@@ -571,6 +571,24 @@ pub(crate) fn project_result(
                 )
                 .ok_or(NestedBattleExecutionError::ParticipantMapping)?;
                 ProjectedValue::ParticipantState(state)
+            }
+            ProjectionField::Metric { key, kind }
+                if key.as_ref() == crate::battle_materialization::DEFEATED_ENEMY_COUNT_METRIC
+                    && *kind == MetricValueKind::BoundedInteger =>
+            {
+                let defeated = view
+                    .units_by_id()
+                    .filter(|unit| {
+                        unit.side() == TeamSide::Enemy && unit.life() == LifeState::Defeated
+                    })
+                    .count();
+                ProjectedValue::Metric {
+                    key: key.clone(),
+                    value: MetricValue::BoundedInteger(
+                        i64::try_from(defeated)
+                            .map_err(|_| NestedBattleExecutionError::UnsupportedProjection)?,
+                    ),
+                }
             }
             ProjectionField::Metric { .. } => {
                 return Err(NestedBattleExecutionError::UnsupportedProjection);

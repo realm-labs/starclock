@@ -137,7 +137,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
     assert_eq!(observation["status"], "completed");
     assert_eq!(
         observation["state_hash"],
-        "cf76f1c151e519b65cdd3f964490ba0c9f03e7c4f8fa96229fc9e97bc893ee55"
+        "5e4a7d0d697e12ebb6019f450ee708e8bd84b55f2bd445b680c2719ebae50610"
     );
 
     let exported = client
@@ -155,7 +155,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
     assert_eq!(export["complete"], true);
     assert_eq!(
         export["sha256"],
-        "910db79dd9f87852075a2540d1ece23aa24afbf3d355215033cfef55d6ab7aee"
+        "d9cda0637c7353deb0152cf31af14ca6e241eed7d94a2d109a9cb23d842adb95"
     );
 
     let verified = client
@@ -175,7 +175,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
     assert_eq!(verified.is_error, Some(false));
     let verification = verified.structured_content.unwrap();
     assert_eq!(verification["final_state_hash"], observation["state_hash"]);
-    assert_eq!(verification["nested_battles"], "5");
+    assert_eq!(verification["nested_battles"], "6");
 
     client.cancel().await.unwrap();
     task.await.unwrap();

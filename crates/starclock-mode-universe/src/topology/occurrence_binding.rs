@@ -31,10 +31,7 @@ pub(super) fn push_occurrence_interaction(
     condition: ActivityCondition,
     hub: &DomainHubDefinition,
     room: &ResolvedRoomContent,
-    source: u64,
-    completion_edge: ActivityEdgeId,
-    hub_clear_slot: ActivitySlotId,
-    external_outcome_slot: ActivitySlotId,
+    completion: Vec<ActivityOperation>,
     source_content_id: &str,
     payload: &[u8],
     random_candidate_count: Option<u32>,
@@ -45,12 +42,7 @@ pub(super) fn push_occurrence_interaction(
             .saturating_mul(1_000_000)
             .saturating_add(choice_priority) as i32,
         condition,
-        interaction_completion(
-            hub_clear_slot,
-            external_outcome_slot,
-            source,
-            completion_edge,
-        ),
+        completion,
     ));
     interactions.push(AbstractInteractionBinding {
         node: hub.content_node,

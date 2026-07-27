@@ -109,7 +109,7 @@ fn overlay(catalog: &UniverseCatalog, lock: &ParticipantLock) -> UniverseEncount
         )
         .unwrap(),
     );
-    let bindings = catalog
+    let mut bindings = catalog
         .encounter_groups()
         .iter()
         .flat_map(|group| group.members())
@@ -137,11 +137,50 @@ fn overlay(catalog: &UniverseCatalog, lock: &ParticipantLock) -> UniverseEncount
             );
             UniverseEncounterBattleBinding::new(member.id(), preparation, Arc::clone(&contract))
         })
-        .collect();
+        .collect::<Vec<_>>();
+    let occurrence_choice = catalog
+        .occurrence_choices()
+        .iter()
+        .find(|choice| choice.stable_key() == "universe.occurrence.16.variant.11301.choice.01")
+        .unwrap();
+    let occurrence_member =
+        starclock_mode_universe::id::EncounterMemberId::new(10_000 + occurrence_choice.id().get())
+            .unwrap();
+    let preparation = Arc::new(
+        starclock_activity::EncounterPreparationDefinition::new(
+            starclock_activity::ActivityOptionId::new(10).unwrap(),
+            starclock_activity::EncounterInitiativePolicy::PlayerControlled,
+            lock.digest(),
+            0,
+            vec![],
+            vec![starclock_activity::PreparedBattleVariant::new(
+                vec![],
+                TechniqueContributionDigest::new([0x44; 32]).unwrap(),
+                BattleBinding::new(
+                    battle_spec(occurrence_member.get()),
+                    "universe-occurrence-encounter",
+                    "universe-battle-spec-v1",
+                    lock.digest(),
+                )
+                .unwrap(),
+            )],
+        )
+        .unwrap(),
+    );
+    bindings.push(UniverseEncounterBattleBinding::new(
+        occurrence_member,
+        preparation,
+        contract,
+    ));
     UniverseEncounterOverlay::new(bindings).unwrap()
 }
 
 fn battle_spec(member: u32) -> BattleSpec {
+    let digest = u8::try_from(member).unwrap_or(0xa5);
+    let mut assembly_digest = [digest; 32];
+    if member > u32::from(u8::MAX) {
+        assembly_digest[1] = 0;
+    }
     let mut participants = (0_u8..4)
         .map(|index| {
             ParticipantSpec::new(
@@ -157,11 +196,11 @@ fn battle_spec(member: u32) -> BattleSpec {
         TeamSide::Enemy,
         FormationIndex::new(0).unwrap(),
         ParticipantSource::EncounterEnemy(EnemyDefinitionId::new(enemy).unwrap()),
-        combatant(enemy, u8::try_from(member).unwrap()),
+        combatant(enemy, digest),
     ));
     BattleSpec::new(
         "universe-test-rules-v1",
-        AssemblyDigest::new([u8::try_from(member).unwrap(); 32]).unwrap(),
+        AssemblyDigest::new(assembly_digest).unwrap(),
         EncounterId::new(member).unwrap(),
         participants,
         TeamResourceSpec::new(3, 5).unwrap(),
@@ -196,12 +235,12 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
         .unwrap()
         .validate_overlay(&overlay)
         .unwrap();
-    assert_eq!(overlay.bindings().len(), 173);
+    assert_eq!(overlay.bindings().len(), 174);
     assert_eq!(
         overlay.digest().bytes(),
         [
-            52, 64, 187, 44, 149, 171, 26, 107, 61, 140, 10, 78, 1, 209, 19, 97, 220, 59, 39, 231,
-            108, 132, 212, 200, 93, 227, 74, 95, 217, 172, 145, 71,
+            25, 230, 61, 13, 194, 173, 147, 222, 177, 217, 12, 80, 215, 23, 0, 150, 173, 175, 239,
+            73, 196, 223, 152, 93, 100, 98, 32, 20, 117, 141, 16, 251,
         ]
     );
     let world = &catalog.worlds()[0];
@@ -352,8 +391,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            63, 7, 2, 40, 69, 103, 194, 73, 131, 4, 60, 68, 255, 147, 73, 142, 120, 203, 42, 139,
-            96, 176, 253, 211, 220, 67, 233, 87, 154, 28, 126, 212,
+            186, 44, 24, 56, 172, 250, 149, 137, 255, 45, 20, 139, 87, 37, 131, 106, 183, 135, 204,
+            7, 60, 199, 53, 157, 129, 187, 152, 163, 86, 8, 222, 111,
         ]
     );
     let reward = activity.view();
@@ -423,8 +462,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            186, 84, 149, 116, 186, 156, 240, 118, 241, 204, 215, 125, 113, 92, 226, 90, 196, 168,
-            41, 52, 68, 132, 131, 124, 27, 60, 253, 78, 189, 125, 19, 156,
+            85, 252, 209, 142, 115, 38, 187, 121, 246, 195, 165, 172, 2, 254, 75, 210, 210, 188,
+            124, 182, 22, 253, 134, 42, 133, 148, 189, 170, 36, 230, 27, 240,
         ]
     );
     let formation = activity.view();
@@ -532,6 +571,7 @@ fn goal07_ability_tree_unlocks_reroll_and_consumes_one_first_battle_bonus_choice
         .submit_pending_battle_result(activity.view().state_hash(), valid_result)
         .unwrap();
 
+    let blessing_count_before_rewards = activity.blessing_contributions().unwrap().entries().len();
     let reward = activity.view();
     assert_eq!(
         reward.decision().expect("first bonus reward").kind(),
@@ -555,7 +595,7 @@ fn goal07_ability_tree_unlocks_reroll_and_consumes_one_first_battle_bonus_choice
         .unwrap();
     assert_eq!(
         activity.blessing_contributions().unwrap().entries().len(),
-        1
+        blessing_count_before_rewards + 1
     );
     let ordinary = activity.view();
     assert_eq!(
@@ -574,7 +614,7 @@ fn goal07_ability_tree_unlocks_reroll_and_consumes_one_first_battle_bonus_choice
         .unwrap();
     assert_eq!(
         activity.blessing_contributions().unwrap().entries().len(),
-        2
+        blessing_count_before_rewards + 2
     );
     assert_eq!(
         activity.view().decision().expect("formation gate").kind(),
@@ -615,12 +655,12 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(report.steps().len(), 69);
+    assert_eq!(report.steps().len(), 65);
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            5, 135, 45, 65, 196, 202, 178, 116, 209, 189, 51, 79, 124, 26, 239, 155, 98, 98, 153,
-            124, 20, 28, 215, 155, 250, 210, 229, 56, 193, 68, 132, 158,
+            238, 155, 191, 131, 234, 228, 200, 83, 33, 225, 114, 144, 18, 168, 193, 17, 165, 26,
+            120, 146, 21, 92, 186, 36, 61, 156, 174, 229, 7, 1, 49, 185,
         ]
     );
     assert_eq!(report.final_state_hash(), activity.view().state_hash());
@@ -642,7 +682,7 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
             .iter()
             .filter(|step| matches!(step, StandardUniverseBaselineStep::Battle { .. }))
             .count(),
-        7
+        6
     );
 }
 
@@ -694,12 +734,12 @@ fn complete_run_replay_verifies_and_reports_the_first_divergence() {
     )
     .unwrap();
     let bytes = encode_standard_universe_trace(&header, recorded.trace()).unwrap();
-    assert_eq!(bytes.len(), 7_982);
+    assert_eq!(bytes.len(), 10_314);
     assert_eq!(
         sha2::Sha256::digest(&bytes).as_slice(),
         [
-            81, 77, 213, 207, 78, 19, 171, 121, 127, 212, 90, 57, 44, 211, 208, 184, 20, 237, 119,
-            255, 96, 72, 153, 76, 20, 171, 19, 80, 152, 170, 60, 152,
+            85, 95, 7, 132, 141, 234, 13, 1, 214, 13, 111, 99, 70, 12, 16, 85, 45, 31, 88, 125, 19,
+            221, 189, 134, 26, 101, 6, 81, 82, 166, 208, 167,
         ]
     );
     let fresh = compiled
@@ -707,9 +747,9 @@ fn complete_run_replay_verifies_and_reports_the_first_divergence() {
         .unwrap()
         .into_activity();
     let verified = verify_standard_universe_replay(&bytes, fresh, "standard-universe-v1").unwrap();
-    assert_eq!(verified.action_count(), 49);
-    assert_eq!(verified.nested_battle_count(), 2);
-    assert_eq!(verified.diagnostic_count(), 45);
+    assert_eq!(verified.action_count(), 57);
+    assert_eq!(verified.nested_battle_count(), 4);
+    assert_eq!(verified.diagnostic_count(), 49);
     assert_eq!(verified.terminal(), recorded.report().terminal());
     assert_eq!(
         verified.final_state_hash().bytes(),

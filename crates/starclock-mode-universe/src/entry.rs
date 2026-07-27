@@ -1,6 +1,6 @@
 //! Standard Universe entry validation and generic Activity-state compilation.
 mod runtime_access;
-mod state_layout;
+pub(crate) mod state_layout;
 
 use starclock_activity::{
     ActivityDefinitionIdentity, ActivityInstanceId, ActivityInventoryDefinition,
@@ -21,11 +21,13 @@ use state_layout::{
     CURIO_STATE_SLOT, CURIO_STATE_SOURCE, DIFFICULTY_SLOT, DIFFICULTY_SOURCE,
     ENCOUNTER_MEMBER_SLOT, ENCOUNTER_MEMBER_SOURCE, EXTERNAL_OUTCOME_SLOT, EXTERNAL_OUTCOME_SOURCE,
     FORMATION_CAPABILITY_SLOT, FORMATION_CAPABILITY_SOURCE, FORMATION_INVENTORY,
-    FORMATION_INVENTORY_SOURCE, HUB_CLEAR_SLOT, HUB_CLEAR_SOURCE, OCCURRENCE_EFFECT_SLOT,
-    OCCURRENCE_EFFECT_SOURCE, PATH_BLESSING_COUNT_SLOT, PATH_BLESSING_COUNT_SOURCE, PATH_SLOT,
-    PATH_SOURCE, ROOM_SLOT, ROOM_SOURCE, SERVICE_EFFECT_SLOT, SERVICE_EFFECT_SOURCE,
-    SERVICE_USE_SLOT, SERVICE_USE_SOURCE, TECHNIQUE_POINTS_SLOT, TECHNIQUE_POINTS_SOURCE,
-    TOPOLOGY_SLOT, TOPOLOGY_SOURCE, WORLD_SLOT, WORLD_SOURCE,
+    FORMATION_INVENTORY_SOURCE, HUB_CLEAR_SLOT, HUB_CLEAR_SOURCE, OCCURRENCE_BATTLE_ACTIVE_SLOT,
+    OCCURRENCE_BATTLE_ACTIVE_SOURCE, OCCURRENCE_BATTLE_REWARD_COUNT_SLOT,
+    OCCURRENCE_BATTLE_REWARD_COUNT_SOURCE, OCCURRENCE_EFFECT_SLOT, OCCURRENCE_EFFECT_SOURCE,
+    PATH_BLESSING_COUNT_SLOT, PATH_BLESSING_COUNT_SOURCE, PATH_SLOT, PATH_SOURCE, ROOM_SLOT,
+    ROOM_SOURCE, SERVICE_EFFECT_SLOT, SERVICE_EFFECT_SOURCE, SERVICE_USE_SLOT, SERVICE_USE_SOURCE,
+    TECHNIQUE_POINTS_SLOT, TECHNIQUE_POINTS_SOURCE, TOPOLOGY_SLOT, TOPOLOGY_SOURCE, WORLD_SLOT,
+    WORLD_SOURCE,
 };
 
 use crate::{
@@ -401,6 +403,8 @@ impl StandardUniverseProfile {
                 occurrence_interaction_runtime.as_ref(),
                 service_interaction_runtime.as_ref(),
                 slot(EXTERNAL_OUTCOME_SLOT),
+                slot(OCCURRENCE_BATTLE_ACTIVE_SLOT),
+                slot(OCCURRENCE_BATTLE_REWARD_COUNT_SLOT),
             )
             .map_err(StandardUniverseCompileError::Topology)?;
             let _ = self.topology_template.set(ParticipantTopologyTemplate {
@@ -986,6 +990,22 @@ fn compile_state(
             0,
             3,
             FORMATION_CAPABILITY_SOURCE,
+            ActivityStateVisibility::Private,
+        )?,
+        integer_slot(
+            OCCURRENCE_BATTLE_ACTIVE_SLOT,
+            0,
+            0,
+            1,
+            OCCURRENCE_BATTLE_ACTIVE_SOURCE,
+            ActivityStateVisibility::Private,
+        )?,
+        integer_slot(
+            OCCURRENCE_BATTLE_REWARD_COUNT_SLOT,
+            0,
+            0,
+            4,
+            OCCURRENCE_BATTLE_REWARD_COUNT_SOURCE,
             ActivityStateVisibility::Private,
         )?,
     ];

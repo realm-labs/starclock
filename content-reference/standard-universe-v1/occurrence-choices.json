@@ -10488,7 +10488,7 @@
       "10906",
       "10906"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.12.variant.10901",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -10502,7 +10502,9 @@
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
+        "numeric_literals": [
+          "100"
+        ],
         "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
@@ -10537,7 +10539,7 @@
       "10908",
       "10908"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.12.variant.10901",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -10551,8 +10553,12 @@
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.curio.60"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -10586,7 +10592,7 @@
       "10909",
       "10909"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.12.variant.10901",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -10600,7 +10606,9 @@
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
+        "numeric_literals": [
+          "100"
+        ],
         "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
@@ -10635,21 +10643,12 @@
       "11001",
       "11001"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.13.variant.11001",
     "condition_ids": [
       "universe.unlock.source-22"
     ],
-    "costs": [
-      {
-        "kind": "Lose",
-        "targets": [
-          "Blessing",
-          "HP",
-          "Character"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -10658,17 +10657,79 @@
         ],
         "targets": [
           "Blessing",
-          "HP",
-          "Character"
+          "HP"
         ],
         "numeric_literals": [
-          "2"
+          "1",
+          "30%"
         ],
-        "parameter_refs": [],
-        "chance_percentages": [
-          "2"
+        "parameter_refs": [
+          "universe.blessing.612040",
+          "universe.blessing.612041",
+          "universe.blessing.612042",
+          "universe.blessing.612043",
+          "universe.blessing.612044",
+          "universe.blessing.612045",
+          "universe.blessing.612046",
+          "universe.blessing.612140",
+          "universe.blessing.612141",
+          "universe.blessing.612142",
+          "universe.blessing.612143",
+          "universe.blessing.612144",
+          "universe.blessing.612145",
+          "universe.blessing.612146",
+          "universe.blessing.612240",
+          "universe.blessing.612241",
+          "universe.blessing.612242",
+          "universe.blessing.612243",
+          "universe.blessing.612244",
+          "universe.blessing.612245",
+          "universe.blessing.612246",
+          "universe.blessing.612340",
+          "universe.blessing.612341",
+          "universe.blessing.612342",
+          "universe.blessing.612343",
+          "universe.blessing.612344",
+          "universe.blessing.612345",
+          "universe.blessing.612346",
+          "universe.blessing.612440",
+          "universe.blessing.612441",
+          "universe.blessing.612442",
+          "universe.blessing.612443",
+          "universe.blessing.612444",
+          "universe.blessing.612445",
+          "universe.blessing.612446",
+          "universe.blessing.612540",
+          "universe.blessing.612541",
+          "universe.blessing.612542",
+          "universe.blessing.612543",
+          "universe.blessing.612544",
+          "universe.blessing.612545",
+          "universe.blessing.612546",
+          "universe.blessing.612640",
+          "universe.blessing.612641",
+          "universe.blessing.612642",
+          "universe.blessing.612643",
+          "universe.blessing.612644",
+          "universe.blessing.612645",
+          "universe.blessing.612646",
+          "universe.blessing.612740",
+          "universe.blessing.612741",
+          "universe.blessing.612742",
+          "universe.blessing.612743",
+          "universe.blessing.612744",
+          "universe.blessing.612745",
+          "universe.blessing.612746",
+          "universe.blessing.612840",
+          "universe.blessing.612841",
+          "universe.blessing.612842",
+          "universe.blessing.612843",
+          "universe.blessing.612844",
+          "universe.blessing.612845",
+          "universe.blessing.612846"
         ],
-        "unspecified_random_policy": ""
+        "chance_percentages": [],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -10700,21 +10761,12 @@
       "11002",
       "11002"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.13.variant.11001",
     "condition_ids": [
       "universe.unlock.source-22"
     ],
-    "costs": [
-      {
-        "kind": "Lose",
-        "targets": [
-          "Blessing",
-          "HP",
-          "Character"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -10723,17 +10775,43 @@
         ],
         "targets": [
           "Blessing",
-          "HP",
-          "Character"
+          "HP"
         ],
         "numeric_literals": [
-          "3"
+          "1",
+          "80%"
         ],
-        "parameter_refs": [],
-        "chance_percentages": [
-          "2"
+        "parameter_refs": [
+          "universe.blessing.612030",
+          "universe.blessing.612031",
+          "universe.blessing.612032",
+          "universe.blessing.612130",
+          "universe.blessing.612131",
+          "universe.blessing.612132",
+          "universe.blessing.612230",
+          "universe.blessing.612231",
+          "universe.blessing.612232",
+          "universe.blessing.612330",
+          "universe.blessing.612331",
+          "universe.blessing.612332",
+          "universe.blessing.612430",
+          "universe.blessing.612431",
+          "universe.blessing.612432",
+          "universe.blessing.612530",
+          "universe.blessing.612531",
+          "universe.blessing.612532",
+          "universe.blessing.612630",
+          "universe.blessing.612631",
+          "universe.blessing.612632",
+          "universe.blessing.612730",
+          "universe.blessing.612731",
+          "universe.blessing.612732",
+          "universe.blessing.612830",
+          "universe.blessing.612831",
+          "universe.blessing.612832"
         ],
-        "unspecified_random_policy": ""
+        "chance_percentages": [],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -10765,7 +10843,7 @@
       "11101",
       "11101"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.14.variant.11101",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -10812,7 +10890,7 @@
       "11104",
       "11104"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.14.variant.11101",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -10859,7 +10937,7 @@
       "11102",
       "11102"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.14.variant.11101",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -10868,6 +10946,7 @@
     "outcomes": [
       {
         "kinds": [
+          "Obtain",
           "Obtain"
         ],
         "targets": [
@@ -10875,11 +10954,41 @@
           "Curio"
         ],
         "numeric_literals": [
-          "3"
+          "1",
+          "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing.612030",
+          "universe.blessing.612031",
+          "universe.blessing.612032",
+          "universe.blessing.612130",
+          "universe.blessing.612131",
+          "universe.blessing.612132",
+          "universe.blessing.612230",
+          "universe.blessing.612231",
+          "universe.blessing.612232",
+          "universe.blessing.612330",
+          "universe.blessing.612331",
+          "universe.blessing.612332",
+          "universe.blessing.612430",
+          "universe.blessing.612431",
+          "universe.blessing.612432",
+          "universe.blessing.612530",
+          "universe.blessing.612531",
+          "universe.blessing.612532",
+          "universe.blessing.612630",
+          "universe.blessing.612631",
+          "universe.blessing.612632",
+          "universe.blessing.612730",
+          "universe.blessing.612731",
+          "universe.blessing.612732",
+          "universe.blessing.612830",
+          "universe.blessing.612831",
+          "universe.blessing.612832",
+          "universe.curio.59"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -10911,21 +11020,12 @@
       "11103",
       "11103"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.14.variant.11101",
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Lose",
-        "targets": [
-          "Blessing",
-          "HP",
-          "Character"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -10934,17 +11034,79 @@
         ],
         "targets": [
           "Blessing",
-          "HP",
-          "Character"
+          "HP"
         ],
         "numeric_literals": [
-          "2"
+          "1",
+          "50%"
         ],
-        "parameter_refs": [],
-        "chance_percentages": [
-          "2"
+        "parameter_refs": [
+          "universe.blessing.612040",
+          "universe.blessing.612041",
+          "universe.blessing.612042",
+          "universe.blessing.612043",
+          "universe.blessing.612044",
+          "universe.blessing.612045",
+          "universe.blessing.612046",
+          "universe.blessing.612140",
+          "universe.blessing.612141",
+          "universe.blessing.612142",
+          "universe.blessing.612143",
+          "universe.blessing.612144",
+          "universe.blessing.612145",
+          "universe.blessing.612146",
+          "universe.blessing.612240",
+          "universe.blessing.612241",
+          "universe.blessing.612242",
+          "universe.blessing.612243",
+          "universe.blessing.612244",
+          "universe.blessing.612245",
+          "universe.blessing.612246",
+          "universe.blessing.612340",
+          "universe.blessing.612341",
+          "universe.blessing.612342",
+          "universe.blessing.612343",
+          "universe.blessing.612344",
+          "universe.blessing.612345",
+          "universe.blessing.612346",
+          "universe.blessing.612440",
+          "universe.blessing.612441",
+          "universe.blessing.612442",
+          "universe.blessing.612443",
+          "universe.blessing.612444",
+          "universe.blessing.612445",
+          "universe.blessing.612446",
+          "universe.blessing.612540",
+          "universe.blessing.612541",
+          "universe.blessing.612542",
+          "universe.blessing.612543",
+          "universe.blessing.612544",
+          "universe.blessing.612545",
+          "universe.blessing.612546",
+          "universe.blessing.612640",
+          "universe.blessing.612641",
+          "universe.blessing.612642",
+          "universe.blessing.612643",
+          "universe.blessing.612644",
+          "universe.blessing.612645",
+          "universe.blessing.612646",
+          "universe.blessing.612740",
+          "universe.blessing.612741",
+          "universe.blessing.612742",
+          "universe.blessing.612743",
+          "universe.blessing.612744",
+          "universe.blessing.612745",
+          "universe.blessing.612746",
+          "universe.blessing.612840",
+          "universe.blessing.612841",
+          "universe.blessing.612842",
+          "universe.blessing.612843",
+          "universe.blessing.612844",
+          "universe.blessing.612845",
+          "universe.blessing.612846"
         ],
-        "unspecified_random_policy": ""
+        "chance_percentages": [],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -10976,7 +11138,7 @@
       "11201",
       "11201"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.15.variant.11201",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -10991,9 +11153,19 @@
           "Blessing"
         ],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.abundance",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.erudition",
+          "universe.path.hunt",
+          "universe.path.nihility",
+          "universe.path.preservation",
+          "universe.path.propagation",
+          "universe.path.remembrance"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -11025,7 +11197,7 @@
       "11202",
       "11202"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.15.variant.11201",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -11039,7 +11211,9 @@
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
+        "numeric_literals": [
+          "2000"
+        ],
         "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
@@ -11074,7 +11248,7 @@
       "11203",
       "11203"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.15.variant.11201",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -11083,16 +11257,30 @@
     "outcomes": [
       {
         "kinds": [
+          "Obtain",
           "Obtain"
         ],
         "targets": [
-          "CosmicFragments",
-          "Blessing"
+          "Blessing",
+          "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "1",
+          "2000"
+        ],
+        "parameter_refs": [
+          "universe.path.abundance",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.erudition",
+          "universe.path.hunt",
+          "universe.path.nihility",
+          "universe.path.preservation",
+          "universe.path.propagation",
+          "universe.path.remembrance"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -11273,7 +11461,7 @@
       "11301",
       "11301"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.16.variant.11301",
     "condition_ids": [
       "universe.unlock.source-12002"
@@ -11282,11 +11470,19 @@
     "outcomes": [
       {
         "kinds": [
-          "Special"
+          "Battle"
         ],
         "targets": [],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "48"
+        ],
+        "parameter_refs": [
+          "enemy.trot-deuce.minionlv2.variant.01",
+          "enemy.trot-prime.minionlv2.variant.01",
+          "enemy.trot-tri.minionlv2.variant.01",
+          "universe.occurrence-battle.reward.defeated-enemy-blessing",
+          "universe.occurrence-battle.stage.80212011"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -11320,7 +11516,7 @@
       "11302",
       "11302"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.16.variant.11301",
     "condition_ids": [
       "universe.unlock.source-12002"
@@ -11367,7 +11563,7 @@
       "11401",
       "11401"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.17.variant.11401",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -11376,13 +11572,33 @@
     "outcomes": [
       {
         "kinds": [
-          "Special"
+          "Obtain"
         ],
-        "targets": [],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "targets": [
+          "Curio"
+        ],
+        "numeric_literals": [
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.curio.108",
+          "universe.curio.45",
+          "universe.curio.47",
+          "universe.curio.49",
+          "universe.curio.51",
+          "universe.curio.53",
+          "universe.curio.55",
+          "universe.curio.57",
+          "universe.curio.59",
+          "universe.curio.60",
+          "universe.curio.65",
+          "universe.curio.66",
+          "universe.curio.67",
+          "universe.curio.70",
+          "universe.curio.71"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -11414,7 +11630,7 @@
       "11402",
       "11402"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.17.variant.11401",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -11461,7 +11677,7 @@
       "11501",
       "11501"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.18.variant.11501",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -11478,9 +11694,56 @@
         "numeric_literals": [
           "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.curio.1",
+          "universe.curio.102",
+          "universe.curio.104",
+          "universe.curio.106",
+          "universe.curio.107",
+          "universe.curio.11",
+          "universe.curio.110",
+          "universe.curio.111",
+          "universe.curio.112",
+          "universe.curio.113",
+          "universe.curio.115",
+          "universe.curio.118",
+          "universe.curio.12",
+          "universe.curio.120",
+          "universe.curio.121",
+          "universe.curio.122",
+          "universe.curio.123",
+          "universe.curio.13",
+          "universe.curio.14",
+          "universe.curio.15",
+          "universe.curio.17",
+          "universe.curio.19",
+          "universe.curio.2",
+          "universe.curio.20",
+          "universe.curio.21",
+          "universe.curio.211",
+          "universe.curio.22",
+          "universe.curio.23",
+          "universe.curio.24",
+          "universe.curio.25",
+          "universe.curio.26",
+          "universe.curio.27",
+          "universe.curio.28",
+          "universe.curio.3",
+          "universe.curio.4",
+          "universe.curio.5",
+          "universe.curio.58",
+          "universe.curio.6",
+          "universe.curio.61",
+          "universe.curio.62",
+          "universe.curio.63",
+          "universe.curio.64",
+          "universe.curio.68",
+          "universe.curio.69",
+          "universe.curio.7",
+          "universe.curio.8"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -11512,7 +11775,7 @@
       "11502",
       "11502"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "Exact public option/result evidence is lowered to executable Standard Universe state changes; ordered candidate references freeze every random pool.",
     "variant_id": "universe.occurrence.18.variant.11501",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -11526,7 +11789,9 @@
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
+        "numeric_literals": [
+          "150"
+        ],
         "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""

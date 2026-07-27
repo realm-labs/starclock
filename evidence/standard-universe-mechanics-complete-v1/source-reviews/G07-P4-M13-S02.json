@@ -1,0 +1,71 @@
+{
+  "schema_revision": "starclock.goal07-occurrence-source-review.v1",
+  "partition_id": "G07-P4-M13-S02",
+  "reviewed_on": "2026-07-27",
+  "frozen_source_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+  "sources": [
+    {
+      "url": "turnbasedgamedata/Config/Level/Rogue/RogueDialogue/Event0010902/Opt0010902.json",
+      "section": "OnSelect option values",
+      "evidence_sha256": "2341a600454980e2fc76bfbbb97ab81cdeb3443e107548f970461cec530b01d5",
+      "facts": [
+        "named-curio:universe.curio.60",
+        "cosmic-fragments:100"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Statue",
+      "section": "Possible Outcomes",
+      "evidence_sha256": "ceb0484fe896bce8542935c2ba2c7c71b8908c8a48d15fd9c1866f0e17937e3d",
+      "facts": [
+        "two-star-blessing:1:current-hp-loss:30%",
+        "three-star-blessing:1:current-hp-loss:80%"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Insect_Nest",
+      "section": "Possible Outcomes",
+      "evidence_sha256": "68b04363f24c0e352a0722a4fc71fb694c31a79abf3ae3086680e8111af96a04",
+      "facts": [
+        "negative-curio:universe.curio.59:three-star-blessing:1",
+        "two-star-blessing:1:current-hp-loss:50%"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Ruan_Mei_(Occurrence)",
+      "section": "Possible Outcomes",
+      "evidence_sha256": "3cb0107e4a1ee05eace7a29f219ca77c015d2e92052bd06a52bcc6ae6c09b347",
+      "facts": [
+        "all-blessings:one-uniform-path",
+        "cosmic-fragments:2000"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Three_Little_Pigs",
+      "section": "Possible Outcomes",
+      "evidence_sha256": "af08d1346adede1e0a52a54aad890a98d67f46a23c4fdc1f83ba757e1dc2630d",
+      "facts": [
+        "stage:80212011:level:48",
+        "enemies:trot-prime,trot-deuce,trot-tri",
+        "reward:one-blessing-per-defeated-trotter"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Unending_Darkness",
+      "section": "Possible Outcomes",
+      "evidence_sha256": "7c09ab434ab6d5159168e38079030a8be05c5212cd7fce753fe5c20622505c4d",
+      "facts": [
+        "random-negative-curio:1"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/The_Architects",
+      "section": "Possible Outcomes",
+      "evidence_sha256": "b78a2311f9906379fd936874c71f28a320fed0f6fccc8b3f29b48c2cde395fac",
+      "facts": [
+        "random-normal-curio:1",
+        "cosmic-fragments:150"
+      ]
+    }
+  ]
+}

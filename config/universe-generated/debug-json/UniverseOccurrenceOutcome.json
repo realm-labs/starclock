@@ -6045,7 +6045,13 @@
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100"
+              }
+            ]
+          },
           "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
@@ -6073,8 +6079,20 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.curio.60"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -6101,7 +6119,13 @@
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100"
+              }
+            ]
+          },
           "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
@@ -6118,13 +6142,7 @@
       },
       {
         "values": {
-          "chance_percentages": {
-            "List": [
-              {
-                "String": "2"
-              }
-            ]
-          },
+          "chance_percentages": "Null",
           "choice_id": {
             "Integer": 28
           },
@@ -6141,11 +6159,206 @@
           "numeric_literals": {
             "List": [
               {
-                "String": "2"
+                "String": "1"
+              },
+              {
+                "String": "30%"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing.612040"
+              },
+              {
+                "String": "universe.blessing.612041"
+              },
+              {
+                "String": "universe.blessing.612042"
+              },
+              {
+                "String": "universe.blessing.612043"
+              },
+              {
+                "String": "universe.blessing.612044"
+              },
+              {
+                "String": "universe.blessing.612045"
+              },
+              {
+                "String": "universe.blessing.612046"
+              },
+              {
+                "String": "universe.blessing.612140"
+              },
+              {
+                "String": "universe.blessing.612141"
+              },
+              {
+                "String": "universe.blessing.612142"
+              },
+              {
+                "String": "universe.blessing.612143"
+              },
+              {
+                "String": "universe.blessing.612144"
+              },
+              {
+                "String": "universe.blessing.612145"
+              },
+              {
+                "String": "universe.blessing.612146"
+              },
+              {
+                "String": "universe.blessing.612240"
+              },
+              {
+                "String": "universe.blessing.612241"
+              },
+              {
+                "String": "universe.blessing.612242"
+              },
+              {
+                "String": "universe.blessing.612243"
+              },
+              {
+                "String": "universe.blessing.612244"
+              },
+              {
+                "String": "universe.blessing.612245"
+              },
+              {
+                "String": "universe.blessing.612246"
+              },
+              {
+                "String": "universe.blessing.612340"
+              },
+              {
+                "String": "universe.blessing.612341"
+              },
+              {
+                "String": "universe.blessing.612342"
+              },
+              {
+                "String": "universe.blessing.612343"
+              },
+              {
+                "String": "universe.blessing.612344"
+              },
+              {
+                "String": "universe.blessing.612345"
+              },
+              {
+                "String": "universe.blessing.612346"
+              },
+              {
+                "String": "universe.blessing.612440"
+              },
+              {
+                "String": "universe.blessing.612441"
+              },
+              {
+                "String": "universe.blessing.612442"
+              },
+              {
+                "String": "universe.blessing.612443"
+              },
+              {
+                "String": "universe.blessing.612444"
+              },
+              {
+                "String": "universe.blessing.612445"
+              },
+              {
+                "String": "universe.blessing.612446"
+              },
+              {
+                "String": "universe.blessing.612540"
+              },
+              {
+                "String": "universe.blessing.612541"
+              },
+              {
+                "String": "universe.blessing.612542"
+              },
+              {
+                "String": "universe.blessing.612543"
+              },
+              {
+                "String": "universe.blessing.612544"
+              },
+              {
+                "String": "universe.blessing.612545"
+              },
+              {
+                "String": "universe.blessing.612546"
+              },
+              {
+                "String": "universe.blessing.612640"
+              },
+              {
+                "String": "universe.blessing.612641"
+              },
+              {
+                "String": "universe.blessing.612642"
+              },
+              {
+                "String": "universe.blessing.612643"
+              },
+              {
+                "String": "universe.blessing.612644"
+              },
+              {
+                "String": "universe.blessing.612645"
+              },
+              {
+                "String": "universe.blessing.612646"
+              },
+              {
+                "String": "universe.blessing.612740"
+              },
+              {
+                "String": "universe.blessing.612741"
+              },
+              {
+                "String": "universe.blessing.612742"
+              },
+              {
+                "String": "universe.blessing.612743"
+              },
+              {
+                "String": "universe.blessing.612744"
+              },
+              {
+                "String": "universe.blessing.612745"
+              },
+              {
+                "String": "universe.blessing.612746"
+              },
+              {
+                "String": "universe.blessing.612840"
+              },
+              {
+                "String": "universe.blessing.612841"
+              },
+              {
+                "String": "universe.blessing.612842"
+              },
+              {
+                "String": "universe.blessing.612843"
+              },
+              {
+                "String": "universe.blessing.612844"
+              },
+              {
+                "String": "universe.blessing.612845"
+              },
+              {
+                "String": "universe.blessing.612846"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -6156,24 +6369,17 @@
               },
               {
                 "String": "HP"
-              },
-              {
-                "String": "Character"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
         "values": {
-          "chance_percentages": {
-            "List": [
-              {
-                "String": "2"
-              }
-            ]
-          },
+          "chance_percentages": "Null",
           "choice_id": {
             "Integer": 29
           },
@@ -6190,11 +6396,98 @@
           "numeric_literals": {
             "List": [
               {
-                "String": "3"
+                "String": "1"
+              },
+              {
+                "String": "80%"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing.612030"
+              },
+              {
+                "String": "universe.blessing.612031"
+              },
+              {
+                "String": "universe.blessing.612032"
+              },
+              {
+                "String": "universe.blessing.612130"
+              },
+              {
+                "String": "universe.blessing.612131"
+              },
+              {
+                "String": "universe.blessing.612132"
+              },
+              {
+                "String": "universe.blessing.612230"
+              },
+              {
+                "String": "universe.blessing.612231"
+              },
+              {
+                "String": "universe.blessing.612232"
+              },
+              {
+                "String": "universe.blessing.612330"
+              },
+              {
+                "String": "universe.blessing.612331"
+              },
+              {
+                "String": "universe.blessing.612332"
+              },
+              {
+                "String": "universe.blessing.612430"
+              },
+              {
+                "String": "universe.blessing.612431"
+              },
+              {
+                "String": "universe.blessing.612432"
+              },
+              {
+                "String": "universe.blessing.612530"
+              },
+              {
+                "String": "universe.blessing.612531"
+              },
+              {
+                "String": "universe.blessing.612532"
+              },
+              {
+                "String": "universe.blessing.612630"
+              },
+              {
+                "String": "universe.blessing.612631"
+              },
+              {
+                "String": "universe.blessing.612632"
+              },
+              {
+                "String": "universe.blessing.612730"
+              },
+              {
+                "String": "universe.blessing.612731"
+              },
+              {
+                "String": "universe.blessing.612732"
+              },
+              {
+                "String": "universe.blessing.612830"
+              },
+              {
+                "String": "universe.blessing.612831"
+              },
+              {
+                "String": "universe.blessing.612832"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -6205,13 +6498,12 @@
               },
               {
                 "String": "HP"
-              },
-              {
-                "String": "Character"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -6268,17 +6560,110 @@
             "List": [
               {
                 "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
           "numeric_literals": {
             "List": [
               {
-                "String": "3"
+                "String": "1"
+              },
+              {
+                "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing.612030"
+              },
+              {
+                "String": "universe.blessing.612031"
+              },
+              {
+                "String": "universe.blessing.612032"
+              },
+              {
+                "String": "universe.blessing.612130"
+              },
+              {
+                "String": "universe.blessing.612131"
+              },
+              {
+                "String": "universe.blessing.612132"
+              },
+              {
+                "String": "universe.blessing.612230"
+              },
+              {
+                "String": "universe.blessing.612231"
+              },
+              {
+                "String": "universe.blessing.612232"
+              },
+              {
+                "String": "universe.blessing.612330"
+              },
+              {
+                "String": "universe.blessing.612331"
+              },
+              {
+                "String": "universe.blessing.612332"
+              },
+              {
+                "String": "universe.blessing.612430"
+              },
+              {
+                "String": "universe.blessing.612431"
+              },
+              {
+                "String": "universe.blessing.612432"
+              },
+              {
+                "String": "universe.blessing.612530"
+              },
+              {
+                "String": "universe.blessing.612531"
+              },
+              {
+                "String": "universe.blessing.612532"
+              },
+              {
+                "String": "universe.blessing.612630"
+              },
+              {
+                "String": "universe.blessing.612631"
+              },
+              {
+                "String": "universe.blessing.612632"
+              },
+              {
+                "String": "universe.blessing.612730"
+              },
+              {
+                "String": "universe.blessing.612731"
+              },
+              {
+                "String": "universe.blessing.612732"
+              },
+              {
+                "String": "universe.blessing.612830"
+              },
+              {
+                "String": "universe.blessing.612831"
+              },
+              {
+                "String": "universe.blessing.612832"
+              },
+              {
+                "String": "universe.curio.59"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -6292,18 +6677,14 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
         "values": {
-          "chance_percentages": {
-            "List": [
-              {
-                "String": "2"
-              }
-            ]
-          },
+          "chance_percentages": "Null",
           "choice_id": {
             "Integer": 33
           },
@@ -6320,11 +6701,206 @@
           "numeric_literals": {
             "List": [
               {
-                "String": "2"
+                "String": "1"
+              },
+              {
+                "String": "50%"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing.612040"
+              },
+              {
+                "String": "universe.blessing.612041"
+              },
+              {
+                "String": "universe.blessing.612042"
+              },
+              {
+                "String": "universe.blessing.612043"
+              },
+              {
+                "String": "universe.blessing.612044"
+              },
+              {
+                "String": "universe.blessing.612045"
+              },
+              {
+                "String": "universe.blessing.612046"
+              },
+              {
+                "String": "universe.blessing.612140"
+              },
+              {
+                "String": "universe.blessing.612141"
+              },
+              {
+                "String": "universe.blessing.612142"
+              },
+              {
+                "String": "universe.blessing.612143"
+              },
+              {
+                "String": "universe.blessing.612144"
+              },
+              {
+                "String": "universe.blessing.612145"
+              },
+              {
+                "String": "universe.blessing.612146"
+              },
+              {
+                "String": "universe.blessing.612240"
+              },
+              {
+                "String": "universe.blessing.612241"
+              },
+              {
+                "String": "universe.blessing.612242"
+              },
+              {
+                "String": "universe.blessing.612243"
+              },
+              {
+                "String": "universe.blessing.612244"
+              },
+              {
+                "String": "universe.blessing.612245"
+              },
+              {
+                "String": "universe.blessing.612246"
+              },
+              {
+                "String": "universe.blessing.612340"
+              },
+              {
+                "String": "universe.blessing.612341"
+              },
+              {
+                "String": "universe.blessing.612342"
+              },
+              {
+                "String": "universe.blessing.612343"
+              },
+              {
+                "String": "universe.blessing.612344"
+              },
+              {
+                "String": "universe.blessing.612345"
+              },
+              {
+                "String": "universe.blessing.612346"
+              },
+              {
+                "String": "universe.blessing.612440"
+              },
+              {
+                "String": "universe.blessing.612441"
+              },
+              {
+                "String": "universe.blessing.612442"
+              },
+              {
+                "String": "universe.blessing.612443"
+              },
+              {
+                "String": "universe.blessing.612444"
+              },
+              {
+                "String": "universe.blessing.612445"
+              },
+              {
+                "String": "universe.blessing.612446"
+              },
+              {
+                "String": "universe.blessing.612540"
+              },
+              {
+                "String": "universe.blessing.612541"
+              },
+              {
+                "String": "universe.blessing.612542"
+              },
+              {
+                "String": "universe.blessing.612543"
+              },
+              {
+                "String": "universe.blessing.612544"
+              },
+              {
+                "String": "universe.blessing.612545"
+              },
+              {
+                "String": "universe.blessing.612546"
+              },
+              {
+                "String": "universe.blessing.612640"
+              },
+              {
+                "String": "universe.blessing.612641"
+              },
+              {
+                "String": "universe.blessing.612642"
+              },
+              {
+                "String": "universe.blessing.612643"
+              },
+              {
+                "String": "universe.blessing.612644"
+              },
+              {
+                "String": "universe.blessing.612645"
+              },
+              {
+                "String": "universe.blessing.612646"
+              },
+              {
+                "String": "universe.blessing.612740"
+              },
+              {
+                "String": "universe.blessing.612741"
+              },
+              {
+                "String": "universe.blessing.612742"
+              },
+              {
+                "String": "universe.blessing.612743"
+              },
+              {
+                "String": "universe.blessing.612744"
+              },
+              {
+                "String": "universe.blessing.612745"
+              },
+              {
+                "String": "universe.blessing.612746"
+              },
+              {
+                "String": "universe.blessing.612840"
+              },
+              {
+                "String": "universe.blessing.612841"
+              },
+              {
+                "String": "universe.blessing.612842"
+              },
+              {
+                "String": "universe.blessing.612843"
+              },
+              {
+                "String": "universe.blessing.612844"
+              },
+              {
+                "String": "universe.blessing.612845"
+              },
+              {
+                "String": "universe.blessing.612846"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -6335,13 +6911,12 @@
               },
               {
                 "String": "HP"
-              },
-              {
-                "String": "Character"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -6358,7 +6933,37 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.path.abundance"
+              },
+              {
+                "String": "universe.path.destruction"
+              },
+              {
+                "String": "universe.path.elation"
+              },
+              {
+                "String": "universe.path.erudition"
+              },
+              {
+                "String": "universe.path.hunt"
+              },
+              {
+                "String": "universe.path.nihility"
+              },
+              {
+                "String": "universe.path.preservation"
+              },
+              {
+                "String": "universe.path.propagation"
+              },
+              {
+                "String": "universe.path.remembrance"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -6369,7 +6974,9 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -6385,7 +6992,13 @@
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "2000"
+              }
+            ]
+          },
           "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
@@ -6410,25 +7023,69 @@
             "List": [
               {
                 "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              },
+              {
+                "String": "2000"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.path.abundance"
+              },
+              {
+                "String": "universe.path.destruction"
+              },
+              {
+                "String": "universe.path.elation"
+              },
+              {
+                "String": "universe.path.erudition"
+              },
+              {
+                "String": "universe.path.hunt"
+              },
+              {
+                "String": "universe.path.nihility"
+              },
+              {
+                "String": "universe.path.preservation"
+              },
+              {
+                "String": "universe.path.propagation"
+              },
+              {
+                "String": "universe.path.remembrance"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "CosmicFragments"
+                "String": "Blessing"
               },
               {
-                "String": "Blessing"
+                "String": "CosmicFragments"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -6534,12 +7191,36 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Battle"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "48"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "enemy.trot-deuce.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.trot-prime.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.trot-tri.minionlv2.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.defeated-enemy-blessing"
+              },
+              {
+                "String": "universe.occurrence-battle.stage.80212011"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -6578,17 +7259,79 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.curio.108"
+              },
+              {
+                "String": "universe.curio.45"
+              },
+              {
+                "String": "universe.curio.47"
+              },
+              {
+                "String": "universe.curio.49"
+              },
+              {
+                "String": "universe.curio.51"
+              },
+              {
+                "String": "universe.curio.53"
+              },
+              {
+                "String": "universe.curio.55"
+              },
+              {
+                "String": "universe.curio.57"
+              },
+              {
+                "String": "universe.curio.59"
+              },
+              {
+                "String": "universe.curio.60"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
-          "unspecified_random_policy": "Null"
+          "targets": {
+            "List": [
+              {
+                "String": "Curio"
+              }
+            ]
+          },
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -6633,7 +7376,148 @@
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.curio.1"
+              },
+              {
+                "String": "universe.curio.102"
+              },
+              {
+                "String": "universe.curio.104"
+              },
+              {
+                "String": "universe.curio.106"
+              },
+              {
+                "String": "universe.curio.107"
+              },
+              {
+                "String": "universe.curio.11"
+              },
+              {
+                "String": "universe.curio.110"
+              },
+              {
+                "String": "universe.curio.111"
+              },
+              {
+                "String": "universe.curio.112"
+              },
+              {
+                "String": "universe.curio.113"
+              },
+              {
+                "String": "universe.curio.115"
+              },
+              {
+                "String": "universe.curio.118"
+              },
+              {
+                "String": "universe.curio.12"
+              },
+              {
+                "String": "universe.curio.120"
+              },
+              {
+                "String": "universe.curio.121"
+              },
+              {
+                "String": "universe.curio.122"
+              },
+              {
+                "String": "universe.curio.123"
+              },
+              {
+                "String": "universe.curio.13"
+              },
+              {
+                "String": "universe.curio.14"
+              },
+              {
+                "String": "universe.curio.15"
+              },
+              {
+                "String": "universe.curio.17"
+              },
+              {
+                "String": "universe.curio.19"
+              },
+              {
+                "String": "universe.curio.2"
+              },
+              {
+                "String": "universe.curio.20"
+              },
+              {
+                "String": "universe.curio.21"
+              },
+              {
+                "String": "universe.curio.211"
+              },
+              {
+                "String": "universe.curio.22"
+              },
+              {
+                "String": "universe.curio.23"
+              },
+              {
+                "String": "universe.curio.24"
+              },
+              {
+                "String": "universe.curio.25"
+              },
+              {
+                "String": "universe.curio.26"
+              },
+              {
+                "String": "universe.curio.27"
+              },
+              {
+                "String": "universe.curio.28"
+              },
+              {
+                "String": "universe.curio.3"
+              },
+              {
+                "String": "universe.curio.4"
+              },
+              {
+                "String": "universe.curio.5"
+              },
+              {
+                "String": "universe.curio.58"
+              },
+              {
+                "String": "universe.curio.6"
+              },
+              {
+                "String": "universe.curio.61"
+              },
+              {
+                "String": "universe.curio.62"
+              },
+              {
+                "String": "universe.curio.63"
+              },
+              {
+                "String": "universe.curio.64"
+              },
+              {
+                "String": "universe.curio.68"
+              },
+              {
+                "String": "universe.curio.69"
+              },
+              {
+                "String": "universe.curio.7"
+              },
+              {
+                "String": "universe.curio.8"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -6644,7 +7528,9 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -6660,7 +7546,13 @@
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "150"
+              }
+            ]
+          },
           "parameter_refs": "Null",
           "sequence": {
             "Integer": 1

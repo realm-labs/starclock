@@ -4,6 +4,7 @@ mod battle_spec;
 pub mod catalog_composition;
 #[path = "battle_materialization_digest.rs"]
 mod materialization_digest;
+mod occurrence;
 mod player;
 
 use std::{collections::BTreeMap, sync::Arc};
@@ -45,6 +46,7 @@ use materialization_digest::{
     coverage_digest, empty_carry_digest, root_digest, snapshot_root_digest,
     technique_variant_digest,
 };
+pub(crate) use occurrence::DEFEATED_ENEMY_COUNT_METRIC;
 use player::player_participants;
 
 pub const UNIVERSE_BATTLE_MATERIALIZATION_REVISION: &str =
@@ -519,11 +521,32 @@ impl UniverseBattleMaterializer {
         {
             return Err(UniverseBattleMaterializationError::CatalogCompositionMismatch);
         }
-        let enemy_map = composition
+        let occurrence_battles = crate::occurrence_battle::compile(universe)
+            .map_err(|_| UniverseBattleMaterializationError::InvalidEncounterContent)?;
+        let mut enemy_map = composition
             .enemies()
             .iter()
             .map(|enemy| (enemy.stable_key(), enemy.combat_enemy()))
             .collect::<BTreeMap<_, _>>();
+        for battle in &occurrence_battles {
+            for slot in battle
+                .member()
+                .waves()
+                .iter()
+                .flat_map(|wave| wave.enemies())
+            {
+                let enemy = universe
+                    .simulation_catalog()
+                    .enemy_by_stable_key(slot.enemy_variant_key())
+                    .or_else(|| {
+                        universe
+                            .simulation_catalog()
+                            .enemy_by_stable_key(proxy_key(slot.enemy_variant_key()))
+                    })
+                    .ok_or(UniverseBattleMaterializationError::MissingEnemyMapping)?;
+                enemy_map.insert(slot.enemy_variant_key(), enemy.id());
+            }
+        }
         let technique = technique
             .map(|definition| compile_technique(composition, roster, definition))
             .transpose()?;
@@ -639,7 +662,7 @@ impl UniverseBattleMaterializer {
             })
             .transpose()?;
         let contract = settlement_contract(roster)?;
-        let mut overlay_bindings = Vec::with_capacity(MEMBER_COUNT);
+        let mut overlay_bindings = Vec::with_capacity(MEMBER_COUNT + occurrence_battles.len());
         let mut member_wave_count = 0_usize;
         let mut member_enemy_slot_count = 0_usize;
         for member in members(universe) {
@@ -719,6 +742,19 @@ impl UniverseBattleMaterializer {
                 Arc::clone(&contract),
             ));
         }
+        occurrence::extend_overlay(
+            &occurrence_battles,
+            &mut overlay_bindings,
+            roster,
+            &players,
+            technique_players.as_deref(),
+            &enemy_map,
+            &combat_catalog,
+            revision,
+            digest,
+            contributions,
+            technique.as_ref(),
+        )?;
         let overlay = UniverseEncounterOverlay::new(overlay_bindings)
             .map_err(|_| UniverseBattleMaterializationError::InvalidBattleOverlay)?;
         composition
@@ -750,7 +786,7 @@ impl UniverseBattleMaterializer {
                 battle_spec: spec,
             });
         }
-        if overlay.bindings().len() != MEMBER_COUNT
+        if overlay.bindings().len() != MEMBER_COUNT + occurrence_battles.len()
             || member_wave_count != MEMBER_COUNT
             || member_enemy_slot_count != MEMBER_ENEMY_SLOT_COUNT
             || difficulty_specs.len() != DIFFICULTY_BINDING_COUNT

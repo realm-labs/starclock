@@ -54,14 +54,21 @@ pub struct EncounterContentRuntimeCatalog {
 
 impl EncounterContentRuntimeCatalog {
     pub fn compile(catalog: &UniverseCatalog) -> Result<Self, EncounterContentRuntimeError> {
+        let occurrence_battles = crate::occurrence_battle::compile(catalog)
+            .map_err(|_| EncounterContentRuntimeError::InvalidEncounterGroup)?;
         let mut member_ids = catalog
             .encounter_groups()
             .iter()
             .flat_map(|group| group.members())
             .map(|member| member.id())
             .collect::<Vec<_>>();
+        member_ids.extend(occurrence_battles.iter().map(|battle| battle.member().id()));
         member_ids.sort_unstable();
-        let member_count = member_ids.len();
+        let member_count = catalog
+            .encounter_groups()
+            .iter()
+            .flat_map(|group| group.members())
+            .count();
         let wave_count = catalog
             .encounter_groups()
             .iter()
@@ -119,7 +126,7 @@ impl EncounterContentRuntimeCatalog {
         }
         validate_groups(catalog.encounter_groups())?;
         let enemy_variant_keys = enemy_variant_keys.into_iter().collect::<Vec<_>>();
-        let digest = catalog_digest(catalog, &enemy_variant_keys);
+        let digest = catalog_digest(catalog, &enemy_variant_keys, &member_ids);
         Ok(Self {
             enemy_variant_keys: enemy_variant_keys.into_boxed_slice(),
             member_ids: member_ids.into_boxed_slice(),
@@ -277,7 +284,11 @@ fn validate_groups(
     Ok(())
 }
 
-fn catalog_digest(catalog: &UniverseCatalog, enemy_keys: &[Box<str>]) -> [u8; 32] {
+fn catalog_digest(
+    catalog: &UniverseCatalog,
+    enemy_keys: &[Box<str>],
+    member_ids: &[crate::id::EncounterMemberId],
+) -> [u8; 32] {
     let mut encoder = Encoder::new(b"starclock-universe-encounter-content-runtime-catalog-v1");
     encoder.text(ENCOUNTER_CONTENT_RUNTIME_REVISION);
     encoder.digest(catalog.identity().definitions_digest().bytes());
@@ -285,6 +296,10 @@ fn catalog_digest(catalog: &UniverseCatalog, enemy_keys: &[Box<str>]) -> [u8; 32
     encoder.u32(enemy_keys.len() as u32);
     for key in enemy_keys {
         encoder.text(key);
+    }
+    encoder.u32(member_ids.len() as u32);
+    for member in member_ids {
+        encoder.u32(member.get());
     }
     encoder.finish()
 }

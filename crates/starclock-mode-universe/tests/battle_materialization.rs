@@ -10,7 +10,7 @@ use starclock_activity::{
 };
 use starclock_combat::{
     CombatantSpecDigest, Energy, Hp, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
-    StatValue, UnitDefinitionId, UnitLevel, catalog::action::AbilityKind,
+    StatValue, TeamSide, UnitDefinitionId, UnitLevel, catalog::action::AbilityKind,
 };
 use starclock_mode_universe::{
     ability_runtime::{
@@ -306,7 +306,7 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
         .compile(&catalog, &roster, &contributions)
         .unwrap();
 
-    assert_eq!(materialized.overlay().bindings().len(), 173);
+    assert_eq!(materialized.overlay().bindings().len(), 174);
     assert_eq!(materialized.difficulty_specs().len(), 182);
     assert_eq!(materialized.enemies().len(), 86);
     assert_eq!(
@@ -350,11 +350,30 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
         coverage.runtime_stat_policy(),
         UNIVERSE_ENEMY_RUNTIME_STAT_POLICY
     );
+    let occurrence = materialized.overlay().bindings().last().unwrap();
+    assert!(occurrence.member().get() >= 10_000);
+    let occurrence_spec = occurrence.preparation().variants()[0].battle_spec();
+    let occurrence_enemies = occurrence_spec
+        .participants()
+        .iter()
+        .filter(|participant| participant.side() == TeamSide::Enemy)
+        .collect::<Vec<_>>();
+    assert_eq!(occurrence_enemies.len(), 3);
+    assert!(
+        occurrence_enemies
+            .iter()
+            .all(|participant| participant.combatant().level().get() == 48)
+    );
+    assert_eq!(occurrence.contract().metrics().len(), 1);
+    assert_eq!(
+        occurrence.contract().metrics()[0].key(),
+        "enemy.defeated.count"
+    );
     assert_eq!(
         materialized.digest(),
         [
-            221, 85, 118, 200, 62, 51, 248, 11, 46, 25, 53, 89, 182, 244, 252, 47, 65, 152, 242,
-            34, 53, 90, 218, 183, 128, 127, 119, 114, 192, 215, 155, 116,
+            212, 146, 93, 178, 76, 41, 117, 182, 88, 36, 109, 153, 215, 58, 253, 73, 66, 32, 104,
+            44, 135, 253, 36, 57, 32, 46, 186, 14, 38, 164, 221, 250,
         ]
     );
     assert_eq!(
@@ -509,27 +528,27 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(executor.reports().len(), 6);
+    assert_eq!(executor.reports().len(), 3);
     assert_eq!(
         executor
             .reports()
             .iter()
             .map(|battle| battle.trace().len())
             .sum::<usize>(),
-        38
+        17
     );
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            101, 5, 69, 208, 7, 254, 254, 218, 56, 151, 244, 84, 251, 66, 145, 225, 108, 135, 154,
-            129, 94, 126, 72, 8, 227, 158, 32, 207, 14, 230, 195, 110,
+            127, 69, 162, 239, 129, 212, 254, 26, 244, 146, 94, 40, 83, 141, 242, 236, 235, 132,
+            58, 213, 93, 217, 32, 216, 89, 66, 211, 149, 218, 137, 210, 161,
         ]
     );
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
         [
-            104, 158, 142, 51, 102, 66, 26, 224, 170, 212, 15, 14, 107, 123, 222, 6, 135, 201, 70,
-            209, 105, 146, 190, 12, 12, 21, 17, 144, 38, 29, 31, 163,
+            138, 136, 15, 241, 33, 212, 113, 134, 115, 183, 170, 242, 55, 106, 243, 108, 141, 9,
+            210, 216, 171, 106, 87, 82, 205, 92, 231, 195, 71, 201, 202, 22,
         ]
     );
     assert!(executor.reports().iter().all(|battle| {

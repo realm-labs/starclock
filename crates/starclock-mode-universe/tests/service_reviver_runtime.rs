@@ -29,6 +29,7 @@ use starclock_mode_universe::{
     ability_runtime::AbilityTarget,
     catalog::UniverseCatalog,
     entry::{CompiledActivity, StandardUniverseEntry, StandardUniverseProfile},
+    occurrence_interaction::OCCURRENCE_INTERACTION_HANDLER_ID,
     service_interaction::{SERVICE_INTERACTION_HANDLER_ID, ServiceInteractionSelection},
 };
 
@@ -138,6 +139,80 @@ fn goal07_p4_m14_s01_reviver_restores_defeated_battle_carry_atomically() {
     assert_eq!(restored.life(), LifeState::Alive);
     assert_eq!(restored.presence(), PresenceState::Present);
     assert_eq!(restored.current_hp(), restored.maximum_hp());
+}
+
+#[test]
+fn goal07_p4_m13_s02_statue_loses_exact_current_hp_ratio_without_defeating_participants() {
+    let compiled = compiled();
+    let choice = catalog()
+        .occurrence_choices()
+        .iter()
+        .find(|choice| choice.stable_key() == "universe.occurrence.13.variant.11001.choice.01")
+        .unwrap()
+        .id();
+    let interaction = compiled
+        .occurrence_interaction_runtime()
+        .compile_choice(choice)
+        .unwrap();
+    let payload = interaction.external_results()[0].payload();
+    let fixture = ReviverFixture::new();
+    let mut state = fixture.state(&compiled);
+    fixture.prepare(&mut state);
+    let before = fixture.hash(&state);
+    let handoff = state
+        .start_pending_battle(
+            &fixture.graph,
+            &fixture.rng,
+            ActivityBattleStartRequest::new(
+                before,
+                fixture.identity,
+                fixture.instance,
+                Arc::clone(&fixture.contract),
+            ),
+        )
+        .unwrap();
+    let awaiting = fixture.hash(&state);
+    state
+        .submit_pending_battle_result(
+            fixture.identity,
+            &fixture.graph,
+            fixture.instance,
+            &fixture.rng,
+            ActivityBattleResultSubmission::new(awaiting, alive_result(handoff.identity())),
+        )
+        .unwrap();
+    let view = fixture.view(&state);
+    let registration = compiled
+        .runtime_definition()
+        .interactions()
+        .unwrap()
+        .registry()
+        .handler(ActivityHandlerId::new(OCCURRENCE_INTERACTION_HANDLER_ID).unwrap())
+        .unwrap();
+    let output = registration
+        .execute(ActivityHandlerInput::new(&view, payload).unwrap())
+        .unwrap();
+    assert!(output.operations().iter().any(|operation| matches!(
+        operation,
+        starclock_activity::ActivityOperation::LoseParticipantCurrentHpRatio {
+            participant: value,
+            hp_ratio,
+            minimum_hp,
+        } if *value == participant() && hp_ratio.scaled() == 300_000 && minimum_hp.get() == 1
+    )));
+    let program = ActivityProgramDefinition::new(
+        ActivityProgramId::new(80_002).unwrap(),
+        output.operations().to_vec(),
+    )
+    .unwrap();
+    let cause = ActivityCause::new(1, program.id(), fixture.service_node).unwrap();
+    assert!(matches!(
+        state.apply_program(&program, cause, &fixture.graph),
+        ActivityTransactionOutcome::Committed(_)
+    ));
+    let carry = fixture.view(&state).participant_carry()[0];
+    assert_eq!(carry.current_hp(), hp(700));
+    assert_eq!(carry.life(), LifeState::Alive);
 }
 
 struct ReviverFixture {
@@ -446,6 +521,30 @@ fn defeated_result(identity: starclock_activity::BattleResultIdentity) -> Battle
                     energy(100),
                     LifeState::Defeated,
                     PresenceState::Departed,
+                )
+                .unwrap(),
+            ),
+        ],
+    )
+}
+
+fn alive_result(identity: starclock_activity::BattleResultIdentity) -> BattleResult {
+    BattleResult::seal(
+        identity,
+        vec![
+            ProjectedValue::Outcome(BattleOutcome::Won),
+            ProjectedValue::FinalStateHash(BattleStateHash::from_bytes([0x84; 32])),
+            ProjectedValue::EventDigest(EventDigest::new([0x85; 32]).unwrap()),
+            ProjectedValue::TerminalFault(None),
+            ProjectedValue::ParticipantState(
+                ParticipantBattleState::new(
+                    participant(),
+                    hp(1_000),
+                    hp(1_000),
+                    Energy::ZERO,
+                    energy(100),
+                    LifeState::Alive,
+                    PresenceState::Present,
                 )
                 .unwrap(),
             ),
