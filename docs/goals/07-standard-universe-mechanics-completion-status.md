@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M14-S06` |
-| Next unblocked batch | `G07-P4-M14-S06` |
+| Active batch | `G07-P4-M13-S01` |
+| Next unblocked batch | `G07-P4-M13-S01` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -174,10 +174,15 @@ Service S05 is complete. Divergent Universe IDs 502–517 retain exact profile
 ownership and close as `ProfileExcluded`; exhaustive definition and compiled
 interaction tests reject them before payload, RNG or mutation. No expansion
 behavior, native handler or numeric approximation was added.
-`G07-P4-M14-S06` is active.
+Service S06 is complete. Standard Trailblaze Bonus ID 6 executes its enhanced
+stable-random Curio grant through checked Reward RNG and the complete Curio
+lifecycle transaction. Divergent Universe IDs 518–530 close as
+`ProfileExcluded`. All 94 service records and rules now have terminal
+dispositions with no native handler or numeric approximation.
+`G07-P4-M13-S01` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 53 completed partitions use scoped Excel/Sora semantic
+model. The first 54 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
@@ -250,7 +255,7 @@ The milestone summary remains here for orientation.
 | `G07-P3-M11` | `Complete` | 86 / 86 | Positive/neutral/special Curios complete. |
 | `G07-P3-M12` | `Complete` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
 | `G07-P4-M13` | `Expanded` | 0 / 447 | Occurrence choices and effects complete. |
-| `G07-P4-M14` | `Expanded` | 94 / 94 | Services, shops, roster and interactables complete. |
+| `G07-P4-M14` | `Complete` | 94 / 94 | Services, shops, roster and interactables complete. |
 | `G07-P5-M15` | `Expanded` | 0 / 959 | Enemy, encounter, World/difficulty and carry complete. |
 
 ## Starting coverage

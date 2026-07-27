@@ -1,0 +1,55 @@
+{
+  "schema_revision": "starclock.goal07-service-partition-golden.v2",
+  "partition_id": "G07-P4-M14-S06",
+  "record_ids": [
+    "universe.service.trailblaze-bonus.518",
+    "universe.service.trailblaze-bonus.519",
+    "universe.service.trailblaze-bonus.520",
+    "universe.service.trailblaze-bonus.521",
+    "universe.service.trailblaze-bonus.522",
+    "universe.service.trailblaze-bonus.523",
+    "universe.service.trailblaze-bonus.524",
+    "universe.service.trailblaze-bonus.525",
+    "universe.service.trailblaze-bonus.526",
+    "universe.service.trailblaze-bonus.527",
+    "universe.service.trailblaze-bonus.528",
+    "universe.service.trailblaze-bonus.529",
+    "universe.service.trailblaze-bonus.530",
+    "universe.service.trailblaze-bonus.6"
+  ],
+  "rule_ids": [
+    "universe.rule.service.trailblaze-bonus.518",
+    "universe.rule.service.trailblaze-bonus.519",
+    "universe.rule.service.trailblaze-bonus.520",
+    "universe.rule.service.trailblaze-bonus.521",
+    "universe.rule.service.trailblaze-bonus.522",
+    "universe.rule.service.trailblaze-bonus.523",
+    "universe.rule.service.trailblaze-bonus.524",
+    "universe.rule.service.trailblaze-bonus.525",
+    "universe.rule.service.trailblaze-bonus.526",
+    "universe.rule.service.trailblaze-bonus.527",
+    "universe.rule.service.trailblaze-bonus.528",
+    "universe.rule.service.trailblaze-bonus.529",
+    "universe.rule.service.trailblaze-bonus.530",
+    "universe.rule.service.trailblaze-bonus.6"
+  ],
+  "fixture_ids": [],
+  "tables": {
+    "UniverseService": {
+      "rows": 14,
+      "semantic_sha256": "c1da2dfa564dc9d407a5731c0e2dde802b4cb69d846eb5e7b44363562d01d971"
+    },
+    "UniverseServiceParameter": {
+      "rows": 4,
+      "semantic_sha256": "226123c70ed9113d624ac04bf34a7a6042108b40a4aee297685f65f1745130c2"
+    },
+    "UniverseMechanicRule": {
+      "rows": 14,
+      "semantic_sha256": "736b7a5b8e2693adca001c9b31f6062197a08e33f2dde13cedd38fd4adfea514"
+    },
+    "UniverseReviewFixture": {
+      "rows": 0,
+      "semantic_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  }
+}
