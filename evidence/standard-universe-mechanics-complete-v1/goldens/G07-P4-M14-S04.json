@@ -1,0 +1,59 @@
+{
+  "schema_revision": "starclock.goal07-service-partition-golden.v2",
+  "partition_id": "G07-P4-M14-S04",
+  "record_ids": [
+    "universe.service.trailblaze-bonus.419",
+    "universe.service.trailblaze-bonus.420",
+    "universe.service.trailblaze-bonus.421",
+    "universe.service.trailblaze-bonus.422",
+    "universe.service.trailblaze-bonus.423",
+    "universe.service.trailblaze-bonus.424",
+    "universe.service.trailblaze-bonus.425",
+    "universe.service.trailblaze-bonus.426",
+    "universe.service.trailblaze-bonus.427",
+    "universe.service.trailblaze-bonus.428",
+    "universe.service.trailblaze-bonus.429",
+    "universe.service.trailblaze-bonus.430",
+    "universe.service.trailblaze-bonus.431",
+    "universe.service.trailblaze-bonus.432",
+    "universe.service.trailblaze-bonus.5",
+    "universe.service.trailblaze-bonus.501"
+  ],
+  "rule_ids": [
+    "universe.rule.service.trailblaze-bonus.419",
+    "universe.rule.service.trailblaze-bonus.420",
+    "universe.rule.service.trailblaze-bonus.421",
+    "universe.rule.service.trailblaze-bonus.422",
+    "universe.rule.service.trailblaze-bonus.423",
+    "universe.rule.service.trailblaze-bonus.424",
+    "universe.rule.service.trailblaze-bonus.425",
+    "universe.rule.service.trailblaze-bonus.426",
+    "universe.rule.service.trailblaze-bonus.427",
+    "universe.rule.service.trailblaze-bonus.428",
+    "universe.rule.service.trailblaze-bonus.429",
+    "universe.rule.service.trailblaze-bonus.430",
+    "universe.rule.service.trailblaze-bonus.431",
+    "universe.rule.service.trailblaze-bonus.432",
+    "universe.rule.service.trailblaze-bonus.5",
+    "universe.rule.service.trailblaze-bonus.501"
+  ],
+  "fixture_ids": [],
+  "tables": {
+    "UniverseService": {
+      "rows": 16,
+      "semantic_sha256": "354fda392b61e4b0f22fb1766ed85b1a4ceb80701efda94ff7a2defe9ce58dc1"
+    },
+    "UniverseServiceParameter": {
+      "rows": 6,
+      "semantic_sha256": "59daa4fb3d097cae3cb725fe05c166732a5e6275dc68afec781690f6f2137ec6"
+    },
+    "UniverseMechanicRule": {
+      "rows": 16,
+      "semantic_sha256": "798e65a9df7f79f776e4539d1a0c45f369800f84c40a799ad7f6ecc2e92758a8"
+    },
+    "UniverseReviewFixture": {
+      "rows": 0,
+      "semantic_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  }
+}
