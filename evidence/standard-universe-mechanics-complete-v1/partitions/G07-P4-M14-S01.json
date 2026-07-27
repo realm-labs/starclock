@@ -1,0 +1,1358 @@
+{
+  "schema_revision": "starclock.goal07-content-partition-receipt.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "partition_id": "G07-P4-M14-S01",
+  "state": "Complete",
+  "completed_on": "2026-07-27",
+  "authoring": {
+    "workbooks": [
+      {
+        "path": "config/data/Universe.xlsx",
+        "tables": [
+          "UniverseService",
+          "UniverseServiceParameter"
+        ]
+      },
+      {
+        "path": "config/data/UniverseBindings.xlsx",
+        "tables": [
+          "UniverseMechanicRule"
+        ]
+      },
+      {
+        "path": "config/data/UniverseEvidence.xlsx",
+        "tables": [
+          "UniverseContentAudit",
+          "UniverseReviewFixture",
+          "UniverseSourceRecord"
+        ]
+      }
+    ],
+    "openpyxl_commands": [
+      "python -c \"import openpyxl\" && python tools/goal07/author-service-partition.py --partition G07-P4-M14-S01 --check"
+    ],
+    "sora_bundle": {
+      "path": "config/universe-generated/config.sora",
+      "sha256": "3275e9b02c089e6f97ac952569083a9b95f9bd6315ac5800663a562f83f348ef"
+    },
+    "sora_golden": {
+      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P4-M14-S01.json",
+      "sha256": "aa7fb50ba78ccb6f718ebdba4cc0a8ae9dd40f5505491f67ae891bb86dcc5801"
+    }
+  },
+  "records": [
+    {
+      "id": "universe.currency.cosmic-fragments",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.downloader",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.enhance-blessing",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.reset-blessing-choice",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.respite-offers",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.reviver",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.shop.100011",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.shop.100021",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.shop.101010",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.shop.101011",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.shop.101012",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.shop.101020",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.shop.101021",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.shop.102011",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.shop.102021",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.service.trailblaze-bonus.1",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "universe.rule.currency.cosmic-fragments",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.currency.cosmic-fragments",
+        "universe.currency.cosmic-fragments"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.downloader",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.downloader",
+        "universe.service.downloader"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.enhance-blessing",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.enhance-blessing",
+        "universe.service.enhance-blessing"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.reset-blessing",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.reset-blessing",
+        "universe.service.reset-blessing-choice"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.respite-offers",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.respite-offers",
+        "universe.service.respite-offers"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.reviver",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.reviver",
+        "universe.service.reviver"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.shop.100011",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.shop.100011",
+        "universe.service.shop.100011"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.shop.100021",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.shop.100021",
+        "universe.service.shop.100021"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.shop.101010",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.shop.101010",
+        "universe.service.shop.101010"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.shop.101011",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.shop.101011",
+        "universe.service.shop.101011"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.shop.101012",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.shop.101012",
+        "universe.service.shop.101012"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.shop.101020",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.shop.101020",
+        "universe.service.shop.101020"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.shop.101021",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.shop.101021",
+        "universe.service.shop.101021"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.shop.102011",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.shop.102011",
+        "universe.service.shop.102011"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.shop.102021",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.shop.102021",
+        "universe.service.shop.102021"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.rule.service.trailblaze-bonus.1",
+      "runtime_disposition": "ExecutableRuleIr",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "implementation_kind": "SharedPrimitive",
+      "definition_keys": [
+        "universe.rule.service.trailblaze-bonus.1",
+        "universe.service.trailblaze-bonus.1"
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/service_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_service.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
+        }
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "universe.fixture.service.blessingshop",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseEvidence.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
+      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
+    },
+    {
+      "id": "universe.fixture.service.curioshop",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseEvidence.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
+      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
+    },
+    {
+      "id": "universe.fixture.service.currency",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseEvidence.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
+      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
+    },
+    {
+      "id": "universe.fixture.service.downloader",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseEvidence.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
+      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
+    },
+    {
+      "id": "universe.fixture.service.enhanceblessing",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseEvidence.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
+      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
+    },
+    {
+      "id": "universe.fixture.service.resetblessing",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseEvidence.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
+      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
+    },
+    {
+      "id": "universe.fixture.service.respiteoffers",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseEvidence.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
+      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
+    },
+    {
+      "id": "universe.fixture.service.reviver",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseEvidence.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/service_reviver_runtime.rs",
+      "test_marker": "goal07_p4_m14_s01_reviver_restores_defeated_battle_carry_atomically"
+    },
+    {
+      "id": "universe.fixture.service.trailblazebonus",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseEvidence.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/services.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/mechanic-rules.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
+      "test_marker": "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity"
+    }
+  ],
+  "enemy_variants": [],
+  "encounter_members": [],
+  "native_handler_reviews": [],
+  "numeric_approximations": [],
+  "execution": {
+    "result": "pass",
+    "commands": [
+      "python tools/goal07/author-service-partition.py --partition G07-P4-M14-S01 --check",
+      "node tools/universe-reference/verify_production_workbooks.mjs .",
+      "cargo test -p starclock-mode-universe --test service_effect_runtime --all-features",
+      "cargo test -p starclock-mode-universe --test service_interaction_runtime --all-features",
+      "cargo test -p starclock-mode-universe --test service_reviver_runtime --all-features",
+      "cargo test -p starclock-mode-universe --all-features"
+    ],
+    "goldens": [
+      {
+        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P4-M14-S01.json",
+        "sha256": "aa7fb50ba78ccb6f718ebdba4cc0a8ae9dd40f5505491f67ae891bb86dcc5801"
+      }
+    ]
+  }
+}

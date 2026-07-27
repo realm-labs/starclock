@@ -133,6 +133,65 @@ fn all_service_families_compile_to_concrete_checked_payloads() {
 }
 
 #[test]
+fn goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity() {
+    let compiled = compiled();
+    let blessing = first_blessing();
+    let keys = [
+        "universe.currency.cosmic-fragments",
+        "universe.service.downloader",
+        "universe.service.enhance-blessing",
+        "universe.service.reset-blessing-choice",
+        "universe.service.respite-offers",
+        "universe.service.shop.100011",
+        "universe.service.shop.100021",
+        "universe.service.shop.101010",
+        "universe.service.shop.101011",
+        "universe.service.shop.101012",
+        "universe.service.shop.101020",
+        "universe.service.shop.101021",
+        "universe.service.shop.102011",
+        "universe.service.shop.102021",
+        "universe.service.trailblaze-bonus.1",
+    ];
+    for (index, key) in keys.into_iter().enumerate() {
+        let selection = match key {
+            "universe.service.enhance-blessing" => {
+                ServiceInteractionSelection::EnhanceBlessing(blessing)
+            }
+            "universe.service.respite-offers" => ServiceInteractionSelection::RespiteBlessing,
+            _ => ServiceInteractionSelection::Activate,
+        };
+        let interaction = compiled
+            .service_interaction_runtime()
+            .compile_selection(service(key), &selection)
+            .unwrap();
+        let outcome = ActivityExternalOutcomeId::new(91_000 + index as u64).unwrap();
+        let mut activity = harness_with_inventory(
+            &compiled,
+            outcome,
+            interaction.payload(),
+            interaction.random_candidate_count(),
+            1_000,
+            None,
+            (key == "universe.service.enhance-blessing").then_some(blessing),
+        );
+        let before = activity.player_view();
+        activity
+            .submit_external_outcome(
+                before.state_hash(),
+                before.decision().unwrap().id(),
+                outcome,
+            )
+            .unwrap_or_else(|error| panic!("{key}: {error:?}"));
+        assert_eq!(
+            activity.player_view().terminal(),
+            Some(ActivityTerminalOutcome::Completed),
+            "{key}"
+        );
+    }
+}
+
+#[test]
 fn production_respite_and_transaction_rooms_offer_bound_service_handlers() {
     let compiled = compiled();
     let services = compiled

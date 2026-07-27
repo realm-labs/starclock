@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M14-S01` |
-| Next unblocked batch | `G07-P4-M14-S01` |
+| Active batch | `G07-P4-M14-S02` |
+| Next unblocked batch | `G07-P4-M14-S02` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -139,7 +139,14 @@ Forest applies one seeded five-turn Aggro effect and Mechanical spends two
 Skill Points without underflow. All five native candidates close as
 `IrSufficient`; Black Forest's unpublished Aggro scalar is isolated as one
 replaceable +500% base-Aggro project policy. All three negative Curio
-partitions and Phase 3 Curios are complete. `G07-P4-M14-S01` is active.
+partitions and Phase 3 Curios are complete. Service S01 is complete: Cosmic
+Fragments, Downloader, Blessing enhancement/reset, Respite offers, Reviver,
+nine authored shop stages and the first Trailblaze Bonus execute through
+checked Activity service transactions. The dedicated Reviver fixture settles
+a defeated participant from a real nested-battle result, then atomically
+debits 80 fragments and restores full-HP alive/present carry. All 16 records,
+16 rules and nine fixtures are exact public behavior with no numeric
+approximation or native content handler. `G07-P4-M14-S02` is active.
 
 ## Fixed batch ledger
 
