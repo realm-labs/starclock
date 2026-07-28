@@ -41,7 +41,7 @@ use support::{
 
 pub const OCCURRENCE_INTERACTION_HANDLER_ID: u32 = 2;
 pub const OCCURRENCE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-occurrence-interaction-runtime-v12";
+    "standard-universe-occurrence-interaction-runtime-v13";
 const PAYLOAD_REVISION: u8 = 6;
 const TAG_FRAGMENT_SCALAR: u8 = 1;
 const TAG_FRAGMENT_PERCENT: u8 = 2;

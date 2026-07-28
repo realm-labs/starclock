@@ -42,6 +42,7 @@ const isS09 = partitionId === "G07-P4-M13-S09";
 const isS10 = partitionId === "G07-P4-M13-S10";
 const isS11 = partitionId === "G07-P4-M13-S11";
 const isS12 = partitionId === "G07-P4-M13-S12";
+const isS13 = partitionId === "G07-P4-M13-S13";
 assert(exists(golden), `${partitionId}: golden is missing`);
 
 const provenanceEvidence = [
@@ -121,6 +122,12 @@ const executionEvidence = [
     { path: "crates/starclock-mode-universe/src/occurrence_battle.rs" },
     { path: "crates/starclock-mode-universe/src/battle_materialization/occurrence.rs" },
   ] : []),
+  ...(isS13 ? [
+    { path: "crates/starclock-mode-universe/src/catalog.rs" },
+    { path: "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs" },
+    { path: "crates/starclock-mode-universe/src/occurrence_interaction/s07.rs" },
+    { path: "crates/starclock-mode-universe/src/occurrence_interaction/s12.rs" },
+  ] : []),
   ...(isS02 ? [
     { path: "crates/starclock-mode-universe/src/occurrence_battle.rs" },
     { path: "crates/starclock-mode-universe/src/battle_materialization.rs" },
@@ -172,6 +179,11 @@ const executionEvidence = [
     { path: "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs" },
     { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
   ] : []),
+  ...(isS13 ? [
+    { path: "crates/starclock-mode-universe/tests/run_runtime/s13.rs" },
+    { path: "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs" },
+    { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
+  ] : []),
   ...(isS02 || isS04
     ? [{ path: "crates/starclock-mode-universe/tests/service_reviver_runtime.rs" }]
     : []),
@@ -182,7 +194,7 @@ const receipt = {
   goal_id: "standard-universe-mechanics-complete-v1",
   partition_id: partitionId,
   state: "Complete",
-  completed_on: isS03 || isS04 || isS05 || isS06 || isS07 || isS08 || isS09 || isS10 || isS11 || isS12
+  completed_on: isS03 || isS04 || isS05 || isS06 || isS07 || isS08 || isS09 || isS10 || isS11 || isS12 || isS13
     ? "2026-07-28"
     : "2026-07-27",
   authoring: {
@@ -249,10 +261,12 @@ const receipt = {
             && id.startsWith("universe.occurrence.1.")
             ? "ExplicitExternalResult"
             : "SharedOccurrenceHandler",
-      test_path: isS04 || isS05 || isS06 || isS07 || isS08 || isS09 || isS10 || isS11 || isS12
-        ? `crates/starclock-mode-universe/tests/run_runtime/${isS12 ? "s12" : isS11 ? "s11" : isS10 ? "s10" : isS09 ? "s09" : isS08 ? "s08" : isS07 ? "s07" : isS06 ? "s06" : isS05 ? "s05" : "s04"}.rs`
+      test_path: isS04 || isS05 || isS06 || isS07 || isS08 || isS09 || isS10 || isS11 || isS12 || isS13
+        ? `crates/starclock-mode-universe/tests/run_runtime/${isS13 ? "s13" : isS12 ? "s12" : isS11 ? "s11" : isS10 ? "s10" : isS09 ? "s09" : isS08 ? "s08" : isS07 ? "s07" : isS06 ? "s06" : isS05 ? "s05" : "s04"}.rs`
         : "crates/starclock-mode-universe/tests/run_runtime.rs",
-      test_marker: isS12
+      test_marker: isS13
+        ? "goal07_p4_m13_s13_executes_cuckoo_mirror_and_cremator_outcomes"
+        : isS12
         ? "goal07_p4_m13_s12_executes_mirror_battle_and_cuckoo_clock_outcomes"
         : isS11
         ? "goal07_p4_m13_s11_executes_beauty_trash_shopping_dancer_and_mirror_outcomes"
@@ -281,9 +295,11 @@ const receipt = {
   fixtures: partition.fixture_ids.map((id) => ({
     ...disposition(fixtures.get(id), "ProductionExecuted"),
     execution_kind: "RustTest",
-    test_path: `crates/starclock-mode-universe/tests/run_runtime/${isS12 ? "s12" : isS11 ? "s11" : isS10 ? "s10" : isS09 ? "s09" : isS08 ? "s08" : "s07"}.rs`,
+    test_path: `crates/starclock-mode-universe/tests/run_runtime/${isS13 ? "s13" : isS12 ? "s12" : isS11 ? "s11" : isS10 ? "s10" : isS09 ? "s09" : isS08 ? "s08" : "s07"}.rs`,
     test_marker:
-      isS12
+      isS13
+        ? "goal07_p4_m13_s13_executes_cuckoo_mirror_and_cremator_outcomes"
+        : isS12
         ? "goal07_p4_m13_s12_executes_mirror_battle_and_cuckoo_clock_outcomes"
         : isS11
         ? "goal07_p4_m13_s11_executes_beauty_trash_shopping_dancer_and_mirror_outcomes"
@@ -326,6 +342,8 @@ const receipt = {
                         ? ["node tools/goal07/refine-occurrence-s11.mjs"]
                       : isS12
                         ? ["node tools/goal07/refine-occurrence-s12.mjs"]
+                      : isS13
+                        ? ["node tools/goal07/refine-occurrence-s13.mjs"]
             : []),
       `python tools/goal07/author-occurrence-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify-pack.mjs .",
