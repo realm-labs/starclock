@@ -941,7 +941,7 @@ fn compile_state(
             OCCURRENCE_INTERACTION_STATE_SLOT,
             128,
             0,
-            3,
+            16,
             OCCURRENCE_INTERACTION_STATE_SOURCE,
             ActivityStateVisibility::Player,
         )?,

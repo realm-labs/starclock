@@ -240,12 +240,12 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
         .unwrap()
         .validate_overlay(&overlay)
         .unwrap();
-    assert_eq!(overlay.bindings().len(), 192);
+    assert_eq!(overlay.bindings().len(), 196);
     assert_eq!(
         overlay.digest().bytes(),
         [
-            120, 167, 138, 188, 160, 237, 20, 8, 154, 195, 151, 80, 41, 47, 247, 117, 199, 180,
-            202, 147, 64, 192, 110, 126, 217, 251, 160, 0, 75, 236, 87, 222,
+            87, 100, 84, 231, 131, 55, 59, 121, 163, 235, 145, 206, 209, 224, 38, 94, 254, 132, 65,
+            23, 212, 197, 74, 105, 8, 204, 54, 101, 173, 137, 127, 44,
         ]
     );
     let world = &catalog.worlds()[0];
@@ -396,8 +396,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            162, 225, 69, 160, 193, 7, 190, 85, 13, 202, 50, 227, 232, 223, 193, 229, 254, 212, 89,
-            14, 201, 201, 86, 225, 173, 96, 114, 160, 37, 36, 204, 242,
+            73, 54, 63, 152, 145, 212, 235, 217, 14, 230, 178, 203, 104, 102, 162, 137, 49, 22, 82,
+            44, 53, 121, 95, 11, 158, 147, 26, 231, 179, 223, 52, 178,
         ]
     );
     let reward = activity.view();
@@ -467,8 +467,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            248, 69, 111, 23, 0, 186, 31, 49, 40, 42, 235, 105, 168, 206, 41, 239, 147, 102, 193,
-            170, 64, 213, 211, 57, 177, 3, 0, 114, 166, 26, 163, 220,
+            179, 58, 91, 79, 246, 47, 129, 144, 24, 203, 241, 100, 210, 28, 177, 15, 188, 3, 137,
+            132, 8, 209, 240, 71, 197, 30, 176, 191, 240, 167, 140, 45,
         ]
     );
     let formation = activity.view();
@@ -660,12 +660,12 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(report.steps().len(), 57);
+    assert_eq!(report.steps().len(), 73);
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            193, 234, 117, 134, 126, 190, 45, 247, 81, 167, 65, 204, 67, 92, 89, 119, 63, 2, 21,
-            250, 154, 119, 65, 170, 54, 127, 149, 70, 100, 51, 175, 170,
+            49, 205, 152, 209, 166, 122, 154, 121, 71, 158, 33, 92, 213, 174, 1, 89, 147, 212, 188,
+            244, 190, 33, 254, 0, 235, 205, 222, 13, 27, 196, 211, 27,
         ]
     );
     assert_eq!(report.final_state_hash(), activity.view().state_hash());
@@ -687,7 +687,7 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
             .iter()
             .filter(|step| matches!(step, StandardUniverseBaselineStep::Battle { .. }))
             .count(),
-        4
+        8
     );
 }
 
@@ -739,12 +739,12 @@ fn complete_run_replay_verifies_and_reports_the_first_divergence() {
     )
     .unwrap();
     let bytes = encode_standard_universe_trace(&header, recorded.trace()).unwrap();
-    assert_eq!(bytes.len(), 10_314);
+    assert_eq!(bytes.len(), 13_812);
     assert_eq!(
         sha2::Sha256::digest(&bytes).as_slice(),
         [
-            40, 41, 16, 240, 17, 87, 236, 124, 233, 114, 29, 181, 200, 251, 41, 37, 22, 250, 20,
-            158, 38, 152, 165, 189, 49, 172, 118, 164, 125, 240, 1, 157,
+            76, 183, 94, 28, 71, 25, 254, 243, 60, 34, 224, 98, 166, 20, 91, 145, 75, 137, 137, 57,
+            72, 191, 35, 65, 148, 232, 102, 235, 242, 133, 120, 206,
         ]
     );
     let fresh = compiled
@@ -752,9 +752,9 @@ fn complete_run_replay_verifies_and_reports_the_first_divergence() {
         .unwrap()
         .into_activity();
     let verified = verify_standard_universe_replay(&bytes, fresh, "standard-universe-v1").unwrap();
-    assert_eq!(verified.action_count(), 57);
-    assert_eq!(verified.nested_battle_count(), 4);
-    assert_eq!(verified.diagnostic_count(), 49);
+    assert_eq!(verified.action_count(), 69);
+    assert_eq!(verified.nested_battle_count(), 7);
+    assert_eq!(verified.diagnostic_count(), 55);
     assert_eq!(verified.terminal(), recorded.report().terminal());
     assert_eq!(
         verified.final_state_hash().bytes(),

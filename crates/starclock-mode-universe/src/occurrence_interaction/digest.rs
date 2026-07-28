@@ -24,6 +24,7 @@ pub(super) fn runtime_catalog(programs: &[CompiledOccurrenceProgram]) -> [u8; 32
             for byte in &result.payload {
                 encoder.u8(*byte);
             }
+            encoder.u32(result.random_candidate_count.unwrap_or(0));
             encoder.u32(u32::from(result.immediate_operations));
             encoder.u32(u32::from(result.deferred_operations));
         }

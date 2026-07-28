@@ -47,13 +47,13 @@ fn complete_occurrence_partition_compiles() {
     assert_eq!((runtime.content_count(), runtime.rule_count()), (447, 0));
     assert_eq!(
         (runtime.choice_count(), runtime.random_policy_count()),
-        (321, 106)
+        (321, 107)
     );
     assert_eq!(
         runtime.digest(),
         [
-            249, 10, 81, 163, 16, 3, 102, 71, 219, 94, 75, 176, 9, 63, 45, 17, 232, 203, 55, 206,
-            71, 94, 51, 78, 159, 17, 195, 87, 169, 169, 11, 93,
+            34, 185, 204, 89, 30, 15, 214, 21, 251, 251, 68, 71, 165, 128, 46, 182, 38, 99, 13, 84,
+            102, 249, 194, 42, 114, 45, 226, 191, 49, 236, 113, 245,
         ]
     );
 }
@@ -97,18 +97,21 @@ fn cost_result_branch_and_random_policy_remain_distinct() {
 #[test]
 fn authored_percent_chance_and_battle_handoff_are_typed() {
     let runtime = runtime();
-    let chance = runtime
+    let percent = runtime
         .execute(choice("universe.occurrence.41.variant.12401.choice.08"))
         .unwrap();
-    assert_eq!(chance.outcome().operations(), &[OccurrenceOperation::Lose]);
+    assert_eq!(percent.outcome().operations(), &[OccurrenceOperation::Lose]);
     assert_eq!(
-        chance.outcome().targets(),
+        percent.outcome().targets(),
         &[OccurrenceTarget::CosmicFragments]
     );
     assert_eq!(
-        chance.outcome().numeric_literals()[0].unit(),
+        percent.outcome().numeric_literals()[0].unit(),
         AuthoredScalarUnit::Percent
     );
+    let chance = runtime
+        .execute(choice("universe.occurrence.41.variant.12401.choice.04"))
+        .unwrap();
     assert_eq!(chance.outcome().chance_percentages()[0].coefficient(), 50);
 
     let battle = runtime
@@ -124,7 +127,7 @@ fn authored_percent_chance_and_battle_handoff_are_typed() {
 #[test]
 fn special_transition_is_explicit_and_not_an_implicit_resource_mutation() {
     let effect = runtime()
-        .execute(choice("universe.occurrence.40.variant.12301.choice.01"))
+        .execute(choice("universe.occurrence.40.variant.12301.choice.02"))
         .unwrap();
     assert_eq!(
         effect.outcome().operations(),
@@ -171,7 +174,7 @@ fn nine_frozen_occurrence_operation_fixtures_are_runtime_backed() {
             OccurrenceOperation::Restore,
         ),
         (
-            "universe.occurrence.40.variant.12301.choice.01",
+            "universe.occurrence.40.variant.12301.choice.02",
             OccurrenceOperation::Special,
         ),
     ];

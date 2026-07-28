@@ -20,11 +20,13 @@ use crate::{
 };
 
 mod digest;
+mod external;
 mod s02;
 mod s03;
 mod s05;
 mod s06;
 mod s07;
+mod s08;
 pub(crate) mod support;
 
 use support::{
@@ -35,7 +37,7 @@ use support::{
 
 pub const OCCURRENCE_INTERACTION_HANDLER_ID: u32 = 2;
 pub const OCCURRENCE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-occurrence-interaction-runtime-v7";
+    "standard-universe-occurrence-interaction-runtime-v8";
 const PAYLOAD_REVISION: u8 = 5;
 const TAG_FRAGMENT_SCALAR: u8 = 1;
 const TAG_FRAGMENT_PERCENT: u8 = 2;
@@ -191,6 +193,7 @@ impl OccurrenceInteractionRuntimeCatalog {
                     .map(|result| OccurrenceExternalResult {
                         content: result.content,
                         payload: result.payload.clone(),
+                        random_candidate_count: result.random_candidate_count,
                         immediate_operations: result.immediate_operations,
                         deferred_operations: result.deferred_operations,
                     })
@@ -204,6 +207,7 @@ impl OccurrenceInteractionRuntimeCatalog {
 pub struct OccurrenceExternalResult {
     content: u64,
     payload: Box<[u8]>,
+    random_candidate_count: Option<u32>,
     immediate_operations: u16,
     deferred_operations: u16,
 }
@@ -217,6 +221,11 @@ impl OccurrenceExternalResult {
     #[must_use]
     pub fn payload(&self) -> &[u8] {
         &self.payload
+    }
+
+    #[must_use]
+    pub const fn random_candidate_count(&self) -> Option<u32> {
+        self.random_candidate_count
     }
 
     #[must_use]
@@ -299,6 +308,22 @@ pub(crate) fn compile(
     let blessing_groups = s05::referenced_blessing_groups(outcome, catalog)?;
     let curio_ids = referenced_curios(outcome, catalog, curio_records)?;
     let mut operations = Vec::new();
+    let external_s08 = s08::externalize(
+        outcome,
+        catalog,
+        blessing_inventory,
+        cosmic_fragments,
+        curio_bindings,
+        curio_records,
+        interaction_state,
+    )?;
+    let specialized_s08 = s08::lower(
+        outcome,
+        catalog,
+        curio_bindings,
+        curio_records,
+        interaction_state,
+    )?;
     let specialized_s07 = s07::lower(
         outcome,
         catalog,
@@ -325,9 +350,15 @@ pub(crate) fn compile(
     } else {
         None
     };
-    let repeat_key = progressive_s06
+    let repeat_key = external_s08
         .as_ref()
-        .map(|value| value.1)
+        .and_then(|value| value.repeat_key)
+        .or_else(|| {
+            specialized_s08
+                .as_ref()
+                .and_then(|(_, repeat_key, _)| *repeat_key)
+        })
+        .or_else(|| progressive_s06.as_ref().map(|value| value.1))
         .or_else(|| progressive_s05.as_ref().map(|value| value.1));
     if let Some((operation, _)) = progressive_s06 {
         operations.push(PayloadOperation::S06(operation));
@@ -338,6 +369,15 @@ pub(crate) fn compile(
     }
     if let Some(operation) = s06::prepare_reward_paths(outcome, catalog, interaction_state)? {
         operations.push(PayloadOperation::S06(operation));
+    }
+    let skip_generic_s08 = specialized_s08
+        .as_ref()
+        .is_some_and(|(_, _, skip_generic)| *skip_generic);
+    if let Some((operation, _, _)) = specialized_s08 {
+        operations.push(PayloadOperation::S08(operation));
+    }
+    if external_s08.is_some() {
+        operations.push(PayloadOperation::Transition);
     }
     let has_specialized_s07 = specialized_s07.is_some();
     if let Some(operation) = specialized_s07 {
@@ -356,7 +396,7 @@ pub(crate) fn compile(
                 .collect::<Vec<_>>(),
         )?;
     }
-    if repeat_key.is_none() && !has_specialized_s07 {
+    if repeat_key.is_none() && !has_specialized_s07 && !skip_generic_s08 && external_s08.is_none() {
         lower_pairs(
             &mut operations,
             outcome_pairs(outcome),
@@ -374,14 +414,33 @@ pub(crate) fn compile(
     if operations.len() > MAX_PAYLOAD_OPERATIONS {
         return Err(OccurrenceInteractionError::TooManyOperations);
     }
-    let external_results =
-        if outcome.random_policy() == Some(RandomOutcomePolicy::StableUniformOrderedCandidates) {
-            externalize_single_selection(&operations)?
-        } else {
-            Vec::new()
-        };
+    let external_results = if let Some(lowering) = external_s08 {
+        lowering
+            .choices
+            .into_iter()
+            .map(|choice| {
+                let (payload, immediate_operations, deferred_operations) =
+                    encode_operations(choice.operations)?;
+                Ok(OccurrenceExternalResult {
+                    content: choice.content,
+                    payload: payload.into_boxed_slice(),
+                    random_candidate_count: choice.random_candidate_count,
+                    immediate_operations,
+                    deferred_operations,
+                })
+            })
+            .collect::<Result<Vec<_>, OccurrenceInteractionError>>()?
+    } else if outcome.random_policy() == Some(RandomOutcomePolicy::StableUniformOrderedCandidates) {
+        external::single_selection(&operations)?
+    } else {
+        Vec::new()
+    };
+    let has_s08_random = operations.iter().any(|operation| {
+        matches!(operation, PayloadOperation::S08(value) if value.random_candidate_count().is_some())
+    });
     let random_candidate_count = if external_results.is_empty()
-        && outcome.random_policy() == Some(RandomOutcomePolicy::StableUniformOrderedCandidates)
+        && (has_s08_random
+            || outcome.random_policy() == Some(RandomOutcomePolicy::StableUniformOrderedCandidates))
     {
         operations
             .iter()
@@ -398,6 +457,7 @@ pub(crate) fn compile(
                 PayloadOperation::S05(operation) => operation.random_candidate_count(),
                 PayloadOperation::S06(operation) => operation.random_candidate_count(),
                 PayloadOperation::S07(operation) => operation.random_candidate_count(),
+                PayloadOperation::S08(operation) => operation.random_candidate_count(),
                 _ => None,
             })
             .try_fold(1_u32, checked_lcm)
@@ -457,6 +517,7 @@ pub(crate) fn execute(
             tag if s05::decode(tag, input, &mut decoder, &mut operations)? => {}
             tag if s06::decode(tag, input, &mut decoder, &mut operations)? => {}
             tag if s07::decode(tag, input, &mut decoder, &mut operations)? => {}
+            tag if s08::decode(tag, input, &mut decoder, &mut operations)? => {}
             _ => return Err(invalid_payload()),
         }
     }
@@ -718,6 +779,7 @@ enum PayloadOperation {
     S05(s05::Operation),
     S06(s06::Operation),
     S07(s07::Operation),
+    S08(s08::Operation),
     Transition,
 }
 
@@ -863,6 +925,7 @@ impl PayloadOperation {
             Self::S05(operation) => operation.encode(output)?,
             Self::S06(operation) => operation.encode(output)?,
             Self::S07(operation) => operation.encode(output)?,
+            Self::S08(operation) => operation.encode(output)?,
             Self::Transition => output.push(TAG_TRANSITION),
         }
         Ok(())
@@ -892,6 +955,9 @@ fn lower_pairs(
     for (index, (operation, target, scalar)) in pairs.into_iter().enumerate() {
         let sign = operation_sign(operation);
         match target {
+            _ if operation == OccurrenceOperation::Battle && battle_ready => {
+                output.push(PayloadOperation::Transition);
+            }
             _ if operation == OccurrenceOperation::Special => {
                 output.push(PayloadOperation::Transition);
             }
@@ -986,9 +1052,6 @@ fn lower_pairs(
                     )?,
                 });
             }
-            None if operation == OccurrenceOperation::Battle && battle_ready => {
-                output.push(PayloadOperation::Transition);
-            }
             _ => output.push(PayloadOperation::DeferredEffect {
                 slot: deferred_effects,
                 key: deferred_effect_key(choice, index, operation, target)?,
@@ -1037,61 +1100,6 @@ fn referenced_curios(
     selected.sort_unstable_by_key(|value| value.id());
     selected.dedup_by_key(|value| value.id());
     Ok(selected)
-}
-
-fn externalize_single_selection(
-    operations: &[PayloadOperation],
-) -> Result<Vec<OccurrenceExternalResult>, OccurrenceInteractionError> {
-    let selection = operations
-        .iter()
-        .enumerate()
-        .filter_map(|(index, operation)| match operation {
-            PayloadOperation::Inventory {
-                quantity: 1,
-                candidates,
-                ..
-            } => Some((index, candidates.clone())),
-            PayloadOperation::CurioInventory {
-                quantity: 1,
-                candidates,
-                ..
-            } => Some((
-                index,
-                candidates
-                    .iter()
-                    .map(|value| u64::from(value.id().get()))
-                    .collect(),
-            )),
-            _ => None,
-        })
-        .collect::<Vec<_>>();
-    if selection.len() != 1 {
-        return Ok(Vec::new());
-    }
-    let (selection_index, candidates) = &selection[0];
-    candidates
-        .iter()
-        .map(|candidate| {
-            let mut concrete = operations.to_vec();
-            match &mut concrete[*selection_index] {
-                PayloadOperation::Inventory { candidates, .. } => {
-                    candidates.clear();
-                    candidates.push(*candidate);
-                }
-                PayloadOperation::CurioInventory { candidates, .. } => {
-                    candidates.retain(|value| u64::from(value.id().get()) == *candidate);
-                }
-                _ => return Err(OccurrenceInteractionError::InvalidChoice),
-            }
-            let (payload, immediate_operations, deferred_operations) = encode_operations(concrete)?;
-            Ok(OccurrenceExternalResult {
-                content: *candidate,
-                payload: payload.into_boxed_slice(),
-                immediate_operations,
-                deferred_operations,
-            })
-        })
-        .collect()
 }
 
 fn encode_operations(

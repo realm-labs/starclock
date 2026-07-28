@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M13-S08` |
-| Next unblocked batch | `G07-P4-M13-S08` |
+| Active batch | `G07-P4-M13-S09` |
+| Next unblocked batch | `G07-P4-M13-S09` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -230,10 +230,18 @@ Knights of Beauty choices now execute exact battle, Blessing exchange,
 current-Path reward, Curio lifecycle and checked fragment/HP outcomes. All 32
 records have terminal dispositions, with no deferred counter, native handler
 or numeric approximation.
-`G07-P4-M13-S08` is active.
+Occurrence S08 is complete. The remaining Knights of Beauty choices, History
+Fictionologists (II), Cosmic Crescendo, Yu Qingtu and both Beast Horde choices
+now execute exact current-Path rewards, weighted ten-effect sequences,
+checked fragment and HP outcomes, Curio lifecycle mutations, state-validated
+follow-ups and occurrence battles. History's selected maximum-owned Path and
+Cosmic Crescendo's weighted effect selections cross explicit replay-recorded
+decision boundaries. All 32 records have terminal dispositions, with no
+native handler or numeric approximation.
+`G07-P4-M13-S09` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 61 completed partitions use scoped Excel/Sora semantic
+model. The first 62 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's

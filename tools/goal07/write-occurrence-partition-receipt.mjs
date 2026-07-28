@@ -37,6 +37,7 @@ const isS04 = partitionId === "G07-P4-M13-S04";
 const isS05 = partitionId === "G07-P4-M13-S05";
 const isS06 = partitionId === "G07-P4-M13-S06";
 const isS07 = partitionId === "G07-P4-M13-S07";
+const isS08 = partitionId === "G07-P4-M13-S08";
 assert(exists(golden), `${partitionId}: golden is missing`);
 
 const provenanceEvidence = [
@@ -84,6 +85,14 @@ const executionEvidence = [
     { path: "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs" },
     { path: "crates/starclock-mode-universe/src/occurrence_interaction/s07.rs" },
   ] : []),
+  ...(isS08 ? [
+    { path: "crates/starclock-mode-universe/src/entry.rs" },
+    { path: "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs" },
+    { path: "crates/starclock-mode-universe/src/occurrence_interaction/digest.rs" },
+    { path: "crates/starclock-mode-universe/src/occurrence_interaction/s07.rs" },
+    { path: "crates/starclock-mode-universe/src/occurrence_interaction/s08.rs" },
+    { path: "crates/starclock-mode-universe/src/occurrence_battle.rs" },
+  ] : []),
   ...(isS02 ? [
     { path: "crates/starclock-mode-universe/src/occurrence_battle.rs" },
     { path: "crates/starclock-mode-universe/src/battle_materialization.rs" },
@@ -112,6 +121,11 @@ const executionEvidence = [
     { path: "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs" },
     { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
   ] : []),
+  ...(isS08 ? [
+    { path: "crates/starclock-mode-universe/tests/run_runtime/s08.rs" },
+    { path: "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs" },
+    { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
+  ] : []),
   ...(isS02 || isS04
     ? [{ path: "crates/starclock-mode-universe/tests/service_reviver_runtime.rs" }]
     : []),
@@ -122,7 +136,9 @@ const receipt = {
   goal_id: "standard-universe-mechanics-complete-v1",
   partition_id: partitionId,
   state: "Complete",
-  completed_on: isS03 || isS04 || isS05 || isS06 || isS07 ? "2026-07-28" : "2026-07-27",
+  completed_on: isS03 || isS04 || isS05 || isS06 || isS07 || isS08
+    ? "2026-07-28"
+    : "2026-07-27",
   authoring: {
     workbooks: [
       {
@@ -151,16 +167,28 @@ const receipt = {
     execution_evidence: executionEvidence,
     ...(id.includes(".choice.") ? {
       execution_kind:
-        id === "universe.occurrence.16.variant.11301.choice.01"
+        isS08 && [
+          "universe.occurrence.4.variant.10201.choice.01",
+          "universe.occurrence.4.variant.10201.choice.02",
+          "universe.occurrence.4.variant.10201.choice.03",
+          "universe.occurrence.4.variant.10201.choice.05",
+          "universe.occurrence.4.variant.10201.choice.06",
+          "universe.occurrence.4.variant.10201.choice.07",
+          "universe.occurrence.40.variant.12301.choice.01",
+        ].includes(id)
+          ? "ExplicitExternalResult"
+          : id === "universe.occurrence.16.variant.11301.choice.01"
           ? "SharedOccurrenceBattle"
           : id.endsWith(".choice.02")
             && id.startsWith("universe.occurrence.1.")
             ? "ExplicitExternalResult"
             : "SharedOccurrenceHandler",
-      test_path: isS04 || isS05 || isS06 || isS07
-        ? `crates/starclock-mode-universe/tests/run_runtime/${isS07 ? "s07" : isS06 ? "s06" : isS05 ? "s05" : "s04"}.rs`
+      test_path: isS04 || isS05 || isS06 || isS07 || isS08
+        ? `crates/starclock-mode-universe/tests/run_runtime/${isS08 ? "s08" : isS07 ? "s07" : isS06 ? "s06" : isS05 ? "s05" : "s04"}.rs`
         : "crates/starclock-mode-universe/tests/run_runtime.rs",
-      test_marker: isS07
+      test_marker: isS08
+        ? "goal07_p4_m13_s08_executes_external_history_cosmic_and_branching_outcomes"
+        : isS07
         ? "goal07_p4_m13_s07_executes_exchange_path_curio_and_fragment_outcomes"
         : isS06
         ? "goal07_p4_m13_s06_executes_progressive_battle_cost_and_path_reward_outcomes"
@@ -179,9 +207,11 @@ const receipt = {
   fixtures: partition.fixture_ids.map((id) => ({
     ...disposition(fixtures.get(id), "ProductionExecuted"),
     execution_kind: "RustTest",
-    test_path: "crates/starclock-mode-universe/tests/run_runtime/s07.rs",
+    test_path: `crates/starclock-mode-universe/tests/run_runtime/${isS08 ? "s08" : "s07"}.rs`,
     test_marker:
-      "goal07_p4_m13_s07_executes_exchange_path_curio_and_fragment_outcomes",
+      isS08
+        ? "goal07_p4_m13_s08_executes_external_history_cosmic_and_branching_outcomes"
+        : "goal07_p4_m13_s07_executes_exchange_path_curio_and_fragment_outcomes",
   })),
   enemy_variants: [],
   encounter_members: [],
@@ -204,6 +234,8 @@ const receipt = {
                   ? ["node tools/goal07/refine-occurrence-s06.mjs"]
                   : isS07
                     ? ["node tools/goal07/refine-occurrence-s07.mjs"]
+                    : isS08
+                      ? ["node tools/goal07/refine-occurrence-s08.mjs"]
             : []),
       `python tools/goal07/author-occurrence-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify-pack.mjs .",

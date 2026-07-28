@@ -405,7 +405,7 @@ fn production_baseline_records_and_verifies_dynamic_replay_v3() {
 
 #[test]
 fn dynamic_replay_reconstructs_each_snapshot_and_reports_first_divergence() {
-    const SEED: u64 = 0x6029;
+    const SEED: u64 = 10;
     let controller = StandardUniverseControllerIdentity {
         id: "dynamic-replay-corruption-test",
         revision: StandardUniverseBaselineRunner::REVISION,

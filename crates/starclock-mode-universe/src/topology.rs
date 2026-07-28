@@ -1025,15 +1025,18 @@ fn compile_programs(
                                 room_condition.clone(),
                                 hub,
                                 room,
-                                interaction_completion(
+                                interaction_completion_with_repeat(
                                     hub_clear_slot,
                                     external_outcome_slot,
+                                    occurrence_effect_slot,
+                                    compiled.repeat_key(),
                                     source,
+                                    edges.content_repeat,
                                     edges.content_formation,
                                 ),
                                 choice.stable_key(),
                                 result.payload(),
-                                None,
+                                result.random_candidate_count(),
                             );
                         }
                     }

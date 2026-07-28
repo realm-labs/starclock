@@ -499,11 +499,23 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "3"
+          "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.rarity.3",
+          "universe.occurrence-s07.current-path-blessings"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -549,7 +561,9 @@
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
+        "numeric_literals": [
+          "400"
+        ],
         "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
@@ -598,8 +612,12 @@
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.curio.113"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -645,9 +663,30 @@
           "Special"
         ],
         "targets": [],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
+        "numeric_literals": [
+          "10"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s08.cosmic-crescendo"
+        ],
+        "chance_percentages": [
+          "26",
+          "13",
+          "13",
+          "13",
+          "4",
+          "4",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "3",
+          "2",
+          "2",
+          "2"
+        ],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
@@ -740,7 +779,9 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s08.yu-add-sugar"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -787,7 +828,9 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s08.yu-add-toothpaste"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -834,8 +877,16 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
+        "parameter_refs": [
+          "universe.occurrence-s08.yu-sugar-vigorous",
+          "universe.curio.121",
+          "universe.curio.122"
+        ],
+        "chance_percentages": [
+          "70",
+          "20",
+          "10"
+        ],
         "unspecified_random_policy": ""
       }
     ],
@@ -879,12 +930,17 @@
         "kinds": [
           "Special"
         ],
-        "targets": [
-          "Blessing"
-        ],
+        "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
+        "parameter_refs": [
+          "universe.occurrence-s08.yu-sugar-gentle",
+          "universe.curio.121",
+          "universe.curio.122"
+        ],
+        "chance_percentages": [
+          "50",
+          "50"
+        ],
         "unspecified_random_policy": ""
       }
     ],
@@ -930,8 +986,15 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
+        "parameter_refs": [
+          "universe.occurrence-s08.yu-toothpaste-vigorous",
+          "universe.curio.121",
+          "universe.curio.122"
+        ],
+        "chance_percentages": [
+          "80",
+          "20"
+        ],
         "unspecified_random_policy": ""
       }
     ],
@@ -975,12 +1038,18 @@
         "kinds": [
           "Special"
         ],
-        "targets": [
-          "Blessing"
-        ],
+        "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
+        "parameter_refs": [
+          "universe.occurrence-s08.yu-toothpaste-gentle",
+          "universe.curio.121",
+          "universe.curio.122"
+        ],
+        "chance_percentages": [
+          "50",
+          "30",
+          "20"
+        ],
         "unspecified_random_policy": ""
       }
     ],
@@ -1022,15 +1091,18 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Battle"
         ],
-        "targets": [
-          "Blessing"
+        "targets": [],
+        "numeric_literals": [],
+        "parameter_refs": [
+          "universe.occurrence-s08.yu-resolve-elite",
+          "universe.occurrence-battle.stage.yu-qingtu-elite",
+          "universe.occurrence-battle.level.60",
+          "enemy.frigid-prowler.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.1",
+          "universe.blessing-pool.rarity.3"
         ],
-        "numeric_literals": [
-          "3"
-        ],
-        "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -1088,10 +1160,10 @@
         "numeric_literals": [
           "50%"
         ],
-        "parameter_refs": [],
-        "chance_percentages": [
-          "50"
+        "parameter_refs": [
+          "universe.occurrence-s08.yu-resolve-thief"
         ],
+        "chance_percentages": [],
         "unspecified_random_policy": ""
       }
     ],
@@ -1133,13 +1205,17 @@
     "outcomes": [
       {
         "kinds": [
-          "Special"
+          "Battle"
         ],
         "targets": [],
-        "numeric_literals": [
-          "1"
+        "numeric_literals": [],
+        "parameter_refs": [
+          "universe.occurrence-s08.yu-resolve-thief",
+          "universe.occurrence-battle.stage.yu-qingtu-thief",
+          "universe.occurrence-battle.level.60",
+          "enemy.frigid-prowler.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.1"
         ],
-        "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -1182,15 +1258,17 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Battle"
         ],
-        "targets": [
-          "Blessing"
+        "targets": [],
+        "numeric_literals": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.beast-horde-young",
+          "universe.occurrence-battle.level.60",
+          "enemy.automaton-grizzly.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.1",
+          "universe.blessing-pool.rarity.2"
         ],
-        "numeric_literals": [
-          "2"
-        ],
-        "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -1233,17 +1311,24 @@
     "outcomes": [
       {
         "kinds": [
+          "Battle",
           "Obtain"
         ],
         "targets": [
-          "Blessing",
+          "Character",
           "Curio"
         ],
         "numeric_literals": [
-          "3",
+          "1",
           "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.beast-horde-adult",
+          "universe.occurrence-battle.level.60",
+          "enemy.frigid-prowler.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.1",
+          "universe.blessing-pool.rarity.3"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -8514,10 +8599,21 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "3",
-          "1"
+          "3"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.rarity.1",
+          "universe.occurrence-s08.history-best-path"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -8566,10 +8662,21 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "2",
           "2"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.rarity.2",
+          "universe.occurrence-s08.history-best-path"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -8618,10 +8725,21 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "1",
-          "3"
+          "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.rarity.3",
+          "universe.occurrence-s08.history-best-path"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -8717,10 +8835,21 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "3",
-          "1"
+          "3"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.rarity.1",
+          "universe.occurrence-s08.history-best-path"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -8769,10 +8898,21 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "2",
           "2"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.rarity.2",
+          "universe.occurrence-s08.history-best-path"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -8821,10 +8961,21 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "1",
-          "3"
+          "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.rarity.3",
+          "universe.occurrence-s08.history-best-path"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
