@@ -29,6 +29,7 @@ mod s07;
 mod s08;
 mod s09;
 mod s10;
+mod s11;
 pub(crate) mod support;
 
 use support::{
@@ -39,7 +40,7 @@ use support::{
 
 pub const OCCURRENCE_INTERACTION_HANDLER_ID: u32 = 2;
 pub const OCCURRENCE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-occurrence-interaction-runtime-v10";
+    "standard-universe-occurrence-interaction-runtime-v11";
 const PAYLOAD_REVISION: u8 = 6;
 const TAG_FRAGMENT_SCALAR: u8 = 1;
 const TAG_FRAGMENT_PERCENT: u8 = 2;
@@ -318,13 +319,22 @@ pub(crate) fn compile(
         curio_records,
         interaction_state,
     )?;
-    let external = s10::externalize(
+    let external = s11::externalize(
+        outcome,
+        catalog,
+        blessing_inventory,
+        cosmic_fragments,
+        curio_bindings,
+        curio_records,
+        interaction_state,
+    )?
+    .or(s10::externalize(
         outcome,
         catalog,
         curio_bindings,
         curio_records,
         interaction_state,
-    )?
+    )?)
     .or(s09::externalize(
         outcome,
         catalog,
@@ -352,6 +362,15 @@ pub(crate) fn compile(
         outcome,
         cosmic_fragments,
         curio_bindings.inventory,
+        interaction_state,
+    )?;
+    let specialized_s11 = s11::lower(
+        outcome,
+        catalog,
+        blessing_inventory,
+        cosmic_fragments,
+        curio_bindings,
+        curio_records,
         interaction_state,
     )?;
     let specialized_s07 = s07::lower(
@@ -384,6 +403,7 @@ pub(crate) fn compile(
         .as_ref()
         .and_then(|value| value.repeat_key)
         .or_else(|| specialized_s09.as_ref().and_then(|value| value.repeat_key))
+        .or_else(|| specialized_s11.as_ref().and_then(|value| value.repeat_key))
         .or_else(|| {
             specialized_s08
                 .as_ref()
@@ -406,6 +426,10 @@ pub(crate) fn compile(
         .is_some_and(|(_, _, skip_generic)| *skip_generic);
     let skip_generic_s09 = specialized_s09.is_some();
     let skip_generic_s10 = specialized_s10.is_some();
+    let skip_generic_s11 = specialized_s11.is_some();
+    if let Some(lowering) = specialized_s11 {
+        operations.extend(lowering.operations);
+    }
     if let Some(operation) = specialized_s10 {
         operations.push(PayloadOperation::S10(operation));
     }
@@ -421,7 +445,7 @@ pub(crate) fn compile(
     let has_specialized_s07 = specialized_s07.is_some();
     if let Some(operation) = specialized_s07 {
         operations.push(PayloadOperation::S07(operation));
-    } else if !skip_generic_s09 && !skip_generic_s10 && external.is_none() {
+    } else if !skip_generic_s09 && !skip_generic_s10 && !skip_generic_s11 && external.is_none() {
         lower_costs(
             &mut operations,
             choice,
@@ -440,6 +464,7 @@ pub(crate) fn compile(
         && !skip_generic_s08
         && !skip_generic_s09
         && !skip_generic_s10
+        && !skip_generic_s11
         && external.is_none()
     {
         lower_pairs(
@@ -505,6 +530,7 @@ pub(crate) fn compile(
                 PayloadOperation::S08(operation) => operation.random_candidate_count(),
                 PayloadOperation::S09(operation) => operation.random_candidate_count(),
                 PayloadOperation::S10(operation) => operation.random_candidate_count(),
+                PayloadOperation::S11(operation) => operation.random_candidate_count(),
                 _ => None,
             })
             .try_fold(1_u32, checked_lcm)
@@ -567,6 +593,7 @@ pub(crate) fn execute(
             tag if s07::decode(tag, input, &mut decoder, &mut operations)? => {}
             tag if s08::decode(tag, input, &mut decoder, &mut operations)? => {}
             tag if s09::decode(tag, input, &mut decoder, &mut operations)? => {}
+            tag if s11::decode(tag, input, &mut decoder, &mut operations)? => {}
             tag if s10::decode(tag, input, &mut decoder, &mut operations)? => {}
             _ => return Err(invalid_payload()),
         }
@@ -832,6 +859,7 @@ enum PayloadOperation {
     S08(s08::Operation),
     S09(s09::Operation),
     S10(s10::Operation),
+    S11(s11::Operation),
     Transition,
 }
 
@@ -980,6 +1008,7 @@ impl PayloadOperation {
             Self::S08(operation) => operation.encode(output)?,
             Self::S09(operation) => operation.encode(output)?,
             Self::S10(operation) => operation.encode(output),
+            Self::S11(operation) => operation.encode(output)?,
             Self::Transition => output.push(TAG_TRANSITION),
         }
         Ok(())

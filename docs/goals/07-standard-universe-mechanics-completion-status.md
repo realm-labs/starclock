@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M13-S11` |
-| Next unblocked batch | `G07-P4-M13-S11` |
+| Active batch | `G07-P4-M13-S12` |
+| Next unblocked batch | `G07-P4-M13-S12` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -253,10 +253,19 @@ Blessing rewards, checked fragment gains, tiered cross-occurrence bank state,
 explicit Curio selection and the 70/30 unlock-or-current-HP-loss branch. All
 32 records have terminal dispositions, with no deferred counter, native
 handler or numeric approximation.
-`G07-P4-M13-S11` is active.
+Occurrence S11 is complete. The remaining Loneliness, Cosmic Beauty Bugs
+choices, Ace Trash Digger, Shopping Channel, Universal Dancer and the opening
+Mirror choices now execute exact Blessing and Curio selection, checked
+fragment costs, weighted HP and rarity transformations, progressive dancer
+odds, repeatable wishes and three-wish unlock state. All unpublished player
+selections cross explicit replay-recorded result boundaries; all weighted
+outcomes use closed candidate spaces. All 32 records have terminal
+dispositions, with no deferred counter, native handler or numeric
+approximation.
+`G07-P4-M13-S12` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 64 completed partitions use scoped Excel/Sora semantic
+model. The first 65 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
@@ -328,7 +337,7 @@ The milestone summary remains here for orientation.
 | `G07-P2-M10` | `Complete` | 58 / 59 | Erudition complete. |
 | `G07-P3-M11` | `Complete` | 86 / 86 | Positive/neutral/special Curios complete. |
 | `G07-P3-M12` | `Complete` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
-| `G07-P4-M13` | `Expanded` | 192 / 447 | Occurrence choices and effects complete. |
+| `G07-P4-M13` | `Expanded` | 352 / 447 | Occurrence choices and effects complete. |
 | `G07-P4-M14` | `Complete` | 94 / 94 | Services, shops, roster and interactables complete. |
 | `G07-P5-M15` | `Expanded` | 0 / 959 | Enemy, encounter, World/difficulty and carry complete. |
 

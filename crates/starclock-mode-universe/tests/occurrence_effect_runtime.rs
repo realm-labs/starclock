@@ -47,13 +47,13 @@ fn complete_occurrence_partition_compiles() {
     assert_eq!((runtime.content_count(), runtime.rule_count()), (447, 0));
     assert_eq!(
         (runtime.choice_count(), runtime.random_policy_count()),
-        (321, 110)
+        (321, 120)
     );
     assert_eq!(
         runtime.digest(),
         [
-            247, 205, 225, 39, 17, 14, 176, 72, 167, 29, 44, 97, 146, 157, 208, 215, 206, 85, 105,
-            14, 193, 77, 7, 18, 194, 113, 185, 98, 247, 172, 90, 64,
+            232, 203, 78, 250, 246, 74, 237, 244, 46, 169, 248, 245, 251, 215, 203, 89, 143, 20,
+            250, 163, 135, 19, 156, 201, 207, 83, 220, 134, 253, 117, 87, 207,
         ]
     );
 }

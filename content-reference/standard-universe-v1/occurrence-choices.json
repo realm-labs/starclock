@@ -3644,7 +3644,7 @@
     "summary_en": "Lose Blessing outcome.",
     "summary_zh_cn": "Lose：Blessing结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3657,14 +3657,14 @@
       "14402",
       "14402"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.54.variant.14401",
     "condition_ids": [
       "universe.unlock.source-6"
     ],
     "costs": [
       {
-        "kind": "Lose",
+        "kind": "Discard",
         "targets": [
           "Blessing"
         ]
@@ -3673,15 +3673,26 @@
     "outcomes": [
       {
         "kinds": [
-          "Lose"
+          "Discard",
+          "Lose",
+          "Special"
         ],
         "targets": [
-          "Blessing"
+          "Blessing",
+          "HP"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "numeric_literals": [
+          "1",
+          "30%"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s11.beauty-bug-feed-blessing"
+        ],
+        "chance_percentages": [
+          "70",
+          "30"
+        ],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -3700,7 +3711,7 @@
     "summary_en": "Lose CosmicFragments outcome.",
     "summary_zh_cn": "Lose：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3713,14 +3724,14 @@
       "14403",
       "14403"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.54.variant.14401",
     "condition_ids": [
       "universe.unlock.source-6"
     ],
     "costs": [
       {
-        "kind": "Lose",
+        "kind": "Consume",
         "targets": [
           "CosmicFragments"
         ]
@@ -3729,15 +3740,26 @@
     "outcomes": [
       {
         "kinds": [
-          "Lose"
+          "Consume",
+          "Lose",
+          "Special"
         ],
         "targets": [
-          "CosmicFragments"
+          "CosmicFragments",
+          "HP"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "numeric_literals": [
+          "100",
+          "30%"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s11.beauty-bug-feed-fragments"
+        ],
+        "chance_percentages": [
+          "70",
+          "30"
+        ],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -3756,7 +3778,7 @@
     "summary_en": "Obtain Curio outcome.",
     "summary_zh_cn": "Obtain：Curio结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ProjectPolicy",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3769,7 +3791,7 @@
       "14406",
       "14406"
     ],
-    "note": "Released text leaves random weights unspecified; runtime must use a versioned deterministic policy until exact weights are found.",
+    "note": "",
     "variant_id": "universe.occurrence.54.variant.14401",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -3783,8 +3805,13 @@
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "5"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s11.beauty-bug-heartfelt-gift",
+          "universe.curio-pool.polarity.positive"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -3805,7 +3832,7 @@
     "summary_en": "Obtain Blessing outcome.",
     "summary_zh_cn": "Obtain：Blessing结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3818,7 +3845,7 @@
       "14407",
       "14407"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.54.variant.14401",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -3833,11 +3860,14 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "3"
+          "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s11.beauty-bug-life-favor",
+          "universe.blessing-pool.rarity.3"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -3856,7 +3886,7 @@
     "summary_en": "Special special state outcome.",
     "summary_zh_cn": "Special：特殊状态结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3869,7 +3899,7 @@
       "14408",
       "14408"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.54.variant.14401",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -3882,7 +3912,9 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s11.beauty-bug-refuse"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -3903,7 +3935,7 @@
     "summary_en": "Lose Curio outcome.",
     "summary_zh_cn": "Lose：Curio结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3916,14 +3948,14 @@
       "14401",
       "14401"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.55.variant.14401",
     "condition_ids": [
       "universe.unlock.source-6"
     ],
     "costs": [
       {
-        "kind": "Lose",
+        "kind": "Discard",
         "targets": [
           "Curio"
         ]
@@ -3932,15 +3964,26 @@
     "outcomes": [
       {
         "kinds": [
-          "Lose"
+          "Discard",
+          "Lose",
+          "Special"
         ],
         "targets": [
-          "Curio"
+          "Curio",
+          "HP"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "numeric_literals": [
+          "1",
+          "30%"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s10.beauty-bug-feed-curio"
+        ],
+        "chance_percentages": [
+          "70",
+          "30"
+        ],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -3959,7 +4002,7 @@
     "summary_en": "Lose Blessing outcome.",
     "summary_zh_cn": "Lose：Blessing结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3972,14 +4015,14 @@
       "14402",
       "14402"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.55.variant.14401",
     "condition_ids": [
       "universe.unlock.source-6"
     ],
     "costs": [
       {
-        "kind": "Lose",
+        "kind": "Discard",
         "targets": [
           "Blessing"
         ]
@@ -3988,15 +4031,26 @@
     "outcomes": [
       {
         "kinds": [
-          "Lose"
+          "Discard",
+          "Lose",
+          "Special"
         ],
         "targets": [
-          "Blessing"
+          "Blessing",
+          "HP"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "numeric_literals": [
+          "1",
+          "30%"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s11.beauty-bug-feed-blessing"
+        ],
+        "chance_percentages": [
+          "70",
+          "30"
+        ],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -4015,7 +4069,7 @@
     "summary_en": "Lose CosmicFragments outcome.",
     "summary_zh_cn": "Lose：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -4028,14 +4082,14 @@
       "14403",
       "14403"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.55.variant.14401",
     "condition_ids": [
       "universe.unlock.source-6"
     ],
     "costs": [
       {
-        "kind": "Lose",
+        "kind": "Consume",
         "targets": [
           "CosmicFragments"
         ]
@@ -4044,15 +4098,26 @@
     "outcomes": [
       {
         "kinds": [
-          "Lose"
+          "Consume",
+          "Lose",
+          "Special"
         ],
         "targets": [
-          "CosmicFragments"
+          "CosmicFragments",
+          "HP"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "numeric_literals": [
+          "100",
+          "30%"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s11.beauty-bug-feed-fragments"
+        ],
+        "chance_percentages": [
+          "70",
+          "30"
+        ],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -4071,7 +4136,7 @@
     "summary_en": "Obtain Curio outcome.",
     "summary_zh_cn": "Obtain：Curio结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ProjectPolicy",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -4084,7 +4149,7 @@
       "14406",
       "14406"
     ],
-    "note": "Released text leaves random weights unspecified; runtime must use a versioned deterministic policy until exact weights are found.",
+    "note": "",
     "variant_id": "universe.occurrence.55.variant.14401",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -4098,8 +4163,13 @@
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "5"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s11.beauty-bug-heartfelt-gift",
+          "universe.curio-pool.polarity.positive"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -4120,7 +4190,7 @@
     "summary_en": "Obtain Blessing outcome.",
     "summary_zh_cn": "Obtain：Blessing结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -4133,7 +4203,7 @@
       "14407",
       "14407"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.55.variant.14401",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -4148,11 +4218,14 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "3"
+          "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s11.beauty-bug-life-favor",
+          "universe.blessing-pool.rarity.3"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -4171,7 +4244,7 @@
     "summary_en": "Special special state outcome.",
     "summary_zh_cn": "Special：特殊状态结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -4184,7 +4257,7 @@
       "14408",
       "14408"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.55.variant.14401",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -4197,7 +4270,9 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s11.beauty-bug-refuse"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -4218,7 +4293,7 @@
     "summary_en": "Obtain/Discard Curio outcome.",
     "summary_zh_cn": "Obtain/Discard：Curio结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ProjectPolicy",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -4231,7 +4306,7 @@
       "14501",
       "14501"
     ],
-    "note": "Released text leaves random weights unspecified; runtime must use a versioned deterministic policy until exact weights are found.",
+    "note": "",
     "variant_id": "universe.occurrence.56.variant.14501",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -4247,8 +4322,8 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain",
-          "Discard"
+          "Discard",
+          "Obtain"
         ],
         "targets": [
           "Curio"
@@ -4257,7 +4332,10 @@
           "1",
           "2"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s11.ace-trash-exchange",
+          "universe.curio-pool.polarity.positive"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -4278,7 +4356,7 @@
     "summary_en": "Special special state outcome.",
     "summary_zh_cn": "Special：特殊状态结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -4291,7 +4369,7 @@
       "14502",
       "14502"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.56.variant.14501",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -4304,7 +4382,9 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s11.ace-trash-leave"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -4325,7 +4405,7 @@
     "summary_en": "Consume CosmicFragments outcome.",
     "summary_zh_cn": "Consume：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ProjectPolicy",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -4338,7 +4418,7 @@
       "19301",
       "19301"
     ],
-    "note": "Released text leaves random weights unspecified; runtime must use a versioned deterministic policy until exact weights are found.",
+    "note": "",
     "variant_id": "universe.occurrence.60.variant.19301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -4354,16 +4434,32 @@
     "outcomes": [
       {
         "kinds": [
-          "Consume"
+          "Consume",
+          "Obtain",
+          "Obtain"
         ],
         "targets": [
+          "CosmicFragments",
+          "Blessing",
           "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [
-          3
+        "numeric_literals": [
+          "50",
+          "1",
+          "100"
         ],
-        "chance_percentages": [],
+        "parameter_refs": [
+          "universe.occurrence-s11.universal-dancer-fortune",
+          "universe.blessing-pool.rarity.3"
+        ],
+        "chance_percentages": [
+          "30",
+          "70",
+          "65",
+          "35",
+          "100",
+          "0"
+        ],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
@@ -4383,7 +4479,7 @@
     "summary_en": "Special special state outcome.",
     "summary_zh_cn": "Special：特殊状态结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -4396,7 +4492,7 @@
       "19302",
       "19302"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.60.variant.19301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -4409,7 +4505,9 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s11.universal-dancer-refuse"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -4430,7 +4528,7 @@
     "summary_en": "Special special state outcome.",
     "summary_zh_cn": "Special：特殊状态结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -4443,7 +4541,7 @@
       "19501",
       "19501"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.62.variant.19501",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -4455,8 +4553,12 @@
           "Special"
         ],
         "targets": [],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s11.mirror-light-candle"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -4477,7 +4579,7 @@
     "summary_en": "Special special state outcome.",
     "summary_zh_cn": "Special：特殊状态结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -4490,7 +4592,7 @@
       "19504",
       "19504"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.62.variant.19501",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -4503,7 +4605,9 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s11.mirror-leave"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -4524,7 +4628,7 @@
     "summary_en": "Obtain special state outcome.",
     "summary_zh_cn": "Obtain：特殊状态结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ProjectPolicy",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -4537,7 +4641,7 @@
       "19506",
       "19506"
     ],
-    "note": "Released text leaves random weights unspecified; runtime must use a versioned deterministic policy until exact weights are found.",
+    "note": "",
     "variant_id": "universe.occurrence.62.variant.19501",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -4546,12 +4650,51 @@
     "outcomes": [
       {
         "kinds": [
+          "Obtain",
+          "Obtain",
+          "Obtain",
+          "Obtain",
+          "Obtain",
+          "Obtain",
+          "Enhance",
           "Obtain"
         ],
-        "targets": [],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
+        "targets": [
+          "CosmicFragments",
+          "CosmicFragments",
+          "CosmicFragments",
+          "Blessing",
+          "Blessing",
+          "Curio",
+          "Blessing",
+          "Blessing"
+        ],
+        "numeric_literals": [
+          "50",
+          "150",
+          "300",
+          "1",
+          "1",
+          "2",
+          "3",
+          "2"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s11.mirror-random-wish",
+          "universe.blessing-pool.rarity.2",
+          "universe.blessing-pool.rarity.3",
+          "universe.curio-pool.polarity.positive"
+        ],
+        "chance_percentages": [
+          "10",
+          "20",
+          "5",
+          "20",
+          "10",
+          "10",
+          "10",
+          "15"
+        ],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
@@ -9340,7 +9483,7 @@
     "summary_en": "Special special state outcome.",
     "summary_zh_cn": "Special：特殊状态结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -9353,7 +9496,7 @@
       "10401",
       "10401"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.6.variant.10401",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -9362,13 +9505,24 @@
     "outcomes": [
       {
         "kinds": [
-          "Special"
+          "Restore",
+          "Lose"
         ],
-        "targets": [],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "targets": [
+          "HP"
+        ],
+        "numeric_literals": [
+          "100%",
+          "20%"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s11.shopping-doughnuts"
+        ],
+        "chance_percentages": [
+          "80",
+          "20"
+        ],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -9387,7 +9541,7 @@
     "summary_en": "Special special state outcome.",
     "summary_zh_cn": "Special：特殊状态结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -9400,7 +9554,7 @@
       "10402",
       "10402"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.6.variant.10401",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -9409,13 +9563,26 @@
     "outcomes": [
       {
         "kinds": [
-          "Special"
+          "Discard",
+          "Obtain"
         ],
-        "targets": [],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "targets": [
+          "Blessing"
+        ],
+        "numeric_literals": [
+          "1",
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s11.shopping-lotus",
+          "universe.blessing-pool.rarity.1",
+          "universe.blessing-pool.rarity.2"
+        ],
+        "chance_percentages": [
+          "80",
+          "20"
+        ],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -9434,7 +9601,7 @@
     "summary_en": "Special special state outcome.",
     "summary_zh_cn": "Special：特殊状态结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -9447,7 +9614,7 @@
       "10403",
       "10403"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.6.variant.10401",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -9456,13 +9623,24 @@
     "outcomes": [
       {
         "kinds": [
-          "Special"
+          "Obtain"
         ],
-        "targets": [],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "targets": [
+          "Curio"
+        ],
+        "numeric_literals": [
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s11.shopping-mechanical-box",
+          "universe.curio-pool.polarity.positive",
+          "universe.curio-pool.polarity.negative"
+        ],
+        "chance_percentages": [
+          "80",
+          "20"
+        ],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -9481,7 +9659,7 @@
     "summary_en": "Special special state outcome.",
     "summary_zh_cn": "Special：特殊状态结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -9494,7 +9672,7 @@
       "10410",
       "10410"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.6.variant.10401",
     "condition_ids": [
       "universe.unlock.source-14001"
@@ -9507,7 +9685,9 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s11.shopping-leave"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }

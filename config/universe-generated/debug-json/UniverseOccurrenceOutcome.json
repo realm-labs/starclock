@@ -2984,19 +2984,49 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "70"
+              },
+              {
+                "String": "30"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 221
           },
           "kinds": {
             "List": [
               {
+                "String": "Discard"
+              },
+              {
                 "String": "Lose"
+              },
+              {
+                "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              },
+              {
+                "String": "30%"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.beauty-bug-feed-blessing"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3004,27 +3034,62 @@
             "List": [
               {
                 "String": "Blessing"
+              },
+              {
+                "String": "HP"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "70"
+              },
+              {
+                "String": "30"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 222
           },
           "kinds": {
             "List": [
               {
+                "String": "Consume"
+              },
+              {
                 "String": "Lose"
+              },
+              {
+                "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100"
+              },
+              {
+                "String": "30%"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.beauty-bug-feed-fragments"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3032,10 +3097,15 @@
             "List": [
               {
                 "String": "CosmicFragments"
+              },
+              {
+                "String": "HP"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -3051,8 +3121,23 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "5"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.beauty-bug-heartfelt-gift"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3084,11 +3169,20 @@
           "numeric_literals": {
             "List": [
               {
-                "String": "3"
+                "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.beauty-bug-life-favor"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3099,7 +3193,9 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -3116,7 +3212,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.beauty-bug-refuse"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3126,19 +3228,49 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "70"
+              },
+              {
+                "String": "30"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 226
           },
           "kinds": {
             "List": [
               {
+                "String": "Discard"
+              },
+              {
                 "String": "Lose"
+              },
+              {
+                "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              },
+              {
+                "String": "30%"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.beauty-bug-feed-curio"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3146,27 +3278,62 @@
             "List": [
               {
                 "String": "Curio"
+              },
+              {
+                "String": "HP"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "70"
+              },
+              {
+                "String": "30"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 227
           },
           "kinds": {
             "List": [
               {
+                "String": "Discard"
+              },
+              {
                 "String": "Lose"
+              },
+              {
+                "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              },
+              {
+                "String": "30%"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.beauty-bug-feed-blessing"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3174,27 +3341,62 @@
             "List": [
               {
                 "String": "Blessing"
+              },
+              {
+                "String": "HP"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "70"
+              },
+              {
+                "String": "30"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 228
           },
           "kinds": {
             "List": [
               {
+                "String": "Consume"
+              },
+              {
                 "String": "Lose"
+              },
+              {
+                "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100"
+              },
+              {
+                "String": "30%"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.beauty-bug-feed-fragments"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3202,10 +3404,15 @@
             "List": [
               {
                 "String": "CosmicFragments"
+              },
+              {
+                "String": "HP"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -3221,8 +3428,23 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "5"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.beauty-bug-heartfelt-gift"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3254,11 +3476,20 @@
           "numeric_literals": {
             "List": [
               {
-                "String": "3"
+                "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.beauty-bug-life-favor"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3269,7 +3500,9 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -3286,7 +3519,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.beauty-bug-refuse"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3303,10 +3542,10 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Discard"
               },
               {
-                "String": "Discard"
+                "String": "Obtain"
               }
             ]
           },
@@ -3320,7 +3559,16 @@
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.ace-trash-exchange"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3350,7 +3598,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.ace-trash-leave"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3360,7 +3614,28 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "30"
+              },
+              {
+                "String": "70"
+              },
+              {
+                "String": "65"
+              },
+              {
+                "String": "35"
+              },
+              {
+                "String": "100"
+              },
+              {
+                "String": "0"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 238
           },
@@ -3368,14 +3643,35 @@
             "List": [
               {
                 "String": "Consume"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "50"
+              },
+              {
+                "String": "1"
+              },
+              {
+                "String": "100"
+              }
+            ]
+          },
           "parameter_refs": {
             "List": [
               {
-                "String": "3"
+                "String": "universe.occurrence-s11.universal-dancer-fortune"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.3"
               }
             ]
           },
@@ -3384,6 +3680,12 @@
           },
           "targets": {
             "List": [
+              {
+                "String": "CosmicFragments"
+              },
+              {
+                "String": "Blessing"
+              },
               {
                 "String": "CosmicFragments"
               }
@@ -3408,7 +3710,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.universal-dancer-refuse"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3429,8 +3737,20 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.mirror-light-candle"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3452,7 +3772,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.mirror-leave"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3462,7 +3788,34 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "10"
+              },
+              {
+                "String": "20"
+              },
+              {
+                "String": "5"
+              },
+              {
+                "String": "20"
+              },
+              {
+                "String": "10"
+              },
+              {
+                "String": "10"
+              },
+              {
+                "String": "10"
+              },
+              {
+                "String": "15"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 242
           },
@@ -3470,15 +3823,105 @@
             "List": [
               {
                 "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Enhance"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "50"
+              },
+              {
+                "String": "150"
+              },
+              {
+                "String": "300"
+              },
+              {
+                "String": "1"
+              },
+              {
+                "String": "1"
+              },
+              {
+                "String": "2"
+              },
+              {
+                "String": "3"
+              },
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.mirror-random-wish"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
+          "targets": {
+            "List": [
+              {
+                "String": "CosmicFragments"
+              },
+              {
+                "String": "CosmicFragments"
+              },
+              {
+                "String": "CosmicFragments"
+              },
+              {
+                "String": "Blessing"
+              },
+              {
+                "String": "Blessing"
+              },
+              {
+                "String": "Curio"
+              },
+              {
+                "String": "Blessing"
+              },
+              {
+                "String": "Blessing"
+              }
+            ]
+          },
           "unspecified_random_policy": {
             "String": "StableUniformOrderedCandidates"
           }
@@ -6527,68 +6970,179 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "80"
+              },
+              {
+                "String": "20"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 234
           },
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Restore"
+              },
+              {
+                "String": "Lose"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100%"
+              },
+              {
+                "String": "20%"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.shopping-doughnuts"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
-          "unspecified_random_policy": "Null"
+          "targets": {
+            "List": [
+              {
+                "String": "HP"
+              }
+            ]
+          },
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "80"
+              },
+              {
+                "String": "20"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 235
           },
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Discard"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              },
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.shopping-lotus"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.1"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
-          "unspecified_random_policy": "Null"
+          "targets": {
+            "List": [
+              {
+                "String": "Blessing"
+              }
+            ]
+          },
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "80"
+              },
+              {
+                "String": "20"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 236
           },
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.shopping-mechanical-box"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              },
+              {
+                "String": "universe.curio-pool.polarity.negative"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
-          "unspecified_random_policy": "Null"
+          "targets": {
+            "List": [
+              {
+                "String": "Curio"
+              }
+            ]
+          },
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -6605,7 +7159,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.shopping-leave"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },

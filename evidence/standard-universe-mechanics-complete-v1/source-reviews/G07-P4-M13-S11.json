@@ -1,0 +1,118 @@
+{
+  "schema_revision": "starclock.goal07-occurrence-source-review.v1",
+  "partition_id": "G07-P4-M13-S11",
+  "reviewed_on": "2026-07-28",
+  "frozen_source_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+  "sources": [
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Loneliness%2C_Cosmic_Beauty_Bugs%2C_Simulated_Universe_%28I%29",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "a5309f2f1f835d2e1e14082218ef422380080632ce07445404faa21b8b69db31",
+      "facts": [
+        "feed-blessing-or-100-fragments:discard-cost",
+        "feed-success-70:unlock-part-two",
+        "feed-failure-30:all-allies-current-hp-minus-30-percent"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Loneliness%2C_Cosmic_Beauty_Bugs%2C_Simulated_Universe_%28II%29",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "b353f9c0b936aae2f298e11958338a380653c23b03c5efe994deb191fb22e748",
+      "facts": [
+        "heartfelt-gift:five-random-curios",
+        "life-favor:select-one-three-star-blessing",
+        "refuse:no-change"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Ace_Trash_Digger",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "198aeb225bc3465dcfe0fbe564fa5b020bd0f7a740c476dc37cffd7f4a5b91ed",
+      "facts": [
+        "exchange:discard-one-curio:obtain-two-random-normal-curios",
+        "leave:no-change"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Shopping_Channel",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "3a51d51dd8c82966d6c11975d0751fd6e138ffb202a7d6bb350889e41a2df38f",
+      "facts": [
+        "doughnuts:80-heal-to-full:20-current-hp-minus-20-percent",
+        "lotus:80-one-star-to-two-star:20-two-star-to-one-star",
+        "mechanical-box:80-normal-curio:20-negative-curio",
+        "leave:no-change"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Insights_from_the_Universal_Dancer",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "dca8be0a9a9bea18aa9b598d83e32ff0d2b1cf7e94a62bc543b5519c357269df",
+      "facts": [
+        "fortune-cost:50-fragments",
+        "success-chance:30-65-100:select-one-three-star-blessing",
+        "failure:obtain-100-fragments:retry",
+        "refuse:no-change"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Mirror_of_Transcendence_%28I%29",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "fd01834738902de1d602af8dc684651f3b355dc96462c26e125403d59f28a5cf",
+      "facts": [
+        "light-candle:advance-stage",
+        "random-wish:10-20-5-20-10-10-10-15-weighted-outcomes",
+        "three-random-wishes:unlock-part-three",
+        "leave:no-change"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0010401/Opt0010401.json",
+      "section": "OptionList",
+      "evidence_sha256": "3fe81243aa4223edb42da8e98fb1f61c903a27e413335e2d9b594f57111b830b",
+      "facts": [
+        "source-option:10401"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0014401/Opt0014401.json",
+      "section": "OptionList",
+      "evidence_sha256": "d0c013975c82138328a9d498a02c969ec2d065ff9c9174f79dc7ab508322082f",
+      "facts": [
+        "source-option:14401"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0014402/Opt0014402.json",
+      "section": "OptionList",
+      "evidence_sha256": "21fafd17582729d95bc874a17aabdd8455efe0fe877f9546d5e0f50b6b13e644",
+      "facts": [
+        "source-option:14402"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0014501/Opt0014501.json",
+      "section": "OptionList",
+      "evidence_sha256": "f9c9582b9f9532b147d8628e570460d40fed2ee5ae3539987289e3dae412ca3c",
+      "facts": [
+        "source-option:14501"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0019301/Opt0019301.json",
+      "section": "OptionList",
+      "evidence_sha256": "2358bc6c2954962ffef15a701cc15b5e06392ef4b31228ec9f7c3370b544f35a",
+      "facts": [
+        "source-option:19301"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0019501/Opt0019501.json",
+      "section": "OptionList",
+      "evidence_sha256": "eda05c56d009484e90ef4c4df4d57a33825a8edaef00cae4e5c69813e7fd52c2",
+      "facts": [
+        "source-option:19501"
+      ]
+    }
+  ]
+}
