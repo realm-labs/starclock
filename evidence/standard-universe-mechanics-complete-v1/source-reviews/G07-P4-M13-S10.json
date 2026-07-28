@@ -1,0 +1,103 @@
+{
+  "schema_revision": "starclock.goal07-occurrence-source-review.v1",
+  "partition_id": "G07-P4-M13-S10",
+  "reviewed_on": "2026-07-28",
+  "frozen_source_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+  "sources": [
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Jim_Hulk_and_Jim_Hall",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "cf83dbcae6c8fa95e487602cccd811429cdf554aae394ff132ac91dad805b966",
+      "facts": [
+        "collection:one-random-one-or-two-star-blessing",
+        "walk-away:fragments-100"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Ka-ching%21_IPC_Banking_%28I%29",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "39679b9b342cf8eb73b788be87342189ebbc5c9db488990dcd17cd11143532c4",
+      "facts": [
+        "deposit-100:withdraw-200",
+        "deposit-150:withdraw-400",
+        "deposit-200:withdraw-600",
+        "leave:no-change"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Ka-ching%21_IPC_Banking_%28II%29",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "e39107940fed2c5598240e53b8dd0a2ccf6b80240a131d6651001e46fa59135c",
+      "facts": [
+        "withdraw:fragments-200-or-400-or-600:reset-to-part-one",
+        "leave:stored-fragments-remain"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Loneliness%2C_Cosmic_Beauty_Bugs%2C_Simulated_Universe_%28I%29",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "3371c357ce92dcc7037d6e744c733ec17ea2b18587f76ec5ea0a8d2db7c2aa93",
+      "facts": [
+        "feed-curio:discard-one",
+        "success-70:unlock-part-two",
+        "failure-30:all-allies-current-hp-minus-30-percent"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0010301/Opt0010301.json",
+      "section": "OptionList",
+      "evidence_sha256": "1e8ce8c0d17b3c790d1fda6cfd8f7a738e62ffef175a25b76275817770420d83",
+      "facts": [
+        "source-option:10301"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0014301/Opt0014301.json",
+      "section": "OptionList",
+      "evidence_sha256": "519b08c82e1dda48ecd9c8802c3a6ceb06c719495dd5b6afb9e2242b444c0ffd",
+      "facts": [
+        "source-option:14301"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0014302/Opt0014302.json",
+      "section": "OptionList",
+      "evidence_sha256": "682a0cb794c28bdd1a2ee4183dcdf404cecce6c7dcd053f77c244864e7061245",
+      "facts": [
+        "source-option:14302"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0014303/Opt0014303.json",
+      "section": "OptionList",
+      "evidence_sha256": "378b117d1ef5d445107a10bf42b6f450152b71534a4915084712dd38903218c6",
+      "facts": [
+        "source-option:14303"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0014304/Opt0014304.json",
+      "section": "OptionList",
+      "evidence_sha256": "3f35288b7385740206fefb5324df866f7b9a8a2cd466d59e687ba2923fc5b99a",
+      "facts": [
+        "source-option:14304"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0014401/Opt0014401.json",
+      "section": "OptionList",
+      "evidence_sha256": "d0c013975c82138328a9d498a02c969ec2d065ff9c9174f79dc7ab508322082f",
+      "facts": [
+        "source-option:14401"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0014402/Opt0014402.json",
+      "section": "OptionList",
+      "evidence_sha256": "21fafd17582729d95bc874a17aabdd8455efe0fe877f9546d5e0f50b6b13e644",
+      "facts": [
+        "source-option:14402"
+      ]
+    }
+  ]
+}

@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M13-S10` |
-| Next unblocked batch | `G07-P4-M13-S10` |
+| Active batch | `G07-P4-M13-S11` |
+| Next unblocked batch | `G07-P4-M13-S11` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -246,10 +246,17 @@ challenge progression. Hidden Curio lifecycle state remains encapsulated
 behind atomic conditional operations, while Curio Fixer's selected repair
 crosses an explicit external-result boundary. All 32 records have terminal
 dispositions, with no native handler or numeric approximation.
-`G07-P4-M13-S10` is active.
+Occurrence S10 is complete. The final first-round Perfect Grand Challenge
+choice, Jim Hulk and Jim Hall, both IPC Banking variants and the first
+Loneliness, Cosmic Beauty Bugs choice now execute exact weighted Curio and
+Blessing rewards, checked fragment gains, tiered cross-occurrence bank state,
+explicit Curio selection and the 70/30 unlock-or-current-HP-loss branch. All
+32 records have terminal dispositions, with no deferred counter, native
+handler or numeric approximation.
+`G07-P4-M13-S11` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 63 completed partitions use scoped Excel/Sora semantic
+model. The first 64 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's

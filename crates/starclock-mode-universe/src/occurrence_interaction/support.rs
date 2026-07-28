@@ -1,5 +1,7 @@
 use super::*;
 
+const DEFERRED_EFFECT_KEY_BASE: u64 = 1 << 63;
+
 pub(super) fn outcome_pairs(
     outcome: &OccurrenceOutcome,
 ) -> Vec<(
@@ -52,6 +54,57 @@ pub(super) fn default_scalar() -> AuthoredScalar {
         crate::path::ExactParameter::new(1, 0),
         AuthoredScalarUnit::Scalar,
     )
+}
+
+pub(super) fn lower_costs(
+    output: &mut Vec<PayloadOperation>,
+    choice: &OccurrenceChoiceDefinition,
+    cosmic_fragments: ActivitySlotId,
+    blessing_inventory: ActivityInventoryId,
+    curio_inventory: ActivityInventoryId,
+    blessing_ids: &[u64],
+    curio_ids: &[u64],
+) -> Result<(), OccurrenceInteractionError> {
+    for cost in choice.costs() {
+        for target in cost.targets() {
+            match target {
+                OccurrenceTarget::CosmicFragments => {
+                    output.push(PayloadOperation::RequireFragment {
+                        slot: cosmic_fragments,
+                        amount: 1,
+                    });
+                }
+                OccurrenceTarget::Blessing => {
+                    output.push(PayloadOperation::RequireInventory {
+                        inventory: blessing_inventory,
+                        candidates: blessing_ids.to_vec(),
+                    });
+                }
+                OccurrenceTarget::Curio => {
+                    output.push(PayloadOperation::RequireInventory {
+                        inventory: curio_inventory,
+                        candidates: curio_ids.to_vec(),
+                    });
+                }
+                OccurrenceTarget::Character | OccurrenceTarget::Hp => {}
+            }
+        }
+    }
+    Ok(())
+}
+
+pub(super) fn deferred_effect_key(
+    choice: OccurrenceChoiceId,
+    index: usize,
+    operation: OccurrenceOperation,
+    target: Option<OccurrenceTarget>,
+) -> Result<u64, OccurrenceInteractionError> {
+    let index = u64::try_from(index).map_err(|_| OccurrenceInteractionError::Arithmetic)?;
+    Ok(DEFERRED_EFFECT_KEY_BASE
+        | (u64::from(choice.get()) << 24)
+        | (index << 8)
+        | (u64::from(operation as u8) << 4)
+        | target.map_or(15, |value| u64::from(value as u8)))
 }
 
 pub(super) const fn operation_sign(operation: OccurrenceOperation) -> i8 {

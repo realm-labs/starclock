@@ -2025,7 +2025,16 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "40"
+              },
+              {
+                "String": "60"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 197
           },
@@ -2036,8 +2045,23 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.perfect-popular-first"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -2062,6 +2086,9 @@
           "kinds": {
             "List": [
               {
+                "String": "Consume"
+              },
+              {
                 "String": "Special"
               }
             ]
@@ -2069,11 +2096,20 @@
           "numeric_literals": {
             "List": [
               {
+                "String": "100"
+              },
+              {
                 "String": "200"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-deposit-200"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -2096,6 +2132,9 @@
           "kinds": {
             "List": [
               {
+                "String": "Consume"
+              },
+              {
                 "String": "Special"
               }
             ]
@@ -2103,11 +2142,20 @@
           "numeric_literals": {
             "List": [
               {
+                "String": "150"
+              },
+              {
                 "String": "400"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-deposit-400"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -2130,6 +2178,9 @@
           "kinds": {
             "List": [
               {
+                "String": "Consume"
+              },
+              {
                 "String": "Special"
               }
             ]
@@ -2137,11 +2188,20 @@
           "numeric_literals": {
             "List": [
               {
+                "String": "200"
+              },
+              {
                 "String": "600"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-deposit-600"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -2169,14 +2229,20 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-leave-0"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "CosmicFragments"
+                "String": "Character"
               }
             ]
           },
@@ -2192,12 +2258,27 @@
           "kinds": {
             "List": [
               {
+                "String": "Obtain"
+              },
+              {
                 "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "200"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-withdraw-200"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -2224,15 +2305,27 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "200"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-preserve-200"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "CosmicFragments"
+                "String": "Character"
               }
             ]
           },
@@ -2248,12 +2341,27 @@
           "kinds": {
             "List": [
               {
+                "String": "Obtain"
+              },
+              {
                 "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "400"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-withdraw-400"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -2280,15 +2388,27 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "400"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-preserve-400"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "CosmicFragments"
+                "String": "Character"
               }
             ]
           },
@@ -2304,12 +2424,27 @@
           "kinds": {
             "List": [
               {
+                "String": "Obtain"
+              },
+              {
                 "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "600"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-withdraw-600"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -2336,15 +2471,27 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "600"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-preserve-600"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "CosmicFragments"
+                "String": "Character"
               }
             ]
           },
@@ -2360,6 +2507,9 @@
           "kinds": {
             "List": [
               {
+                "String": "Consume"
+              },
+              {
                 "String": "Special"
               }
             ]
@@ -2367,11 +2517,20 @@
           "numeric_literals": {
             "List": [
               {
+                "String": "100"
+              },
+              {
                 "String": "200"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-deposit-200"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -2394,6 +2553,9 @@
           "kinds": {
             "List": [
               {
+                "String": "Consume"
+              },
+              {
                 "String": "Special"
               }
             ]
@@ -2401,11 +2563,20 @@
           "numeric_literals": {
             "List": [
               {
+                "String": "150"
+              },
+              {
                 "String": "400"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-deposit-400"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -2428,6 +2599,9 @@
           "kinds": {
             "List": [
               {
+                "String": "Consume"
+              },
+              {
                 "String": "Special"
               }
             ]
@@ -2435,11 +2609,20 @@
           "numeric_literals": {
             "List": [
               {
+                "String": "200"
+              },
+              {
                 "String": "600"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-deposit-600"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -2467,14 +2650,20 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-leave-0"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "CosmicFragments"
+                "String": "Character"
               }
             ]
           },
@@ -2490,12 +2679,27 @@
           "kinds": {
             "List": [
               {
+                "String": "Obtain"
+              },
+              {
                 "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "200"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-withdraw-200"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -2522,15 +2726,27 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "200"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-preserve-200"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "CosmicFragments"
+                "String": "Character"
               }
             ]
           },
@@ -2546,12 +2762,27 @@
           "kinds": {
             "List": [
               {
+                "String": "Obtain"
+              },
+              {
                 "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "400"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-withdraw-400"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -2578,15 +2809,27 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "400"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-preserve-400"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "CosmicFragments"
+                "String": "Character"
               }
             ]
           },
@@ -2602,12 +2845,27 @@
           "kinds": {
             "List": [
               {
+                "String": "Obtain"
+              },
+              {
                 "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "600"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-withdraw-600"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -2634,15 +2892,27 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "600"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.bank-preserve-600"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "CosmicFragments"
+                "String": "Character"
               }
             ]
           },
@@ -2651,19 +2921,49 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "70"
+              },
+              {
+                "String": "30"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 220
           },
           "kinds": {
             "List": [
               {
+                "String": "Discard"
+              },
+              {
                 "String": "Lose"
+              },
+              {
+                "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              },
+              {
+                "String": "30"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s10.beauty-bug-feed-curio"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -2671,10 +2971,15 @@
             "List": [
               {
                 "String": "Curio"
+              },
+              {
+                "String": "HP"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -6158,13 +6463,19 @@
             "List": [
               {
                 "String": "1"
-              },
-              {
-                "String": "2"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.rarity.1"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -6175,7 +6486,9 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -6191,7 +6504,13 @@
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100"
+              }
+            ]
+          },
           "parameter_refs": "Null",
           "sequence": {
             "Integer": 1

@@ -2446,7 +2446,7 @@
     "summary_en": "Obtain Curio outcome.",
     "summary_zh_cn": "Obtain：Curio结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ProjectPolicy",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -2459,7 +2459,7 @@
       "13004",
       "13004"
     ],
-    "note": "Released text leaves random weights unspecified; runtime must use a versioned deterministic policy until exact weights are found.",
+    "note": "",
     "variant_id": "universe.occurrence.47.variant.13001",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -2473,9 +2473,17 @@
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
+        "numeric_literals": [
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s09.perfect-popular-first",
+          "universe.curio-pool.polarity.positive"
+        ],
+        "chance_percentages": [
+          "40",
+          "60"
+        ],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
@@ -2495,7 +2503,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -2508,7 +2516,7 @@
       "14301",
       "14301"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.52.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -2517,15 +2525,19 @@
     "outcomes": [
       {
         "kinds": [
+          "Consume",
           "Special"
         ],
         "targets": [
           "CosmicFragments"
         ],
         "numeric_literals": [
+          "100",
           "200"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-deposit-200"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -2546,7 +2558,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -2559,7 +2571,7 @@
       "14302",
       "14302"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.52.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -2568,15 +2580,19 @@
     "outcomes": [
       {
         "kinds": [
+          "Consume",
           "Special"
         ],
         "targets": [
           "CosmicFragments"
         ],
         "numeric_literals": [
+          "150",
           "400"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-deposit-400"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -2597,7 +2613,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -2610,7 +2626,7 @@
       "14303",
       "14303"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.52.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -2619,15 +2635,19 @@
     "outcomes": [
       {
         "kinds": [
+          "Consume",
           "Special"
         ],
         "targets": [
           "CosmicFragments"
         ],
         "numeric_literals": [
+          "200",
           "600"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-deposit-600"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -2648,7 +2668,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -2661,7 +2681,7 @@
       "14304",
       "14304"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.52.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -2673,10 +2693,12 @@
           "Special"
         ],
         "targets": [
-          "CosmicFragments"
+          "Character"
         ],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-leave-0"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -2697,7 +2719,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -2710,7 +2732,7 @@
       "14307",
       "14307"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.52.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -2719,13 +2741,18 @@
     "outcomes": [
       {
         "kinds": [
+          "Obtain",
           "Special"
         ],
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "200"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-withdraw-200"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -2746,7 +2773,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -2759,7 +2786,7 @@
       "14308",
       "14308"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.52.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -2771,10 +2798,14 @@
           "Special"
         ],
         "targets": [
-          "CosmicFragments"
+          "Character"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "200"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-preserve-200"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -2795,7 +2826,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -2808,7 +2839,7 @@
       "14309",
       "14307"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.52.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -2817,13 +2848,18 @@
     "outcomes": [
       {
         "kinds": [
+          "Obtain",
           "Special"
         ],
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "400"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-withdraw-400"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -2844,7 +2880,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -2857,7 +2893,7 @@
       "14308",
       "14308"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.52.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -2869,10 +2905,14 @@
           "Special"
         ],
         "targets": [
-          "CosmicFragments"
+          "Character"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "400"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-preserve-400"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -2893,7 +2933,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -2906,7 +2946,7 @@
       "14310",
       "14307"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.52.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -2915,13 +2955,18 @@
     "outcomes": [
       {
         "kinds": [
+          "Obtain",
           "Special"
         ],
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "600"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-withdraw-600"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -2942,7 +2987,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -2955,7 +3000,7 @@
       "14308",
       "14308"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.52.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -2967,10 +3012,14 @@
           "Special"
         ],
         "targets": [
-          "CosmicFragments"
+          "Character"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "600"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-preserve-600"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -2991,7 +3040,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3004,7 +3053,7 @@
       "14301",
       "14301"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.53.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -3013,15 +3062,19 @@
     "outcomes": [
       {
         "kinds": [
+          "Consume",
           "Special"
         ],
         "targets": [
           "CosmicFragments"
         ],
         "numeric_literals": [
+          "100",
           "200"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-deposit-200"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -3042,7 +3095,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3055,7 +3108,7 @@
       "14302",
       "14302"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.53.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -3064,15 +3117,19 @@
     "outcomes": [
       {
         "kinds": [
+          "Consume",
           "Special"
         ],
         "targets": [
           "CosmicFragments"
         ],
         "numeric_literals": [
+          "150",
           "400"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-deposit-400"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -3093,7 +3150,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3106,7 +3163,7 @@
       "14303",
       "14303"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.53.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -3115,15 +3172,19 @@
     "outcomes": [
       {
         "kinds": [
+          "Consume",
           "Special"
         ],
         "targets": [
           "CosmicFragments"
         ],
         "numeric_literals": [
+          "200",
           "600"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-deposit-600"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -3144,7 +3205,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3157,7 +3218,7 @@
       "14304",
       "14304"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.53.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -3169,10 +3230,12 @@
           "Special"
         ],
         "targets": [
-          "CosmicFragments"
+          "Character"
         ],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-leave-0"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -3193,7 +3256,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3206,7 +3269,7 @@
       "14307",
       "14307"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.53.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -3215,13 +3278,18 @@
     "outcomes": [
       {
         "kinds": [
+          "Obtain",
           "Special"
         ],
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "200"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-withdraw-200"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -3242,7 +3310,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3255,7 +3323,7 @@
       "14308",
       "14308"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.53.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -3267,10 +3335,14 @@
           "Special"
         ],
         "targets": [
-          "CosmicFragments"
+          "Character"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "200"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-preserve-200"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -3291,7 +3363,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3304,7 +3376,7 @@
       "14309",
       "14307"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.53.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -3313,13 +3385,18 @@
     "outcomes": [
       {
         "kinds": [
+          "Obtain",
           "Special"
         ],
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "400"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-withdraw-400"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -3340,7 +3417,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3353,7 +3430,7 @@
       "14308",
       "14308"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.53.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -3365,10 +3442,14 @@
           "Special"
         ],
         "targets": [
-          "CosmicFragments"
+          "Character"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "400"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-preserve-400"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -3389,7 +3470,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3402,7 +3483,7 @@
       "14310",
       "14307"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.53.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -3411,13 +3492,18 @@
     "outcomes": [
       {
         "kinds": [
+          "Obtain",
           "Special"
         ],
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "600"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-withdraw-600"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -3438,7 +3524,7 @@
     "summary_en": "Special CosmicFragments outcome.",
     "summary_zh_cn": "Special：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3451,7 +3537,7 @@
       "14308",
       "14308"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.53.variant.14301",
     "condition_ids": [
       "universe.unlock.source-6"
@@ -3463,10 +3549,14 @@
           "Special"
         ],
         "targets": [
-          "CosmicFragments"
+          "Character"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "600"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s10.bank-preserve-600"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -3487,7 +3577,7 @@
     "summary_en": "Lose Curio outcome.",
     "summary_zh_cn": "Lose：Curio结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -3500,14 +3590,14 @@
       "14401",
       "14401"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.54.variant.14401",
     "condition_ids": [
       "universe.unlock.source-6"
     ],
     "costs": [
       {
-        "kind": "Lose",
+        "kind": "Discard",
         "targets": [
           "Curio"
         ]
@@ -3516,15 +3606,26 @@
     "outcomes": [
       {
         "kinds": [
-          "Lose"
+          "Discard",
+          "Lose",
+          "Special"
         ],
         "targets": [
-          "Curio"
+          "Curio",
+          "HP"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "numeric_literals": [
+          "1",
+          "30"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s10.beauty-bug-feed-curio"
+        ],
+        "chance_percentages": [
+          "70",
+          "30"
+        ],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -9134,7 +9235,7 @@
     "summary_en": "Obtain Blessing outcome.",
     "summary_zh_cn": "Obtain：Blessing结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -9147,7 +9248,7 @@
       "10301",
       "10301"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.5.variant.10301",
     "condition_ids": [
       "universe.unlock.source-22"
@@ -9162,12 +9263,14 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "1",
-          "2"
+          "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.rarity.1",
+          "universe.blessing-pool.rarity.2"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -9186,7 +9289,7 @@
     "summary_en": "Obtain CosmicFragments outcome.",
     "summary_zh_cn": "Obtain：CosmicFragments结果。",
     "quality": "ExactStructured",
-    "mechanism_quality": "ExactPublicText",
+    "mechanism_quality": "ExactStructured",
     "quality_overrides": [],
     "coverage_state": "DataReady",
     "provenance_ids": [
@@ -9199,7 +9302,7 @@
       "10302",
       "10302"
     ],
-    "note": "Choice/result text is exact public TextMap evidence; prose is represented by digests and structured outcome facts.",
+    "note": "",
     "variant_id": "universe.occurrence.5.variant.10301",
     "condition_ids": [
       "universe.unlock.source-22"
@@ -9213,7 +9316,9 @@
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
+        "numeric_literals": [
+          "100"
+        ],
         "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""

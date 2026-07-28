@@ -39,6 +39,7 @@ const isS06 = partitionId === "G07-P4-M13-S06";
 const isS07 = partitionId === "G07-P4-M13-S07";
 const isS08 = partitionId === "G07-P4-M13-S08";
 const isS09 = partitionId === "G07-P4-M13-S09";
+const isS10 = partitionId === "G07-P4-M13-S10";
 assert(exists(golden), `${partitionId}: golden is missing`);
 
 const provenanceEvidence = [
@@ -100,6 +101,12 @@ const executionEvidence = [
     { path: "crates/starclock-mode-universe/src/occurrence_interaction/external.rs" },
     { path: "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs" },
   ] : []),
+  ...(isS10 ? [
+    { path: "crates/starclock-mode-universe/src/catalog.rs" },
+    { path: "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs" },
+    { path: "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs" },
+    { path: "crates/starclock-mode-universe/src/occurrence_interaction/s10.rs" },
+  ] : []),
   ...(isS02 ? [
     { path: "crates/starclock-mode-universe/src/occurrence_battle.rs" },
     { path: "crates/starclock-mode-universe/src/battle_materialization.rs" },
@@ -138,6 +145,10 @@ const executionEvidence = [
     { path: "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs" },
     { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
   ] : []),
+  ...(isS10 ? [
+    { path: "crates/starclock-mode-universe/tests/run_runtime/s10.rs" },
+    { path: "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs" },
+  ] : []),
   ...(isS02 || isS04
     ? [{ path: "crates/starclock-mode-universe/tests/service_reviver_runtime.rs" }]
     : []),
@@ -148,7 +159,7 @@ const receipt = {
   goal_id: "standard-universe-mechanics-complete-v1",
   partition_id: partitionId,
   state: "Complete",
-  completed_on: isS03 || isS04 || isS05 || isS06 || isS07 || isS08 || isS09
+  completed_on: isS03 || isS04 || isS05 || isS06 || isS07 || isS08 || isS09 || isS10
     ? "2026-07-28"
     : "2026-07-27",
   authoring: {
@@ -179,7 +190,12 @@ const receipt = {
     execution_evidence: executionEvidence,
     ...(id.includes(".choice.") ? {
       execution_kind:
-        isS09 && id === "universe.occurrence.43.variant.12601.choice.01"
+        isS10 && [
+          "universe.occurrence.5.variant.10301.choice.01",
+          "universe.occurrence.54.variant.14401.choice.01",
+        ].includes(id)
+          ? "ExplicitExternalResult"
+          : isS09 && id === "universe.occurrence.43.variant.12601.choice.01"
           ? "ExplicitExternalResult"
           : isS08 && [
           "universe.occurrence.4.variant.10201.choice.01",
@@ -197,10 +213,12 @@ const receipt = {
             && id.startsWith("universe.occurrence.1.")
             ? "ExplicitExternalResult"
             : "SharedOccurrenceHandler",
-      test_path: isS04 || isS05 || isS06 || isS07 || isS08 || isS09
-        ? `crates/starclock-mode-universe/tests/run_runtime/${isS09 ? "s09" : isS08 ? "s08" : isS07 ? "s07" : isS06 ? "s06" : isS05 ? "s05" : "s04"}.rs`
+      test_path: isS04 || isS05 || isS06 || isS07 || isS08 || isS09 || isS10
+        ? `crates/starclock-mode-universe/tests/run_runtime/${isS10 ? "s10" : isS09 ? "s09" : isS08 ? "s08" : isS07 ? "s07" : isS06 ? "s06" : isS05 ? "s05" : "s04"}.rs`
         : "crates/starclock-mode-universe/tests/run_runtime.rs",
-      test_marker: isS09
+      test_marker: isS10
+        ? "goal07_p4_m13_s10_executes_popular_banking_blessing_and_beauty_bug_outcomes"
+        : isS09
         ? "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
         : isS08
         ? "goal07_p4_m13_s08_executes_external_history_cosmic_and_branching_outcomes"
@@ -223,9 +241,11 @@ const receipt = {
   fixtures: partition.fixture_ids.map((id) => ({
     ...disposition(fixtures.get(id), "ProductionExecuted"),
     execution_kind: "RustTest",
-    test_path: `crates/starclock-mode-universe/tests/run_runtime/${isS09 ? "s09" : isS08 ? "s08" : "s07"}.rs`,
+    test_path: `crates/starclock-mode-universe/tests/run_runtime/${isS10 ? "s10" : isS09 ? "s09" : isS08 ? "s08" : "s07"}.rs`,
     test_marker:
-      isS09
+      isS10
+        ? "goal07_p4_m13_s10_executes_popular_banking_blessing_and_beauty_bug_outcomes"
+        : isS09
         ? "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
         : isS08
         ? "goal07_p4_m13_s08_executes_external_history_cosmic_and_branching_outcomes"
@@ -256,6 +276,8 @@ const receipt = {
                       ? ["node tools/goal07/refine-occurrence-s08.mjs"]
                       : isS09
                         ? ["node tools/goal07/refine-occurrence-s09.mjs"]
+                      : isS10
+                        ? ["node tools/goal07/refine-occurrence-s10.mjs"]
             : []),
       `python tools/goal07/author-occurrence-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify-pack.mjs .",

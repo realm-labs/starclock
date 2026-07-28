@@ -445,6 +445,7 @@ fn perfect(
         "perfect-pay-first" => (PERFECT_PAY, 0, 1, true),
         "perfect-leave-first" => (PERFECT_LEAVE, 0, 0, false),
         "perfect-clay-first" => (PERFECT_CLAY, 1, 2, true),
+        "perfect-popular-first" => (PERFECT_POPULAR, 1, 2, true),
         "perfect-pay-second" => (PERFECT_PAY, 2, 3, true),
         "perfect-leave-second" => (PERFECT_LEAVE, 2, 0, false),
         "perfect-clay-second" => (PERFECT_CLAY, 3, 4, true),
