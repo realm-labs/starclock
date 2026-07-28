@@ -1371,8 +1371,7 @@
       {
         "kind": "Consume",
         "targets": [
-          "CosmicFragments",
-          "Curio"
+          "CosmicFragments"
         ]
       }
     ],
@@ -1387,9 +1386,12 @@
           "Curio"
         ],
         "numeric_literals": [
+          "50",
           "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s09.repair-one-destroyed"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -1432,8 +1434,7 @@
       {
         "kind": "Consume",
         "targets": [
-          "CosmicFragments",
-          "Curio"
+          "CosmicFragments"
         ]
       }
     ],
@@ -1447,8 +1448,13 @@
           "CosmicFragments",
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "100",
+          "61"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s09.repair-all-destroyed"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -1545,18 +1551,21 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain",
-          "Discard"
+          "Discard",
+          "Obtain"
         ],
         "targets": [
+          "Blessing",
           "Blessing"
         ],
         "numeric_literals": [
           "2",
-          "2",
-          "2"
+          "4"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s09.showman-two-to-four",
+          "universe.blessing-pool.rarity.2"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -1606,18 +1615,22 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain",
-          "Discard"
+          "Discard",
+          "Obtain"
         ],
         "targets": [
+          "Blessing",
           "Blessing"
         ],
         "numeric_literals": [
-          "1",
-          "3",
-          "3"
+          "2",
+          "2"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s09.showman-two-to-two-three",
+          "universe.blessing-pool.rarity.2",
+          "universe.blessing-pool.rarity.3"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -1668,17 +1681,26 @@
       {
         "kinds": [
           "Consume",
-          "Repair"
+          "Repair",
+          "Obtain"
         ],
         "targets": [
-          "CosmicFragments"
+          "CosmicFragments",
+          "Curio",
+          "Curio"
         ],
         "numeric_literals": [
+          "100",
+          "1",
           "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s09.double-lottery-buy",
+          "universe.curio.63",
+          "universe.curio.107"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -1730,10 +1752,18 @@
           "Repair"
         ],
         "targets": [
-          "CosmicFragments"
+          "CosmicFragments",
+          "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "50",
+          "2"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s09.double-lottery-repair",
+          "universe.curio.63",
+          "universe.curio.107"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -1835,8 +1865,12 @@
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "40"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s09.perfect-pay-third"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -1883,7 +1917,9 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s09.perfect-leave-third"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -1938,8 +1974,12 @@
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "40"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s09.perfect-pay-second"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -1986,7 +2026,9 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s09.perfect-leave-second"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -2041,8 +2083,12 @@
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "40"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s09.perfect-pay-first"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -2089,7 +2135,9 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s09.perfect-leave-first"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -2137,9 +2185,18 @@
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
+        "numeric_literals": [
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s09.perfect-clay-second",
+          "universe.curio-pool.polarity.positive",
+          "universe.curio-pool.polarity.negative"
+        ],
+        "chance_percentages": [
+          "50",
+          "50"
+        ],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
@@ -2186,9 +2243,17 @@
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
+        "numeric_literals": [
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s09.perfect-popular-second",
+          "universe.curio-pool.polarity.positive"
+        ],
+        "chance_percentages": [
+          "40",
+          "60"
+        ],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
@@ -2235,9 +2300,18 @@
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
+        "numeric_literals": [
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s09.perfect-clay-third",
+          "universe.curio-pool.polarity.positive",
+          "universe.curio-pool.polarity.negative"
+        ],
+        "chance_percentages": [
+          "50",
+          "50"
+        ],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
@@ -2284,9 +2358,17 @@
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
+        "numeric_literals": [
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s09.perfect-popular-third",
+          "universe.curio-pool.polarity.positive"
+        ],
+        "chance_percentages": [
+          "40",
+          "60"
+        ],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
@@ -2333,9 +2415,18 @@
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [],
+        "numeric_literals": [
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s09.perfect-clay-first",
+          "universe.curio-pool.polarity.positive",
+          "universe.curio-pool.polarity.negative"
+        ],
+        "chance_percentages": [
+          "50",
+          "50"
+        ],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
@@ -11579,8 +11670,12 @@
         "targets": [
           "Blessing"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "500"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s09.ruan-enhance-all"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -11628,8 +11723,13 @@
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "10"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s09.ruan-curios-ten",
+          "universe.curio-pool.polarity.positive"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -11672,15 +11772,21 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain",
-          "Enhance"
+          "Enhance",
+          "Obtain"
         ],
         "targets": [
           "Blessing",
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "500",
+          "10"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s09.ruan-both",
+          "universe.curio-pool.polarity.positive"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }

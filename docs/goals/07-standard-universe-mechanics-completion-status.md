@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M13-S09` |
-| Next unblocked batch | `G07-P4-M13-S09` |
+| Active batch | `G07-P4-M13-S10` |
+| Next unblocked batch | `G07-P4-M13-S10` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -238,10 +238,18 @@ follow-ups and occurrence battles. History's selected maximum-owned Path and
 Cosmic Crescendo's weighted effect selections cross explicit replay-recorded
 decision boundaries. All 32 records have terminal dispositions, with no
 native handler or numeric approximation.
-`G07-P4-M13-S09` is active.
+Occurrence S09 is complete. Curio Fixer, Showman's Sleight, Double Lottery,
+Ruan Mei (II) and the first eleven Perfect Grand Challenge choices now execute
+exact destroyed-Curio repair, checked fragment costs, Blessing exchange and
+enhancement, positive/negative Curio pools, weighted outcomes and three-round
+challenge progression. Hidden Curio lifecycle state remains encapsulated
+behind atomic conditional operations, while Curio Fixer's selected repair
+crosses an explicit external-result boundary. All 32 records have terminal
+dispositions, with no native handler or numeric approximation.
+`G07-P4-M13-S10` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 62 completed partitions use scoped Excel/Sora semantic
+model. The first 63 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's

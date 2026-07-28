@@ -1,0 +1,2374 @@
+{
+  "schema_revision": "starclock.goal07-content-partition-receipt.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "partition_id": "G07-P4-M13-S09",
+  "state": "Complete",
+  "completed_on": "2026-07-28",
+  "authoring": {
+    "workbooks": [
+      {
+        "path": "config/data/Universe.xlsx",
+        "tables": [
+          "UniverseOccurrence",
+          "UniverseOccurrenceVariant",
+          "UniverseOccurrenceChoice",
+          "UniverseOccurrenceCost",
+          "UniverseOccurrenceOutcome"
+        ]
+      },
+      {
+        "path": "config/data/UniverseEvidence.xlsx",
+        "tables": [
+          "UniverseContentAudit",
+          "UniverseSourceRecord"
+        ]
+      }
+    ],
+    "openpyxl_commands": [
+      "python -c \"import openpyxl\" && python tools/goal07/author-occurrence-partition.py --partition G07-P4-M13-S09 --check"
+    ],
+    "sora_bundle": {
+      "path": "config/universe-generated/config.sora",
+      "sha256": "3b174b5200b3f17c4844017dec59423e570383175540917a2bd945608eff1bc8",
+      "git_blob_sha1": "d03ff3c34190757076fcb7ff685f2398bb5581ed"
+    },
+    "sora_golden": {
+      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P4-M13-S09.json",
+      "sha256": "6bfa94d363c9f8dc2dd7a4e5c6191acc7e465e5f03c9787521552c7518a4d573",
+      "git_blob_sha1": "62769a02050910a7fe1642fd3d92933e669593ca"
+    }
+  },
+  "records": [
+    {
+      "id": "universe.occurrence.43",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.occurrence.43.variant.12601",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.occurrence.43.variant.12601.choice.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "ExplicitExternalResult",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.43.variant.12601.choice.02",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.43.variant.12601.choice.03",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.44",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.occurrence.44.variant.12701",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.occurrence.44.variant.12701.choice.01",
+      "runtime_disposition": "ExternalDecision",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.44.variant.12701.choice.02",
+      "runtime_disposition": "ExternalDecision",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.45",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.occurrence.45.variant.12801",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.occurrence.45.variant.12801.choice.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.45.variant.12801.choice.02",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.45.variant.12801.choice.03",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.46",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.occurrence.46.variant.12901",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.occurrence.46.variant.12901.choice.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.46.variant.12901.choice.02",
+      "runtime_disposition": "ExternalDecision",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.46.variant.12901.choice.03",
+      "runtime_disposition": "ExternalDecision",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.47",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.occurrence.47.variant.13001",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.occurrence.47.variant.13001.choice.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.47.variant.13001.choice.02",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.47.variant.13001.choice.03",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.47.variant.13001.choice.04",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.47.variant.13001.choice.05",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.47.variant.13001.choice.06",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.47.variant.13001.choice.07",
+      "runtime_disposition": "ExternalDecision",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.47.variant.13001.choice.08",
+      "runtime_disposition": "ExternalDecision",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.47.variant.13001.choice.09",
+      "runtime_disposition": "ExternalDecision",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.47.variant.13001.choice.10",
+      "runtime_disposition": "ExternalDecision",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.occurrence.47.variant.13001.choice.11",
+      "runtime_disposition": "ExternalDecision",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/external.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/occurrence_interaction/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology/occurrence_binding.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_identity.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        }
+      ],
+      "execution_kind": "SharedOccurrenceHandler",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    }
+  ],
+  "rules": [],
+  "fixtures": [
+    {
+      "id": "universe.fixture.occurrence-outcome.consume",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    },
+    {
+      "id": "universe.fixture.occurrence-outcome.repair",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/occurrences.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/occurrence-choices.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P4-M13-S09.json"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/run_runtime/s09.rs",
+      "test_marker": "goal07_p4_m13_s09_executes_repairs_exchanges_ruan_mei_and_perfect_challenge"
+    }
+  ],
+  "enemy_variants": [],
+  "encounter_members": [],
+  "native_handler_reviews": [],
+  "numeric_approximations": [],
+  "execution": {
+    "result": "pass",
+    "commands": [
+      "node tools/goal07/refine-occurrence-s09.mjs",
+      "python tools/goal07/author-occurrence-partition.py --partition G07-P4-M13-S09 --check",
+      "node tools/universe-reference/verify-pack.mjs .",
+      "node tools/universe-reference/verify_production_workbooks.mjs .",
+      "cargo test -p starclock-mode-universe --test run_runtime --all-features",
+      "cargo test -p starclock-mode-universe --all-features",
+      "cargo test -p starclock-agent-api --test activity_session_loop --all-features",
+      "cargo test -p starclock-cli --test universe_cli --all-features",
+      "cargo test -p starclock-mcp --test universe_surface_parity --all-features",
+      "node tools/repository-check/run.mjs"
+    ],
+    "goldens": [
+      {
+        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P4-M13-S09.json",
+        "sha256": "6bfa94d363c9f8dc2dd7a4e5c6191acc7e465e5f03c9787521552c7518a4d573",
+        "git_blob_sha1": "62769a02050910a7fe1642fd3d92933e669593ca"
+      }
+    ]
+  }
+}

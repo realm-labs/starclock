@@ -51,17 +51,6 @@ pub(super) enum Operation {
     },
 }
 
-pub(super) struct ExternalChoice {
-    pub(super) content: u64,
-    pub(super) operations: Vec<PayloadOperation>,
-    pub(super) random_candidate_count: Option<u32>,
-}
-
-pub(super) struct ExternalLowering {
-    pub(super) choices: Vec<ExternalChoice>,
-    pub(super) repeat_key: Option<u64>,
-}
-
 impl Operation {
     pub(super) fn encode(self, output: &mut Vec<u8>) -> Result<(), OccurrenceInteractionError> {
         match self {
@@ -143,7 +132,7 @@ pub(super) fn externalize(
     curio_bindings: CurioActivityBindings,
     curio_records: &[CurioActivityRecord],
     effect_slot: ActivitySlotId,
-) -> Result<Option<ExternalLowering>, OccurrenceInteractionError> {
+) -> Result<Option<external::Lowering>, OccurrenceInteractionError> {
     if has_marker(outcome, "history-best-path") {
         return history_choices(outcome, catalog, blessing_inventory).map(Some);
     }
@@ -288,7 +277,7 @@ fn history_choices(
     outcome: &OccurrenceOutcome,
     catalog: &UniverseCatalog,
     inventory: ActivityInventoryId,
-) -> Result<ExternalLowering, OccurrenceInteractionError> {
+) -> Result<external::Lowering, OccurrenceInteractionError> {
     let quantity = outcome
         .numeric_literals()
         .first()
@@ -334,14 +323,14 @@ fn history_choices(
                     .map_err(|_| OccurrenceInteractionError::TooManyCandidates)?,
                 groups: groups.clone(),
             };
-            Ok(ExternalChoice {
+            Ok(external::Choice {
                 content: u64::from(path.id().get()),
                 random_candidate_count: operation.random_candidate_count(),
                 operations: vec![PayloadOperation::S08(operation)],
             })
         })
         .collect::<Result<Vec<_>, OccurrenceInteractionError>>()?;
-    Ok(ExternalLowering {
+    Ok(external::Lowering {
         choices,
         repeat_key: None,
     })
@@ -354,7 +343,7 @@ fn cosmic_choices(
     curio_bindings: CurioActivityBindings,
     curio_records: &[CurioActivityRecord],
     effect_slot: ActivitySlotId,
-) -> Result<ExternalLowering, OccurrenceInteractionError> {
+) -> Result<external::Lowering, OccurrenceInteractionError> {
     let blessings = |rarities: &[u8]| {
         catalog
             .blessings()
@@ -472,7 +461,7 @@ fn cosmic_choices(
                 0,
                 PayloadOperation::S08(Operation::Sequence { effect_slot }),
             );
-            Ok(ExternalChoice {
+            Ok(external::Choice {
                 content: u64::try_from(index + 1)
                     .map_err(|_| OccurrenceInteractionError::Arithmetic)?,
                 random_candidate_count: operation_candidate_count(operations),
@@ -480,7 +469,7 @@ fn cosmic_choices(
             })
         })
         .collect::<Result<Vec<_>, OccurrenceInteractionError>>()?;
-    Ok(ExternalLowering {
+    Ok(external::Lowering {
         choices,
         repeat_key: Some(COSMIC_REPEAT_KEY),
     })

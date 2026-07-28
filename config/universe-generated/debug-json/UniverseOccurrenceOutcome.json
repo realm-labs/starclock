@@ -1185,11 +1185,20 @@
           "numeric_literals": {
             "List": [
               {
+                "String": "50"
+              },
+              {
                 "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.repair-one-destroyed"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -1222,8 +1231,23 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100"
+              },
+              {
+                "String": "61"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.repair-all-destroyed"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -1271,10 +1295,10 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Discard"
               },
               {
-                "String": "Discard"
+                "String": "Obtain"
               }
             ]
           },
@@ -1284,19 +1308,28 @@
                 "String": "2"
               },
               {
-                "String": "2"
-              },
-              {
-                "String": "2"
+                "String": "4"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.showman-two-to-four"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
+              {
+                "String": "Blessing"
+              },
               {
                 "String": "Blessing"
               }
@@ -1316,32 +1349,44 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Discard"
               },
               {
-                "String": "Discard"
+                "String": "Obtain"
               }
             ]
           },
           "numeric_literals": {
             "List": [
               {
-                "String": "1"
+                "String": "2"
               },
               {
-                "String": "3"
-              },
-              {
-                "String": "3"
+                "String": "2"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.showman-two-to-two-three"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
+              {
+                "String": "Blessing"
+              },
               {
                 "String": "Blessing"
               }
@@ -1365,17 +1410,38 @@
               },
               {
                 "String": "Repair"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
           "numeric_literals": {
             "List": [
               {
+                "String": "100"
+              },
+              {
+                "String": "1"
+              },
+              {
                 "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.double-lottery-buy"
+              },
+              {
+                "String": "universe.curio.63"
+              },
+              {
+                "String": "universe.curio.107"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -1383,10 +1449,18 @@
             "List": [
               {
                 "String": "CosmicFragments"
+              },
+              {
+                "String": "Curio"
+              },
+              {
+                "String": "Curio"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -1405,8 +1479,29 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "50"
+              },
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.double-lottery-repair"
+              },
+              {
+                "String": "universe.curio.63"
+              },
+              {
+                "String": "universe.curio.107"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -1414,6 +1509,9 @@
             "List": [
               {
                 "String": "CosmicFragments"
+              },
+              {
+                "String": "Curio"
               }
             ]
           },
@@ -1455,8 +1553,20 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "40"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.perfect-pay-third"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -1484,7 +1594,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.perfect-leave-third"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -1505,8 +1621,20 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "40"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.perfect-pay-second"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -1534,7 +1662,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.perfect-leave-second"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -1555,8 +1689,20 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "40"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.perfect-pay-first"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -1584,7 +1730,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.perfect-leave-first"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -1594,7 +1746,16 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "50"
+              },
+              {
+                "String": "50"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 192
           },
@@ -1605,8 +1766,26 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.perfect-clay-second"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              },
+              {
+                "String": "universe.curio-pool.polarity.negative"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -1624,7 +1803,16 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "40"
+              },
+              {
+                "String": "60"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 193
           },
@@ -1635,8 +1823,23 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.perfect-popular-second"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -1654,7 +1857,16 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "50"
+              },
+              {
+                "String": "50"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 194
           },
@@ -1665,8 +1877,26 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.perfect-clay-third"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              },
+              {
+                "String": "universe.curio-pool.polarity.negative"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -1684,7 +1914,16 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "40"
+              },
+              {
+                "String": "60"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 195
           },
@@ -1695,8 +1934,23 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.perfect-popular-third"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -1714,7 +1968,16 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "50"
+              },
+              {
+                "String": "50"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 196
           },
@@ -1725,8 +1988,26 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.perfect-clay-first"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              },
+              {
+                "String": "universe.curio-pool.polarity.negative"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -7938,8 +8219,20 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "500"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.ruan-enhance-all"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -7966,8 +8259,23 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "10"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.ruan-curios-ten"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -7992,15 +8300,33 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Enhance"
               },
               {
-                "String": "Enhance"
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "500"
+              },
+              {
+                "String": "10"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s09.ruan-both"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },

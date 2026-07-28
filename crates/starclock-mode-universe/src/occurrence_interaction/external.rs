@@ -1,6 +1,17 @@
 use super::{
-    OccurrenceExternalResult, OccurrenceInteractionError, PayloadOperation, encode_operations,
+    OccurrenceExternalResult, OccurrenceInteractionError, PAYLOAD_REVISION, PayloadOperation,
 };
+
+pub(super) struct Choice {
+    pub(super) content: u64,
+    pub(super) operations: Vec<PayloadOperation>,
+    pub(super) random_candidate_count: Option<u32>,
+}
+
+pub(super) struct Lowering {
+    pub(super) choices: Vec<Choice>,
+    pub(super) repeat_key: Option<u64>,
+}
 
 pub(super) fn single_selection(
     operations: &[PayloadOperation],
@@ -56,4 +67,30 @@ pub(super) fn single_selection(
             })
         })
         .collect()
+}
+
+pub(super) fn encode_operations(
+    operations: Vec<PayloadOperation>,
+) -> Result<(Vec<u8>, u16, u16), OccurrenceInteractionError> {
+    let deferred_operations = u16::try_from(
+        operations
+            .iter()
+            .filter(|operation| operation.is_deferred())
+            .count(),
+    )
+    .map_err(|_| OccurrenceInteractionError::TooManyOperations)?;
+    let immediate_operations = u16::try_from(operations.len())
+        .map_err(|_| OccurrenceInteractionError::TooManyOperations)?
+        .saturating_sub(deferred_operations);
+    let mut payload = Vec::new();
+    payload.push(PAYLOAD_REVISION);
+    payload.extend_from_slice(
+        &u16::try_from(operations.len())
+            .map_err(|_| OccurrenceInteractionError::TooManyOperations)?
+            .to_le_bytes(),
+    );
+    for operation in operations {
+        operation.encode(&mut payload)?;
+    }
+    Ok((payload, immediate_operations, deferred_operations))
 }

@@ -27,6 +27,7 @@ mod s05;
 mod s06;
 mod s07;
 mod s08;
+mod s09;
 pub(crate) mod support;
 
 use support::{
@@ -37,7 +38,7 @@ use support::{
 
 pub const OCCURRENCE_INTERACTION_HANDLER_ID: u32 = 2;
 pub const OCCURRENCE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-occurrence-interaction-runtime-v8";
+    "standard-universe-occurrence-interaction-runtime-v9";
 const PAYLOAD_REVISION: u8 = 5;
 const TAG_FRAGMENT_SCALAR: u8 = 1;
 const TAG_FRAGMENT_PERCENT: u8 = 2;
@@ -317,9 +318,20 @@ pub(crate) fn compile(
         curio_records,
         interaction_state,
     )?;
+    let external =
+        s09::externalize(outcome, catalog, curio_bindings, curio_records)?.or(external_s08);
     let specialized_s08 = s08::lower(
         outcome,
         catalog,
+        curio_bindings,
+        curio_records,
+        interaction_state,
+    )?;
+    let specialized_s09 = s09::lower(
+        outcome,
+        catalog,
+        blessing_inventory,
+        selected_path,
         curio_bindings,
         curio_records,
         interaction_state,
@@ -350,9 +362,10 @@ pub(crate) fn compile(
     } else {
         None
     };
-    let repeat_key = external_s08
+    let repeat_key = external
         .as_ref()
         .and_then(|value| value.repeat_key)
+        .or_else(|| specialized_s09.as_ref().and_then(|value| value.repeat_key))
         .or_else(|| {
             specialized_s08
                 .as_ref()
@@ -373,16 +386,20 @@ pub(crate) fn compile(
     let skip_generic_s08 = specialized_s08
         .as_ref()
         .is_some_and(|(_, _, skip_generic)| *skip_generic);
+    let skip_generic_s09 = specialized_s09.is_some();
+    if let Some(lowering) = specialized_s09 {
+        operations.extend(lowering.operations);
+    }
     if let Some((operation, _, _)) = specialized_s08 {
         operations.push(PayloadOperation::S08(operation));
     }
-    if external_s08.is_some() {
+    if external.is_some() {
         operations.push(PayloadOperation::Transition);
     }
     let has_specialized_s07 = specialized_s07.is_some();
     if let Some(operation) = specialized_s07 {
         operations.push(PayloadOperation::S07(operation));
-    } else {
+    } else if !skip_generic_s09 && external.is_none() {
         lower_costs(
             &mut operations,
             choice,
@@ -396,7 +413,12 @@ pub(crate) fn compile(
                 .collect::<Vec<_>>(),
         )?;
     }
-    if repeat_key.is_none() && !has_specialized_s07 && !skip_generic_s08 && external_s08.is_none() {
+    if repeat_key.is_none()
+        && !has_specialized_s07
+        && !skip_generic_s08
+        && !skip_generic_s09
+        && external.is_none()
+    {
         lower_pairs(
             &mut operations,
             outcome_pairs(outcome),
@@ -414,13 +436,13 @@ pub(crate) fn compile(
     if operations.len() > MAX_PAYLOAD_OPERATIONS {
         return Err(OccurrenceInteractionError::TooManyOperations);
     }
-    let external_results = if let Some(lowering) = external_s08 {
+    let external_results = if let Some(lowering) = external {
         lowering
             .choices
             .into_iter()
             .map(|choice| {
                 let (payload, immediate_operations, deferred_operations) =
-                    encode_operations(choice.operations)?;
+                    external::encode_operations(choice.operations)?;
                 Ok(OccurrenceExternalResult {
                     content: choice.content,
                     payload: payload.into_boxed_slice(),
@@ -458,13 +480,15 @@ pub(crate) fn compile(
                 PayloadOperation::S06(operation) => operation.random_candidate_count(),
                 PayloadOperation::S07(operation) => operation.random_candidate_count(),
                 PayloadOperation::S08(operation) => operation.random_candidate_count(),
+                PayloadOperation::S09(operation) => operation.random_candidate_count(),
                 _ => None,
             })
             .try_fold(1_u32, checked_lcm)
     } else {
         None
     };
-    let (payload, immediate_operations, deferred_operations) = encode_operations(operations)?;
+    let (payload, immediate_operations, deferred_operations) =
+        external::encode_operations(operations)?;
     Ok(CompiledOccurrenceInteraction {
         battle_member,
         repeat_key,
@@ -518,6 +542,7 @@ pub(crate) fn execute(
             tag if s06::decode(tag, input, &mut decoder, &mut operations)? => {}
             tag if s07::decode(tag, input, &mut decoder, &mut operations)? => {}
             tag if s08::decode(tag, input, &mut decoder, &mut operations)? => {}
+            tag if s09::decode(tag, input, &mut decoder, &mut operations)? => {}
             _ => return Err(invalid_payload()),
         }
     }
@@ -780,6 +805,7 @@ enum PayloadOperation {
     S06(s06::Operation),
     S07(s07::Operation),
     S08(s08::Operation),
+    S09(s09::Operation),
     Transition,
 }
 
@@ -926,6 +952,7 @@ impl PayloadOperation {
             Self::S06(operation) => operation.encode(output)?,
             Self::S07(operation) => operation.encode(output)?,
             Self::S08(operation) => operation.encode(output)?,
+            Self::S09(operation) => operation.encode(output)?,
             Self::Transition => output.push(TAG_TRANSITION),
         }
         Ok(())
@@ -1100,32 +1127,6 @@ fn referenced_curios(
     selected.sort_unstable_by_key(|value| value.id());
     selected.dedup_by_key(|value| value.id());
     Ok(selected)
-}
-
-fn encode_operations(
-    operations: Vec<PayloadOperation>,
-) -> Result<(Vec<u8>, u16, u16), OccurrenceInteractionError> {
-    let deferred_operations = u16::try_from(
-        operations
-            .iter()
-            .filter(|operation| operation.is_deferred())
-            .count(),
-    )
-    .map_err(|_| OccurrenceInteractionError::TooManyOperations)?;
-    let immediate_operations = u16::try_from(operations.len())
-        .map_err(|_| OccurrenceInteractionError::TooManyOperations)?
-        .saturating_sub(deferred_operations);
-    let mut payload = Vec::new();
-    payload.push(PAYLOAD_REVISION);
-    payload.extend_from_slice(
-        &u16::try_from(operations.len())
-            .map_err(|_| OccurrenceInteractionError::TooManyOperations)?
-            .to_le_bytes(),
-    );
-    for operation in operations {
-        operation.encode(&mut payload)?;
-    }
-    Ok((payload, immediate_operations, deferred_operations))
 }
 
 fn lower_costs(

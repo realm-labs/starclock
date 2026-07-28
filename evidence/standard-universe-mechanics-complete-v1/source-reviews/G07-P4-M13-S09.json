@@ -1,0 +1,107 @@
+{
+  "schema_revision": "starclock.goal07-occurrence-source-review.v1",
+  "partition_id": "G07-P4-M13-S09",
+  "reviewed_on": "2026-07-28",
+  "frozen_source_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+  "sources": [
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/The_Curio_Fixer",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "17df1af69d20e0883a56aacf73ee77fe09f9181648b71767682309a1d4e9217a",
+      "facts": [
+        "repair-one:fragments-50:destroyed-curio-1",
+        "repair-all:fragments-100",
+        "leave:no-change"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Showman%27s_Sleight",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "499f73f0d56b217b63eebef5608ba5390267013a5149763303d04ea4e05acdbb",
+      "facts": [
+        "left:discard-two-two-star:obtain-four-two-star",
+        "right:discard-two-two-star:obtain-two-three-star"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/The_Double_Lottery_Experience",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "03a9b72351de8cc85e12e45a6e30410c5ef872ba06aff06c4071ce3d690573ed",
+      "facts": [
+        "vote:fragments-100:repair-one-lotto:obtain-one-lotto",
+        "double-delight:fragments-50:repair-all-lottos",
+        "refuse:no-change"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Ruan_Mei_%28II%29",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "6a0322477918070db9cdbeaa86334489f8ccb69a984986ebcde559aa04395de4",
+      "facts": [
+        "worship:enhance-up-to-500-blessings",
+        "steal:normal-curios-10",
+        "ruan-mei-downloaded:both"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/The_%2APerfect%2A_Grand_Challenge%21",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "d801dafab8bd525816a365dc884cd9073e6bec8c5bf2e1ed166a137addf9310c",
+      "facts": [
+        "attempts:maximum-3:fragments-40-each",
+        "clay-doll:normal-curio-50:negative-curio-50",
+        "popular-toy:normal-curio-40:nothing-60",
+        "leave:end"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0012601/Opt0012601.json",
+      "section": "OptionList",
+      "evidence_sha256": "417039e37c2b845018c5a2889d72bf27b8e78813ebc508706522b67badb54839",
+      "facts": [
+        "source-option:12601"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0012701/Opt0012701.json",
+      "section": "OptionList",
+      "evidence_sha256": "ae55121259cfc5c3035a5f6526296d2958dc01616d414cd5b7566ffe73755227",
+      "facts": [
+        "source-option:12701"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0012801/Opt0012801.json",
+      "section": "OptionList",
+      "evidence_sha256": "d39207859a522c58d292120eb8b6ac94effd560bded7c12a83589e436ddca623",
+      "facts": [
+        "source-option:12801"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0012901/Opt0012901.json",
+      "section": "OptionList",
+      "evidence_sha256": "abdaa95b382e1f6c7c828ba1ff577e0b731e4368c0d74724874e5fb403e6b686",
+      "facts": [
+        "source-option:12901"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0013001/Opt0013001.json",
+      "section": "OptionList",
+      "evidence_sha256": "110823c0e966fa22d2d0fea17fdc31f53687c44d0131990447b42511fe5e1dc3",
+      "facts": [
+        "source-option:13001"
+      ]
+    },
+    {
+      "url": "https://gitlab.com/Dimbreath/turnbasedgamedata/-/raw/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0013001/Act0013001.json",
+      "section": "OnStartSequece",
+      "evidence_sha256": "8a2e5e03e397f6aad05a74d0875490001ed474cbe9a0c1a7478832a85bfaaf16",
+      "facts": [
+        "perfect-graph:first-13001-13002:second-13005-13006:third-13009-13010",
+        "perfect-results:first-13003-13004:second-13007-13008:third-13011-13012"
+      ]
+    }
+  ]
+}
