@@ -179,6 +179,78 @@
             "String": "goal07.enemy.s03.condition.direwolf-coordinated"
           }
         }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1010551
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "Constant"
+              },
+              "value": {
+                "Bool": true
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s04.condition.always"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1010552
+          },
+          "node": {
+            "Object": {
+              "comparison": {
+                "String": "Greater"
+              },
+              "left_expression_id": {
+                "Integer": 1011108
+              },
+              "right_expression_id": {
+                "Integer": 1011107
+              },
+              "type": {
+                "String": "Compare"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s04.condition.reset-sequence"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1010553
+          },
+          "node": {
+            "Object": {
+              "comparison": {
+                "String": "Greater"
+              },
+              "left_expression_id": {
+                "Integer": 1011109
+              },
+              "right_expression_id": {
+                "Integer": 1011107
+              },
+              "type": {
+                "String": "Compare"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s04.condition.needs-absorption"
+          }
+        }
       }
     ]
   }

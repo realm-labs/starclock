@@ -44,6 +44,8 @@ use starclock_mode_universe::{
     },
 };
 
+#[path = "battle_materialization/blaze_s04.rs"]
+mod blaze_s04;
 #[path = "battle_materialization/direwolf_s02.rs"]
 mod direwolf_s02;
 #[path = "battle_materialization/grizzly_s03.rs"]
@@ -322,7 +324,7 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
             .iter()
             .filter(|enemy| enemy.definition_match() == EnemyDefinitionMatch::Exact)
             .count(),
-        16
+        17
     );
     assert_eq!(
         materialized
@@ -330,7 +332,7 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
             .iter()
             .filter(|enemy| enemy.definition_match() == EnemyDefinitionMatch::ApproximateProxy)
             .count(),
-        70
+        69
     );
     assert!(
         materialized
@@ -345,8 +347,8 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
     assert_eq!(coverage.member_enemy_slot_count(), 538);
     assert_eq!(coverage.difficulty_binding_count(), 182);
     assert_eq!(coverage.enemy_variant_count(), 86);
-    assert_eq!(coverage.exact_enemy_variant_count(), 16);
-    assert_eq!(coverage.approximate_enemy_variant_count(), 70);
+    assert_eq!(coverage.exact_enemy_variant_count(), 17);
+    assert_eq!(coverage.approximate_enemy_variant_count(), 69);
     assert_eq!(
         coverage.declared_rule_binding_count(),
         u16::try_from(contributions.rules().len()).unwrap()
@@ -457,15 +459,15 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
     assert_eq!(
         materialized.digest(),
         [
-            28, 102, 138, 88, 7, 206, 154, 181, 198, 135, 46, 135, 155, 230, 93, 48, 129, 35, 111,
-            223, 174, 75, 83, 238, 211, 85, 62, 232, 171, 138, 158, 116,
+            169, 235, 156, 193, 246, 36, 37, 113, 122, 159, 97, 165, 201, 23, 81, 214, 83, 238,
+            176, 222, 195, 97, 255, 44, 12, 111, 231, 62, 207, 191, 209, 189,
         ]
     );
     assert_eq!(
         coverage.digest(),
         [
-            78, 243, 31, 110, 165, 140, 15, 117, 58, 134, 193, 8, 231, 83, 123, 180, 65, 76, 94,
-            149, 94, 48, 171, 248, 54, 179, 40, 81, 128, 99, 239, 92,
+            41, 57, 176, 60, 238, 56, 163, 122, 242, 16, 87, 54, 246, 45, 207, 186, 245, 5, 89,
+            153, 109, 237, 162, 16, 6, 18, 171, 186, 142, 225, 16, 108,
         ]
     );
 
@@ -757,27 +759,27 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(executor.reports().len(), 1);
+    assert_eq!(executor.reports().len(), 4);
     assert_eq!(
         executor
             .reports()
             .iter()
             .map(|battle| battle.trace().len())
             .sum::<usize>(),
-        7
+        24
     );
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            192, 246, 10, 76, 191, 86, 110, 194, 80, 167, 180, 166, 127, 210, 71, 42, 122, 8, 70,
-            24, 0, 136, 100, 3, 20, 35, 96, 25, 134, 73, 127, 168,
+            55, 44, 86, 201, 1, 152, 251, 53, 94, 229, 198, 74, 13, 238, 159, 125, 56, 48, 181,
+            247, 139, 104, 94, 173, 14, 231, 31, 200, 207, 60, 252, 36,
         ]
     );
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
         [
-            112, 24, 230, 1, 35, 127, 139, 153, 240, 251, 255, 201, 175, 219, 108, 128, 97, 195,
-            48, 68, 141, 126, 141, 57, 236, 20, 233, 137, 202, 224, 137, 39,
+            240, 187, 193, 21, 13, 210, 213, 200, 25, 232, 123, 79, 45, 1, 217, 16, 226, 184, 112,
+            213, 223, 195, 43, 137, 229, 179, 189, 29, 253, 88, 189, 252,
         ]
     );
     assert!(executor.reports().iter().all(|battle| {
@@ -827,8 +829,8 @@ fn component_replay_reexecutes_nested_commands_and_compares_event_payloads() {
         starclock_activity::ACTIVITY_STATE_HASH_REVISION,
     )
     .unwrap();
-    let instance = ActivityInstanceId::new(5_034).unwrap();
-    let seed = ActivityMasterSeed::from_u64(0x5034);
+    let instance = ActivityInstanceId::new(5_033).unwrap();
+    let seed = ActivityMasterSeed::from_u64(0x5033);
     let mut activity = compiled
         .start_standard(instance, seed)
         .unwrap()
@@ -836,7 +838,7 @@ fn component_replay_reexecutes_nested_commands_and_compares_event_payloads() {
     let header = standard_universe_header_v2(
         compatibility.clone(),
         components.clone(),
-        0x5034,
+        0x5033,
         &activity,
         "standard-universe-v1",
     )

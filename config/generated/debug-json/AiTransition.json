@@ -953,6 +953,258 @@
             "String": "AfterAction"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1010551
+          },
+          "id": {
+            "Integer": 1010901
+          },
+          "priority": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s04.ai.initial-bellow.normal-transition"
+          },
+          "state_id": {
+            "Integer": 1010701
+          },
+          "target_state_id": {
+            "Integer": 1010702
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1010551
+          },
+          "id": {
+            "Integer": 1010902
+          },
+          "priority": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s04.ai.initial-absorption.normal-transition"
+          },
+          "state_id": {
+            "Integer": 1010702
+          },
+          "target_state_id": {
+            "Integer": 1010703
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1010551
+          },
+          "id": {
+            "Integer": 1010904
+          },
+          "priority": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s04.ai.rain-one.normal-transition"
+          },
+          "state_id": {
+            "Integer": 1010703
+          },
+          "target_state_id": {
+            "Integer": 1010704
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1010551
+          },
+          "id": {
+            "Integer": 1010906
+          },
+          "priority": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s04.ai.molten.normal-transition"
+          },
+          "state_id": {
+            "Integer": 1010704
+          },
+          "target_state_id": {
+            "Integer": 1010705
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1010551
+          },
+          "id": {
+            "Integer": 1010908
+          },
+          "priority": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s04.ai.rain-two.normal-transition"
+          },
+          "state_id": {
+            "Integer": 1010705
+          },
+          "target_state_id": {
+            "Integer": 1010703
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1010551
+          },
+          "id": {
+            "Integer": 1010909
+          },
+          "priority": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s04.ai.reset-absorption.normal-transition"
+          },
+          "state_id": {
+            "Integer": 1010706
+          },
+          "target_state_id": {
+            "Integer": 1010703
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1010553
+          },
+          "id": {
+            "Integer": 1010903
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s04.ai.rain-one.to-reset-absorption"
+          },
+          "state_id": {
+            "Integer": 1010703
+          },
+          "target_state_id": {
+            "Integer": 1010706
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1010553
+          },
+          "id": {
+            "Integer": 1010905
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s04.ai.molten.to-reset-absorption"
+          },
+          "state_id": {
+            "Integer": 1010704
+          },
+          "target_state_id": {
+            "Integer": 1010706
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1010553
+          },
+          "id": {
+            "Integer": 1010907
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s04.ai.rain-two.to-reset-absorption"
+          },
+          "state_id": {
+            "Integer": 1010705
+          },
+          "target_state_id": {
+            "Integer": 1010706
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
       }
     ]
   }

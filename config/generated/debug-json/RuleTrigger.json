@@ -133,6 +133,47 @@
             "String": "goal07.enemy.s01.trigger.synwood-renewal-owner-turn"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1010551
+          },
+          "event": {
+            "Object": {
+              "type": {
+                "String": "WeaknessBroken"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1010542
+          },
+          "id": {
+            "Integer": 1010543
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1010306
+          },
+          "rule_id": {
+            "Integer": 1010541
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s04.trigger.weakness-break-reset"
+          }
+        }
       }
     ]
   }

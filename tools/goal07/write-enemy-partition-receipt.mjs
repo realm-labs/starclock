@@ -54,6 +54,15 @@ const partitionConfig = {
     ],
     numericPolicyId: "goal07-exact-public-per-level-v1",
   },
+  "G07-P5-M15-S04": {
+    completedOn: "2026-07-29",
+    definitionKeys: [
+      "enemy.blaze-out-of-space.elite.variant.01",
+      "enemy.blaze-out-of-space.elite",
+      "ai.goal07.blaze-out-of-space.phase-1",
+    ],
+    numericPolicyId: "goal07-public-anchor-level-curve-v1",
+  },
 }[partitionId];
 assert(partitionConfig, `${partitionId}: enemy receipt authoring is not implemented`);
 
@@ -112,6 +121,16 @@ if (partitionId === "G07-P5-M15-S03") {
     { path: "crates/starclock-mode-universe/tests/battle_materialization/grizzly_s03.rs" },
   );
 }
+if (partitionId === "G07-P5-M15-S04") {
+  executionEvidence.push(
+    { path: "crates/starclock-data/src/operation_lower.rs" },
+    { path: "crates/starclock-data/src/catalog/effect_bindings.rs" },
+    { path: "crates/starclock-combat/src/resolver/effect_boundary.rs" },
+    { path: "crates/starclock-combat/src/resolver/rule.rs" },
+    { path: "crates/starclock-combat/src/resolver/toughness.rs" },
+    { path: "crates/starclock-mode-universe/tests/battle_materialization/blaze_s04.rs" },
+  );
+}
 const provenanceEvidence = [
   { path: "content-reference/v4.4/enemy-abilities.json" },
   { path: "content-reference/v4.4/enemy-templates.json" },
@@ -120,6 +139,11 @@ const provenanceEvidence = [
   evidence(numericAnchor),
   evidence(sourceReview),
 ];
+if (partitionId === "G07-P5-M15-S04") {
+  provenanceEvidence.push(
+    { path: "content-reference/standard-universe-v1/encounter-groups.json" },
+  );
+}
 const workbookEvidence = [
   { path: "config/data/EnemyVariant.xlsx" },
   { path: "config/data/EnemyStat.xlsx" },
@@ -188,7 +212,20 @@ const receipt = {
     sora_bundle: evidence("config/generated/config.sora"),
     sora_golden: evidence(golden),
   },
-  records: [],
+  records: partitionId === "G07-P5-M15-S04" ? [
+    {
+      id: "universe.encounter-group.11901",
+      runtime_disposition: "Metadata",
+      accuracy_disposition: "NotApplicable",
+      workbook_evidence: [
+        { path: "config/data/Universe.xlsx" },
+        { path: "config/data/UniverseBindings.xlsx" },
+      ],
+      provenance_evidence: [
+        { path: "content-reference/standard-universe-v1/encounter-groups.json" },
+      ],
+    },
+  ] : [],
   rules: [],
   fixtures: [],
   enemy_variants: [
@@ -208,7 +245,21 @@ const receipt = {
       execution_evidence: executionEvidence,
     },
   ],
-  encounter_members: [],
+  encounter_members: partitionId === "G07-P5-M15-S04" ? [
+    {
+      id: "universe.encounter-member.103",
+      runtime_disposition: "ExecutableShared",
+      accuracy_disposition: "ExactPublic",
+      workbook_evidence: [
+        { path: "config/data/Universe.xlsx" },
+        { path: "config/data/UniverseBindings.xlsx" },
+      ],
+      provenance_evidence: [
+        { path: "content-reference/standard-universe-v1/encounter-groups.json" },
+        { path: "content-reference/v4.4/enemy-variants.json" },
+      ],
+    },
+  ] : [],
   native_handler_reviews: [],
   execution: {
     result: "pass",

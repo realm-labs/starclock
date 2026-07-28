@@ -1,9 +1,9 @@
 """Author and verify Goal 07 enemy partitions in the core production workbooks.
 
 S01 owns the Abundant Ebon Deer (Complete), S02 owns the Automaton Direwolf
-(Complete), and S03 owns the Automaton Grizzly (Complete). Each partition
-receives an isolated 10,000-ID range so authoring and verification never
-consume rows owned by another partition.
+(Complete), S03 owns the Automaton Grizzly (Complete), and S04 owns the Blaze
+Out of Space. Each partition receives an isolated 10,000-ID range so authoring
+and verification never consume rows owned by another partition.
 """
 
 from __future__ import annotations
@@ -45,6 +45,12 @@ PARTITION_CONFIG = {
         "variant": "enemy.automaton-grizzly-complete.elite.variant.01",
         "source_record_id": 5,
         "evidence_record_id": 6,
+    },
+    "G07-P5-M15-S04": {
+        "base": 1_010_000,
+        "variant": "enemy.blaze-out-of-space.elite.variant.01",
+        "source_record_id": 6,
+        "evidence_record_id": 7,
     },
 }
 PARTITION = "G07-P5-M15-S01"
@@ -3686,6 +3692,1078 @@ def owned_rows_s03() -> dict[str, list[dict[str, Any]]]:
     return rows
 
 
+def owned_rows_s04() -> dict[str, list[dict[str, Any]]]:
+    anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
+    manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
+    assigned = next(item for item in manifest["partitions"] if item["id"] == PARTITION)
+    if assigned["enemy_variant_ids"] != [VARIANT_KEY]:
+        raise ValueError("S04 frozen enemy assignment changed")
+
+    variant = BASE + 1
+    template = BASE + 2
+    graph = BASE + 10
+    abilities = {
+        "bellowing-inferno": BASE + 101,
+        "blazing-absorption": BASE + 102,
+        "rain-of-purifying-flames": BASE + 103,
+        "molten-fusion": BASE + 104,
+    }
+    selectors = {
+        "actor": BASE + 401,
+        "owner": BASE + 402,
+        "current-subject": BASE + 403,
+        "primary-target": BASE + 404,
+        "opposing-random": BASE + 405,
+    }
+    effects = {
+        "enkindle": BASE + 501,
+        "spontaneous-combustion": BASE + 502,
+        "molten-fusion": BASE + 503,
+        "reset-sequence": BASE + 504,
+        "needs-absorption": BASE + 505,
+    }
+    modifier = BASE + 521
+    modifier_group = BASE + 531
+    reset_rule = BASE + 541
+    reset_filter = BASE + 542
+    reset_trigger = BASE + 543
+    conditions = {
+        "always": BASE + 551,
+        "reset-sequence": BASE + 552,
+        "needs-absorption": BASE + 553,
+    }
+    rows: dict[str, list[dict[str, Any]]] = {}
+    identities: list[dict[str, Any]] = []
+    next_program = BASE + 301
+    next_operation = BASE + 1_001
+    next_expression = BASE + 1_101
+
+    def add(table: str, row: dict[str, Any]) -> None:
+        rows.setdefault(table, []).append(row)
+
+    def identity_s04(
+        id_: int,
+        stable_key: str,
+        kind: str,
+        name_en: str,
+        name_zh_cn: str,
+        summary: str,
+        sources: str = "1",
+    ) -> dict[str, Any]:
+        row = identity(
+            id_,
+            stable_key,
+            kind,
+            name_en,
+            name_zh_cn,
+            summary,
+            sources,
+        )
+        row["summary_zh_cn"] = "Goal 07 S04 来源绑定的外宇宙之炎可执行定义。"
+        row["game_version_introduced"] = "1.0"
+        return row
+
+    identities.extend(
+        [
+            identity_s04(
+                variant,
+                VARIANT_KEY,
+                "EnemyVariant",
+                "Blaze Out of Space",
+                "外宇宙之炎",
+                "Exact materialization variant used by the frozen universe bindings.",
+                "1|6",
+            ),
+            identity_s04(
+                template,
+                "enemy.blaze-out-of-space.elite",
+                "Enemy",
+                "Blaze Out of Space Template",
+                "外宇宙之炎模板",
+                "Version 4.4 elite template retained from source monster 8003020.",
+            ),
+            identity_s04(
+                graph,
+                "ai.goal07.blaze-out-of-space.phase-1",
+                "AiGraph",
+                "Blaze Out of Space AI",
+                "外宇宙之炎AI",
+                "Finite source-ordered setup and spontaneous-combustion action graph.",
+            ),
+        ]
+    )
+    ability_metadata = {
+        "bellowing-inferno": (
+            "Bellowing Inferno",
+            "咆哮烈焰",
+            "Executable transcription of source skill 800302001.",
+        ),
+        "blazing-absorption": (
+            "Blazing Absorption",
+            "炽焰吸收",
+            "Executable transcription of source skill 800302002.",
+        ),
+        "rain-of-purifying-flames": (
+            "Rain of Purifying Flames",
+            "净火之雨",
+            "Executable five-hit transcription of source skill 800302003.",
+        ),
+        "molten-fusion": (
+            "Molten Fusion",
+            "熔火聚变",
+            "Executable transcription of source skill 800302004.",
+        ),
+    }
+    for key, ability_id in abilities.items():
+        name_en, name_zh_cn, summary = ability_metadata[key]
+        identities.append(
+            identity_s04(
+                ability_id,
+                f"enemy.blaze-out-of-space.elite.ability.{key}",
+                "Ability",
+                name_en,
+                name_zh_cn,
+                summary,
+            )
+        )
+    for name, selector_id in selectors.items():
+        identities.append(
+            identity_s04(
+                selector_id,
+                f"selector.goal07.blaze-out-of-space.{name}",
+                "Selector",
+                f"Blaze Out of Space {name} Selector",
+                f"外宇宙之炎{name}选择器",
+                "S04 battle selector.",
+            )
+        )
+    effect_metadata = {
+        "enkindle": ("Enkindle", "焚化", "Stacking two-turn Fire damage-over-time."),
+        "spontaneous-combustion": (
+            "Spontaneous Combustion",
+            "自燃",
+            "Non-dispellable state enabling the phase-two action cycle.",
+        ),
+        "molten-fusion": (
+            "Molten Fusion",
+            "熔火聚变",
+            "Three-stack two-turn ATK increase.",
+        ),
+        "reset-sequence": (
+            "Combustion Reset Sequence",
+            "自燃重置序列",
+            "Internal Rule IR marker that restarts the source setup sequence.",
+        ),
+        "needs-absorption": (
+            "Combustion Needs Absorption",
+            "自燃待吸收",
+            "Internal Rule IR marker between Bellowing Inferno and Blazing Absorption.",
+        ),
+    }
+    for key, effect_id in effects.items():
+        name_en, name_zh_cn, summary = effect_metadata[key]
+        identities.append(
+            identity_s04(
+                effect_id,
+                f"effect.goal07.blaze-out-of-space.{key}",
+                "Effect",
+                name_en,
+                name_zh_cn,
+                summary,
+            )
+        )
+    identities.extend(
+        [
+            identity_s04(
+                modifier,
+                "modifier.goal07.blaze-out-of-space.molten-fusion",
+                "Modifier",
+                "Blaze Out of Space Molten Fusion Modifier",
+                "外宇宙之炎熔火聚变调整器",
+                "Stack-scaled ATK increase sourced by Molten Fusion.",
+            ),
+            identity_s04(
+                reset_rule,
+                "rule.goal07.blaze-out-of-space.weakness-break-reset",
+                "Rule",
+                "Blaze Out of Space Weakness Break Reset",
+                "外宇宙之炎弱点击破重置",
+                "Effect-owned WeaknessBroken reset for the combustion state and ATK buff.",
+            ),
+        ]
+    )
+
+    add("Selector", selector(selectors["actor"], "Actor", "SameSide"))
+    add("Selector", selector(selectors["owner"], "Owner", "SameSide"))
+    add(
+        "Selector",
+        selector(
+            selectors["current-subject"],
+            "CurrentSubject",
+            "OpposingSide",
+        ),
+    )
+    add(
+        "Selector",
+        selector(selectors["primary-target"], "PrimaryTarget", "OpposingSide"),
+    )
+    random_selector = selector(
+        selectors["opposing-random"],
+        "Actor",
+        "OpposingSide",
+        choice="RngUniform",
+    )
+    random_selector["rng_purpose_key"] = "damage-target"
+    add("Selector", random_selector)
+
+    def expr(name: str, kind: str, node: str) -> int:
+        nonlocal next_expression
+        id_ = next_expression
+        next_expression += 1
+        add(
+            "ValueExpression",
+            {
+                "id": id_,
+                "stable_key": f"goal07.enemy.s04.expression.{name}",
+                "result_kind": kind,
+                "node": node,
+            },
+        )
+        return id_
+
+    def multiply(name: str, left: int, right: int) -> int:
+        return expr(
+            name,
+            "Scalar",
+            json_cell(
+                "CheckedBinary",
+                operator="CheckedMultiply",
+                left_expression_id=left,
+                right_expression_id=right,
+                rounding="NearestTiesAway",
+            ),
+        )
+
+    actor_atk = expr(
+        "actor-atk",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["actor"],
+            stat="Atk",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+    ratio_2_5 = expr(
+        "ratio-2-5", "Scalar", json_cell("ScalarLiteral", value_decimal="2.5")
+    )
+    ratio_1 = expr(
+        "ratio-1", "Scalar", json_cell("ScalarLiteral", value_decimal="1")
+    )
+    ratio_0_5 = expr(
+        "ratio-0-5", "Scalar", json_cell("ScalarLiteral", value_decimal="0.5")
+    )
+    ratio_0_3 = expr(
+        "ratio-0-3", "Scalar", json_cell("ScalarLiteral", value_decimal="0.3")
+    )
+    duration_2 = expr(
+        "duration-two", "Integer", json_cell("IntegerLiteral", value=2)
+    )
+    integer_zero = expr(
+        "integer-zero", "Integer", json_cell("IntegerLiteral", value=0)
+    )
+    reset_stacks = expr(
+        "reset-sequence-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["actor"],
+            effect_id=effects["reset-sequence"],
+        ),
+    )
+    needs_absorption_stacks = expr(
+        "needs-absorption-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["actor"],
+            effect_id=effects["needs-absorption"],
+        ),
+    )
+    molten_stacks = expr(
+        "molten-fusion-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["owner"],
+            effect_id=effects["molten-fusion"],
+        ),
+    )
+    molten_stacks_scalar = expr(
+        "molten-fusion-stacks-scalar",
+        "Scalar",
+        json_cell(
+            "Convert",
+            operand_expression_id=molten_stacks,
+            target_kind="Scalar",
+            rounding="NearestTiesAway",
+        ),
+    )
+    bellow_damage = multiply("bellowing-inferno-damage", actor_atk, ratio_2_5)
+    rain_hit_damage = multiply("rain-of-purifying-flames-hit", actor_atk, ratio_1)
+    enkindle_dot = multiply("enkindle-dot-per-stack", actor_atk, ratio_0_5)
+    molten_value = multiply(
+        "molten-fusion-atk-ratio", molten_stacks_scalar, ratio_0_3
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["always"],
+            "stable_key": "goal07.enemy.s04.condition.always",
+            "node": json_cell("Constant", value=True),
+        },
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["reset-sequence"],
+            "stable_key": "goal07.enemy.s04.condition.reset-sequence",
+            "node": json_cell(
+                "Compare",
+                left_expression_id=reset_stacks,
+                comparison="Greater",
+                right_expression_id=integer_zero,
+            ),
+        },
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["needs-absorption"],
+            "stable_key": "goal07.enemy.s04.condition.needs-absorption",
+            "node": json_cell(
+                "Compare",
+                left_expression_id=needs_absorption_stacks,
+                comparison="Greater",
+                right_expression_id=integer_zero,
+            ),
+        },
+    )
+
+    def operation_s04(
+        id_: int,
+        name: str,
+        payload: str,
+        target: int | None = None,
+        empty: str = "Fault",
+    ) -> dict[str, Any]:
+        row = operation(id_, name, payload, target, empty)
+        row["stable_key"] = f"goal07.enemy.s04.operation.{name}"
+        return row
+
+    def damage_op(name: str, amount: int, target: int) -> dict[str, Any]:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        return operation_s04(
+            id_,
+            name,
+            json_cell(
+                "Damage",
+                amount_expression_id=amount,
+                damage_class="Ordinary",
+                element="Fire",
+                can_crit=True,
+            ),
+            target,
+        )
+
+    def effect_op(
+        name: str,
+        effect: int,
+        target: int,
+        *,
+        resistible: bool = False,
+        remove: bool = False,
+        empty: str = "Fault",
+    ) -> dict[str, Any]:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        payload = (
+            json_cell("RemoveEffect", effect_id=effect)
+            if remove
+            else json_cell(
+                "ApplyEffect",
+                effect_id=effect,
+                stacks_expression_id=None,
+                chance_policy="Resistible" if resistible else "Guaranteed",
+                base_chance_expression_id=ratio_1 if resistible else None,
+                rng_purpose_key="effect-application" if resistible else None,
+            )
+        )
+        return operation_s04(id_, name, payload, target, empty)
+
+    programs: dict[str, int] = {}
+
+    def program(name: str, steps: list[dict[str, Any] | str]) -> int:
+        nonlocal next_program
+        id_ = next_program
+        next_program += 1
+        programs[name] = id_
+        identities.append(
+            identity_s04(
+                id_,
+                f"program.goal07.blaze-out-of-space.{name}",
+                "Program",
+                f"Blaze Out of Space {name} Program",
+                f"外宇宙之炎{name}程序",
+                "Ordered Rule IR program for the S04 enemy.",
+            )
+        )
+        add("Program", {"id": id_, "domain": "Battle"})
+        for sequence, step in enumerate(steps, start=1):
+            if isinstance(step, dict):
+                add("Operation", step)
+                encoded = json_cell("Operation", operation_id=step["id"])
+            else:
+                encoded = step
+            add(
+                "ProgramStep",
+                {"program_id": id_, "sequence": sequence, "step": encoded},
+            )
+        return id_
+
+    rain_hit_program = program(
+        "rain-of-purifying-flames-hit",
+        [
+            damage_op(
+                "rain-of-purifying-flames-hit-damage",
+                rain_hit_damage,
+                selectors["current-subject"],
+            ),
+            effect_op(
+                "rain-of-purifying-flames-hit-enkindle",
+                effects["enkindle"],
+                selectors["current-subject"],
+                resistible=True,
+            ),
+        ],
+    )
+    ability_programs = {
+        abilities["bellowing-inferno"]: program(
+            "bellowing-inferno",
+            [
+                damage_op(
+                    "bellowing-inferno-damage",
+                    bellow_damage,
+                    selectors["primary-target"],
+                ),
+                effect_op(
+                    "bellowing-inferno-enkindle",
+                    effects["enkindle"],
+                    selectors["primary-target"],
+                    resistible=True,
+                ),
+                effect_op(
+                    "bellowing-inferno-clear-reset",
+                    effects["reset-sequence"],
+                    selectors["actor"],
+                    remove=True,
+                    empty="NoOp",
+                ),
+                effect_op(
+                    "bellowing-inferno-mark-needs-absorption",
+                    effects["needs-absorption"],
+                    selectors["actor"],
+                ),
+            ],
+        ),
+        abilities["blazing-absorption"]: program(
+            "blazing-absorption",
+            [
+                effect_op(
+                    "blazing-absorption-enter-spontaneous-combustion",
+                    effects["spontaneous-combustion"],
+                    selectors["actor"],
+                ),
+                effect_op(
+                    "blazing-absorption-clear-needs-absorption",
+                    effects["needs-absorption"],
+                    selectors["actor"],
+                    remove=True,
+                    empty="NoOp",
+                ),
+            ],
+        ),
+        abilities["rain-of-purifying-flames"]: program(
+            "rain-of-purifying-flames",
+            [
+                json_cell(
+                    "ForEach",
+                    selector_id=selectors["opposing-random"],
+                    body_program_id=rain_hit_program,
+                    maximum_iterations=1,
+                )
+                for _ in range(5)
+            ],
+        ),
+        abilities["molten-fusion"]: program(
+            "molten-fusion",
+            [
+                effect_op(
+                    "molten-fusion-add-stack",
+                    effects["molten-fusion"],
+                    selectors["actor"],
+                )
+            ],
+        ),
+    }
+    reset_program = program(
+        "weakness-break-reset",
+        [
+            effect_op(
+                "weakness-break-clear-spontaneous-combustion",
+                effects["spontaneous-combustion"],
+                selectors["owner"],
+                remove=True,
+                empty="NoOp",
+            ),
+            effect_op(
+                "weakness-break-clear-molten-fusion",
+                effects["molten-fusion"],
+                selectors["owner"],
+                remove=True,
+                empty="NoOp",
+            ),
+            effect_op(
+                "weakness-break-mark-reset-sequence",
+                effects["reset-sequence"],
+                selectors["owner"],
+            ),
+        ],
+    )
+
+    target_patterns = {
+        "bellowing-inferno": "SingleTarget",
+        "blazing-absorption": "None",
+        "rain-of-purifying-flames": "Bounce",
+        "molten-fusion": "None",
+    }
+    ai_tags = {
+        "bellowing-inferno": "skill01-bellowing-inferno",
+        "blazing-absorption": "skill03-blazing-absorption",
+        "rain-of-purifying-flames": "skill05-rain-of-purifying-flames",
+        "molten-fusion": "skill07-molten-fusion",
+    }
+    for key, ability_id in abilities.items():
+        add(
+            "Ability",
+            {
+                "id": ability_id,
+                "kind": "Skill",
+                "target_pattern": target_patterns[key],
+                "retarget_policy": "CancelRemaining",
+                "level_cap": 1,
+                "cooldown_actions": 1,
+                "semantic_tags_mask": (
+                    5
+                    if key in {"bellowing-inferno", "rain-of-purifying-flames"}
+                    else 4
+                ),
+            },
+        )
+        add(
+            "AbilityPhase",
+            {
+                "ability_id": ability_id,
+                "sequence": 1,
+                "kind": "Resolved",
+                "program_identity_id": ability_programs[ability_id],
+            },
+        )
+        add(
+            "EnemyAbility",
+            {
+                "id": ability_id,
+                "telegraph": "None",
+                "cooldown_actions": 1,
+                "initial_cooldown_actions": 0,
+                "charge_actions": 0,
+                "ai_tag": ai_tags[key],
+            },
+        )
+
+    effect_definitions = {
+        "enkindle": {
+            "category": "Dot",
+            "dispel": "DispellableDebuff",
+            "limit": 5,
+            "duration": duration_2,
+            "clock": "TargetTurnEnd",
+            "tick": "TurnStart",
+            "policy": "RefreshAndAddStacks",
+            "magnitude": enkindle_dot,
+            "dot_element": "Fire",
+        },
+        "spontaneous-combustion": {
+            "category": "NeutralState",
+            "dispel": "NonDispellable",
+            "limit": 1,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "Replace",
+            "magnitude": None,
+            "dot_element": None,
+        },
+        "molten-fusion": {
+            "category": "Buff",
+            "dispel": "DispellableBuff",
+            "limit": 3,
+            "duration": duration_2,
+            "clock": "OwnerTurnEnd",
+            "tick": "None",
+            "policy": "RefreshAndAddStacks",
+            "magnitude": molten_value,
+            "dot_element": None,
+        },
+        "reset-sequence": {
+            "category": "NeutralState",
+            "dispel": "NonDispellable",
+            "limit": 1,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "Replace",
+            "magnitude": None,
+            "dot_element": None,
+        },
+        "needs-absorption": {
+            "category": "NeutralState",
+            "dispel": "NonDispellable",
+            "limit": 1,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "Replace",
+            "magnitude": None,
+            "dot_element": None,
+        },
+    }
+    for key, effect_id in effects.items():
+        definition = effect_definitions[key]
+        add(
+            "Effect",
+            {
+                "id": effect_id,
+                "category": definition["category"],
+                "dispel_category": definition["dispel"],
+                "stack_limit": definition["limit"],
+                "duration_expression_id": definition["duration"],
+                "duration_clock": definition["clock"],
+                "tick_phase": definition["tick"],
+                "stack_policy": definition["policy"],
+                "magnitude_comparator_expression_id": definition["magnitude"],
+                "dot_element": definition["dot_element"],
+                "snapshot_policy": "OnApplication",
+                "teardown_policy": "RemoveWithOwner",
+                "application_priority": 0,
+            },
+        )
+    for effect_key, tags in {
+        "enkindle": ["burn", "enkindle"],
+        "spontaneous-combustion": ["spontaneous-combustion"],
+        "molten-fusion": ["attack-up", "remove-on-weakness-break"],
+        "reset-sequence": ["internal-ai-reset"],
+        "needs-absorption": ["internal-ai-setup"],
+    }.items():
+        for sequence, tag in enumerate(tags, start=1):
+            add(
+                "EffectTag",
+                {
+                    "effect_id": effects[effect_key],
+                    "sequence": sequence,
+                    "tag": tag,
+                },
+            )
+
+    add(
+        "ModifierStackingGroup",
+        {
+            "id": modifier_group,
+            "stable_key": "goal07.enemy.s04.molten-fusion",
+            "aggregation": "Sum",
+        },
+    )
+    add(
+        "ModifierDefinition",
+        {
+            "id": modifier,
+            "source_effect_id": effects["molten-fusion"],
+            "owner_selector_id": selectors["owner"],
+            "subject_selector_id": selectors["owner"],
+            "stat": "Atk",
+            "formula_stage": "PercentOfBase",
+            "formula_purpose": "Stat",
+            "value_expression_id": molten_value,
+            "value_domain": "Ratio",
+            "stacking_group_id": modifier_group,
+            "priority": 0,
+            "cap_formula_stage": "PercentOfBase",
+            "snapshot_policy": "Dynamic",
+            "duration_scope": "Turn",
+        },
+    )
+    add(
+        "EffectModifierBinding",
+        {
+            "effect_id": effects["molten-fusion"],
+            "sequence": 1,
+            "modifier_id": modifier,
+        },
+    )
+
+    add(
+        "RuleDefinition",
+        {
+            "id": reset_rule,
+            "domain": "Battle",
+            "source_definition_identity_id": effects["spontaneous-combustion"],
+            "source_class": "Effect",
+            "source_digest_sha256": sha256_text(
+                "goal07-s04-spontaneous-combustion-weakness-break-reset-v1"
+            ),
+        },
+    )
+    add(
+        "EventFilter",
+        {
+            "id": reset_filter,
+            "stable_key": "goal07.enemy.s04.filter.weakness-break-owner",
+            "target_selector_id": selectors["owner"],
+            "cause_ancestry": "Any",
+        },
+    )
+    add(
+        "RuleTrigger",
+        {
+            "id": reset_trigger,
+            "stable_key": "goal07.enemy.s04.trigger.weakness-break-reset",
+            "rule_id": reset_rule,
+            "sequence": 1,
+            "event": json_cell("WeaknessBroken"),
+            "phase": "AfterEvent",
+            "filter_id": reset_filter,
+            "condition_id": conditions["always"],
+            "once_scope": "Event",
+            "priority": 0,
+            "program_id": reset_program,
+        },
+    )
+    add(
+        "EffectRuleBinding",
+        {
+            "effect_id": effects["spontaneous-combustion"],
+            "sequence": 1,
+            "rule_id": reset_rule,
+        },
+    )
+
+    state_ids = {
+        "initial-bellow": BASE + 701,
+        "initial-absorption": BASE + 702,
+        "rain-one": BASE + 703,
+        "molten": BASE + 704,
+        "rain-two": BASE + 705,
+        "reset-absorption": BASE + 706,
+    }
+    add(
+        "AiGraph",
+        {
+            "id": graph,
+            "initial_state_id": state_ids["initial-bellow"],
+            "automatic_transition_budget": 8,
+        },
+    )
+    normal_abilities = {
+        "initial-bellow": abilities["bellowing-inferno"],
+        "initial-absorption": abilities["blazing-absorption"],
+        "rain-one": abilities["rain-of-purifying-flames"],
+        "molten": abilities["molten-fusion"],
+        "rain-two": abilities["rain-of-purifying-flames"],
+        "reset-absorption": abilities["blazing-absorption"],
+    }
+    target_selectors = {
+        abilities["bellowing-inferno"]: selectors["opposing-random"],
+        abilities["blazing-absorption"]: selectors["actor"],
+        abilities["rain-of-purifying-flames"]: selectors["opposing-random"],
+        abilities["molten-fusion"]: selectors["actor"],
+    }
+    for state_name, state_id in state_ids.items():
+        add(
+            "AiState",
+            {
+                "id": state_id,
+                "stable_key": f"goal07.enemy.s04.ai.{state_name}",
+                "graph_id": graph,
+                "mandatory_fallback_ability_id": abilities["bellowing-inferno"],
+                "turn_counter_reset": state_name == "initial-bellow",
+            },
+        )
+    next_candidate = BASE + 801
+    phase_two_states = {"rain-one", "molten", "rain-two"}
+    for state_name, state_id in state_ids.items():
+        candidate_sequence = 1
+        if state_name in phase_two_states:
+            add(
+                "AiCandidate",
+                {
+                    "id": next_candidate,
+                    "stable_key": f"goal07.enemy.s04.ai.{state_name}.reset-bellow",
+                    "state_id": state_id,
+                    "sequence": candidate_sequence,
+                    "ability_id": abilities["bellowing-inferno"],
+                    "condition_id": conditions["reset-sequence"],
+                    "target_selector_id": selectors["opposing-random"],
+                    "priority": 0,
+                    "selection": "FirstLegal",
+                    "no_target_fallback": "UseFallbackAbility",
+                    "fallback_ability_id": abilities["bellowing-inferno"],
+                },
+            )
+            next_candidate += 1
+            candidate_sequence += 1
+        normal_ability = normal_abilities[state_name]
+        add(
+            "AiCandidate",
+            {
+                "id": next_candidate,
+                "stable_key": f"goal07.enemy.s04.ai.{state_name}.main",
+                "state_id": state_id,
+                "sequence": candidate_sequence,
+                "ability_id": normal_ability,
+                "condition_id": conditions["always"],
+                "target_selector_id": target_selectors[normal_ability],
+                "priority": 10,
+                "selection": "FirstLegal",
+                "no_target_fallback": "UseFallbackAbility",
+                "fallback_ability_id": abilities["bellowing-inferno"],
+            },
+        )
+        next_candidate += 1
+
+    normal_transitions = {
+        "initial-bellow": "initial-absorption",
+        "initial-absorption": "rain-one",
+        "rain-one": "molten",
+        "molten": "rain-two",
+        "rain-two": "rain-one",
+        "reset-absorption": "rain-one",
+    }
+    next_transition = BASE + 901
+    for state_name, target_name in normal_transitions.items():
+        state_id = state_ids[state_name]
+        transition_sequence = 1
+        if state_name in phase_two_states:
+            add(
+                "AiTransition",
+                {
+                    "id": next_transition,
+                    "stable_key": (
+                        f"goal07.enemy.s04.ai.{state_name}.to-reset-absorption"
+                    ),
+                    "state_id": state_id,
+                    "sequence": transition_sequence,
+                    "target_state_id": state_ids["reset-absorption"],
+                    "condition_id": conditions["needs-absorption"],
+                    "priority": 0,
+                    "timing": "AfterAction",
+                },
+            )
+            next_transition += 1
+            transition_sequence += 1
+        add(
+            "AiTransition",
+            {
+                "id": next_transition,
+                "stable_key": f"goal07.enemy.s04.ai.{state_name}.normal-transition",
+                "state_id": state_id,
+                "sequence": transition_sequence,
+                "target_state_id": state_ids[target_name],
+                "condition_id": conditions["always"],
+                "priority": 10,
+                "timing": "AfterAction",
+            },
+        )
+        next_transition += 1
+
+    add(
+        "EnemyTemplate",
+        {
+            "id": template,
+            "rank": "Elite",
+            "base_aggro_decimal": "100",
+            "default_ai_graph_id": graph,
+        },
+    )
+    add(
+        "EnemyVariant",
+        {
+            "id": variant,
+            "template_id": template,
+            "ai_graph_id": graph,
+            "mechanically_distinct_key": VARIANT_KEY,
+        },
+    )
+    for level in anchor["levels"]:
+        add(
+            "EnemyStat",
+            {
+                "variant_id": variant,
+                "level": level["authored_level"],
+                "difficulty_key": "standard-universe-v1",
+                "hp_decimal": level["base_hp"],
+                "atk_decimal": level["base_atk"],
+                "def_decimal": level["base_def"],
+                "spd_decimal": level["base_spd"],
+                "effect_hit_rate_decimal": level["effect_hit_rate"],
+                "effect_resistance_decimal": level["effect_resistance"],
+                "crit_damage_decimal": "0.2",
+            },
+        )
+    for sequence, weakness in enumerate(
+        ["Physical", "Ice", "Quantum"], start=1
+    ):
+        add(
+            "EnemyWeakness",
+            {"variant_id": variant, "sequence": sequence, "element": weakness},
+        )
+    for element, value in [
+        ("Fire", "0.4"),
+        ("Lightning", "0.2"),
+        ("Wind", "0.2"),
+        ("Imaginary", "0.2"),
+    ]:
+        add(
+            "EnemyResistance",
+            {"variant_id": variant, "element": element, "value_decimal": value},
+        )
+    add(
+        "EnemyDebuffResistance",
+        {
+            "variant_id": variant,
+            "category_key": "STAT_DOT_Burn",
+            "value_decimal": "1",
+        },
+    )
+    add(
+        "EnemyToughnessLayer",
+        {
+            "variant_id": variant,
+            "sequence": 1,
+            "layer_key": "ordinary",
+            "kind": "Ordinary",
+            "maximum_decimal": "300",
+            "recovery_ratio_decimal": "1",
+            "active_at_start": True,
+        },
+    )
+    for sequence, ability_id in enumerate(abilities.values(), start=1):
+        add(
+            "EnemyVariantAbility",
+            {
+                "variant_id": variant,
+                "sequence": sequence,
+                "ability_id": ability_id,
+            },
+        )
+    add(
+        "EnemyPhase",
+        {
+            "id": BASE + 601,
+            "stable_key": "goal07.enemy.s04.phase-1",
+            "variant_id": variant,
+            "sequence": 1,
+            "entry_condition_id": conditions["always"],
+            "exit_condition_id": conditions["always"],
+            "replacement_priority": 1,
+            "ai_graph_id": graph,
+            "targetable": True,
+            "transition_model": "TransformSameUnit",
+            "hp_carry": "Reset",
+            "action_gauge_carry": "Reset",
+            "effect_carry": "Clear",
+            "toughness_carry": "Reset",
+            "summon_carry": "Clear",
+        },
+    )
+
+    anchor_digest = sha256_bytes(anchor_path(PARTITION).read_bytes())
+    add(
+        "SourceRecord",
+        {
+            "id": SOURCE_RECORD_ID,
+            "stable_key": "source.hsr-db.blaze-out-of-space.2026-07-29",
+            "category": "CommunityMaintained",
+            "publisher": anchor["source"]["publisher"],
+            "url": anchor["source"]["url"],
+            "accessed_on": anchor["source"]["accessed_on"],
+            "applicable_game_version": anchor["source"]["game_version"],
+            "confidence": "SecondaryVersionSensitiveCrossCheck",
+            "evidence_sha256": anchor_digest,
+            "usage_note": (
+                "Public level values and the exact retained hard-level curve inputs "
+                "are committed as Goal 07 evidence."
+            ),
+        },
+    )
+    add(
+        "EvidenceRecord",
+        {
+            "id": EVIDENCE_RECORD_ID,
+            "stable_key": "evidence.goal07.enemy.s04.numeric-anchors",
+            "kind": "SourcePayload",
+            "source_record_id": SOURCE_RECORD_ID,
+            "sha256": anchor_digest,
+            "note": "Committed exact public level-curve numeric anchors for Goal 07 S04.",
+        },
+    )
+    for item in identities:
+        add("ContentIdentity", item)
+        add(
+            "ContentEvidenceBinding",
+            {
+                "content_id": item["id"],
+                "sequence": 1,
+                "fact_key": f"goal07.s04.executable:{item['stable_key']}",
+                "source_record_id": 1,
+                "evidence_record_id": 3,
+                "quality": "ExactStructured",
+                "mechanism_quality": "ExactStructured",
+            },
+        )
+    add(
+        "ContentEvidenceBinding",
+        {
+            "content_id": variant,
+            "sequence": 2,
+            "fact_key": "goal07.s04.public-level-curve",
+            "source_record_id": SOURCE_RECORD_ID,
+            "evidence_record_id": EVIDENCE_RECORD_ID,
+            "quality": "ExactStructured",
+            "mechanism_quality": "ExactStructured",
+        },
+    )
+    for table_rows in rows.values():
+        table_rows.sort(
+            key=lambda row: json.dumps(
+                row, ensure_ascii=False, sort_keys=True, default=str
+            )
+        )
+    return rows
+
+
 OWNERSHIP: dict[str, Callable[[dict[str, Any]], bool]] = {
     "Ability": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
     "AbilityPhase": lambda row: BASE <= int(row["ability_id"]) < BASE + 10_000,
@@ -3781,6 +4859,7 @@ def main() -> None:
         "G07-P5-M15-S01": owned_rows_s01,
         "G07-P5-M15-S02": owned_rows_s02,
         "G07-P5-M15-S03": owned_rows_s03,
+        "G07-P5-M15-S04": owned_rows_s04,
     }[PARTITION]()
     golden_path = (
         ROOT
