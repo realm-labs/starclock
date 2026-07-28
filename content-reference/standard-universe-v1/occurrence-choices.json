@@ -15554,17 +15554,39 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Obtain",
+          "Battle",
+          "Special"
         ],
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [
-          3
+        "numeric_literals": [
+          "1"
         ],
-        "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "parameter_refs": [
+          "universe.occurrence-progressive.key.13502",
+          "universe.occurrence-battle.stage.nildis-wildboar",
+          "universe.occurrence-battle.level.60",
+          "enemy.voidranger-trampler.elite.variant.01",
+          "enemy.guardian-shadow.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.1"
+        ],
+        "chance_percentages": [
+          "48",
+          "40",
+          "12",
+          "32",
+          "60",
+          "8",
+          "16",
+          "80",
+          "4",
+          "0",
+          "100",
+          "0"
+        ],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -15609,7 +15631,9 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-progressive.key.13502"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -15652,17 +15676,39 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Obtain",
+          "Battle",
+          "Special"
         ],
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [
-          3
+        "numeric_literals": [
+          "100"
         ],
-        "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "parameter_refs": [
+          "universe.occurrence-progressive.key.13503",
+          "universe.occurrence-battle.stage.nildis-robot",
+          "universe.occurrence-battle.level.60",
+          "enemy.voidranger-trampler.elite.variant.01",
+          "enemy.guardian-shadow.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.1"
+        ],
+        "chance_percentages": [
+          "60",
+          "25",
+          "15",
+          "40",
+          "50",
+          "10",
+          "20",
+          "75",
+          "5",
+          "0",
+          "100",
+          "0"
+        ],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -15707,7 +15753,9 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-progressive.key.13503"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -15750,11 +15798,24 @@
     "outcomes": [
       {
         "kinds": [
-          "Special"
+          "Battle"
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.rock-paper-scissors",
+          "universe.occurrence-battle.level.60",
+          "universe.occurrence-battle.wave.1",
+          "enemy.voidranger-reaver.minionlv2.variant.01",
+          "enemy.voidranger-reaver.minionlv2.variant.01",
+          "enemy.voidranger-distorter.minionlv2.variant.01",
+          "universe.occurrence-battle.wave.2",
+          "enemy.automaton-beetle.minionlv2.variant.01",
+          "enemy.automaton-beetle.minionlv2.variant.01",
+          "enemy.automaton-spider.minionlv2.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.2",
+          "universe.occurrence-battle.reward.paths"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -15793,14 +15854,7 @@
     "condition_ids": [
       "universe.unlock.source-12002"
     ],
-    "costs": [
-      {
-        "kind": "Lose",
-        "targets": [
-          "CosmicFragments"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -15809,7 +15863,9 @@
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
+        "numeric_literals": [
+          "100"
+        ],
         "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
@@ -15853,11 +15909,24 @@
     "outcomes": [
       {
         "kinds": [
-          "Special"
+          "Battle"
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.rock-paper-scissors",
+          "universe.occurrence-battle.level.60",
+          "universe.occurrence-battle.wave.1",
+          "enemy.voidranger-reaver.minionlv2.variant.01",
+          "enemy.voidranger-reaver.minionlv2.variant.01",
+          "enemy.voidranger-distorter.minionlv2.variant.01",
+          "universe.occurrence-battle.wave.2",
+          "enemy.automaton-beetle.minionlv2.variant.01",
+          "enemy.automaton-beetle.minionlv2.variant.01",
+          "enemy.automaton-spider.minionlv2.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.2",
+          "universe.occurrence-battle.reward.paths"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -15896,14 +15965,7 @@
     "condition_ids": [
       "universe.unlock.source-12005"
     ],
-    "costs": [
-      {
-        "kind": "Lose",
-        "targets": [
-          "CosmicFragments"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -15912,7 +15974,9 @@
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
+        "numeric_literals": [
+          "100"
+        ],
         "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
@@ -15956,15 +16020,20 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Battle"
         ],
-        "targets": [
-          "Blessing"
+        "targets": [],
+        "numeric_literals": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.tavern-13601-1",
+          "universe.occurrence-battle.level.60",
+          "enemy.everwinter-shadewalker.minionlv2.variant.01",
+          "enemy.everwinter-shadewalker.minionlv2.variant.01",
+          "enemy.guardian-shadow.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.1",
+          "universe.occurrence-battle.reward.paths",
+          "universe.path.preservation"
         ],
-        "numeric_literals": [
-          "1"
-        ],
-        "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -16007,15 +16076,20 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Battle"
         ],
-        "targets": [
-          "Blessing"
+        "targets": [],
+        "numeric_literals": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.tavern-13601-2",
+          "universe.occurrence-battle.level.60",
+          "enemy.imaginary-weaver.minionlv2.variant.01",
+          "enemy.imaginary-weaver.minionlv2.variant.01",
+          "enemy.decaying-shadow.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.1",
+          "universe.occurrence-battle.reward.paths",
+          "universe.path.nihility"
         ],
-        "numeric_literals": [
-          "1"
-        ],
-        "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -16058,11 +16132,20 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Battle"
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.tavern-13601-3",
+          "universe.occurrence-battle.level.60",
+          "enemy.guardian-shadow.elite.variant.01",
+          "enemy.decaying-shadow.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.2",
+          "universe.occurrence-battle.reward.paths",
+          "universe.path.preservation",
+          "universe.path.nihility"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -16105,15 +16188,18 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Battle"
         ],
-        "targets": [
-          "Blessing"
+        "targets": [],
+        "numeric_literals": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.tavern-13602-1",
+          "universe.occurrence-battle.level.60",
+          "enemy.automaton-grizzly.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.1",
+          "universe.occurrence-battle.reward.paths",
+          "universe.path.elation"
         ],
-        "numeric_literals": [
-          "1"
-        ],
-        "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -16156,15 +16242,20 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Battle"
         ],
-        "targets": [
-          "Blessing"
+        "targets": [],
+        "numeric_literals": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.tavern-13602-2",
+          "universe.occurrence-battle.level.60",
+          "enemy.automaton-hound.minionlv2.variant.01",
+          "enemy.automaton-hound.minionlv2.variant.01",
+          "enemy.automaton-direwolf.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.1",
+          "universe.occurrence-battle.reward.paths",
+          "universe.path.hunt"
         ],
-        "numeric_literals": [
-          "1"
-        ],
-        "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -16207,11 +16298,20 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Battle"
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.tavern-13602-3",
+          "universe.occurrence-battle.level.60",
+          "enemy.automaton-direwolf.elite.variant.01",
+          "enemy.automaton-grizzly.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.2",
+          "universe.occurrence-battle.reward.paths",
+          "universe.path.elation",
+          "universe.path.hunt"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -16254,15 +16354,20 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Battle"
         ],
-        "targets": [
-          "Blessing"
+        "targets": [],
+        "numeric_literals": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.tavern-13603-1",
+          "universe.occurrence-battle.level.60",
+          "enemy.frostspawn.minion.variant.01",
+          "enemy.frostspawn.minion.variant.01",
+          "enemy.ice-out-of-space.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.1",
+          "universe.occurrence-battle.reward.paths",
+          "universe.path.remembrance"
         ],
-        "numeric_literals": [
-          "1"
-        ],
-        "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -16305,15 +16410,20 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Battle"
         ],
-        "targets": [
-          "Blessing"
+        "targets": [],
+        "numeric_literals": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.tavern-13603-2",
+          "universe.occurrence-battle.level.60",
+          "enemy.flamespawn.minion.variant.01",
+          "enemy.flamespawn.minion.variant.01",
+          "enemy.blaze-out-of-space.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.1",
+          "universe.occurrence-battle.reward.paths",
+          "universe.path.destruction"
         ],
-        "numeric_literals": [
-          "1"
-        ],
-        "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -16356,11 +16466,20 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Battle"
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.tavern-13603-3",
+          "universe.occurrence-battle.level.60",
+          "enemy.ice-out-of-space.elite.variant.01",
+          "enemy.blaze-out-of-space.elite.variant.01",
+          "universe.occurrence-battle.reward.fixed-blessings.2",
+          "universe.occurrence-battle.reward.paths",
+          "universe.path.remembrance",
+          "universe.path.destruction"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -16403,11 +16522,17 @@
     "outcomes": [
       {
         "kinds": [
-          "Special"
+          "Battle"
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.periodic-demon-lord",
+          "universe.occurrence-battle.level.60",
+          "enemy.aurumaton-gatekeeper.elite.variant.01",
+          "universe.occurrence-battle.reward.within-cycles.4.base.1.bonus.1",
+          "universe.occurrence-battle.reward.paths"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }

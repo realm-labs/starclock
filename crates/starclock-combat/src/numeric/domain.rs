@@ -104,6 +104,15 @@ impl ActionGauge {
             .checked_sub(Scalar::from_scaled(elapsed))
             .and_then(|value| Self::from_scaled(value.scaled()))
     }
+
+    /// Returns the selected wait as millionths of one action value.
+    pub(crate) fn elapsed_action_value_scaled(self, speed: Speed) -> Result<i64, NumericError> {
+        rounded_quotient(
+            i128::from(self.scaled()) * 1_000_000,
+            i128::from(speed.scaled()),
+            Rounding::Floor,
+        )
+    }
 }
 
 /// Non-negative fixed-point personal Energy value.

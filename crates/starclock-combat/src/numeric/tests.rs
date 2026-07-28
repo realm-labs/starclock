@@ -102,6 +102,19 @@ fn domain_wrappers_reject_illegal_values() {
 }
 
 #[test]
+fn action_gauge_reports_elapsed_action_value_in_canonical_millionths() {
+    let gauge = ActionGauge::from_scaled(10_000_000_000).unwrap();
+    let speed = Speed::from_scaled(100_000_000).unwrap();
+    assert_eq!(gauge.elapsed_action_value_scaled(speed), Ok(100_000_000));
+    assert_eq!(
+        ActionGauge::from_scaled(1)
+            .unwrap()
+            .elapsed_action_value_scaled(Speed::from_scaled(3_000_000).unwrap()),
+        Ok(0)
+    );
+}
+
+#[test]
 fn formula_finalization_floors_once_then_checks_domain() {
     assert_eq!(
         DamageAmount::from_scalar(Scalar::from_scaled(12_999_999), Rounding::Floor),

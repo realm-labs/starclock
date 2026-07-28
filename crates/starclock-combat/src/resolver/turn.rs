@@ -92,6 +92,7 @@ pub(super) fn begin_turn(
     parent: EventId,
 ) -> Result<(), BattleFault> {
     let advance = plan_next_turn(&txn.state.units, &txn.state.actors)?;
+    txn.add_timeline_elapsed(advance.elapsed_action_value_scaled)?;
     for (actor, gauge) in advance.gauges {
         txn.set_actor_gauge(actor, gauge)?;
     }

@@ -305,8 +305,9 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
     let materialized = UniverseBattleMaterializer
         .compile(&catalog, &roster, &contributions)
         .unwrap();
+    let coverage = materialized.coverage();
 
-    assert_eq!(materialized.overlay().bindings().len(), 174);
+    assert_eq!(materialized.overlay().bindings().len(), 188);
     assert_eq!(materialized.difficulty_specs().len(), 182);
     assert_eq!(materialized.enemies().len(), 86);
     assert_eq!(
@@ -333,7 +334,6 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
             .all(|enemy| enemy.source_enemy().is_none() && enemy.proxy_stable_key().is_some())
     );
 
-    let coverage = materialized.coverage();
     assert_eq!(coverage.member_count(), 173);
     assert_eq!(coverage.member_wave_count(), 173);
     assert_eq!(coverage.member_enemy_slot_count(), 538);
@@ -350,7 +350,18 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
         coverage.runtime_stat_policy(),
         UNIVERSE_ENEMY_RUNTIME_STAT_POLICY
     );
-    let occurrence = materialized.overlay().bindings().last().unwrap();
+    let occurrence = materialized
+        .overlay()
+        .bindings()
+        .iter()
+        .find(|binding| {
+            binding
+                .contract()
+                .metrics()
+                .iter()
+                .any(|metric| metric.key() == "enemy.defeated.count")
+        })
+        .unwrap();
     assert!(occurrence.member().get() >= 10_000);
     let occurrence_spec = occurrence.preparation().variants()[0].battle_spec();
     let occurrence_enemies = occurrence_spec
@@ -369,11 +380,79 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
         occurrence.contract().metrics()[0].key(),
         "enemy.defeated.count"
     );
+    let occurrence_binding = |key: &str| {
+        let choice = catalog
+            .occurrence_choices()
+            .iter()
+            .find(|choice| choice.stable_key() == key)
+            .unwrap();
+        let member = starclock_mode_universe::id::EncounterMemberId::new(
+            10_000_u32.checked_add(choice.id().get()).unwrap(),
+        )
+        .unwrap();
+        materialized
+            .overlay()
+            .bindings()
+            .iter()
+            .find(|binding| binding.member() == member)
+            .unwrap()
+    };
+    let rock = occurrence_binding("universe.occurrence.33.variant.13401.choice.01");
+    let rock_spec = rock.preparation().variants()[0].battle_spec();
+    assert_eq!(
+        rock_spec
+            .participants()
+            .iter()
+            .filter(|participant| participant.side() == TeamSide::Enemy && participant.wave() == 1)
+            .count(),
+        3
+    );
+    assert_eq!(
+        rock_spec
+            .participants()
+            .iter()
+            .filter(|participant| participant.side() == TeamSide::Enemy && participant.wave() == 2)
+            .count(),
+        3
+    );
+    assert_eq!(
+        rock.contract().metrics()[0].key(),
+        "occurrence.blessing-reward.fixed.2"
+    );
+    let periodic = occurrence_binding("universe.occurrence.35.variant.13701.choice.01");
+    assert_eq!(
+        periodic.contract().metrics()[0].key(),
+        "occurrence.blessing-reward.within-cycles.4.base.1.bonus.1"
+    );
+    assert_eq!(
+        periodic.preparation().variants()[0]
+            .battle_spec()
+            .participants()
+            .iter()
+            .filter(|participant| participant.side() == TeamSide::Enemy)
+            .count(),
+        1
+    );
+    assert_eq!(
+        materialized
+            .overlay()
+            .bindings()
+            .iter()
+            .filter(|binding| {
+                binding.contract().metrics().iter().any(|metric| {
+                    metric
+                        .key()
+                        .starts_with("occurrence.blessing-reward.fixed.")
+                })
+            })
+            .count(),
+        13
+    );
     assert_eq!(
         materialized.digest(),
         [
-            127, 53, 68, 208, 131, 201, 136, 59, 96, 72, 189, 112, 239, 170, 77, 10, 122, 191, 104,
-            183, 245, 36, 12, 200, 74, 230, 77, 26, 144, 228, 141, 155,
+            171, 21, 239, 193, 43, 14, 121, 199, 53, 106, 232, 248, 198, 22, 114, 233, 35, 30, 136,
+            240, 153, 180, 173, 6, 155, 227, 182, 79, 167, 6, 220, 42,
         ]
     );
     assert_eq!(
@@ -528,27 +607,27 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(executor.reports().len(), 6);
+    assert_eq!(executor.reports().len(), 4);
     assert_eq!(
         executor
             .reports()
             .iter()
             .map(|battle| battle.trace().len())
             .sum::<usize>(),
-        36
+        24
     );
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            187, 209, 59, 226, 105, 167, 32, 211, 118, 33, 212, 186, 132, 97, 137, 76, 56, 54, 172,
-            135, 21, 185, 159, 91, 253, 239, 250, 199, 122, 71, 178, 208,
+            57, 5, 246, 122, 151, 85, 55, 106, 151, 70, 248, 181, 65, 105, 130, 18, 166, 223, 252,
+            111, 76, 155, 159, 66, 86, 147, 176, 34, 26, 12, 239, 153,
         ]
     );
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
         [
-            99, 208, 244, 114, 226, 89, 214, 186, 140, 47, 192, 123, 130, 65, 51, 190, 45, 200, 76,
-            163, 43, 139, 220, 60, 51, 187, 241, 182, 254, 15, 230, 1,
+            214, 235, 237, 173, 209, 228, 28, 206, 151, 195, 60, 17, 156, 14, 94, 189, 148, 177,
+            32, 27, 182, 115, 90, 200, 78, 162, 89, 26, 7, 243, 242, 76,
         ]
     );
     assert!(executor.reports().iter().all(|battle| {

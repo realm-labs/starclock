@@ -23,17 +23,19 @@ mod digest;
 mod s02;
 mod s03;
 mod s05;
+mod s06;
 pub(crate) mod support;
 
 use support::{
-    Decoder, arithmetic, checked_lcm, exact_integer, fragment_delta, invalid_payload,
-    invalid_state, inventory, require_at_least, select_candidates, slot, slot_integer,
+    Decoder, arithmetic, checked_lcm, default_scalar, exact_integer, fragment_delta,
+    invalid_payload, invalid_state, inventory, operation_sign, outcome_pairs, require_at_least,
+    select_candidates, slot, slot_integer,
 };
 
 pub const OCCURRENCE_INTERACTION_HANDLER_ID: u32 = 2;
 pub const OCCURRENCE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-occurrence-interaction-runtime-v5";
-const PAYLOAD_REVISION: u8 = 4;
+    "standard-universe-occurrence-interaction-runtime-v6";
+const PAYLOAD_REVISION: u8 = 5;
 const TAG_FRAGMENT_SCALAR: u8 = 1;
 const TAG_FRAGMENT_PERCENT: u8 = 2;
 const TAG_INVENTORY: u8 = 3;
@@ -289,17 +291,36 @@ pub(crate) fn compile(
     let blessing_groups = s05::referenced_blessing_groups(outcome, catalog)?;
     let curio_ids = referenced_curios(outcome, catalog, curio_records)?;
     let mut operations = Vec::new();
-    let progressive = s05::lower_progressive(
+    let progressive_s06 = s06::lower_progressive(
         outcome,
-        blessing_inventory,
+        cosmic_fragments,
+        curio_bindings,
         interaction_state,
-        &blessing_ids,
+        &curio_ids,
     )?;
-    let repeat_key = progressive.as_ref().map(|value| value.1);
-    if let Some((operation, _)) = progressive {
+    let progressive_s05 = if progressive_s06.is_none() {
+        s05::lower_progressive(
+            outcome,
+            blessing_inventory,
+            interaction_state,
+            &blessing_ids,
+        )?
+    } else {
+        None
+    };
+    let repeat_key = progressive_s06
+        .as_ref()
+        .map(|value| value.1)
+        .or_else(|| progressive_s05.as_ref().map(|value| value.1));
+    if let Some((operation, _)) = progressive_s06 {
+        operations.push(PayloadOperation::S06(operation));
+    } else if let Some((operation, _)) = progressive_s05 {
         operations.push(PayloadOperation::S05(operation));
     } else if let Some(operation) = s05::reset_progressive(outcome, interaction_state)? {
         operations.push(PayloadOperation::S05(operation));
+    }
+    if let Some(operation) = s06::prepare_reward_paths(outcome, catalog, interaction_state)? {
+        operations.push(PayloadOperation::S06(operation));
     }
     lower_costs(
         &mut operations,
@@ -353,6 +374,7 @@ pub(crate) fn compile(
                     u32::try_from(groups.len()).ok()
                 }
                 PayloadOperation::S05(operation) => operation.random_candidate_count(),
+                PayloadOperation::S06(operation) => operation.random_candidate_count(),
                 _ => None,
             })
             .try_fold(1_u32, checked_lcm)
@@ -410,6 +432,7 @@ pub(crate) fn execute(
                 s02::decode_ensure_inventory_group(input, &mut decoder, &mut operations)?;
             }
             tag if s05::decode(tag, input, &mut decoder, &mut operations)? => {}
+            tag if s06::decode(tag, input, &mut decoder, &mut operations)? => {}
             _ => return Err(invalid_payload()),
         }
     }
@@ -669,6 +692,7 @@ enum PayloadOperation {
         groups: Vec<Vec<u64>>,
     },
     S05(s05::Operation),
+    S06(s06::Operation),
     Transition,
 }
 
@@ -812,6 +836,7 @@ impl PayloadOperation {
                 }
             }
             Self::S05(operation) => operation.encode(output)?,
+            Self::S06(operation) => operation.encode(output)?,
             Self::Transition => output.push(TAG_TRANSITION),
         }
         Ok(())
@@ -1106,53 +1131,6 @@ fn lower_costs(
     Ok(())
 }
 
-fn outcome_pairs(
-    outcome: &OccurrenceOutcome,
-) -> Vec<(
-    OccurrenceOperation,
-    Option<OccurrenceTarget>,
-    Option<AuthoredScalar>,
-)> {
-    if outcome.operations().len() == 1 && outcome.targets().len() > 1 {
-        return outcome
-            .targets()
-            .iter()
-            .enumerate()
-            .map(|(index, target)| {
-                (
-                    outcome.operations()[0],
-                    Some(*target),
-                    outcome
-                        .numeric_literals()
-                        .get(index)
-                        .or_else(|| outcome.numeric_literals().first())
-                        .copied(),
-                )
-            })
-            .collect();
-    }
-    outcome
-        .operations()
-        .iter()
-        .enumerate()
-        .map(|(index, operation)| {
-            (
-                *operation,
-                outcome
-                    .targets()
-                    .get(index)
-                    .or_else(|| outcome.targets().first())
-                    .copied(),
-                outcome
-                    .numeric_literals()
-                    .get(index)
-                    .or_else(|| outcome.numeric_literals().first())
-                    .copied(),
-            )
-        })
-        .collect()
-}
-
 fn deferred_effect_key(
     choice: OccurrenceChoiceId,
     index: usize,
@@ -1165,23 +1143,6 @@ fn deferred_effect_key(
         | (index << 8)
         | (u64::from(operation as u8) << 4)
         | target.map_or(15, |value| u64::from(value as u8)))
-}
-
-fn default_scalar() -> AuthoredScalar {
-    AuthoredScalar::new(
-        crate::path::ExactParameter::new(1, 0),
-        AuthoredScalarUnit::Scalar,
-    )
-}
-
-const fn operation_sign(operation: OccurrenceOperation) -> i8 {
-    match operation {
-        OccurrenceOperation::Obtain | OccurrenceOperation::Enhance => 1,
-        OccurrenceOperation::Consume | OccurrenceOperation::Discard | OccurrenceOperation::Lose => {
-            -1
-        }
-        _ => 0,
-    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

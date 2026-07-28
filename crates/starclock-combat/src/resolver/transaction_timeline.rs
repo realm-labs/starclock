@@ -3,6 +3,14 @@ use crate::{TimelineActorId, UnitId, battle::fault::BattleFault, numeric::domain
 use super::transaction::{Transaction, action_fault};
 
 impl Transaction<'_> {
+    pub(super) fn add_timeline_elapsed(&mut self, delta: i64) -> Result<(), BattleFault> {
+        self.timeline_elapsed_scaled = self
+            .timeline_elapsed_scaled
+            .checked_add(delta)
+            .ok_or_else(|| action_fault(101))?;
+        Ok(())
+    }
+
     pub(super) fn delay_unit(&mut self, owner: UnitId, scaled: i64) -> Result<(), BattleFault> {
         let actor = self
             .state

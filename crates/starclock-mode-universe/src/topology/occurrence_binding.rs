@@ -48,6 +48,18 @@ fn progressive_interaction_completion(
     }]
 }
 
+pub(super) fn progressive_battle_completion(
+    effect_slot: ActivitySlotId,
+    repeat_key: Option<u64>,
+    repeat_edge: ActivityEdgeId,
+    finish: Vec<ActivityOperation>,
+) -> Vec<ActivityOperation> {
+    match repeat_key {
+        Some(key) => progressive_interaction_completion(effect_slot, key, repeat_edge, finish),
+        None => finish,
+    }
+}
+
 #[allow(clippy::too_many_arguments)]
 pub(super) fn interaction_completion_with_repeat(
     hub_clear_slot: ActivitySlotId,

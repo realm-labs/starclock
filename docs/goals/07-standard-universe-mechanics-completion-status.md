@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M13-S06` |
-| Next unblocked batch | `G07-P4-M13-S06` |
+| Active batch | `G07-P4-M13-S07` |
+| Next unblocked batch | `G07-P4-M13-S07` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -215,10 +215,19 @@ ladder. A bounded hash-committed interaction-state map and conditional
 content-node repeat edge preserve progressive state without content-ID
 branches. All 32 records have terminal dispositions, with no deferred
 counter, native handler or numeric approximation.
-`G07-P4-M13-S06` is active.
+Occurrence S06 is complete. Nildis (Wildboar/Robot), both Rock, Paper,
+Scissors variants, all three Tavern battle sets and Periodic Demon Lord (I)
+execute exact progressive probability ladders, Curio lifecycle acquisition,
+checked fragment gains and costs, multi-wave enemy formations, fixed
+post-battle Blessing counts, Tavern Path-constrained rewards and the
+four-cycle bonus boundary. A transaction-local action-value accumulator keeps
+cycle timing replay-verifiable without changing combat state hashes. All 32
+records have terminal dispositions, with no deferred counter, native handler
+or numeric approximation.
+`G07-P4-M13-S07` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 59 completed partitions use scoped Excel/Sora semantic
+model. The first 60 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
@@ -290,7 +299,7 @@ The milestone summary remains here for orientation.
 | `G07-P2-M10` | `Complete` | 58 / 59 | Erudition complete. |
 | `G07-P3-M11` | `Complete` | 86 / 86 | Positive/neutral/special Curios complete. |
 | `G07-P3-M12` | `Complete` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
-| `G07-P4-M13` | `Expanded` | 128 / 447 | Occurrence choices and effects complete. |
+| `G07-P4-M13` | `Expanded` | 192 / 447 | Occurrence choices and effects complete. |
 | `G07-P4-M14` | `Complete` | 94 / 94 | Services, shops, roster and interactables complete. |
 | `G07-P5-M15` | `Expanded` | 0 / 959 | Enemy, encounter, World/difficulty and carry complete. |
 

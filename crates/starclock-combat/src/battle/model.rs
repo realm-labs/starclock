@@ -42,6 +42,7 @@ pub struct Resolution {
     events: Vec<BattleEvent>,
     state_hash: BattleStateHash,
     fault: Option<BattleFault>,
+    timeline_elapsed_scaled: i64,
 }
 
 pub(crate) struct ResolutionBoundary {
@@ -53,6 +54,7 @@ pub(crate) struct ResolutionBoundary {
     pub(crate) events: Vec<BattleEvent>,
     pub(crate) state_hash: BattleStateHash,
     pub(crate) fault: Option<BattleFault>,
+    pub(crate) timeline_elapsed_scaled: i64,
 }
 
 impl Resolution {
@@ -66,6 +68,7 @@ impl Resolution {
             events: boundary.events,
             state_hash: boundary.state_hash,
             fault: boundary.fault,
+            timeline_elapsed_scaled: boundary.timeline_elapsed_scaled,
         }
     }
 
@@ -108,5 +111,10 @@ impl Resolution {
     #[must_use]
     pub const fn fault(&self) -> Option<BattleFault> {
         self.fault
+    }
+    /// Returns action-value millionths elapsed while resolving this command.
+    #[must_use]
+    pub const fn timeline_elapsed_scaled(&self) -> i64 {
+        self.timeline_elapsed_scaled
     }
 }

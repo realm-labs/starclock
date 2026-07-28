@@ -46,7 +46,10 @@ use materialization_digest::{
     coverage_digest, empty_carry_digest, root_digest, snapshot_root_digest,
     technique_variant_digest,
 };
-pub(crate) use occurrence::DEFEATED_ENEMY_COUNT_METRIC;
+pub(crate) use occurrence::{
+    CYCLE_BLESSING_COUNT_METRIC_PREFIX, DEFEATED_ENEMY_COUNT_METRIC,
+    FIXED_BLESSING_COUNT_METRIC_PREFIX,
+};
 use player::player_participants;
 
 pub const UNIVERSE_BATTLE_MATERIALIZATION_REVISION: &str =

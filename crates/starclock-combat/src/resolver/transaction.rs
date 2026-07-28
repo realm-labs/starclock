@@ -50,6 +50,7 @@ pub(crate) struct TransactionOutput {
     pub(crate) state_hash: BattleStateHash,
     pub(crate) root_command: CommandId,
     pub(crate) fault: Option<BattleFault>,
+    pub(crate) timeline_elapsed_scaled: i64,
 }
 
 pub(crate) fn resolve_prepared(
@@ -59,7 +60,7 @@ pub(crate) fn resolve_prepared(
     command: ValidatedCommand,
     injection: Option<FaultInjection>,
 ) -> TransactionOutput {
-    let (mut events, root_command, failure) = {
+    let (mut events, root_command, failure, mut timeline_elapsed_scaled) = {
         let mut txn = Transaction::new(
             &mut scratch.working,
             &mut scratch.journal,
@@ -80,7 +81,7 @@ pub(crate) fn resolve_prepared(
                 super::rule::dispatch_pending_after_events(catalog, &mut txn, parent).map(drop)
             })
             .err();
-        (txn.events, root, failure)
+        (txn.events, root, failure, txn.timeline_elapsed_scaled)
     };
 
     let mut committed_fault = failure;
@@ -97,6 +98,7 @@ pub(crate) fn resolve_prepared(
     if let Some(fault) = committed_fault {
         if fault.policy() == FaultPolicy::Rollback {
             scratch.prepare(before);
+            timeline_elapsed_scaled = 0;
             let mut txn = Transaction::new(&mut scratch.working, &mut scratch.journal, false);
             let rollback_root = txn.begin_command();
             debug_assert_eq!(rollback_root, root_command);
@@ -119,6 +121,7 @@ pub(crate) fn resolve_prepared(
         state_hash,
         root_command,
         fault: committed_fault,
+        timeline_elapsed_scaled,
     }
 }
 
@@ -401,6 +404,7 @@ pub(super) struct Transaction<'a> {
     pub(super) reactions: crate::reaction::queue::ReactionQueue,
     resolved_reactions: usize,
     next_reaction: u64,
+    pub(super) timeline_elapsed_scaled: i64,
 }
 
 impl<'a> Transaction<'a> {
@@ -420,6 +424,7 @@ impl<'a> Transaction<'a> {
             reactions: crate::reaction::queue::ReactionQueue::default(),
             resolved_reactions: 0,
             next_reaction: 1,
+            timeline_elapsed_scaled: 0,
         }
     }
 
@@ -439,6 +444,7 @@ impl<'a> Transaction<'a> {
             reactions: crate::reaction::queue::ReactionQueue::default(),
             resolved_reactions: 0,
             next_reaction: 1,
+            timeline_elapsed_scaled: 0,
         }
     }
 

@@ -4,6 +4,7 @@ mod error;
 mod graph_layout;
 mod occurrence_binding;
 mod reward_program;
+mod route_definition;
 mod route_program;
 pub type UniverseTopologyCompileError = error::UniverseTopologyCompileError;
 use self::graph_layout::*;
@@ -56,9 +57,8 @@ use starclock_activity::{
     TerminalOutcome,
 };
 use std::{collections::BTreeSet, sync::Arc};
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v19";
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v20";
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
-
 const PATH_NODE: u32 = 1;
 const TOPOLOGY_SELECTOR_NODE: u32 = 2;
 const COMPLETED_NODE: u32 = 3;
@@ -92,19 +92,8 @@ const BLESSING_ENHANCEMENT_DRAW_PURPOSE: u16 = 5;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DomainRouteDefinition {
-    option: ActivityOptionId,
-    target: Option<TopologyNodeId>,
-}
-
-impl DomainRouteDefinition {
-    #[must_use]
-    pub const fn option(&self) -> ActivityOptionId {
-        self.option
-    }
-    #[must_use]
-    pub const fn target(&self) -> Option<TopologyNodeId> {
-        self.target
-    }
+    pub(super) option: ActivityOptionId,
+    pub(super) target: Option<TopologyNodeId>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -967,7 +956,7 @@ fn compile_programs(
                                 room: room.room,
                                 domain_kind: room.domain_kind,
                             });
-                            vec![
+                            let finish = vec![
                                 ActivityOperation::AddCounter {
                                     slot: external_outcome_slot,
                                     key: source,
@@ -983,7 +972,13 @@ fn compile_programs(
                                     value: integer(0),
                                 },
                                 ActivityOperation::Traverse(edges.content_member),
-                            ]
+                            ];
+                            progressive_battle_completion(
+                                occurrence_effect_slot,
+                                compiled.repeat_key(),
+                                edges.content_repeat,
+                                finish,
+                            )
                         } else {
                             interaction_completion_with_repeat(
                                 hub_clear_slot,
@@ -1112,6 +1107,7 @@ fn compile_programs(
             blessing_offer_marker_slot,
             curio_bindings,
             blessing_inventory,
+            occurrence_effect_slot,
             &eligible_blessings,
         )?;
         let random_offer = compile_blessing_offer_policy(

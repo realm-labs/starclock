@@ -26,6 +26,9 @@ use super::{
 
 const OCCURRENCE_PROJECTION_ID: u32 = 0x7540_0003;
 pub(crate) const DEFEATED_ENEMY_COUNT_METRIC: &str = "enemy.defeated.count";
+pub(crate) const FIXED_BLESSING_COUNT_METRIC_PREFIX: &str = "occurrence.blessing-reward.fixed.";
+pub(crate) const CYCLE_BLESSING_COUNT_METRIC_PREFIX: &str =
+    "occurrence.blessing-reward.within-cycles.";
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn extend_overlay(
@@ -104,16 +107,13 @@ pub(super) fn extend_overlay(
             variants,
         )
         .map_err(|_| UniverseBattleMaterializationError::InvalidBattleBinding)?;
-        let reward_slot = match battle.reward() {
-            OccurrenceBattleReward::BlessingPerDefeatedEnemy => {
-                ActivitySlotId::new(crate::entry::state_layout::OCCURRENCE_BATTLE_REWARD_COUNT_SLOT)
-                    .expect("reserved occurrence reward slot is non-zero")
-            }
-        };
+        let reward_slot =
+            ActivitySlotId::new(crate::entry::state_layout::OCCURRENCE_BATTLE_REWARD_COUNT_SLOT)
+                .expect("reserved occurrence reward slot is non-zero");
         overlay.push(UniverseEncounterBattleBinding::new(
             member.id(),
             Arc::new(preparation),
-            settlement_contract(roster, reward_slot)?,
+            settlement_contract(roster, reward_slot, battle.reward())?,
         ));
     }
     Ok(())
@@ -122,7 +122,9 @@ pub(super) fn extend_overlay(
 fn settlement_contract(
     roster: &UniverseBattleRoster,
     reward_slot: ActivitySlotId,
+    reward: OccurrenceBattleReward,
 ) -> Result<Arc<ActivityBattleResultContract>, UniverseBattleMaterializationError> {
+    let metric_key = reward_metric_key(reward);
     let mut fields = vec![
         ProjectionField::Outcome,
         ProjectionField::FinalStateHash,
@@ -136,7 +138,7 @@ fn settlement_contract(
             .map(|entry| ProjectionField::ParticipantState(entry.participant())),
     );
     fields.push(ProjectionField::Metric {
-        key: DEFEATED_ENEMY_COUNT_METRIC.into(),
+        key: metric_key.clone().into(),
         kind: MetricValueKind::BoundedInteger,
     });
     let projection = BattleResultProjection::new(
@@ -159,7 +161,7 @@ fn settlement_contract(
         })
         .collect();
     let metric = ActivityMetricProjectionBinding::new(
-        DEFEATED_ENEMY_COUNT_METRIC,
+        metric_key.as_str(),
         MetricValueKind::BoundedInteger,
         reward_slot,
         MetricSettlementPolicy::Replace,
@@ -168,4 +170,18 @@ fn settlement_contract(
     ActivityBattleResultContract::new(Arc::new(projection), carry, vec![metric])
         .map(Arc::new)
         .map_err(|_| UniverseBattleMaterializationError::InvalidBattleBinding)
+}
+
+fn reward_metric_key(reward: OccurrenceBattleReward) -> String {
+    match reward {
+        OccurrenceBattleReward::BlessingPerDefeatedEnemy => DEFEATED_ENEMY_COUNT_METRIC.into(),
+        OccurrenceBattleReward::FixedBlessings(count) => {
+            format!("{FIXED_BLESSING_COUNT_METRIC_PREFIX}{count}")
+        }
+        OccurrenceBattleReward::BlessingsWithinCycles {
+            cycles,
+            base,
+            bonus,
+        } => format!("{CYCLE_BLESSING_COUNT_METRIC_PREFIX}{cycles}.base.{base}.bonus.{bonus}"),
+    }
 }

@@ -138,40 +138,45 @@ fn overlay(catalog: &UniverseCatalog, lock: &ParticipantLock) -> UniverseEncount
             UniverseEncounterBattleBinding::new(member.id(), preparation, Arc::clone(&contract))
         })
         .collect::<Vec<_>>();
-    let occurrence_choice = catalog
-        .occurrence_choices()
-        .iter()
-        .find(|choice| choice.stable_key() == "universe.occurrence.16.variant.11301.choice.01")
-        .unwrap();
-    let occurrence_member =
-        starclock_mode_universe::id::EncounterMemberId::new(10_000 + occurrence_choice.id().get())
-            .unwrap();
-    let preparation = Arc::new(
-        starclock_activity::EncounterPreparationDefinition::new(
-            starclock_activity::ActivityOptionId::new(10).unwrap(),
-            starclock_activity::EncounterInitiativePolicy::PlayerControlled,
-            lock.digest(),
-            0,
-            vec![],
-            vec![starclock_activity::PreparedBattleVariant::new(
-                vec![],
-                TechniqueContributionDigest::new([0x44; 32]).unwrap(),
-                BattleBinding::new(
-                    battle_spec(occurrence_member.get()),
-                    "universe-occurrence-encounter",
-                    "universe-battle-spec-v1",
-                    lock.digest(),
-                )
-                .unwrap(),
-            )],
+    for occurrence_choice in catalog.occurrence_choices().iter().filter(|choice| {
+        choice.outcomes().iter().any(|outcome| {
+            outcome
+                .parameter_refs()
+                .iter()
+                .any(|reference| reference.starts_with("universe.occurrence-battle.stage."))
+        })
+    }) {
+        let occurrence_member = starclock_mode_universe::id::EncounterMemberId::new(
+            10_000 + occurrence_choice.id().get(),
         )
-        .unwrap(),
-    );
-    bindings.push(UniverseEncounterBattleBinding::new(
-        occurrence_member,
-        preparation,
-        contract,
-    ));
+        .unwrap();
+        let preparation = Arc::new(
+            starclock_activity::EncounterPreparationDefinition::new(
+                starclock_activity::ActivityOptionId::new(10).unwrap(),
+                starclock_activity::EncounterInitiativePolicy::PlayerControlled,
+                lock.digest(),
+                0,
+                vec![],
+                vec![starclock_activity::PreparedBattleVariant::new(
+                    vec![],
+                    TechniqueContributionDigest::new([0x44; 32]).unwrap(),
+                    BattleBinding::new(
+                        battle_spec(occurrence_member.get()),
+                        "universe-occurrence-encounter",
+                        "universe-battle-spec-v1",
+                        lock.digest(),
+                    )
+                    .unwrap(),
+                )],
+            )
+            .unwrap(),
+        );
+        bindings.push(UniverseEncounterBattleBinding::new(
+            occurrence_member,
+            preparation,
+            Arc::clone(&contract),
+        ));
+    }
     UniverseEncounterOverlay::new(bindings).unwrap()
 }
 
@@ -179,7 +184,7 @@ fn battle_spec(member: u32) -> BattleSpec {
     let digest = u8::try_from(member).unwrap_or(0xa5);
     let mut assembly_digest = [digest; 32];
     if member > u32::from(u8::MAX) {
-        assembly_digest[1] = 0;
+        assembly_digest[..4].copy_from_slice(&member.to_le_bytes());
     }
     let mut participants = (0_u8..4)
         .map(|index| {
@@ -235,12 +240,12 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
         .unwrap()
         .validate_overlay(&overlay)
         .unwrap();
-    assert_eq!(overlay.bindings().len(), 174);
+    assert_eq!(overlay.bindings().len(), 188);
     assert_eq!(
         overlay.digest().bytes(),
         [
-            25, 230, 61, 13, 194, 173, 147, 222, 177, 217, 12, 80, 215, 23, 0, 150, 173, 175, 239,
-            73, 196, 223, 152, 93, 100, 98, 32, 20, 117, 141, 16, 251,
+            228, 70, 104, 213, 231, 229, 104, 204, 13, 226, 5, 55, 145, 47, 28, 139, 71, 99, 189,
+            240, 79, 159, 135, 99, 73, 21, 138, 51, 97, 238, 219, 122,
         ]
     );
     let world = &catalog.worlds()[0];
@@ -391,8 +396,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            184, 228, 59, 130, 129, 183, 97, 148, 111, 148, 114, 218, 114, 143, 60, 71, 236, 23,
-            63, 92, 43, 82, 69, 165, 188, 10, 254, 18, 209, 149, 239, 14,
+            26, 103, 74, 237, 97, 160, 191, 156, 83, 176, 66, 190, 103, 1, 228, 76, 251, 245, 60,
+            114, 26, 161, 58, 81, 252, 89, 77, 218, 24, 17, 182, 239,
         ]
     );
     let reward = activity.view();
@@ -462,8 +467,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            78, 69, 155, 136, 125, 160, 238, 246, 131, 113, 178, 0, 187, 0, 176, 180, 92, 255, 157,
-            225, 152, 42, 167, 72, 93, 132, 47, 19, 185, 240, 131, 84,
+            79, 194, 193, 239, 153, 215, 44, 128, 197, 47, 206, 184, 221, 229, 226, 205, 52, 160,
+            135, 188, 229, 180, 62, 196, 39, 112, 198, 90, 226, 100, 168, 21,
         ]
     );
     let formation = activity.view();
@@ -655,12 +660,12 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(report.steps().len(), 69);
+    assert_eq!(report.steps().len(), 27);
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            63, 217, 79, 11, 5, 69, 179, 145, 130, 18, 54, 55, 105, 148, 12, 144, 245, 144, 111,
-            24, 184, 151, 23, 103, 219, 25, 20, 191, 248, 71, 229, 190,
+            159, 211, 60, 178, 179, 141, 2, 214, 36, 141, 74, 84, 220, 241, 40, 42, 11, 166, 91,
+            188, 105, 15, 212, 36, 203, 204, 45, 25, 28, 106, 151, 96,
         ]
     );
     assert_eq!(report.final_state_hash(), activity.view().state_hash());
@@ -682,7 +687,7 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
             .iter()
             .filter(|step| matches!(step, StandardUniverseBaselineStep::Battle { .. }))
             .count(),
-        7
+        1
     );
 }
 
@@ -734,12 +739,12 @@ fn complete_run_replay_verifies_and_reports_the_first_divergence() {
     )
     .unwrap();
     let bytes = encode_standard_universe_trace(&header, recorded.trace()).unwrap();
-    assert_eq!(bytes.len(), 12_646);
+    assert_eq!(bytes.len(), 9_148);
     assert_eq!(
         sha2::Sha256::digest(&bytes).as_slice(),
         [
-            159, 24, 210, 130, 93, 100, 212, 226, 85, 97, 214, 94, 90, 209, 121, 169, 216, 26, 222,
-            196, 169, 210, 170, 168, 115, 72, 165, 200, 243, 171, 86, 35,
+            53, 7, 199, 106, 235, 206, 163, 14, 214, 159, 49, 44, 191, 62, 154, 233, 48, 141, 100,
+            223, 238, 142, 81, 197, 64, 60, 157, 233, 159, 93, 150, 148,
         ]
     );
     let fresh = compiled
@@ -747,9 +752,9 @@ fn complete_run_replay_verifies_and_reports_the_first_divergence() {
         .unwrap()
         .into_activity();
     let verified = verify_standard_universe_replay(&bytes, fresh, "standard-universe-v1").unwrap();
-    assert_eq!(verified.action_count(), 65);
-    assert_eq!(verified.nested_battle_count(), 6);
-    assert_eq!(verified.diagnostic_count(), 53);
+    assert_eq!(verified.action_count(), 53);
+    assert_eq!(verified.nested_battle_count(), 3);
+    assert_eq!(verified.diagnostic_count(), 47);
     assert_eq!(verified.terminal(), recorded.report().terminal());
     assert_eq!(
         verified.final_state_hash().bytes(),

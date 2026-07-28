@@ -880,7 +880,7 @@ mod tests {
 
     #[test]
     fn laurel_crown_converts_non_boss_defeat_to_full_restore_and_destroys_itself() {
-        let (mut activity, _) = activity();
+        let (mut activity, _) = activity_with_seed(9_700_091);
         let crown = CurioId::new(49).unwrap();
         acquire_with_blessings(&mut activity, crown, &[]);
         let mut executor = |handoff: &starclock_activity::ActivityBattleHandoff| {
@@ -1127,6 +1127,10 @@ mod tests {
     }
 
     fn activity() -> (StandardUniverseActivity, Arc<UniverseCatalog>) {
+        activity_with_seed(9_700_090)
+    }
+
+    fn activity_with_seed(seed: u64) -> (StandardUniverseActivity, Arc<UniverseCatalog>) {
         let factory = StandardUniverseRuntimeFactory::load(CORE, UNIVERSE).unwrap();
         let catalog = Arc::clone(factory.catalog());
         let world = catalog.worlds()[0].id().get();
@@ -1134,7 +1138,7 @@ mod tests {
             .start(
                 world,
                 0,
-                9_700_090,
+                seed,
                 StandardUniverseControllerIdentity {
                     id: "goal07-test",
                     revision: "v1",

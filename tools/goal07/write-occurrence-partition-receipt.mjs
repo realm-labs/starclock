@@ -34,6 +34,7 @@ const isS02 = partitionId === "G07-P4-M13-S02";
 const isS03 = partitionId === "G07-P4-M13-S03";
 const isS04 = partitionId === "G07-P4-M13-S04";
 const isS05 = partitionId === "G07-P4-M13-S05";
+const isS06 = partitionId === "G07-P4-M13-S06";
 assert(exists(golden), `${partitionId}: golden is missing`);
 
 const provenanceEvidence = [
@@ -61,6 +62,21 @@ const executionEvidence = [
     { path: "crates/starclock-mode-universe/src/entry/state_layout.rs" },
     { path: "crates/starclock-mode-universe/src/topology/graph_layout.rs" },
   ] : []),
+  ...(isS06 ? [
+    { path: "crates/starclock-activity/src/program.rs" },
+    { path: "crates/starclock-combat/src/battle/model.rs" },
+    { path: "crates/starclock-mode-universe/src/occurrence_interaction/s06.rs" },
+    { path: "crates/starclock-mode-universe/src/occurrence_battle.rs" },
+    { path: "crates/starclock-mode-universe/src/battle_materialization.rs" },
+    { path: "crates/starclock-mode-universe/src/battle_materialization/occurrence.rs" },
+    { path: "crates/starclock-mode-universe/src/nested_battle_executor.rs" },
+    { path: "crates/starclock-mode-universe/src/universe_replay_v2.rs" },
+    { path: "crates/starclock-mode-universe/src/topology.rs" },
+    { path: "crates/starclock-mode-universe/src/topology_reward.rs" },
+    { path: "crates/starclock-mode-universe/src/topology/occurrence_binding.rs" },
+    { path: "crates/starclock-combat/src/numeric/domain.rs" },
+    { path: "crates/starclock-combat/src/timeline/select.rs" },
+  ] : []),
   ...(isS02 ? [
     { path: "crates/starclock-mode-universe/src/occurrence_battle.rs" },
     { path: "crates/starclock-mode-universe/src/battle_materialization.rs" },
@@ -80,6 +96,10 @@ const executionEvidence = [
   ...(isS05 ? [
     { path: "crates/starclock-mode-universe/tests/run_runtime/s05.rs" },
   ] : []),
+  ...(isS06 ? [
+    { path: "crates/starclock-mode-universe/tests/run_runtime/s06.rs" },
+    { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
+  ] : []),
   ...(isS02 || isS04
     ? [{ path: "crates/starclock-mode-universe/tests/service_reviver_runtime.rs" }]
     : []),
@@ -90,7 +110,7 @@ const receipt = {
   goal_id: "standard-universe-mechanics-complete-v1",
   partition_id: partitionId,
   state: "Complete",
-  completed_on: isS03 || isS04 || isS05 ? "2026-07-28" : "2026-07-27",
+  completed_on: isS03 || isS04 || isS05 || isS06 ? "2026-07-28" : "2026-07-27",
   authoring: {
     workbooks: [
       {
@@ -125,11 +145,13 @@ const receipt = {
             && id.startsWith("universe.occurrence.1.")
             ? "ExplicitExternalResult"
             : "SharedOccurrenceHandler",
-      test_path: isS04 || isS05
-        ? `crates/starclock-mode-universe/tests/run_runtime/${isS05 ? "s05" : "s04"}.rs`
+      test_path: isS04 || isS05 || isS06
+        ? `crates/starclock-mode-universe/tests/run_runtime/${isS06 ? "s06" : isS05 ? "s05" : "s04"}.rs`
         : "crates/starclock-mode-universe/tests/run_runtime.rs",
-      test_marker: isS05
-        ? "goal07_p4_m13_s05_executes_exact_history_curio_fragment_and_progressive_outcomes"
+      test_marker: isS06
+        ? "goal07_p4_m13_s06_executes_progressive_battle_cost_and_path_reward_outcomes"
+        : isS05
+          ? "goal07_p4_m13_s05_executes_exact_history_curio_fragment_and_progressive_outcomes"
         : isS04
         ? "goal07_p4_m13_s04_executes_exact_societal_saleo_and_cosmic_outcomes"
         : isS03
@@ -158,6 +180,8 @@ const receipt = {
               ? ["node tools/goal07/refine-occurrence-s04.mjs"]
               : isS05
                 ? ["node tools/goal07/refine-occurrence-s05.mjs"]
+                : isS06
+                  ? ["node tools/goal07/refine-occurrence-s06.mjs"]
             : []),
       `python tools/goal07/author-occurrence-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify-pack.mjs .",

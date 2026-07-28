@@ -324,6 +324,7 @@ impl Battle {
             events: output.events,
             state_hash: output.state_hash,
             fault: output.fault,
+            timeline_elapsed_scaled: output.timeline_elapsed_scaled,
         })
     }
 

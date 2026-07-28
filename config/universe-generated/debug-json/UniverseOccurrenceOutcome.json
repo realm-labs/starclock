@@ -11777,7 +11777,46 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "48"
+              },
+              {
+                "String": "40"
+              },
+              {
+                "String": "12"
+              },
+              {
+                "String": "32"
+              },
+              {
+                "String": "60"
+              },
+              {
+                "String": "8"
+              },
+              {
+                "String": "16"
+              },
+              {
+                "String": "80"
+              },
+              {
+                "String": "4"
+              },
+              {
+                "String": "0"
+              },
+              {
+                "String": "100"
+              },
+              {
+                "String": "0"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 112
           },
@@ -11785,14 +11824,41 @@
             "List": [
               {
                 "String": "Obtain"
+              },
+              {
+                "String": "Battle"
+              },
+              {
+                "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
           "parameter_refs": {
             "List": [
               {
-                "String": "3"
+                "String": "universe.occurrence-progressive.key.13502"
+              },
+              {
+                "String": "universe.occurrence-battle.stage.nildis-wildboar"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.voidranger-trampler.elite.variant.01"
+              },
+              {
+                "String": "enemy.guardian-shadow.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.1"
               }
             ]
           },
@@ -11806,7 +11872,9 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -11823,7 +11891,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-progressive.key.13502"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -11833,7 +11907,46 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "60"
+              },
+              {
+                "String": "25"
+              },
+              {
+                "String": "15"
+              },
+              {
+                "String": "40"
+              },
+              {
+                "String": "50"
+              },
+              {
+                "String": "10"
+              },
+              {
+                "String": "20"
+              },
+              {
+                "String": "75"
+              },
+              {
+                "String": "5"
+              },
+              {
+                "String": "0"
+              },
+              {
+                "String": "100"
+              },
+              {
+                "String": "0"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 114
           },
@@ -11841,14 +11954,41 @@
             "List": [
               {
                 "String": "Obtain"
+              },
+              {
+                "String": "Battle"
+              },
+              {
+                "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100"
+              }
+            ]
+          },
           "parameter_refs": {
             "List": [
               {
-                "String": "3"
+                "String": "universe.occurrence-progressive.key.13503"
+              },
+              {
+                "String": "universe.occurrence-battle.stage.nildis-robot"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.voidranger-trampler.elite.variant.01"
+              },
+              {
+                "String": "enemy.guardian-shadow.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.1"
               }
             ]
           },
@@ -11862,7 +12002,9 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -11879,7 +12021,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-progressive.key.13503"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -11896,12 +12044,51 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Battle"
               }
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-battle.stage.rock-paper-scissors"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "universe.occurrence-battle.wave.1"
+              },
+              {
+                "String": "enemy.voidranger-reaver.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.voidranger-reaver.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.voidranger-distorter.minionlv2.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.wave.2"
+              },
+              {
+                "String": "enemy.automaton-beetle.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.automaton-beetle.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.automaton-spider.minionlv2.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.2"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.paths"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -11922,7 +12109,13 @@
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100"
+              }
+            ]
+          },
           "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
@@ -11946,12 +12139,51 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Battle"
               }
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-battle.stage.rock-paper-scissors"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "universe.occurrence-battle.wave.1"
+              },
+              {
+                "String": "enemy.voidranger-reaver.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.voidranger-reaver.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.voidranger-distorter.minionlv2.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.wave.2"
+              },
+              {
+                "String": "enemy.automaton-beetle.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.automaton-beetle.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.automaton-spider.minionlv2.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.2"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.paths"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -11972,7 +12204,13 @@
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100"
+              }
+            ]
+          },
           "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
@@ -11996,28 +12234,43 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Battle"
               }
             ]
           },
-          "numeric_literals": {
+          "numeric_literals": "Null",
+          "parameter_refs": {
             "List": [
               {
-                "String": "1"
+                "String": "universe.occurrence-battle.stage.tavern-13601-1"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.everwinter-shadewalker.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.everwinter-shadewalker.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.guardian-shadow.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.1"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.paths"
+              },
+              {
+                "String": "universe.path.preservation"
               }
             ]
           },
-          "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
           },
-          "targets": {
-            "List": [
-              {
-                "String": "Blessing"
-              }
-            ]
-          },
+          "targets": "Null",
           "unspecified_random_policy": "Null"
         }
       },
@@ -12030,28 +12283,43 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Battle"
               }
             ]
           },
-          "numeric_literals": {
+          "numeric_literals": "Null",
+          "parameter_refs": {
             "List": [
               {
-                "String": "1"
+                "String": "universe.occurrence-battle.stage.tavern-13601-2"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.imaginary-weaver.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.imaginary-weaver.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.decaying-shadow.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.1"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.paths"
+              },
+              {
+                "String": "universe.path.nihility"
               }
             ]
           },
-          "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
           },
-          "targets": {
-            "List": [
-              {
-                "String": "Blessing"
-              }
-            ]
-          },
+          "targets": "Null",
           "unspecified_random_policy": "Null"
         }
       },
@@ -12064,12 +12332,39 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Battle"
               }
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-battle.stage.tavern-13601-3"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.guardian-shadow.elite.variant.01"
+              },
+              {
+                "String": "enemy.decaying-shadow.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.2"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.paths"
+              },
+              {
+                "String": "universe.path.preservation"
+              },
+              {
+                "String": "universe.path.nihility"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -12086,28 +12381,37 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Battle"
               }
             ]
           },
-          "numeric_literals": {
+          "numeric_literals": "Null",
+          "parameter_refs": {
             "List": [
               {
-                "String": "1"
+                "String": "universe.occurrence-battle.stage.tavern-13602-1"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.automaton-grizzly.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.1"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.paths"
+              },
+              {
+                "String": "universe.path.elation"
               }
             ]
           },
-          "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
           },
-          "targets": {
-            "List": [
-              {
-                "String": "Blessing"
-              }
-            ]
-          },
+          "targets": "Null",
           "unspecified_random_policy": "Null"
         }
       },
@@ -12120,28 +12424,43 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Battle"
               }
             ]
           },
-          "numeric_literals": {
+          "numeric_literals": "Null",
+          "parameter_refs": {
             "List": [
               {
-                "String": "1"
+                "String": "universe.occurrence-battle.stage.tavern-13602-2"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.automaton-hound.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.automaton-hound.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.automaton-direwolf.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.1"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.paths"
+              },
+              {
+                "String": "universe.path.hunt"
               }
             ]
           },
-          "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
           },
-          "targets": {
-            "List": [
-              {
-                "String": "Blessing"
-              }
-            ]
-          },
+          "targets": "Null",
           "unspecified_random_policy": "Null"
         }
       },
@@ -12154,12 +12473,39 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Battle"
               }
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-battle.stage.tavern-13602-3"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.automaton-direwolf.elite.variant.01"
+              },
+              {
+                "String": "enemy.automaton-grizzly.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.2"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.paths"
+              },
+              {
+                "String": "universe.path.elation"
+              },
+              {
+                "String": "universe.path.hunt"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -12176,28 +12522,43 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Battle"
               }
             ]
           },
-          "numeric_literals": {
+          "numeric_literals": "Null",
+          "parameter_refs": {
             "List": [
               {
-                "String": "1"
+                "String": "universe.occurrence-battle.stage.tavern-13603-1"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.frostspawn.minion.variant.01"
+              },
+              {
+                "String": "enemy.frostspawn.minion.variant.01"
+              },
+              {
+                "String": "enemy.ice-out-of-space.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.1"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.paths"
+              },
+              {
+                "String": "universe.path.remembrance"
               }
             ]
           },
-          "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
           },
-          "targets": {
-            "List": [
-              {
-                "String": "Blessing"
-              }
-            ]
-          },
+          "targets": "Null",
           "unspecified_random_policy": "Null"
         }
       },
@@ -12210,28 +12571,43 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Battle"
               }
             ]
           },
-          "numeric_literals": {
+          "numeric_literals": "Null",
+          "parameter_refs": {
             "List": [
               {
-                "String": "1"
+                "String": "universe.occurrence-battle.stage.tavern-13603-2"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.flamespawn.minion.variant.01"
+              },
+              {
+                "String": "enemy.flamespawn.minion.variant.01"
+              },
+              {
+                "String": "enemy.blaze-out-of-space.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.1"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.paths"
+              },
+              {
+                "String": "universe.path.destruction"
               }
             ]
           },
-          "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
           },
-          "targets": {
-            "List": [
-              {
-                "String": "Blessing"
-              }
-            ]
-          },
+          "targets": "Null",
           "unspecified_random_policy": "Null"
         }
       },
@@ -12244,12 +12620,39 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Battle"
               }
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-battle.stage.tavern-13603-3"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.ice-out-of-space.elite.variant.01"
+              },
+              {
+                "String": "enemy.blaze-out-of-space.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.2"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.paths"
+              },
+              {
+                "String": "universe.path.remembrance"
+              },
+              {
+                "String": "universe.path.destruction"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -12266,12 +12669,30 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Battle"
               }
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-battle.stage.periodic-demon-lord"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.aurumaton-gatekeeper.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.within-cycles.4.base.1.bonus.1"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.paths"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },

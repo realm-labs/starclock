@@ -38,8 +38,28 @@ pub(crate) fn compile_blessing_reward(
     blessing_offer_marker_slot: ActivitySlotId,
     curio_bindings: CurioActivityBindings,
     blessing_inventory: ActivityInventoryId,
+    battle_reward_path_slot: ActivitySlotId,
     eligible_blessings: &[&BlessingRuntimeDefinition],
 ) -> Result<CompiledBlessingReward, UniverseTopologyCompileError> {
+    let path_ids = eligible_blessings
+        .iter()
+        .map(|blessing| blessing.path())
+        .collect::<std::collections::BTreeSet<_>>();
+    let path_reward_constrained = ActivityCondition::Any(
+        path_ids
+            .iter()
+            .map(|path| {
+                ActivityCondition::LessThan(
+                    integer(0),
+                    ActivityExpression::CounterValue {
+                        slot: battle_reward_path_slot,
+                        key: u64::from(path.get()),
+                    },
+                )
+            })
+            .collect::<Vec<_>>()
+            .into_boxed_slice(),
+    );
     let mut options = Vec::with_capacity(eligible_blessings.len());
     let mut weights = Vec::with_capacity(eligible_blessings.len());
     for (priority, blessing) in eligible_blessings.iter().enumerate() {
@@ -85,6 +105,20 @@ pub(crate) fn compile_blessing_reward(
             key: u64::from(blessing.path().get()),
             delta: integer(1),
         }];
+        settlement.insert(
+            0,
+            ActivityOperation::AddCounter {
+                slot: battle_reward_path_slot,
+                key: u64::from(blessing.path().get()),
+                delta: ActivityExpression::Negate(Box::new(ActivityExpression::Minimum(
+                    Box::new(ActivityExpression::CounterValue {
+                        slot: battle_reward_path_slot,
+                        key: u64::from(blessing.path().get()),
+                    }),
+                    Box::new(integer(1)),
+                ))),
+            },
+        );
         settlement.extend(dimension_reward_settlement(curio_bindings, ordinary_finish));
         let content = u64::from(blessing.blessing().get());
         let one_star_bonus = if blessing.rarity() == 1 {
@@ -119,12 +153,30 @@ pub(crate) fn compile_blessing_reward(
         options.push(ActivityOptionDefinition::new(
             id,
             priority as i32,
-            ActivityCondition::Equal(
-                ActivityExpression::InventoryCount {
-                    inventory: blessing_inventory,
-                    content,
-                },
-                integer(0),
+            ActivityCondition::All(
+                vec![
+                    ActivityCondition::Equal(
+                        ActivityExpression::InventoryCount {
+                            inventory: blessing_inventory,
+                            content,
+                        },
+                        integer(0),
+                    ),
+                    ActivityCondition::Any(
+                        vec![
+                            ActivityCondition::Not(Box::new(path_reward_constrained.clone())),
+                            ActivityCondition::LessThan(
+                                integer(0),
+                                ActivityExpression::CounterValue {
+                                    slot: battle_reward_path_slot,
+                                    key: u64::from(blessing.path().get()),
+                                },
+                            ),
+                        ]
+                        .into_boxed_slice(),
+                    ),
+                ]
+                .into_boxed_slice(),
             ),
             settlement,
         ));

@@ -1,5 +1,69 @@
 use super::*;
 
+pub(super) fn outcome_pairs(
+    outcome: &OccurrenceOutcome,
+) -> Vec<(
+    OccurrenceOperation,
+    Option<OccurrenceTarget>,
+    Option<AuthoredScalar>,
+)> {
+    if outcome.operations().len() == 1 && outcome.targets().len() > 1 {
+        return outcome
+            .targets()
+            .iter()
+            .enumerate()
+            .map(|(index, target)| {
+                (
+                    outcome.operations()[0],
+                    Some(*target),
+                    outcome
+                        .numeric_literals()
+                        .get(index)
+                        .or_else(|| outcome.numeric_literals().first())
+                        .copied(),
+                )
+            })
+            .collect();
+    }
+    outcome
+        .operations()
+        .iter()
+        .enumerate()
+        .map(|(index, operation)| {
+            (
+                *operation,
+                outcome
+                    .targets()
+                    .get(index)
+                    .or_else(|| outcome.targets().first())
+                    .copied(),
+                outcome
+                    .numeric_literals()
+                    .get(index)
+                    .or_else(|| outcome.numeric_literals().first())
+                    .copied(),
+            )
+        })
+        .collect()
+}
+
+pub(super) fn default_scalar() -> AuthoredScalar {
+    AuthoredScalar::new(
+        crate::path::ExactParameter::new(1, 0),
+        AuthoredScalarUnit::Scalar,
+    )
+}
+
+pub(super) const fn operation_sign(operation: OccurrenceOperation) -> i8 {
+    match operation {
+        OccurrenceOperation::Obtain | OccurrenceOperation::Enhance => 1,
+        OccurrenceOperation::Consume | OccurrenceOperation::Discard | OccurrenceOperation::Lose => {
+            -1
+        }
+        _ => 0,
+    }
+}
+
 pub(crate) fn exact_integer(value: AuthoredScalar) -> Result<i64, OccurrenceInteractionError> {
     let divisor = 10_i64
         .checked_pow(u32::from(value.value().scale()))

@@ -14,6 +14,7 @@ use super::state::NormalTurnState;
 pub(crate) struct TimelineAdvance {
     pub(crate) turn: NormalTurnState,
     pub(crate) gauges: Vec<(crate::TimelineActorId, ActionGauge)>,
+    pub(crate) elapsed_action_value_scaled: i64,
 }
 
 pub(crate) fn plan_next_turn(
@@ -79,6 +80,10 @@ pub(crate) fn plan_next_turn(
         })
         .collect::<Result<Vec<_>, BattleFault>>()?;
     Ok(TimelineAdvance {
+        elapsed_action_value_scaled: selected
+            .4
+            .elapsed_action_value_scaled(selected.5)
+            .map_err(|_| timeline_fault(6))?,
         turn: NormalTurnState {
             actor: selected.0,
             owner: selected.1,

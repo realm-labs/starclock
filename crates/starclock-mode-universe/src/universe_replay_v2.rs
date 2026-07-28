@@ -617,6 +617,7 @@ fn verify_nested_battle(
     let mut battle = create_nested_battle(Arc::clone(&catalog), handoff)?;
     let mut commitment = EventCommitment::new(&catalog, handoff);
     let mut command_index = 0_u32;
+    let mut timeline_elapsed_scaled = 0_i64;
     while records
         .get(*cursor)
         .is_some_and(|record| record.kind() == RecordKind::AcceptedBattleCommand)
@@ -646,6 +647,12 @@ fn verify_nested_battle(
                 kind: error.kind(),
             }
         })?;
+        timeline_elapsed_scaled = timeline_elapsed_scaled
+            .checked_add(resolution.timeline_elapsed_scaled())
+            .ok_or(StandardUniverseReplayV2Error::NestedBattleIncomplete {
+                battle_index,
+                command_index,
+            })?;
         compare_events(
             battle_index,
             command_index,
@@ -672,7 +679,12 @@ fn verify_nested_battle(
     let end = expect_record(records, *cursor, RecordKind::NestedBattleEnd)?;
     let expected_end = decode_nested_battle_end_payload(end.payload())?;
     *cursor += 1;
-    let actual_result = project_result(&battle, handoff, commitment.finish())?;
+    let actual_result = project_result(
+        &battle,
+        handoff,
+        commitment.finish(),
+        timeline_elapsed_scaled,
+    )?;
     if expected_end != actual_result.actual_digest() || recorded_result != &actual_result {
         return Err(StandardUniverseReplayV2Error::NestedResultDivergence {
             action_index,

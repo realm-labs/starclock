@@ -5,7 +5,7 @@ use crate::{
 };
 use starclock_combat::{Energy, Hp, Ratio};
 
-pub const MAX_ACTIVITY_PROGRAM_OPERATIONS: usize = 4_096;
+pub const MAX_ACTIVITY_PROGRAM_OPERATIONS: usize = 8_192;
 pub const MAX_ACTIVITY_PROGRAM_DEPTH: usize = 16;
 pub const MAX_ACTIVITY_OPTIONS: usize = 256;
 

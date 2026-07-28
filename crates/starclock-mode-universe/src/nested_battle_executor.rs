@@ -228,10 +228,16 @@ impl UniverseNestedBattleExecutor {
         let mut enemy = EnemyController::new(enemy_controller_seed(handoff));
         let mut commitment = EventCommitment::new(catalog, handoff);
         let mut trace = Vec::new();
+        let mut timeline_elapsed_scaled = 0_i64;
 
         for _ in 0..self.command_budget {
             if battle.view().phase().is_terminal() {
-                let result = project_result(&battle, handoff, commitment.finish())?;
+                let result = project_result(
+                    &battle,
+                    handoff,
+                    commitment.finish(),
+                    timeline_elapsed_scaled,
+                )?;
                 let report = report(&battle, &result, trace)?;
                 return Ok((result, report));
             }
@@ -244,6 +250,9 @@ impl UniverseNestedBattleExecutor {
             let resolution = battle
                 .apply(command.clone())
                 .map_err(|_| NestedBattleExecutionError::CommandRejected)?;
+            timeline_elapsed_scaled = timeline_elapsed_scaled
+                .checked_add(resolution.timeline_elapsed_scaled())
+                .ok_or(NestedBattleExecutionError::UnsupportedProjection)?;
             commitment.push(&command, &resolution);
             trace.push(NestedBattleTraceEntry {
                 controller,
@@ -527,6 +536,7 @@ pub(crate) fn project_result(
     battle: &Battle,
     handoff: &ActivityBattleHandoff,
     event_digest: EventDigest,
+    timeline_elapsed_scaled: i64,
 ) -> Result<BattleResult, NestedBattleExecutionError> {
     let view = battle.view();
     let outcome = match view.phase() {
@@ -590,12 +600,100 @@ pub(crate) fn project_result(
                     ),
                 }
             }
+            ProjectionField::Metric { key, kind }
+                if *kind == MetricValueKind::BoundedInteger
+                    && key
+                        .strip_prefix(
+                            crate::battle_materialization::FIXED_BLESSING_COUNT_METRIC_PREFIX,
+                        )
+                        .is_some() =>
+            {
+                let count = key
+                    .strip_prefix(crate::battle_materialization::FIXED_BLESSING_COUNT_METRIC_PREFIX)
+                    .and_then(|value| value.parse::<i64>().ok())
+                    .filter(|value| (1..=4).contains(value))
+                    .ok_or(NestedBattleExecutionError::UnsupportedProjection)?;
+                ProjectedValue::Metric {
+                    key: key.clone(),
+                    value: MetricValue::BoundedInteger(count),
+                }
+            }
+            ProjectionField::Metric { key, kind }
+                if *kind == MetricValueKind::BoundedInteger
+                    && key
+                        .strip_prefix(
+                            crate::battle_materialization::CYCLE_BLESSING_COUNT_METRIC_PREFIX,
+                        )
+                        .is_some() =>
+            {
+                let (cycles, base, bonus) = parse_cycle_reward_metric(key)?;
+                let count =
+                    cycle_reward_count(outcome, timeline_elapsed_scaled, cycles, base, bonus)?;
+                ProjectedValue::Metric {
+                    key: key.clone(),
+                    value: MetricValue::BoundedInteger(count),
+                }
+            }
             ProjectionField::Metric { .. } => {
                 return Err(NestedBattleExecutionError::UnsupportedProjection);
             }
         });
     }
     Ok(BattleResult::seal(handoff.identity(), values))
+}
+
+fn cycle_reward_count(
+    outcome: BattleOutcome,
+    timeline_elapsed_scaled: i64,
+    cycles: u8,
+    base: u8,
+    bonus: u8,
+) -> Result<i64, NestedBattleExecutionError> {
+    let cycle_limit = i64::from(cycles)
+        .checked_mul(100_000_000)
+        .and_then(|value| value.checked_add(50_000_000))
+        .ok_or(NestedBattleExecutionError::UnsupportedProjection)?;
+    if timeline_elapsed_scaled < 0 {
+        return Err(NestedBattleExecutionError::UnsupportedProjection);
+    }
+    let earned_bonus = if outcome == BattleOutcome::Won && timeline_elapsed_scaled <= cycle_limit {
+        bonus
+    } else {
+        0
+    };
+    Ok(i64::from(base) + i64::from(earned_bonus))
+}
+
+fn parse_cycle_reward_metric(key: &str) -> Result<(u8, u8, u8), NestedBattleExecutionError> {
+    let value = key
+        .strip_prefix(crate::battle_materialization::CYCLE_BLESSING_COUNT_METRIC_PREFIX)
+        .ok_or(NestedBattleExecutionError::UnsupportedProjection)?;
+    let mut parts = value.split('.');
+    let cycles = parts
+        .next()
+        .and_then(|value| value.parse::<u8>().ok())
+        .filter(|value| (1..=8).contains(value))
+        .ok_or(NestedBattleExecutionError::UnsupportedProjection)?;
+    if parts.next() != Some("base") {
+        return Err(NestedBattleExecutionError::UnsupportedProjection);
+    }
+    let base = parts
+        .next()
+        .and_then(|value| value.parse::<u8>().ok())
+        .filter(|value| (1..=4).contains(value))
+        .ok_or(NestedBattleExecutionError::UnsupportedProjection)?;
+    if parts.next() != Some("bonus") {
+        return Err(NestedBattleExecutionError::UnsupportedProjection);
+    }
+    let bonus = parts
+        .next()
+        .and_then(|value| value.parse::<u8>().ok())
+        .filter(|value| (1..=4).contains(value))
+        .ok_or(NestedBattleExecutionError::UnsupportedProjection)?;
+    if parts.next().is_some() || base.saturating_add(bonus) > 4 {
+        return Err(NestedBattleExecutionError::UnsupportedProjection);
+    }
+    Ok((cycles, base, bonus))
 }
 
 fn report(
@@ -780,5 +878,32 @@ fn optional_u32(encoder: &mut Encoder, value: Option<u32>) {
     encoder.bool(value.is_some());
     if let Some(value) = value {
         encoder.u32(value);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn cycle_reward_metric_is_strict_and_boundary_inclusive() {
+        assert_eq!(
+            parse_cycle_reward_metric("occurrence.blessing-reward.within-cycles.4.base.1.bonus.1"),
+            Ok((4, 1, 1))
+        );
+        assert!(
+            parse_cycle_reward_metric("occurrence.blessing-reward.within-cycles.4.base.3.bonus.2")
+                .is_err()
+        );
+        assert_eq!(
+            cycle_reward_count(BattleOutcome::Won, 450_000_000, 4, 1, 1),
+            Ok(2)
+        );
+        assert_eq!(
+            cycle_reward_count(BattleOutcome::Won, 450_000_001, 4, 1, 1),
+            Ok(1)
+        );
+        assert_eq!(cycle_reward_count(BattleOutcome::Lost, 0, 4, 1, 1), Ok(1));
+        assert!(cycle_reward_count(BattleOutcome::Won, -1, 4, 1, 1).is_err());
     }
 }
