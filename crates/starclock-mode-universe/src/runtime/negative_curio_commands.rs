@@ -688,7 +688,7 @@ mod tests {
 
     #[test]
     fn repairing_codes_transition_only_after_three_won_battles() {
-        let mut activity = activity();
+        let mut activity = activity_from_seed(0);
         let energy = curio(&activity, "universe.curio.45");
         let hp = curio(&activity, "universe.curio.47");
         acquire_curios(&mut activity, &[energy, hp]);
@@ -915,13 +915,17 @@ mod tests {
     }
 
     fn activity() -> StandardUniverseActivity {
+        activity_from_seed(u64::from(TEST_PROGRAM))
+    }
+
+    fn activity_from_seed(seed: u64) -> StandardUniverseActivity {
         let factory = StandardUniverseRuntimeFactory::load(CORE, UNIVERSE).unwrap();
         let world = factory.catalog().worlds()[0].id().get();
         let instance = factory
             .start(
                 world,
                 0,
-                u64::from(TEST_PROGRAM),
+                seed,
                 StandardUniverseControllerIdentity {
                     id: "negative-curio-test",
                     revision: "v1",

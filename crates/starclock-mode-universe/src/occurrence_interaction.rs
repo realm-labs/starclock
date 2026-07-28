@@ -21,6 +21,7 @@ use crate::{
 
 mod digest;
 mod s02;
+mod s03;
 pub(crate) mod support;
 
 use support::{
@@ -30,7 +31,7 @@ use support::{
 
 pub const OCCURRENCE_INTERACTION_HANDLER_ID: u32 = 2;
 pub const OCCURRENCE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-occurrence-interaction-runtime-v3";
+    "standard-universe-occurrence-interaction-runtime-v4";
 const PAYLOAD_REVISION: u8 = 3;
 const TAG_FRAGMENT_SCALAR: u8 = 1;
 const TAG_FRAGMENT_PERCENT: u8 = 2;
@@ -903,14 +904,7 @@ fn referenced_blessings(
     outcome: &OccurrenceOutcome,
     catalog: &UniverseCatalog,
 ) -> Result<Vec<u64>, OccurrenceInteractionError> {
-    referenced_ids(
-        outcome,
-        "universe.blessing.",
-        catalog
-            .blessings()
-            .iter()
-            .map(|value| (value.stable_key(), u64::from(value.id().get()))),
-    )
+    s03::referenced_blessings(outcome, catalog)
 }
 
 fn referenced_curios(
@@ -944,36 +938,6 @@ fn referenced_curios(
     }
     selected.sort_unstable_by_key(|value| value.id());
     selected.dedup_by_key(|value| value.id());
-    Ok(selected)
-}
-
-fn referenced_ids<'a>(
-    outcome: &OccurrenceOutcome,
-    prefix: &str,
-    available: impl IntoIterator<Item = (&'a str, u64)>,
-) -> Result<Vec<u64>, OccurrenceInteractionError> {
-    let references = outcome
-        .parameter_refs()
-        .iter()
-        .filter(|value| value.starts_with(prefix))
-        .map(AsRef::as_ref)
-        .collect::<Vec<_>>();
-    let available = available.into_iter().collect::<Vec<_>>();
-    if references.is_empty() {
-        return Ok(available.into_iter().map(|(_, id)| id).collect());
-    }
-    let mut selected = Vec::with_capacity(references.len());
-    for reference in references {
-        selected.push(
-            available
-                .iter()
-                .find(|(stable_key, _)| *stable_key == reference)
-                .map(|(_, id)| *id)
-                .ok_or(OccurrenceInteractionError::InvalidChoice)?,
-        );
-    }
-    selected.sort_unstable();
-    selected.dedup();
     Ok(selected)
 }
 

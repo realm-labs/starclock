@@ -155,7 +155,7 @@ fn all_topologies_compile_to_bounded_spatial_free_hubs() {
     );
     assert_eq!(
         STANDARD_UNIVERSE_TOPOLOGY_REVISION,
-        "standard-universe-topology-v17"
+        "standard-universe-topology-v18"
     );
 
     for hub in compiled.domain_hubs() {
@@ -267,8 +267,8 @@ fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state(
     assert_eq!(
         view.state_hash().bytes(),
         [
-            164, 37, 163, 216, 7, 13, 48, 190, 210, 165, 127, 28, 118, 241, 208, 16, 135, 214, 191,
-            19, 207, 108, 54, 174, 248, 135, 31, 47, 213, 197, 209, 154,
+            149, 158, 132, 85, 92, 246, 38, 80, 32, 61, 99, 225, 129, 111, 181, 82, 146, 123, 45,
+            59, 161, 153, 252, 104, 16, 134, 223, 149, 124, 123, 46, 212,
         ]
     );
     let decision = view.decision().expect("Path choice");

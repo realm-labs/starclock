@@ -96,8 +96,8 @@ impl OccurrenceEffectRuntimeCatalog {
             })
             .count();
         if programs.len() != 321
-            || cost_count != 67
-            || policy_count != 60
+            || cost_count != 53
+            || policy_count != 75
             || programs
                 .windows(2)
                 .any(|pair| pair[0].choice == pair[1].choice)
@@ -125,7 +125,7 @@ impl OccurrenceEffectRuntimeCatalog {
     }
     #[must_use]
     pub const fn random_policy_count(&self) -> usize {
-        60
+        75
     }
     #[must_use]
     pub const fn digest(&self) -> [u8; 32] {

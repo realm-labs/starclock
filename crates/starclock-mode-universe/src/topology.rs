@@ -58,7 +58,7 @@ use starclock_activity::{
     TerminalOutcome,
 };
 use std::{collections::BTreeSet, sync::Arc};
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v17";
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v18";
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 
 const PATH_NODE: u32 = 1;
@@ -589,7 +589,13 @@ pub(crate) fn compile(
                             occurrence_random_purpose(node, outcome),
                             candidate_count,
                         )
-                        .expect("compiled Occurrence RNG policy is bounded"),
+                        .unwrap_or_else(|error| {
+                            panic!(
+                                "compiled Occurrence RNG policy is bounded: node={} outcome={} candidates={candidate_count} error={error:?}",
+                                node.get(),
+                                outcome.get(),
+                            )
+                        }),
                     )
                 })
         })

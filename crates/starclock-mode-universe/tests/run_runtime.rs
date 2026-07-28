@@ -22,7 +22,7 @@ use starclock_mode_universe::{
     entry::{StandardUniverseEntry, StandardUniverseProfile},
     occurrence::{OccurrenceOperation, OccurrenceTarget},
     occurrence_interaction::OCCURRENCE_INTERACTION_HANDLER_ID,
-    run_runtime::{CosmicFragments, RUN_RUNTIME_REVISION, RunRuntimeCatalog},
+    run_runtime::{CosmicFragments, MAX_COSMIC_FRAGMENTS, RUN_RUNTIME_REVISION, RunRuntimeCatalog},
 };
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
@@ -50,7 +50,7 @@ fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
             .flat_map(|choice| choice.outcomes())
             .filter(|outcome| outcome.random_policy().is_some())
             .count(),
-        60
+        75
     );
     assert_eq!(
         runtime
@@ -79,8 +79,8 @@ fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
     assert_eq!(
         runtime.digest(),
         [
-            161, 76, 62, 75, 230, 0, 216, 39, 22, 243, 183, 238, 19, 74, 222, 124, 134, 60, 187,
-            72, 14, 252, 62, 29, 48, 88, 170, 184, 76, 1, 47, 128,
+            209, 185, 88, 157, 25, 6, 169, 250, 169, 30, 239, 35, 142, 40, 137, 207, 17, 235, 122,
+            80, 35, 72, 47, 116, 106, 79, 78, 72, 60, 132, 55, 119,
         ]
     );
     assert_eq!(
@@ -312,9 +312,9 @@ fn occurrence_choices_compile_and_exact_room_sources_bind_executable_handlers() 
     }));
     let interaction_catalog = compiled.occurrence_interaction_runtime();
     assert_eq!(interaction_catalog.choice_count(), 321);
-    assert_eq!(interaction_catalog.immediate_operation_count(), 392);
-    assert_eq!(interaction_catalog.deferred_operation_count(), 75);
-    assert_eq!(interaction_catalog.external_result_count(), 3_559);
+    assert_eq!(interaction_catalog.immediate_operation_count(), 370);
+    assert_eq!(interaction_catalog.deferred_operation_count(), 73);
+    assert_eq!(interaction_catalog.external_result_count(), 4_135);
     assert!(catalog.occurrence_choices().iter().any(|choice| {
         let outcome = &choice.outcomes()[0];
         outcome.operations().contains(&OccurrenceOperation::Obtain)
@@ -758,10 +758,129 @@ fn goal07_p4_m13_s02_executes_exact_hp_path_curio_fragment_and_occurrence_battle
     assert_eq!(pigs.immediate_operations(), 1);
 }
 
+#[test]
+fn goal07_p4_m13_s03_executes_exact_blessing_curio_enhancement_and_fragment_costs() {
+    let catalog = catalog();
+    let world = &catalog.worlds()[0];
+    let compiled = StandardUniverseProfile::new(Arc::clone(&catalog))
+        .compile(StandardUniverseEntry::new(
+            world.id(),
+            world.difficulties()[0],
+            participants(),
+            vec![],
+        ))
+        .unwrap();
+    let runtime = compiled.occurrence_interaction_runtime();
+    let choice = |key: &str| {
+        let choice = catalog
+            .occurrence_choices()
+            .iter()
+            .find(|choice| choice.stable_key() == key)
+            .unwrap();
+        runtime.compile_choice(choice.id()).unwrap()
+    };
+
+    let nomadic = choice("universe.occurrence.2.variant.10101.choice.01");
+    assert_eq!(nomadic.random_candidate_count(), Some(162));
+    assert_eq!(nomadic.deferred_operations(), 0);
+    assert_eq!(
+        choice("universe.occurrence.2.variant.10101.choice.02")
+            .external_results()
+            .len(),
+        7
+    );
+
+    let kindling = choice("universe.occurrence.19.variant.11601.choice.01");
+    assert_eq!(kindling.random_candidate_count(), Some(135));
+    assert_eq!(kindling.deferred_operations(), 0);
+    let activity =
+        execute_occurrence_payload_with_fragments(&compiled, kindling.payload(), 99_301, 500);
+    let player = activity.player_view();
+    assert_eq!(
+        player
+            .inventories()
+            .iter()
+            .find(|inventory| inventory.id() == compiled.blessing_inventory())
+            .unwrap()
+            .entries()
+            .len(),
+        1
+    );
+    assert_eq!(
+        player
+            .inventories()
+            .iter()
+            .find(|inventory| inventory.id() == compiled.curio_inventory())
+            .unwrap()
+            .entries()
+            .len(),
+        1
+    );
+
+    let merchant = choice("universe.occurrence.20.variant.11701.choice.01");
+    assert_eq!(merchant.external_results().len(), 72);
+    let activity = execute_occurrence_payload_with_fragments(
+        &compiled,
+        merchant.external_results()[0].payload(),
+        99_302,
+        500,
+    );
+    assert_eq!(
+        activity
+            .player_view()
+            .slots()
+            .iter()
+            .find(|slot| slot.id() == compiled.cosmic_fragments_slot())
+            .map(|slot| slot.value()),
+        Some(&ActivityValue::BoundedInteger(400))
+    );
+    assert_eq!(
+        choice("universe.occurrence.20.variant.11701.choice.02")
+            .external_results()
+            .len(),
+        15
+    );
+    assert_eq!(
+        choice("universe.occurrence.20.variant.11701.choice.04")
+            .external_results()
+            .len(),
+        46
+    );
+    assert_eq!(
+        choice("universe.occurrence.20.variant.11701.choice.05")
+            .external_results()
+            .len(),
+        162
+    );
+    assert_eq!(
+        choice("universe.occurrence.20.variant.11701.choice.08")
+            .external_results()
+            .len(),
+        27
+    );
+    assert_eq!(
+        choice("universe.occurrence.20.variant.11701.choice.07").random_candidate_count(),
+        Some(162)
+    );
+    assert_eq!(
+        choice("universe.occurrence.19.variant.11601.choice.02").immediate_operations(),
+        1
+    );
+}
+
 fn execute_occurrence_payload(
     compiled: &starclock_mode_universe::entry::CompiledActivity,
     payload: &[u8],
     outcome: u32,
+) -> GraphActivity {
+    execute_occurrence_payload_with_fragments(compiled, payload, outcome, 50)
+}
+
+fn execute_occurrence_payload_with_fragments(
+    compiled: &starclock_mode_universe::entry::CompiledActivity,
+    payload: &[u8],
+    outcome: u32,
+    initial_fragments: i64,
 ) -> GraphActivity {
     let outcome = ActivityExternalOutcomeId::new(u64::from(outcome)).unwrap();
     let binding = ActivityInteractionBinding::new(
@@ -777,7 +896,8 @@ fn execute_occurrence_payload(
         .interactions()
         .unwrap()
         .registry();
-    let mut activity = occurrence_harness(compiled, &binding, registry);
+    let mut activity =
+        occurrence_harness_with_fragments(compiled, &binding, registry, initial_fragments);
     let before = activity.player_view();
     activity
         .submit_external_outcome(
@@ -793,6 +913,15 @@ fn occurrence_harness(
     compiled: &starclock_mode_universe::entry::CompiledActivity,
     source: &ActivityInteractionBinding,
     registry: &Arc<starclock_activity::ActivityHandlerRegistry>,
+) -> GraphActivity {
+    occurrence_harness_with_fragments(compiled, source, registry, 50)
+}
+
+fn occurrence_harness_with_fragments(
+    compiled: &starclock_mode_universe::entry::CompiledActivity,
+    source: &ActivityInteractionBinding,
+    registry: &Arc<starclock_activity::ActivityHandlerRegistry>,
+    initial_fragments: i64,
 ) -> GraphActivity {
     let graph = ActivityGraphDefinition::new(
         node(1),
@@ -856,7 +985,24 @@ fn occurrence_harness(
             .slots()
             .iter()
             .filter(|slot| required_slots.contains(&slot.id()))
-            .cloned()
+            .map(|slot| {
+                if slot.id() == compiled.cosmic_fragments_slot() {
+                    ActivitySlotDefinition::new_with_policy(
+                        slot.id(),
+                        slot.owner(),
+                        ActivityValue::BoundedInteger(initial_fragments),
+                        Some((0, MAX_COSMIC_FRAGMENTS)),
+                        slot.maximum_entries(),
+                        slot.resets().to_vec(),
+                        slot.carry(),
+                        slot.visibility(),
+                        slot.source().unwrap(),
+                    )
+                    .unwrap()
+                } else {
+                    slot.clone()
+                }
+            })
             .collect(),
         compiled
             .state_definition()

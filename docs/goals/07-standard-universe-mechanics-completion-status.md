@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M13-S03` |
-| Next unblocked batch | `G07-P4-M13-S03` |
+| Active batch | `G07-P4-M13-S04` |
+| Next unblocked batch | `G07-P4-M13-S04` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -192,10 +192,17 @@ Blessing per defeated enemy; the unavailable native Trot move definitions
 remain explicitly represented by the existing minion-level-2 proxy policy.
 All 32 records have terminal dispositions, with no new native handler or
 numeric approximation.
-`G07-P4-M13-S03` is active.
+Occurrence S03 is complete. Nomadic Miners, Kindling of the Self-Annihilator
+and all three Cosmic Merchant graph variants execute exact Blessing
+enhancement, rarity/Path pools, Curio acquisition and checked 10/100/200
+Cosmic Fragment costs. Four compact catalog-backed Blessing-pool references
+keep the Sora parameter bound closed without content-ID branches. All 32
+records have terminal dispositions, with no deferred counter, native handler
+or numeric approximation.
+`G07-P4-M13-S04` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 56 completed partitions use scoped Excel/Sora semantic
+model. The first 57 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
@@ -267,7 +274,7 @@ The milestone summary remains here for orientation.
 | `G07-P2-M10` | `Complete` | 58 / 59 | Erudition complete. |
 | `G07-P3-M11` | `Complete` | 86 / 86 | Positive/neutral/special Curios complete. |
 | `G07-P3-M12` | `Complete` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
-| `G07-P4-M13` | `Expanded` | 64 / 447 | Occurrence choices and effects complete. |
+| `G07-P4-M13` | `Expanded` | 96 / 447 | Occurrence choices and effects complete. |
 | `G07-P4-M14` | `Complete` | 94 / 94 | Services, shops, roster and interactables complete. |
 | `G07-P5-M15` | `Expanded` | 0 / 959 | Enemy, encounter, World/difficulty and carry complete. |
 

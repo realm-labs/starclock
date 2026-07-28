@@ -94,7 +94,7 @@ fn lower_choices(
     }
     definitions.sort_by_key(OccurrenceChoiceDefinition::id);
     if definitions.len() != 321
-        || config.universe_occurrence_cost().len() != 67
+        || config.universe_occurrence_cost().len() != 53
         || config.universe_occurrence_outcome().len() != 321
         || definitions
             .iter()

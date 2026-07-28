@@ -7906,7 +7906,9 @@
         "numeric_literals": [
           "2"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.all"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -7955,11 +7957,13 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "2"
+          "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.path.preservation.rarity.2"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -11835,6 +11839,7 @@
     "outcomes": [
       {
         "kinds": [
+          "Obtain",
           "Obtain"
         ],
         "targets": [
@@ -11843,9 +11848,26 @@
         ],
         "numeric_literals": [
           "1",
-          "3"
+          "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.rarity.3",
+          "universe.curio.108",
+          "universe.curio.45",
+          "universe.curio.47",
+          "universe.curio.49",
+          "universe.curio.51",
+          "universe.curio.53",
+          "universe.curio.55",
+          "universe.curio.57",
+          "universe.curio.59",
+          "universe.curio.60",
+          "universe.curio.65",
+          "universe.curio.66",
+          "universe.curio.67",
+          "universe.curio.70",
+          "universe.curio.71"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -11893,7 +11915,9 @@
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
+        "numeric_literals": [
+          "100"
+        ],
         "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
@@ -11933,15 +11957,7 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments",
-          "Blessing"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -11949,15 +11965,18 @@
           "Consume"
         ],
         "targets": [
-          "CosmicFragments",
-          "Blessing"
+          "Blessing",
+          "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "1",
+          "100"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.rarity.1"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -11994,15 +12013,7 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments",
-          "Curio"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -12010,15 +12021,32 @@
           "Consume"
         ],
         "targets": [
-          "CosmicFragments",
-          "Curio"
+          "Curio",
+          "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "1",
+          "200"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.curio.108",
+          "universe.curio.45",
+          "universe.curio.47",
+          "universe.curio.49",
+          "universe.curio.51",
+          "universe.curio.53",
+          "universe.curio.55",
+          "universe.curio.57",
+          "universe.curio.59",
+          "universe.curio.60",
+          "universe.curio.65",
+          "universe.curio.66",
+          "universe.curio.67",
+          "universe.curio.70",
+          "universe.curio.71"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -12102,15 +12130,7 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments",
-          "Curio"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -12118,15 +12138,63 @@
           "Consume"
         ],
         "targets": [
-          "CosmicFragments",
-          "Curio"
+          "Curio",
+          "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "1",
+          "100"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.curio.1",
+          "universe.curio.102",
+          "universe.curio.104",
+          "universe.curio.106",
+          "universe.curio.107",
+          "universe.curio.11",
+          "universe.curio.110",
+          "universe.curio.111",
+          "universe.curio.112",
+          "universe.curio.113",
+          "universe.curio.115",
+          "universe.curio.118",
+          "universe.curio.12",
+          "universe.curio.120",
+          "universe.curio.121",
+          "universe.curio.122",
+          "universe.curio.123",
+          "universe.curio.13",
+          "universe.curio.14",
+          "universe.curio.15",
+          "universe.curio.17",
+          "universe.curio.19",
+          "universe.curio.2",
+          "universe.curio.20",
+          "universe.curio.21",
+          "universe.curio.211",
+          "universe.curio.22",
+          "universe.curio.23",
+          "universe.curio.24",
+          "universe.curio.25",
+          "universe.curio.26",
+          "universe.curio.27",
+          "universe.curio.28",
+          "universe.curio.3",
+          "universe.curio.4",
+          "universe.curio.5",
+          "universe.curio.58",
+          "universe.curio.6",
+          "universe.curio.61",
+          "universe.curio.62",
+          "universe.curio.63",
+          "universe.curio.64",
+          "universe.curio.68",
+          "universe.curio.69",
+          "universe.curio.7",
+          "universe.curio.8"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -12163,15 +12231,7 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments",
-          "Blessing"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -12179,15 +12239,18 @@
           "Consume"
         ],
         "targets": [
-          "CosmicFragments",
-          "Blessing"
+          "Blessing",
+          "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "1",
+          "100"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.all"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -12228,7 +12291,7 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Special"
         ],
         "targets": [],
         "numeric_literals": [],
@@ -12271,29 +12334,26 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
-          "Obtain",
+          "Enhance",
           "Consume"
         ],
         "targets": [
+          "Blessing",
           "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "3",
+          "10"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.all"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -12330,14 +12390,7 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -12345,14 +12398,18 @@
           "Consume"
         ],
         "targets": [
+          "Blessing",
           "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "1",
+          "10"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.rarity.3"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -12436,15 +12493,7 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments",
-          "Blessing"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -12452,15 +12501,18 @@
           "Consume"
         ],
         "targets": [
-          "CosmicFragments",
-          "Blessing"
+          "Blessing",
+          "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "1",
+          "100"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.rarity.1"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -12497,15 +12549,7 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments",
-          "Curio"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -12513,15 +12557,32 @@
           "Consume"
         ],
         "targets": [
-          "CosmicFragments",
-          "Curio"
+          "Curio",
+          "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "1",
+          "200"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.curio.108",
+          "universe.curio.45",
+          "universe.curio.47",
+          "universe.curio.49",
+          "universe.curio.51",
+          "universe.curio.53",
+          "universe.curio.55",
+          "universe.curio.57",
+          "universe.curio.59",
+          "universe.curio.60",
+          "universe.curio.65",
+          "universe.curio.66",
+          "universe.curio.67",
+          "universe.curio.70",
+          "universe.curio.71"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -12605,15 +12666,7 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments",
-          "Curio"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -12621,15 +12674,63 @@
           "Consume"
         ],
         "targets": [
-          "CosmicFragments",
-          "Curio"
+          "Curio",
+          "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "1",
+          "100"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.curio.1",
+          "universe.curio.102",
+          "universe.curio.104",
+          "universe.curio.106",
+          "universe.curio.107",
+          "universe.curio.11",
+          "universe.curio.110",
+          "universe.curio.111",
+          "universe.curio.112",
+          "universe.curio.113",
+          "universe.curio.115",
+          "universe.curio.118",
+          "universe.curio.12",
+          "universe.curio.120",
+          "universe.curio.121",
+          "universe.curio.122",
+          "universe.curio.123",
+          "universe.curio.13",
+          "universe.curio.14",
+          "universe.curio.15",
+          "universe.curio.17",
+          "universe.curio.19",
+          "universe.curio.2",
+          "universe.curio.20",
+          "universe.curio.21",
+          "universe.curio.211",
+          "universe.curio.22",
+          "universe.curio.23",
+          "universe.curio.24",
+          "universe.curio.25",
+          "universe.curio.26",
+          "universe.curio.27",
+          "universe.curio.28",
+          "universe.curio.3",
+          "universe.curio.4",
+          "universe.curio.5",
+          "universe.curio.58",
+          "universe.curio.6",
+          "universe.curio.61",
+          "universe.curio.62",
+          "universe.curio.63",
+          "universe.curio.64",
+          "universe.curio.68",
+          "universe.curio.69",
+          "universe.curio.7",
+          "universe.curio.8"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -12666,15 +12767,7 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments",
-          "Blessing"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -12682,15 +12775,18 @@
           "Consume"
         ],
         "targets": [
-          "CosmicFragments",
-          "Blessing"
+          "Blessing",
+          "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "1",
+          "100"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.all"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -12731,7 +12827,7 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Special"
         ],
         "targets": [],
         "numeric_literals": [],
@@ -12774,29 +12870,26 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
-          "Obtain",
+          "Enhance",
           "Consume"
         ],
         "targets": [
+          "Blessing",
           "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "3",
+          "10"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.all"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -12833,14 +12926,7 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -12848,14 +12934,18 @@
           "Consume"
         ],
         "targets": [
+          "Blessing",
           "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "1",
+          "10"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.rarity.3"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -12939,15 +13029,7 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments",
-          "Blessing"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -12955,15 +13037,18 @@
           "Consume"
         ],
         "targets": [
-          "CosmicFragments",
-          "Blessing"
+          "Blessing",
+          "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "1",
+          "100"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.rarity.1"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -13000,15 +13085,7 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments",
-          "Curio"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -13016,15 +13093,32 @@
           "Consume"
         ],
         "targets": [
-          "CosmicFragments",
-          "Curio"
+          "Curio",
+          "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "1",
+          "200"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.curio.108",
+          "universe.curio.45",
+          "universe.curio.47",
+          "universe.curio.49",
+          "universe.curio.51",
+          "universe.curio.53",
+          "universe.curio.55",
+          "universe.curio.57",
+          "universe.curio.59",
+          "universe.curio.60",
+          "universe.curio.65",
+          "universe.curio.66",
+          "universe.curio.67",
+          "universe.curio.70",
+          "universe.curio.71"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",

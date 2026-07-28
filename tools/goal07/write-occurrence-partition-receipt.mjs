@@ -31,6 +31,7 @@ const golden =
 const sourceReview =
   `evidence/standard-universe-mechanics-complete-v1/source-reviews/${partitionId}.json`;
 const isS02 = partitionId === "G07-P4-M13-S02";
+const isS03 = partitionId === "G07-P4-M13-S03";
 assert(exists(golden), `${partitionId}: golden is missing`);
 
 const provenanceEvidence = [
@@ -46,6 +47,9 @@ const executionEvidence = [
   ...(isS02 ? [
     { path: "crates/starclock-mode-universe/src/occurrence_interaction/digest.rs" },
     { path: "crates/starclock-mode-universe/src/occurrence_interaction/s02.rs" },
+  ] : []),
+  ...(isS03 ? [
+    { path: "crates/starclock-mode-universe/src/occurrence_interaction/s03.rs" },
   ] : []),
   ...(isS02 ? [
     { path: "crates/starclock-mode-universe/src/occurrence_battle.rs" },
@@ -70,7 +74,7 @@ const receipt = {
   goal_id: "standard-universe-mechanics-complete-v1",
   partition_id: partitionId,
   state: "Complete",
-  completed_on: "2026-07-27",
+  completed_on: isS03 ? "2026-07-28" : "2026-07-27",
   authoring: {
     workbooks: [
       {
@@ -106,9 +110,11 @@ const receipt = {
             ? "ExplicitExternalResult"
             : "SharedOccurrenceHandler",
       test_path: "crates/starclock-mode-universe/tests/run_runtime.rs",
-      test_marker: isS02
-        ? "goal07_p4_m13_s02_executes_exact_hp_path_curio_fragment_and_occurrence_battle_outcomes"
-        : "goal07_p4_m13_s01_executes_exact_fragments_named_curio_transitions_and_external_blessing_results",
+      test_marker: isS03
+        ? "goal07_p4_m13_s03_executes_exact_blessing_curio_enhancement_and_fragment_costs"
+        : isS02
+          ? "goal07_p4_m13_s02_executes_exact_hp_path_curio_fragment_and_occurrence_battle_outcomes"
+          : "goal07_p4_m13_s01_executes_exact_fragments_named_curio_transitions_and_external_blessing_results",
     } : {}),
   })),
   rules: [],
@@ -124,7 +130,9 @@ const receipt = {
         ? ["node tools/goal07/refine-occurrence-s01.mjs"]
         : isS02
           ? ["node tools/goal07/refine-occurrence-s02.mjs"]
-          : []),
+          : isS03
+            ? ["node tools/goal07/refine-occurrence-s03.mjs"]
+            : []),
       `python tools/goal07/author-occurrence-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify-pack.mjs .",
       "node tools/universe-reference/verify_production_workbooks.mjs .",
