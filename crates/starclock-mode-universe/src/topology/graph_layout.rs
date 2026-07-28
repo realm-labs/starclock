@@ -5,6 +5,7 @@ use super::*;
 #[derive(Clone, Copy)]
 pub(super) struct HubEdges {
     pub(super) resolution_content: ActivityEdgeId,
+    pub(super) content_repeat: ActivityEdgeId,
     pub(super) content_member: ActivityEdgeId,
     pub(super) content_formation: ActivityEdgeId,
     pub(super) member_battle: ActivityEdgeId,
@@ -57,6 +58,7 @@ pub(super) fn build_hub_edges(
     occurrence_battle: bool,
 ) -> Result<HubEdges, UniverseTopologyCompileError> {
     let resolution_content = push_edge(edges, resolution_node(source), content_node(source))?;
+    let content_repeat = push_edge(edges, content_node(source), content_node(source))?;
     let content_member = push_edge(edges, content_node(source), member_node(source))?;
     let content_formation = push_edge(edges, content_node(source), formation_node(source))?;
     let member_battle = push_edge(edges, member_node(source), battle_node(source))?;
@@ -97,6 +99,7 @@ pub(super) fn build_hub_edges(
     let formation_route = push_edge(edges, formation_node(source), route_node(source))?;
     Ok(HubEdges {
         resolution_content,
+        content_repeat,
         content_member,
         content_formation,
         member_battle,

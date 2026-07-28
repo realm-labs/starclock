@@ -30,6 +30,8 @@ const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../config/universe-generate
 
 #[path = "run_runtime/s04.rs"]
 mod s04;
+#[path = "run_runtime/s05.rs"]
+mod s05;
 
 fn catalog() -> Arc<UniverseCatalog> {
     static CATALOG: OnceLock<Arc<UniverseCatalog>> = OnceLock::new();
@@ -53,7 +55,7 @@ fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
             .flat_map(|choice| choice.outcomes())
             .filter(|outcome| outcome.random_policy().is_some())
             .count(),
-        90
+        94
     );
     assert_eq!(
         runtime
@@ -82,8 +84,8 @@ fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
     assert_eq!(
         runtime.digest(),
         [
-            237, 46, 21, 22, 104, 61, 156, 172, 251, 104, 31, 35, 219, 20, 12, 157, 43, 202, 198,
-            185, 192, 135, 24, 179, 42, 238, 36, 0, 189, 77, 221, 181,
+            123, 32, 195, 82, 158, 44, 255, 202, 16, 218, 115, 96, 16, 105, 252, 73, 85, 68, 237,
+            248, 21, 55, 95, 200, 229, 246, 18, 135, 152, 209, 164, 163,
         ]
     );
     assert_eq!(
@@ -315,9 +317,9 @@ fn occurrence_choices_compile_and_exact_room_sources_bind_executable_handlers() 
     }));
     let interaction_catalog = compiled.occurrence_interaction_runtime();
     assert_eq!(interaction_catalog.choice_count(), 321);
-    assert_eq!(interaction_catalog.immediate_operation_count(), 399);
+    assert_eq!(interaction_catalog.immediate_operation_count(), 397);
     assert_eq!(interaction_catalog.deferred_operation_count(), 37);
-    assert_eq!(interaction_catalog.external_result_count(), 4_600);
+    assert_eq!(interaction_catalog.external_result_count(), 4_343);
     assert!(catalog.occurrence_choices().iter().any(|choice| {
         let outcome = &choice.outcomes()[0];
         outcome.operations().contains(&OccurrenceOperation::Obtain)
@@ -926,6 +928,16 @@ fn occurrence_harness_with_fragments(
     registry: &Arc<starclock_activity::ActivityHandlerRegistry>,
     initial_fragments: i64,
 ) -> GraphActivity {
+    occurrence_harness_with_fragments_and_seed(compiled, source, registry, initial_fragments, 9_001)
+}
+
+fn occurrence_harness_with_fragments_and_seed(
+    compiled: &starclock_mode_universe::entry::CompiledActivity,
+    source: &ActivityInteractionBinding,
+    registry: &Arc<starclock_activity::ActivityHandlerRegistry>,
+    initial_fragments: i64,
+    master_seed: u64,
+) -> GraphActivity {
     let graph = ActivityGraphDefinition::new(
         node(1),
         vec![
@@ -978,6 +990,7 @@ fn occurrence_harness_with_fragments(
     let required_slots = [
         compiled.cosmic_fragments_slot(),
         compiled.occurrence_effect_slot(),
+        compiled.occurrence_interaction_state_slot(),
         compiled.curio_state_slot(),
         compiled.curio_charge_slot(),
         compiled.curio_event_slot(),
@@ -1051,7 +1064,7 @@ fn occurrence_harness_with_fragments(
     GraphActivity::start(
         Arc::new(definition),
         ActivityInstanceId::new(9_001).unwrap(),
-        ActivityMasterSeed::from_u64(9_001),
+        ActivityMasterSeed::from_u64(master_seed),
     )
     .unwrap()
     .into_activity()

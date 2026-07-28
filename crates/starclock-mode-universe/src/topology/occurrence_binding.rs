@@ -21,6 +21,50 @@ pub(super) fn interaction_completion(
     ]
 }
 
+fn progressive_interaction_completion(
+    effect_slot: ActivitySlotId,
+    repeat_key: u64,
+    repeat_edge: ActivityEdgeId,
+    finish: Vec<ActivityOperation>,
+) -> Vec<ActivityOperation> {
+    vec![ActivityOperation::Conditional {
+        condition: ActivityCondition::LessThan(
+            ActivityExpression::Literal(ActivityValue::BoundedInteger(0)),
+            ActivityExpression::CounterValue {
+                slot: effect_slot,
+                key: repeat_key,
+            },
+        ),
+        if_true: vec![
+            ActivityOperation::AddCounter {
+                slot: effect_slot,
+                key: repeat_key,
+                delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(-1)),
+            },
+            ActivityOperation::Traverse(repeat_edge),
+        ]
+        .into_boxed_slice(),
+        if_false: finish.into_boxed_slice(),
+    }]
+}
+
+#[allow(clippy::too_many_arguments)]
+pub(super) fn interaction_completion_with_repeat(
+    hub_clear_slot: ActivitySlotId,
+    external_outcome_slot: ActivitySlotId,
+    effect_slot: ActivitySlotId,
+    repeat_key: Option<u64>,
+    source: u64,
+    repeat_edge: ActivityEdgeId,
+    finish_edge: ActivityEdgeId,
+) -> Vec<ActivityOperation> {
+    let finish = interaction_completion(hub_clear_slot, external_outcome_slot, source, finish_edge);
+    match repeat_key {
+        Some(key) => progressive_interaction_completion(effect_slot, key, repeat_edge, finish),
+        None => finish,
+    }
+}
+
 #[allow(clippy::too_many_arguments)]
 pub(super) fn push_occurrence_interaction(
     content_options: &mut Vec<ActivityOptionDefinition>,

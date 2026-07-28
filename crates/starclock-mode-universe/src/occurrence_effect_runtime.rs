@@ -96,8 +96,8 @@ impl OccurrenceEffectRuntimeCatalog {
             })
             .count();
         if programs.len() != 321
-            || cost_count != 38
-            || policy_count != 90
+            || cost_count != 34
+            || policy_count != 94
             || programs
                 .windows(2)
                 .any(|pair| pair[0].choice == pair[1].choice)

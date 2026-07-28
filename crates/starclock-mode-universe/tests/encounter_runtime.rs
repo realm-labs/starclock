@@ -391,8 +391,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            198, 193, 0, 46, 120, 159, 177, 2, 134, 49, 72, 222, 190, 93, 70, 107, 83, 81, 192,
-            183, 160, 234, 21, 99, 67, 44, 163, 161, 47, 81, 173, 182,
+            184, 228, 59, 130, 129, 183, 97, 148, 111, 148, 114, 218, 114, 143, 60, 71, 236, 23,
+            63, 92, 43, 82, 69, 165, 188, 10, 254, 18, 209, 149, 239, 14,
         ]
     );
     let reward = activity.view();
@@ -462,8 +462,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            133, 24, 182, 98, 193, 246, 99, 35, 239, 104, 224, 232, 132, 127, 155, 144, 7, 202,
-            242, 253, 47, 178, 48, 119, 147, 214, 111, 93, 143, 244, 151, 13,
+            78, 69, 155, 136, 125, 160, 238, 246, 131, 113, 178, 0, 187, 0, 176, 180, 92, 255, 157,
+            225, 152, 42, 167, 72, 93, 132, 47, 19, 185, 240, 131, 84,
         ]
     );
     let formation = activity.view();
@@ -659,8 +659,8 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            75, 84, 212, 14, 218, 87, 101, 89, 170, 148, 251, 213, 65, 173, 183, 31, 208, 68, 214,
-            178, 128, 25, 42, 111, 180, 49, 207, 163, 185, 87, 37, 187,
+            63, 217, 79, 11, 5, 69, 179, 145, 130, 18, 54, 55, 105, 148, 12, 144, 245, 144, 111,
+            24, 184, 151, 23, 103, 219, 25, 20, 191, 248, 71, 229, 190,
         ]
     );
     assert_eq!(report.final_state_hash(), activity.view().state_hash());
@@ -734,12 +734,12 @@ fn complete_run_replay_verifies_and_reports_the_first_divergence() {
     )
     .unwrap();
     let bytes = encode_standard_universe_trace(&header, recorded.trace()).unwrap();
-    assert_eq!(bytes.len(), 7_982);
+    assert_eq!(bytes.len(), 12_646);
     assert_eq!(
         sha2::Sha256::digest(&bytes).as_slice(),
         [
-            108, 192, 207, 228, 217, 133, 238, 150, 244, 74, 81, 52, 241, 100, 211, 77, 83, 188, 9,
-            87, 162, 228, 127, 116, 4, 102, 172, 216, 57, 85, 162, 11,
+            159, 24, 210, 130, 93, 100, 212, 226, 85, 97, 214, 94, 90, 209, 121, 169, 216, 26, 222,
+            196, 169, 210, 170, 168, 115, 72, 165, 200, 243, 171, 86, 35,
         ]
     );
     let fresh = compiled
@@ -747,9 +747,9 @@ fn complete_run_replay_verifies_and_reports_the_first_divergence() {
         .unwrap()
         .into_activity();
     let verified = verify_standard_universe_replay(&bytes, fresh, "standard-universe-v1").unwrap();
-    assert_eq!(verified.action_count(), 49);
-    assert_eq!(verified.nested_battle_count(), 2);
-    assert_eq!(verified.diagnostic_count(), 45);
+    assert_eq!(verified.action_count(), 65);
+    assert_eq!(verified.nested_battle_count(), 6);
+    assert_eq!(verified.diagnostic_count(), 53);
     assert_eq!(verified.terminal(), recorded.report().terminal());
     assert_eq!(
         verified.final_state_hash().bytes(),

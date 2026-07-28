@@ -101,7 +101,7 @@ fn all_topologies_compile_to_bounded_spatial_free_hubs() {
     assert_eq!(compiled.domain_hubs().len(), 579);
     assert_eq!(compiled.abstract_interactions().len(), 16_860);
     assert_eq!(runtime.graph().nodes().len(), 4_059);
-    assert_eq!(runtime.graph().edges().len(), 5_994);
+    assert_eq!(runtime.graph().edges().len(), 6_573);
     assert_eq!(runtime.graph().maximum_total_visits(), 4_059);
     assert_eq!(runtime.random_offers().len(), 579);
     assert!(runtime.random_offers().iter().all(|offer| {
@@ -149,13 +149,13 @@ fn all_topologies_compile_to_bounded_spatial_free_hubs() {
     assert_eq!(
         runtime.graph().digest().bytes(),
         [
-            26, 63, 20, 236, 238, 63, 175, 175, 118, 113, 202, 1, 43, 202, 200, 187, 140, 42, 77,
-            6, 252, 36, 135, 216, 42, 115, 179, 19, 211, 3, 142, 131,
+            198, 97, 105, 107, 133, 43, 196, 197, 255, 202, 149, 161, 93, 179, 195, 4, 165, 214,
+            171, 154, 227, 11, 14, 121, 214, 145, 234, 2, 215, 74, 137, 80,
         ]
     );
     assert_eq!(
         STANDARD_UNIVERSE_TOPOLOGY_REVISION,
-        "standard-universe-topology-v18"
+        "standard-universe-topology-v19"
     );
 
     for hub in compiled.domain_hubs() {
@@ -267,8 +267,8 @@ fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state(
     assert_eq!(
         view.state_hash().bytes(),
         [
-            3, 184, 105, 158, 35, 115, 170, 38, 232, 216, 68, 72, 117, 120, 32, 244, 44, 254, 182,
-            203, 192, 150, 80, 214, 197, 252, 27, 247, 102, 114, 234, 25,
+            168, 80, 116, 162, 98, 89, 124, 66, 4, 243, 156, 47, 43, 85, 129, 92, 133, 125, 18,
+            237, 187, 173, 133, 47, 56, 18, 125, 158, 36, 77, 204, 218,
         ]
     );
     let decision = view.decision().expect("Path choice");

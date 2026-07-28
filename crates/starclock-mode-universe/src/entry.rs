@@ -24,6 +24,7 @@ use state_layout::{
     FORMATION_INVENTORY_SOURCE, HUB_CLEAR_SLOT, HUB_CLEAR_SOURCE, OCCURRENCE_BATTLE_ACTIVE_SLOT,
     OCCURRENCE_BATTLE_ACTIVE_SOURCE, OCCURRENCE_BATTLE_REWARD_COUNT_SLOT,
     OCCURRENCE_BATTLE_REWARD_COUNT_SOURCE, OCCURRENCE_EFFECT_SLOT, OCCURRENCE_EFFECT_SOURCE,
+    OCCURRENCE_INTERACTION_STATE_SLOT, OCCURRENCE_INTERACTION_STATE_SOURCE,
     PATH_BLESSING_COUNT_SLOT, PATH_BLESSING_COUNT_SOURCE, PATH_SLOT, PATH_SOURCE, ROOM_SLOT,
     ROOM_SOURCE, SERVICE_EFFECT_SLOT, SERVICE_EFFECT_SOURCE, SERVICE_USE_SLOT, SERVICE_USE_SOURCE,
     TECHNIQUE_POINTS_SLOT, TECHNIQUE_POINTS_SOURCE, TOPOLOGY_SLOT, TOPOLOGY_SOURCE, WORLD_SLOT,
@@ -297,6 +298,7 @@ impl StandardUniverseProfile {
                 &curio_activity_records,
                 curio_activity_bindings,
                 slot(OCCURRENCE_EFFECT_SLOT),
+                slot(OCCURRENCE_INTERACTION_STATE_SLOT),
             )
             .map_err(|_| StandardUniverseCompileError::InvalidRunRuntime)?,
         );
@@ -403,6 +405,7 @@ impl StandardUniverseProfile {
                 occurrence_interaction_runtime.as_ref(),
                 service_interaction_runtime.as_ref(),
                 slot(EXTERNAL_OUTCOME_SLOT),
+                slot(OCCURRENCE_INTERACTION_STATE_SLOT),
                 slot(OCCURRENCE_BATTLE_ACTIVE_SLOT),
                 slot(OCCURRENCE_BATTLE_REWARD_COUNT_SLOT),
             )
@@ -933,6 +936,14 @@ fn compile_state(
             i64::from(u32::MAX),
             OCCURRENCE_EFFECT_SOURCE,
             ActivityStateVisibility::Private,
+        )?,
+        counter_slot(
+            OCCURRENCE_INTERACTION_STATE_SLOT,
+            128,
+            0,
+            3,
+            OCCURRENCE_INTERACTION_STATE_SOURCE,
+            ActivityStateVisibility::Player,
         )?,
         counter_slot(
             SERVICE_USE_SLOT,

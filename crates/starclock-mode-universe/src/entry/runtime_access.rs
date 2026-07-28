@@ -2,6 +2,8 @@
 
 use std::sync::Arc;
 
+use starclock_activity::ActivitySlotId;
+
 use crate::{
     ability_runtime::AbilityRuntimeCatalog, abundance_runtime::AbundanceRuntimeCatalog,
     battle_contribution::UniverseBattleContributionCompiler,
@@ -19,9 +21,14 @@ use crate::{
     service_interaction::ServiceInteractionRuntimeCatalog,
 };
 
-use super::CompiledActivity;
+use super::{CompiledActivity, slot, state_layout::OCCURRENCE_INTERACTION_STATE_SLOT};
 
 impl CompiledActivity {
+    #[must_use]
+    pub const fn occurrence_interaction_state_slot(&self) -> ActivitySlotId {
+        slot(OCCURRENCE_INTERACTION_STATE_SLOT)
+    }
+
     pub fn initial_run_capabilities(
         &self,
     ) -> Result<

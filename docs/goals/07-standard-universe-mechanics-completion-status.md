@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M13-S05` |
-| Next unblocked batch | `G07-P4-M13-S05` |
+| Active batch | `G07-P4-M13-S06` |
+| Next unblocked batch | `G07-P4-M13-S06` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -207,10 +207,18 @@ generic rarity-two Blessing pool and target-independent Special lowering keep
 the implementation free of content-ID branches. All 32 records have terminal
 dispositions, with no deferred counter, native handler or numeric
 approximation.
-`G07-P4-M13-S05` is active.
+Occurrence S05 is complete. Saleo, Bounty Hunter, Implement of Error, both We
+Are Cowboys variants, History Fictionologists (I) and Nildis (Lightfish)
+execute exact Curio lifecycle mutations, checked fragment changes,
+owned-Path Blessing enhancement and the complete four-attempt probability
+ladder. A bounded hash-committed interaction-state map and conditional
+content-node repeat edge preserve progressive state without content-ID
+branches. All 32 records have terminal dispositions, with no deferred
+counter, native handler or numeric approximation.
+`G07-P4-M13-S06` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 58 completed partitions use scoped Excel/Sora semantic
+model. The first 59 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's

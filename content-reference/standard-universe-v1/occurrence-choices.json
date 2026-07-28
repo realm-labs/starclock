@@ -8010,10 +8010,20 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "3",
-          "1"
+          "3"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.rarity.1"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -8062,10 +8072,20 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "2",
           "2"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.rarity.2"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -8114,10 +8134,20 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "1",
-          "3"
+          "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.rarity.3"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -8213,10 +8243,20 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "3",
-          "1"
+          "3"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.rarity.1"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -8265,10 +8305,20 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "2",
           "2"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.rarity.2"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -8317,10 +8367,20 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "1",
-          "3"
+          "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.rarity.3"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -14810,10 +14870,16 @@
     "outcomes": [
       {
         "kinds": [
+          "Obtain",
           "Special"
         ],
-        "targets": [],
-        "numeric_literals": [],
+        "targets": [
+          "CosmicFragments",
+          "Character"
+        ],
+        "numeric_literals": [
+          "100"
+        ],
         "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
@@ -14853,32 +14919,28 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Discard",
-        "targets": [
-          "Blessing",
-          "Curio"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
+          "Discard",
           "Obtain",
-          "Discard"
+          "Special"
         ],
         "targets": [
+          "Curio",
           "Blessing",
-          "Curio"
+          "Character"
         ],
         "numeric_literals": [
           "1",
-          "2"
+          "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.rarity.2"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -14919,10 +14981,16 @@
     "outcomes": [
       {
         "kinds": [
+          "Obtain",
           "Special"
         ],
-        "targets": [],
-        "numeric_literals": [],
+        "targets": [
+          "CosmicFragments",
+          "Character"
+        ],
+        "numeric_literals": [
+          "100"
+        ],
         "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": ""
@@ -14962,31 +15030,24 @@
     "condition_ids": [
       "universe.unlock.source-14001"
     ],
-    "costs": [
-      {
-        "kind": "Discard",
-        "targets": [
-          "CosmicFragments",
-          "Curio"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
-          "Obtain",
-          "Discard"
+          "Discard",
+          "Obtain"
         ],
         "targets": [
-          "CosmicFragments",
-          "Curio"
+          "Curio",
+          "CosmicFragments"
         ],
         "numeric_literals": [
-          "1"
+          "1",
+          "200"
         ],
         "parameter_refs": [],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -15074,15 +15135,24 @@
     "outcomes": [
       {
         "kinds": [
-          "Special"
+          "Obtain"
         ],
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.curio.45",
+          "universe.curio.47",
+          "universe.curio.49",
+          "universe.curio.51",
+          "universe.curio.53",
+          "universe.curio.55"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -15166,14 +15236,7 @@
     "condition_ids": [
       "universe.unlock.source-12002"
     ],
-    "costs": [
-      {
-        "kind": "Lose",
-        "targets": [
-          "CosmicFragments"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -15182,11 +15245,11 @@
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [
-          "2"
+        "numeric_literals": [
+          "50%"
         ],
+        "parameter_refs": [],
+        "chance_percentages": [],
         "unspecified_random_policy": ""
       }
     ],
@@ -15271,14 +15334,7 @@
     "condition_ids": [
       "universe.unlock.source-12005"
     ],
-    "costs": [
-      {
-        "kind": "Lose",
-        "targets": [
-          "CosmicFragments"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -15287,11 +15343,11 @@
         "targets": [
           "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [
-          "2"
+        "numeric_literals": [
+          "50%"
         ],
+        "parameter_refs": [],
+        "chance_percentages": [],
         "unspecified_random_policy": ""
       }
     ],
@@ -15380,17 +15436,35 @@
     "outcomes": [
       {
         "kinds": [
-          "Obtain"
+          "Obtain",
+          "Battle",
+          "Special"
         ],
         "targets": [
           "Blessing"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [
-          3
+        "numeric_literals": [
+          "1"
         ],
-        "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "parameter_refs": [
+          "universe.blessing-pool.all",
+          "universe.occurrence-progressive.key.13501"
+        ],
+        "chance_percentages": [
+          "56",
+          "30",
+          "14",
+          "32",
+          "60",
+          "8",
+          "8",
+          "90",
+          "2",
+          "0",
+          "100",
+          "0"
+        ],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -15435,7 +15509,9 @@
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-progressive.key.13501"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }

@@ -9,6 +9,7 @@ pub(super) fn runtime_catalog(programs: &[CompiledOccurrenceProgram]) -> [u8; 32
     for program in programs {
         encoder.u32(program.choice.get());
         encoder.u32(program.battle_member.map_or(0, EncounterMemberId::get));
+        encoder.u64(program.repeat_key.unwrap_or(0));
         encoder.u32(program.payload.len() as u32);
         for byte in &program.payload {
             encoder.u8(*byte);

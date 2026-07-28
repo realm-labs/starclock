@@ -7,9 +7,7 @@ mod reward_program;
 mod route_program;
 pub type UniverseTopologyCompileError = error::UniverseTopologyCompileError;
 use self::graph_layout::*;
-use self::occurrence_binding::{
-    interaction_completion, occurrence_random_purpose, push_occurrence_interaction,
-};
+use self::occurrence_binding::*;
 use self::route_program::compile_route_program;
 use self::{blessing_offer::compile_blessing_offer_policy, reward_program::node_program_id};
 use crate::{
@@ -58,7 +56,7 @@ use starclock_activity::{
     TerminalOutcome,
 };
 use std::{collections::BTreeSet, sync::Arc};
-pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v18";
+pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "standard-universe-topology-v19";
 pub const STANDARD_UNIVERSE_DOMAIN_VISIT_CLASS: u32 = 1;
 
 const PATH_NODE: u32 = 1;
@@ -331,6 +329,7 @@ pub(crate) fn compile(
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
     service_interactions: &ServiceInteractionRuntimeCatalog,
     external_outcome_slot: ActivitySlotId,
+    occurrence_effect_slot: ActivitySlotId,
     occurrence_battle_active_slot: ActivitySlotId,
     occurrence_battle_reward_count_slot: ActivitySlotId,
 ) -> Result<CompiledUniverseTopology, UniverseTopologyCompileError> {
@@ -370,7 +369,6 @@ pub(crate) fn compile(
     let mut exit_edges = Vec::new();
     let mut hub_edges = Vec::new();
     let mut hubs = Vec::new();
-
     for topology in catalog.topologies() {
         let section_id = topology.source_map_id();
         for source in topology.nodes() {
@@ -383,7 +381,9 @@ pub(crate) fn compile(
                 (formation_node(source.id()), ActivityNodeKind::Choice),
                 (route_node(source.id()), ActivityNodeKind::Choice),
             ] {
-                let maximum_visits = if node_id == reward_node(source.id())
+                let maximum_visits = if node_id == content_node(source.id()) {
+                    4
+                } else if node_id == reward_node(source.id())
                     && occurrence_battle_hubs.contains(&source.id())
                 {
                     8
@@ -468,7 +468,6 @@ pub(crate) fn compile(
             });
         }
     }
-
     let graph = ActivityGraphDefinition::new(
         node(PATH_NODE),
         nodes,
@@ -510,6 +509,7 @@ pub(crate) fn compile(
         occurrence_interactions,
         service_interactions,
         external_outcome_slot,
+        occurrence_effect_slot,
         occurrence_battle_active_slot,
         occurrence_battle_reward_count_slot,
         path_edge,
@@ -673,6 +673,7 @@ fn compile_programs(
     occurrence_interactions: &OccurrenceInteractionRuntimeCatalog,
     service_interactions: &ServiceInteractionRuntimeCatalog,
     external_outcome_slot: ActivitySlotId,
+    occurrence_effect_slot: ActivitySlotId,
     occurrence_battle_active_slot: ActivitySlotId,
     occurrence_battle_reward_count_slot: ActivitySlotId,
     path_edge: ActivityEdgeId,
@@ -776,7 +777,6 @@ fn compile_programs(
     let eligible_blessings = blessing_runtime
         .eligible(&blessing_eligibility)
         .collect::<Vec<_>>();
-
     for (index, hub) in hubs.iter().enumerate() {
         let edges = hub_edges[index];
         let source = u64::from(hub.source_node.get());
@@ -816,7 +816,6 @@ fn compile_programs(
             ActivityDecisionKind::Checkpoint,
             room_options,
         )?);
-
         let mut content_options = Vec::new();
         let mut member_options = Vec::new();
         let mut member_weights = Vec::new();
@@ -986,10 +985,13 @@ fn compile_programs(
                                 ActivityOperation::Traverse(edges.content_member),
                             ]
                         } else {
-                            interaction_completion(
+                            interaction_completion_with_repeat(
                                 hub_clear_slot,
                                 external_outcome_slot,
+                                occurrence_effect_slot,
+                                compiled.repeat_key(),
                                 source,
+                                edges.content_repeat,
                                 edges.content_formation,
                             )
                         };

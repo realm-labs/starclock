@@ -22,6 +22,7 @@ use crate::{
 mod digest;
 mod s02;
 mod s03;
+mod s05;
 pub(crate) mod support;
 
 use support::{
@@ -31,8 +32,8 @@ use support::{
 
 pub const OCCURRENCE_INTERACTION_HANDLER_ID: u32 = 2;
 pub const OCCURRENCE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-occurrence-interaction-runtime-v4";
-const PAYLOAD_REVISION: u8 = 3;
+    "standard-universe-occurrence-interaction-runtime-v5";
+const PAYLOAD_REVISION: u8 = 4;
 const TAG_FRAGMENT_SCALAR: u8 = 1;
 const TAG_FRAGMENT_PERCENT: u8 = 2;
 const TAG_INVENTORY: u8 = 3;
@@ -50,6 +51,7 @@ const DEFERRED_EFFECT_KEY_BASE: u64 = 1 << 63;
 struct CompiledOccurrenceProgram {
     choice: OccurrenceChoiceId,
     battle_member: Option<EncounterMemberId>,
+    repeat_key: Option<u64>,
     payload: Box<[u8]>,
     random_candidate_count: Option<u32>,
     immediate_operations: u16,
@@ -73,6 +75,7 @@ impl OccurrenceInteractionRuntimeCatalog {
         curio_records: &[CurioActivityRecord],
         curio_bindings: CurioActivityBindings,
         deferred_effects: ActivitySlotId,
+        interaction_state: ActivitySlotId,
     ) -> Result<Self, OccurrenceInteractionError> {
         let occurrence_battles = crate::occurrence_battle::compile(catalog)
             .map_err(|_| OccurrenceInteractionError::InvalidChoice)?;
@@ -92,11 +95,13 @@ impl OccurrenceInteractionRuntimeCatalog {
                     curio_records,
                     curio_bindings,
                     deferred_effects,
+                    interaction_state,
                     battle_member,
                 )
                 .map(|compiled| CompiledOccurrenceProgram {
                     choice: choice.id(),
                     battle_member,
+                    repeat_key: compiled.repeat_key,
                     payload: compiled.payload.into_boxed_slice(),
                     random_candidate_count: compiled.random_candidate_count,
                     immediate_operations: compiled.immediate_operations,
@@ -167,6 +172,7 @@ impl OccurrenceInteractionRuntimeCatalog {
             .map(|index| &self.programs[index])
             .map(|program| CompiledOccurrenceInteraction {
                 battle_member: program.battle_member,
+                repeat_key: program.repeat_key,
                 payload: program.payload.to_vec(),
                 random_candidate_count: program.random_candidate_count,
                 immediate_operations: program.immediate_operations,
@@ -218,6 +224,7 @@ impl OccurrenceExternalResult {
 
 pub struct CompiledOccurrenceInteraction {
     battle_member: Option<EncounterMemberId>,
+    repeat_key: Option<u64>,
     payload: Vec<u8>,
     random_candidate_count: Option<u32>,
     immediate_operations: u16,
@@ -229,6 +236,11 @@ impl CompiledOccurrenceInteraction {
     #[must_use]
     pub const fn battle_member(&self) -> Option<EncounterMemberId> {
         self.battle_member
+    }
+
+    #[must_use]
+    pub const fn repeat_key(&self) -> Option<u64> {
+        self.repeat_key
     }
 
     #[must_use]
@@ -266,6 +278,7 @@ pub(crate) fn compile(
     curio_records: &[CurioActivityRecord],
     curio_bindings: CurioActivityBindings,
     deferred_effects: ActivitySlotId,
+    interaction_state: ActivitySlotId,
     battle_member: Option<EncounterMemberId>,
 ) -> Result<CompiledOccurrenceInteraction, OccurrenceInteractionError> {
     let outcome = choice
@@ -273,9 +286,21 @@ pub(crate) fn compile(
         .first()
         .ok_or(OccurrenceInteractionError::InvalidChoice)?;
     let blessing_ids = referenced_blessings(outcome, catalog)?;
-    let blessing_groups = s02::referenced_blessing_groups(outcome, catalog)?;
+    let blessing_groups = s05::referenced_blessing_groups(outcome, catalog)?;
     let curio_ids = referenced_curios(outcome, catalog, curio_records)?;
     let mut operations = Vec::new();
+    let progressive = s05::lower_progressive(
+        outcome,
+        blessing_inventory,
+        interaction_state,
+        &blessing_ids,
+    )?;
+    let repeat_key = progressive.as_ref().map(|value| value.1);
+    if let Some((operation, _)) = progressive {
+        operations.push(PayloadOperation::S05(operation));
+    } else if let Some(operation) = s05::reset_progressive(outcome, interaction_state)? {
+        operations.push(PayloadOperation::S05(operation));
+    }
     lower_costs(
         &mut operations,
         choice,
@@ -288,19 +313,21 @@ pub(crate) fn compile(
             .map(|value| u64::from(value.id().get()))
             .collect::<Vec<_>>(),
     )?;
-    lower_pairs(
-        &mut operations,
-        outcome_pairs(outcome),
-        choice.id(),
-        cosmic_fragments,
-        blessing_inventory,
-        curio_bindings,
-        deferred_effects,
-        &blessing_ids,
-        &blessing_groups,
-        &curio_ids,
-        battle_member.is_some(),
-    )?;
+    if repeat_key.is_none() {
+        lower_pairs(
+            &mut operations,
+            outcome_pairs(outcome),
+            choice.id(),
+            cosmic_fragments,
+            blessing_inventory,
+            curio_bindings,
+            deferred_effects,
+            &blessing_ids,
+            &blessing_groups,
+            &curio_ids,
+            battle_member.is_some(),
+        )?;
+    }
     if operations.len() > MAX_PAYLOAD_OPERATIONS {
         return Err(OccurrenceInteractionError::TooManyOperations);
     }
@@ -325,6 +352,7 @@ pub(crate) fn compile(
                 PayloadOperation::EnsureInventoryGroup { groups, .. } => {
                     u32::try_from(groups.len()).ok()
                 }
+                PayloadOperation::S05(operation) => operation.random_candidate_count(),
                 _ => None,
             })
             .try_fold(1_u32, checked_lcm)
@@ -334,6 +362,7 @@ pub(crate) fn compile(
     let (payload, immediate_operations, deferred_operations) = encode_operations(operations)?;
     Ok(CompiledOccurrenceInteraction {
         battle_member,
+        repeat_key,
         payload,
         random_candidate_count,
         immediate_operations,
@@ -380,6 +409,7 @@ pub(crate) fn execute(
             TAG_ENSURE_INVENTORY_GROUP => {
                 s02::decode_ensure_inventory_group(input, &mut decoder, &mut operations)?;
             }
+            tag if s05::decode(tag, input, &mut decoder, &mut operations)? => {}
             _ => return Err(invalid_payload()),
         }
     }
@@ -638,6 +668,7 @@ enum PayloadOperation {
         inventory: ActivityInventoryId,
         groups: Vec<Vec<u64>>,
     },
+    S05(s05::Operation),
     Transition,
 }
 
@@ -780,6 +811,7 @@ impl PayloadOperation {
                     }
                 }
             }
+            Self::S05(operation) => operation.encode(output)?,
             Self::Transition => output.push(TAG_TRANSITION),
         }
         Ok(())
@@ -838,7 +870,22 @@ fn lower_pairs(
                 }
             }
             Some(OccurrenceTarget::Blessing) if sign != 0 => {
-                if sign > 0 && !blessing_groups.is_empty() {
+                if operation == OccurrenceOperation::Enhance && !blessing_groups.is_empty() {
+                    let count = scalar
+                        .filter(|value| value.unit() == AuthoredScalarUnit::Scalar)
+                        .map(exact_integer)
+                        .transpose()?
+                        .unwrap_or(1)
+                        .max(1);
+                    output.push(PayloadOperation::S05(
+                        s05::Operation::EnhanceBestInventoryGroup {
+                            inventory: blessing_inventory,
+                            quantity: u16::try_from(count)
+                                .map_err(|_| OccurrenceInteractionError::Arithmetic)?,
+                            groups: blessing_groups.to_vec(),
+                        },
+                    ));
+                } else if sign > 0 && !blessing_groups.is_empty() {
                     output.push(PayloadOperation::EnsureInventoryGroup {
                         inventory: blessing_inventory,
                         groups: blessing_groups.to_vec(),
