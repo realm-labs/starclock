@@ -130,6 +130,46 @@
             "Integer": 1
           }
         }
+      },
+      {
+        "values": {
+          "predicate": {
+            "Object": {
+              "excluded_selector_id": {
+                "Integer": 990406
+              },
+              "type": {
+                "String": "Excludes"
+              }
+            }
+          },
+          "selector_id": {
+            "Integer": 990407
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "predicate": {
+            "Object": {
+              "effect_id": {
+                "Integer": 990501
+              },
+              "type": {
+                "String": "HasEffect"
+              }
+            }
+          },
+          "selector_id": {
+            "Integer": 990405
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
       }
     ]
   }

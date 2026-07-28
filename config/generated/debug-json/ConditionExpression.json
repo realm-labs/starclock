@@ -87,6 +87,52 @@
             "String": "goal07.enemy.s01.condition.no-branches"
           }
         }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 990551
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "Constant"
+              },
+              "value": {
+                "Bool": true
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s02.condition.always"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 990552
+          },
+          "node": {
+            "Object": {
+              "comparison": {
+                "String": "Equal"
+              },
+              "left_expression_id": {
+                "Integer": 991102
+              },
+              "right_expression_id": {
+                "Integer": 991103
+              },
+              "type": {
+                "String": "Compare"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s02.condition.current-subject-unshielded"
+          }
+        }
       }
     ]
   }

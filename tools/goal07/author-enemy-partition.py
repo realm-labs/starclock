@@ -1,7 +1,8 @@
 """Author and verify Goal 07 enemy partitions in the core production workbooks.
 
-S01 owns the Abundant Ebon Deer (Complete) definition, its three finite AI
-graphs, level-specific Universe stats, branch summons and executable abilities.
+S01 owns the Abundant Ebon Deer (Complete). S02 owns the Automaton Direwolf
+(Complete). Each partition receives an isolated 10,000-ID range so authoring
+and verification never consume rows owned by another partition.
 """
 
 from __future__ import annotations
@@ -25,16 +26,35 @@ PARTITIONS = (
     / "standard-universe-mechanics-complete-v1"
     / "content-partitions.json"
 )
-ANCHOR = (
-    ROOT
-    / "evidence"
-    / "standard-universe-mechanics-complete-v1"
-    / "sources"
-    / "G07-P5-M15-S01-numeric-anchors.json"
-)
+PARTITION_CONFIG = {
+    "G07-P5-M15-S01": {
+        "base": 980_000,
+        "variant": "enemy.abundant-ebon-deer-complete.littleboss.variant.01",
+        "source_record_id": 3,
+        "evidence_record_id": 4,
+    },
+    "G07-P5-M15-S02": {
+        "base": 990_000,
+        "variant": "enemy.automaton-direwolf-complete.elite.variant.01",
+        "source_record_id": 4,
+        "evidence_record_id": 5,
+    },
+}
 PARTITION = "G07-P5-M15-S01"
-VARIANT_KEY = "enemy.abundant-ebon-deer-complete.littleboss.variant.01"
-BASE = 980_000
+VARIANT_KEY = PARTITION_CONFIG[PARTITION]["variant"]
+BASE = PARTITION_CONFIG[PARTITION]["base"]
+SOURCE_RECORD_ID = PARTITION_CONFIG[PARTITION]["source_record_id"]
+EVIDENCE_RECORD_ID = PARTITION_CONFIG[PARTITION]["evidence_record_id"]
+
+
+def anchor_path(partition: str) -> Path:
+    return (
+        ROOT
+        / "evidence"
+        / "standard-universe-mechanics-complete-v1"
+        / "sources"
+        / f"{partition}-numeric-anchors.json"
+    )
 
 
 def json_cell(type_: str, **fields: Any) -> str:
@@ -245,8 +265,8 @@ def operation(
     }
 
 
-def owned_rows() -> dict[str, list[dict[str, Any]]]:
-    anchor = json.loads(ANCHOR.read_text(encoding="utf-8"))
+def owned_rows_s01() -> dict[str, list[dict[str, Any]]]:
+    anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
     manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
     assigned = next(item for item in manifest["partitions"] if item["id"] == PARTITION)
     if assigned["enemy_variant_ids"] != [VARIANT_KEY]:
@@ -1615,7 +1635,7 @@ def owned_rows() -> dict[str, list[dict[str, Any]]]:
             },
         )
 
-    anchor_digest = sha256_bytes(ANCHOR.read_bytes())
+    anchor_digest = sha256_bytes(anchor_path(PARTITION).read_bytes())
     add(
         "SourceRecord",
         {
@@ -1681,44 +1701,1027 @@ def owned_rows() -> dict[str, list[dict[str, Any]]]:
     return rows
 
 
+def owned_rows_s02() -> dict[str, list[dict[str, Any]]]:
+    anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
+    manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
+    assigned = next(item for item in manifest["partitions"] if item["id"] == PARTITION)
+    if assigned["enemy_variant_ids"] != [VARIANT_KEY]:
+        raise ValueError("S02 frozen enemy assignment changed")
+
+    variant = BASE + 1
+    template = BASE + 2
+    graphs = [BASE + 10, BASE + 11, BASE + 12]
+    ability_names = {
+        201: ("felling-order", "Felling Order", "砍伐指令"),
+        202: ("lock-on-target", "Lock On Target", "目标锁定"),
+        203: ("targeting-order", "Targeting Order", "瞄准指令"),
+        204: ("teamwork-order", "Teamwork Order", "协力指令"),
+        205: ("disintegration-order", "Disintegration Order", "解体指令"),
+        206: ("dismantle", "Dismantle", "解体拆除"),
+        207: ("phase-transition-helper", "Phase Transition Helper", "阶段转换辅助"),
+        208: ("combat-speed-up", "Combat Speed-Up", "作战加速"),
+    }
+    abilities = {source: BASE + 100 + source - 200 for source in ability_names}
+    selectors = {
+        "actor": BASE + 401,
+        "primary-target": BASE + 402,
+        "opposing-single": BASE + 403,
+        "opposing-two-random": BASE + 404,
+        "locked-targets": BASE + 405,
+        "current-subject": BASE + 406,
+        "other-opponents": BASE + 407,
+        "owner": BASE + 408,
+    }
+    effects = {
+        "felling-lock": BASE + 501,
+        "bleed": BASE + 502,
+        "teamwork-order": BASE + 503,
+        "combat-speed-up": BASE + 504,
+        "targeting-speed-up": BASE + 505,
+    }
+    modifiers = {
+        "combat-speed-up": BASE + 521,
+        "targeting-speed-up": BASE + 522,
+    }
+    modifier_groups = {
+        "combat-speed-up": BASE + 531,
+        "targeting-speed-up": BASE + 532,
+    }
+    condition_always = BASE + 551
+    condition_unshielded = BASE + 552
+    rows: dict[str, list[dict[str, Any]]] = {}
+    identities: list[dict[str, Any]] = []
+    next_program = BASE + 301
+    next_operation = BASE + 1_001
+    next_expression = BASE + 1_101
+
+    def add(table: str, row: dict[str, Any]) -> None:
+        rows.setdefault(table, []).append(row)
+
+    def identity_s02(
+        id_: int,
+        stable_key: str,
+        kind: str,
+        name_en: str,
+        name_zh_cn: str,
+        summary: str,
+        sources: str = "1",
+    ) -> dict[str, Any]:
+        row = identity(
+            id_,
+            stable_key,
+            kind,
+            name_en,
+            name_zh_cn,
+            summary,
+            sources,
+        )
+        row["summary_zh_cn"] = "Goal 07 S02 来源绑定的完整形态自动机兵·齿狼可执行定义。"
+        row["game_version_introduced"] = "1.0"
+        return row
+
+    identities.extend(
+        [
+            identity_s02(
+                variant,
+                VARIANT_KEY,
+                "EnemyVariant",
+                "Automaton Direwolf (Complete)",
+                "自动机兵·齿狼（完整）",
+                "Exact World 2 level-27 three-phase boss variant.",
+                "1|4",
+            ),
+            identity_s02(
+                template,
+                "enemy.automaton-direwolf-complete.elite",
+                "Enemy",
+                "Automaton Direwolf (Complete) Template",
+                "自动机兵·齿狼（完整）模板",
+                "Version 4.4 elite template retained from source monster 1013022.",
+            ),
+        ]
+    )
+    for sequence, graph in enumerate(graphs, start=1):
+        identities.append(
+            identity_s02(
+                graph,
+                f"ai.goal07.automaton-direwolf-complete.phase-{sequence}",
+                "AiGraph",
+                f"Automaton Direwolf Phase {sequence} AI",
+                f"自动机兵·齿狼第{sequence}阶段AI",
+                "Finite source-ordered phase action graph.",
+            )
+        )
+    for source, (key, name_en, name_zh_cn) in ability_names.items():
+        identities.append(
+            identity_s02(
+                abilities[source],
+                f"enemy.automaton-direwolf-complete.elite.ability.{key}",
+                "Ability",
+                name_en,
+                name_zh_cn,
+                f"Executable transcription of source skill 101302{source - 200:02d}.",
+            )
+        )
+    for name, selector_id in selectors.items():
+        identities.append(
+            identity_s02(
+                selector_id,
+                f"selector.goal07.automaton-direwolf-complete.{name}",
+                "Selector",
+                f"Automaton Direwolf {name} Selector",
+                f"自动机兵·齿狼{name}选择器",
+                "S02 battle selector.",
+            )
+        )
+    for name, effect in effects.items():
+        identities.append(
+            identity_s02(
+                effect,
+                f"effect.goal07.automaton-direwolf-complete.{name}",
+                "Effect",
+                f"Automaton Direwolf {name} Effect",
+                f"自动机兵·齿狼{name}效果",
+                "S02 executable enemy effect.",
+            )
+        )
+    for name, modifier in modifiers.items():
+        identities.append(
+            identity_s02(
+                modifier,
+                f"modifier.goal07.automaton-direwolf-complete.{name}",
+                "Modifier",
+                f"Automaton Direwolf {name} Modifier",
+                f"自动机兵·齿狼{name}调整器",
+                "Exact phase-three speed modifier.",
+            )
+        )
+
+    add("Selector", selector(selectors["actor"], "Actor", "SameSide"))
+    add("Selector", selector(selectors["owner"], "Owner", "SameSide"))
+    add(
+        "Selector",
+        selector(selectors["current-subject"], "CurrentSubject", "OpposingSide"),
+    )
+    add(
+        "Selector",
+        selector(selectors["primary-target"], "PrimaryTarget", "OpposingSide"),
+    )
+    add(
+        "Selector",
+        selector(selectors["opposing-single"], "Actor", "OpposingSide"),
+    )
+    add(
+        "Selector",
+        {
+            **selector(
+                selectors["opposing-two-random"],
+                "Actor",
+                "OpposingSide",
+                minimum=1,
+                maximum=2,
+                choice="RngUniform",
+            ),
+            "rng_purpose_key": "behavior-choice",
+        },
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["locked-targets"],
+            "Actor",
+            "OpposingSide",
+            minimum=1,
+            maximum=2,
+            choice="All",
+        ),
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["locked-targets"],
+            "sequence": 1,
+            "predicate": json_cell("HasEffect", effect_id=effects["felling-lock"]),
+        },
+    )
+    add(
+        "Selector",
+        {
+            **selector(
+                selectors["other-opponents"],
+                "Actor",
+                "OpposingSide",
+                minimum=0,
+                maximum=1,
+                empty="NoOp",
+                choice="RngUniform",
+            ),
+            "rng_purpose_key": "damage-target",
+        },
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["other-opponents"],
+            "sequence": 1,
+            "predicate": json_cell(
+                "Excludes", excluded_selector_id=selectors["current-subject"]
+            ),
+        },
+    )
+
+    expression_ids: dict[str, int] = {}
+
+    def expr(name: str, kind: str, node: str) -> int:
+        nonlocal next_expression
+        id_ = next_expression
+        next_expression += 1
+        expression_ids[name] = id_
+        add(
+            "ValueExpression",
+            {
+                "id": id_,
+                "stable_key": f"goal07.enemy.s02.expression.{name}",
+                "result_kind": kind,
+                "node": node,
+            },
+        )
+        return id_
+
+    def multiply(name: str, left: int, right: int) -> int:
+        return expr(
+            name,
+            "Scalar",
+            json_cell(
+                "CheckedBinary",
+                operator="CheckedMultiply",
+                left_expression_id=left,
+                right_expression_id=right,
+                rounding="NearestTiesAway",
+            ),
+        )
+
+    actor_atk = expr(
+        "actor-atk",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["actor"],
+            stat="Atk",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+    current_shield = expr(
+        "current-subject-shield",
+        "Scalar",
+        json_cell(
+            "QueryShield",
+            subject_selector_id=selectors["current-subject"],
+            observation="Current",
+        ),
+    )
+    zero = expr("zero", "Scalar", json_cell("ScalarLiteral", value_decimal="0"))
+    one = expr("one", "Scalar", json_cell("ScalarLiteral", value_decimal="1"))
+    ratio_08 = expr(
+        "ratio-0-8", "Scalar", json_cell("ScalarLiteral", value_decimal="0.8")
+    )
+    ratio_005 = expr(
+        "ratio-0-05", "Scalar", json_cell("ScalarLiteral", value_decimal="0.05")
+    )
+    ratio_25 = expr(
+        "ratio-2-5", "Scalar", json_cell("ScalarLiteral", value_decimal="2.5")
+    )
+    ratio_06 = expr(
+        "ratio-0-6", "Scalar", json_cell("ScalarLiteral", value_decimal="0.6")
+    )
+    ratio_02 = expr(
+        "ratio-0-2", "Scalar", json_cell("ScalarLiteral", value_decimal="0.2")
+    )
+    duration_two = expr(
+        "duration-two", "Integer", json_cell("IntegerLiteral", value=2)
+    )
+    targeting_stacks = expr(
+        "targeting-speed-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["current-subject"],
+            effect_id=effects["targeting-speed-up"],
+        ),
+    )
+    targeting_stacks_scalar = expr(
+        "targeting-speed-stacks-scalar",
+        "Scalar",
+        json_cell(
+            "Convert",
+            operand_expression_id=targeting_stacks,
+            target_kind="Scalar",
+            rounding="NearestTiesAway",
+        ),
+    )
+    felling_damage = multiply("felling-hit-damage", actor_atk, ratio_08)
+    bleed_damage = multiply("bleed-damage", actor_atk, ratio_005)
+    heavy_damage = multiply("heavy-damage", actor_atk, ratio_25)
+    targeting_speed_value = multiply(
+        "targeting-speed-value", targeting_stacks_scalar, ratio_02
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": condition_always,
+            "stable_key": "goal07.enemy.s02.condition.always",
+            "node": json_cell("Constant", value=True),
+        },
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": condition_unshielded,
+            "stable_key": "goal07.enemy.s02.condition.current-subject-unshielded",
+            "node": json_cell(
+                "Compare",
+                left_expression_id=current_shield,
+                comparison="Equal",
+                right_expression_id=zero,
+            ),
+        },
+    )
+
+    def operation_s02(
+        id_: int,
+        name: str,
+        payload: str,
+        target: int | None = None,
+        empty: str = "Fault",
+    ) -> dict[str, Any]:
+        row = operation(id_, name, payload, target, empty)
+        row["stable_key"] = f"goal07.enemy.s02.operation.{name}"
+        return row
+
+    def damage_op(name: str, amount: int, target: int) -> dict[str, Any]:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        return operation_s02(
+            id_,
+            name,
+            json_cell(
+                "Damage",
+                amount_expression_id=amount,
+                damage_class="Ordinary",
+                element="Physical",
+                can_crit=True,
+            ),
+            target,
+            "NoOp" if target == selectors["other-opponents"] else "Fault",
+        )
+
+    def effect_op(
+        name: str,
+        effect: int,
+        target: int,
+        *,
+        resistible: bool = False,
+        remove: bool = False,
+        empty: str = "Fault",
+    ) -> dict[str, Any]:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        payload = (
+            json_cell("RemoveEffect", effect_id=effect)
+            if remove
+            else json_cell(
+                "ApplyEffect",
+                effect_id=effect,
+                stacks_expression_id=None,
+                chance_policy="Resistible" if resistible else "Guaranteed",
+                base_chance_expression_id=one if resistible else None,
+                rng_purpose_key="effect-application" if resistible else None,
+            )
+        )
+        return operation_s02(id_, name, payload, target, empty)
+
+    programs: dict[str, int] = {}
+
+    def program(name: str, steps: list[dict[str, Any] | str]) -> int:
+        nonlocal next_program
+        id_ = next_program
+        next_program += 1
+        programs[name] = id_
+        identities.append(
+            identity_s02(
+                id_,
+                f"program.goal07.automaton-direwolf-complete.{name}",
+                "Program",
+                f"Automaton Direwolf {name} Program",
+                f"自动机兵·齿狼{name}程序",
+                "Ordered Rule IR program for the S02 enemy.",
+            )
+        )
+        add("Program", {"id": id_, "domain": "Battle"})
+        for sequence, step in enumerate(steps, start=1):
+            if isinstance(step, dict):
+                add("Operation", step)
+                encoded = json_cell("Operation", operation_id=step["id"])
+            else:
+                encoded = step
+            add(
+                "ProgramStep",
+                {"program_id": id_, "sequence": sequence, "step": encoded},
+            )
+        return id_
+
+    dismantle_followup = program(
+        "unshielded-dismantle-followup",
+        [
+            damage_op(
+                "unshielded-dismantle-followup-damage",
+                heavy_damage,
+                selectors["other-opponents"],
+            )
+        ],
+    )
+    conditional_dismantle = program(
+        "conditional-unshielded-dismantle",
+        [
+            json_cell(
+                "If",
+                condition_id=condition_unshielded,
+                then_program_id=dismantle_followup,
+                else_program_id=None,
+            )
+        ],
+    )
+    felling_steps: list[dict[str, Any] | str] = []
+    for hit in range(1, 11):
+        felling_steps.append(
+            damage_op(
+                f"felling-order-hit-{hit:02d}",
+                felling_damage,
+                selectors["locked-targets"],
+            )
+        )
+        felling_steps.append(
+            effect_op(
+                f"felling-order-bleed-{hit:02d}",
+                effects["bleed"],
+                selectors["locked-targets"],
+                resistible=True,
+            )
+        )
+    felling_steps.append(
+        json_cell(
+            "ForEach",
+            selector_id=selectors["locked-targets"],
+            body_program_id=conditional_dismantle,
+            maximum_iterations=2,
+        )
+    )
+    felling_steps.extend(
+        [
+            effect_op(
+                "felling-order-clear-lock",
+                effects["felling-lock"],
+                selectors["locked-targets"],
+                remove=True,
+            ),
+            effect_op(
+                "felling-order-clear-teamwork",
+                effects["teamwork-order"],
+                selectors["actor"],
+                remove=True,
+                empty="NoOp",
+            ),
+        ]
+    )
+    ability_programs = {
+        abilities[201]: program("felling-order", felling_steps),
+        abilities[202]: program(
+            "lock-on-target",
+            [
+                effect_op(
+                    "lock-on-target-mark",
+                    effects["felling-lock"],
+                    selectors["primary-target"],
+                )
+            ],
+        ),
+        abilities[203]: program(
+            "targeting-order",
+            [
+                effect_op(
+                    "targeting-order-mark-two",
+                    effects["felling-lock"],
+                    selectors["opposing-two-random"],
+                ),
+                effect_op(
+                    "targeting-order-speed-up",
+                    effects["targeting-speed-up"],
+                    selectors["actor"],
+                ),
+            ],
+        ),
+        abilities[204]: program(
+            "teamwork-order",
+            [
+                effect_op(
+                    "teamwork-order-mark-two",
+                    effects["felling-lock"],
+                    selectors["opposing-two-random"],
+                ),
+                effect_op(
+                    "teamwork-order-coordinate-grizzly",
+                    effects["teamwork-order"],
+                    selectors["actor"],
+                ),
+            ],
+        ),
+        abilities[205]: program(
+            "disintegration-order",
+            [
+                damage_op(
+                    "disintegration-order-damage",
+                    heavy_damage,
+                    selectors["primary-target"],
+                )
+            ],
+        ),
+        abilities[206]: program(
+            "dismantle",
+            [
+                damage_op(
+                    "dismantle-damage",
+                    heavy_damage,
+                    selectors["primary-target"],
+                )
+            ],
+        ),
+    }
+    phase_three_entry = program(
+        "phase-three-combat-speed-up",
+        [
+            effect_op(
+                "phase-three-combat-speed-up",
+                effects["combat-speed-up"],
+                selectors["actor"],
+            )
+        ],
+    )
+
+    target_patterns = {
+        201: "SingleTarget",
+        202: "SingleTarget",
+        203: "Aoe",
+        204: "Aoe",
+        205: "SingleTarget",
+        206: "SingleTarget",
+        207: "None",
+        208: "None",
+    }
+    for source, ability in abilities.items():
+        add(
+            "Ability",
+            {
+                "id": ability,
+                "kind": "Passive" if source in {207, 208} else "Skill",
+                "target_pattern": target_patterns[source],
+                "retarget_policy": "CancelRemaining",
+                "level_cap": 1,
+                "cooldown_actions": 1,
+                "semantic_tags_mask": 5 if source in {201, 205, 206} else 4,
+            },
+        )
+        add(
+            "AbilityPhase",
+            {
+                "ability_id": ability,
+                "sequence": 1,
+                "kind": "Resolved",
+                "program_identity_id": ability_programs.get(ability),
+            },
+        )
+        add(
+            "EnemyAbility",
+            {
+                "id": ability,
+                "telegraph": "LockOn" if source in {202, 203, 204} else "None",
+                "cooldown_actions": 1,
+                "initial_cooldown_actions": 0,
+                "charge_actions": 0,
+                "ai_tag": ability_names[source][0],
+            },
+        )
+
+    effect_rows = {
+        "felling-lock": {
+            "category": "Mark",
+            "dispel": "NonDispellable",
+            "stack_limit": 1,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "Replace",
+            "magnitude": None,
+            "dot": None,
+        },
+        "bleed": {
+            "category": "Dot",
+            "dispel": "DispellableDebuff",
+            "stack_limit": 1,
+            "duration": duration_two,
+            "clock": "TargetTurnEnd",
+            "tick": "TurnStart",
+            "policy": "Refresh",
+            "magnitude": bleed_damage,
+            "dot": "Physical",
+        },
+        "teamwork-order": {
+            "category": "NeutralState",
+            "dispel": "NonDispellable",
+            "stack_limit": 1,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "Replace",
+            "magnitude": None,
+            "dot": None,
+        },
+        "combat-speed-up": {
+            "category": "Buff",
+            "dispel": "NonDispellable",
+            "stack_limit": 1,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "Replace",
+            "magnitude": ratio_06,
+            "dot": None,
+        },
+        "targeting-speed-up": {
+            "category": "Buff",
+            "dispel": "NonDispellable",
+            "stack_limit": 2,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "RefreshAndAddStacks",
+            "magnitude": targeting_speed_value,
+            "dot": None,
+        },
+    }
+    for name, effect in effects.items():
+        definition = effect_rows[name]
+        add(
+            "Effect",
+            {
+                "id": effect,
+                "category": definition["category"],
+                "dispel_category": definition["dispel"],
+                "stack_limit": definition["stack_limit"],
+                "duration_expression_id": definition["duration"],
+                "duration_clock": definition["clock"],
+                "tick_phase": definition["tick"],
+                "stack_policy": definition["policy"],
+                "magnitude_comparator_expression_id": definition["magnitude"],
+                "dot_element": definition["dot"],
+                "snapshot_policy": "OnApplication",
+                "teardown_policy": "RemoveWithOwner",
+                "application_priority": 0,
+            },
+        )
+    for effect_name, tag in [
+        ("felling-lock", "direwolf-felling-target"),
+        ("teamwork-order", "coordinates-automaton-grizzly-purge-order"),
+    ]:
+        add(
+            "EffectTag",
+            {"effect_id": effects[effect_name], "sequence": 1, "tag": tag},
+        )
+    for name, group in modifier_groups.items():
+        add(
+            "ModifierStackingGroup",
+            {
+                "id": group,
+                "stable_key": f"goal07.enemy.s02.{name}",
+                "aggregation": "Sum",
+            },
+        )
+    for name, modifier in modifiers.items():
+        add(
+            "ModifierDefinition",
+            {
+                "id": modifier,
+                "source_effect_id": effects[name],
+                "owner_selector_id": selectors["owner"],
+                "subject_selector_id": selectors["current-subject"],
+                "stat": "Spd",
+                "formula_stage": "PercentOfBase",
+                "formula_purpose": "Stat",
+                "value_expression_id": (
+                    ratio_06 if name == "combat-speed-up" else targeting_speed_value
+                ),
+                "value_domain": "Ratio",
+                "stacking_group_id": modifier_groups[name],
+                "priority": 0,
+                "cap_formula_stage": "PercentOfBase",
+                "snapshot_policy": (
+                    "OnApplication" if name == "combat-speed-up" else "Dynamic"
+                ),
+                "duration_scope": "Turn",
+            },
+        )
+        add(
+            "EffectModifierBinding",
+            {
+                "effect_id": effects[name],
+                "sequence": 1,
+                "modifier_id": modifier,
+            },
+        )
+
+    phase_sequences = [
+        [202, 201, 205],
+        [204, 201, 205],
+        [203, 201, 205],
+    ]
+    target_selectors = {
+        201: selectors["locked-targets"],
+        202: selectors["opposing-single"],
+        203: selectors["opposing-two-random"],
+        204: selectors["opposing-two-random"],
+        205: selectors["opposing-single"],
+    }
+    next_state = BASE + 701
+    next_candidate = BASE + 801
+    next_transition = BASE + 901
+    for phase_index, sequence_sources in enumerate(phase_sequences):
+        state_ids = list(range(next_state, next_state + len(sequence_sources)))
+        next_state += len(sequence_sources)
+        add(
+            "AiGraph",
+            {
+                "id": graphs[phase_index],
+                "initial_state_id": state_ids[0],
+                "automatic_transition_budget": 8,
+            },
+        )
+        for offset, (state_id, source) in enumerate(
+            zip(state_ids, sequence_sources)
+        ):
+            add(
+                "AiState",
+                {
+                    "id": state_id,
+                    "stable_key": (
+                        f"goal07.enemy.s02.ai.phase-{phase_index + 1}."
+                        f"state-{offset + 1}"
+                    ),
+                    "graph_id": graphs[phase_index],
+                    "mandatory_fallback_ability_id": abilities[205],
+                    "turn_counter_reset": offset == 0,
+                },
+            )
+            add(
+                "AiCandidate",
+                {
+                    "id": next_candidate,
+                    "stable_key": (
+                        f"goal07.enemy.s02.ai.phase-{phase_index + 1}."
+                        f"state-{offset + 1}.main"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "ability_id": abilities[source],
+                    "condition_id": condition_always,
+                    "target_selector_id": target_selectors[source],
+                    "priority": 10,
+                    "selection": "FirstLegal",
+                    "no_target_fallback": "UseFallbackAbility",
+                    "fallback_ability_id": abilities[205],
+                },
+            )
+            next_candidate += 1
+            add(
+                "AiTransition",
+                {
+                    "id": next_transition,
+                    "stable_key": (
+                        f"goal07.enemy.s02.ai.phase-{phase_index + 1}."
+                        f"transition-{offset + 1}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "target_state_id": state_ids[(offset + 1) % len(state_ids)],
+                    "condition_id": condition_always,
+                    "priority": 0,
+                    "timing": "AfterAction",
+                },
+            )
+            next_transition += 1
+
+    add(
+        "EnemyTemplate",
+        {
+            "id": template,
+            "rank": "Elite",
+            "base_aggro_decimal": "100",
+            "default_ai_graph_id": graphs[0],
+        },
+    )
+    add(
+        "EnemyVariant",
+        {
+            "id": variant,
+            "template_id": template,
+            "ai_graph_id": graphs[0],
+            "mechanically_distinct_key": VARIANT_KEY,
+        },
+    )
+    for level in anchor["levels"]:
+        add(
+            "EnemyStat",
+            {
+                "variant_id": variant,
+                "level": level["authored_level"],
+                "difficulty_key": "standard-universe-v1",
+                "hp_decimal": level["base_hp"],
+                "atk_decimal": level["base_atk"],
+                "def_decimal": level["base_def"],
+                "spd_decimal": level["base_spd"],
+                "effect_hit_rate_decimal": level["effect_hit_rate"],
+                "effect_resistance_decimal": level["effect_resistance"],
+                "crit_damage_decimal": "0.2",
+            },
+        )
+    for sequence, weakness in enumerate(
+        ["Ice", "Imaginary", "Lightning"], start=1
+    ):
+        add(
+            "EnemyWeakness",
+            {"variant_id": variant, "sequence": sequence, "element": weakness},
+        )
+    for element in ["Fire", "Physical", "Quantum", "Wind"]:
+        add(
+            "EnemyResistance",
+            {"variant_id": variant, "element": element, "value_decimal": "0.2"},
+        )
+    for category in ["STAT_Confine", "STAT_CTRL_Frozen", "STAT_Entangle"]:
+        add(
+            "EnemyDebuffResistance",
+            {
+                "variant_id": variant,
+                "category_key": category,
+                "value_decimal": "0.5",
+            },
+        )
+    add(
+        "EnemyToughnessLayer",
+        {
+            "variant_id": variant,
+            "sequence": 1,
+            "layer_key": "ordinary",
+            "kind": "Ordinary",
+            "maximum_decimal": "300",
+            "recovery_ratio_decimal": "1",
+            "active_at_start": True,
+        },
+    )
+    for sequence, source in enumerate(ability_names, start=1):
+        add(
+            "EnemyVariantAbility",
+            {
+                "variant_id": variant,
+                "sequence": sequence,
+                "ability_id": abilities[source],
+            },
+        )
+    for sequence, graph in enumerate(graphs, start=1):
+        add(
+            "EnemyPhase",
+            {
+                "id": BASE + 600 + sequence,
+                "stable_key": f"goal07.enemy.s02.phase-{sequence}",
+                "variant_id": variant,
+                "sequence": sequence,
+                "entry_condition_id": condition_always,
+                "exit_condition_id": condition_always,
+                "replacement_priority": sequence,
+                "ai_graph_id": graph,
+                "targetable": True,
+                "transition_model": "TransformSameUnit",
+                "entry_program_id": phase_three_entry if sequence == 3 else None,
+                "hp_carry": "Reset",
+                "action_gauge_carry": "Reset",
+                "effect_carry": "Clear",
+                "toughness_carry": "Reset",
+                "summon_carry": "Clear",
+            },
+        )
+
+    anchor_digest = sha256_bytes(anchor_path(PARTITION).read_bytes())
+    add(
+        "SourceRecord",
+        {
+            "id": SOURCE_RECORD_ID,
+            "stable_key": "source.hsr-wiki.automaton-direwolf-complete.2026-07-29",
+            "category": "CommunityMaintained",
+            "publisher": "Honkai: Star Rail Wiki",
+            "url": anchor["source"]["url"],
+            "accessed_on": anchor["source"]["accessed_on"],
+            "applicable_game_version": anchor["source"]["game_version"],
+            "confidence": "SecondaryVersionSensitiveCrossCheck",
+            "evidence_sha256": anchor_digest,
+            "usage_note": (
+                "Exact public World 2 level-27 HP, ATK, DEF, SPD, EHR and "
+                "Effect RES transcribed into committed Goal 07 evidence."
+            ),
+        },
+    )
+    add(
+        "EvidenceRecord",
+        {
+            "id": EVIDENCE_RECORD_ID,
+            "stable_key": "evidence.goal07.enemy.s02.numeric-anchors",
+            "kind": "SourcePayload",
+            "source_record_id": SOURCE_RECORD_ID,
+            "sha256": anchor_digest,
+            "note": "Committed exact public per-level numeric anchors for Goal 07 S02.",
+        },
+    )
+    for item in identities:
+        add("ContentIdentity", item)
+        add(
+            "ContentEvidenceBinding",
+            {
+                "content_id": item["id"],
+                "sequence": 1,
+                "fact_key": f"goal07.s02.executable:{item['stable_key']}",
+                "source_record_id": 1,
+                "evidence_record_id": 3,
+                "quality": "ExactStructured",
+                "mechanism_quality": "ExactStructured",
+            },
+        )
+    add(
+        "ContentEvidenceBinding",
+        {
+            "content_id": variant,
+            "sequence": 2,
+            "fact_key": "goal07.s02.public-level-stats",
+            "source_record_id": SOURCE_RECORD_ID,
+            "evidence_record_id": EVIDENCE_RECORD_ID,
+            "quality": "ExactStructured",
+            "mechanism_quality": "ExactStructured",
+        },
+    )
+    for table_rows in rows.values():
+        table_rows.sort(
+            key=lambda row: json.dumps(
+                row, ensure_ascii=False, sort_keys=True, default=str
+            )
+        )
+    return rows
+
+
 OWNERSHIP: dict[str, Callable[[dict[str, Any]], bool]] = {
-    "Ability": lambda row: int(row["id"]) >= BASE,
-    "AbilityPhase": lambda row: int(row["ability_id"]) >= BASE,
-    "AiCandidate": lambda row: int(row["id"]) >= BASE,
-    "AiGraph": lambda row: int(row["id"]) >= BASE,
-    "AiState": lambda row: int(row["id"]) >= BASE,
-    "AiTransition": lambda row: int(row["id"]) >= BASE,
-    "ConditionExpression": lambda row: int(row["id"]) >= BASE,
-    "ContentEvidenceBinding": lambda row: int(row["content_id"]) >= BASE,
-    "ContentIdentity": lambda row: int(row["id"]) >= BASE,
-    "Effect": lambda row: int(row["id"]) >= BASE,
-    "EffectModifierBinding": lambda row: int(row["effect_id"]) >= BASE,
-    "EffectRuleBinding": lambda row: int(row["effect_id"]) >= BASE,
-    "EffectTag": lambda row: int(row["effect_id"]) >= BASE,
-    "EnemyAbility": lambda row: int(row["id"]) >= BASE,
-    "EnemyDebuffResistance": lambda row: int(row["variant_id"]) >= BASE,
-    "EnemyPhase": lambda row: int(row["id"]) >= BASE,
-    "EnemyResistance": lambda row: int(row["variant_id"]) >= BASE,
-    "EnemyStat": lambda row: int(row["variant_id"]) >= BASE,
-    "EnemyTemplate": lambda row: int(row["id"]) >= BASE,
-    "EnemyToughnessLayer": lambda row: int(row["variant_id"]) >= BASE,
-    "EnemyVariant": lambda row: int(row["id"]) >= BASE,
-    "EnemyVariantAbility": lambda row: int(row["variant_id"]) >= BASE,
-    "EnemyWeakness": lambda row: int(row["variant_id"]) >= BASE,
-    "EventFilter": lambda row: int(row["id"]) >= BASE,
-    "LinkedUnitDefinition": lambda row: int(row["id"]) >= BASE,
-    "ModifierDefinition": lambda row: int(row["id"]) >= BASE,
-    "ModifierStackingGroup": lambda row: int(row["id"]) >= BASE,
-    "Operation": lambda row: int(row["id"]) >= BASE,
-    "Program": lambda row: int(row["id"]) >= BASE,
-    "ProgramStep": lambda row: int(row["program_id"]) >= BASE,
-    "RuleDefinition": lambda row: int(row["id"]) >= BASE,
-    "RuleTrigger": lambda row: int(row["id"]) >= BASE,
-    "Selector": lambda row: int(row["id"]) >= BASE,
-    "SelectorPredicate": lambda row: int(row["selector_id"]) >= BASE,
-    "ValueExpression": lambda row: int(row["id"]) >= BASE,
-    "SourceRecord": lambda row: int(row["id"]) == 3,
-    "EvidenceRecord": lambda row: int(row["id"]) == 4,
+    "Ability": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "AbilityPhase": lambda row: BASE <= int(row["ability_id"]) < BASE + 10_000,
+    "AiCandidate": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "AiGraph": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "AiState": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "AiTransition": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "ConditionExpression": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "ContentEvidenceBinding": lambda row: BASE <= int(row["content_id"]) < BASE + 10_000,
+    "ContentIdentity": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "Effect": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "EffectModifierBinding": lambda row: BASE <= int(row["effect_id"]) < BASE + 10_000,
+    "EffectRuleBinding": lambda row: BASE <= int(row["effect_id"]) < BASE + 10_000,
+    "EffectTag": lambda row: BASE <= int(row["effect_id"]) < BASE + 10_000,
+    "EnemyAbility": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "EnemyDebuffResistance": lambda row: BASE <= int(row["variant_id"]) < BASE + 10_000,
+    "EnemyPhase": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "EnemyResistance": lambda row: BASE <= int(row["variant_id"]) < BASE + 10_000,
+    "EnemyStat": lambda row: BASE <= int(row["variant_id"]) < BASE + 10_000,
+    "EnemyTemplate": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "EnemyToughnessLayer": lambda row: BASE <= int(row["variant_id"]) < BASE + 10_000,
+    "EnemyVariant": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "EnemyVariantAbility": lambda row: BASE <= int(row["variant_id"]) < BASE + 10_000,
+    "EnemyWeakness": lambda row: BASE <= int(row["variant_id"]) < BASE + 10_000,
+    "EventFilter": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "LinkedUnitDefinition": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "ModifierDefinition": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "ModifierStackingGroup": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "Operation": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "Program": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "ProgramStep": lambda row: BASE <= int(row["program_id"]) < BASE + 10_000,
+    "RuleDefinition": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "RuleTrigger": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "Selector": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "SelectorPredicate": lambda row: BASE <= int(row["selector_id"]) < BASE + 10_000,
+    "ValueExpression": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "SourceRecord": lambda row: int(row["id"]) == SOURCE_RECORD_ID,
+    "EvidenceRecord": lambda row: int(row["id"]) == EVIDENCE_RECORD_ID,
 }
 
 
@@ -1739,10 +2742,10 @@ def build_golden(expected: dict[str, list[dict[str, Any]]]) -> dict[str, Any]:
     for table, rows in sorted(expected.items()):
         excel = selected(table, workbook_rows(table))
         if semantic_digest(excel) != semantic_digest(rows):
-            raise ValueError(f"{table}: S01 Excel rows differ")
+            raise ValueError(f"{table}: {PARTITION} Excel rows differ")
         exported = selected(table, sora_rows(table))
         if semantic_digest(exported) != semantic_digest(rows):
-            raise ValueError(f"{table}: S01 Sora rows differ")
+            raise ValueError(f"{table}: {PARTITION} Sora rows differ")
         tables[table] = {
             "rows": len(rows),
             "semantic_sha256": semantic_digest(rows),
@@ -1756,6 +2759,7 @@ def build_golden(expected: dict[str, list[dict[str, Any]]]) -> dict[str, Any]:
 
 
 def main() -> None:
+    global BASE, EVIDENCE_RECORD_ID, PARTITION, SOURCE_RECORD_ID, VARIANT_KEY
     parser = argparse.ArgumentParser()
     parser.add_argument("--partition", required=True)
     mode = parser.add_mutually_exclusive_group(required=True)
@@ -1763,9 +2767,19 @@ def main() -> None:
     mode.add_argument("--write-golden", action="store_true")
     mode.add_argument("--check", action="store_true")
     args = parser.parse_args()
-    if args.partition != PARTITION:
+    if args.partition not in PARTITION_CONFIG:
         raise ValueError(f"{args.partition}: enemy partition authoring is not implemented")
-    expected = owned_rows()
+    PARTITION = args.partition
+    partition_config = PARTITION_CONFIG[PARTITION]
+    BASE = partition_config["base"]
+    VARIANT_KEY = partition_config["variant"]
+    SOURCE_RECORD_ID = partition_config["source_record_id"]
+    EVIDENCE_RECORD_ID = partition_config["evidence_record_id"]
+    expected = (
+        owned_rows_s01()
+        if PARTITION == "G07-P5-M15-S01"
+        else owned_rows_s02()
+    )
     golden_path = (
         ROOT
         / "evidence"
@@ -1782,7 +2796,7 @@ def main() -> None:
     encoded = json.dumps(golden, ensure_ascii=False, indent=2) + "\n"
     if args.write_golden:
         golden_path.parent.mkdir(parents=True, exist_ok=True)
-        golden_path.write_text(encoded, encoding="utf-8")
+        golden_path.write_text(encoded, encoding="utf-8", newline="\n")
         print(f"Wrote {golden_path.relative_to(ROOT)}.")
         return
     if not golden_path.is_file() or golden_path.read_text(encoding="utf-8") != encoded:

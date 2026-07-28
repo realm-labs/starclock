@@ -395,6 +395,34 @@
             "String": "goal07.enemy.s01.vigor-damage"
           }
         }
+      },
+      {
+        "values": {
+          "aggregation": {
+            "String": "Sum"
+          },
+          "comparator_expression_id": "Null",
+          "id": {
+            "Integer": 990531
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s02.combat-speed-up"
+          }
+        }
+      },
+      {
+        "values": {
+          "aggregation": {
+            "String": "Sum"
+          },
+          "comparator_expression_id": "Null",
+          "id": {
+            "Integer": 990532
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s02.targeting-speed-up"
+          }
+        }
       }
     ]
   }

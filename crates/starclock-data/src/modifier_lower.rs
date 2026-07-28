@@ -209,6 +209,20 @@ pub(super) fn expression(
             stat: stat(*query_stat),
             purpose: purpose(*formula_purpose),
         },
+        Node::QueryShield {
+            subject_selector_id,
+            observation,
+        } => ValueExpr::QueryShield {
+            subject: query_subject(config, *subject_selector_id)?,
+            observation: match observation {
+                generated::shield_observation::ShieldObservation::Current => {
+                    starclock_combat::rule::model::ShieldObservation::Current
+                }
+                generated::shield_observation::ShieldObservation::BeforeEvent => {
+                    starclock_combat::rule::model::ShieldObservation::BeforeEvent
+                }
+            },
+        },
         Node::QueryEffectStacks {
             subject_selector_id,
             effect_id,

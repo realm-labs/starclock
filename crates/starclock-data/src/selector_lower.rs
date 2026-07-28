@@ -153,6 +153,9 @@ fn lower_predicate(
             )
         }
         Node::OwnedBy { owner_selector_id } => Predicate::OwnedBy(selector(*owner_selector_id)?),
+        Node::Excludes {
+            excluded_selector_id,
+        } => Predicate::Excludes(selector(*excluded_selector_id)?),
         Node::StatCompare {
             stat,
             comparison,

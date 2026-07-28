@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "fbdcdcfd0b3926c9",
+  "fingerprint": "e50a5a622e8d30b9",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -1062,6 +1062,18 @@
           "AwayFromZero",
           "NearestTiesAway",
           "NearestTiesEven"
+        ]
+      },
+      {
+        "name": "ShieldObservation",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Current",
+          "BeforeEvent"
         ]
       },
       {
@@ -2765,6 +2777,37 @@
             ]
           },
           {
+            "name": "Excludes",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "fields": [
+              {
+                "name": "excluded_selector_id",
+                "ty": {
+                  "Ref": {
+                    "table": "Selector",
+                    "field": "id"
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          },
+          {
             "name": "StatCompare",
             "scope": {
               "values": [
@@ -3430,6 +3473,55 @@
                 "name": "formula_purpose",
                 "ty": {
                   "Enum": "FormulaPurpose"
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          },
+          {
+            "name": "QueryShield",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "fields": [
+              {
+                "name": "subject_selector_id",
+                "ty": {
+                  "Ref": {
+                    "table": "Selector",
+                    "field": "id"
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "observation",
+                "ty": {
+                  "Enum": "ShieldObservation"
                 },
                 "scope": {
                   "values": [

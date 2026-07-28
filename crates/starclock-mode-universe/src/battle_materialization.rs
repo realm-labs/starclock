@@ -67,7 +67,7 @@ const MEMBER_COUNT: usize = 173;
 const MEMBER_ENEMY_SLOT_COUNT: usize = 538;
 const DIFFICULTY_BINDING_COUNT: usize = 182;
 const ENEMY_VARIANT_COUNT: usize = 86;
-const EXACT_ENEMY_VARIANT_COUNT: usize = 14;
+const EXACT_ENEMY_VARIANT_COUNT: usize = 15;
 
 const MINION_PROXY: &str = "enemy.flamespawn.minion.variant.01";
 const MINION_LV2_PROXY: &str = "enemy.voidranger-reaver.minionlv2.variant.01";

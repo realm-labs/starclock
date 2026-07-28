@@ -11,7 +11,7 @@ const args = process.argv.slice(2);
 const partitionIndex = args.indexOf("--partition");
 assert(
   partitionIndex >= 0 && typeof args[partitionIndex + 1] === "string",
-  "usage: write-enemy-partition-receipt.mjs --partition G07-P5-M15-S01 [--write]",
+  "usage: write-enemy-partition-receipt.mjs --partition G07-P5-M15-S0X [--write]",
 );
 const partitionId = args[partitionIndex + 1];
 const write = args.includes("--write");
@@ -20,7 +20,31 @@ assert(
     value === "--partition" || value === "--write" || index === partitionIndex + 1),
   "unsupported enemy receipt writer argument",
 );
-assert(partitionId === "G07-P5-M15-S01", `${partitionId}: enemy receipt authoring is not implemented`);
+const partitionConfig = {
+  "G07-P5-M15-S01": {
+    completedOn: "2026-07-28",
+    definitionKeys: [
+      "enemy.abundant-ebon-deer-complete.littleboss.variant.01",
+      "enemy.abundant-ebon-deer-complete.littleboss",
+      "ai.goal07.abundant-ebon-deer-complete.phase-1",
+      "ai.goal07.abundant-ebon-deer-complete.phase-2",
+      "ai.goal07.abundant-ebon-deer-complete.phase-3",
+    ],
+    numericPolicyId: "goal07-public-anchor-level-curve-v1",
+  },
+  "G07-P5-M15-S02": {
+    completedOn: "2026-07-29",
+    definitionKeys: [
+      "enemy.automaton-direwolf-complete.elite.variant.01",
+      "enemy.automaton-direwolf-complete.elite",
+      "ai.goal07.automaton-direwolf-complete.phase-1",
+      "ai.goal07.automaton-direwolf-complete.phase-2",
+      "ai.goal07.automaton-direwolf-complete.phase-3",
+    ],
+    numericPolicyId: "goal07-exact-public-per-level-v1",
+  },
+}[partitionId];
+assert(partitionConfig, `${partitionId}: enemy receipt authoring is not implemented`);
 
 const goalRoot = "evidence/standard-universe-mechanics-complete-v1";
 const manifest = json(
@@ -57,6 +81,14 @@ const executionEvidence = [
   { path: "crates/starclock-mode-universe/src/battle_materialization/catalog_composition.rs" },
   { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
 ];
+if (partitionId === "G07-P5-M15-S02") {
+  executionEvidence.push(
+    { path: "config/schema/selector.toml" },
+    { path: "crates/starclock-data/src/selector_lower.rs" },
+    { path: "crates/starclock-data/src/operation_lower.rs" },
+    { path: "crates/starclock-mode-universe/tests/battle_materialization/direwolf_s02.rs" },
+  );
+}
 const provenanceEvidence = [
   { path: "content-reference/v4.4/enemy-abilities.json" },
   { path: "content-reference/v4.4/enemy-templates.json" },
@@ -121,7 +153,7 @@ const receipt = {
   goal_id: "standard-universe-mechanics-complete-v1",
   partition_id: partitionId,
   state: "Complete",
-  completed_on: "2026-07-28",
+  completed_on: partitionConfig.completedOn,
   authoring: {
     workbooks: ownedTables.map((table) => ({
       path: `config/data/${table}.xlsx`,
@@ -144,14 +176,8 @@ const receipt = {
       workbook_evidence: workbookEvidence,
       provenance_evidence: provenanceEvidence,
       implementation_kind: "SharedRuleIrAndEnemyLifecycle",
-      definition_keys: [
-        planned.id,
-        "enemy.abundant-ebon-deer-complete.littleboss",
-        "ai.goal07.abundant-ebon-deer-complete.phase-1",
-        "ai.goal07.abundant-ebon-deer-complete.phase-2",
-        "ai.goal07.abundant-ebon-deer-complete.phase-3",
-      ],
-      numeric_policy_id: "goal07-public-anchor-level-curve-v1",
+      definition_keys: partitionConfig.definitionKeys,
+      numeric_policy_id: partitionConfig.numericPolicyId,
       numeric_review: {
         path: sourceReview,
         status: "ApprovedPerVariantInputs",

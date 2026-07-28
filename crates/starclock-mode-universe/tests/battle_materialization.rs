@@ -44,6 +44,9 @@ use starclock_mode_universe::{
     },
 };
 
+#[path = "battle_materialization/direwolf_s02.rs"]
+mod direwolf_s02;
+
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
 const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../config/universe-generated/config.sora");
 
@@ -317,7 +320,7 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
             .iter()
             .filter(|enemy| enemy.definition_match() == EnemyDefinitionMatch::Exact)
             .count(),
-        14
+        15
     );
     assert_eq!(
         materialized
@@ -325,7 +328,7 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
             .iter()
             .filter(|enemy| enemy.definition_match() == EnemyDefinitionMatch::ApproximateProxy)
             .count(),
-        72
+        71
     );
     assert!(
         materialized
@@ -340,8 +343,8 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
     assert_eq!(coverage.member_enemy_slot_count(), 538);
     assert_eq!(coverage.difficulty_binding_count(), 182);
     assert_eq!(coverage.enemy_variant_count(), 86);
-    assert_eq!(coverage.exact_enemy_variant_count(), 14);
-    assert_eq!(coverage.approximate_enemy_variant_count(), 72);
+    assert_eq!(coverage.exact_enemy_variant_count(), 15);
+    assert_eq!(coverage.approximate_enemy_variant_count(), 71);
     assert_eq!(
         coverage.declared_rule_binding_count(),
         u16::try_from(contributions.rules().len()).unwrap()
@@ -452,15 +455,15 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
     assert_eq!(
         materialized.digest(),
         [
-            144, 38, 154, 54, 30, 190, 13, 56, 39, 219, 134, 222, 126, 204, 118, 242, 232, 251,
-            175, 114, 23, 19, 254, 216, 236, 108, 166, 160, 140, 204, 232, 123,
+            118, 154, 111, 167, 212, 32, 6, 155, 128, 45, 142, 14, 9, 218, 43, 172, 176, 225, 125,
+            168, 30, 218, 47, 103, 84, 0, 68, 79, 242, 99, 236, 227,
         ]
     );
     assert_eq!(
         coverage.digest(),
         [
-            145, 96, 80, 59, 28, 26, 38, 35, 83, 105, 151, 45, 191, 167, 248, 185, 171, 35, 19, 81,
-            183, 29, 199, 83, 235, 240, 254, 63, 80, 104, 11, 245,
+            55, 20, 82, 201, 235, 225, 255, 80, 241, 81, 227, 66, 26, 144, 119, 14, 193, 156, 74,
+            196, 194, 35, 230, 134, 105, 243, 32, 98, 198, 107, 79, 206,
         ]
     );
 
@@ -752,27 +755,27 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(executor.reports().len(), 3);
+    assert_eq!(executor.reports().len(), 5);
     assert_eq!(
         executor
             .reports()
             .iter()
             .map(|battle| battle.trace().len())
             .sum::<usize>(),
-        17
+        25
     );
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            134, 110, 42, 171, 232, 195, 166, 233, 156, 177, 248, 135, 202, 6, 194, 45, 244, 70,
-            144, 185, 62, 60, 131, 124, 80, 20, 160, 244, 179, 74, 148, 196,
+            179, 116, 59, 51, 238, 108, 226, 228, 166, 146, 120, 136, 242, 41, 122, 7, 42, 36, 208,
+            85, 9, 83, 139, 205, 24, 193, 37, 227, 39, 123, 136, 122,
         ]
     );
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
         [
-            208, 197, 47, 96, 153, 19, 91, 52, 45, 165, 53, 43, 122, 245, 95, 14, 190, 158, 130,
-            45, 104, 245, 166, 161, 27, 69, 252, 115, 223, 86, 54, 51,
+            41, 76, 10, 132, 251, 253, 149, 54, 6, 17, 120, 75, 182, 37, 139, 171, 222, 252, 207,
+            197, 93, 56, 204, 118, 205, 226, 123, 100, 133, 54, 41, 3,
         ]
     );
     assert!(executor.reports().iter().all(|battle| {
