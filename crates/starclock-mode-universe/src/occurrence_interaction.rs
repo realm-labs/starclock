@@ -24,6 +24,7 @@ mod s02;
 mod s03;
 mod s05;
 mod s06;
+mod s07;
 pub(crate) mod support;
 
 use support::{
@@ -34,7 +35,7 @@ use support::{
 
 pub const OCCURRENCE_INTERACTION_HANDLER_ID: u32 = 2;
 pub const OCCURRENCE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-occurrence-interaction-runtime-v6";
+    "standard-universe-occurrence-interaction-runtime-v7";
 const PAYLOAD_REVISION: u8 = 5;
 const TAG_FRAGMENT_SCALAR: u8 = 1;
 const TAG_FRAGMENT_PERCENT: u8 = 2;
@@ -70,6 +71,7 @@ pub struct OccurrenceInteractionRuntimeCatalog {
 }
 
 impl OccurrenceInteractionRuntimeCatalog {
+    #[allow(clippy::too_many_arguments)]
     pub(crate) fn compile(
         catalog: &UniverseCatalog,
         cosmic_fragments: ActivitySlotId,
@@ -78,6 +80,8 @@ impl OccurrenceInteractionRuntimeCatalog {
         curio_bindings: CurioActivityBindings,
         deferred_effects: ActivitySlotId,
         interaction_state: ActivitySlotId,
+        selected_path: ActivitySlotId,
+        formation_inventory: ActivityInventoryId,
     ) -> Result<Self, OccurrenceInteractionError> {
         let occurrence_battles = crate::occurrence_battle::compile(catalog)
             .map_err(|_| OccurrenceInteractionError::InvalidChoice)?;
@@ -98,6 +102,8 @@ impl OccurrenceInteractionRuntimeCatalog {
                     curio_bindings,
                     deferred_effects,
                     interaction_state,
+                    selected_path,
+                    formation_inventory,
                     battle_member,
                 )
                 .map(|compiled| CompiledOccurrenceProgram {
@@ -281,6 +287,8 @@ pub(crate) fn compile(
     curio_bindings: CurioActivityBindings,
     deferred_effects: ActivitySlotId,
     interaction_state: ActivitySlotId,
+    selected_path: ActivitySlotId,
+    formation_inventory: ActivityInventoryId,
     battle_member: Option<EncounterMemberId>,
 ) -> Result<CompiledOccurrenceInteraction, OccurrenceInteractionError> {
     let outcome = choice
@@ -291,6 +299,15 @@ pub(crate) fn compile(
     let blessing_groups = s05::referenced_blessing_groups(outcome, catalog)?;
     let curio_ids = referenced_curios(outcome, catalog, curio_records)?;
     let mut operations = Vec::new();
+    let specialized_s07 = s07::lower(
+        outcome,
+        catalog,
+        blessing_inventory,
+        curio_bindings,
+        curio_records,
+        selected_path,
+        formation_inventory,
+    )?;
     let progressive_s06 = s06::lower_progressive(
         outcome,
         cosmic_fragments,
@@ -322,19 +339,24 @@ pub(crate) fn compile(
     if let Some(operation) = s06::prepare_reward_paths(outcome, catalog, interaction_state)? {
         operations.push(PayloadOperation::S06(operation));
     }
-    lower_costs(
-        &mut operations,
-        choice,
-        cosmic_fragments,
-        blessing_inventory,
-        curio_bindings.inventory,
-        &blessing_ids,
-        &curio_ids
-            .iter()
-            .map(|value| u64::from(value.id().get()))
-            .collect::<Vec<_>>(),
-    )?;
-    if repeat_key.is_none() {
+    let has_specialized_s07 = specialized_s07.is_some();
+    if let Some(operation) = specialized_s07 {
+        operations.push(PayloadOperation::S07(operation));
+    } else {
+        lower_costs(
+            &mut operations,
+            choice,
+            cosmic_fragments,
+            blessing_inventory,
+            curio_bindings.inventory,
+            &blessing_ids,
+            &curio_ids
+                .iter()
+                .map(|value| u64::from(value.id().get()))
+                .collect::<Vec<_>>(),
+        )?;
+    }
+    if repeat_key.is_none() && !has_specialized_s07 {
         lower_pairs(
             &mut operations,
             outcome_pairs(outcome),
@@ -375,6 +397,7 @@ pub(crate) fn compile(
                 }
                 PayloadOperation::S05(operation) => operation.random_candidate_count(),
                 PayloadOperation::S06(operation) => operation.random_candidate_count(),
+                PayloadOperation::S07(operation) => operation.random_candidate_count(),
                 _ => None,
             })
             .try_fold(1_u32, checked_lcm)
@@ -433,6 +456,7 @@ pub(crate) fn execute(
             }
             tag if s05::decode(tag, input, &mut decoder, &mut operations)? => {}
             tag if s06::decode(tag, input, &mut decoder, &mut operations)? => {}
+            tag if s07::decode(tag, input, &mut decoder, &mut operations)? => {}
             _ => return Err(invalid_payload()),
         }
     }
@@ -693,6 +717,7 @@ enum PayloadOperation {
     },
     S05(s05::Operation),
     S06(s06::Operation),
+    S07(s07::Operation),
     Transition,
 }
 
@@ -837,6 +862,7 @@ impl PayloadOperation {
             }
             Self::S05(operation) => operation.encode(output)?,
             Self::S06(operation) => operation.encode(output)?,
+            Self::S07(operation) => operation.encode(output)?,
             Self::Transition => output.push(TAG_TRANSITION),
         }
         Ok(())

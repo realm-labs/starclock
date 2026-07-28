@@ -20,7 +20,7 @@ use starclock_mode_universe::{
     catalog::UniverseCatalog,
     encounter::RoomContentKind,
     entry::{StandardUniverseEntry, StandardUniverseProfile},
-    occurrence::{OccurrenceOperation, OccurrenceTarget},
+    occurrence::{AuthoredScalarUnit, OccurrenceOperation, OccurrenceTarget},
     occurrence_interaction::OCCURRENCE_INTERACTION_HANDLER_ID,
     run_runtime::{CosmicFragments, MAX_COSMIC_FRAGMENTS, RUN_RUNTIME_REVISION, RunRuntimeCatalog},
 };
@@ -34,6 +34,8 @@ mod s04;
 mod s05;
 #[path = "run_runtime/s06.rs"]
 mod s06;
+#[path = "run_runtime/s07.rs"]
+mod s07;
 
 fn catalog() -> Arc<UniverseCatalog> {
     static CATALOG: OnceLock<Arc<UniverseCatalog>> = OnceLock::new();
@@ -57,7 +59,7 @@ fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
             .flat_map(|choice| choice.outcomes())
             .filter(|outcome| outcome.random_policy().is_some())
             .count(),
-        96
+        106
     );
     assert_eq!(
         runtime
@@ -86,8 +88,8 @@ fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
     assert_eq!(
         runtime.digest(),
         [
-            132, 1, 213, 8, 220, 109, 90, 227, 125, 73, 94, 64, 236, 17, 2, 102, 176, 75, 111, 44,
-            221, 240, 66, 1, 207, 185, 155, 206, 142, 100, 12, 2,
+            109, 1, 184, 31, 99, 158, 151, 234, 37, 60, 244, 27, 23, 34, 72, 46, 23, 220, 34, 144,
+            245, 44, 207, 152, 136, 35, 242, 73, 109, 27, 226, 32,
         ]
     );
     assert_eq!(
@@ -319,9 +321,9 @@ fn occurrence_choices_compile_and_exact_room_sources_bind_executable_handlers() 
     }));
     let interaction_catalog = compiled.occurrence_interaction_runtime();
     assert_eq!(interaction_catalog.choice_count(), 321);
-    assert_eq!(interaction_catalog.immediate_operation_count(), 412);
-    assert_eq!(interaction_catalog.deferred_operation_count(), 34);
-    assert_eq!(interaction_catalog.external_result_count(), 4_343);
+    assert_eq!(interaction_catalog.immediate_operation_count(), 407);
+    assert_eq!(interaction_catalog.deferred_operation_count(), 29);
+    assert_eq!(interaction_catalog.external_result_count(), 4_513);
     assert!(catalog.occurrence_choices().iter().any(|choice| {
         let outcome = &choice.outcomes()[0];
         outcome.operations().contains(&OccurrenceOperation::Obtain)
@@ -421,19 +423,27 @@ fn occurrence_curio_acquisition_initializes_lifecycle_in_the_same_transaction() 
         .occurrence_interaction_runtime()
         .compile_choice(choice.id())
         .expect("compiled Curio choice");
-    let external_result = interaction
-        .external_results()
-        .first()
-        .expect("explicit Curio result");
+    assert!(interaction.external_results().is_empty());
+    let candidates = interaction
+        .random_candidate_count()
+        .expect("random Curio candidates");
     let outcome = ActivityExternalOutcomeId::new(99_002).unwrap();
     let binding = ActivityInteractionBinding::new(
         node(1),
         outcome,
         starclock_activity::ActivityHandlerId::new(OCCURRENCE_INTERACTION_HANDLER_ID).unwrap(),
-        external_result.payload().to_vec(),
+        interaction.payload().to_vec(),
         "standard-universe.occurrence-choice.v2",
     )
-    .unwrap();
+    .unwrap()
+    .with_random_policy(
+        starclock_activity::ActivityInteractionRandomPolicy::new(
+            ActivityRngLabel::Occurrence,
+            206,
+            candidates,
+        )
+        .unwrap(),
+    );
     let registry = compiled
         .runtime_definition()
         .interactions()
@@ -472,7 +482,7 @@ fn occurrence_curio_acquisition_initializes_lifecycle_in_the_same_transaction() 
             .expect("valid lifecycle")
             .entries()
             .len(),
-        1
+        3
     );
     assert!(
         activity
@@ -996,6 +1006,7 @@ fn occurrence_harness_with_fragments_and_seed(
         compiled.curio_state_slot(),
         compiled.curio_charge_slot(),
         compiled.curio_event_slot(),
+        compiled.selected_path_slot(),
     ];
     let state = ActivityStateDefinition::new(
         compiled
@@ -1029,7 +1040,9 @@ fn occurrence_harness_with_fragments_and_seed(
             .filter(|inventory| {
                 matches!(
                     inventory.id(),
-                    id if id == compiled.blessing_inventory() || id == compiled.curio_inventory()
+                    id if id == compiled.blessing_inventory()
+                        || id == compiled.formation_inventory()
+                        || id == compiled.curio_inventory()
                 )
             })
             .copied()

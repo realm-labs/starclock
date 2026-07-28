@@ -36,9 +36,11 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "3"
+          "2"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.rarity.3"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -83,11 +85,17 @@
         "kinds": [
           "Obtain"
         ],
-        "targets": [],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "targets": [
+          "Character"
+        ],
+        "numeric_literals": [
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s07.current-path-formation"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -134,12 +142,24 @@
           "Blessing"
         ],
         "numeric_literals": [
-          "2",
-          "3"
+          "2"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.rarity.2",
+          "universe.blessing-pool.rarity.3",
+          "universe.occurrence-s07.current-path-blessings"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -185,10 +205,24 @@
         "targets": [
           "Blessing"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "3"
+        ],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.blessing-pool.all",
+          "universe.occurrence-s07.current-path-blessings"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -225,30 +259,33 @@
     "condition_ids": [
       "universe.unlock.source-6"
     ],
-    "costs": [
-      {
-        "kind": "Discard",
-        "targets": [
-          "Blessing"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
-          "Obtain",
-          "Discard"
+          "Discard",
+          "Obtain"
         ],
         "targets": [
+          "Blessing",
           "Blessing"
         ],
         "numeric_literals": [
           "4",
-          "1",
-          "1",
-          "3"
+          "4"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.path.preservation",
+          "universe.path.remembrance",
+          "universe.path.nihility",
+          "universe.path.abundance",
+          "universe.path.hunt",
+          "universe.path.destruction",
+          "universe.path.elation",
+          "universe.path.propagation",
+          "universe.path.erudition",
+          "universe.occurrence-s07.exchange-four-one-star-for-current-path"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
@@ -296,7 +333,9 @@
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
+        "numeric_literals": [
+          "3"
+        ],
         "parameter_refs": [],
         "chance_percentages": [],
         "unspecified_random_policy": "StableUniformOrderedCandidates"
@@ -336,27 +375,24 @@
     "condition_ids": [
       "universe.unlock.source-6"
     ],
-    "costs": [
-      {
-        "kind": "Discard",
-        "targets": [
-          "CosmicFragments",
-          "Curio"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
-          "Obtain",
-          "Discard"
+          "Discard",
+          "Obtain"
         ],
         "targets": [
-          "CosmicFragments",
-          "Curio"
+          "Curio",
+          "CosmicFragments"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "1",
+          "50"
+        ],
+        "parameter_refs": [
+          "universe.occurrence-s07.all-curios-for-fragments-50"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -395,14 +431,7 @@
     "condition_ids": [
       "universe.unlock.source-6"
     ],
-    "costs": [
-      {
-        "kind": "Discard",
-        "targets": [
-          "Curio"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
@@ -411,10 +440,19 @@
         "targets": [
           "Curio"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.curio.65",
+          "universe.curio.66",
+          "universe.curio.67",
+          "universe.curio.70",
+          "universe.curio.71",
+          "universe.curio.108"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -16575,11 +16613,18 @@
     "outcomes": [
       {
         "kinds": [
-          "Special"
+          "Battle"
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.periodic-demon-lord",
+          "universe.occurrence-battle.level.60",
+          "enemy.imaginary-weaver.minionlv2.variant.01",
+          "enemy.imaginary-weaver.minionlv2.variant.01",
+          "enemy.decaying-shadow.elite.variant.01",
+          "universe.occurrence-battle.reward.within-cycles.4.base.1.bonus.1"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -16622,11 +16667,18 @@
     "outcomes": [
       {
         "kinds": [
-          "Special"
+          "Battle"
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.periodic-demon-lord",
+          "universe.occurrence-battle.level.60",
+          "enemy.wraith-warden.minionlv2.variant.01",
+          "enemy.wraith-warden.minionlv2.variant.01",
+          "enemy.aurumaton-spectral-envoy.elite.variant.01",
+          "universe.occurrence-battle.reward.within-cycles.4.base.1.bonus.1"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -16669,11 +16721,18 @@
     "outcomes": [
       {
         "kinds": [
-          "Special"
+          "Battle"
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.periodic-demon-lord",
+          "universe.occurrence-battle.level.60",
+          "enemy.dreamjolt-troupes-mr-domescreen.minionlv2.variant.01",
+          "enemy.dreamjolt-troupes-mr-domescreen.minionlv2.variant.01",
+          "enemy.dreamjolt-troupes-beyond-overcooked.elite.variant.01",
+          "universe.occurrence-battle.reward.within-cycles.4.base.1.bonus.1"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -16716,11 +16775,17 @@
     "outcomes": [
       {
         "kinds": [
-          "Special"
+          "Battle"
         ],
         "targets": [],
         "numeric_literals": [],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-battle.stage.periodic-demon-lord",
+          "universe.occurrence-battle.level.60",
+          "enemy.memory-zone-meme-heartbreaker.minionlv2.variant.01",
+          "enemy.memory-zone-meme-shell-of-faded-rage.elite.variant.01",
+          "universe.occurrence-battle.reward.within-cycles.4.base.1.bonus.1"
+        ],
         "chance_percentages": [],
         "unspecified_random_policy": ""
       }
@@ -16759,30 +16824,27 @@
     "condition_ids": [
       "universe.unlock.source-12002"
     ],
-    "costs": [
-      {
-        "kind": "Discard",
-        "targets": [
-          "Blessing"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
-          "Obtain",
-          "Discard"
+          "Discard",
+          "Obtain"
         ],
         "targets": [
+          "Blessing",
           "Blessing"
         ],
         "numeric_literals": [
-          "3",
-          "3"
+          "1",
+          "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.blessing-pool.rarity.3",
+          "universe.occurrence-s07.exchange-rarity-3-for-3"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -16819,34 +16881,26 @@
     "condition_ids": [
       "universe.unlock.source-12002"
     ],
-    "costs": [
-      {
-        "kind": "Discard",
-        "targets": [
-          "Blessing"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
-          "Obtain",
-          "Discard"
+          "Discard",
+          "Obtain"
         ],
         "targets": [
+          "Blessing",
           "Blessing"
         ],
         "numeric_literals": [
           "1",
-          "1",
-          "2",
-          "1",
-          "1",
-          "3"
+          "1"
         ],
-        "parameter_refs": [],
+        "parameter_refs": [
+          "universe.occurrence-s07.exchange-rarity-1-2-for-1-2-3"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -16930,30 +16984,26 @@
     "condition_ids": [
       "universe.unlock.source-12002"
     ],
-    "costs": [
-      {
-        "kind": "Lose",
-        "targets": [
-          "HP",
-          "Character"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
-          "Lose"
+          "Lose",
+          "Obtain"
         ],
         "targets": [
           "HP",
-          "Character"
+          "Blessing"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [
-          "2"
+        "numeric_literals": [
+          "20%",
+          "1"
         ],
-        "unspecified_random_policy": ""
+        "parameter_refs": [
+          "universe.blessing-pool.rarity.2"
+        ],
+        "chance_percentages": [],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -16990,30 +17040,26 @@
     "condition_ids": [
       "universe.unlock.source-12002"
     ],
-    "costs": [
-      {
-        "kind": "Lose",
-        "targets": [
-          "HP",
-          "Character"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
-          "Lose"
+          "Lose",
+          "Obtain"
         ],
         "targets": [
           "HP",
-          "Character"
+          "Blessing"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
-        "chance_percentages": [
-          "2"
+        "numeric_literals": [
+          "80%",
+          "1"
         ],
-        "unspecified_random_policy": ""
+        "parameter_refs": [
+          "universe.blessing-pool.rarity.3"
+        ],
+        "chance_percentages": [],
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -17097,26 +17143,27 @@
     "condition_ids": [
       "universe.unlock.source-12002"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
-          "Consume"
+          "Consume",
+          "Obtain"
         ],
         "targets": [
-          "CosmicFragments"
+          "CosmicFragments",
+          "Blessing"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "50",
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.blessing-pool.rarity.1",
+          "universe.blessing-pool.rarity.2"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",
@@ -17153,26 +17200,28 @@
     "condition_ids": [
       "universe.unlock.source-12002"
     ],
-    "costs": [
-      {
-        "kind": "Consume",
-        "targets": [
-          "CosmicFragments"
-        ]
-      }
-    ],
+    "costs": [],
     "outcomes": [
       {
         "kinds": [
-          "Consume"
+          "Consume",
+          "Obtain"
         ],
         "targets": [
-          "CosmicFragments"
+          "CosmicFragments",
+          "Blessing"
         ],
-        "numeric_literals": [],
-        "parameter_refs": [],
+        "numeric_literals": [
+          "100",
+          "1"
+        ],
+        "parameter_refs": [
+          "universe.blessing-pool.rarity.1",
+          "universe.blessing-pool.rarity.2",
+          "universe.blessing-pool.rarity.3"
+        ],
         "chance_percentages": [],
-        "unspecified_random_policy": ""
+        "unspecified_random_policy": "StableUniformOrderedCandidates"
       }
     ],
     "next_node_id": "",

@@ -47,13 +47,13 @@ fn complete_occurrence_partition_compiles() {
     assert_eq!((runtime.content_count(), runtime.rule_count()), (447, 0));
     assert_eq!(
         (runtime.choice_count(), runtime.random_policy_count()),
-        (321, 96)
+        (321, 106)
     );
     assert_eq!(
         runtime.digest(),
         [
-            60, 187, 15, 188, 243, 111, 4, 0, 184, 113, 33, 249, 90, 171, 32, 188, 144, 55, 3, 215,
-            104, 122, 90, 76, 250, 177, 129, 98, 243, 213, 111, 66,
+            249, 10, 81, 163, 16, 3, 102, 71, 219, 94, 75, 176, 9, 63, 45, 17, 232, 203, 55, 206,
+            71, 94, 51, 78, 159, 17, 195, 87, 169, 169, 11, 93,
         ]
     );
 }
@@ -79,12 +79,14 @@ fn cost_result_branch_and_random_policy_remain_distinct() {
     let effect = runtime
         .execute(choice("universe.occurrence.39.variant.12201.choice.05"))
         .unwrap();
-    assert_eq!(effect.costs().len(), 1);
-    assert_eq!(effect.costs()[0].operation(), OccurrenceOperation::Discard);
-    assert_eq!(effect.costs()[0].targets(), &[OccurrenceTarget::Blessing]);
+    assert!(effect.costs().is_empty());
     assert_eq!(
         effect.outcome().operations(),
-        &[OccurrenceOperation::Obtain, OccurrenceOperation::Discard]
+        &[OccurrenceOperation::Discard, OccurrenceOperation::Obtain]
+    );
+    assert_eq!(
+        effect.outcome().targets(),
+        &[OccurrenceTarget::Blessing, OccurrenceTarget::Blessing]
     );
     assert_eq!(
         effect.outcome().random_policy(),

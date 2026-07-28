@@ -18,11 +18,17 @@
           "numeric_literals": {
             "List": [
               {
-                "String": "3"
+                "String": "2"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -51,13 +57,33 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s07.current-path-formation"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
-          "unspecified_random_policy": "Null"
+          "targets": {
+            "List": [
+              {
+                "String": "Character"
+              }
+            ]
+          },
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -77,13 +103,49 @@
             "List": [
               {
                 "String": "2"
-              },
-              {
-                "String": "3"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.path.preservation"
+              },
+              {
+                "String": "universe.path.remembrance"
+              },
+              {
+                "String": "universe.path.nihility"
+              },
+              {
+                "String": "universe.path.abundance"
+              },
+              {
+                "String": "universe.path.hunt"
+              },
+              {
+                "String": "universe.path.destruction"
+              },
+              {
+                "String": "universe.path.elation"
+              },
+              {
+                "String": "universe.path.propagation"
+              },
+              {
+                "String": "universe.path.erudition"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              },
+              {
+                "String": "universe.occurrence-s07.current-path-blessings"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -94,7 +156,9 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -110,8 +174,50 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "3"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.path.preservation"
+              },
+              {
+                "String": "universe.path.remembrance"
+              },
+              {
+                "String": "universe.path.nihility"
+              },
+              {
+                "String": "universe.path.abundance"
+              },
+              {
+                "String": "universe.path.hunt"
+              },
+              {
+                "String": "universe.path.destruction"
+              },
+              {
+                "String": "universe.path.elation"
+              },
+              {
+                "String": "universe.path.propagation"
+              },
+              {
+                "String": "universe.path.erudition"
+              },
+              {
+                "String": "universe.blessing-pool.all"
+              },
+              {
+                "String": "universe.occurrence-s07.current-path-blessings"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -122,7 +228,9 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -134,10 +242,10 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Discard"
               },
               {
-                "String": "Discard"
+                "String": "Obtain"
               }
             ]
           },
@@ -147,22 +255,52 @@
                 "String": "4"
               },
               {
-                "String": "1"
-              },
-              {
-                "String": "1"
-              },
-              {
-                "String": "3"
+                "String": "4"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.path.preservation"
+              },
+              {
+                "String": "universe.path.remembrance"
+              },
+              {
+                "String": "universe.path.nihility"
+              },
+              {
+                "String": "universe.path.abundance"
+              },
+              {
+                "String": "universe.path.hunt"
+              },
+              {
+                "String": "universe.path.destruction"
+              },
+              {
+                "String": "universe.path.elation"
+              },
+              {
+                "String": "universe.path.propagation"
+              },
+              {
+                "String": "universe.path.erudition"
+              },
+              {
+                "String": "universe.occurrence-s07.exchange-four-one-star-for-current-path"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
+              {
+                "String": "Blessing"
+              },
               {
                 "String": "Blessing"
               }
@@ -186,7 +324,13 @@
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "3"
+              }
+            ]
+          },
           "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
@@ -212,25 +356,40 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Discard"
               },
               {
-                "String": "Discard"
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              },
+              {
+                "String": "50"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s07.all-curios-for-fragments-50"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "CosmicFragments"
+                "String": "Curio"
               },
               {
-                "String": "Curio"
+                "String": "CosmicFragments"
               }
             ]
           },
@@ -250,8 +409,35 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              },
+              {
+                "String": "universe.curio.108"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -262,7 +448,9 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -12709,12 +12897,33 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Battle"
               }
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-battle.stage.periodic-demon-lord"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.imaginary-weaver.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.imaginary-weaver.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.decaying-shadow.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.within-cycles.4.base.1.bonus.1"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -12731,12 +12940,33 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Battle"
               }
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-battle.stage.periodic-demon-lord"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.wraith-warden.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.wraith-warden.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.aurumaton-spectral-envoy.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.within-cycles.4.base.1.bonus.1"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -12753,12 +12983,33 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Battle"
               }
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-battle.stage.periodic-demon-lord"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.dreamjolt-troupes-mr-domescreen.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.dreamjolt-troupes-mr-domescreen.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.dreamjolt-troupes-beyond-overcooked.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.within-cycles.4.base.1.bonus.1"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -12775,12 +13026,30 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Battle"
               }
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-battle.stage.periodic-demon-lord"
+              },
+              {
+                "String": "universe.occurrence-battle.level.60"
+              },
+              {
+                "String": "enemy.memory-zone-meme-heartbreaker.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.memory-zone-meme-shell-of-faded-rage.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.within-cycles.4.base.1.bonus.1"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -12797,24 +13066,33 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Discard"
               },
               {
-                "String": "Discard"
+                "String": "Obtain"
               }
             ]
           },
           "numeric_literals": {
             "List": [
               {
-                "String": "3"
+                "String": "1"
               },
               {
-                "String": "3"
+                "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              },
+              {
+                "String": "universe.occurrence-s07.exchange-rarity-3-for-3"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -12822,10 +13100,15 @@
             "List": [
               {
                 "String": "Blessing"
+              },
+              {
+                "String": "Blessing"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -12837,10 +13120,10 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Discard"
               },
               {
-                "String": "Discard"
+                "String": "Obtain"
               }
             ]
           },
@@ -12851,22 +13134,16 @@
               },
               {
                 "String": "1"
-              },
-              {
-                "String": "2"
-              },
-              {
-                "String": "1"
-              },
-              {
-                "String": "1"
-              },
-              {
-                "String": "3"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s07.exchange-rarity-1-2-for-1-2-3"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -12874,10 +13151,15 @@
             "List": [
               {
                 "String": "Blessing"
+              },
+              {
+                "String": "Blessing"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -12904,13 +13186,7 @@
       },
       {
         "values": {
-          "chance_percentages": {
-            "List": [
-              {
-                "String": "2"
-              }
-            ]
-          },
+          "chance_percentages": "Null",
           "choice_id": {
             "Integer": 137
           },
@@ -12918,11 +13194,29 @@
             "List": [
               {
                 "String": "Lose"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "20%"
+              },
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -12932,22 +13226,18 @@
                 "String": "HP"
               },
               {
-                "String": "Character"
+                "String": "Blessing"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
         "values": {
-          "chance_percentages": {
-            "List": [
-              {
-                "String": "2"
-              }
-            ]
-          },
+          "chance_percentages": "Null",
           "choice_id": {
             "Integer": 138
           },
@@ -12955,11 +13245,29 @@
             "List": [
               {
                 "String": "Lose"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "80%"
+              },
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -12969,11 +13277,13 @@
                 "String": "HP"
               },
               {
-                "String": "Character"
+                "String": "Blessing"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -13008,11 +13318,32 @@
             "List": [
               {
                 "String": "Consume"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "50"
+              },
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.rarity.1"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -13020,10 +13351,15 @@
             "List": [
               {
                 "String": "CosmicFragments"
+              },
+              {
+                "String": "Blessing"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -13036,11 +13372,35 @@
             "List": [
               {
                 "String": "Consume"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100"
+              },
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.rarity.1"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -13048,10 +13408,15 @@
             "List": [
               {
                 "String": "CosmicFragments"
+              },
+              {
+                "String": "Blessing"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {

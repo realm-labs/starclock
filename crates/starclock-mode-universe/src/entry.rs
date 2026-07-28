@@ -1,7 +1,6 @@
 //! Standard Universe entry validation and generic Activity-state compilation.
 mod runtime_access;
 pub(crate) mod state_layout;
-
 use starclock_activity::{
     ActivityDefinitionIdentity, ActivityInstanceId, ActivityInventoryDefinition,
     ActivityInventoryId, ActivityMasterSeed, ActivityScope, ActivitySlotDefinition, ActivitySlotId,
@@ -10,8 +9,6 @@ use starclock_activity::{
     LoadoutLockScope, ParticipantLock, ParticipantLockDigest, ParticipantPolicy,
     ParticipantUniquenessScope, SlotCarryPolicy, SlotResetPoint,
 };
-use std::sync::{Arc, OnceLock};
-
 use state_layout::{
     ABILITY_PROJECTION_SLOT, ABILITY_PROJECTION_SOURCE, ABILITY_TREE_SLOT, ABILITY_TREE_SOURCE,
     BLESSING_INVENTORY, BLESSING_INVENTORY_SOURCE, BLESSING_OFFER_MARKER_SLOT,
@@ -30,6 +27,7 @@ use state_layout::{
     TECHNIQUE_POINTS_SLOT, TECHNIQUE_POINTS_SOURCE, TOPOLOGY_SLOT, TOPOLOGY_SOURCE, WORLD_SLOT,
     WORLD_SOURCE,
 };
+use std::sync::{Arc, OnceLock};
 
 use crate::{
     ability_runtime::{
@@ -299,6 +297,8 @@ impl StandardUniverseProfile {
                 curio_activity_bindings,
                 slot(OCCURRENCE_EFFECT_SLOT),
                 slot(OCCURRENCE_INTERACTION_STATE_SLOT),
+                slot(PATH_SLOT),
+                inventory(FORMATION_INVENTORY),
             )
             .map_err(|_| StandardUniverseCompileError::InvalidRunRuntime)?,
         );

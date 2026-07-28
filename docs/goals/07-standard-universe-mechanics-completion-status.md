@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M13-S07` |
-| Next unblocked batch | `G07-P4-M13-S07` |
+| Active batch | `G07-P4-M13-S08` |
+| Next unblocked batch | `G07-P4-M13-S08` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -224,10 +224,16 @@ four-cycle bonus boundary. A transaction-local action-value accumulator keeps
 cycle timing replay-verifiable without changing combat state hashes. All 32
 records have terminal dispositions, with no deferred counter, native handler
 or numeric approximation.
-`G07-P4-M13-S07` is active.
+Occurrence S07 is complete. The remaining Periodic Demon Lord formations,
+Let's Exchange Gifts, Make A Wish, Robot Sales Terminal and the first eight
+Knights of Beauty choices now execute exact battle, Blessing exchange,
+current-Path reward, Curio lifecycle and checked fragment/HP outcomes. All 32
+records have terminal dispositions, with no deferred counter, native handler
+or numeric approximation.
+`G07-P4-M13-S08` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 60 completed partitions use scoped Excel/Sora semantic
+model. The first 61 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
